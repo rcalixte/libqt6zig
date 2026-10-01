@@ -92,383 +92,225 @@ libqt_string QAccessibleBridgePlugin_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAccessibleBridgePlugin_SuperMetaObject(const QAccessibleBridgePlugin* self) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_MetaObject_IsBase(true);
-        return (QMetaObject*)vqaccessiblebridgeplugin->metaObject();
-    } else {
-        return (QMetaObject*)self->QAccessibleBridgePlugin::metaObject();
-    }
+    return (QMetaObject*)self->QAccessibleBridgePlugin::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleBridgePlugin_OnMetaObject(const QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_MetaObject_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_MetaObject_Callback>(slot));
+void QAccessibleBridgePlugin_OnMetaObject(QAccessibleBridgePlugin* self, intptr_t slot) {
+    if (auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self)))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_metaobject_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAccessibleBridgePlugin_SuperMetacast(QAccessibleBridgePlugin* self, const char* param1) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Metacast_IsBase(true);
-        return vqaccessiblebridgeplugin->qt_metacast(param1);
-    } else {
-        return self->QAccessibleBridgePlugin::qt_metacast(param1);
-    }
+    return self->QAccessibleBridgePlugin::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnMetacast(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Metacast_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Metacast_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_metacast_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAccessibleBridgePlugin_SuperMetacall(QAccessibleBridgePlugin* self, int param1, int param2, void** param3) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Metacall_IsBase(true);
-        return vqaccessiblebridgeplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAccessibleBridgePlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAccessibleBridgePlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnMetacall(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Metacall_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-QAccessibleBridge* QAccessibleBridgePlugin_SuperCreate(QAccessibleBridgePlugin* self, const libqt_string key) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Create_IsBase(true);
-        return vqaccessiblebridgeplugin->create(key_QString);
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->create(key_QString);
-    }
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_metacall_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnCreate(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Create_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Create_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_create_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Create_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAccessibleBridgePlugin_Event(QAccessibleBridgePlugin* self, QEvent* event) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        return vqaccessiblebridgeplugin->event(event);
-    } else {
-        return self->QAccessibleBridgePlugin::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QAccessibleBridgePlugin_SuperEvent(QAccessibleBridgePlugin* self, QEvent* event) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Event_IsBase(true);
-        return vqaccessiblebridgeplugin->event(event);
-    } else {
-        return self->QAccessibleBridgePlugin::event(event);
-    }
+    return self->QAccessibleBridgePlugin::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnEvent(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Event_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Event_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_event_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAccessibleBridgePlugin_EventFilter(QAccessibleBridgePlugin* self, QObject* watched, QEvent* event) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        return vqaccessiblebridgeplugin->eventFilter(watched, event);
-    } else {
-        return self->QAccessibleBridgePlugin::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAccessibleBridgePlugin_SuperEventFilter(QAccessibleBridgePlugin* self, QObject* watched, QEvent* event) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_EventFilter_IsBase(true);
-        return vqaccessiblebridgeplugin->eventFilter(watched, event);
-    } else {
-        return self->QAccessibleBridgePlugin::eventFilter(watched, event);
-    }
+    return self->QAccessibleBridgePlugin::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnEventFilter(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_EventFilter_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_EventFilter_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_eventfilter_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAccessibleBridgePlugin_TimerEvent(QAccessibleBridgePlugin* self, QTimerEvent* event) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+    if (vqaccessiblebridgeplugin) {
         vqaccessiblebridgeplugin->timerEvent(event);
     } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAccessibleBridgePlugin_SuperTimerEvent(QAccessibleBridgePlugin* self, QTimerEvent* event) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_TimerEvent_IsBase(true);
-        vqaccessiblebridgeplugin->timerEvent(event);
-    } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->timerEvent(event);
-    }
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self)) {
+        vqaccessiblebridgeplugin->QAccessibleBridgePlugin::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnTimerEvent(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_TimerEvent_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_TimerEvent_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_timerevent_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAccessibleBridgePlugin_ChildEvent(QAccessibleBridgePlugin* self, QChildEvent* event) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+    if (vqaccessiblebridgeplugin) {
         vqaccessiblebridgeplugin->childEvent(event);
     } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAccessibleBridgePlugin_SuperChildEvent(QAccessibleBridgePlugin* self, QChildEvent* event) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_ChildEvent_IsBase(true);
-        vqaccessiblebridgeplugin->childEvent(event);
-    } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->childEvent(event);
-    }
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self)) {
+        vqaccessiblebridgeplugin->QAccessibleBridgePlugin::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnChildEvent(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_ChildEvent_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_ChildEvent_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_childevent_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAccessibleBridgePlugin_CustomEvent(QAccessibleBridgePlugin* self, QEvent* event) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+    if (vqaccessiblebridgeplugin) {
         vqaccessiblebridgeplugin->customEvent(event);
     } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAccessibleBridgePlugin_SuperCustomEvent(QAccessibleBridgePlugin* self, QEvent* event) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_CustomEvent_IsBase(true);
-        vqaccessiblebridgeplugin->customEvent(event);
-    } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->customEvent(event);
-    }
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self)) {
+        vqaccessiblebridgeplugin->QAccessibleBridgePlugin::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnCustomEvent(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_CustomEvent_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_CustomEvent_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_customevent_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAccessibleBridgePlugin_ConnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+    if (vqaccessiblebridgeplugin) {
         vqaccessiblebridgeplugin->connectNotify(*signal);
     } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAccessibleBridgePlugin_SuperConnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_ConnectNotify_IsBase(true);
-        vqaccessiblebridgeplugin->connectNotify(*signal);
-    } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->connectNotify(*signal);
-    }
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self)) {
+        vqaccessiblebridgeplugin->QAccessibleBridgePlugin::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnConnectNotify(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_ConnectNotify_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_ConnectNotify_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_connectnotify_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAccessibleBridgePlugin_DisconnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
     auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
+    if (vqaccessiblebridgeplugin) {
         vqaccessiblebridgeplugin->disconnectNotify(*signal);
     } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAccessibleBridgePlugin_SuperDisconnectNotify(QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_DisconnectNotify_IsBase(true);
-        vqaccessiblebridgeplugin->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAccessibleBridgePlugin*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self)) {
+        vqaccessiblebridgeplugin->QAccessibleBridgePlugin::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAccessibleBridgePlugin::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleBridgePlugin_OnDisconnectNotify(QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self);
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_DisconnectNotify_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = dynamic_cast<VirtualQAccessibleBridgePlugin*>(self))
+        vqaccessiblebridgeplugin->qaccessiblebridgeplugin_disconnectnotify_callback = reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAccessibleBridgePlugin_Sender(const QAccessibleBridgePlugin* self) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        return vqaccessiblebridgeplugin->sender();
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->sender();
-    }
+    if (auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self))) {
+        return vqaccessiblebridgeplugin->VirtualQAccessibleBridgePlugin::sender();
+    } else
+        qFatal("Error: Protected method QAccessibleBridgePlugin::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAccessibleBridgePlugin_SuperSender(const QAccessibleBridgePlugin* self) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Sender_IsBase(true);
-        return vqaccessiblebridgeplugin->sender();
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleBridgePlugin_OnSender(const QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Sender_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAccessibleBridgePlugin_SenderSignalIndex(const QAccessibleBridgePlugin* self) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        return vqaccessiblebridgeplugin->senderSignalIndex();
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->senderSignalIndex();
-    }
+    if (auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self))) {
+        return vqaccessiblebridgeplugin->VirtualQAccessibleBridgePlugin::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAccessibleBridgePlugin::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAccessibleBridgePlugin_SuperSenderSignalIndex(const QAccessibleBridgePlugin* self) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_SenderSignalIndex_IsBase(true);
-        return vqaccessiblebridgeplugin->senderSignalIndex();
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleBridgePlugin_OnSenderSignalIndex(const QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAccessibleBridgePlugin_Receivers(const QAccessibleBridgePlugin* self, const char* signal) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        return vqaccessiblebridgeplugin->receivers(signal);
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->receivers(signal);
-    }
+    if (auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self))) {
+        return vqaccessiblebridgeplugin->VirtualQAccessibleBridgePlugin::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAccessibleBridgePlugin::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAccessibleBridgePlugin_SuperReceivers(const QAccessibleBridgePlugin* self, const char* signal) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Receivers_IsBase(true);
-        return vqaccessiblebridgeplugin->receivers(signal);
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleBridgePlugin_OnReceivers(const QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_Receivers_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAccessibleBridgePlugin_IsSignalConnected(const QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        return vqaccessiblebridgeplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QAccessibleBridgePlugin_SuperIsSignalConnected(const QAccessibleBridgePlugin* self, const QMetaMethod* signal) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin) {
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_IsSignalConnected_IsBase(true);
-        return vqaccessiblebridgeplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAccessibleBridgePlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleBridgePlugin_OnIsSignalConnected(const QAccessibleBridgePlugin* self, intptr_t slot) {
-    auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self));
-    if (vqaccessiblebridgeplugin && vqaccessiblebridgeplugin->isVirtualQAccessibleBridgePlugin)
-        vqaccessiblebridgeplugin->setQAccessibleBridgePlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualQAccessibleBridgePlugin::QAccessibleBridgePlugin_IsSignalConnected_Callback>(slot));
+    if (auto* vqaccessiblebridgeplugin = const_cast<VirtualQAccessibleBridgePlugin*>(dynamic_cast<const VirtualQAccessibleBridgePlugin*>(self))) {
+        return vqaccessiblebridgeplugin->VirtualQAccessibleBridgePlugin::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAccessibleBridgePlugin::isSignalConnected called without a directly constructed type");
 }
 
 void QAccessibleBridgePlugin_Delete(QAccessibleBridgePlugin* self) {

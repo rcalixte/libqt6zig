@@ -171,7 +171,7 @@ void QQuick3DInstancing_Connect_DepthSortingEnabledChanged(QQuick3DInstancing* s
 
 libqt_string QQuick3DInstancing_GetInstanceBuffer(QQuick3DInstancing* self, int* instanceCount) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         QByteArray _qb = vqquick3dinstancing->getInstanceBuffer(static_cast<int*>(instanceCount));
         libqt_string _str;
         _str.len = _qb.length();
@@ -179,7 +179,7 @@ libqt_string QQuick3DInstancing_GetInstanceBuffer(QQuick3DInstancing* self, int*
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
     }
-    return {};
+    qFatal("Error: Protected method QQuick3DInstancing::getInstanceBuffer called without a directly constructed type");
 }
 
 libqt_string QQuick3DInstancing_Tr2(const char* s, const char* c) {
@@ -208,692 +208,389 @@ libqt_string QQuick3DInstancing_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQuick3DInstancing_SuperMetaObject(const QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquick3dinstancing->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuick3DInstancing::metaObject();
-    }
+    return (QMetaObject*)self->QQuick3DInstancing::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnMetaObject(const QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_MetaObject_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_MetaObject_Callback>(slot));
+void QQuick3DInstancing_OnMetaObject(QQuick3DInstancing* self, intptr_t slot) {
+    if (auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self)))
+        vqquick3dinstancing->qquick3dinstancing_metaobject_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuick3DInstancing_SuperMetacast(QQuick3DInstancing* self, const char* param1) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_Metacast_IsBase(true);
-        return vqquick3dinstancing->qt_metacast(param1);
-    } else {
-        return self->QQuick3DInstancing::qt_metacast(param1);
-    }
+    return self->QQuick3DInstancing::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnMetacast(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_Metacast_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_Metacast_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_metacast_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuick3DInstancing_SuperMetacall(QQuick3DInstancing* self, int param1, int param2, void** param3) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_Metacall_IsBase(true);
-        return vqquick3dinstancing->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuick3DInstancing::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuick3DInstancing::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnMetacall(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_Metacall_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_string QQuick3DInstancing_SuperGetInstanceBuffer(QQuick3DInstancing* self, int* instanceCount) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_GetInstanceBuffer_IsBase(true);
-        QByteArray _qb = vqquick3dinstancing->getInstanceBuffer(static_cast<int*>(instanceCount));
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualQQuick3DInstancing*)self)->getInstanceBuffer(static_cast<int*>(instanceCount));
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_metacall_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnGetInstanceBuffer(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_GetInstanceBuffer_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_GetInstanceBuffer_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_getinstancebuffer_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_GetInstanceBuffer_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_MarkAllDirty(QQuick3DInstancing* self) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->markAllDirty();
     } else {
-        ((VirtualQQuick3DInstancing*)self)->markAllDirty();
+        qFatal("Error: Protected virtual method QQuick3DInstancing::markAllDirty called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperMarkAllDirty(QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_MarkAllDirty_IsBase(true);
-        vqquick3dinstancing->markAllDirty();
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->markAllDirty();
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::markAllDirty();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::markAllDirty called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnMarkAllDirty(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_MarkAllDirty_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_MarkAllDirty_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_markalldirty_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_MarkAllDirty_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_ItemChange(QQuick3DInstancing* self, int param1, const QQuick3DObject__ItemChangeData* param2) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
     } else {
-        ((VirtualQQuick3DInstancing*)self)->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
+        qFatal("Error: Protected virtual method QQuick3DInstancing::itemChange called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperItemChange(QQuick3DInstancing* self, int param1, const QQuick3DObject__ItemChangeData* param2) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_ItemChange_IsBase(true);
-        vqquick3dinstancing->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::itemChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnItemChange(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_ItemChange_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ItemChange_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_itemchange_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ItemChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_ClassBegin(QQuick3DInstancing* self) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->classBegin();
     } else {
-        ((VirtualQQuick3DInstancing*)self)->classBegin();
+        qFatal("Error: Protected virtual method QQuick3DInstancing::classBegin called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperClassBegin(QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_ClassBegin_IsBase(true);
-        vqquick3dinstancing->classBegin();
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->classBegin();
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::classBegin();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::classBegin called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnClassBegin(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_ClassBegin_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ClassBegin_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_classbegin_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ClassBegin_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_ComponentComplete(QQuick3DInstancing* self) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->componentComplete();
     } else {
-        ((VirtualQQuick3DInstancing*)self)->componentComplete();
+        qFatal("Error: Protected virtual method QQuick3DInstancing::componentComplete called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperComponentComplete(QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_ComponentComplete_IsBase(true);
-        vqquick3dinstancing->componentComplete();
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->componentComplete();
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::componentComplete();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::componentComplete called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnComponentComplete(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_ComponentComplete_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ComponentComplete_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_componentcomplete_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ComponentComplete_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_PreSync(QQuick3DInstancing* self) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->preSync();
     } else {
-        ((VirtualQQuick3DInstancing*)self)->preSync();
+        qFatal("Error: Protected virtual method QQuick3DInstancing::preSync called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperPreSync(QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_PreSync_IsBase(true);
-        vqquick3dinstancing->preSync();
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->preSync();
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::preSync();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::preSync called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnPreSync(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_PreSync_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_PreSync_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_presync_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_PreSync_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuick3DInstancing_Event(QQuick3DInstancing* self, QEvent* event) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        return vqquick3dinstancing->event(event);
-    } else {
-        return self->QQuick3DInstancing::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuick3DInstancing_SuperEvent(QQuick3DInstancing* self, QEvent* event) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_Event_IsBase(true);
-        return vqquick3dinstancing->event(event);
-    } else {
-        return self->QQuick3DInstancing::event(event);
-    }
+    return self->QQuick3DInstancing::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnEvent(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_Event_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_Event_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_event_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuick3DInstancing_EventFilter(QQuick3DInstancing* self, QObject* watched, QEvent* event) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        return vqquick3dinstancing->eventFilter(watched, event);
-    } else {
-        return self->QQuick3DInstancing::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuick3DInstancing_SuperEventFilter(QQuick3DInstancing* self, QObject* watched, QEvent* event) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_EventFilter_IsBase(true);
-        return vqquick3dinstancing->eventFilter(watched, event);
-    } else {
-        return self->QQuick3DInstancing::eventFilter(watched, event);
-    }
+    return self->QQuick3DInstancing::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnEventFilter(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_EventFilter_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_EventFilter_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_eventfilter_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_TimerEvent(QQuick3DInstancing* self, QTimerEvent* event) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->timerEvent(event);
     } else {
-        ((VirtualQQuick3DInstancing*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DInstancing::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperTimerEvent(QQuick3DInstancing* self, QTimerEvent* event) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_TimerEvent_IsBase(true);
-        vqquick3dinstancing->timerEvent(event);
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->timerEvent(event);
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnTimerEvent(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_TimerEvent_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_TimerEvent_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_timerevent_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_ChildEvent(QQuick3DInstancing* self, QChildEvent* event) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->childEvent(event);
     } else {
-        ((VirtualQQuick3DInstancing*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DInstancing::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperChildEvent(QQuick3DInstancing* self, QChildEvent* event) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_ChildEvent_IsBase(true);
-        vqquick3dinstancing->childEvent(event);
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->childEvent(event);
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnChildEvent(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_ChildEvent_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ChildEvent_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_childevent_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_CustomEvent(QQuick3DInstancing* self, QEvent* event) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->customEvent(event);
     } else {
-        ((VirtualQQuick3DInstancing*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DInstancing::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperCustomEvent(QQuick3DInstancing* self, QEvent* event) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_CustomEvent_IsBase(true);
-        vqquick3dinstancing->customEvent(event);
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->customEvent(event);
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnCustomEvent(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_CustomEvent_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_CustomEvent_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_customevent_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_ConnectNotify(QQuick3DInstancing* self, const QMetaMethod* signal) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->connectNotify(*signal);
     } else {
-        ((VirtualQQuick3DInstancing*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuick3DInstancing::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperConnectNotify(QQuick3DInstancing* self, const QMetaMethod* signal) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_ConnectNotify_IsBase(true);
-        vqquick3dinstancing->connectNotify(*signal);
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnConnectNotify(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_ConnectNotify_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ConnectNotify_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_connectnotify_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DInstancing_DisconnectNotify(QQuick3DInstancing* self, const QMetaMethod* signal) {
     auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (vqquick3dinstancing) {
         vqquick3dinstancing->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuick3DInstancing*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuick3DInstancing::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DInstancing_SuperDisconnectNotify(QQuick3DInstancing* self, const QMetaMethod* signal) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_DisconnectNotify_IsBase(true);
-        vqquick3dinstancing->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->QQuick3DInstancing::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DInstancing::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DInstancing_OnDisconnectNotify(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_DisconnectNotify_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
+        vqquick3dinstancing->qquick3dinstancing_disconnectnotify_callback = reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QQuick3DInstancing_MarkDirty(QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->markDirty();
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->markDirty();
-    }
-}
-
-// Base class handler implementation
-void QQuick3DInstancing_SuperMarkDirty(QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_MarkDirty_IsBase(true);
-        vqquick3dinstancing->markDirty();
-    } else {
-        ((VirtualQQuick3DInstancing*)self)->markDirty();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnMarkDirty(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_MarkDirty_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_MarkDirty_Callback>(slot));
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self)) {
+        vqquick3dinstancing->VirtualQQuick3DInstancing::markDirty();
+    } else
+        qFatal("Error: Protected method QQuick3DInstancing::markDirty called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QQuick3DInstancing__InstanceTableEntry* QQuick3DInstancing_CalculateTableEntry(QQuick3DInstancing* self, const QVector3D* position, const QVector3D* scale, const QVector3D* eulerRotation, const QColor* color) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
         return new QQuick3DInstancing::InstanceTableEntry(vqquick3dinstancing->calculateTableEntry(*position, *scale, *eulerRotation, *color));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QQuick3DInstancing__InstanceTableEntry* QQuick3DInstancing_SuperCalculateTableEntry(QQuick3DInstancing* self, const QVector3D* position, const QVector3D* scale, const QVector3D* eulerRotation, const QColor* color) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_CalculateTableEntry_IsBase(true);
-        return new QQuick3DInstancing::InstanceTableEntry(vqquick3dinstancing->calculateTableEntry(*position, *scale, *eulerRotation, *color));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnCalculateTableEntry(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_CalculateTableEntry_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_CalculateTableEntry_Callback>(slot));
+    qFatal("Error: Protected method QQuick3DInstancing::calculateTableEntry called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QQuick3DInstancing__InstanceTableEntry* QQuick3DInstancing_CalculateTableEntryFromQuaternion(QQuick3DInstancing* self, const QVector3D* position, const QVector3D* scale, const QQuaternion* rotation, const QColor* color) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
         return new QQuick3DInstancing::InstanceTableEntry(vqquick3dinstancing->calculateTableEntryFromQuaternion(*position, *scale, *rotation, *color));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QQuick3DInstancing__InstanceTableEntry* QQuick3DInstancing_SuperCalculateTableEntryFromQuaternion(QQuick3DInstancing* self, const QVector3D* position, const QVector3D* scale, const QQuaternion* rotation, const QColor* color) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_CalculateTableEntryFromQuaternion_IsBase(true);
-        return new QQuick3DInstancing::InstanceTableEntry(vqquick3dinstancing->calculateTableEntryFromQuaternion(*position, *scale, *rotation, *color));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnCalculateTableEntryFromQuaternion(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_CalculateTableEntryFromQuaternion_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_CalculateTableEntryFromQuaternion_Callback>(slot));
+    qFatal("Error: Protected method QQuick3DInstancing::calculateTableEntryFromQuaternion called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QQuick3DInstancing__InstanceTableEntry* QQuick3DInstancing_CalculateTableEntry5(QQuick3DInstancing* self, const QVector3D* position, const QVector3D* scale, const QVector3D* eulerRotation, const QColor* color, const QVector4D* customData) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
         return new QQuick3DInstancing::InstanceTableEntry(vqquick3dinstancing->calculateTableEntry(*position, *scale, *eulerRotation, *color, *customData));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QQuick3DInstancing__InstanceTableEntry* QQuick3DInstancing_SuperCalculateTableEntry5(QQuick3DInstancing* self, const QVector3D* position, const QVector3D* scale, const QVector3D* eulerRotation, const QColor* color, const QVector4D* customData) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_CalculateTableEntry5_IsBase(true);
-        return new QQuick3DInstancing::InstanceTableEntry(vqquick3dinstancing->calculateTableEntry(*position, *scale, *eulerRotation, *color, *customData));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnCalculateTableEntry5(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_CalculateTableEntry5_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_CalculateTableEntry5_Callback>(slot));
+    qFatal("Error: Protected method QQuick3DInstancing::calculateTableEntry5 called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QQuick3DInstancing__InstanceTableEntry* QQuick3DInstancing_CalculateTableEntryFromQuaternion5(QQuick3DInstancing* self, const QVector3D* position, const QVector3D* scale, const QQuaternion* rotation, const QColor* color, const QVector4D* customData) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
+    if (auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self))
         return new QQuick3DInstancing::InstanceTableEntry(vqquick3dinstancing->calculateTableEntryFromQuaternion(*position, *scale, *rotation, *color, *customData));
-    }
-    return {};
+    qFatal("Error: Protected method QQuick3DInstancing::calculateTableEntryFromQuaternion5 called without a directly constructed type");
 }
 
-// Base class handler implementation
-QQuick3DInstancing__InstanceTableEntry* QQuick3DInstancing_SuperCalculateTableEntryFromQuaternion5(QQuick3DInstancing* self, const QVector3D* position, const QVector3D* scale, const QQuaternion* rotation, const QColor* color, const QVector4D* customData) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_CalculateTableEntryFromQuaternion5_IsBase(true);
-        return new QQuick3DInstancing::InstanceTableEntry(vqquick3dinstancing->calculateTableEntryFromQuaternion(*position, *scale, *rotation, *color, *customData));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnCalculateTableEntryFromQuaternion5(QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = dynamic_cast<VirtualQQuick3DInstancing*>(self);
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_CalculateTableEntryFromQuaternion5_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_CalculateTableEntryFromQuaternion5_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuick3DInstancing_IsComponentComplete(const QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        return vqquick3dinstancing->isComponentComplete();
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->isComponentComplete();
-    }
+    if (auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self))) {
+        return vqquick3dinstancing->VirtualQQuick3DInstancing::isComponentComplete();
+    } else
+        qFatal("Error: Protected method QQuick3DInstancing::isComponentComplete called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuick3DInstancing_SuperIsComponentComplete(const QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_IsComponentComplete_IsBase(true);
-        return vqquick3dinstancing->isComponentComplete();
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->isComponentComplete();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnIsComponentComplete(const QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_IsComponentComplete_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_IsComponentComplete_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuick3DInstancing_Sender(const QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        return vqquick3dinstancing->sender();
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->sender();
-    }
+    if (auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self))) {
+        return vqquick3dinstancing->VirtualQQuick3DInstancing::sender();
+    } else
+        qFatal("Error: Protected method QQuick3DInstancing::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuick3DInstancing_SuperSender(const QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_Sender_IsBase(true);
-        return vqquick3dinstancing->sender();
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnSender(const QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_Sender_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuick3DInstancing_SenderSignalIndex(const QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        return vqquick3dinstancing->senderSignalIndex();
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->senderSignalIndex();
-    }
+    if (auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self))) {
+        return vqquick3dinstancing->VirtualQQuick3DInstancing::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuick3DInstancing::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuick3DInstancing_SuperSenderSignalIndex(const QQuick3DInstancing* self) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_SenderSignalIndex_IsBase(true);
-        return vqquick3dinstancing->senderSignalIndex();
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnSenderSignalIndex(const QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuick3DInstancing_Receivers(const QQuick3DInstancing* self, const char* signal) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        return vqquick3dinstancing->receivers(signal);
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->receivers(signal);
-    }
+    if (auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self))) {
+        return vqquick3dinstancing->VirtualQQuick3DInstancing::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuick3DInstancing::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuick3DInstancing_SuperReceivers(const QQuick3DInstancing* self, const char* signal) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_Receivers_IsBase(true);
-        return vqquick3dinstancing->receivers(signal);
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnReceivers(const QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_Receivers_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuick3DInstancing_IsSignalConnected(const QQuick3DInstancing* self, const QMetaMethod* signal) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        return vqquick3dinstancing->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuick3DInstancing_SuperIsSignalConnected(const QQuick3DInstancing* self, const QMetaMethod* signal) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing) {
-        vqquick3dinstancing->setQQuick3DInstancing_IsSignalConnected_IsBase(true);
-        return vqquick3dinstancing->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuick3DInstancing*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DInstancing_OnIsSignalConnected(const QQuick3DInstancing* self, intptr_t slot) {
-    auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self));
-    if (vqquick3dinstancing && vqquick3dinstancing->isVirtualQQuick3DInstancing)
-        vqquick3dinstancing->setQQuick3DInstancing_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuick3DInstancing::QQuick3DInstancing_IsSignalConnected_Callback>(slot));
+    if (auto* vqquick3dinstancing = const_cast<VirtualQQuick3DInstancing*>(dynamic_cast<const VirtualQQuick3DInstancing*>(self))) {
+        return vqquick3dinstancing->VirtualQQuick3DInstancing::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuick3DInstancing::isSignalConnected called without a directly constructed type");
 }
 
 void QQuick3DInstancing_Delete(QQuick3DInstancing* self) {

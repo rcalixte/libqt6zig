@@ -78,9 +78,9 @@ pub const KViewStateMaintainerBase = extern struct {
     ///
     /// ` self: KViewStateMaintainerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KViewStateMaintainerBase) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KViewStateMaintainerBase, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KViewStateMaintainerBase, callback: *const fn (KViewStateMaintainerBase) callconv(.c) QMetaObject) void {
         qtc.KViewStateMaintainerBase_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -293,6 +293,8 @@ pub const KViewStateMaintainerBase = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kviewstatemaintainerbase.html#saveState)
     ///
+    /// This method must be implemented with `onSaveState` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KViewStateMaintainerBase `
@@ -313,26 +315,10 @@ pub const KViewStateMaintainerBase = extern struct {
     ///
     /// ` self: KViewStateMaintainerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KViewStateMaintainerBase) callconv(.c) void `
     ///
-    pub fn onSaveState(self: KViewStateMaintainerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onSaveState(self: KViewStateMaintainerBase, callback: *const fn (KViewStateMaintainerBase) callconv(.c) void) void {
         qtc.KViewStateMaintainerBase_OnSaveState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSaveState` instead
-    ///
-    pub const SuperSaveState = superSaveState;
-
-    /// ### [Upstream resources](https://api.kde.org/kviewstatemaintainerbase.html#saveState)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateMaintainerBase `
-    ///
-    pub fn superSaveState(self: KViewStateMaintainerBase) void {
-        qtc.KViewStateMaintainerBase_SuperSaveState(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `restoreState` instead
@@ -340,6 +326,8 @@ pub const KViewStateMaintainerBase = extern struct {
     pub const RestoreState = restoreState;
 
     /// ### [Upstream resources](https://api.kde.org/kviewstatemaintainerbase.html#restoreState)
+    ///
+    /// This method must be implemented with `onRestoreState` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -361,26 +349,10 @@ pub const KViewStateMaintainerBase = extern struct {
     ///
     /// ` self: KViewStateMaintainerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KViewStateMaintainerBase) callconv(.c) void `
     ///
-    pub fn onRestoreState(self: KViewStateMaintainerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onRestoreState(self: KViewStateMaintainerBase, callback: *const fn (KViewStateMaintainerBase) callconv(.c) void) void {
         qtc.KViewStateMaintainerBase_OnRestoreState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRestoreState` instead
-    ///
-    pub const SuperRestoreState = superRestoreState;
-
-    /// ### [Upstream resources](https://api.kde.org/kviewstatemaintainerbase.html#restoreState)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateMaintainerBase `
-    ///
-    pub fn superRestoreState(self: KViewStateMaintainerBase) void {
-        qtc.KViewStateMaintainerBase_SuperRestoreState(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1860,44 +1832,6 @@ pub const KViewStateMaintainerBase = extern struct {
         return .{ .ptr = qtc.KViewStateMaintainerBase_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateMaintainerBase `
-    ///
-    pub fn superSender(self: KViewStateMaintainerBase) QObject {
-        return .{ .ptr = qtc.KViewStateMaintainerBase_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateMaintainerBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KViewStateMaintainerBase, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KViewStateMaintainerBase_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1914,44 +1848,6 @@ pub const KViewStateMaintainerBase = extern struct {
     ///
     pub fn senderSignalIndex(self: KViewStateMaintainerBase) i32 {
         return qtc.KViewStateMaintainerBase_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateMaintainerBase `
-    ///
-    pub fn superSenderSignalIndex(self: KViewStateMaintainerBase) i32 {
-        return qtc.KViewStateMaintainerBase_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateMaintainerBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KViewStateMaintainerBase, callback: *const fn () callconv(.c) i32) void {
-        qtc.KViewStateMaintainerBase_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1975,47 +1871,6 @@ pub const KViewStateMaintainerBase = extern struct {
         return qtc.KViewStateMaintainerBase_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateMaintainerBase `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KViewStateMaintainerBase, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KViewStateMaintainerBase_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateMaintainerBase`
-    ///
-    /// ` callback: *const fn (self: KViewStateMaintainerBase, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KViewStateMaintainerBase, callback: *const fn (KViewStateMaintainerBase, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KViewStateMaintainerBase_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2035,47 +1890,6 @@ pub const KViewStateMaintainerBase = extern struct {
     pub fn isSignalConnected(self: KViewStateMaintainerBase, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KViewStateMaintainerBase_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KViewStateMaintainerBase `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KViewStateMaintainerBase, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KViewStateMaintainerBase_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KViewStateMaintainerBase`
-    ///
-    /// ` callback: *const fn (self: KViewStateMaintainerBase, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KViewStateMaintainerBase, callback: *const fn (KViewStateMaintainerBase, QMetaMethod) callconv(.c) bool) void {
-        qtc.KViewStateMaintainerBase_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

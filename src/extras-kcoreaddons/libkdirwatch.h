@@ -60,7 +60,7 @@ libqt_string KDirWatch_Tr3(const char* s, const char* c, int n);
 void KDirWatch_AddDir2(KDirWatch* self, const libqt_string path, int watchModes);
 void KDirWatch_StartScan1(KDirWatch* self, bool notify);
 void KDirWatch_StartScan2(KDirWatch* self, bool notify, bool skippedToo);
-void KDirWatch_OnMetaObject(const KDirWatch* self, intptr_t slot);
+void KDirWatch_OnMetaObject(KDirWatch* self, intptr_t slot);
 QMetaObject* KDirWatch_SuperMetaObject(const KDirWatch* self);
 void KDirWatch_OnMetacast(KDirWatch* self, intptr_t slot);
 void* KDirWatch_SuperMetacast(KDirWatch* self, const char* param1);
@@ -87,17 +87,9 @@ void KDirWatch_DisconnectNotify(KDirWatch* self, const QMetaMethod* signal);
 void KDirWatch_OnDisconnectNotify(KDirWatch* self, intptr_t slot);
 void KDirWatch_SuperDisconnectNotify(KDirWatch* self, const QMetaMethod* signal);
 QObject* KDirWatch_Sender(const KDirWatch* self);
-void KDirWatch_OnSender(const KDirWatch* self, intptr_t slot);
-QObject* KDirWatch_SuperSender(const KDirWatch* self);
 int KDirWatch_SenderSignalIndex(const KDirWatch* self);
-void KDirWatch_OnSenderSignalIndex(const KDirWatch* self, intptr_t slot);
-int KDirWatch_SuperSenderSignalIndex(const KDirWatch* self);
 int KDirWatch_Receivers(const KDirWatch* self, const char* signal);
-void KDirWatch_OnReceivers(const KDirWatch* self, intptr_t slot);
-int KDirWatch_SuperReceivers(const KDirWatch* self, const char* signal);
 bool KDirWatch_IsSignalConnected(const KDirWatch* self, const QMetaMethod* signal);
-void KDirWatch_OnIsSignalConnected(const KDirWatch* self, intptr_t slot);
-bool KDirWatch_SuperIsSignalConnected(const KDirWatch* self, const QMetaMethod* signal);
 void KDirWatch_Delete(KDirWatch* self);
 
 #ifdef __cplusplus

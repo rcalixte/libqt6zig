@@ -36,7 +36,7 @@ QDBusInterface* QDBusInterface_new4(const libqt_string service, const libqt_stri
 QMetaObject* QDBusInterface_MetaObject(const QDBusInterface* self);
 void* QDBusInterface_Metacast(QDBusInterface* self, const char* param1);
 int QDBusInterface_Metacall(QDBusInterface* self, int param1, int param2, void** param3);
-void QDBusInterface_OnMetaObject(const QDBusInterface* self, intptr_t slot);
+void QDBusInterface_OnMetaObject(QDBusInterface* self, intptr_t slot);
 QMetaObject* QDBusInterface_SuperMetaObject(const QDBusInterface* self);
 void QDBusInterface_OnMetacast(QDBusInterface* self, intptr_t slot);
 void* QDBusInterface_SuperMetacast(QDBusInterface* self, const char* param1);
@@ -64,26 +64,12 @@ void QDBusInterface_CustomEvent(QDBusInterface* self, QEvent* event);
 void QDBusInterface_OnCustomEvent(QDBusInterface* self, intptr_t slot);
 void QDBusInterface_SuperCustomEvent(QDBusInterface* self, QEvent* event);
 QVariant* QDBusInterface_InternalPropGet(const QDBusInterface* self, const char* propname);
-void QDBusInterface_OnInternalPropGet(const QDBusInterface* self, intptr_t slot);
-QVariant* QDBusInterface_SuperInternalPropGet(const QDBusInterface* self, const char* propname);
 void QDBusInterface_InternalPropSet(QDBusInterface* self, const char* propname, const QVariant* value);
-void QDBusInterface_OnInternalPropSet(QDBusInterface* self, intptr_t slot);
-void QDBusInterface_SuperInternalPropSet(QDBusInterface* self, const char* propname, const QVariant* value);
 QDBusMessage* QDBusInterface_InternalConstCall(const QDBusInterface* self, int mode, const libqt_string method);
-void QDBusInterface_OnInternalConstCall(const QDBusInterface* self, intptr_t slot);
-QDBusMessage* QDBusInterface_SuperInternalConstCall(const QDBusInterface* self, int mode, const libqt_string method);
 QObject* QDBusInterface_Sender(const QDBusInterface* self);
-void QDBusInterface_OnSender(const QDBusInterface* self, intptr_t slot);
-QObject* QDBusInterface_SuperSender(const QDBusInterface* self);
 int QDBusInterface_SenderSignalIndex(const QDBusInterface* self);
-void QDBusInterface_OnSenderSignalIndex(const QDBusInterface* self, intptr_t slot);
-int QDBusInterface_SuperSenderSignalIndex(const QDBusInterface* self);
 int QDBusInterface_Receivers(const QDBusInterface* self, const char* signal);
-void QDBusInterface_OnReceivers(const QDBusInterface* self, intptr_t slot);
-int QDBusInterface_SuperReceivers(const QDBusInterface* self, const char* signal);
 bool QDBusInterface_IsSignalConnected(const QDBusInterface* self, const QMetaMethod* signal);
-void QDBusInterface_OnIsSignalConnected(const QDBusInterface* self, intptr_t slot);
-bool QDBusInterface_SuperIsSignalConnected(const QDBusInterface* self, const QMetaMethod* signal);
 void QDBusInterface_Delete(QDBusInterface* self);
 
 #ifdef __cplusplus

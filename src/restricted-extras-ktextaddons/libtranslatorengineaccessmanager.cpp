@@ -77,364 +77,219 @@ libqt_string TextTranslator__TranslatorEngineAccessManager_Tr3(const char* s, co
 
 // Base class handler implementation
 QMetaObject* TextTranslator__TranslatorEngineAccessManager_SuperMetaObject(const TextTranslator__TranslatorEngineAccessManager* self) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_MetaObject_IsBase(true);
-        return (QMetaObject*)vtexttranslatortranslatorengineaccessmanager->metaObject();
-    } else {
-        return (QMetaObject*)self->TextTranslator::TranslatorEngineAccessManager::metaObject();
-    }
+    return (QMetaObject*)self->TextTranslator::TranslatorEngineAccessManager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineAccessManager_OnMetaObject(const TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_MetaObject_Callback>(slot));
+void TextTranslator__TranslatorEngineAccessManager_OnMetaObject(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self)))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_metaobject_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextTranslator__TranslatorEngineAccessManager_SuperMetacast(TextTranslator__TranslatorEngineAccessManager* self, const char* param1) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Metacast_IsBase(true);
-        return vtexttranslatortranslatorengineaccessmanager->qt_metacast(param1);
-    } else {
-        return self->TextTranslator::TranslatorEngineAccessManager::qt_metacast(param1);
-    }
+    return self->TextTranslator::TranslatorEngineAccessManager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnMetacast(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_Metacast_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_metacast_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorEngineAccessManager_SuperMetacall(TextTranslator__TranslatorEngineAccessManager* self, int param1, int param2, void** param3) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Metacall_IsBase(true);
-        return vtexttranslatortranslatorengineaccessmanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextTranslator::TranslatorEngineAccessManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextTranslator::TranslatorEngineAccessManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnMetacall(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_Metacall_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_metacall_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorEngineAccessManager_Event(TextTranslator__TranslatorEngineAccessManager* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return vtexttranslatortranslatorengineaccessmanager->event(event);
-    } else {
-        return self->TextTranslator::TranslatorEngineAccessManager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorEngineAccessManager_SuperEvent(TextTranslator__TranslatorEngineAccessManager* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Event_IsBase(true);
-        return vtexttranslatortranslatorengineaccessmanager->event(event);
-    } else {
-        return self->TextTranslator::TranslatorEngineAccessManager::event(event);
-    }
+    return self->TextTranslator::TranslatorEngineAccessManager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnEvent(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_Event_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_event_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorEngineAccessManager_EventFilter(TextTranslator__TranslatorEngineAccessManager* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return vtexttranslatortranslatorengineaccessmanager->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorEngineAccessManager::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorEngineAccessManager_SuperEventFilter(TextTranslator__TranslatorEngineAccessManager* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_EventFilter_IsBase(true);
-        return vtexttranslatortranslatorengineaccessmanager->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorEngineAccessManager::eventFilter(watched, event);
-    }
+    return self->TextTranslator::TranslatorEngineAccessManager::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnEventFilter(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_EventFilter_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_eventfilter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_TimerEvent(TextTranslator__TranslatorEngineAccessManager* self, QTimerEvent* event) {
     auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
+    if (vtexttranslatortranslatorengineaccessmanager) {
         vtexttranslatortranslatorengineaccessmanager->timerEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_SuperTimerEvent(TextTranslator__TranslatorEngineAccessManager* self, QTimerEvent* event) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_TimerEvent_IsBase(true);
-        vtexttranslatortranslatorengineaccessmanager->timerEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->timerEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self)) {
+        vtexttranslatortranslatorengineaccessmanager->TextTranslator::TranslatorEngineAccessManager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnTimerEvent(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_TimerEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_timerevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_ChildEvent(TextTranslator__TranslatorEngineAccessManager* self, QChildEvent* event) {
     auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
+    if (vtexttranslatortranslatorengineaccessmanager) {
         vtexttranslatortranslatorengineaccessmanager->childEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_SuperChildEvent(TextTranslator__TranslatorEngineAccessManager* self, QChildEvent* event) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_ChildEvent_IsBase(true);
-        vtexttranslatortranslatorengineaccessmanager->childEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->childEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self)) {
+        vtexttranslatortranslatorengineaccessmanager->TextTranslator::TranslatorEngineAccessManager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnChildEvent(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_ChildEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_childevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_CustomEvent(TextTranslator__TranslatorEngineAccessManager* self, QEvent* event) {
     auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
+    if (vtexttranslatortranslatorengineaccessmanager) {
         vtexttranslatortranslatorengineaccessmanager->customEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_SuperCustomEvent(TextTranslator__TranslatorEngineAccessManager* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_CustomEvent_IsBase(true);
-        vtexttranslatortranslatorengineaccessmanager->customEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->customEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self)) {
+        vtexttranslatortranslatorengineaccessmanager->TextTranslator::TranslatorEngineAccessManager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnCustomEvent(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_CustomEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_customevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_ConnectNotify(TextTranslator__TranslatorEngineAccessManager* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
+    if (vtexttranslatortranslatorengineaccessmanager) {
         vtexttranslatortranslatorengineaccessmanager->connectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_SuperConnectNotify(TextTranslator__TranslatorEngineAccessManager* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_ConnectNotify_IsBase(true);
-        vtexttranslatortranslatorengineaccessmanager->connectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self)) {
+        vtexttranslatortranslatorengineaccessmanager->TextTranslator::TranslatorEngineAccessManager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnConnectNotify(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_ConnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_connectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_DisconnectNotify(TextTranslator__TranslatorEngineAccessManager* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
+    if (vtexttranslatortranslatorengineaccessmanager) {
         vtexttranslatortranslatorengineaccessmanager->disconnectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEngineAccessManager_SuperDisconnectNotify(TextTranslator__TranslatorEngineAccessManager* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_DisconnectNotify_IsBase(true);
-        vtexttranslatortranslatorengineaccessmanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self)) {
+        vtexttranslatortranslatorengineaccessmanager->TextTranslator::TranslatorEngineAccessManager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEngineAccessManager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineAccessManager_OnDisconnectNotify(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_DisconnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self))
+        vtexttranslatortranslatorengineaccessmanager->texttranslator__translatorengineaccessmanager_disconnectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextTranslator__TranslatorEngineAccessManager_Sender(const TextTranslator__TranslatorEngineAccessManager* self) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return vtexttranslatortranslatorengineaccessmanager->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->sender();
-    }
+    if (auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self))) {
+        return vtexttranslatortranslatorengineaccessmanager->VirtualTextTranslatorTranslatorEngineAccessManager::sender();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEngineAccessManager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextTranslator__TranslatorEngineAccessManager_SuperSender(const TextTranslator__TranslatorEngineAccessManager* self) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Sender_IsBase(true);
-        return vtexttranslatortranslatorengineaccessmanager->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineAccessManager_OnSender(const TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorEngineAccessManager_SenderSignalIndex(const TextTranslator__TranslatorEngineAccessManager* self) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return vtexttranslatortranslatorengineaccessmanager->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->senderSignalIndex();
-    }
+    if (auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self))) {
+        return vtexttranslatortranslatorengineaccessmanager->VirtualTextTranslatorTranslatorEngineAccessManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEngineAccessManager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorEngineAccessManager_SuperSenderSignalIndex(const TextTranslator__TranslatorEngineAccessManager* self) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_SenderSignalIndex_IsBase(true);
-        return vtexttranslatortranslatorengineaccessmanager->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineAccessManager_OnSenderSignalIndex(const TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorEngineAccessManager_Receivers(const TextTranslator__TranslatorEngineAccessManager* self, const char* signal) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return vtexttranslatortranslatorengineaccessmanager->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->receivers(signal);
-    }
+    if (auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self))) {
+        return vtexttranslatortranslatorengineaccessmanager->VirtualTextTranslatorTranslatorEngineAccessManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEngineAccessManager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorEngineAccessManager_SuperReceivers(const TextTranslator__TranslatorEngineAccessManager* self, const char* signal) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Receivers_IsBase(true);
-        return vtexttranslatortranslatorengineaccessmanager->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineAccessManager_OnReceivers(const TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorEngineAccessManager_IsSignalConnected(const TextTranslator__TranslatorEngineAccessManager* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return vtexttranslatortranslatorengineaccessmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextTranslator__TranslatorEngineAccessManager_SuperIsSignalConnected(const TextTranslator__TranslatorEngineAccessManager* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_IsSignalConnected_IsBase(true);
-        return vtexttranslatortranslatorengineaccessmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEngineAccessManager_OnIsSignalConnected(const TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self));
-    if (vtexttranslatortranslatorengineaccessmanager && vtexttranslatortranslatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager)
-        vtexttranslatortranslatorengineaccessmanager->setTextTranslator__TranslatorEngineAccessManager_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineAccessManager::TextTranslator__TranslatorEngineAccessManager_IsSignalConnected_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineaccessmanager = const_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self))) {
+        return vtexttranslatortranslatorengineaccessmanager->VirtualTextTranslatorTranslatorEngineAccessManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEngineAccessManager::isSignalConnected called without a directly constructed type");
 }
 
 void TextTranslator__TranslatorEngineAccessManager_Delete(TextTranslator__TranslatorEngineAccessManager* self) {

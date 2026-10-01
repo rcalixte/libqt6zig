@@ -59,7 +59,7 @@ void QSslServer_Connect_StartedEncryptionHandshake(QSslServer* self, intptr_t sl
 void QSslServer_IncomingConnection(QSslServer* self, intptr_t socket);
 libqt_string QSslServer_Tr2(const char* s, const char* c);
 libqt_string QSslServer_Tr3(const char* s, const char* c, int n);
-void QSslServer_OnMetaObject(const QSslServer* self, intptr_t slot);
+void QSslServer_OnMetaObject(QSslServer* self, intptr_t slot);
 QMetaObject* QSslServer_SuperMetaObject(const QSslServer* self);
 void QSslServer_OnMetacast(QSslServer* self, intptr_t slot);
 void* QSslServer_SuperMetacast(QSslServer* self, const char* param1);
@@ -68,7 +68,7 @@ int QSslServer_SuperMetacall(QSslServer* self, int param1, int param2, void** pa
 void QSslServer_OnIncomingConnection(QSslServer* self, intptr_t slot);
 void QSslServer_SuperIncomingConnection(QSslServer* self, intptr_t socket);
 bool QSslServer_HasPendingConnections(const QSslServer* self);
-void QSslServer_OnHasPendingConnections(const QSslServer* self, intptr_t slot);
+void QSslServer_OnHasPendingConnections(QSslServer* self, intptr_t slot);
 bool QSslServer_SuperHasPendingConnections(const QSslServer* self);
 QTcpSocket* QSslServer_NextPendingConnection(QSslServer* self);
 void QSslServer_OnNextPendingConnection(QSslServer* self, intptr_t slot);
@@ -95,20 +95,10 @@ void QSslServer_DisconnectNotify(QSslServer* self, const QMetaMethod* signal);
 void QSslServer_OnDisconnectNotify(QSslServer* self, intptr_t slot);
 void QSslServer_SuperDisconnectNotify(QSslServer* self, const QMetaMethod* signal);
 void QSslServer_AddPendingConnection(QSslServer* self, QTcpSocket* socket);
-void QSslServer_OnAddPendingConnection(QSslServer* self, intptr_t slot);
-void QSslServer_SuperAddPendingConnection(QSslServer* self, QTcpSocket* socket);
 QObject* QSslServer_Sender(const QSslServer* self);
-void QSslServer_OnSender(const QSslServer* self, intptr_t slot);
-QObject* QSslServer_SuperSender(const QSslServer* self);
 int QSslServer_SenderSignalIndex(const QSslServer* self);
-void QSslServer_OnSenderSignalIndex(const QSslServer* self, intptr_t slot);
-int QSslServer_SuperSenderSignalIndex(const QSslServer* self);
 int QSslServer_Receivers(const QSslServer* self, const char* signal);
-void QSslServer_OnReceivers(const QSslServer* self, intptr_t slot);
-int QSslServer_SuperReceivers(const QSslServer* self, const char* signal);
 bool QSslServer_IsSignalConnected(const QSslServer* self, const QMetaMethod* signal);
-void QSslServer_OnIsSignalConnected(const QSslServer* self, intptr_t slot);
-bool QSslServer_SuperIsSignalConnected(const QSslServer* self, const QMetaMethod* signal);
 void QSslServer_Delete(QSslServer* self);
 
 #ifdef __cplusplus

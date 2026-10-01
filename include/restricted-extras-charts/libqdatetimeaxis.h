@@ -54,13 +54,13 @@ void QDateTimeAxis_TickCountChanged(QDateTimeAxis* self, int tick);
 void QDateTimeAxis_Connect_TickCountChanged(QDateTimeAxis* self, intptr_t slot);
 libqt_string QDateTimeAxis_Tr2(const char* s, const char* c);
 libqt_string QDateTimeAxis_Tr3(const char* s, const char* c, int n);
-void QDateTimeAxis_OnMetaObject(const QDateTimeAxis* self, intptr_t slot);
+void QDateTimeAxis_OnMetaObject(QDateTimeAxis* self, intptr_t slot);
 QMetaObject* QDateTimeAxis_SuperMetaObject(const QDateTimeAxis* self);
 void QDateTimeAxis_OnMetacast(QDateTimeAxis* self, intptr_t slot);
 void* QDateTimeAxis_SuperMetacast(QDateTimeAxis* self, const char* param1);
 void QDateTimeAxis_OnMetacall(QDateTimeAxis* self, intptr_t slot);
 int QDateTimeAxis_SuperMetacall(QDateTimeAxis* self, int param1, int param2, void** param3);
-void QDateTimeAxis_OnType(const QDateTimeAxis* self, intptr_t slot);
+void QDateTimeAxis_OnType(QDateTimeAxis* self, intptr_t slot);
 int QDateTimeAxis_SuperType(const QDateTimeAxis* self);
 bool QDateTimeAxis_Event(QDateTimeAxis* self, QEvent* event);
 void QDateTimeAxis_OnEvent(QDateTimeAxis* self, intptr_t slot);
@@ -84,17 +84,9 @@ void QDateTimeAxis_DisconnectNotify(QDateTimeAxis* self, const QMetaMethod* sign
 void QDateTimeAxis_OnDisconnectNotify(QDateTimeAxis* self, intptr_t slot);
 void QDateTimeAxis_SuperDisconnectNotify(QDateTimeAxis* self, const QMetaMethod* signal);
 QObject* QDateTimeAxis_Sender(const QDateTimeAxis* self);
-void QDateTimeAxis_OnSender(const QDateTimeAxis* self, intptr_t slot);
-QObject* QDateTimeAxis_SuperSender(const QDateTimeAxis* self);
 int QDateTimeAxis_SenderSignalIndex(const QDateTimeAxis* self);
-void QDateTimeAxis_OnSenderSignalIndex(const QDateTimeAxis* self, intptr_t slot);
-int QDateTimeAxis_SuperSenderSignalIndex(const QDateTimeAxis* self);
 int QDateTimeAxis_Receivers(const QDateTimeAxis* self, const char* signal);
-void QDateTimeAxis_OnReceivers(const QDateTimeAxis* self, intptr_t slot);
-int QDateTimeAxis_SuperReceivers(const QDateTimeAxis* self, const char* signal);
 bool QDateTimeAxis_IsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal);
-void QDateTimeAxis_OnIsSignalConnected(const QDateTimeAxis* self, intptr_t slot);
-bool QDateTimeAxis_SuperIsSignalConnected(const QDateTimeAxis* self, const QMetaMethod* signal);
 void QDateTimeAxis_Delete(QDateTimeAxis* self);
 
 #ifdef __cplusplus

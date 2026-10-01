@@ -9,18 +9,14 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QTextDocument so that we can call protected methods
+// This class is a subclass of QTextDocument
 class VirtualQTextDocument final : public QTextDocument {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQTextDocument = true;
-
-    // Virtual class public types (including callbacks)
-    using QTextDocument_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QTextDocument_MetaObject_Callback = QMetaObject* (*)(const QTextDocument*);
     using QTextDocument_Metacast_Callback = void* (*)(QTextDocument*, const char*);
     using QTextDocument_Metacall_Callback = int (*)(QTextDocument*, int, int, void**);
-    using QTextDocument_Clear_Callback = void (*)();
+    using QTextDocument_Clear_Callback = void (*)(QTextDocument*);
     using QTextDocument_CreateObject_Callback = QTextObject* (*)(QTextDocument*, QTextFormat*);
     using QTextDocument_LoadResource_Callback = QVariant* (*)(QTextDocument*, int, QUrl*);
     using QTextDocument_Event_Callback = bool (*)(QTextDocument*, QEvent*);
@@ -30,12 +26,11 @@ class VirtualQTextDocument final : public QTextDocument {
     using QTextDocument_CustomEvent_Callback = void (*)(QTextDocument*, QEvent*);
     using QTextDocument_ConnectNotify_Callback = void (*)(QTextDocument*, QMetaMethod*);
     using QTextDocument_DisconnectNotify_Callback = void (*)(QTextDocument*, QMetaMethod*);
-    using QTextDocument_Sender_Callback = QObject* (*)();
-    using QTextDocument_SenderSignalIndex_Callback = int (*)();
-    using QTextDocument_Receivers_Callback = int (*)(const QTextDocument*, const char*);
-    using QTextDocument_IsSignalConnected_Callback = bool (*)(const QTextDocument*, QMetaMethod*);
+    using QTextDocument::isSignalConnected;
+    using QTextDocument::receivers;
+    using QTextDocument::sender;
+    using QTextDocument::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QTextDocument_MetaObject_Callback qtextdocument_metaobject_callback = nullptr;
     QTextDocument_Metacast_Callback qtextdocument_metacast_callback = nullptr;
@@ -50,83 +45,27 @@ class VirtualQTextDocument final : public QTextDocument {
     QTextDocument_CustomEvent_Callback qtextdocument_customevent_callback = nullptr;
     QTextDocument_ConnectNotify_Callback qtextdocument_connectnotify_callback = nullptr;
     QTextDocument_DisconnectNotify_Callback qtextdocument_disconnectnotify_callback = nullptr;
-    QTextDocument_Sender_Callback qtextdocument_sender_callback = nullptr;
-    QTextDocument_SenderSignalIndex_Callback qtextdocument_sendersignalindex_callback = nullptr;
-    QTextDocument_Receivers_Callback qtextdocument_receivers_callback = nullptr;
-    QTextDocument_IsSignalConnected_Callback qtextdocument_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qtextdocument_metaobject_isbase = false;
-    mutable bool qtextdocument_metacast_isbase = false;
-    mutable bool qtextdocument_metacall_isbase = false;
-    mutable bool qtextdocument_clear_isbase = false;
-    mutable bool qtextdocument_createobject_isbase = false;
-    mutable bool qtextdocument_loadresource_isbase = false;
-    mutable bool qtextdocument_event_isbase = false;
-    mutable bool qtextdocument_eventfilter_isbase = false;
-    mutable bool qtextdocument_timerevent_isbase = false;
-    mutable bool qtextdocument_childevent_isbase = false;
-    mutable bool qtextdocument_customevent_isbase = false;
-    mutable bool qtextdocument_connectnotify_isbase = false;
-    mutable bool qtextdocument_disconnectnotify_isbase = false;
-    mutable bool qtextdocument_sender_isbase = false;
-    mutable bool qtextdocument_sendersignalindex_isbase = false;
-    mutable bool qtextdocument_receivers_isbase = false;
-    mutable bool qtextdocument_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QTextDocument {
+        using QTextDocument::childEvent;
+        using QTextDocument::connectNotify;
+        using QTextDocument::createObject;
+        using QTextDocument::customEvent;
+        using QTextDocument::disconnectNotify;
+        using QTextDocument::loadResource;
+        using QTextDocument::timerEvent;
+    };
 
-  public:
     VirtualQTextDocument() : QTextDocument() {};
     VirtualQTextDocument(const QString& text) : QTextDocument(text) {};
     VirtualQTextDocument(QObject* parent) : QTextDocument(parent) {};
     VirtualQTextDocument(const QString& text, QObject* parent) : QTextDocument(text, parent) {};
 
-    // Callback setters
-    inline void setQTextDocument_MetaObject_Callback(QTextDocument_MetaObject_Callback cb) { qtextdocument_metaobject_callback = cb; }
-    inline void setQTextDocument_Metacast_Callback(QTextDocument_Metacast_Callback cb) { qtextdocument_metacast_callback = cb; }
-    inline void setQTextDocument_Metacall_Callback(QTextDocument_Metacall_Callback cb) { qtextdocument_metacall_callback = cb; }
-    inline void setQTextDocument_Clear_Callback(QTextDocument_Clear_Callback cb) { qtextdocument_clear_callback = cb; }
-    inline void setQTextDocument_CreateObject_Callback(QTextDocument_CreateObject_Callback cb) { qtextdocument_createobject_callback = cb; }
-    inline void setQTextDocument_LoadResource_Callback(QTextDocument_LoadResource_Callback cb) { qtextdocument_loadresource_callback = cb; }
-    inline void setQTextDocument_Event_Callback(QTextDocument_Event_Callback cb) { qtextdocument_event_callback = cb; }
-    inline void setQTextDocument_EventFilter_Callback(QTextDocument_EventFilter_Callback cb) { qtextdocument_eventfilter_callback = cb; }
-    inline void setQTextDocument_TimerEvent_Callback(QTextDocument_TimerEvent_Callback cb) { qtextdocument_timerevent_callback = cb; }
-    inline void setQTextDocument_ChildEvent_Callback(QTextDocument_ChildEvent_Callback cb) { qtextdocument_childevent_callback = cb; }
-    inline void setQTextDocument_CustomEvent_Callback(QTextDocument_CustomEvent_Callback cb) { qtextdocument_customevent_callback = cb; }
-    inline void setQTextDocument_ConnectNotify_Callback(QTextDocument_ConnectNotify_Callback cb) { qtextdocument_connectnotify_callback = cb; }
-    inline void setQTextDocument_DisconnectNotify_Callback(QTextDocument_DisconnectNotify_Callback cb) { qtextdocument_disconnectnotify_callback = cb; }
-    inline void setQTextDocument_Sender_Callback(QTextDocument_Sender_Callback cb) { qtextdocument_sender_callback = cb; }
-    inline void setQTextDocument_SenderSignalIndex_Callback(QTextDocument_SenderSignalIndex_Callback cb) { qtextdocument_sendersignalindex_callback = cb; }
-    inline void setQTextDocument_Receivers_Callback(QTextDocument_Receivers_Callback cb) { qtextdocument_receivers_callback = cb; }
-    inline void setQTextDocument_IsSignalConnected_Callback(QTextDocument_IsSignalConnected_Callback cb) { qtextdocument_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQTextDocument_MetaObject_IsBase(bool value) const { qtextdocument_metaobject_isbase = value; }
-    inline void setQTextDocument_Metacast_IsBase(bool value) const { qtextdocument_metacast_isbase = value; }
-    inline void setQTextDocument_Metacall_IsBase(bool value) const { qtextdocument_metacall_isbase = value; }
-    inline void setQTextDocument_Clear_IsBase(bool value) const { qtextdocument_clear_isbase = value; }
-    inline void setQTextDocument_CreateObject_IsBase(bool value) const { qtextdocument_createobject_isbase = value; }
-    inline void setQTextDocument_LoadResource_IsBase(bool value) const { qtextdocument_loadresource_isbase = value; }
-    inline void setQTextDocument_Event_IsBase(bool value) const { qtextdocument_event_isbase = value; }
-    inline void setQTextDocument_EventFilter_IsBase(bool value) const { qtextdocument_eventfilter_isbase = value; }
-    inline void setQTextDocument_TimerEvent_IsBase(bool value) const { qtextdocument_timerevent_isbase = value; }
-    inline void setQTextDocument_ChildEvent_IsBase(bool value) const { qtextdocument_childevent_isbase = value; }
-    inline void setQTextDocument_CustomEvent_IsBase(bool value) const { qtextdocument_customevent_isbase = value; }
-    inline void setQTextDocument_ConnectNotify_IsBase(bool value) const { qtextdocument_connectnotify_isbase = value; }
-    inline void setQTextDocument_DisconnectNotify_IsBase(bool value) const { qtextdocument_disconnectnotify_isbase = value; }
-    inline void setQTextDocument_Sender_IsBase(bool value) const { qtextdocument_sender_isbase = value; }
-    inline void setQTextDocument_SenderSignalIndex_IsBase(bool value) const { qtextdocument_sendersignalindex_isbase = value; }
-    inline void setQTextDocument_Receivers_IsBase(bool value) const { qtextdocument_receivers_isbase = value; }
-    inline void setQTextDocument_IsSignalConnected_IsBase(bool value) const { qtextdocument_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qtextdocument_metaobject_isbase) {
-            qtextdocument_metaobject_isbase = false;
-            return QTextDocument::metaObject();
-        }
-        auto metaobject_cb = qtextdocument_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qtextdocument_metaobject_callback) {
+            QMetaObject* callback_ret = qtextdocument_metaobject_callback(this);
             return callback_ret;
         }
         return QTextDocument::metaObject();
@@ -134,14 +73,9 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qtextdocument_metacast_isbase) {
-            qtextdocument_metacast_isbase = false;
-            return QTextDocument::qt_metacast(param1);
-        }
-        auto metacast_cb = qtextdocument_metacast_callback;
-        if (metacast_cb) {
+        if (qtextdocument_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qtextdocument_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QTextDocument::qt_metacast(param1);
@@ -149,16 +83,11 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qtextdocument_metacall_isbase) {
-            qtextdocument_metacall_isbase = false;
-            return QTextDocument::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qtextdocument_metacall_callback;
-        if (metacall_cb) {
+        if (qtextdocument_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qtextdocument_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QTextDocument::qt_metacall(param1, param2, param3);
@@ -166,14 +95,8 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual void clear() override {
-        if (qtextdocument_clear_isbase) {
-            qtextdocument_clear_isbase = false;
-            QTextDocument::clear();
-            return;
-        }
-        auto clear_cb = qtextdocument_clear_callback;
-        if (clear_cb) {
-            clear_cb();
+        if (qtextdocument_clear_callback) {
+            qtextdocument_clear_callback(this);
             return;
         }
         QTextDocument::clear();
@@ -181,16 +104,11 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual QTextObject* createObject(const QTextFormat& f) override {
-        if (qtextdocument_createobject_isbase) {
-            qtextdocument_createobject_isbase = false;
-            return QTextDocument::createObject(f);
-        }
-        auto createobject_cb = qtextdocument_createobject_callback;
-        if (createobject_cb) {
+        if (qtextdocument_createobject_callback) {
             const QTextFormat& f_ret = f;
             // Cast returned reference into pointer
             QTextFormat* cbval1 = const_cast<QTextFormat*>(&f_ret);
-            QTextObject* callback_ret = createobject_cb(this, cbval1);
+            QTextObject* callback_ret = qtextdocument_createobject_callback(this, cbval1);
             return callback_ret;
         }
         return QTextDocument::createObject(f);
@@ -198,17 +116,12 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant loadResource(int typeVal, const QUrl& name) override {
-        if (qtextdocument_loadresource_isbase) {
-            qtextdocument_loadresource_isbase = false;
-            return QTextDocument::loadResource(typeVal, name);
-        }
-        auto loadresource_cb = qtextdocument_loadresource_callback;
-        if (loadresource_cb) {
+        if (qtextdocument_loadresource_callback) {
             int cbval1 = typeVal;
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
-            QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = qtextdocument_loadresource_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -218,14 +131,9 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qtextdocument_event_isbase) {
-            qtextdocument_event_isbase = false;
-            return QTextDocument::event(event);
-        }
-        auto event_cb = qtextdocument_event_callback;
-        if (event_cb) {
+        if (qtextdocument_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qtextdocument_event_callback(this, cbval1);
             return callback_ret;
         }
         return QTextDocument::event(event);
@@ -233,15 +141,10 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qtextdocument_eventfilter_isbase) {
-            qtextdocument_eventfilter_isbase = false;
-            return QTextDocument::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qtextdocument_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qtextdocument_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qtextdocument_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QTextDocument::eventFilter(watched, event);
@@ -249,15 +152,9 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qtextdocument_timerevent_isbase) {
-            qtextdocument_timerevent_isbase = false;
-            QTextDocument::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qtextdocument_timerevent_callback;
-        if (timerevent_cb) {
+        if (qtextdocument_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qtextdocument_timerevent_callback(this, cbval1);
             return;
         }
         QTextDocument::timerEvent(event);
@@ -265,15 +162,9 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qtextdocument_childevent_isbase) {
-            qtextdocument_childevent_isbase = false;
-            QTextDocument::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qtextdocument_childevent_callback;
-        if (childevent_cb) {
+        if (qtextdocument_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qtextdocument_childevent_callback(this, cbval1);
             return;
         }
         QTextDocument::childEvent(event);
@@ -281,15 +172,9 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qtextdocument_customevent_isbase) {
-            qtextdocument_customevent_isbase = false;
-            QTextDocument::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qtextdocument_customevent_callback;
-        if (customevent_cb) {
+        if (qtextdocument_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qtextdocument_customevent_callback(this, cbval1);
             return;
         }
         QTextDocument::customEvent(event);
@@ -297,17 +182,11 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qtextdocument_connectnotify_isbase) {
-            qtextdocument_connectnotify_isbase = false;
-            QTextDocument::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qtextdocument_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qtextdocument_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qtextdocument_connectnotify_callback(this, cbval1);
             return;
         }
         QTextDocument::connectNotify(signal);
@@ -315,105 +194,24 @@ class VirtualQTextDocument final : public QTextDocument {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qtextdocument_disconnectnotify_isbase) {
-            qtextdocument_disconnectnotify_isbase = false;
-            QTextDocument::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qtextdocument_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qtextdocument_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qtextdocument_disconnectnotify_callback(this, cbval1);
             return;
         }
         QTextDocument::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qtextdocument_sender_isbase) {
-            qtextdocument_sender_isbase = false;
-            return QTextDocument::sender();
-        }
-        auto sender_cb = qtextdocument_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QTextDocument::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qtextdocument_sendersignalindex_isbase) {
-            qtextdocument_sendersignalindex_isbase = false;
-            return QTextDocument::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qtextdocument_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QTextDocument::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qtextdocument_receivers_isbase) {
-            qtextdocument_receivers_isbase = false;
-            return QTextDocument::receivers(signal);
-        }
-        auto receivers_cb = qtextdocument_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QTextDocument::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qtextdocument_issignalconnected_isbase) {
-            qtextdocument_issignalconnected_isbase = false;
-            return QTextDocument::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qtextdocument_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QTextDocument::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend QTextObject* QTextDocument_CreateObject(QTextDocument* self, const QTextFormat* f);
     friend QTextObject* QTextDocument_SuperCreateObject(QTextDocument* self, const QTextFormat* f);
-    friend QVariant* QTextDocument_LoadResource(QTextDocument* self, int typeVal, const QUrl* name);
     friend QVariant* QTextDocument_SuperLoadResource(QTextDocument* self, int typeVal, const QUrl* name);
-    friend void QTextDocument_TimerEvent(QTextDocument* self, QTimerEvent* event);
     friend void QTextDocument_SuperTimerEvent(QTextDocument* self, QTimerEvent* event);
-    friend void QTextDocument_ChildEvent(QTextDocument* self, QChildEvent* event);
     friend void QTextDocument_SuperChildEvent(QTextDocument* self, QChildEvent* event);
-    friend void QTextDocument_CustomEvent(QTextDocument* self, QEvent* event);
     friend void QTextDocument_SuperCustomEvent(QTextDocument* self, QEvent* event);
-    friend void QTextDocument_ConnectNotify(QTextDocument* self, const QMetaMethod* signal);
     friend void QTextDocument_SuperConnectNotify(QTextDocument* self, const QMetaMethod* signal);
-    friend void QTextDocument_DisconnectNotify(QTextDocument* self, const QMetaMethod* signal);
     friend void QTextDocument_SuperDisconnectNotify(QTextDocument* self, const QMetaMethod* signal);
-    friend QObject* QTextDocument_Sender(const QTextDocument* self);
-    friend QObject* QTextDocument_SuperSender(const QTextDocument* self);
-    friend int QTextDocument_SenderSignalIndex(const QTextDocument* self);
-    friend int QTextDocument_SuperSenderSignalIndex(const QTextDocument* self);
-    friend int QTextDocument_Receivers(const QTextDocument* self, const char* signal);
-    friend int QTextDocument_SuperReceivers(const QTextDocument* self, const char* signal);
-    friend bool QTextDocument_IsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
-    friend bool QTextDocument_SuperIsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
 };
 
 #endif

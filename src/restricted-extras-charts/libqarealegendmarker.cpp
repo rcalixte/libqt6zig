@@ -79,400 +79,241 @@ libqt_string QAreaLegendMarker_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAreaLegendMarker_SuperMetaObject(const QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_MetaObject_IsBase(true);
-        return (QMetaObject*)vqarealegendmarker->metaObject();
-    } else {
-        return (QMetaObject*)self->QAreaLegendMarker::metaObject();
-    }
+    return (QMetaObject*)self->QAreaLegendMarker::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAreaLegendMarker_OnMetaObject(const QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_MetaObject_Callback>(slot));
+void QAreaLegendMarker_OnMetaObject(QAreaLegendMarker* self, intptr_t slot) {
+    if (auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self)))
+        vqarealegendmarker->qarealegendmarker_metaobject_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAreaLegendMarker_SuperMetacast(QAreaLegendMarker* self, const char* param1) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_Metacast_IsBase(true);
-        return vqarealegendmarker->qt_metacast(param1);
-    } else {
-        return self->QAreaLegendMarker::qt_metacast(param1);
-    }
+    return self->QAreaLegendMarker::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnMetacast(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Metacast_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_metacast_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAreaLegendMarker_SuperMetacall(QAreaLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_Metacall_IsBase(true);
-        return vqarealegendmarker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAreaLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAreaLegendMarker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnMetacall(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Metacall_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_metacall_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAreaLegendMarker_SuperType(QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_Type_IsBase(true);
-        return static_cast<int>(vqarealegendmarker->type());
-    } else {
-        return static_cast<int>(self->QAreaLegendMarker::type());
-    }
+    return static_cast<int>(self->QAreaLegendMarker::type());
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnType(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_Type_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Type_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_type_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 QAreaSeries* QAreaLegendMarker_SuperSeries(QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_Series_IsBase(true);
-        return vqarealegendmarker->series();
-    } else {
-        return self->QAreaLegendMarker::series();
-    }
+    return self->QAreaLegendMarker::series();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnSeries(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_Series_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Series_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_series_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Series_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAreaLegendMarker_Event(QAreaLegendMarker* self, QEvent* event) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return vqarealegendmarker->event(event);
-    } else {
-        return self->QAreaLegendMarker::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QAreaLegendMarker_SuperEvent(QAreaLegendMarker* self, QEvent* event) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_Event_IsBase(true);
-        return vqarealegendmarker->event(event);
-    } else {
-        return self->QAreaLegendMarker::event(event);
-    }
+    return self->QAreaLegendMarker::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnEvent(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_Event_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Event_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_event_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAreaLegendMarker_EventFilter(QAreaLegendMarker* self, QObject* watched, QEvent* event) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return vqarealegendmarker->eventFilter(watched, event);
-    } else {
-        return self->QAreaLegendMarker::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAreaLegendMarker_SuperEventFilter(QAreaLegendMarker* self, QObject* watched, QEvent* event) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_EventFilter_IsBase(true);
-        return vqarealegendmarker->eventFilter(watched, event);
-    } else {
-        return self->QAreaLegendMarker::eventFilter(watched, event);
-    }
+    return self->QAreaLegendMarker::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnEventFilter(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_EventFilter_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_EventFilter_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_eventfilter_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAreaLegendMarker_TimerEvent(QAreaLegendMarker* self, QTimerEvent* event) {
     auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
+    if (vqarealegendmarker) {
         vqarealegendmarker->timerEvent(event);
     } else {
-        ((VirtualQAreaLegendMarker*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QAreaLegendMarker::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAreaLegendMarker_SuperTimerEvent(QAreaLegendMarker* self, QTimerEvent* event) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_TimerEvent_IsBase(true);
-        vqarealegendmarker->timerEvent(event);
-    } else {
-        ((VirtualQAreaLegendMarker*)self)->timerEvent(event);
-    }
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self)) {
+        vqarealegendmarker->QAreaLegendMarker::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAreaLegendMarker::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnTimerEvent(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_TimerEvent_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_TimerEvent_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_timerevent_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAreaLegendMarker_ChildEvent(QAreaLegendMarker* self, QChildEvent* event) {
     auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
+    if (vqarealegendmarker) {
         vqarealegendmarker->childEvent(event);
     } else {
-        ((VirtualQAreaLegendMarker*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAreaLegendMarker::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAreaLegendMarker_SuperChildEvent(QAreaLegendMarker* self, QChildEvent* event) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_ChildEvent_IsBase(true);
-        vqarealegendmarker->childEvent(event);
-    } else {
-        ((VirtualQAreaLegendMarker*)self)->childEvent(event);
-    }
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self)) {
+        vqarealegendmarker->QAreaLegendMarker::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAreaLegendMarker::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnChildEvent(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_ChildEvent_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_ChildEvent_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_childevent_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAreaLegendMarker_CustomEvent(QAreaLegendMarker* self, QEvent* event) {
     auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
+    if (vqarealegendmarker) {
         vqarealegendmarker->customEvent(event);
     } else {
-        ((VirtualQAreaLegendMarker*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAreaLegendMarker::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAreaLegendMarker_SuperCustomEvent(QAreaLegendMarker* self, QEvent* event) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_CustomEvent_IsBase(true);
-        vqarealegendmarker->customEvent(event);
-    } else {
-        ((VirtualQAreaLegendMarker*)self)->customEvent(event);
-    }
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self)) {
+        vqarealegendmarker->QAreaLegendMarker::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAreaLegendMarker::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnCustomEvent(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_CustomEvent_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_CustomEvent_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_customevent_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAreaLegendMarker_ConnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal) {
     auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
+    if (vqarealegendmarker) {
         vqarealegendmarker->connectNotify(*signal);
     } else {
-        ((VirtualQAreaLegendMarker*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAreaLegendMarker::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAreaLegendMarker_SuperConnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_ConnectNotify_IsBase(true);
-        vqarealegendmarker->connectNotify(*signal);
-    } else {
-        ((VirtualQAreaLegendMarker*)self)->connectNotify(*signal);
-    }
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self)) {
+        vqarealegendmarker->QAreaLegendMarker::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAreaLegendMarker::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnConnectNotify(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_ConnectNotify_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_ConnectNotify_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_connectnotify_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAreaLegendMarker_DisconnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal) {
     auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
+    if (vqarealegendmarker) {
         vqarealegendmarker->disconnectNotify(*signal);
     } else {
-        ((VirtualQAreaLegendMarker*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAreaLegendMarker::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAreaLegendMarker_SuperDisconnectNotify(QAreaLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_DisconnectNotify_IsBase(true);
-        vqarealegendmarker->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAreaLegendMarker*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self)) {
+        vqarealegendmarker->QAreaLegendMarker::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAreaLegendMarker::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAreaLegendMarker_OnDisconnectNotify(QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_DisconnectNotify_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_DisconnectNotify_Callback>(slot));
+    if (auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self))
+        vqarealegendmarker->qarealegendmarker_disconnectnotify_callback = reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAreaLegendMarker_Sender(const QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return vqarealegendmarker->sender();
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->sender();
-    }
+    if (auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self))) {
+        return vqarealegendmarker->VirtualQAreaLegendMarker::sender();
+    } else
+        qFatal("Error: Protected method QAreaLegendMarker::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAreaLegendMarker_SuperSender(const QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_Sender_IsBase(true);
-        return vqarealegendmarker->sender();
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAreaLegendMarker_OnSender(const QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_Sender_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAreaLegendMarker_SenderSignalIndex(const QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return vqarealegendmarker->senderSignalIndex();
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->senderSignalIndex();
-    }
+    if (auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self))) {
+        return vqarealegendmarker->VirtualQAreaLegendMarker::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAreaLegendMarker::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAreaLegendMarker_SuperSenderSignalIndex(const QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_SenderSignalIndex_IsBase(true);
-        return vqarealegendmarker->senderSignalIndex();
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAreaLegendMarker_OnSenderSignalIndex(const QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAreaLegendMarker_Receivers(const QAreaLegendMarker* self, const char* signal) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return vqarealegendmarker->receivers(signal);
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->receivers(signal);
-    }
+    if (auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self))) {
+        return vqarealegendmarker->VirtualQAreaLegendMarker::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAreaLegendMarker::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAreaLegendMarker_SuperReceivers(const QAreaLegendMarker* self, const char* signal) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_Receivers_IsBase(true);
-        return vqarealegendmarker->receivers(signal);
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAreaLegendMarker_OnReceivers(const QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_Receivers_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAreaLegendMarker_IsSignalConnected(const QAreaLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return vqarealegendmarker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QAreaLegendMarker_SuperIsSignalConnected(const QAreaLegendMarker* self, const QMetaMethod* signal) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        vqarealegendmarker->setQAreaLegendMarker_IsSignalConnected_IsBase(true);
-        return vqarealegendmarker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAreaLegendMarker_OnIsSignalConnected(const QAreaLegendMarker* self, intptr_t slot) {
-    auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self));
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker)
-        vqarealegendmarker->setQAreaLegendMarker_IsSignalConnected_Callback(reinterpret_cast<VirtualQAreaLegendMarker::QAreaLegendMarker_IsSignalConnected_Callback>(slot));
+    if (auto* vqarealegendmarker = const_cast<VirtualQAreaLegendMarker*>(dynamic_cast<const VirtualQAreaLegendMarker*>(self))) {
+        return vqarealegendmarker->VirtualQAreaLegendMarker::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAreaLegendMarker::isSignalConnected called without a directly constructed type");
 }
 
 void QAreaLegendMarker_Delete(QAreaLegendMarker* self) {

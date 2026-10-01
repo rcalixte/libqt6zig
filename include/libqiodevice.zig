@@ -89,9 +89,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QIODevice, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) QMetaObject) void {
         qtc.QIODevice_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -352,9 +352,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: QIODevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) bool) void {
         qtc.QIODevice_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -540,9 +540,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) void `
     ///
-    pub fn onClose(self: QIODevice, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) void) void {
         qtc.QIODevice_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -588,9 +588,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) i64 `
     ///
-    pub fn onPos(self: QIODevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) i64) void {
         qtc.QIODevice_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -636,9 +636,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) i64 `
     ///
-    pub fn onSize(self: QIODevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) i64) void {
         qtc.QIODevice_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -736,9 +736,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: QIODevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) bool) void {
         qtc.QIODevice_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -784,9 +784,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) bool `
     ///
-    pub fn onReset(self: QIODevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) bool) void {
         qtc.QIODevice_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -832,9 +832,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: QIODevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) i64) void {
         qtc.QIODevice_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -880,9 +880,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: QIODevice, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) i64) void {
         qtc.QIODevice_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1028,9 +1028,9 @@ pub const QIODevice = extern struct {
     ///
     /// ` self: QIODevice `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QIODevice) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: QIODevice, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QIODevice, callback: *const fn (QIODevice) callconv(.c) bool) void {
         qtc.QIODevice_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1586,6 +1586,8 @@ pub const QIODevice = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readData)
     ///
+    /// This method must be implemented with `onReadData` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QIODevice `
@@ -1615,27 +1617,6 @@ pub const QIODevice = extern struct {
     ///
     pub fn onReadData(self: QIODevice, callback: *const fn (QIODevice, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QIODevice_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReadData` instead
-    ///
-    pub const SuperReadData = superReadData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#readData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIODevice `
-    ///
-    /// ` data: [:0]u8 `
-    ///
-    /// ` maxlen: i64 `
-    ///
-    pub fn superReadData(self: QIODevice, data: [:0]u8, maxlen: i64) i64 {
-        const data_Cstring = data.ptr;
-        return qtc.QIODevice_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### DEPRECATED: Use `readLineData` instead
@@ -1754,6 +1735,8 @@ pub const QIODevice = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeData)
     ///
+    /// This method must be implemented with `onWriteData` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QIODevice `
@@ -1785,27 +1768,6 @@ pub const QIODevice = extern struct {
         qtc.QIODevice_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superWriteData` instead
-    ///
-    pub const SuperWriteData = superWriteData;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#writeData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIODevice `
-    ///
-    /// ` data: [:0]const u8 `
-    ///
-    /// ` len: i64 `
-    ///
-    pub fn superWriteData(self: QIODevice, data: [:0]const u8, len: i64) i64 {
-        const data_Cstring = data.ptr;
-        return qtc.QIODevice_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
-    }
-
     /// ### DEPRECATED: Use `setOpenMode` instead
     ///
     pub const SetOpenMode = setOpenMode;
@@ -1820,42 +1782,6 @@ pub const QIODevice = extern struct {
     ///
     pub fn setOpenMode(self: QIODevice, _openMode: i32) void {
         qtc.QIODevice_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QIODevice `
-    ///
-    /// ` callback: *const fn (self: QIODevice, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: QIODevice, callback: *const fn (QIODevice, i32) callconv(.c) void) void {
-        qtc.QIODevice_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIODevice `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: QIODevice, _openMode: i32) void {
-        qtc.QIODevice_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
     /// ### DEPRECATED: Use `setErrorString` instead
@@ -1876,46 +1802,6 @@ pub const QIODevice = extern struct {
             .data = _errorString.ptr,
         };
         qtc.QIODevice_SetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QIODevice `
-    ///
-    /// ` callback: *const fn (self: QIODevice, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: QIODevice, callback: *const fn (QIODevice, [*:0]const u8) callconv(.c) void) void {
-        qtc.QIODevice_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIODevice `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: QIODevice, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QIODevice_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3417,44 +3303,6 @@ pub const QIODevice = extern struct {
         return .{ .ptr = qtc.QIODevice_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIODevice `
-    ///
-    pub fn superSender(self: QIODevice) QObject {
-        return .{ .ptr = qtc.QIODevice_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QIODevice`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QIODevice, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QIODevice_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3471,44 +3319,6 @@ pub const QIODevice = extern struct {
     ///
     pub fn senderSignalIndex(self: QIODevice) i32 {
         return qtc.QIODevice_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIODevice `
-    ///
-    pub fn superSenderSignalIndex(self: QIODevice) i32 {
-        return qtc.QIODevice_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QIODevice`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QIODevice, callback: *const fn () callconv(.c) i32) void {
-        qtc.QIODevice_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3532,47 +3342,6 @@ pub const QIODevice = extern struct {
         return qtc.QIODevice_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIODevice `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QIODevice, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QIODevice_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QIODevice`
-    ///
-    /// ` callback: *const fn (self: QIODevice, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QIODevice, callback: *const fn (QIODevice, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QIODevice_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3592,47 +3361,6 @@ pub const QIODevice = extern struct {
     pub fn isSignalConnected(self: QIODevice, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QIODevice_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIODevice `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QIODevice, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QIODevice_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QIODevice`
-    ///
-    /// ` callback: *const fn (self: QIODevice, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QIODevice, callback: *const fn (QIODevice, QMetaMethod) callconv(.c) bool) void {
-        qtc.QIODevice_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

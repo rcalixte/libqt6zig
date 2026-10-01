@@ -164,9 +164,9 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QSplitter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) QMetaObject) void {
         qtc.QSplitter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -532,11 +532,11 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QSplitter, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) QSize) void {
         qtc.QSplitter_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -582,11 +582,11 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QSplitter, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) QSize) void {
         qtc.QSplitter_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -878,9 +878,9 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter `
     ///
-    /// ` callback: *const fn () callconv(.c) QSplitterHandle `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) QSplitterHandle `
     ///
-    pub fn onCreateHandle(self: QSplitter, callback: *const fn () callconv(.c) QSplitterHandle) void {
+    pub fn onCreateHandle(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) QSplitterHandle) void {
         qtc.QSplitter_OnCreateHandle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1134,44 +1134,6 @@ pub const QSplitter = extern struct {
         qtc.QSplitter_MoveSplitter(@ptrCast(self.ptr), @bitCast(_pos), @bitCast(index));
     }
 
-    /// ### DEPRECATED: Use `onMoveSplitter` instead
-    ///
-    pub const OnMoveSplitter = onMoveSplitter;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#moveSplitter)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` callback: *const fn (self: QSplitter, pos: i32, index: i32) callconv(.c) void `
-    ///
-    pub fn onMoveSplitter(self: QSplitter, callback: *const fn (QSplitter, i32, i32) callconv(.c) void) void {
-        qtc.QSplitter_OnMoveSplitter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMoveSplitter` instead
-    ///
-    pub const SuperMoveSplitter = superMoveSplitter;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#moveSplitter)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` _pos: i32 `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superMoveSplitter(self: QSplitter, _pos: i32, index: i32) void {
-        qtc.QSplitter_SuperMoveSplitter(@ptrCast(self.ptr), @bitCast(_pos), @bitCast(index));
-    }
-
     /// ### DEPRECATED: Use `setRubberBand` instead
     ///
     pub const SetRubberBand = setRubberBand;
@@ -1186,42 +1148,6 @@ pub const QSplitter = extern struct {
     ///
     pub fn setRubberBand(self: QSplitter, position: i32) void {
         qtc.QSplitter_SetRubberBand(@ptrCast(self.ptr), @bitCast(position));
-    }
-
-    /// ### DEPRECATED: Use `onSetRubberBand` instead
-    ///
-    pub const OnSetRubberBand = onSetRubberBand;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setRubberBand)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` callback: *const fn (self: QSplitter, position: i32) callconv(.c) void `
-    ///
-    pub fn onSetRubberBand(self: QSplitter, callback: *const fn (QSplitter, i32) callconv(.c) void) void {
-        qtc.QSplitter_OnSetRubberBand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetRubberBand` instead
-    ///
-    pub const SuperSetRubberBand = superSetRubberBand;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#setRubberBand)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` position: i32 `
-    ///
-    pub fn superSetRubberBand(self: QSplitter, position: i32) void {
-        qtc.QSplitter_SuperSetRubberBand(@ptrCast(self.ptr), @bitCast(position));
     }
 
     /// ### DEPRECATED: Use `closestLegalPosition` instead
@@ -1240,44 +1166,6 @@ pub const QSplitter = extern struct {
     ///
     pub fn closestLegalPosition(self: QSplitter, param1: i32, param2: i32) i32 {
         return qtc.QSplitter_ClosestLegalPosition(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
-    }
-
-    /// ### DEPRECATED: Use `onClosestLegalPosition` instead
-    ///
-    pub const OnClosestLegalPosition = onClosestLegalPosition;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#closestLegalPosition)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` callback: *const fn (self: QSplitter, param1: i32, param2: i32) callconv(.c) i32 `
-    ///
-    pub fn onClosestLegalPosition(self: QSplitter, callback: *const fn (QSplitter, i32, i32) callconv(.c) i32) void {
-        qtc.QSplitter_OnClosestLegalPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superClosestLegalPosition` instead
-    ///
-    pub const SuperClosestLegalPosition = superClosestLegalPosition;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitter.html#closestLegalPosition)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` param1: i32 `
-    ///
-    /// ` param2: i32 `
-    ///
-    pub fn superClosestLegalPosition(self: QSplitter, param1: i32, param2: i32) i32 {
-        return qtc.QSplitter_SuperClosestLegalPosition(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -7959,9 +7847,9 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QSplitter, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) i32) void {
         qtc.QSplitter_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8135,9 +8023,9 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QSplitter, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) bool) void {
         qtc.QSplitter_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8191,9 +8079,9 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QSplitter, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) QPaintEngine) void {
         qtc.QSplitter_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9871,9 +9759,9 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QSplitter) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QSplitter, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QSplitter, callback: *const fn (QSplitter) callconv(.c) QPainter) void {
         qtc.QSplitter_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10398,47 +10286,6 @@ pub const QSplitter = extern struct {
         qtc.QSplitter_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QSplitter, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QSplitter_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn (self: QSplitter, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QSplitter, callback: *const fn (QSplitter, QPainter) callconv(.c) void) void {
-        qtc.QSplitter_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10455,44 +10302,6 @@ pub const QSplitter = extern struct {
     ///
     pub fn updateMicroFocus(self: QSplitter) void {
         qtc.QSplitter_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    pub fn superUpdateMicroFocus(self: QSplitter) void {
-        qtc.QSplitter_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QSplitter, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitter_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10513,44 +10322,6 @@ pub const QSplitter = extern struct {
         qtc.QSplitter_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    pub fn superCreate(self: QSplitter) void {
-        qtc.QSplitter_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QSplitter, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitter_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10567,44 +10338,6 @@ pub const QSplitter = extern struct {
     ///
     pub fn destroy(self: QSplitter) void {
         qtc.QSplitter_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    pub fn superDestroy(self: QSplitter) void {
-        qtc.QSplitter_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QSplitter, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitter_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10625,44 +10358,6 @@ pub const QSplitter = extern struct {
         return qtc.QSplitter_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    pub fn superFocusNextChild(self: QSplitter) bool {
-        return qtc.QSplitter_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QSplitter, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitter_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10679,44 +10374,6 @@ pub const QSplitter = extern struct {
     ///
     pub fn focusPreviousChild(self: QSplitter) bool {
         return qtc.QSplitter_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    pub fn superFocusPreviousChild(self: QSplitter) bool {
-        return qtc.QSplitter_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QSplitter, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitter_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10737,44 +10394,6 @@ pub const QSplitter = extern struct {
         return .{ .ptr = qtc.QSplitter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    pub fn superSender(self: QSplitter) QObject {
-        return .{ .ptr = qtc.QSplitter_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QSplitter, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QSplitter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10791,44 +10410,6 @@ pub const QSplitter = extern struct {
     ///
     pub fn senderSignalIndex(self: QSplitter) i32 {
         return qtc.QSplitter_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    pub fn superSenderSignalIndex(self: QSplitter) i32 {
-        return qtc.QSplitter_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QSplitter, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSplitter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10852,47 +10433,6 @@ pub const QSplitter = extern struct {
         return qtc.QSplitter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QSplitter, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QSplitter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn (self: QSplitter, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QSplitter, callback: *const fn (QSplitter, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSplitter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10912,47 +10452,6 @@ pub const QSplitter = extern struct {
     pub fn isSignalConnected(self: QSplitter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSplitter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QSplitter, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QSplitter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn (self: QSplitter, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QSplitter, callback: *const fn (QSplitter, QMetaMethod) callconv(.c) bool) void {
-        qtc.QSplitter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10975,48 +10474,6 @@ pub const QSplitter = extern struct {
     ///
     pub fn getDecodedMetricF(self: QSplitter, metricA: i32, metricB: i32) f64 {
         return qtc.QSplitter_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitter `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QSplitter, metricA: i32, metricB: i32) f64 {
-        return qtc.QSplitter_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitter`
-    ///
-    /// ` callback: *const fn (self: QSplitter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QSplitter, callback: *const fn (QSplitter, i32, i32) callconv(.c) f64) void {
-        qtc.QSplitter_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -11112,9 +10569,9 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QSplitterHandle) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QSplitterHandle, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSplitterHandle, callback: *const fn (QSplitterHandle) callconv(.c) QMetaObject) void {
         qtc.QSplitterHandle_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11347,11 +10804,11 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` self: QSplitterHandle `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSplitterHandle) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QSplitterHandle, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QSplitterHandle, callback: *const fn (QSplitterHandle) callconv(.c) QSize) void {
         qtc.QSplitterHandle_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11711,42 +11168,6 @@ pub const QSplitterHandle = extern struct {
         qtc.QSplitterHandle_MoveSplitter(@ptrCast(self.ptr), @bitCast(p));
     }
 
-    /// ### DEPRECATED: Use `onMoveSplitter` instead
-    ///
-    pub const OnMoveSplitter = onMoveSplitter;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#moveSplitter)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    /// ` callback: *const fn (self: QSplitterHandle, p: i32) callconv(.c) void `
-    ///
-    pub fn onMoveSplitter(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32) callconv(.c) void) void {
-        qtc.QSplitterHandle_OnMoveSplitter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMoveSplitter` instead
-    ///
-    pub const SuperMoveSplitter = superMoveSplitter;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#moveSplitter)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    /// ` p: i32 `
-    ///
-    pub fn superMoveSplitter(self: QSplitterHandle, p: i32) void {
-        qtc.QSplitterHandle_SuperMoveSplitter(@ptrCast(self.ptr), @bitCast(p));
-    }
-
     /// ### DEPRECATED: Use `closestLegalPosition` instead
     ///
     pub const ClosestLegalPosition = closestLegalPosition;
@@ -11761,42 +11182,6 @@ pub const QSplitterHandle = extern struct {
     ///
     pub fn closestLegalPosition(self: QSplitterHandle, p: i32) i32 {
         return qtc.QSplitterHandle_ClosestLegalPosition(@ptrCast(self.ptr), @bitCast(p));
-    }
-
-    /// ### DEPRECATED: Use `onClosestLegalPosition` instead
-    ///
-    pub const OnClosestLegalPosition = onClosestLegalPosition;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#closestLegalPosition)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    /// ` callback: *const fn (self: QSplitterHandle, p: i32) callconv(.c) i32 `
-    ///
-    pub fn onClosestLegalPosition(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32) callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnClosestLegalPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superClosestLegalPosition` instead
-    ///
-    pub const SuperClosestLegalPosition = superClosestLegalPosition;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplitterhandle.html#closestLegalPosition)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    /// ` p: i32 `
-    ///
-    pub fn superClosestLegalPosition(self: QSplitterHandle, p: i32) i32 {
-        return qtc.QSplitterHandle_SuperClosestLegalPosition(@ptrCast(self.ptr), @bitCast(p));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -18109,9 +17494,9 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSplitterHandle) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QSplitterHandle, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QSplitterHandle, callback: *const fn (QSplitterHandle) callconv(.c) i32) void {
         qtc.QSplitterHandle_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18225,11 +17610,11 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QSplitterHandle) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QSplitterHandle, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QSplitterHandle, callback: *const fn (QSplitterHandle) callconv(.c) QSize) void {
         qtc.QSplitterHandle_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18343,9 +17728,9 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitterHandle) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QSplitterHandle, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QSplitterHandle, callback: *const fn (QSplitterHandle) callconv(.c) bool) void {
         qtc.QSplitterHandle_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18399,9 +17784,9 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QSplitterHandle) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QSplitterHandle, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QSplitterHandle, callback: *const fn (QSplitterHandle) callconv(.c) QPaintEngine) void {
         qtc.QSplitterHandle_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19955,9 +19340,9 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QSplitterHandle) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QSplitterHandle, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QSplitterHandle, callback: *const fn (QSplitterHandle) callconv(.c) QPainter) void {
         qtc.QSplitterHandle_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20541,44 +19926,6 @@ pub const QSplitterHandle = extern struct {
         qtc.QSplitterHandle_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    pub fn superUpdateMicroFocus(self: QSplitterHandle) void {
-        qtc.QSplitterHandle_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QSplitterHandle, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitterHandle_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -20595,44 +19942,6 @@ pub const QSplitterHandle = extern struct {
     ///
     pub fn create(self: QSplitterHandle) void {
         qtc.QSplitterHandle_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    pub fn superCreate(self: QSplitterHandle) void {
-        qtc.QSplitterHandle_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QSplitterHandle, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitterHandle_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -20653,44 +19962,6 @@ pub const QSplitterHandle = extern struct {
         qtc.QSplitterHandle_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    pub fn superDestroy(self: QSplitterHandle) void {
-        qtc.QSplitterHandle_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QSplitterHandle, callback: *const fn () callconv(.c) void) void {
-        qtc.QSplitterHandle_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -20707,44 +19978,6 @@ pub const QSplitterHandle = extern struct {
     ///
     pub fn focusNextChild(self: QSplitterHandle) bool {
         return qtc.QSplitterHandle_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    pub fn superFocusNextChild(self: QSplitterHandle) bool {
-        return qtc.QSplitterHandle_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QSplitterHandle, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -20765,44 +19998,6 @@ pub const QSplitterHandle = extern struct {
         return qtc.QSplitterHandle_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    pub fn superFocusPreviousChild(self: QSplitterHandle) bool {
-        return qtc.QSplitterHandle_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QSplitterHandle, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -20821,44 +20016,6 @@ pub const QSplitterHandle = extern struct {
         return .{ .ptr = qtc.QSplitterHandle_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    pub fn superSender(self: QSplitterHandle) QObject {
-        return .{ .ptr = qtc.QSplitterHandle_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QSplitterHandle, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QSplitterHandle_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -20875,44 +20032,6 @@ pub const QSplitterHandle = extern struct {
     ///
     pub fn senderSignalIndex(self: QSplitterHandle) i32 {
         return qtc.QSplitterHandle_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    pub fn superSenderSignalIndex(self: QSplitterHandle) i32 {
-        return qtc.QSplitterHandle_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QSplitterHandle, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -20936,47 +20055,6 @@ pub const QSplitterHandle = extern struct {
         return qtc.QSplitterHandle_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QSplitterHandle, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QSplitterHandle_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn (self: QSplitterHandle, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QSplitterHandle, callback: *const fn (QSplitterHandle, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSplitterHandle_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -20996,47 +20074,6 @@ pub const QSplitterHandle = extern struct {
     pub fn isSignalConnected(self: QSplitterHandle, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSplitterHandle_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QSplitterHandle, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QSplitterHandle_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn (self: QSplitterHandle, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QSplitterHandle, callback: *const fn (QSplitterHandle, QMetaMethod) callconv(.c) bool) void {
-        qtc.QSplitterHandle_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -21059,48 +20096,6 @@ pub const QSplitterHandle = extern struct {
     ///
     pub fn getDecodedMetricF(self: QSplitterHandle, metricA: i32, metricB: i32) f64 {
         return qtc.QSplitterHandle_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplitterHandle `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QSplitterHandle, metricA: i32, metricB: i32) f64 {
-        return qtc.QSplitterHandle_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSplitterHandle`
-    ///
-    /// ` callback: *const fn (self: QSplitterHandle, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32, i32) callconv(.c) f64) void {
-        qtc.QSplitterHandle_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

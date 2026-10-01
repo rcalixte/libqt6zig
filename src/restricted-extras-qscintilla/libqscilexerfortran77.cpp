@@ -128,1155 +128,704 @@ libqt_string QsciLexerFortran77_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QsciLexerFortran77_SuperMetaObject(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_MetaObject_IsBase(true);
-        return (QMetaObject*)vqscilexerfortran77->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerFortran77*)self)->metaObject();
-    }
+    return (QMetaObject*)self->QsciLexerFortran77::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnMetaObject(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_MetaObject_Callback>(slot));
+void QsciLexerFortran77_OnMetaObject(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_metaobject_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QsciLexerFortran77_SuperMetacast(QsciLexerFortran77* self, const char* param1) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Metacast_IsBase(true);
-        return vqscilexerfortran77->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->qt_metacast(param1);
-    }
+    return self->QsciLexerFortran77::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnMetacast(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_Metacast_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Metacast_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_metacast_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QsciLexerFortran77_SuperMetacall(QsciLexerFortran77* self, int param1, int param2, void** param3) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Metacall_IsBase(true);
-        return vqscilexerfortran77->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QsciLexerFortran77::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnMetacall(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_Metacall_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Metacall_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_metacall_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperSetFoldCompact(QsciLexerFortran77* self, bool fold) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetFoldCompact_IsBase(true);
-        vqscilexerfortran77->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setFoldCompact(fold);
-    }
+    self->QsciLexerFortran77::setFoldCompact(fold);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnSetFoldCompact(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetFoldCompact_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_setfoldcompact_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetFoldCompact_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerFortran77_LexerId(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->lexerId();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->lexerId();
-    }
+    return self->lexerId();
 }
 
 // Base class handler implementation
 int QsciLexerFortran77_SuperLexerId(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_LexerId_IsBase(true);
-        return vqscilexerfortran77->lexerId();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->lexerId();
-    }
+    return self->QsciLexerFortran77::lexerId();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnLexerId(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_LexerId_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_LexerId_Callback>(slot));
+void QsciLexerFortran77_OnLexerId(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_lexerid_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_LexerId_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerFortran77_AutoCompletionFillups(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return (const char*)vqscilexerfortran77->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->autoCompletionFillups();
 }
 
 // Base class handler implementation
 const char* QsciLexerFortran77_SuperAutoCompletionFillups(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_AutoCompletionFillups_IsBase(true);
-        return (const char*)vqscilexerfortran77->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->QsciLexerFortran77::autoCompletionFillups();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnAutoCompletionFillups(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_AutoCompletionFillups_Callback>(slot));
+void QsciLexerFortran77_OnAutoCompletionFillups(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_autocompletionfillups_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_AutoCompletionFillups_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of libqt_string */ QsciLexerFortran77_AutoCompletionWordSeparators(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        QList<QString> _ret = vqscilexerfortran77->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexerFortran77*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QsciLexerFortran77_SuperAutoCompletionWordSeparators(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_AutoCompletionWordSeparators_IsBase(true);
-        QList<QString> _ret = vqscilexerfortran77->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexerFortran77*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QsciLexerFortran77::autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnAutoCompletionWordSeparators(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_AutoCompletionWordSeparators_Callback>(slot));
+void QsciLexerFortran77_OnAutoCompletionWordSeparators(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_autocompletionwordseparators_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_AutoCompletionWordSeparators_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerFortran77_BlockEnd(const QsciLexerFortran77* self, int* style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return (const char*)vqscilexerfortran77->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->blockEnd(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerFortran77_SuperBlockEnd(const QsciLexerFortran77* self, int* style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_BlockEnd_IsBase(true);
-        return (const char*)vqscilexerfortran77->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerFortran77::blockEnd(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnBlockEnd(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BlockEnd_Callback>(slot));
+void QsciLexerFortran77_OnBlockEnd(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_blockend_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BlockEnd_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerFortran77_BlockLookback(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->blockLookback();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->blockLookback();
-    }
+    return self->blockLookback();
 }
 
 // Base class handler implementation
 int QsciLexerFortran77_SuperBlockLookback(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_BlockLookback_IsBase(true);
-        return vqscilexerfortran77->blockLookback();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->blockLookback();
-    }
+    return self->QsciLexerFortran77::blockLookback();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnBlockLookback(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BlockLookback_Callback>(slot));
+void QsciLexerFortran77_OnBlockLookback(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_blocklookback_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BlockLookback_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerFortran77_BlockStart(const QsciLexerFortran77* self, int* style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return (const char*)vqscilexerfortran77->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStart(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerFortran77_SuperBlockStart(const QsciLexerFortran77* self, int* style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_BlockStart_IsBase(true);
-        return (const char*)vqscilexerfortran77->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerFortran77::blockStart(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnBlockStart(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BlockStart_Callback>(slot));
+void QsciLexerFortran77_OnBlockStart(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_blockstart_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BlockStart_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerFortran77_BlockStartKeyword(const QsciLexerFortran77* self, int* style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return (const char*)vqscilexerfortran77->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStartKeyword(static_cast<int*>(style));
 }
 
 // Base class handler implementation
 const char* QsciLexerFortran77_SuperBlockStartKeyword(const QsciLexerFortran77* self, int* style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_BlockStartKeyword_IsBase(true);
-        return (const char*)vqscilexerfortran77->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->QsciLexerFortran77::blockStartKeyword(static_cast<int*>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnBlockStartKeyword(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BlockStartKeyword_Callback>(slot));
+void QsciLexerFortran77_OnBlockStartKeyword(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_blockstartkeyword_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BlockStartKeyword_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerFortran77_CaseSensitive(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->caseSensitive();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->caseSensitive();
-    }
+    return self->caseSensitive();
 }
 
 // Base class handler implementation
 bool QsciLexerFortran77_SuperCaseSensitive(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_CaseSensitive_IsBase(true);
-        return vqscilexerfortran77->caseSensitive();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->caseSensitive();
-    }
+    return self->QsciLexerFortran77::caseSensitive();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnCaseSensitive(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_CaseSensitive_Callback>(slot));
+void QsciLexerFortran77_OnCaseSensitive(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_casesensitive_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_CaseSensitive_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerFortran77_Color(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return new QColor(vqscilexerfortran77->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerFortran77*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->color(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerFortran77_SuperColor(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Color_IsBase(true);
-        return new QColor(vqscilexerfortran77->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerFortran77*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerFortran77::color(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnColor(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_Color_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Color_Callback>(slot));
+void QsciLexerFortran77_OnColor(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_color_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Color_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerFortran77_EolFill(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->eolFill(static_cast<int>(style));
 }
 
 // Base class handler implementation
 bool QsciLexerFortran77_SuperEolFill(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_EolFill_IsBase(true);
-        return vqscilexerfortran77->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->QsciLexerFortran77::eolFill(static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnEolFill(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_EolFill_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_EolFill_Callback>(slot));
+void QsciLexerFortran77_OnEolFill(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_eolfill_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_EolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 QFont* QsciLexerFortran77_Font(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return new QFont(vqscilexerfortran77->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerFortran77*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->font(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QFont* QsciLexerFortran77_SuperFont(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Font_IsBase(true);
-        return new QFont(vqscilexerfortran77->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerFortran77*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->QsciLexerFortran77::font(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnFont(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_Font_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Font_Callback>(slot));
+void QsciLexerFortran77_OnFont(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_font_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Font_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerFortran77_IndentationGuideView(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->indentationGuideView();
-    }
+    return self->indentationGuideView();
 }
 
 // Base class handler implementation
 int QsciLexerFortran77_SuperIndentationGuideView(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_IndentationGuideView_IsBase(true);
-        return vqscilexerfortran77->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->indentationGuideView();
-    }
+    return self->QsciLexerFortran77::indentationGuideView();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnIndentationGuideView(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_IndentationGuideView_Callback>(slot));
+void QsciLexerFortran77_OnIndentationGuideView(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_indentationguideview_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_IndentationGuideView_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerFortran77_DefaultStyle(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->defaultStyle();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->defaultStyle();
-    }
+    return self->defaultStyle();
 }
 
 // Base class handler implementation
 int QsciLexerFortran77_SuperDefaultStyle(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultStyle_IsBase(true);
-        return vqscilexerfortran77->defaultStyle();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->defaultStyle();
-    }
+    return self->QsciLexerFortran77::defaultStyle();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnDefaultStyle(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultStyle_Callback>(slot));
+void QsciLexerFortran77_OnDefaultStyle(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_defaultstyle_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerFortran77_Paper(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return new QColor(vqscilexerfortran77->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerFortran77*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->paper(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerFortran77_SuperPaper(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Paper_IsBase(true);
-        return new QColor(vqscilexerfortran77->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerFortran77*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerFortran77::paper(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnPaper(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_Paper_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Paper_Callback>(slot));
+void QsciLexerFortran77_OnPaper(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_paper_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Paper_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerFortran77_DefaultColor2(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return new QColor(vqscilexerfortran77->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerFortran77*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultColor(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerFortran77_SuperDefaultColor2(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultColor2_IsBase(true);
-        return new QColor(vqscilexerfortran77->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerFortran77*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerFortran77::defaultColor(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnDefaultColor2(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultColor2_Callback>(slot));
+void QsciLexerFortran77_OnDefaultColor2(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_defaultcolor2_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultColor2_Callback>(slot);
 }
 
 // Derived class handler implementation
 QFont* QsciLexerFortran77_DefaultFont2(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return new QFont(vqscilexerfortran77->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerFortran77*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->defaultFont(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QFont* QsciLexerFortran77_SuperDefaultFont2(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultFont2_IsBase(true);
-        return new QFont(vqscilexerfortran77->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexerFortran77*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->QsciLexerFortran77::defaultFont(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnDefaultFont2(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultFont2_Callback>(slot));
+void QsciLexerFortran77_OnDefaultFont2(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_defaultfont2_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultFont2_Callback>(slot);
 }
 
 // Derived class handler implementation
 QColor* QsciLexerFortran77_DefaultPaper2(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return new QColor(vqscilexerfortran77->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerFortran77*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultPaper(static_cast<int>(style)));
 }
 
 // Base class handler implementation
 QColor* QsciLexerFortran77_SuperDefaultPaper2(const QsciLexerFortran77* self, int style) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultPaper2_IsBase(true);
-        return new QColor(vqscilexerfortran77->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexerFortran77*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->QsciLexerFortran77::defaultPaper(static_cast<int>(style)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnDefaultPaper2(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultPaper2_Callback>(slot));
+void QsciLexerFortran77_OnDefaultPaper2(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_defaultpaper2_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultPaper2_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_SetEditor(QsciLexerFortran77* self, QsciScintilla* editor) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setEditor(editor);
-    }
+    self->setEditor(editor);
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperSetEditor(QsciLexerFortran77* self, QsciScintilla* editor) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetEditor_IsBase(true);
-        vqscilexerfortran77->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setEditor(editor);
-    }
+    self->QsciLexerFortran77::setEditor(editor);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnSetEditor(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetEditor_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_seteditor_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciLexerFortran77_StyleBitsNeeded(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->styleBitsNeeded();
-    }
+    return self->styleBitsNeeded();
 }
 
 // Base class handler implementation
 int QsciLexerFortran77_SuperStyleBitsNeeded(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_StyleBitsNeeded_IsBase(true);
-        return vqscilexerfortran77->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->styleBitsNeeded();
-    }
+    return self->QsciLexerFortran77::styleBitsNeeded();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnStyleBitsNeeded(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_StyleBitsNeeded_Callback>(slot));
+void QsciLexerFortran77_OnStyleBitsNeeded(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_stylebitsneeded_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_StyleBitsNeeded_Callback>(slot);
 }
 
 // Derived class handler implementation
 const char* QsciLexerFortran77_WordCharacters(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return (const char*)vqscilexerfortran77->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->wordCharacters();
-    }
+    return (const char*)self->wordCharacters();
 }
 
 // Base class handler implementation
 const char* QsciLexerFortran77_SuperWordCharacters(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_WordCharacters_IsBase(true);
-        return (const char*)vqscilexerfortran77->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexerFortran77*)self)->wordCharacters();
-    }
+    return (const char*)self->QsciLexerFortran77::wordCharacters();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnWordCharacters(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_WordCharacters_Callback>(slot));
+void QsciLexerFortran77_OnWordCharacters(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_wordcharacters_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_WordCharacters_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_SetAutoIndentStyle(QsciLexerFortran77* self, int autoindentstyle) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperSetAutoIndentStyle(QsciLexerFortran77* self, int autoindentstyle) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetAutoIndentStyle_IsBase(true);
-        vqscilexerfortran77->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->QsciLexerFortran77::setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnSetAutoIndentStyle(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetAutoIndentStyle_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_setautoindentstyle_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetAutoIndentStyle_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_SetColor(QsciLexerFortran77* self, const QColor* c, int style) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->setColor(*c, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperSetColor(QsciLexerFortran77* self, const QColor* c, int style) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetColor_IsBase(true);
-        vqscilexerfortran77->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->QsciLexerFortran77::setColor(*c, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnSetColor(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_SetColor_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetColor_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_setcolor_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetColor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_SetEolFill(QsciLexerFortran77* self, bool eoffill, int style) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->setEolFill(eoffill, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperSetEolFill(QsciLexerFortran77* self, bool eoffill, int style) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetEolFill_IsBase(true);
-        vqscilexerfortran77->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->QsciLexerFortran77::setEolFill(eoffill, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnSetEolFill(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetEolFill_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_seteolfill_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetEolFill_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_SetFont(QsciLexerFortran77* self, const QFont* f, int style) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->setFont(*f, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperSetFont(QsciLexerFortran77* self, const QFont* f, int style) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetFont_IsBase(true);
-        vqscilexerfortran77->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->QsciLexerFortran77::setFont(*f, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnSetFont(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_SetFont_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetFont_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_setfont_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetFont_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_SetPaper(QsciLexerFortran77* self, const QColor* c, int style) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->setPaper(*c, static_cast<int>(style));
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperSetPaper(QsciLexerFortran77* self, const QColor* c, int style) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SetPaper_IsBase(true);
-        vqscilexerfortran77->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->QsciLexerFortran77::setPaper(*c, static_cast<int>(style));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnSetPaper(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetPaper_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_setpaper_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SetPaper_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerFortran77_ReadProperties(QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
+    if (vqscilexerfortran77) {
         return vqscilexerfortran77->readProperties(*qs, prefix_QString);
     } else {
-        return ((VirtualQsciLexerFortran77*)self)->readProperties(*qs, prefix_QString);
+        qFatal("Error: Protected virtual method QsciLexerFortran77::readProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciLexerFortran77_SuperReadProperties(QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_ReadProperties_IsBase(true);
-        return vqscilexerfortran77->readProperties(*qs, prefix_QString);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->readProperties(*qs, prefix_QString);
-    }
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self)) {
+        return vqscilexerfortran77->QsciLexerFortran77::readProperties(*qs, prefix_QString);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerFortran77::readProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnReadProperties(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_ReadProperties_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_readproperties_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_ReadProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerFortran77_WriteProperties(const QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
+    if (vqscilexerfortran77) {
         return vqscilexerfortran77->writeProperties(*qs, prefix_QString);
     } else {
-        return ((VirtualQsciLexerFortran77*)self)->writeProperties(*qs, prefix_QString);
+        qFatal("Error: Protected virtual method QsciLexerFortran77::writeProperties called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciLexerFortran77_SuperWriteProperties(const QsciLexerFortran77* self, QSettings* qs, const libqt_string prefix) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_WriteProperties_IsBase(true);
-        return vqscilexerfortran77->writeProperties(*qs, prefix_QString);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->writeProperties(*qs, prefix_QString);
-    }
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self))) {
+        return vqscilexerfortran77->QsciLexerFortran77::writeProperties(*qs, prefix_QString);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerFortran77::writeProperties called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnWriteProperties(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_WriteProperties_Callback>(slot));
+void QsciLexerFortran77_OnWriteProperties(QsciLexerFortran77* self, intptr_t slot) {
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self)))
+        vqscilexerfortran77->qscilexerfortran77_writeproperties_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_WriteProperties_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerFortran77_Event(QsciLexerFortran77* self, QEvent* event) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->event(event);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QsciLexerFortran77_SuperEvent(QsciLexerFortran77* self, QEvent* event) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Event_IsBase(true);
-        return vqscilexerfortran77->event(event);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->event(event);
-    }
+    return self->QsciLexerFortran77::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnEvent(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_Event_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Event_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_event_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciLexerFortran77_EventFilter(QsciLexerFortran77* self, QObject* watched, QEvent* event) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->eventFilter(watched, event);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QsciLexerFortran77_SuperEventFilter(QsciLexerFortran77* self, QObject* watched, QEvent* event) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_EventFilter_IsBase(true);
-        return vqscilexerfortran77->eventFilter(watched, event);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->eventFilter(watched, event);
-    }
+    return self->QsciLexerFortran77::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnEventFilter(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_EventFilter_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_eventfilter_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_TimerEvent(QsciLexerFortran77* self, QTimerEvent* event) {
     auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+    if (vqscilexerfortran77) {
         vqscilexerfortran77->timerEvent(event);
     } else {
-        ((VirtualQsciLexerFortran77*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerFortran77::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperTimerEvent(QsciLexerFortran77* self, QTimerEvent* event) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_TimerEvent_IsBase(true);
-        vqscilexerfortran77->timerEvent(event);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->timerEvent(event);
-    }
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self)) {
+        vqscilexerfortran77->QsciLexerFortran77::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerFortran77::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnTimerEvent(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_TimerEvent_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_timerevent_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_ChildEvent(QsciLexerFortran77* self, QChildEvent* event) {
     auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+    if (vqscilexerfortran77) {
         vqscilexerfortran77->childEvent(event);
     } else {
-        ((VirtualQsciLexerFortran77*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerFortran77::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperChildEvent(QsciLexerFortran77* self, QChildEvent* event) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_ChildEvent_IsBase(true);
-        vqscilexerfortran77->childEvent(event);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->childEvent(event);
-    }
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self)) {
+        vqscilexerfortran77->QsciLexerFortran77::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerFortran77::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnChildEvent(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_ChildEvent_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_childevent_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_CustomEvent(QsciLexerFortran77* self, QEvent* event) {
     auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+    if (vqscilexerfortran77) {
         vqscilexerfortran77->customEvent(event);
     } else {
-        ((VirtualQsciLexerFortran77*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QsciLexerFortran77::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperCustomEvent(QsciLexerFortran77* self, QEvent* event) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_CustomEvent_IsBase(true);
-        vqscilexerfortran77->customEvent(event);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->customEvent(event);
-    }
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self)) {
+        vqscilexerfortran77->QsciLexerFortran77::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerFortran77::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnCustomEvent(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_CustomEvent_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_customevent_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_ConnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal) {
     auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+    if (vqscilexerfortran77) {
         vqscilexerfortran77->connectNotify(*signal);
     } else {
-        ((VirtualQsciLexerFortran77*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciLexerFortran77::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperConnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_ConnectNotify_IsBase(true);
-        vqscilexerfortran77->connectNotify(*signal);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->connectNotify(*signal);
-    }
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self)) {
+        vqscilexerfortran77->QsciLexerFortran77::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerFortran77::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnConnectNotify(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_ConnectNotify_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_connectnotify_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciLexerFortran77_DisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal) {
     auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
+    if (vqscilexerfortran77) {
         vqscilexerfortran77->disconnectNotify(*signal);
     } else {
-        ((VirtualQsciLexerFortran77*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciLexerFortran77::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciLexerFortran77_SuperDisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DisconnectNotify_IsBase(true);
-        vqscilexerfortran77->disconnectNotify(*signal);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self)) {
+        vqscilexerfortran77->QsciLexerFortran77::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciLexerFortran77::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerFortran77_OnDisconnectNotify(QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DisconnectNotify_Callback>(slot));
+    if (auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self))
+        vqscilexerfortran77->qscilexerfortran77_disconnectnotify_callback = reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciLexerFortran77_TextAsBytes(const QsciLexerFortran77* self, const libqt_string text) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        QByteArray _qb = vqscilexerfortran77->textAsBytes(text_QString);
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self))) {
+        QString text_QString = QString::fromUtf8(text.data, text.len);
+        QByteArray _qb = vqscilexerfortran77->VirtualQsciLexerFortran77::textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciLexerFortran77*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciLexerFortran77::textAsBytes called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciLexerFortran77_SuperTextAsBytes(const QsciLexerFortran77* self, const libqt_string text) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_TextAsBytes_IsBase(true);
-        QByteArray _qb = vqscilexerfortran77->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciLexerFortran77*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnTextAsBytes(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_TextAsBytes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciLexerFortran77_BytesAsText(const QsciLexerFortran77* self, const char* bytes, int size) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        auto _ret = vqscilexerfortran77->bytesAsText(bytes, static_cast<int>(size));
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self))) {
+        auto _ret = vqscilexerfortran77->VirtualQsciLexerFortran77::bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1285,163 +834,40 @@ libqt_string QsciLexerFortran77_BytesAsText(const QsciLexerFortran77* self, cons
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerFortran77*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciLexerFortran77::bytesAsText called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciLexerFortran77_SuperBytesAsText(const QsciLexerFortran77* self, const char* bytes, int size) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_BytesAsText_IsBase(true);
-        auto _ret = vqscilexerfortran77->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexerFortran77*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnBytesAsText(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_BytesAsText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QsciLexerFortran77_Sender(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->sender();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->sender();
-    }
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self))) {
+        return vqscilexerfortran77->VirtualQsciLexerFortran77::sender();
+    } else
+        qFatal("Error: Protected method QsciLexerFortran77::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QsciLexerFortran77_SuperSender(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Sender_IsBase(true);
-        return vqscilexerfortran77->sender();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnSender(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_Sender_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciLexerFortran77_SenderSignalIndex(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->senderSignalIndex();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->senderSignalIndex();
-    }
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self))) {
+        return vqscilexerfortran77->VirtualQsciLexerFortran77::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QsciLexerFortran77::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciLexerFortran77_SuperSenderSignalIndex(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_SenderSignalIndex_IsBase(true);
-        return vqscilexerfortran77->senderSignalIndex();
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnSenderSignalIndex(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciLexerFortran77_Receivers(const QsciLexerFortran77* self, const char* signal) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->receivers(signal);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->receivers(signal);
-    }
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self))) {
+        return vqscilexerfortran77->VirtualQsciLexerFortran77::receivers(signal);
+    } else
+        qFatal("Error: Protected method QsciLexerFortran77::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciLexerFortran77_SuperReceivers(const QsciLexerFortran77* self, const char* signal) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_Receivers_IsBase(true);
-        return vqscilexerfortran77->receivers(signal);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnReceivers(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_Receivers_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciLexerFortran77_IsSignalConnected(const QsciLexerFortran77* self, const QMetaMethod* signal) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return vqscilexerfortran77->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QsciLexerFortran77_SuperIsSignalConnected(const QsciLexerFortran77* self, const QMetaMethod* signal) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_IsSignalConnected_IsBase(true);
-        return vqscilexerfortran77->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnIsSignalConnected(const QsciLexerFortran77* self, intptr_t slot) {
-    auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77)
-        vqscilexerfortran77->setQsciLexerFortran77_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_IsSignalConnected_Callback>(slot));
+    if (auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self))) {
+        return vqscilexerfortran77->VirtualQsciLexerFortran77::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QsciLexerFortran77::isSignalConnected called without a directly constructed type");
 }
 
 void QsciLexerFortran77_Delete(QsciLexerFortran77* self) {

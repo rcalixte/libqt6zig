@@ -60,166 +60,95 @@ double QSGRenderNode_InheritedOpacity(const QSGRenderNode* self) {
 
 // Base class handler implementation
 int QSGRenderNode_SuperChangedStates(const QSGRenderNode* self) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->setQSGRenderNode_ChangedStates_IsBase(true);
-        return static_cast<int>(vqsgrendernode->changedStates());
-    } else {
-        return static_cast<int>(self->QSGRenderNode::changedStates());
-    }
+    return static_cast<int>(self->QSGRenderNode::changedStates());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGRenderNode_OnChangedStates(const QSGRenderNode* self, intptr_t slot) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode)
-        vqsgrendernode->setQSGRenderNode_ChangedStates_Callback(reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_ChangedStates_Callback>(slot));
+void QSGRenderNode_OnChangedStates(QSGRenderNode* self, intptr_t slot) {
+    if (auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self)))
+        vqsgrendernode->qsgrendernode_changedstates_callback = reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_ChangedStates_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSGRenderNode_SuperPrepare(QSGRenderNode* self) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->setQSGRenderNode_Prepare_IsBase(true);
-        vqsgrendernode->prepare();
-    } else {
-        self->QSGRenderNode::prepare();
-    }
+    self->QSGRenderNode::prepare();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGRenderNode_OnPrepare(QSGRenderNode* self, intptr_t slot) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode)
-        vqsgrendernode->setQSGRenderNode_Prepare_Callback(reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Prepare_Callback>(slot));
-}
-
-// Base class handler implementation
-void QSGRenderNode_SuperRender(QSGRenderNode* self, const QSGRenderNode__RenderState* state) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->setQSGRenderNode_Render_IsBase(true);
-        vqsgrendernode->render(state);
-    } else {
-        ((VirtualQSGRenderNode*)self)->render(state);
-    }
+    if (auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self))
+        vqsgrendernode->qsgrendernode_prepare_callback = reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Prepare_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGRenderNode_OnRender(QSGRenderNode* self, intptr_t slot) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode)
-        vqsgrendernode->setQSGRenderNode_Render_Callback(reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Render_Callback>(slot));
+    if (auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self))
+        vqsgrendernode->qsgrendernode_render_callback = reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Render_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSGRenderNode_SuperReleaseResources(QSGRenderNode* self) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->setQSGRenderNode_ReleaseResources_IsBase(true);
-        vqsgrendernode->releaseResources();
-    } else {
-        self->QSGRenderNode::releaseResources();
-    }
+    self->QSGRenderNode::releaseResources();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGRenderNode_OnReleaseResources(QSGRenderNode* self, intptr_t slot) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode)
-        vqsgrendernode->setQSGRenderNode_ReleaseResources_Callback(reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_ReleaseResources_Callback>(slot));
+    if (auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self))
+        vqsgrendernode->qsgrendernode_releaseresources_callback = reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_ReleaseResources_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSGRenderNode_SuperFlags(const QSGRenderNode* self) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->setQSGRenderNode_Flags_IsBase(true);
-        return static_cast<int>(vqsgrendernode->flags());
-    } else {
-        return static_cast<int>(self->QSGRenderNode::flags());
-    }
+    return static_cast<int>(self->QSGRenderNode::flags());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGRenderNode_OnFlags(const QSGRenderNode* self, intptr_t slot) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode)
-        vqsgrendernode->setQSGRenderNode_Flags_Callback(reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Flags_Callback>(slot));
+void QSGRenderNode_OnFlags(QSGRenderNode* self, intptr_t slot) {
+    if (auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self)))
+        vqsgrendernode->qsgrendernode_flags_callback = reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Flags_Callback>(slot);
 }
 
 // Base class handler implementation
 QRectF* QSGRenderNode_SuperRect(const QSGRenderNode* self) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->setQSGRenderNode_Rect_IsBase(true);
-        return new QRectF(vqsgrendernode->rect());
-    } else {
-        return new QRectF(((VirtualQSGRenderNode*)self)->rect());
-    }
+    return new QRectF(self->QSGRenderNode::rect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGRenderNode_OnRect(const QSGRenderNode* self, intptr_t slot) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode)
-        vqsgrendernode->setQSGRenderNode_Rect_Callback(reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Rect_Callback>(slot));
+void QSGRenderNode_OnRect(QSGRenderNode* self, intptr_t slot) {
+    if (auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self)))
+        vqsgrendernode->qsgrendernode_rect_callback = reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Rect_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSGRenderNode_IsSubtreeBlocked(const QSGRenderNode* self) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        return vqsgrendernode->isSubtreeBlocked();
-    } else {
-        return self->QSGRenderNode::isSubtreeBlocked();
-    }
+    return self->isSubtreeBlocked();
 }
 
 // Base class handler implementation
 bool QSGRenderNode_SuperIsSubtreeBlocked(const QSGRenderNode* self) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->setQSGRenderNode_IsSubtreeBlocked_IsBase(true);
-        return vqsgrendernode->isSubtreeBlocked();
-    } else {
-        return self->QSGRenderNode::isSubtreeBlocked();
-    }
+    return self->QSGRenderNode::isSubtreeBlocked();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGRenderNode_OnIsSubtreeBlocked(const QSGRenderNode* self, intptr_t slot) {
-    auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self));
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode)
-        vqsgrendernode->setQSGRenderNode_IsSubtreeBlocked_Callback(reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_IsSubtreeBlocked_Callback>(slot));
+void QSGRenderNode_OnIsSubtreeBlocked(QSGRenderNode* self, intptr_t slot) {
+    if (auto* vqsgrendernode = const_cast<VirtualQSGRenderNode*>(dynamic_cast<const VirtualQSGRenderNode*>(self)))
+        vqsgrendernode->qsgrendernode_issubtreeblocked_callback = reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_IsSubtreeBlocked_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSGRenderNode_Preprocess(QSGRenderNode* self) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->preprocess();
-    } else {
-        self->QSGRenderNode::preprocess();
-    }
+    self->preprocess();
 }
 
 // Base class handler implementation
 void QSGRenderNode_SuperPreprocess(QSGRenderNode* self) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode) {
-        vqsgrendernode->setQSGRenderNode_Preprocess_IsBase(true);
-        vqsgrendernode->preprocess();
-    } else {
-        self->QSGRenderNode::preprocess();
-    }
+    self->QSGRenderNode::preprocess();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGRenderNode_OnPreprocess(QSGRenderNode* self, intptr_t slot) {
-    auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self);
-    if (vqsgrendernode && vqsgrendernode->isVirtualQSGRenderNode)
-        vqsgrendernode->setQSGRenderNode_Preprocess_Callback(reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Preprocess_Callback>(slot));
+    if (auto* vqsgrendernode = dynamic_cast<VirtualQSGRenderNode*>(self))
+        vqsgrendernode->qsgrendernode_preprocess_callback = reinterpret_cast<VirtualQSGRenderNode::QSGRenderNode_Preprocess_Callback>(slot);
 }
 
 void QSGRenderNode_Delete(QSGRenderNode* self) {

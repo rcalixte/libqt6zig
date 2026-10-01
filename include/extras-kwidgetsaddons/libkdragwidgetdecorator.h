@@ -39,7 +39,7 @@ bool KDragWidgetDecoratorBase_EventFilter(KDragWidgetDecoratorBase* self, QObjec
 void KDragWidgetDecoratorBase_StartDrag(KDragWidgetDecoratorBase* self);
 libqt_string KDragWidgetDecoratorBase_Tr2(const char* s, const char* c);
 libqt_string KDragWidgetDecoratorBase_Tr3(const char* s, const char* c, int n);
-void KDragWidgetDecoratorBase_OnMetaObject(const KDragWidgetDecoratorBase* self, intptr_t slot);
+void KDragWidgetDecoratorBase_OnMetaObject(KDragWidgetDecoratorBase* self, intptr_t slot);
 QMetaObject* KDragWidgetDecoratorBase_SuperMetaObject(const KDragWidgetDecoratorBase* self);
 void KDragWidgetDecoratorBase_OnMetacast(KDragWidgetDecoratorBase* self, intptr_t slot);
 void* KDragWidgetDecoratorBase_SuperMetacast(KDragWidgetDecoratorBase* self, const char* param1);
@@ -70,20 +70,10 @@ void KDragWidgetDecoratorBase_DisconnectNotify(KDragWidgetDecoratorBase* self, c
 void KDragWidgetDecoratorBase_OnDisconnectNotify(KDragWidgetDecoratorBase* self, intptr_t slot);
 void KDragWidgetDecoratorBase_SuperDisconnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
 QWidget* KDragWidgetDecoratorBase_DecoratedWidget(const KDragWidgetDecoratorBase* self);
-void KDragWidgetDecoratorBase_OnDecoratedWidget(const KDragWidgetDecoratorBase* self, intptr_t slot);
-QWidget* KDragWidgetDecoratorBase_SuperDecoratedWidget(const KDragWidgetDecoratorBase* self);
 QObject* KDragWidgetDecoratorBase_Sender(const KDragWidgetDecoratorBase* self);
-void KDragWidgetDecoratorBase_OnSender(const KDragWidgetDecoratorBase* self, intptr_t slot);
-QObject* KDragWidgetDecoratorBase_SuperSender(const KDragWidgetDecoratorBase* self);
 int KDragWidgetDecoratorBase_SenderSignalIndex(const KDragWidgetDecoratorBase* self);
-void KDragWidgetDecoratorBase_OnSenderSignalIndex(const KDragWidgetDecoratorBase* self, intptr_t slot);
-int KDragWidgetDecoratorBase_SuperSenderSignalIndex(const KDragWidgetDecoratorBase* self);
 int KDragWidgetDecoratorBase_Receivers(const KDragWidgetDecoratorBase* self, const char* signal);
-void KDragWidgetDecoratorBase_OnReceivers(const KDragWidgetDecoratorBase* self, intptr_t slot);
-int KDragWidgetDecoratorBase_SuperReceivers(const KDragWidgetDecoratorBase* self, const char* signal);
 bool KDragWidgetDecoratorBase_IsSignalConnected(const KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
-void KDragWidgetDecoratorBase_OnIsSignalConnected(const KDragWidgetDecoratorBase* self, intptr_t slot);
-bool KDragWidgetDecoratorBase_SuperIsSignalConnected(const KDragWidgetDecoratorBase* self, const QMetaMethod* signal);
 void KDragWidgetDecoratorBase_Delete(KDragWidgetDecoratorBase* self);
 
 #ifdef __cplusplus

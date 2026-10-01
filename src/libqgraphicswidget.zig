@@ -164,9 +164,9 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` self: QGraphicsWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget) callconv(.c) QMetaObject) void {
         qtc.QGraphicsWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1288,9 +1288,9 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` self: QGraphicsWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGraphicsWidget) callconv(.c) i32 `
     ///
-    pub fn onType(self: QGraphicsWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget) callconv(.c) i32) void {
         qtc.QGraphicsWidget_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1468,11 +1468,11 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` self: QGraphicsWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QGraphicsWidget) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBoundingRect(self: QGraphicsWidget, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onBoundingRect(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget) callconv(.c) QRectF) void {
         qtc.QGraphicsWidget_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1518,11 +1518,11 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` self: QGraphicsWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QPainterPath `
+    /// ` callback: *const fn (self: QGraphicsWidget) callconv(.c) QPainterPath `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onShape(self: QGraphicsWidget, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onShape(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget) callconv(.c) QPainterPath) void {
         qtc.QGraphicsWidget_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1756,9 +1756,9 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` self: QGraphicsWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsWidget) callconv(.c) void `
     ///
-    pub fn onUpdateGeometry(self: QGraphicsWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometry(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget) callconv(.c) void) void {
         qtc.QGraphicsWidget_OnUpdateGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2532,9 +2532,9 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` self: QGraphicsWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsWidget) callconv(.c) void `
     ///
-    pub fn onPolishEvent(self: QGraphicsWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onPolishEvent(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget) callconv(.c) void) void {
         qtc.QGraphicsWidget_OnPolishEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9431,11 +9431,11 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` self: QGraphicsWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainterPath `
+    /// ` callback: *const fn (self: QGraphicsWidget) callconv(.c) QPainterPath `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onOpaqueArea(self: QGraphicsWidget, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onOpaqueArea(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget) callconv(.c) QPainterPath) void {
         qtc.QGraphicsWidget_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10679,9 +10679,9 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` self: QGraphicsWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QGraphicsWidget) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QGraphicsWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget) callconv(.c) bool) void {
         qtc.QGraphicsWidget_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10703,44 +10703,6 @@ pub const QGraphicsWidget = extern struct {
         qtc.QGraphicsWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QGraphicsObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: QGraphicsWidget) void {
-        qtc.QGraphicsWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QGraphicsObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QGraphicsWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10759,44 +10721,6 @@ pub const QGraphicsWidget = extern struct {
         return .{ .ptr = qtc.QGraphicsWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    pub fn superSender(self: QGraphicsWidget) QObject {
-        return .{ .ptr = qtc.QGraphicsWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10813,44 +10737,6 @@ pub const QGraphicsWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsWidget) i32 {
         return qtc.QGraphicsWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsWidget) i32 {
-        return qtc.QGraphicsWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10874,47 +10760,6 @@ pub const QGraphicsWidget = extern struct {
         return qtc.QGraphicsWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn (self: QGraphicsWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10936,47 +10781,6 @@ pub const QGraphicsWidget = extern struct {
         return qtc.QGraphicsWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn (self: QGraphicsWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `addToIndex` instead
     ///
     pub const AddToIndex = addToIndex;
@@ -10993,44 +10797,6 @@ pub const QGraphicsWidget = extern struct {
     ///
     pub fn addToIndex(self: QGraphicsWidget) void {
         qtc.QGraphicsWidget_AddToIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAddToIndex` instead
-    ///
-    pub const SuperAddToIndex = superAddToIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    pub fn superAddToIndex(self: QGraphicsWidget) void {
-        qtc.QGraphicsWidget_SuperAddToIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddToIndex` instead
-    ///
-    pub const OnAddToIndex = onAddToIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddToIndex(self: QGraphicsWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsWidget_OnAddToIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `removeFromIndex` instead
@@ -11051,44 +10817,6 @@ pub const QGraphicsWidget = extern struct {
         qtc.QGraphicsWidget_RemoveFromIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superRemoveFromIndex` instead
-    ///
-    pub const SuperRemoveFromIndex = superRemoveFromIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    pub fn superRemoveFromIndex(self: QGraphicsWidget) void {
-        qtc.QGraphicsWidget_SuperRemoveFromIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRemoveFromIndex` instead
-    ///
-    pub const OnRemoveFromIndex = onRemoveFromIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onRemoveFromIndex(self: QGraphicsWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsWidget_OnRemoveFromIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `prepareGeometryChange` instead
     ///
     pub const PrepareGeometryChange = prepareGeometryChange;
@@ -11105,44 +10833,6 @@ pub const QGraphicsWidget = extern struct {
     ///
     pub fn prepareGeometryChange(self: QGraphicsWidget) void {
         qtc.QGraphicsWidget_PrepareGeometryChange(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superPrepareGeometryChange` instead
-    ///
-    pub const SuperPrepareGeometryChange = superPrepareGeometryChange;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    pub fn superPrepareGeometryChange(self: QGraphicsWidget) void {
-        qtc.QGraphicsWidget_SuperPrepareGeometryChange(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onPrepareGeometryChange` instead
-    ///
-    pub const OnPrepareGeometryChange = onPrepareGeometryChange;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onPrepareGeometryChange(self: QGraphicsWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsWidget_OnPrepareGeometryChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setGraphicsItem` instead
@@ -11167,48 +10857,6 @@ pub const QGraphicsWidget = extern struct {
         qtc.QGraphicsWidget_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetGraphicsItem` instead
-    ///
-    pub const SuperSetGraphicsItem = superSetGraphicsItem;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    /// ` item: QGraphicsItem `
-    ///
-    pub fn superSetGraphicsItem(self: QGraphicsWidget, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
-        qtc.QGraphicsWidget_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetGraphicsItem` instead
-    ///
-    pub const OnSetGraphicsItem = onSetGraphicsItem;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn (self: QGraphicsWidget, item: QGraphicsItem) callconv(.c) void `
-    ///
-    pub fn onSetGraphicsItem(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, QGraphicsItem) callconv(.c) void) void {
-        qtc.QGraphicsWidget_OnSetGraphicsItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOwnedByLayout` instead
     ///
     pub const SetOwnedByLayout = setOwnedByLayout;
@@ -11227,46 +10875,6 @@ pub const QGraphicsWidget = extern struct {
     ///
     pub fn setOwnedByLayout(self: QGraphicsWidget, _ownedByLayout: bool) void {
         qtc.QGraphicsWidget_SetOwnedByLayout(@ptrCast(self.ptr), _ownedByLayout);
-    }
-
-    /// ### DEPRECATED: Use `superSetOwnedByLayout` instead
-    ///
-    pub const SuperSetOwnedByLayout = superSetOwnedByLayout;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsWidget `
-    ///
-    /// ` _ownedByLayout: bool `
-    ///
-    pub fn superSetOwnedByLayout(self: QGraphicsWidget, _ownedByLayout: bool) void {
-        qtc.QGraphicsWidget_SuperSetOwnedByLayout(@ptrCast(self.ptr), _ownedByLayout);
-    }
-
-    /// ### DEPRECATED: Use `onSetOwnedByLayout` instead
-    ///
-    pub const OnSetOwnedByLayout = onSetOwnedByLayout;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsWidget`
-    ///
-    /// ` callback: *const fn (self: QGraphicsWidget, ownedByLayout: bool) callconv(.c) void `
-    ///
-    pub fn onSetOwnedByLayout(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, bool) callconv(.c) void) void {
-        qtc.QGraphicsWidget_OnSetOwnedByLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

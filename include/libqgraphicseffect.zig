@@ -84,9 +84,9 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` self: QGraphicsEffect `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsEffect) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect) callconv(.c) QMetaObject) void {
         qtc.QGraphicsEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -383,6 +383,8 @@ pub const QGraphicsEffect = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
     ///
+    /// This method must be implemented with `onDraw` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QGraphicsEffect `
@@ -410,25 +412,6 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub fn onDraw(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QPainter) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnDraw(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDraw` instead
-    ///
-    pub const SuperDraw = superDraw;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#draw)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` painter: QPainter `
-    ///
-    pub fn superDraw(self: QGraphicsEffect, painter: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        qtc.QGraphicsEffect_SuperDraw(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `sourceChanged` instead
@@ -497,40 +480,6 @@ pub const QGraphicsEffect = extern struct {
         qtc.QGraphicsEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
-    ///
-    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateBoundingRect(self: QGraphicsEffect, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
-    ///
-    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    pub fn superUpdateBoundingRect(self: QGraphicsEffect) void {
-        qtc.QGraphicsEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `sourceIsPixmap` instead
     ///
     pub const SourceIsPixmap = sourceIsPixmap;
@@ -545,40 +494,6 @@ pub const QGraphicsEffect = extern struct {
         return qtc.QGraphicsEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
-    ///
-    pub const OnSourceIsPixmap = onSourceIsPixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSourceIsPixmap(self: QGraphicsEffect, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
-    ///
-    pub const SuperSourceIsPixmap = superSourceIsPixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    pub fn superSourceIsPixmap(self: QGraphicsEffect) bool {
-        return qtc.QGraphicsEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `sourceBoundingRect` instead
     ///
     pub const SourceBoundingRect = sourceBoundingRect;
@@ -591,42 +506,6 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub fn sourceBoundingRect(self: QGraphicsEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
-    ///
-    pub const OnSourceBoundingRect = onSourceBoundingRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourceBoundingRect(self: QGraphicsEffect, callback: *const fn () callconv(.c) QRectF) void {
-        qtc.QGraphicsEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
-    ///
-    pub const SuperSourceBoundingRect = superSourceBoundingRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    pub fn superSourceBoundingRect(self: QGraphicsEffect) QRectF {
-        return .{ .ptr = qtc.QGraphicsEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `drawSource` instead
@@ -646,43 +525,6 @@ pub const QGraphicsEffect = extern struct {
         qtc.QGraphicsEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `onDrawSource` instead
-    ///
-    pub const OnDrawSource = onDrawSource;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn (self: QGraphicsEffect, painter: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawSource(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QPainter) callconv(.c) void) void {
-        qtc.QGraphicsEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDrawSource` instead
-    ///
-    pub const SuperDrawSource = superDrawSource;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` painter: QPainter `
-    ///
-    pub fn superDrawSource(self: QGraphicsEffect, painter: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        qtc.QGraphicsEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
-    }
-
     /// ### DEPRECATED: Use `sourcePixmap` instead
     ///
     pub const SourcePixmap = sourcePixmap;
@@ -695,42 +537,6 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub fn sourcePixmap(self: QGraphicsEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsEffect_SourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourcePixmap` instead
-    ///
-    pub const OnSourcePixmap = onSourcePixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn () callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourcePixmap(self: QGraphicsEffect, callback: *const fn () callconv(.c) QPixmap) void {
-        qtc.QGraphicsEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSourcePixmap` instead
-    ///
-    pub const SuperSourcePixmap = superSourcePixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    pub fn superSourcePixmap(self: QGraphicsEffect) QPixmap {
-        return .{ .ptr = qtc.QGraphicsEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -803,44 +609,6 @@ pub const QGraphicsEffect = extern struct {
         return .{ .ptr = qtc.QGraphicsEffect_SourceBoundingRect1(@ptrCast(self.ptr), @bitCast(system)) };
     }
 
-    /// ### DEPRECATED: Use `onSourceBoundingRect1` instead
-    ///
-    pub const OnSourceBoundingRect1 = onSourceBoundingRect1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn (self: QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourceBoundingRect1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) QRectF) void {
-        qtc.QGraphicsEffect_OnSourceBoundingRect1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSourceBoundingRect1` instead
-    ///
-    pub const SuperSourceBoundingRect1 = superSourceBoundingRect1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` system: qnamespace_enums.CoordinateSystem `
-    ///
-    pub fn superSourceBoundingRect1(self: QGraphicsEffect, system: i32) QRectF {
-        return .{ .ptr = qtc.QGraphicsEffect_SuperSourceBoundingRect1(@ptrCast(self.ptr), @bitCast(system)) };
-    }
-
     /// ### DEPRECATED: Use `sourcePixmap1` instead
     ///
     pub const SourcePixmap1 = sourcePixmap1;
@@ -855,44 +623,6 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub fn sourcePixmap1(self: QGraphicsEffect, system: i32) QPixmap {
         return .{ .ptr = qtc.QGraphicsEffect_SourcePixmap1(@ptrCast(self.ptr), @bitCast(system)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourcePixmap1` instead
-    ///
-    pub const OnSourcePixmap1 = onSourcePixmap1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn (self: QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourcePixmap1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) QPixmap) void {
-        qtc.QGraphicsEffect_OnSourcePixmap1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSourcePixmap1` instead
-    ///
-    pub const SuperSourcePixmap1 = superSourcePixmap1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` system: qnamespace_enums.CoordinateSystem `
-    ///
-    pub fn superSourcePixmap1(self: QGraphicsEffect, system: i32) QPixmap {
-        return .{ .ptr = qtc.QGraphicsEffect_SuperSourcePixmap1(@ptrCast(self.ptr), @bitCast(system)) };
     }
 
     /// ### DEPRECATED: Use `sourcePixmap2` instead
@@ -914,47 +644,6 @@ pub const QGraphicsEffect = extern struct {
         return .{ .ptr = qtc.QGraphicsEffect_SourcePixmap2(@ptrCast(self.ptr), @bitCast(system), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onSourcePixmap2` instead
-    ///
-    pub const OnSourcePixmap2 = onSourcePixmap2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn (self: QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QPoint) callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourcePixmap2(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, QPoint) callconv(.c) QPixmap) void {
-        qtc.QGraphicsEffect_OnSourcePixmap2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSourcePixmap2` instead
-    ///
-    pub const SuperSourcePixmap2 = superSourcePixmap2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` system: qnamespace_enums.CoordinateSystem `
-    ///
-    /// ` offset: QPoint `
-    ///
-    pub fn superSourcePixmap2(self: QGraphicsEffect, system: i32, offset: anytype) QPixmap {
-        comptime _ = @TypeOf(offset)._is_QPoint;
-        return .{ .ptr = qtc.QGraphicsEffect_SuperSourcePixmap2(@ptrCast(self.ptr), @bitCast(system), @ptrCast(offset.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `sourcePixmap3` instead
     ///
     pub const SourcePixmap3 = sourcePixmap3;
@@ -974,49 +663,6 @@ pub const QGraphicsEffect = extern struct {
     pub fn sourcePixmap3(self: QGraphicsEffect, system: i32, offset: anytype, mode: i32) QPixmap {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QGraphicsEffect_SourcePixmap3(@ptrCast(self.ptr), @bitCast(system), @ptrCast(offset.ptr), @bitCast(mode)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourcePixmap3` instead
-    ///
-    pub const OnSourcePixmap3 = onSourcePixmap3;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` callback: *const fn (self: QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QPoint, mode: qgraphicseffect_enums.PixmapPadMode) callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourcePixmap3(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, QPoint, i32) callconv(.c) QPixmap) void {
-        qtc.QGraphicsEffect_OnSourcePixmap3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSourcePixmap3` instead
-    ///
-    pub const SuperSourcePixmap3 = superSourcePixmap3;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` system: qnamespace_enums.CoordinateSystem `
-    ///
-    /// ` offset: QPoint `
-    ///
-    /// ` mode: qgraphicseffect_enums.PixmapPadMode `
-    ///
-    pub fn superSourcePixmap3(self: QGraphicsEffect, system: i32, offset: anytype, mode: i32) QPixmap {
-        comptime _ = @TypeOf(offset)._is_QPoint;
-        return .{ .ptr = qtc.QGraphicsEffect_SuperSourcePixmap3(@ptrCast(self.ptr), @bitCast(system), @ptrCast(offset.ptr), @bitCast(mode)) };
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -2442,44 +2088,6 @@ pub const QGraphicsEffect = extern struct {
         return .{ .ptr = qtc.QGraphicsEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    pub fn superSender(self: QGraphicsEffect) QObject {
-        return .{ .ptr = qtc.QGraphicsEffect_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsEffect, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2496,44 +2104,6 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsEffect) i32 {
         return qtc.QGraphicsEffect_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsEffect) i32 {
-        return qtc.QGraphicsEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsEffect, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2557,47 +2127,6 @@ pub const QGraphicsEffect = extern struct {
         return qtc.QGraphicsEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsEffect, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsEffect, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2617,47 +2146,6 @@ pub const QGraphicsEffect = extern struct {
     pub fn isSignalConnected(self: QGraphicsEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsEffect `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsEffect, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsEffect, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2760,9 +2248,9 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` self: QGraphicsColorizeEffect `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsColorizeEffect) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect) callconv(.c) QMetaObject) void {
         qtc.QGraphicsColorizeEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4790,44 +4278,6 @@ pub const QGraphicsColorizeEffect = extern struct {
         qtc.QGraphicsColorizeEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
-    ///
-    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    pub fn superUpdateBoundingRect(self: QGraphicsColorizeEffect) void {
-        qtc.QGraphicsColorizeEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
-    ///
-    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateBoundingRect(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourceIsPixmap` instead
     ///
     pub const SourceIsPixmap = sourceIsPixmap;
@@ -4846,44 +4296,6 @@ pub const QGraphicsColorizeEffect = extern struct {
         return qtc.QGraphicsColorizeEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
-    ///
-    pub const SuperSourceIsPixmap = superSourceIsPixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    pub fn superSourceIsPixmap(self: QGraphicsColorizeEffect) bool {
-        return qtc.QGraphicsColorizeEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
-    ///
-    pub const OnSourceIsPixmap = onSourceIsPixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSourceIsPixmap(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsColorizeEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourceBoundingRect` instead
     ///
     pub const SourceBoundingRect = sourceBoundingRect;
@@ -4900,46 +4312,6 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     pub fn sourceBoundingRect(self: QGraphicsColorizeEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
-    ///
-    pub const SuperSourceBoundingRect = superSourceBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    pub fn superSourceBoundingRect(self: QGraphicsColorizeEffect) QRectF {
-        return .{ .ptr = qtc.QGraphicsColorizeEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
-    ///
-    pub const OnSourceBoundingRect = onSourceBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourceBoundingRect(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QRectF) void {
-        qtc.QGraphicsColorizeEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawSource` instead
@@ -4963,47 +4335,6 @@ pub const QGraphicsColorizeEffect = extern struct {
         qtc.QGraphicsColorizeEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawSource` instead
-    ///
-    pub const SuperDrawSource = superDrawSource;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    /// ` painter: QPainter `
-    ///
-    pub fn superDrawSource(self: QGraphicsColorizeEffect, painter: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        qtc.QGraphicsColorizeEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawSource` instead
-    ///
-    pub const OnDrawSource = onDrawSource;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsColorizeEffect, painter: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawSource(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QPainter) callconv(.c) void) void {
-        qtc.QGraphicsColorizeEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourcePixmap` instead
     ///
     pub const SourcePixmap = sourcePixmap;
@@ -5020,46 +4351,6 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     pub fn sourcePixmap(self: QGraphicsColorizeEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_SourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSourcePixmap` instead
-    ///
-    pub const SuperSourcePixmap = superSourcePixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    pub fn superSourcePixmap(self: QGraphicsColorizeEffect) QPixmap {
-        return .{ .ptr = qtc.QGraphicsColorizeEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourcePixmap` instead
-    ///
-    pub const OnSourcePixmap = onSourcePixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourcePixmap(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QPixmap) void {
-        qtc.QGraphicsColorizeEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -5080,44 +4371,6 @@ pub const QGraphicsColorizeEffect = extern struct {
         return .{ .ptr = qtc.QGraphicsColorizeEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    pub fn superSender(self: QGraphicsColorizeEffect) QObject {
-        return .{ .ptr = qtc.QGraphicsColorizeEffect_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsColorizeEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -5134,44 +4387,6 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsColorizeEffect) i32 {
         return qtc.QGraphicsColorizeEffect_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsColorizeEffect) i32 {
-        return qtc.QGraphicsColorizeEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsColorizeEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -5195,47 +4410,6 @@ pub const QGraphicsColorizeEffect = extern struct {
         return qtc.QGraphicsColorizeEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsColorizeEffect, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsColorizeEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsColorizeEffect, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsColorizeEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -5255,47 +4429,6 @@ pub const QGraphicsColorizeEffect = extern struct {
     pub fn isSignalConnected(self: QGraphicsColorizeEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsColorizeEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsColorizeEffect `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsColorizeEffect, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsColorizeEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsColorizeEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsColorizeEffect, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsColorizeEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -5398,9 +4531,9 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` self: QGraphicsBlurEffect `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsBlurEffect) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect) callconv(.c) QMetaObject) void {
         qtc.QGraphicsBlurEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7422,44 +6555,6 @@ pub const QGraphicsBlurEffect = extern struct {
         qtc.QGraphicsBlurEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
-    ///
-    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    pub fn superUpdateBoundingRect(self: QGraphicsBlurEffect) void {
-        qtc.QGraphicsBlurEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
-    ///
-    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateBoundingRect(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourceIsPixmap` instead
     ///
     pub const SourceIsPixmap = sourceIsPixmap;
@@ -7478,44 +6573,6 @@ pub const QGraphicsBlurEffect = extern struct {
         return qtc.QGraphicsBlurEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
-    ///
-    pub const SuperSourceIsPixmap = superSourceIsPixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    pub fn superSourceIsPixmap(self: QGraphicsBlurEffect) bool {
-        return qtc.QGraphicsBlurEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
-    ///
-    pub const OnSourceIsPixmap = onSourceIsPixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSourceIsPixmap(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsBlurEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourceBoundingRect` instead
     ///
     pub const SourceBoundingRect = sourceBoundingRect;
@@ -7532,46 +6589,6 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     pub fn sourceBoundingRect(self: QGraphicsBlurEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsBlurEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
-    ///
-    pub const SuperSourceBoundingRect = superSourceBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    pub fn superSourceBoundingRect(self: QGraphicsBlurEffect) QRectF {
-        return .{ .ptr = qtc.QGraphicsBlurEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
-    ///
-    pub const OnSourceBoundingRect = onSourceBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourceBoundingRect(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QRectF) void {
-        qtc.QGraphicsBlurEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawSource` instead
@@ -7595,47 +6612,6 @@ pub const QGraphicsBlurEffect = extern struct {
         qtc.QGraphicsBlurEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawSource` instead
-    ///
-    pub const SuperDrawSource = superDrawSource;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    /// ` painter: QPainter `
-    ///
-    pub fn superDrawSource(self: QGraphicsBlurEffect, painter: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        qtc.QGraphicsBlurEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawSource` instead
-    ///
-    pub const OnDrawSource = onDrawSource;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsBlurEffect, painter: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawSource(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QPainter) callconv(.c) void) void {
-        qtc.QGraphicsBlurEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourcePixmap` instead
     ///
     pub const SourcePixmap = sourcePixmap;
@@ -7652,46 +6628,6 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     pub fn sourcePixmap(self: QGraphicsBlurEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsBlurEffect_SourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSourcePixmap` instead
-    ///
-    pub const SuperSourcePixmap = superSourcePixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    pub fn superSourcePixmap(self: QGraphicsBlurEffect) QPixmap {
-        return .{ .ptr = qtc.QGraphicsBlurEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourcePixmap` instead
-    ///
-    pub const OnSourcePixmap = onSourcePixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourcePixmap(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QPixmap) void {
-        qtc.QGraphicsBlurEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -7712,44 +6648,6 @@ pub const QGraphicsBlurEffect = extern struct {
         return .{ .ptr = qtc.QGraphicsBlurEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    pub fn superSender(self: QGraphicsBlurEffect) QObject {
-        return .{ .ptr = qtc.QGraphicsBlurEffect_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsBlurEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -7766,44 +6664,6 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsBlurEffect) i32 {
         return qtc.QGraphicsBlurEffect_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsBlurEffect) i32 {
-        return qtc.QGraphicsBlurEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsBlurEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -7827,47 +6687,6 @@ pub const QGraphicsBlurEffect = extern struct {
         return qtc.QGraphicsBlurEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsBlurEffect, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsBlurEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsBlurEffect, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsBlurEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -7887,47 +6706,6 @@ pub const QGraphicsBlurEffect = extern struct {
     pub fn isSignalConnected(self: QGraphicsBlurEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsBlurEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsBlurEffect `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsBlurEffect, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsBlurEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsBlurEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsBlurEffect, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsBlurEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -8030,9 +6808,9 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` self: QGraphicsDropShadowEffect `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsDropShadowEffect) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect) callconv(.c) QMetaObject) void {
         qtc.QGraphicsDropShadowEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10210,44 +8988,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
         qtc.QGraphicsDropShadowEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
-    ///
-    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    pub fn superUpdateBoundingRect(self: QGraphicsDropShadowEffect) void {
-        qtc.QGraphicsDropShadowEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
-    ///
-    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateBoundingRect(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourceIsPixmap` instead
     ///
     pub const SourceIsPixmap = sourceIsPixmap;
@@ -10266,44 +9006,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
         return qtc.QGraphicsDropShadowEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
-    ///
-    pub const SuperSourceIsPixmap = superSourceIsPixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    pub fn superSourceIsPixmap(self: QGraphicsDropShadowEffect) bool {
-        return qtc.QGraphicsDropShadowEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
-    ///
-    pub const OnSourceIsPixmap = onSourceIsPixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSourceIsPixmap(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsDropShadowEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourceBoundingRect` instead
     ///
     pub const SourceBoundingRect = sourceBoundingRect;
@@ -10320,46 +9022,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     pub fn sourceBoundingRect(self: QGraphicsDropShadowEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
-    ///
-    pub const SuperSourceBoundingRect = superSourceBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    pub fn superSourceBoundingRect(self: QGraphicsDropShadowEffect) QRectF {
-        return .{ .ptr = qtc.QGraphicsDropShadowEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
-    ///
-    pub const OnSourceBoundingRect = onSourceBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourceBoundingRect(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QRectF) void {
-        qtc.QGraphicsDropShadowEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawSource` instead
@@ -10383,47 +9045,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
         qtc.QGraphicsDropShadowEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawSource` instead
-    ///
-    pub const SuperDrawSource = superDrawSource;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    /// ` painter: QPainter `
-    ///
-    pub fn superDrawSource(self: QGraphicsDropShadowEffect, painter: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        qtc.QGraphicsDropShadowEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawSource` instead
-    ///
-    pub const OnDrawSource = onDrawSource;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsDropShadowEffect, painter: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawSource(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QPainter) callconv(.c) void) void {
-        qtc.QGraphicsDropShadowEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourcePixmap` instead
     ///
     pub const SourcePixmap = sourcePixmap;
@@ -10440,46 +9061,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     pub fn sourcePixmap(self: QGraphicsDropShadowEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_SourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSourcePixmap` instead
-    ///
-    pub const SuperSourcePixmap = superSourcePixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    pub fn superSourcePixmap(self: QGraphicsDropShadowEffect) QPixmap {
-        return .{ .ptr = qtc.QGraphicsDropShadowEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourcePixmap` instead
-    ///
-    pub const OnSourcePixmap = onSourcePixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourcePixmap(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QPixmap) void {
-        qtc.QGraphicsDropShadowEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10500,44 +9081,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
         return .{ .ptr = qtc.QGraphicsDropShadowEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    pub fn superSender(self: QGraphicsDropShadowEffect) QObject {
-        return .{ .ptr = qtc.QGraphicsDropShadowEffect_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsDropShadowEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10554,44 +9097,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsDropShadowEffect) i32 {
         return qtc.QGraphicsDropShadowEffect_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsDropShadowEffect) i32 {
-        return qtc.QGraphicsDropShadowEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsDropShadowEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10615,47 +9120,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
         return qtc.QGraphicsDropShadowEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsDropShadowEffect, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsDropShadowEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsDropShadowEffect, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsDropShadowEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10675,47 +9139,6 @@ pub const QGraphicsDropShadowEffect = extern struct {
     pub fn isSignalConnected(self: QGraphicsDropShadowEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsDropShadowEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsDropShadowEffect `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsDropShadowEffect, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsDropShadowEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsDropShadowEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsDropShadowEffect, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsDropShadowEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -10818,9 +9241,9 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` self: QGraphicsOpacityEffect `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsOpacityEffect) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect) callconv(.c) QMetaObject) void {
         qtc.QGraphicsOpacityEffect_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12848,44 +11271,6 @@ pub const QGraphicsOpacityEffect = extern struct {
         qtc.QGraphicsOpacityEffect_UpdateBoundingRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateBoundingRect` instead
-    ///
-    pub const SuperUpdateBoundingRect = superUpdateBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    pub fn superUpdateBoundingRect(self: QGraphicsOpacityEffect) void {
-        qtc.QGraphicsOpacityEffect_SuperUpdateBoundingRect(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateBoundingRect` instead
-    ///
-    pub const OnUpdateBoundingRect = onUpdateBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#updateBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateBoundingRect(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnUpdateBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourceIsPixmap` instead
     ///
     pub const SourceIsPixmap = sourceIsPixmap;
@@ -12904,44 +11289,6 @@ pub const QGraphicsOpacityEffect = extern struct {
         return qtc.QGraphicsOpacityEffect_SourceIsPixmap(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSourceIsPixmap` instead
-    ///
-    pub const SuperSourceIsPixmap = superSourceIsPixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    pub fn superSourceIsPixmap(self: QGraphicsOpacityEffect) bool {
-        return qtc.QGraphicsOpacityEffect_SuperSourceIsPixmap(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSourceIsPixmap` instead
-    ///
-    pub const OnSourceIsPixmap = onSourceIsPixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceIsPixmap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSourceIsPixmap(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) bool) void {
-        qtc.QGraphicsOpacityEffect_OnSourceIsPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourceBoundingRect` instead
     ///
     pub const SourceBoundingRect = sourceBoundingRect;
@@ -12958,46 +11305,6 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     pub fn sourceBoundingRect(self: QGraphicsOpacityEffect) QRectF {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSourceBoundingRect` instead
-    ///
-    pub const SuperSourceBoundingRect = superSourceBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    pub fn superSourceBoundingRect(self: QGraphicsOpacityEffect) QRectF {
-        return .{ .ptr = qtc.QGraphicsOpacityEffect_SuperSourceBoundingRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourceBoundingRect` instead
-    ///
-    pub const OnSourceBoundingRect = onSourceBoundingRect;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourceBoundingRect(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QRectF) void {
-        qtc.QGraphicsOpacityEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawSource` instead
@@ -13021,47 +11328,6 @@ pub const QGraphicsOpacityEffect = extern struct {
         qtc.QGraphicsOpacityEffect_DrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawSource` instead
-    ///
-    pub const SuperDrawSource = superDrawSource;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    /// ` painter: QPainter `
-    ///
-    pub fn superDrawSource(self: QGraphicsOpacityEffect, painter: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        qtc.QGraphicsOpacityEffect_SuperDrawSource(@ptrCast(self.ptr), @ptrCast(painter.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawSource` instead
-    ///
-    pub const OnDrawSource = onDrawSource;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#drawSource)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsOpacityEffect, painter: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawSource(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QPainter) callconv(.c) void) void {
-        qtc.QGraphicsOpacityEffect_OnDrawSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sourcePixmap` instead
     ///
     pub const SourcePixmap = sourcePixmap;
@@ -13078,46 +11344,6 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     pub fn sourcePixmap(self: QGraphicsOpacityEffect) QPixmap {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_SourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSourcePixmap` instead
-    ///
-    pub const SuperSourcePixmap = superSourcePixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    pub fn superSourcePixmap(self: QGraphicsOpacityEffect) QPixmap {
-        return .{ .ptr = qtc.QGraphicsOpacityEffect_SuperSourcePixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSourcePixmap` instead
-    ///
-    pub const OnSourcePixmap = onSourcePixmap;
-
-    /// Inherited from QGraphicsEffect
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#sourcePixmap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSourcePixmap(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QPixmap) void {
-        qtc.QGraphicsOpacityEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -13138,44 +11364,6 @@ pub const QGraphicsOpacityEffect = extern struct {
         return .{ .ptr = qtc.QGraphicsOpacityEffect_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    pub fn superSender(self: QGraphicsOpacityEffect) QObject {
-        return .{ .ptr = qtc.QGraphicsOpacityEffect_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsOpacityEffect_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13192,44 +11380,6 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsOpacityEffect) i32 {
         return qtc.QGraphicsOpacityEffect_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsOpacityEffect) i32 {
-        return qtc.QGraphicsOpacityEffect_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsOpacityEffect_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13253,47 +11403,6 @@ pub const QGraphicsOpacityEffect = extern struct {
         return qtc.QGraphicsOpacityEffect_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsOpacityEffect, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsOpacityEffect_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsOpacityEffect, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsOpacityEffect_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13313,47 +11422,6 @@ pub const QGraphicsOpacityEffect = extern struct {
     pub fn isSignalConnected(self: QGraphicsOpacityEffect, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsOpacityEffect_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsOpacityEffect `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsOpacityEffect, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsOpacityEffect_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsOpacityEffect`
-    ///
-    /// ` callback: *const fn (self: QGraphicsOpacityEffect, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsOpacityEffect_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

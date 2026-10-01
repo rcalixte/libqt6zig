@@ -166,9 +166,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QColorDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) QMetaObject) void {
         qtc.QColorDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7331,11 +7331,11 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QColorDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) QSize) void {
         qtc.QColorDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7389,11 +7389,11 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QColorDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) QSize) void {
         qtc.QColorDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7447,9 +7447,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
         qtc.QColorDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7503,9 +7503,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) i32) void {
         qtc.QColorDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7559,9 +7559,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
         qtc.QColorDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7615,9 +7615,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
         qtc.QColorDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8049,9 +8049,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) i32) void {
         qtc.QColorDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8165,9 +8165,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) bool) void {
         qtc.QColorDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8221,9 +8221,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QColorDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) QPaintEngine) void {
         qtc.QColorDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9777,9 +9777,9 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QColorDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) QPainter) void {
         qtc.QColorDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10298,47 +10298,6 @@ pub const QColorDialog = extern struct {
         qtc.QColorDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: QColorDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.QColorDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn (self: QColorDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: QColorDialog, callback: *const fn (QColorDialog, QWidget) callconv(.c) void) void {
-        qtc.QColorDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10355,44 +10314,6 @@ pub const QColorDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: QColorDialog) void {
         qtc.QColorDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: QColorDialog) void {
-        qtc.QColorDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10413,44 +10334,6 @@ pub const QColorDialog = extern struct {
         qtc.QColorDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    pub fn superCreate(self: QColorDialog) void {
-        qtc.QColorDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10467,44 +10350,6 @@ pub const QColorDialog = extern struct {
     ///
     pub fn destroy(self: QColorDialog) void {
         qtc.QColorDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    pub fn superDestroy(self: QColorDialog) void {
-        qtc.QColorDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10525,44 +10370,6 @@ pub const QColorDialog = extern struct {
         return qtc.QColorDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    pub fn superFocusNextChild(self: QColorDialog) bool {
-        return qtc.QColorDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.QColorDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10579,44 +10386,6 @@ pub const QColorDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: QColorDialog) bool {
         return qtc.QColorDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    pub fn superFocusPreviousChild(self: QColorDialog) bool {
-        return qtc.QColorDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.QColorDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10637,44 +10406,6 @@ pub const QColorDialog = extern struct {
         return .{ .ptr = qtc.QColorDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    pub fn superSender(self: QColorDialog) QObject {
-        return .{ .ptr = qtc.QColorDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QColorDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QColorDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10691,44 +10422,6 @@ pub const QColorDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: QColorDialog) i32 {
         return qtc.QColorDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    pub fn superSenderSignalIndex(self: QColorDialog) i32 {
-        return qtc.QColorDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.QColorDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10752,47 +10445,6 @@ pub const QColorDialog = extern struct {
         return qtc.QColorDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QColorDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QColorDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn (self: QColorDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QColorDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10812,47 +10464,6 @@ pub const QColorDialog = extern struct {
     pub fn isSignalConnected(self: QColorDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QColorDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QColorDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QColorDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn (self: QColorDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.QColorDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10875,48 +10486,6 @@ pub const QColorDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: QColorDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QColorDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QColorDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.QColorDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QColorDialog`
-    ///
-    /// ` callback: *const fn (self: QColorDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QColorDialog, callback: *const fn (QColorDialog, i32, i32) callconv(.c) f64) void {
-        qtc.QColorDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

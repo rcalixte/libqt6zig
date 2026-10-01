@@ -147,9 +147,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QTreeView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) QMetaObject) void {
         qtc.QTreeView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1367,9 +1367,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) void) void {
         qtc.QTreeView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1415,9 +1415,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) void `
     ///
-    pub fn onReset(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) void) void {
         qtc.QTreeView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1535,9 +1535,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) void) void {
         qtc.QTreeView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1804,46 +1804,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_ColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
     }
 
-    /// ### DEPRECATED: Use `onColumnResized` instead
-    ///
-    pub const OnColumnResized = onColumnResized;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnResized)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` callback: *const fn (self: QTreeView, column: i32, oldSize: i32, newSize: i32) callconv(.c) void `
-    ///
-    pub fn onColumnResized(self: QTreeView, callback: *const fn (QTreeView, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnColumnResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superColumnResized` instead
-    ///
-    pub const SuperColumnResized = superColumnResized;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnResized)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` column: i32 `
-    ///
-    /// ` oldSize: i32 `
-    ///
-    /// ` newSize: i32 `
-    ///
-    pub fn superColumnResized(self: QTreeView, column: i32, oldSize: i32, newSize: i32) void {
-        qtc.QTreeView_SuperColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
-    }
-
     /// ### DEPRECATED: Use `columnCountChanged` instead
     ///
     pub const ColumnCountChanged = columnCountChanged;
@@ -1862,44 +1822,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_ColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
-    /// ### DEPRECATED: Use `onColumnCountChanged` instead
-    ///
-    pub const OnColumnCountChanged = onColumnCountChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnCountChanged)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` callback: *const fn (self: QTreeView, oldCount: i32, newCount: i32) callconv(.c) void `
-    ///
-    pub fn onColumnCountChanged(self: QTreeView, callback: *const fn (QTreeView, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnColumnCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superColumnCountChanged` instead
-    ///
-    pub const SuperColumnCountChanged = superColumnCountChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnCountChanged)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` oldCount: i32 `
-    ///
-    /// ` newCount: i32 `
-    ///
-    pub fn superColumnCountChanged(self: QTreeView, oldCount: i32, newCount: i32) void {
-        qtc.QTreeView_SuperColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
-    }
-
     /// ### DEPRECATED: Use `columnMoved` instead
     ///
     pub const ColumnMoved = columnMoved;
@@ -1914,40 +1836,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_ColumnMoved(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onColumnMoved` instead
-    ///
-    pub const OnColumnMoved = onColumnMoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnMoved)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onColumnMoved(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnColumnMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superColumnMoved` instead
-    ///
-    pub const SuperColumnMoved = superColumnMoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnMoved)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superColumnMoved(self: QTreeView) void {
-        qtc.QTreeView_SuperColumnMoved(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `reexpand` instead
     ///
     pub const Reexpand = reexpand;
@@ -1960,40 +1848,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn reexpand(self: QTreeView) void {
         qtc.QTreeView_Reexpand(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onReexpand` instead
-    ///
-    pub const OnReexpand = onReexpand;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#reexpand)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onReexpand(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnReexpand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReexpand` instead
-    ///
-    pub const SuperReexpand = superReexpand;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#reexpand)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superReexpand(self: QTreeView) void {
-        qtc.QTreeView_SuperReexpand(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `rowsRemoved` instead
@@ -2015,47 +1869,6 @@ pub const QTreeView = extern struct {
     pub fn rowsRemoved(self: QTreeView, _parent: anytype, first: i32, last: i32) void {
         comptime _ = @TypeOf(_parent)._is_QModelIndex;
         qtc.QTreeView_RowsRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
-    }
-
-    /// ### DEPRECATED: Use `onRowsRemoved` instead
-    ///
-    pub const OnRowsRemoved = onRowsRemoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsRemoved)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` callback: *const fn (self: QTreeView, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
-    ///
-    pub fn onRowsRemoved(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnRowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRowsRemoved` instead
-    ///
-    pub const SuperRowsRemoved = superRowsRemoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsRemoved)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` first: i32 `
-    ///
-    /// ` last: i32 `
-    ///
-    pub fn superRowsRemoved(self: QTreeView, _parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QTreeView_SuperRowsRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `verticalScrollbarValueChanged` instead
@@ -2374,9 +2187,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) i32) void {
         qtc.QTreeView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2422,9 +2235,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) i32) void {
         qtc.QTreeView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2594,13 +2407,13 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: QTreeView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) qtc.libqt_list) void {
         qtc.QTreeView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2808,46 +2621,6 @@ pub const QTreeView = extern struct {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QTreeView_DrawTree(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawTree` instead
-    ///
-    pub const OnDrawTree = onDrawTree;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawTree)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` callback: *const fn (self: QTreeView, painter: QPainter, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onDrawTree(self: QTreeView, callback: *const fn (QTreeView, QPainter, QRegion) callconv(.c) void) void {
-        qtc.QTreeView_OnDrawTree(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDrawTree` instead
-    ///
-    pub const SuperDrawTree = superDrawTree;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawTree)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superDrawTree(self: QTreeView, painter: anytype, region: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QTreeView_SuperDrawTree(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(region.ptr));
     }
 
     /// ### DEPRECATED: Use `drawRow` instead
@@ -3386,9 +3159,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) void) void {
         qtc.QTreeView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3434,11 +3207,11 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QTreeView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) QSize) void {
         qtc.QTreeView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3527,43 +3300,6 @@ pub const QTreeView = extern struct {
         return qtc.QTreeView_IndexRowSizeHint(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `onIndexRowSizeHint` instead
-    ///
-    pub const OnIndexRowSizeHint = onIndexRowSizeHint;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexRowSizeHint)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) i32 `
-    ///
-    pub fn onIndexRowSizeHint(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) i32) void {
-        qtc.QTreeView_OnIndexRowSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIndexRowSizeHint` instead
-    ///
-    pub const SuperIndexRowSizeHint = superIndexRowSizeHint;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexRowSizeHint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superIndexRowSizeHint(self: QTreeView, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QTreeView_SuperIndexRowSizeHint(@ptrCast(self.ptr), @ptrCast(index.ptr));
-    }
-
     /// ### DEPRECATED: Use `rowHeight` instead
     ///
     pub const RowHeight = rowHeight;
@@ -3579,43 +3315,6 @@ pub const QTreeView = extern struct {
     pub fn rowHeight(self: QTreeView, index: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QTreeView_RowHeight(@ptrCast(self.ptr), @ptrCast(index.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRowHeight` instead
-    ///
-    pub const OnRowHeight = onRowHeight;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowHeight)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) i32 `
-    ///
-    pub fn onRowHeight(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) i32) void {
-        qtc.QTreeView_OnRowHeight(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRowHeight` instead
-    ///
-    pub const SuperRowHeight = superRowHeight;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowHeight)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superRowHeight(self: QTreeView, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QTreeView_SuperRowHeight(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `horizontalScrollbarAction` instead
@@ -12170,9 +11869,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) void) void {
         qtc.QTreeView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12226,9 +11925,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) void) void {
         qtc.QTreeView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13486,11 +13185,11 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QTreeView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) QSize) void {
         qtc.QTreeView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13544,11 +13243,11 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QTreeView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) QSize) void {
         qtc.QTreeView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13850,9 +13549,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) i32) void {
         qtc.QTreeView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14026,9 +13725,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QTreeView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) bool) void {
         qtc.QTreeView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14082,9 +13781,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QTreeView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) QPaintEngine) void {
         qtc.QTreeView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14956,9 +14655,9 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QTreeView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) QPainter) void {
         qtc.QTreeView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15232,48 +14931,6 @@ pub const QTreeView = extern struct {
         return qtc.QTreeView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: QTreeView) i32 {
-        return qtc.QTreeView_SuperState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -15294,46 +14951,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: QTreeView, _state: i32) void {
-        qtc.QTreeView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn (self: QTreeView, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -15352,44 +14969,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: QTreeView) void {
-        qtc.QTreeView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -15406,44 +14985,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: QTreeView) void {
         qtc.QTreeView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: QTreeView) void {
-        qtc.QTreeView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -15465,47 +15006,6 @@ pub const QTreeView = extern struct {
     pub fn setDirtyRegion(self: QTreeView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QTreeView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: QTreeView, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QTreeView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn (self: QTreeView, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: QTreeView, callback: *const fn (QTreeView, QRegion) callconv(.c) void) void {
-        qtc.QTreeView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -15530,48 +15030,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: QTreeView, dx: i32, dy: i32) void {
-        qtc.QTreeView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn (self: QTreeView, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: QTreeView, callback: *const fn (QTreeView, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -15588,46 +15046,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn dirtyRegionOffset(self: QTreeView) QPoint {
         return .{ .ptr = qtc.QTreeView_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superDirtyRegionOffset(self: QTreeView) QPoint {
-        return .{ .ptr = qtc.QTreeView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: QTreeView, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.QTreeView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -15648,44 +15066,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superStartAutoScroll(self: QTreeView) void {
-        qtc.QTreeView_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -15704,44 +15084,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superStopAutoScroll(self: QTreeView) void {
-        qtc.QTreeView_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -15758,44 +15100,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn doAutoScroll(self: QTreeView) void {
         qtc.QTreeView_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superDoAutoScroll(self: QTreeView) void {
-        qtc.QTreeView_SuperDoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `dropIndicatorPosition` instead
@@ -15818,48 +15122,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn dropIndicatorPosition(self: QTreeView) i32 {
         return qtc.QTreeView_DropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: QTreeView) i32 {
-        return qtc.QTreeView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -15888,52 +15150,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QTreeView, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTreeView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn (self: QTreeView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QTreeView, callback: *const fn (QTreeView, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -15950,46 +15166,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn viewportMargins(self: QTreeView) QMargins {
         return .{ .ptr = qtc.QTreeView_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superViewportMargins(self: QTreeView) QMargins {
-        return .{ .ptr = qtc.QTreeView_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QTreeView, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QTreeView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -16013,47 +15189,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QTreeView, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QTreeView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn (self: QTreeView, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QTreeView, callback: *const fn (QTreeView, QPainter) callconv(.c) void) void {
-        qtc.QTreeView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -16070,44 +15205,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn updateMicroFocus(self: QTreeView) void {
         qtc.QTreeView_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superUpdateMicroFocus(self: QTreeView) void {
-        qtc.QTreeView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -16128,44 +15225,6 @@ pub const QTreeView = extern struct {
         qtc.QTreeView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superCreate(self: QTreeView) void {
-        qtc.QTreeView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -16182,44 +15241,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn destroy(self: QTreeView) void {
         qtc.QTreeView_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superDestroy(self: QTreeView) void {
-        qtc.QTreeView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QTreeView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -16240,44 +15261,6 @@ pub const QTreeView = extern struct {
         return qtc.QTreeView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superFocusNextChild(self: QTreeView) bool {
-        return qtc.QTreeView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QTreeView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTreeView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -16294,44 +15277,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn focusPreviousChild(self: QTreeView) bool {
         return qtc.QTreeView_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superFocusPreviousChild(self: QTreeView) bool {
-        return qtc.QTreeView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QTreeView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTreeView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -16352,44 +15297,6 @@ pub const QTreeView = extern struct {
         return .{ .ptr = qtc.QTreeView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superSender(self: QTreeView) QObject {
-        return .{ .ptr = qtc.QTreeView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QTreeView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QTreeView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -16406,44 +15313,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn senderSignalIndex(self: QTreeView) i32 {
         return qtc.QTreeView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    pub fn superSenderSignalIndex(self: QTreeView) i32 {
-        return qtc.QTreeView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -16467,47 +15336,6 @@ pub const QTreeView = extern struct {
         return qtc.QTreeView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QTreeView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QTreeView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn (self: QTreeView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QTreeView, callback: *const fn (QTreeView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTreeView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -16527,47 +15355,6 @@ pub const QTreeView = extern struct {
     pub fn isSignalConnected(self: QTreeView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTreeView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QTreeView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QTreeView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn (self: QTreeView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QTreeView, callback: *const fn (QTreeView, QMetaMethod) callconv(.c) bool) void {
-        qtc.QTreeView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -16590,48 +15377,6 @@ pub const QTreeView = extern struct {
     ///
     pub fn getDecodedMetricF(self: QTreeView, metricA: i32, metricB: i32) f64 {
         return qtc.QTreeView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QTreeView, metricA: i32, metricB: i32) f64 {
-        return qtc.QTreeView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTreeView`
-    ///
-    /// ` callback: *const fn (self: QTreeView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QTreeView, callback: *const fn (QTreeView, i32, i32) callconv(.c) f64) void {
-        qtc.QTreeView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

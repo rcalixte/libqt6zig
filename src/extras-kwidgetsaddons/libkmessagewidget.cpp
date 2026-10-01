@@ -262,22 +262,22 @@ void KMessageWidget_Connect_ShowAnimationFinished(KMessageWidget* self, intptr_t
 
 void KMessageWidget_PaintEvent(KMessageWidget* self, QPaintEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->paintEvent(event);
     }
 }
 
 bool KMessageWidget_Event(KMessageWidget* self, QEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         return vkmessagewidget->event(event);
     }
-    return {};
+    qFatal("Error: Protected method KMessageWidget::event called without a directly constructed type");
 }
 
 void KMessageWidget_ResizeEvent(KMessageWidget* self, QResizeEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->resizeEvent(event);
     }
 }
@@ -308,1650 +308,1160 @@ libqt_string KMessageWidget_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KMessageWidget_SuperMetaObject(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vkmessagewidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KMessageWidget::metaObject();
-    }
+    return (QMetaObject*)self->KMessageWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnMetaObject(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_MetaObject_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MetaObject_Callback>(slot));
+void KMessageWidget_OnMetaObject(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_metaobject_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KMessageWidget_SuperMetacast(KMessageWidget* self, const char* param1) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Metacast_IsBase(true);
-        return vkmessagewidget->qt_metacast(param1);
-    } else {
-        return self->KMessageWidget::qt_metacast(param1);
-    }
+    return self->KMessageWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMetacast(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Metacast_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacast_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_metacast_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KMessageWidget_SuperMetacall(KMessageWidget* self, int param1, int param2, void** param3) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Metacall_IsBase(true);
-        return vkmessagewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KMessageWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KMessageWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMetacall(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Metacall_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacall_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_metacall_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KMessageWidget_SuperSizeHint(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_SizeHint_IsBase(true);
-        return new QSize(vkmessagewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKMessageWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KMessageWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnSizeHint(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_SizeHint_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SizeHint_Callback>(slot));
+void KMessageWidget_OnSizeHint(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_sizehint_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KMessageWidget_SuperMinimumSizeHint(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vkmessagewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMessageWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KMessageWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnMinimumSizeHint(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MinimumSizeHint_Callback>(slot));
+void KMessageWidget_OnMinimumSizeHint(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_minimumsizehint_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 int KMessageWidget_SuperHeightForWidth(const KMessageWidget* self, int width) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_HeightForWidth_IsBase(true);
-        return vkmessagewidget->heightForWidth(static_cast<int>(width));
-    } else {
-        return self->KMessageWidget::heightForWidth(static_cast<int>(width));
-    }
+    return self->KMessageWidget::heightForWidth(static_cast<int>(width));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnHeightForWidth(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HeightForWidth_Callback>(slot));
+void KMessageWidget_OnHeightForWidth(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_heightforwidth_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperPaintEvent(KMessageWidget* self, QPaintEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_PaintEvent_IsBase(true);
-        vkmessagewidget->paintEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->paintEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnPaintEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_PaintEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_PaintEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_paintevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KMessageWidget_SuperEvent(KMessageWidget* self, QEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Event_IsBase(true);
-        return vkmessagewidget->event(event);
-    } else {
-        return ((VirtualKMessageWidget*)self)->event(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        return vkmessagewidget->KMessageWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Event_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Event_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_event_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperResizeEvent(KMessageWidget* self, QResizeEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ResizeEvent_IsBase(true);
-        vkmessagewidget->resizeEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnResizeEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ResizeEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_resizeevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_ChangeEvent(KMessageWidget* self, QEvent* param1) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->changeEvent(param1);
     } else {
-        ((VirtualKMessageWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KMessageWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperChangeEvent(KMessageWidget* self, QEvent* param1) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ChangeEvent_IsBase(true);
-        vkmessagewidget->changeEvent(param1);
-    } else {
-        ((VirtualKMessageWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnChangeEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ChangeEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_changeevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_InitStyleOption(const KMessageWidget* self, QStyleOptionFrame* option) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->initStyleOption(option);
     } else {
-        ((VirtualKMessageWidget*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KMessageWidget::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperInitStyleOption(const KMessageWidget* self, QStyleOptionFrame* option) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_InitStyleOption_IsBase(true);
-        vkmessagewidget->initStyleOption(option);
-    } else {
-        ((VirtualKMessageWidget*)self)->initStyleOption(option);
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        vkmessagewidget->KMessageWidget::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnInitStyleOption(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_InitStyleOption_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InitStyleOption_Callback>(slot));
+void KMessageWidget_OnInitStyleOption(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_initstyleoption_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMessageWidget_DevType(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->devType();
-    } else {
-        return self->KMessageWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KMessageWidget_SuperDevType(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_DevType_IsBase(true);
-        return vkmessagewidget->devType();
-    } else {
-        return self->KMessageWidget::devType();
-    }
+    return self->KMessageWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnDevType(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_DevType_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DevType_Callback>(slot));
+void KMessageWidget_OnDevType(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_devtype_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_SetVisible(KMessageWidget* self, bool visible) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setVisible(visible);
-    } else {
-        self->KMessageWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperSetVisible(KMessageWidget* self, bool visible) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_SetVisible_IsBase(true);
-        vkmessagewidget->setVisible(visible);
-    } else {
-        self->KMessageWidget::setVisible(visible);
-    }
+    self->KMessageWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnSetVisible(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_SetVisible_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SetVisible_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_setvisible_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMessageWidget_HasHeightForWidth(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->hasHeightForWidth();
-    } else {
-        return self->KMessageWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KMessageWidget_SuperHasHeightForWidth(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_HasHeightForWidth_IsBase(true);
-        return vkmessagewidget->hasHeightForWidth();
-    } else {
-        return self->KMessageWidget::hasHeightForWidth();
-    }
+    return self->KMessageWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnHasHeightForWidth(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HasHeightForWidth_Callback>(slot));
+void KMessageWidget_OnHasHeightForWidth(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_hasheightforwidth_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KMessageWidget_PaintEngine(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->paintEngine();
-    } else {
-        return self->KMessageWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KMessageWidget_SuperPaintEngine(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_PaintEngine_IsBase(true);
-        return vkmessagewidget->paintEngine();
-    } else {
-        return self->KMessageWidget::paintEngine();
-    }
+    return self->KMessageWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnPaintEngine(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_PaintEngine_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_PaintEngine_Callback>(slot));
+void KMessageWidget_OnPaintEngine(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_paintengine_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_MousePressEvent(KMessageWidget* self, QMouseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->mousePressEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperMousePressEvent(KMessageWidget* self, QMouseEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MousePressEvent_IsBase(true);
-        vkmessagewidget->mousePressEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMousePressEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MousePressEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_mousepressevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_MouseReleaseEvent(KMessageWidget* self, QMouseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperMouseReleaseEvent(KMessageWidget* self, QMouseEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MouseReleaseEvent_IsBase(true);
-        vkmessagewidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMouseReleaseEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_mousereleaseevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_MouseDoubleClickEvent(KMessageWidget* self, QMouseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperMouseDoubleClickEvent(KMessageWidget* self, QMouseEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MouseDoubleClickEvent_IsBase(true);
-        vkmessagewidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMouseDoubleClickEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_MouseMoveEvent(KMessageWidget* self, QMouseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->mouseMoveEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperMouseMoveEvent(KMessageWidget* self, QMouseEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MouseMoveEvent_IsBase(true);
-        vkmessagewidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMouseMoveEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_mousemoveevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_WheelEvent(KMessageWidget* self, QWheelEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->wheelEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperWheelEvent(KMessageWidget* self, QWheelEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_WheelEvent_IsBase(true);
-        vkmessagewidget->wheelEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnWheelEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_WheelEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_WheelEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_wheelevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_KeyPressEvent(KMessageWidget* self, QKeyEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->keyPressEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperKeyPressEvent(KMessageWidget* self, QKeyEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_KeyPressEvent_IsBase(true);
-        vkmessagewidget->keyPressEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnKeyPressEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_keypressevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_KeyReleaseEvent(KMessageWidget* self, QKeyEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperKeyReleaseEvent(KMessageWidget* self, QKeyEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_KeyReleaseEvent_IsBase(true);
-        vkmessagewidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnKeyReleaseEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_keyreleaseevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_FocusInEvent(KMessageWidget* self, QFocusEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->focusInEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperFocusInEvent(KMessageWidget* self, QFocusEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_FocusInEvent_IsBase(true);
-        vkmessagewidget->focusInEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnFocusInEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusInEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_focusinevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_FocusOutEvent(KMessageWidget* self, QFocusEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->focusOutEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperFocusOutEvent(KMessageWidget* self, QFocusEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_FocusOutEvent_IsBase(true);
-        vkmessagewidget->focusOutEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnFocusOutEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_focusoutevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_EnterEvent(KMessageWidget* self, QEnterEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->enterEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperEnterEvent(KMessageWidget* self, QEnterEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_EnterEvent_IsBase(true);
-        vkmessagewidget->enterEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->enterEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnEnterEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_EnterEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_EnterEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_enterevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_LeaveEvent(KMessageWidget* self, QEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->leaveEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperLeaveEvent(KMessageWidget* self, QEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_LeaveEvent_IsBase(true);
-        vkmessagewidget->leaveEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnLeaveEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_LeaveEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_leaveevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_MoveEvent(KMessageWidget* self, QMoveEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->moveEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperMoveEvent(KMessageWidget* self, QMoveEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_MoveEvent_IsBase(true);
-        vkmessagewidget->moveEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->moveEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMoveEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_MoveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MoveEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_moveevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_CloseEvent(KMessageWidget* self, QCloseEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->closeEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperCloseEvent(KMessageWidget* self, QCloseEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_CloseEvent_IsBase(true);
-        vkmessagewidget->closeEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->closeEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnCloseEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_CloseEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_CloseEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_closeevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_ContextMenuEvent(KMessageWidget* self, QContextMenuEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->contextMenuEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperContextMenuEvent(KMessageWidget* self, QContextMenuEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ContextMenuEvent_IsBase(true);
-        vkmessagewidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnContextMenuEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_contextmenuevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_TabletEvent(KMessageWidget* self, QTabletEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->tabletEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperTabletEvent(KMessageWidget* self, QTabletEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_TabletEvent_IsBase(true);
-        vkmessagewidget->tabletEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnTabletEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_TabletEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_TabletEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_tabletevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_ActionEvent(KMessageWidget* self, QActionEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->actionEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperActionEvent(KMessageWidget* self, QActionEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ActionEvent_IsBase(true);
-        vkmessagewidget->actionEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->actionEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnActionEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_ActionEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ActionEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_actionevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_DragEnterEvent(KMessageWidget* self, QDragEnterEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->dragEnterEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperDragEnterEvent(KMessageWidget* self, QDragEnterEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_DragEnterEvent_IsBase(true);
-        vkmessagewidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDragEnterEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_dragenterevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_DragMoveEvent(KMessageWidget* self, QDragMoveEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->dragMoveEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperDragMoveEvent(KMessageWidget* self, QDragMoveEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_DragMoveEvent_IsBase(true);
-        vkmessagewidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDragMoveEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_dragmoveevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_DragLeaveEvent(KMessageWidget* self, QDragLeaveEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperDragLeaveEvent(KMessageWidget* self, QDragLeaveEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_DragLeaveEvent_IsBase(true);
-        vkmessagewidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDragLeaveEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_dragleaveevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_DropEvent(KMessageWidget* self, QDropEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->dropEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperDropEvent(KMessageWidget* self, QDropEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_DropEvent_IsBase(true);
-        vkmessagewidget->dropEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->dropEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDropEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_DropEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DropEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_dropevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_ShowEvent(KMessageWidget* self, QShowEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->showEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperShowEvent(KMessageWidget* self, QShowEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ShowEvent_IsBase(true);
-        vkmessagewidget->showEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->showEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnShowEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_ShowEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ShowEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_showevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_HideEvent(KMessageWidget* self, QHideEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->hideEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperHideEvent(KMessageWidget* self, QHideEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_HideEvent_IsBase(true);
-        vkmessagewidget->hideEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->hideEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnHideEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_HideEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HideEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_hideevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMessageWidget_NativeEvent(KMessageWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
+    if (vkmessagewidget) {
         return vkmessagewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKMessageWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KMessageWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMessageWidget_SuperNativeEvent(KMessageWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_NativeEvent_IsBase(true);
-        return vkmessagewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKMessageWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        return vkmessagewidget->KMessageWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnNativeEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_NativeEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_NativeEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_nativeevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMessageWidget_Metric(const KMessageWidget* self, int param1) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         return vkmessagewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKMessageWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KMessageWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KMessageWidget_SuperMetric(const KMessageWidget* self, int param1) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Metric_IsBase(true);
-        return vkmessagewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKMessageWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        return vkmessagewidget->KMessageWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnMetric(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Metric_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metric_Callback>(slot));
+void KMessageWidget_OnMetric(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_metric_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_InitPainter(const KMessageWidget* self, QPainter* painter) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->initPainter(painter);
     } else {
-        ((VirtualKMessageWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KMessageWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperInitPainter(const KMessageWidget* self, QPainter* painter) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_InitPainter_IsBase(true);
-        vkmessagewidget->initPainter(painter);
-    } else {
-        ((VirtualKMessageWidget*)self)->initPainter(painter);
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        vkmessagewidget->KMessageWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnInitPainter(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_InitPainter_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InitPainter_Callback>(slot));
+void KMessageWidget_OnInitPainter(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_initpainter_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KMessageWidget_Redirected(const KMessageWidget* self, QPoint* offset) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         return vkmessagewidget->redirected(offset);
     } else {
-        return ((VirtualKMessageWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KMessageWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KMessageWidget_SuperRedirected(const KMessageWidget* self, QPoint* offset) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Redirected_IsBase(true);
-        return vkmessagewidget->redirected(offset);
-    } else {
-        return ((VirtualKMessageWidget*)self)->redirected(offset);
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        return vkmessagewidget->KMessageWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnRedirected(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Redirected_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Redirected_Callback>(slot));
+void KMessageWidget_OnRedirected(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_redirected_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KMessageWidget_SharedPainter(const KMessageWidget* self) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         return vkmessagewidget->sharedPainter();
     } else {
-        return ((VirtualKMessageWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KMessageWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KMessageWidget_SuperSharedPainter(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_SharedPainter_IsBase(true);
-        return vkmessagewidget->sharedPainter();
-    } else {
-        return ((VirtualKMessageWidget*)self)->sharedPainter();
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        return vkmessagewidget->KMessageWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnSharedPainter(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_SharedPainter_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SharedPainter_Callback>(slot));
+void KMessageWidget_OnSharedPainter(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_sharedpainter_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_InputMethodEvent(KMessageWidget* self, QInputMethodEvent* param1) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKMessageWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KMessageWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperInputMethodEvent(KMessageWidget* self, QInputMethodEvent* param1) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_InputMethodEvent_IsBase(true);
-        vkmessagewidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKMessageWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnInputMethodEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_inputmethodevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KMessageWidget_InputMethodQuery(const KMessageWidget* self, int param1) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return new QVariant(vkmessagewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKMessageWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KMessageWidget_SuperInputMethodQuery(const KMessageWidget* self, int param1) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vkmessagewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKMessageWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KMessageWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnInputMethodQuery(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InputMethodQuery_Callback>(slot));
+void KMessageWidget_OnInputMethodQuery(KMessageWidget* self, intptr_t slot) {
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self)))
+        vkmessagewidget->kmessagewidget_inputmethodquery_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMessageWidget_FocusNextPrevChild(KMessageWidget* self, bool next) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         return vkmessagewidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKMessageWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KMessageWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMessageWidget_SuperFocusNextPrevChild(KMessageWidget* self, bool next) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_FocusNextPrevChild_IsBase(true);
-        return vkmessagewidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKMessageWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        return vkmessagewidget->KMessageWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnFocusNextPrevChild(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_focusnextprevchild_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMessageWidget_EventFilter(KMessageWidget* self, QObject* watched, QEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->eventFilter(watched, event);
-    } else {
-        return self->KMessageWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KMessageWidget_SuperEventFilter(KMessageWidget* self, QObject* watched, QEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_EventFilter_IsBase(true);
-        return vkmessagewidget->eventFilter(watched, event);
-    } else {
-        return self->KMessageWidget::eventFilter(watched, event);
-    }
+    return self->KMessageWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnEventFilter(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_EventFilter_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_EventFilter_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_eventfilter_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_TimerEvent(KMessageWidget* self, QTimerEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->timerEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperTimerEvent(KMessageWidget* self, QTimerEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_TimerEvent_IsBase(true);
-        vkmessagewidget->timerEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->timerEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnTimerEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_TimerEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_TimerEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_timerevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_ChildEvent(KMessageWidget* self, QChildEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->childEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperChildEvent(KMessageWidget* self, QChildEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ChildEvent_IsBase(true);
-        vkmessagewidget->childEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->childEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnChildEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_ChildEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ChildEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_childevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_CustomEvent(KMessageWidget* self, QEvent* event) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->customEvent(event);
     } else {
-        ((VirtualKMessageWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KMessageWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperCustomEvent(KMessageWidget* self, QEvent* event) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_CustomEvent_IsBase(true);
-        vkmessagewidget->customEvent(event);
-    } else {
-        ((VirtualKMessageWidget*)self)->customEvent(event);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnCustomEvent(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_CustomEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_CustomEvent_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_customevent_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_ConnectNotify(KMessageWidget* self, const QMetaMethod* signal) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->connectNotify(*signal);
     } else {
-        ((VirtualKMessageWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KMessageWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperConnectNotify(KMessageWidget* self, const QMetaMethod* signal) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_ConnectNotify_IsBase(true);
-        vkmessagewidget->connectNotify(*signal);
-    } else {
-        ((VirtualKMessageWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnConnectNotify(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ConnectNotify_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_connectnotify_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMessageWidget_DisconnectNotify(KMessageWidget* self, const QMetaMethod* signal) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget) {
         vkmessagewidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKMessageWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KMessageWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMessageWidget_SuperDisconnectNotify(KMessageWidget* self, const QMetaMethod* signal) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_DisconnectNotify_IsBase(true);
-        vkmessagewidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKMessageWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->KMessageWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KMessageWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDisconnectNotify(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self))
+        vkmessagewidget->kmessagewidget_disconnectnotify_callback = reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMessageWidget_DrawFrame(KMessageWidget* self, QPainter* param1) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->drawFrame(param1);
-    } else {
-        ((VirtualKMessageWidget*)self)->drawFrame(param1);
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->VirtualKMessageWidget::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KMessageWidget::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMessageWidget_SuperDrawFrame(KMessageWidget* self, QPainter* param1) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_DrawFrame_IsBase(true);
-        vkmessagewidget->drawFrame(param1);
-    } else {
-        ((VirtualKMessageWidget*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnDrawFrame(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_DrawFrame_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMessageWidget_UpdateMicroFocus(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->updateMicroFocus();
-    } else {
-        ((VirtualKMessageWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->VirtualKMessageWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KMessageWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMessageWidget_SuperUpdateMicroFocus(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_UpdateMicroFocus_IsBase(true);
-        vkmessagewidget->updateMicroFocus();
-    } else {
-        ((VirtualKMessageWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnUpdateMicroFocus(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMessageWidget_Create(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->create();
-    } else {
-        ((VirtualKMessageWidget*)self)->create();
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->VirtualKMessageWidget::create();
+    } else
+        qFatal("Error: Protected method KMessageWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMessageWidget_SuperCreate(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Create_IsBase(true);
-        vkmessagewidget->create();
-    } else {
-        ((VirtualKMessageWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnCreate(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Create_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMessageWidget_Destroy(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->destroy();
-    } else {
-        ((VirtualKMessageWidget*)self)->destroy();
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        vkmessagewidget->VirtualKMessageWidget::destroy();
+    } else
+        qFatal("Error: Protected method KMessageWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMessageWidget_SuperDestroy(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Destroy_IsBase(true);
-        vkmessagewidget->destroy();
-    } else {
-        ((VirtualKMessageWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnDestroy(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Destroy_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMessageWidget_FocusNextChild(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->focusNextChild();
-    } else {
-        return ((VirtualKMessageWidget*)self)->focusNextChild();
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        return vkmessagewidget->VirtualKMessageWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KMessageWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMessageWidget_SuperFocusNextChild(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_FocusNextChild_IsBase(true);
-        return vkmessagewidget->focusNextChild();
-    } else {
-        return ((VirtualKMessageWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnFocusNextChild(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMessageWidget_FocusPreviousChild(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->focusPreviousChild();
-    } else {
-        return ((VirtualKMessageWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self)) {
+        return vkmessagewidget->VirtualKMessageWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KMessageWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMessageWidget_SuperFocusPreviousChild(KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_FocusPreviousChild_IsBase(true);
-        return vkmessagewidget->focusPreviousChild();
-    } else {
-        return ((VirtualKMessageWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnFocusPreviousChild(KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KMessageWidget_Sender(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->sender();
-    } else {
-        return ((VirtualKMessageWidget*)self)->sender();
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        return vkmessagewidget->VirtualKMessageWidget::sender();
+    } else
+        qFatal("Error: Protected method KMessageWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KMessageWidget_SuperSender(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Sender_IsBase(true);
-        return vkmessagewidget->sender();
-    } else {
-        return ((VirtualKMessageWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnSender(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Sender_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KMessageWidget_SenderSignalIndex(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->senderSignalIndex();
-    } else {
-        return ((VirtualKMessageWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        return vkmessagewidget->VirtualKMessageWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KMessageWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KMessageWidget_SuperSenderSignalIndex(const KMessageWidget* self) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_SenderSignalIndex_IsBase(true);
-        return vkmessagewidget->senderSignalIndex();
-    } else {
-        return ((VirtualKMessageWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnSenderSignalIndex(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KMessageWidget_Receivers(const KMessageWidget* self, const char* signal) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->receivers(signal);
-    } else {
-        return ((VirtualKMessageWidget*)self)->receivers(signal);
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        return vkmessagewidget->VirtualKMessageWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KMessageWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KMessageWidget_SuperReceivers(const KMessageWidget* self, const char* signal) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_Receivers_IsBase(true);
-        return vkmessagewidget->receivers(signal);
-    } else {
-        return ((VirtualKMessageWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnReceivers(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_Receivers_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMessageWidget_IsSignalConnected(const KMessageWidget* self, const QMetaMethod* signal) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKMessageWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        return vkmessagewidget->VirtualKMessageWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KMessageWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMessageWidget_SuperIsSignalConnected(const KMessageWidget* self, const QMetaMethod* signal) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_IsSignalConnected_IsBase(true);
-        return vkmessagewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKMessageWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnIsSignalConnected(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KMessageWidget_GetDecodedMetricF(const KMessageWidget* self, int metricA, int metricB) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return vkmessagewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKMessageWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KMessageWidget_SuperGetDecodedMetricF(const KMessageWidget* self, int metricA, int metricB) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        vkmessagewidget->setKMessageWidget_GetDecodedMetricF_IsBase(true);
-        return vkmessagewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKMessageWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMessageWidget_OnGetDecodedMetricF(const KMessageWidget* self, intptr_t slot) {
-    auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
-        vkmessagewidget->setKMessageWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self))) {
+        return vkmessagewidget->VirtualKMessageWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KMessageWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KMessageWidget_Delete(KMessageWidget* self) {

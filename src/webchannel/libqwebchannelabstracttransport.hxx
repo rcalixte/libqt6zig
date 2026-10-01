@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QWebChannelAbstractTransport so that we can call protected methods
+// This class is a subclass of QWebChannelAbstractTransport
 class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQWebChannelAbstractTransport = true;
-
-    // Virtual class public types (including callbacks)
-    using QWebChannelAbstractTransport_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QWebChannelAbstractTransport_MetaObject_Callback = QMetaObject* (*)(const QWebChannelAbstractTransport*);
     using QWebChannelAbstractTransport_Metacast_Callback = void* (*)(QWebChannelAbstractTransport*, const char*);
     using QWebChannelAbstractTransport_Metacall_Callback = int (*)(QWebChannelAbstractTransport*, int, int, void**);
     using QWebChannelAbstractTransport_SendMessage_Callback = void (*)(QWebChannelAbstractTransport*, QJsonObject*);
@@ -28,12 +24,11 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
     using QWebChannelAbstractTransport_CustomEvent_Callback = void (*)(QWebChannelAbstractTransport*, QEvent*);
     using QWebChannelAbstractTransport_ConnectNotify_Callback = void (*)(QWebChannelAbstractTransport*, QMetaMethod*);
     using QWebChannelAbstractTransport_DisconnectNotify_Callback = void (*)(QWebChannelAbstractTransport*, QMetaMethod*);
-    using QWebChannelAbstractTransport_Sender_Callback = QObject* (*)();
-    using QWebChannelAbstractTransport_SenderSignalIndex_Callback = int (*)();
-    using QWebChannelAbstractTransport_Receivers_Callback = int (*)(const QWebChannelAbstractTransport*, const char*);
-    using QWebChannelAbstractTransport_IsSignalConnected_Callback = bool (*)(const QWebChannelAbstractTransport*, QMetaMethod*);
+    using QWebChannelAbstractTransport::isSignalConnected;
+    using QWebChannelAbstractTransport::receivers;
+    using QWebChannelAbstractTransport::sender;
+    using QWebChannelAbstractTransport::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QWebChannelAbstractTransport_MetaObject_Callback qwebchannelabstracttransport_metaobject_callback = nullptr;
     QWebChannelAbstractTransport_Metacast_Callback qwebchannelabstracttransport_metacast_callback = nullptr;
@@ -46,75 +41,23 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
     QWebChannelAbstractTransport_CustomEvent_Callback qwebchannelabstracttransport_customevent_callback = nullptr;
     QWebChannelAbstractTransport_ConnectNotify_Callback qwebchannelabstracttransport_connectnotify_callback = nullptr;
     QWebChannelAbstractTransport_DisconnectNotify_Callback qwebchannelabstracttransport_disconnectnotify_callback = nullptr;
-    QWebChannelAbstractTransport_Sender_Callback qwebchannelabstracttransport_sender_callback = nullptr;
-    QWebChannelAbstractTransport_SenderSignalIndex_Callback qwebchannelabstracttransport_sendersignalindex_callback = nullptr;
-    QWebChannelAbstractTransport_Receivers_Callback qwebchannelabstracttransport_receivers_callback = nullptr;
-    QWebChannelAbstractTransport_IsSignalConnected_Callback qwebchannelabstracttransport_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qwebchannelabstracttransport_metaobject_isbase = false;
-    mutable bool qwebchannelabstracttransport_metacast_isbase = false;
-    mutable bool qwebchannelabstracttransport_metacall_isbase = false;
-    mutable bool qwebchannelabstracttransport_sendmessage_isbase = false;
-    mutable bool qwebchannelabstracttransport_event_isbase = false;
-    mutable bool qwebchannelabstracttransport_eventfilter_isbase = false;
-    mutable bool qwebchannelabstracttransport_timerevent_isbase = false;
-    mutable bool qwebchannelabstracttransport_childevent_isbase = false;
-    mutable bool qwebchannelabstracttransport_customevent_isbase = false;
-    mutable bool qwebchannelabstracttransport_connectnotify_isbase = false;
-    mutable bool qwebchannelabstracttransport_disconnectnotify_isbase = false;
-    mutable bool qwebchannelabstracttransport_sender_isbase = false;
-    mutable bool qwebchannelabstracttransport_sendersignalindex_isbase = false;
-    mutable bool qwebchannelabstracttransport_receivers_isbase = false;
-    mutable bool qwebchannelabstracttransport_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QWebChannelAbstractTransport {
+        using QWebChannelAbstractTransport::childEvent;
+        using QWebChannelAbstractTransport::connectNotify;
+        using QWebChannelAbstractTransport::customEvent;
+        using QWebChannelAbstractTransport::disconnectNotify;
+        using QWebChannelAbstractTransport::timerEvent;
+    };
 
-  public:
     VirtualQWebChannelAbstractTransport() : QWebChannelAbstractTransport() {};
     VirtualQWebChannelAbstractTransport(QObject* parent) : QWebChannelAbstractTransport(parent) {};
 
-    // Callback setters
-    inline void setQWebChannelAbstractTransport_MetaObject_Callback(QWebChannelAbstractTransport_MetaObject_Callback cb) { qwebchannelabstracttransport_metaobject_callback = cb; }
-    inline void setQWebChannelAbstractTransport_Metacast_Callback(QWebChannelAbstractTransport_Metacast_Callback cb) { qwebchannelabstracttransport_metacast_callback = cb; }
-    inline void setQWebChannelAbstractTransport_Metacall_Callback(QWebChannelAbstractTransport_Metacall_Callback cb) { qwebchannelabstracttransport_metacall_callback = cb; }
-    inline void setQWebChannelAbstractTransport_SendMessage_Callback(QWebChannelAbstractTransport_SendMessage_Callback cb) { qwebchannelabstracttransport_sendmessage_callback = cb; }
-    inline void setQWebChannelAbstractTransport_Event_Callback(QWebChannelAbstractTransport_Event_Callback cb) { qwebchannelabstracttransport_event_callback = cb; }
-    inline void setQWebChannelAbstractTransport_EventFilter_Callback(QWebChannelAbstractTransport_EventFilter_Callback cb) { qwebchannelabstracttransport_eventfilter_callback = cb; }
-    inline void setQWebChannelAbstractTransport_TimerEvent_Callback(QWebChannelAbstractTransport_TimerEvent_Callback cb) { qwebchannelabstracttransport_timerevent_callback = cb; }
-    inline void setQWebChannelAbstractTransport_ChildEvent_Callback(QWebChannelAbstractTransport_ChildEvent_Callback cb) { qwebchannelabstracttransport_childevent_callback = cb; }
-    inline void setQWebChannelAbstractTransport_CustomEvent_Callback(QWebChannelAbstractTransport_CustomEvent_Callback cb) { qwebchannelabstracttransport_customevent_callback = cb; }
-    inline void setQWebChannelAbstractTransport_ConnectNotify_Callback(QWebChannelAbstractTransport_ConnectNotify_Callback cb) { qwebchannelabstracttransport_connectnotify_callback = cb; }
-    inline void setQWebChannelAbstractTransport_DisconnectNotify_Callback(QWebChannelAbstractTransport_DisconnectNotify_Callback cb) { qwebchannelabstracttransport_disconnectnotify_callback = cb; }
-    inline void setQWebChannelAbstractTransport_Sender_Callback(QWebChannelAbstractTransport_Sender_Callback cb) { qwebchannelabstracttransport_sender_callback = cb; }
-    inline void setQWebChannelAbstractTransport_SenderSignalIndex_Callback(QWebChannelAbstractTransport_SenderSignalIndex_Callback cb) { qwebchannelabstracttransport_sendersignalindex_callback = cb; }
-    inline void setQWebChannelAbstractTransport_Receivers_Callback(QWebChannelAbstractTransport_Receivers_Callback cb) { qwebchannelabstracttransport_receivers_callback = cb; }
-    inline void setQWebChannelAbstractTransport_IsSignalConnected_Callback(QWebChannelAbstractTransport_IsSignalConnected_Callback cb) { qwebchannelabstracttransport_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQWebChannelAbstractTransport_MetaObject_IsBase(bool value) const { qwebchannelabstracttransport_metaobject_isbase = value; }
-    inline void setQWebChannelAbstractTransport_Metacast_IsBase(bool value) const { qwebchannelabstracttransport_metacast_isbase = value; }
-    inline void setQWebChannelAbstractTransport_Metacall_IsBase(bool value) const { qwebchannelabstracttransport_metacall_isbase = value; }
-    inline void setQWebChannelAbstractTransport_SendMessage_IsBase(bool value) const { qwebchannelabstracttransport_sendmessage_isbase = value; }
-    inline void setQWebChannelAbstractTransport_Event_IsBase(bool value) const { qwebchannelabstracttransport_event_isbase = value; }
-    inline void setQWebChannelAbstractTransport_EventFilter_IsBase(bool value) const { qwebchannelabstracttransport_eventfilter_isbase = value; }
-    inline void setQWebChannelAbstractTransport_TimerEvent_IsBase(bool value) const { qwebchannelabstracttransport_timerevent_isbase = value; }
-    inline void setQWebChannelAbstractTransport_ChildEvent_IsBase(bool value) const { qwebchannelabstracttransport_childevent_isbase = value; }
-    inline void setQWebChannelAbstractTransport_CustomEvent_IsBase(bool value) const { qwebchannelabstracttransport_customevent_isbase = value; }
-    inline void setQWebChannelAbstractTransport_ConnectNotify_IsBase(bool value) const { qwebchannelabstracttransport_connectnotify_isbase = value; }
-    inline void setQWebChannelAbstractTransport_DisconnectNotify_IsBase(bool value) const { qwebchannelabstracttransport_disconnectnotify_isbase = value; }
-    inline void setQWebChannelAbstractTransport_Sender_IsBase(bool value) const { qwebchannelabstracttransport_sender_isbase = value; }
-    inline void setQWebChannelAbstractTransport_SenderSignalIndex_IsBase(bool value) const { qwebchannelabstracttransport_sendersignalindex_isbase = value; }
-    inline void setQWebChannelAbstractTransport_Receivers_IsBase(bool value) const { qwebchannelabstracttransport_receivers_isbase = value; }
-    inline void setQWebChannelAbstractTransport_IsSignalConnected_IsBase(bool value) const { qwebchannelabstracttransport_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qwebchannelabstracttransport_metaobject_isbase) {
-            qwebchannelabstracttransport_metaobject_isbase = false;
-            return QWebChannelAbstractTransport::metaObject();
-        }
-        auto metaobject_cb = qwebchannelabstracttransport_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qwebchannelabstracttransport_metaobject_callback) {
+            QMetaObject* callback_ret = qwebchannelabstracttransport_metaobject_callback(this);
             return callback_ret;
         }
         return QWebChannelAbstractTransport::metaObject();
@@ -122,14 +65,9 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qwebchannelabstracttransport_metacast_isbase) {
-            qwebchannelabstracttransport_metacast_isbase = false;
-            return QWebChannelAbstractTransport::qt_metacast(param1);
-        }
-        auto metacast_cb = qwebchannelabstracttransport_metacast_callback;
-        if (metacast_cb) {
+        if (qwebchannelabstracttransport_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qwebchannelabstracttransport_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QWebChannelAbstractTransport::qt_metacast(param1);
@@ -137,16 +75,11 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qwebchannelabstracttransport_metacall_isbase) {
-            qwebchannelabstracttransport_metacall_isbase = false;
-            return QWebChannelAbstractTransport::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qwebchannelabstracttransport_metacall_callback;
-        if (metacall_cb) {
+        if (qwebchannelabstracttransport_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qwebchannelabstracttransport_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QWebChannelAbstractTransport::qt_metacall(param1, param2, param3);
@@ -154,25 +87,22 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual void sendMessage(const QJsonObject& message) override {
-        auto sendmessage_cb = qwebchannelabstracttransport_sendmessage_callback;
-        if (sendmessage_cb) {
+        if (qwebchannelabstracttransport_sendmessage_callback) {
             const QJsonObject& message_ret = message;
             // Cast returned reference into pointer
             QJsonObject* cbval1 = const_cast<QJsonObject*>(&message_ret);
-            sendmessage_cb(this, cbval1);
+            qwebchannelabstracttransport_sendmessage_callback(this, cbval1);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QWebChannelAbstractTransport::sendMessage called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qwebchannelabstracttransport_event_isbase) {
-            qwebchannelabstracttransport_event_isbase = false;
-            return QWebChannelAbstractTransport::event(event);
-        }
-        auto event_cb = qwebchannelabstracttransport_event_callback;
-        if (event_cb) {
+        if (qwebchannelabstracttransport_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qwebchannelabstracttransport_event_callback(this, cbval1);
             return callback_ret;
         }
         return QWebChannelAbstractTransport::event(event);
@@ -180,15 +110,10 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qwebchannelabstracttransport_eventfilter_isbase) {
-            qwebchannelabstracttransport_eventfilter_isbase = false;
-            return QWebChannelAbstractTransport::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qwebchannelabstracttransport_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qwebchannelabstracttransport_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qwebchannelabstracttransport_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QWebChannelAbstractTransport::eventFilter(watched, event);
@@ -196,15 +121,9 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qwebchannelabstracttransport_timerevent_isbase) {
-            qwebchannelabstracttransport_timerevent_isbase = false;
-            QWebChannelAbstractTransport::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qwebchannelabstracttransport_timerevent_callback;
-        if (timerevent_cb) {
+        if (qwebchannelabstracttransport_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qwebchannelabstracttransport_timerevent_callback(this, cbval1);
             return;
         }
         QWebChannelAbstractTransport::timerEvent(event);
@@ -212,15 +131,9 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qwebchannelabstracttransport_childevent_isbase) {
-            qwebchannelabstracttransport_childevent_isbase = false;
-            QWebChannelAbstractTransport::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qwebchannelabstracttransport_childevent_callback;
-        if (childevent_cb) {
+        if (qwebchannelabstracttransport_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qwebchannelabstracttransport_childevent_callback(this, cbval1);
             return;
         }
         QWebChannelAbstractTransport::childEvent(event);
@@ -228,15 +141,9 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qwebchannelabstracttransport_customevent_isbase) {
-            qwebchannelabstracttransport_customevent_isbase = false;
-            QWebChannelAbstractTransport::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qwebchannelabstracttransport_customevent_callback;
-        if (customevent_cb) {
+        if (qwebchannelabstracttransport_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qwebchannelabstracttransport_customevent_callback(this, cbval1);
             return;
         }
         QWebChannelAbstractTransport::customEvent(event);
@@ -244,17 +151,11 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qwebchannelabstracttransport_connectnotify_isbase) {
-            qwebchannelabstracttransport_connectnotify_isbase = false;
-            QWebChannelAbstractTransport::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qwebchannelabstracttransport_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qwebchannelabstracttransport_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qwebchannelabstracttransport_connectnotify_callback(this, cbval1);
             return;
         }
         QWebChannelAbstractTransport::connectNotify(signal);
@@ -262,101 +163,22 @@ class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport 
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qwebchannelabstracttransport_disconnectnotify_isbase) {
-            qwebchannelabstracttransport_disconnectnotify_isbase = false;
-            QWebChannelAbstractTransport::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qwebchannelabstracttransport_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qwebchannelabstracttransport_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qwebchannelabstracttransport_disconnectnotify_callback(this, cbval1);
             return;
         }
         QWebChannelAbstractTransport::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qwebchannelabstracttransport_sender_isbase) {
-            qwebchannelabstracttransport_sender_isbase = false;
-            return QWebChannelAbstractTransport::sender();
-        }
-        auto sender_cb = qwebchannelabstracttransport_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QWebChannelAbstractTransport::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qwebchannelabstracttransport_sendersignalindex_isbase) {
-            qwebchannelabstracttransport_sendersignalindex_isbase = false;
-            return QWebChannelAbstractTransport::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qwebchannelabstracttransport_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QWebChannelAbstractTransport::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qwebchannelabstracttransport_receivers_isbase) {
-            qwebchannelabstracttransport_receivers_isbase = false;
-            return QWebChannelAbstractTransport::receivers(signal);
-        }
-        auto receivers_cb = qwebchannelabstracttransport_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QWebChannelAbstractTransport::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qwebchannelabstracttransport_issignalconnected_isbase) {
-            qwebchannelabstracttransport_issignalconnected_isbase = false;
-            return QWebChannelAbstractTransport::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qwebchannelabstracttransport_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QWebChannelAbstractTransport::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QWebChannelAbstractTransport_TimerEvent(QWebChannelAbstractTransport* self, QTimerEvent* event);
     friend void QWebChannelAbstractTransport_SuperTimerEvent(QWebChannelAbstractTransport* self, QTimerEvent* event);
-    friend void QWebChannelAbstractTransport_ChildEvent(QWebChannelAbstractTransport* self, QChildEvent* event);
     friend void QWebChannelAbstractTransport_SuperChildEvent(QWebChannelAbstractTransport* self, QChildEvent* event);
-    friend void QWebChannelAbstractTransport_CustomEvent(QWebChannelAbstractTransport* self, QEvent* event);
     friend void QWebChannelAbstractTransport_SuperCustomEvent(QWebChannelAbstractTransport* self, QEvent* event);
-    friend void QWebChannelAbstractTransport_ConnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
     friend void QWebChannelAbstractTransport_SuperConnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
-    friend void QWebChannelAbstractTransport_DisconnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
     friend void QWebChannelAbstractTransport_SuperDisconnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
-    friend QObject* QWebChannelAbstractTransport_Sender(const QWebChannelAbstractTransport* self);
-    friend QObject* QWebChannelAbstractTransport_SuperSender(const QWebChannelAbstractTransport* self);
-    friend int QWebChannelAbstractTransport_SenderSignalIndex(const QWebChannelAbstractTransport* self);
-    friend int QWebChannelAbstractTransport_SuperSenderSignalIndex(const QWebChannelAbstractTransport* self);
-    friend int QWebChannelAbstractTransport_Receivers(const QWebChannelAbstractTransport* self, const char* signal);
-    friend int QWebChannelAbstractTransport_SuperReceivers(const QWebChannelAbstractTransport* self, const char* signal);
-    friend bool QWebChannelAbstractTransport_IsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal);
-    friend bool QWebChannelAbstractTransport_SuperIsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal);
 };
 
 #endif

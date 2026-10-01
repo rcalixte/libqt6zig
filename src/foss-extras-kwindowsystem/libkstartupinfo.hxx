@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KStartupInfo so that we can call protected methods
+// This class is a subclass of KStartupInfo
 class VirtualKStartupInfo final : public KStartupInfo {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKStartupInfo = true;
-
-    // Virtual class public types (including callbacks)
-    using KStartupInfo_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KStartupInfo_MetaObject_Callback = QMetaObject* (*)(const KStartupInfo*);
     using KStartupInfo_Metacast_Callback = void* (*)(KStartupInfo*, const char*);
     using KStartupInfo_Metacall_Callback = int (*)(KStartupInfo*, int, int, void**);
     using KStartupInfo_CustomEvent_Callback = void (*)(KStartupInfo*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualKStartupInfo final : public KStartupInfo {
     using KStartupInfo_ChildEvent_Callback = void (*)(KStartupInfo*, QChildEvent*);
     using KStartupInfo_ConnectNotify_Callback = void (*)(KStartupInfo*, QMetaMethod*);
     using KStartupInfo_DisconnectNotify_Callback = void (*)(KStartupInfo*, QMetaMethod*);
-    using KStartupInfo_Sender_Callback = QObject* (*)();
-    using KStartupInfo_SenderSignalIndex_Callback = int (*)();
-    using KStartupInfo_Receivers_Callback = int (*)(const KStartupInfo*, const char*);
-    using KStartupInfo_IsSignalConnected_Callback = bool (*)(const KStartupInfo*, QMetaMethod*);
+    using KStartupInfo::isSignalConnected;
+    using KStartupInfo::receivers;
+    using KStartupInfo::sender;
+    using KStartupInfo::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KStartupInfo_MetaObject_Callback kstartupinfo_metaobject_callback = nullptr;
     KStartupInfo_Metacast_Callback kstartupinfo_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualKStartupInfo final : public KStartupInfo {
     KStartupInfo_ChildEvent_Callback kstartupinfo_childevent_callback = nullptr;
     KStartupInfo_ConnectNotify_Callback kstartupinfo_connectnotify_callback = nullptr;
     KStartupInfo_DisconnectNotify_Callback kstartupinfo_disconnectnotify_callback = nullptr;
-    KStartupInfo_Sender_Callback kstartupinfo_sender_callback = nullptr;
-    KStartupInfo_SenderSignalIndex_Callback kstartupinfo_sendersignalindex_callback = nullptr;
-    KStartupInfo_Receivers_Callback kstartupinfo_receivers_callback = nullptr;
-    KStartupInfo_IsSignalConnected_Callback kstartupinfo_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kstartupinfo_metaobject_isbase = false;
-    mutable bool kstartupinfo_metacast_isbase = false;
-    mutable bool kstartupinfo_metacall_isbase = false;
-    mutable bool kstartupinfo_customevent_isbase = false;
-    mutable bool kstartupinfo_event_isbase = false;
-    mutable bool kstartupinfo_eventfilter_isbase = false;
-    mutable bool kstartupinfo_timerevent_isbase = false;
-    mutable bool kstartupinfo_childevent_isbase = false;
-    mutable bool kstartupinfo_connectnotify_isbase = false;
-    mutable bool kstartupinfo_disconnectnotify_isbase = false;
-    mutable bool kstartupinfo_sender_isbase = false;
-    mutable bool kstartupinfo_sendersignalindex_isbase = false;
-    mutable bool kstartupinfo_receivers_isbase = false;
-    mutable bool kstartupinfo_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KStartupInfo {
+        using KStartupInfo::childEvent;
+        using KStartupInfo::connectNotify;
+        using KStartupInfo::customEvent;
+        using KStartupInfo::disconnectNotify;
+        using KStartupInfo::timerEvent;
+    };
 
-  public:
     VirtualKStartupInfo(int flags) : KStartupInfo(flags) {};
     VirtualKStartupInfo(int flags, QObject* parent) : KStartupInfo(flags, parent) {};
 
-    // Callback setters
-    inline void setKStartupInfo_MetaObject_Callback(KStartupInfo_MetaObject_Callback cb) { kstartupinfo_metaobject_callback = cb; }
-    inline void setKStartupInfo_Metacast_Callback(KStartupInfo_Metacast_Callback cb) { kstartupinfo_metacast_callback = cb; }
-    inline void setKStartupInfo_Metacall_Callback(KStartupInfo_Metacall_Callback cb) { kstartupinfo_metacall_callback = cb; }
-    inline void setKStartupInfo_CustomEvent_Callback(KStartupInfo_CustomEvent_Callback cb) { kstartupinfo_customevent_callback = cb; }
-    inline void setKStartupInfo_Event_Callback(KStartupInfo_Event_Callback cb) { kstartupinfo_event_callback = cb; }
-    inline void setKStartupInfo_EventFilter_Callback(KStartupInfo_EventFilter_Callback cb) { kstartupinfo_eventfilter_callback = cb; }
-    inline void setKStartupInfo_TimerEvent_Callback(KStartupInfo_TimerEvent_Callback cb) { kstartupinfo_timerevent_callback = cb; }
-    inline void setKStartupInfo_ChildEvent_Callback(KStartupInfo_ChildEvent_Callback cb) { kstartupinfo_childevent_callback = cb; }
-    inline void setKStartupInfo_ConnectNotify_Callback(KStartupInfo_ConnectNotify_Callback cb) { kstartupinfo_connectnotify_callback = cb; }
-    inline void setKStartupInfo_DisconnectNotify_Callback(KStartupInfo_DisconnectNotify_Callback cb) { kstartupinfo_disconnectnotify_callback = cb; }
-    inline void setKStartupInfo_Sender_Callback(KStartupInfo_Sender_Callback cb) { kstartupinfo_sender_callback = cb; }
-    inline void setKStartupInfo_SenderSignalIndex_Callback(KStartupInfo_SenderSignalIndex_Callback cb) { kstartupinfo_sendersignalindex_callback = cb; }
-    inline void setKStartupInfo_Receivers_Callback(KStartupInfo_Receivers_Callback cb) { kstartupinfo_receivers_callback = cb; }
-    inline void setKStartupInfo_IsSignalConnected_Callback(KStartupInfo_IsSignalConnected_Callback cb) { kstartupinfo_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKStartupInfo_MetaObject_IsBase(bool value) const { kstartupinfo_metaobject_isbase = value; }
-    inline void setKStartupInfo_Metacast_IsBase(bool value) const { kstartupinfo_metacast_isbase = value; }
-    inline void setKStartupInfo_Metacall_IsBase(bool value) const { kstartupinfo_metacall_isbase = value; }
-    inline void setKStartupInfo_CustomEvent_IsBase(bool value) const { kstartupinfo_customevent_isbase = value; }
-    inline void setKStartupInfo_Event_IsBase(bool value) const { kstartupinfo_event_isbase = value; }
-    inline void setKStartupInfo_EventFilter_IsBase(bool value) const { kstartupinfo_eventfilter_isbase = value; }
-    inline void setKStartupInfo_TimerEvent_IsBase(bool value) const { kstartupinfo_timerevent_isbase = value; }
-    inline void setKStartupInfo_ChildEvent_IsBase(bool value) const { kstartupinfo_childevent_isbase = value; }
-    inline void setKStartupInfo_ConnectNotify_IsBase(bool value) const { kstartupinfo_connectnotify_isbase = value; }
-    inline void setKStartupInfo_DisconnectNotify_IsBase(bool value) const { kstartupinfo_disconnectnotify_isbase = value; }
-    inline void setKStartupInfo_Sender_IsBase(bool value) const { kstartupinfo_sender_isbase = value; }
-    inline void setKStartupInfo_SenderSignalIndex_IsBase(bool value) const { kstartupinfo_sendersignalindex_isbase = value; }
-    inline void setKStartupInfo_Receivers_IsBase(bool value) const { kstartupinfo_receivers_isbase = value; }
-    inline void setKStartupInfo_IsSignalConnected_IsBase(bool value) const { kstartupinfo_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kstartupinfo_metaobject_isbase) {
-            kstartupinfo_metaobject_isbase = false;
-            return KStartupInfo::metaObject();
-        }
-        auto metaobject_cb = kstartupinfo_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kstartupinfo_metaobject_callback) {
+            QMetaObject* callback_ret = kstartupinfo_metaobject_callback(this);
             return callback_ret;
         }
         return KStartupInfo::metaObject();
@@ -117,14 +63,9 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kstartupinfo_metacast_isbase) {
-            kstartupinfo_metacast_isbase = false;
-            return KStartupInfo::qt_metacast(param1);
-        }
-        auto metacast_cb = kstartupinfo_metacast_callback;
-        if (metacast_cb) {
+        if (kstartupinfo_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kstartupinfo_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KStartupInfo::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kstartupinfo_metacall_isbase) {
-            kstartupinfo_metacall_isbase = false;
-            return KStartupInfo::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kstartupinfo_metacall_callback;
-        if (metacall_cb) {
+        if (kstartupinfo_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kstartupinfo_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KStartupInfo::qt_metacall(param1, param2, param3);
@@ -149,15 +85,9 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* e_P) override {
-        if (kstartupinfo_customevent_isbase) {
-            kstartupinfo_customevent_isbase = false;
-            KStartupInfo::customEvent(e_P);
-            return;
-        }
-        auto customevent_cb = kstartupinfo_customevent_callback;
-        if (customevent_cb) {
+        if (kstartupinfo_customevent_callback) {
             QEvent* cbval1 = e_P;
-            customevent_cb(this, cbval1);
+            kstartupinfo_customevent_callback(this, cbval1);
             return;
         }
         KStartupInfo::customEvent(e_P);
@@ -165,14 +95,9 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kstartupinfo_event_isbase) {
-            kstartupinfo_event_isbase = false;
-            return KStartupInfo::event(event);
-        }
-        auto event_cb = kstartupinfo_event_callback;
-        if (event_cb) {
+        if (kstartupinfo_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kstartupinfo_event_callback(this, cbval1);
             return callback_ret;
         }
         return KStartupInfo::event(event);
@@ -180,15 +105,10 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kstartupinfo_eventfilter_isbase) {
-            kstartupinfo_eventfilter_isbase = false;
-            return KStartupInfo::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kstartupinfo_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kstartupinfo_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kstartupinfo_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KStartupInfo::eventFilter(watched, event);
@@ -196,15 +116,9 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kstartupinfo_timerevent_isbase) {
-            kstartupinfo_timerevent_isbase = false;
-            KStartupInfo::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kstartupinfo_timerevent_callback;
-        if (timerevent_cb) {
+        if (kstartupinfo_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kstartupinfo_timerevent_callback(this, cbval1);
             return;
         }
         KStartupInfo::timerEvent(event);
@@ -212,15 +126,9 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kstartupinfo_childevent_isbase) {
-            kstartupinfo_childevent_isbase = false;
-            KStartupInfo::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kstartupinfo_childevent_callback;
-        if (childevent_cb) {
+        if (kstartupinfo_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kstartupinfo_childevent_callback(this, cbval1);
             return;
         }
         KStartupInfo::childEvent(event);
@@ -228,17 +136,11 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kstartupinfo_connectnotify_isbase) {
-            kstartupinfo_connectnotify_isbase = false;
-            KStartupInfo::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kstartupinfo_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kstartupinfo_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kstartupinfo_connectnotify_callback(this, cbval1);
             return;
         }
         KStartupInfo::connectNotify(signal);
@@ -246,101 +148,22 @@ class VirtualKStartupInfo final : public KStartupInfo {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kstartupinfo_disconnectnotify_isbase) {
-            kstartupinfo_disconnectnotify_isbase = false;
-            KStartupInfo::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kstartupinfo_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kstartupinfo_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kstartupinfo_disconnectnotify_callback(this, cbval1);
             return;
         }
         KStartupInfo::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kstartupinfo_sender_isbase) {
-            kstartupinfo_sender_isbase = false;
-            return KStartupInfo::sender();
-        }
-        auto sender_cb = kstartupinfo_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KStartupInfo::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kstartupinfo_sendersignalindex_isbase) {
-            kstartupinfo_sendersignalindex_isbase = false;
-            return KStartupInfo::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kstartupinfo_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KStartupInfo::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kstartupinfo_receivers_isbase) {
-            kstartupinfo_receivers_isbase = false;
-            return KStartupInfo::receivers(signal);
-        }
-        auto receivers_cb = kstartupinfo_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KStartupInfo::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kstartupinfo_issignalconnected_isbase) {
-            kstartupinfo_issignalconnected_isbase = false;
-            return KStartupInfo::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kstartupinfo_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KStartupInfo::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KStartupInfo_CustomEvent(KStartupInfo* self, QEvent* e_P);
     friend void KStartupInfo_SuperCustomEvent(KStartupInfo* self, QEvent* e_P);
-    friend void KStartupInfo_TimerEvent(KStartupInfo* self, QTimerEvent* event);
     friend void KStartupInfo_SuperTimerEvent(KStartupInfo* self, QTimerEvent* event);
-    friend void KStartupInfo_ChildEvent(KStartupInfo* self, QChildEvent* event);
     friend void KStartupInfo_SuperChildEvent(KStartupInfo* self, QChildEvent* event);
-    friend void KStartupInfo_ConnectNotify(KStartupInfo* self, const QMetaMethod* signal);
     friend void KStartupInfo_SuperConnectNotify(KStartupInfo* self, const QMetaMethod* signal);
-    friend void KStartupInfo_DisconnectNotify(KStartupInfo* self, const QMetaMethod* signal);
     friend void KStartupInfo_SuperDisconnectNotify(KStartupInfo* self, const QMetaMethod* signal);
-    friend QObject* KStartupInfo_Sender(const KStartupInfo* self);
-    friend QObject* KStartupInfo_SuperSender(const KStartupInfo* self);
-    friend int KStartupInfo_SenderSignalIndex(const KStartupInfo* self);
-    friend int KStartupInfo_SuperSenderSignalIndex(const KStartupInfo* self);
-    friend int KStartupInfo_Receivers(const KStartupInfo* self, const char* signal);
-    friend int KStartupInfo_SuperReceivers(const KStartupInfo* self, const char* signal);
-    friend bool KStartupInfo_IsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal);
-    friend bool KStartupInfo_SuperIsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal);
 };
 
 #endif

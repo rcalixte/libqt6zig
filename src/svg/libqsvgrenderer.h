@@ -75,7 +75,7 @@ void QSvgRenderer_Connect_RepaintNeeded(QSvgRenderer* self, intptr_t slot);
 libqt_string QSvgRenderer_Tr2(const char* s, const char* c);
 libqt_string QSvgRenderer_Tr3(const char* s, const char* c, int n);
 void QSvgRenderer_Render32(QSvgRenderer* self, QPainter* p, const libqt_string elementId, const QRectF* bounds);
-void QSvgRenderer_OnMetaObject(const QSvgRenderer* self, intptr_t slot);
+void QSvgRenderer_OnMetaObject(QSvgRenderer* self, intptr_t slot);
 QMetaObject* QSvgRenderer_SuperMetaObject(const QSvgRenderer* self);
 void QSvgRenderer_OnMetacast(QSvgRenderer* self, intptr_t slot);
 void* QSvgRenderer_SuperMetacast(QSvgRenderer* self, const char* param1);
@@ -103,17 +103,9 @@ void QSvgRenderer_DisconnectNotify(QSvgRenderer* self, const QMetaMethod* signal
 void QSvgRenderer_OnDisconnectNotify(QSvgRenderer* self, intptr_t slot);
 void QSvgRenderer_SuperDisconnectNotify(QSvgRenderer* self, const QMetaMethod* signal);
 QObject* QSvgRenderer_Sender(const QSvgRenderer* self);
-void QSvgRenderer_OnSender(const QSvgRenderer* self, intptr_t slot);
-QObject* QSvgRenderer_SuperSender(const QSvgRenderer* self);
 int QSvgRenderer_SenderSignalIndex(const QSvgRenderer* self);
-void QSvgRenderer_OnSenderSignalIndex(const QSvgRenderer* self, intptr_t slot);
-int QSvgRenderer_SuperSenderSignalIndex(const QSvgRenderer* self);
 int QSvgRenderer_Receivers(const QSvgRenderer* self, const char* signal);
-void QSvgRenderer_OnReceivers(const QSvgRenderer* self, intptr_t slot);
-int QSvgRenderer_SuperReceivers(const QSvgRenderer* self, const char* signal);
 bool QSvgRenderer_IsSignalConnected(const QSvgRenderer* self, const QMetaMethod* signal);
-void QSvgRenderer_OnIsSignalConnected(const QSvgRenderer* self, intptr_t slot);
-bool QSvgRenderer_SuperIsSignalConnected(const QSvgRenderer* self, const QMetaMethod* signal);
 void QSvgRenderer_Delete(QSvgRenderer* self);
 
 #ifdef __cplusplus

@@ -468,816 +468,482 @@ void QPlaceManagerEngine_Connect_ErrorOccurred3(QPlaceManagerEngine* self, intpt
 
 // Base class handler implementation
 QMetaObject* QPlaceManagerEngine_SuperMetaObject(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_MetaObject_IsBase(true);
-        return (QMetaObject*)vqplacemanagerengine->metaObject();
-    } else {
-        return (QMetaObject*)self->QPlaceManagerEngine::metaObject();
-    }
+    return (QMetaObject*)self->QPlaceManagerEngine::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnMetaObject(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_MetaObject_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_MetaObject_Callback>(slot));
+void QPlaceManagerEngine_OnMetaObject(QPlaceManagerEngine* self, intptr_t slot) {
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self)))
+        vqplacemanagerengine->qplacemanagerengine_metaobject_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPlaceManagerEngine_SuperMetacast(QPlaceManagerEngine* self, const char* param1) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Metacast_IsBase(true);
-        return vqplacemanagerengine->qt_metacast(param1);
-    } else {
-        return self->QPlaceManagerEngine::qt_metacast(param1);
-    }
+    return self->QPlaceManagerEngine::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnMetacast(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Metacast_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Metacast_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_metacast_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPlaceManagerEngine_SuperMetacall(QPlaceManagerEngine* self, int param1, int param2, void** param3) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Metacall_IsBase(true);
-        return vqplacemanagerengine->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPlaceManagerEngine::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPlaceManagerEngine::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnMetacall(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Metacall_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Metacall_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_metacall_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceDetailsReply* QPlaceManagerEngine_SuperGetPlaceDetails(QPlaceManagerEngine* self, const libqt_string placeId) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QString placeId_QString = QString::fromUtf8(placeId.data, placeId.len);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_GetPlaceDetails_IsBase(true);
-        return vqplacemanagerengine->getPlaceDetails(placeId_QString);
-    } else {
-        return self->QPlaceManagerEngine::getPlaceDetails(placeId_QString);
-    }
+    return self->QPlaceManagerEngine::getPlaceDetails(placeId_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnGetPlaceDetails(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_GetPlaceDetails_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_GetPlaceDetails_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_getplacedetails_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_GetPlaceDetails_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceContentReply* QPlaceManagerEngine_SuperGetPlaceContent(QPlaceManagerEngine* self, const QPlaceContentRequest* request) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_GetPlaceContent_IsBase(true);
-        return vqplacemanagerengine->getPlaceContent(*request);
-    } else {
-        return self->QPlaceManagerEngine::getPlaceContent(*request);
-    }
+    return self->QPlaceManagerEngine::getPlaceContent(*request);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnGetPlaceContent(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_GetPlaceContent_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_GetPlaceContent_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_getplacecontent_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_GetPlaceContent_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceSearchReply* QPlaceManagerEngine_SuperSearch(QPlaceManagerEngine* self, const QPlaceSearchRequest* request) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Search_IsBase(true);
-        return vqplacemanagerengine->search(*request);
-    } else {
-        return self->QPlaceManagerEngine::search(*request);
-    }
+    return self->QPlaceManagerEngine::search(*request);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSearch(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Search_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Search_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_search_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Search_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceSearchSuggestionReply* QPlaceManagerEngine_SuperSearchSuggestions(QPlaceManagerEngine* self, const QPlaceSearchRequest* request) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_SearchSuggestions_IsBase(true);
-        return vqplacemanagerengine->searchSuggestions(*request);
-    } else {
-        return self->QPlaceManagerEngine::searchSuggestions(*request);
-    }
+    return self->QPlaceManagerEngine::searchSuggestions(*request);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSearchSuggestions(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_SearchSuggestions_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SearchSuggestions_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_searchsuggestions_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SearchSuggestions_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceIdReply* QPlaceManagerEngine_SuperSavePlace(QPlaceManagerEngine* self, const QPlace* place) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_SavePlace_IsBase(true);
-        return vqplacemanagerengine->savePlace(*place);
-    } else {
-        return self->QPlaceManagerEngine::savePlace(*place);
-    }
+    return self->QPlaceManagerEngine::savePlace(*place);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSavePlace(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_SavePlace_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SavePlace_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_saveplace_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SavePlace_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceIdReply* QPlaceManagerEngine_SuperRemovePlace(QPlaceManagerEngine* self, const libqt_string placeId) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QString placeId_QString = QString::fromUtf8(placeId.data, placeId.len);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_RemovePlace_IsBase(true);
-        return vqplacemanagerengine->removePlace(placeId_QString);
-    } else {
-        return self->QPlaceManagerEngine::removePlace(placeId_QString);
-    }
+    return self->QPlaceManagerEngine::removePlace(placeId_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnRemovePlace(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_RemovePlace_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_RemovePlace_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_removeplace_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_RemovePlace_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceIdReply* QPlaceManagerEngine_SuperSaveCategory(QPlaceManagerEngine* self, const QPlaceCategory* category, const libqt_string parentId) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QString parentId_QString = QString::fromUtf8(parentId.data, parentId.len);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_SaveCategory_IsBase(true);
-        return vqplacemanagerengine->saveCategory(*category, parentId_QString);
-    } else {
-        return self->QPlaceManagerEngine::saveCategory(*category, parentId_QString);
-    }
+    return self->QPlaceManagerEngine::saveCategory(*category, parentId_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSaveCategory(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_SaveCategory_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SaveCategory_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_savecategory_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SaveCategory_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceIdReply* QPlaceManagerEngine_SuperRemoveCategory(QPlaceManagerEngine* self, const libqt_string categoryId) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_RemoveCategory_IsBase(true);
-        return vqplacemanagerengine->removeCategory(categoryId_QString);
-    } else {
-        return self->QPlaceManagerEngine::removeCategory(categoryId_QString);
-    }
+    return self->QPlaceManagerEngine::removeCategory(categoryId_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnRemoveCategory(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_RemoveCategory_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_RemoveCategory_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_removecategory_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_RemoveCategory_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceReply* QPlaceManagerEngine_SuperInitializeCategories(QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_InitializeCategories_IsBase(true);
-        return vqplacemanagerengine->initializeCategories();
-    } else {
-        return self->QPlaceManagerEngine::initializeCategories();
-    }
+    return self->QPlaceManagerEngine::initializeCategories();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnInitializeCategories(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_InitializeCategories_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_InitializeCategories_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_initializecategories_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_InitializeCategories_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string QPlaceManagerEngine_SuperParentCategoryId(const QPlaceManagerEngine* self, const libqt_string categoryId) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_ParentCategoryId_IsBase(true);
-        auto _ret = vqplacemanagerengine->parentCategoryId(categoryId_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QPlaceManagerEngine::parentCategoryId(categoryId_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->QPlaceManagerEngine::parentCategoryId(categoryId_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnParentCategoryId(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_ParentCategoryId_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ParentCategoryId_Callback>(slot));
+void QPlaceManagerEngine_OnParentCategoryId(QPlaceManagerEngine* self, intptr_t slot) {
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self)))
+        vqplacemanagerengine->qplacemanagerengine_parentcategoryid_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ParentCategoryId_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QPlaceManagerEngine_SuperChildCategoryIds(const QPlaceManagerEngine* self, const libqt_string categoryId) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_ChildCategoryIds_IsBase(true);
-        QList<QString> _ret = vqplacemanagerengine->childCategoryIds(categoryId_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QPlaceManagerEngine::childCategoryIds(categoryId_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QPlaceManagerEngine::childCategoryIds(categoryId_QString);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnChildCategoryIds(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_ChildCategoryIds_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildCategoryIds_Callback>(slot));
+void QPlaceManagerEngine_OnChildCategoryIds(QPlaceManagerEngine* self, intptr_t slot) {
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self)))
+        vqplacemanagerengine->qplacemanagerengine_childcategoryids_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildCategoryIds_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceCategory* QPlaceManagerEngine_SuperCategory(const QPlaceManagerEngine* self, const libqt_string categoryId) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Category_IsBase(true);
-        return new QPlaceCategory(vqplacemanagerengine->category(categoryId_QString));
-    } else {
-        return new QPlaceCategory(((VirtualQPlaceManagerEngine*)self)->category(categoryId_QString));
-    }
+    return new QPlaceCategory(self->QPlaceManagerEngine::category(categoryId_QString));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnCategory(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Category_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Category_Callback>(slot));
+void QPlaceManagerEngine_OnCategory(QPlaceManagerEngine* self, intptr_t slot) {
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self)))
+        vqplacemanagerengine->qplacemanagerengine_category_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Category_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of QPlaceCategory* */ QPlaceManagerEngine_SuperChildCategories(const QPlaceManagerEngine* self, const libqt_string parentId) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
     QString parentId_QString = QString::fromUtf8(parentId.data, parentId.len);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_ChildCategories_IsBase(true);
-        QList<QPlaceCategory> _ret = vqplacemanagerengine->childCategories(parentId_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QPlaceCategory(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QPlaceCategory> _ret = self->QPlaceManagerEngine::childCategories(parentId_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QPlaceCategory(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QPlaceCategory> _ret = self->QPlaceManagerEngine::childCategories(parentId_QString);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QPlaceCategory(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnChildCategories(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_ChildCategories_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildCategories_Callback>(slot));
+void QPlaceManagerEngine_OnChildCategories(QPlaceManagerEngine* self, intptr_t slot) {
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self)))
+        vqplacemanagerengine->qplacemanagerengine_childcategories_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildCategories_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of QLocale* */ QPlaceManagerEngine_SuperLocales(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Locales_IsBase(true);
-        QList<QLocale> _ret = vqplacemanagerengine->locales();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QLocale(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QLocale> _ret = self->QPlaceManagerEngine::locales();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QLocale(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QLocale> _ret = self->QPlaceManagerEngine::locales();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QLocale(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnLocales(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Locales_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Locales_Callback>(slot));
+void QPlaceManagerEngine_OnLocales(QPlaceManagerEngine* self, intptr_t slot) {
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self)))
+        vqplacemanagerengine->qplacemanagerengine_locales_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Locales_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPlaceManagerEngine_SuperSetLocales(QPlaceManagerEngine* self, const libqt_list /* of QLocale* */ locales) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
     QList<QLocale> locales_QList;
     locales_QList.reserve(locales.len);
     QLocale** locales_arr = static_cast<QLocale**>(locales.data);
     for (size_t i = 0; i < locales.len; ++i) {
         locales_QList.push_back(*(locales_arr[i]));
     }
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_SetLocales_IsBase(true);
-        vqplacemanagerengine->setLocales(locales_QList);
-    } else {
-        self->QPlaceManagerEngine::setLocales(locales_QList);
-    }
+    self->QPlaceManagerEngine::setLocales(locales_QList);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnSetLocales(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_SetLocales_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SetLocales_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_setlocales_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SetLocales_Callback>(slot);
 }
 
 // Base class handler implementation
 QUrl* QPlaceManagerEngine_SuperConstructIconUrl(const QPlaceManagerEngine* self, const QPlaceIcon* icon, const QSize* size) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_ConstructIconUrl_IsBase(true);
-        return new QUrl(vqplacemanagerengine->constructIconUrl(*icon, *size));
-    } else {
-        return new QUrl(((VirtualQPlaceManagerEngine*)self)->constructIconUrl(*icon, *size));
-    }
+    return new QUrl(self->QPlaceManagerEngine::constructIconUrl(*icon, *size));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnConstructIconUrl(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_ConstructIconUrl_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ConstructIconUrl_Callback>(slot));
+void QPlaceManagerEngine_OnConstructIconUrl(QPlaceManagerEngine* self, intptr_t slot) {
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self)))
+        vqplacemanagerengine->qplacemanagerengine_constructiconurl_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ConstructIconUrl_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlace* QPlaceManagerEngine_SuperCompatiblePlace(const QPlaceManagerEngine* self, const QPlace* original) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_CompatiblePlace_IsBase(true);
-        return new QPlace(vqplacemanagerengine->compatiblePlace(*original));
-    } else {
-        return new QPlace(((VirtualQPlaceManagerEngine*)self)->compatiblePlace(*original));
-    }
+    return new QPlace(self->QPlaceManagerEngine::compatiblePlace(*original));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnCompatiblePlace(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_CompatiblePlace_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_CompatiblePlace_Callback>(slot));
+void QPlaceManagerEngine_OnCompatiblePlace(QPlaceManagerEngine* self, intptr_t slot) {
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self)))
+        vqplacemanagerengine->qplacemanagerengine_compatibleplace_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_CompatiblePlace_Callback>(slot);
 }
 
 // Base class handler implementation
 QPlaceMatchReply* QPlaceManagerEngine_SuperMatchingPlaces(QPlaceManagerEngine* self, const QPlaceMatchRequest* request) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_MatchingPlaces_IsBase(true);
-        return vqplacemanagerengine->matchingPlaces(*request);
-    } else {
-        return self->QPlaceManagerEngine::matchingPlaces(*request);
-    }
+    return self->QPlaceManagerEngine::matchingPlaces(*request);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnMatchingPlaces(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_MatchingPlaces_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_MatchingPlaces_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_matchingplaces_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_MatchingPlaces_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPlaceManagerEngine_Event(QPlaceManagerEngine* self, QEvent* event) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return vqplacemanagerengine->event(event);
-    } else {
-        return self->QPlaceManagerEngine::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QPlaceManagerEngine_SuperEvent(QPlaceManagerEngine* self, QEvent* event) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Event_IsBase(true);
-        return vqplacemanagerengine->event(event);
-    } else {
-        return self->QPlaceManagerEngine::event(event);
-    }
+    return self->QPlaceManagerEngine::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnEvent(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Event_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Event_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_event_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPlaceManagerEngine_EventFilter(QPlaceManagerEngine* self, QObject* watched, QEvent* event) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return vqplacemanagerengine->eventFilter(watched, event);
-    } else {
-        return self->QPlaceManagerEngine::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPlaceManagerEngine_SuperEventFilter(QPlaceManagerEngine* self, QObject* watched, QEvent* event) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_EventFilter_IsBase(true);
-        return vqplacemanagerengine->eventFilter(watched, event);
-    } else {
-        return self->QPlaceManagerEngine::eventFilter(watched, event);
-    }
+    return self->QPlaceManagerEngine::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnEventFilter(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_EventFilter_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_EventFilter_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_eventfilter_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceManagerEngine_TimerEvent(QPlaceManagerEngine* self, QTimerEvent* event) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine) {
         vqplacemanagerengine->timerEvent(event);
     } else {
-        ((VirtualQPlaceManagerEngine*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceManagerEngine_SuperTimerEvent(QPlaceManagerEngine* self, QTimerEvent* event) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_TimerEvent_IsBase(true);
-        vqplacemanagerengine->timerEvent(event);
-    } else {
-        ((VirtualQPlaceManagerEngine*)self)->timerEvent(event);
-    }
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self)) {
+        vqplacemanagerengine->QPlaceManagerEngine::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnTimerEvent(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_TimerEvent_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_TimerEvent_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_timerevent_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceManagerEngine_ChildEvent(QPlaceManagerEngine* self, QChildEvent* event) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine) {
         vqplacemanagerengine->childEvent(event);
     } else {
-        ((VirtualQPlaceManagerEngine*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceManagerEngine_SuperChildEvent(QPlaceManagerEngine* self, QChildEvent* event) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_ChildEvent_IsBase(true);
-        vqplacemanagerengine->childEvent(event);
-    } else {
-        ((VirtualQPlaceManagerEngine*)self)->childEvent(event);
-    }
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self)) {
+        vqplacemanagerengine->QPlaceManagerEngine::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnChildEvent(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_ChildEvent_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildEvent_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_childevent_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceManagerEngine_CustomEvent(QPlaceManagerEngine* self, QEvent* event) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine) {
         vqplacemanagerengine->customEvent(event);
     } else {
-        ((VirtualQPlaceManagerEngine*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceManagerEngine_SuperCustomEvent(QPlaceManagerEngine* self, QEvent* event) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_CustomEvent_IsBase(true);
-        vqplacemanagerengine->customEvent(event);
-    } else {
-        ((VirtualQPlaceManagerEngine*)self)->customEvent(event);
-    }
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self)) {
+        vqplacemanagerengine->QPlaceManagerEngine::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnCustomEvent(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_CustomEvent_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_CustomEvent_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_customevent_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceManagerEngine_ConnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine) {
         vqplacemanagerengine->connectNotify(*signal);
     } else {
-        ((VirtualQPlaceManagerEngine*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceManagerEngine_SuperConnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_ConnectNotify_IsBase(true);
-        vqplacemanagerengine->connectNotify(*signal);
-    } else {
-        ((VirtualQPlaceManagerEngine*)self)->connectNotify(*signal);
-    }
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self)) {
+        vqplacemanagerengine->QPlaceManagerEngine::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnConnectNotify(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_ConnectNotify_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ConnectNotify_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_connectnotify_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPlaceManagerEngine_DisconnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal) {
     auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
+    if (vqplacemanagerengine) {
         vqplacemanagerengine->disconnectNotify(*signal);
     } else {
-        ((VirtualQPlaceManagerEngine*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPlaceManagerEngine_SuperDisconnectNotify(QPlaceManagerEngine* self, const QMetaMethod* signal) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_DisconnectNotify_IsBase(true);
-        vqplacemanagerengine->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPlaceManagerEngine*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self)) {
+        vqplacemanagerengine->QPlaceManagerEngine::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPlaceManagerEngine::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPlaceManagerEngine_OnDisconnectNotify(QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_DisconnectNotify_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_DisconnectNotify_Callback>(slot));
+    if (auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self))
+        vqplacemanagerengine->qplacemanagerengine_disconnectnotify_callback = reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QPlaceManager* QPlaceManagerEngine_Manager(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return vqplacemanagerengine->manager();
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->manager();
-    }
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self))) {
+        return vqplacemanagerengine->VirtualQPlaceManagerEngine::manager();
+    } else
+        qFatal("Error: Protected method QPlaceManagerEngine::manager called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPlaceManager* QPlaceManagerEngine_SuperManager(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Manager_IsBase(true);
-        return vqplacemanagerengine->manager();
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->manager();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnManager(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Manager_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Manager_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPlaceManagerEngine_Sender(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return vqplacemanagerengine->sender();
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->sender();
-    }
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self))) {
+        return vqplacemanagerengine->VirtualQPlaceManagerEngine::sender();
+    } else
+        qFatal("Error: Protected method QPlaceManagerEngine::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPlaceManagerEngine_SuperSender(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Sender_IsBase(true);
-        return vqplacemanagerengine->sender();
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnSender(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Sender_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPlaceManagerEngine_SenderSignalIndex(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return vqplacemanagerengine->senderSignalIndex();
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->senderSignalIndex();
-    }
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self))) {
+        return vqplacemanagerengine->VirtualQPlaceManagerEngine::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPlaceManagerEngine::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPlaceManagerEngine_SuperSenderSignalIndex(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_SenderSignalIndex_IsBase(true);
-        return vqplacemanagerengine->senderSignalIndex();
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnSenderSignalIndex(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPlaceManagerEngine_Receivers(const QPlaceManagerEngine* self, const char* signal) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return vqplacemanagerengine->receivers(signal);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->receivers(signal);
-    }
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self))) {
+        return vqplacemanagerengine->VirtualQPlaceManagerEngine::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPlaceManagerEngine::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPlaceManagerEngine_SuperReceivers(const QPlaceManagerEngine* self, const char* signal) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_Receivers_IsBase(true);
-        return vqplacemanagerengine->receivers(signal);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnReceivers(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_Receivers_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPlaceManagerEngine_IsSignalConnected(const QPlaceManagerEngine* self, const QMetaMethod* signal) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return vqplacemanagerengine->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPlaceManagerEngine_SuperIsSignalConnected(const QPlaceManagerEngine* self, const QMetaMethod* signal) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        vqplacemanagerengine->setQPlaceManagerEngine_IsSignalConnected_IsBase(true);
-        return vqplacemanagerengine->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPlaceManagerEngine_OnIsSignalConnected(const QPlaceManagerEngine* self, intptr_t slot) {
-    auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self));
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine)
-        vqplacemanagerengine->setQPlaceManagerEngine_IsSignalConnected_Callback(reinterpret_cast<VirtualQPlaceManagerEngine::QPlaceManagerEngine_IsSignalConnected_Callback>(slot));
+    if (auto* vqplacemanagerengine = const_cast<VirtualQPlaceManagerEngine*>(dynamic_cast<const VirtualQPlaceManagerEngine*>(self))) {
+        return vqplacemanagerengine->VirtualQPlaceManagerEngine::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPlaceManagerEngine::isSignalConnected called without a directly constructed type");
 }
 
 void QPlaceManagerEngine_Delete(QPlaceManagerEngine* self) {

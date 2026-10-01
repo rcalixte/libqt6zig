@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QSpatialSound so that we can call protected methods
+// This class is a subclass of QSpatialSound
 class VirtualQSpatialSound final : public QSpatialSound {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQSpatialSound = true;
-
-    // Virtual class public types (including callbacks)
-    using QSpatialSound_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QSpatialSound_MetaObject_Callback = QMetaObject* (*)(const QSpatialSound*);
     using QSpatialSound_Metacast_Callback = void* (*)(QSpatialSound*, const char*);
     using QSpatialSound_Metacall_Callback = int (*)(QSpatialSound*, int, int, void**);
     using QSpatialSound_Event_Callback = bool (*)(QSpatialSound*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQSpatialSound final : public QSpatialSound {
     using QSpatialSound_CustomEvent_Callback = void (*)(QSpatialSound*, QEvent*);
     using QSpatialSound_ConnectNotify_Callback = void (*)(QSpatialSound*, QMetaMethod*);
     using QSpatialSound_DisconnectNotify_Callback = void (*)(QSpatialSound*, QMetaMethod*);
-    using QSpatialSound_Sender_Callback = QObject* (*)();
-    using QSpatialSound_SenderSignalIndex_Callback = int (*)();
-    using QSpatialSound_Receivers_Callback = int (*)(const QSpatialSound*, const char*);
-    using QSpatialSound_IsSignalConnected_Callback = bool (*)(const QSpatialSound*, QMetaMethod*);
+    using QSpatialSound::isSignalConnected;
+    using QSpatialSound::receivers;
+    using QSpatialSound::sender;
+    using QSpatialSound::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QSpatialSound_MetaObject_Callback qspatialsound_metaobject_callback = nullptr;
     QSpatialSound_Metacast_Callback qspatialsound_metacast_callback = nullptr;
@@ -44,71 +39,22 @@ class VirtualQSpatialSound final : public QSpatialSound {
     QSpatialSound_CustomEvent_Callback qspatialsound_customevent_callback = nullptr;
     QSpatialSound_ConnectNotify_Callback qspatialsound_connectnotify_callback = nullptr;
     QSpatialSound_DisconnectNotify_Callback qspatialsound_disconnectnotify_callback = nullptr;
-    QSpatialSound_Sender_Callback qspatialsound_sender_callback = nullptr;
-    QSpatialSound_SenderSignalIndex_Callback qspatialsound_sendersignalindex_callback = nullptr;
-    QSpatialSound_Receivers_Callback qspatialsound_receivers_callback = nullptr;
-    QSpatialSound_IsSignalConnected_Callback qspatialsound_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qspatialsound_metaobject_isbase = false;
-    mutable bool qspatialsound_metacast_isbase = false;
-    mutable bool qspatialsound_metacall_isbase = false;
-    mutable bool qspatialsound_event_isbase = false;
-    mutable bool qspatialsound_eventfilter_isbase = false;
-    mutable bool qspatialsound_timerevent_isbase = false;
-    mutable bool qspatialsound_childevent_isbase = false;
-    mutable bool qspatialsound_customevent_isbase = false;
-    mutable bool qspatialsound_connectnotify_isbase = false;
-    mutable bool qspatialsound_disconnectnotify_isbase = false;
-    mutable bool qspatialsound_sender_isbase = false;
-    mutable bool qspatialsound_sendersignalindex_isbase = false;
-    mutable bool qspatialsound_receivers_isbase = false;
-    mutable bool qspatialsound_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QSpatialSound {
+        using QSpatialSound::childEvent;
+        using QSpatialSound::connectNotify;
+        using QSpatialSound::customEvent;
+        using QSpatialSound::disconnectNotify;
+        using QSpatialSound::timerEvent;
+    };
 
-  public:
     VirtualQSpatialSound(QAudioEngine* engine) : QSpatialSound(engine) {};
-
-    // Callback setters
-    inline void setQSpatialSound_MetaObject_Callback(QSpatialSound_MetaObject_Callback cb) { qspatialsound_metaobject_callback = cb; }
-    inline void setQSpatialSound_Metacast_Callback(QSpatialSound_Metacast_Callback cb) { qspatialsound_metacast_callback = cb; }
-    inline void setQSpatialSound_Metacall_Callback(QSpatialSound_Metacall_Callback cb) { qspatialsound_metacall_callback = cb; }
-    inline void setQSpatialSound_Event_Callback(QSpatialSound_Event_Callback cb) { qspatialsound_event_callback = cb; }
-    inline void setQSpatialSound_EventFilter_Callback(QSpatialSound_EventFilter_Callback cb) { qspatialsound_eventfilter_callback = cb; }
-    inline void setQSpatialSound_TimerEvent_Callback(QSpatialSound_TimerEvent_Callback cb) { qspatialsound_timerevent_callback = cb; }
-    inline void setQSpatialSound_ChildEvent_Callback(QSpatialSound_ChildEvent_Callback cb) { qspatialsound_childevent_callback = cb; }
-    inline void setQSpatialSound_CustomEvent_Callback(QSpatialSound_CustomEvent_Callback cb) { qspatialsound_customevent_callback = cb; }
-    inline void setQSpatialSound_ConnectNotify_Callback(QSpatialSound_ConnectNotify_Callback cb) { qspatialsound_connectnotify_callback = cb; }
-    inline void setQSpatialSound_DisconnectNotify_Callback(QSpatialSound_DisconnectNotify_Callback cb) { qspatialsound_disconnectnotify_callback = cb; }
-    inline void setQSpatialSound_Sender_Callback(QSpatialSound_Sender_Callback cb) { qspatialsound_sender_callback = cb; }
-    inline void setQSpatialSound_SenderSignalIndex_Callback(QSpatialSound_SenderSignalIndex_Callback cb) { qspatialsound_sendersignalindex_callback = cb; }
-    inline void setQSpatialSound_Receivers_Callback(QSpatialSound_Receivers_Callback cb) { qspatialsound_receivers_callback = cb; }
-    inline void setQSpatialSound_IsSignalConnected_Callback(QSpatialSound_IsSignalConnected_Callback cb) { qspatialsound_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQSpatialSound_MetaObject_IsBase(bool value) const { qspatialsound_metaobject_isbase = value; }
-    inline void setQSpatialSound_Metacast_IsBase(bool value) const { qspatialsound_metacast_isbase = value; }
-    inline void setQSpatialSound_Metacall_IsBase(bool value) const { qspatialsound_metacall_isbase = value; }
-    inline void setQSpatialSound_Event_IsBase(bool value) const { qspatialsound_event_isbase = value; }
-    inline void setQSpatialSound_EventFilter_IsBase(bool value) const { qspatialsound_eventfilter_isbase = value; }
-    inline void setQSpatialSound_TimerEvent_IsBase(bool value) const { qspatialsound_timerevent_isbase = value; }
-    inline void setQSpatialSound_ChildEvent_IsBase(bool value) const { qspatialsound_childevent_isbase = value; }
-    inline void setQSpatialSound_CustomEvent_IsBase(bool value) const { qspatialsound_customevent_isbase = value; }
-    inline void setQSpatialSound_ConnectNotify_IsBase(bool value) const { qspatialsound_connectnotify_isbase = value; }
-    inline void setQSpatialSound_DisconnectNotify_IsBase(bool value) const { qspatialsound_disconnectnotify_isbase = value; }
-    inline void setQSpatialSound_Sender_IsBase(bool value) const { qspatialsound_sender_isbase = value; }
-    inline void setQSpatialSound_SenderSignalIndex_IsBase(bool value) const { qspatialsound_sendersignalindex_isbase = value; }
-    inline void setQSpatialSound_Receivers_IsBase(bool value) const { qspatialsound_receivers_isbase = value; }
-    inline void setQSpatialSound_IsSignalConnected_IsBase(bool value) const { qspatialsound_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qspatialsound_metaobject_isbase) {
-            qspatialsound_metaobject_isbase = false;
-            return QSpatialSound::metaObject();
-        }
-        auto metaobject_cb = qspatialsound_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qspatialsound_metaobject_callback) {
+            QMetaObject* callback_ret = qspatialsound_metaobject_callback(this);
             return callback_ret;
         }
         return QSpatialSound::metaObject();
@@ -116,14 +62,9 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qspatialsound_metacast_isbase) {
-            qspatialsound_metacast_isbase = false;
-            return QSpatialSound::qt_metacast(param1);
-        }
-        auto metacast_cb = qspatialsound_metacast_callback;
-        if (metacast_cb) {
+        if (qspatialsound_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qspatialsound_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QSpatialSound::qt_metacast(param1);
@@ -131,16 +72,11 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qspatialsound_metacall_isbase) {
-            qspatialsound_metacall_isbase = false;
-            return QSpatialSound::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qspatialsound_metacall_callback;
-        if (metacall_cb) {
+        if (qspatialsound_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qspatialsound_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QSpatialSound::qt_metacall(param1, param2, param3);
@@ -148,14 +84,9 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qspatialsound_event_isbase) {
-            qspatialsound_event_isbase = false;
-            return QSpatialSound::event(event);
-        }
-        auto event_cb = qspatialsound_event_callback;
-        if (event_cb) {
+        if (qspatialsound_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qspatialsound_event_callback(this, cbval1);
             return callback_ret;
         }
         return QSpatialSound::event(event);
@@ -163,15 +94,10 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qspatialsound_eventfilter_isbase) {
-            qspatialsound_eventfilter_isbase = false;
-            return QSpatialSound::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qspatialsound_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qspatialsound_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qspatialsound_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QSpatialSound::eventFilter(watched, event);
@@ -179,15 +105,9 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qspatialsound_timerevent_isbase) {
-            qspatialsound_timerevent_isbase = false;
-            QSpatialSound::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qspatialsound_timerevent_callback;
-        if (timerevent_cb) {
+        if (qspatialsound_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qspatialsound_timerevent_callback(this, cbval1);
             return;
         }
         QSpatialSound::timerEvent(event);
@@ -195,15 +115,9 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qspatialsound_childevent_isbase) {
-            qspatialsound_childevent_isbase = false;
-            QSpatialSound::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qspatialsound_childevent_callback;
-        if (childevent_cb) {
+        if (qspatialsound_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qspatialsound_childevent_callback(this, cbval1);
             return;
         }
         QSpatialSound::childEvent(event);
@@ -211,15 +125,9 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qspatialsound_customevent_isbase) {
-            qspatialsound_customevent_isbase = false;
-            QSpatialSound::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qspatialsound_customevent_callback;
-        if (customevent_cb) {
+        if (qspatialsound_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qspatialsound_customevent_callback(this, cbval1);
             return;
         }
         QSpatialSound::customEvent(event);
@@ -227,17 +135,11 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qspatialsound_connectnotify_isbase) {
-            qspatialsound_connectnotify_isbase = false;
-            QSpatialSound::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qspatialsound_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qspatialsound_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qspatialsound_connectnotify_callback(this, cbval1);
             return;
         }
         QSpatialSound::connectNotify(signal);
@@ -245,101 +147,22 @@ class VirtualQSpatialSound final : public QSpatialSound {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qspatialsound_disconnectnotify_isbase) {
-            qspatialsound_disconnectnotify_isbase = false;
-            QSpatialSound::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qspatialsound_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qspatialsound_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qspatialsound_disconnectnotify_callback(this, cbval1);
             return;
         }
         QSpatialSound::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qspatialsound_sender_isbase) {
-            qspatialsound_sender_isbase = false;
-            return QSpatialSound::sender();
-        }
-        auto sender_cb = qspatialsound_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QSpatialSound::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qspatialsound_sendersignalindex_isbase) {
-            qspatialsound_sendersignalindex_isbase = false;
-            return QSpatialSound::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qspatialsound_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QSpatialSound::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qspatialsound_receivers_isbase) {
-            qspatialsound_receivers_isbase = false;
-            return QSpatialSound::receivers(signal);
-        }
-        auto receivers_cb = qspatialsound_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QSpatialSound::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qspatialsound_issignalconnected_isbase) {
-            qspatialsound_issignalconnected_isbase = false;
-            return QSpatialSound::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qspatialsound_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QSpatialSound::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QSpatialSound_TimerEvent(QSpatialSound* self, QTimerEvent* event);
     friend void QSpatialSound_SuperTimerEvent(QSpatialSound* self, QTimerEvent* event);
-    friend void QSpatialSound_ChildEvent(QSpatialSound* self, QChildEvent* event);
     friend void QSpatialSound_SuperChildEvent(QSpatialSound* self, QChildEvent* event);
-    friend void QSpatialSound_CustomEvent(QSpatialSound* self, QEvent* event);
     friend void QSpatialSound_SuperCustomEvent(QSpatialSound* self, QEvent* event);
-    friend void QSpatialSound_ConnectNotify(QSpatialSound* self, const QMetaMethod* signal);
     friend void QSpatialSound_SuperConnectNotify(QSpatialSound* self, const QMetaMethod* signal);
-    friend void QSpatialSound_DisconnectNotify(QSpatialSound* self, const QMetaMethod* signal);
     friend void QSpatialSound_SuperDisconnectNotify(QSpatialSound* self, const QMetaMethod* signal);
-    friend QObject* QSpatialSound_Sender(const QSpatialSound* self);
-    friend QObject* QSpatialSound_SuperSender(const QSpatialSound* self);
-    friend int QSpatialSound_SenderSignalIndex(const QSpatialSound* self);
-    friend int QSpatialSound_SuperSenderSignalIndex(const QSpatialSound* self);
-    friend int QSpatialSound_Receivers(const QSpatialSound* self, const char* signal);
-    friend int QSpatialSound_SuperReceivers(const QSpatialSound* self, const char* signal);
-    friend bool QSpatialSound_IsSignalConnected(const QSpatialSound* self, const QMetaMethod* signal);
-    friend bool QSpatialSound_SuperIsSignalConnected(const QSpatialSound* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -133,9 +133,9 @@ pub const KParts__Part = extern struct {
     ///
     /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KParts__Part) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KParts__Part, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KParts__Part, callback: *const fn (KParts__Part) callconv(.c) QMetaObject) void {
         qtc.KParts__Part_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -306,9 +306,9 @@ pub const KParts__Part = extern struct {
     ///
     /// ` self: KParts__Part `
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: KParts__Part) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: KParts__Part, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: KParts__Part, callback: *const fn (KParts__Part) callconv(.c) QWidget) void {
         qtc.KParts__Part_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -810,46 +810,6 @@ pub const KParts__Part = extern struct {
         return .{ .ptr = qtc.KParts__Part_HostContainer(@ptrCast(self.ptr), containerName_str) };
     }
 
-    /// ### DEPRECATED: Use `onHostContainer` instead
-    ///
-    pub const OnHostContainer = onHostContainer;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__Part `
-    ///
-    /// ` callback: *const fn (self: KParts__Part, containerName: [*:0]const u8) callconv(.c) QWidget `
-    ///
-    pub fn onHostContainer(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) QWidget) void {
-        qtc.KParts__Part_OnHostContainer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHostContainer` instead
-    ///
-    pub const SuperHostContainer = superHostContainer;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#hostContainer)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__Part `
-    ///
-    /// ` containerName: []const u8 `
-    ///
-    pub fn superHostContainer(self: KParts__Part, containerName: []const u8) QWidget {
-        const containerName_str = qtc.libqt_string{
-            .len = containerName.len,
-            .data = containerName.ptr,
-        };
-        return .{ .ptr = qtc.KParts__Part_SuperHostContainer(@ptrCast(self.ptr), containerName_str) };
-    }
-
     /// ### DEPRECATED: Use `slotWidgetDestroyed` instead
     ///
     pub const SlotWidgetDestroyed = slotWidgetDestroyed;
@@ -862,40 +822,6 @@ pub const KParts__Part = extern struct {
     ///
     pub fn slotWidgetDestroyed(self: KParts__Part) void {
         qtc.KParts__Part_SlotWidgetDestroyed(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotWidgetDestroyed` instead
-    ///
-    pub const OnSlotWidgetDestroyed = onSlotWidgetDestroyed;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__Part `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotWidgetDestroyed(self: KParts__Part, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__Part_OnSlotWidgetDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotWidgetDestroyed` instead
-    ///
-    pub const SuperSlotWidgetDestroyed = superSlotWidgetDestroyed;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-part.html#slotWidgetDestroyed)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__Part `
-    ///
-    pub fn superSlotWidgetDestroyed(self: KParts__Part) void {
-        qtc.KParts__Part_SuperSlotWidgetDestroyed(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2971,9 +2897,9 @@ pub const KParts__Part = extern struct {
     ///
     /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn () callconv(.c) KActionCollection `
+    /// ` callback: *const fn (self: KParts__Part) callconv(.c) KActionCollection `
     ///
-    pub fn onActionCollection(self: KParts__Part, callback: *const fn () callconv(.c) KActionCollection) void {
+    pub fn onActionCollection(self: KParts__Part, callback: *const fn (KParts__Part) callconv(.c) KActionCollection) void {
         qtc.KParts__Part_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3039,9 +2965,9 @@ pub const KParts__Part = extern struct {
     ///
     /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__Part) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onComponentName(self: KParts__Part, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onComponentName(self: KParts__Part, callback: *const fn (KParts__Part) callconv(.c) [*:0]const u8) void {
         qtc.KParts__Part_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3095,11 +3021,11 @@ pub const KParts__Part = extern struct {
     ///
     /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn () callconv(.c) QDomDocument `
+    /// ` callback: *const fn (self: KParts__Part) callconv(.c) QDomDocument `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onDomDocument(self: KParts__Part, callback: *const fn () callconv(.c) QDomDocument) void {
+    pub fn onDomDocument(self: KParts__Part, callback: *const fn (KParts__Part) callconv(.c) QDomDocument) void {
         qtc.KParts__Part_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3165,9 +3091,9 @@ pub const KParts__Part = extern struct {
     ///
     /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__Part) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onXmlFile(self: KParts__Part, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onXmlFile(self: KParts__Part, callback: *const fn (KParts__Part) callconv(.c) [*:0]const u8) void {
         qtc.KParts__Part_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3233,9 +3159,9 @@ pub const KParts__Part = extern struct {
     ///
     /// ` self: KParts__Part`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__Part) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onLocalXMLFile(self: KParts__Part, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLocalXMLFile(self: KParts__Part, callback: *const fn (KParts__Part) callconv(.c) [*:0]const u8) void {
         qtc.KParts__Part_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3691,44 +3617,6 @@ pub const KParts__Part = extern struct {
         return .{ .ptr = qtc.KParts__Part_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__Part `
-    ///
-    pub fn superSender(self: KParts__Part) QObject {
-        return .{ .ptr = qtc.KParts__Part_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__Part`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KParts__Part, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KParts__Part_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3745,44 +3633,6 @@ pub const KParts__Part = extern struct {
     ///
     pub fn senderSignalIndex(self: KParts__Part) i32 {
         return qtc.KParts__Part_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__Part `
-    ///
-    pub fn superSenderSignalIndex(self: KParts__Part) i32 {
-        return qtc.KParts__Part_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__Part`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KParts__Part, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__Part_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3806,47 +3656,6 @@ pub const KParts__Part = extern struct {
         return qtc.KParts__Part_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__Part `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KParts__Part, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KParts__Part_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__Part`
-    ///
-    /// ` callback: *const fn (self: KParts__Part, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KParts__Part, callback: *const fn (KParts__Part, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KParts__Part_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3866,47 +3675,6 @@ pub const KParts__Part = extern struct {
     pub fn isSignalConnected(self: KParts__Part, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__Part_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__Part `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KParts__Part, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KParts__Part_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__Part`
-    ///
-    /// ` callback: *const fn (self: KParts__Part, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KParts__Part, callback: *const fn (KParts__Part, QMetaMethod) callconv(.c) bool) void {
-        qtc.KParts__Part_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `standardsXmlFileLocation` instead
@@ -3933,50 +3701,6 @@ pub const KParts__Part = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superStandardsXmlFileLocation` instead
-    ///
-    pub const SuperStandardsXmlFileLocation = superStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__Part `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superStandardsXmlFileLocation(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__Part_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.standardsXmlFileLocation: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onStandardsXmlFileLocation` instead
-    ///
-    pub const OnStandardsXmlFileLocation = onStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__Part`
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onStandardsXmlFileLocation(self: KParts__Part, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__Part_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `loadStandardsXmlFile` instead
     ///
     pub const LoadStandardsXmlFile = loadStandardsXmlFile;
@@ -3993,44 +3717,6 @@ pub const KParts__Part = extern struct {
     ///
     pub fn loadStandardsXmlFile(self: KParts__Part) void {
         qtc.KParts__Part_LoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superLoadStandardsXmlFile` instead
-    ///
-    pub const SuperLoadStandardsXmlFile = superLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__Part `
-    ///
-    pub fn superLoadStandardsXmlFile(self: KParts__Part) void {
-        qtc.KParts__Part_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLoadStandardsXmlFile` instead
-    ///
-    pub const OnLoadStandardsXmlFile = onLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__Part`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onLoadStandardsXmlFile(self: KParts__Part, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__Part_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

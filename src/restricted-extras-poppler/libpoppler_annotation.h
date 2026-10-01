@@ -201,7 +201,7 @@ libqt_list /* of QPointF* */ Poppler__TextAnnotation_CalloutPoints(const Poppler
 void Poppler__TextAnnotation_SetCalloutPoints(Poppler__TextAnnotation* self, const libqt_list /* of QPointF* */ points);
 int Poppler__TextAnnotation_InplaceIntent(const Poppler__TextAnnotation* self);
 void Poppler__TextAnnotation_SetInplaceIntent(Poppler__TextAnnotation* self, int intent);
-void Poppler__TextAnnotation_OnSubType(const Poppler__TextAnnotation* self, intptr_t slot);
+void Poppler__TextAnnotation_OnSubType(Poppler__TextAnnotation* self, intptr_t slot);
 int Poppler__TextAnnotation_SuperSubType(const Poppler__TextAnnotation* self);
 void Poppler__TextAnnotation_Delete(Poppler__TextAnnotation* self);
 
@@ -226,7 +226,7 @@ bool Poppler__LineAnnotation_LineShowCaption(const Poppler__LineAnnotation* self
 void Poppler__LineAnnotation_SetLineShowCaption(Poppler__LineAnnotation* self, bool show);
 int Poppler__LineAnnotation_LineIntent(const Poppler__LineAnnotation* self);
 void Poppler__LineAnnotation_SetLineIntent(Poppler__LineAnnotation* self, int intent);
-void Poppler__LineAnnotation_OnSubType(const Poppler__LineAnnotation* self, intptr_t slot);
+void Poppler__LineAnnotation_OnSubType(Poppler__LineAnnotation* self, intptr_t slot);
 int Poppler__LineAnnotation_SuperSubType(const Poppler__LineAnnotation* self);
 void Poppler__LineAnnotation_Delete(Poppler__LineAnnotation* self);
 
@@ -236,7 +236,7 @@ int Poppler__GeomAnnotation_GeomType(const Poppler__GeomAnnotation* self);
 void Poppler__GeomAnnotation_SetGeomType(Poppler__GeomAnnotation* self, int typeVal);
 QColor* Poppler__GeomAnnotation_GeomInnerColor(const Poppler__GeomAnnotation* self);
 void Poppler__GeomAnnotation_SetGeomInnerColor(Poppler__GeomAnnotation* self, const QColor* color);
-void Poppler__GeomAnnotation_OnSubType(const Poppler__GeomAnnotation* self, intptr_t slot);
+void Poppler__GeomAnnotation_OnSubType(Poppler__GeomAnnotation* self, intptr_t slot);
 int Poppler__GeomAnnotation_SuperSubType(const Poppler__GeomAnnotation* self);
 void Poppler__GeomAnnotation_Delete(Poppler__GeomAnnotation* self);
 
@@ -246,7 +246,7 @@ int Poppler__HighlightAnnotation_HighlightType(const Poppler__HighlightAnnotatio
 void Poppler__HighlightAnnotation_SetHighlightType(Poppler__HighlightAnnotation* self, int typeVal);
 libqt_list /* of Poppler__HighlightAnnotation__Quad* */ Poppler__HighlightAnnotation_HighlightQuads(const Poppler__HighlightAnnotation* self);
 void Poppler__HighlightAnnotation_SetHighlightQuads(Poppler__HighlightAnnotation* self, const libqt_list /* of Poppler__HighlightAnnotation__Quad* */ quads);
-void Poppler__HighlightAnnotation_OnSubType(const Poppler__HighlightAnnotation* self, intptr_t slot);
+void Poppler__HighlightAnnotation_OnSubType(Poppler__HighlightAnnotation* self, intptr_t slot);
 int Poppler__HighlightAnnotation_SuperSubType(const Poppler__HighlightAnnotation* self);
 void Poppler__HighlightAnnotation_Delete(Poppler__HighlightAnnotation* self);
 
@@ -255,7 +255,7 @@ int Poppler__StampAnnotation_SubType(const Poppler__StampAnnotation* self);
 libqt_string Poppler__StampAnnotation_StampIconName(const Poppler__StampAnnotation* self);
 void Poppler__StampAnnotation_SetStampIconName(Poppler__StampAnnotation* self, const libqt_string name);
 void Poppler__StampAnnotation_SetStampCustomImage(Poppler__StampAnnotation* self, const QImage* image);
-void Poppler__StampAnnotation_OnSubType(const Poppler__StampAnnotation* self, intptr_t slot);
+void Poppler__StampAnnotation_OnSubType(Poppler__StampAnnotation* self, intptr_t slot);
 int Poppler__StampAnnotation_SuperSubType(const Poppler__StampAnnotation* self);
 void Poppler__StampAnnotation_Delete(Poppler__StampAnnotation* self);
 
@@ -280,7 +280,7 @@ void Poppler__SignatureAnnotation_SetImagePath(Poppler__SignatureAnnotation* sel
 libqt_string Poppler__SignatureAnnotation_FieldPartialName(const Poppler__SignatureAnnotation* self);
 void Poppler__SignatureAnnotation_SetFieldPartialName(Poppler__SignatureAnnotation* self, const libqt_string fieldPartialName);
 int Poppler__SignatureAnnotation_Sign(Poppler__SignatureAnnotation* self, const libqt_string outputFileName, const Poppler__PDFConverter__NewSignatureData* data);
-void Poppler__SignatureAnnotation_OnSubType(const Poppler__SignatureAnnotation* self, intptr_t slot);
+void Poppler__SignatureAnnotation_OnSubType(Poppler__SignatureAnnotation* self, intptr_t slot);
 int Poppler__SignatureAnnotation_SuperSubType(const Poppler__SignatureAnnotation* self);
 void Poppler__SignatureAnnotation_Delete(Poppler__SignatureAnnotation* self);
 
@@ -288,7 +288,7 @@ Poppler__InkAnnotation* Poppler__InkAnnotation_new();
 int Poppler__InkAnnotation_SubType(const Poppler__InkAnnotation* self);
 libqt_list /* of libqt_list of QPointF* */ Poppler__InkAnnotation_InkPaths(const Poppler__InkAnnotation* self);
 void Poppler__InkAnnotation_SetInkPaths(Poppler__InkAnnotation* self, const libqt_list /* of libqt_list of QPointF* */ paths);
-void Poppler__InkAnnotation_OnSubType(const Poppler__InkAnnotation* self, intptr_t slot);
+void Poppler__InkAnnotation_OnSubType(Poppler__InkAnnotation* self, intptr_t slot);
 int Poppler__InkAnnotation_SuperSubType(const Poppler__InkAnnotation* self);
 void Poppler__InkAnnotation_Delete(Poppler__InkAnnotation* self);
 
@@ -304,7 +304,7 @@ Poppler__CaretAnnotation* Poppler__CaretAnnotation_new();
 int Poppler__CaretAnnotation_SubType(const Poppler__CaretAnnotation* self);
 int Poppler__CaretAnnotation_CaretSymbol(const Poppler__CaretAnnotation* self);
 void Poppler__CaretAnnotation_SetCaretSymbol(Poppler__CaretAnnotation* self, int symbol);
-void Poppler__CaretAnnotation_OnSubType(const Poppler__CaretAnnotation* self, intptr_t slot);
+void Poppler__CaretAnnotation_OnSubType(Poppler__CaretAnnotation* self, intptr_t slot);
 int Poppler__CaretAnnotation_SuperSubType(const Poppler__CaretAnnotation* self);
 void Poppler__CaretAnnotation_Delete(Poppler__CaretAnnotation* self);
 

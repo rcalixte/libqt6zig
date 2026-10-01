@@ -113,6 +113,8 @@ pub const QAbstractEventDispatcher = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractEventDispatcher `
@@ -128,6 +130,8 @@ pub const QAbstractEventDispatcher = extern struct {
     pub const RegisterSocketNotifier = registerSocketNotifier;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerSocketNotifier)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -145,6 +149,8 @@ pub const QAbstractEventDispatcher = extern struct {
     pub const UnregisterSocketNotifier = unregisterSocketNotifier;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterSocketNotifier)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -184,6 +190,8 @@ pub const QAbstractEventDispatcher = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractEventDispatcher `
@@ -207,6 +215,8 @@ pub const QAbstractEventDispatcher = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractEventDispatcher `
@@ -222,6 +232,8 @@ pub const QAbstractEventDispatcher = extern struct {
     pub const UnregisterTimers = unregisterTimers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimers)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -239,6 +251,8 @@ pub const QAbstractEventDispatcher = extern struct {
     pub const RegisteredTimers = registeredTimers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registeredTimers)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -264,6 +278,8 @@ pub const QAbstractEventDispatcher = extern struct {
     pub const RemainingTime = remainingTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#remainingTime)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -322,6 +338,8 @@ pub const QAbstractEventDispatcher = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#wakeUp)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractEventDispatcher `
@@ -335,6 +353,8 @@ pub const QAbstractEventDispatcher = extern struct {
     pub const Interrupt = interrupt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#interrupt)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1684,47 +1704,6 @@ pub const QAbstractEventDispatcherV2 = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `unregisterTimer` instead
-    ///
-    pub const UnregisterTimer = unregisterTimer;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#unregisterTimer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` timerId: qnamespace_enums.TimerId `
-    ///
-    pub fn unregisterTimer(self: QAbstractEventDispatcherV2, timerId: i32) bool {
-        return qtc.QAbstractEventDispatcherV2_UnregisterTimer(@ptrCast(self.ptr), @bitCast(timerId));
-    }
-
-    /// ### DEPRECATED: Use `timersForObject` instead
-    ///
-    pub const TimersForObject = timersForObject;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#timersForObject)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` object: QObject `
-    ///
-    pub fn timersForObject(self: QAbstractEventDispatcherV2, allocator: std.mem.Allocator, object: anytype) []QAbstractEventDispatcher__TimerInfoV2 {
-        comptime _ = @TypeOf(object)._is_QObject;
-        const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcherV2_TimersForObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfoV2, _arr.len) catch @panic("QAbstractEventDispatcherV2.timersForObject: Memory allocation failed");
-        const _data_val: [*]QtC.QAbstractEventDispatcher__TimerInfoV2 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `processEventsWithDeadline` instead
     ///
     pub const ProcessEventsWithDeadline = processEventsWithDeadline;
@@ -1810,62 +1789,6 @@ pub const QAbstractEventDispatcherV2 = extern struct {
         return .{ .ptr = qtc.QAbstractEventDispatcher_Instance() };
     }
 
-    /// ### DEPRECATED: Use `processEvents` instead
-    ///
-    pub const ProcessEvents = processEvents;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` flags: flag of qeventloop_enums.ProcessEventsFlag `
-    ///
-    pub fn processEvents(self: QAbstractEventDispatcherV2, flags: i32) bool {
-        return qtc.QAbstractEventDispatcher_ProcessEvents(@ptrCast(self.ptr), @bitCast(flags));
-    }
-
-    /// ### DEPRECATED: Use `registerSocketNotifier` instead
-    ///
-    pub const RegisterSocketNotifier = registerSocketNotifier;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerSocketNotifier)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` notifier: QSocketNotifier `
-    ///
-    pub fn registerSocketNotifier(self: QAbstractEventDispatcherV2, notifier: anytype) void {
-        comptime _ = @TypeOf(notifier)._is_QSocketNotifier;
-        qtc.QAbstractEventDispatcher_RegisterSocketNotifier(@ptrCast(self.ptr), @ptrCast(notifier.ptr));
-    }
-
-    /// ### DEPRECATED: Use `unregisterSocketNotifier` instead
-    ///
-    pub const UnregisterSocketNotifier = unregisterSocketNotifier;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterSocketNotifier)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` notifier: QSocketNotifier `
-    ///
-    pub fn unregisterSocketNotifier(self: QAbstractEventDispatcherV2, notifier: anytype) void {
-        comptime _ = @TypeOf(notifier)._is_QSocketNotifier;
-        qtc.QAbstractEventDispatcher_UnregisterSocketNotifier(@ptrCast(self.ptr), @ptrCast(notifier.ptr));
-    }
-
     /// ### DEPRECATED: Use `registerTimer2` instead
     ///
     pub const RegisterTimer2 = registerTimer2;
@@ -1889,95 +1812,6 @@ pub const QAbstractEventDispatcherV2 = extern struct {
         return qtc.QAbstractEventDispatcher_RegisterTimer2(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType), @ptrCast(object.ptr));
     }
 
-    /// ### DEPRECATED: Use `registerTimer3` instead
-    ///
-    pub const RegisterTimer3 = registerTimer3;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registerTimer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` timerId: i32 `
-    ///
-    /// ` interval: i64 `
-    ///
-    /// ` timerType: qnamespace_enums.TimerType `
-    ///
-    /// ` object: QObject `
-    ///
-    pub fn registerTimer3(self: QAbstractEventDispatcherV2, timerId: i32, interval: i64, timerType: i32, object: anytype) void {
-        comptime _ = @TypeOf(object)._is_QObject;
-        qtc.QAbstractEventDispatcher_RegisterTimer3(@ptrCast(self.ptr), @bitCast(timerId), @bitCast(interval), @bitCast(timerType), @ptrCast(object.ptr));
-    }
-
-    /// ### DEPRECATED: Use `unregisterTimers` instead
-    ///
-    pub const UnregisterTimers = unregisterTimers;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimers)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` object: QObject `
-    ///
-    pub fn unregisterTimers(self: QAbstractEventDispatcherV2, object: anytype) bool {
-        comptime _ = @TypeOf(object)._is_QObject;
-        return qtc.QAbstractEventDispatcher_UnregisterTimers(@ptrCast(self.ptr), @ptrCast(object.ptr));
-    }
-
-    /// ### DEPRECATED: Use `registeredTimers` instead
-    ///
-    pub const RegisteredTimers = registeredTimers;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#registeredTimers)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` object: QObject `
-    ///
-    pub fn registeredTimers(self: QAbstractEventDispatcherV2, allocator: std.mem.Allocator, object: anytype) []QAbstractEventDispatcher__TimerInfo {
-        comptime _ = @TypeOf(object)._is_QObject;
-        const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcher_RegisteredTimers(@ptrCast(self.ptr), @ptrCast(object.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfo, _arr.len) catch @panic("QAbstractEventDispatcherV2.registeredTimers: Memory allocation failed");
-        const _data_val: [*]QtC.QAbstractEventDispatcher__TimerInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `remainingTime` instead
-    ///
-    pub const RemainingTime = remainingTime;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#remainingTime)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    /// ` timerId: i32 `
-    ///
-    pub fn remainingTime(self: QAbstractEventDispatcherV2, timerId: i32) i32 {
-        return qtc.QAbstractEventDispatcher_RemainingTime(@ptrCast(self.ptr), @bitCast(timerId));
-    }
-
     /// ### DEPRECATED: Use `unregisterTimer2` instead
     ///
     pub const UnregisterTimer2 = unregisterTimer2;
@@ -1994,38 +1828,6 @@ pub const QAbstractEventDispatcherV2 = extern struct {
     ///
     pub fn unregisterTimer2(self: QAbstractEventDispatcherV2, timerId: i32) bool {
         return qtc.QAbstractEventDispatcher_UnregisterTimer2(@ptrCast(self.ptr), @bitCast(timerId));
-    }
-
-    /// ### DEPRECATED: Use `wakeUp` instead
-    ///
-    pub const WakeUp = wakeUp;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#wakeUp)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    pub fn wakeUp(self: QAbstractEventDispatcherV2) void {
-        qtc.QAbstractEventDispatcher_WakeUp(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `interrupt` instead
-    ///
-    pub const Interrupt = interrupt;
-
-    /// Inherited from QAbstractEventDispatcher
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#interrupt)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractEventDispatcherV2 `
-    ///
-    pub fn interrupt(self: QAbstractEventDispatcherV2) void {
-        qtc.QAbstractEventDispatcher_Interrupt(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `startingUp` instead

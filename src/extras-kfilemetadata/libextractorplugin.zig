@@ -68,9 +68,9 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
     ///
     /// ` self: KFileMetaData__ExtractorPlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KFileMetaData__ExtractorPlugin) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KFileMetaData__ExtractorPlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFileMetaData__ExtractorPlugin, callback: *const fn (KFileMetaData__ExtractorPlugin) callconv(.c) QMetaObject) void {
         qtc.KFileMetaData__ExtractorPlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -221,6 +221,8 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#mimetypes)
     ///
+    /// This method must be implemented with `onMimetypes` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileMetaData__ExtractorPlugin `
@@ -259,42 +261,10 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
     ///
     /// ` self: KFileMetaData__ExtractorPlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KFileMetaData__ExtractorPlugin) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onMimetypes(self: KFileMetaData__ExtractorPlugin, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimetypes(self: KFileMetaData__ExtractorPlugin, callback: *const fn (KFileMetaData__ExtractorPlugin) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KFileMetaData__ExtractorPlugin_OnMimetypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMimetypes` instead
-    ///
-    pub const SuperMimetypes = superMimetypes;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#mimetypes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superMimetypes(self: KFileMetaData__ExtractorPlugin, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KFileMetaData__ExtractorPlugin_SuperMimetypes(@ptrCast(self.ptr));
-        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
-        defer {
-            for (0.._arr.len) |i|
-                qtc.libqt_string_free(@ptrCast(&_str[i]));
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileMetaData__ExtractorPlugin.mimetypes: Memory allocation failed");
-        for (0.._arr.len) |i| {
-            const _data_val = _str[i];
-            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KFileMetaData__ExtractorPlugin.mimetypes: Memory allocation failed");
-            @memcpy(_buf, _data_val.data[0.._data_val.len]);
-            _ret[i] = _buf;
-        }
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `extract` instead
@@ -302,6 +272,8 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
     pub const Extract = extract;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#extract)
+    ///
+    /// This method must be implemented with `onExtract` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -330,25 +302,6 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
     ///
     pub fn onExtract(self: KFileMetaData__ExtractorPlugin, callback: *const fn (KFileMetaData__ExtractorPlugin, KFileMetaData__ExtractionResult) callconv(.c) void) void {
         qtc.KFileMetaData__ExtractorPlugin_OnExtract(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superExtract` instead
-    ///
-    pub const SuperExtract = superExtract;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#extract)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin `
-    ///
-    /// ` result: KFileMetaData__ExtractionResult `
-    ///
-    pub fn superExtract(self: KFileMetaData__ExtractorPlugin, result: anytype) void {
-        comptime _ = @TypeOf(result)._is_KFileMetaData__ExtractionResult;
-        qtc.KFileMetaData__ExtractorPlugin_SuperExtract(@ptrCast(self.ptr), @ptrCast(result.ptr));
     }
 
     /// ### DEPRECATED: Use `dateTimeFromString` instead
@@ -423,52 +376,6 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
             .data = mimetype.ptr,
         };
         var _str = qtc.KFileMetaData__ExtractorPlugin_GetSupportedMimeType(@ptrCast(self.ptr), mimetype_str);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__ExtractorPlugin.getSupportedMimeType: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onGetSupportedMimeType` instead
-    ///
-    pub const OnGetSupportedMimeType = onGetSupportedMimeType;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#getSupportedMimeType)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin `
-    ///
-    /// ` callback: *const fn (self: KFileMetaData__ExtractorPlugin, mimetype: [*:0]const u8) callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onGetSupportedMimeType(self: KFileMetaData__ExtractorPlugin, callback: *const fn (KFileMetaData__ExtractorPlugin, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.KFileMetaData__ExtractorPlugin_OnGetSupportedMimeType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superGetSupportedMimeType` instead
-    ///
-    pub const SuperGetSupportedMimeType = superGetSupportedMimeType;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#getSupportedMimeType)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` mimetype: []const u8 `
-    ///
-    pub fn superGetSupportedMimeType(self: KFileMetaData__ExtractorPlugin, allocator: std.mem.Allocator, mimetype: []const u8) []const u8 {
-        const mimetype_str = qtc.libqt_string{
-            .len = mimetype.len,
-            .data = mimetype.ptr,
-        };
-        var _str = qtc.KFileMetaData__ExtractorPlugin_SuperGetSupportedMimeType(@ptrCast(self.ptr), mimetype_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__ExtractorPlugin.getSupportedMimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1952,44 +1859,6 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
         return .{ .ptr = qtc.KFileMetaData__ExtractorPlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin `
-    ///
-    pub fn superSender(self: KFileMetaData__ExtractorPlugin) QObject {
-        return .{ .ptr = qtc.KFileMetaData__ExtractorPlugin_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KFileMetaData__ExtractorPlugin, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KFileMetaData__ExtractorPlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2006,44 +1875,6 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
     ///
     pub fn senderSignalIndex(self: KFileMetaData__ExtractorPlugin) i32 {
         return qtc.KFileMetaData__ExtractorPlugin_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin `
-    ///
-    pub fn superSenderSignalIndex(self: KFileMetaData__ExtractorPlugin) i32 {
-        return qtc.KFileMetaData__ExtractorPlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KFileMetaData__ExtractorPlugin, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFileMetaData__ExtractorPlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2067,47 +1898,6 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
         return qtc.KFileMetaData__ExtractorPlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KFileMetaData__ExtractorPlugin, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KFileMetaData__ExtractorPlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin`
-    ///
-    /// ` callback: *const fn (self: KFileMetaData__ExtractorPlugin, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KFileMetaData__ExtractorPlugin, callback: *const fn (KFileMetaData__ExtractorPlugin, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFileMetaData__ExtractorPlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2127,47 +1917,6 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
     pub fn isSignalConnected(self: KFileMetaData__ExtractorPlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFileMetaData__ExtractorPlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KFileMetaData__ExtractorPlugin, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KFileMetaData__ExtractorPlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__ExtractorPlugin`
-    ///
-    /// ` callback: *const fn (self: KFileMetaData__ExtractorPlugin, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KFileMetaData__ExtractorPlugin, callback: *const fn (KFileMetaData__ExtractorPlugin, QMetaMethod) callconv(.c) bool) void {
-        qtc.KFileMetaData__ExtractorPlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

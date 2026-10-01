@@ -245,510 +245,284 @@ libqt_string QGeoSatelliteInfoSource_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QGeoSatelliteInfoSource_SuperMetaObject(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_MetaObject_IsBase(true);
-        return (QMetaObject*)vqgeosatelliteinfosource->metaObject();
-    } else {
-        return (QMetaObject*)self->QGeoSatelliteInfoSource::metaObject();
-    }
+    return (QMetaObject*)self->QGeoSatelliteInfoSource::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGeoSatelliteInfoSource_OnMetaObject(const QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_MetaObject_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_MetaObject_Callback>(slot));
+void QGeoSatelliteInfoSource_OnMetaObject(QGeoSatelliteInfoSource* self, intptr_t slot) {
+    if (auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self)))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_metaobject_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QGeoSatelliteInfoSource_SuperMetacast(QGeoSatelliteInfoSource* self, const char* param1) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Metacast_IsBase(true);
-        return vqgeosatelliteinfosource->qt_metacast(param1);
-    } else {
-        return self->QGeoSatelliteInfoSource::qt_metacast(param1);
-    }
+    return self->QGeoSatelliteInfoSource::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnMetacast(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Metacast_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Metacast_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_metacast_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGeoSatelliteInfoSource_SuperMetacall(QGeoSatelliteInfoSource* self, int param1, int param2, void** param3) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Metacall_IsBase(true);
-        return vqgeosatelliteinfosource->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QGeoSatelliteInfoSource::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QGeoSatelliteInfoSource::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnMetacall(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Metacall_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Metacall_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_metacall_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGeoSatelliteInfoSource_SuperSetUpdateInterval(QGeoSatelliteInfoSource* self, int msec) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_SetUpdateInterval_IsBase(true);
-        vqgeosatelliteinfosource->setUpdateInterval(static_cast<int>(msec));
-    } else {
-        self->QGeoSatelliteInfoSource::setUpdateInterval(static_cast<int>(msec));
-    }
+    self->QGeoSatelliteInfoSource::setUpdateInterval(static_cast<int>(msec));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnSetUpdateInterval(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_SetUpdateInterval_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_SetUpdateInterval_Callback>(slot));
-}
-
-// Base class handler implementation
-int QGeoSatelliteInfoSource_SuperMinimumUpdateInterval(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_MinimumUpdateInterval_IsBase(true);
-        return vqgeosatelliteinfosource->minimumUpdateInterval();
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->minimumUpdateInterval();
-    }
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_setupdateinterval_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_SetUpdateInterval_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGeoSatelliteInfoSource_OnMinimumUpdateInterval(const QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_MinimumUpdateInterval_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_MinimumUpdateInterval_Callback>(slot));
-}
-
-// Base class handler implementation
-int QGeoSatelliteInfoSource_SuperError(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Error_IsBase(true);
-        return static_cast<int>(vqgeosatelliteinfosource->error());
-    } else {
-        return static_cast<int>(((VirtualQGeoSatelliteInfoSource*)self)->error());
-    }
+void QGeoSatelliteInfoSource_OnMinimumUpdateInterval(QGeoSatelliteInfoSource* self, intptr_t slot) {
+    if (auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self)))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_minimumupdateinterval_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_MinimumUpdateInterval_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGeoSatelliteInfoSource_OnError(const QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Error_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Error_Callback>(slot));
+void QGeoSatelliteInfoSource_OnError(QGeoSatelliteInfoSource* self, intptr_t slot) {
+    if (auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self)))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_error_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Error_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QGeoSatelliteInfoSource_SuperSetBackendProperty(QGeoSatelliteInfoSource* self, const libqt_string name, const QVariant* value) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_SetBackendProperty_IsBase(true);
-        return vqgeosatelliteinfosource->setBackendProperty(name_QString, *value);
-    } else {
-        return self->QGeoSatelliteInfoSource::setBackendProperty(name_QString, *value);
-    }
+    return self->QGeoSatelliteInfoSource::setBackendProperty(name_QString, *value);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnSetBackendProperty(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_SetBackendProperty_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_SetBackendProperty_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_setbackendproperty_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_SetBackendProperty_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QGeoSatelliteInfoSource_SuperBackendProperty(const QGeoSatelliteInfoSource* self, const libqt_string name) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_BackendProperty_IsBase(true);
-        return new QVariant(vqgeosatelliteinfosource->backendProperty(name_QString));
-    } else {
-        return new QVariant(((VirtualQGeoSatelliteInfoSource*)self)->backendProperty(name_QString));
-    }
+    return new QVariant(self->QGeoSatelliteInfoSource::backendProperty(name_QString));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGeoSatelliteInfoSource_OnBackendProperty(const QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_BackendProperty_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_BackendProperty_Callback>(slot));
-}
-
-// Base class handler implementation
-void QGeoSatelliteInfoSource_SuperStartUpdates(QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_StartUpdates_IsBase(true);
-        vqgeosatelliteinfosource->startUpdates();
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->startUpdates();
-    }
+void QGeoSatelliteInfoSource_OnBackendProperty(QGeoSatelliteInfoSource* self, intptr_t slot) {
+    if (auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self)))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_backendproperty_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_BackendProperty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnStartUpdates(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_StartUpdates_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_StartUpdates_Callback>(slot));
-}
-
-// Base class handler implementation
-void QGeoSatelliteInfoSource_SuperStopUpdates(QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_StopUpdates_IsBase(true);
-        vqgeosatelliteinfosource->stopUpdates();
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->stopUpdates();
-    }
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_startupdates_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_StartUpdates_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnStopUpdates(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_StopUpdates_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_StopUpdates_Callback>(slot));
-}
-
-// Base class handler implementation
-void QGeoSatelliteInfoSource_SuperRequestUpdate(QGeoSatelliteInfoSource* self, int timeout) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_RequestUpdate_IsBase(true);
-        vqgeosatelliteinfosource->requestUpdate(static_cast<int>(timeout));
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->requestUpdate(static_cast<int>(timeout));
-    }
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_stopupdates_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_StopUpdates_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnRequestUpdate(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_RequestUpdate_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_RequestUpdate_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_requestupdate_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_RequestUpdate_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGeoSatelliteInfoSource_Event(QGeoSatelliteInfoSource* self, QEvent* event) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return vqgeosatelliteinfosource->event(event);
-    } else {
-        return self->QGeoSatelliteInfoSource::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QGeoSatelliteInfoSource_SuperEvent(QGeoSatelliteInfoSource* self, QEvent* event) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Event_IsBase(true);
-        return vqgeosatelliteinfosource->event(event);
-    } else {
-        return self->QGeoSatelliteInfoSource::event(event);
-    }
+    return self->QGeoSatelliteInfoSource::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnEvent(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Event_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Event_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_event_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGeoSatelliteInfoSource_EventFilter(QGeoSatelliteInfoSource* self, QObject* watched, QEvent* event) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return vqgeosatelliteinfosource->eventFilter(watched, event);
-    } else {
-        return self->QGeoSatelliteInfoSource::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QGeoSatelliteInfoSource_SuperEventFilter(QGeoSatelliteInfoSource* self, QObject* watched, QEvent* event) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_EventFilter_IsBase(true);
-        return vqgeosatelliteinfosource->eventFilter(watched, event);
-    } else {
-        return self->QGeoSatelliteInfoSource::eventFilter(watched, event);
-    }
+    return self->QGeoSatelliteInfoSource::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnEventFilter(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_EventFilter_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_EventFilter_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_eventfilter_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoSatelliteInfoSource_TimerEvent(QGeoSatelliteInfoSource* self, QTimerEvent* event) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+    if (vqgeosatelliteinfosource) {
         vqgeosatelliteinfosource->timerEvent(event);
     } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoSatelliteInfoSource_SuperTimerEvent(QGeoSatelliteInfoSource* self, QTimerEvent* event) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_TimerEvent_IsBase(true);
-        vqgeosatelliteinfosource->timerEvent(event);
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->timerEvent(event);
-    }
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self)) {
+        vqgeosatelliteinfosource->QGeoSatelliteInfoSource::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnTimerEvent(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_TimerEvent_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_TimerEvent_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_timerevent_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoSatelliteInfoSource_ChildEvent(QGeoSatelliteInfoSource* self, QChildEvent* event) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+    if (vqgeosatelliteinfosource) {
         vqgeosatelliteinfosource->childEvent(event);
     } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoSatelliteInfoSource_SuperChildEvent(QGeoSatelliteInfoSource* self, QChildEvent* event) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_ChildEvent_IsBase(true);
-        vqgeosatelliteinfosource->childEvent(event);
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->childEvent(event);
-    }
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self)) {
+        vqgeosatelliteinfosource->QGeoSatelliteInfoSource::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnChildEvent(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_ChildEvent_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_ChildEvent_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_childevent_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoSatelliteInfoSource_CustomEvent(QGeoSatelliteInfoSource* self, QEvent* event) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+    if (vqgeosatelliteinfosource) {
         vqgeosatelliteinfosource->customEvent(event);
     } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoSatelliteInfoSource_SuperCustomEvent(QGeoSatelliteInfoSource* self, QEvent* event) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_CustomEvent_IsBase(true);
-        vqgeosatelliteinfosource->customEvent(event);
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->customEvent(event);
-    }
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self)) {
+        vqgeosatelliteinfosource->QGeoSatelliteInfoSource::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnCustomEvent(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_CustomEvent_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_CustomEvent_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_customevent_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoSatelliteInfoSource_ConnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+    if (vqgeosatelliteinfosource) {
         vqgeosatelliteinfosource->connectNotify(*signal);
     } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoSatelliteInfoSource_SuperConnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_ConnectNotify_IsBase(true);
-        vqgeosatelliteinfosource->connectNotify(*signal);
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->connectNotify(*signal);
-    }
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self)) {
+        vqgeosatelliteinfosource->QGeoSatelliteInfoSource::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnConnectNotify(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_ConnectNotify_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_connectnotify_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoSatelliteInfoSource_DisconnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
     auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
+    if (vqgeosatelliteinfosource) {
         vqgeosatelliteinfosource->disconnectNotify(*signal);
     } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoSatelliteInfoSource_SuperDisconnectNotify(QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_DisconnectNotify_IsBase(true);
-        vqgeosatelliteinfosource->disconnectNotify(*signal);
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self)) {
+        vqgeosatelliteinfosource->QGeoSatelliteInfoSource::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGeoSatelliteInfoSource::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoSatelliteInfoSource_OnDisconnectNotify(QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_DisconnectNotify_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self))
+        vqgeosatelliteinfosource->qgeosatelliteinfosource_disconnectnotify_callback = reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QGeoSatelliteInfoSource_Sender(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return vqgeosatelliteinfosource->sender();
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->sender();
-    }
+    if (auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self))) {
+        return vqgeosatelliteinfosource->VirtualQGeoSatelliteInfoSource::sender();
+    } else
+        qFatal("Error: Protected method QGeoSatelliteInfoSource::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QGeoSatelliteInfoSource_SuperSender(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Sender_IsBase(true);
-        return vqgeosatelliteinfosource->sender();
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoSatelliteInfoSource_OnSender(const QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Sender_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGeoSatelliteInfoSource_SenderSignalIndex(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return vqgeosatelliteinfosource->senderSignalIndex();
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->senderSignalIndex();
-    }
+    if (auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self))) {
+        return vqgeosatelliteinfosource->VirtualQGeoSatelliteInfoSource::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QGeoSatelliteInfoSource::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGeoSatelliteInfoSource_SuperSenderSignalIndex(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_SenderSignalIndex_IsBase(true);
-        return vqgeosatelliteinfosource->senderSignalIndex();
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoSatelliteInfoSource_OnSenderSignalIndex(const QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGeoSatelliteInfoSource_Receivers(const QGeoSatelliteInfoSource* self, const char* signal) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return vqgeosatelliteinfosource->receivers(signal);
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->receivers(signal);
-    }
+    if (auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self))) {
+        return vqgeosatelliteinfosource->VirtualQGeoSatelliteInfoSource::receivers(signal);
+    } else
+        qFatal("Error: Protected method QGeoSatelliteInfoSource::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGeoSatelliteInfoSource_SuperReceivers(const QGeoSatelliteInfoSource* self, const char* signal) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Receivers_IsBase(true);
-        return vqgeosatelliteinfosource->receivers(signal);
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoSatelliteInfoSource_OnReceivers(const QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_Receivers_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGeoSatelliteInfoSource_IsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return vqgeosatelliteinfosource->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QGeoSatelliteInfoSource_SuperIsSignalConnected(const QGeoSatelliteInfoSource* self, const QMetaMethod* signal) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_IsSignalConnected_IsBase(true);
-        return vqgeosatelliteinfosource->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoSatelliteInfoSource_OnIsSignalConnected(const QGeoSatelliteInfoSource* self, intptr_t slot) {
-    auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self));
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource)
-        vqgeosatelliteinfosource->setQGeoSatelliteInfoSource_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoSatelliteInfoSource::QGeoSatelliteInfoSource_IsSignalConnected_Callback>(slot));
+    if (auto* vqgeosatelliteinfosource = const_cast<VirtualQGeoSatelliteInfoSource*>(dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self))) {
+        return vqgeosatelliteinfosource->VirtualQGeoSatelliteInfoSource::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QGeoSatelliteInfoSource::isSignalConnected called without a directly constructed type");
 }
 
 void QGeoSatelliteInfoSource_Delete(QGeoSatelliteInfoSource* self) {

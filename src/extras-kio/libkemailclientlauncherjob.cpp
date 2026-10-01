@@ -134,864 +134,431 @@ libqt_string KEMailClientLauncherJob_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KEMailClientLauncherJob_SuperMetaObject(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vkemailclientlauncherjob->metaObject();
-    } else {
-        return (QMetaObject*)self->KEMailClientLauncherJob::metaObject();
-    }
+    return (QMetaObject*)self->KEMailClientLauncherJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnMetaObject(const KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_MetaObject_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_MetaObject_Callback>(slot));
+void KEMailClientLauncherJob_OnMetaObject(KEMailClientLauncherJob* self, intptr_t slot) {
+    if (auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self)))
+        vkemailclientlauncherjob->kemailclientlauncherjob_metaobject_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KEMailClientLauncherJob_SuperMetacast(KEMailClientLauncherJob* self, const char* param1) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacast_IsBase(true);
-        return vkemailclientlauncherjob->qt_metacast(param1);
-    } else {
-        return self->KEMailClientLauncherJob::qt_metacast(param1);
-    }
+    return self->KEMailClientLauncherJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnMetacast(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacast_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Metacast_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_metacast_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KEMailClientLauncherJob_SuperMetacall(KEMailClientLauncherJob* self, int param1, int param2, void** param3) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacall_IsBase(true);
-        return vkemailclientlauncherjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KEMailClientLauncherJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KEMailClientLauncherJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnMetacall(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Metacall_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Metacall_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_metacall_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KEMailClientLauncherJob_SuperStart(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Start_IsBase(true);
-        vkemailclientlauncherjob->start();
-    } else {
-        self->KEMailClientLauncherJob::start();
-    }
+    self->KEMailClientLauncherJob::start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnStart(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Start_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Start_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_start_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Start_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEMailClientLauncherJob_DoKill(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob) {
         return vkemailclientlauncherjob->doKill();
     } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->doKill();
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::doKill called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEMailClientLauncherJob_SuperDoKill(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_DoKill_IsBase(true);
-        return vkemailclientlauncherjob->doKill();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->doKill();
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        return vkemailclientlauncherjob->KEMailClientLauncherJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnDoKill(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_DoKill_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoKill_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_dokill_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoKill_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEMailClientLauncherJob_DoSuspend(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob) {
         return vkemailclientlauncherjob->doSuspend();
     } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->doSuspend();
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::doSuspend called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEMailClientLauncherJob_SuperDoSuspend(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_DoSuspend_IsBase(true);
-        return vkemailclientlauncherjob->doSuspend();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->doSuspend();
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        return vkemailclientlauncherjob->KEMailClientLauncherJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnDoSuspend(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_DoSuspend_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoSuspend_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_dosuspend_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoSuspend_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEMailClientLauncherJob_DoResume(KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob) {
         return vkemailclientlauncherjob->doResume();
     } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->doResume();
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::doResume called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEMailClientLauncherJob_SuperDoResume(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_DoResume_IsBase(true);
-        return vkemailclientlauncherjob->doResume();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->doResume();
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        return vkemailclientlauncherjob->KEMailClientLauncherJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnDoResume(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_DoResume_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoResume_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_doresume_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DoResume_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KEMailClientLauncherJob_ErrorString(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        auto _ret = vkemailclientlauncherjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KEMailClientLauncherJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KEMailClientLauncherJob_SuperErrorString(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_ErrorString_IsBase(true);
-        auto _ret = vkemailclientlauncherjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KEMailClientLauncherJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KEMailClientLauncherJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnErrorString(const KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_ErrorString_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ErrorString_Callback>(slot));
+void KEMailClientLauncherJob_OnErrorString(KEMailClientLauncherJob* self, intptr_t slot) {
+    if (auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self)))
+        vkemailclientlauncherjob->kemailclientlauncherjob_errorstring_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEMailClientLauncherJob_Event(KEMailClientLauncherJob* self, QEvent* event) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return vkemailclientlauncherjob->event(event);
-    } else {
-        return self->KEMailClientLauncherJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KEMailClientLauncherJob_SuperEvent(KEMailClientLauncherJob* self, QEvent* event) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Event_IsBase(true);
-        return vkemailclientlauncherjob->event(event);
-    } else {
-        return self->KEMailClientLauncherJob::event(event);
-    }
+    return self->KEMailClientLauncherJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnEvent(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Event_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Event_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_event_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEMailClientLauncherJob_EventFilter(KEMailClientLauncherJob* self, QObject* watched, QEvent* event) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return vkemailclientlauncherjob->eventFilter(watched, event);
-    } else {
-        return self->KEMailClientLauncherJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KEMailClientLauncherJob_SuperEventFilter(KEMailClientLauncherJob* self, QObject* watched, QEvent* event) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_EventFilter_IsBase(true);
-        return vkemailclientlauncherjob->eventFilter(watched, event);
-    } else {
-        return self->KEMailClientLauncherJob::eventFilter(watched, event);
-    }
+    return self->KEMailClientLauncherJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnEventFilter(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_EventFilter_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EventFilter_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_eventfilter_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEMailClientLauncherJob_TimerEvent(KEMailClientLauncherJob* self, QTimerEvent* event) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob) {
         vkemailclientlauncherjob->timerEvent(event);
     } else {
-        ((VirtualKEMailClientLauncherJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEMailClientLauncherJob_SuperTimerEvent(KEMailClientLauncherJob* self, QTimerEvent* event) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_TimerEvent_IsBase(true);
-        vkemailclientlauncherjob->timerEvent(event);
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->timerEvent(event);
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->KEMailClientLauncherJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnTimerEvent(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_TimerEvent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_TimerEvent_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_timerevent_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEMailClientLauncherJob_ChildEvent(KEMailClientLauncherJob* self, QChildEvent* event) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob) {
         vkemailclientlauncherjob->childEvent(event);
     } else {
-        ((VirtualKEMailClientLauncherJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEMailClientLauncherJob_SuperChildEvent(KEMailClientLauncherJob* self, QChildEvent* event) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_ChildEvent_IsBase(true);
-        vkemailclientlauncherjob->childEvent(event);
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->childEvent(event);
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->KEMailClientLauncherJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnChildEvent(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_ChildEvent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ChildEvent_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_childevent_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEMailClientLauncherJob_CustomEvent(KEMailClientLauncherJob* self, QEvent* event) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob) {
         vkemailclientlauncherjob->customEvent(event);
     } else {
-        ((VirtualKEMailClientLauncherJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEMailClientLauncherJob_SuperCustomEvent(KEMailClientLauncherJob* self, QEvent* event) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_CustomEvent_IsBase(true);
-        vkemailclientlauncherjob->customEvent(event);
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->customEvent(event);
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->KEMailClientLauncherJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnCustomEvent(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_CustomEvent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_CustomEvent_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_customevent_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEMailClientLauncherJob_ConnectNotify(KEMailClientLauncherJob* self, const QMetaMethod* signal) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob) {
         vkemailclientlauncherjob->connectNotify(*signal);
     } else {
-        ((VirtualKEMailClientLauncherJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEMailClientLauncherJob_SuperConnectNotify(KEMailClientLauncherJob* self, const QMetaMethod* signal) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_ConnectNotify_IsBase(true);
-        vkemailclientlauncherjob->connectNotify(*signal);
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->KEMailClientLauncherJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnConnectNotify(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_ConnectNotify_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ConnectNotify_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_connectnotify_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEMailClientLauncherJob_DisconnectNotify(KEMailClientLauncherJob* self, const QMetaMethod* signal) {
     auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
+    if (vkemailclientlauncherjob) {
         vkemailclientlauncherjob->disconnectNotify(*signal);
     } else {
-        ((VirtualKEMailClientLauncherJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEMailClientLauncherJob_SuperDisconnectNotify(KEMailClientLauncherJob* self, const QMetaMethod* signal) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_DisconnectNotify_IsBase(true);
-        vkemailclientlauncherjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->KEMailClientLauncherJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KEMailClientLauncherJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEMailClientLauncherJob_OnDisconnectNotify(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DisconnectNotify_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self))
+        vkemailclientlauncherjob->kemailclientlauncherjob_disconnectnotify_callback = reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_SetCapabilities(KEMailClientLauncherJob* self, int capabilities) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperSetCapabilities(KEMailClientLauncherJob* self, int capabilities) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetCapabilities_IsBase(true);
-        vkemailclientlauncherjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSetCapabilities(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetCapabilities_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KEMailClientLauncherJob_IsFinished(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return vkemailclientlauncherjob->isFinished();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->isFinished();
-    }
+    if (auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self))) {
+        return vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::isFinished();
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KEMailClientLauncherJob_SuperIsFinished(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_IsFinished_IsBase(true);
-        return vkemailclientlauncherjob->isFinished();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnIsFinished(const KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_IsFinished_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_SetError(KEMailClientLauncherJob* self, int errorCode) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperSetError(KEMailClientLauncherJob* self, int errorCode) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetError_IsBase(true);
-        vkemailclientlauncherjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSetError(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetError_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_SetErrorText(KEMailClientLauncherJob* self, const libqt_string errorText) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperSetErrorText(KEMailClientLauncherJob* self, const libqt_string errorText) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetErrorText_IsBase(true);
-        vkemailclientlauncherjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSetErrorText(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetErrorText_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_SetProcessedAmount(KEMailClientLauncherJob* self, int unit, unsigned long long amount) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperSetProcessedAmount(KEMailClientLauncherJob* self, int unit, unsigned long long amount) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetProcessedAmount_IsBase(true);
-        vkemailclientlauncherjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSetProcessedAmount(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_SetTotalAmount(KEMailClientLauncherJob* self, int unit, unsigned long long amount) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperSetTotalAmount(KEMailClientLauncherJob* self, int unit, unsigned long long amount) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetTotalAmount_IsBase(true);
-        vkemailclientlauncherjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSetTotalAmount(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_SetProgressUnit(KEMailClientLauncherJob* self, int unit) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperSetProgressUnit(KEMailClientLauncherJob* self, int unit) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetProgressUnit_IsBase(true);
-        vkemailclientlauncherjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSetProgressUnit(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_SetPercent(KEMailClientLauncherJob* self, unsigned long percentage) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperSetPercent(KEMailClientLauncherJob* self, unsigned long percentage) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetPercent_IsBase(true);
-        vkemailclientlauncherjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSetPercent(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SetPercent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_EmitResult(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->emitResult();
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->emitResult();
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::emitResult();
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperEmitResult(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitResult_IsBase(true);
-        vkemailclientlauncherjob->emitResult();
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnEmitResult(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitResult_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_EmitPercent(KEMailClientLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperEmitPercent(KEMailClientLauncherJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitPercent_IsBase(true);
-        vkemailclientlauncherjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnEmitPercent(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitPercent_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_EmitSpeed(KEMailClientLauncherJob* self, unsigned long speed) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperEmitSpeed(KEMailClientLauncherJob* self, unsigned long speed) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitSpeed_IsBase(true);
-        vkemailclientlauncherjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnEmitSpeed(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_EmitSpeed_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEMailClientLauncherJob_StartElapsedTimer(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->startElapsedTimer();
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->startElapsedTimer();
-    }
+    if (auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self)) {
+        vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEMailClientLauncherJob_SuperStartElapsedTimer(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_StartElapsedTimer_IsBase(true);
-        vkemailclientlauncherjob->startElapsedTimer();
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnStartElapsedTimer(KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KEMailClientLauncherJob_Sender(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return vkemailclientlauncherjob->sender();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->sender();
-    }
+    if (auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self))) {
+        return vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::sender();
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KEMailClientLauncherJob_SuperSender(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Sender_IsBase(true);
-        return vkemailclientlauncherjob->sender();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSender(const KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Sender_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KEMailClientLauncherJob_SenderSignalIndex(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return vkemailclientlauncherjob->senderSignalIndex();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->senderSignalIndex();
-    }
+    if (auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self))) {
+        return vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KEMailClientLauncherJob_SuperSenderSignalIndex(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SenderSignalIndex_IsBase(true);
-        return vkemailclientlauncherjob->senderSignalIndex();
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnSenderSignalIndex(const KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KEMailClientLauncherJob_Receivers(const KEMailClientLauncherJob* self, const char* signal) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return vkemailclientlauncherjob->receivers(signal);
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->receivers(signal);
-    }
+    if (auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self))) {
+        return vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KEMailClientLauncherJob_SuperReceivers(const KEMailClientLauncherJob* self, const char* signal) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Receivers_IsBase(true);
-        return vkemailclientlauncherjob->receivers(signal);
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnReceivers(const KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_Receivers_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KEMailClientLauncherJob_IsSignalConnected(const KEMailClientLauncherJob* self, const QMetaMethod* signal) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return vkemailclientlauncherjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KEMailClientLauncherJob_SuperIsSignalConnected(const KEMailClientLauncherJob* self, const QMetaMethod* signal) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_IsSignalConnected_IsBase(true);
-        return vkemailclientlauncherjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEMailClientLauncherJob_OnIsSignalConnected(const KEMailClientLauncherJob* self, intptr_t slot) {
-    auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob)
-        vkemailclientlauncherjob->setKEMailClientLauncherJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKEMailClientLauncherJob::KEMailClientLauncherJob_IsSignalConnected_Callback>(slot));
+    if (auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self))) {
+        return vkemailclientlauncherjob->VirtualKEMailClientLauncherJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KEMailClientLauncherJob::isSignalConnected called without a directly constructed type");
 }
 
 void KEMailClientLauncherJob_Delete(KEMailClientLauncherJob* self) {

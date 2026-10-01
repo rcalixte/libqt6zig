@@ -35,13 +35,13 @@ libqt_string QHorizontalBarSeries_Tr(const char* s);
 int QHorizontalBarSeries_Type(const QHorizontalBarSeries* self);
 libqt_string QHorizontalBarSeries_Tr2(const char* s, const char* c);
 libqt_string QHorizontalBarSeries_Tr3(const char* s, const char* c, int n);
-void QHorizontalBarSeries_OnMetaObject(const QHorizontalBarSeries* self, intptr_t slot);
+void QHorizontalBarSeries_OnMetaObject(QHorizontalBarSeries* self, intptr_t slot);
 QMetaObject* QHorizontalBarSeries_SuperMetaObject(const QHorizontalBarSeries* self);
 void QHorizontalBarSeries_OnMetacast(QHorizontalBarSeries* self, intptr_t slot);
 void* QHorizontalBarSeries_SuperMetacast(QHorizontalBarSeries* self, const char* param1);
 void QHorizontalBarSeries_OnMetacall(QHorizontalBarSeries* self, intptr_t slot);
 int QHorizontalBarSeries_SuperMetacall(QHorizontalBarSeries* self, int param1, int param2, void** param3);
-void QHorizontalBarSeries_OnType(const QHorizontalBarSeries* self, intptr_t slot);
+void QHorizontalBarSeries_OnType(QHorizontalBarSeries* self, intptr_t slot);
 int QHorizontalBarSeries_SuperType(const QHorizontalBarSeries* self);
 bool QHorizontalBarSeries_Event(QHorizontalBarSeries* self, QEvent* event);
 void QHorizontalBarSeries_OnEvent(QHorizontalBarSeries* self, intptr_t slot);
@@ -65,17 +65,9 @@ void QHorizontalBarSeries_DisconnectNotify(QHorizontalBarSeries* self, const QMe
 void QHorizontalBarSeries_OnDisconnectNotify(QHorizontalBarSeries* self, intptr_t slot);
 void QHorizontalBarSeries_SuperDisconnectNotify(QHorizontalBarSeries* self, const QMetaMethod* signal);
 QObject* QHorizontalBarSeries_Sender(const QHorizontalBarSeries* self);
-void QHorizontalBarSeries_OnSender(const QHorizontalBarSeries* self, intptr_t slot);
-QObject* QHorizontalBarSeries_SuperSender(const QHorizontalBarSeries* self);
 int QHorizontalBarSeries_SenderSignalIndex(const QHorizontalBarSeries* self);
-void QHorizontalBarSeries_OnSenderSignalIndex(const QHorizontalBarSeries* self, intptr_t slot);
-int QHorizontalBarSeries_SuperSenderSignalIndex(const QHorizontalBarSeries* self);
 int QHorizontalBarSeries_Receivers(const QHorizontalBarSeries* self, const char* signal);
-void QHorizontalBarSeries_OnReceivers(const QHorizontalBarSeries* self, intptr_t slot);
-int QHorizontalBarSeries_SuperReceivers(const QHorizontalBarSeries* self, const char* signal);
 bool QHorizontalBarSeries_IsSignalConnected(const QHorizontalBarSeries* self, const QMetaMethod* signal);
-void QHorizontalBarSeries_OnIsSignalConnected(const QHorizontalBarSeries* self, intptr_t slot);
-bool QHorizontalBarSeries_SuperIsSignalConnected(const QHorizontalBarSeries* self, const QMetaMethod* signal);
 void QHorizontalBarSeries_Delete(QHorizontalBarSeries* self);
 
 #ifdef __cplusplus

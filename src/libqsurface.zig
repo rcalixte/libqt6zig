@@ -38,6 +38,8 @@ pub const QSurface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#format)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSurface `
@@ -51,6 +53,8 @@ pub const QSurface = extern struct {
     pub const SurfaceType = surfaceType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#surfaceType)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -83,6 +87,8 @@ pub const QSurface = extern struct {
     pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurface.html#size)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

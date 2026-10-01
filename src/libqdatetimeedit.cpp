@@ -375,46 +375,46 @@ void QDateTimeEdit_SetTime(QDateTimeEdit* self, QTime* time) {
 
 void QDateTimeEdit_KeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->keyPressEvent(event);
     }
 }
 
 void QDateTimeEdit_WheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->wheelEvent(event);
     }
 }
 
 void QDateTimeEdit_FocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->focusInEvent(event);
     }
 }
 
 bool QDateTimeEdit_FocusNextPrevChild(QDateTimeEdit* self, bool next) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         return vqdatetimeedit->focusNextPrevChild(next);
     }
-    return {};
+    qFatal("Error: Protected method QDateTimeEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 int QDateTimeEdit_Validate(const QDateTimeEdit* self, libqt_string input, int* pos) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
     auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         return static_cast<int>(vqdatetimeedit->validate(input_QString, static_cast<int&>(*pos)));
     }
-    return {};
+    qFatal("Error: Protected method QDateTimeEdit::validate called without a directly constructed type");
 }
 
 void QDateTimeEdit_Fixup(const QDateTimeEdit* self, libqt_string input) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
     auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->fixup(input_QString);
     }
 }
@@ -422,15 +422,15 @@ void QDateTimeEdit_Fixup(const QDateTimeEdit* self, libqt_string input) {
 QDateTime* QDateTimeEdit_DateTimeFromText(const QDateTimeEdit* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         return new QDateTime(vqdatetimeedit->dateTimeFromText(text_QString));
     }
-    return {};
+    qFatal("Error: Protected method QDateTimeEdit::dateTimeFromText called without a directly constructed type");
 }
 
 libqt_string QDateTimeEdit_TextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
     auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         auto _ret = vqdatetimeedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
@@ -441,34 +441,34 @@ libqt_string QDateTimeEdit_TextFromDateTime(const QDateTimeEdit* self, const QDa
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
-    return {};
+    qFatal("Error: Protected method QDateTimeEdit::textFromDateTime called without a directly constructed type");
 }
 
 int QDateTimeEdit_StepEnabled(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         return static_cast<int>(vqdatetimeedit->stepEnabled());
     }
-    return {};
+    qFatal("Error: Protected method QDateTimeEdit::stepEnabled called without a directly constructed type");
 }
 
 void QDateTimeEdit_MousePressEvent(QDateTimeEdit* self, QMouseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->mousePressEvent(event);
     }
 }
 
 void QDateTimeEdit_PaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->paintEvent(event);
     }
 }
 
 void QDateTimeEdit_InitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option) {
     auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->initStyleOption(option);
     }
 }
@@ -499,264 +499,185 @@ libqt_string QDateTimeEdit_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QDateTimeEdit_SuperMetaObject(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdatetimeedit->metaObject();
-    } else {
-        return (QMetaObject*)self->QDateTimeEdit::metaObject();
-    }
+    return (QMetaObject*)self->QDateTimeEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnMetaObject(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_MetaObject_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MetaObject_Callback>(slot));
+void QDateTimeEdit_OnMetaObject(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_metaobject_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDateTimeEdit_SuperMetacast(QDateTimeEdit* self, const char* param1) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Metacast_IsBase(true);
-        return vqdatetimeedit->qt_metacast(param1);
-    } else {
-        return self->QDateTimeEdit::qt_metacast(param1);
-    }
+    return self->QDateTimeEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMetacast(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Metacast_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metacast_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_metacast_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDateTimeEdit_SuperMetacall(QDateTimeEdit* self, int param1, int param2, void** param3) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Metacall_IsBase(true);
-        return vqdatetimeedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDateTimeEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDateTimeEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMetacall(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Metacall_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metacall_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_metacall_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QDateTimeEdit_SuperSizeHint(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_SizeHint_IsBase(true);
-        return new QSize(vqdatetimeedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQDateTimeEdit*)self)->sizeHint());
-    }
+    return new QSize(self->QDateTimeEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnSizeHint(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_SizeHint_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SizeHint_Callback>(slot));
+void QDateTimeEdit_OnSizeHint(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_sizehint_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperClear(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Clear_IsBase(true);
-        vqdatetimeedit->clear();
-    } else {
-        self->QDateTimeEdit::clear();
-    }
+    self->QDateTimeEdit::clear();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnClear(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Clear_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Clear_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_clear_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Clear_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperStepBy(QDateTimeEdit* self, int steps) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_StepBy_IsBase(true);
-        vqdatetimeedit->stepBy(static_cast<int>(steps));
-    } else {
-        self->QDateTimeEdit::stepBy(static_cast<int>(steps));
-    }
+    self->QDateTimeEdit::stepBy(static_cast<int>(steps));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnStepBy(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_StepBy_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepBy_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_stepby_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepBy_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QDateTimeEdit_SuperEvent(QDateTimeEdit* self, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Event_IsBase(true);
-        return vqdatetimeedit->event(event);
-    } else {
-        return self->QDateTimeEdit::event(event);
-    }
+    return self->QDateTimeEdit::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Event_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Event_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_event_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperKeyPressEvent(QDateTimeEdit* self, QKeyEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_KeyPressEvent_IsBase(true);
-        vqdatetimeedit->keyPressEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->keyPressEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnKeyPressEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_keypressevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperWheelEvent(QDateTimeEdit* self, QWheelEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_WheelEvent_IsBase(true);
-        vqdatetimeedit->wheelEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->wheelEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnWheelEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_WheelEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_WheelEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_wheelevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperFocusInEvent(QDateTimeEdit* self, QFocusEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusInEvent_IsBase(true);
-        vqdatetimeedit->focusInEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->focusInEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFocusInEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusInEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_focusinevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QDateTimeEdit_SuperFocusNextPrevChild(QDateTimeEdit* self, bool next) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusNextPrevChild_IsBase(true);
-        return vqdatetimeedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        return vqdatetimeedit->QDateTimeEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFocusNextPrevChild(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_focusnextprevchild_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDateTimeEdit_SuperValidate(const QDateTimeEdit* self, libqt_string input, int* pos) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Validate_IsBase(true);
-        return static_cast<int>(vqdatetimeedit->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQDateTimeEdit*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return static_cast<int>(vqdatetimeedit->QDateTimeEdit::validate(input_QString, static_cast<int&>(*pos)));
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::validate called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnValidate(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Validate_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Validate_Callback>(slot));
+void QDateTimeEdit_OnValidate(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_validate_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Validate_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperFixup(const QDateTimeEdit* self, libqt_string input) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Fixup_IsBase(true);
-        vqdatetimeedit->fixup(input_QString);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->fixup(input_QString);
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        vqdatetimeedit->QDateTimeEdit::fixup(input_QString);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::fixup called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnFixup(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Fixup_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Fixup_Callback>(slot));
+void QDateTimeEdit_OnFixup(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_fixup_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Fixup_Callback>(slot);
 }
 
 // Base class handler implementation
 QDateTime* QDateTimeEdit_SuperDateTimeFromText(const QDateTimeEdit* self, const libqt_string text) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DateTimeFromText_IsBase(true);
-        return new QDateTime(vqdatetimeedit->dateTimeFromText(text_QString));
-    }
-    return {};
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        return new QDateTime(vqdatetimeedit->QDateTimeEdit::dateTimeFromText(text_QString));
+    qFatal("Error: Protected virtual method QDateTimeEdit::dateTimeFromText called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnDateTimeFromText(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_DateTimeFromText_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DateTimeFromText_Callback>(slot));
+void QDateTimeEdit_OnDateTimeFromText(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_datetimefromtext_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DateTimeFromText_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string QDateTimeEdit_SuperTextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_IsBase(true);
-        auto _ret = vqdatetimeedit->textFromDateTime(*dt);
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        auto _ret = vqdatetimeedit->QDateTimeEdit::textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -765,1526 +686,1040 @@ libqt_string QDateTimeEdit_SuperTextFromDateTime(const QDateTimeEdit* self, cons
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualQDateTimeEdit*)self)->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::textFromDateTime called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnTextFromDateTime(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TextFromDateTime_Callback>(slot));
+void QDateTimeEdit_OnTextFromDateTime(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_textfromdatetime_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TextFromDateTime_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDateTimeEdit_SuperStepEnabled(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_StepEnabled_IsBase(true);
-        return static_cast<int>(vqdatetimeedit->stepEnabled());
-    } else {
-        return static_cast<int>(((VirtualQDateTimeEdit*)self)->stepEnabled());
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return static_cast<int>(vqdatetimeedit->QDateTimeEdit::stepEnabled());
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::stepEnabled called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnStepEnabled(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_StepEnabled_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepEnabled_Callback>(slot));
+void QDateTimeEdit_OnStepEnabled(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_stepenabled_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_StepEnabled_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperMousePressEvent(QDateTimeEdit* self, QMouseEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MousePressEvent_IsBase(true);
-        vqdatetimeedit->mousePressEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->mousePressEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMousePressEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MousePressEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_mousepressevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperPaintEvent(QDateTimeEdit* self, QPaintEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_PaintEvent_IsBase(true);
-        vqdatetimeedit->paintEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->paintEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnPaintEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_PaintEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_PaintEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_paintevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperInitStyleOption(const QDateTimeEdit* self, QStyleOptionSpinBox* option) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_InitStyleOption_IsBase(true);
-        vqdatetimeedit->initStyleOption(option);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->initStyleOption(option);
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        vqdatetimeedit->QDateTimeEdit::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnInitStyleOption(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InitStyleOption_Callback>(slot));
+void QDateTimeEdit_OnInitStyleOption(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_initstyleoption_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDateTimeEdit_MinimumSizeHint(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return new QSize(vqdatetimeedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDateTimeEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QDateTimeEdit_SuperMinimumSizeHint(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vqdatetimeedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDateTimeEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QDateTimeEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnMinimumSizeHint(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MinimumSizeHint_Callback>(slot));
+void QDateTimeEdit_OnMinimumSizeHint(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_minimumsizehint_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QDateTimeEdit_InputMethodQuery(const QDateTimeEdit* self, int param1) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return new QVariant(vqdatetimeedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDateTimeEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QDateTimeEdit_SuperInputMethodQuery(const QDateTimeEdit* self, int param1) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vqdatetimeedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDateTimeEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QDateTimeEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnInputMethodQuery(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InputMethodQuery_Callback>(slot));
+void QDateTimeEdit_OnInputMethodQuery(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_inputmethodquery_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_ResizeEvent(QDateTimeEdit* self, QResizeEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->resizeEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperResizeEvent(QDateTimeEdit* self, QResizeEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_ResizeEvent_IsBase(true);
-        vqdatetimeedit->resizeEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->resizeEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnResizeEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ResizeEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_resizeevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_KeyReleaseEvent(QDateTimeEdit* self, QKeyEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->keyReleaseEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperKeyReleaseEvent(QDateTimeEdit* self, QKeyEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_KeyReleaseEvent_IsBase(true);
-        vqdatetimeedit->keyReleaseEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnKeyReleaseEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_keyreleaseevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_FocusOutEvent(QDateTimeEdit* self, QFocusEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->focusOutEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperFocusOutEvent(QDateTimeEdit* self, QFocusEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusOutEvent_IsBase(true);
-        vqdatetimeedit->focusOutEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->focusOutEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnFocusOutEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_focusoutevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_ContextMenuEvent(QDateTimeEdit* self, QContextMenuEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->contextMenuEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperContextMenuEvent(QDateTimeEdit* self, QContextMenuEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_ContextMenuEvent_IsBase(true);
-        vqdatetimeedit->contextMenuEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnContextMenuEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_contextmenuevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_ChangeEvent(QDateTimeEdit* self, QEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->changeEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->changeEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperChangeEvent(QDateTimeEdit* self, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_ChangeEvent_IsBase(true);
-        vqdatetimeedit->changeEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->changeEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnChangeEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ChangeEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_changeevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_CloseEvent(QDateTimeEdit* self, QCloseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->closeEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperCloseEvent(QDateTimeEdit* self, QCloseEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_CloseEvent_IsBase(true);
-        vqdatetimeedit->closeEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->closeEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnCloseEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_CloseEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_CloseEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_closeevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_HideEvent(QDateTimeEdit* self, QHideEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->hideEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperHideEvent(QDateTimeEdit* self, QHideEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_HideEvent_IsBase(true);
-        vqdatetimeedit->hideEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->hideEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnHideEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_HideEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HideEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_hideevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_MouseReleaseEvent(QDateTimeEdit* self, QMouseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->mouseReleaseEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperMouseReleaseEvent(QDateTimeEdit* self, QMouseEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MouseReleaseEvent_IsBase(true);
-        vqdatetimeedit->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMouseReleaseEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_mousereleaseevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_MouseMoveEvent(QDateTimeEdit* self, QMouseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->mouseMoveEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperMouseMoveEvent(QDateTimeEdit* self, QMouseEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MouseMoveEvent_IsBase(true);
-        vqdatetimeedit->mouseMoveEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMouseMoveEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_mousemoveevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_TimerEvent(QDateTimeEdit* self, QTimerEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->timerEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperTimerEvent(QDateTimeEdit* self, QTimerEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_TimerEvent_IsBase(true);
-        vqdatetimeedit->timerEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->timerEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnTimerEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_TimerEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TimerEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_timerevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_ShowEvent(QDateTimeEdit* self, QShowEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->showEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperShowEvent(QDateTimeEdit* self, QShowEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_ShowEvent_IsBase(true);
-        vqdatetimeedit->showEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->showEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnShowEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_ShowEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ShowEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_showevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDateTimeEdit_DevType(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->devType();
-    } else {
-        return self->QDateTimeEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QDateTimeEdit_SuperDevType(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DevType_IsBase(true);
-        return vqdatetimeedit->devType();
-    } else {
-        return self->QDateTimeEdit::devType();
-    }
+    return self->QDateTimeEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnDevType(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_DevType_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DevType_Callback>(slot));
+void QDateTimeEdit_OnDevType(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_devtype_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_SetVisible(QDateTimeEdit* self, bool visible) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setVisible(visible);
-    } else {
-        self->QDateTimeEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperSetVisible(QDateTimeEdit* self, bool visible) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_SetVisible_IsBase(true);
-        vqdatetimeedit->setVisible(visible);
-    } else {
-        self->QDateTimeEdit::setVisible(visible);
-    }
+    self->QDateTimeEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnSetVisible(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_SetVisible_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SetVisible_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_setvisible_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDateTimeEdit_HeightForWidth(const QDateTimeEdit* self, int param1) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDateTimeEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QDateTimeEdit_SuperHeightForWidth(const QDateTimeEdit* self, int param1) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_HeightForWidth_IsBase(true);
-        return vqdatetimeedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDateTimeEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QDateTimeEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnHeightForWidth(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_HeightForWidth_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HeightForWidth_Callback>(slot));
+void QDateTimeEdit_OnHeightForWidth(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_heightforwidth_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDateTimeEdit_HasHeightForWidth(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->hasHeightForWidth();
-    } else {
-        return self->QDateTimeEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QDateTimeEdit_SuperHasHeightForWidth(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_HasHeightForWidth_IsBase(true);
-        return vqdatetimeedit->hasHeightForWidth();
-    } else {
-        return self->QDateTimeEdit::hasHeightForWidth();
-    }
+    return self->QDateTimeEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnHasHeightForWidth(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HasHeightForWidth_Callback>(slot));
+void QDateTimeEdit_OnHasHeightForWidth(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_hasheightforwidth_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QDateTimeEdit_PaintEngine(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->paintEngine();
-    } else {
-        return self->QDateTimeEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QDateTimeEdit_SuperPaintEngine(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_PaintEngine_IsBase(true);
-        return vqdatetimeedit->paintEngine();
-    } else {
-        return self->QDateTimeEdit::paintEngine();
-    }
+    return self->QDateTimeEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnPaintEngine(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_PaintEngine_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_PaintEngine_Callback>(slot));
+void QDateTimeEdit_OnPaintEngine(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_paintengine_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_MouseDoubleClickEvent(QDateTimeEdit* self, QMouseEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperMouseDoubleClickEvent(QDateTimeEdit* self, QMouseEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MouseDoubleClickEvent_IsBase(true);
-        vqdatetimeedit->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMouseDoubleClickEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_EnterEvent(QDateTimeEdit* self, QEnterEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->enterEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperEnterEvent(QDateTimeEdit* self, QEnterEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_EnterEvent_IsBase(true);
-        vqdatetimeedit->enterEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->enterEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnEnterEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_EnterEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_EnterEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_enterevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_LeaveEvent(QDateTimeEdit* self, QEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->leaveEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperLeaveEvent(QDateTimeEdit* self, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_LeaveEvent_IsBase(true);
-        vqdatetimeedit->leaveEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnLeaveEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_LeaveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_LeaveEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_leaveevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_MoveEvent(QDateTimeEdit* self, QMoveEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->moveEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperMoveEvent(QDateTimeEdit* self, QMoveEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_MoveEvent_IsBase(true);
-        vqdatetimeedit->moveEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->moveEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnMoveEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_MoveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MoveEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_moveevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_TabletEvent(QDateTimeEdit* self, QTabletEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->tabletEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperTabletEvent(QDateTimeEdit* self, QTabletEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_TabletEvent_IsBase(true);
-        vqdatetimeedit->tabletEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnTabletEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_TabletEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TabletEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_tabletevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_ActionEvent(QDateTimeEdit* self, QActionEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->actionEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperActionEvent(QDateTimeEdit* self, QActionEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_ActionEvent_IsBase(true);
-        vqdatetimeedit->actionEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->actionEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnActionEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_ActionEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ActionEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_actionevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_DragEnterEvent(QDateTimeEdit* self, QDragEnterEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->dragEnterEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperDragEnterEvent(QDateTimeEdit* self, QDragEnterEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DragEnterEvent_IsBase(true);
-        vqdatetimeedit->dragEnterEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDragEnterEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_dragenterevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_DragMoveEvent(QDateTimeEdit* self, QDragMoveEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->dragMoveEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperDragMoveEvent(QDateTimeEdit* self, QDragMoveEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DragMoveEvent_IsBase(true);
-        vqdatetimeedit->dragMoveEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDragMoveEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_dragmoveevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_DragLeaveEvent(QDateTimeEdit* self, QDragLeaveEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->dragLeaveEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperDragLeaveEvent(QDateTimeEdit* self, QDragLeaveEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DragLeaveEvent_IsBase(true);
-        vqdatetimeedit->dragLeaveEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDragLeaveEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_dragleaveevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_DropEvent(QDateTimeEdit* self, QDropEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->dropEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperDropEvent(QDateTimeEdit* self, QDropEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DropEvent_IsBase(true);
-        vqdatetimeedit->dropEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->dropEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDropEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_DropEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DropEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_dropevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDateTimeEdit_NativeEvent(QDateTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
+    if (vqdatetimeedit) {
         return vqdatetimeedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQDateTimeEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QDateTimeEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDateTimeEdit_SuperNativeEvent(QDateTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_NativeEvent_IsBase(true);
-        return vqdatetimeedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        return vqdatetimeedit->QDateTimeEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnNativeEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_NativeEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_NativeEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_nativeevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDateTimeEdit_Metric(const QDateTimeEdit* self, int param1) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         return vqdatetimeedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQDateTimeEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QDateTimeEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QDateTimeEdit_SuperMetric(const QDateTimeEdit* self, int param1) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Metric_IsBase(true);
-        return vqdatetimeedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->QDateTimeEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnMetric(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Metric_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metric_Callback>(slot));
+void QDateTimeEdit_OnMetric(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_metric_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_InitPainter(const QDateTimeEdit* self, QPainter* painter) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->initPainter(painter);
     } else {
-        ((VirtualQDateTimeEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QDateTimeEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperInitPainter(const QDateTimeEdit* self, QPainter* painter) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_InitPainter_IsBase(true);
-        vqdatetimeedit->initPainter(painter);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->initPainter(painter);
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        vqdatetimeedit->QDateTimeEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnInitPainter(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_InitPainter_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InitPainter_Callback>(slot));
+void QDateTimeEdit_OnInitPainter(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_initpainter_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QDateTimeEdit_Redirected(const QDateTimeEdit* self, QPoint* offset) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         return vqdatetimeedit->redirected(offset);
     } else {
-        return ((VirtualQDateTimeEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QDateTimeEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QDateTimeEdit_SuperRedirected(const QDateTimeEdit* self, QPoint* offset) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Redirected_IsBase(true);
-        return vqdatetimeedit->redirected(offset);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->redirected(offset);
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->QDateTimeEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnRedirected(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Redirected_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Redirected_Callback>(slot));
+void QDateTimeEdit_OnRedirected(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_redirected_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QDateTimeEdit_SharedPainter(const QDateTimeEdit* self) {
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         return vqdatetimeedit->sharedPainter();
     } else {
-        return ((VirtualQDateTimeEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QDateTimeEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QDateTimeEdit_SuperSharedPainter(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_SharedPainter_IsBase(true);
-        return vqdatetimeedit->sharedPainter();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->sharedPainter();
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->QDateTimeEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnSharedPainter(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_SharedPainter_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SharedPainter_Callback>(slot));
+void QDateTimeEdit_OnSharedPainter(QDateTimeEdit* self, intptr_t slot) {
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self)))
+        vqdatetimeedit->qdatetimeedit_sharedpainter_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_InputMethodEvent(QDateTimeEdit* self, QInputMethodEvent* param1) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->inputMethodEvent(param1);
     } else {
-        ((VirtualQDateTimeEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QDateTimeEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperInputMethodEvent(QDateTimeEdit* self, QInputMethodEvent* param1) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_InputMethodEvent_IsBase(true);
-        vqdatetimeedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnInputMethodEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_inputmethodevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDateTimeEdit_EventFilter(QDateTimeEdit* self, QObject* watched, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->eventFilter(watched, event);
-    } else {
-        return self->QDateTimeEdit::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDateTimeEdit_SuperEventFilter(QDateTimeEdit* self, QObject* watched, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_EventFilter_IsBase(true);
-        return vqdatetimeedit->eventFilter(watched, event);
-    } else {
-        return self->QDateTimeEdit::eventFilter(watched, event);
-    }
+    return self->QDateTimeEdit::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnEventFilter(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_EventFilter_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_EventFilter_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_eventfilter_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_ChildEvent(QDateTimeEdit* self, QChildEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->childEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperChildEvent(QDateTimeEdit* self, QChildEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_ChildEvent_IsBase(true);
-        vqdatetimeedit->childEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->childEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnChildEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_ChildEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ChildEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_childevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_CustomEvent(QDateTimeEdit* self, QEvent* event) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->customEvent(event);
     } else {
-        ((VirtualQDateTimeEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDateTimeEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperCustomEvent(QDateTimeEdit* self, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_CustomEvent_IsBase(true);
-        vqdatetimeedit->customEvent(event);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->customEvent(event);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnCustomEvent(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_CustomEvent_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_CustomEvent_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_customevent_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_ConnectNotify(QDateTimeEdit* self, const QMetaMethod* signal) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->connectNotify(*signal);
     } else {
-        ((VirtualQDateTimeEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDateTimeEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperConnectNotify(QDateTimeEdit* self, const QMetaMethod* signal) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_ConnectNotify_IsBase(true);
-        vqdatetimeedit->connectNotify(*signal);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnConnectNotify(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_ConnectNotify_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ConnectNotify_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_connectnotify_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateTimeEdit_DisconnectNotify(QDateTimeEdit* self, const QMetaMethod* signal) {
     auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+    if (vqdatetimeedit) {
         vqdatetimeedit->disconnectNotify(*signal);
     } else {
-        ((VirtualQDateTimeEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDateTimeEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateTimeEdit_SuperDisconnectNotify(QDateTimeEdit* self, const QMetaMethod* signal) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_DisconnectNotify_IsBase(true);
-        vqdatetimeedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->QDateTimeEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDateTimeEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeEdit_OnDisconnectNotify(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self))
+        vqdatetimeedit->qdatetimeedit_disconnectnotify_callback = reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QLineEdit* QDateTimeEdit_LineEdit(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->lineEdit();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->lineEdit();
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->VirtualQDateTimeEdit::lineEdit();
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::lineEdit called without a directly constructed type");
 }
 
-// Base class handler implementation
-QLineEdit* QDateTimeEdit_SuperLineEdit(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_LineEdit_IsBase(true);
-        return vqdatetimeedit->lineEdit();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->lineEdit();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnLineEdit(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_LineEdit_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_LineEdit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDateTimeEdit_SetLineEdit(QDateTimeEdit* self, QLineEdit* edit) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setLineEdit(edit);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->setLineEdit(edit);
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->VirtualQDateTimeEdit::setLineEdit(edit);
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::setLineEdit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDateTimeEdit_SuperSetLineEdit(QDateTimeEdit* self, QLineEdit* edit) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_SetLineEdit_IsBase(true);
-        vqdatetimeedit->setLineEdit(edit);
-    } else {
-        ((VirtualQDateTimeEdit*)self)->setLineEdit(edit);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnSetLineEdit(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_SetLineEdit_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SetLineEdit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDateTimeEdit_UpdateMicroFocus(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->updateMicroFocus();
-    } else {
-        ((VirtualQDateTimeEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->VirtualQDateTimeEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDateTimeEdit_SuperUpdateMicroFocus(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_UpdateMicroFocus_IsBase(true);
-        vqdatetimeedit->updateMicroFocus();
-    } else {
-        ((VirtualQDateTimeEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnUpdateMicroFocus(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDateTimeEdit_Create(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->create();
-    } else {
-        ((VirtualQDateTimeEdit*)self)->create();
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->VirtualQDateTimeEdit::create();
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDateTimeEdit_SuperCreate(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Create_IsBase(true);
-        vqdatetimeedit->create();
-    } else {
-        ((VirtualQDateTimeEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnCreate(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Create_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDateTimeEdit_Destroy(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->destroy();
-    } else {
-        ((VirtualQDateTimeEdit*)self)->destroy();
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        vqdatetimeedit->VirtualQDateTimeEdit::destroy();
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDateTimeEdit_SuperDestroy(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Destroy_IsBase(true);
-        vqdatetimeedit->destroy();
-    } else {
-        ((VirtualQDateTimeEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnDestroy(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Destroy_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDateTimeEdit_FocusNextChild(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->focusNextChild();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->focusNextChild();
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        return vqdatetimeedit->VirtualQDateTimeEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDateTimeEdit_SuperFocusNextChild(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusNextChild_IsBase(true);
-        return vqdatetimeedit->focusNextChild();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnFocusNextChild(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_FocusNextChild_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDateTimeEdit_FocusPreviousChild(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->focusPreviousChild();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self)) {
+        return vqdatetimeedit->VirtualQDateTimeEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDateTimeEdit_SuperFocusPreviousChild(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_FocusPreviousChild_IsBase(true);
-        return vqdatetimeedit->focusPreviousChild();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnFocusPreviousChild(QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDateTimeEdit_Sender(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->sender();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->sender();
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->VirtualQDateTimeEdit::sender();
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDateTimeEdit_SuperSender(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Sender_IsBase(true);
-        return vqdatetimeedit->sender();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnSender(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Sender_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDateTimeEdit_SenderSignalIndex(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->senderSignalIndex();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->VirtualQDateTimeEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDateTimeEdit_SuperSenderSignalIndex(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_SenderSignalIndex_IsBase(true);
-        return vqdatetimeedit->senderSignalIndex();
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnSenderSignalIndex(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDateTimeEdit_Receivers(const QDateTimeEdit* self, const char* signal) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->receivers(signal);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->receivers(signal);
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->VirtualQDateTimeEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDateTimeEdit_SuperReceivers(const QDateTimeEdit* self, const char* signal) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_Receivers_IsBase(true);
-        return vqdatetimeedit->receivers(signal);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnReceivers(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_Receivers_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDateTimeEdit_IsSignalConnected(const QDateTimeEdit* self, const QMetaMethod* signal) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->VirtualQDateTimeEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDateTimeEdit_SuperIsSignalConnected(const QDateTimeEdit* self, const QMetaMethod* signal) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_IsSignalConnected_IsBase(true);
-        return vqdatetimeedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnIsSignalConnected(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QDateTimeEdit_GetDecodedMetricF(const QDateTimeEdit* self, int metricA, int metricB) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return vqdatetimeedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QDateTimeEdit_SuperGetDecodedMetricF(const QDateTimeEdit* self, int metricA, int metricB) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        vqdatetimeedit->setQDateTimeEdit_GetDecodedMetricF_IsBase(true);
-        return vqdatetimeedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateTimeEdit_OnGetDecodedMetricF(const QDateTimeEdit* self, intptr_t slot) {
-    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit)
-        vqdatetimeedit->setQDateTimeEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self))) {
+        return vqdatetimeedit->VirtualQDateTimeEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QDateTimeEdit::getDecodedMetricF called without a directly constructed type");
 }
 
 void QDateTimeEdit_Delete(QDateTimeEdit* self) {
@@ -2371,374 +1806,273 @@ libqt_string QTimeEdit_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QTimeEdit_SuperMetaObject(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtimeedit->metaObject();
-    } else {
-        return (QMetaObject*)self->QTimeEdit::metaObject();
-    }
+    return (QMetaObject*)self->QTimeEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnMetaObject(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_MetaObject_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MetaObject_Callback>(slot));
+void QTimeEdit_OnMetaObject(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_metaobject_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTimeEdit_SuperMetacast(QTimeEdit* self, const char* param1) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Metacast_IsBase(true);
-        return vqtimeedit->qt_metacast(param1);
-    } else {
-        return self->QTimeEdit::qt_metacast(param1);
-    }
+    return self->QTimeEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMetacast(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Metacast_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metacast_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_metacast_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTimeEdit_SuperMetacall(QTimeEdit* self, int param1, int param2, void** param3) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Metacall_IsBase(true);
-        return vqtimeedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTimeEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTimeEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMetacall(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Metacall_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metacall_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_metacall_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QTimeEdit_SizeHint(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return new QSize(vqtimeedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQTimeEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QTimeEdit_SuperSizeHint(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_SizeHint_IsBase(true);
-        return new QSize(vqtimeedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQTimeEdit*)self)->sizeHint());
-    }
+    return new QSize(self->QTimeEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnSizeHint(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_SizeHint_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SizeHint_Callback>(slot));
+void QTimeEdit_OnSizeHint(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_sizehint_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_Clear(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->clear();
-    } else {
-        self->QTimeEdit::clear();
-    }
+    self->clear();
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperClear(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Clear_IsBase(true);
-        vqtimeedit->clear();
-    } else {
-        self->QTimeEdit::clear();
-    }
+    self->QTimeEdit::clear();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnClear(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Clear_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Clear_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_clear_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Clear_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_StepBy(QTimeEdit* self, int steps) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->stepBy(static_cast<int>(steps));
-    } else {
-        self->QTimeEdit::stepBy(static_cast<int>(steps));
-    }
+    self->stepBy(static_cast<int>(steps));
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperStepBy(QTimeEdit* self, int steps) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_StepBy_IsBase(true);
-        vqtimeedit->stepBy(static_cast<int>(steps));
-    } else {
-        self->QTimeEdit::stepBy(static_cast<int>(steps));
-    }
+    self->QTimeEdit::stepBy(static_cast<int>(steps));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnStepBy(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_StepBy_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_StepBy_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_stepby_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_StepBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTimeEdit_Event(QTimeEdit* self, QEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->event(event);
-    } else {
-        return self->QTimeEdit::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QTimeEdit_SuperEvent(QTimeEdit* self, QEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Event_IsBase(true);
-        return vqtimeedit->event(event);
-    } else {
-        return self->QTimeEdit::event(event);
-    }
+    return self->QTimeEdit::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Event_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Event_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_event_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_KeyPressEvent(QTimeEdit* self, QKeyEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->keyPressEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperKeyPressEvent(QTimeEdit* self, QKeyEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_KeyPressEvent_IsBase(true);
-        vqtimeedit->keyPressEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->keyPressEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnKeyPressEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_keypressevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_WheelEvent(QTimeEdit* self, QWheelEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->wheelEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperWheelEvent(QTimeEdit* self, QWheelEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_WheelEvent_IsBase(true);
-        vqtimeedit->wheelEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->wheelEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnWheelEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_WheelEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_WheelEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_wheelevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_FocusInEvent(QTimeEdit* self, QFocusEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->focusInEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperFocusInEvent(QTimeEdit* self, QFocusEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_FocusInEvent_IsBase(true);
-        vqtimeedit->focusInEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->focusInEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFocusInEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusInEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_focusinevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTimeEdit_FocusNextPrevChild(QTimeEdit* self, bool next) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         return vqtimeedit->focusNextPrevChild(next);
     } else {
-        return ((VirtualQTimeEdit*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QTimeEdit::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTimeEdit_SuperFocusNextPrevChild(QTimeEdit* self, bool next) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_FocusNextPrevChild_IsBase(true);
-        return vqtimeedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQTimeEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        return vqtimeedit->QTimeEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFocusNextPrevChild(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_focusnextprevchild_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTimeEdit_Validate(const QTimeEdit* self, libqt_string input, int* pos) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
+    if (vqtimeedit) {
         return static_cast<int>(vqtimeedit->validate(input_QString, static_cast<int&>(*pos)));
     } else {
-        return static_cast<int>(((VirtualQTimeEdit*)self)->validate(input_QString, static_cast<int&>(*pos)));
+        qFatal("Error: Protected virtual method QTimeEdit::validate called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTimeEdit_SuperValidate(const QTimeEdit* self, libqt_string input, int* pos) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Validate_IsBase(true);
-        return static_cast<int>(vqtimeedit->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQTimeEdit*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return static_cast<int>(vqtimeedit->QTimeEdit::validate(input_QString, static_cast<int&>(*pos)));
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::validate called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnValidate(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Validate_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Validate_Callback>(slot));
+void QTimeEdit_OnValidate(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_validate_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Validate_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_Fixup(const QTimeEdit* self, libqt_string input) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
+    if (vqtimeedit) {
         vqtimeedit->fixup(input_QString);
     } else {
-        ((VirtualQTimeEdit*)self)->fixup(input_QString);
+        qFatal("Error: Protected virtual method QTimeEdit::fixup called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperFixup(const QTimeEdit* self, libqt_string input) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Fixup_IsBase(true);
-        vqtimeedit->fixup(input_QString);
-    } else {
-        ((VirtualQTimeEdit*)self)->fixup(input_QString);
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        vqtimeedit->QTimeEdit::fixup(input_QString);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::fixup called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnFixup(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Fixup_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Fixup_Callback>(slot));
+void QTimeEdit_OnFixup(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_fixup_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Fixup_Callback>(slot);
 }
 
 // Derived class handler implementation
 QDateTime* QTimeEdit_DateTimeFromText(const QTimeEdit* self, const libqt_string text) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return new QDateTime(vqtimeedit->dateTimeFromText(text_QString));
-    }
-    return {};
+    return new QDateTime((self->*&VirtualQTimeEdit::Base::dateTimeFromText)(text_QString));
 }
 
 // Base class handler implementation
 QDateTime* QTimeEdit_SuperDateTimeFromText(const QTimeEdit* self, const libqt_string text) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_DateTimeFromText_IsBase(true);
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
         return new QDateTime(vqtimeedit->dateTimeFromText(text_QString));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QTimeEdit::dateTimeFromText called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnDateTimeFromText(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_DateTimeFromText_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DateTimeFromText_Callback>(slot));
+void QTimeEdit_OnDateTimeFromText(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_datetimefromtext_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DateTimeFromText_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string QTimeEdit_TextFromDateTime(const QTimeEdit* self, const QDateTime* dt) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         auto _ret = vqtimeedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
@@ -2749,24 +2083,14 @@ libqt_string QTimeEdit_TextFromDateTime(const QTimeEdit* self, const QDateTime* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        auto _ret = ((VirtualQTimeEdit*)self)->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
+        qFatal("Error: Protected virtual method QTimeEdit::textFromDateTime called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 libqt_string QTimeEdit_SuperTextFromDateTime(const QTimeEdit* self, const QDateTime* dt) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_TextFromDateTime_IsBase(true);
-        auto _ret = vqtimeedit->textFromDateTime(*dt);
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        auto _ret = vqtimeedit->QTimeEdit::textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2775,1566 +2099,1080 @@ libqt_string QTimeEdit_SuperTextFromDateTime(const QTimeEdit* self, const QDateT
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualQTimeEdit*)self)->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::textFromDateTime called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnTextFromDateTime(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_TextFromDateTime_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TextFromDateTime_Callback>(slot));
+void QTimeEdit_OnTextFromDateTime(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_textfromdatetime_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TextFromDateTime_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTimeEdit_StepEnabled(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         return static_cast<int>(vqtimeedit->stepEnabled());
     } else {
-        return static_cast<int>(((VirtualQTimeEdit*)self)->stepEnabled());
+        qFatal("Error: Protected virtual method QTimeEdit::stepEnabled called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTimeEdit_SuperStepEnabled(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_StepEnabled_IsBase(true);
-        return static_cast<int>(vqtimeedit->stepEnabled());
-    } else {
-        return static_cast<int>(((VirtualQTimeEdit*)self)->stepEnabled());
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return static_cast<int>(vqtimeedit->QTimeEdit::stepEnabled());
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::stepEnabled called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnStepEnabled(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_StepEnabled_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_StepEnabled_Callback>(slot));
+void QTimeEdit_OnStepEnabled(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_stepenabled_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_StepEnabled_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_MousePressEvent(QTimeEdit* self, QMouseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->mousePressEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperMousePressEvent(QTimeEdit* self, QMouseEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_MousePressEvent_IsBase(true);
-        vqtimeedit->mousePressEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->mousePressEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMousePressEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MousePressEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_mousepressevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_PaintEvent(QTimeEdit* self, QPaintEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->paintEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperPaintEvent(QTimeEdit* self, QPaintEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_PaintEvent_IsBase(true);
-        vqtimeedit->paintEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->paintEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnPaintEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_PaintEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_PaintEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_paintevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_InitStyleOption(const QTimeEdit* self, QStyleOptionSpinBox* option) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->initStyleOption(option);
     } else {
-        ((VirtualQTimeEdit*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QTimeEdit::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperInitStyleOption(const QTimeEdit* self, QStyleOptionSpinBox* option) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_InitStyleOption_IsBase(true);
-        vqtimeedit->initStyleOption(option);
-    } else {
-        ((VirtualQTimeEdit*)self)->initStyleOption(option);
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        vqtimeedit->QTimeEdit::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnInitStyleOption(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InitStyleOption_Callback>(slot));
+void QTimeEdit_OnInitStyleOption(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_initstyleoption_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QTimeEdit_MinimumSizeHint(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return new QSize(vqtimeedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTimeEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QTimeEdit_SuperMinimumSizeHint(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vqtimeedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTimeEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QTimeEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnMinimumSizeHint(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MinimumSizeHint_Callback>(slot));
+void QTimeEdit_OnMinimumSizeHint(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_minimumsizehint_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QTimeEdit_InputMethodQuery(const QTimeEdit* self, int param1) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return new QVariant(vqtimeedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQTimeEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QTimeEdit_SuperInputMethodQuery(const QTimeEdit* self, int param1) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vqtimeedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQTimeEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QTimeEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnInputMethodQuery(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InputMethodQuery_Callback>(slot));
+void QTimeEdit_OnInputMethodQuery(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_inputmethodquery_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_ResizeEvent(QTimeEdit* self, QResizeEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->resizeEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperResizeEvent(QTimeEdit* self, QResizeEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_ResizeEvent_IsBase(true);
-        vqtimeedit->resizeEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->resizeEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnResizeEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ResizeEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_resizeevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_KeyReleaseEvent(QTimeEdit* self, QKeyEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->keyReleaseEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperKeyReleaseEvent(QTimeEdit* self, QKeyEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_KeyReleaseEvent_IsBase(true);
-        vqtimeedit->keyReleaseEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnKeyReleaseEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_keyreleaseevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_FocusOutEvent(QTimeEdit* self, QFocusEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->focusOutEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperFocusOutEvent(QTimeEdit* self, QFocusEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_FocusOutEvent_IsBase(true);
-        vqtimeedit->focusOutEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->focusOutEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnFocusOutEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_focusoutevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_ContextMenuEvent(QTimeEdit* self, QContextMenuEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->contextMenuEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperContextMenuEvent(QTimeEdit* self, QContextMenuEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_ContextMenuEvent_IsBase(true);
-        vqtimeedit->contextMenuEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnContextMenuEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_contextmenuevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_ChangeEvent(QTimeEdit* self, QEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->changeEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->changeEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperChangeEvent(QTimeEdit* self, QEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_ChangeEvent_IsBase(true);
-        vqtimeedit->changeEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->changeEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnChangeEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ChangeEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_changeevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_CloseEvent(QTimeEdit* self, QCloseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->closeEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperCloseEvent(QTimeEdit* self, QCloseEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_CloseEvent_IsBase(true);
-        vqtimeedit->closeEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->closeEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnCloseEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_CloseEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_CloseEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_closeevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_HideEvent(QTimeEdit* self, QHideEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->hideEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperHideEvent(QTimeEdit* self, QHideEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_HideEvent_IsBase(true);
-        vqtimeedit->hideEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->hideEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnHideEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_HideEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HideEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_hideevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_MouseReleaseEvent(QTimeEdit* self, QMouseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->mouseReleaseEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperMouseReleaseEvent(QTimeEdit* self, QMouseEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_MouseReleaseEvent_IsBase(true);
-        vqtimeedit->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMouseReleaseEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_mousereleaseevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_MouseMoveEvent(QTimeEdit* self, QMouseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->mouseMoveEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperMouseMoveEvent(QTimeEdit* self, QMouseEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_MouseMoveEvent_IsBase(true);
-        vqtimeedit->mouseMoveEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMouseMoveEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_mousemoveevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_TimerEvent(QTimeEdit* self, QTimerEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->timerEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperTimerEvent(QTimeEdit* self, QTimerEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_TimerEvent_IsBase(true);
-        vqtimeedit->timerEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->timerEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnTimerEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_TimerEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TimerEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_timerevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_ShowEvent(QTimeEdit* self, QShowEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->showEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperShowEvent(QTimeEdit* self, QShowEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_ShowEvent_IsBase(true);
-        vqtimeedit->showEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->showEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnShowEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_ShowEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ShowEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_showevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTimeEdit_DevType(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->devType();
-    } else {
-        return self->QTimeEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QTimeEdit_SuperDevType(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_DevType_IsBase(true);
-        return vqtimeedit->devType();
-    } else {
-        return self->QTimeEdit::devType();
-    }
+    return self->QTimeEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnDevType(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_DevType_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DevType_Callback>(slot));
+void QTimeEdit_OnDevType(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_devtype_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_SetVisible(QTimeEdit* self, bool visible) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setVisible(visible);
-    } else {
-        self->QTimeEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperSetVisible(QTimeEdit* self, bool visible) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_SetVisible_IsBase(true);
-        vqtimeedit->setVisible(visible);
-    } else {
-        self->QTimeEdit::setVisible(visible);
-    }
+    self->QTimeEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnSetVisible(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_SetVisible_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SetVisible_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_setvisible_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTimeEdit_HeightForWidth(const QTimeEdit* self, int param1) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QTimeEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QTimeEdit_SuperHeightForWidth(const QTimeEdit* self, int param1) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_HeightForWidth_IsBase(true);
-        return vqtimeedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QTimeEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QTimeEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnHeightForWidth(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_HeightForWidth_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HeightForWidth_Callback>(slot));
+void QTimeEdit_OnHeightForWidth(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_heightforwidth_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTimeEdit_HasHeightForWidth(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->hasHeightForWidth();
-    } else {
-        return self->QTimeEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QTimeEdit_SuperHasHeightForWidth(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_HasHeightForWidth_IsBase(true);
-        return vqtimeedit->hasHeightForWidth();
-    } else {
-        return self->QTimeEdit::hasHeightForWidth();
-    }
+    return self->QTimeEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnHasHeightForWidth(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HasHeightForWidth_Callback>(slot));
+void QTimeEdit_OnHasHeightForWidth(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_hasheightforwidth_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QTimeEdit_PaintEngine(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->paintEngine();
-    } else {
-        return self->QTimeEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QTimeEdit_SuperPaintEngine(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_PaintEngine_IsBase(true);
-        return vqtimeedit->paintEngine();
-    } else {
-        return self->QTimeEdit::paintEngine();
-    }
+    return self->QTimeEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnPaintEngine(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_PaintEngine_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_PaintEngine_Callback>(slot));
+void QTimeEdit_OnPaintEngine(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_paintengine_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_MouseDoubleClickEvent(QTimeEdit* self, QMouseEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperMouseDoubleClickEvent(QTimeEdit* self, QMouseEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_MouseDoubleClickEvent_IsBase(true);
-        vqtimeedit->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMouseDoubleClickEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_EnterEvent(QTimeEdit* self, QEnterEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->enterEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperEnterEvent(QTimeEdit* self, QEnterEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_EnterEvent_IsBase(true);
-        vqtimeedit->enterEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->enterEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnEnterEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_EnterEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_EnterEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_enterevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_LeaveEvent(QTimeEdit* self, QEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->leaveEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperLeaveEvent(QTimeEdit* self, QEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_LeaveEvent_IsBase(true);
-        vqtimeedit->leaveEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnLeaveEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_LeaveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_LeaveEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_leaveevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_MoveEvent(QTimeEdit* self, QMoveEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->moveEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperMoveEvent(QTimeEdit* self, QMoveEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_MoveEvent_IsBase(true);
-        vqtimeedit->moveEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->moveEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnMoveEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_MoveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MoveEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_moveevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_TabletEvent(QTimeEdit* self, QTabletEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->tabletEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperTabletEvent(QTimeEdit* self, QTabletEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_TabletEvent_IsBase(true);
-        vqtimeedit->tabletEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnTabletEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_TabletEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TabletEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_tabletevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_ActionEvent(QTimeEdit* self, QActionEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->actionEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperActionEvent(QTimeEdit* self, QActionEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_ActionEvent_IsBase(true);
-        vqtimeedit->actionEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->actionEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnActionEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_ActionEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ActionEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_actionevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_DragEnterEvent(QTimeEdit* self, QDragEnterEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->dragEnterEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperDragEnterEvent(QTimeEdit* self, QDragEnterEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_DragEnterEvent_IsBase(true);
-        vqtimeedit->dragEnterEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDragEnterEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_dragenterevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_DragMoveEvent(QTimeEdit* self, QDragMoveEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->dragMoveEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperDragMoveEvent(QTimeEdit* self, QDragMoveEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_DragMoveEvent_IsBase(true);
-        vqtimeedit->dragMoveEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDragMoveEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_dragmoveevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_DragLeaveEvent(QTimeEdit* self, QDragLeaveEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->dragLeaveEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperDragLeaveEvent(QTimeEdit* self, QDragLeaveEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_DragLeaveEvent_IsBase(true);
-        vqtimeedit->dragLeaveEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDragLeaveEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_dragleaveevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_DropEvent(QTimeEdit* self, QDropEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->dropEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperDropEvent(QTimeEdit* self, QDropEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_DropEvent_IsBase(true);
-        vqtimeedit->dropEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->dropEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDropEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_DropEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DropEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_dropevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTimeEdit_NativeEvent(QTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
+    if (vqtimeedit) {
         return vqtimeedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQTimeEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QTimeEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTimeEdit_SuperNativeEvent(QTimeEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_NativeEvent_IsBase(true);
-        return vqtimeedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQTimeEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        return vqtimeedit->QTimeEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnNativeEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_NativeEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_NativeEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_nativeevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTimeEdit_Metric(const QTimeEdit* self, int param1) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         return vqtimeedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQTimeEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QTimeEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTimeEdit_SuperMetric(const QTimeEdit* self, int param1) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Metric_IsBase(true);
-        return vqtimeedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQTimeEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->QTimeEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnMetric(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Metric_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metric_Callback>(slot));
+void QTimeEdit_OnMetric(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_metric_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_InitPainter(const QTimeEdit* self, QPainter* painter) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->initPainter(painter);
     } else {
-        ((VirtualQTimeEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QTimeEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperInitPainter(const QTimeEdit* self, QPainter* painter) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_InitPainter_IsBase(true);
-        vqtimeedit->initPainter(painter);
-    } else {
-        ((VirtualQTimeEdit*)self)->initPainter(painter);
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        vqtimeedit->QTimeEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnInitPainter(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_InitPainter_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InitPainter_Callback>(slot));
+void QTimeEdit_OnInitPainter(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_initpainter_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QTimeEdit_Redirected(const QTimeEdit* self, QPoint* offset) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         return vqtimeedit->redirected(offset);
     } else {
-        return ((VirtualQTimeEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QTimeEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QTimeEdit_SuperRedirected(const QTimeEdit* self, QPoint* offset) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Redirected_IsBase(true);
-        return vqtimeedit->redirected(offset);
-    } else {
-        return ((VirtualQTimeEdit*)self)->redirected(offset);
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->QTimeEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnRedirected(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Redirected_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Redirected_Callback>(slot));
+void QTimeEdit_OnRedirected(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_redirected_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QTimeEdit_SharedPainter(const QTimeEdit* self) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         return vqtimeedit->sharedPainter();
     } else {
-        return ((VirtualQTimeEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QTimeEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QTimeEdit_SuperSharedPainter(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_SharedPainter_IsBase(true);
-        return vqtimeedit->sharedPainter();
-    } else {
-        return ((VirtualQTimeEdit*)self)->sharedPainter();
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->QTimeEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnSharedPainter(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_SharedPainter_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SharedPainter_Callback>(slot));
+void QTimeEdit_OnSharedPainter(QTimeEdit* self, intptr_t slot) {
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self)))
+        vqtimeedit->qtimeedit_sharedpainter_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_InputMethodEvent(QTimeEdit* self, QInputMethodEvent* param1) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->inputMethodEvent(param1);
     } else {
-        ((VirtualQTimeEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QTimeEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperInputMethodEvent(QTimeEdit* self, QInputMethodEvent* param1) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_InputMethodEvent_IsBase(true);
-        vqtimeedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualQTimeEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnInputMethodEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_inputmethodevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTimeEdit_EventFilter(QTimeEdit* self, QObject* watched, QEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->eventFilter(watched, event);
-    } else {
-        return self->QTimeEdit::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QTimeEdit_SuperEventFilter(QTimeEdit* self, QObject* watched, QEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_EventFilter_IsBase(true);
-        return vqtimeedit->eventFilter(watched, event);
-    } else {
-        return self->QTimeEdit::eventFilter(watched, event);
-    }
+    return self->QTimeEdit::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnEventFilter(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_EventFilter_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_EventFilter_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_eventfilter_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_ChildEvent(QTimeEdit* self, QChildEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->childEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperChildEvent(QTimeEdit* self, QChildEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_ChildEvent_IsBase(true);
-        vqtimeedit->childEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->childEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnChildEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_ChildEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ChildEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_childevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_CustomEvent(QTimeEdit* self, QEvent* event) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->customEvent(event);
     } else {
-        ((VirtualQTimeEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTimeEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperCustomEvent(QTimeEdit* self, QEvent* event) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_CustomEvent_IsBase(true);
-        vqtimeedit->customEvent(event);
-    } else {
-        ((VirtualQTimeEdit*)self)->customEvent(event);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnCustomEvent(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_CustomEvent_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_CustomEvent_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_customevent_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_ConnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->connectNotify(*signal);
     } else {
-        ((VirtualQTimeEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTimeEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperConnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_ConnectNotify_IsBase(true);
-        vqtimeedit->connectNotify(*signal);
-    } else {
-        ((VirtualQTimeEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnConnectNotify(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_ConnectNotify_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ConnectNotify_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_connectnotify_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTimeEdit_DisconnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
     auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+    if (vqtimeedit) {
         vqtimeedit->disconnectNotify(*signal);
     } else {
-        ((VirtualQTimeEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTimeEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTimeEdit_SuperDisconnectNotify(QTimeEdit* self, const QMetaMethod* signal) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_DisconnectNotify_IsBase(true);
-        vqtimeedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTimeEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->QTimeEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTimeEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTimeEdit_OnDisconnectNotify(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self))
+        vqtimeedit->qtimeedit_disconnectnotify_callback = reinterpret_cast<VirtualQTimeEdit::QTimeEdit_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QLineEdit* QTimeEdit_LineEdit(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->lineEdit();
-    } else {
-        return ((VirtualQTimeEdit*)self)->lineEdit();
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->VirtualQTimeEdit::lineEdit();
+    } else
+        qFatal("Error: Protected method QTimeEdit::lineEdit called without a directly constructed type");
 }
 
-// Base class handler implementation
-QLineEdit* QTimeEdit_SuperLineEdit(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_LineEdit_IsBase(true);
-        return vqtimeedit->lineEdit();
-    } else {
-        return ((VirtualQTimeEdit*)self)->lineEdit();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnLineEdit(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_LineEdit_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_LineEdit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTimeEdit_SetLineEdit(QTimeEdit* self, QLineEdit* edit) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setLineEdit(edit);
-    } else {
-        ((VirtualQTimeEdit*)self)->setLineEdit(edit);
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->VirtualQTimeEdit::setLineEdit(edit);
+    } else
+        qFatal("Error: Protected method QTimeEdit::setLineEdit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTimeEdit_SuperSetLineEdit(QTimeEdit* self, QLineEdit* edit) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_SetLineEdit_IsBase(true);
-        vqtimeedit->setLineEdit(edit);
-    } else {
-        ((VirtualQTimeEdit*)self)->setLineEdit(edit);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnSetLineEdit(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_SetLineEdit_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SetLineEdit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTimeEdit_UpdateMicroFocus(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->updateMicroFocus();
-    } else {
-        ((VirtualQTimeEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->VirtualQTimeEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QTimeEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTimeEdit_SuperUpdateMicroFocus(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_UpdateMicroFocus_IsBase(true);
-        vqtimeedit->updateMicroFocus();
-    } else {
-        ((VirtualQTimeEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnUpdateMicroFocus(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTimeEdit_Create(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->create();
-    } else {
-        ((VirtualQTimeEdit*)self)->create();
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->VirtualQTimeEdit::create();
+    } else
+        qFatal("Error: Protected method QTimeEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTimeEdit_SuperCreate(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Create_IsBase(true);
-        vqtimeedit->create();
-    } else {
-        ((VirtualQTimeEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnCreate(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Create_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTimeEdit_Destroy(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->destroy();
-    } else {
-        ((VirtualQTimeEdit*)self)->destroy();
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        vqtimeedit->VirtualQTimeEdit::destroy();
+    } else
+        qFatal("Error: Protected method QTimeEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTimeEdit_SuperDestroy(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Destroy_IsBase(true);
-        vqtimeedit->destroy();
-    } else {
-        ((VirtualQTimeEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnDestroy(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Destroy_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTimeEdit_FocusNextChild(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->focusNextChild();
-    } else {
-        return ((VirtualQTimeEdit*)self)->focusNextChild();
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        return vqtimeedit->VirtualQTimeEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method QTimeEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTimeEdit_SuperFocusNextChild(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_FocusNextChild_IsBase(true);
-        return vqtimeedit->focusNextChild();
-    } else {
-        return ((VirtualQTimeEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnFocusNextChild(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_FocusNextChild_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTimeEdit_FocusPreviousChild(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->focusPreviousChild();
-    } else {
-        return ((VirtualQTimeEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self)) {
+        return vqtimeedit->VirtualQTimeEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QTimeEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTimeEdit_SuperFocusPreviousChild(QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_FocusPreviousChild_IsBase(true);
-        return vqtimeedit->focusPreviousChild();
-    } else {
-        return ((VirtualQTimeEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnFocusPreviousChild(QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTimeEdit_Sender(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->sender();
-    } else {
-        return ((VirtualQTimeEdit*)self)->sender();
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->VirtualQTimeEdit::sender();
+    } else
+        qFatal("Error: Protected method QTimeEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTimeEdit_SuperSender(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Sender_IsBase(true);
-        return vqtimeedit->sender();
-    } else {
-        return ((VirtualQTimeEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnSender(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Sender_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTimeEdit_SenderSignalIndex(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->senderSignalIndex();
-    } else {
-        return ((VirtualQTimeEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->VirtualQTimeEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTimeEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTimeEdit_SuperSenderSignalIndex(const QTimeEdit* self) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_SenderSignalIndex_IsBase(true);
-        return vqtimeedit->senderSignalIndex();
-    } else {
-        return ((VirtualQTimeEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnSenderSignalIndex(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTimeEdit_Receivers(const QTimeEdit* self, const char* signal) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->receivers(signal);
-    } else {
-        return ((VirtualQTimeEdit*)self)->receivers(signal);
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->VirtualQTimeEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTimeEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTimeEdit_SuperReceivers(const QTimeEdit* self, const char* signal) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_Receivers_IsBase(true);
-        return vqtimeedit->receivers(signal);
-    } else {
-        return ((VirtualQTimeEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnReceivers(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_Receivers_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTimeEdit_IsSignalConnected(const QTimeEdit* self, const QMetaMethod* signal) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTimeEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->VirtualQTimeEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTimeEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTimeEdit_SuperIsSignalConnected(const QTimeEdit* self, const QMetaMethod* signal) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_IsSignalConnected_IsBase(true);
-        return vqtimeedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTimeEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnIsSignalConnected(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QTimeEdit_GetDecodedMetricF(const QTimeEdit* self, int metricA, int metricB) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return vqtimeedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQTimeEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QTimeEdit_SuperGetDecodedMetricF(const QTimeEdit* self, int metricA, int metricB) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        vqtimeedit->setQTimeEdit_GetDecodedMetricF_IsBase(true);
-        return vqtimeedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQTimeEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTimeEdit_OnGetDecodedMetricF(const QTimeEdit* self, intptr_t slot) {
-    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit)
-        vqtimeedit->setQTimeEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self))) {
+        return vqtimeedit->VirtualQTimeEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QTimeEdit::getDecodedMetricF called without a directly constructed type");
 }
 
 void QTimeEdit_Delete(QTimeEdit* self) {
@@ -4421,374 +3259,273 @@ libqt_string QDateEdit_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QDateEdit_SuperMetaObject(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdateedit->metaObject();
-    } else {
-        return (QMetaObject*)self->QDateEdit::metaObject();
-    }
+    return (QMetaObject*)self->QDateEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnMetaObject(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_MetaObject_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MetaObject_Callback>(slot));
+void QDateEdit_OnMetaObject(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_metaobject_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDateEdit_SuperMetacast(QDateEdit* self, const char* param1) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Metacast_IsBase(true);
-        return vqdateedit->qt_metacast(param1);
-    } else {
-        return self->QDateEdit::qt_metacast(param1);
-    }
+    return self->QDateEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMetacast(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Metacast_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Metacast_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_metacast_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDateEdit_SuperMetacall(QDateEdit* self, int param1, int param2, void** param3) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Metacall_IsBase(true);
-        return vqdateedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDateEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDateEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMetacall(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Metacall_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Metacall_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_metacall_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDateEdit_SizeHint(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return new QSize(vqdateedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQDateEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QDateEdit_SuperSizeHint(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_SizeHint_IsBase(true);
-        return new QSize(vqdateedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQDateEdit*)self)->sizeHint());
-    }
+    return new QSize(self->QDateEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnSizeHint(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_SizeHint_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SizeHint_Callback>(slot));
+void QDateEdit_OnSizeHint(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_sizehint_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_Clear(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->clear();
-    } else {
-        self->QDateEdit::clear();
-    }
+    self->clear();
 }
 
 // Base class handler implementation
 void QDateEdit_SuperClear(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Clear_IsBase(true);
-        vqdateedit->clear();
-    } else {
-        self->QDateEdit::clear();
-    }
+    self->QDateEdit::clear();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnClear(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Clear_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Clear_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_clear_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_Clear_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_StepBy(QDateEdit* self, int steps) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->stepBy(static_cast<int>(steps));
-    } else {
-        self->QDateEdit::stepBy(static_cast<int>(steps));
-    }
+    self->stepBy(static_cast<int>(steps));
 }
 
 // Base class handler implementation
 void QDateEdit_SuperStepBy(QDateEdit* self, int steps) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_StepBy_IsBase(true);
-        vqdateedit->stepBy(static_cast<int>(steps));
-    } else {
-        self->QDateEdit::stepBy(static_cast<int>(steps));
-    }
+    self->QDateEdit::stepBy(static_cast<int>(steps));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnStepBy(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_StepBy_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_StepBy_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_stepby_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_StepBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDateEdit_Event(QDateEdit* self, QEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->event(event);
-    } else {
-        return self->QDateEdit::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDateEdit_SuperEvent(QDateEdit* self, QEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Event_IsBase(true);
-        return vqdateedit->event(event);
-    } else {
-        return self->QDateEdit::event(event);
-    }
+    return self->QDateEdit::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Event_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Event_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_event_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_KeyPressEvent(QDateEdit* self, QKeyEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->keyPressEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperKeyPressEvent(QDateEdit* self, QKeyEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_KeyPressEvent_IsBase(true);
-        vqdateedit->keyPressEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->keyPressEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnKeyPressEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_keypressevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_WheelEvent(QDateEdit* self, QWheelEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->wheelEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperWheelEvent(QDateEdit* self, QWheelEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_WheelEvent_IsBase(true);
-        vqdateedit->wheelEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->wheelEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnWheelEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_WheelEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_WheelEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_wheelevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_FocusInEvent(QDateEdit* self, QFocusEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->focusInEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperFocusInEvent(QDateEdit* self, QFocusEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_FocusInEvent_IsBase(true);
-        vqdateedit->focusInEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->focusInEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFocusInEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusInEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_focusinevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDateEdit_FocusNextPrevChild(QDateEdit* self, bool next) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         return vqdateedit->focusNextPrevChild(next);
     } else {
-        return ((VirtualQDateEdit*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QDateEdit::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDateEdit_SuperFocusNextPrevChild(QDateEdit* self, bool next) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_FocusNextPrevChild_IsBase(true);
-        return vqdateedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQDateEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        return vqdateedit->QDateEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFocusNextPrevChild(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_focusnextprevchild_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDateEdit_Validate(const QDateEdit* self, libqt_string input, int* pos) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
+    if (vqdateedit) {
         return static_cast<int>(vqdateedit->validate(input_QString, static_cast<int&>(*pos)));
     } else {
-        return static_cast<int>(((VirtualQDateEdit*)self)->validate(input_QString, static_cast<int&>(*pos)));
+        qFatal("Error: Protected virtual method QDateEdit::validate called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QDateEdit_SuperValidate(const QDateEdit* self, libqt_string input, int* pos) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Validate_IsBase(true);
-        return static_cast<int>(vqdateedit->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQDateEdit*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return static_cast<int>(vqdateedit->QDateEdit::validate(input_QString, static_cast<int&>(*pos)));
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::validate called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnValidate(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Validate_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Validate_Callback>(slot));
+void QDateEdit_OnValidate(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_validate_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_Validate_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_Fixup(const QDateEdit* self, libqt_string input) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
+    if (vqdateedit) {
         vqdateedit->fixup(input_QString);
     } else {
-        ((VirtualQDateEdit*)self)->fixup(input_QString);
+        qFatal("Error: Protected virtual method QDateEdit::fixup called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperFixup(const QDateEdit* self, libqt_string input) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Fixup_IsBase(true);
-        vqdateedit->fixup(input_QString);
-    } else {
-        ((VirtualQDateEdit*)self)->fixup(input_QString);
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        vqdateedit->QDateEdit::fixup(input_QString);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::fixup called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnFixup(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Fixup_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Fixup_Callback>(slot));
+void QDateEdit_OnFixup(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_fixup_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_Fixup_Callback>(slot);
 }
 
 // Derived class handler implementation
 QDateTime* QDateEdit_DateTimeFromText(const QDateEdit* self, const libqt_string text) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return new QDateTime(vqdateedit->dateTimeFromText(text_QString));
-    }
-    return {};
+    return new QDateTime((self->*&VirtualQDateEdit::Base::dateTimeFromText)(text_QString));
 }
 
 // Base class handler implementation
 QDateTime* QDateEdit_SuperDateTimeFromText(const QDateEdit* self, const libqt_string text) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_DateTimeFromText_IsBase(true);
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
         return new QDateTime(vqdateedit->dateTimeFromText(text_QString));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QDateEdit::dateTimeFromText called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnDateTimeFromText(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_DateTimeFromText_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DateTimeFromText_Callback>(slot));
+void QDateEdit_OnDateTimeFromText(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_datetimefromtext_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_DateTimeFromText_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string QDateEdit_TextFromDateTime(const QDateEdit* self, const QDateTime* dt) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         auto _ret = vqdateedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
@@ -4799,24 +3536,14 @@ libqt_string QDateEdit_TextFromDateTime(const QDateEdit* self, const QDateTime* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        auto _ret = ((VirtualQDateEdit*)self)->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
+        qFatal("Error: Protected virtual method QDateEdit::textFromDateTime called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 libqt_string QDateEdit_SuperTextFromDateTime(const QDateEdit* self, const QDateTime* dt) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_TextFromDateTime_IsBase(true);
-        auto _ret = vqdateedit->textFromDateTime(*dt);
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        auto _ret = vqdateedit->QDateEdit::textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -4825,1566 +3552,1080 @@ libqt_string QDateEdit_SuperTextFromDateTime(const QDateEdit* self, const QDateT
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualQDateEdit*)self)->textFromDateTime(*dt);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::textFromDateTime called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnTextFromDateTime(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_TextFromDateTime_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_TextFromDateTime_Callback>(slot));
+void QDateEdit_OnTextFromDateTime(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_textfromdatetime_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_TextFromDateTime_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDateEdit_StepEnabled(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         return static_cast<int>(vqdateedit->stepEnabled());
     } else {
-        return static_cast<int>(((VirtualQDateEdit*)self)->stepEnabled());
+        qFatal("Error: Protected virtual method QDateEdit::stepEnabled called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QDateEdit_SuperStepEnabled(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_StepEnabled_IsBase(true);
-        return static_cast<int>(vqdateedit->stepEnabled());
-    } else {
-        return static_cast<int>(((VirtualQDateEdit*)self)->stepEnabled());
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return static_cast<int>(vqdateedit->QDateEdit::stepEnabled());
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::stepEnabled called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnStepEnabled(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_StepEnabled_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_StepEnabled_Callback>(slot));
+void QDateEdit_OnStepEnabled(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_stepenabled_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_StepEnabled_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_MousePressEvent(QDateEdit* self, QMouseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->mousePressEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperMousePressEvent(QDateEdit* self, QMouseEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_MousePressEvent_IsBase(true);
-        vqdateedit->mousePressEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->mousePressEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMousePressEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MousePressEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_mousepressevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_PaintEvent(QDateEdit* self, QPaintEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->paintEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperPaintEvent(QDateEdit* self, QPaintEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_PaintEvent_IsBase(true);
-        vqdateedit->paintEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->paintEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnPaintEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_PaintEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_PaintEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_paintevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_InitStyleOption(const QDateEdit* self, QStyleOptionSpinBox* option) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->initStyleOption(option);
     } else {
-        ((VirtualQDateEdit*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QDateEdit::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperInitStyleOption(const QDateEdit* self, QStyleOptionSpinBox* option) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_InitStyleOption_IsBase(true);
-        vqdateedit->initStyleOption(option);
-    } else {
-        ((VirtualQDateEdit*)self)->initStyleOption(option);
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        vqdateedit->QDateEdit::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnInitStyleOption(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_InitStyleOption_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_InitStyleOption_Callback>(slot));
+void QDateEdit_OnInitStyleOption(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_initstyleoption_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDateEdit_MinimumSizeHint(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return new QSize(vqdateedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDateEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QDateEdit_SuperMinimumSizeHint(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vqdateedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDateEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QDateEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnMinimumSizeHint(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MinimumSizeHint_Callback>(slot));
+void QDateEdit_OnMinimumSizeHint(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_minimumsizehint_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QDateEdit_InputMethodQuery(const QDateEdit* self, int param1) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return new QVariant(vqdateedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDateEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QDateEdit_SuperInputMethodQuery(const QDateEdit* self, int param1) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vqdateedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDateEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QDateEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnInputMethodQuery(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_InputMethodQuery_Callback>(slot));
+void QDateEdit_OnInputMethodQuery(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_inputmethodquery_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_ResizeEvent(QDateEdit* self, QResizeEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->resizeEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperResizeEvent(QDateEdit* self, QResizeEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_ResizeEvent_IsBase(true);
-        vqdateedit->resizeEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->resizeEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnResizeEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ResizeEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_resizeevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_KeyReleaseEvent(QDateEdit* self, QKeyEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->keyReleaseEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperKeyReleaseEvent(QDateEdit* self, QKeyEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_KeyReleaseEvent_IsBase(true);
-        vqdateedit->keyReleaseEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnKeyReleaseEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_keyreleaseevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_FocusOutEvent(QDateEdit* self, QFocusEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->focusOutEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperFocusOutEvent(QDateEdit* self, QFocusEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_FocusOutEvent_IsBase(true);
-        vqdateedit->focusOutEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->focusOutEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnFocusOutEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_focusoutevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_ContextMenuEvent(QDateEdit* self, QContextMenuEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->contextMenuEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperContextMenuEvent(QDateEdit* self, QContextMenuEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_ContextMenuEvent_IsBase(true);
-        vqdateedit->contextMenuEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnContextMenuEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_contextmenuevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_ChangeEvent(QDateEdit* self, QEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->changeEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->changeEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperChangeEvent(QDateEdit* self, QEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_ChangeEvent_IsBase(true);
-        vqdateedit->changeEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->changeEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnChangeEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ChangeEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_changeevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_CloseEvent(QDateEdit* self, QCloseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->closeEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperCloseEvent(QDateEdit* self, QCloseEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_CloseEvent_IsBase(true);
-        vqdateedit->closeEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->closeEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnCloseEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_CloseEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_CloseEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_closeevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_HideEvent(QDateEdit* self, QHideEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->hideEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperHideEvent(QDateEdit* self, QHideEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_HideEvent_IsBase(true);
-        vqdateedit->hideEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->hideEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnHideEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_HideEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_HideEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_hideevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_MouseReleaseEvent(QDateEdit* self, QMouseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->mouseReleaseEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperMouseReleaseEvent(QDateEdit* self, QMouseEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_MouseReleaseEvent_IsBase(true);
-        vqdateedit->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMouseReleaseEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_mousereleaseevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_MouseMoveEvent(QDateEdit* self, QMouseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->mouseMoveEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperMouseMoveEvent(QDateEdit* self, QMouseEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_MouseMoveEvent_IsBase(true);
-        vqdateedit->mouseMoveEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMouseMoveEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_mousemoveevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_TimerEvent(QDateEdit* self, QTimerEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->timerEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperTimerEvent(QDateEdit* self, QTimerEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_TimerEvent_IsBase(true);
-        vqdateedit->timerEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->timerEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnTimerEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_TimerEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_TimerEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_timerevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_ShowEvent(QDateEdit* self, QShowEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->showEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperShowEvent(QDateEdit* self, QShowEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_ShowEvent_IsBase(true);
-        vqdateedit->showEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->showEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnShowEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_ShowEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ShowEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_showevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDateEdit_DevType(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->devType();
-    } else {
-        return self->QDateEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QDateEdit_SuperDevType(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_DevType_IsBase(true);
-        return vqdateedit->devType();
-    } else {
-        return self->QDateEdit::devType();
-    }
+    return self->QDateEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnDevType(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_DevType_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DevType_Callback>(slot));
+void QDateEdit_OnDevType(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_devtype_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_SetVisible(QDateEdit* self, bool visible) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setVisible(visible);
-    } else {
-        self->QDateEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QDateEdit_SuperSetVisible(QDateEdit* self, bool visible) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_SetVisible_IsBase(true);
-        vqdateedit->setVisible(visible);
-    } else {
-        self->QDateEdit::setVisible(visible);
-    }
+    self->QDateEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnSetVisible(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_SetVisible_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SetVisible_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_setvisible_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDateEdit_HeightForWidth(const QDateEdit* self, int param1) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDateEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QDateEdit_SuperHeightForWidth(const QDateEdit* self, int param1) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_HeightForWidth_IsBase(true);
-        return vqdateedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDateEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QDateEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnHeightForWidth(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_HeightForWidth_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_HeightForWidth_Callback>(slot));
+void QDateEdit_OnHeightForWidth(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_heightforwidth_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDateEdit_HasHeightForWidth(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->hasHeightForWidth();
-    } else {
-        return self->QDateEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QDateEdit_SuperHasHeightForWidth(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_HasHeightForWidth_IsBase(true);
-        return vqdateedit->hasHeightForWidth();
-    } else {
-        return self->QDateEdit::hasHeightForWidth();
-    }
+    return self->QDateEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnHasHeightForWidth(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_HasHeightForWidth_Callback>(slot));
+void QDateEdit_OnHasHeightForWidth(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_hasheightforwidth_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QDateEdit_PaintEngine(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->paintEngine();
-    } else {
-        return self->QDateEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QDateEdit_SuperPaintEngine(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_PaintEngine_IsBase(true);
-        return vqdateedit->paintEngine();
-    } else {
-        return self->QDateEdit::paintEngine();
-    }
+    return self->QDateEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnPaintEngine(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_PaintEngine_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_PaintEngine_Callback>(slot));
+void QDateEdit_OnPaintEngine(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_paintengine_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_MouseDoubleClickEvent(QDateEdit* self, QMouseEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperMouseDoubleClickEvent(QDateEdit* self, QMouseEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_MouseDoubleClickEvent_IsBase(true);
-        vqdateedit->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMouseDoubleClickEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_EnterEvent(QDateEdit* self, QEnterEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->enterEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperEnterEvent(QDateEdit* self, QEnterEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_EnterEvent_IsBase(true);
-        vqdateedit->enterEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->enterEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnEnterEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_EnterEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_EnterEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_enterevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_LeaveEvent(QDateEdit* self, QEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->leaveEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperLeaveEvent(QDateEdit* self, QEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_LeaveEvent_IsBase(true);
-        vqdateedit->leaveEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnLeaveEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_LeaveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_LeaveEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_leaveevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_MoveEvent(QDateEdit* self, QMoveEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->moveEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperMoveEvent(QDateEdit* self, QMoveEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_MoveEvent_IsBase(true);
-        vqdateedit->moveEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->moveEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnMoveEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_MoveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_MoveEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_moveevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_TabletEvent(QDateEdit* self, QTabletEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->tabletEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperTabletEvent(QDateEdit* self, QTabletEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_TabletEvent_IsBase(true);
-        vqdateedit->tabletEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnTabletEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_TabletEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_TabletEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_tabletevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_ActionEvent(QDateEdit* self, QActionEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->actionEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperActionEvent(QDateEdit* self, QActionEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_ActionEvent_IsBase(true);
-        vqdateedit->actionEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->actionEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnActionEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_ActionEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ActionEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_actionevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_DragEnterEvent(QDateEdit* self, QDragEnterEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->dragEnterEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperDragEnterEvent(QDateEdit* self, QDragEnterEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_DragEnterEvent_IsBase(true);
-        vqdateedit->dragEnterEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDragEnterEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_dragenterevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_DragMoveEvent(QDateEdit* self, QDragMoveEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->dragMoveEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperDragMoveEvent(QDateEdit* self, QDragMoveEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_DragMoveEvent_IsBase(true);
-        vqdateedit->dragMoveEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDragMoveEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_dragmoveevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_DragLeaveEvent(QDateEdit* self, QDragLeaveEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->dragLeaveEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperDragLeaveEvent(QDateEdit* self, QDragLeaveEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_DragLeaveEvent_IsBase(true);
-        vqdateedit->dragLeaveEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDragLeaveEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_dragleaveevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_DropEvent(QDateEdit* self, QDropEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->dropEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperDropEvent(QDateEdit* self, QDropEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_DropEvent_IsBase(true);
-        vqdateedit->dropEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->dropEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDropEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_DropEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DropEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_dropevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDateEdit_NativeEvent(QDateEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
+    if (vqdateedit) {
         return vqdateedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQDateEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QDateEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDateEdit_SuperNativeEvent(QDateEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_NativeEvent_IsBase(true);
-        return vqdateedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQDateEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        return vqdateedit->QDateEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnNativeEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_NativeEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_NativeEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_nativeevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDateEdit_Metric(const QDateEdit* self, int param1) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         return vqdateedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQDateEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QDateEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QDateEdit_SuperMetric(const QDateEdit* self, int param1) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Metric_IsBase(true);
-        return vqdateedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQDateEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->QDateEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnMetric(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Metric_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Metric_Callback>(slot));
+void QDateEdit_OnMetric(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_metric_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_InitPainter(const QDateEdit* self, QPainter* painter) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->initPainter(painter);
     } else {
-        ((VirtualQDateEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QDateEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperInitPainter(const QDateEdit* self, QPainter* painter) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_InitPainter_IsBase(true);
-        vqdateedit->initPainter(painter);
-    } else {
-        ((VirtualQDateEdit*)self)->initPainter(painter);
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        vqdateedit->QDateEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnInitPainter(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_InitPainter_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_InitPainter_Callback>(slot));
+void QDateEdit_OnInitPainter(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_initpainter_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QDateEdit_Redirected(const QDateEdit* self, QPoint* offset) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         return vqdateedit->redirected(offset);
     } else {
-        return ((VirtualQDateEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QDateEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QDateEdit_SuperRedirected(const QDateEdit* self, QPoint* offset) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Redirected_IsBase(true);
-        return vqdateedit->redirected(offset);
-    } else {
-        return ((VirtualQDateEdit*)self)->redirected(offset);
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->QDateEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnRedirected(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Redirected_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Redirected_Callback>(slot));
+void QDateEdit_OnRedirected(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_redirected_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QDateEdit_SharedPainter(const QDateEdit* self) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         return vqdateedit->sharedPainter();
     } else {
-        return ((VirtualQDateEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QDateEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QDateEdit_SuperSharedPainter(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_SharedPainter_IsBase(true);
-        return vqdateedit->sharedPainter();
-    } else {
-        return ((VirtualQDateEdit*)self)->sharedPainter();
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->QDateEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDateEdit_OnSharedPainter(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_SharedPainter_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SharedPainter_Callback>(slot));
+void QDateEdit_OnSharedPainter(QDateEdit* self, intptr_t slot) {
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self)))
+        vqdateedit->qdateedit_sharedpainter_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_InputMethodEvent(QDateEdit* self, QInputMethodEvent* param1) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->inputMethodEvent(param1);
     } else {
-        ((VirtualQDateEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QDateEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperInputMethodEvent(QDateEdit* self, QInputMethodEvent* param1) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_InputMethodEvent_IsBase(true);
-        vqdateedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualQDateEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnInputMethodEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_inputmethodevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDateEdit_EventFilter(QDateEdit* self, QObject* watched, QEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->eventFilter(watched, event);
-    } else {
-        return self->QDateEdit::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDateEdit_SuperEventFilter(QDateEdit* self, QObject* watched, QEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_EventFilter_IsBase(true);
-        return vqdateedit->eventFilter(watched, event);
-    } else {
-        return self->QDateEdit::eventFilter(watched, event);
-    }
+    return self->QDateEdit::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnEventFilter(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_EventFilter_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_EventFilter_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_eventfilter_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_ChildEvent(QDateEdit* self, QChildEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->childEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperChildEvent(QDateEdit* self, QChildEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_ChildEvent_IsBase(true);
-        vqdateedit->childEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->childEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnChildEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_ChildEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ChildEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_childevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_CustomEvent(QDateEdit* self, QEvent* event) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->customEvent(event);
     } else {
-        ((VirtualQDateEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDateEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperCustomEvent(QDateEdit* self, QEvent* event) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_CustomEvent_IsBase(true);
-        vqdateedit->customEvent(event);
-    } else {
-        ((VirtualQDateEdit*)self)->customEvent(event);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnCustomEvent(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_CustomEvent_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_CustomEvent_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_customevent_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_ConnectNotify(QDateEdit* self, const QMetaMethod* signal) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->connectNotify(*signal);
     } else {
-        ((VirtualQDateEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDateEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperConnectNotify(QDateEdit* self, const QMetaMethod* signal) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_ConnectNotify_IsBase(true);
-        vqdateedit->connectNotify(*signal);
-    } else {
-        ((VirtualQDateEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnConnectNotify(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_ConnectNotify_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_ConnectNotify_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_connectnotify_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDateEdit_DisconnectNotify(QDateEdit* self, const QMetaMethod* signal) {
     auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+    if (vqdateedit) {
         vqdateedit->disconnectNotify(*signal);
     } else {
-        ((VirtualQDateEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDateEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDateEdit_SuperDisconnectNotify(QDateEdit* self, const QMetaMethod* signal) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_DisconnectNotify_IsBase(true);
-        vqdateedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDateEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->QDateEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDateEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDateEdit_OnDisconnectNotify(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self))
+        vqdateedit->qdateedit_disconnectnotify_callback = reinterpret_cast<VirtualQDateEdit::QDateEdit_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QLineEdit* QDateEdit_LineEdit(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->lineEdit();
-    } else {
-        return ((VirtualQDateEdit*)self)->lineEdit();
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->VirtualQDateEdit::lineEdit();
+    } else
+        qFatal("Error: Protected method QDateEdit::lineEdit called without a directly constructed type");
 }
 
-// Base class handler implementation
-QLineEdit* QDateEdit_SuperLineEdit(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_LineEdit_IsBase(true);
-        return vqdateedit->lineEdit();
-    } else {
-        return ((VirtualQDateEdit*)self)->lineEdit();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnLineEdit(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_LineEdit_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_LineEdit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDateEdit_SetLineEdit(QDateEdit* self, QLineEdit* edit) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setLineEdit(edit);
-    } else {
-        ((VirtualQDateEdit*)self)->setLineEdit(edit);
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->VirtualQDateEdit::setLineEdit(edit);
+    } else
+        qFatal("Error: Protected method QDateEdit::setLineEdit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDateEdit_SuperSetLineEdit(QDateEdit* self, QLineEdit* edit) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_SetLineEdit_IsBase(true);
-        vqdateedit->setLineEdit(edit);
-    } else {
-        ((VirtualQDateEdit*)self)->setLineEdit(edit);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnSetLineEdit(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_SetLineEdit_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SetLineEdit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDateEdit_UpdateMicroFocus(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->updateMicroFocus();
-    } else {
-        ((VirtualQDateEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->VirtualQDateEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QDateEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDateEdit_SuperUpdateMicroFocus(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_UpdateMicroFocus_IsBase(true);
-        vqdateedit->updateMicroFocus();
-    } else {
-        ((VirtualQDateEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnUpdateMicroFocus(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDateEdit_Create(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->create();
-    } else {
-        ((VirtualQDateEdit*)self)->create();
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->VirtualQDateEdit::create();
+    } else
+        qFatal("Error: Protected method QDateEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDateEdit_SuperCreate(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Create_IsBase(true);
-        vqdateedit->create();
-    } else {
-        ((VirtualQDateEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnCreate(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Create_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDateEdit_Destroy(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->destroy();
-    } else {
-        ((VirtualQDateEdit*)self)->destroy();
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        vqdateedit->VirtualQDateEdit::destroy();
+    } else
+        qFatal("Error: Protected method QDateEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDateEdit_SuperDestroy(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Destroy_IsBase(true);
-        vqdateedit->destroy();
-    } else {
-        ((VirtualQDateEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnDestroy(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Destroy_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDateEdit_FocusNextChild(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->focusNextChild();
-    } else {
-        return ((VirtualQDateEdit*)self)->focusNextChild();
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        return vqdateedit->VirtualQDateEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method QDateEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDateEdit_SuperFocusNextChild(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_FocusNextChild_IsBase(true);
-        return vqdateedit->focusNextChild();
-    } else {
-        return ((VirtualQDateEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnFocusNextChild(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_FocusNextChild_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDateEdit_FocusPreviousChild(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->focusPreviousChild();
-    } else {
-        return ((VirtualQDateEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self)) {
+        return vqdateedit->VirtualQDateEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QDateEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDateEdit_SuperFocusPreviousChild(QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_FocusPreviousChild_IsBase(true);
-        return vqdateedit->focusPreviousChild();
-    } else {
-        return ((VirtualQDateEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnFocusPreviousChild(QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDateEdit_Sender(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->sender();
-    } else {
-        return ((VirtualQDateEdit*)self)->sender();
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->VirtualQDateEdit::sender();
+    } else
+        qFatal("Error: Protected method QDateEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDateEdit_SuperSender(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Sender_IsBase(true);
-        return vqdateedit->sender();
-    } else {
-        return ((VirtualQDateEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnSender(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Sender_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDateEdit_SenderSignalIndex(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->senderSignalIndex();
-    } else {
-        return ((VirtualQDateEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->VirtualQDateEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDateEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDateEdit_SuperSenderSignalIndex(const QDateEdit* self) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_SenderSignalIndex_IsBase(true);
-        return vqdateedit->senderSignalIndex();
-    } else {
-        return ((VirtualQDateEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnSenderSignalIndex(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDateEdit_Receivers(const QDateEdit* self, const char* signal) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->receivers(signal);
-    } else {
-        return ((VirtualQDateEdit*)self)->receivers(signal);
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->VirtualQDateEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDateEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDateEdit_SuperReceivers(const QDateEdit* self, const char* signal) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_Receivers_IsBase(true);
-        return vqdateedit->receivers(signal);
-    } else {
-        return ((VirtualQDateEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnReceivers(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_Receivers_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDateEdit_IsSignalConnected(const QDateEdit* self, const QMetaMethod* signal) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDateEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->VirtualQDateEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDateEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDateEdit_SuperIsSignalConnected(const QDateEdit* self, const QMetaMethod* signal) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_IsSignalConnected_IsBase(true);
-        return vqdateedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDateEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnIsSignalConnected(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QDateEdit_GetDecodedMetricF(const QDateEdit* self, int metricA, int metricB) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return vqdateedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDateEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QDateEdit_SuperGetDecodedMetricF(const QDateEdit* self, int metricA, int metricB) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        vqdateedit->setQDateEdit_GetDecodedMetricF_IsBase(true);
-        return vqdateedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDateEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDateEdit_OnGetDecodedMetricF(const QDateEdit* self, intptr_t slot) {
-    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit)
-        vqdateedit->setQDateEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self))) {
+        return vqdateedit->VirtualQDateEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QDateEdit::getDecodedMetricF called without a directly constructed type");
 }
 
 void QDateEdit_Delete(QDateEdit* self) {

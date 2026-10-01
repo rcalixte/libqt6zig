@@ -87,9 +87,9 @@ pub const KParts__PartManager = extern struct {
     ///
     /// ` self: KParts__PartManager `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KParts__PartManager) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KParts__PartManager, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KParts__PartManager, callback: *const fn (KParts__PartManager) callconv(.c) QMetaObject) void {
         qtc.KParts__PartManager_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -680,9 +680,9 @@ pub const KParts__PartManager = extern struct {
     ///
     /// ` self: KParts__PartManager `
     ///
-    /// ` callback: *const fn () callconv(.c) KParts__Part `
+    /// ` callback: *const fn (self: KParts__PartManager) callconv(.c) KParts__Part `
     ///
-    pub fn onActivePart(self: KParts__PartManager, callback: *const fn () callconv(.c) KParts__Part) void {
+    pub fn onActivePart(self: KParts__PartManager, callback: *const fn (KParts__PartManager) callconv(.c) KParts__Part) void {
         qtc.KParts__PartManager_OnActivePart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -728,9 +728,9 @@ pub const KParts__PartManager = extern struct {
     ///
     /// ` self: KParts__PartManager `
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: KParts__PartManager) callconv(.c) QWidget `
     ///
-    pub fn onActiveWidget(self: KParts__PartManager, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onActiveWidget(self: KParts__PartManager, callback: *const fn (KParts__PartManager) callconv(.c) QWidget) void {
         qtc.KParts__PartManager_OnActiveWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -935,42 +935,6 @@ pub const KParts__PartManager = extern struct {
         qtc.KParts__PartManager_SetIgnoreExplictFocusRequests(@ptrCast(self.ptr), ignoreExplictFocusRequests);
     }
 
-    /// ### DEPRECATED: Use `onSetIgnoreExplictFocusRequests` instead
-    ///
-    pub const OnSetIgnoreExplictFocusRequests = onSetIgnoreExplictFocusRequests;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    /// ` callback: *const fn (self: KParts__PartManager, ignoreExplictFocusRequests: bool) callconv(.c) void `
-    ///
-    pub fn onSetIgnoreExplictFocusRequests(self: KParts__PartManager, callback: *const fn (KParts__PartManager, bool) callconv(.c) void) void {
-        qtc.KParts__PartManager_OnSetIgnoreExplictFocusRequests(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetIgnoreExplictFocusRequests` instead
-    ///
-    pub const SuperSetIgnoreExplictFocusRequests = superSetIgnoreExplictFocusRequests;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#setIgnoreExplictFocusRequests)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    /// ` ignoreExplictFocusRequests: bool `
-    ///
-    pub fn superSetIgnoreExplictFocusRequests(self: KParts__PartManager, ignoreExplictFocusRequests: bool) void {
-        qtc.KParts__PartManager_SuperSetIgnoreExplictFocusRequests(@ptrCast(self.ptr), ignoreExplictFocusRequests);
-    }
-
     /// ### DEPRECATED: Use `slotObjectDestroyed` instead
     ///
     pub const SlotObjectDestroyed = slotObjectDestroyed;
@@ -983,40 +947,6 @@ pub const KParts__PartManager = extern struct {
     ///
     pub fn slotObjectDestroyed(self: KParts__PartManager) void {
         qtc.KParts__PartManager_SlotObjectDestroyed(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotObjectDestroyed` instead
-    ///
-    pub const OnSlotObjectDestroyed = onSlotObjectDestroyed;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotObjectDestroyed(self: KParts__PartManager, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__PartManager_OnSlotObjectDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotObjectDestroyed` instead
-    ///
-    pub const SuperSlotObjectDestroyed = superSlotObjectDestroyed;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotObjectDestroyed)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    pub fn superSlotObjectDestroyed(self: KParts__PartManager) void {
-        qtc.KParts__PartManager_SuperSlotObjectDestroyed(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `slotWidgetDestroyed` instead
@@ -1033,40 +963,6 @@ pub const KParts__PartManager = extern struct {
         qtc.KParts__PartManager_SlotWidgetDestroyed(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSlotWidgetDestroyed` instead
-    ///
-    pub const OnSlotWidgetDestroyed = onSlotWidgetDestroyed;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotWidgetDestroyed(self: KParts__PartManager, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__PartManager_OnSlotWidgetDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotWidgetDestroyed` instead
-    ///
-    pub const SuperSlotWidgetDestroyed = superSlotWidgetDestroyed;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotWidgetDestroyed)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    pub fn superSlotWidgetDestroyed(self: KParts__PartManager) void {
-        qtc.KParts__PartManager_SuperSlotWidgetDestroyed(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `slotManagedTopLevelWidgetDestroyed` instead
     ///
     pub const SlotManagedTopLevelWidgetDestroyed = slotManagedTopLevelWidgetDestroyed;
@@ -1079,40 +975,6 @@ pub const KParts__PartManager = extern struct {
     ///
     pub fn slotManagedTopLevelWidgetDestroyed(self: KParts__PartManager) void {
         qtc.KParts__PartManager_SlotManagedTopLevelWidgetDestroyed(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotManagedTopLevelWidgetDestroyed` instead
-    ///
-    pub const OnSlotManagedTopLevelWidgetDestroyed = onSlotManagedTopLevelWidgetDestroyed;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotManagedTopLevelWidgetDestroyed(self: KParts__PartManager, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__PartManager_OnSlotManagedTopLevelWidgetDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotManagedTopLevelWidgetDestroyed` instead
-    ///
-    pub const SuperSlotManagedTopLevelWidgetDestroyed = superSlotManagedTopLevelWidgetDestroyed;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-partmanager.html#slotManagedTopLevelWidgetDestroyed)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    pub fn superSlotManagedTopLevelWidgetDestroyed(self: KParts__PartManager) void {
-        qtc.KParts__PartManager_SuperSlotManagedTopLevelWidgetDestroyed(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2524,44 +2386,6 @@ pub const KParts__PartManager = extern struct {
         return .{ .ptr = qtc.KParts__PartManager_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    pub fn superSender(self: KParts__PartManager) QObject {
-        return .{ .ptr = qtc.KParts__PartManager_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartManager`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KParts__PartManager, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KParts__PartManager_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2578,44 +2402,6 @@ pub const KParts__PartManager = extern struct {
     ///
     pub fn senderSignalIndex(self: KParts__PartManager) i32 {
         return qtc.KParts__PartManager_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    pub fn superSenderSignalIndex(self: KParts__PartManager) i32 {
-        return qtc.KParts__PartManager_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartManager`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KParts__PartManager, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__PartManager_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2639,47 +2425,6 @@ pub const KParts__PartManager = extern struct {
         return qtc.KParts__PartManager_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KParts__PartManager, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KParts__PartManager_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartManager`
-    ///
-    /// ` callback: *const fn (self: KParts__PartManager, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KParts__PartManager, callback: *const fn (KParts__PartManager, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KParts__PartManager_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2699,47 +2444,6 @@ pub const KParts__PartManager = extern struct {
     pub fn isSignalConnected(self: KParts__PartManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__PartManager_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__PartManager `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KParts__PartManager, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KParts__PartManager_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__PartManager`
-    ///
-    /// ` callback: *const fn (self: KParts__PartManager, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KParts__PartManager, callback: *const fn (KParts__PartManager, QMetaMethod) callconv(.c) bool) void {
-        qtc.KParts__PartManager_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -217,532 +217,267 @@ libqt_string QDesignerFormEditorInterface_Tr3(const char* s, const char* c, int 
 
 // Base class handler implementation
 QMetaObject* QDesignerFormEditorInterface_SuperMetaObject(const QDesignerFormEditorInterface* self) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdesignerformeditorinterface->metaObject();
-    } else {
-        return (QMetaObject*)self->QDesignerFormEditorInterface::metaObject();
-    }
+    return (QMetaObject*)self->QDesignerFormEditorInterface::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnMetaObject(const QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_MetaObject_Callback>(slot));
+void QDesignerFormEditorInterface_OnMetaObject(QDesignerFormEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self)))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_metaobject_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDesignerFormEditorInterface_SuperMetacast(QDesignerFormEditorInterface* self, const char* param1) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Metacast_IsBase(true);
-        return vqdesignerformeditorinterface->qt_metacast(param1);
-    } else {
-        return self->QDesignerFormEditorInterface::qt_metacast(param1);
-    }
+    return self->QDesignerFormEditorInterface::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnMetacast(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Metacast_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_metacast_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDesignerFormEditorInterface_SuperMetacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Metacall_IsBase(true);
-        return vqdesignerformeditorinterface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDesignerFormEditorInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDesignerFormEditorInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnMetacall(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Metacall_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_metacall_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerFormEditorInterface_Event(QDesignerFormEditorInterface* self, QEvent* event) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return vqdesignerformeditorinterface->event(event);
-    } else {
-        return self->QDesignerFormEditorInterface::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDesignerFormEditorInterface_SuperEvent(QDesignerFormEditorInterface* self, QEvent* event) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Event_IsBase(true);
-        return vqdesignerformeditorinterface->event(event);
-    } else {
-        return self->QDesignerFormEditorInterface::event(event);
-    }
+    return self->QDesignerFormEditorInterface::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnEvent(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Event_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Event_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_event_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerFormEditorInterface_EventFilter(QDesignerFormEditorInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return vqdesignerformeditorinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerFormEditorInterface::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDesignerFormEditorInterface_SuperEventFilter(QDesignerFormEditorInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_EventFilter_IsBase(true);
-        return vqdesignerformeditorinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerFormEditorInterface::eventFilter(watched, event);
-    }
+    return self->QDesignerFormEditorInterface::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnEventFilter(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_EventFilter_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_eventfilter_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormEditorInterface_TimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+    if (vqdesignerformeditorinterface) {
         vqdesignerformeditorinterface->timerEvent(event);
     } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormEditorInterface_SuperTimerEvent(QDesignerFormEditorInterface* self, QTimerEvent* event) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_TimerEvent_IsBase(true);
-        vqdesignerformeditorinterface->timerEvent(event);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->timerEvent(event);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->QDesignerFormEditorInterface::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnTimerEvent(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_TimerEvent_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_timerevent_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormEditorInterface_ChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+    if (vqdesignerformeditorinterface) {
         vqdesignerformeditorinterface->childEvent(event);
     } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormEditorInterface_SuperChildEvent(QDesignerFormEditorInterface* self, QChildEvent* event) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_ChildEvent_IsBase(true);
-        vqdesignerformeditorinterface->childEvent(event);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->childEvent(event);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->QDesignerFormEditorInterface::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnChildEvent(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_ChildEvent_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_childevent_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormEditorInterface_CustomEvent(QDesignerFormEditorInterface* self, QEvent* event) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+    if (vqdesignerformeditorinterface) {
         vqdesignerformeditorinterface->customEvent(event);
     } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormEditorInterface_SuperCustomEvent(QDesignerFormEditorInterface* self, QEvent* event) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_CustomEvent_IsBase(true);
-        vqdesignerformeditorinterface->customEvent(event);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->customEvent(event);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->QDesignerFormEditorInterface::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnCustomEvent(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_CustomEvent_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_customevent_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormEditorInterface_ConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+    if (vqdesignerformeditorinterface) {
         vqdesignerformeditorinterface->connectNotify(*signal);
     } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormEditorInterface_SuperConnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_ConnectNotify_IsBase(true);
-        vqdesignerformeditorinterface->connectNotify(*signal);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->QDesignerFormEditorInterface::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnConnectNotify(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_ConnectNotify_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_connectnotify_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerFormEditorInterface_DisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
+    if (vqdesignerformeditorinterface) {
         vqdesignerformeditorinterface->disconnectNotify(*signal);
     } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerFormEditorInterface_SuperDisconnectNotify(QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_DisconnectNotify_IsBase(true);
-        vqdesignerformeditorinterface->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->QDesignerFormEditorInterface::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerFormEditorInterface::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormEditorInterface_OnDisconnectNotify(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_DisconnectNotify_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self))
+        vqdesignerformeditorinterface->qdesignerformeditorinterface_disconnectnotify_callback = reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerFormEditorInterface_SetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setFormManager(formWindowManager);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setFormManager(formWindowManager);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::setFormManager(formWindowManager);
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::setFormManager called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerFormEditorInterface_SuperSetFormManager(QDesignerFormEditorInterface* self, QDesignerFormWindowManagerInterface* formWindowManager) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetFormManager_IsBase(true);
-        vqdesignerformeditorinterface->setFormManager(formWindowManager);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setFormManager(formWindowManager);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnSetFormManager(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetFormManager_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_SetFormManager_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerFormEditorInterface_SetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setMetaDataBase(metaDataBase);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setMetaDataBase(metaDataBase);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::setMetaDataBase(metaDataBase);
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::setMetaDataBase called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerFormEditorInterface_SuperSetMetaDataBase(QDesignerFormEditorInterface* self, QDesignerMetaDataBaseInterface* metaDataBase) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetMetaDataBase_IsBase(true);
-        vqdesignerformeditorinterface->setMetaDataBase(metaDataBase);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setMetaDataBase(metaDataBase);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnSetMetaDataBase(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetMetaDataBase_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_SetMetaDataBase_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerFormEditorInterface_SetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setWidgetDataBase(widgetDataBase);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setWidgetDataBase(widgetDataBase);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::setWidgetDataBase(widgetDataBase);
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::setWidgetDataBase called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerFormEditorInterface_SuperSetWidgetDataBase(QDesignerFormEditorInterface* self, QDesignerWidgetDataBaseInterface* widgetDataBase) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetWidgetDataBase_IsBase(true);
-        vqdesignerformeditorinterface->setWidgetDataBase(widgetDataBase);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setWidgetDataBase(widgetDataBase);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnSetWidgetDataBase(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetWidgetDataBase_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_SetWidgetDataBase_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerFormEditorInterface_SetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setPromotion(promotion);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setPromotion(promotion);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::setPromotion(promotion);
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::setPromotion called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerFormEditorInterface_SuperSetPromotion(QDesignerFormEditorInterface* self, QDesignerPromotionInterface* promotion) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetPromotion_IsBase(true);
-        vqdesignerformeditorinterface->setPromotion(promotion);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setPromotion(promotion);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnSetPromotion(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetPromotion_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_SetPromotion_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerFormEditorInterface_SetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setWidgetFactory(widgetFactory);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setWidgetFactory(widgetFactory);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::setWidgetFactory(widgetFactory);
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::setWidgetFactory called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerFormEditorInterface_SuperSetWidgetFactory(QDesignerFormEditorInterface* self, QDesignerWidgetFactoryInterface* widgetFactory) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetWidgetFactory_IsBase(true);
-        vqdesignerformeditorinterface->setWidgetFactory(widgetFactory);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setWidgetFactory(widgetFactory);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnSetWidgetFactory(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetWidgetFactory_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_SetWidgetFactory_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerFormEditorInterface_SetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setExtensionManager(extensionManager);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setExtensionManager(extensionManager);
-    }
+    if (auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self)) {
+        vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::setExtensionManager(extensionManager);
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::setExtensionManager called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerFormEditorInterface_SuperSetExtensionManager(QDesignerFormEditorInterface* self, QExtensionManager* extensionManager) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetExtensionManager_IsBase(true);
-        vqdesignerformeditorinterface->setExtensionManager(extensionManager);
-    } else {
-        ((VirtualQDesignerFormEditorInterface*)self)->setExtensionManager(extensionManager);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnSetExtensionManager(QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SetExtensionManager_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_SetExtensionManager_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDesignerFormEditorInterface_Sender(const QDesignerFormEditorInterface* self) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return vqdesignerformeditorinterface->sender();
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->sender();
-    }
+    if (auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self))) {
+        return vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::sender();
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDesignerFormEditorInterface_SuperSender(const QDesignerFormEditorInterface* self) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Sender_IsBase(true);
-        return vqdesignerformeditorinterface->sender();
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnSender(const QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerFormEditorInterface_SenderSignalIndex(const QDesignerFormEditorInterface* self) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return vqdesignerformeditorinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->senderSignalIndex();
-    }
+    if (auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self))) {
+        return vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerFormEditorInterface_SuperSenderSignalIndex(const QDesignerFormEditorInterface* self) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SenderSignalIndex_IsBase(true);
-        return vqdesignerformeditorinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnSenderSignalIndex(const QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerFormEditorInterface_Receivers(const QDesignerFormEditorInterface* self, const char* signal) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return vqdesignerformeditorinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->receivers(signal);
-    }
+    if (auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self))) {
+        return vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerFormEditorInterface_SuperReceivers(const QDesignerFormEditorInterface* self, const char* signal) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Receivers_IsBase(true);
-        return vqdesignerformeditorinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnReceivers(const QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerFormEditorInterface_IsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return vqdesignerformeditorinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDesignerFormEditorInterface_SuperIsSignalConnected(const QDesignerFormEditorInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_IsSignalConnected_IsBase(true);
-        return vqdesignerformeditorinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerFormEditorInterface_OnIsSignalConnected(const QDesignerFormEditorInterface* self, intptr_t slot) {
-    auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self));
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface)
-        vqdesignerformeditorinterface->setQDesignerFormEditorInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerFormEditorInterface::QDesignerFormEditorInterface_IsSignalConnected_Callback>(slot));
+    if (auto* vqdesignerformeditorinterface = const_cast<VirtualQDesignerFormEditorInterface*>(dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self))) {
+        return vqdesignerformeditorinterface->VirtualQDesignerFormEditorInterface::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDesignerFormEditorInterface::isSignalConnected called without a directly constructed type");
 }
 
 void QDesignerFormEditorInterface_Delete(QDesignerFormEditorInterface* self) {

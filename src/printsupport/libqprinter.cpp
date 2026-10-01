@@ -298,362 +298,225 @@ int QPrinter_PrintRange(const QPrinter* self) {
 
 int QPrinter_Metric(const QPrinter* self, int param1) {
     auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
+    if (vqprinter) {
         return vqprinter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     }
-    return {};
+    qFatal("Error: Protected method QPrinter::metric called without a directly constructed type");
 }
 
 // Base class handler implementation
 int QPrinter_SuperDevType(const QPrinter* self) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_DevType_IsBase(true);
-        return vqprinter->devType();
-    } else {
-        return self->QPrinter::devType();
-    }
+    return self->QPrinter::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrinter_OnDevType(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_DevType_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_DevType_Callback>(slot));
+void QPrinter_OnDevType(QPrinter* self, intptr_t slot) {
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self)))
+        vqprinter->qprinter_devtype_callback = reinterpret_cast<VirtualQPrinter::QPrinter_DevType_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QPrinter_SuperNewPage(QPrinter* self) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_NewPage_IsBase(true);
-        return vqprinter->newPage();
-    } else {
-        return self->QPrinter::newPage();
-    }
+    return self->QPrinter::newPage();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrinter_OnNewPage(QPrinter* self, intptr_t slot) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_NewPage_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_NewPage_Callback>(slot));
+    if (auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self))
+        vqprinter->qprinter_newpage_callback = reinterpret_cast<VirtualQPrinter::QPrinter_NewPage_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintEngine* QPrinter_SuperPaintEngine(const QPrinter* self) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_PaintEngine_IsBase(true);
-        return vqprinter->paintEngine();
-    } else {
-        return self->QPrinter::paintEngine();
-    }
+    return self->QPrinter::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrinter_OnPaintEngine(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_PaintEngine_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_PaintEngine_Callback>(slot));
+void QPrinter_OnPaintEngine(QPrinter* self, intptr_t slot) {
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self)))
+        vqprinter->qprinter_paintengine_callback = reinterpret_cast<VirtualQPrinter::QPrinter_PaintEngine_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPrinter_SuperMetric(const QPrinter* self, int param1) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_Metric_IsBase(true);
-        return vqprinter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQPrinter*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self))) {
+        return vqprinter->QPrinter::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QPrinter::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrinter_OnMetric(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_Metric_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_Metric_Callback>(slot));
+void QPrinter_OnMetric(QPrinter* self, intptr_t slot) {
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self)))
+        vqprinter->qprinter_metric_callback = reinterpret_cast<VirtualQPrinter::QPrinter_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrinter_SetPageLayout(QPrinter* self, const QPageLayout* pageLayout) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return vqprinter->setPageLayout(*pageLayout);
-    } else {
-        return self->QPrinter::setPageLayout(*pageLayout);
-    }
+    return self->setPageLayout(*pageLayout);
 }
 
 // Base class handler implementation
 bool QPrinter_SuperSetPageLayout(QPrinter* self, const QPageLayout* pageLayout) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_SetPageLayout_IsBase(true);
-        return vqprinter->setPageLayout(*pageLayout);
-    } else {
-        return self->QPrinter::setPageLayout(*pageLayout);
-    }
+    return self->QPrinter::setPageLayout(*pageLayout);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrinter_OnSetPageLayout(QPrinter* self, intptr_t slot) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_SetPageLayout_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_SetPageLayout_Callback>(slot));
+    if (auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self))
+        vqprinter->qprinter_setpagelayout_callback = reinterpret_cast<VirtualQPrinter::QPrinter_SetPageLayout_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrinter_SetPageSize(QPrinter* self, const QPageSize* pageSize) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return vqprinter->setPageSize(*pageSize);
-    } else {
-        return self->QPrinter::setPageSize(*pageSize);
-    }
+    return self->setPageSize(*pageSize);
 }
 
 // Base class handler implementation
 bool QPrinter_SuperSetPageSize(QPrinter* self, const QPageSize* pageSize) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_SetPageSize_IsBase(true);
-        return vqprinter->setPageSize(*pageSize);
-    } else {
-        return self->QPrinter::setPageSize(*pageSize);
-    }
+    return self->QPrinter::setPageSize(*pageSize);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrinter_OnSetPageSize(QPrinter* self, intptr_t slot) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_SetPageSize_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_SetPageSize_Callback>(slot));
+    if (auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self))
+        vqprinter->qprinter_setpagesize_callback = reinterpret_cast<VirtualQPrinter::QPrinter_SetPageSize_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrinter_SetPageOrientation(QPrinter* self, int orientation) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return vqprinter->setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
-    } else {
-        return self->QPrinter::setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
-    }
+    return self->setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
 }
 
 // Base class handler implementation
 bool QPrinter_SuperSetPageOrientation(QPrinter* self, int orientation) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_SetPageOrientation_IsBase(true);
-        return vqprinter->setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
-    } else {
-        return self->QPrinter::setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
-    }
+    return self->QPrinter::setPageOrientation(static_cast<QPageLayout::Orientation>(orientation));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrinter_OnSetPageOrientation(QPrinter* self, intptr_t slot) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_SetPageOrientation_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_SetPageOrientation_Callback>(slot));
+    if (auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self))
+        vqprinter->qprinter_setpageorientation_callback = reinterpret_cast<VirtualQPrinter::QPrinter_SetPageOrientation_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPrinter_SetPageMargins(QPrinter* self, const QMarginsF* margins, int units) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return vqprinter->setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
-    } else {
-        return self->QPrinter::setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
-    }
+    return self->setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
 }
 
 // Base class handler implementation
 bool QPrinter_SuperSetPageMargins(QPrinter* self, const QMarginsF* margins, int units) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_SetPageMargins_IsBase(true);
-        return vqprinter->setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
-    } else {
-        return self->QPrinter::setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
-    }
+    return self->QPrinter::setPageMargins(*margins, static_cast<QPageLayout::Unit>(units));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrinter_OnSetPageMargins(QPrinter* self, intptr_t slot) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_SetPageMargins_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_SetPageMargins_Callback>(slot));
+    if (auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self))
+        vqprinter->qprinter_setpagemargins_callback = reinterpret_cast<VirtualQPrinter::QPrinter_SetPageMargins_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrinter_SetPageRanges(QPrinter* self, const QPageRanges* ranges) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setPageRanges(*ranges);
-    } else {
-        self->QPrinter::setPageRanges(*ranges);
-    }
+    self->setPageRanges(*ranges);
 }
 
 // Base class handler implementation
 void QPrinter_SuperSetPageRanges(QPrinter* self, const QPageRanges* ranges) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_SetPageRanges_IsBase(true);
-        vqprinter->setPageRanges(*ranges);
-    } else {
-        self->QPrinter::setPageRanges(*ranges);
-    }
+    self->QPrinter::setPageRanges(*ranges);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPrinter_OnSetPageRanges(QPrinter* self, intptr_t slot) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_SetPageRanges_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_SetPageRanges_Callback>(slot));
+    if (auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self))
+        vqprinter->qprinter_setpageranges_callback = reinterpret_cast<VirtualQPrinter::QPrinter_SetPageRanges_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPrinter_InitPainter(const QPrinter* self, QPainter* painter) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
+    if (vqprinter) {
         vqprinter->initPainter(painter);
     } else {
-        ((VirtualQPrinter*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QPrinter::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPrinter_SuperInitPainter(const QPrinter* self, QPainter* painter) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_InitPainter_IsBase(true);
-        vqprinter->initPainter(painter);
-    } else {
-        ((VirtualQPrinter*)self)->initPainter(painter);
-    }
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self))) {
+        vqprinter->QPrinter::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QPrinter::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrinter_OnInitPainter(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_InitPainter_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_InitPainter_Callback>(slot));
+void QPrinter_OnInitPainter(QPrinter* self, intptr_t slot) {
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self)))
+        vqprinter->qprinter_initpainter_callback = reinterpret_cast<VirtualQPrinter::QPrinter_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QPrinter_Redirected(const QPrinter* self, QPoint* offset) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
+    if (vqprinter) {
         return vqprinter->redirected(offset);
     } else {
-        return ((VirtualQPrinter*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QPrinter::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QPrinter_SuperRedirected(const QPrinter* self, QPoint* offset) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_Redirected_IsBase(true);
-        return vqprinter->redirected(offset);
-    } else {
-        return ((VirtualQPrinter*)self)->redirected(offset);
-    }
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self))) {
+        return vqprinter->QPrinter::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QPrinter::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrinter_OnRedirected(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_Redirected_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_Redirected_Callback>(slot));
+void QPrinter_OnRedirected(QPrinter* self, intptr_t slot) {
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self)))
+        vqprinter->qprinter_redirected_callback = reinterpret_cast<VirtualQPrinter::QPrinter_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QPrinter_SharedPainter(const QPrinter* self) {
     auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
+    if (vqprinter) {
         return vqprinter->sharedPainter();
     } else {
-        return ((VirtualQPrinter*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QPrinter::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QPrinter_SuperSharedPainter(const QPrinter* self) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_SharedPainter_IsBase(true);
-        return vqprinter->sharedPainter();
-    } else {
-        return ((VirtualQPrinter*)self)->sharedPainter();
-    }
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self))) {
+        return vqprinter->QPrinter::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QPrinter::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPrinter_OnSharedPainter(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_SharedPainter_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_SharedPainter_Callback>(slot));
+void QPrinter_OnSharedPainter(QPrinter* self, intptr_t slot) {
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self)))
+        vqprinter->qprinter_sharedpainter_callback = reinterpret_cast<VirtualQPrinter::QPrinter_SharedPainter_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPrinter_SetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setEngines(printEngine, paintEngine);
-    } else {
-        ((VirtualQPrinter*)self)->setEngines(printEngine, paintEngine);
-    }
+    if (auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self)) {
+        vqprinter->VirtualQPrinter::setEngines(printEngine, paintEngine);
+    } else
+        qFatal("Error: Protected method QPrinter::setEngines called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPrinter_SuperSetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_SetEngines_IsBase(true);
-        vqprinter->setEngines(printEngine, paintEngine);
-    } else {
-        ((VirtualQPrinter*)self)->setEngines(printEngine, paintEngine);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrinter_OnSetEngines(QPrinter* self, intptr_t slot) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_SetEngines_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_SetEngines_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QPrinter_GetDecodedMetricF(const QPrinter* self, int metricA, int metricB) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return vqprinter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPrinter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QPrinter_SuperGetDecodedMetricF(const QPrinter* self, int metricA, int metricB) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        vqprinter->setQPrinter_GetDecodedMetricF_IsBase(true);
-        return vqprinter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPrinter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPrinter_OnGetDecodedMetricF(const QPrinter* self, intptr_t slot) {
-    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
-    if (vqprinter && vqprinter->isVirtualQPrinter)
-        vqprinter->setQPrinter_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self))) {
+        return vqprinter->VirtualQPrinter::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QPrinter::getDecodedMetricF called without a directly constructed type");
 }
 
 void QPrinter_Delete(QPrinter* self) {

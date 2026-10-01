@@ -154,364 +154,219 @@ void KXMessages_BroadcastMessage3(KXMessages* self, const char* msg_type, const 
 
 // Base class handler implementation
 QMetaObject* KXMessages_SuperMetaObject(const KXMessages* self) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_MetaObject_IsBase(true);
-        return (QMetaObject*)vkxmessages->metaObject();
-    } else {
-        return (QMetaObject*)self->KXMessages::metaObject();
-    }
+    return (QMetaObject*)self->KXMessages::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KXMessages_OnMetaObject(const KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_MetaObject_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_MetaObject_Callback>(slot));
+void KXMessages_OnMetaObject(KXMessages* self, intptr_t slot) {
+    if (auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self)))
+        vkxmessages->kxmessages_metaobject_callback = reinterpret_cast<VirtualKXMessages::KXMessages_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KXMessages_SuperMetacast(KXMessages* self, const char* param1) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_Metacast_IsBase(true);
-        return vkxmessages->qt_metacast(param1);
-    } else {
-        return self->KXMessages::qt_metacast(param1);
-    }
+    return self->KXMessages::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnMetacast(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_Metacast_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_Metacast_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_metacast_callback = reinterpret_cast<VirtualKXMessages::KXMessages_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KXMessages_SuperMetacall(KXMessages* self, int param1, int param2, void** param3) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_Metacall_IsBase(true);
-        return vkxmessages->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KXMessages::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KXMessages::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnMetacall(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_Metacall_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_Metacall_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_metacall_callback = reinterpret_cast<VirtualKXMessages::KXMessages_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KXMessages_Event(KXMessages* self, QEvent* event) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return vkxmessages->event(event);
-    } else {
-        return self->KXMessages::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KXMessages_SuperEvent(KXMessages* self, QEvent* event) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_Event_IsBase(true);
-        return vkxmessages->event(event);
-    } else {
-        return self->KXMessages::event(event);
-    }
+    return self->KXMessages::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnEvent(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_Event_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_Event_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_event_callback = reinterpret_cast<VirtualKXMessages::KXMessages_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KXMessages_EventFilter(KXMessages* self, QObject* watched, QEvent* event) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return vkxmessages->eventFilter(watched, event);
-    } else {
-        return self->KXMessages::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KXMessages_SuperEventFilter(KXMessages* self, QObject* watched, QEvent* event) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_EventFilter_IsBase(true);
-        return vkxmessages->eventFilter(watched, event);
-    } else {
-        return self->KXMessages::eventFilter(watched, event);
-    }
+    return self->KXMessages::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnEventFilter(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_EventFilter_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_EventFilter_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_eventfilter_callback = reinterpret_cast<VirtualKXMessages::KXMessages_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXMessages_TimerEvent(KXMessages* self, QTimerEvent* event) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+    if (vkxmessages) {
         vkxmessages->timerEvent(event);
     } else {
-        ((VirtualKXMessages*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KXMessages::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXMessages_SuperTimerEvent(KXMessages* self, QTimerEvent* event) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_TimerEvent_IsBase(true);
-        vkxmessages->timerEvent(event);
-    } else {
-        ((VirtualKXMessages*)self)->timerEvent(event);
-    }
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self)) {
+        vkxmessages->KXMessages::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXMessages::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnTimerEvent(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_TimerEvent_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_TimerEvent_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_timerevent_callback = reinterpret_cast<VirtualKXMessages::KXMessages_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXMessages_ChildEvent(KXMessages* self, QChildEvent* event) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+    if (vkxmessages) {
         vkxmessages->childEvent(event);
     } else {
-        ((VirtualKXMessages*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KXMessages::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXMessages_SuperChildEvent(KXMessages* self, QChildEvent* event) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_ChildEvent_IsBase(true);
-        vkxmessages->childEvent(event);
-    } else {
-        ((VirtualKXMessages*)self)->childEvent(event);
-    }
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self)) {
+        vkxmessages->KXMessages::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXMessages::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnChildEvent(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_ChildEvent_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_ChildEvent_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_childevent_callback = reinterpret_cast<VirtualKXMessages::KXMessages_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXMessages_CustomEvent(KXMessages* self, QEvent* event) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+    if (vkxmessages) {
         vkxmessages->customEvent(event);
     } else {
-        ((VirtualKXMessages*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KXMessages::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXMessages_SuperCustomEvent(KXMessages* self, QEvent* event) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_CustomEvent_IsBase(true);
-        vkxmessages->customEvent(event);
-    } else {
-        ((VirtualKXMessages*)self)->customEvent(event);
-    }
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self)) {
+        vkxmessages->KXMessages::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KXMessages::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnCustomEvent(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_CustomEvent_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_CustomEvent_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_customevent_callback = reinterpret_cast<VirtualKXMessages::KXMessages_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXMessages_ConnectNotify(KXMessages* self, const QMetaMethod* signal) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+    if (vkxmessages) {
         vkxmessages->connectNotify(*signal);
     } else {
-        ((VirtualKXMessages*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KXMessages::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXMessages_SuperConnectNotify(KXMessages* self, const QMetaMethod* signal) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_ConnectNotify_IsBase(true);
-        vkxmessages->connectNotify(*signal);
-    } else {
-        ((VirtualKXMessages*)self)->connectNotify(*signal);
-    }
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self)) {
+        vkxmessages->KXMessages::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KXMessages::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnConnectNotify(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_ConnectNotify_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_ConnectNotify_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_connectnotify_callback = reinterpret_cast<VirtualKXMessages::KXMessages_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KXMessages_DisconnectNotify(KXMessages* self, const QMetaMethod* signal) {
     auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
+    if (vkxmessages) {
         vkxmessages->disconnectNotify(*signal);
     } else {
-        ((VirtualKXMessages*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KXMessages::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KXMessages_SuperDisconnectNotify(KXMessages* self, const QMetaMethod* signal) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_DisconnectNotify_IsBase(true);
-        vkxmessages->disconnectNotify(*signal);
-    } else {
-        ((VirtualKXMessages*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self)) {
+        vkxmessages->KXMessages::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KXMessages::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KXMessages_OnDisconnectNotify(KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_DisconnectNotify_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_DisconnectNotify_Callback>(slot));
+    if (auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self))
+        vkxmessages->kxmessages_disconnectnotify_callback = reinterpret_cast<VirtualKXMessages::KXMessages_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KXMessages_Sender(const KXMessages* self) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return vkxmessages->sender();
-    } else {
-        return ((VirtualKXMessages*)self)->sender();
-    }
+    if (auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self))) {
+        return vkxmessages->VirtualKXMessages::sender();
+    } else
+        qFatal("Error: Protected method KXMessages::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KXMessages_SuperSender(const KXMessages* self) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_Sender_IsBase(true);
-        return vkxmessages->sender();
-    } else {
-        return ((VirtualKXMessages*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXMessages_OnSender(const KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_Sender_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KXMessages_SenderSignalIndex(const KXMessages* self) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return vkxmessages->senderSignalIndex();
-    } else {
-        return ((VirtualKXMessages*)self)->senderSignalIndex();
-    }
+    if (auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self))) {
+        return vkxmessages->VirtualKXMessages::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KXMessages::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KXMessages_SuperSenderSignalIndex(const KXMessages* self) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_SenderSignalIndex_IsBase(true);
-        return vkxmessages->senderSignalIndex();
-    } else {
-        return ((VirtualKXMessages*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXMessages_OnSenderSignalIndex(const KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_SenderSignalIndex_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KXMessages_Receivers(const KXMessages* self, const char* signal) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return vkxmessages->receivers(signal);
-    } else {
-        return ((VirtualKXMessages*)self)->receivers(signal);
-    }
+    if (auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self))) {
+        return vkxmessages->VirtualKXMessages::receivers(signal);
+    } else
+        qFatal("Error: Protected method KXMessages::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KXMessages_SuperReceivers(const KXMessages* self, const char* signal) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_Receivers_IsBase(true);
-        return vkxmessages->receivers(signal);
-    } else {
-        return ((VirtualKXMessages*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXMessages_OnReceivers(const KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_Receivers_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KXMessages_IsSignalConnected(const KXMessages* self, const QMetaMethod* signal) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return vkxmessages->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKXMessages*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KXMessages_SuperIsSignalConnected(const KXMessages* self, const QMetaMethod* signal) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        vkxmessages->setKXMessages_IsSignalConnected_IsBase(true);
-        return vkxmessages->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKXMessages*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXMessages_OnIsSignalConnected(const KXMessages* self, intptr_t slot) {
-    auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self));
-    if (vkxmessages && vkxmessages->isVirtualKXMessages)
-        vkxmessages->setKXMessages_IsSignalConnected_Callback(reinterpret_cast<VirtualKXMessages::KXMessages_IsSignalConnected_Callback>(slot));
+    if (auto* vkxmessages = const_cast<VirtualKXMessages*>(dynamic_cast<const VirtualKXMessages*>(self))) {
+        return vkxmessages->VirtualKXMessages::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KXMessages::isSignalConnected called without a directly constructed type");
 }
 
 void KXMessages_Delete(KXMessages* self) {

@@ -9,112 +9,28 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QOpenGLFunctions_4_1_Core so that we can call protected methods
+// This class is a subclass of QOpenGLFunctions_4_1_Core
 class VirtualQOpenGLFunctions_4_1_Core final : public QOpenGLFunctions_4_1_Core {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQOpenGLFunctions_4_1_Core = true;
+    // Virtual class public types (including callbacks and access types)
+    using QOpenGLFunctions_4_1_Core_InitializeOpenGLFunctions_Callback = bool (*)(QOpenGLFunctions_4_1_Core*);
+    using QOpenGLFunctions_4_1_Core::isInitialized;
+    using QOpenGLFunctions_4_1_Core::owningContext;
+    using QOpenGLFunctions_4_1_Core::setOwningContext;
 
-    // Virtual class public types (including callbacks)
-    using QOpenGLFunctions_4_1_Core_InitializeOpenGLFunctions_Callback = bool (*)();
-    using QOpenGLFunctions_4_1_Core_IsInitialized_Callback = bool (*)();
-    using QOpenGLFunctions_4_1_Core_SetOwningContext_Callback = void (*)(QOpenGLFunctions_4_1_Core*, QOpenGLContext*);
-    using QOpenGLFunctions_4_1_Core_OwningContext_Callback = QOpenGLContext* (*)();
-
-  protected:
     // Instance callback storage
     QOpenGLFunctions_4_1_Core_InitializeOpenGLFunctions_Callback qopenglfunctions_4_1_core_initializeopenglfunctions_callback = nullptr;
-    QOpenGLFunctions_4_1_Core_IsInitialized_Callback qopenglfunctions_4_1_core_isinitialized_callback = nullptr;
-    QOpenGLFunctions_4_1_Core_SetOwningContext_Callback qopenglfunctions_4_1_core_setowningcontext_callback = nullptr;
-    QOpenGLFunctions_4_1_Core_OwningContext_Callback qopenglfunctions_4_1_core_owningcontext_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qopenglfunctions_4_1_core_initializeopenglfunctions_isbase = false;
-    mutable bool qopenglfunctions_4_1_core_isinitialized_isbase = false;
-    mutable bool qopenglfunctions_4_1_core_setowningcontext_isbase = false;
-    mutable bool qopenglfunctions_4_1_core_owningcontext_isbase = false;
-
-  public:
     VirtualQOpenGLFunctions_4_1_Core() : QOpenGLFunctions_4_1_Core() {};
-
-    // Callback setters
-    inline void setQOpenGLFunctions_4_1_Core_InitializeOpenGLFunctions_Callback(QOpenGLFunctions_4_1_Core_InitializeOpenGLFunctions_Callback cb) { qopenglfunctions_4_1_core_initializeopenglfunctions_callback = cb; }
-    inline void setQOpenGLFunctions_4_1_Core_IsInitialized_Callback(QOpenGLFunctions_4_1_Core_IsInitialized_Callback cb) { qopenglfunctions_4_1_core_isinitialized_callback = cb; }
-    inline void setQOpenGLFunctions_4_1_Core_SetOwningContext_Callback(QOpenGLFunctions_4_1_Core_SetOwningContext_Callback cb) { qopenglfunctions_4_1_core_setowningcontext_callback = cb; }
-    inline void setQOpenGLFunctions_4_1_Core_OwningContext_Callback(QOpenGLFunctions_4_1_Core_OwningContext_Callback cb) { qopenglfunctions_4_1_core_owningcontext_callback = cb; }
-
-    // Base flag setters
-    inline void setQOpenGLFunctions_4_1_Core_InitializeOpenGLFunctions_IsBase(bool value) const { qopenglfunctions_4_1_core_initializeopenglfunctions_isbase = value; }
-    inline void setQOpenGLFunctions_4_1_Core_IsInitialized_IsBase(bool value) const { qopenglfunctions_4_1_core_isinitialized_isbase = value; }
-    inline void setQOpenGLFunctions_4_1_Core_SetOwningContext_IsBase(bool value) const { qopenglfunctions_4_1_core_setowningcontext_isbase = value; }
-    inline void setQOpenGLFunctions_4_1_Core_OwningContext_IsBase(bool value) const { qopenglfunctions_4_1_core_owningcontext_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual bool initializeOpenGLFunctions() override {
-        if (qopenglfunctions_4_1_core_initializeopenglfunctions_isbase) {
-            qopenglfunctions_4_1_core_initializeopenglfunctions_isbase = false;
-            return QOpenGLFunctions_4_1_Core::initializeOpenGLFunctions();
-        }
-        auto initializeopenglfunctions_cb = qopenglfunctions_4_1_core_initializeopenglfunctions_callback;
-        if (initializeopenglfunctions_cb) {
-            bool callback_ret = initializeopenglfunctions_cb();
+        if (qopenglfunctions_4_1_core_initializeopenglfunctions_callback) {
+            bool callback_ret = qopenglfunctions_4_1_core_initializeopenglfunctions_callback(this);
             return callback_ret;
         }
         return QOpenGLFunctions_4_1_Core::initializeOpenGLFunctions();
     }
-
-    // Virtual method for C ABI access and custom callback
-    bool isInitialized() const {
-        if (qopenglfunctions_4_1_core_isinitialized_isbase) {
-            qopenglfunctions_4_1_core_isinitialized_isbase = false;
-            return QOpenGLFunctions_4_1_Core::isInitialized();
-        }
-        auto isinitialized_cb = qopenglfunctions_4_1_core_isinitialized_callback;
-        if (isinitialized_cb) {
-            bool callback_ret = isinitialized_cb();
-            return callback_ret;
-        }
-        return QOpenGLFunctions_4_1_Core::isInitialized();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setOwningContext(const QOpenGLContext* context) {
-        if (qopenglfunctions_4_1_core_setowningcontext_isbase) {
-            qopenglfunctions_4_1_core_setowningcontext_isbase = false;
-            QOpenGLFunctions_4_1_Core::setOwningContext(context);
-            return;
-        }
-        auto setowningcontext_cb = qopenglfunctions_4_1_core_setowningcontext_callback;
-        if (setowningcontext_cb) {
-            QOpenGLContext* cbval1 = (QOpenGLContext*)context;
-            setowningcontext_cb(this, cbval1);
-            return;
-        }
-        QOpenGLFunctions_4_1_Core::setOwningContext(context);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QOpenGLContext* owningContext() const {
-        if (qopenglfunctions_4_1_core_owningcontext_isbase) {
-            qopenglfunctions_4_1_core_owningcontext_isbase = false;
-            return QOpenGLFunctions_4_1_Core::owningContext();
-        }
-        auto owningcontext_cb = qopenglfunctions_4_1_core_owningcontext_callback;
-        if (owningcontext_cb) {
-            QOpenGLContext* callback_ret = owningcontext_cb();
-            return callback_ret;
-        }
-        return QOpenGLFunctions_4_1_Core::owningContext();
-    }
-
-    // Friend functions
-    friend bool QOpenGLFunctions_4_1_Core_IsInitialized(const QOpenGLFunctions_4_1_Core* self);
-    friend bool QOpenGLFunctions_4_1_Core_SuperIsInitialized(const QOpenGLFunctions_4_1_Core* self);
-    friend void QOpenGLFunctions_4_1_Core_SetOwningContext(QOpenGLFunctions_4_1_Core* self, const QOpenGLContext* context);
-    friend void QOpenGLFunctions_4_1_Core_SuperSetOwningContext(QOpenGLFunctions_4_1_Core* self, const QOpenGLContext* context);
-    friend QOpenGLContext* QOpenGLFunctions_4_1_Core_OwningContext(const QOpenGLFunctions_4_1_Core* self);
-    friend QOpenGLContext* QOpenGLFunctions_4_1_Core_SuperOwningContext(const QOpenGLFunctions_4_1_Core* self);
 };
 
 #endif

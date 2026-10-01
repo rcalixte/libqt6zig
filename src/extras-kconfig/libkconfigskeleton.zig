@@ -131,9 +131,9 @@ pub const KConfigSkeleton = extern struct {
     ///
     /// ` self: KConfigSkeleton `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KConfigSkeleton) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KConfigSkeleton, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KConfigSkeleton, callback: *const fn (KConfigSkeleton) callconv(.c) QMetaObject) void {
         qtc.KConfigSkeleton_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3588,9 +3588,9 @@ pub const KConfigSkeleton = extern struct {
     ///
     /// ` self: KConfigSkeleton`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigSkeleton) callconv(.c) void `
     ///
-    pub fn onSetDefaults(self: KConfigSkeleton, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetDefaults(self: KConfigSkeleton, callback: *const fn (KConfigSkeleton) callconv(.c) void) void {
         qtc.KConfigSkeleton_OnSetDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3764,9 +3764,9 @@ pub const KConfigSkeleton = extern struct {
     ///
     /// ` self: KConfigSkeleton`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigSkeleton) callconv(.c) void `
     ///
-    pub fn onUsrSetDefaults(self: KConfigSkeleton, callback: *const fn () callconv(.c) void) void {
+    pub fn onUsrSetDefaults(self: KConfigSkeleton, callback: *const fn (KConfigSkeleton) callconv(.c) void) void {
         qtc.KConfigSkeleton_OnUsrSetDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3820,9 +3820,9 @@ pub const KConfigSkeleton = extern struct {
     ///
     /// ` self: KConfigSkeleton`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigSkeleton) callconv(.c) void `
     ///
-    pub fn onUsrRead(self: KConfigSkeleton, callback: *const fn () callconv(.c) void) void {
+    pub fn onUsrRead(self: KConfigSkeleton, callback: *const fn (KConfigSkeleton) callconv(.c) void) void {
         qtc.KConfigSkeleton_OnUsrRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3876,9 +3876,9 @@ pub const KConfigSkeleton = extern struct {
     ///
     /// ` self: KConfigSkeleton`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KConfigSkeleton) callconv(.c) bool `
     ///
-    pub fn onUsrSave(self: KConfigSkeleton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onUsrSave(self: KConfigSkeleton, callback: *const fn (KConfigSkeleton) callconv(.c) bool) void {
         qtc.KConfigSkeleton_OnUsrSave(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4340,44 +4340,6 @@ pub const KConfigSkeleton = extern struct {
         return .{ .ptr = qtc.KConfigSkeleton_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeleton `
-    ///
-    pub fn superSender(self: KConfigSkeleton) QObject {
-        return .{ .ptr = qtc.KConfigSkeleton_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigSkeleton`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KConfigSkeleton, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KConfigSkeleton_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4394,44 +4356,6 @@ pub const KConfigSkeleton = extern struct {
     ///
     pub fn senderSignalIndex(self: KConfigSkeleton) i32 {
         return qtc.KConfigSkeleton_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeleton `
-    ///
-    pub fn superSenderSignalIndex(self: KConfigSkeleton) i32 {
-        return qtc.KConfigSkeleton_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigSkeleton`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KConfigSkeleton, callback: *const fn () callconv(.c) i32) void {
-        qtc.KConfigSkeleton_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4455,47 +4379,6 @@ pub const KConfigSkeleton = extern struct {
         return qtc.KConfigSkeleton_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeleton `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KConfigSkeleton, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KConfigSkeleton_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigSkeleton`
-    ///
-    /// ` callback: *const fn (self: KConfigSkeleton, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KConfigSkeleton, callback: *const fn (KConfigSkeleton, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KConfigSkeleton_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4515,47 +4398,6 @@ pub const KConfigSkeleton = extern struct {
     pub fn isSignalConnected(self: KConfigSkeleton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KConfigSkeleton_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeleton `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KConfigSkeleton, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KConfigSkeleton_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigSkeleton`
-    ///
-    /// ` callback: *const fn (self: KConfigSkeleton, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KConfigSkeleton, callback: *const fn (KConfigSkeleton, QMetaMethod) callconv(.c) bool) void {
-        qtc.KConfigSkeleton_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -4852,11 +4694,11 @@ pub const KConfigSkeleton__ItemColor = extern struct {
     ///
     /// ` self: KConfigSkeleton__ItemColor `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KConfigSkeleton__ItemColor) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KConfigSkeleton__ItemColor, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KConfigSkeleton__ItemColor, callback: *const fn (KConfigSkeleton__ItemColor) callconv(.c) QVariant) void {
         qtc.KConfigSkeleton__ItemColor_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5148,11 +4990,11 @@ pub const KConfigSkeleton__ItemFont = extern struct {
     ///
     /// ` self: KConfigSkeleton__ItemFont `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KConfigSkeleton__ItemFont) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KConfigSkeleton__ItemFont, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KConfigSkeleton__ItemFont, callback: *const fn (KConfigSkeleton__ItemFont) callconv(.c) QVariant) void {
         qtc.KConfigSkeleton__ItemFont_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

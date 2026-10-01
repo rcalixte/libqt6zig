@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QDnsLookup so that we can call protected methods
+// This class is a subclass of QDnsLookup
 class VirtualQDnsLookup final : public QDnsLookup {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDnsLookup = true;
-
-    // Virtual class public types (including callbacks)
-    using QDnsLookup_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QDnsLookup_MetaObject_Callback = QMetaObject* (*)(const QDnsLookup*);
     using QDnsLookup_Metacast_Callback = void* (*)(QDnsLookup*, const char*);
     using QDnsLookup_Metacall_Callback = int (*)(QDnsLookup*, int, int, void**);
     using QDnsLookup_Event_Callback = bool (*)(QDnsLookup*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQDnsLookup final : public QDnsLookup {
     using QDnsLookup_CustomEvent_Callback = void (*)(QDnsLookup*, QEvent*);
     using QDnsLookup_ConnectNotify_Callback = void (*)(QDnsLookup*, QMetaMethod*);
     using QDnsLookup_DisconnectNotify_Callback = void (*)(QDnsLookup*, QMetaMethod*);
-    using QDnsLookup_Sender_Callback = QObject* (*)();
-    using QDnsLookup_SenderSignalIndex_Callback = int (*)();
-    using QDnsLookup_Receivers_Callback = int (*)(const QDnsLookup*, const char*);
-    using QDnsLookup_IsSignalConnected_Callback = bool (*)(const QDnsLookup*, QMetaMethod*);
+    using QDnsLookup::isSignalConnected;
+    using QDnsLookup::receivers;
+    using QDnsLookup::sender;
+    using QDnsLookup::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QDnsLookup_MetaObject_Callback qdnslookup_metaobject_callback = nullptr;
     QDnsLookup_Metacast_Callback qdnslookup_metacast_callback = nullptr;
@@ -44,28 +39,16 @@ class VirtualQDnsLookup final : public QDnsLookup {
     QDnsLookup_CustomEvent_Callback qdnslookup_customevent_callback = nullptr;
     QDnsLookup_ConnectNotify_Callback qdnslookup_connectnotify_callback = nullptr;
     QDnsLookup_DisconnectNotify_Callback qdnslookup_disconnectnotify_callback = nullptr;
-    QDnsLookup_Sender_Callback qdnslookup_sender_callback = nullptr;
-    QDnsLookup_SenderSignalIndex_Callback qdnslookup_sendersignalindex_callback = nullptr;
-    QDnsLookup_Receivers_Callback qdnslookup_receivers_callback = nullptr;
-    QDnsLookup_IsSignalConnected_Callback qdnslookup_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdnslookup_metaobject_isbase = false;
-    mutable bool qdnslookup_metacast_isbase = false;
-    mutable bool qdnslookup_metacall_isbase = false;
-    mutable bool qdnslookup_event_isbase = false;
-    mutable bool qdnslookup_eventfilter_isbase = false;
-    mutable bool qdnslookup_timerevent_isbase = false;
-    mutable bool qdnslookup_childevent_isbase = false;
-    mutable bool qdnslookup_customevent_isbase = false;
-    mutable bool qdnslookup_connectnotify_isbase = false;
-    mutable bool qdnslookup_disconnectnotify_isbase = false;
-    mutable bool qdnslookup_sender_isbase = false;
-    mutable bool qdnslookup_sendersignalindex_isbase = false;
-    mutable bool qdnslookup_receivers_isbase = false;
-    mutable bool qdnslookup_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QDnsLookup {
+        using QDnsLookup::childEvent;
+        using QDnsLookup::connectNotify;
+        using QDnsLookup::customEvent;
+        using QDnsLookup::disconnectNotify;
+        using QDnsLookup::timerEvent;
+    };
 
-  public:
     VirtualQDnsLookup() : QDnsLookup() {};
     VirtualQDnsLookup(QDnsLookup::Type typeVal, const QString& name) : QDnsLookup(typeVal, name) {};
     VirtualQDnsLookup(QDnsLookup::Type typeVal, const QString& name, const QHostAddress& nameserver) : QDnsLookup(typeVal, name, nameserver) {};
@@ -78,47 +61,10 @@ class VirtualQDnsLookup final : public QDnsLookup {
     VirtualQDnsLookup(QDnsLookup::Type typeVal, const QString& name, QDnsLookup::Protocol protocol, const QHostAddress& nameserver, quint16 port) : QDnsLookup(typeVal, name, protocol, nameserver, port) {};
     VirtualQDnsLookup(QDnsLookup::Type typeVal, const QString& name, QDnsLookup::Protocol protocol, const QHostAddress& nameserver, quint16 port, QObject* parent) : QDnsLookup(typeVal, name, protocol, nameserver, port, parent) {};
 
-    // Callback setters
-    inline void setQDnsLookup_MetaObject_Callback(QDnsLookup_MetaObject_Callback cb) { qdnslookup_metaobject_callback = cb; }
-    inline void setQDnsLookup_Metacast_Callback(QDnsLookup_Metacast_Callback cb) { qdnslookup_metacast_callback = cb; }
-    inline void setQDnsLookup_Metacall_Callback(QDnsLookup_Metacall_Callback cb) { qdnslookup_metacall_callback = cb; }
-    inline void setQDnsLookup_Event_Callback(QDnsLookup_Event_Callback cb) { qdnslookup_event_callback = cb; }
-    inline void setQDnsLookup_EventFilter_Callback(QDnsLookup_EventFilter_Callback cb) { qdnslookup_eventfilter_callback = cb; }
-    inline void setQDnsLookup_TimerEvent_Callback(QDnsLookup_TimerEvent_Callback cb) { qdnslookup_timerevent_callback = cb; }
-    inline void setQDnsLookup_ChildEvent_Callback(QDnsLookup_ChildEvent_Callback cb) { qdnslookup_childevent_callback = cb; }
-    inline void setQDnsLookup_CustomEvent_Callback(QDnsLookup_CustomEvent_Callback cb) { qdnslookup_customevent_callback = cb; }
-    inline void setQDnsLookup_ConnectNotify_Callback(QDnsLookup_ConnectNotify_Callback cb) { qdnslookup_connectnotify_callback = cb; }
-    inline void setQDnsLookup_DisconnectNotify_Callback(QDnsLookup_DisconnectNotify_Callback cb) { qdnslookup_disconnectnotify_callback = cb; }
-    inline void setQDnsLookup_Sender_Callback(QDnsLookup_Sender_Callback cb) { qdnslookup_sender_callback = cb; }
-    inline void setQDnsLookup_SenderSignalIndex_Callback(QDnsLookup_SenderSignalIndex_Callback cb) { qdnslookup_sendersignalindex_callback = cb; }
-    inline void setQDnsLookup_Receivers_Callback(QDnsLookup_Receivers_Callback cb) { qdnslookup_receivers_callback = cb; }
-    inline void setQDnsLookup_IsSignalConnected_Callback(QDnsLookup_IsSignalConnected_Callback cb) { qdnslookup_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQDnsLookup_MetaObject_IsBase(bool value) const { qdnslookup_metaobject_isbase = value; }
-    inline void setQDnsLookup_Metacast_IsBase(bool value) const { qdnslookup_metacast_isbase = value; }
-    inline void setQDnsLookup_Metacall_IsBase(bool value) const { qdnslookup_metacall_isbase = value; }
-    inline void setQDnsLookup_Event_IsBase(bool value) const { qdnslookup_event_isbase = value; }
-    inline void setQDnsLookup_EventFilter_IsBase(bool value) const { qdnslookup_eventfilter_isbase = value; }
-    inline void setQDnsLookup_TimerEvent_IsBase(bool value) const { qdnslookup_timerevent_isbase = value; }
-    inline void setQDnsLookup_ChildEvent_IsBase(bool value) const { qdnslookup_childevent_isbase = value; }
-    inline void setQDnsLookup_CustomEvent_IsBase(bool value) const { qdnslookup_customevent_isbase = value; }
-    inline void setQDnsLookup_ConnectNotify_IsBase(bool value) const { qdnslookup_connectnotify_isbase = value; }
-    inline void setQDnsLookup_DisconnectNotify_IsBase(bool value) const { qdnslookup_disconnectnotify_isbase = value; }
-    inline void setQDnsLookup_Sender_IsBase(bool value) const { qdnslookup_sender_isbase = value; }
-    inline void setQDnsLookup_SenderSignalIndex_IsBase(bool value) const { qdnslookup_sendersignalindex_isbase = value; }
-    inline void setQDnsLookup_Receivers_IsBase(bool value) const { qdnslookup_receivers_isbase = value; }
-    inline void setQDnsLookup_IsSignalConnected_IsBase(bool value) const { qdnslookup_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qdnslookup_metaobject_isbase) {
-            qdnslookup_metaobject_isbase = false;
-            return QDnsLookup::metaObject();
-        }
-        auto metaobject_cb = qdnslookup_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qdnslookup_metaobject_callback) {
+            QMetaObject* callback_ret = qdnslookup_metaobject_callback(this);
             return callback_ret;
         }
         return QDnsLookup::metaObject();
@@ -126,14 +72,9 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qdnslookup_metacast_isbase) {
-            qdnslookup_metacast_isbase = false;
-            return QDnsLookup::qt_metacast(param1);
-        }
-        auto metacast_cb = qdnslookup_metacast_callback;
-        if (metacast_cb) {
+        if (qdnslookup_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qdnslookup_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QDnsLookup::qt_metacast(param1);
@@ -141,16 +82,11 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qdnslookup_metacall_isbase) {
-            qdnslookup_metacall_isbase = false;
-            return QDnsLookup::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qdnslookup_metacall_callback;
-        if (metacall_cb) {
+        if (qdnslookup_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qdnslookup_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QDnsLookup::qt_metacall(param1, param2, param3);
@@ -158,14 +94,9 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qdnslookup_event_isbase) {
-            qdnslookup_event_isbase = false;
-            return QDnsLookup::event(event);
-        }
-        auto event_cb = qdnslookup_event_callback;
-        if (event_cb) {
+        if (qdnslookup_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qdnslookup_event_callback(this, cbval1);
             return callback_ret;
         }
         return QDnsLookup::event(event);
@@ -173,15 +104,10 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qdnslookup_eventfilter_isbase) {
-            qdnslookup_eventfilter_isbase = false;
-            return QDnsLookup::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qdnslookup_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qdnslookup_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qdnslookup_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QDnsLookup::eventFilter(watched, event);
@@ -189,15 +115,9 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qdnslookup_timerevent_isbase) {
-            qdnslookup_timerevent_isbase = false;
-            QDnsLookup::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qdnslookup_timerevent_callback;
-        if (timerevent_cb) {
+        if (qdnslookup_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qdnslookup_timerevent_callback(this, cbval1);
             return;
         }
         QDnsLookup::timerEvent(event);
@@ -205,15 +125,9 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qdnslookup_childevent_isbase) {
-            qdnslookup_childevent_isbase = false;
-            QDnsLookup::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qdnslookup_childevent_callback;
-        if (childevent_cb) {
+        if (qdnslookup_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qdnslookup_childevent_callback(this, cbval1);
             return;
         }
         QDnsLookup::childEvent(event);
@@ -221,15 +135,9 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qdnslookup_customevent_isbase) {
-            qdnslookup_customevent_isbase = false;
-            QDnsLookup::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qdnslookup_customevent_callback;
-        if (customevent_cb) {
+        if (qdnslookup_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qdnslookup_customevent_callback(this, cbval1);
             return;
         }
         QDnsLookup::customEvent(event);
@@ -237,17 +145,11 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qdnslookup_connectnotify_isbase) {
-            qdnslookup_connectnotify_isbase = false;
-            QDnsLookup::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qdnslookup_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qdnslookup_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qdnslookup_connectnotify_callback(this, cbval1);
             return;
         }
         QDnsLookup::connectNotify(signal);
@@ -255,101 +157,22 @@ class VirtualQDnsLookup final : public QDnsLookup {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qdnslookup_disconnectnotify_isbase) {
-            qdnslookup_disconnectnotify_isbase = false;
-            QDnsLookup::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qdnslookup_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qdnslookup_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qdnslookup_disconnectnotify_callback(this, cbval1);
             return;
         }
         QDnsLookup::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qdnslookup_sender_isbase) {
-            qdnslookup_sender_isbase = false;
-            return QDnsLookup::sender();
-        }
-        auto sender_cb = qdnslookup_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QDnsLookup::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qdnslookup_sendersignalindex_isbase) {
-            qdnslookup_sendersignalindex_isbase = false;
-            return QDnsLookup::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qdnslookup_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QDnsLookup::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qdnslookup_receivers_isbase) {
-            qdnslookup_receivers_isbase = false;
-            return QDnsLookup::receivers(signal);
-        }
-        auto receivers_cb = qdnslookup_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QDnsLookup::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qdnslookup_issignalconnected_isbase) {
-            qdnslookup_issignalconnected_isbase = false;
-            return QDnsLookup::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qdnslookup_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QDnsLookup::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QDnsLookup_TimerEvent(QDnsLookup* self, QTimerEvent* event);
     friend void QDnsLookup_SuperTimerEvent(QDnsLookup* self, QTimerEvent* event);
-    friend void QDnsLookup_ChildEvent(QDnsLookup* self, QChildEvent* event);
     friend void QDnsLookup_SuperChildEvent(QDnsLookup* self, QChildEvent* event);
-    friend void QDnsLookup_CustomEvent(QDnsLookup* self, QEvent* event);
     friend void QDnsLookup_SuperCustomEvent(QDnsLookup* self, QEvent* event);
-    friend void QDnsLookup_ConnectNotify(QDnsLookup* self, const QMetaMethod* signal);
     friend void QDnsLookup_SuperConnectNotify(QDnsLookup* self, const QMetaMethod* signal);
-    friend void QDnsLookup_DisconnectNotify(QDnsLookup* self, const QMetaMethod* signal);
     friend void QDnsLookup_SuperDisconnectNotify(QDnsLookup* self, const QMetaMethod* signal);
-    friend QObject* QDnsLookup_Sender(const QDnsLookup* self);
-    friend QObject* QDnsLookup_SuperSender(const QDnsLookup* self);
-    friend int QDnsLookup_SenderSignalIndex(const QDnsLookup* self);
-    friend int QDnsLookup_SuperSenderSignalIndex(const QDnsLookup* self);
-    friend int QDnsLookup_Receivers(const QDnsLookup* self, const char* signal);
-    friend int QDnsLookup_SuperReceivers(const QDnsLookup* self, const char* signal);
-    friend bool QDnsLookup_IsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal);
-    friend bool QDnsLookup_SuperIsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal);
 };
 
 #endif

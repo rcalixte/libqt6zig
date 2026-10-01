@@ -212,28 +212,28 @@ void QProgressDialog_Connect_Canceled(QProgressDialog* self, intptr_t slot) {
 
 void QProgressDialog_ResizeEvent(QProgressDialog* self, QResizeEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->resizeEvent(event);
     }
 }
 
 void QProgressDialog_CloseEvent(QProgressDialog* self, QCloseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->closeEvent(event);
     }
 }
 
 void QProgressDialog_ChangeEvent(QProgressDialog* self, QEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->changeEvent(event);
     }
 }
 
 void QProgressDialog_ShowEvent(QProgressDialog* self, QShowEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->showEvent(event);
     }
 }
@@ -264,1800 +264,1232 @@ libqt_string QProgressDialog_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QProgressDialog_SuperMetaObject(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vqprogressdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->QProgressDialog::metaObject();
-    }
+    return (QMetaObject*)self->QProgressDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnMetaObject(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_MetaObject_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MetaObject_Callback>(slot));
+void QProgressDialog_OnMetaObject(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_metaobject_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QProgressDialog_SuperMetacast(QProgressDialog* self, const char* param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Metacast_IsBase(true);
-        return vqprogressdialog->qt_metacast(param1);
-    } else {
-        return self->QProgressDialog::qt_metacast(param1);
-    }
+    return self->QProgressDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMetacast(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Metacast_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metacast_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_metacast_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QProgressDialog_SuperMetacall(QProgressDialog* self, int param1, int param2, void** param3) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Metacall_IsBase(true);
-        return vqprogressdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QProgressDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QProgressDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMetacall(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Metacall_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metacall_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_metacall_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QProgressDialog_SuperSizeHint(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_SizeHint_IsBase(true);
-        return new QSize(vqprogressdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQProgressDialog*)self)->sizeHint());
-    }
+    return new QSize(self->QProgressDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnSizeHint(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_SizeHint_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SizeHint_Callback>(slot));
+void QProgressDialog_OnSizeHint(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_sizehint_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperResizeEvent(QProgressDialog* self, QResizeEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_ResizeEvent_IsBase(true);
-        vqprogressdialog->resizeEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->resizeEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnResizeEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ResizeEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_resizeevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperCloseEvent(QProgressDialog* self, QCloseEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_CloseEvent_IsBase(true);
-        vqprogressdialog->closeEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->closeEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnCloseEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_CloseEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_CloseEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_closeevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_CloseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperChangeEvent(QProgressDialog* self, QEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_ChangeEvent_IsBase(true);
-        vqprogressdialog->changeEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->changeEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnChangeEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ChangeEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_changeevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperShowEvent(QProgressDialog* self, QShowEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_ShowEvent_IsBase(true);
-        vqprogressdialog->showEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->showEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnShowEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_ShowEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ShowEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_showevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_SetVisible(QProgressDialog* self, bool visible) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setVisible(visible);
-    } else {
-        self->QProgressDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperSetVisible(QProgressDialog* self, bool visible) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_SetVisible_IsBase(true);
-        vqprogressdialog->setVisible(visible);
-    } else {
-        self->QProgressDialog::setVisible(visible);
-    }
+    self->QProgressDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnSetVisible(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_SetVisible_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SetVisible_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_setvisible_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QProgressDialog_MinimumSizeHint(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return new QSize(vqprogressdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQProgressDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QProgressDialog_SuperMinimumSizeHint(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vqprogressdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQProgressDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QProgressDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnMinimumSizeHint(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MinimumSizeHint_Callback>(slot));
+void QProgressDialog_OnMinimumSizeHint(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_minimumsizehint_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_Open(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->open();
-    } else {
-        self->QProgressDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperOpen(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Open_IsBase(true);
-        vqprogressdialog->open();
-    } else {
-        self->QProgressDialog::open();
-    }
+    self->QProgressDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnOpen(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Open_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Open_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_open_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QProgressDialog_Exec(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->exec();
-    } else {
-        return self->QProgressDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int QProgressDialog_SuperExec(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Exec_IsBase(true);
-        return vqprogressdialog->exec();
-    } else {
-        return self->QProgressDialog::exec();
-    }
+    return self->QProgressDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnExec(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Exec_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Exec_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_exec_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_Done(QProgressDialog* self, int param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->done(static_cast<int>(param1));
-    } else {
-        self->QProgressDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperDone(QProgressDialog* self, int param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Done_IsBase(true);
-        vqprogressdialog->done(static_cast<int>(param1));
-    } else {
-        self->QProgressDialog::done(static_cast<int>(param1));
-    }
+    self->QProgressDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDone(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Done_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Done_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_done_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_Accept(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->accept();
-    } else {
-        self->QProgressDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperAccept(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Accept_IsBase(true);
-        vqprogressdialog->accept();
-    } else {
-        self->QProgressDialog::accept();
-    }
+    self->QProgressDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnAccept(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Accept_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Accept_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_accept_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_Reject(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->reject();
-    } else {
-        self->QProgressDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperReject(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Reject_IsBase(true);
-        vqprogressdialog->reject();
-    } else {
-        self->QProgressDialog::reject();
-    }
+    self->QProgressDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnReject(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Reject_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Reject_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_reject_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_KeyPressEvent(QProgressDialog* self, QKeyEvent* param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->keyPressEvent(param1);
     } else {
-        ((VirtualQProgressDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QProgressDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperKeyPressEvent(QProgressDialog* self, QKeyEvent* param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_KeyPressEvent_IsBase(true);
-        vqprogressdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualQProgressDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnKeyPressEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_keypressevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_ContextMenuEvent(QProgressDialog* self, QContextMenuEvent* param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualQProgressDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QProgressDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperContextMenuEvent(QProgressDialog* self, QContextMenuEvent* param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_ContextMenuEvent_IsBase(true);
-        vqprogressdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualQProgressDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnContextMenuEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_contextmenuevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QProgressDialog_EventFilter(QProgressDialog* self, QObject* param1, QEvent* param2) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         return vqprogressdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualQProgressDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QProgressDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QProgressDialog_SuperEventFilter(QProgressDialog* self, QObject* param1, QEvent* param2) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_EventFilter_IsBase(true);
-        return vqprogressdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQProgressDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        return vqprogressdialog->QProgressDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnEventFilter(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_EventFilter_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_EventFilter_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_eventfilter_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QProgressDialog_DevType(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->devType();
-    } else {
-        return self->QProgressDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QProgressDialog_SuperDevType(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_DevType_IsBase(true);
-        return vqprogressdialog->devType();
-    } else {
-        return self->QProgressDialog::devType();
-    }
+    return self->QProgressDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnDevType(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_DevType_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DevType_Callback>(slot));
+void QProgressDialog_OnDevType(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_devtype_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QProgressDialog_HeightForWidth(const QProgressDialog* self, int param1) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QProgressDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QProgressDialog_SuperHeightForWidth(const QProgressDialog* self, int param1) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_HeightForWidth_IsBase(true);
-        return vqprogressdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QProgressDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QProgressDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnHeightForWidth(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HeightForWidth_Callback>(slot));
+void QProgressDialog_OnHeightForWidth(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_heightforwidth_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QProgressDialog_HasHeightForWidth(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->hasHeightForWidth();
-    } else {
-        return self->QProgressDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QProgressDialog_SuperHasHeightForWidth(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_HasHeightForWidth_IsBase(true);
-        return vqprogressdialog->hasHeightForWidth();
-    } else {
-        return self->QProgressDialog::hasHeightForWidth();
-    }
+    return self->QProgressDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnHasHeightForWidth(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HasHeightForWidth_Callback>(slot));
+void QProgressDialog_OnHasHeightForWidth(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_hasheightforwidth_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QProgressDialog_PaintEngine(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->paintEngine();
-    } else {
-        return self->QProgressDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QProgressDialog_SuperPaintEngine(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_PaintEngine_IsBase(true);
-        return vqprogressdialog->paintEngine();
-    } else {
-        return self->QProgressDialog::paintEngine();
-    }
+    return self->QProgressDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnPaintEngine(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_PaintEngine_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_PaintEngine_Callback>(slot));
+void QProgressDialog_OnPaintEngine(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_paintengine_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QProgressDialog_Event(QProgressDialog* self, QEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         return vqprogressdialog->event(event);
     } else {
-        return ((VirtualQProgressDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method QProgressDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QProgressDialog_SuperEvent(QProgressDialog* self, QEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Event_IsBase(true);
-        return vqprogressdialog->event(event);
-    } else {
-        return ((VirtualQProgressDialog*)self)->event(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        return vqprogressdialog->QProgressDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Event_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Event_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_event_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_MousePressEvent(QProgressDialog* self, QMouseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->mousePressEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperMousePressEvent(QProgressDialog* self, QMouseEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_MousePressEvent_IsBase(true);
-        vqprogressdialog->mousePressEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMousePressEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MousePressEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_mousepressevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_MouseReleaseEvent(QProgressDialog* self, QMouseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperMouseReleaseEvent(QProgressDialog* self, QMouseEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_MouseReleaseEvent_IsBase(true);
-        vqprogressdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMouseReleaseEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_mousereleaseevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_MouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperMouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_MouseDoubleClickEvent_IsBase(true);
-        vqprogressdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMouseDoubleClickEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_MouseMoveEvent(QProgressDialog* self, QMouseEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperMouseMoveEvent(QProgressDialog* self, QMouseEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_MouseMoveEvent_IsBase(true);
-        vqprogressdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMouseMoveEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_mousemoveevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_WheelEvent(QProgressDialog* self, QWheelEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->wheelEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperWheelEvent(QProgressDialog* self, QWheelEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_WheelEvent_IsBase(true);
-        vqprogressdialog->wheelEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnWheelEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_WheelEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_WheelEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_wheelevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_KeyReleaseEvent(QProgressDialog* self, QKeyEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperKeyReleaseEvent(QProgressDialog* self, QKeyEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_KeyReleaseEvent_IsBase(true);
-        vqprogressdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnKeyReleaseEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_keyreleaseevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_FocusInEvent(QProgressDialog* self, QFocusEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->focusInEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperFocusInEvent(QProgressDialog* self, QFocusEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_FocusInEvent_IsBase(true);
-        vqprogressdialog->focusInEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnFocusInEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusInEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_focusinevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_FocusOutEvent(QProgressDialog* self, QFocusEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->focusOutEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperFocusOutEvent(QProgressDialog* self, QFocusEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_FocusOutEvent_IsBase(true);
-        vqprogressdialog->focusOutEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnFocusOutEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_focusoutevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_EnterEvent(QProgressDialog* self, QEnterEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->enterEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperEnterEvent(QProgressDialog* self, QEnterEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_EnterEvent_IsBase(true);
-        vqprogressdialog->enterEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->enterEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnEnterEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_EnterEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_EnterEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_enterevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_LeaveEvent(QProgressDialog* self, QEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->leaveEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperLeaveEvent(QProgressDialog* self, QEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_LeaveEvent_IsBase(true);
-        vqprogressdialog->leaveEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnLeaveEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_LeaveEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_leaveevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_PaintEvent(QProgressDialog* self, QPaintEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->paintEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperPaintEvent(QProgressDialog* self, QPaintEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_PaintEvent_IsBase(true);
-        vqprogressdialog->paintEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->paintEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnPaintEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_PaintEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_PaintEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_paintevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_MoveEvent(QProgressDialog* self, QMoveEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->moveEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperMoveEvent(QProgressDialog* self, QMoveEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_MoveEvent_IsBase(true);
-        vqprogressdialog->moveEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->moveEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMoveEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_MoveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MoveEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_moveevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_TabletEvent(QProgressDialog* self, QTabletEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->tabletEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperTabletEvent(QProgressDialog* self, QTabletEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_TabletEvent_IsBase(true);
-        vqprogressdialog->tabletEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnTabletEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_TabletEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_TabletEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_tabletevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_ActionEvent(QProgressDialog* self, QActionEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->actionEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperActionEvent(QProgressDialog* self, QActionEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_ActionEvent_IsBase(true);
-        vqprogressdialog->actionEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->actionEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnActionEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_ActionEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ActionEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_actionevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_DragEnterEvent(QProgressDialog* self, QDragEnterEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->dragEnterEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperDragEnterEvent(QProgressDialog* self, QDragEnterEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_DragEnterEvent_IsBase(true);
-        vqprogressdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDragEnterEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_dragenterevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_DragMoveEvent(QProgressDialog* self, QDragMoveEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->dragMoveEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperDragMoveEvent(QProgressDialog* self, QDragMoveEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_DragMoveEvent_IsBase(true);
-        vqprogressdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDragMoveEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_dragmoveevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_DragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperDragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_DragLeaveEvent_IsBase(true);
-        vqprogressdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDragLeaveEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_dragleaveevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_DropEvent(QProgressDialog* self, QDropEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->dropEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperDropEvent(QProgressDialog* self, QDropEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_DropEvent_IsBase(true);
-        vqprogressdialog->dropEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->dropEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDropEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_DropEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DropEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_dropevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_HideEvent(QProgressDialog* self, QHideEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->hideEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperHideEvent(QProgressDialog* self, QHideEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_HideEvent_IsBase(true);
-        vqprogressdialog->hideEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->hideEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnHideEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_HideEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HideEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_hideevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QProgressDialog_NativeEvent(QProgressDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
+    if (vqprogressdialog) {
         return vqprogressdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQProgressDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QProgressDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QProgressDialog_SuperNativeEvent(QProgressDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_NativeEvent_IsBase(true);
-        return vqprogressdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQProgressDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        return vqprogressdialog->QProgressDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnNativeEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_NativeEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_NativeEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_nativeevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QProgressDialog_Metric(const QProgressDialog* self, int param1) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         return vqprogressdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQProgressDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QProgressDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QProgressDialog_SuperMetric(const QProgressDialog* self, int param1) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Metric_IsBase(true);
-        return vqprogressdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQProgressDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        return vqprogressdialog->QProgressDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnMetric(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Metric_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metric_Callback>(slot));
+void QProgressDialog_OnMetric(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_metric_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_InitPainter(const QProgressDialog* self, QPainter* painter) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->initPainter(painter);
     } else {
-        ((VirtualQProgressDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QProgressDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperInitPainter(const QProgressDialog* self, QPainter* painter) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_InitPainter_IsBase(true);
-        vqprogressdialog->initPainter(painter);
-    } else {
-        ((VirtualQProgressDialog*)self)->initPainter(painter);
-    }
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        vqprogressdialog->QProgressDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnInitPainter(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_InitPainter_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InitPainter_Callback>(slot));
+void QProgressDialog_OnInitPainter(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_initpainter_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QProgressDialog_Redirected(const QProgressDialog* self, QPoint* offset) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         return vqprogressdialog->redirected(offset);
     } else {
-        return ((VirtualQProgressDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QProgressDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QProgressDialog_SuperRedirected(const QProgressDialog* self, QPoint* offset) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Redirected_IsBase(true);
-        return vqprogressdialog->redirected(offset);
-    } else {
-        return ((VirtualQProgressDialog*)self)->redirected(offset);
-    }
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        return vqprogressdialog->QProgressDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnRedirected(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Redirected_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Redirected_Callback>(slot));
+void QProgressDialog_OnRedirected(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_redirected_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QProgressDialog_SharedPainter(const QProgressDialog* self) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         return vqprogressdialog->sharedPainter();
     } else {
-        return ((VirtualQProgressDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QProgressDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QProgressDialog_SuperSharedPainter(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_SharedPainter_IsBase(true);
-        return vqprogressdialog->sharedPainter();
-    } else {
-        return ((VirtualQProgressDialog*)self)->sharedPainter();
-    }
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        return vqprogressdialog->QProgressDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnSharedPainter(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_SharedPainter_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SharedPainter_Callback>(slot));
+void QProgressDialog_OnSharedPainter(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_sharedpainter_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_InputMethodEvent(QProgressDialog* self, QInputMethodEvent* param1) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualQProgressDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QProgressDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperInputMethodEvent(QProgressDialog* self, QInputMethodEvent* param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_InputMethodEvent_IsBase(true);
-        vqprogressdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualQProgressDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnInputMethodEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_inputmethodevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QProgressDialog_InputMethodQuery(const QProgressDialog* self, int param1) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return new QVariant(vqprogressdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQProgressDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QProgressDialog_SuperInputMethodQuery(const QProgressDialog* self, int param1) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vqprogressdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQProgressDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QProgressDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnInputMethodQuery(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InputMethodQuery_Callback>(slot));
+void QProgressDialog_OnInputMethodQuery(QProgressDialog* self, intptr_t slot) {
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self)))
+        vqprogressdialog->qprogressdialog_inputmethodquery_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QProgressDialog_FocusNextPrevChild(QProgressDialog* self, bool next) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         return vqprogressdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualQProgressDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QProgressDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QProgressDialog_SuperFocusNextPrevChild(QProgressDialog* self, bool next) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_FocusNextPrevChild_IsBase(true);
-        return vqprogressdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQProgressDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        return vqprogressdialog->QProgressDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnFocusNextPrevChild(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_focusnextprevchild_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_TimerEvent(QProgressDialog* self, QTimerEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->timerEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperTimerEvent(QProgressDialog* self, QTimerEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_TimerEvent_IsBase(true);
-        vqprogressdialog->timerEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->timerEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnTimerEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_TimerEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_TimerEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_timerevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_ChildEvent(QProgressDialog* self, QChildEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->childEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperChildEvent(QProgressDialog* self, QChildEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_ChildEvent_IsBase(true);
-        vqprogressdialog->childEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->childEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnChildEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_ChildEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ChildEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_childevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_CustomEvent(QProgressDialog* self, QEvent* event) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->customEvent(event);
     } else {
-        ((VirtualQProgressDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QProgressDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperCustomEvent(QProgressDialog* self, QEvent* event) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_CustomEvent_IsBase(true);
-        vqprogressdialog->customEvent(event);
-    } else {
-        ((VirtualQProgressDialog*)self)->customEvent(event);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnCustomEvent(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_CustomEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_CustomEvent_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_customevent_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_ConnectNotify(QProgressDialog* self, const QMetaMethod* signal) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->connectNotify(*signal);
     } else {
-        ((VirtualQProgressDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QProgressDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperConnectNotify(QProgressDialog* self, const QMetaMethod* signal) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_ConnectNotify_IsBase(true);
-        vqprogressdialog->connectNotify(*signal);
-    } else {
-        ((VirtualQProgressDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnConnectNotify(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ConnectNotify_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_connectnotify_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QProgressDialog_DisconnectNotify(QProgressDialog* self, const QMetaMethod* signal) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog) {
         vqprogressdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualQProgressDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QProgressDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QProgressDialog_SuperDisconnectNotify(QProgressDialog* self, const QMetaMethod* signal) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_DisconnectNotify_IsBase(true);
-        vqprogressdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualQProgressDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->QProgressDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QProgressDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDisconnectNotify(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self))
+        vqprogressdialog->qprogressdialog_disconnectnotify_callback = reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QProgressDialog_ForceShow(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->forceShow();
-    } else {
-        ((VirtualQProgressDialog*)self)->forceShow();
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->VirtualQProgressDialog::forceShow();
+    } else
+        qFatal("Error: Protected method QProgressDialog::forceShow called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QProgressDialog_SuperForceShow(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_ForceShow_IsBase(true);
-        vqprogressdialog->forceShow();
-    } else {
-        ((VirtualQProgressDialog*)self)->forceShow();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnForceShow(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_ForceShow_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ForceShow_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QProgressDialog_AdjustPosition(QProgressDialog* self, QWidget* param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->adjustPosition(param1);
-    } else {
-        ((VirtualQProgressDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->VirtualQProgressDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method QProgressDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QProgressDialog_SuperAdjustPosition(QProgressDialog* self, QWidget* param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_AdjustPosition_IsBase(true);
-        vqprogressdialog->adjustPosition(param1);
-    } else {
-        ((VirtualQProgressDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnAdjustPosition(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QProgressDialog_UpdateMicroFocus(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->updateMicroFocus();
-    } else {
-        ((VirtualQProgressDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->VirtualQProgressDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QProgressDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QProgressDialog_SuperUpdateMicroFocus(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_UpdateMicroFocus_IsBase(true);
-        vqprogressdialog->updateMicroFocus();
-    } else {
-        ((VirtualQProgressDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnUpdateMicroFocus(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QProgressDialog_Create(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->create();
-    } else {
-        ((VirtualQProgressDialog*)self)->create();
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->VirtualQProgressDialog::create();
+    } else
+        qFatal("Error: Protected method QProgressDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QProgressDialog_SuperCreate(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Create_IsBase(true);
-        vqprogressdialog->create();
-    } else {
-        ((VirtualQProgressDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnCreate(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Create_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QProgressDialog_Destroy(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->destroy();
-    } else {
-        ((VirtualQProgressDialog*)self)->destroy();
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        vqprogressdialog->VirtualQProgressDialog::destroy();
+    } else
+        qFatal("Error: Protected method QProgressDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QProgressDialog_SuperDestroy(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Destroy_IsBase(true);
-        vqprogressdialog->destroy();
-    } else {
-        ((VirtualQProgressDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnDestroy(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Destroy_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QProgressDialog_FocusNextChild(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->focusNextChild();
-    } else {
-        return ((VirtualQProgressDialog*)self)->focusNextChild();
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        return vqprogressdialog->VirtualQProgressDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method QProgressDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QProgressDialog_SuperFocusNextChild(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_FocusNextChild_IsBase(true);
-        return vqprogressdialog->focusNextChild();
-    } else {
-        return ((VirtualQProgressDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnFocusNextChild(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QProgressDialog_FocusPreviousChild(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->focusPreviousChild();
-    } else {
-        return ((VirtualQProgressDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self)) {
+        return vqprogressdialog->VirtualQProgressDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QProgressDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QProgressDialog_SuperFocusPreviousChild(QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_FocusPreviousChild_IsBase(true);
-        return vqprogressdialog->focusPreviousChild();
-    } else {
-        return ((VirtualQProgressDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnFocusPreviousChild(QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QProgressDialog_Sender(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->sender();
-    } else {
-        return ((VirtualQProgressDialog*)self)->sender();
-    }
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        return vqprogressdialog->VirtualQProgressDialog::sender();
+    } else
+        qFatal("Error: Protected method QProgressDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QProgressDialog_SuperSender(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Sender_IsBase(true);
-        return vqprogressdialog->sender();
-    } else {
-        return ((VirtualQProgressDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnSender(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Sender_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QProgressDialog_SenderSignalIndex(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->senderSignalIndex();
-    } else {
-        return ((VirtualQProgressDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        return vqprogressdialog->VirtualQProgressDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QProgressDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QProgressDialog_SuperSenderSignalIndex(const QProgressDialog* self) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_SenderSignalIndex_IsBase(true);
-        return vqprogressdialog->senderSignalIndex();
-    } else {
-        return ((VirtualQProgressDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnSenderSignalIndex(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QProgressDialog_Receivers(const QProgressDialog* self, const char* signal) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->receivers(signal);
-    } else {
-        return ((VirtualQProgressDialog*)self)->receivers(signal);
-    }
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        return vqprogressdialog->VirtualQProgressDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method QProgressDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QProgressDialog_SuperReceivers(const QProgressDialog* self, const char* signal) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_Receivers_IsBase(true);
-        return vqprogressdialog->receivers(signal);
-    } else {
-        return ((VirtualQProgressDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnReceivers(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_Receivers_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QProgressDialog_IsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQProgressDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        return vqprogressdialog->VirtualQProgressDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QProgressDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QProgressDialog_SuperIsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_IsSignalConnected_IsBase(true);
-        return vqprogressdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQProgressDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnIsSignalConnected(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QProgressDialog_GetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return vqprogressdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQProgressDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QProgressDialog_SuperGetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        vqprogressdialog->setQProgressDialog_GetDecodedMetricF_IsBase(true);
-        return vqprogressdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQProgressDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QProgressDialog_OnGetDecodedMetricF(const QProgressDialog* self, intptr_t slot) {
-    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
-        vqprogressdialog->setQProgressDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self))) {
+        return vqprogressdialog->VirtualQProgressDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QProgressDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void QProgressDialog_Delete(QProgressDialog* self) {

@@ -9,30 +9,25 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KParts::PartBase so that we can call protected methods
+// This class is a subclass of KParts::PartBase
 class VirtualKPartsPartBase final : public KParts::PartBase {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKPartsPartBase = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using KParts__PartBase_Action2_Callback = QAction* (*)(const KParts__PartBase*, QDomElement*);
-    using KParts__PartBase_ActionCollection_Callback = KActionCollection* (*)();
-    using KParts__PartBase_ComponentName_Callback = const char* (*)();
-    using KParts__PartBase_DomDocument_Callback = QDomDocument* (*)();
-    using KParts__PartBase_XmlFile_Callback = const char* (*)();
-    using KParts__PartBase_LocalXMLFile_Callback = const char* (*)();
+    using KParts__PartBase_ActionCollection_Callback = KActionCollection* (*)(const KParts__PartBase*);
+    using KParts__PartBase_ComponentName_Callback = const char* (*)(const KParts__PartBase*);
+    using KParts__PartBase_DomDocument_Callback = QDomDocument* (*)(const KParts__PartBase*);
+    using KParts__PartBase_XmlFile_Callback = const char* (*)(const KParts__PartBase*);
+    using KParts__PartBase_LocalXMLFile_Callback = const char* (*)(const KParts__PartBase*);
     using KParts__PartBase_SetComponentName_Callback = void (*)(KParts__PartBase*, const char*, const char*);
     using KParts__PartBase_SetXMLFile_Callback = void (*)(KParts__PartBase*, const char*, bool, bool);
     using KParts__PartBase_SetLocalXMLFile_Callback = void (*)(KParts__PartBase*, const char*);
     using KParts__PartBase_SetXML_Callback = void (*)(KParts__PartBase*, const char*, bool);
     using KParts__PartBase_SetDOMDocument_Callback = void (*)(KParts__PartBase*, QDomDocument*, bool);
     using KParts__PartBase_StateChanged_Callback = void (*)(KParts__PartBase*, const char*, int);
-    using KParts__PartBase_StandardsXmlFileLocation_Callback = const char* (*)();
-    using KParts__PartBase_LoadStandardsXmlFile_Callback = void (*)();
+    using KParts::PartBase::loadStandardsXmlFile;
+    using KParts::PartBase::standardsXmlFileLocation;
 
-  protected:
     // Instance callback storage
     KParts__PartBase_Action2_Callback kparts__partbase_action2_callback = nullptr;
     KParts__PartBase_ActionCollection_Callback kparts__partbase_actioncollection_callback = nullptr;
@@ -46,72 +41,26 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
     KParts__PartBase_SetXML_Callback kparts__partbase_setxml_callback = nullptr;
     KParts__PartBase_SetDOMDocument_Callback kparts__partbase_setdomdocument_callback = nullptr;
     KParts__PartBase_StateChanged_Callback kparts__partbase_statechanged_callback = nullptr;
-    KParts__PartBase_StandardsXmlFileLocation_Callback kparts__partbase_standardsxmlfilelocation_callback = nullptr;
-    KParts__PartBase_LoadStandardsXmlFile_Callback kparts__partbase_loadstandardsxmlfile_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kparts__partbase_action2_isbase = false;
-    mutable bool kparts__partbase_actioncollection_isbase = false;
-    mutable bool kparts__partbase_componentname_isbase = false;
-    mutable bool kparts__partbase_domdocument_isbase = false;
-    mutable bool kparts__partbase_xmlfile_isbase = false;
-    mutable bool kparts__partbase_localxmlfile_isbase = false;
-    mutable bool kparts__partbase_setcomponentname_isbase = false;
-    mutable bool kparts__partbase_setxmlfile_isbase = false;
-    mutable bool kparts__partbase_setlocalxmlfile_isbase = false;
-    mutable bool kparts__partbase_setxml_isbase = false;
-    mutable bool kparts__partbase_setdomdocument_isbase = false;
-    mutable bool kparts__partbase_statechanged_isbase = false;
-    mutable bool kparts__partbase_standardsxmlfilelocation_isbase = false;
-    mutable bool kparts__partbase_loadstandardsxmlfile_isbase = false;
+    // Access struct
+    struct Base : KParts::PartBase {
+        using KParts::PartBase::setComponentName;
+        using KParts::PartBase::setDOMDocument;
+        using KParts::PartBase::setLocalXMLFile;
+        using KParts::PartBase::setXML;
+        using KParts::PartBase::setXMLFile;
+        using KParts::PartBase::stateChanged;
+    };
 
-  public:
     VirtualKPartsPartBase() : KParts::PartBase() {};
-
-    // Callback setters
-    inline void setKParts__PartBase_Action2_Callback(KParts__PartBase_Action2_Callback cb) { kparts__partbase_action2_callback = cb; }
-    inline void setKParts__PartBase_ActionCollection_Callback(KParts__PartBase_ActionCollection_Callback cb) { kparts__partbase_actioncollection_callback = cb; }
-    inline void setKParts__PartBase_ComponentName_Callback(KParts__PartBase_ComponentName_Callback cb) { kparts__partbase_componentname_callback = cb; }
-    inline void setKParts__PartBase_DomDocument_Callback(KParts__PartBase_DomDocument_Callback cb) { kparts__partbase_domdocument_callback = cb; }
-    inline void setKParts__PartBase_XmlFile_Callback(KParts__PartBase_XmlFile_Callback cb) { kparts__partbase_xmlfile_callback = cb; }
-    inline void setKParts__PartBase_LocalXMLFile_Callback(KParts__PartBase_LocalXMLFile_Callback cb) { kparts__partbase_localxmlfile_callback = cb; }
-    inline void setKParts__PartBase_SetComponentName_Callback(KParts__PartBase_SetComponentName_Callback cb) { kparts__partbase_setcomponentname_callback = cb; }
-    inline void setKParts__PartBase_SetXMLFile_Callback(KParts__PartBase_SetXMLFile_Callback cb) { kparts__partbase_setxmlfile_callback = cb; }
-    inline void setKParts__PartBase_SetLocalXMLFile_Callback(KParts__PartBase_SetLocalXMLFile_Callback cb) { kparts__partbase_setlocalxmlfile_callback = cb; }
-    inline void setKParts__PartBase_SetXML_Callback(KParts__PartBase_SetXML_Callback cb) { kparts__partbase_setxml_callback = cb; }
-    inline void setKParts__PartBase_SetDOMDocument_Callback(KParts__PartBase_SetDOMDocument_Callback cb) { kparts__partbase_setdomdocument_callback = cb; }
-    inline void setKParts__PartBase_StateChanged_Callback(KParts__PartBase_StateChanged_Callback cb) { kparts__partbase_statechanged_callback = cb; }
-    inline void setKParts__PartBase_StandardsXmlFileLocation_Callback(KParts__PartBase_StandardsXmlFileLocation_Callback cb) { kparts__partbase_standardsxmlfilelocation_callback = cb; }
-    inline void setKParts__PartBase_LoadStandardsXmlFile_Callback(KParts__PartBase_LoadStandardsXmlFile_Callback cb) { kparts__partbase_loadstandardsxmlfile_callback = cb; }
-
-    // Base flag setters
-    inline void setKParts__PartBase_Action2_IsBase(bool value) const { kparts__partbase_action2_isbase = value; }
-    inline void setKParts__PartBase_ActionCollection_IsBase(bool value) const { kparts__partbase_actioncollection_isbase = value; }
-    inline void setKParts__PartBase_ComponentName_IsBase(bool value) const { kparts__partbase_componentname_isbase = value; }
-    inline void setKParts__PartBase_DomDocument_IsBase(bool value) const { kparts__partbase_domdocument_isbase = value; }
-    inline void setKParts__PartBase_XmlFile_IsBase(bool value) const { kparts__partbase_xmlfile_isbase = value; }
-    inline void setKParts__PartBase_LocalXMLFile_IsBase(bool value) const { kparts__partbase_localxmlfile_isbase = value; }
-    inline void setKParts__PartBase_SetComponentName_IsBase(bool value) const { kparts__partbase_setcomponentname_isbase = value; }
-    inline void setKParts__PartBase_SetXMLFile_IsBase(bool value) const { kparts__partbase_setxmlfile_isbase = value; }
-    inline void setKParts__PartBase_SetLocalXMLFile_IsBase(bool value) const { kparts__partbase_setlocalxmlfile_isbase = value; }
-    inline void setKParts__PartBase_SetXML_IsBase(bool value) const { kparts__partbase_setxml_isbase = value; }
-    inline void setKParts__PartBase_SetDOMDocument_IsBase(bool value) const { kparts__partbase_setdomdocument_isbase = value; }
-    inline void setKParts__PartBase_StateChanged_IsBase(bool value) const { kparts__partbase_statechanged_isbase = value; }
-    inline void setKParts__PartBase_StandardsXmlFileLocation_IsBase(bool value) const { kparts__partbase_standardsxmlfilelocation_isbase = value; }
-    inline void setKParts__PartBase_LoadStandardsXmlFile_IsBase(bool value) const { kparts__partbase_loadstandardsxmlfile_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAction* action(const QDomElement& element) const override {
-        if (kparts__partbase_action2_isbase) {
-            kparts__partbase_action2_isbase = false;
-            return KParts__PartBase::action(element);
-        }
-        auto action2_cb = kparts__partbase_action2_callback;
-        if (action2_cb) {
+        if (kparts__partbase_action2_callback) {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
-            QAction* callback_ret = action2_cb(this, cbval1);
+            QAction* callback_ret = kparts__partbase_action2_callback(this, cbval1);
             return callback_ret;
         }
         return KParts__PartBase::action(element);
@@ -119,13 +68,8 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KActionCollection* actionCollection() const override {
-        if (kparts__partbase_actioncollection_isbase) {
-            kparts__partbase_actioncollection_isbase = false;
-            return KParts__PartBase::actionCollection();
-        }
-        auto actioncollection_cb = kparts__partbase_actioncollection_callback;
-        if (actioncollection_cb) {
-            KActionCollection* callback_ret = actioncollection_cb();
+        if (kparts__partbase_actioncollection_callback) {
+            KActionCollection* callback_ret = kparts__partbase_actioncollection_callback(this);
             return callback_ret;
         }
         return KParts__PartBase::actionCollection();
@@ -133,13 +77,8 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual QString componentName() const override {
-        if (kparts__partbase_componentname_isbase) {
-            kparts__partbase_componentname_isbase = false;
-            return KParts__PartBase::componentName();
-        }
-        auto componentname_cb = kparts__partbase_componentname_callback;
-        if (componentname_cb) {
-            const char* callback_ret = componentname_cb();
+        if (kparts__partbase_componentname_callback) {
+            const char* callback_ret = kparts__partbase_componentname_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -148,13 +87,8 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual QDomDocument domDocument() const override {
-        if (kparts__partbase_domdocument_isbase) {
-            kparts__partbase_domdocument_isbase = false;
-            return KParts__PartBase::domDocument();
-        }
-        auto domdocument_cb = kparts__partbase_domdocument_callback;
-        if (domdocument_cb) {
-            QDomDocument* callback_ret = domdocument_cb();
+        if (kparts__partbase_domdocument_callback) {
+            QDomDocument* callback_ret = kparts__partbase_domdocument_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -164,13 +98,8 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual QString xmlFile() const override {
-        if (kparts__partbase_xmlfile_isbase) {
-            kparts__partbase_xmlfile_isbase = false;
-            return KParts__PartBase::xmlFile();
-        }
-        auto xmlfile_cb = kparts__partbase_xmlfile_callback;
-        if (xmlfile_cb) {
-            const char* callback_ret = xmlfile_cb();
+        if (kparts__partbase_xmlfile_callback) {
+            const char* callback_ret = kparts__partbase_xmlfile_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -179,13 +108,8 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual QString localXMLFile() const override {
-        if (kparts__partbase_localxmlfile_isbase) {
-            kparts__partbase_localxmlfile_isbase = false;
-            return KParts__PartBase::localXMLFile();
-        }
-        auto localxmlfile_cb = kparts__partbase_localxmlfile_callback;
-        if (localxmlfile_cb) {
-            const char* callback_ret = localxmlfile_cb();
+        if (kparts__partbase_localxmlfile_callback) {
+            const char* callback_ret = kparts__partbase_localxmlfile_callback(this);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -194,13 +118,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void setComponentName(const QString& componentName, const QString& componentDisplayName) override {
-        if (kparts__partbase_setcomponentname_isbase) {
-            kparts__partbase_setcomponentname_isbase = false;
-            KParts__PartBase::setComponentName(componentName, componentDisplayName);
-            return;
-        }
-        auto setcomponentname_cb = kparts__partbase_setcomponentname_callback;
-        if (setcomponentname_cb) {
+        if (kparts__partbase_setcomponentname_callback) {
             const auto componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
@@ -217,7 +135,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             memcpy((void*)componentDisplayName_str, componentDisplayName_b.data(), componentDisplayName_str_len);
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
-            setcomponentname_cb(this, cbval1, cbval2);
+            kparts__partbase_setcomponentname_callback(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
             return;
@@ -227,13 +145,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void setXMLFile(const QString& file, bool merge, bool setXMLDoc) override {
-        if (kparts__partbase_setxmlfile_isbase) {
-            kparts__partbase_setxmlfile_isbase = false;
-            KParts__PartBase::setXMLFile(file, merge, setXMLDoc);
-            return;
-        }
-        auto setxmlfile_cb = kparts__partbase_setxmlfile_callback;
-        if (setxmlfile_cb) {
+        if (kparts__partbase_setxmlfile_callback) {
             const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -244,7 +156,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             const char* cbval1 = file_str;
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
-            setxmlfile_cb(this, cbval1, cbval2, cbval3);
+            kparts__partbase_setxmlfile_callback(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
             return;
         }
@@ -253,13 +165,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void setLocalXMLFile(const QString& file) override {
-        if (kparts__partbase_setlocalxmlfile_isbase) {
-            kparts__partbase_setlocalxmlfile_isbase = false;
-            KParts__PartBase::setLocalXMLFile(file);
-            return;
-        }
-        auto setlocalxmlfile_cb = kparts__partbase_setlocalxmlfile_callback;
-        if (setlocalxmlfile_cb) {
+        if (kparts__partbase_setlocalxmlfile_callback) {
             const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
@@ -268,7 +174,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             memcpy((void*)file_str, file_b.data(), file_str_len);
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
-            setlocalxmlfile_cb(this, cbval1);
+            kparts__partbase_setlocalxmlfile_callback(this, cbval1);
             libqt_free(file_str);
             return;
         }
@@ -277,13 +183,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void setXML(const QString& document, bool merge) override {
-        if (kparts__partbase_setxml_isbase) {
-            kparts__partbase_setxml_isbase = false;
-            KParts__PartBase::setXML(document, merge);
-            return;
-        }
-        auto setxml_cb = kparts__partbase_setxml_callback;
-        if (setxml_cb) {
+        if (kparts__partbase_setxml_callback) {
             const auto document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
@@ -293,7 +193,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             ((char*)document_str)[document_str_len] = '\0';
             const char* cbval1 = document_str;
             bool cbval2 = merge;
-            setxml_cb(this, cbval1, cbval2);
+            kparts__partbase_setxml_callback(this, cbval1, cbval2);
             libqt_free(document_str);
             return;
         }
@@ -302,18 +202,12 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void setDOMDocument(const QDomDocument& document, bool merge) override {
-        if (kparts__partbase_setdomdocument_isbase) {
-            kparts__partbase_setdomdocument_isbase = false;
-            KParts__PartBase::setDOMDocument(document, merge);
-            return;
-        }
-        auto setdomdocument_cb = kparts__partbase_setdomdocument_callback;
-        if (setdomdocument_cb) {
+        if (kparts__partbase_setdomdocument_callback) {
             const QDomDocument& document_ret = document;
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
-            setdomdocument_cb(this, cbval1, cbval2);
+            kparts__partbase_setdomdocument_callback(this, cbval1, cbval2);
             return;
         }
         KParts__PartBase::setDOMDocument(document, merge);
@@ -321,13 +215,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void stateChanged(const QString& newstate, KXMLGUIClient::ReverseStateChange reverse) override {
-        if (kparts__partbase_statechanged_isbase) {
-            kparts__partbase_statechanged_isbase = false;
-            KParts__PartBase::stateChanged(newstate, reverse);
-            return;
-        }
-        auto statechanged_cb = kparts__partbase_statechanged_callback;
-        if (statechanged_cb) {
+        if (kparts__partbase_statechanged_callback) {
             const auto newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
@@ -337,60 +225,20 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
-            statechanged_cb(this, cbval1, cbval2);
+            kparts__partbase_statechanged_callback(this, cbval1, cbval2);
             libqt_free(newstate_str);
             return;
         }
         KParts__PartBase::stateChanged(newstate, reverse);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QString standardsXmlFileLocation() {
-        if (kparts__partbase_standardsxmlfilelocation_isbase) {
-            kparts__partbase_standardsxmlfilelocation_isbase = false;
-            return KParts__PartBase::standardsXmlFileLocation();
-        }
-        auto standardsxmlfilelocation_cb = kparts__partbase_standardsxmlfilelocation_callback;
-        if (standardsxmlfilelocation_cb) {
-            const char* callback_ret = standardsxmlfilelocation_cb();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret);
-            return callback_ret_QString;
-        }
-        return KParts__PartBase::standardsXmlFileLocation();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void loadStandardsXmlFile() {
-        if (kparts__partbase_loadstandardsxmlfile_isbase) {
-            kparts__partbase_loadstandardsxmlfile_isbase = false;
-            KParts__PartBase::loadStandardsXmlFile();
-            return;
-        }
-        auto loadstandardsxmlfile_cb = kparts__partbase_loadstandardsxmlfile_callback;
-        if (loadstandardsxmlfile_cb) {
-            loadstandardsxmlfile_cb();
-            return;
-        }
-        KParts__PartBase::loadStandardsXmlFile();
-    }
-
     // Friend functions
-    friend void KParts__PartBase_SetComponentName(KParts::PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName);
     friend void KParts__PartBase_SuperSetComponentName(KParts::PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName);
-    friend void KParts__PartBase_SetXMLFile(KParts::PartBase* self, const libqt_string file, bool merge, bool setXMLDoc);
     friend void KParts__PartBase_SuperSetXMLFile(KParts::PartBase* self, const libqt_string file, bool merge, bool setXMLDoc);
-    friend void KParts__PartBase_SetLocalXMLFile(KParts::PartBase* self, const libqt_string file);
     friend void KParts__PartBase_SuperSetLocalXMLFile(KParts::PartBase* self, const libqt_string file);
-    friend void KParts__PartBase_SetXML(KParts::PartBase* self, const libqt_string document, bool merge);
     friend void KParts__PartBase_SuperSetXML(KParts::PartBase* self, const libqt_string document, bool merge);
-    friend void KParts__PartBase_SetDOMDocument(KParts::PartBase* self, const QDomDocument* document, bool merge);
     friend void KParts__PartBase_SuperSetDOMDocument(KParts::PartBase* self, const QDomDocument* document, bool merge);
-    friend void KParts__PartBase_StateChanged(KParts::PartBase* self, const libqt_string newstate, int reverse);
     friend void KParts__PartBase_SuperStateChanged(KParts::PartBase* self, const libqt_string newstate, int reverse);
-    friend libqt_string KParts__PartBase_StandardsXmlFileLocation(KParts::PartBase* self);
-    friend libqt_string KParts__PartBase_SuperStandardsXmlFileLocation(KParts::PartBase* self);
-    friend void KParts__PartBase_LoadStandardsXmlFile(KParts::PartBase* self);
-    friend void KParts__PartBase_SuperLoadStandardsXmlFile(KParts::PartBase* self);
 };
 
 #endif

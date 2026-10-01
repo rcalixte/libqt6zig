@@ -49,7 +49,7 @@ libqt_string KFileItemActions_Tr3(const char* s, const char* c, int n);
 void KFileItemActions_AddActionsTo2(KFileItemActions* self, QMenu* menu, int sources);
 void KFileItemActions_AddActionsTo3(KFileItemActions* self, QMenu* menu, int sources, const libqt_list /* of QAction* */ additionalActions);
 void KFileItemActions_AddActionsTo4(KFileItemActions* self, QMenu* menu, int sources, const libqt_list /* of QAction* */ additionalActions, const libqt_list /* of libqt_string */ excludeList);
-void KFileItemActions_OnMetaObject(const KFileItemActions* self, intptr_t slot);
+void KFileItemActions_OnMetaObject(KFileItemActions* self, intptr_t slot);
 QMetaObject* KFileItemActions_SuperMetaObject(const KFileItemActions* self);
 void KFileItemActions_OnMetacast(KFileItemActions* self, intptr_t slot);
 void* KFileItemActions_SuperMetacast(KFileItemActions* self, const char* param1);
@@ -77,17 +77,9 @@ void KFileItemActions_DisconnectNotify(KFileItemActions* self, const QMetaMethod
 void KFileItemActions_OnDisconnectNotify(KFileItemActions* self, intptr_t slot);
 void KFileItemActions_SuperDisconnectNotify(KFileItemActions* self, const QMetaMethod* signal);
 QObject* KFileItemActions_Sender(const KFileItemActions* self);
-void KFileItemActions_OnSender(const KFileItemActions* self, intptr_t slot);
-QObject* KFileItemActions_SuperSender(const KFileItemActions* self);
 int KFileItemActions_SenderSignalIndex(const KFileItemActions* self);
-void KFileItemActions_OnSenderSignalIndex(const KFileItemActions* self, intptr_t slot);
-int KFileItemActions_SuperSenderSignalIndex(const KFileItemActions* self);
 int KFileItemActions_Receivers(const KFileItemActions* self, const char* signal);
-void KFileItemActions_OnReceivers(const KFileItemActions* self, intptr_t slot);
-int KFileItemActions_SuperReceivers(const KFileItemActions* self, const char* signal);
 bool KFileItemActions_IsSignalConnected(const KFileItemActions* self, const QMetaMethod* signal);
-void KFileItemActions_OnIsSignalConnected(const KFileItemActions* self, intptr_t slot);
-bool KFileItemActions_SuperIsSignalConnected(const KFileItemActions* self, const QMetaMethod* signal);
 void KFileItemActions_Delete(KFileItemActions* self);
 
 #ifdef __cplusplus

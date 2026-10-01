@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QLibrary so that we can call protected methods
+// This class is a subclass of QLibrary
 class VirtualQLibrary final : public QLibrary {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQLibrary = true;
-
-    // Virtual class public types (including callbacks)
-    using QLibrary_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QLibrary_MetaObject_Callback = QMetaObject* (*)(const QLibrary*);
     using QLibrary_Metacast_Callback = void* (*)(QLibrary*, const char*);
     using QLibrary_Metacall_Callback = int (*)(QLibrary*, int, int, void**);
     using QLibrary_Event_Callback = bool (*)(QLibrary*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQLibrary final : public QLibrary {
     using QLibrary_CustomEvent_Callback = void (*)(QLibrary*, QEvent*);
     using QLibrary_ConnectNotify_Callback = void (*)(QLibrary*, QMetaMethod*);
     using QLibrary_DisconnectNotify_Callback = void (*)(QLibrary*, QMetaMethod*);
-    using QLibrary_Sender_Callback = QObject* (*)();
-    using QLibrary_SenderSignalIndex_Callback = int (*)();
-    using QLibrary_Receivers_Callback = int (*)(const QLibrary*, const char*);
-    using QLibrary_IsSignalConnected_Callback = bool (*)(const QLibrary*, QMetaMethod*);
+    using QLibrary::isSignalConnected;
+    using QLibrary::receivers;
+    using QLibrary::sender;
+    using QLibrary::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QLibrary_MetaObject_Callback qlibrary_metaobject_callback = nullptr;
     QLibrary_Metacast_Callback qlibrary_metacast_callback = nullptr;
@@ -44,28 +39,16 @@ class VirtualQLibrary final : public QLibrary {
     QLibrary_CustomEvent_Callback qlibrary_customevent_callback = nullptr;
     QLibrary_ConnectNotify_Callback qlibrary_connectnotify_callback = nullptr;
     QLibrary_DisconnectNotify_Callback qlibrary_disconnectnotify_callback = nullptr;
-    QLibrary_Sender_Callback qlibrary_sender_callback = nullptr;
-    QLibrary_SenderSignalIndex_Callback qlibrary_sendersignalindex_callback = nullptr;
-    QLibrary_Receivers_Callback qlibrary_receivers_callback = nullptr;
-    QLibrary_IsSignalConnected_Callback qlibrary_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qlibrary_metaobject_isbase = false;
-    mutable bool qlibrary_metacast_isbase = false;
-    mutable bool qlibrary_metacall_isbase = false;
-    mutable bool qlibrary_event_isbase = false;
-    mutable bool qlibrary_eventfilter_isbase = false;
-    mutable bool qlibrary_timerevent_isbase = false;
-    mutable bool qlibrary_childevent_isbase = false;
-    mutable bool qlibrary_customevent_isbase = false;
-    mutable bool qlibrary_connectnotify_isbase = false;
-    mutable bool qlibrary_disconnectnotify_isbase = false;
-    mutable bool qlibrary_sender_isbase = false;
-    mutable bool qlibrary_sendersignalindex_isbase = false;
-    mutable bool qlibrary_receivers_isbase = false;
-    mutable bool qlibrary_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QLibrary {
+        using QLibrary::childEvent;
+        using QLibrary::connectNotify;
+        using QLibrary::customEvent;
+        using QLibrary::disconnectNotify;
+        using QLibrary::timerEvent;
+    };
 
-  public:
     VirtualQLibrary() : QLibrary() {};
     VirtualQLibrary(const QString& fileName) : QLibrary(fileName) {};
     VirtualQLibrary(const QString& fileName, int verNum) : QLibrary(fileName, verNum) {};
@@ -75,47 +58,10 @@ class VirtualQLibrary final : public QLibrary {
     VirtualQLibrary(const QString& fileName, int verNum, QObject* parent) : QLibrary(fileName, verNum, parent) {};
     VirtualQLibrary(const QString& fileName, const QString& version, QObject* parent) : QLibrary(fileName, version, parent) {};
 
-    // Callback setters
-    inline void setQLibrary_MetaObject_Callback(QLibrary_MetaObject_Callback cb) { qlibrary_metaobject_callback = cb; }
-    inline void setQLibrary_Metacast_Callback(QLibrary_Metacast_Callback cb) { qlibrary_metacast_callback = cb; }
-    inline void setQLibrary_Metacall_Callback(QLibrary_Metacall_Callback cb) { qlibrary_metacall_callback = cb; }
-    inline void setQLibrary_Event_Callback(QLibrary_Event_Callback cb) { qlibrary_event_callback = cb; }
-    inline void setQLibrary_EventFilter_Callback(QLibrary_EventFilter_Callback cb) { qlibrary_eventfilter_callback = cb; }
-    inline void setQLibrary_TimerEvent_Callback(QLibrary_TimerEvent_Callback cb) { qlibrary_timerevent_callback = cb; }
-    inline void setQLibrary_ChildEvent_Callback(QLibrary_ChildEvent_Callback cb) { qlibrary_childevent_callback = cb; }
-    inline void setQLibrary_CustomEvent_Callback(QLibrary_CustomEvent_Callback cb) { qlibrary_customevent_callback = cb; }
-    inline void setQLibrary_ConnectNotify_Callback(QLibrary_ConnectNotify_Callback cb) { qlibrary_connectnotify_callback = cb; }
-    inline void setQLibrary_DisconnectNotify_Callback(QLibrary_DisconnectNotify_Callback cb) { qlibrary_disconnectnotify_callback = cb; }
-    inline void setQLibrary_Sender_Callback(QLibrary_Sender_Callback cb) { qlibrary_sender_callback = cb; }
-    inline void setQLibrary_SenderSignalIndex_Callback(QLibrary_SenderSignalIndex_Callback cb) { qlibrary_sendersignalindex_callback = cb; }
-    inline void setQLibrary_Receivers_Callback(QLibrary_Receivers_Callback cb) { qlibrary_receivers_callback = cb; }
-    inline void setQLibrary_IsSignalConnected_Callback(QLibrary_IsSignalConnected_Callback cb) { qlibrary_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQLibrary_MetaObject_IsBase(bool value) const { qlibrary_metaobject_isbase = value; }
-    inline void setQLibrary_Metacast_IsBase(bool value) const { qlibrary_metacast_isbase = value; }
-    inline void setQLibrary_Metacall_IsBase(bool value) const { qlibrary_metacall_isbase = value; }
-    inline void setQLibrary_Event_IsBase(bool value) const { qlibrary_event_isbase = value; }
-    inline void setQLibrary_EventFilter_IsBase(bool value) const { qlibrary_eventfilter_isbase = value; }
-    inline void setQLibrary_TimerEvent_IsBase(bool value) const { qlibrary_timerevent_isbase = value; }
-    inline void setQLibrary_ChildEvent_IsBase(bool value) const { qlibrary_childevent_isbase = value; }
-    inline void setQLibrary_CustomEvent_IsBase(bool value) const { qlibrary_customevent_isbase = value; }
-    inline void setQLibrary_ConnectNotify_IsBase(bool value) const { qlibrary_connectnotify_isbase = value; }
-    inline void setQLibrary_DisconnectNotify_IsBase(bool value) const { qlibrary_disconnectnotify_isbase = value; }
-    inline void setQLibrary_Sender_IsBase(bool value) const { qlibrary_sender_isbase = value; }
-    inline void setQLibrary_SenderSignalIndex_IsBase(bool value) const { qlibrary_sendersignalindex_isbase = value; }
-    inline void setQLibrary_Receivers_IsBase(bool value) const { qlibrary_receivers_isbase = value; }
-    inline void setQLibrary_IsSignalConnected_IsBase(bool value) const { qlibrary_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qlibrary_metaobject_isbase) {
-            qlibrary_metaobject_isbase = false;
-            return QLibrary::metaObject();
-        }
-        auto metaobject_cb = qlibrary_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qlibrary_metaobject_callback) {
+            QMetaObject* callback_ret = qlibrary_metaobject_callback(this);
             return callback_ret;
         }
         return QLibrary::metaObject();
@@ -123,14 +69,9 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qlibrary_metacast_isbase) {
-            qlibrary_metacast_isbase = false;
-            return QLibrary::qt_metacast(param1);
-        }
-        auto metacast_cb = qlibrary_metacast_callback;
-        if (metacast_cb) {
+        if (qlibrary_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qlibrary_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QLibrary::qt_metacast(param1);
@@ -138,16 +79,11 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qlibrary_metacall_isbase) {
-            qlibrary_metacall_isbase = false;
-            return QLibrary::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qlibrary_metacall_callback;
-        if (metacall_cb) {
+        if (qlibrary_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qlibrary_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QLibrary::qt_metacall(param1, param2, param3);
@@ -155,14 +91,9 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qlibrary_event_isbase) {
-            qlibrary_event_isbase = false;
-            return QLibrary::event(event);
-        }
-        auto event_cb = qlibrary_event_callback;
-        if (event_cb) {
+        if (qlibrary_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qlibrary_event_callback(this, cbval1);
             return callback_ret;
         }
         return QLibrary::event(event);
@@ -170,15 +101,10 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qlibrary_eventfilter_isbase) {
-            qlibrary_eventfilter_isbase = false;
-            return QLibrary::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qlibrary_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qlibrary_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qlibrary_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QLibrary::eventFilter(watched, event);
@@ -186,15 +112,9 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qlibrary_timerevent_isbase) {
-            qlibrary_timerevent_isbase = false;
-            QLibrary::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qlibrary_timerevent_callback;
-        if (timerevent_cb) {
+        if (qlibrary_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qlibrary_timerevent_callback(this, cbval1);
             return;
         }
         QLibrary::timerEvent(event);
@@ -202,15 +122,9 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qlibrary_childevent_isbase) {
-            qlibrary_childevent_isbase = false;
-            QLibrary::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qlibrary_childevent_callback;
-        if (childevent_cb) {
+        if (qlibrary_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qlibrary_childevent_callback(this, cbval1);
             return;
         }
         QLibrary::childEvent(event);
@@ -218,15 +132,9 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qlibrary_customevent_isbase) {
-            qlibrary_customevent_isbase = false;
-            QLibrary::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qlibrary_customevent_callback;
-        if (customevent_cb) {
+        if (qlibrary_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qlibrary_customevent_callback(this, cbval1);
             return;
         }
         QLibrary::customEvent(event);
@@ -234,17 +142,11 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qlibrary_connectnotify_isbase) {
-            qlibrary_connectnotify_isbase = false;
-            QLibrary::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qlibrary_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qlibrary_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qlibrary_connectnotify_callback(this, cbval1);
             return;
         }
         QLibrary::connectNotify(signal);
@@ -252,101 +154,22 @@ class VirtualQLibrary final : public QLibrary {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qlibrary_disconnectnotify_isbase) {
-            qlibrary_disconnectnotify_isbase = false;
-            QLibrary::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qlibrary_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qlibrary_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qlibrary_disconnectnotify_callback(this, cbval1);
             return;
         }
         QLibrary::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qlibrary_sender_isbase) {
-            qlibrary_sender_isbase = false;
-            return QLibrary::sender();
-        }
-        auto sender_cb = qlibrary_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QLibrary::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qlibrary_sendersignalindex_isbase) {
-            qlibrary_sendersignalindex_isbase = false;
-            return QLibrary::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qlibrary_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QLibrary::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qlibrary_receivers_isbase) {
-            qlibrary_receivers_isbase = false;
-            return QLibrary::receivers(signal);
-        }
-        auto receivers_cb = qlibrary_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QLibrary::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qlibrary_issignalconnected_isbase) {
-            qlibrary_issignalconnected_isbase = false;
-            return QLibrary::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qlibrary_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QLibrary::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QLibrary_TimerEvent(QLibrary* self, QTimerEvent* event);
     friend void QLibrary_SuperTimerEvent(QLibrary* self, QTimerEvent* event);
-    friend void QLibrary_ChildEvent(QLibrary* self, QChildEvent* event);
     friend void QLibrary_SuperChildEvent(QLibrary* self, QChildEvent* event);
-    friend void QLibrary_CustomEvent(QLibrary* self, QEvent* event);
     friend void QLibrary_SuperCustomEvent(QLibrary* self, QEvent* event);
-    friend void QLibrary_ConnectNotify(QLibrary* self, const QMetaMethod* signal);
     friend void QLibrary_SuperConnectNotify(QLibrary* self, const QMetaMethod* signal);
-    friend void QLibrary_DisconnectNotify(QLibrary* self, const QMetaMethod* signal);
     friend void QLibrary_SuperDisconnectNotify(QLibrary* self, const QMetaMethod* signal);
-    friend QObject* QLibrary_Sender(const QLibrary* self);
-    friend QObject* QLibrary_SuperSender(const QLibrary* self);
-    friend int QLibrary_SenderSignalIndex(const QLibrary* self);
-    friend int QLibrary_SuperSenderSignalIndex(const QLibrary* self);
-    friend int QLibrary_Receivers(const QLibrary* self, const char* signal);
-    friend int QLibrary_SuperReceivers(const QLibrary* self, const char* signal);
-    friend bool QLibrary_IsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
-    friend bool QLibrary_SuperIsSignalConnected(const QLibrary* self, const QMetaMethod* signal);
 };
 
 #endif

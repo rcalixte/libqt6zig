@@ -124,9 +124,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QTemporaryFile, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) QMetaObject) void {
         qtc.QTemporaryFile_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -347,9 +347,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onFileName(self: QTemporaryFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFileName(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) [*:0]const u8) void {
         qtc.QTemporaryFile_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3069,9 +3069,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) i64 `
     ///
-    pub fn onSize(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3193,9 +3193,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) i32 `
     ///
-    pub fn onPermissions(self: QTemporaryFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onPermissions(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) i32) void {
         qtc.QTemporaryFile_OnPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3309,9 +3309,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) void `
     ///
-    pub fn onClose(self: QTemporaryFile, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) void) void {
         qtc.QTemporaryFile_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3365,9 +3365,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3421,9 +3421,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) i64 `
     ///
-    pub fn onPos(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3537,9 +3537,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3791,9 +3791,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) bool `
     ///
-    pub fn onReset(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3847,9 +3847,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3903,9 +3903,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: QTemporaryFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3959,9 +3959,9 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTemporaryFile) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: QTemporaryFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QTemporaryFile, callback: *const fn (QTemporaryFile) callconv(.c) bool) void {
         qtc.QTemporaryFile_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4605,46 +4605,6 @@ pub const QTemporaryFile = extern struct {
         qtc.QTemporaryFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTemporaryFile `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: QTemporaryFile, _openMode: i32) void {
-        qtc.QTemporaryFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTemporaryFile`
-    ///
-    /// ` callback: *const fn (self: QTemporaryFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: QTemporaryFile, callback: *const fn (QTemporaryFile, i32) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setErrorString` instead
     ///
     pub const SetErrorString = setErrorString;
@@ -4669,50 +4629,6 @@ pub const QTemporaryFile = extern struct {
         qtc.QTemporaryFile_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTemporaryFile `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: QTemporaryFile, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QTemporaryFile_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTemporaryFile`
-    ///
-    /// ` callback: *const fn (self: QTemporaryFile, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4731,44 +4647,6 @@ pub const QTemporaryFile = extern struct {
         return .{ .ptr = qtc.QTemporaryFile_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTemporaryFile `
-    ///
-    pub fn superSender(self: QTemporaryFile) QObject {
-        return .{ .ptr = qtc.QTemporaryFile_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTemporaryFile`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QTemporaryFile, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QTemporaryFile_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4785,44 +4663,6 @@ pub const QTemporaryFile = extern struct {
     ///
     pub fn senderSignalIndex(self: QTemporaryFile) i32 {
         return qtc.QTemporaryFile_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTemporaryFile `
-    ///
-    pub fn superSenderSignalIndex(self: QTemporaryFile) i32 {
-        return qtc.QTemporaryFile_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTemporaryFile`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QTemporaryFile, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTemporaryFile_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4846,47 +4686,6 @@ pub const QTemporaryFile = extern struct {
         return qtc.QTemporaryFile_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTemporaryFile `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QTemporaryFile, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QTemporaryFile_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTemporaryFile`
-    ///
-    /// ` callback: *const fn (self: QTemporaryFile, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTemporaryFile_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4906,47 +4705,6 @@ pub const QTemporaryFile = extern struct {
     pub fn isSignalConnected(self: QTemporaryFile, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTemporaryFile_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTemporaryFile `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QTemporaryFile, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QTemporaryFile_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTemporaryFile`
-    ///
-    /// ` callback: *const fn (self: QTemporaryFile, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QTemporaryFile, callback: *const fn (QTemporaryFile, QMetaMethod) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

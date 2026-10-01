@@ -221,17 +221,17 @@ void QDialogButtonBox_Connect_Rejected(QDialogButtonBox* self, intptr_t slot) {
 
 void QDialogButtonBox_ChangeEvent(QDialogButtonBox* self, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->changeEvent(event);
     }
 }
 
 bool QDialogButtonBox_Event(QDialogButtonBox* self, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         return vqdialogbuttonbox->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QDialogButtonBox::event called without a directly constructed type");
 }
 
 libqt_string QDialogButtonBox_Tr2(const char* s, const char* c) {
@@ -260,1634 +260,1153 @@ libqt_string QDialogButtonBox_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QDialogButtonBox_SuperMetaObject(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdialogbuttonbox->metaObject();
-    } else {
-        return (QMetaObject*)self->QDialogButtonBox::metaObject();
-    }
+    return (QMetaObject*)self->QDialogButtonBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnMetaObject(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_MetaObject_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MetaObject_Callback>(slot));
+void QDialogButtonBox_OnMetaObject(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_metaobject_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDialogButtonBox_SuperMetacast(QDialogButtonBox* self, const char* param1) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Metacast_IsBase(true);
-        return vqdialogbuttonbox->qt_metacast(param1);
-    } else {
-        return self->QDialogButtonBox::qt_metacast(param1);
-    }
+    return self->QDialogButtonBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMetacast(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Metacast_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metacast_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_metacast_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDialogButtonBox_SuperMetacall(QDialogButtonBox* self, int param1, int param2, void** param3) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Metacall_IsBase(true);
-        return vqdialogbuttonbox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDialogButtonBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDialogButtonBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMetacall(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Metacall_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metacall_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_metacall_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperChangeEvent(QDialogButtonBox* self, QEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_ChangeEvent_IsBase(true);
-        vqdialogbuttonbox->changeEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->changeEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnChangeEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_ChangeEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ChangeEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_changeevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QDialogButtonBox_SuperEvent(QDialogButtonBox* self, QEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Event_IsBase(true);
-        return vqdialogbuttonbox->event(event);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->event(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        return vqdialogbuttonbox->QDialogButtonBox::event(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Event_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Event_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_event_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDialogButtonBox_DevType(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->devType();
-    } else {
-        return self->QDialogButtonBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QDialogButtonBox_SuperDevType(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_DevType_IsBase(true);
-        return vqdialogbuttonbox->devType();
-    } else {
-        return self->QDialogButtonBox::devType();
-    }
+    return self->QDialogButtonBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnDevType(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_DevType_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DevType_Callback>(slot));
+void QDialogButtonBox_OnDevType(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_devtype_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_SetVisible(QDialogButtonBox* self, bool visible) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setVisible(visible);
-    } else {
-        self->QDialogButtonBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperSetVisible(QDialogButtonBox* self, bool visible) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_SetVisible_IsBase(true);
-        vqdialogbuttonbox->setVisible(visible);
-    } else {
-        self->QDialogButtonBox::setVisible(visible);
-    }
+    self->QDialogButtonBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnSetVisible(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_SetVisible_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SetVisible_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_setvisible_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDialogButtonBox_SizeHint(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return new QSize(vqdialogbuttonbox->sizeHint());
-    } else {
-        return new QSize(((VirtualQDialogButtonBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QDialogButtonBox_SuperSizeHint(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_SizeHint_IsBase(true);
-        return new QSize(vqdialogbuttonbox->sizeHint());
-    } else {
-        return new QSize(((VirtualQDialogButtonBox*)self)->sizeHint());
-    }
+    return new QSize(self->QDialogButtonBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnSizeHint(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_SizeHint_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SizeHint_Callback>(slot));
+void QDialogButtonBox_OnSizeHint(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_sizehint_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDialogButtonBox_MinimumSizeHint(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return new QSize(vqdialogbuttonbox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDialogButtonBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QDialogButtonBox_SuperMinimumSizeHint(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vqdialogbuttonbox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDialogButtonBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QDialogButtonBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnMinimumSizeHint(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MinimumSizeHint_Callback>(slot));
+void QDialogButtonBox_OnMinimumSizeHint(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_minimumsizehint_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDialogButtonBox_HeightForWidth(const QDialogButtonBox* self, int param1) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDialogButtonBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QDialogButtonBox_SuperHeightForWidth(const QDialogButtonBox* self, int param1) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_HeightForWidth_IsBase(true);
-        return vqdialogbuttonbox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDialogButtonBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QDialogButtonBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnHeightForWidth(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_HeightForWidth_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HeightForWidth_Callback>(slot));
+void QDialogButtonBox_OnHeightForWidth(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_heightforwidth_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDialogButtonBox_HasHeightForWidth(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->hasHeightForWidth();
-    } else {
-        return self->QDialogButtonBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QDialogButtonBox_SuperHasHeightForWidth(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_HasHeightForWidth_IsBase(true);
-        return vqdialogbuttonbox->hasHeightForWidth();
-    } else {
-        return self->QDialogButtonBox::hasHeightForWidth();
-    }
+    return self->QDialogButtonBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnHasHeightForWidth(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HasHeightForWidth_Callback>(slot));
+void QDialogButtonBox_OnHasHeightForWidth(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_hasheightforwidth_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QDialogButtonBox_PaintEngine(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->paintEngine();
-    } else {
-        return self->QDialogButtonBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QDialogButtonBox_SuperPaintEngine(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_PaintEngine_IsBase(true);
-        return vqdialogbuttonbox->paintEngine();
-    } else {
-        return self->QDialogButtonBox::paintEngine();
-    }
+    return self->QDialogButtonBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnPaintEngine(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_PaintEngine_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_PaintEngine_Callback>(slot));
+void QDialogButtonBox_OnPaintEngine(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_paintengine_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_MousePressEvent(QDialogButtonBox* self, QMouseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->mousePressEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperMousePressEvent(QDialogButtonBox* self, QMouseEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_MousePressEvent_IsBase(true);
-        vqdialogbuttonbox->mousePressEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->mousePressEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMousePressEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_MousePressEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MousePressEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_mousepressevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_MouseReleaseEvent(QDialogButtonBox* self, QMouseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->mouseReleaseEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperMouseReleaseEvent(QDialogButtonBox* self, QMouseEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_MouseReleaseEvent_IsBase(true);
-        vqdialogbuttonbox->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMouseReleaseEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_mousereleaseevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_MouseDoubleClickEvent(QDialogButtonBox* self, QMouseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperMouseDoubleClickEvent(QDialogButtonBox* self, QMouseEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_MouseDoubleClickEvent_IsBase(true);
-        vqdialogbuttonbox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMouseDoubleClickEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_mousedoubleclickevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_MouseMoveEvent(QDialogButtonBox* self, QMouseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->mouseMoveEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperMouseMoveEvent(QDialogButtonBox* self, QMouseEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_MouseMoveEvent_IsBase(true);
-        vqdialogbuttonbox->mouseMoveEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMouseMoveEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_mousemoveevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_WheelEvent(QDialogButtonBox* self, QWheelEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->wheelEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperWheelEvent(QDialogButtonBox* self, QWheelEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_WheelEvent_IsBase(true);
-        vqdialogbuttonbox->wheelEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->wheelEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnWheelEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_WheelEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_WheelEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_wheelevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_KeyPressEvent(QDialogButtonBox* self, QKeyEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->keyPressEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperKeyPressEvent(QDialogButtonBox* self, QKeyEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_KeyPressEvent_IsBase(true);
-        vqdialogbuttonbox->keyPressEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->keyPressEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnKeyPressEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_KeyPressEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_keypressevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_KeyReleaseEvent(QDialogButtonBox* self, QKeyEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->keyReleaseEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperKeyReleaseEvent(QDialogButtonBox* self, QKeyEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_KeyReleaseEvent_IsBase(true);
-        vqdialogbuttonbox->keyReleaseEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnKeyReleaseEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_keyreleaseevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_FocusInEvent(QDialogButtonBox* self, QFocusEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->focusInEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperFocusInEvent(QDialogButtonBox* self, QFocusEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_FocusInEvent_IsBase(true);
-        vqdialogbuttonbox->focusInEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->focusInEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnFocusInEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_FocusInEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusInEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_focusinevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_FocusOutEvent(QDialogButtonBox* self, QFocusEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->focusOutEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperFocusOutEvent(QDialogButtonBox* self, QFocusEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_FocusOutEvent_IsBase(true);
-        vqdialogbuttonbox->focusOutEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->focusOutEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnFocusOutEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusOutEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_focusoutevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_EnterEvent(QDialogButtonBox* self, QEnterEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->enterEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperEnterEvent(QDialogButtonBox* self, QEnterEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_EnterEvent_IsBase(true);
-        vqdialogbuttonbox->enterEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->enterEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnEnterEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_EnterEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_EnterEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_enterevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_LeaveEvent(QDialogButtonBox* self, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->leaveEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperLeaveEvent(QDialogButtonBox* self, QEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_LeaveEvent_IsBase(true);
-        vqdialogbuttonbox->leaveEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->leaveEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnLeaveEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_LeaveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_LeaveEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_leaveevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_PaintEvent(QDialogButtonBox* self, QPaintEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->paintEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperPaintEvent(QDialogButtonBox* self, QPaintEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_PaintEvent_IsBase(true);
-        vqdialogbuttonbox->paintEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->paintEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnPaintEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_PaintEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_PaintEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_paintevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_MoveEvent(QDialogButtonBox* self, QMoveEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->moveEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperMoveEvent(QDialogButtonBox* self, QMoveEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_MoveEvent_IsBase(true);
-        vqdialogbuttonbox->moveEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->moveEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMoveEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_MoveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MoveEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_moveevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_ResizeEvent(QDialogButtonBox* self, QResizeEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->resizeEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperResizeEvent(QDialogButtonBox* self, QResizeEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_ResizeEvent_IsBase(true);
-        vqdialogbuttonbox->resizeEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->resizeEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnResizeEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_ResizeEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ResizeEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_resizeevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_CloseEvent(QDialogButtonBox* self, QCloseEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->closeEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperCloseEvent(QDialogButtonBox* self, QCloseEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_CloseEvent_IsBase(true);
-        vqdialogbuttonbox->closeEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->closeEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnCloseEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_CloseEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_CloseEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_closeevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_ContextMenuEvent(QDialogButtonBox* self, QContextMenuEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->contextMenuEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperContextMenuEvent(QDialogButtonBox* self, QContextMenuEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_ContextMenuEvent_IsBase(true);
-        vqdialogbuttonbox->contextMenuEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnContextMenuEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_contextmenuevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_TabletEvent(QDialogButtonBox* self, QTabletEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->tabletEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperTabletEvent(QDialogButtonBox* self, QTabletEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_TabletEvent_IsBase(true);
-        vqdialogbuttonbox->tabletEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->tabletEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnTabletEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_TabletEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_TabletEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_tabletevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_ActionEvent(QDialogButtonBox* self, QActionEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->actionEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperActionEvent(QDialogButtonBox* self, QActionEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_ActionEvent_IsBase(true);
-        vqdialogbuttonbox->actionEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->actionEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnActionEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_ActionEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ActionEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_actionevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_DragEnterEvent(QDialogButtonBox* self, QDragEnterEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->dragEnterEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperDragEnterEvent(QDialogButtonBox* self, QDragEnterEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_DragEnterEvent_IsBase(true);
-        vqdialogbuttonbox->dragEnterEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDragEnterEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragEnterEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_dragenterevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_DragMoveEvent(QDialogButtonBox* self, QDragMoveEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->dragMoveEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperDragMoveEvent(QDialogButtonBox* self, QDragMoveEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_DragMoveEvent_IsBase(true);
-        vqdialogbuttonbox->dragMoveEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDragMoveEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragMoveEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_dragmoveevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_DragLeaveEvent(QDialogButtonBox* self, QDragLeaveEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->dragLeaveEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperDragLeaveEvent(QDialogButtonBox* self, QDragLeaveEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_DragLeaveEvent_IsBase(true);
-        vqdialogbuttonbox->dragLeaveEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDragLeaveEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_dragleaveevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_DropEvent(QDialogButtonBox* self, QDropEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->dropEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperDropEvent(QDialogButtonBox* self, QDropEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_DropEvent_IsBase(true);
-        vqdialogbuttonbox->dropEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->dropEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDropEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_DropEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DropEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_dropevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_ShowEvent(QDialogButtonBox* self, QShowEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->showEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperShowEvent(QDialogButtonBox* self, QShowEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_ShowEvent_IsBase(true);
-        vqdialogbuttonbox->showEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->showEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnShowEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_ShowEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ShowEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_showevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_HideEvent(QDialogButtonBox* self, QHideEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->hideEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperHideEvent(QDialogButtonBox* self, QHideEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_HideEvent_IsBase(true);
-        vqdialogbuttonbox->hideEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->hideEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnHideEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_HideEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HideEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_hideevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDialogButtonBox_NativeEvent(QDialogButtonBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
+    if (vqdialogbuttonbox) {
         return vqdialogbuttonbox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQDialogButtonBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QDialogButtonBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDialogButtonBox_SuperNativeEvent(QDialogButtonBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_NativeEvent_IsBase(true);
-        return vqdialogbuttonbox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        return vqdialogbuttonbox->QDialogButtonBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnNativeEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_NativeEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_NativeEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_nativeevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDialogButtonBox_Metric(const QDialogButtonBox* self, int param1) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         return vqdialogbuttonbox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQDialogButtonBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QDialogButtonBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QDialogButtonBox_SuperMetric(const QDialogButtonBox* self, int param1) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Metric_IsBase(true);
-        return vqdialogbuttonbox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        return vqdialogbuttonbox->QDialogButtonBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnMetric(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Metric_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metric_Callback>(slot));
+void QDialogButtonBox_OnMetric(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_metric_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_InitPainter(const QDialogButtonBox* self, QPainter* painter) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->initPainter(painter);
     } else {
-        ((VirtualQDialogButtonBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QDialogButtonBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperInitPainter(const QDialogButtonBox* self, QPainter* painter) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_InitPainter_IsBase(true);
-        vqdialogbuttonbox->initPainter(painter);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->initPainter(painter);
-    }
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        vqdialogbuttonbox->QDialogButtonBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnInitPainter(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_InitPainter_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InitPainter_Callback>(slot));
+void QDialogButtonBox_OnInitPainter(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_initpainter_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QDialogButtonBox_Redirected(const QDialogButtonBox* self, QPoint* offset) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         return vqdialogbuttonbox->redirected(offset);
     } else {
-        return ((VirtualQDialogButtonBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QDialogButtonBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QDialogButtonBox_SuperRedirected(const QDialogButtonBox* self, QPoint* offset) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Redirected_IsBase(true);
-        return vqdialogbuttonbox->redirected(offset);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->redirected(offset);
-    }
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        return vqdialogbuttonbox->QDialogButtonBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnRedirected(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Redirected_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Redirected_Callback>(slot));
+void QDialogButtonBox_OnRedirected(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_redirected_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QDialogButtonBox_SharedPainter(const QDialogButtonBox* self) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         return vqdialogbuttonbox->sharedPainter();
     } else {
-        return ((VirtualQDialogButtonBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QDialogButtonBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QDialogButtonBox_SuperSharedPainter(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_SharedPainter_IsBase(true);
-        return vqdialogbuttonbox->sharedPainter();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->sharedPainter();
-    }
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        return vqdialogbuttonbox->QDialogButtonBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnSharedPainter(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_SharedPainter_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SharedPainter_Callback>(slot));
+void QDialogButtonBox_OnSharedPainter(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_sharedpainter_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_InputMethodEvent(QDialogButtonBox* self, QInputMethodEvent* param1) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->inputMethodEvent(param1);
     } else {
-        ((VirtualQDialogButtonBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QDialogButtonBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperInputMethodEvent(QDialogButtonBox* self, QInputMethodEvent* param1) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_InputMethodEvent_IsBase(true);
-        vqdialogbuttonbox->inputMethodEvent(param1);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnInputMethodEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InputMethodEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_inputmethodevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QDialogButtonBox_InputMethodQuery(const QDialogButtonBox* self, int param1) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return new QVariant(vqdialogbuttonbox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDialogButtonBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QDialogButtonBox_SuperInputMethodQuery(const QDialogButtonBox* self, int param1) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vqdialogbuttonbox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDialogButtonBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QDialogButtonBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnInputMethodQuery(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InputMethodQuery_Callback>(slot));
+void QDialogButtonBox_OnInputMethodQuery(QDialogButtonBox* self, intptr_t slot) {
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self)))
+        vqdialogbuttonbox->qdialogbuttonbox_inputmethodquery_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDialogButtonBox_FocusNextPrevChild(QDialogButtonBox* self, bool next) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         return vqdialogbuttonbox->focusNextPrevChild(next);
     } else {
-        return ((VirtualQDialogButtonBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QDialogButtonBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDialogButtonBox_SuperFocusNextPrevChild(QDialogButtonBox* self, bool next) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_FocusNextPrevChild_IsBase(true);
-        return vqdialogbuttonbox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        return vqdialogbuttonbox->QDialogButtonBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnFocusNextPrevChild(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_focusnextprevchild_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDialogButtonBox_EventFilter(QDialogButtonBox* self, QObject* watched, QEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->eventFilter(watched, event);
-    } else {
-        return self->QDialogButtonBox::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDialogButtonBox_SuperEventFilter(QDialogButtonBox* self, QObject* watched, QEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_EventFilter_IsBase(true);
-        return vqdialogbuttonbox->eventFilter(watched, event);
-    } else {
-        return self->QDialogButtonBox::eventFilter(watched, event);
-    }
+    return self->QDialogButtonBox::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnEventFilter(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_EventFilter_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_EventFilter_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_eventfilter_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_TimerEvent(QDialogButtonBox* self, QTimerEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->timerEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperTimerEvent(QDialogButtonBox* self, QTimerEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_TimerEvent_IsBase(true);
-        vqdialogbuttonbox->timerEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->timerEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnTimerEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_TimerEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_TimerEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_timerevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_ChildEvent(QDialogButtonBox* self, QChildEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->childEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperChildEvent(QDialogButtonBox* self, QChildEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_ChildEvent_IsBase(true);
-        vqdialogbuttonbox->childEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->childEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnChildEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_ChildEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ChildEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_childevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_CustomEvent(QDialogButtonBox* self, QEvent* event) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->customEvent(event);
     } else {
-        ((VirtualQDialogButtonBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDialogButtonBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperCustomEvent(QDialogButtonBox* self, QEvent* event) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_CustomEvent_IsBase(true);
-        vqdialogbuttonbox->customEvent(event);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->customEvent(event);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnCustomEvent(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_CustomEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_CustomEvent_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_customevent_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_ConnectNotify(QDialogButtonBox* self, const QMetaMethod* signal) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->connectNotify(*signal);
     } else {
-        ((VirtualQDialogButtonBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDialogButtonBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperConnectNotify(QDialogButtonBox* self, const QMetaMethod* signal) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_ConnectNotify_IsBase(true);
-        vqdialogbuttonbox->connectNotify(*signal);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnConnectNotify(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_ConnectNotify_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ConnectNotify_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_connectnotify_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDialogButtonBox_DisconnectNotify(QDialogButtonBox* self, const QMetaMethod* signal) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox) {
         vqdialogbuttonbox->disconnectNotify(*signal);
     } else {
-        ((VirtualQDialogButtonBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDialogButtonBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDialogButtonBox_SuperDisconnectNotify(QDialogButtonBox* self, const QMetaMethod* signal) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_DisconnectNotify_IsBase(true);
-        vqdialogbuttonbox->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDialogButtonBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->QDialogButtonBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDialogButtonBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDisconnectNotify(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DisconnectNotify_Callback>(slot));
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self))
+        vqdialogbuttonbox->qdialogbuttonbox_disconnectnotify_callback = reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDialogButtonBox_UpdateMicroFocus(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->updateMicroFocus();
-    } else {
-        ((VirtualQDialogButtonBox*)self)->updateMicroFocus();
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->VirtualQDialogButtonBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDialogButtonBox_SuperUpdateMicroFocus(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_UpdateMicroFocus_IsBase(true);
-        vqdialogbuttonbox->updateMicroFocus();
-    } else {
-        ((VirtualQDialogButtonBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnUpdateMicroFocus(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDialogButtonBox_Create(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->create();
-    } else {
-        ((VirtualQDialogButtonBox*)self)->create();
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->VirtualQDialogButtonBox::create();
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDialogButtonBox_SuperCreate(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Create_IsBase(true);
-        vqdialogbuttonbox->create();
-    } else {
-        ((VirtualQDialogButtonBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnCreate(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Create_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDialogButtonBox_Destroy(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->destroy();
-    } else {
-        ((VirtualQDialogButtonBox*)self)->destroy();
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        vqdialogbuttonbox->VirtualQDialogButtonBox::destroy();
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDialogButtonBox_SuperDestroy(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Destroy_IsBase(true);
-        vqdialogbuttonbox->destroy();
-    } else {
-        ((VirtualQDialogButtonBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnDestroy(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Destroy_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDialogButtonBox_FocusNextChild(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->focusNextChild();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->focusNextChild();
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        return vqdialogbuttonbox->VirtualQDialogButtonBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDialogButtonBox_SuperFocusNextChild(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_FocusNextChild_IsBase(true);
-        return vqdialogbuttonbox->focusNextChild();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnFocusNextChild(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_FocusNextChild_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDialogButtonBox_FocusPreviousChild(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->focusPreviousChild();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->focusPreviousChild();
-    }
+    if (auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self)) {
+        return vqdialogbuttonbox->VirtualQDialogButtonBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDialogButtonBox_SuperFocusPreviousChild(QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_FocusPreviousChild_IsBase(true);
-        return vqdialogbuttonbox->focusPreviousChild();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnFocusPreviousChild(QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDialogButtonBox_Sender(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->sender();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->sender();
-    }
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        return vqdialogbuttonbox->VirtualQDialogButtonBox::sender();
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDialogButtonBox_SuperSender(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Sender_IsBase(true);
-        return vqdialogbuttonbox->sender();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnSender(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Sender_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDialogButtonBox_SenderSignalIndex(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->senderSignalIndex();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->senderSignalIndex();
-    }
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        return vqdialogbuttonbox->VirtualQDialogButtonBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDialogButtonBox_SuperSenderSignalIndex(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_SenderSignalIndex_IsBase(true);
-        return vqdialogbuttonbox->senderSignalIndex();
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnSenderSignalIndex(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDialogButtonBox_Receivers(const QDialogButtonBox* self, const char* signal) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->receivers(signal);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->receivers(signal);
-    }
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        return vqdialogbuttonbox->VirtualQDialogButtonBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDialogButtonBox_SuperReceivers(const QDialogButtonBox* self, const char* signal) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_Receivers_IsBase(true);
-        return vqdialogbuttonbox->receivers(signal);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnReceivers(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_Receivers_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDialogButtonBox_IsSignalConnected(const QDialogButtonBox* self, const QMetaMethod* signal) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        return vqdialogbuttonbox->VirtualQDialogButtonBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDialogButtonBox_SuperIsSignalConnected(const QDialogButtonBox* self, const QMetaMethod* signal) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_IsSignalConnected_IsBase(true);
-        return vqdialogbuttonbox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnIsSignalConnected(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QDialogButtonBox_GetDecodedMetricF(const QDialogButtonBox* self, int metricA, int metricB) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return vqdialogbuttonbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QDialogButtonBox_SuperGetDecodedMetricF(const QDialogButtonBox* self, int metricA, int metricB) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        vqdialogbuttonbox->setQDialogButtonBox_GetDecodedMetricF_IsBase(true);
-        return vqdialogbuttonbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDialogButtonBox_OnGetDecodedMetricF(const QDialogButtonBox* self, intptr_t slot) {
-    auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
-        vqdialogbuttonbox->setQDialogButtonBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self))) {
+        return vqdialogbuttonbox->VirtualQDialogButtonBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QDialogButtonBox::getDecodedMetricF called without a directly constructed type");
 }
 
 void QDialogButtonBox_Delete(QDialogButtonBox* self) {

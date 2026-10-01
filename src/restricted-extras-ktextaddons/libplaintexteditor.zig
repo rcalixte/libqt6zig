@@ -155,9 +155,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) QMetaObject) void {
         qtc.TextCustomEditor__PlainTextEditor_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -500,9 +500,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) void `
     ///
-    pub fn onCreateHighlighter(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreateHighlighter(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) void) void {
         qtc.TextCustomEditor__PlainTextEditor_OnCreateHighlighter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1036,43 +1036,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         return qtc.TextCustomEditor__PlainTextEditor_OverrideShortcut(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `onOverrideShortcut` instead
-    ///
-    pub const OnOverrideShortcut = onOverrideShortcut;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1PlainTextEditor.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, event: QKeyEvent) callconv(.c) bool `
-    ///
-    pub fn onOverrideShortcut(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, QKeyEvent) callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnOverrideShortcut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOverrideShortcut` instead
-    ///
-    pub const SuperOverrideShortcut = superOverrideShortcut;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1PlainTextEditor.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` _event: QKeyEvent `
-    ///
-    pub fn superOverrideShortcut(self: TextCustomEditor__PlainTextEditor, _event: anytype) bool {
-        comptime _ = @TypeOf(_event)._is_QKeyEvent;
-        return qtc.TextCustomEditor__PlainTextEditor_SuperOverrideShortcut(@ptrCast(self.ptr), @ptrCast(_event.ptr));
-    }
-
     /// ### DEPRECATED: Use `handleShortcut` instead
     ///
     pub const HandleShortcut = handleShortcut;
@@ -1088,43 +1051,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     pub fn handleShortcut(self: TextCustomEditor__PlainTextEditor, _event: anytype) bool {
         comptime _ = @TypeOf(_event)._is_QKeyEvent;
         return qtc.TextCustomEditor__PlainTextEditor_HandleShortcut(@ptrCast(self.ptr), @ptrCast(_event.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onHandleShortcut` instead
-    ///
-    pub const OnHandleShortcut = onHandleShortcut;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1PlainTextEditor.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, event: QKeyEvent) callconv(.c) bool `
-    ///
-    pub fn onHandleShortcut(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, QKeyEvent) callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnHandleShortcut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHandleShortcut` instead
-    ///
-    pub const SuperHandleShortcut = superHandleShortcut;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1PlainTextEditor.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` _event: QKeyEvent `
-    ///
-    pub fn superHandleShortcut(self: TextCustomEditor__PlainTextEditor, _event: anytype) bool {
-        comptime _ = @TypeOf(_event)._is_QKeyEvent;
-        return qtc.TextCustomEditor__PlainTextEditor_SuperHandleShortcut(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `wheelEvent` instead
@@ -1207,9 +1133,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor `
     ///
-    /// ` callback: *const fn () callconv(.c) Sonnet__SpellCheckDecorator `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) Sonnet__SpellCheckDecorator `
     ///
-    pub fn onCreateSpellCheckDecorator(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) Sonnet__SpellCheckDecorator) void {
+    pub fn onCreateSpellCheckDecorator(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) Sonnet__SpellCheckDecorator) void {
         qtc.TextCustomEditor__PlainTextEditor_OnCreateSpellCheckDecorator(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1244,43 +1170,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     pub fn setHighlighter(self: TextCustomEditor__PlainTextEditor, _highLighter: anytype) void {
         comptime _ = @TypeOf(_highLighter)._is_Sonnet__Highlighter;
         qtc.TextCustomEditor__PlainTextEditor_SetHighlighter(@ptrCast(self.ptr), @ptrCast(_highLighter.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetHighlighter` instead
-    ///
-    pub const OnSetHighlighter = onSetHighlighter;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1PlainTextEditor.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, _highLighter: Sonnet__Highlighter) callconv(.c) void `
-    ///
-    pub fn onSetHighlighter(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, Sonnet__Highlighter) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnSetHighlighter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetHighlighter` instead
-    ///
-    pub const SuperSetHighlighter = superSetHighlighter;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1PlainTextEditor.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` _highLighter: Sonnet__Highlighter `
-    ///
-    pub fn superSetHighlighter(self: TextCustomEditor__PlainTextEditor, _highLighter: anytype) void {
-        comptime _ = @TypeOf(_highLighter)._is_Sonnet__Highlighter;
-        qtc.TextCustomEditor__PlainTextEditor_SuperSetHighlighter(@ptrCast(self.ptr), @ptrCast(_highLighter.ptr));
     }
 
     /// ### DEPRECATED: Use `focusInEvent` instead
@@ -1363,9 +1252,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) void `
     ///
-    pub fn onUpdateHighLighter(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateHighLighter(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) void) void {
         qtc.TextCustomEditor__PlainTextEditor_OnUpdateHighLighter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1411,9 +1300,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) void `
     ///
-    pub fn onClearDecorator(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearDecorator(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) void) void {
         qtc.TextCustomEditor__PlainTextEditor_OnClearDecorator(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11249,9 +11138,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn () callconv(.c) QMimeData `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) QMimeData `
     ///
-    pub fn onCreateMimeDataFromSelection(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) QMimeData) void {
         qtc.TextCustomEditor__PlainTextEditor_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11617,11 +11506,11 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) QSize) void {
         qtc.TextCustomEditor__PlainTextEditor_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11675,11 +11564,11 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) QSize) void {
         qtc.TextCustomEditor__PlainTextEditor_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11925,11 +11814,11 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) QSize) void {
         qtc.TextCustomEditor__PlainTextEditor_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12045,9 +11934,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) i32) void {
         qtc.TextCustomEditor__PlainTextEditor_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12221,9 +12110,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) bool) void {
         qtc.TextCustomEditor__PlainTextEditor_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12277,9 +12166,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) QPaintEngine) void {
         qtc.TextCustomEditor__PlainTextEditor_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13027,9 +12916,9 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor) callconv(.c) QPainter) void {
         qtc.TextCustomEditor__PlainTextEditor_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13299,46 +13188,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_FirstVisibleBlock(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superFirstVisibleBlock` instead
-    ///
-    pub const SuperFirstVisibleBlock = superFirstVisibleBlock;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superFirstVisibleBlock(self: TextCustomEditor__PlainTextEditor) QTextBlock {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_SuperFirstVisibleBlock(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onFirstVisibleBlock` instead
-    ///
-    pub const OnFirstVisibleBlock = onFirstVisibleBlock;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) QTextBlock `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onFirstVisibleBlock(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QTextBlock) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnFirstVisibleBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `contentOffset` instead
     ///
     pub const ContentOffset = contentOffset;
@@ -13355,46 +13204,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn contentOffset(self: TextCustomEditor__PlainTextEditor) QPointF {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_ContentOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superContentOffset` instead
-    ///
-    pub const SuperContentOffset = superContentOffset;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superContentOffset(self: TextCustomEditor__PlainTextEditor) QPointF {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_SuperContentOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onContentOffset` instead
-    ///
-    pub const OnContentOffset = onContentOffset;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPointF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onContentOffset(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QPointF) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnContentOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `blockBoundingRect` instead
@@ -13418,49 +13227,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_BlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superBlockBoundingRect` instead
-    ///
-    pub const SuperBlockBoundingRect = superBlockBoundingRect;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` block: QTextBlock `
-    ///
-    pub fn superBlockBoundingRect(self: TextCustomEditor__PlainTextEditor, block: anytype) QRectF {
-        comptime _ = @TypeOf(block)._is_QTextBlock;
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_SuperBlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onBlockBoundingRect` instead
-    ///
-    pub const OnBlockBoundingRect = onBlockBoundingRect;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, block: QTextBlock) callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onBlockBoundingRect(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, QTextBlock) callconv(.c) QRectF) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `blockBoundingGeometry` instead
     ///
     pub const BlockBoundingGeometry = blockBoundingGeometry;
@@ -13482,49 +13248,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_BlockBoundingGeometry(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superBlockBoundingGeometry` instead
-    ///
-    pub const SuperBlockBoundingGeometry = superBlockBoundingGeometry;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` block: QTextBlock `
-    ///
-    pub fn superBlockBoundingGeometry(self: TextCustomEditor__PlainTextEditor, block: anytype) QRectF {
-        comptime _ = @TypeOf(block)._is_QTextBlock;
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_SuperBlockBoundingGeometry(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onBlockBoundingGeometry` instead
-    ///
-    pub const OnBlockBoundingGeometry = onBlockBoundingGeometry;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, block: QTextBlock) callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onBlockBoundingGeometry(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, QTextBlock) callconv(.c) QRectF) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnBlockBoundingGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `getPaintContext` instead
     ///
     pub const GetPaintContext = getPaintContext;
@@ -13541,46 +13264,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn getPaintContext(self: TextCustomEditor__PlainTextEditor) QAbstractTextDocumentLayout__PaintContext {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_GetPaintContext(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superGetPaintContext` instead
-    ///
-    pub const SuperGetPaintContext = superGetPaintContext;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superGetPaintContext(self: TextCustomEditor__PlainTextEditor) QAbstractTextDocumentLayout__PaintContext {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_SuperGetPaintContext(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onGetPaintContext` instead
-    ///
-    pub const OnGetPaintContext = onGetPaintContext;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onGetPaintContext(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnGetPaintContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `zoomInF` instead
@@ -13601,46 +13284,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn zoomInF(self: TextCustomEditor__PlainTextEditor, range: f32) void {
         qtc.TextCustomEditor__PlainTextEditor_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `superZoomInF` instead
-    ///
-    pub const SuperZoomInF = superZoomInF;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` range: f32 `
-    ///
-    pub fn superZoomInF(self: TextCustomEditor__PlainTextEditor, range: f32) void {
-        qtc.TextCustomEditor__PlainTextEditor_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `onZoomInF` instead
-    ///
-    pub const OnZoomInF = onZoomInF;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, range: f32) callconv(.c) void `
-    ///
-    pub fn onZoomInF(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, f32) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -13669,52 +13312,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         qtc.TextCustomEditor__PlainTextEditor_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: TextCustomEditor__PlainTextEditor, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.TextCustomEditor__PlainTextEditor_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -13731,46 +13328,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn viewportMargins(self: TextCustomEditor__PlainTextEditor) QMargins {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superViewportMargins(self: TextCustomEditor__PlainTextEditor) QMargins {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -13794,47 +13351,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         qtc.TextCustomEditor__PlainTextEditor_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: TextCustomEditor__PlainTextEditor, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.TextCustomEditor__PlainTextEditor_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, QPainter) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -13851,44 +13367,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn updateMicroFocus(self: TextCustomEditor__PlainTextEditor) void {
         qtc.TextCustomEditor__PlainTextEditor_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superUpdateMicroFocus(self: TextCustomEditor__PlainTextEditor) void {
-        qtc.TextCustomEditor__PlainTextEditor_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -13909,44 +13387,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         qtc.TextCustomEditor__PlainTextEditor_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superCreate(self: TextCustomEditor__PlainTextEditor) void {
-        qtc.TextCustomEditor__PlainTextEditor_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -13963,44 +13403,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn destroy(self: TextCustomEditor__PlainTextEditor) void {
         qtc.TextCustomEditor__PlainTextEditor_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superDestroy(self: TextCustomEditor__PlainTextEditor) void {
-        qtc.TextCustomEditor__PlainTextEditor_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -14021,44 +13423,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         return qtc.TextCustomEditor__PlainTextEditor_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superFocusNextChild(self: TextCustomEditor__PlainTextEditor) bool {
-        return qtc.TextCustomEditor__PlainTextEditor_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -14075,44 +13439,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn focusPreviousChild(self: TextCustomEditor__PlainTextEditor) bool {
         return qtc.TextCustomEditor__PlainTextEditor_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superFocusPreviousChild(self: TextCustomEditor__PlainTextEditor) bool {
-        return qtc.TextCustomEditor__PlainTextEditor_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -14133,44 +13459,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superSender(self: TextCustomEditor__PlainTextEditor) QObject {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextEditor_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -14187,44 +13475,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn senderSignalIndex(self: TextCustomEditor__PlainTextEditor) i32 {
         return qtc.TextCustomEditor__PlainTextEditor_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    pub fn superSenderSignalIndex(self: TextCustomEditor__PlainTextEditor) i32 {
-        return qtc.TextCustomEditor__PlainTextEditor_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextCustomEditor__PlainTextEditor, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -14248,47 +13498,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
         return qtc.TextCustomEditor__PlainTextEditor_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextCustomEditor__PlainTextEditor, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextCustomEditor__PlainTextEditor_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -14308,47 +13517,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     pub fn isSignalConnected(self: TextCustomEditor__PlainTextEditor, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__PlainTextEditor_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextCustomEditor__PlainTextEditor, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextCustomEditor__PlainTextEditor_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -14371,48 +13539,6 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextCustomEditor__PlainTextEditor, metricA: i32, metricB: i32) f64 {
         return qtc.TextCustomEditor__PlainTextEditor_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextCustomEditor__PlainTextEditor, metricA: i32, metricB: i32) f64 {
-        return qtc.TextCustomEditor__PlainTextEditor_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditor`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, i32, i32) callconv(.c) f64) void {
-        qtc.TextCustomEditor__PlainTextEditor_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

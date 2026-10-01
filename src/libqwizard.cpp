@@ -348,43 +348,43 @@ void QWizard_Restart(QWizard* self) {
 
 bool QWizard_Event(QWizard* self, QEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         return vqwizard->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QWizard::event called without a directly constructed type");
 }
 
 void QWizard_ResizeEvent(QWizard* self, QResizeEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->resizeEvent(event);
     }
 }
 
 void QWizard_PaintEvent(QWizard* self, QPaintEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->paintEvent(event);
     }
 }
 
 void QWizard_Done(QWizard* self, int result) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->done(static_cast<int>(result));
     }
 }
 
 void QWizard_InitializePage(QWizard* self, int id) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->initializePage(static_cast<int>(id));
     }
 }
 
 void QWizard_CleanupPage(QWizard* self, int id) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->cleanupPage(static_cast<int>(id));
     }
 }
@@ -419,1834 +419,1277 @@ void QWizard_SetOption2(QWizard* self, int option, bool on) {
 
 // Base class handler implementation
 QMetaObject* QWizard_SuperMetaObject(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_MetaObject_IsBase(true);
-        return (QMetaObject*)vqwizard->metaObject();
-    } else {
-        return (QMetaObject*)self->QWizard::metaObject();
-    }
+    return (QMetaObject*)self->QWizard::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnMetaObject(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_MetaObject_Callback(reinterpret_cast<VirtualQWizard::QWizard_MetaObject_Callback>(slot));
+void QWizard_OnMetaObject(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_metaobject_callback = reinterpret_cast<VirtualQWizard::QWizard_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QWizard_SuperMetacast(QWizard* self, const char* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Metacast_IsBase(true);
-        return vqwizard->qt_metacast(param1);
-    } else {
-        return self->QWizard::qt_metacast(param1);
-    }
+    return self->QWizard::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMetacast(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Metacast_Callback(reinterpret_cast<VirtualQWizard::QWizard_Metacast_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_metacast_callback = reinterpret_cast<VirtualQWizard::QWizard_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWizard_SuperMetacall(QWizard* self, int param1, int param2, void** param3) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Metacall_IsBase(true);
-        return vqwizard->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QWizard::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QWizard::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMetacall(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Metacall_Callback(reinterpret_cast<VirtualQWizard::QWizard_Metacall_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_metacall_callback = reinterpret_cast<VirtualQWizard::QWizard_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWizard_SuperValidateCurrentPage(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ValidateCurrentPage_IsBase(true);
-        return vqwizard->validateCurrentPage();
-    } else {
-        return self->QWizard::validateCurrentPage();
-    }
+    return self->QWizard::validateCurrentPage();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnValidateCurrentPage(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_ValidateCurrentPage_Callback(reinterpret_cast<VirtualQWizard::QWizard_ValidateCurrentPage_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_validatecurrentpage_callback = reinterpret_cast<VirtualQWizard::QWizard_ValidateCurrentPage_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWizard_SuperNextId(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_NextId_IsBase(true);
-        return vqwizard->nextId();
-    } else {
-        return self->QWizard::nextId();
-    }
+    return self->QWizard::nextId();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnNextId(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_NextId_Callback(reinterpret_cast<VirtualQWizard::QWizard_NextId_Callback>(slot));
+void QWizard_OnNextId(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_nextid_callback = reinterpret_cast<VirtualQWizard::QWizard_NextId_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWizard_SuperSetVisible(QWizard* self, bool visible) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_SetVisible_IsBase(true);
-        vqwizard->setVisible(visible);
-    } else {
-        self->QWizard::setVisible(visible);
-    }
+    self->QWizard::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnSetVisible(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_SetVisible_Callback(reinterpret_cast<VirtualQWizard::QWizard_SetVisible_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_setvisible_callback = reinterpret_cast<VirtualQWizard::QWizard_SetVisible_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QWizard_SuperSizeHint(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_SizeHint_IsBase(true);
-        return new QSize(vqwizard->sizeHint());
-    } else {
-        return new QSize(((VirtualQWizard*)self)->sizeHint());
-    }
+    return new QSize(self->QWizard::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnSizeHint(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_SizeHint_Callback(reinterpret_cast<VirtualQWizard::QWizard_SizeHint_Callback>(slot));
+void QWizard_OnSizeHint(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_sizehint_callback = reinterpret_cast<VirtualQWizard::QWizard_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWizard_SuperEvent(QWizard* self, QEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Event_IsBase(true);
-        return vqwizard->event(event);
-    } else {
-        return ((VirtualQWizard*)self)->event(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        return vqwizard->QWizard::event(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Event_Callback(reinterpret_cast<VirtualQWizard::QWizard_Event_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_event_callback = reinterpret_cast<VirtualQWizard::QWizard_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWizard_SuperResizeEvent(QWizard* self, QResizeEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ResizeEvent_IsBase(true);
-        vqwizard->resizeEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->resizeEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnResizeEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_ResizeEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ResizeEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_resizeevent_callback = reinterpret_cast<VirtualQWizard::QWizard_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWizard_SuperPaintEvent(QWizard* self, QPaintEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_PaintEvent_IsBase(true);
-        vqwizard->paintEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->paintEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnPaintEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_PaintEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_PaintEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_paintevent_callback = reinterpret_cast<VirtualQWizard::QWizard_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWizard_SuperDone(QWizard* self, int result) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Done_IsBase(true);
-        vqwizard->done(static_cast<int>(result));
-    } else {
-        ((VirtualQWizard*)self)->done(static_cast<int>(result));
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::done(static_cast<int>(result));
+    } else
+        qFatal("Error: Protected virtual method QWizard::done called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDone(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Done_Callback(reinterpret_cast<VirtualQWizard::QWizard_Done_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_done_callback = reinterpret_cast<VirtualQWizard::QWizard_Done_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWizard_SuperInitializePage(QWizard* self, int id) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_InitializePage_IsBase(true);
-        vqwizard->initializePage(static_cast<int>(id));
-    } else {
-        ((VirtualQWizard*)self)->initializePage(static_cast<int>(id));
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::initializePage(static_cast<int>(id));
+    } else
+        qFatal("Error: Protected virtual method QWizard::initializePage called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnInitializePage(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_InitializePage_Callback(reinterpret_cast<VirtualQWizard::QWizard_InitializePage_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_initializepage_callback = reinterpret_cast<VirtualQWizard::QWizard_InitializePage_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWizard_SuperCleanupPage(QWizard* self, int id) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_CleanupPage_IsBase(true);
-        vqwizard->cleanupPage(static_cast<int>(id));
-    } else {
-        ((VirtualQWizard*)self)->cleanupPage(static_cast<int>(id));
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::cleanupPage(static_cast<int>(id));
+    } else
+        qFatal("Error: Protected virtual method QWizard::cleanupPage called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnCleanupPage(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_CleanupPage_Callback(reinterpret_cast<VirtualQWizard::QWizard_CleanupPage_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_cleanuppage_callback = reinterpret_cast<VirtualQWizard::QWizard_CleanupPage_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QWizard_MinimumSizeHint(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return new QSize(vqwizard->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQWizard*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QWizard_SuperMinimumSizeHint(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_MinimumSizeHint_IsBase(true);
-        return new QSize(vqwizard->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQWizard*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QWizard::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnMinimumSizeHint(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_MinimumSizeHint_Callback(reinterpret_cast<VirtualQWizard::QWizard_MinimumSizeHint_Callback>(slot));
+void QWizard_OnMinimumSizeHint(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_minimumsizehint_callback = reinterpret_cast<VirtualQWizard::QWizard_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_Open(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->open();
-    } else {
-        self->QWizard::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void QWizard_SuperOpen(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Open_IsBase(true);
-        vqwizard->open();
-    } else {
-        self->QWizard::open();
-    }
+    self->QWizard::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnOpen(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Open_Callback(reinterpret_cast<VirtualQWizard::QWizard_Open_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_open_callback = reinterpret_cast<VirtualQWizard::QWizard_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QWizard_Exec(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->exec();
-    } else {
-        return self->QWizard::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int QWizard_SuperExec(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Exec_IsBase(true);
-        return vqwizard->exec();
-    } else {
-        return self->QWizard::exec();
-    }
+    return self->QWizard::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnExec(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Exec_Callback(reinterpret_cast<VirtualQWizard::QWizard_Exec_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_exec_callback = reinterpret_cast<VirtualQWizard::QWizard_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_Accept(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->accept();
-    } else {
-        self->QWizard::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void QWizard_SuperAccept(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Accept_IsBase(true);
-        vqwizard->accept();
-    } else {
-        self->QWizard::accept();
-    }
+    self->QWizard::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnAccept(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Accept_Callback(reinterpret_cast<VirtualQWizard::QWizard_Accept_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_accept_callback = reinterpret_cast<VirtualQWizard::QWizard_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_Reject(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->reject();
-    } else {
-        self->QWizard::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void QWizard_SuperReject(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Reject_IsBase(true);
-        vqwizard->reject();
-    } else {
-        self->QWizard::reject();
-    }
+    self->QWizard::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnReject(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Reject_Callback(reinterpret_cast<VirtualQWizard::QWizard_Reject_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_reject_callback = reinterpret_cast<VirtualQWizard::QWizard_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_KeyPressEvent(QWizard* self, QKeyEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->keyPressEvent(param1);
     } else {
-        ((VirtualQWizard*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QWizard::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperKeyPressEvent(QWizard* self, QKeyEvent* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_KeyPressEvent_IsBase(true);
-        vqwizard->keyPressEvent(param1);
-    } else {
-        ((VirtualQWizard*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWizard::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnKeyPressEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_KeyPressEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_KeyPressEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_keypressevent_callback = reinterpret_cast<VirtualQWizard::QWizard_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_CloseEvent(QWizard* self, QCloseEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->closeEvent(param1);
     } else {
-        ((VirtualQWizard*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method QWizard::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperCloseEvent(QWizard* self, QCloseEvent* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_CloseEvent_IsBase(true);
-        vqwizard->closeEvent(param1);
-    } else {
-        ((VirtualQWizard*)self)->closeEvent(param1);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWizard::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnCloseEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_CloseEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_CloseEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_closeevent_callback = reinterpret_cast<VirtualQWizard::QWizard_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_ShowEvent(QWizard* self, QShowEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->showEvent(param1);
     } else {
-        ((VirtualQWizard*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method QWizard::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperShowEvent(QWizard* self, QShowEvent* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ShowEvent_IsBase(true);
-        vqwizard->showEvent(param1);
-    } else {
-        ((VirtualQWizard*)self)->showEvent(param1);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWizard::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnShowEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_ShowEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ShowEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_showevent_callback = reinterpret_cast<VirtualQWizard::QWizard_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_ContextMenuEvent(QWizard* self, QContextMenuEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->contextMenuEvent(param1);
     } else {
-        ((VirtualQWizard*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QWizard::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperContextMenuEvent(QWizard* self, QContextMenuEvent* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ContextMenuEvent_IsBase(true);
-        vqwizard->contextMenuEvent(param1);
-    } else {
-        ((VirtualQWizard*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWizard::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnContextMenuEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_ContextMenuEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ContextMenuEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_contextmenuevent_callback = reinterpret_cast<VirtualQWizard::QWizard_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizard_EventFilter(QWizard* self, QObject* param1, QEvent* param2) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         return vqwizard->eventFilter(param1, param2);
     } else {
-        return ((VirtualQWizard*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QWizard::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QWizard_SuperEventFilter(QWizard* self, QObject* param1, QEvent* param2) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_EventFilter_IsBase(true);
-        return vqwizard->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQWizard*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        return vqwizard->QWizard::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QWizard::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnEventFilter(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_EventFilter_Callback(reinterpret_cast<VirtualQWizard::QWizard_EventFilter_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_eventfilter_callback = reinterpret_cast<VirtualQWizard::QWizard_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QWizard_DevType(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->devType();
-    } else {
-        return self->QWizard::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QWizard_SuperDevType(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_DevType_IsBase(true);
-        return vqwizard->devType();
-    } else {
-        return self->QWizard::devType();
-    }
+    return self->QWizard::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnDevType(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_DevType_Callback(reinterpret_cast<VirtualQWizard::QWizard_DevType_Callback>(slot));
+void QWizard_OnDevType(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_devtype_callback = reinterpret_cast<VirtualQWizard::QWizard_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QWizard_HeightForWidth(const QWizard* self, int param1) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QWizard::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QWizard_SuperHeightForWidth(const QWizard* self, int param1) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_HeightForWidth_IsBase(true);
-        return vqwizard->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QWizard::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QWizard::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnHeightForWidth(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_HeightForWidth_Callback(reinterpret_cast<VirtualQWizard::QWizard_HeightForWidth_Callback>(slot));
+void QWizard_OnHeightForWidth(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_heightforwidth_callback = reinterpret_cast<VirtualQWizard::QWizard_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizard_HasHeightForWidth(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->hasHeightForWidth();
-    } else {
-        return self->QWizard::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QWizard_SuperHasHeightForWidth(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_HasHeightForWidth_IsBase(true);
-        return vqwizard->hasHeightForWidth();
-    } else {
-        return self->QWizard::hasHeightForWidth();
-    }
+    return self->QWizard::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnHasHeightForWidth(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_HasHeightForWidth_Callback(reinterpret_cast<VirtualQWizard::QWizard_HasHeightForWidth_Callback>(slot));
+void QWizard_OnHasHeightForWidth(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_hasheightforwidth_callback = reinterpret_cast<VirtualQWizard::QWizard_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QWizard_PaintEngine(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->paintEngine();
-    } else {
-        return self->QWizard::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QWizard_SuperPaintEngine(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_PaintEngine_IsBase(true);
-        return vqwizard->paintEngine();
-    } else {
-        return self->QWizard::paintEngine();
-    }
+    return self->QWizard::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnPaintEngine(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_PaintEngine_Callback(reinterpret_cast<VirtualQWizard::QWizard_PaintEngine_Callback>(slot));
+void QWizard_OnPaintEngine(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_paintengine_callback = reinterpret_cast<VirtualQWizard::QWizard_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_MousePressEvent(QWizard* self, QMouseEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->mousePressEvent(event);
     } else {
-        ((VirtualQWizard*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QWizard::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperMousePressEvent(QWizard* self, QMouseEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_MousePressEvent_IsBase(true);
-        vqwizard->mousePressEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->mousePressEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMousePressEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_MousePressEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MousePressEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_mousepressevent_callback = reinterpret_cast<VirtualQWizard::QWizard_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_MouseReleaseEvent(QWizard* self, QMouseEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->mouseReleaseEvent(event);
     } else {
-        ((VirtualQWizard*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QWizard::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperMouseReleaseEvent(QWizard* self, QMouseEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_MouseReleaseEvent_IsBase(true);
-        vqwizard->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMouseReleaseEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_mousereleaseevent_callback = reinterpret_cast<VirtualQWizard::QWizard_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_MouseDoubleClickEvent(QWizard* self, QMouseEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQWizard*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QWizard::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperMouseDoubleClickEvent(QWizard* self, QMouseEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_MouseDoubleClickEvent_IsBase(true);
-        vqwizard->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMouseDoubleClickEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_mousedoubleclickevent_callback = reinterpret_cast<VirtualQWizard::QWizard_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_MouseMoveEvent(QWizard* self, QMouseEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->mouseMoveEvent(event);
     } else {
-        ((VirtualQWizard*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QWizard::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperMouseMoveEvent(QWizard* self, QMouseEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_MouseMoveEvent_IsBase(true);
-        vqwizard->mouseMoveEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMouseMoveEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MouseMoveEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_mousemoveevent_callback = reinterpret_cast<VirtualQWizard::QWizard_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_WheelEvent(QWizard* self, QWheelEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->wheelEvent(event);
     } else {
-        ((VirtualQWizard*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QWizard::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperWheelEvent(QWizard* self, QWheelEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_WheelEvent_IsBase(true);
-        vqwizard->wheelEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->wheelEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnWheelEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_WheelEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_WheelEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_wheelevent_callback = reinterpret_cast<VirtualQWizard::QWizard_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_KeyReleaseEvent(QWizard* self, QKeyEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->keyReleaseEvent(event);
     } else {
-        ((VirtualQWizard*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QWizard::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperKeyReleaseEvent(QWizard* self, QKeyEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_KeyReleaseEvent_IsBase(true);
-        vqwizard->keyReleaseEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnKeyReleaseEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_keyreleaseevent_callback = reinterpret_cast<VirtualQWizard::QWizard_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_FocusInEvent(QWizard* self, QFocusEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->focusInEvent(event);
     } else {
-        ((VirtualQWizard*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QWizard::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperFocusInEvent(QWizard* self, QFocusEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_FocusInEvent_IsBase(true);
-        vqwizard->focusInEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->focusInEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnFocusInEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_FocusInEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusInEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_focusinevent_callback = reinterpret_cast<VirtualQWizard::QWizard_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_FocusOutEvent(QWizard* self, QFocusEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->focusOutEvent(event);
     } else {
-        ((VirtualQWizard*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QWizard::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperFocusOutEvent(QWizard* self, QFocusEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_FocusOutEvent_IsBase(true);
-        vqwizard->focusOutEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->focusOutEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnFocusOutEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_FocusOutEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusOutEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_focusoutevent_callback = reinterpret_cast<VirtualQWizard::QWizard_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_EnterEvent(QWizard* self, QEnterEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->enterEvent(event);
     } else {
-        ((VirtualQWizard*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QWizard::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperEnterEvent(QWizard* self, QEnterEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_EnterEvent_IsBase(true);
-        vqwizard->enterEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->enterEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnEnterEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_EnterEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_EnterEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_enterevent_callback = reinterpret_cast<VirtualQWizard::QWizard_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_LeaveEvent(QWizard* self, QEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->leaveEvent(event);
     } else {
-        ((VirtualQWizard*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QWizard::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperLeaveEvent(QWizard* self, QEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_LeaveEvent_IsBase(true);
-        vqwizard->leaveEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->leaveEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnLeaveEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_LeaveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_LeaveEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_leaveevent_callback = reinterpret_cast<VirtualQWizard::QWizard_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_MoveEvent(QWizard* self, QMoveEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->moveEvent(event);
     } else {
-        ((VirtualQWizard*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QWizard::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperMoveEvent(QWizard* self, QMoveEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_MoveEvent_IsBase(true);
-        vqwizard->moveEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->moveEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMoveEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_MoveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MoveEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_moveevent_callback = reinterpret_cast<VirtualQWizard::QWizard_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_TabletEvent(QWizard* self, QTabletEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->tabletEvent(event);
     } else {
-        ((VirtualQWizard*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QWizard::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperTabletEvent(QWizard* self, QTabletEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_TabletEvent_IsBase(true);
-        vqwizard->tabletEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->tabletEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnTabletEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_TabletEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_TabletEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_tabletevent_callback = reinterpret_cast<VirtualQWizard::QWizard_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_ActionEvent(QWizard* self, QActionEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->actionEvent(event);
     } else {
-        ((VirtualQWizard*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QWizard::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperActionEvent(QWizard* self, QActionEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ActionEvent_IsBase(true);
-        vqwizard->actionEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->actionEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnActionEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_ActionEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ActionEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_actionevent_callback = reinterpret_cast<VirtualQWizard::QWizard_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_DragEnterEvent(QWizard* self, QDragEnterEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->dragEnterEvent(event);
     } else {
-        ((VirtualQWizard*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QWizard::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperDragEnterEvent(QWizard* self, QDragEnterEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_DragEnterEvent_IsBase(true);
-        vqwizard->dragEnterEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDragEnterEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_DragEnterEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_DragEnterEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_dragenterevent_callback = reinterpret_cast<VirtualQWizard::QWizard_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_DragMoveEvent(QWizard* self, QDragMoveEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->dragMoveEvent(event);
     } else {
-        ((VirtualQWizard*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QWizard::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperDragMoveEvent(QWizard* self, QDragMoveEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_DragMoveEvent_IsBase(true);
-        vqwizard->dragMoveEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDragMoveEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_DragMoveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_DragMoveEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_dragmoveevent_callback = reinterpret_cast<VirtualQWizard::QWizard_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_DragLeaveEvent(QWizard* self, QDragLeaveEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->dragLeaveEvent(event);
     } else {
-        ((VirtualQWizard*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QWizard::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperDragLeaveEvent(QWizard* self, QDragLeaveEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_DragLeaveEvent_IsBase(true);
-        vqwizard->dragLeaveEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDragLeaveEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_DragLeaveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_DragLeaveEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_dragleaveevent_callback = reinterpret_cast<VirtualQWizard::QWizard_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_DropEvent(QWizard* self, QDropEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->dropEvent(event);
     } else {
-        ((VirtualQWizard*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QWizard::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperDropEvent(QWizard* self, QDropEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_DropEvent_IsBase(true);
-        vqwizard->dropEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->dropEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDropEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_DropEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_DropEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_dropevent_callback = reinterpret_cast<VirtualQWizard::QWizard_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_HideEvent(QWizard* self, QHideEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->hideEvent(event);
     } else {
-        ((VirtualQWizard*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QWizard::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperHideEvent(QWizard* self, QHideEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_HideEvent_IsBase(true);
-        vqwizard->hideEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->hideEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnHideEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_HideEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_HideEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_hideevent_callback = reinterpret_cast<VirtualQWizard::QWizard_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizard_NativeEvent(QWizard* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
+    if (vqwizard) {
         return vqwizard->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQWizard*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QWizard::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QWizard_SuperNativeEvent(QWizard* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_NativeEvent_IsBase(true);
-        return vqwizard->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQWizard*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        return vqwizard->QWizard::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QWizard::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnNativeEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_NativeEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_NativeEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_nativeevent_callback = reinterpret_cast<VirtualQWizard::QWizard_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_ChangeEvent(QWizard* self, QEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->changeEvent(param1);
     } else {
-        ((VirtualQWizard*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QWizard::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperChangeEvent(QWizard* self, QEvent* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ChangeEvent_IsBase(true);
-        vqwizard->changeEvent(param1);
-    } else {
-        ((VirtualQWizard*)self)->changeEvent(param1);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWizard::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnChangeEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_ChangeEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ChangeEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_changeevent_callback = reinterpret_cast<VirtualQWizard::QWizard_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QWizard_Metric(const QWizard* self, int param1) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         return vqwizard->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQWizard*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QWizard::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QWizard_SuperMetric(const QWizard* self, int param1) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Metric_IsBase(true);
-        return vqwizard->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQWizard*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        return vqwizard->QWizard::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QWizard::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnMetric(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Metric_Callback(reinterpret_cast<VirtualQWizard::QWizard_Metric_Callback>(slot));
+void QWizard_OnMetric(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_metric_callback = reinterpret_cast<VirtualQWizard::QWizard_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_InitPainter(const QWizard* self, QPainter* painter) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->initPainter(painter);
     } else {
-        ((VirtualQWizard*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QWizard::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperInitPainter(const QWizard* self, QPainter* painter) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_InitPainter_IsBase(true);
-        vqwizard->initPainter(painter);
-    } else {
-        ((VirtualQWizard*)self)->initPainter(painter);
-    }
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        vqwizard->QWizard::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QWizard::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnInitPainter(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_InitPainter_Callback(reinterpret_cast<VirtualQWizard::QWizard_InitPainter_Callback>(slot));
+void QWizard_OnInitPainter(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_initpainter_callback = reinterpret_cast<VirtualQWizard::QWizard_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QWizard_Redirected(const QWizard* self, QPoint* offset) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         return vqwizard->redirected(offset);
     } else {
-        return ((VirtualQWizard*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QWizard::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QWizard_SuperRedirected(const QWizard* self, QPoint* offset) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Redirected_IsBase(true);
-        return vqwizard->redirected(offset);
-    } else {
-        return ((VirtualQWizard*)self)->redirected(offset);
-    }
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        return vqwizard->QWizard::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QWizard::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnRedirected(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Redirected_Callback(reinterpret_cast<VirtualQWizard::QWizard_Redirected_Callback>(slot));
+void QWizard_OnRedirected(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_redirected_callback = reinterpret_cast<VirtualQWizard::QWizard_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QWizard_SharedPainter(const QWizard* self) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         return vqwizard->sharedPainter();
     } else {
-        return ((VirtualQWizard*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QWizard::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QWizard_SuperSharedPainter(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_SharedPainter_IsBase(true);
-        return vqwizard->sharedPainter();
-    } else {
-        return ((VirtualQWizard*)self)->sharedPainter();
-    }
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        return vqwizard->QWizard::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QWizard::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnSharedPainter(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_SharedPainter_Callback(reinterpret_cast<VirtualQWizard::QWizard_SharedPainter_Callback>(slot));
+void QWizard_OnSharedPainter(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_sharedpainter_callback = reinterpret_cast<VirtualQWizard::QWizard_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_InputMethodEvent(QWizard* self, QInputMethodEvent* param1) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->inputMethodEvent(param1);
     } else {
-        ((VirtualQWizard*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QWizard::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperInputMethodEvent(QWizard* self, QInputMethodEvent* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_InputMethodEvent_IsBase(true);
-        vqwizard->inputMethodEvent(param1);
-    } else {
-        ((VirtualQWizard*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWizard::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnInputMethodEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_InputMethodEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_InputMethodEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_inputmethodevent_callback = reinterpret_cast<VirtualQWizard::QWizard_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QWizard_InputMethodQuery(const QWizard* self, int param1) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return new QVariant(vqwizard->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQWizard*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QWizard_SuperInputMethodQuery(const QWizard* self, int param1) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_InputMethodQuery_IsBase(true);
-        return new QVariant(vqwizard->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQWizard*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QWizard::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizard_OnInputMethodQuery(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_InputMethodQuery_Callback(reinterpret_cast<VirtualQWizard::QWizard_InputMethodQuery_Callback>(slot));
+void QWizard_OnInputMethodQuery(QWizard* self, intptr_t slot) {
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self)))
+        vqwizard->qwizard_inputmethodquery_callback = reinterpret_cast<VirtualQWizard::QWizard_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizard_FocusNextPrevChild(QWizard* self, bool next) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         return vqwizard->focusNextPrevChild(next);
     } else {
-        return ((VirtualQWizard*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QWizard::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QWizard_SuperFocusNextPrevChild(QWizard* self, bool next) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_FocusNextPrevChild_IsBase(true);
-        return vqwizard->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQWizard*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        return vqwizard->QWizard::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QWizard::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnFocusNextPrevChild(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_focusnextprevchild_callback = reinterpret_cast<VirtualQWizard::QWizard_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_TimerEvent(QWizard* self, QTimerEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->timerEvent(event);
     } else {
-        ((VirtualQWizard*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QWizard::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperTimerEvent(QWizard* self, QTimerEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_TimerEvent_IsBase(true);
-        vqwizard->timerEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->timerEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnTimerEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_TimerEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_TimerEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_timerevent_callback = reinterpret_cast<VirtualQWizard::QWizard_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_ChildEvent(QWizard* self, QChildEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->childEvent(event);
     } else {
-        ((VirtualQWizard*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QWizard::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperChildEvent(QWizard* self, QChildEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ChildEvent_IsBase(true);
-        vqwizard->childEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->childEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnChildEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_ChildEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ChildEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_childevent_callback = reinterpret_cast<VirtualQWizard::QWizard_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_CustomEvent(QWizard* self, QEvent* event) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->customEvent(event);
     } else {
-        ((VirtualQWizard*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QWizard::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperCustomEvent(QWizard* self, QEvent* event) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_CustomEvent_IsBase(true);
-        vqwizard->customEvent(event);
-    } else {
-        ((VirtualQWizard*)self)->customEvent(event);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizard::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnCustomEvent(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_CustomEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_CustomEvent_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_customevent_callback = reinterpret_cast<VirtualQWizard::QWizard_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_ConnectNotify(QWizard* self, const QMetaMethod* signal) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->connectNotify(*signal);
     } else {
-        ((VirtualQWizard*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QWizard::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperConnectNotify(QWizard* self, const QMetaMethod* signal) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_ConnectNotify_IsBase(true);
-        vqwizard->connectNotify(*signal);
-    } else {
-        ((VirtualQWizard*)self)->connectNotify(*signal);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWizard::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnConnectNotify(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_ConnectNotify_Callback(reinterpret_cast<VirtualQWizard::QWizard_ConnectNotify_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_connectnotify_callback = reinterpret_cast<VirtualQWizard::QWizard_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizard_DisconnectNotify(QWizard* self, const QMetaMethod* signal) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard) {
         vqwizard->disconnectNotify(*signal);
     } else {
-        ((VirtualQWizard*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QWizard::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizard_SuperDisconnectNotify(QWizard* self, const QMetaMethod* signal) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_DisconnectNotify_IsBase(true);
-        vqwizard->disconnectNotify(*signal);
-    } else {
-        ((VirtualQWizard*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->QWizard::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWizard::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDisconnectNotify(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_DisconnectNotify_Callback(reinterpret_cast<VirtualQWizard::QWizard_DisconnectNotify_Callback>(slot));
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self))
+        vqwizard->qwizard_disconnectnotify_callback = reinterpret_cast<VirtualQWizard::QWizard_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizard_AdjustPosition(QWizard* self, QWidget* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->adjustPosition(param1);
-    } else {
-        ((VirtualQWizard*)self)->adjustPosition(param1);
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->VirtualQWizard::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method QWizard::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizard_SuperAdjustPosition(QWizard* self, QWidget* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_AdjustPosition_IsBase(true);
-        vqwizard->adjustPosition(param1);
-    } else {
-        ((VirtualQWizard*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnAdjustPosition(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_AdjustPosition_Callback(reinterpret_cast<VirtualQWizard::QWizard_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizard_UpdateMicroFocus(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->updateMicroFocus();
-    } else {
-        ((VirtualQWizard*)self)->updateMicroFocus();
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->VirtualQWizard::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QWizard::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizard_SuperUpdateMicroFocus(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_UpdateMicroFocus_IsBase(true);
-        vqwizard->updateMicroFocus();
-    } else {
-        ((VirtualQWizard*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnUpdateMicroFocus(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQWizard::QWizard_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizard_Create(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->create();
-    } else {
-        ((VirtualQWizard*)self)->create();
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->VirtualQWizard::create();
+    } else
+        qFatal("Error: Protected method QWizard::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizard_SuperCreate(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Create_IsBase(true);
-        vqwizard->create();
-    } else {
-        ((VirtualQWizard*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnCreate(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Create_Callback(reinterpret_cast<VirtualQWizard::QWizard_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizard_Destroy(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->destroy();
-    } else {
-        ((VirtualQWizard*)self)->destroy();
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        vqwizard->VirtualQWizard::destroy();
+    } else
+        qFatal("Error: Protected method QWizard::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizard_SuperDestroy(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Destroy_IsBase(true);
-        vqwizard->destroy();
-    } else {
-        ((VirtualQWizard*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnDestroy(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Destroy_Callback(reinterpret_cast<VirtualQWizard::QWizard_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWizard_FocusNextChild(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->focusNextChild();
-    } else {
-        return ((VirtualQWizard*)self)->focusNextChild();
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        return vqwizard->VirtualQWizard::focusNextChild();
+    } else
+        qFatal("Error: Protected method QWizard::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWizard_SuperFocusNextChild(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_FocusNextChild_IsBase(true);
-        return vqwizard->focusNextChild();
-    } else {
-        return ((VirtualQWizard*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnFocusNextChild(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_FocusNextChild_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWizard_FocusPreviousChild(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->focusPreviousChild();
-    } else {
-        return ((VirtualQWizard*)self)->focusPreviousChild();
-    }
+    if (auto* vqwizard = dynamic_cast<VirtualQWizard*>(self)) {
+        return vqwizard->VirtualQWizard::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QWizard::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWizard_SuperFocusPreviousChild(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_FocusPreviousChild_IsBase(true);
-        return vqwizard->focusPreviousChild();
-    } else {
-        return ((VirtualQWizard*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnFocusPreviousChild(QWizard* self, intptr_t slot) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_FocusPreviousChild_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QWizard_Sender(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->sender();
-    } else {
-        return ((VirtualQWizard*)self)->sender();
-    }
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        return vqwizard->VirtualQWizard::sender();
+    } else
+        qFatal("Error: Protected method QWizard::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QWizard_SuperSender(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Sender_IsBase(true);
-        return vqwizard->sender();
-    } else {
-        return ((VirtualQWizard*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnSender(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Sender_Callback(reinterpret_cast<VirtualQWizard::QWizard_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWizard_SenderSignalIndex(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->senderSignalIndex();
-    } else {
-        return ((VirtualQWizard*)self)->senderSignalIndex();
-    }
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        return vqwizard->VirtualQWizard::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QWizard::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWizard_SuperSenderSignalIndex(const QWizard* self) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_SenderSignalIndex_IsBase(true);
-        return vqwizard->senderSignalIndex();
-    } else {
-        return ((VirtualQWizard*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnSenderSignalIndex(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWizard::QWizard_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWizard_Receivers(const QWizard* self, const char* signal) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->receivers(signal);
-    } else {
-        return ((VirtualQWizard*)self)->receivers(signal);
-    }
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        return vqwizard->VirtualQWizard::receivers(signal);
+    } else
+        qFatal("Error: Protected method QWizard::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWizard_SuperReceivers(const QWizard* self, const char* signal) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_Receivers_IsBase(true);
-        return vqwizard->receivers(signal);
-    } else {
-        return ((VirtualQWizard*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnReceivers(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_Receivers_Callback(reinterpret_cast<VirtualQWizard::QWizard_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWizard_IsSignalConnected(const QWizard* self, const QMetaMethod* signal) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWizard*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        return vqwizard->VirtualQWizard::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QWizard::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWizard_SuperIsSignalConnected(const QWizard* self, const QMetaMethod* signal) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_IsSignalConnected_IsBase(true);
-        return vqwizard->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWizard*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnIsSignalConnected(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_IsSignalConnected_Callback(reinterpret_cast<VirtualQWizard::QWizard_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QWizard_GetDecodedMetricF(const QWizard* self, int metricA, int metricB) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return vqwizard->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQWizard*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QWizard_SuperGetDecodedMetricF(const QWizard* self, int metricA, int metricB) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        vqwizard->setQWizard_GetDecodedMetricF_IsBase(true);
-        return vqwizard->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQWizard*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizard_OnGetDecodedMetricF(const QWizard* self, intptr_t slot) {
-    auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard)
-        vqwizard->setQWizard_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQWizard::QWizard_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self))) {
+        return vqwizard->VirtualQWizard::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QWizard::getDecodedMetricF called without a directly constructed type");
 }
 
 void QWizard_Delete(QWizard* self) {
@@ -2419,1920 +1862,1280 @@ libqt_string QWizardPage_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QWizardPage_SuperMetaObject(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_MetaObject_IsBase(true);
-        return (QMetaObject*)vqwizardpage->metaObject();
-    } else {
-        return (QMetaObject*)self->QWizardPage::metaObject();
-    }
+    return (QMetaObject*)self->QWizardPage::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnMetaObject(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_MetaObject_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MetaObject_Callback>(slot));
+void QWizardPage_OnMetaObject(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_metaobject_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QWizardPage_SuperMetacast(QWizardPage* self, const char* param1) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Metacast_IsBase(true);
-        return vqwizardpage->qt_metacast(param1);
-    } else {
-        return self->QWizardPage::qt_metacast(param1);
-    }
+    return self->QWizardPage::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMetacast(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Metacast_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Metacast_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_metacast_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWizardPage_SuperMetacall(QWizardPage* self, int param1, int param2, void** param3) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Metacall_IsBase(true);
-        return vqwizardpage->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QWizardPage::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QWizardPage::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMetacall(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Metacall_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Metacall_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_metacall_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWizardPage_SuperInitializePage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_InitializePage_IsBase(true);
-        vqwizardpage->initializePage();
-    } else {
-        self->QWizardPage::initializePage();
-    }
+    self->QWizardPage::initializePage();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnInitializePage(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_InitializePage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InitializePage_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_initializepage_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_InitializePage_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWizardPage_SuperCleanupPage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_CleanupPage_IsBase(true);
-        vqwizardpage->cleanupPage();
-    } else {
-        self->QWizardPage::cleanupPage();
-    }
+    self->QWizardPage::cleanupPage();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnCleanupPage(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_CleanupPage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_CleanupPage_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_cleanuppage_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_CleanupPage_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWizardPage_SuperValidatePage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ValidatePage_IsBase(true);
-        return vqwizardpage->validatePage();
-    } else {
-        return self->QWizardPage::validatePage();
-    }
+    return self->QWizardPage::validatePage();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnValidatePage(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_ValidatePage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ValidatePage_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_validatepage_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_ValidatePage_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWizardPage_SuperIsComplete(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_IsComplete_IsBase(true);
-        return vqwizardpage->isComplete();
-    } else {
-        return self->QWizardPage::isComplete();
-    }
+    return self->QWizardPage::isComplete();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnIsComplete(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_IsComplete_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_IsComplete_Callback>(slot));
+void QWizardPage_OnIsComplete(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_iscomplete_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_IsComplete_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWizardPage_SuperNextId(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_NextId_IsBase(true);
-        return vqwizardpage->nextId();
-    } else {
-        return self->QWizardPage::nextId();
-    }
+    return self->QWizardPage::nextId();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnNextId(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_NextId_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_NextId_Callback>(slot));
+void QWizardPage_OnNextId(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_nextid_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_NextId_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QWizardPage_DevType(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->devType();
-    } else {
-        return self->QWizardPage::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QWizardPage_SuperDevType(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_DevType_IsBase(true);
-        return vqwizardpage->devType();
-    } else {
-        return self->QWizardPage::devType();
-    }
+    return self->QWizardPage::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnDevType(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_DevType_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DevType_Callback>(slot));
+void QWizardPage_OnDevType(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_devtype_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_SetVisible(QWizardPage* self, bool visible) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setVisible(visible);
-    } else {
-        self->QWizardPage::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QWizardPage_SuperSetVisible(QWizardPage* self, bool visible) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_SetVisible_IsBase(true);
-        vqwizardpage->setVisible(visible);
-    } else {
-        self->QWizardPage::setVisible(visible);
-    }
+    self->QWizardPage::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnSetVisible(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_SetVisible_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SetVisible_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_setvisible_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QWizardPage_SizeHint(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return new QSize(vqwizardpage->sizeHint());
-    } else {
-        return new QSize(((VirtualQWizardPage*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QWizardPage_SuperSizeHint(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_SizeHint_IsBase(true);
-        return new QSize(vqwizardpage->sizeHint());
-    } else {
-        return new QSize(((VirtualQWizardPage*)self)->sizeHint());
-    }
+    return new QSize(self->QWizardPage::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnSizeHint(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_SizeHint_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SizeHint_Callback>(slot));
+void QWizardPage_OnSizeHint(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_sizehint_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QWizardPage_MinimumSizeHint(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return new QSize(vqwizardpage->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQWizardPage*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QWizardPage_SuperMinimumSizeHint(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_MinimumSizeHint_IsBase(true);
-        return new QSize(vqwizardpage->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQWizardPage*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QWizardPage::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnMinimumSizeHint(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_MinimumSizeHint_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MinimumSizeHint_Callback>(slot));
+void QWizardPage_OnMinimumSizeHint(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_minimumsizehint_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QWizardPage_HeightForWidth(const QWizardPage* self, int param1) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QWizardPage::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QWizardPage_SuperHeightForWidth(const QWizardPage* self, int param1) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_HeightForWidth_IsBase(true);
-        return vqwizardpage->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QWizardPage::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QWizardPage::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnHeightForWidth(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_HeightForWidth_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_HeightForWidth_Callback>(slot));
+void QWizardPage_OnHeightForWidth(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_heightforwidth_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizardPage_HasHeightForWidth(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->hasHeightForWidth();
-    } else {
-        return self->QWizardPage::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QWizardPage_SuperHasHeightForWidth(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_HasHeightForWidth_IsBase(true);
-        return vqwizardpage->hasHeightForWidth();
-    } else {
-        return self->QWizardPage::hasHeightForWidth();
-    }
+    return self->QWizardPage::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnHasHeightForWidth(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_HasHeightForWidth_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_HasHeightForWidth_Callback>(slot));
+void QWizardPage_OnHasHeightForWidth(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_hasheightforwidth_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QWizardPage_PaintEngine(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->paintEngine();
-    } else {
-        return self->QWizardPage::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QWizardPage_SuperPaintEngine(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_PaintEngine_IsBase(true);
-        return vqwizardpage->paintEngine();
-    } else {
-        return self->QWizardPage::paintEngine();
-    }
+    return self->QWizardPage::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnPaintEngine(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_PaintEngine_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_PaintEngine_Callback>(slot));
+void QWizardPage_OnPaintEngine(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_paintengine_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizardPage_Event(QWizardPage* self, QEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         return vqwizardpage->event(event);
     } else {
-        return ((VirtualQWizardPage*)self)->event(event);
+        qFatal("Error: Protected virtual method QWizardPage::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QWizardPage_SuperEvent(QWizardPage* self, QEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Event_IsBase(true);
-        return vqwizardpage->event(event);
-    } else {
-        return ((VirtualQWizardPage*)self)->event(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        return vqwizardpage->QWizardPage::event(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Event_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Event_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_event_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_MousePressEvent(QWizardPage* self, QMouseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->mousePressEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperMousePressEvent(QWizardPage* self, QMouseEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_MousePressEvent_IsBase(true);
-        vqwizardpage->mousePressEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->mousePressEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMousePressEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_MousePressEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MousePressEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_mousepressevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_MouseReleaseEvent(QWizardPage* self, QMouseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->mouseReleaseEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperMouseReleaseEvent(QWizardPage* self, QMouseEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_MouseReleaseEvent_IsBase(true);
-        vqwizardpage->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMouseReleaseEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_mousereleaseevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_MouseDoubleClickEvent(QWizardPage* self, QMouseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperMouseDoubleClickEvent(QWizardPage* self, QMouseEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_MouseDoubleClickEvent_IsBase(true);
-        vqwizardpage->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMouseDoubleClickEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_mousedoubleclickevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_MouseMoveEvent(QWizardPage* self, QMouseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->mouseMoveEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperMouseMoveEvent(QWizardPage* self, QMouseEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_MouseMoveEvent_IsBase(true);
-        vqwizardpage->mouseMoveEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMouseMoveEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseMoveEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_mousemoveevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_WheelEvent(QWizardPage* self, QWheelEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->wheelEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperWheelEvent(QWizardPage* self, QWheelEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_WheelEvent_IsBase(true);
-        vqwizardpage->wheelEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->wheelEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnWheelEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_WheelEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_WheelEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_wheelevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_KeyPressEvent(QWizardPage* self, QKeyEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->keyPressEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperKeyPressEvent(QWizardPage* self, QKeyEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_KeyPressEvent_IsBase(true);
-        vqwizardpage->keyPressEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->keyPressEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnKeyPressEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_KeyPressEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_KeyPressEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_keypressevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_KeyReleaseEvent(QWizardPage* self, QKeyEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->keyReleaseEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperKeyReleaseEvent(QWizardPage* self, QKeyEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_KeyReleaseEvent_IsBase(true);
-        vqwizardpage->keyReleaseEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnKeyReleaseEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_keyreleaseevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_FocusInEvent(QWizardPage* self, QFocusEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->focusInEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperFocusInEvent(QWizardPage* self, QFocusEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_FocusInEvent_IsBase(true);
-        vqwizardpage->focusInEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->focusInEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnFocusInEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_FocusInEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusInEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_focusinevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_FocusOutEvent(QWizardPage* self, QFocusEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->focusOutEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperFocusOutEvent(QWizardPage* self, QFocusEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_FocusOutEvent_IsBase(true);
-        vqwizardpage->focusOutEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->focusOutEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnFocusOutEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_FocusOutEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusOutEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_focusoutevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_EnterEvent(QWizardPage* self, QEnterEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->enterEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperEnterEvent(QWizardPage* self, QEnterEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_EnterEvent_IsBase(true);
-        vqwizardpage->enterEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->enterEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnEnterEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_EnterEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_EnterEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_enterevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_LeaveEvent(QWizardPage* self, QEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->leaveEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperLeaveEvent(QWizardPage* self, QEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_LeaveEvent_IsBase(true);
-        vqwizardpage->leaveEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->leaveEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnLeaveEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_LeaveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_LeaveEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_leaveevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_PaintEvent(QWizardPage* self, QPaintEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->paintEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperPaintEvent(QWizardPage* self, QPaintEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_PaintEvent_IsBase(true);
-        vqwizardpage->paintEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->paintEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnPaintEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_PaintEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_PaintEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_paintevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_MoveEvent(QWizardPage* self, QMoveEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->moveEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperMoveEvent(QWizardPage* self, QMoveEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_MoveEvent_IsBase(true);
-        vqwizardpage->moveEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->moveEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMoveEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_MoveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MoveEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_moveevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_ResizeEvent(QWizardPage* self, QResizeEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->resizeEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperResizeEvent(QWizardPage* self, QResizeEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ResizeEvent_IsBase(true);
-        vqwizardpage->resizeEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->resizeEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnResizeEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_ResizeEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ResizeEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_resizeevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_CloseEvent(QWizardPage* self, QCloseEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->closeEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperCloseEvent(QWizardPage* self, QCloseEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_CloseEvent_IsBase(true);
-        vqwizardpage->closeEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->closeEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnCloseEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_CloseEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_CloseEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_closeevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_ContextMenuEvent(QWizardPage* self, QContextMenuEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->contextMenuEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperContextMenuEvent(QWizardPage* self, QContextMenuEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ContextMenuEvent_IsBase(true);
-        vqwizardpage->contextMenuEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnContextMenuEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_ContextMenuEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ContextMenuEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_contextmenuevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_TabletEvent(QWizardPage* self, QTabletEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->tabletEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperTabletEvent(QWizardPage* self, QTabletEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_TabletEvent_IsBase(true);
-        vqwizardpage->tabletEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->tabletEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnTabletEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_TabletEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_TabletEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_tabletevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_ActionEvent(QWizardPage* self, QActionEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->actionEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperActionEvent(QWizardPage* self, QActionEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ActionEvent_IsBase(true);
-        vqwizardpage->actionEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->actionEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnActionEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_ActionEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ActionEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_actionevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_DragEnterEvent(QWizardPage* self, QDragEnterEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->dragEnterEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperDragEnterEvent(QWizardPage* self, QDragEnterEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_DragEnterEvent_IsBase(true);
-        vqwizardpage->dragEnterEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDragEnterEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_DragEnterEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DragEnterEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_dragenterevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_DragMoveEvent(QWizardPage* self, QDragMoveEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->dragMoveEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperDragMoveEvent(QWizardPage* self, QDragMoveEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_DragMoveEvent_IsBase(true);
-        vqwizardpage->dragMoveEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDragMoveEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_DragMoveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DragMoveEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_dragmoveevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_DragLeaveEvent(QWizardPage* self, QDragLeaveEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->dragLeaveEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperDragLeaveEvent(QWizardPage* self, QDragLeaveEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_DragLeaveEvent_IsBase(true);
-        vqwizardpage->dragLeaveEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDragLeaveEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_DragLeaveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DragLeaveEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_dragleaveevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_DropEvent(QWizardPage* self, QDropEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->dropEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperDropEvent(QWizardPage* self, QDropEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_DropEvent_IsBase(true);
-        vqwizardpage->dropEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->dropEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDropEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_DropEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DropEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_dropevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_ShowEvent(QWizardPage* self, QShowEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->showEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperShowEvent(QWizardPage* self, QShowEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ShowEvent_IsBase(true);
-        vqwizardpage->showEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->showEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnShowEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_ShowEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ShowEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_showevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_HideEvent(QWizardPage* self, QHideEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->hideEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperHideEvent(QWizardPage* self, QHideEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_HideEvent_IsBase(true);
-        vqwizardpage->hideEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->hideEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnHideEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_HideEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_HideEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_hideevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizardPage_NativeEvent(QWizardPage* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
+    if (vqwizardpage) {
         return vqwizardpage->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQWizardPage*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QWizardPage::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QWizardPage_SuperNativeEvent(QWizardPage* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_NativeEvent_IsBase(true);
-        return vqwizardpage->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQWizardPage*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        return vqwizardpage->QWizardPage::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnNativeEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_NativeEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_NativeEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_nativeevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_ChangeEvent(QWizardPage* self, QEvent* param1) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->changeEvent(param1);
     } else {
-        ((VirtualQWizardPage*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QWizardPage::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperChangeEvent(QWizardPage* self, QEvent* param1) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ChangeEvent_IsBase(true);
-        vqwizardpage->changeEvent(param1);
-    } else {
-        ((VirtualQWizardPage*)self)->changeEvent(param1);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnChangeEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_ChangeEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ChangeEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_changeevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QWizardPage_Metric(const QWizardPage* self, int param1) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         return vqwizardpage->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQWizardPage*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QWizardPage::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QWizardPage_SuperMetric(const QWizardPage* self, int param1) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Metric_IsBase(true);
-        return vqwizardpage->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQWizardPage*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->QWizardPage::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnMetric(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Metric_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Metric_Callback>(slot));
+void QWizardPage_OnMetric(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_metric_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_InitPainter(const QWizardPage* self, QPainter* painter) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->initPainter(painter);
     } else {
-        ((VirtualQWizardPage*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QWizardPage::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperInitPainter(const QWizardPage* self, QPainter* painter) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_InitPainter_IsBase(true);
-        vqwizardpage->initPainter(painter);
-    } else {
-        ((VirtualQWizardPage*)self)->initPainter(painter);
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        vqwizardpage->QWizardPage::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnInitPainter(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_InitPainter_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InitPainter_Callback>(slot));
+void QWizardPage_OnInitPainter(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_initpainter_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QWizardPage_Redirected(const QWizardPage* self, QPoint* offset) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         return vqwizardpage->redirected(offset);
     } else {
-        return ((VirtualQWizardPage*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QWizardPage::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QWizardPage_SuperRedirected(const QWizardPage* self, QPoint* offset) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Redirected_IsBase(true);
-        return vqwizardpage->redirected(offset);
-    } else {
-        return ((VirtualQWizardPage*)self)->redirected(offset);
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->QWizardPage::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnRedirected(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Redirected_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Redirected_Callback>(slot));
+void QWizardPage_OnRedirected(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_redirected_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QWizardPage_SharedPainter(const QWizardPage* self) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         return vqwizardpage->sharedPainter();
     } else {
-        return ((VirtualQWizardPage*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QWizardPage::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QWizardPage_SuperSharedPainter(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_SharedPainter_IsBase(true);
-        return vqwizardpage->sharedPainter();
-    } else {
-        return ((VirtualQWizardPage*)self)->sharedPainter();
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->QWizardPage::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnSharedPainter(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_SharedPainter_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SharedPainter_Callback>(slot));
+void QWizardPage_OnSharedPainter(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_sharedpainter_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_InputMethodEvent(QWizardPage* self, QInputMethodEvent* param1) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->inputMethodEvent(param1);
     } else {
-        ((VirtualQWizardPage*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QWizardPage::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperInputMethodEvent(QWizardPage* self, QInputMethodEvent* param1) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_InputMethodEvent_IsBase(true);
-        vqwizardpage->inputMethodEvent(param1);
-    } else {
-        ((VirtualQWizardPage*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnInputMethodEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_InputMethodEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InputMethodEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_inputmethodevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QWizardPage_InputMethodQuery(const QWizardPage* self, int param1) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return new QVariant(vqwizardpage->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQWizardPage*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QWizardPage_SuperInputMethodQuery(const QWizardPage* self, int param1) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_InputMethodQuery_IsBase(true);
-        return new QVariant(vqwizardpage->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQWizardPage*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QWizardPage::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWizardPage_OnInputMethodQuery(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_InputMethodQuery_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InputMethodQuery_Callback>(slot));
+void QWizardPage_OnInputMethodQuery(QWizardPage* self, intptr_t slot) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
+        vqwizardpage->qwizardpage_inputmethodquery_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizardPage_FocusNextPrevChild(QWizardPage* self, bool next) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         return vqwizardpage->focusNextPrevChild(next);
     } else {
-        return ((VirtualQWizardPage*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QWizardPage::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QWizardPage_SuperFocusNextPrevChild(QWizardPage* self, bool next) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_FocusNextPrevChild_IsBase(true);
-        return vqwizardpage->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQWizardPage*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        return vqwizardpage->QWizardPage::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnFocusNextPrevChild(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_focusnextprevchild_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWizardPage_EventFilter(QWizardPage* self, QObject* watched, QEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->eventFilter(watched, event);
-    } else {
-        return self->QWizardPage::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QWizardPage_SuperEventFilter(QWizardPage* self, QObject* watched, QEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_EventFilter_IsBase(true);
-        return vqwizardpage->eventFilter(watched, event);
-    } else {
-        return self->QWizardPage::eventFilter(watched, event);
-    }
+    return self->QWizardPage::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnEventFilter(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_EventFilter_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_EventFilter_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_eventfilter_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_TimerEvent(QWizardPage* self, QTimerEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->timerEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperTimerEvent(QWizardPage* self, QTimerEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_TimerEvent_IsBase(true);
-        vqwizardpage->timerEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->timerEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnTimerEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_TimerEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_TimerEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_timerevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_ChildEvent(QWizardPage* self, QChildEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->childEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperChildEvent(QWizardPage* self, QChildEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ChildEvent_IsBase(true);
-        vqwizardpage->childEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->childEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnChildEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_ChildEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ChildEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_childevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_CustomEvent(QWizardPage* self, QEvent* event) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->customEvent(event);
     } else {
-        ((VirtualQWizardPage*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QWizardPage::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperCustomEvent(QWizardPage* self, QEvent* event) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_CustomEvent_IsBase(true);
-        vqwizardpage->customEvent(event);
-    } else {
-        ((VirtualQWizardPage*)self)->customEvent(event);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnCustomEvent(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_CustomEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_CustomEvent_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_customevent_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_ConnectNotify(QWizardPage* self, const QMetaMethod* signal) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->connectNotify(*signal);
     } else {
-        ((VirtualQWizardPage*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QWizardPage::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperConnectNotify(QWizardPage* self, const QMetaMethod* signal) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_ConnectNotify_IsBase(true);
-        vqwizardpage->connectNotify(*signal);
-    } else {
-        ((VirtualQWizardPage*)self)->connectNotify(*signal);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnConnectNotify(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_ConnectNotify_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ConnectNotify_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_connectnotify_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWizardPage_DisconnectNotify(QWizardPage* self, const QMetaMethod* signal) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage) {
         vqwizardpage->disconnectNotify(*signal);
     } else {
-        ((VirtualQWizardPage*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QWizardPage::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWizardPage_SuperDisconnectNotify(QWizardPage* self, const QMetaMethod* signal) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_DisconnectNotify_IsBase(true);
-        vqwizardpage->disconnectNotify(*signal);
-    } else {
-        ((VirtualQWizardPage*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->QWizardPage::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWizardPage::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDisconnectNotify(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_DisconnectNotify_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DisconnectNotify_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self))
+        vqwizardpage->qwizardpage_disconnectnotify_callback = reinterpret_cast<VirtualQWizardPage::QWizardPage_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizardPage_SetField(QWizardPage* self, const libqt_string name, const QVariant* value) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setField(name_QString, *value);
-    } else {
-        ((VirtualQWizardPage*)self)->setField(name_QString, *value);
-    }
-}
-
-// Base class handler implementation
-void QWizardPage_SuperSetField(QWizardPage* self, const libqt_string name, const QVariant* value) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_SetField_IsBase(true);
-        vqwizardpage->setField(name_QString, *value);
-    } else {
-        ((VirtualQWizardPage*)self)->setField(name_QString, *value);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnSetField(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_SetField_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SetField_Callback>(slot));
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        QString name_QString = QString::fromUtf8(name.data, name.len);
+        vqwizardpage->VirtualQWizardPage::setField(name_QString, *value);
+    } else
+        qFatal("Error: Protected method QWizardPage::setField called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QVariant* QWizardPage_Field(const QWizardPage* self, const libqt_string name) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self)))
         return new QVariant(vqwizardpage->field(name_QString));
-    }
-    return {};
+    qFatal("Error: Protected method QWizardPage::field called without a directly constructed type");
 }
 
-// Base class handler implementation
-QVariant* QWizardPage_SuperField(const QWizardPage* self, const libqt_string name) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Field_IsBase(true);
-        return new QVariant(vqwizardpage->field(name_QString));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnField(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Field_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Field_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizardPage_RegisterField(QWizardPage* self, const libqt_string name, QWidget* widget) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->registerField(name_QString, widget);
-    } else {
-        ((VirtualQWizardPage*)self)->registerField(name_QString, widget);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        QString name_QString = QString::fromUtf8(name.data, name.len);
+        vqwizardpage->VirtualQWizardPage::registerField(name_QString, widget);
+    } else
+        qFatal("Error: Protected method QWizardPage::registerField called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizardPage_SuperRegisterField(QWizardPage* self, const libqt_string name, QWidget* widget) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_RegisterField_IsBase(true);
-        vqwizardpage->registerField(name_QString, widget);
-    } else {
-        ((VirtualQWizardPage*)self)->registerField(name_QString, widget);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnRegisterField(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_RegisterField_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_RegisterField_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QWizard* QWizardPage_Wizard(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->wizard();
-    } else {
-        return ((VirtualQWizardPage*)self)->wizard();
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->VirtualQWizardPage::wizard();
+    } else
+        qFatal("Error: Protected method QWizardPage::wizard called without a directly constructed type");
 }
 
-// Base class handler implementation
-QWizard* QWizardPage_SuperWizard(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Wizard_IsBase(true);
-        return vqwizardpage->wizard();
-    } else {
-        return ((VirtualQWizardPage*)self)->wizard();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnWizard(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Wizard_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Wizard_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizardPage_RegisterField3(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->registerField(name_QString, widget, property);
-    } else {
-        ((VirtualQWizardPage*)self)->registerField(name_QString, widget, property);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        QString name_QString = QString::fromUtf8(name.data, name.len);
+        vqwizardpage->VirtualQWizardPage::registerField(name_QString, widget, property);
+    } else
+        qFatal("Error: Protected method QWizardPage::registerField3 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizardPage_SuperRegisterField3(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_RegisterField3_IsBase(true);
-        vqwizardpage->registerField(name_QString, widget, property);
-    } else {
-        ((VirtualQWizardPage*)self)->registerField(name_QString, widget, property);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnRegisterField3(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_RegisterField3_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_RegisterField3_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizardPage_RegisterField4(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property, const char* changedSignal) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->registerField(name_QString, widget, property, changedSignal);
-    } else {
-        ((VirtualQWizardPage*)self)->registerField(name_QString, widget, property, changedSignal);
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        QString name_QString = QString::fromUtf8(name.data, name.len);
+        vqwizardpage->VirtualQWizardPage::registerField(name_QString, widget, property, changedSignal);
+    } else
+        qFatal("Error: Protected method QWizardPage::registerField4 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizardPage_SuperRegisterField4(QWizardPage* self, const libqt_string name, QWidget* widget, const char* property, const char* changedSignal) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_RegisterField4_IsBase(true);
-        vqwizardpage->registerField(name_QString, widget, property, changedSignal);
-    } else {
-        ((VirtualQWizardPage*)self)->registerField(name_QString, widget, property, changedSignal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnRegisterField4(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_RegisterField4_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_RegisterField4_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizardPage_UpdateMicroFocus(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->updateMicroFocus();
-    } else {
-        ((VirtualQWizardPage*)self)->updateMicroFocus();
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->VirtualQWizardPage::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QWizardPage::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizardPage_SuperUpdateMicroFocus(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_UpdateMicroFocus_IsBase(true);
-        vqwizardpage->updateMicroFocus();
-    } else {
-        ((VirtualQWizardPage*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnUpdateMicroFocus(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizardPage_Create(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->create();
-    } else {
-        ((VirtualQWizardPage*)self)->create();
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->VirtualQWizardPage::create();
+    } else
+        qFatal("Error: Protected method QWizardPage::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizardPage_SuperCreate(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Create_IsBase(true);
-        vqwizardpage->create();
-    } else {
-        ((VirtualQWizardPage*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnCreate(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Create_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWizardPage_Destroy(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->destroy();
-    } else {
-        ((VirtualQWizardPage*)self)->destroy();
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        vqwizardpage->VirtualQWizardPage::destroy();
+    } else
+        qFatal("Error: Protected method QWizardPage::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWizardPage_SuperDestroy(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Destroy_IsBase(true);
-        vqwizardpage->destroy();
-    } else {
-        ((VirtualQWizardPage*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnDestroy(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Destroy_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWizardPage_FocusNextChild(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->focusNextChild();
-    } else {
-        return ((VirtualQWizardPage*)self)->focusNextChild();
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        return vqwizardpage->VirtualQWizardPage::focusNextChild();
+    } else
+        qFatal("Error: Protected method QWizardPage::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWizardPage_SuperFocusNextChild(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_FocusNextChild_IsBase(true);
-        return vqwizardpage->focusNextChild();
-    } else {
-        return ((VirtualQWizardPage*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnFocusNextChild(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_FocusNextChild_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWizardPage_FocusPreviousChild(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->focusPreviousChild();
-    } else {
-        return ((VirtualQWizardPage*)self)->focusPreviousChild();
-    }
+    if (auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self)) {
+        return vqwizardpage->VirtualQWizardPage::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QWizardPage::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWizardPage_SuperFocusPreviousChild(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_FocusPreviousChild_IsBase(true);
-        return vqwizardpage->focusPreviousChild();
-    } else {
-        return ((VirtualQWizardPage*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnFocusPreviousChild(QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_FocusPreviousChild_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QWizardPage_Sender(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->sender();
-    } else {
-        return ((VirtualQWizardPage*)self)->sender();
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->VirtualQWizardPage::sender();
+    } else
+        qFatal("Error: Protected method QWizardPage::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QWizardPage_SuperSender(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Sender_IsBase(true);
-        return vqwizardpage->sender();
-    } else {
-        return ((VirtualQWizardPage*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnSender(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Sender_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWizardPage_SenderSignalIndex(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->senderSignalIndex();
-    } else {
-        return ((VirtualQWizardPage*)self)->senderSignalIndex();
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->VirtualQWizardPage::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QWizardPage::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWizardPage_SuperSenderSignalIndex(const QWizardPage* self) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_SenderSignalIndex_IsBase(true);
-        return vqwizardpage->senderSignalIndex();
-    } else {
-        return ((VirtualQWizardPage*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnSenderSignalIndex(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWizardPage_Receivers(const QWizardPage* self, const char* signal) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->receivers(signal);
-    } else {
-        return ((VirtualQWizardPage*)self)->receivers(signal);
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->VirtualQWizardPage::receivers(signal);
+    } else
+        qFatal("Error: Protected method QWizardPage::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWizardPage_SuperReceivers(const QWizardPage* self, const char* signal) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_Receivers_IsBase(true);
-        return vqwizardpage->receivers(signal);
-    } else {
-        return ((VirtualQWizardPage*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnReceivers(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_Receivers_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWizardPage_IsSignalConnected(const QWizardPage* self, const QMetaMethod* signal) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWizardPage*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->VirtualQWizardPage::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QWizardPage::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWizardPage_SuperIsSignalConnected(const QWizardPage* self, const QMetaMethod* signal) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_IsSignalConnected_IsBase(true);
-        return vqwizardpage->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWizardPage*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnIsSignalConnected(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_IsSignalConnected_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QWizardPage_GetDecodedMetricF(const QWizardPage* self, int metricA, int metricB) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return vqwizardpage->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQWizardPage*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QWizardPage_SuperGetDecodedMetricF(const QWizardPage* self, int metricA, int metricB) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        vqwizardpage->setQWizardPage_GetDecodedMetricF_IsBase(true);
-        return vqwizardpage->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQWizardPage*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWizardPage_OnGetDecodedMetricF(const QWizardPage* self, intptr_t slot) {
-    auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
-        vqwizardpage->setQWizardPage_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self))) {
+        return vqwizardpage->VirtualQWizardPage::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QWizardPage::getDecodedMetricF called without a directly constructed type");
 }
 
 void QWizardPage_Delete(QWizardPage* self) {

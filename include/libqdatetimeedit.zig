@@ -241,9 +241,9 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDateTimeEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) QMetaObject) void {
         qtc.QDateTimeEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1137,11 +1137,11 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QDateTimeEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) QSize) void {
         qtc.QDateTimeEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1187,9 +1187,9 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) void `
     ///
-    pub fn onClear(self: QDateTimeEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) void) void {
         qtc.QDateTimeEdit_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1969,9 +1969,9 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) i32 `
     ///
-    pub fn onStepEnabled(self: QDateTimeEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onStepEnabled(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) i32) void {
         qtc.QDateTimeEdit_OnStepEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8965,11 +8965,11 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QDateTimeEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) QSize) void {
         qtc.QDateTimeEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9767,9 +9767,9 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QDateTimeEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) i32) void {
         qtc.QDateTimeEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9943,9 +9943,9 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QDateTimeEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) bool) void {
         qtc.QDateTimeEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9999,9 +9999,9 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QDateTimeEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) QPaintEngine) void {
         qtc.QDateTimeEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10935,9 +10935,9 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QDateTimeEdit) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QDateTimeEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit) callconv(.c) QPainter) void {
         qtc.QDateTimeEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11337,44 +11337,6 @@ pub const QDateTimeEdit = extern struct {
         return .{ .ptr = qtc.QDateTimeEdit_LineEdit(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superLineEdit` instead
-    ///
-    pub const SuperLineEdit = superLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    pub fn superLineEdit(self: QDateTimeEdit) QLineEdit {
-        return .{ .ptr = qtc.QDateTimeEdit_SuperLineEdit(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onLineEdit` instead
-    ///
-    pub const OnLineEdit = onLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QLineEdit `
-    ///
-    pub fn onLineEdit(self: QDateTimeEdit, callback: *const fn () callconv(.c) QLineEdit) void {
-        qtc.QDateTimeEdit_OnLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setLineEdit` instead
     ///
     pub const SetLineEdit = setLineEdit;
@@ -11396,47 +11358,6 @@ pub const QDateTimeEdit = extern struct {
         qtc.QDateTimeEdit_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetLineEdit` instead
-    ///
-    pub const SuperSetLineEdit = superSetLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    /// ` edit: QLineEdit `
-    ///
-    pub fn superSetLineEdit(self: QDateTimeEdit, edit: anytype) void {
-        comptime _ = @TypeOf(edit)._is_QLineEdit;
-        qtc.QDateTimeEdit_SuperSetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetLineEdit` instead
-    ///
-    pub const OnSetLineEdit = onSetLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn (self: QDateTimeEdit, edit: QLineEdit) callconv(.c) void `
-    ///
-    pub fn onSetLineEdit(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit, QLineEdit) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnSetLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -11453,44 +11374,6 @@ pub const QDateTimeEdit = extern struct {
     ///
     pub fn updateMicroFocus(self: QDateTimeEdit) void {
         qtc.QDateTimeEdit_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    pub fn superUpdateMicroFocus(self: QDateTimeEdit) void {
-        qtc.QDateTimeEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QDateTimeEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -11511,44 +11394,6 @@ pub const QDateTimeEdit = extern struct {
         qtc.QDateTimeEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    pub fn superCreate(self: QDateTimeEdit) void {
-        qtc.QDateTimeEdit_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QDateTimeEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -11565,44 +11410,6 @@ pub const QDateTimeEdit = extern struct {
     ///
     pub fn destroy(self: QDateTimeEdit) void {
         qtc.QDateTimeEdit_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    pub fn superDestroy(self: QDateTimeEdit) void {
-        qtc.QDateTimeEdit_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QDateTimeEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -11623,44 +11430,6 @@ pub const QDateTimeEdit = extern struct {
         return qtc.QDateTimeEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    pub fn superFocusNextChild(self: QDateTimeEdit) bool {
-        return qtc.QDateTimeEdit_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QDateTimeEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -11677,44 +11446,6 @@ pub const QDateTimeEdit = extern struct {
     ///
     pub fn focusPreviousChild(self: QDateTimeEdit) bool {
         return qtc.QDateTimeEdit_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    pub fn superFocusPreviousChild(self: QDateTimeEdit) bool {
-        return qtc.QDateTimeEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QDateTimeEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -11735,44 +11466,6 @@ pub const QDateTimeEdit = extern struct {
         return .{ .ptr = qtc.QDateTimeEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    pub fn superSender(self: QDateTimeEdit) QObject {
-        return .{ .ptr = qtc.QDateTimeEdit_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDateTimeEdit, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDateTimeEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -11789,44 +11482,6 @@ pub const QDateTimeEdit = extern struct {
     ///
     pub fn senderSignalIndex(self: QDateTimeEdit) i32 {
         return qtc.QDateTimeEdit_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    pub fn superSenderSignalIndex(self: QDateTimeEdit) i32 {
-        return qtc.QDateTimeEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDateTimeEdit, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11850,47 +11505,6 @@ pub const QDateTimeEdit = extern struct {
         return qtc.QDateTimeEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDateTimeEdit, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDateTimeEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn (self: QDateTimeEdit, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11910,47 +11524,6 @@ pub const QDateTimeEdit = extern struct {
     pub fn isSignalConnected(self: QDateTimeEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDateTimeEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDateTimeEdit, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDateTimeEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn (self: QDateTimeEdit, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11973,48 +11546,6 @@ pub const QDateTimeEdit = extern struct {
     ///
     pub fn getDecodedMetricF(self: QDateTimeEdit, metricA: i32, metricB: i32) f64 {
         return qtc.QDateTimeEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateTimeEdit `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QDateTimeEdit, metricA: i32, metricB: i32) f64 {
-        return qtc.QDateTimeEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateTimeEdit`
-    ///
-    /// ` callback: *const fn (self: QDateTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit, i32, i32) callconv(.c) f64) void {
-        qtc.QDateTimeEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -12153,9 +11684,9 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QTimeEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) QMetaObject) void {
         qtc.QTimeEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20122,11 +19653,11 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QTimeEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) QSize) void {
         qtc.QTimeEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20180,9 +19711,9 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) void `
     ///
-    pub fn onClear(self: QTimeEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) void) void {
         qtc.QTimeEdit_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20904,9 +20435,9 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) i32 `
     ///
-    pub fn onStepEnabled(self: QTimeEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onStepEnabled(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) i32) void {
         qtc.QTimeEdit_OnStepEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -21146,11 +20677,11 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QTimeEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) QSize) void {
         qtc.QTimeEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -21948,9 +21479,9 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QTimeEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) i32) void {
         qtc.QTimeEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -22124,9 +21655,9 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QTimeEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) bool) void {
         qtc.QTimeEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -22180,9 +21711,9 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QTimeEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) QPaintEngine) void {
         qtc.QTimeEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -23116,9 +22647,9 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QTimeEdit) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QTimeEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QTimeEdit, callback: *const fn (QTimeEdit) callconv(.c) QPainter) void {
         qtc.QTimeEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -23518,44 +23049,6 @@ pub const QTimeEdit = extern struct {
         return .{ .ptr = qtc.QTimeEdit_LineEdit(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superLineEdit` instead
-    ///
-    pub const SuperLineEdit = superLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    pub fn superLineEdit(self: QTimeEdit) QLineEdit {
-        return .{ .ptr = qtc.QTimeEdit_SuperLineEdit(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onLineEdit` instead
-    ///
-    pub const OnLineEdit = onLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QLineEdit `
-    ///
-    pub fn onLineEdit(self: QTimeEdit, callback: *const fn () callconv(.c) QLineEdit) void {
-        qtc.QTimeEdit_OnLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setLineEdit` instead
     ///
     pub const SetLineEdit = setLineEdit;
@@ -23577,47 +23070,6 @@ pub const QTimeEdit = extern struct {
         qtc.QTimeEdit_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetLineEdit` instead
-    ///
-    pub const SuperSetLineEdit = superSetLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    /// ` edit: QLineEdit `
-    ///
-    pub fn superSetLineEdit(self: QTimeEdit, edit: anytype) void {
-        comptime _ = @TypeOf(edit)._is_QLineEdit;
-        qtc.QTimeEdit_SuperSetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetLineEdit` instead
-    ///
-    pub const OnSetLineEdit = onSetLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn (self: QTimeEdit, edit: QLineEdit) callconv(.c) void `
-    ///
-    pub fn onSetLineEdit(self: QTimeEdit, callback: *const fn (QTimeEdit, QLineEdit) callconv(.c) void) void {
-        qtc.QTimeEdit_OnSetLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -23634,44 +23086,6 @@ pub const QTimeEdit = extern struct {
     ///
     pub fn updateMicroFocus(self: QTimeEdit) void {
         qtc.QTimeEdit_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    pub fn superUpdateMicroFocus(self: QTimeEdit) void {
-        qtc.QTimeEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QTimeEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QTimeEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -23692,44 +23106,6 @@ pub const QTimeEdit = extern struct {
         qtc.QTimeEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    pub fn superCreate(self: QTimeEdit) void {
-        qtc.QTimeEdit_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QTimeEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QTimeEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -23746,44 +23122,6 @@ pub const QTimeEdit = extern struct {
     ///
     pub fn destroy(self: QTimeEdit) void {
         qtc.QTimeEdit_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    pub fn superDestroy(self: QTimeEdit) void {
-        qtc.QTimeEdit_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QTimeEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QTimeEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -23804,44 +23142,6 @@ pub const QTimeEdit = extern struct {
         return qtc.QTimeEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    pub fn superFocusNextChild(self: QTimeEdit) bool {
-        return qtc.QTimeEdit_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QTimeEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTimeEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -23858,44 +23158,6 @@ pub const QTimeEdit = extern struct {
     ///
     pub fn focusPreviousChild(self: QTimeEdit) bool {
         return qtc.QTimeEdit_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    pub fn superFocusPreviousChild(self: QTimeEdit) bool {
-        return qtc.QTimeEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QTimeEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTimeEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -23916,44 +23178,6 @@ pub const QTimeEdit = extern struct {
         return .{ .ptr = qtc.QTimeEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    pub fn superSender(self: QTimeEdit) QObject {
-        return .{ .ptr = qtc.QTimeEdit_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QTimeEdit, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QTimeEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -23970,44 +23194,6 @@ pub const QTimeEdit = extern struct {
     ///
     pub fn senderSignalIndex(self: QTimeEdit) i32 {
         return qtc.QTimeEdit_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    pub fn superSenderSignalIndex(self: QTimeEdit) i32 {
-        return qtc.QTimeEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QTimeEdit, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTimeEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -24031,47 +23217,6 @@ pub const QTimeEdit = extern struct {
         return qtc.QTimeEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QTimeEdit, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QTimeEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn (self: QTimeEdit, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QTimeEdit, callback: *const fn (QTimeEdit, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTimeEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -24091,47 +23236,6 @@ pub const QTimeEdit = extern struct {
     pub fn isSignalConnected(self: QTimeEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTimeEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QTimeEdit, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QTimeEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn (self: QTimeEdit, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QTimeEdit, callback: *const fn (QTimeEdit, QMetaMethod) callconv(.c) bool) void {
-        qtc.QTimeEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -24154,48 +23258,6 @@ pub const QTimeEdit = extern struct {
     ///
     pub fn getDecodedMetricF(self: QTimeEdit, metricA: i32, metricB: i32) f64 {
         return qtc.QTimeEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTimeEdit `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QTimeEdit, metricA: i32, metricB: i32) f64 {
-        return qtc.QTimeEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTimeEdit`
-    ///
-    /// ` callback: *const fn (self: QTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QTimeEdit, callback: *const fn (QTimeEdit, i32, i32) callconv(.c) f64) void {
-        qtc.QTimeEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -24334,9 +23396,9 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDateEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) QMetaObject) void {
         qtc.QDateEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -32303,11 +31365,11 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QDateEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) QSize) void {
         qtc.QDateEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -32361,9 +31423,9 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) void `
     ///
-    pub fn onClear(self: QDateEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) void) void {
         qtc.QDateEdit_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -33085,9 +32147,9 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) i32 `
     ///
-    pub fn onStepEnabled(self: QDateEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onStepEnabled(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) i32) void {
         qtc.QDateEdit_OnStepEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -33327,11 +32389,11 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QDateEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) QSize) void {
         qtc.QDateEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -34129,9 +33191,9 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QDateEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) i32) void {
         qtc.QDateEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -34305,9 +33367,9 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QDateEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) bool) void {
         qtc.QDateEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -34361,9 +33423,9 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QDateEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) QPaintEngine) void {
         qtc.QDateEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -35297,9 +34359,9 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QDateEdit) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QDateEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QDateEdit, callback: *const fn (QDateEdit) callconv(.c) QPainter) void {
         qtc.QDateEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -35699,44 +34761,6 @@ pub const QDateEdit = extern struct {
         return .{ .ptr = qtc.QDateEdit_LineEdit(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superLineEdit` instead
-    ///
-    pub const SuperLineEdit = superLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    pub fn superLineEdit(self: QDateEdit) QLineEdit {
-        return .{ .ptr = qtc.QDateEdit_SuperLineEdit(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onLineEdit` instead
-    ///
-    pub const OnLineEdit = onLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QLineEdit `
-    ///
-    pub fn onLineEdit(self: QDateEdit, callback: *const fn () callconv(.c) QLineEdit) void {
-        qtc.QDateEdit_OnLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setLineEdit` instead
     ///
     pub const SetLineEdit = setLineEdit;
@@ -35758,47 +34782,6 @@ pub const QDateEdit = extern struct {
         qtc.QDateEdit_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetLineEdit` instead
-    ///
-    pub const SuperSetLineEdit = superSetLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    /// ` edit: QLineEdit `
-    ///
-    pub fn superSetLineEdit(self: QDateEdit, edit: anytype) void {
-        comptime _ = @TypeOf(edit)._is_QLineEdit;
-        qtc.QDateEdit_SuperSetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetLineEdit` instead
-    ///
-    pub const OnSetLineEdit = onSetLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn (self: QDateEdit, edit: QLineEdit) callconv(.c) void `
-    ///
-    pub fn onSetLineEdit(self: QDateEdit, callback: *const fn (QDateEdit, QLineEdit) callconv(.c) void) void {
-        qtc.QDateEdit_OnSetLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -35815,44 +34798,6 @@ pub const QDateEdit = extern struct {
     ///
     pub fn updateMicroFocus(self: QDateEdit) void {
         qtc.QDateEdit_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    pub fn superUpdateMicroFocus(self: QDateEdit) void {
-        qtc.QDateEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QDateEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QDateEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -35873,44 +34818,6 @@ pub const QDateEdit = extern struct {
         qtc.QDateEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    pub fn superCreate(self: QDateEdit) void {
-        qtc.QDateEdit_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QDateEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QDateEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -35927,44 +34834,6 @@ pub const QDateEdit = extern struct {
     ///
     pub fn destroy(self: QDateEdit) void {
         qtc.QDateEdit_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    pub fn superDestroy(self: QDateEdit) void {
-        qtc.QDateEdit_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QDateEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.QDateEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -35985,44 +34854,6 @@ pub const QDateEdit = extern struct {
         return qtc.QDateEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    pub fn superFocusNextChild(self: QDateEdit) bool {
-        return qtc.QDateEdit_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QDateEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDateEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -36039,44 +34870,6 @@ pub const QDateEdit = extern struct {
     ///
     pub fn focusPreviousChild(self: QDateEdit) bool {
         return qtc.QDateEdit_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    pub fn superFocusPreviousChild(self: QDateEdit) bool {
-        return qtc.QDateEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QDateEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDateEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -36097,44 +34890,6 @@ pub const QDateEdit = extern struct {
         return .{ .ptr = qtc.QDateEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    pub fn superSender(self: QDateEdit) QObject {
-        return .{ .ptr = qtc.QDateEdit_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDateEdit, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDateEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -36151,44 +34906,6 @@ pub const QDateEdit = extern struct {
     ///
     pub fn senderSignalIndex(self: QDateEdit) i32 {
         return qtc.QDateEdit_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    pub fn superSenderSignalIndex(self: QDateEdit) i32 {
-        return qtc.QDateEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDateEdit, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDateEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -36212,47 +34929,6 @@ pub const QDateEdit = extern struct {
         return qtc.QDateEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDateEdit, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDateEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn (self: QDateEdit, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDateEdit, callback: *const fn (QDateEdit, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDateEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -36272,47 +34948,6 @@ pub const QDateEdit = extern struct {
     pub fn isSignalConnected(self: QDateEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDateEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDateEdit, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDateEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn (self: QDateEdit, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDateEdit, callback: *const fn (QDateEdit, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDateEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -36335,48 +34970,6 @@ pub const QDateEdit = extern struct {
     ///
     pub fn getDecodedMetricF(self: QDateEdit, metricA: i32, metricB: i32) f64 {
         return qtc.QDateEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDateEdit `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QDateEdit, metricA: i32, metricB: i32) f64 {
-        return qtc.QDateEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDateEdit`
-    ///
-    /// ` callback: *const fn (self: QDateEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QDateEdit, callback: *const fn (QDateEdit, i32, i32) callconv(.c) f64) void {
-        qtc.QDateEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

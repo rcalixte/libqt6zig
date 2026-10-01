@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QOpenGLDebugLogger so that we can call protected methods
+// This class is a subclass of QOpenGLDebugLogger
 class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQOpenGLDebugLogger = true;
-
-    // Virtual class public types (including callbacks)
-    using QOpenGLDebugLogger_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QOpenGLDebugLogger_MetaObject_Callback = QMetaObject* (*)(const QOpenGLDebugLogger*);
     using QOpenGLDebugLogger_Metacast_Callback = void* (*)(QOpenGLDebugLogger*, const char*);
     using QOpenGLDebugLogger_Metacall_Callback = int (*)(QOpenGLDebugLogger*, int, int, void**);
     using QOpenGLDebugLogger_Event_Callback = bool (*)(QOpenGLDebugLogger*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
     using QOpenGLDebugLogger_CustomEvent_Callback = void (*)(QOpenGLDebugLogger*, QEvent*);
     using QOpenGLDebugLogger_ConnectNotify_Callback = void (*)(QOpenGLDebugLogger*, QMetaMethod*);
     using QOpenGLDebugLogger_DisconnectNotify_Callback = void (*)(QOpenGLDebugLogger*, QMetaMethod*);
-    using QOpenGLDebugLogger_Sender_Callback = QObject* (*)();
-    using QOpenGLDebugLogger_SenderSignalIndex_Callback = int (*)();
-    using QOpenGLDebugLogger_Receivers_Callback = int (*)(const QOpenGLDebugLogger*, const char*);
-    using QOpenGLDebugLogger_IsSignalConnected_Callback = bool (*)(const QOpenGLDebugLogger*, QMetaMethod*);
+    using QOpenGLDebugLogger::isSignalConnected;
+    using QOpenGLDebugLogger::receivers;
+    using QOpenGLDebugLogger::sender;
+    using QOpenGLDebugLogger::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QOpenGLDebugLogger_MetaObject_Callback qopengldebuglogger_metaobject_callback = nullptr;
     QOpenGLDebugLogger_Metacast_Callback qopengldebuglogger_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
     QOpenGLDebugLogger_CustomEvent_Callback qopengldebuglogger_customevent_callback = nullptr;
     QOpenGLDebugLogger_ConnectNotify_Callback qopengldebuglogger_connectnotify_callback = nullptr;
     QOpenGLDebugLogger_DisconnectNotify_Callback qopengldebuglogger_disconnectnotify_callback = nullptr;
-    QOpenGLDebugLogger_Sender_Callback qopengldebuglogger_sender_callback = nullptr;
-    QOpenGLDebugLogger_SenderSignalIndex_Callback qopengldebuglogger_sendersignalindex_callback = nullptr;
-    QOpenGLDebugLogger_Receivers_Callback qopengldebuglogger_receivers_callback = nullptr;
-    QOpenGLDebugLogger_IsSignalConnected_Callback qopengldebuglogger_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qopengldebuglogger_metaobject_isbase = false;
-    mutable bool qopengldebuglogger_metacast_isbase = false;
-    mutable bool qopengldebuglogger_metacall_isbase = false;
-    mutable bool qopengldebuglogger_event_isbase = false;
-    mutable bool qopengldebuglogger_eventfilter_isbase = false;
-    mutable bool qopengldebuglogger_timerevent_isbase = false;
-    mutable bool qopengldebuglogger_childevent_isbase = false;
-    mutable bool qopengldebuglogger_customevent_isbase = false;
-    mutable bool qopengldebuglogger_connectnotify_isbase = false;
-    mutable bool qopengldebuglogger_disconnectnotify_isbase = false;
-    mutable bool qopengldebuglogger_sender_isbase = false;
-    mutable bool qopengldebuglogger_sendersignalindex_isbase = false;
-    mutable bool qopengldebuglogger_receivers_isbase = false;
-    mutable bool qopengldebuglogger_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QOpenGLDebugLogger {
+        using QOpenGLDebugLogger::childEvent;
+        using QOpenGLDebugLogger::connectNotify;
+        using QOpenGLDebugLogger::customEvent;
+        using QOpenGLDebugLogger::disconnectNotify;
+        using QOpenGLDebugLogger::timerEvent;
+    };
 
-  public:
     VirtualQOpenGLDebugLogger() : QOpenGLDebugLogger() {};
     VirtualQOpenGLDebugLogger(QObject* parent) : QOpenGLDebugLogger(parent) {};
 
-    // Callback setters
-    inline void setQOpenGLDebugLogger_MetaObject_Callback(QOpenGLDebugLogger_MetaObject_Callback cb) { qopengldebuglogger_metaobject_callback = cb; }
-    inline void setQOpenGLDebugLogger_Metacast_Callback(QOpenGLDebugLogger_Metacast_Callback cb) { qopengldebuglogger_metacast_callback = cb; }
-    inline void setQOpenGLDebugLogger_Metacall_Callback(QOpenGLDebugLogger_Metacall_Callback cb) { qopengldebuglogger_metacall_callback = cb; }
-    inline void setQOpenGLDebugLogger_Event_Callback(QOpenGLDebugLogger_Event_Callback cb) { qopengldebuglogger_event_callback = cb; }
-    inline void setQOpenGLDebugLogger_EventFilter_Callback(QOpenGLDebugLogger_EventFilter_Callback cb) { qopengldebuglogger_eventfilter_callback = cb; }
-    inline void setQOpenGLDebugLogger_TimerEvent_Callback(QOpenGLDebugLogger_TimerEvent_Callback cb) { qopengldebuglogger_timerevent_callback = cb; }
-    inline void setQOpenGLDebugLogger_ChildEvent_Callback(QOpenGLDebugLogger_ChildEvent_Callback cb) { qopengldebuglogger_childevent_callback = cb; }
-    inline void setQOpenGLDebugLogger_CustomEvent_Callback(QOpenGLDebugLogger_CustomEvent_Callback cb) { qopengldebuglogger_customevent_callback = cb; }
-    inline void setQOpenGLDebugLogger_ConnectNotify_Callback(QOpenGLDebugLogger_ConnectNotify_Callback cb) { qopengldebuglogger_connectnotify_callback = cb; }
-    inline void setQOpenGLDebugLogger_DisconnectNotify_Callback(QOpenGLDebugLogger_DisconnectNotify_Callback cb) { qopengldebuglogger_disconnectnotify_callback = cb; }
-    inline void setQOpenGLDebugLogger_Sender_Callback(QOpenGLDebugLogger_Sender_Callback cb) { qopengldebuglogger_sender_callback = cb; }
-    inline void setQOpenGLDebugLogger_SenderSignalIndex_Callback(QOpenGLDebugLogger_SenderSignalIndex_Callback cb) { qopengldebuglogger_sendersignalindex_callback = cb; }
-    inline void setQOpenGLDebugLogger_Receivers_Callback(QOpenGLDebugLogger_Receivers_Callback cb) { qopengldebuglogger_receivers_callback = cb; }
-    inline void setQOpenGLDebugLogger_IsSignalConnected_Callback(QOpenGLDebugLogger_IsSignalConnected_Callback cb) { qopengldebuglogger_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQOpenGLDebugLogger_MetaObject_IsBase(bool value) const { qopengldebuglogger_metaobject_isbase = value; }
-    inline void setQOpenGLDebugLogger_Metacast_IsBase(bool value) const { qopengldebuglogger_metacast_isbase = value; }
-    inline void setQOpenGLDebugLogger_Metacall_IsBase(bool value) const { qopengldebuglogger_metacall_isbase = value; }
-    inline void setQOpenGLDebugLogger_Event_IsBase(bool value) const { qopengldebuglogger_event_isbase = value; }
-    inline void setQOpenGLDebugLogger_EventFilter_IsBase(bool value) const { qopengldebuglogger_eventfilter_isbase = value; }
-    inline void setQOpenGLDebugLogger_TimerEvent_IsBase(bool value) const { qopengldebuglogger_timerevent_isbase = value; }
-    inline void setQOpenGLDebugLogger_ChildEvent_IsBase(bool value) const { qopengldebuglogger_childevent_isbase = value; }
-    inline void setQOpenGLDebugLogger_CustomEvent_IsBase(bool value) const { qopengldebuglogger_customevent_isbase = value; }
-    inline void setQOpenGLDebugLogger_ConnectNotify_IsBase(bool value) const { qopengldebuglogger_connectnotify_isbase = value; }
-    inline void setQOpenGLDebugLogger_DisconnectNotify_IsBase(bool value) const { qopengldebuglogger_disconnectnotify_isbase = value; }
-    inline void setQOpenGLDebugLogger_Sender_IsBase(bool value) const { qopengldebuglogger_sender_isbase = value; }
-    inline void setQOpenGLDebugLogger_SenderSignalIndex_IsBase(bool value) const { qopengldebuglogger_sendersignalindex_isbase = value; }
-    inline void setQOpenGLDebugLogger_Receivers_IsBase(bool value) const { qopengldebuglogger_receivers_isbase = value; }
-    inline void setQOpenGLDebugLogger_IsSignalConnected_IsBase(bool value) const { qopengldebuglogger_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qopengldebuglogger_metaobject_isbase) {
-            qopengldebuglogger_metaobject_isbase = false;
-            return QOpenGLDebugLogger::metaObject();
-        }
-        auto metaobject_cb = qopengldebuglogger_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qopengldebuglogger_metaobject_callback) {
+            QMetaObject* callback_ret = qopengldebuglogger_metaobject_callback(this);
             return callback_ret;
         }
         return QOpenGLDebugLogger::metaObject();
@@ -117,14 +63,9 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qopengldebuglogger_metacast_isbase) {
-            qopengldebuglogger_metacast_isbase = false;
-            return QOpenGLDebugLogger::qt_metacast(param1);
-        }
-        auto metacast_cb = qopengldebuglogger_metacast_callback;
-        if (metacast_cb) {
+        if (qopengldebuglogger_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qopengldebuglogger_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLDebugLogger::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qopengldebuglogger_metacall_isbase) {
-            qopengldebuglogger_metacall_isbase = false;
-            return QOpenGLDebugLogger::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qopengldebuglogger_metacall_callback;
-        if (metacall_cb) {
+        if (qopengldebuglogger_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qopengldebuglogger_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QOpenGLDebugLogger::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qopengldebuglogger_event_isbase) {
-            qopengldebuglogger_event_isbase = false;
-            return QOpenGLDebugLogger::event(event);
-        }
-        auto event_cb = qopengldebuglogger_event_callback;
-        if (event_cb) {
+        if (qopengldebuglogger_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qopengldebuglogger_event_callback(this, cbval1);
             return callback_ret;
         }
         return QOpenGLDebugLogger::event(event);
@@ -164,15 +95,10 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qopengldebuglogger_eventfilter_isbase) {
-            qopengldebuglogger_eventfilter_isbase = false;
-            return QOpenGLDebugLogger::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qopengldebuglogger_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qopengldebuglogger_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qopengldebuglogger_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QOpenGLDebugLogger::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qopengldebuglogger_timerevent_isbase) {
-            qopengldebuglogger_timerevent_isbase = false;
-            QOpenGLDebugLogger::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qopengldebuglogger_timerevent_callback;
-        if (timerevent_cb) {
+        if (qopengldebuglogger_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qopengldebuglogger_timerevent_callback(this, cbval1);
             return;
         }
         QOpenGLDebugLogger::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qopengldebuglogger_childevent_isbase) {
-            qopengldebuglogger_childevent_isbase = false;
-            QOpenGLDebugLogger::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qopengldebuglogger_childevent_callback;
-        if (childevent_cb) {
+        if (qopengldebuglogger_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qopengldebuglogger_childevent_callback(this, cbval1);
             return;
         }
         QOpenGLDebugLogger::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qopengldebuglogger_customevent_isbase) {
-            qopengldebuglogger_customevent_isbase = false;
-            QOpenGLDebugLogger::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qopengldebuglogger_customevent_callback;
-        if (customevent_cb) {
+        if (qopengldebuglogger_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qopengldebuglogger_customevent_callback(this, cbval1);
             return;
         }
         QOpenGLDebugLogger::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qopengldebuglogger_connectnotify_isbase) {
-            qopengldebuglogger_connectnotify_isbase = false;
-            QOpenGLDebugLogger::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qopengldebuglogger_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qopengldebuglogger_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qopengldebuglogger_connectnotify_callback(this, cbval1);
             return;
         }
         QOpenGLDebugLogger::connectNotify(signal);
@@ -246,101 +148,22 @@ class VirtualQOpenGLDebugLogger final : public QOpenGLDebugLogger {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qopengldebuglogger_disconnectnotify_isbase) {
-            qopengldebuglogger_disconnectnotify_isbase = false;
-            QOpenGLDebugLogger::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qopengldebuglogger_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qopengldebuglogger_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qopengldebuglogger_disconnectnotify_callback(this, cbval1);
             return;
         }
         QOpenGLDebugLogger::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qopengldebuglogger_sender_isbase) {
-            qopengldebuglogger_sender_isbase = false;
-            return QOpenGLDebugLogger::sender();
-        }
-        auto sender_cb = qopengldebuglogger_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QOpenGLDebugLogger::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qopengldebuglogger_sendersignalindex_isbase) {
-            qopengldebuglogger_sendersignalindex_isbase = false;
-            return QOpenGLDebugLogger::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qopengldebuglogger_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QOpenGLDebugLogger::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qopengldebuglogger_receivers_isbase) {
-            qopengldebuglogger_receivers_isbase = false;
-            return QOpenGLDebugLogger::receivers(signal);
-        }
-        auto receivers_cb = qopengldebuglogger_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QOpenGLDebugLogger::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qopengldebuglogger_issignalconnected_isbase) {
-            qopengldebuglogger_issignalconnected_isbase = false;
-            return QOpenGLDebugLogger::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qopengldebuglogger_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QOpenGLDebugLogger::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QOpenGLDebugLogger_TimerEvent(QOpenGLDebugLogger* self, QTimerEvent* event);
     friend void QOpenGLDebugLogger_SuperTimerEvent(QOpenGLDebugLogger* self, QTimerEvent* event);
-    friend void QOpenGLDebugLogger_ChildEvent(QOpenGLDebugLogger* self, QChildEvent* event);
     friend void QOpenGLDebugLogger_SuperChildEvent(QOpenGLDebugLogger* self, QChildEvent* event);
-    friend void QOpenGLDebugLogger_CustomEvent(QOpenGLDebugLogger* self, QEvent* event);
     friend void QOpenGLDebugLogger_SuperCustomEvent(QOpenGLDebugLogger* self, QEvent* event);
-    friend void QOpenGLDebugLogger_ConnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
     friend void QOpenGLDebugLogger_SuperConnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
-    friend void QOpenGLDebugLogger_DisconnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
     friend void QOpenGLDebugLogger_SuperDisconnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
-    friend QObject* QOpenGLDebugLogger_Sender(const QOpenGLDebugLogger* self);
-    friend QObject* QOpenGLDebugLogger_SuperSender(const QOpenGLDebugLogger* self);
-    friend int QOpenGLDebugLogger_SenderSignalIndex(const QOpenGLDebugLogger* self);
-    friend int QOpenGLDebugLogger_SuperSenderSignalIndex(const QOpenGLDebugLogger* self);
-    friend int QOpenGLDebugLogger_Receivers(const QOpenGLDebugLogger* self, const char* signal);
-    friend int QOpenGLDebugLogger_SuperReceivers(const QOpenGLDebugLogger* self, const char* signal);
-    friend bool QOpenGLDebugLogger_IsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal);
-    friend bool QOpenGLDebugLogger_SuperIsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal);
 };
 
 #endif

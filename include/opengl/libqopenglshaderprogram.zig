@@ -94,9 +94,9 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QOpenGLShader) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QOpenGLShader, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QOpenGLShader, callback: *const fn (QOpenGLShader) callconv(.c) QMetaObject) void {
         qtc.QOpenGLShader_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1912,44 +1912,6 @@ pub const QOpenGLShader = extern struct {
         return .{ .ptr = qtc.QOpenGLShader_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShader `
-    ///
-    pub fn superSender(self: QOpenGLShader) QObject {
-        return .{ .ptr = qtc.QOpenGLShader_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLShader`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QOpenGLShader, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QOpenGLShader_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1966,44 +1928,6 @@ pub const QOpenGLShader = extern struct {
     ///
     pub fn senderSignalIndex(self: QOpenGLShader) i32 {
         return qtc.QOpenGLShader_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShader `
-    ///
-    pub fn superSenderSignalIndex(self: QOpenGLShader) i32 {
-        return qtc.QOpenGLShader_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLShader`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QOpenGLShader, callback: *const fn () callconv(.c) i32) void {
-        qtc.QOpenGLShader_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2027,47 +1951,6 @@ pub const QOpenGLShader = extern struct {
         return qtc.QOpenGLShader_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShader `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QOpenGLShader, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QOpenGLShader_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLShader`
-    ///
-    /// ` callback: *const fn (self: QOpenGLShader, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QOpenGLShader, callback: *const fn (QOpenGLShader, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QOpenGLShader_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2087,47 +1970,6 @@ pub const QOpenGLShader = extern struct {
     pub fn isSignalConnected(self: QOpenGLShader, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLShader_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShader `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QOpenGLShader, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QOpenGLShader_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLShader`
-    ///
-    /// ` callback: *const fn (self: QOpenGLShader, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QMetaMethod) callconv(.c) bool) void {
-        qtc.QOpenGLShader_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2229,9 +2071,9 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QOpenGLShaderProgram) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram) callconv(.c) QMetaObject) void {
         qtc.QOpenGLShaderProgram_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2642,9 +2484,9 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QOpenGLShaderProgram) callconv(.c) bool `
     ///
-    pub fn onLink(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) bool) void {
+    pub fn onLink(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram) callconv(.c) bool) void {
         qtc.QOpenGLShaderProgram_OnLink(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6453,44 +6295,6 @@ pub const QOpenGLShaderProgram = extern struct {
         return .{ .ptr = qtc.QOpenGLShaderProgram_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShaderProgram `
-    ///
-    pub fn superSender(self: QOpenGLShaderProgram) QObject {
-        return .{ .ptr = qtc.QOpenGLShaderProgram_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLShaderProgram`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QOpenGLShaderProgram_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -6507,44 +6311,6 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     pub fn senderSignalIndex(self: QOpenGLShaderProgram) i32 {
         return qtc.QOpenGLShaderProgram_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShaderProgram `
-    ///
-    pub fn superSenderSignalIndex(self: QOpenGLShaderProgram) i32 {
-        return qtc.QOpenGLShaderProgram_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLShaderProgram`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) i32) void {
-        qtc.QOpenGLShaderProgram_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -6568,47 +6334,6 @@ pub const QOpenGLShaderProgram = extern struct {
         return qtc.QOpenGLShaderProgram_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShaderProgram `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QOpenGLShaderProgram, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QOpenGLShaderProgram_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLShaderProgram`
-    ///
-    /// ` callback: *const fn (self: QOpenGLShaderProgram, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QOpenGLShaderProgram_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -6628,47 +6353,6 @@ pub const QOpenGLShaderProgram = extern struct {
     pub fn isSignalConnected(self: QOpenGLShaderProgram, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLShaderProgram_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShaderProgram `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QOpenGLShaderProgram, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QOpenGLShaderProgram_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLShaderProgram`
-    ///
-    /// ` callback: *const fn (self: QOpenGLShaderProgram, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QMetaMethod) callconv(.c) bool) void {
-        qtc.QOpenGLShaderProgram_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

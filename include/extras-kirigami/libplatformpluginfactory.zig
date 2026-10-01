@@ -78,9 +78,9 @@ pub const Kirigami__Platform__PlatformPluginFactory = extern struct {
     ///
     /// ` self: Kirigami__Platform__PlatformPluginFactory `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Kirigami__Platform__PlatformPluginFactory) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Kirigami__Platform__PlatformPluginFactory, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Kirigami__Platform__PlatformPluginFactory, callback: *const fn (Kirigami__Platform__PlatformPluginFactory) callconv(.c) QMetaObject) void {
         qtc.Kirigami__Platform__PlatformPluginFactory_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -231,6 +231,8 @@ pub const Kirigami__Platform__PlatformPluginFactory = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformpluginfactory.html#createPlatformTheme)
     ///
+    /// This method must be implemented with `onCreatePlatformTheme` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Kirigami__Platform__PlatformPluginFactory `
@@ -260,30 +262,13 @@ pub const Kirigami__Platform__PlatformPluginFactory = extern struct {
         qtc.Kirigami__Platform__PlatformPluginFactory_OnCreatePlatformTheme(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCreatePlatformTheme` instead
-    ///
-    pub const SuperCreatePlatformTheme = superCreatePlatformTheme;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformpluginfactory.html#createPlatformTheme)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory `
-    ///
-    /// ` _parent: QObject `
-    ///
-    pub fn superCreatePlatformTheme(self: Kirigami__Platform__PlatformPluginFactory, _parent: anytype) Kirigami__Platform__PlatformTheme {
-        comptime _ = @TypeOf(_parent)._is_QObject;
-        return .{ .ptr = qtc.Kirigami__Platform__PlatformPluginFactory_SuperCreatePlatformTheme(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `createUnits` instead
     ///
     pub const CreateUnits = createUnits;
 
     /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformpluginfactory.html#createUnits)
+    ///
+    /// This method must be implemented with `onCreateUnits` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -312,25 +297,6 @@ pub const Kirigami__Platform__PlatformPluginFactory = extern struct {
     ///
     pub fn onCreateUnits(self: Kirigami__Platform__PlatformPluginFactory, callback: *const fn (Kirigami__Platform__PlatformPluginFactory, QObject) callconv(.c) Kirigami__Platform__Units) void {
         qtc.Kirigami__Platform__PlatformPluginFactory_OnCreateUnits(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateUnits` instead
-    ///
-    pub const SuperCreateUnits = superCreateUnits;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformpluginfactory.html#createUnits)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory `
-    ///
-    /// ` _parent: QObject `
-    ///
-    pub fn superCreateUnits(self: Kirigami__Platform__PlatformPluginFactory, _parent: anytype) Kirigami__Platform__Units {
-        comptime _ = @TypeOf(_parent)._is_QObject;
-        return .{ .ptr = qtc.Kirigami__Platform__PlatformPluginFactory_SuperCreateUnits(@ptrCast(self.ptr), @ptrCast(_parent.ptr)) };
     }
 
     /// ### DEPRECATED: Use `findPlugin` instead
@@ -1838,44 +1804,6 @@ pub const Kirigami__Platform__PlatformPluginFactory = extern struct {
         return .{ .ptr = qtc.Kirigami__Platform__PlatformPluginFactory_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory `
-    ///
-    pub fn superSender(self: Kirigami__Platform__PlatformPluginFactory) QObject {
-        return .{ .ptr = qtc.Kirigami__Platform__PlatformPluginFactory_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Kirigami__Platform__PlatformPluginFactory, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Kirigami__Platform__PlatformPluginFactory_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1892,44 +1820,6 @@ pub const Kirigami__Platform__PlatformPluginFactory = extern struct {
     ///
     pub fn senderSignalIndex(self: Kirigami__Platform__PlatformPluginFactory) i32 {
         return qtc.Kirigami__Platform__PlatformPluginFactory_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory `
-    ///
-    pub fn superSenderSignalIndex(self: Kirigami__Platform__PlatformPluginFactory) i32 {
-        return qtc.Kirigami__Platform__PlatformPluginFactory_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Kirigami__Platform__PlatformPluginFactory, callback: *const fn () callconv(.c) i32) void {
-        qtc.Kirigami__Platform__PlatformPluginFactory_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1953,47 +1843,6 @@ pub const Kirigami__Platform__PlatformPluginFactory = extern struct {
         return qtc.Kirigami__Platform__PlatformPluginFactory_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Kirigami__Platform__PlatformPluginFactory, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Kirigami__Platform__PlatformPluginFactory_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory`
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformPluginFactory, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Kirigami__Platform__PlatformPluginFactory, callback: *const fn (Kirigami__Platform__PlatformPluginFactory, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Kirigami__Platform__PlatformPluginFactory_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2013,47 +1862,6 @@ pub const Kirigami__Platform__PlatformPluginFactory = extern struct {
     pub fn isSignalConnected(self: Kirigami__Platform__PlatformPluginFactory, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Kirigami__Platform__PlatformPluginFactory_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Kirigami__Platform__PlatformPluginFactory, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Kirigami__Platform__PlatformPluginFactory_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformPluginFactory`
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformPluginFactory, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Kirigami__Platform__PlatformPluginFactory, callback: *const fn (Kirigami__Platform__PlatformPluginFactory, QMetaMethod) callconv(.c) bool) void {
-        qtc.Kirigami__Platform__PlatformPluginFactory_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

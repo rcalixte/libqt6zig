@@ -54,7 +54,7 @@ void QDrag_Connect_TargetChanged(QDrag* self, intptr_t slot);
 libqt_string QDrag_Tr2(const char* s, const char* c);
 libqt_string QDrag_Tr3(const char* s, const char* c, int n);
 int QDrag_Exec1(QDrag* self, int supportedActions);
-void QDrag_OnMetaObject(const QDrag* self, intptr_t slot);
+void QDrag_OnMetaObject(QDrag* self, intptr_t slot);
 QMetaObject* QDrag_SuperMetaObject(const QDrag* self);
 void QDrag_OnMetacast(QDrag* self, intptr_t slot);
 void* QDrag_SuperMetacast(QDrag* self, const char* param1);
@@ -82,17 +82,9 @@ void QDrag_DisconnectNotify(QDrag* self, const QMetaMethod* signal);
 void QDrag_OnDisconnectNotify(QDrag* self, intptr_t slot);
 void QDrag_SuperDisconnectNotify(QDrag* self, const QMetaMethod* signal);
 QObject* QDrag_Sender(const QDrag* self);
-void QDrag_OnSender(const QDrag* self, intptr_t slot);
-QObject* QDrag_SuperSender(const QDrag* self);
 int QDrag_SenderSignalIndex(const QDrag* self);
-void QDrag_OnSenderSignalIndex(const QDrag* self, intptr_t slot);
-int QDrag_SuperSenderSignalIndex(const QDrag* self);
 int QDrag_Receivers(const QDrag* self, const char* signal);
-void QDrag_OnReceivers(const QDrag* self, intptr_t slot);
-int QDrag_SuperReceivers(const QDrag* self, const char* signal);
 bool QDrag_IsSignalConnected(const QDrag* self, const QMetaMethod* signal);
-void QDrag_OnIsSignalConnected(const QDrag* self, intptr_t slot);
-bool QDrag_SuperIsSignalConnected(const QDrag* self, const QMetaMethod* signal);
 void QDrag_Delete(QDrag* self);
 
 #ifdef __cplusplus

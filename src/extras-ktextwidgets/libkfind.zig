@@ -104,9 +104,9 @@ pub const KFind = extern struct {
     ///
     /// ` self: KFind `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KFind) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KFind, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFind, callback: *const fn (KFind) callconv(.c) QMetaObject) void {
         qtc.KFind_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -471,9 +471,9 @@ pub const KFind = extern struct {
     ///
     /// ` self: KFind `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFind) callconv(.c) void `
     ///
-    pub fn onResetCounts(self: KFind, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetCounts(self: KFind, callback: *const fn (KFind) callconv(.c) void) void {
         qtc.KFind_OnResetCounts(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -676,9 +676,9 @@ pub const KFind = extern struct {
     ///
     /// ` self: KFind `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFind) callconv(.c) void `
     ///
-    pub fn onDisplayFinalDialog(self: KFind, callback: *const fn () callconv(.c) void) void {
+    pub fn onDisplayFinalDialog(self: KFind, callback: *const fn (KFind) callconv(.c) void) void {
         qtc.KFind_OnDisplayFinalDialog(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -920,40 +920,6 @@ pub const KFind = extern struct {
         return .{ .ptr = qtc.KFind_ParentWidget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onParentWidget` instead
-    ///
-    pub const OnParentWidget = onParentWidget;
-
-    /// ### [Upstream resources](https://api.kde.org/kfind.html#parentWidget)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFind `
-    ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
-    ///
-    pub fn onParentWidget(self: KFind, callback: *const fn () callconv(.c) QWidget) void {
-        qtc.KFind_OnParentWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParentWidget` instead
-    ///
-    pub const SuperParentWidget = superParentWidget;
-
-    /// ### [Upstream resources](https://api.kde.org/kfind.html#parentWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFind `
-    ///
-    pub fn superParentWidget(self: KFind) QWidget {
-        return .{ .ptr = qtc.KFind_SuperParentWidget(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `dialogsParent` instead
     ///
     pub const DialogsParent = dialogsParent;
@@ -966,40 +932,6 @@ pub const KFind = extern struct {
     ///
     pub fn dialogsParent(self: KFind) QWidget {
         return .{ .ptr = qtc.KFind_DialogsParent(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDialogsParent` instead
-    ///
-    pub const OnDialogsParent = onDialogsParent;
-
-    /// ### [Upstream resources](https://api.kde.org/kfind.html#dialogsParent)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFind `
-    ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
-    ///
-    pub fn onDialogsParent(self: KFind, callback: *const fn () callconv(.c) QWidget) void {
-        qtc.KFind_OnDialogsParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDialogsParent` instead
-    ///
-    pub const SuperDialogsParent = superDialogsParent;
-
-    /// ### [Upstream resources](https://api.kde.org/kfind.html#dialogsParent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFind `
-    ///
-    pub fn superDialogsParent(self: KFind) QWidget {
-        return .{ .ptr = qtc.KFind_SuperDialogsParent(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2541,44 +2473,6 @@ pub const KFind = extern struct {
         return .{ .ptr = qtc.KFind_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFind `
-    ///
-    pub fn superSender(self: KFind) QObject {
-        return .{ .ptr = qtc.KFind_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFind`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KFind, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KFind_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2595,44 +2489,6 @@ pub const KFind = extern struct {
     ///
     pub fn senderSignalIndex(self: KFind) i32 {
         return qtc.KFind_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFind `
-    ///
-    pub fn superSenderSignalIndex(self: KFind) i32 {
-        return qtc.KFind_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFind`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KFind, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFind_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2656,47 +2512,6 @@ pub const KFind = extern struct {
         return qtc.KFind_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFind `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KFind, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KFind_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFind`
-    ///
-    /// ` callback: *const fn (self: KFind, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KFind, callback: *const fn (KFind, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFind_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2716,47 +2531,6 @@ pub const KFind = extern struct {
     pub fn isSignalConnected(self: KFind, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFind_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFind `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KFind, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KFind_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFind`
-    ///
-    /// ` callback: *const fn (self: KFind, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KFind, callback: *const fn (KFind, QMetaMethod) callconv(.c) bool) void {
-        qtc.KFind_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

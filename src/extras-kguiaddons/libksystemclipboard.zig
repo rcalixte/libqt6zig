@@ -111,6 +111,8 @@ pub const KSystemClipboard = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ksystemclipboard.html#setMimeData)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KSystemClipboard `
@@ -130,6 +132,8 @@ pub const KSystemClipboard = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ksystemclipboard.html#clear)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KSystemClipboard `
@@ -145,6 +149,8 @@ pub const KSystemClipboard = extern struct {
     pub const MimeData = mimeData;
 
     /// ### [Upstream resources](https://api.kde.org/ksystemclipboard.html#mimeData)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

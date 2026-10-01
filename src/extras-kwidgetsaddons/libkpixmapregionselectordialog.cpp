@@ -140,1822 +140,1269 @@ QImage* KPixmapRegionSelectorDialog_GetSelectedImage4(const QPixmap* pixmap, int
 
 // Base class handler implementation
 QMetaObject* KPixmapRegionSelectorDialog_SuperMetaObject(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpixmapregionselectordialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KPixmapRegionSelectorDialog::metaObject();
-    }
+    return (QMetaObject*)self->KPixmapRegionSelectorDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnMetaObject(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MetaObject_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MetaObject_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnMetaObject(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_metaobject_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPixmapRegionSelectorDialog_SuperMetacast(KPixmapRegionSelectorDialog* self, const char* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacast_IsBase(true);
-        return vkpixmapregionselectordialog->qt_metacast(param1);
-    } else {
-        return self->KPixmapRegionSelectorDialog::qt_metacast(param1);
-    }
+    return self->KPixmapRegionSelectorDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMetacast(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacast_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacast_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_metacast_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPixmapRegionSelectorDialog_SuperMetacall(KPixmapRegionSelectorDialog* self, int param1, int param2, void** param3) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacall_IsBase(true);
-        return vkpixmapregionselectordialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPixmapRegionSelectorDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPixmapRegionSelectorDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMetacall(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metacall_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacall_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_metacall_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_SetVisible(KPixmapRegionSelectorDialog* self, bool visible) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setVisible(visible);
-    } else {
-        self->KPixmapRegionSelectorDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperSetVisible(KPixmapRegionSelectorDialog* self, bool visible) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SetVisible_IsBase(true);
-        vkpixmapregionselectordialog->setVisible(visible);
-    } else {
-        self->KPixmapRegionSelectorDialog::setVisible(visible);
-    }
+    self->KPixmapRegionSelectorDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnSetVisible(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SetVisible_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SetVisible_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_setvisible_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPixmapRegionSelectorDialog_SizeHint(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return new QSize(vkpixmapregionselectordialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKPixmapRegionSelectorDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KPixmapRegionSelectorDialog_SuperSizeHint(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SizeHint_IsBase(true);
-        return new QSize(vkpixmapregionselectordialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKPixmapRegionSelectorDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KPixmapRegionSelectorDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnSizeHint(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SizeHint_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SizeHint_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnSizeHint(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_sizehint_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPixmapRegionSelectorDialog_MinimumSizeHint(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return new QSize(vkpixmapregionselectordialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPixmapRegionSelectorDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KPixmapRegionSelectorDialog_SuperMinimumSizeHint(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkpixmapregionselectordialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPixmapRegionSelectorDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KPixmapRegionSelectorDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnMinimumSizeHint(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MinimumSizeHint_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnMinimumSizeHint(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_minimumsizehint_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_Open(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->open();
-    } else {
-        self->KPixmapRegionSelectorDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperOpen(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Open_IsBase(true);
-        vkpixmapregionselectordialog->open();
-    } else {
-        self->KPixmapRegionSelectorDialog::open();
-    }
+    self->KPixmapRegionSelectorDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnOpen(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Open_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Open_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_open_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPixmapRegionSelectorDialog_Exec(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->exec();
-    } else {
-        return self->KPixmapRegionSelectorDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KPixmapRegionSelectorDialog_SuperExec(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Exec_IsBase(true);
-        return vkpixmapregionselectordialog->exec();
-    } else {
-        return self->KPixmapRegionSelectorDialog::exec();
-    }
+    return self->KPixmapRegionSelectorDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnExec(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Exec_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Exec_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_exec_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_Done(KPixmapRegionSelectorDialog* self, int param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->done(static_cast<int>(param1));
-    } else {
-        self->KPixmapRegionSelectorDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperDone(KPixmapRegionSelectorDialog* self, int param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Done_IsBase(true);
-        vkpixmapregionselectordialog->done(static_cast<int>(param1));
-    } else {
-        self->KPixmapRegionSelectorDialog::done(static_cast<int>(param1));
-    }
+    self->KPixmapRegionSelectorDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDone(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Done_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Done_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_done_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_Accept(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->accept();
-    } else {
-        self->KPixmapRegionSelectorDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperAccept(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Accept_IsBase(true);
-        vkpixmapregionselectordialog->accept();
-    } else {
-        self->KPixmapRegionSelectorDialog::accept();
-    }
+    self->KPixmapRegionSelectorDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnAccept(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Accept_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Accept_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_accept_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_Reject(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->reject();
-    } else {
-        self->KPixmapRegionSelectorDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperReject(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Reject_IsBase(true);
-        vkpixmapregionselectordialog->reject();
-    } else {
-        self->KPixmapRegionSelectorDialog::reject();
-    }
+    self->KPixmapRegionSelectorDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnReject(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Reject_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Reject_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_reject_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_KeyPressEvent(KPixmapRegionSelectorDialog* self, QKeyEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->keyPressEvent(param1);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperKeyPressEvent(KPixmapRegionSelectorDialog* self, QKeyEvent* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_KeyPressEvent_IsBase(true);
-        vkpixmapregionselectordialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnKeyPressEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_keypressevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_CloseEvent(KPixmapRegionSelectorDialog* self, QCloseEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->closeEvent(param1);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperCloseEvent(KPixmapRegionSelectorDialog* self, QCloseEvent* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_CloseEvent_IsBase(true);
-        vkpixmapregionselectordialog->closeEvent(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnCloseEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_CloseEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_CloseEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_closeevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_ShowEvent(KPixmapRegionSelectorDialog* self, QShowEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->showEvent(param1);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperShowEvent(KPixmapRegionSelectorDialog* self, QShowEvent* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ShowEvent_IsBase(true);
-        vkpixmapregionselectordialog->showEvent(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnShowEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ShowEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ShowEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_showevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_ResizeEvent(KPixmapRegionSelectorDialog* self, QResizeEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->resizeEvent(param1);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperResizeEvent(KPixmapRegionSelectorDialog* self, QResizeEvent* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ResizeEvent_IsBase(true);
-        vkpixmapregionselectordialog->resizeEvent(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnResizeEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_resizeevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_ContextMenuEvent(KPixmapRegionSelectorDialog* self, QContextMenuEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperContextMenuEvent(KPixmapRegionSelectorDialog* self, QContextMenuEvent* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ContextMenuEvent_IsBase(true);
-        vkpixmapregionselectordialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnContextMenuEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_contextmenuevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapRegionSelectorDialog_EventFilter(KPixmapRegionSelectorDialog* self, QObject* param1, QEvent* param2) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         return vkpixmapregionselectordialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPixmapRegionSelectorDialog_SuperEventFilter(KPixmapRegionSelectorDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_EventFilter_IsBase(true);
-        return vkpixmapregionselectordialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        return vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnEventFilter(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_EventFilter_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_EventFilter_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_eventfilter_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPixmapRegionSelectorDialog_DevType(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->devType();
-    } else {
-        return self->KPixmapRegionSelectorDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KPixmapRegionSelectorDialog_SuperDevType(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DevType_IsBase(true);
-        return vkpixmapregionselectordialog->devType();
-    } else {
-        return self->KPixmapRegionSelectorDialog::devType();
-    }
+    return self->KPixmapRegionSelectorDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnDevType(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DevType_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DevType_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnDevType(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_devtype_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPixmapRegionSelectorDialog_HeightForWidth(const KPixmapRegionSelectorDialog* self, int param1) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPixmapRegionSelectorDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KPixmapRegionSelectorDialog_SuperHeightForWidth(const KPixmapRegionSelectorDialog* self, int param1) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HeightForWidth_IsBase(true);
-        return vkpixmapregionselectordialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPixmapRegionSelectorDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KPixmapRegionSelectorDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnHeightForWidth(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HeightForWidth_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnHeightForWidth(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_heightforwidth_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapRegionSelectorDialog_HasHeightForWidth(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->hasHeightForWidth();
-    } else {
-        return self->KPixmapRegionSelectorDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KPixmapRegionSelectorDialog_SuperHasHeightForWidth(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HasHeightForWidth_IsBase(true);
-        return vkpixmapregionselectordialog->hasHeightForWidth();
-    } else {
-        return self->KPixmapRegionSelectorDialog::hasHeightForWidth();
-    }
+    return self->KPixmapRegionSelectorDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnHasHeightForWidth(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HasHeightForWidth_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnHasHeightForWidth(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_hasheightforwidth_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KPixmapRegionSelectorDialog_PaintEngine(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->paintEngine();
-    } else {
-        return self->KPixmapRegionSelectorDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KPixmapRegionSelectorDialog_SuperPaintEngine(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_PaintEngine_IsBase(true);
-        return vkpixmapregionselectordialog->paintEngine();
-    } else {
-        return self->KPixmapRegionSelectorDialog::paintEngine();
-    }
+    return self->KPixmapRegionSelectorDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnPaintEngine(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_PaintEngine_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_PaintEngine_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnPaintEngine(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_paintengine_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapRegionSelectorDialog_Event(KPixmapRegionSelectorDialog* self, QEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         return vkpixmapregionselectordialog->event(event);
     } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPixmapRegionSelectorDialog_SuperEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Event_IsBase(true);
-        return vkpixmapregionselectordialog->event(event);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->event(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        return vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Event_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Event_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_event_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_MousePressEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->mousePressEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperMousePressEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MousePressEvent_IsBase(true);
-        vkpixmapregionselectordialog->mousePressEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMousePressEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_mousepressevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_MouseReleaseEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperMouseReleaseEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseReleaseEvent_IsBase(true);
-        vkpixmapregionselectordialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMouseReleaseEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_mousereleaseevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_MouseDoubleClickEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperMouseDoubleClickEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseDoubleClickEvent_IsBase(true);
-        vkpixmapregionselectordialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMouseDoubleClickEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_MouseMoveEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperMouseMoveEvent(KPixmapRegionSelectorDialog* self, QMouseEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseMoveEvent_IsBase(true);
-        vkpixmapregionselectordialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMouseMoveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_mousemoveevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_WheelEvent(KPixmapRegionSelectorDialog* self, QWheelEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->wheelEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperWheelEvent(KPixmapRegionSelectorDialog* self, QWheelEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_WheelEvent_IsBase(true);
-        vkpixmapregionselectordialog->wheelEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnWheelEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_WheelEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_WheelEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_wheelevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_KeyReleaseEvent(KPixmapRegionSelectorDialog* self, QKeyEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperKeyReleaseEvent(KPixmapRegionSelectorDialog* self, QKeyEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_KeyReleaseEvent_IsBase(true);
-        vkpixmapregionselectordialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnKeyReleaseEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_keyreleaseevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_FocusInEvent(KPixmapRegionSelectorDialog* self, QFocusEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->focusInEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperFocusInEvent(KPixmapRegionSelectorDialog* self, QFocusEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusInEvent_IsBase(true);
-        vkpixmapregionselectordialog->focusInEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnFocusInEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_focusinevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_FocusOutEvent(KPixmapRegionSelectorDialog* self, QFocusEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->focusOutEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperFocusOutEvent(KPixmapRegionSelectorDialog* self, QFocusEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusOutEvent_IsBase(true);
-        vkpixmapregionselectordialog->focusOutEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnFocusOutEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_focusoutevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_EnterEvent(KPixmapRegionSelectorDialog* self, QEnterEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->enterEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperEnterEvent(KPixmapRegionSelectorDialog* self, QEnterEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_EnterEvent_IsBase(true);
-        vkpixmapregionselectordialog->enterEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnEnterEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_EnterEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_EnterEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_enterevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_LeaveEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->leaveEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperLeaveEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_LeaveEvent_IsBase(true);
-        vkpixmapregionselectordialog->leaveEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnLeaveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_leaveevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_PaintEvent(KPixmapRegionSelectorDialog* self, QPaintEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->paintEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperPaintEvent(KPixmapRegionSelectorDialog* self, QPaintEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_PaintEvent_IsBase(true);
-        vkpixmapregionselectordialog->paintEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnPaintEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_PaintEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_PaintEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_paintevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_MoveEvent(KPixmapRegionSelectorDialog* self, QMoveEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->moveEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperMoveEvent(KPixmapRegionSelectorDialog* self, QMoveEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MoveEvent_IsBase(true);
-        vkpixmapregionselectordialog->moveEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnMoveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_MoveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MoveEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_moveevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_TabletEvent(KPixmapRegionSelectorDialog* self, QTabletEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->tabletEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperTabletEvent(KPixmapRegionSelectorDialog* self, QTabletEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_TabletEvent_IsBase(true);
-        vkpixmapregionselectordialog->tabletEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnTabletEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_TabletEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_TabletEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_tabletevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_ActionEvent(KPixmapRegionSelectorDialog* self, QActionEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->actionEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperActionEvent(KPixmapRegionSelectorDialog* self, QActionEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ActionEvent_IsBase(true);
-        vkpixmapregionselectordialog->actionEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnActionEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ActionEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ActionEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_actionevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_DragEnterEvent(KPixmapRegionSelectorDialog* self, QDragEnterEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->dragEnterEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperDragEnterEvent(KPixmapRegionSelectorDialog* self, QDragEnterEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragEnterEvent_IsBase(true);
-        vkpixmapregionselectordialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDragEnterEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_dragenterevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_DragMoveEvent(KPixmapRegionSelectorDialog* self, QDragMoveEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->dragMoveEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperDragMoveEvent(KPixmapRegionSelectorDialog* self, QDragMoveEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragMoveEvent_IsBase(true);
-        vkpixmapregionselectordialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDragMoveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_dragmoveevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_DragLeaveEvent(KPixmapRegionSelectorDialog* self, QDragLeaveEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperDragLeaveEvent(KPixmapRegionSelectorDialog* self, QDragLeaveEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragLeaveEvent_IsBase(true);
-        vkpixmapregionselectordialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDragLeaveEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_dragleaveevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_DropEvent(KPixmapRegionSelectorDialog* self, QDropEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->dropEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperDropEvent(KPixmapRegionSelectorDialog* self, QDropEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DropEvent_IsBase(true);
-        vkpixmapregionselectordialog->dropEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDropEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DropEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DropEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_dropevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_HideEvent(KPixmapRegionSelectorDialog* self, QHideEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->hideEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperHideEvent(KPixmapRegionSelectorDialog* self, QHideEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HideEvent_IsBase(true);
-        vkpixmapregionselectordialog->hideEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnHideEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_HideEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HideEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_hideevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapRegionSelectorDialog_NativeEvent(KPixmapRegionSelectorDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
+    if (vkpixmapregionselectordialog) {
         return vkpixmapregionselectordialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPixmapRegionSelectorDialog_SuperNativeEvent(KPixmapRegionSelectorDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_NativeEvent_IsBase(true);
-        return vkpixmapregionselectordialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        return vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnNativeEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_NativeEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_NativeEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_nativeevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_ChangeEvent(KPixmapRegionSelectorDialog* self, QEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->changeEvent(param1);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperChangeEvent(KPixmapRegionSelectorDialog* self, QEvent* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ChangeEvent_IsBase(true);
-        vkpixmapregionselectordialog->changeEvent(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnChangeEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_changeevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPixmapRegionSelectorDialog_Metric(const KPixmapRegionSelectorDialog* self, int param1) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         return vkpixmapregionselectordialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KPixmapRegionSelectorDialog_SuperMetric(const KPixmapRegionSelectorDialog* self, int param1) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metric_IsBase(true);
-        return vkpixmapregionselectordialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        return vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnMetric(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Metric_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metric_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnMetric(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_metric_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_InitPainter(const KPixmapRegionSelectorDialog* self, QPainter* painter) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->initPainter(painter);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperInitPainter(const KPixmapRegionSelectorDialog* self, QPainter* painter) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InitPainter_IsBase(true);
-        vkpixmapregionselectordialog->initPainter(painter);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnInitPainter(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InitPainter_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InitPainter_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnInitPainter(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_initpainter_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KPixmapRegionSelectorDialog_Redirected(const KPixmapRegionSelectorDialog* self, QPoint* offset) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         return vkpixmapregionselectordialog->redirected(offset);
     } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KPixmapRegionSelectorDialog_SuperRedirected(const KPixmapRegionSelectorDialog* self, QPoint* offset) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Redirected_IsBase(true);
-        return vkpixmapregionselectordialog->redirected(offset);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->redirected(offset);
-    }
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        return vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnRedirected(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Redirected_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Redirected_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnRedirected(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_redirected_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KPixmapRegionSelectorDialog_SharedPainter(const KPixmapRegionSelectorDialog* self) {
     auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         return vkpixmapregionselectordialog->sharedPainter();
     } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KPixmapRegionSelectorDialog_SuperSharedPainter(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SharedPainter_IsBase(true);
-        return vkpixmapregionselectordialog->sharedPainter();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->sharedPainter();
-    }
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        return vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnSharedPainter(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SharedPainter_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SharedPainter_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnSharedPainter(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_sharedpainter_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_InputMethodEvent(KPixmapRegionSelectorDialog* self, QInputMethodEvent* param1) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperInputMethodEvent(KPixmapRegionSelectorDialog* self, QInputMethodEvent* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InputMethodEvent_IsBase(true);
-        vkpixmapregionselectordialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnInputMethodEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_inputmethodevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KPixmapRegionSelectorDialog_InputMethodQuery(const KPixmapRegionSelectorDialog* self, int param1) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return new QVariant(vkpixmapregionselectordialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPixmapRegionSelectorDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KPixmapRegionSelectorDialog_SuperInputMethodQuery(const KPixmapRegionSelectorDialog* self, int param1) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkpixmapregionselectordialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPixmapRegionSelectorDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KPixmapRegionSelectorDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnInputMethodQuery(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InputMethodQuery_Callback>(slot));
+void KPixmapRegionSelectorDialog_OnInputMethodQuery(KPixmapRegionSelectorDialog* self, intptr_t slot) {
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self)))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_inputmethodquery_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapRegionSelectorDialog_FocusNextPrevChild(KPixmapRegionSelectorDialog* self, bool next) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         return vkpixmapregionselectordialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPixmapRegionSelectorDialog_SuperFocusNextPrevChild(KPixmapRegionSelectorDialog* self, bool next) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusNextPrevChild_IsBase(true);
-        return vkpixmapregionselectordialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        return vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnFocusNextPrevChild(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_focusnextprevchild_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_TimerEvent(KPixmapRegionSelectorDialog* self, QTimerEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->timerEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperTimerEvent(KPixmapRegionSelectorDialog* self, QTimerEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_TimerEvent_IsBase(true);
-        vkpixmapregionselectordialog->timerEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnTimerEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_TimerEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_TimerEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_timerevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_ChildEvent(KPixmapRegionSelectorDialog* self, QChildEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->childEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperChildEvent(KPixmapRegionSelectorDialog* self, QChildEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ChildEvent_IsBase(true);
-        vkpixmapregionselectordialog->childEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->childEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnChildEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ChildEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ChildEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_childevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_CustomEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->customEvent(event);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperCustomEvent(KPixmapRegionSelectorDialog* self, QEvent* event) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_CustomEvent_IsBase(true);
-        vkpixmapregionselectordialog->customEvent(event);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->customEvent(event);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnCustomEvent(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_CustomEvent_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_CustomEvent_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_customevent_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_ConnectNotify(KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->connectNotify(*signal);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperConnectNotify(KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ConnectNotify_IsBase(true);
-        vkpixmapregionselectordialog->connectNotify(*signal);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnConnectNotify(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_connectnotify_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapRegionSelectorDialog_DisconnectNotify(KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
     auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
+    if (vkpixmapregionselectordialog) {
         vkpixmapregionselectordialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapRegionSelectorDialog_SuperDisconnectNotify(KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DisconnectNotify_IsBase(true);
-        vkpixmapregionselectordialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->KPixmapRegionSelectorDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPixmapRegionSelectorDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapRegionSelectorDialog_OnDisconnectNotify(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self))
+        vkpixmapregionselectordialog->kpixmapregionselectordialog_disconnectnotify_callback = reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPixmapRegionSelectorDialog_AdjustPosition(KPixmapRegionSelectorDialog* self, QWidget* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->adjustPosition(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPixmapRegionSelectorDialog_SuperAdjustPosition(KPixmapRegionSelectorDialog* self, QWidget* param1) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_AdjustPosition_IsBase(true);
-        vkpixmapregionselectordialog->adjustPosition(param1);
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnAdjustPosition(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPixmapRegionSelectorDialog_UpdateMicroFocus(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->updateMicroFocus();
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPixmapRegionSelectorDialog_SuperUpdateMicroFocus(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_UpdateMicroFocus_IsBase(true);
-        vkpixmapregionselectordialog->updateMicroFocus();
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnUpdateMicroFocus(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPixmapRegionSelectorDialog_Create(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->create();
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->create();
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::create();
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPixmapRegionSelectorDialog_SuperCreate(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Create_IsBase(true);
-        vkpixmapregionselectordialog->create();
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnCreate(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Create_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPixmapRegionSelectorDialog_Destroy(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->destroy();
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->destroy();
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::destroy();
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPixmapRegionSelectorDialog_SuperDestroy(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Destroy_IsBase(true);
-        vkpixmapregionselectordialog->destroy();
-    } else {
-        ((VirtualKPixmapRegionSelectorDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnDestroy(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Destroy_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPixmapRegionSelectorDialog_FocusNextChild(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->focusNextChild();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->focusNextChild();
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        return vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPixmapRegionSelectorDialog_SuperFocusNextChild(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusNextChild_IsBase(true);
-        return vkpixmapregionselectordialog->focusNextChild();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnFocusNextChild(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPixmapRegionSelectorDialog_FocusPreviousChild(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->focusPreviousChild();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self)) {
+        return vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPixmapRegionSelectorDialog_SuperFocusPreviousChild(KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusPreviousChild_IsBase(true);
-        return vkpixmapregionselectordialog->focusPreviousChild();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnFocusPreviousChild(KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = dynamic_cast<VirtualKPixmapRegionSelectorDialog*>(self);
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPixmapRegionSelectorDialog_Sender(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->sender();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->sender();
-    }
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        return vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::sender();
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPixmapRegionSelectorDialog_SuperSender(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Sender_IsBase(true);
-        return vkpixmapregionselectordialog->sender();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnSender(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Sender_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPixmapRegionSelectorDialog_SenderSignalIndex(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->senderSignalIndex();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        return vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPixmapRegionSelectorDialog_SuperSenderSignalIndex(const KPixmapRegionSelectorDialog* self) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SenderSignalIndex_IsBase(true);
-        return vkpixmapregionselectordialog->senderSignalIndex();
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnSenderSignalIndex(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPixmapRegionSelectorDialog_Receivers(const KPixmapRegionSelectorDialog* self, const char* signal) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->receivers(signal);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->receivers(signal);
-    }
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        return vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPixmapRegionSelectorDialog_SuperReceivers(const KPixmapRegionSelectorDialog* self, const char* signal) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Receivers_IsBase(true);
-        return vkpixmapregionselectordialog->receivers(signal);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnReceivers(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_Receivers_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPixmapRegionSelectorDialog_IsSignalConnected(const KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        return vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPixmapRegionSelectorDialog_SuperIsSignalConnected(const KPixmapRegionSelectorDialog* self, const QMetaMethod* signal) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_IsSignalConnected_IsBase(true);
-        return vkpixmapregionselectordialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnIsSignalConnected(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KPixmapRegionSelectorDialog_GetDecodedMetricF(const KPixmapRegionSelectorDialog* self, int metricA, int metricB) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        return vkpixmapregionselectordialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KPixmapRegionSelectorDialog_SuperGetDecodedMetricF(const KPixmapRegionSelectorDialog* self, int metricA, int metricB) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog) {
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_GetDecodedMetricF_IsBase(true);
-        return vkpixmapregionselectordialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPixmapRegionSelectorDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapRegionSelectorDialog_OnGetDecodedMetricF(const KPixmapRegionSelectorDialog* self, intptr_t slot) {
-    auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self));
-    if (vkpixmapregionselectordialog && vkpixmapregionselectordialog->isVirtualKPixmapRegionSelectorDialog)
-        vkpixmapregionselectordialog->setKPixmapRegionSelectorDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPixmapRegionSelectorDialog::KPixmapRegionSelectorDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkpixmapregionselectordialog = const_cast<VirtualKPixmapRegionSelectorDialog*>(dynamic_cast<const VirtualKPixmapRegionSelectorDialog*>(self))) {
+        return vkpixmapregionselectordialog->VirtualKPixmapRegionSelectorDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KPixmapRegionSelectorDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KPixmapRegionSelectorDialog_Delete(KPixmapRegionSelectorDialog* self) {

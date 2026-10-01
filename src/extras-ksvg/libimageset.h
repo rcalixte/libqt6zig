@@ -56,7 +56,7 @@ void KSvg__ImageSet_BasePathChanged(KSvg__ImageSet* self, const libqt_string bas
 void KSvg__ImageSet_Connect_BasePathChanged(KSvg__ImageSet* self, intptr_t slot);
 libqt_string KSvg__ImageSet_Tr2(const char* s, const char* c);
 libqt_string KSvg__ImageSet_Tr3(const char* s, const char* c, int n);
-void KSvg__ImageSet_OnMetaObject(const KSvg__ImageSet* self, intptr_t slot);
+void KSvg__ImageSet_OnMetaObject(KSvg__ImageSet* self, intptr_t slot);
 QMetaObject* KSvg__ImageSet_SuperMetaObject(const KSvg__ImageSet* self);
 void KSvg__ImageSet_OnMetacast(KSvg__ImageSet* self, intptr_t slot);
 void* KSvg__ImageSet_SuperMetacast(KSvg__ImageSet* self, const char* param1);
@@ -84,17 +84,9 @@ void KSvg__ImageSet_DisconnectNotify(KSvg__ImageSet* self, const QMetaMethod* si
 void KSvg__ImageSet_OnDisconnectNotify(KSvg__ImageSet* self, intptr_t slot);
 void KSvg__ImageSet_SuperDisconnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal);
 QObject* KSvg__ImageSet_Sender(const KSvg__ImageSet* self);
-void KSvg__ImageSet_OnSender(const KSvg__ImageSet* self, intptr_t slot);
-QObject* KSvg__ImageSet_SuperSender(const KSvg__ImageSet* self);
 int KSvg__ImageSet_SenderSignalIndex(const KSvg__ImageSet* self);
-void KSvg__ImageSet_OnSenderSignalIndex(const KSvg__ImageSet* self, intptr_t slot);
-int KSvg__ImageSet_SuperSenderSignalIndex(const KSvg__ImageSet* self);
 int KSvg__ImageSet_Receivers(const KSvg__ImageSet* self, const char* signal);
-void KSvg__ImageSet_OnReceivers(const KSvg__ImageSet* self, intptr_t slot);
-int KSvg__ImageSet_SuperReceivers(const KSvg__ImageSet* self, const char* signal);
 bool KSvg__ImageSet_IsSignalConnected(const KSvg__ImageSet* self, const QMetaMethod* signal);
-void KSvg__ImageSet_OnIsSignalConnected(const KSvg__ImageSet* self, intptr_t slot);
-bool KSvg__ImageSet_SuperIsSignalConnected(const KSvg__ImageSet* self, const QMetaMethod* signal);
 void KSvg__ImageSet_Delete(KSvg__ImageSet* self);
 
 #ifdef __cplusplus

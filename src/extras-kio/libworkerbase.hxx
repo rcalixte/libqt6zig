@@ -9,25 +9,21 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KIO::WorkerBase so that we can call protected methods
+// This class is a subclass of KIO::WorkerBase
 class VirtualKIOWorkerBase final : public KIO::WorkerBase {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKIOWorkerBase = true;
-
-    // Virtual class public types (including callbacks)
-    using KIO__WorkerBase_AppConnectionMade_Callback = void (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KIO__WorkerBase_AppConnectionMade_Callback = void (*)(KIO__WorkerBase*);
     using KIO__WorkerBase_SetHost_Callback = void (*)(KIO__WorkerBase*, const char*, uint16_t, const char*, const char*);
-    using KIO__WorkerBase_OpenConnection_Callback = KIO__WorkerResult* (*)();
-    using KIO__WorkerBase_CloseConnection_Callback = void (*)();
+    using KIO__WorkerBase_OpenConnection_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*);
+    using KIO__WorkerBase_CloseConnection_Callback = void (*)(KIO__WorkerBase*);
     using KIO__WorkerBase_Get_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*);
     using KIO__WorkerBase_Open_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, int);
     using KIO__WorkerBase_Read_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, unsigned long long);
     using KIO__WorkerBase_Write_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, libqt_string);
     using KIO__WorkerBase_Seek_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, unsigned long long);
     using KIO__WorkerBase_Truncate_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, unsigned long long);
-    using KIO__WorkerBase_Close_Callback = KIO__WorkerResult* (*)();
+    using KIO__WorkerBase_Close_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*);
     using KIO__WorkerBase_Put_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, int, int);
     using KIO__WorkerBase_Stat_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*);
     using KIO__WorkerBase_Mimetype_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*);
@@ -42,10 +38,9 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
     using KIO__WorkerBase_Del_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*, bool);
     using KIO__WorkerBase_Special_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, libqt_string);
     using KIO__WorkerBase_FileSystemFreeSpace_Callback = KIO__WorkerResult* (*)(KIO__WorkerBase*, QUrl*);
-    using KIO__WorkerBase_WorkerStatus2_Callback = void (*)();
-    using KIO__WorkerBase_ReparseConfiguration_Callback = void (*)();
+    using KIO__WorkerBase_WorkerStatus2_Callback = void (*)(KIO__WorkerBase*);
+    using KIO__WorkerBase_ReparseConfiguration_Callback = void (*)(KIO__WorkerBase*);
 
-  protected:
     // Instance callback storage
     KIO__WorkerBase_AppConnectionMade_Callback kio__workerbase_appconnectionmade_callback = nullptr;
     KIO__WorkerBase_SetHost_Callback kio__workerbase_sethost_callback = nullptr;
@@ -75,106 +70,12 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
     KIO__WorkerBase_WorkerStatus2_Callback kio__workerbase_workerstatus2_callback = nullptr;
     KIO__WorkerBase_ReparseConfiguration_Callback kio__workerbase_reparseconfiguration_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kio__workerbase_appconnectionmade_isbase = false;
-    mutable bool kio__workerbase_sethost_isbase = false;
-    mutable bool kio__workerbase_openconnection_isbase = false;
-    mutable bool kio__workerbase_closeconnection_isbase = false;
-    mutable bool kio__workerbase_get_isbase = false;
-    mutable bool kio__workerbase_open_isbase = false;
-    mutable bool kio__workerbase_read_isbase = false;
-    mutable bool kio__workerbase_write_isbase = false;
-    mutable bool kio__workerbase_seek_isbase = false;
-    mutable bool kio__workerbase_truncate_isbase = false;
-    mutable bool kio__workerbase_close_isbase = false;
-    mutable bool kio__workerbase_put_isbase = false;
-    mutable bool kio__workerbase_stat_isbase = false;
-    mutable bool kio__workerbase_mimetype_isbase = false;
-    mutable bool kio__workerbase_listdir_isbase = false;
-    mutable bool kio__workerbase_mkdir_isbase = false;
-    mutable bool kio__workerbase_rename_isbase = false;
-    mutable bool kio__workerbase_symlink_isbase = false;
-    mutable bool kio__workerbase_chmod_isbase = false;
-    mutable bool kio__workerbase_chown_isbase = false;
-    mutable bool kio__workerbase_setmodificationtime_isbase = false;
-    mutable bool kio__workerbase_copy_isbase = false;
-    mutable bool kio__workerbase_del_isbase = false;
-    mutable bool kio__workerbase_special_isbase = false;
-    mutable bool kio__workerbase_filesystemfreespace_isbase = false;
-    mutable bool kio__workerbase_workerstatus2_isbase = false;
-    mutable bool kio__workerbase_reparseconfiguration_isbase = false;
-
-  public:
     VirtualKIOWorkerBase(const QByteArray& protocol, const QByteArray& poolSocket, const QByteArray& appSocket) : KIO::WorkerBase(protocol, poolSocket, appSocket) {};
-
-    // Callback setters
-    inline void setKIO__WorkerBase_AppConnectionMade_Callback(KIO__WorkerBase_AppConnectionMade_Callback cb) { kio__workerbase_appconnectionmade_callback = cb; }
-    inline void setKIO__WorkerBase_SetHost_Callback(KIO__WorkerBase_SetHost_Callback cb) { kio__workerbase_sethost_callback = cb; }
-    inline void setKIO__WorkerBase_OpenConnection_Callback(KIO__WorkerBase_OpenConnection_Callback cb) { kio__workerbase_openconnection_callback = cb; }
-    inline void setKIO__WorkerBase_CloseConnection_Callback(KIO__WorkerBase_CloseConnection_Callback cb) { kio__workerbase_closeconnection_callback = cb; }
-    inline void setKIO__WorkerBase_Get_Callback(KIO__WorkerBase_Get_Callback cb) { kio__workerbase_get_callback = cb; }
-    inline void setKIO__WorkerBase_Open_Callback(KIO__WorkerBase_Open_Callback cb) { kio__workerbase_open_callback = cb; }
-    inline void setKIO__WorkerBase_Read_Callback(KIO__WorkerBase_Read_Callback cb) { kio__workerbase_read_callback = cb; }
-    inline void setKIO__WorkerBase_Write_Callback(KIO__WorkerBase_Write_Callback cb) { kio__workerbase_write_callback = cb; }
-    inline void setKIO__WorkerBase_Seek_Callback(KIO__WorkerBase_Seek_Callback cb) { kio__workerbase_seek_callback = cb; }
-    inline void setKIO__WorkerBase_Truncate_Callback(KIO__WorkerBase_Truncate_Callback cb) { kio__workerbase_truncate_callback = cb; }
-    inline void setKIO__WorkerBase_Close_Callback(KIO__WorkerBase_Close_Callback cb) { kio__workerbase_close_callback = cb; }
-    inline void setKIO__WorkerBase_Put_Callback(KIO__WorkerBase_Put_Callback cb) { kio__workerbase_put_callback = cb; }
-    inline void setKIO__WorkerBase_Stat_Callback(KIO__WorkerBase_Stat_Callback cb) { kio__workerbase_stat_callback = cb; }
-    inline void setKIO__WorkerBase_Mimetype_Callback(KIO__WorkerBase_Mimetype_Callback cb) { kio__workerbase_mimetype_callback = cb; }
-    inline void setKIO__WorkerBase_ListDir_Callback(KIO__WorkerBase_ListDir_Callback cb) { kio__workerbase_listdir_callback = cb; }
-    inline void setKIO__WorkerBase_Mkdir_Callback(KIO__WorkerBase_Mkdir_Callback cb) { kio__workerbase_mkdir_callback = cb; }
-    inline void setKIO__WorkerBase_Rename_Callback(KIO__WorkerBase_Rename_Callback cb) { kio__workerbase_rename_callback = cb; }
-    inline void setKIO__WorkerBase_Symlink_Callback(KIO__WorkerBase_Symlink_Callback cb) { kio__workerbase_symlink_callback = cb; }
-    inline void setKIO__WorkerBase_Chmod_Callback(KIO__WorkerBase_Chmod_Callback cb) { kio__workerbase_chmod_callback = cb; }
-    inline void setKIO__WorkerBase_Chown_Callback(KIO__WorkerBase_Chown_Callback cb) { kio__workerbase_chown_callback = cb; }
-    inline void setKIO__WorkerBase_SetModificationTime_Callback(KIO__WorkerBase_SetModificationTime_Callback cb) { kio__workerbase_setmodificationtime_callback = cb; }
-    inline void setKIO__WorkerBase_Copy_Callback(KIO__WorkerBase_Copy_Callback cb) { kio__workerbase_copy_callback = cb; }
-    inline void setKIO__WorkerBase_Del_Callback(KIO__WorkerBase_Del_Callback cb) { kio__workerbase_del_callback = cb; }
-    inline void setKIO__WorkerBase_Special_Callback(KIO__WorkerBase_Special_Callback cb) { kio__workerbase_special_callback = cb; }
-    inline void setKIO__WorkerBase_FileSystemFreeSpace_Callback(KIO__WorkerBase_FileSystemFreeSpace_Callback cb) { kio__workerbase_filesystemfreespace_callback = cb; }
-    inline void setKIO__WorkerBase_WorkerStatus2_Callback(KIO__WorkerBase_WorkerStatus2_Callback cb) { kio__workerbase_workerstatus2_callback = cb; }
-    inline void setKIO__WorkerBase_ReparseConfiguration_Callback(KIO__WorkerBase_ReparseConfiguration_Callback cb) { kio__workerbase_reparseconfiguration_callback = cb; }
-
-    // Base flag setters
-    inline void setKIO__WorkerBase_AppConnectionMade_IsBase(bool value) const { kio__workerbase_appconnectionmade_isbase = value; }
-    inline void setKIO__WorkerBase_SetHost_IsBase(bool value) const { kio__workerbase_sethost_isbase = value; }
-    inline void setKIO__WorkerBase_OpenConnection_IsBase(bool value) const { kio__workerbase_openconnection_isbase = value; }
-    inline void setKIO__WorkerBase_CloseConnection_IsBase(bool value) const { kio__workerbase_closeconnection_isbase = value; }
-    inline void setKIO__WorkerBase_Get_IsBase(bool value) const { kio__workerbase_get_isbase = value; }
-    inline void setKIO__WorkerBase_Open_IsBase(bool value) const { kio__workerbase_open_isbase = value; }
-    inline void setKIO__WorkerBase_Read_IsBase(bool value) const { kio__workerbase_read_isbase = value; }
-    inline void setKIO__WorkerBase_Write_IsBase(bool value) const { kio__workerbase_write_isbase = value; }
-    inline void setKIO__WorkerBase_Seek_IsBase(bool value) const { kio__workerbase_seek_isbase = value; }
-    inline void setKIO__WorkerBase_Truncate_IsBase(bool value) const { kio__workerbase_truncate_isbase = value; }
-    inline void setKIO__WorkerBase_Close_IsBase(bool value) const { kio__workerbase_close_isbase = value; }
-    inline void setKIO__WorkerBase_Put_IsBase(bool value) const { kio__workerbase_put_isbase = value; }
-    inline void setKIO__WorkerBase_Stat_IsBase(bool value) const { kio__workerbase_stat_isbase = value; }
-    inline void setKIO__WorkerBase_Mimetype_IsBase(bool value) const { kio__workerbase_mimetype_isbase = value; }
-    inline void setKIO__WorkerBase_ListDir_IsBase(bool value) const { kio__workerbase_listdir_isbase = value; }
-    inline void setKIO__WorkerBase_Mkdir_IsBase(bool value) const { kio__workerbase_mkdir_isbase = value; }
-    inline void setKIO__WorkerBase_Rename_IsBase(bool value) const { kio__workerbase_rename_isbase = value; }
-    inline void setKIO__WorkerBase_Symlink_IsBase(bool value) const { kio__workerbase_symlink_isbase = value; }
-    inline void setKIO__WorkerBase_Chmod_IsBase(bool value) const { kio__workerbase_chmod_isbase = value; }
-    inline void setKIO__WorkerBase_Chown_IsBase(bool value) const { kio__workerbase_chown_isbase = value; }
-    inline void setKIO__WorkerBase_SetModificationTime_IsBase(bool value) const { kio__workerbase_setmodificationtime_isbase = value; }
-    inline void setKIO__WorkerBase_Copy_IsBase(bool value) const { kio__workerbase_copy_isbase = value; }
-    inline void setKIO__WorkerBase_Del_IsBase(bool value) const { kio__workerbase_del_isbase = value; }
-    inline void setKIO__WorkerBase_Special_IsBase(bool value) const { kio__workerbase_special_isbase = value; }
-    inline void setKIO__WorkerBase_FileSystemFreeSpace_IsBase(bool value) const { kio__workerbase_filesystemfreespace_isbase = value; }
-    inline void setKIO__WorkerBase_WorkerStatus2_IsBase(bool value) const { kio__workerbase_workerstatus2_isbase = value; }
-    inline void setKIO__WorkerBase_ReparseConfiguration_IsBase(bool value) const { kio__workerbase_reparseconfiguration_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void appConnectionMade() override {
-        if (kio__workerbase_appconnectionmade_isbase) {
-            kio__workerbase_appconnectionmade_isbase = false;
-            KIO__WorkerBase::appConnectionMade();
-            return;
-        }
-        auto appconnectionmade_cb = kio__workerbase_appconnectionmade_callback;
-        if (appconnectionmade_cb) {
-            appconnectionmade_cb();
+        if (kio__workerbase_appconnectionmade_callback) {
+            kio__workerbase_appconnectionmade_callback(this);
             return;
         }
         KIO__WorkerBase::appConnectionMade();
@@ -182,13 +83,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void setHost(const QString& host, quint16 port, const QString& user, const QString& pass) override {
-        if (kio__workerbase_sethost_isbase) {
-            kio__workerbase_sethost_isbase = false;
-            KIO__WorkerBase::setHost(host, port, user, pass);
-            return;
-        }
-        auto sethost_cb = kio__workerbase_sethost_callback;
-        if (sethost_cb) {
+        if (kio__workerbase_sethost_callback) {
             const auto host_ret = host;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray host_b = host_ret.toUtf8();
@@ -214,7 +109,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             memcpy((void*)pass_str, pass_b.data(), pass_str_len);
             ((char*)pass_str)[pass_str_len] = '\0';
             const char* cbval4 = pass_str;
-            sethost_cb(this, cbval1, cbval2, cbval3, cbval4);
+            kio__workerbase_sethost_callback(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(host_str);
             libqt_free(user_str);
             libqt_free(pass_str);
@@ -225,13 +120,8 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult openConnection() override {
-        if (kio__workerbase_openconnection_isbase) {
-            kio__workerbase_openconnection_isbase = false;
-            return KIO__WorkerBase::openConnection();
-        }
-        auto openconnection_cb = kio__workerbase_openconnection_callback;
-        if (openconnection_cb) {
-            KIO__WorkerResult* callback_ret = openconnection_cb();
+        if (kio__workerbase_openconnection_callback) {
+            KIO__WorkerResult* callback_ret = kio__workerbase_openconnection_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -241,14 +131,8 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeConnection() override {
-        if (kio__workerbase_closeconnection_isbase) {
-            kio__workerbase_closeconnection_isbase = false;
-            KIO__WorkerBase::closeConnection();
-            return;
-        }
-        auto closeconnection_cb = kio__workerbase_closeconnection_callback;
-        if (closeconnection_cb) {
-            closeconnection_cb();
+        if (kio__workerbase_closeconnection_callback) {
+            kio__workerbase_closeconnection_callback(this);
             return;
         }
         KIO__WorkerBase::closeConnection();
@@ -256,16 +140,11 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult get(const QUrl& url) override {
-        if (kio__workerbase_get_isbase) {
-            kio__workerbase_get_isbase = false;
-            return KIO__WorkerBase::get(url);
-        }
-        auto get_cb = kio__workerbase_get_callback;
-        if (get_cb) {
+        if (kio__workerbase_get_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-            KIO__WorkerResult* callback_ret = get_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_get_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -275,17 +154,12 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult open(const QUrl& url, QIODevice::OpenMode mode) override {
-        if (kio__workerbase_open_isbase) {
-            kio__workerbase_open_isbase = false;
-            return KIO__WorkerBase::open(url, mode);
-        }
-        auto open_cb = kio__workerbase_open_callback;
-        if (open_cb) {
+        if (kio__workerbase_open_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = static_cast<int>(mode);
-            KIO__WorkerResult* callback_ret = open_cb(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = kio__workerbase_open_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -295,14 +169,9 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult read(KIO::filesize_t size) override {
-        if (kio__workerbase_read_isbase) {
-            kio__workerbase_read_isbase = false;
-            return KIO__WorkerBase::read(size);
-        }
-        auto read_cb = kio__workerbase_read_callback;
-        if (read_cb) {
+        if (kio__workerbase_read_callback) {
             unsigned long long cbval1 = static_cast<unsigned long long>(size);
-            KIO__WorkerResult* callback_ret = read_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_read_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -312,19 +181,14 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult write(const QByteArray& data) override {
-        if (kio__workerbase_write_isbase) {
-            kio__workerbase_write_isbase = false;
-            return KIO__WorkerBase::write(data);
-        }
-        auto write_cb = kio__workerbase_write_callback;
-        if (write_cb) {
+        if (kio__workerbase_write_callback) {
             const QByteArray data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
             data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
             libqt_string cbval1 = data_str;
-            KIO__WorkerResult* callback_ret = write_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_write_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(data_str.data);
@@ -335,14 +199,9 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult seek(KIO::filesize_t offset) override {
-        if (kio__workerbase_seek_isbase) {
-            kio__workerbase_seek_isbase = false;
-            return KIO__WorkerBase::seek(offset);
-        }
-        auto seek_cb = kio__workerbase_seek_callback;
-        if (seek_cb) {
+        if (kio__workerbase_seek_callback) {
             unsigned long long cbval1 = static_cast<unsigned long long>(offset);
-            KIO__WorkerResult* callback_ret = seek_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_seek_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -352,14 +211,9 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult truncate(KIO::filesize_t size) override {
-        if (kio__workerbase_truncate_isbase) {
-            kio__workerbase_truncate_isbase = false;
-            return KIO__WorkerBase::truncate(size);
-        }
-        auto truncate_cb = kio__workerbase_truncate_callback;
-        if (truncate_cb) {
+        if (kio__workerbase_truncate_callback) {
             unsigned long long cbval1 = static_cast<unsigned long long>(size);
-            KIO__WorkerResult* callback_ret = truncate_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_truncate_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -369,13 +223,8 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult close() override {
-        if (kio__workerbase_close_isbase) {
-            kio__workerbase_close_isbase = false;
-            return KIO__WorkerBase::close();
-        }
-        auto close_cb = kio__workerbase_close_callback;
-        if (close_cb) {
-            KIO__WorkerResult* callback_ret = close_cb();
+        if (kio__workerbase_close_callback) {
+            KIO__WorkerResult* callback_ret = kio__workerbase_close_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -385,18 +234,13 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult put(const QUrl& url, int permissions, KIO::JobFlags flags) override {
-        if (kio__workerbase_put_isbase) {
-            kio__workerbase_put_isbase = false;
-            return KIO__WorkerBase::put(url, permissions, flags);
-        }
-        auto put_cb = kio__workerbase_put_callback;
-        if (put_cb) {
+        if (kio__workerbase_put_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
             int cbval3 = static_cast<int>(flags);
-            KIO__WorkerResult* callback_ret = put_cb(this, cbval1, cbval2, cbval3);
+            KIO__WorkerResult* callback_ret = kio__workerbase_put_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -406,16 +250,11 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult stat(const QUrl& url) override {
-        if (kio__workerbase_stat_isbase) {
-            kio__workerbase_stat_isbase = false;
-            return KIO__WorkerBase::stat(url);
-        }
-        auto stat_cb = kio__workerbase_stat_callback;
-        if (stat_cb) {
+        if (kio__workerbase_stat_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-            KIO__WorkerResult* callback_ret = stat_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_stat_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -425,16 +264,11 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult mimetype(const QUrl& url) override {
-        if (kio__workerbase_mimetype_isbase) {
-            kio__workerbase_mimetype_isbase = false;
-            return KIO__WorkerBase::mimetype(url);
-        }
-        auto mimetype_cb = kio__workerbase_mimetype_callback;
-        if (mimetype_cb) {
+        if (kio__workerbase_mimetype_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-            KIO__WorkerResult* callback_ret = mimetype_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_mimetype_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -444,16 +278,11 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult listDir(const QUrl& url) override {
-        if (kio__workerbase_listdir_isbase) {
-            kio__workerbase_listdir_isbase = false;
-            return KIO__WorkerBase::listDir(url);
-        }
-        auto listdir_cb = kio__workerbase_listdir_callback;
-        if (listdir_cb) {
+        if (kio__workerbase_listdir_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-            KIO__WorkerResult* callback_ret = listdir_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_listdir_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -463,17 +292,12 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult mkdir(const QUrl& url, int permissions) override {
-        if (kio__workerbase_mkdir_isbase) {
-            kio__workerbase_mkdir_isbase = false;
-            return KIO__WorkerBase::mkdir(url, permissions);
-        }
-        auto mkdir_cb = kio__workerbase_mkdir_callback;
-        if (mkdir_cb) {
+        if (kio__workerbase_mkdir_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
-            KIO__WorkerResult* callback_ret = mkdir_cb(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = kio__workerbase_mkdir_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -483,12 +307,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult rename(const QUrl& src, const QUrl& dest, KIO::JobFlags flags) override {
-        if (kio__workerbase_rename_isbase) {
-            kio__workerbase_rename_isbase = false;
-            return KIO__WorkerBase::rename(src, dest, flags);
-        }
-        auto rename_cb = kio__workerbase_rename_callback;
-        if (rename_cb) {
+        if (kio__workerbase_rename_callback) {
             const QUrl& src_ret = src;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&src_ret);
@@ -496,7 +315,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = static_cast<int>(flags);
-            KIO__WorkerResult* callback_ret = rename_cb(this, cbval1, cbval2, cbval3);
+            KIO__WorkerResult* callback_ret = kio__workerbase_rename_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -506,12 +325,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult symlink(const QString& target, const QUrl& dest, KIO::JobFlags flags) override {
-        if (kio__workerbase_symlink_isbase) {
-            kio__workerbase_symlink_isbase = false;
-            return KIO__WorkerBase::symlink(target, dest, flags);
-        }
-        auto symlink_cb = kio__workerbase_symlink_callback;
-        if (symlink_cb) {
+        if (kio__workerbase_symlink_callback) {
             const auto target_ret = target;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray target_b = target_ret.toUtf8();
@@ -524,7 +338,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = static_cast<int>(flags);
-            KIO__WorkerResult* callback_ret = symlink_cb(this, cbval1, cbval2, cbval3);
+            KIO__WorkerResult* callback_ret = kio__workerbase_symlink_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(target_str);
@@ -535,17 +349,12 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult chmod(const QUrl& url, int permissions) override {
-        if (kio__workerbase_chmod_isbase) {
-            kio__workerbase_chmod_isbase = false;
-            return KIO__WorkerBase::chmod(url, permissions);
-        }
-        auto chmod_cb = kio__workerbase_chmod_callback;
-        if (chmod_cb) {
+        if (kio__workerbase_chmod_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
-            KIO__WorkerResult* callback_ret = chmod_cb(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = kio__workerbase_chmod_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -555,12 +364,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult chown(const QUrl& url, const QString& owner, const QString& group) override {
-        if (kio__workerbase_chown_isbase) {
-            kio__workerbase_chown_isbase = false;
-            return KIO__WorkerBase::chown(url, owner, group);
-        }
-        auto chown_cb = kio__workerbase_chown_callback;
-        if (chown_cb) {
+        if (kio__workerbase_chown_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
@@ -580,7 +384,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             memcpy((void*)group_str, group_b.data(), group_str_len);
             ((char*)group_str)[group_str_len] = '\0';
             const char* cbval3 = group_str;
-            KIO__WorkerResult* callback_ret = chown_cb(this, cbval1, cbval2, cbval3);
+            KIO__WorkerResult* callback_ret = kio__workerbase_chown_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(owner_str);
@@ -592,19 +396,14 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult setModificationTime(const QUrl& url, const QDateTime& mtime) override {
-        if (kio__workerbase_setmodificationtime_isbase) {
-            kio__workerbase_setmodificationtime_isbase = false;
-            return KIO__WorkerBase::setModificationTime(url, mtime);
-        }
-        auto setmodificationtime_cb = kio__workerbase_setmodificationtime_callback;
-        if (setmodificationtime_cb) {
+        if (kio__workerbase_setmodificationtime_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             const QDateTime& mtime_ret = mtime;
             // Cast returned reference into pointer
             QDateTime* cbval2 = const_cast<QDateTime*>(&mtime_ret);
-            KIO__WorkerResult* callback_ret = setmodificationtime_cb(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = kio__workerbase_setmodificationtime_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -614,12 +413,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult copy(const QUrl& src, const QUrl& dest, int permissions, KIO::JobFlags flags) override {
-        if (kio__workerbase_copy_isbase) {
-            kio__workerbase_copy_isbase = false;
-            return KIO__WorkerBase::copy(src, dest, permissions, flags);
-        }
-        auto copy_cb = kio__workerbase_copy_callback;
-        if (copy_cb) {
+        if (kio__workerbase_copy_callback) {
             const QUrl& src_ret = src;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&src_ret);
@@ -628,7 +422,7 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = permissions;
             int cbval4 = static_cast<int>(flags);
-            KIO__WorkerResult* callback_ret = copy_cb(this, cbval1, cbval2, cbval3, cbval4);
+            KIO__WorkerResult* callback_ret = kio__workerbase_copy_callback(this, cbval1, cbval2, cbval3, cbval4);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -638,17 +432,12 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult del(const QUrl& url, bool isfile) override {
-        if (kio__workerbase_del_isbase) {
-            kio__workerbase_del_isbase = false;
-            return KIO__WorkerBase::del(url, isfile);
-        }
-        auto del_cb = kio__workerbase_del_callback;
-        if (del_cb) {
+        if (kio__workerbase_del_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             bool cbval2 = isfile;
-            KIO__WorkerResult* callback_ret = del_cb(this, cbval1, cbval2);
+            KIO__WorkerResult* callback_ret = kio__workerbase_del_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -658,19 +447,14 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult special(const QByteArray& data) override {
-        if (kio__workerbase_special_isbase) {
-            kio__workerbase_special_isbase = false;
-            return KIO__WorkerBase::special(data);
-        }
-        auto special_cb = kio__workerbase_special_callback;
-        if (special_cb) {
+        if (kio__workerbase_special_callback) {
             const QByteArray data_qb = data;
             libqt_string data_str;
             data_str.len = data_qb.length();
             data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
             libqt_string cbval1 = data_str;
-            KIO__WorkerResult* callback_ret = special_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_special_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(data_str.data);
@@ -681,16 +465,11 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual KIO::WorkerResult fileSystemFreeSpace(const QUrl& url) override {
-        if (kio__workerbase_filesystemfreespace_isbase) {
-            kio__workerbase_filesystemfreespace_isbase = false;
-            return KIO__WorkerBase::fileSystemFreeSpace(url);
-        }
-        auto filesystemfreespace_cb = kio__workerbase_filesystemfreespace_callback;
-        if (filesystemfreespace_cb) {
+        if (kio__workerbase_filesystemfreespace_callback) {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-            KIO__WorkerResult* callback_ret = filesystemfreespace_cb(this, cbval1);
+            KIO__WorkerResult* callback_ret = kio__workerbase_filesystemfreespace_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -700,14 +479,8 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void worker_status() override {
-        if (kio__workerbase_workerstatus2_isbase) {
-            kio__workerbase_workerstatus2_isbase = false;
-            KIO__WorkerBase::worker_status();
-            return;
-        }
-        auto workerstatus2_cb = kio__workerbase_workerstatus2_callback;
-        if (workerstatus2_cb) {
-            workerstatus2_cb();
+        if (kio__workerbase_workerstatus2_callback) {
+            kio__workerbase_workerstatus2_callback(this);
             return;
         }
         KIO__WorkerBase::worker_status();
@@ -715,14 +488,8 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
 
     // Virtual method for C ABI access and custom callback
     virtual void reparseConfiguration() override {
-        if (kio__workerbase_reparseconfiguration_isbase) {
-            kio__workerbase_reparseconfiguration_isbase = false;
-            KIO__WorkerBase::reparseConfiguration();
-            return;
-        }
-        auto reparseconfiguration_cb = kio__workerbase_reparseconfiguration_callback;
-        if (reparseconfiguration_cb) {
-            reparseconfiguration_cb();
+        if (kio__workerbase_reparseconfiguration_callback) {
+            kio__workerbase_reparseconfiguration_callback(this);
             return;
         }
         KIO__WorkerBase::reparseConfiguration();

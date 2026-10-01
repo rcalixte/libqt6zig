@@ -368,9 +368,9 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KMimeTypeChooser) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) QMetaObject) void {
         qtc.KMimeTypeChooser_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6885,9 +6885,9 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KMimeTypeChooser) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KMimeTypeChooser, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) i32) void {
         qtc.KMimeTypeChooser_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7001,11 +7001,11 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KMimeTypeChooser) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) QSize) void {
         qtc.KMimeTypeChooser_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7059,11 +7059,11 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KMimeTypeChooser) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) QSize) void {
         qtc.KMimeTypeChooser_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7177,9 +7177,9 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KMimeTypeChooser) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7233,9 +7233,9 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KMimeTypeChooser) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) QPaintEngine) void {
         qtc.KMimeTypeChooser_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9161,9 +9161,9 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KMimeTypeChooser) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) QPainter) void {
         qtc.KMimeTypeChooser_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9747,44 +9747,6 @@ pub const KMimeTypeChooser = extern struct {
         qtc.KMimeTypeChooser_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    pub fn superUpdateMicroFocus(self: KMimeTypeChooser) void {
-        qtc.KMimeTypeChooser_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
-        qtc.KMimeTypeChooser_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9801,44 +9763,6 @@ pub const KMimeTypeChooser = extern struct {
     ///
     pub fn create(self: KMimeTypeChooser) void {
         qtc.KMimeTypeChooser_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    pub fn superCreate(self: KMimeTypeChooser) void {
-        qtc.KMimeTypeChooser_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
-        qtc.KMimeTypeChooser_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9859,44 +9783,6 @@ pub const KMimeTypeChooser = extern struct {
         qtc.KMimeTypeChooser_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    pub fn superDestroy(self: KMimeTypeChooser) void {
-        qtc.KMimeTypeChooser_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
-        qtc.KMimeTypeChooser_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9913,44 +9799,6 @@ pub const KMimeTypeChooser = extern struct {
     ///
     pub fn focusNextChild(self: KMimeTypeChooser) bool {
         return qtc.KMimeTypeChooser_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    pub fn superFocusNextChild(self: KMimeTypeChooser) bool {
-        return qtc.KMimeTypeChooser_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
-        qtc.KMimeTypeChooser_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9971,44 +9819,6 @@ pub const KMimeTypeChooser = extern struct {
         return qtc.KMimeTypeChooser_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    pub fn superFocusPreviousChild(self: KMimeTypeChooser) bool {
-        return qtc.KMimeTypeChooser_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
-        qtc.KMimeTypeChooser_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10027,44 +9837,6 @@ pub const KMimeTypeChooser = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooser_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    pub fn superSender(self: KMimeTypeChooser) QObject {
-        return .{ .ptr = qtc.KMimeTypeChooser_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KMimeTypeChooser_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10081,44 +9853,6 @@ pub const KMimeTypeChooser = extern struct {
     ///
     pub fn senderSignalIndex(self: KMimeTypeChooser) i32 {
         return qtc.KMimeTypeChooser_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    pub fn superSenderSignalIndex(self: KMimeTypeChooser) i32 {
-        return qtc.KMimeTypeChooser_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KMimeTypeChooser, callback: *const fn () callconv(.c) i32) void {
-        qtc.KMimeTypeChooser_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10142,47 +9876,6 @@ pub const KMimeTypeChooser = extern struct {
         return qtc.KMimeTypeChooser_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KMimeTypeChooser, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KMimeTypeChooser_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn (self: KMimeTypeChooser, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KMimeTypeChooser_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10202,47 +9895,6 @@ pub const KMimeTypeChooser = extern struct {
     pub fn isSignalConnected(self: KMimeTypeChooser, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMimeTypeChooser_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KMimeTypeChooser, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KMimeTypeChooser_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn (self: KMimeTypeChooser, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMetaMethod) callconv(.c) bool) void {
-        qtc.KMimeTypeChooser_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10265,48 +9917,6 @@ pub const KMimeTypeChooser = extern struct {
     ///
     pub fn getDecodedMetricF(self: KMimeTypeChooser, metricA: i32, metricB: i32) f64 {
         return qtc.KMimeTypeChooser_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KMimeTypeChooser, metricA: i32, metricB: i32) f64 {
-        return qtc.KMimeTypeChooser_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooser`
-    ///
-    /// ` callback: *const fn (self: KMimeTypeChooser, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32, i32) callconv(.c) f64) void {
-        qtc.KMimeTypeChooser_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -10796,9 +10406,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) QMetaObject) void {
         qtc.KMimeTypeChooserDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10983,11 +10593,11 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) QSize) void {
         qtc.KMimeTypeChooserDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17567,11 +17177,11 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) QSize) void {
         qtc.KMimeTypeChooserDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17625,9 +17235,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17681,9 +17291,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17797,9 +17407,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17853,9 +17463,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18287,9 +17897,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18403,9 +18013,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -18459,9 +18069,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) QPaintEngine) void {
         qtc.KMimeTypeChooserDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20077,9 +19687,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) QPainter) void {
         qtc.KMimeTypeChooserDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20598,47 +20208,6 @@ pub const KMimeTypeChooserDialog = extern struct {
         qtc.KMimeTypeChooserDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: KMimeTypeChooserDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KMimeTypeChooserDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QWidget) callconv(.c) void) void {
-        qtc.KMimeTypeChooserDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -20655,44 +20224,6 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: KMimeTypeChooserDialog) void {
-        qtc.KMimeTypeChooserDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KMimeTypeChooserDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -20713,44 +20244,6 @@ pub const KMimeTypeChooserDialog = extern struct {
         qtc.KMimeTypeChooserDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    pub fn superCreate(self: KMimeTypeChooserDialog) void {
-        qtc.KMimeTypeChooserDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KMimeTypeChooserDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -20767,44 +20260,6 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     pub fn destroy(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    pub fn superDestroy(self: KMimeTypeChooserDialog) void {
-        qtc.KMimeTypeChooserDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KMimeTypeChooserDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -20825,44 +20280,6 @@ pub const KMimeTypeChooserDialog = extern struct {
         return qtc.KMimeTypeChooserDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    pub fn superFocusNextChild(self: KMimeTypeChooserDialog) bool {
-        return qtc.KMimeTypeChooserDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KMimeTypeChooserDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -20879,44 +20296,6 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: KMimeTypeChooserDialog) bool {
         return qtc.KMimeTypeChooserDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    pub fn superFocusPreviousChild(self: KMimeTypeChooserDialog) bool {
-        return qtc.KMimeTypeChooserDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KMimeTypeChooserDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -20937,44 +20316,6 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    pub fn superSender(self: KMimeTypeChooserDialog) QObject {
-        return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KMimeTypeChooserDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -20991,44 +20332,6 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: KMimeTypeChooserDialog) i32 {
         return qtc.KMimeTypeChooserDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    pub fn superSenderSignalIndex(self: KMimeTypeChooserDialog) i32 {
-        return qtc.KMimeTypeChooserDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.KMimeTypeChooserDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -21052,47 +20355,6 @@ pub const KMimeTypeChooserDialog = extern struct {
         return qtc.KMimeTypeChooserDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KMimeTypeChooserDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KMimeTypeChooserDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn (self: KMimeTypeChooserDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KMimeTypeChooserDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -21112,47 +20374,6 @@ pub const KMimeTypeChooserDialog = extern struct {
     pub fn isSignalConnected(self: KMimeTypeChooserDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMimeTypeChooserDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KMimeTypeChooserDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KMimeTypeChooserDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn (self: KMimeTypeChooserDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.KMimeTypeChooserDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -21175,48 +20396,6 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: KMimeTypeChooserDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KMimeTypeChooserDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KMimeTypeChooserDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.KMimeTypeChooserDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMimeTypeChooserDialog`
-    ///
-    /// ` callback: *const fn (self: KMimeTypeChooserDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32, i32) callconv(.c) f64) void {
-        qtc.KMimeTypeChooserDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

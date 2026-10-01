@@ -165,6 +165,8 @@ pub const KFileMetaData__ExtractionResult = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#append)
     ///
+    /// This method must be implemented with `onAppend` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileMetaData__ExtractionResult `
@@ -197,33 +199,13 @@ pub const KFileMetaData__ExtractionResult = extern struct {
         qtc.KFileMetaData__ExtractionResult_OnAppend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superAppend` instead
-    ///
-    pub const SuperAppend = superAppend;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#append)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractionResult `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superAppend(self: KFileMetaData__ExtractionResult, text: []const u8) void {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        qtc.KFileMetaData__ExtractionResult_SuperAppend(@ptrCast(self.ptr), text_str);
-    }
-
     /// ### DEPRECATED: Use `add` instead
     ///
     pub const Add = add;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#add)
+    ///
+    /// This method must be implemented with `onAdd` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -256,32 +238,13 @@ pub const KFileMetaData__ExtractionResult = extern struct {
         qtc.KFileMetaData__ExtractionResult_OnAdd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superAdd` instead
-    ///
-    pub const SuperAdd = superAdd;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#add)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractionResult `
-    ///
-    /// ` property: properties_enums.Property `
-    ///
-    /// ` value: QVariant `
-    ///
-    pub fn superAdd(self: KFileMetaData__ExtractionResult, property: i32, value: anytype) void {
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.KFileMetaData__ExtractionResult_SuperAdd(@ptrCast(self.ptr), @bitCast(property), @ptrCast(value.ptr));
-    }
-
     /// ### DEPRECATED: Use `addType` instead
     ///
     pub const AddType = addType;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#addType)
+    ///
+    /// This method must be implemented with `onAddType` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -309,24 +272,6 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     pub fn onAddType(self: KFileMetaData__ExtractionResult, callback: *const fn (KFileMetaData__ExtractionResult, i32) callconv(.c) void) void {
         qtc.KFileMetaData__ExtractionResult_OnAddType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddType` instead
-    ///
-    pub const SuperAddType = superAddType;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#addType)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__ExtractionResult `
-    ///
-    /// ` typeVal: types_enums.Type `
-    ///
-    pub fn superAddType(self: KFileMetaData__ExtractionResult, typeVal: i32) void {
-        qtc.KFileMetaData__ExtractionResult_SuperAddType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// ### DEPRECATED: Use `imageData` instead

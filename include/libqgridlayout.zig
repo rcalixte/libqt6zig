@@ -87,9 +87,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGridLayout, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) QMetaObject) void {
         qtc.QGridLayout_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -260,11 +260,11 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QGridLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) QSize) void {
         qtc.QGridLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -310,11 +310,11 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: QGridLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) QSize) void {
         qtc.QGridLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -360,11 +360,11 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaximumSize(self: QGridLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) QSize) void {
         qtc.QGridLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -522,9 +522,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) i32 `
     ///
-    pub fn onSpacing(self: QGridLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSpacing(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) i32) void {
         qtc.QGridLayout_OnSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -752,9 +752,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QGridLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) bool) void {
         qtc.QGridLayout_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -908,9 +908,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) i32 `
     ///
-    pub fn onExpandingDirections(self: QGridLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) i32) void {
         qtc.QGridLayout_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -960,9 +960,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QGridLayout, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) void) void {
         qtc.QGridLayout_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1273,9 +1273,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) i32 `
     ///
-    pub fn onCount(self: QGridLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) i32) void {
         qtc.QGridLayout_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3298,11 +3298,11 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onGeometry(self: QGridLayout, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) QRect) void {
         qtc.QGridLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3418,9 +3418,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QGridLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) bool) void {
         qtc.QGridLayout_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3482,9 +3482,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) i32 `
     ///
-    pub fn onControlTypes(self: QGridLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) i32) void {
         qtc.QGridLayout_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3610,9 +3610,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QLayout `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) QLayout `
     ///
-    pub fn onLayout(self: QGridLayout, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) QLayout) void {
         qtc.QGridLayout_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4106,9 +4106,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: QGridLayout, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) QWidget) void {
         qtc.QGridLayout_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4162,9 +4162,9 @@ pub const QGridLayout = extern struct {
     ///
     /// ` self: QGridLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QSpacerItem `
+    /// ` callback: *const fn (self: QGridLayout) callconv(.c) QSpacerItem `
     ///
-    pub fn onSpacerItem(self: QGridLayout, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QGridLayout, callback: *const fn (QGridLayout) callconv(.c) QSpacerItem) void {
         qtc.QGridLayout_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4189,47 +4189,6 @@ pub const QGridLayout = extern struct {
         qtc.QGridLayout_WidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superWidgetEvent` instead
-    ///
-    pub const SuperWidgetEvent = superWidgetEvent;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    /// ` param1: QEvent `
-    ///
-    pub fn superWidgetEvent(self: QGridLayout, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QEvent;
-        qtc.QGridLayout_SuperWidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onWidgetEvent` instead
-    ///
-    pub const OnWidgetEvent = onWidgetEvent;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGridLayout, param1: QEvent) callconv(.c) void `
-    ///
-    pub fn onWidgetEvent(self: QGridLayout, callback: *const fn (QGridLayout, QEvent) callconv(.c) void) void {
-        qtc.QGridLayout_OnWidgetEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `addChildLayout` instead
     ///
     pub const AddChildLayout = addChildLayout;
@@ -4249,47 +4208,6 @@ pub const QGridLayout = extern struct {
     pub fn addChildLayout(self: QGridLayout, l: anytype) void {
         comptime _ = @TypeOf(l)._is_QLayout;
         qtc.QGridLayout_AddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAddChildLayout` instead
-    ///
-    pub const SuperAddChildLayout = superAddChildLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    /// ` l: QLayout `
-    ///
-    pub fn superAddChildLayout(self: QGridLayout, l: anytype) void {
-        comptime _ = @TypeOf(l)._is_QLayout;
-        qtc.QGridLayout_SuperAddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddChildLayout` instead
-    ///
-    pub const OnAddChildLayout = onAddChildLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGridLayout, l: QLayout) callconv(.c) void `
-    ///
-    pub fn onAddChildLayout(self: QGridLayout, callback: *const fn (QGridLayout, QLayout) callconv(.c) void) void {
-        qtc.QGridLayout_OnAddChildLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `addChildWidget` instead
@@ -4313,47 +4231,6 @@ pub const QGridLayout = extern struct {
         qtc.QGridLayout_AddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAddChildWidget` instead
-    ///
-    pub const SuperAddChildWidget = superAddChildWidget;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superAddChildWidget(self: QGridLayout, w: anytype) void {
-        comptime _ = @TypeOf(w)._is_QWidget;
-        qtc.QGridLayout_SuperAddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddChildWidget` instead
-    ///
-    pub const OnAddChildWidget = onAddChildWidget;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGridLayout, w: QWidget) callconv(.c) void `
-    ///
-    pub fn onAddChildWidget(self: QGridLayout, callback: *const fn (QGridLayout, QWidget) callconv(.c) void) void {
-        qtc.QGridLayout_OnAddChildWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `adoptLayout` instead
     ///
     pub const AdoptLayout = adoptLayout;
@@ -4373,47 +4250,6 @@ pub const QGridLayout = extern struct {
     pub fn adoptLayout(self: QGridLayout, _layout: anytype) bool {
         comptime _ = @TypeOf(_layout)._is_QLayout;
         return qtc.QGridLayout_AdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAdoptLayout` instead
-    ///
-    pub const SuperAdoptLayout = superAdoptLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    /// ` _layout: QLayout `
-    ///
-    pub fn superAdoptLayout(self: QGridLayout, _layout: anytype) bool {
-        comptime _ = @TypeOf(_layout)._is_QLayout;
-        return qtc.QGridLayout_SuperAdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdoptLayout` instead
-    ///
-    pub const OnAdoptLayout = onAdoptLayout;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGridLayout, layout: QLayout) callconv(.c) bool `
-    ///
-    pub fn onAdoptLayout(self: QGridLayout, callback: *const fn (QGridLayout, QLayout) callconv(.c) bool) void {
-        qtc.QGridLayout_OnAdoptLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `alignmentRect` instead
@@ -4437,49 +4273,6 @@ pub const QGridLayout = extern struct {
         return .{ .ptr = qtc.QGridLayout_AlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superAlignmentRect` instead
-    ///
-    pub const SuperAlignmentRect = superAlignmentRect;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    /// ` param1: QRect `
-    ///
-    pub fn superAlignmentRect(self: QGridLayout, param1: anytype) QRect {
-        comptime _ = @TypeOf(param1)._is_QRect;
-        return .{ .ptr = qtc.QGridLayout_SuperAlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onAlignmentRect` instead
-    ///
-    pub const OnAlignmentRect = onAlignmentRect;
-
-    /// Inherited from QLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGridLayout, param1: QRect) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onAlignmentRect(self: QGridLayout, callback: *const fn (QGridLayout, QRect) callconv(.c) QRect) void {
-        qtc.QGridLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4498,44 +4291,6 @@ pub const QGridLayout = extern struct {
         return .{ .ptr = qtc.QGridLayout_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    pub fn superSender(self: QGridLayout) QObject {
-        return .{ .ptr = qtc.QGridLayout_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGridLayout, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGridLayout_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4552,44 +4307,6 @@ pub const QGridLayout = extern struct {
     ///
     pub fn senderSignalIndex(self: QGridLayout) i32 {
         return qtc.QGridLayout_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    pub fn superSenderSignalIndex(self: QGridLayout) i32 {
-        return qtc.QGridLayout_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGridLayout, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGridLayout_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4613,47 +4330,6 @@ pub const QGridLayout = extern struct {
         return qtc.QGridLayout_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGridLayout, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGridLayout_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGridLayout, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGridLayout, callback: *const fn (QGridLayout, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGridLayout_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4673,47 +4349,6 @@ pub const QGridLayout = extern struct {
     pub fn isSignalConnected(self: QGridLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGridLayout_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGridLayout `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGridLayout, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGridLayout_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGridLayout, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGridLayout, callback: *const fn (QGridLayout, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGridLayout_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

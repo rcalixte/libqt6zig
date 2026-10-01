@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QAudioListener so that we can call protected methods
+// This class is a subclass of QAudioListener
 class VirtualQAudioListener final : public QAudioListener {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQAudioListener = true;
-
-    // Virtual class public types (including callbacks)
-    using QAudioListener_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QAudioListener_MetaObject_Callback = QMetaObject* (*)(const QAudioListener*);
     using QAudioListener_Metacast_Callback = void* (*)(QAudioListener*, const char*);
     using QAudioListener_Metacall_Callback = int (*)(QAudioListener*, int, int, void**);
     using QAudioListener_Event_Callback = bool (*)(QAudioListener*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQAudioListener final : public QAudioListener {
     using QAudioListener_CustomEvent_Callback = void (*)(QAudioListener*, QEvent*);
     using QAudioListener_ConnectNotify_Callback = void (*)(QAudioListener*, QMetaMethod*);
     using QAudioListener_DisconnectNotify_Callback = void (*)(QAudioListener*, QMetaMethod*);
-    using QAudioListener_Sender_Callback = QObject* (*)();
-    using QAudioListener_SenderSignalIndex_Callback = int (*)();
-    using QAudioListener_Receivers_Callback = int (*)(const QAudioListener*, const char*);
-    using QAudioListener_IsSignalConnected_Callback = bool (*)(const QAudioListener*, QMetaMethod*);
+    using QAudioListener::isSignalConnected;
+    using QAudioListener::receivers;
+    using QAudioListener::sender;
+    using QAudioListener::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QAudioListener_MetaObject_Callback qaudiolistener_metaobject_callback = nullptr;
     QAudioListener_Metacast_Callback qaudiolistener_metacast_callback = nullptr;
@@ -44,71 +39,22 @@ class VirtualQAudioListener final : public QAudioListener {
     QAudioListener_CustomEvent_Callback qaudiolistener_customevent_callback = nullptr;
     QAudioListener_ConnectNotify_Callback qaudiolistener_connectnotify_callback = nullptr;
     QAudioListener_DisconnectNotify_Callback qaudiolistener_disconnectnotify_callback = nullptr;
-    QAudioListener_Sender_Callback qaudiolistener_sender_callback = nullptr;
-    QAudioListener_SenderSignalIndex_Callback qaudiolistener_sendersignalindex_callback = nullptr;
-    QAudioListener_Receivers_Callback qaudiolistener_receivers_callback = nullptr;
-    QAudioListener_IsSignalConnected_Callback qaudiolistener_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qaudiolistener_metaobject_isbase = false;
-    mutable bool qaudiolistener_metacast_isbase = false;
-    mutable bool qaudiolistener_metacall_isbase = false;
-    mutable bool qaudiolistener_event_isbase = false;
-    mutable bool qaudiolistener_eventfilter_isbase = false;
-    mutable bool qaudiolistener_timerevent_isbase = false;
-    mutable bool qaudiolistener_childevent_isbase = false;
-    mutable bool qaudiolistener_customevent_isbase = false;
-    mutable bool qaudiolistener_connectnotify_isbase = false;
-    mutable bool qaudiolistener_disconnectnotify_isbase = false;
-    mutable bool qaudiolistener_sender_isbase = false;
-    mutable bool qaudiolistener_sendersignalindex_isbase = false;
-    mutable bool qaudiolistener_receivers_isbase = false;
-    mutable bool qaudiolistener_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QAudioListener {
+        using QAudioListener::childEvent;
+        using QAudioListener::connectNotify;
+        using QAudioListener::customEvent;
+        using QAudioListener::disconnectNotify;
+        using QAudioListener::timerEvent;
+    };
 
-  public:
     VirtualQAudioListener(QAudioEngine* engine) : QAudioListener(engine) {};
-
-    // Callback setters
-    inline void setQAudioListener_MetaObject_Callback(QAudioListener_MetaObject_Callback cb) { qaudiolistener_metaobject_callback = cb; }
-    inline void setQAudioListener_Metacast_Callback(QAudioListener_Metacast_Callback cb) { qaudiolistener_metacast_callback = cb; }
-    inline void setQAudioListener_Metacall_Callback(QAudioListener_Metacall_Callback cb) { qaudiolistener_metacall_callback = cb; }
-    inline void setQAudioListener_Event_Callback(QAudioListener_Event_Callback cb) { qaudiolistener_event_callback = cb; }
-    inline void setQAudioListener_EventFilter_Callback(QAudioListener_EventFilter_Callback cb) { qaudiolistener_eventfilter_callback = cb; }
-    inline void setQAudioListener_TimerEvent_Callback(QAudioListener_TimerEvent_Callback cb) { qaudiolistener_timerevent_callback = cb; }
-    inline void setQAudioListener_ChildEvent_Callback(QAudioListener_ChildEvent_Callback cb) { qaudiolistener_childevent_callback = cb; }
-    inline void setQAudioListener_CustomEvent_Callback(QAudioListener_CustomEvent_Callback cb) { qaudiolistener_customevent_callback = cb; }
-    inline void setQAudioListener_ConnectNotify_Callback(QAudioListener_ConnectNotify_Callback cb) { qaudiolistener_connectnotify_callback = cb; }
-    inline void setQAudioListener_DisconnectNotify_Callback(QAudioListener_DisconnectNotify_Callback cb) { qaudiolistener_disconnectnotify_callback = cb; }
-    inline void setQAudioListener_Sender_Callback(QAudioListener_Sender_Callback cb) { qaudiolistener_sender_callback = cb; }
-    inline void setQAudioListener_SenderSignalIndex_Callback(QAudioListener_SenderSignalIndex_Callback cb) { qaudiolistener_sendersignalindex_callback = cb; }
-    inline void setQAudioListener_Receivers_Callback(QAudioListener_Receivers_Callback cb) { qaudiolistener_receivers_callback = cb; }
-    inline void setQAudioListener_IsSignalConnected_Callback(QAudioListener_IsSignalConnected_Callback cb) { qaudiolistener_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQAudioListener_MetaObject_IsBase(bool value) const { qaudiolistener_metaobject_isbase = value; }
-    inline void setQAudioListener_Metacast_IsBase(bool value) const { qaudiolistener_metacast_isbase = value; }
-    inline void setQAudioListener_Metacall_IsBase(bool value) const { qaudiolistener_metacall_isbase = value; }
-    inline void setQAudioListener_Event_IsBase(bool value) const { qaudiolistener_event_isbase = value; }
-    inline void setQAudioListener_EventFilter_IsBase(bool value) const { qaudiolistener_eventfilter_isbase = value; }
-    inline void setQAudioListener_TimerEvent_IsBase(bool value) const { qaudiolistener_timerevent_isbase = value; }
-    inline void setQAudioListener_ChildEvent_IsBase(bool value) const { qaudiolistener_childevent_isbase = value; }
-    inline void setQAudioListener_CustomEvent_IsBase(bool value) const { qaudiolistener_customevent_isbase = value; }
-    inline void setQAudioListener_ConnectNotify_IsBase(bool value) const { qaudiolistener_connectnotify_isbase = value; }
-    inline void setQAudioListener_DisconnectNotify_IsBase(bool value) const { qaudiolistener_disconnectnotify_isbase = value; }
-    inline void setQAudioListener_Sender_IsBase(bool value) const { qaudiolistener_sender_isbase = value; }
-    inline void setQAudioListener_SenderSignalIndex_IsBase(bool value) const { qaudiolistener_sendersignalindex_isbase = value; }
-    inline void setQAudioListener_Receivers_IsBase(bool value) const { qaudiolistener_receivers_isbase = value; }
-    inline void setQAudioListener_IsSignalConnected_IsBase(bool value) const { qaudiolistener_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qaudiolistener_metaobject_isbase) {
-            qaudiolistener_metaobject_isbase = false;
-            return QAudioListener::metaObject();
-        }
-        auto metaobject_cb = qaudiolistener_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qaudiolistener_metaobject_callback) {
+            QMetaObject* callback_ret = qaudiolistener_metaobject_callback(this);
             return callback_ret;
         }
         return QAudioListener::metaObject();
@@ -116,14 +62,9 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qaudiolistener_metacast_isbase) {
-            qaudiolistener_metacast_isbase = false;
-            return QAudioListener::qt_metacast(param1);
-        }
-        auto metacast_cb = qaudiolistener_metacast_callback;
-        if (metacast_cb) {
+        if (qaudiolistener_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qaudiolistener_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QAudioListener::qt_metacast(param1);
@@ -131,16 +72,11 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qaudiolistener_metacall_isbase) {
-            qaudiolistener_metacall_isbase = false;
-            return QAudioListener::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qaudiolistener_metacall_callback;
-        if (metacall_cb) {
+        if (qaudiolistener_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qaudiolistener_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QAudioListener::qt_metacall(param1, param2, param3);
@@ -148,14 +84,9 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qaudiolistener_event_isbase) {
-            qaudiolistener_event_isbase = false;
-            return QAudioListener::event(event);
-        }
-        auto event_cb = qaudiolistener_event_callback;
-        if (event_cb) {
+        if (qaudiolistener_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qaudiolistener_event_callback(this, cbval1);
             return callback_ret;
         }
         return QAudioListener::event(event);
@@ -163,15 +94,10 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qaudiolistener_eventfilter_isbase) {
-            qaudiolistener_eventfilter_isbase = false;
-            return QAudioListener::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qaudiolistener_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qaudiolistener_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qaudiolistener_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QAudioListener::eventFilter(watched, event);
@@ -179,15 +105,9 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qaudiolistener_timerevent_isbase) {
-            qaudiolistener_timerevent_isbase = false;
-            QAudioListener::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qaudiolistener_timerevent_callback;
-        if (timerevent_cb) {
+        if (qaudiolistener_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qaudiolistener_timerevent_callback(this, cbval1);
             return;
         }
         QAudioListener::timerEvent(event);
@@ -195,15 +115,9 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qaudiolistener_childevent_isbase) {
-            qaudiolistener_childevent_isbase = false;
-            QAudioListener::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qaudiolistener_childevent_callback;
-        if (childevent_cb) {
+        if (qaudiolistener_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qaudiolistener_childevent_callback(this, cbval1);
             return;
         }
         QAudioListener::childEvent(event);
@@ -211,15 +125,9 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qaudiolistener_customevent_isbase) {
-            qaudiolistener_customevent_isbase = false;
-            QAudioListener::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qaudiolistener_customevent_callback;
-        if (customevent_cb) {
+        if (qaudiolistener_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qaudiolistener_customevent_callback(this, cbval1);
             return;
         }
         QAudioListener::customEvent(event);
@@ -227,17 +135,11 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qaudiolistener_connectnotify_isbase) {
-            qaudiolistener_connectnotify_isbase = false;
-            QAudioListener::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qaudiolistener_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qaudiolistener_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qaudiolistener_connectnotify_callback(this, cbval1);
             return;
         }
         QAudioListener::connectNotify(signal);
@@ -245,101 +147,22 @@ class VirtualQAudioListener final : public QAudioListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qaudiolistener_disconnectnotify_isbase) {
-            qaudiolistener_disconnectnotify_isbase = false;
-            QAudioListener::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qaudiolistener_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qaudiolistener_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qaudiolistener_disconnectnotify_callback(this, cbval1);
             return;
         }
         QAudioListener::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qaudiolistener_sender_isbase) {
-            qaudiolistener_sender_isbase = false;
-            return QAudioListener::sender();
-        }
-        auto sender_cb = qaudiolistener_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QAudioListener::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qaudiolistener_sendersignalindex_isbase) {
-            qaudiolistener_sendersignalindex_isbase = false;
-            return QAudioListener::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qaudiolistener_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QAudioListener::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qaudiolistener_receivers_isbase) {
-            qaudiolistener_receivers_isbase = false;
-            return QAudioListener::receivers(signal);
-        }
-        auto receivers_cb = qaudiolistener_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QAudioListener::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qaudiolistener_issignalconnected_isbase) {
-            qaudiolistener_issignalconnected_isbase = false;
-            return QAudioListener::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qaudiolistener_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QAudioListener::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QAudioListener_TimerEvent(QAudioListener* self, QTimerEvent* event);
     friend void QAudioListener_SuperTimerEvent(QAudioListener* self, QTimerEvent* event);
-    friend void QAudioListener_ChildEvent(QAudioListener* self, QChildEvent* event);
     friend void QAudioListener_SuperChildEvent(QAudioListener* self, QChildEvent* event);
-    friend void QAudioListener_CustomEvent(QAudioListener* self, QEvent* event);
     friend void QAudioListener_SuperCustomEvent(QAudioListener* self, QEvent* event);
-    friend void QAudioListener_ConnectNotify(QAudioListener* self, const QMetaMethod* signal);
     friend void QAudioListener_SuperConnectNotify(QAudioListener* self, const QMetaMethod* signal);
-    friend void QAudioListener_DisconnectNotify(QAudioListener* self, const QMetaMethod* signal);
     friend void QAudioListener_SuperDisconnectNotify(QAudioListener* self, const QMetaMethod* signal);
-    friend QObject* QAudioListener_Sender(const QAudioListener* self);
-    friend QObject* QAudioListener_SuperSender(const QAudioListener* self);
-    friend int QAudioListener_SenderSignalIndex(const QAudioListener* self);
-    friend int QAudioListener_SuperSenderSignalIndex(const QAudioListener* self);
-    friend int QAudioListener_Receivers(const QAudioListener* self, const char* signal);
-    friend int QAudioListener_SuperReceivers(const QAudioListener* self, const char* signal);
-    friend bool QAudioListener_IsSignalConnected(const QAudioListener* self, const QMetaMethod* signal);
-    friend bool QAudioListener_SuperIsSignalConnected(const QAudioListener* self, const QMetaMethod* signal);
 };
 
 #endif

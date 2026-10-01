@@ -24,76 +24,53 @@ struct wl_touch;
 struct xkb_context;
 #endif
 
-// This class is a subclass of QNativeInterface::QX11Application so that we can call protected methods
+// This class is a subclass of QNativeInterface::QX11Application
 class VirtualQNativeInterfaceQX11Application : public QNativeInterface::QX11Application {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQNativeInterfaceQX11Application = true;
+    // Virtual class public types (including callbacks and access types)
+    using QNativeInterface__QX11Application_Display_Callback = Display* (*)(const QNativeInterface__QX11Application*);
+    using QNativeInterface__QX11Application_Connection_Callback = xcb_connection_t* (*)(const QNativeInterface__QX11Application*);
 
-    // Virtual class public types (including callbacks)
-    using QNativeInterface__QX11Application_Display_Callback = Display* (*)();
-    using QNativeInterface__QX11Application_Connection_Callback = xcb_connection_t* (*)();
-
-  protected:
     // Instance callback storage
     QNativeInterface__QX11Application_Display_Callback qnativeinterface__qx11application_display_callback = nullptr;
     QNativeInterface__QX11Application_Connection_Callback qnativeinterface__qx11application_connection_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qnativeinterface__qx11application_display_isbase = false;
-    mutable bool qnativeinterface__qx11application_connection_isbase = false;
-
-  public:
     VirtualQNativeInterfaceQX11Application() : QNativeInterface::QX11Application() {};
-
-    // Callback setters
-    inline void setQNativeInterface__QX11Application_Display_Callback(QNativeInterface__QX11Application_Display_Callback cb) { qnativeinterface__qx11application_display_callback = cb; }
-    inline void setQNativeInterface__QX11Application_Connection_Callback(QNativeInterface__QX11Application_Connection_Callback cb) { qnativeinterface__qx11application_connection_callback = cb; }
-
-    // Base flag setters
-    inline void setQNativeInterface__QX11Application_Display_IsBase(bool value) const { qnativeinterface__qx11application_display_isbase = value; }
-    inline void setQNativeInterface__QX11Application_Connection_IsBase(bool value) const { qnativeinterface__qx11application_connection_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual Display* display() const override {
-        auto display_cb = qnativeinterface__qx11application_display_callback;
-        if (display_cb) {
-            Display* callback_ret = display_cb();
+        if (qnativeinterface__qx11application_display_callback) {
+            Display* callback_ret = qnativeinterface__qx11application_display_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QX11Application::display called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual xcb_connection_t* connection() const override {
-        auto connection_cb = qnativeinterface__qx11application_connection_callback;
-        if (connection_cb) {
-            xcb_connection_t* callback_ret = connection_cb();
+        if (qnativeinterface__qx11application_connection_callback) {
+            xcb_connection_t* callback_ret = qnativeinterface__qx11application_connection_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QX11Application::connection called without being implemented");
     }
 };
 
-// This class is a subclass of QNativeInterface::QWaylandApplication so that we can call protected methods
+// This class is a subclass of QNativeInterface::QWaylandApplication
 class VirtualQNativeInterfaceQWaylandApplication : public QNativeInterface::QWaylandApplication {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQNativeInterfaceQWaylandApplication = true;
+    // Virtual class public types (including callbacks and access types)
+    using QNativeInterface__QWaylandApplication_Display_Callback = wl_display* (*)(const QNativeInterface__QWaylandApplication*);
+    using QNativeInterface__QWaylandApplication_Compositor_Callback = wl_compositor* (*)(const QNativeInterface__QWaylandApplication*);
+    using QNativeInterface__QWaylandApplication_Seat_Callback = wl_seat* (*)(const QNativeInterface__QWaylandApplication*);
+    using QNativeInterface__QWaylandApplication_Keyboard_Callback = wl_keyboard* (*)(const QNativeInterface__QWaylandApplication*);
+    using QNativeInterface__QWaylandApplication_Pointer_Callback = wl_pointer* (*)(const QNativeInterface__QWaylandApplication*);
+    using QNativeInterface__QWaylandApplication_Touch_Callback = wl_touch* (*)(const QNativeInterface__QWaylandApplication*);
+    using QNativeInterface__QWaylandApplication_LastInputSerial_Callback = unsigned int (*)(const QNativeInterface__QWaylandApplication*);
+    using QNativeInterface__QWaylandApplication_LastInputSeat_Callback = wl_seat* (*)(const QNativeInterface__QWaylandApplication*);
 
-    // Virtual class public types (including callbacks)
-    using QNativeInterface__QWaylandApplication_Display_Callback = wl_display* (*)();
-    using QNativeInterface__QWaylandApplication_Compositor_Callback = wl_compositor* (*)();
-    using QNativeInterface__QWaylandApplication_Seat_Callback = wl_seat* (*)();
-    using QNativeInterface__QWaylandApplication_Keyboard_Callback = wl_keyboard* (*)();
-    using QNativeInterface__QWaylandApplication_Pointer_Callback = wl_pointer* (*)();
-    using QNativeInterface__QWaylandApplication_Touch_Callback = wl_touch* (*)();
-    using QNativeInterface__QWaylandApplication_LastInputSerial_Callback = unsigned int (*)();
-    using QNativeInterface__QWaylandApplication_LastInputSeat_Callback = wl_seat* (*)();
-
-  protected:
     // Instance callback storage
     QNativeInterface__QWaylandApplication_Display_Callback qnativeinterface__qwaylandapplication_display_callback = nullptr;
     QNativeInterface__QWaylandApplication_Compositor_Callback qnativeinterface__qwaylandapplication_compositor_callback = nullptr;
@@ -104,117 +81,86 @@ class VirtualQNativeInterfaceQWaylandApplication : public QNativeInterface::QWay
     QNativeInterface__QWaylandApplication_LastInputSerial_Callback qnativeinterface__qwaylandapplication_lastinputserial_callback = nullptr;
     QNativeInterface__QWaylandApplication_LastInputSeat_Callback qnativeinterface__qwaylandapplication_lastinputseat_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qnativeinterface__qwaylandapplication_display_isbase = false;
-    mutable bool qnativeinterface__qwaylandapplication_compositor_isbase = false;
-    mutable bool qnativeinterface__qwaylandapplication_seat_isbase = false;
-    mutable bool qnativeinterface__qwaylandapplication_keyboard_isbase = false;
-    mutable bool qnativeinterface__qwaylandapplication_pointer_isbase = false;
-    mutable bool qnativeinterface__qwaylandapplication_touch_isbase = false;
-    mutable bool qnativeinterface__qwaylandapplication_lastinputserial_isbase = false;
-    mutable bool qnativeinterface__qwaylandapplication_lastinputseat_isbase = false;
-
-  public:
     VirtualQNativeInterfaceQWaylandApplication() : QNativeInterface::QWaylandApplication() {};
-
-    // Callback setters
-    inline void setQNativeInterface__QWaylandApplication_Display_Callback(QNativeInterface__QWaylandApplication_Display_Callback cb) { qnativeinterface__qwaylandapplication_display_callback = cb; }
-    inline void setQNativeInterface__QWaylandApplication_Compositor_Callback(QNativeInterface__QWaylandApplication_Compositor_Callback cb) { qnativeinterface__qwaylandapplication_compositor_callback = cb; }
-    inline void setQNativeInterface__QWaylandApplication_Seat_Callback(QNativeInterface__QWaylandApplication_Seat_Callback cb) { qnativeinterface__qwaylandapplication_seat_callback = cb; }
-    inline void setQNativeInterface__QWaylandApplication_Keyboard_Callback(QNativeInterface__QWaylandApplication_Keyboard_Callback cb) { qnativeinterface__qwaylandapplication_keyboard_callback = cb; }
-    inline void setQNativeInterface__QWaylandApplication_Pointer_Callback(QNativeInterface__QWaylandApplication_Pointer_Callback cb) { qnativeinterface__qwaylandapplication_pointer_callback = cb; }
-    inline void setQNativeInterface__QWaylandApplication_Touch_Callback(QNativeInterface__QWaylandApplication_Touch_Callback cb) { qnativeinterface__qwaylandapplication_touch_callback = cb; }
-    inline void setQNativeInterface__QWaylandApplication_LastInputSerial_Callback(QNativeInterface__QWaylandApplication_LastInputSerial_Callback cb) { qnativeinterface__qwaylandapplication_lastinputserial_callback = cb; }
-    inline void setQNativeInterface__QWaylandApplication_LastInputSeat_Callback(QNativeInterface__QWaylandApplication_LastInputSeat_Callback cb) { qnativeinterface__qwaylandapplication_lastinputseat_callback = cb; }
-
-    // Base flag setters
-    inline void setQNativeInterface__QWaylandApplication_Display_IsBase(bool value) const { qnativeinterface__qwaylandapplication_display_isbase = value; }
-    inline void setQNativeInterface__QWaylandApplication_Compositor_IsBase(bool value) const { qnativeinterface__qwaylandapplication_compositor_isbase = value; }
-    inline void setQNativeInterface__QWaylandApplication_Seat_IsBase(bool value) const { qnativeinterface__qwaylandapplication_seat_isbase = value; }
-    inline void setQNativeInterface__QWaylandApplication_Keyboard_IsBase(bool value) const { qnativeinterface__qwaylandapplication_keyboard_isbase = value; }
-    inline void setQNativeInterface__QWaylandApplication_Pointer_IsBase(bool value) const { qnativeinterface__qwaylandapplication_pointer_isbase = value; }
-    inline void setQNativeInterface__QWaylandApplication_Touch_IsBase(bool value) const { qnativeinterface__qwaylandapplication_touch_isbase = value; }
-    inline void setQNativeInterface__QWaylandApplication_LastInputSerial_IsBase(bool value) const { qnativeinterface__qwaylandapplication_lastinputserial_isbase = value; }
-    inline void setQNativeInterface__QWaylandApplication_LastInputSeat_IsBase(bool value) const { qnativeinterface__qwaylandapplication_lastinputseat_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual wl_display* display() const override {
-        auto display_cb = qnativeinterface__qwaylandapplication_display_callback;
-        if (display_cb) {
-            wl_display* callback_ret = display_cb();
+        if (qnativeinterface__qwaylandapplication_display_callback) {
+            wl_display* callback_ret = qnativeinterface__qwaylandapplication_display_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::display called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual wl_compositor* compositor() const override {
-        auto compositor_cb = qnativeinterface__qwaylandapplication_compositor_callback;
-        if (compositor_cb) {
-            wl_compositor* callback_ret = compositor_cb();
+        if (qnativeinterface__qwaylandapplication_compositor_callback) {
+            wl_compositor* callback_ret = qnativeinterface__qwaylandapplication_compositor_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::compositor called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual wl_seat* seat() const override {
-        auto seat_cb = qnativeinterface__qwaylandapplication_seat_callback;
-        if (seat_cb) {
-            wl_seat* callback_ret = seat_cb();
+        if (qnativeinterface__qwaylandapplication_seat_callback) {
+            wl_seat* callback_ret = qnativeinterface__qwaylandapplication_seat_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::seat called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual wl_keyboard* keyboard() const override {
-        auto keyboard_cb = qnativeinterface__qwaylandapplication_keyboard_callback;
-        if (keyboard_cb) {
-            wl_keyboard* callback_ret = keyboard_cb();
+        if (qnativeinterface__qwaylandapplication_keyboard_callback) {
+            wl_keyboard* callback_ret = qnativeinterface__qwaylandapplication_keyboard_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::keyboard called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual wl_pointer* pointer() const override {
-        auto pointer_cb = qnativeinterface__qwaylandapplication_pointer_callback;
-        if (pointer_cb) {
-            wl_pointer* callback_ret = pointer_cb();
+        if (qnativeinterface__qwaylandapplication_pointer_callback) {
+            wl_pointer* callback_ret = qnativeinterface__qwaylandapplication_pointer_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::pointer called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual wl_touch* touch() const override {
-        auto touch_cb = qnativeinterface__qwaylandapplication_touch_callback;
-        if (touch_cb) {
-            wl_touch* callback_ret = touch_cb();
+        if (qnativeinterface__qwaylandapplication_touch_callback) {
+            wl_touch* callback_ret = qnativeinterface__qwaylandapplication_touch_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::touch called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual uint lastInputSerial() const override {
-        auto lastinputserial_cb = qnativeinterface__qwaylandapplication_lastinputserial_callback;
-        if (lastinputserial_cb) {
-            unsigned int callback_ret = lastinputserial_cb();
+        if (qnativeinterface__qwaylandapplication_lastinputserial_callback) {
+            unsigned int callback_ret = qnativeinterface__qwaylandapplication_lastinputserial_callback(this);
             return static_cast<uint>(callback_ret);
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::lastInputSerial called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual wl_seat* lastInputSeat() const override {
-        auto lastinputseat_cb = qnativeinterface__qwaylandapplication_lastinputseat_callback;
-        if (lastinputseat_cb) {
-            wl_seat* callback_ret = lastinputseat_cb();
+        if (qnativeinterface__qwaylandapplication_lastinputseat_callback) {
+            wl_seat* callback_ret = qnativeinterface__qwaylandapplication_lastinputseat_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::lastInputSeat called without being implemented");
     }
 
     // unimplemented pure virtual method

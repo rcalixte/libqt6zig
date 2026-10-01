@@ -60,6 +60,8 @@ pub const KFilterBase = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#init)
     ///
+    /// This method must be implemented with `onInit` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KFilterBase `
@@ -88,29 +90,13 @@ pub const KFilterBase = extern struct {
         qtc.KFilterBase_OnInit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInit` instead
-    ///
-    pub const SuperInit = superInit;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#init)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    /// ` _mode: i32 `
-    ///
-    pub fn superInit(self: KFilterBase, _mode: i32) bool {
-        return qtc.KFilterBase_SuperInit(@ptrCast(self.ptr), @bitCast(_mode));
-    }
-
     /// ### DEPRECATED: Use `mode` instead
     ///
     pub const Mode = mode;
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#mode)
+    ///
+    /// This method must be implemented with `onMode` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -132,26 +118,10 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) i32 `
     ///
-    pub fn onMode(self: KFilterBase, callback: *const fn () callconv(.c) i32) void {
+    pub fn onMode(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) i32) void {
         qtc.KFilterBase_OnMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMode` instead
-    ///
-    pub const SuperMode = superMode;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#mode)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    pub fn superMode(self: KFilterBase) i32 {
-        return qtc.KFilterBase_SuperMode(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `terminate` instead
@@ -180,9 +150,9 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) bool `
     ///
-    pub fn onTerminate(self: KFilterBase, callback: *const fn () callconv(.c) bool) void {
+    pub fn onTerminate(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) bool) void {
         qtc.KFilterBase_OnTerminate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -228,9 +198,9 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) void `
     ///
-    pub fn onReset(self: KFilterBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) void) void {
         qtc.KFilterBase_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -256,6 +226,8 @@ pub const KFilterBase = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#readHeader)
     ///
+    /// This method must be implemented with `onReadHeader` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KFilterBase `
@@ -276,26 +248,10 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) bool `
     ///
-    pub fn onReadHeader(self: KFilterBase, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReadHeader(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) bool) void {
         qtc.KFilterBase_OnReadHeader(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReadHeader` instead
-    ///
-    pub const SuperReadHeader = superReadHeader;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#readHeader)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    pub fn superReadHeader(self: KFilterBase) bool {
-        return qtc.KFilterBase_SuperReadHeader(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `writeHeader` instead
@@ -303,6 +259,8 @@ pub const KFilterBase = extern struct {
     pub const WriteHeader = writeHeader;
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#writeHeader)
+    ///
+    /// This method must be implemented with `onWriteHeader` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -336,33 +294,13 @@ pub const KFilterBase = extern struct {
         qtc.KFilterBase_OnWriteHeader(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superWriteHeader` instead
-    ///
-    pub const SuperWriteHeader = superWriteHeader;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#writeHeader)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    /// ` filename: []u8 `
-    ///
-    pub fn superWriteHeader(self: KFilterBase, filename: []u8) bool {
-        const filename_str = qtc.libqt_string{
-            .len = filename.len,
-            .data = filename.ptr,
-        };
-        return qtc.KFilterBase_SuperWriteHeader(@ptrCast(self.ptr), filename_str);
-    }
-
     /// ### DEPRECATED: Use `setOutBuffer` instead
     ///
     pub const SetOutBuffer = setOutBuffer;
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setOutBuffer)
+    ///
+    /// This method must be implemented with `onSetOutBuffer` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -395,32 +333,13 @@ pub const KFilterBase = extern struct {
         qtc.KFilterBase_OnSetOutBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetOutBuffer` instead
-    ///
-    pub const SuperSetOutBuffer = superSetOutBuffer;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setOutBuffer)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    /// ` data: [:0]u8 `
-    ///
-    /// ` maxlen: u32 `
-    ///
-    pub fn superSetOutBuffer(self: KFilterBase, data: [:0]u8, maxlen: u32) void {
-        const data_Cstring = data.ptr;
-        qtc.KFilterBase_SuperSetOutBuffer(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
-    }
-
     /// ### DEPRECATED: Use `setInBuffer` instead
     ///
     pub const SetInBuffer = setInBuffer;
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setInBuffer)
+    ///
+    /// This method must be implemented with `onSetInBuffer` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -453,27 +372,6 @@ pub const KFilterBase = extern struct {
         qtc.KFilterBase_OnSetInBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetInBuffer` instead
-    ///
-    pub const SuperSetInBuffer = superSetInBuffer;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#setInBuffer)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    /// ` data: [:0]const u8 `
-    ///
-    /// ` size: u32 `
-    ///
-    pub fn superSetInBuffer(self: KFilterBase, data: [:0]const u8, size: u32) void {
-        const data_Cstring = data.ptr;
-        qtc.KFilterBase_SuperSetInBuffer(@ptrCast(self.ptr), data_Cstring, @bitCast(size));
-    }
-
     /// ### DEPRECATED: Use `inBufferEmpty` instead
     ///
     pub const InBufferEmpty = inBufferEmpty;
@@ -500,9 +398,9 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) bool `
     ///
-    pub fn onInBufferEmpty(self: KFilterBase, callback: *const fn () callconv(.c) bool) void {
+    pub fn onInBufferEmpty(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) bool) void {
         qtc.KFilterBase_OnInBufferEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -528,6 +426,8 @@ pub const KFilterBase = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#inBufferAvailable)
     ///
+    /// This method must be implemented with `onInBufferAvailable` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KFilterBase `
@@ -548,26 +448,10 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) i32 `
     ///
-    pub fn onInBufferAvailable(self: KFilterBase, callback: *const fn () callconv(.c) i32) void {
+    pub fn onInBufferAvailable(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) i32) void {
         qtc.KFilterBase_OnInBufferAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superInBufferAvailable` instead
-    ///
-    pub const SuperInBufferAvailable = superInBufferAvailable;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#inBufferAvailable)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    pub fn superInBufferAvailable(self: KFilterBase) i32 {
-        return qtc.KFilterBase_SuperInBufferAvailable(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `outBufferFull` instead
@@ -596,9 +480,9 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) bool `
     ///
-    pub fn onOutBufferFull(self: KFilterBase, callback: *const fn () callconv(.c) bool) void {
+    pub fn onOutBufferFull(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) bool) void {
         qtc.KFilterBase_OnOutBufferFull(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -624,6 +508,8 @@ pub const KFilterBase = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#outBufferAvailable)
     ///
+    /// This method must be implemented with `onOutBufferAvailable` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KFilterBase `
@@ -644,26 +530,10 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) i32 `
     ///
-    pub fn onOutBufferAvailable(self: KFilterBase, callback: *const fn () callconv(.c) i32) void {
+    pub fn onOutBufferAvailable(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) i32) void {
         qtc.KFilterBase_OnOutBufferAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOutBufferAvailable` instead
-    ///
-    pub const SuperOutBufferAvailable = superOutBufferAvailable;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#outBufferAvailable)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    pub fn superOutBufferAvailable(self: KFilterBase) i32 {
-        return qtc.KFilterBase_SuperOutBufferAvailable(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `uncompress` instead
@@ -671,6 +541,8 @@ pub const KFilterBase = extern struct {
     pub const Uncompress = uncompress;
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#uncompress)
+    ///
+    /// This method must be implemented with `onUncompress` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -696,30 +568,10 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KFilterBase) callconv(.c) i32 `
     ///
-    pub fn onUncompress(self: KFilterBase, callback: *const fn () callconv(.c) i32) void {
+    pub fn onUncompress(self: KFilterBase, callback: *const fn (KFilterBase) callconv(.c) i32) void {
         qtc.KFilterBase_OnUncompress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUncompress` instead
-    ///
-    pub const SuperUncompress = superUncompress;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#uncompress)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    /// ## Returns:
-    ///
-    /// ` kfilterbase_enums.Result `
-    ///
-    pub fn superUncompress(self: KFilterBase) i32 {
-        return qtc.KFilterBase_SuperUncompress(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `compress` instead
@@ -727,6 +579,8 @@ pub const KFilterBase = extern struct {
     pub const Compress = compress;
 
     /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#compress)
+    ///
+    /// This method must be implemented with `onCompress` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -758,28 +612,6 @@ pub const KFilterBase = extern struct {
     ///
     pub fn onCompress(self: KFilterBase, callback: *const fn (KFilterBase, bool) callconv(.c) i32) void {
         qtc.KFilterBase_OnCompress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCompress` instead
-    ///
-    pub const SuperCompress = superCompress;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilterbase.html#compress)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFilterBase `
-    ///
-    /// ` finish: bool `
-    ///
-    /// ## Returns:
-    ///
-    /// ` kfilterbase_enums.Result `
-    ///
-    pub fn superCompress(self: KFilterBase, finish: bool) i32 {
-        return qtc.KFilterBase_SuperCompress(@ptrCast(self.ptr), finish);
     }
 
     /// ### DEPRECATED: Use `setFilterFlags` instead

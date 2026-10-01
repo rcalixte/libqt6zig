@@ -45,7 +45,7 @@ void KNotificationAction_LabelChanged(KNotificationAction* self, const libqt_str
 void KNotificationAction_Connect_LabelChanged(KNotificationAction* self, intptr_t slot);
 libqt_string KNotificationAction_Tr2(const char* s, const char* c);
 libqt_string KNotificationAction_Tr3(const char* s, const char* c, int n);
-void KNotificationAction_OnMetaObject(const KNotificationAction* self, intptr_t slot);
+void KNotificationAction_OnMetaObject(KNotificationAction* self, intptr_t slot);
 QMetaObject* KNotificationAction_SuperMetaObject(const KNotificationAction* self);
 void KNotificationAction_OnMetacast(KNotificationAction* self, intptr_t slot);
 void* KNotificationAction_SuperMetacast(KNotificationAction* self, const char* param1);
@@ -73,17 +73,9 @@ void KNotificationAction_DisconnectNotify(KNotificationAction* self, const QMeta
 void KNotificationAction_OnDisconnectNotify(KNotificationAction* self, intptr_t slot);
 void KNotificationAction_SuperDisconnectNotify(KNotificationAction* self, const QMetaMethod* signal);
 QObject* KNotificationAction_Sender(const KNotificationAction* self);
-void KNotificationAction_OnSender(const KNotificationAction* self, intptr_t slot);
-QObject* KNotificationAction_SuperSender(const KNotificationAction* self);
 int KNotificationAction_SenderSignalIndex(const KNotificationAction* self);
-void KNotificationAction_OnSenderSignalIndex(const KNotificationAction* self, intptr_t slot);
-int KNotificationAction_SuperSenderSignalIndex(const KNotificationAction* self);
 int KNotificationAction_Receivers(const KNotificationAction* self, const char* signal);
-void KNotificationAction_OnReceivers(const KNotificationAction* self, intptr_t slot);
-int KNotificationAction_SuperReceivers(const KNotificationAction* self, const char* signal);
 bool KNotificationAction_IsSignalConnected(const KNotificationAction* self, const QMetaMethod* signal);
-void KNotificationAction_OnIsSignalConnected(const KNotificationAction* self, intptr_t slot);
-bool KNotificationAction_SuperIsSignalConnected(const KNotificationAction* self, const QMetaMethod* signal);
 void KNotificationAction_Delete(KNotificationAction* self);
 
 KNotification* KNotification_new(const libqt_string eventId);
@@ -184,7 +176,7 @@ KNotification* KNotification_Event63(const libqt_string eventId, const libqt_str
 KNotification* KNotification_Event56(int eventId, const libqt_string title, const libqt_string text, const libqt_string iconName, const int* flags);
 KNotification* KNotification_Event45(int eventId, const libqt_string title, const libqt_string text, const int* flags);
 void KNotification_Beep1(const libqt_string reason);
-void KNotification_OnMetaObject(const KNotification* self, intptr_t slot);
+void KNotification_OnMetaObject(KNotification* self, intptr_t slot);
 QMetaObject* KNotification_SuperMetaObject(const KNotification* self);
 void KNotification_OnMetacast(KNotification* self, intptr_t slot);
 void* KNotification_SuperMetacast(KNotification* self, const char* param1);
@@ -209,17 +201,9 @@ void KNotification_DisconnectNotify(KNotification* self, const QMetaMethod* sign
 void KNotification_OnDisconnectNotify(KNotification* self, intptr_t slot);
 void KNotification_SuperDisconnectNotify(KNotification* self, const QMetaMethod* signal);
 QObject* KNotification_Sender(const KNotification* self);
-void KNotification_OnSender(const KNotification* self, intptr_t slot);
-QObject* KNotification_SuperSender(const KNotification* self);
 int KNotification_SenderSignalIndex(const KNotification* self);
-void KNotification_OnSenderSignalIndex(const KNotification* self, intptr_t slot);
-int KNotification_SuperSenderSignalIndex(const KNotification* self);
 int KNotification_Receivers(const KNotification* self, const char* signal);
-void KNotification_OnReceivers(const KNotification* self, intptr_t slot);
-int KNotification_SuperReceivers(const KNotification* self, const char* signal);
 bool KNotification_IsSignalConnected(const KNotification* self, const QMetaMethod* signal);
-void KNotification_OnIsSignalConnected(const KNotification* self, intptr_t slot);
-bool KNotification_SuperIsSignalConnected(const KNotification* self, const QMetaMethod* signal);
 void KNotification_Delete(KNotification* self);
 
 #ifdef __cplusplus

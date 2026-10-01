@@ -41,7 +41,7 @@ QWidget* QWidgetAction_CreateWidget(QWidgetAction* self, QWidget* parent);
 void QWidgetAction_DeleteWidget(QWidgetAction* self, QWidget* widget);
 libqt_string QWidgetAction_Tr2(const char* s, const char* c);
 libqt_string QWidgetAction_Tr3(const char* s, const char* c, int n);
-void QWidgetAction_OnMetaObject(const QWidgetAction* self, intptr_t slot);
+void QWidgetAction_OnMetaObject(QWidgetAction* self, intptr_t slot);
 QMetaObject* QWidgetAction_SuperMetaObject(const QWidgetAction* self);
 void QWidgetAction_OnMetacast(QWidgetAction* self, intptr_t slot);
 void* QWidgetAction_SuperMetacast(QWidgetAction* self, const char* param1);
@@ -71,20 +71,10 @@ void QWidgetAction_DisconnectNotify(QWidgetAction* self, const QMetaMethod* sign
 void QWidgetAction_OnDisconnectNotify(QWidgetAction* self, intptr_t slot);
 void QWidgetAction_SuperDisconnectNotify(QWidgetAction* self, const QMetaMethod* signal);
 libqt_list /* of QWidget* */ QWidgetAction_CreatedWidgets(const QWidgetAction* self);
-void QWidgetAction_OnCreatedWidgets(const QWidgetAction* self, intptr_t slot);
-libqt_list /* of QWidget* */ QWidgetAction_SuperCreatedWidgets(const QWidgetAction* self);
 QObject* QWidgetAction_Sender(const QWidgetAction* self);
-void QWidgetAction_OnSender(const QWidgetAction* self, intptr_t slot);
-QObject* QWidgetAction_SuperSender(const QWidgetAction* self);
 int QWidgetAction_SenderSignalIndex(const QWidgetAction* self);
-void QWidgetAction_OnSenderSignalIndex(const QWidgetAction* self, intptr_t slot);
-int QWidgetAction_SuperSenderSignalIndex(const QWidgetAction* self);
 int QWidgetAction_Receivers(const QWidgetAction* self, const char* signal);
-void QWidgetAction_OnReceivers(const QWidgetAction* self, intptr_t slot);
-int QWidgetAction_SuperReceivers(const QWidgetAction* self, const char* signal);
 bool QWidgetAction_IsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
-void QWidgetAction_OnIsSignalConnected(const QWidgetAction* self, intptr_t slot);
-bool QWidgetAction_SuperIsSignalConnected(const QWidgetAction* self, const QMetaMethod* signal);
 void QWidgetAction_Delete(QWidgetAction* self);
 
 #ifdef __cplusplus

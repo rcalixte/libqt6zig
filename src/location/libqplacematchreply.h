@@ -38,13 +38,13 @@ libqt_list /* of QPlace* */ QPlaceMatchReply_Places(const QPlaceMatchReply* self
 QPlaceMatchRequest* QPlaceMatchReply_Request(const QPlaceMatchReply* self);
 libqt_string QPlaceMatchReply_Tr2(const char* s, const char* c);
 libqt_string QPlaceMatchReply_Tr3(const char* s, const char* c, int n);
-void QPlaceMatchReply_OnMetaObject(const QPlaceMatchReply* self, intptr_t slot);
+void QPlaceMatchReply_OnMetaObject(QPlaceMatchReply* self, intptr_t slot);
 QMetaObject* QPlaceMatchReply_SuperMetaObject(const QPlaceMatchReply* self);
 void QPlaceMatchReply_OnMetacast(QPlaceMatchReply* self, intptr_t slot);
 void* QPlaceMatchReply_SuperMetacast(QPlaceMatchReply* self, const char* param1);
 void QPlaceMatchReply_OnMetacall(QPlaceMatchReply* self, intptr_t slot);
 int QPlaceMatchReply_SuperMetacall(QPlaceMatchReply* self, int param1, int param2, void** param3);
-void QPlaceMatchReply_OnType(const QPlaceMatchReply* self, intptr_t slot);
+void QPlaceMatchReply_OnType(QPlaceMatchReply* self, intptr_t slot);
 int QPlaceMatchReply_SuperType(const QPlaceMatchReply* self);
 void QPlaceMatchReply_Abort(QPlaceMatchReply* self);
 void QPlaceMatchReply_OnAbort(QPlaceMatchReply* self, intptr_t slot);
@@ -71,29 +71,13 @@ void QPlaceMatchReply_DisconnectNotify(QPlaceMatchReply* self, const QMetaMethod
 void QPlaceMatchReply_OnDisconnectNotify(QPlaceMatchReply* self, intptr_t slot);
 void QPlaceMatchReply_SuperDisconnectNotify(QPlaceMatchReply* self, const QMetaMethod* signal);
 void QPlaceMatchReply_SetPlaces(QPlaceMatchReply* self, const libqt_list /* of QPlace* */ results);
-void QPlaceMatchReply_OnSetPlaces(QPlaceMatchReply* self, intptr_t slot);
-void QPlaceMatchReply_SuperSetPlaces(QPlaceMatchReply* self, const libqt_list /* of QPlace* */ results);
 void QPlaceMatchReply_SetRequest(QPlaceMatchReply* self, const QPlaceMatchRequest* request);
-void QPlaceMatchReply_OnSetRequest(QPlaceMatchReply* self, intptr_t slot);
-void QPlaceMatchReply_SuperSetRequest(QPlaceMatchReply* self, const QPlaceMatchRequest* request);
 void QPlaceMatchReply_SetFinished(QPlaceMatchReply* self, bool finished);
-void QPlaceMatchReply_OnSetFinished(QPlaceMatchReply* self, intptr_t slot);
-void QPlaceMatchReply_SuperSetFinished(QPlaceMatchReply* self, bool finished);
 void QPlaceMatchReply_SetError(QPlaceMatchReply* self, int errorVal, const libqt_string errorString);
-void QPlaceMatchReply_OnSetError(QPlaceMatchReply* self, intptr_t slot);
-void QPlaceMatchReply_SuperSetError(QPlaceMatchReply* self, int errorVal, const libqt_string errorString);
 QObject* QPlaceMatchReply_Sender(const QPlaceMatchReply* self);
-void QPlaceMatchReply_OnSender(const QPlaceMatchReply* self, intptr_t slot);
-QObject* QPlaceMatchReply_SuperSender(const QPlaceMatchReply* self);
 int QPlaceMatchReply_SenderSignalIndex(const QPlaceMatchReply* self);
-void QPlaceMatchReply_OnSenderSignalIndex(const QPlaceMatchReply* self, intptr_t slot);
-int QPlaceMatchReply_SuperSenderSignalIndex(const QPlaceMatchReply* self);
 int QPlaceMatchReply_Receivers(const QPlaceMatchReply* self, const char* signal);
-void QPlaceMatchReply_OnReceivers(const QPlaceMatchReply* self, intptr_t slot);
-int QPlaceMatchReply_SuperReceivers(const QPlaceMatchReply* self, const char* signal);
 bool QPlaceMatchReply_IsSignalConnected(const QPlaceMatchReply* self, const QMetaMethod* signal);
-void QPlaceMatchReply_OnIsSignalConnected(const QPlaceMatchReply* self, intptr_t slot);
-bool QPlaceMatchReply_SuperIsSignalConnected(const QPlaceMatchReply* self, const QMetaMethod* signal);
 void QPlaceMatchReply_Delete(QPlaceMatchReply* self);
 
 #ifdef __cplusplus

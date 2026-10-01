@@ -111,7 +111,7 @@ Poppler__Link* Poppler__Link_new(const QRectF* linkArea);
 int Poppler__Link_LinkType(const Poppler__Link* self);
 QRectF* Poppler__Link_LinkArea(const Poppler__Link* self);
 libqt_list /* of Poppler__Link* */ Poppler__Link_NextLinks(const Poppler__Link* self);
-void Poppler__Link_OnLinkType(const Poppler__Link* self, intptr_t slot);
+void Poppler__Link_OnLinkType(Poppler__Link* self, intptr_t slot);
 int Poppler__Link_SuperLinkType(const Poppler__Link* self);
 void Poppler__Link_Delete(Poppler__Link* self);
 
@@ -120,7 +120,7 @@ bool Poppler__LinkGoto_IsExternal(const Poppler__LinkGoto* self);
 libqt_string Poppler__LinkGoto_FileName(const Poppler__LinkGoto* self);
 Poppler__LinkDestination* Poppler__LinkGoto_Destination(const Poppler__LinkGoto* self);
 int Poppler__LinkGoto_LinkType(const Poppler__LinkGoto* self);
-void Poppler__LinkGoto_OnLinkType(const Poppler__LinkGoto* self, intptr_t slot);
+void Poppler__LinkGoto_OnLinkType(Poppler__LinkGoto* self, intptr_t slot);
 int Poppler__LinkGoto_SuperLinkType(const Poppler__LinkGoto* self);
 void Poppler__LinkGoto_Delete(Poppler__LinkGoto* self);
 
@@ -128,21 +128,21 @@ Poppler__LinkExecute* Poppler__LinkExecute_new(const QRectF* linkArea, const lib
 libqt_string Poppler__LinkExecute_FileName(const Poppler__LinkExecute* self);
 libqt_string Poppler__LinkExecute_Parameters(const Poppler__LinkExecute* self);
 int Poppler__LinkExecute_LinkType(const Poppler__LinkExecute* self);
-void Poppler__LinkExecute_OnLinkType(const Poppler__LinkExecute* self, intptr_t slot);
+void Poppler__LinkExecute_OnLinkType(Poppler__LinkExecute* self, intptr_t slot);
 int Poppler__LinkExecute_SuperLinkType(const Poppler__LinkExecute* self);
 void Poppler__LinkExecute_Delete(Poppler__LinkExecute* self);
 
 Poppler__LinkBrowse* Poppler__LinkBrowse_new(const QRectF* linkArea, const libqt_string url);
 libqt_string Poppler__LinkBrowse_Url(const Poppler__LinkBrowse* self);
 int Poppler__LinkBrowse_LinkType(const Poppler__LinkBrowse* self);
-void Poppler__LinkBrowse_OnLinkType(const Poppler__LinkBrowse* self, intptr_t slot);
+void Poppler__LinkBrowse_OnLinkType(Poppler__LinkBrowse* self, intptr_t slot);
 int Poppler__LinkBrowse_SuperLinkType(const Poppler__LinkBrowse* self);
 void Poppler__LinkBrowse_Delete(Poppler__LinkBrowse* self);
 
 Poppler__LinkAction* Poppler__LinkAction_new(const QRectF* linkArea, int actionType);
 int Poppler__LinkAction_ActionType(const Poppler__LinkAction* self);
 int Poppler__LinkAction_LinkType(const Poppler__LinkAction* self);
-void Poppler__LinkAction_OnLinkType(const Poppler__LinkAction* self, intptr_t slot);
+void Poppler__LinkAction_OnLinkType(Poppler__LinkAction* self, intptr_t slot);
 int Poppler__LinkAction_SuperLinkType(const Poppler__LinkAction* self);
 void Poppler__LinkAction_Delete(Poppler__LinkAction* self);
 
@@ -153,7 +153,7 @@ bool Poppler__LinkSound_Synchronous(const Poppler__LinkSound* self);
 bool Poppler__LinkSound_Repeat(const Poppler__LinkSound* self);
 bool Poppler__LinkSound_Mix(const Poppler__LinkSound* self);
 Poppler__SoundObject* Poppler__LinkSound_Sound(const Poppler__LinkSound* self);
-void Poppler__LinkSound_OnLinkType(const Poppler__LinkSound* self, intptr_t slot);
+void Poppler__LinkSound_OnLinkType(Poppler__LinkSound* self, intptr_t slot);
 int Poppler__LinkSound_SuperLinkType(const Poppler__LinkSound* self);
 void Poppler__LinkSound_Delete(Poppler__LinkSound* self);
 
@@ -167,7 +167,7 @@ void Poppler__LinkRendition_Delete(Poppler__LinkRendition* self);
 Poppler__LinkJavaScript* Poppler__LinkJavaScript_new(const QRectF* linkArea, const libqt_string js);
 int Poppler__LinkJavaScript_LinkType(const Poppler__LinkJavaScript* self);
 libqt_string Poppler__LinkJavaScript_Script(const Poppler__LinkJavaScript* self);
-void Poppler__LinkJavaScript_OnLinkType(const Poppler__LinkJavaScript* self, intptr_t slot);
+void Poppler__LinkJavaScript_OnLinkType(Poppler__LinkJavaScript* self, intptr_t slot);
 int Poppler__LinkJavaScript_SuperLinkType(const Poppler__LinkJavaScript* self);
 void Poppler__LinkJavaScript_Delete(Poppler__LinkJavaScript* self);
 

@@ -9,29 +9,25 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KMessageWidget so that we can call protected methods
+// This class is a subclass of KMessageWidget
 class VirtualKMessageWidget final : public KMessageWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKMessageWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using KMessageWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KMessageWidget_MetaObject_Callback = QMetaObject* (*)(const KMessageWidget*);
     using KMessageWidget_Metacast_Callback = void* (*)(KMessageWidget*, const char*);
     using KMessageWidget_Metacall_Callback = int (*)(KMessageWidget*, int, int, void**);
-    using KMessageWidget_SizeHint_Callback = QSize* (*)();
-    using KMessageWidget_MinimumSizeHint_Callback = QSize* (*)();
+    using KMessageWidget_SizeHint_Callback = QSize* (*)(const KMessageWidget*);
+    using KMessageWidget_MinimumSizeHint_Callback = QSize* (*)(const KMessageWidget*);
     using KMessageWidget_HeightForWidth_Callback = int (*)(const KMessageWidget*, int);
     using KMessageWidget_PaintEvent_Callback = void (*)(KMessageWidget*, QPaintEvent*);
     using KMessageWidget_Event_Callback = bool (*)(KMessageWidget*, QEvent*);
     using KMessageWidget_ResizeEvent_Callback = void (*)(KMessageWidget*, QResizeEvent*);
     using KMessageWidget_ChangeEvent_Callback = void (*)(KMessageWidget*, QEvent*);
     using KMessageWidget_InitStyleOption_Callback = void (*)(const KMessageWidget*, QStyleOptionFrame*);
-    using KMessageWidget_DevType_Callback = int (*)();
+    using KMessageWidget_DevType_Callback = int (*)(const KMessageWidget*);
     using KMessageWidget_SetVisible_Callback = void (*)(KMessageWidget*, bool);
-    using KMessageWidget_HasHeightForWidth_Callback = bool (*)();
-    using KMessageWidget_PaintEngine_Callback = QPaintEngine* (*)();
+    using KMessageWidget_HasHeightForWidth_Callback = bool (*)(const KMessageWidget*);
+    using KMessageWidget_PaintEngine_Callback = QPaintEngine* (*)(const KMessageWidget*);
     using KMessageWidget_MousePressEvent_Callback = void (*)(KMessageWidget*, QMouseEvent*);
     using KMessageWidget_MouseReleaseEvent_Callback = void (*)(KMessageWidget*, QMouseEvent*);
     using KMessageWidget_MouseDoubleClickEvent_Callback = void (*)(KMessageWidget*, QMouseEvent*);
@@ -58,7 +54,7 @@ class VirtualKMessageWidget final : public KMessageWidget {
     using KMessageWidget_Metric_Callback = int (*)(const KMessageWidget*, int);
     using KMessageWidget_InitPainter_Callback = void (*)(const KMessageWidget*, QPainter*);
     using KMessageWidget_Redirected_Callback = QPaintDevice* (*)(const KMessageWidget*, QPoint*);
-    using KMessageWidget_SharedPainter_Callback = QPainter* (*)();
+    using KMessageWidget_SharedPainter_Callback = QPainter* (*)(const KMessageWidget*);
     using KMessageWidget_InputMethodEvent_Callback = void (*)(KMessageWidget*, QInputMethodEvent*);
     using KMessageWidget_InputMethodQuery_Callback = QVariant* (*)(const KMessageWidget*, int);
     using KMessageWidget_FocusNextPrevChild_Callback = bool (*)(KMessageWidget*, bool);
@@ -68,19 +64,18 @@ class VirtualKMessageWidget final : public KMessageWidget {
     using KMessageWidget_CustomEvent_Callback = void (*)(KMessageWidget*, QEvent*);
     using KMessageWidget_ConnectNotify_Callback = void (*)(KMessageWidget*, QMetaMethod*);
     using KMessageWidget_DisconnectNotify_Callback = void (*)(KMessageWidget*, QMetaMethod*);
-    using KMessageWidget_DrawFrame_Callback = void (*)(KMessageWidget*, QPainter*);
-    using KMessageWidget_UpdateMicroFocus_Callback = void (*)();
-    using KMessageWidget_Create_Callback = void (*)();
-    using KMessageWidget_Destroy_Callback = void (*)();
-    using KMessageWidget_FocusNextChild_Callback = bool (*)();
-    using KMessageWidget_FocusPreviousChild_Callback = bool (*)();
-    using KMessageWidget_Sender_Callback = QObject* (*)();
-    using KMessageWidget_SenderSignalIndex_Callback = int (*)();
-    using KMessageWidget_Receivers_Callback = int (*)(const KMessageWidget*, const char*);
-    using KMessageWidget_IsSignalConnected_Callback = bool (*)(const KMessageWidget*, QMetaMethod*);
-    using KMessageWidget_GetDecodedMetricF_Callback = double (*)(const KMessageWidget*, int, int);
+    using KMessageWidget::create;
+    using KMessageWidget::destroy;
+    using KMessageWidget::drawFrame;
+    using KMessageWidget::focusNextChild;
+    using KMessageWidget::focusPreviousChild;
+    using KMessageWidget::getDecodedMetricF;
+    using KMessageWidget::isSignalConnected;
+    using KMessageWidget::receivers;
+    using KMessageWidget::sender;
+    using KMessageWidget::senderSignalIndex;
+    using KMessageWidget::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KMessageWidget_MetaObject_Callback kmessagewidget_metaobject_callback = nullptr;
     KMessageWidget_Metacast_Callback kmessagewidget_metacast_callback = nullptr;
@@ -133,225 +128,59 @@ class VirtualKMessageWidget final : public KMessageWidget {
     KMessageWidget_CustomEvent_Callback kmessagewidget_customevent_callback = nullptr;
     KMessageWidget_ConnectNotify_Callback kmessagewidget_connectnotify_callback = nullptr;
     KMessageWidget_DisconnectNotify_Callback kmessagewidget_disconnectnotify_callback = nullptr;
-    KMessageWidget_DrawFrame_Callback kmessagewidget_drawframe_callback = nullptr;
-    KMessageWidget_UpdateMicroFocus_Callback kmessagewidget_updatemicrofocus_callback = nullptr;
-    KMessageWidget_Create_Callback kmessagewidget_create_callback = nullptr;
-    KMessageWidget_Destroy_Callback kmessagewidget_destroy_callback = nullptr;
-    KMessageWidget_FocusNextChild_Callback kmessagewidget_focusnextchild_callback = nullptr;
-    KMessageWidget_FocusPreviousChild_Callback kmessagewidget_focuspreviouschild_callback = nullptr;
-    KMessageWidget_Sender_Callback kmessagewidget_sender_callback = nullptr;
-    KMessageWidget_SenderSignalIndex_Callback kmessagewidget_sendersignalindex_callback = nullptr;
-    KMessageWidget_Receivers_Callback kmessagewidget_receivers_callback = nullptr;
-    KMessageWidget_IsSignalConnected_Callback kmessagewidget_issignalconnected_callback = nullptr;
-    KMessageWidget_GetDecodedMetricF_Callback kmessagewidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kmessagewidget_metaobject_isbase = false;
-    mutable bool kmessagewidget_metacast_isbase = false;
-    mutable bool kmessagewidget_metacall_isbase = false;
-    mutable bool kmessagewidget_sizehint_isbase = false;
-    mutable bool kmessagewidget_minimumsizehint_isbase = false;
-    mutable bool kmessagewidget_heightforwidth_isbase = false;
-    mutable bool kmessagewidget_paintevent_isbase = false;
-    mutable bool kmessagewidget_event_isbase = false;
-    mutable bool kmessagewidget_resizeevent_isbase = false;
-    mutable bool kmessagewidget_changeevent_isbase = false;
-    mutable bool kmessagewidget_initstyleoption_isbase = false;
-    mutable bool kmessagewidget_devtype_isbase = false;
-    mutable bool kmessagewidget_setvisible_isbase = false;
-    mutable bool kmessagewidget_hasheightforwidth_isbase = false;
-    mutable bool kmessagewidget_paintengine_isbase = false;
-    mutable bool kmessagewidget_mousepressevent_isbase = false;
-    mutable bool kmessagewidget_mousereleaseevent_isbase = false;
-    mutable bool kmessagewidget_mousedoubleclickevent_isbase = false;
-    mutable bool kmessagewidget_mousemoveevent_isbase = false;
-    mutable bool kmessagewidget_wheelevent_isbase = false;
-    mutable bool kmessagewidget_keypressevent_isbase = false;
-    mutable bool kmessagewidget_keyreleaseevent_isbase = false;
-    mutable bool kmessagewidget_focusinevent_isbase = false;
-    mutable bool kmessagewidget_focusoutevent_isbase = false;
-    mutable bool kmessagewidget_enterevent_isbase = false;
-    mutable bool kmessagewidget_leaveevent_isbase = false;
-    mutable bool kmessagewidget_moveevent_isbase = false;
-    mutable bool kmessagewidget_closeevent_isbase = false;
-    mutable bool kmessagewidget_contextmenuevent_isbase = false;
-    mutable bool kmessagewidget_tabletevent_isbase = false;
-    mutable bool kmessagewidget_actionevent_isbase = false;
-    mutable bool kmessagewidget_dragenterevent_isbase = false;
-    mutable bool kmessagewidget_dragmoveevent_isbase = false;
-    mutable bool kmessagewidget_dragleaveevent_isbase = false;
-    mutable bool kmessagewidget_dropevent_isbase = false;
-    mutable bool kmessagewidget_showevent_isbase = false;
-    mutable bool kmessagewidget_hideevent_isbase = false;
-    mutable bool kmessagewidget_nativeevent_isbase = false;
-    mutable bool kmessagewidget_metric_isbase = false;
-    mutable bool kmessagewidget_initpainter_isbase = false;
-    mutable bool kmessagewidget_redirected_isbase = false;
-    mutable bool kmessagewidget_sharedpainter_isbase = false;
-    mutable bool kmessagewidget_inputmethodevent_isbase = false;
-    mutable bool kmessagewidget_inputmethodquery_isbase = false;
-    mutable bool kmessagewidget_focusnextprevchild_isbase = false;
-    mutable bool kmessagewidget_eventfilter_isbase = false;
-    mutable bool kmessagewidget_timerevent_isbase = false;
-    mutable bool kmessagewidget_childevent_isbase = false;
-    mutable bool kmessagewidget_customevent_isbase = false;
-    mutable bool kmessagewidget_connectnotify_isbase = false;
-    mutable bool kmessagewidget_disconnectnotify_isbase = false;
-    mutable bool kmessagewidget_drawframe_isbase = false;
-    mutable bool kmessagewidget_updatemicrofocus_isbase = false;
-    mutable bool kmessagewidget_create_isbase = false;
-    mutable bool kmessagewidget_destroy_isbase = false;
-    mutable bool kmessagewidget_focusnextchild_isbase = false;
-    mutable bool kmessagewidget_focuspreviouschild_isbase = false;
-    mutable bool kmessagewidget_sender_isbase = false;
-    mutable bool kmessagewidget_sendersignalindex_isbase = false;
-    mutable bool kmessagewidget_receivers_isbase = false;
-    mutable bool kmessagewidget_issignalconnected_isbase = false;
-    mutable bool kmessagewidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KMessageWidget {
+        using KMessageWidget::actionEvent;
+        using KMessageWidget::changeEvent;
+        using KMessageWidget::childEvent;
+        using KMessageWidget::closeEvent;
+        using KMessageWidget::connectNotify;
+        using KMessageWidget::contextMenuEvent;
+        using KMessageWidget::customEvent;
+        using KMessageWidget::disconnectNotify;
+        using KMessageWidget::dragEnterEvent;
+        using KMessageWidget::dragLeaveEvent;
+        using KMessageWidget::dragMoveEvent;
+        using KMessageWidget::dropEvent;
+        using KMessageWidget::enterEvent;
+        using KMessageWidget::event;
+        using KMessageWidget::focusInEvent;
+        using KMessageWidget::focusNextPrevChild;
+        using KMessageWidget::focusOutEvent;
+        using KMessageWidget::hideEvent;
+        using KMessageWidget::initPainter;
+        using KMessageWidget::initStyleOption;
+        using KMessageWidget::inputMethodEvent;
+        using KMessageWidget::keyPressEvent;
+        using KMessageWidget::keyReleaseEvent;
+        using KMessageWidget::leaveEvent;
+        using KMessageWidget::metric;
+        using KMessageWidget::mouseDoubleClickEvent;
+        using KMessageWidget::mouseMoveEvent;
+        using KMessageWidget::mousePressEvent;
+        using KMessageWidget::mouseReleaseEvent;
+        using KMessageWidget::moveEvent;
+        using KMessageWidget::nativeEvent;
+        using KMessageWidget::paintEvent;
+        using KMessageWidget::redirected;
+        using KMessageWidget::resizeEvent;
+        using KMessageWidget::sharedPainter;
+        using KMessageWidget::showEvent;
+        using KMessageWidget::tabletEvent;
+        using KMessageWidget::timerEvent;
+        using KMessageWidget::wheelEvent;
+    };
 
-  public:
     VirtualKMessageWidget(QWidget* parent) : KMessageWidget(parent) {};
     VirtualKMessageWidget() : KMessageWidget() {};
     VirtualKMessageWidget(const QString& text) : KMessageWidget(text) {};
     VirtualKMessageWidget(const QString& text, QWidget* parent) : KMessageWidget(text, parent) {};
 
-    // Callback setters
-    inline void setKMessageWidget_MetaObject_Callback(KMessageWidget_MetaObject_Callback cb) { kmessagewidget_metaobject_callback = cb; }
-    inline void setKMessageWidget_Metacast_Callback(KMessageWidget_Metacast_Callback cb) { kmessagewidget_metacast_callback = cb; }
-    inline void setKMessageWidget_Metacall_Callback(KMessageWidget_Metacall_Callback cb) { kmessagewidget_metacall_callback = cb; }
-    inline void setKMessageWidget_SizeHint_Callback(KMessageWidget_SizeHint_Callback cb) { kmessagewidget_sizehint_callback = cb; }
-    inline void setKMessageWidget_MinimumSizeHint_Callback(KMessageWidget_MinimumSizeHint_Callback cb) { kmessagewidget_minimumsizehint_callback = cb; }
-    inline void setKMessageWidget_HeightForWidth_Callback(KMessageWidget_HeightForWidth_Callback cb) { kmessagewidget_heightforwidth_callback = cb; }
-    inline void setKMessageWidget_PaintEvent_Callback(KMessageWidget_PaintEvent_Callback cb) { kmessagewidget_paintevent_callback = cb; }
-    inline void setKMessageWidget_Event_Callback(KMessageWidget_Event_Callback cb) { kmessagewidget_event_callback = cb; }
-    inline void setKMessageWidget_ResizeEvent_Callback(KMessageWidget_ResizeEvent_Callback cb) { kmessagewidget_resizeevent_callback = cb; }
-    inline void setKMessageWidget_ChangeEvent_Callback(KMessageWidget_ChangeEvent_Callback cb) { kmessagewidget_changeevent_callback = cb; }
-    inline void setKMessageWidget_InitStyleOption_Callback(KMessageWidget_InitStyleOption_Callback cb) { kmessagewidget_initstyleoption_callback = cb; }
-    inline void setKMessageWidget_DevType_Callback(KMessageWidget_DevType_Callback cb) { kmessagewidget_devtype_callback = cb; }
-    inline void setKMessageWidget_SetVisible_Callback(KMessageWidget_SetVisible_Callback cb) { kmessagewidget_setvisible_callback = cb; }
-    inline void setKMessageWidget_HasHeightForWidth_Callback(KMessageWidget_HasHeightForWidth_Callback cb) { kmessagewidget_hasheightforwidth_callback = cb; }
-    inline void setKMessageWidget_PaintEngine_Callback(KMessageWidget_PaintEngine_Callback cb) { kmessagewidget_paintengine_callback = cb; }
-    inline void setKMessageWidget_MousePressEvent_Callback(KMessageWidget_MousePressEvent_Callback cb) { kmessagewidget_mousepressevent_callback = cb; }
-    inline void setKMessageWidget_MouseReleaseEvent_Callback(KMessageWidget_MouseReleaseEvent_Callback cb) { kmessagewidget_mousereleaseevent_callback = cb; }
-    inline void setKMessageWidget_MouseDoubleClickEvent_Callback(KMessageWidget_MouseDoubleClickEvent_Callback cb) { kmessagewidget_mousedoubleclickevent_callback = cb; }
-    inline void setKMessageWidget_MouseMoveEvent_Callback(KMessageWidget_MouseMoveEvent_Callback cb) { kmessagewidget_mousemoveevent_callback = cb; }
-    inline void setKMessageWidget_WheelEvent_Callback(KMessageWidget_WheelEvent_Callback cb) { kmessagewidget_wheelevent_callback = cb; }
-    inline void setKMessageWidget_KeyPressEvent_Callback(KMessageWidget_KeyPressEvent_Callback cb) { kmessagewidget_keypressevent_callback = cb; }
-    inline void setKMessageWidget_KeyReleaseEvent_Callback(KMessageWidget_KeyReleaseEvent_Callback cb) { kmessagewidget_keyreleaseevent_callback = cb; }
-    inline void setKMessageWidget_FocusInEvent_Callback(KMessageWidget_FocusInEvent_Callback cb) { kmessagewidget_focusinevent_callback = cb; }
-    inline void setKMessageWidget_FocusOutEvent_Callback(KMessageWidget_FocusOutEvent_Callback cb) { kmessagewidget_focusoutevent_callback = cb; }
-    inline void setKMessageWidget_EnterEvent_Callback(KMessageWidget_EnterEvent_Callback cb) { kmessagewidget_enterevent_callback = cb; }
-    inline void setKMessageWidget_LeaveEvent_Callback(KMessageWidget_LeaveEvent_Callback cb) { kmessagewidget_leaveevent_callback = cb; }
-    inline void setKMessageWidget_MoveEvent_Callback(KMessageWidget_MoveEvent_Callback cb) { kmessagewidget_moveevent_callback = cb; }
-    inline void setKMessageWidget_CloseEvent_Callback(KMessageWidget_CloseEvent_Callback cb) { kmessagewidget_closeevent_callback = cb; }
-    inline void setKMessageWidget_ContextMenuEvent_Callback(KMessageWidget_ContextMenuEvent_Callback cb) { kmessagewidget_contextmenuevent_callback = cb; }
-    inline void setKMessageWidget_TabletEvent_Callback(KMessageWidget_TabletEvent_Callback cb) { kmessagewidget_tabletevent_callback = cb; }
-    inline void setKMessageWidget_ActionEvent_Callback(KMessageWidget_ActionEvent_Callback cb) { kmessagewidget_actionevent_callback = cb; }
-    inline void setKMessageWidget_DragEnterEvent_Callback(KMessageWidget_DragEnterEvent_Callback cb) { kmessagewidget_dragenterevent_callback = cb; }
-    inline void setKMessageWidget_DragMoveEvent_Callback(KMessageWidget_DragMoveEvent_Callback cb) { kmessagewidget_dragmoveevent_callback = cb; }
-    inline void setKMessageWidget_DragLeaveEvent_Callback(KMessageWidget_DragLeaveEvent_Callback cb) { kmessagewidget_dragleaveevent_callback = cb; }
-    inline void setKMessageWidget_DropEvent_Callback(KMessageWidget_DropEvent_Callback cb) { kmessagewidget_dropevent_callback = cb; }
-    inline void setKMessageWidget_ShowEvent_Callback(KMessageWidget_ShowEvent_Callback cb) { kmessagewidget_showevent_callback = cb; }
-    inline void setKMessageWidget_HideEvent_Callback(KMessageWidget_HideEvent_Callback cb) { kmessagewidget_hideevent_callback = cb; }
-    inline void setKMessageWidget_NativeEvent_Callback(KMessageWidget_NativeEvent_Callback cb) { kmessagewidget_nativeevent_callback = cb; }
-    inline void setKMessageWidget_Metric_Callback(KMessageWidget_Metric_Callback cb) { kmessagewidget_metric_callback = cb; }
-    inline void setKMessageWidget_InitPainter_Callback(KMessageWidget_InitPainter_Callback cb) { kmessagewidget_initpainter_callback = cb; }
-    inline void setKMessageWidget_Redirected_Callback(KMessageWidget_Redirected_Callback cb) { kmessagewidget_redirected_callback = cb; }
-    inline void setKMessageWidget_SharedPainter_Callback(KMessageWidget_SharedPainter_Callback cb) { kmessagewidget_sharedpainter_callback = cb; }
-    inline void setKMessageWidget_InputMethodEvent_Callback(KMessageWidget_InputMethodEvent_Callback cb) { kmessagewidget_inputmethodevent_callback = cb; }
-    inline void setKMessageWidget_InputMethodQuery_Callback(KMessageWidget_InputMethodQuery_Callback cb) { kmessagewidget_inputmethodquery_callback = cb; }
-    inline void setKMessageWidget_FocusNextPrevChild_Callback(KMessageWidget_FocusNextPrevChild_Callback cb) { kmessagewidget_focusnextprevchild_callback = cb; }
-    inline void setKMessageWidget_EventFilter_Callback(KMessageWidget_EventFilter_Callback cb) { kmessagewidget_eventfilter_callback = cb; }
-    inline void setKMessageWidget_TimerEvent_Callback(KMessageWidget_TimerEvent_Callback cb) { kmessagewidget_timerevent_callback = cb; }
-    inline void setKMessageWidget_ChildEvent_Callback(KMessageWidget_ChildEvent_Callback cb) { kmessagewidget_childevent_callback = cb; }
-    inline void setKMessageWidget_CustomEvent_Callback(KMessageWidget_CustomEvent_Callback cb) { kmessagewidget_customevent_callback = cb; }
-    inline void setKMessageWidget_ConnectNotify_Callback(KMessageWidget_ConnectNotify_Callback cb) { kmessagewidget_connectnotify_callback = cb; }
-    inline void setKMessageWidget_DisconnectNotify_Callback(KMessageWidget_DisconnectNotify_Callback cb) { kmessagewidget_disconnectnotify_callback = cb; }
-    inline void setKMessageWidget_DrawFrame_Callback(KMessageWidget_DrawFrame_Callback cb) { kmessagewidget_drawframe_callback = cb; }
-    inline void setKMessageWidget_UpdateMicroFocus_Callback(KMessageWidget_UpdateMicroFocus_Callback cb) { kmessagewidget_updatemicrofocus_callback = cb; }
-    inline void setKMessageWidget_Create_Callback(KMessageWidget_Create_Callback cb) { kmessagewidget_create_callback = cb; }
-    inline void setKMessageWidget_Destroy_Callback(KMessageWidget_Destroy_Callback cb) { kmessagewidget_destroy_callback = cb; }
-    inline void setKMessageWidget_FocusNextChild_Callback(KMessageWidget_FocusNextChild_Callback cb) { kmessagewidget_focusnextchild_callback = cb; }
-    inline void setKMessageWidget_FocusPreviousChild_Callback(KMessageWidget_FocusPreviousChild_Callback cb) { kmessagewidget_focuspreviouschild_callback = cb; }
-    inline void setKMessageWidget_Sender_Callback(KMessageWidget_Sender_Callback cb) { kmessagewidget_sender_callback = cb; }
-    inline void setKMessageWidget_SenderSignalIndex_Callback(KMessageWidget_SenderSignalIndex_Callback cb) { kmessagewidget_sendersignalindex_callback = cb; }
-    inline void setKMessageWidget_Receivers_Callback(KMessageWidget_Receivers_Callback cb) { kmessagewidget_receivers_callback = cb; }
-    inline void setKMessageWidget_IsSignalConnected_Callback(KMessageWidget_IsSignalConnected_Callback cb) { kmessagewidget_issignalconnected_callback = cb; }
-    inline void setKMessageWidget_GetDecodedMetricF_Callback(KMessageWidget_GetDecodedMetricF_Callback cb) { kmessagewidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKMessageWidget_MetaObject_IsBase(bool value) const { kmessagewidget_metaobject_isbase = value; }
-    inline void setKMessageWidget_Metacast_IsBase(bool value) const { kmessagewidget_metacast_isbase = value; }
-    inline void setKMessageWidget_Metacall_IsBase(bool value) const { kmessagewidget_metacall_isbase = value; }
-    inline void setKMessageWidget_SizeHint_IsBase(bool value) const { kmessagewidget_sizehint_isbase = value; }
-    inline void setKMessageWidget_MinimumSizeHint_IsBase(bool value) const { kmessagewidget_minimumsizehint_isbase = value; }
-    inline void setKMessageWidget_HeightForWidth_IsBase(bool value) const { kmessagewidget_heightforwidth_isbase = value; }
-    inline void setKMessageWidget_PaintEvent_IsBase(bool value) const { kmessagewidget_paintevent_isbase = value; }
-    inline void setKMessageWidget_Event_IsBase(bool value) const { kmessagewidget_event_isbase = value; }
-    inline void setKMessageWidget_ResizeEvent_IsBase(bool value) const { kmessagewidget_resizeevent_isbase = value; }
-    inline void setKMessageWidget_ChangeEvent_IsBase(bool value) const { kmessagewidget_changeevent_isbase = value; }
-    inline void setKMessageWidget_InitStyleOption_IsBase(bool value) const { kmessagewidget_initstyleoption_isbase = value; }
-    inline void setKMessageWidget_DevType_IsBase(bool value) const { kmessagewidget_devtype_isbase = value; }
-    inline void setKMessageWidget_SetVisible_IsBase(bool value) const { kmessagewidget_setvisible_isbase = value; }
-    inline void setKMessageWidget_HasHeightForWidth_IsBase(bool value) const { kmessagewidget_hasheightforwidth_isbase = value; }
-    inline void setKMessageWidget_PaintEngine_IsBase(bool value) const { kmessagewidget_paintengine_isbase = value; }
-    inline void setKMessageWidget_MousePressEvent_IsBase(bool value) const { kmessagewidget_mousepressevent_isbase = value; }
-    inline void setKMessageWidget_MouseReleaseEvent_IsBase(bool value) const { kmessagewidget_mousereleaseevent_isbase = value; }
-    inline void setKMessageWidget_MouseDoubleClickEvent_IsBase(bool value) const { kmessagewidget_mousedoubleclickevent_isbase = value; }
-    inline void setKMessageWidget_MouseMoveEvent_IsBase(bool value) const { kmessagewidget_mousemoveevent_isbase = value; }
-    inline void setKMessageWidget_WheelEvent_IsBase(bool value) const { kmessagewidget_wheelevent_isbase = value; }
-    inline void setKMessageWidget_KeyPressEvent_IsBase(bool value) const { kmessagewidget_keypressevent_isbase = value; }
-    inline void setKMessageWidget_KeyReleaseEvent_IsBase(bool value) const { kmessagewidget_keyreleaseevent_isbase = value; }
-    inline void setKMessageWidget_FocusInEvent_IsBase(bool value) const { kmessagewidget_focusinevent_isbase = value; }
-    inline void setKMessageWidget_FocusOutEvent_IsBase(bool value) const { kmessagewidget_focusoutevent_isbase = value; }
-    inline void setKMessageWidget_EnterEvent_IsBase(bool value) const { kmessagewidget_enterevent_isbase = value; }
-    inline void setKMessageWidget_LeaveEvent_IsBase(bool value) const { kmessagewidget_leaveevent_isbase = value; }
-    inline void setKMessageWidget_MoveEvent_IsBase(bool value) const { kmessagewidget_moveevent_isbase = value; }
-    inline void setKMessageWidget_CloseEvent_IsBase(bool value) const { kmessagewidget_closeevent_isbase = value; }
-    inline void setKMessageWidget_ContextMenuEvent_IsBase(bool value) const { kmessagewidget_contextmenuevent_isbase = value; }
-    inline void setKMessageWidget_TabletEvent_IsBase(bool value) const { kmessagewidget_tabletevent_isbase = value; }
-    inline void setKMessageWidget_ActionEvent_IsBase(bool value) const { kmessagewidget_actionevent_isbase = value; }
-    inline void setKMessageWidget_DragEnterEvent_IsBase(bool value) const { kmessagewidget_dragenterevent_isbase = value; }
-    inline void setKMessageWidget_DragMoveEvent_IsBase(bool value) const { kmessagewidget_dragmoveevent_isbase = value; }
-    inline void setKMessageWidget_DragLeaveEvent_IsBase(bool value) const { kmessagewidget_dragleaveevent_isbase = value; }
-    inline void setKMessageWidget_DropEvent_IsBase(bool value) const { kmessagewidget_dropevent_isbase = value; }
-    inline void setKMessageWidget_ShowEvent_IsBase(bool value) const { kmessagewidget_showevent_isbase = value; }
-    inline void setKMessageWidget_HideEvent_IsBase(bool value) const { kmessagewidget_hideevent_isbase = value; }
-    inline void setKMessageWidget_NativeEvent_IsBase(bool value) const { kmessagewidget_nativeevent_isbase = value; }
-    inline void setKMessageWidget_Metric_IsBase(bool value) const { kmessagewidget_metric_isbase = value; }
-    inline void setKMessageWidget_InitPainter_IsBase(bool value) const { kmessagewidget_initpainter_isbase = value; }
-    inline void setKMessageWidget_Redirected_IsBase(bool value) const { kmessagewidget_redirected_isbase = value; }
-    inline void setKMessageWidget_SharedPainter_IsBase(bool value) const { kmessagewidget_sharedpainter_isbase = value; }
-    inline void setKMessageWidget_InputMethodEvent_IsBase(bool value) const { kmessagewidget_inputmethodevent_isbase = value; }
-    inline void setKMessageWidget_InputMethodQuery_IsBase(bool value) const { kmessagewidget_inputmethodquery_isbase = value; }
-    inline void setKMessageWidget_FocusNextPrevChild_IsBase(bool value) const { kmessagewidget_focusnextprevchild_isbase = value; }
-    inline void setKMessageWidget_EventFilter_IsBase(bool value) const { kmessagewidget_eventfilter_isbase = value; }
-    inline void setKMessageWidget_TimerEvent_IsBase(bool value) const { kmessagewidget_timerevent_isbase = value; }
-    inline void setKMessageWidget_ChildEvent_IsBase(bool value) const { kmessagewidget_childevent_isbase = value; }
-    inline void setKMessageWidget_CustomEvent_IsBase(bool value) const { kmessagewidget_customevent_isbase = value; }
-    inline void setKMessageWidget_ConnectNotify_IsBase(bool value) const { kmessagewidget_connectnotify_isbase = value; }
-    inline void setKMessageWidget_DisconnectNotify_IsBase(bool value) const { kmessagewidget_disconnectnotify_isbase = value; }
-    inline void setKMessageWidget_DrawFrame_IsBase(bool value) const { kmessagewidget_drawframe_isbase = value; }
-    inline void setKMessageWidget_UpdateMicroFocus_IsBase(bool value) const { kmessagewidget_updatemicrofocus_isbase = value; }
-    inline void setKMessageWidget_Create_IsBase(bool value) const { kmessagewidget_create_isbase = value; }
-    inline void setKMessageWidget_Destroy_IsBase(bool value) const { kmessagewidget_destroy_isbase = value; }
-    inline void setKMessageWidget_FocusNextChild_IsBase(bool value) const { kmessagewidget_focusnextchild_isbase = value; }
-    inline void setKMessageWidget_FocusPreviousChild_IsBase(bool value) const { kmessagewidget_focuspreviouschild_isbase = value; }
-    inline void setKMessageWidget_Sender_IsBase(bool value) const { kmessagewidget_sender_isbase = value; }
-    inline void setKMessageWidget_SenderSignalIndex_IsBase(bool value) const { kmessagewidget_sendersignalindex_isbase = value; }
-    inline void setKMessageWidget_Receivers_IsBase(bool value) const { kmessagewidget_receivers_isbase = value; }
-    inline void setKMessageWidget_IsSignalConnected_IsBase(bool value) const { kmessagewidget_issignalconnected_isbase = value; }
-    inline void setKMessageWidget_GetDecodedMetricF_IsBase(bool value) const { kmessagewidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kmessagewidget_metaobject_isbase) {
-            kmessagewidget_metaobject_isbase = false;
-            return KMessageWidget::metaObject();
-        }
-        auto metaobject_cb = kmessagewidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kmessagewidget_metaobject_callback) {
+            QMetaObject* callback_ret = kmessagewidget_metaobject_callback(this);
             return callback_ret;
         }
         return KMessageWidget::metaObject();
@@ -359,14 +188,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kmessagewidget_metacast_isbase) {
-            kmessagewidget_metacast_isbase = false;
-            return KMessageWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = kmessagewidget_metacast_callback;
-        if (metacast_cb) {
+        if (kmessagewidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kmessagewidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KMessageWidget::qt_metacast(param1);
@@ -374,16 +198,11 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kmessagewidget_metacall_isbase) {
-            kmessagewidget_metacall_isbase = false;
-            return KMessageWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kmessagewidget_metacall_callback;
-        if (metacall_cb) {
+        if (kmessagewidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kmessagewidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KMessageWidget::qt_metacall(param1, param2, param3);
@@ -391,13 +210,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kmessagewidget_sizehint_isbase) {
-            kmessagewidget_sizehint_isbase = false;
-            return KMessageWidget::sizeHint();
-        }
-        auto sizehint_cb = kmessagewidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kmessagewidget_sizehint_callback) {
+            QSize* callback_ret = kmessagewidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -407,13 +221,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kmessagewidget_minimumsizehint_isbase) {
-            kmessagewidget_minimumsizehint_isbase = false;
-            return KMessageWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kmessagewidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kmessagewidget_minimumsizehint_callback) {
+            QSize* callback_ret = kmessagewidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -423,14 +232,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int width) const override {
-        if (kmessagewidget_heightforwidth_isbase) {
-            kmessagewidget_heightforwidth_isbase = false;
-            return KMessageWidget::heightForWidth(width);
-        }
-        auto heightforwidth_cb = kmessagewidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kmessagewidget_heightforwidth_callback) {
             int cbval1 = width;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kmessagewidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KMessageWidget::heightForWidth(width);
@@ -438,15 +242,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (kmessagewidget_paintevent_isbase) {
-            kmessagewidget_paintevent_isbase = false;
-            KMessageWidget::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = kmessagewidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (kmessagewidget_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            kmessagewidget_paintevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::paintEvent(event);
@@ -454,14 +252,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kmessagewidget_event_isbase) {
-            kmessagewidget_event_isbase = false;
-            return KMessageWidget::event(event);
-        }
-        auto event_cb = kmessagewidget_event_callback;
-        if (event_cb) {
+        if (kmessagewidget_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kmessagewidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return KMessageWidget::event(event);
@@ -469,15 +262,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (kmessagewidget_resizeevent_isbase) {
-            kmessagewidget_resizeevent_isbase = false;
-            KMessageWidget::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = kmessagewidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kmessagewidget_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            kmessagewidget_resizeevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::resizeEvent(event);
@@ -485,15 +272,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (kmessagewidget_changeevent_isbase) {
-            kmessagewidget_changeevent_isbase = false;
-            KMessageWidget::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = kmessagewidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (kmessagewidget_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            kmessagewidget_changeevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::changeEvent(param1);
@@ -501,15 +282,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (kmessagewidget_initstyleoption_isbase) {
-            kmessagewidget_initstyleoption_isbase = false;
-            KMessageWidget::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = kmessagewidget_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (kmessagewidget_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            kmessagewidget_initstyleoption_callback(this, cbval1);
             return;
         }
         KMessageWidget::initStyleOption(option);
@@ -517,13 +292,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kmessagewidget_devtype_isbase) {
-            kmessagewidget_devtype_isbase = false;
-            return KMessageWidget::devType();
-        }
-        auto devtype_cb = kmessagewidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kmessagewidget_devtype_callback) {
+            int callback_ret = kmessagewidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KMessageWidget::devType();
@@ -531,15 +301,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kmessagewidget_setvisible_isbase) {
-            kmessagewidget_setvisible_isbase = false;
-            KMessageWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kmessagewidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (kmessagewidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kmessagewidget_setvisible_callback(this, cbval1);
             return;
         }
         KMessageWidget::setVisible(visible);
@@ -547,13 +311,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kmessagewidget_hasheightforwidth_isbase) {
-            kmessagewidget_hasheightforwidth_isbase = false;
-            return KMessageWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kmessagewidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kmessagewidget_hasheightforwidth_callback) {
+            bool callback_ret = kmessagewidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KMessageWidget::hasHeightForWidth();
@@ -561,13 +320,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kmessagewidget_paintengine_isbase) {
-            kmessagewidget_paintengine_isbase = false;
-            return KMessageWidget::paintEngine();
-        }
-        auto paintengine_cb = kmessagewidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kmessagewidget_paintengine_callback) {
+            QPaintEngine* callback_ret = kmessagewidget_paintengine_callback(this);
             return callback_ret;
         }
         return KMessageWidget::paintEngine();
@@ -575,15 +329,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (kmessagewidget_mousepressevent_isbase) {
-            kmessagewidget_mousepressevent_isbase = false;
-            KMessageWidget::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = kmessagewidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kmessagewidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            kmessagewidget_mousepressevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::mousePressEvent(event);
@@ -591,15 +339,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kmessagewidget_mousereleaseevent_isbase) {
-            kmessagewidget_mousereleaseevent_isbase = false;
-            KMessageWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kmessagewidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kmessagewidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kmessagewidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::mouseReleaseEvent(event);
@@ -607,15 +349,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kmessagewidget_mousedoubleclickevent_isbase) {
-            kmessagewidget_mousedoubleclickevent_isbase = false;
-            KMessageWidget::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kmessagewidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kmessagewidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kmessagewidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::mouseDoubleClickEvent(event);
@@ -623,15 +359,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (kmessagewidget_mousemoveevent_isbase) {
-            kmessagewidget_mousemoveevent_isbase = false;
-            KMessageWidget::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = kmessagewidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kmessagewidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            kmessagewidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::mouseMoveEvent(event);
@@ -639,15 +369,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kmessagewidget_wheelevent_isbase) {
-            kmessagewidget_wheelevent_isbase = false;
-            KMessageWidget::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kmessagewidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kmessagewidget_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kmessagewidget_wheelevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::wheelEvent(event);
@@ -655,15 +379,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (kmessagewidget_keypressevent_isbase) {
-            kmessagewidget_keypressevent_isbase = false;
-            KMessageWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = kmessagewidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kmessagewidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            kmessagewidget_keypressevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::keyPressEvent(event);
@@ -671,15 +389,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kmessagewidget_keyreleaseevent_isbase) {
-            kmessagewidget_keyreleaseevent_isbase = false;
-            KMessageWidget::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kmessagewidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kmessagewidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kmessagewidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::keyReleaseEvent(event);
@@ -687,15 +399,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kmessagewidget_focusinevent_isbase) {
-            kmessagewidget_focusinevent_isbase = false;
-            KMessageWidget::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kmessagewidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kmessagewidget_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kmessagewidget_focusinevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::focusInEvent(event);
@@ -703,15 +409,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kmessagewidget_focusoutevent_isbase) {
-            kmessagewidget_focusoutevent_isbase = false;
-            KMessageWidget::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kmessagewidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kmessagewidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kmessagewidget_focusoutevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::focusOutEvent(event);
@@ -719,15 +419,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kmessagewidget_enterevent_isbase) {
-            kmessagewidget_enterevent_isbase = false;
-            KMessageWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kmessagewidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (kmessagewidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kmessagewidget_enterevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::enterEvent(event);
@@ -735,15 +429,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kmessagewidget_leaveevent_isbase) {
-            kmessagewidget_leaveevent_isbase = false;
-            KMessageWidget::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kmessagewidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kmessagewidget_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kmessagewidget_leaveevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::leaveEvent(event);
@@ -751,15 +439,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kmessagewidget_moveevent_isbase) {
-            kmessagewidget_moveevent_isbase = false;
-            KMessageWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kmessagewidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (kmessagewidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kmessagewidget_moveevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::moveEvent(event);
@@ -767,15 +449,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (kmessagewidget_closeevent_isbase) {
-            kmessagewidget_closeevent_isbase = false;
-            KMessageWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = kmessagewidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (kmessagewidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            kmessagewidget_closeevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::closeEvent(event);
@@ -783,15 +459,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (kmessagewidget_contextmenuevent_isbase) {
-            kmessagewidget_contextmenuevent_isbase = false;
-            KMessageWidget::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = kmessagewidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kmessagewidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            kmessagewidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::contextMenuEvent(event);
@@ -799,15 +469,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kmessagewidget_tabletevent_isbase) {
-            kmessagewidget_tabletevent_isbase = false;
-            KMessageWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kmessagewidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kmessagewidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kmessagewidget_tabletevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::tabletEvent(event);
@@ -815,15 +479,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kmessagewidget_actionevent_isbase) {
-            kmessagewidget_actionevent_isbase = false;
-            KMessageWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kmessagewidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (kmessagewidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kmessagewidget_actionevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::actionEvent(event);
@@ -831,15 +489,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kmessagewidget_dragenterevent_isbase) {
-            kmessagewidget_dragenterevent_isbase = false;
-            KMessageWidget::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kmessagewidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kmessagewidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kmessagewidget_dragenterevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::dragEnterEvent(event);
@@ -847,15 +499,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kmessagewidget_dragmoveevent_isbase) {
-            kmessagewidget_dragmoveevent_isbase = false;
-            KMessageWidget::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kmessagewidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kmessagewidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kmessagewidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::dragMoveEvent(event);
@@ -863,15 +509,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kmessagewidget_dragleaveevent_isbase) {
-            kmessagewidget_dragleaveevent_isbase = false;
-            KMessageWidget::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kmessagewidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kmessagewidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kmessagewidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::dragLeaveEvent(event);
@@ -879,15 +519,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kmessagewidget_dropevent_isbase) {
-            kmessagewidget_dropevent_isbase = false;
-            KMessageWidget::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kmessagewidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (kmessagewidget_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kmessagewidget_dropevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::dropEvent(event);
@@ -895,15 +529,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (kmessagewidget_showevent_isbase) {
-            kmessagewidget_showevent_isbase = false;
-            KMessageWidget::showEvent(event);
-            return;
-        }
-        auto showevent_cb = kmessagewidget_showevent_callback;
-        if (showevent_cb) {
+        if (kmessagewidget_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            kmessagewidget_showevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::showEvent(event);
@@ -911,15 +539,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kmessagewidget_hideevent_isbase) {
-            kmessagewidget_hideevent_isbase = false;
-            KMessageWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kmessagewidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (kmessagewidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kmessagewidget_hideevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::hideEvent(event);
@@ -927,12 +549,7 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kmessagewidget_nativeevent_isbase) {
-            kmessagewidget_nativeevent_isbase = false;
-            return KMessageWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kmessagewidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kmessagewidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -942,7 +559,7 @@ class VirtualKMessageWidget final : public KMessageWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kmessagewidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -951,14 +568,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kmessagewidget_metric_isbase) {
-            kmessagewidget_metric_isbase = false;
-            return KMessageWidget::metric(param1);
-        }
-        auto metric_cb = kmessagewidget_metric_callback;
-        if (metric_cb) {
+        if (kmessagewidget_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kmessagewidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KMessageWidget::metric(param1);
@@ -966,15 +578,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kmessagewidget_initpainter_isbase) {
-            kmessagewidget_initpainter_isbase = false;
-            KMessageWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kmessagewidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (kmessagewidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kmessagewidget_initpainter_callback(this, cbval1);
             return;
         }
         KMessageWidget::initPainter(painter);
@@ -982,14 +588,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kmessagewidget_redirected_isbase) {
-            kmessagewidget_redirected_isbase = false;
-            return KMessageWidget::redirected(offset);
-        }
-        auto redirected_cb = kmessagewidget_redirected_callback;
-        if (redirected_cb) {
+        if (kmessagewidget_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kmessagewidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KMessageWidget::redirected(offset);
@@ -997,13 +598,8 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kmessagewidget_sharedpainter_isbase) {
-            kmessagewidget_sharedpainter_isbase = false;
-            return KMessageWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = kmessagewidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kmessagewidget_sharedpainter_callback) {
+            QPainter* callback_ret = kmessagewidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return KMessageWidget::sharedPainter();
@@ -1011,15 +607,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kmessagewidget_inputmethodevent_isbase) {
-            kmessagewidget_inputmethodevent_isbase = false;
-            KMessageWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kmessagewidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kmessagewidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kmessagewidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::inputMethodEvent(param1);
@@ -1027,14 +617,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kmessagewidget_inputmethodquery_isbase) {
-            kmessagewidget_inputmethodquery_isbase = false;
-            return KMessageWidget::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kmessagewidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kmessagewidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kmessagewidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1044,14 +629,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kmessagewidget_focusnextprevchild_isbase) {
-            kmessagewidget_focusnextprevchild_isbase = false;
-            return KMessageWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kmessagewidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kmessagewidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kmessagewidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KMessageWidget::focusNextPrevChild(next);
@@ -1059,15 +639,10 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kmessagewidget_eventfilter_isbase) {
-            kmessagewidget_eventfilter_isbase = false;
-            return KMessageWidget::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kmessagewidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kmessagewidget_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kmessagewidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KMessageWidget::eventFilter(watched, event);
@@ -1075,15 +650,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kmessagewidget_timerevent_isbase) {
-            kmessagewidget_timerevent_isbase = false;
-            KMessageWidget::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kmessagewidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (kmessagewidget_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kmessagewidget_timerevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::timerEvent(event);
@@ -1091,15 +660,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kmessagewidget_childevent_isbase) {
-            kmessagewidget_childevent_isbase = false;
-            KMessageWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kmessagewidget_childevent_callback;
-        if (childevent_cb) {
+        if (kmessagewidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kmessagewidget_childevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::childEvent(event);
@@ -1107,15 +670,9 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kmessagewidget_customevent_isbase) {
-            kmessagewidget_customevent_isbase = false;
-            KMessageWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kmessagewidget_customevent_callback;
-        if (customevent_cb) {
+        if (kmessagewidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kmessagewidget_customevent_callback(this, cbval1);
             return;
         }
         KMessageWidget::customEvent(event);
@@ -1123,17 +680,11 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kmessagewidget_connectnotify_isbase) {
-            kmessagewidget_connectnotify_isbase = false;
-            KMessageWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kmessagewidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kmessagewidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kmessagewidget_connectnotify_callback(this, cbval1);
             return;
         }
         KMessageWidget::connectNotify(signal);
@@ -1141,288 +692,56 @@ class VirtualKMessageWidget final : public KMessageWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kmessagewidget_disconnectnotify_isbase) {
-            kmessagewidget_disconnectnotify_isbase = false;
-            KMessageWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kmessagewidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kmessagewidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kmessagewidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         KMessageWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (kmessagewidget_drawframe_isbase) {
-            kmessagewidget_drawframe_isbase = false;
-            KMessageWidget::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = kmessagewidget_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        KMessageWidget::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kmessagewidget_updatemicrofocus_isbase) {
-            kmessagewidget_updatemicrofocus_isbase = false;
-            KMessageWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kmessagewidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KMessageWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kmessagewidget_create_isbase) {
-            kmessagewidget_create_isbase = false;
-            KMessageWidget::create();
-            return;
-        }
-        auto create_cb = kmessagewidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KMessageWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kmessagewidget_destroy_isbase) {
-            kmessagewidget_destroy_isbase = false;
-            KMessageWidget::destroy();
-            return;
-        }
-        auto destroy_cb = kmessagewidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KMessageWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kmessagewidget_focusnextchild_isbase) {
-            kmessagewidget_focusnextchild_isbase = false;
-            return KMessageWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = kmessagewidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KMessageWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kmessagewidget_focuspreviouschild_isbase) {
-            kmessagewidget_focuspreviouschild_isbase = false;
-            return KMessageWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kmessagewidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KMessageWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kmessagewidget_sender_isbase) {
-            kmessagewidget_sender_isbase = false;
-            return KMessageWidget::sender();
-        }
-        auto sender_cb = kmessagewidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KMessageWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kmessagewidget_sendersignalindex_isbase) {
-            kmessagewidget_sendersignalindex_isbase = false;
-            return KMessageWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kmessagewidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KMessageWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kmessagewidget_receivers_isbase) {
-            kmessagewidget_receivers_isbase = false;
-            return KMessageWidget::receivers(signal);
-        }
-        auto receivers_cb = kmessagewidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KMessageWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kmessagewidget_issignalconnected_isbase) {
-            kmessagewidget_issignalconnected_isbase = false;
-            return KMessageWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kmessagewidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KMessageWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kmessagewidget_getdecodedmetricf_isbase) {
-            kmessagewidget_getdecodedmetricf_isbase = false;
-            return KMessageWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kmessagewidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KMessageWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KMessageWidget_PaintEvent(KMessageWidget* self, QPaintEvent* event);
     friend void KMessageWidget_SuperPaintEvent(KMessageWidget* self, QPaintEvent* event);
-    friend bool KMessageWidget_Event(KMessageWidget* self, QEvent* event);
     friend bool KMessageWidget_SuperEvent(KMessageWidget* self, QEvent* event);
-    friend void KMessageWidget_ResizeEvent(KMessageWidget* self, QResizeEvent* event);
     friend void KMessageWidget_SuperResizeEvent(KMessageWidget* self, QResizeEvent* event);
-    friend void KMessageWidget_ChangeEvent(KMessageWidget* self, QEvent* param1);
     friend void KMessageWidget_SuperChangeEvent(KMessageWidget* self, QEvent* param1);
-    friend void KMessageWidget_InitStyleOption(const KMessageWidget* self, QStyleOptionFrame* option);
     friend void KMessageWidget_SuperInitStyleOption(const KMessageWidget* self, QStyleOptionFrame* option);
-    friend void KMessageWidget_MousePressEvent(KMessageWidget* self, QMouseEvent* event);
     friend void KMessageWidget_SuperMousePressEvent(KMessageWidget* self, QMouseEvent* event);
-    friend void KMessageWidget_MouseReleaseEvent(KMessageWidget* self, QMouseEvent* event);
     friend void KMessageWidget_SuperMouseReleaseEvent(KMessageWidget* self, QMouseEvent* event);
-    friend void KMessageWidget_MouseDoubleClickEvent(KMessageWidget* self, QMouseEvent* event);
     friend void KMessageWidget_SuperMouseDoubleClickEvent(KMessageWidget* self, QMouseEvent* event);
-    friend void KMessageWidget_MouseMoveEvent(KMessageWidget* self, QMouseEvent* event);
     friend void KMessageWidget_SuperMouseMoveEvent(KMessageWidget* self, QMouseEvent* event);
-    friend void KMessageWidget_WheelEvent(KMessageWidget* self, QWheelEvent* event);
     friend void KMessageWidget_SuperWheelEvent(KMessageWidget* self, QWheelEvent* event);
-    friend void KMessageWidget_KeyPressEvent(KMessageWidget* self, QKeyEvent* event);
     friend void KMessageWidget_SuperKeyPressEvent(KMessageWidget* self, QKeyEvent* event);
-    friend void KMessageWidget_KeyReleaseEvent(KMessageWidget* self, QKeyEvent* event);
     friend void KMessageWidget_SuperKeyReleaseEvent(KMessageWidget* self, QKeyEvent* event);
-    friend void KMessageWidget_FocusInEvent(KMessageWidget* self, QFocusEvent* event);
     friend void KMessageWidget_SuperFocusInEvent(KMessageWidget* self, QFocusEvent* event);
-    friend void KMessageWidget_FocusOutEvent(KMessageWidget* self, QFocusEvent* event);
     friend void KMessageWidget_SuperFocusOutEvent(KMessageWidget* self, QFocusEvent* event);
-    friend void KMessageWidget_EnterEvent(KMessageWidget* self, QEnterEvent* event);
     friend void KMessageWidget_SuperEnterEvent(KMessageWidget* self, QEnterEvent* event);
-    friend void KMessageWidget_LeaveEvent(KMessageWidget* self, QEvent* event);
     friend void KMessageWidget_SuperLeaveEvent(KMessageWidget* self, QEvent* event);
-    friend void KMessageWidget_MoveEvent(KMessageWidget* self, QMoveEvent* event);
     friend void KMessageWidget_SuperMoveEvent(KMessageWidget* self, QMoveEvent* event);
-    friend void KMessageWidget_CloseEvent(KMessageWidget* self, QCloseEvent* event);
     friend void KMessageWidget_SuperCloseEvent(KMessageWidget* self, QCloseEvent* event);
-    friend void KMessageWidget_ContextMenuEvent(KMessageWidget* self, QContextMenuEvent* event);
     friend void KMessageWidget_SuperContextMenuEvent(KMessageWidget* self, QContextMenuEvent* event);
-    friend void KMessageWidget_TabletEvent(KMessageWidget* self, QTabletEvent* event);
     friend void KMessageWidget_SuperTabletEvent(KMessageWidget* self, QTabletEvent* event);
-    friend void KMessageWidget_ActionEvent(KMessageWidget* self, QActionEvent* event);
     friend void KMessageWidget_SuperActionEvent(KMessageWidget* self, QActionEvent* event);
-    friend void KMessageWidget_DragEnterEvent(KMessageWidget* self, QDragEnterEvent* event);
     friend void KMessageWidget_SuperDragEnterEvent(KMessageWidget* self, QDragEnterEvent* event);
-    friend void KMessageWidget_DragMoveEvent(KMessageWidget* self, QDragMoveEvent* event);
     friend void KMessageWidget_SuperDragMoveEvent(KMessageWidget* self, QDragMoveEvent* event);
-    friend void KMessageWidget_DragLeaveEvent(KMessageWidget* self, QDragLeaveEvent* event);
     friend void KMessageWidget_SuperDragLeaveEvent(KMessageWidget* self, QDragLeaveEvent* event);
-    friend void KMessageWidget_DropEvent(KMessageWidget* self, QDropEvent* event);
     friend void KMessageWidget_SuperDropEvent(KMessageWidget* self, QDropEvent* event);
-    friend void KMessageWidget_ShowEvent(KMessageWidget* self, QShowEvent* event);
     friend void KMessageWidget_SuperShowEvent(KMessageWidget* self, QShowEvent* event);
-    friend void KMessageWidget_HideEvent(KMessageWidget* self, QHideEvent* event);
     friend void KMessageWidget_SuperHideEvent(KMessageWidget* self, QHideEvent* event);
-    friend bool KMessageWidget_NativeEvent(KMessageWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KMessageWidget_SuperNativeEvent(KMessageWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KMessageWidget_Metric(const KMessageWidget* self, int param1);
     friend int KMessageWidget_SuperMetric(const KMessageWidget* self, int param1);
-    friend void KMessageWidget_InitPainter(const KMessageWidget* self, QPainter* painter);
     friend void KMessageWidget_SuperInitPainter(const KMessageWidget* self, QPainter* painter);
-    friend QPaintDevice* KMessageWidget_Redirected(const KMessageWidget* self, QPoint* offset);
     friend QPaintDevice* KMessageWidget_SuperRedirected(const KMessageWidget* self, QPoint* offset);
-    friend QPainter* KMessageWidget_SharedPainter(const KMessageWidget* self);
     friend QPainter* KMessageWidget_SuperSharedPainter(const KMessageWidget* self);
-    friend void KMessageWidget_InputMethodEvent(KMessageWidget* self, QInputMethodEvent* param1);
     friend void KMessageWidget_SuperInputMethodEvent(KMessageWidget* self, QInputMethodEvent* param1);
-    friend bool KMessageWidget_FocusNextPrevChild(KMessageWidget* self, bool next);
     friend bool KMessageWidget_SuperFocusNextPrevChild(KMessageWidget* self, bool next);
-    friend void KMessageWidget_TimerEvent(KMessageWidget* self, QTimerEvent* event);
     friend void KMessageWidget_SuperTimerEvent(KMessageWidget* self, QTimerEvent* event);
-    friend void KMessageWidget_ChildEvent(KMessageWidget* self, QChildEvent* event);
     friend void KMessageWidget_SuperChildEvent(KMessageWidget* self, QChildEvent* event);
-    friend void KMessageWidget_CustomEvent(KMessageWidget* self, QEvent* event);
     friend void KMessageWidget_SuperCustomEvent(KMessageWidget* self, QEvent* event);
-    friend void KMessageWidget_ConnectNotify(KMessageWidget* self, const QMetaMethod* signal);
     friend void KMessageWidget_SuperConnectNotify(KMessageWidget* self, const QMetaMethod* signal);
-    friend void KMessageWidget_DisconnectNotify(KMessageWidget* self, const QMetaMethod* signal);
     friend void KMessageWidget_SuperDisconnectNotify(KMessageWidget* self, const QMetaMethod* signal);
-    friend void KMessageWidget_DrawFrame(KMessageWidget* self, QPainter* param1);
-    friend void KMessageWidget_SuperDrawFrame(KMessageWidget* self, QPainter* param1);
-    friend void KMessageWidget_UpdateMicroFocus(KMessageWidget* self);
-    friend void KMessageWidget_SuperUpdateMicroFocus(KMessageWidget* self);
-    friend void KMessageWidget_Create(KMessageWidget* self);
-    friend void KMessageWidget_SuperCreate(KMessageWidget* self);
-    friend void KMessageWidget_Destroy(KMessageWidget* self);
-    friend void KMessageWidget_SuperDestroy(KMessageWidget* self);
-    friend bool KMessageWidget_FocusNextChild(KMessageWidget* self);
-    friend bool KMessageWidget_SuperFocusNextChild(KMessageWidget* self);
-    friend bool KMessageWidget_FocusPreviousChild(KMessageWidget* self);
-    friend bool KMessageWidget_SuperFocusPreviousChild(KMessageWidget* self);
-    friend QObject* KMessageWidget_Sender(const KMessageWidget* self);
-    friend QObject* KMessageWidget_SuperSender(const KMessageWidget* self);
-    friend int KMessageWidget_SenderSignalIndex(const KMessageWidget* self);
-    friend int KMessageWidget_SuperSenderSignalIndex(const KMessageWidget* self);
-    friend int KMessageWidget_Receivers(const KMessageWidget* self, const char* signal);
-    friend int KMessageWidget_SuperReceivers(const KMessageWidget* self, const char* signal);
-    friend bool KMessageWidget_IsSignalConnected(const KMessageWidget* self, const QMetaMethod* signal);
-    friend bool KMessageWidget_SuperIsSignalConnected(const KMessageWidget* self, const QMetaMethod* signal);
-    friend double KMessageWidget_GetDecodedMetricF(const KMessageWidget* self, int metricA, int metricB);
-    friend double KMessageWidget_SuperGetDecodedMetricF(const KMessageWidget* self, int metricA, int metricB);
 };
 
 #endif

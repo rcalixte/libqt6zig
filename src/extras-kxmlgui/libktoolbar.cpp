@@ -172,70 +172,70 @@ void KToolBar_EmitToolbarStyleChanged() {
 
 void KToolBar_SlotMovableChanged(KToolBar* self, bool movable) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->slotMovableChanged(movable);
     }
 }
 
 void KToolBar_ContextMenuEvent(KToolBar* self, QContextMenuEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->contextMenuEvent(param1);
     }
 }
 
 void KToolBar_ActionEvent(KToolBar* self, QActionEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->actionEvent(param1);
     }
 }
 
 void KToolBar_DragEnterEvent(KToolBar* self, QDragEnterEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->dragEnterEvent(param1);
     }
 }
 
 void KToolBar_DragMoveEvent(KToolBar* self, QDragMoveEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->dragMoveEvent(param1);
     }
 }
 
 void KToolBar_DragLeaveEvent(KToolBar* self, QDragLeaveEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->dragLeaveEvent(param1);
     }
 }
 
 void KToolBar_DropEvent(KToolBar* self, QDropEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->dropEvent(param1);
     }
 }
 
 void KToolBar_MousePressEvent(KToolBar* self, QMouseEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->mousePressEvent(param1);
     }
 }
 
 void KToolBar_MouseMoveEvent(KToolBar* self, QMouseEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->mouseMoveEvent(param1);
     }
 }
 
 void KToolBar_MouseReleaseEvent(KToolBar* self, QMouseEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->mouseReleaseEvent(param1);
     }
 }
@@ -266,1600 +266,1116 @@ libqt_string KToolBar_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KToolBar_SuperMetaObject(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_MetaObject_IsBase(true);
-        return (QMetaObject*)vktoolbar->metaObject();
-    } else {
-        return (QMetaObject*)self->KToolBar::metaObject();
-    }
+    return (QMetaObject*)self->KToolBar::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnMetaObject(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_MetaObject_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MetaObject_Callback>(slot));
+void KToolBar_OnMetaObject(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_metaobject_callback = reinterpret_cast<VirtualKToolBar::KToolBar_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KToolBar_SuperMetacast(KToolBar* self, const char* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Metacast_IsBase(true);
-        return vktoolbar->qt_metacast(param1);
-    } else {
-        return self->KToolBar::qt_metacast(param1);
-    }
+    return self->KToolBar::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMetacast(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Metacast_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Metacast_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_metacast_callback = reinterpret_cast<VirtualKToolBar::KToolBar_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KToolBar_SuperMetacall(KToolBar* self, int param1, int param2, void** param3) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Metacall_IsBase(true);
-        return vktoolbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KToolBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KToolBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMetacall(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Metacall_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Metacall_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_metacall_callback = reinterpret_cast<VirtualKToolBar::KToolBar_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KToolBar_SuperEventFilter(KToolBar* self, QObject* watched, QEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_EventFilter_IsBase(true);
-        return vktoolbar->eventFilter(watched, event);
-    } else {
-        return self->KToolBar::eventFilter(watched, event);
-    }
+    return self->KToolBar::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnEventFilter(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_EventFilter_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_EventFilter_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_eventfilter_callback = reinterpret_cast<VirtualKToolBar::KToolBar_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperSlotMovableChanged(KToolBar* self, bool movable) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_SlotMovableChanged_IsBase(true);
-        vktoolbar->slotMovableChanged(movable);
-    } else {
-        ((VirtualKToolBar*)self)->slotMovableChanged(movable);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::slotMovableChanged(movable);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::slotMovableChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnSlotMovableChanged(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_SlotMovableChanged_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SlotMovableChanged_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_slotmovablechanged_callback = reinterpret_cast<VirtualKToolBar::KToolBar_SlotMovableChanged_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperContextMenuEvent(KToolBar* self, QContextMenuEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_ContextMenuEvent_IsBase(true);
-        vktoolbar->contextMenuEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnContextMenuEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ContextMenuEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_contextmenuevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperActionEvent(KToolBar* self, QActionEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_ActionEvent_IsBase(true);
-        vktoolbar->actionEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->actionEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::actionEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnActionEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_ActionEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ActionEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_actionevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_ActionEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperDragEnterEvent(KToolBar* self, QDragEnterEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_DragEnterEvent_IsBase(true);
-        vktoolbar->dragEnterEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->dragEnterEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::dragEnterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDragEnterEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DragEnterEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_dragenterevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_DragEnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperDragMoveEvent(KToolBar* self, QDragMoveEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_DragMoveEvent_IsBase(true);
-        vktoolbar->dragMoveEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->dragMoveEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::dragMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDragMoveEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DragMoveEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_dragmoveevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_DragMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperDragLeaveEvent(KToolBar* self, QDragLeaveEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_DragLeaveEvent_IsBase(true);
-        vktoolbar->dragLeaveEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->dragLeaveEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::dragLeaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDragLeaveEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DragLeaveEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_dragleaveevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_DragLeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperDropEvent(KToolBar* self, QDropEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_DropEvent_IsBase(true);
-        vktoolbar->dropEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->dropEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDropEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_DropEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DropEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_dropevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_DropEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperMousePressEvent(KToolBar* self, QMouseEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_MousePressEvent_IsBase(true);
-        vktoolbar->mousePressEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->mousePressEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMousePressEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_MousePressEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MousePressEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_mousepressevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperMouseMoveEvent(KToolBar* self, QMouseEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_MouseMoveEvent_IsBase(true);
-        vktoolbar->mouseMoveEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMouseMoveEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MouseMoveEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_mousemoveevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KToolBar_SuperMouseReleaseEvent(KToolBar* self, QMouseEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_MouseReleaseEvent_IsBase(true);
-        vktoolbar->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMouseReleaseEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MouseReleaseEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_mousereleaseevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_ChangeEvent(KToolBar* self, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->changeEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->changeEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperChangeEvent(KToolBar* self, QEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_ChangeEvent_IsBase(true);
-        vktoolbar->changeEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->changeEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnChangeEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_ChangeEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ChangeEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_changeevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_PaintEvent(KToolBar* self, QPaintEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->paintEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperPaintEvent(KToolBar* self, QPaintEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_PaintEvent_IsBase(true);
-        vktoolbar->paintEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->paintEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnPaintEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_PaintEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_PaintEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_paintevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KToolBar_Event(KToolBar* self, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         return vktoolbar->event(event);
     } else {
-        return ((VirtualKToolBar*)self)->event(event);
+        qFatal("Error: Protected virtual method KToolBar::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KToolBar_SuperEvent(KToolBar* self, QEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Event_IsBase(true);
-        return vktoolbar->event(event);
-    } else {
-        return ((VirtualKToolBar*)self)->event(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        return vktoolbar->KToolBar::event(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Event_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Event_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_event_callback = reinterpret_cast<VirtualKToolBar::KToolBar_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_InitStyleOption(const KToolBar* self, QStyleOptionToolBar* option) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->initStyleOption(option);
     } else {
-        ((VirtualKToolBar*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KToolBar::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperInitStyleOption(const KToolBar* self, QStyleOptionToolBar* option) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_InitStyleOption_IsBase(true);
-        vktoolbar->initStyleOption(option);
-    } else {
-        ((VirtualKToolBar*)self)->initStyleOption(option);
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        vktoolbar->KToolBar::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnInitStyleOption(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_InitStyleOption_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_InitStyleOption_Callback>(slot));
+void KToolBar_OnInitStyleOption(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_initstyleoption_callback = reinterpret_cast<VirtualKToolBar::KToolBar_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KToolBar_DevType(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->devType();
-    } else {
-        return self->KToolBar::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KToolBar_SuperDevType(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_DevType_IsBase(true);
-        return vktoolbar->devType();
-    } else {
-        return self->KToolBar::devType();
-    }
+    return self->KToolBar::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnDevType(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_DevType_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DevType_Callback>(slot));
+void KToolBar_OnDevType(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_devtype_callback = reinterpret_cast<VirtualKToolBar::KToolBar_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_SetVisible(KToolBar* self, bool visible) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setVisible(visible);
-    } else {
-        self->KToolBar::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KToolBar_SuperSetVisible(KToolBar* self, bool visible) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_SetVisible_IsBase(true);
-        vktoolbar->setVisible(visible);
-    } else {
-        self->KToolBar::setVisible(visible);
-    }
+    self->KToolBar::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnSetVisible(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_SetVisible_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SetVisible_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_setvisible_callback = reinterpret_cast<VirtualKToolBar::KToolBar_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KToolBar_SizeHint(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return new QSize(vktoolbar->sizeHint());
-    } else {
-        return new QSize(((VirtualKToolBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KToolBar_SuperSizeHint(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_SizeHint_IsBase(true);
-        return new QSize(vktoolbar->sizeHint());
-    } else {
-        return new QSize(((VirtualKToolBar*)self)->sizeHint());
-    }
+    return new QSize(self->KToolBar::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnSizeHint(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_SizeHint_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SizeHint_Callback>(slot));
+void KToolBar_OnSizeHint(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_sizehint_callback = reinterpret_cast<VirtualKToolBar::KToolBar_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KToolBar_MinimumSizeHint(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return new QSize(vktoolbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKToolBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KToolBar_SuperMinimumSizeHint(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vktoolbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKToolBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KToolBar::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnMinimumSizeHint(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MinimumSizeHint_Callback>(slot));
+void KToolBar_OnMinimumSizeHint(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_minimumsizehint_callback = reinterpret_cast<VirtualKToolBar::KToolBar_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KToolBar_HeightForWidth(const KToolBar* self, int param1) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KToolBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KToolBar_SuperHeightForWidth(const KToolBar* self, int param1) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_HeightForWidth_IsBase(true);
-        return vktoolbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KToolBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KToolBar::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnHeightForWidth(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_HeightForWidth_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_HeightForWidth_Callback>(slot));
+void KToolBar_OnHeightForWidth(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_heightforwidth_callback = reinterpret_cast<VirtualKToolBar::KToolBar_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KToolBar_HasHeightForWidth(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->hasHeightForWidth();
-    } else {
-        return self->KToolBar::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KToolBar_SuperHasHeightForWidth(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_HasHeightForWidth_IsBase(true);
-        return vktoolbar->hasHeightForWidth();
-    } else {
-        return self->KToolBar::hasHeightForWidth();
-    }
+    return self->KToolBar::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnHasHeightForWidth(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_HasHeightForWidth_Callback>(slot));
+void KToolBar_OnHasHeightForWidth(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_hasheightforwidth_callback = reinterpret_cast<VirtualKToolBar::KToolBar_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KToolBar_PaintEngine(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->paintEngine();
-    } else {
-        return self->KToolBar::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KToolBar_SuperPaintEngine(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_PaintEngine_IsBase(true);
-        return vktoolbar->paintEngine();
-    } else {
-        return self->KToolBar::paintEngine();
-    }
+    return self->KToolBar::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnPaintEngine(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_PaintEngine_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_PaintEngine_Callback>(slot));
+void KToolBar_OnPaintEngine(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_paintengine_callback = reinterpret_cast<VirtualKToolBar::KToolBar_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_MouseDoubleClickEvent(KToolBar* self, QMouseEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperMouseDoubleClickEvent(KToolBar* self, QMouseEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_MouseDoubleClickEvent_IsBase(true);
-        vktoolbar->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMouseDoubleClickEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_mousedoubleclickevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_WheelEvent(KToolBar* self, QWheelEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->wheelEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperWheelEvent(KToolBar* self, QWheelEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_WheelEvent_IsBase(true);
-        vktoolbar->wheelEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->wheelEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnWheelEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_WheelEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_WheelEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_wheelevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_KeyPressEvent(KToolBar* self, QKeyEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->keyPressEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperKeyPressEvent(KToolBar* self, QKeyEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_KeyPressEvent_IsBase(true);
-        vktoolbar->keyPressEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->keyPressEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnKeyPressEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_KeyPressEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_keypressevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_KeyReleaseEvent(KToolBar* self, QKeyEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->keyReleaseEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperKeyReleaseEvent(KToolBar* self, QKeyEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_KeyReleaseEvent_IsBase(true);
-        vktoolbar->keyReleaseEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnKeyReleaseEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_KeyReleaseEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_keyreleaseevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_FocusInEvent(KToolBar* self, QFocusEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->focusInEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperFocusInEvent(KToolBar* self, QFocusEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_FocusInEvent_IsBase(true);
-        vktoolbar->focusInEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->focusInEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnFocusInEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_FocusInEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusInEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_focusinevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_FocusOutEvent(KToolBar* self, QFocusEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->focusOutEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperFocusOutEvent(KToolBar* self, QFocusEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_FocusOutEvent_IsBase(true);
-        vktoolbar->focusOutEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->focusOutEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnFocusOutEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusOutEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_focusoutevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_EnterEvent(KToolBar* self, QEnterEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->enterEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperEnterEvent(KToolBar* self, QEnterEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_EnterEvent_IsBase(true);
-        vktoolbar->enterEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->enterEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnEnterEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_EnterEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_EnterEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_enterevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_LeaveEvent(KToolBar* self, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->leaveEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperLeaveEvent(KToolBar* self, QEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_LeaveEvent_IsBase(true);
-        vktoolbar->leaveEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->leaveEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnLeaveEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_LeaveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_LeaveEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_leaveevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_MoveEvent(KToolBar* self, QMoveEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->moveEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperMoveEvent(KToolBar* self, QMoveEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_MoveEvent_IsBase(true);
-        vktoolbar->moveEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->moveEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnMoveEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_MoveEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_MoveEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_moveevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_ResizeEvent(KToolBar* self, QResizeEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->resizeEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperResizeEvent(KToolBar* self, QResizeEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_ResizeEvent_IsBase(true);
-        vktoolbar->resizeEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->resizeEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnResizeEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_ResizeEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ResizeEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_resizeevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_CloseEvent(KToolBar* self, QCloseEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->closeEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperCloseEvent(KToolBar* self, QCloseEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_CloseEvent_IsBase(true);
-        vktoolbar->closeEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->closeEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnCloseEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_CloseEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_CloseEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_closeevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_TabletEvent(KToolBar* self, QTabletEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->tabletEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperTabletEvent(KToolBar* self, QTabletEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_TabletEvent_IsBase(true);
-        vktoolbar->tabletEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->tabletEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnTabletEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_TabletEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_TabletEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_tabletevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_ShowEvent(KToolBar* self, QShowEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->showEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperShowEvent(KToolBar* self, QShowEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_ShowEvent_IsBase(true);
-        vktoolbar->showEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->showEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnShowEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_ShowEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ShowEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_showevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_HideEvent(KToolBar* self, QHideEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->hideEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperHideEvent(KToolBar* self, QHideEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_HideEvent_IsBase(true);
-        vktoolbar->hideEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->hideEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnHideEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_HideEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_HideEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_hideevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KToolBar_NativeEvent(KToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
+    if (vktoolbar) {
         return vktoolbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKToolBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KToolBar::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KToolBar_SuperNativeEvent(KToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_NativeEvent_IsBase(true);
-        return vktoolbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKToolBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        return vktoolbar->KToolBar::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KToolBar::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnNativeEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_NativeEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_NativeEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_nativeevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KToolBar_Metric(const KToolBar* self, int param1) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         return vktoolbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKToolBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KToolBar::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KToolBar_SuperMetric(const KToolBar* self, int param1) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Metric_IsBase(true);
-        return vktoolbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKToolBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        return vktoolbar->KToolBar::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KToolBar::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnMetric(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Metric_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Metric_Callback>(slot));
+void KToolBar_OnMetric(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_metric_callback = reinterpret_cast<VirtualKToolBar::KToolBar_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_InitPainter(const KToolBar* self, QPainter* painter) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->initPainter(painter);
     } else {
-        ((VirtualKToolBar*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KToolBar::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperInitPainter(const KToolBar* self, QPainter* painter) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_InitPainter_IsBase(true);
-        vktoolbar->initPainter(painter);
-    } else {
-        ((VirtualKToolBar*)self)->initPainter(painter);
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        vktoolbar->KToolBar::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnInitPainter(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_InitPainter_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_InitPainter_Callback>(slot));
+void KToolBar_OnInitPainter(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_initpainter_callback = reinterpret_cast<VirtualKToolBar::KToolBar_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KToolBar_Redirected(const KToolBar* self, QPoint* offset) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         return vktoolbar->redirected(offset);
     } else {
-        return ((VirtualKToolBar*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KToolBar::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KToolBar_SuperRedirected(const KToolBar* self, QPoint* offset) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Redirected_IsBase(true);
-        return vktoolbar->redirected(offset);
-    } else {
-        return ((VirtualKToolBar*)self)->redirected(offset);
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        return vktoolbar->KToolBar::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnRedirected(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Redirected_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Redirected_Callback>(slot));
+void KToolBar_OnRedirected(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_redirected_callback = reinterpret_cast<VirtualKToolBar::KToolBar_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KToolBar_SharedPainter(const KToolBar* self) {
     auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         return vktoolbar->sharedPainter();
     } else {
-        return ((VirtualKToolBar*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KToolBar::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KToolBar_SuperSharedPainter(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_SharedPainter_IsBase(true);
-        return vktoolbar->sharedPainter();
-    } else {
-        return ((VirtualKToolBar*)self)->sharedPainter();
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        return vktoolbar->KToolBar::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KToolBar::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnSharedPainter(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_SharedPainter_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SharedPainter_Callback>(slot));
+void KToolBar_OnSharedPainter(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_sharedpainter_callback = reinterpret_cast<VirtualKToolBar::KToolBar_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_InputMethodEvent(KToolBar* self, QInputMethodEvent* param1) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->inputMethodEvent(param1);
     } else {
-        ((VirtualKToolBar*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KToolBar::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperInputMethodEvent(KToolBar* self, QInputMethodEvent* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_InputMethodEvent_IsBase(true);
-        vktoolbar->inputMethodEvent(param1);
-    } else {
-        ((VirtualKToolBar*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnInputMethodEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_InputMethodEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_inputmethodevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KToolBar_InputMethodQuery(const KToolBar* self, int param1) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return new QVariant(vktoolbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKToolBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KToolBar_SuperInputMethodQuery(const KToolBar* self, int param1) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_InputMethodQuery_IsBase(true);
-        return new QVariant(vktoolbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKToolBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KToolBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToolBar_OnInputMethodQuery(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_InputMethodQuery_Callback>(slot));
+void KToolBar_OnInputMethodQuery(KToolBar* self, intptr_t slot) {
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self)))
+        vktoolbar->ktoolbar_inputmethodquery_callback = reinterpret_cast<VirtualKToolBar::KToolBar_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KToolBar_FocusNextPrevChild(KToolBar* self, bool next) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         return vktoolbar->focusNextPrevChild(next);
     } else {
-        return ((VirtualKToolBar*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KToolBar::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KToolBar_SuperFocusNextPrevChild(KToolBar* self, bool next) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_FocusNextPrevChild_IsBase(true);
-        return vktoolbar->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKToolBar*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        return vktoolbar->KToolBar::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnFocusNextPrevChild(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusNextPrevChild_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_focusnextprevchild_callback = reinterpret_cast<VirtualKToolBar::KToolBar_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_TimerEvent(KToolBar* self, QTimerEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->timerEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperTimerEvent(KToolBar* self, QTimerEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_TimerEvent_IsBase(true);
-        vktoolbar->timerEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->timerEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnTimerEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_TimerEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_TimerEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_timerevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_ChildEvent(KToolBar* self, QChildEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->childEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperChildEvent(KToolBar* self, QChildEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_ChildEvent_IsBase(true);
-        vktoolbar->childEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->childEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnChildEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_ChildEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ChildEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_childevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_CustomEvent(KToolBar* self, QEvent* event) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->customEvent(event);
     } else {
-        ((VirtualKToolBar*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KToolBar::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperCustomEvent(KToolBar* self, QEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_CustomEvent_IsBase(true);
-        vktoolbar->customEvent(event);
-    } else {
-        ((VirtualKToolBar*)self)->customEvent(event);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnCustomEvent(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_CustomEvent_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_CustomEvent_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_customevent_callback = reinterpret_cast<VirtualKToolBar::KToolBar_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_ConnectNotify(KToolBar* self, const QMetaMethod* signal) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->connectNotify(*signal);
     } else {
-        ((VirtualKToolBar*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KToolBar::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperConnectNotify(KToolBar* self, const QMetaMethod* signal) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_ConnectNotify_IsBase(true);
-        vktoolbar->connectNotify(*signal);
-    } else {
-        ((VirtualKToolBar*)self)->connectNotify(*signal);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnConnectNotify(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_ConnectNotify_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_ConnectNotify_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_connectnotify_callback = reinterpret_cast<VirtualKToolBar::KToolBar_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToolBar_DisconnectNotify(KToolBar* self, const QMetaMethod* signal) {
     auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
+    if (vktoolbar) {
         vktoolbar->disconnectNotify(*signal);
     } else {
-        ((VirtualKToolBar*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KToolBar::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToolBar_SuperDisconnectNotify(KToolBar* self, const QMetaMethod* signal) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_DisconnectNotify_IsBase(true);
-        vktoolbar->disconnectNotify(*signal);
-    } else {
-        ((VirtualKToolBar*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->KToolBar::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KToolBar::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToolBar_OnDisconnectNotify(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_DisconnectNotify_Callback>(slot));
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self))
+        vktoolbar->ktoolbar_disconnectnotify_callback = reinterpret_cast<VirtualKToolBar::KToolBar_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KToolBar_UpdateMicroFocus(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->updateMicroFocus();
-    } else {
-        ((VirtualKToolBar*)self)->updateMicroFocus();
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->VirtualKToolBar::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KToolBar::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KToolBar_SuperUpdateMicroFocus(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_UpdateMicroFocus_IsBase(true);
-        vktoolbar->updateMicroFocus();
-    } else {
-        ((VirtualKToolBar*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnUpdateMicroFocus(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KToolBar_Create(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->create();
-    } else {
-        ((VirtualKToolBar*)self)->create();
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->VirtualKToolBar::create();
+    } else
+        qFatal("Error: Protected method KToolBar::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KToolBar_SuperCreate(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Create_IsBase(true);
-        vktoolbar->create();
-    } else {
-        ((VirtualKToolBar*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnCreate(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Create_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KToolBar_Destroy(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->destroy();
-    } else {
-        ((VirtualKToolBar*)self)->destroy();
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        vktoolbar->VirtualKToolBar::destroy();
+    } else
+        qFatal("Error: Protected method KToolBar::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KToolBar_SuperDestroy(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Destroy_IsBase(true);
-        vktoolbar->destroy();
-    } else {
-        ((VirtualKToolBar*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnDestroy(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Destroy_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KToolBar_FocusNextChild(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->focusNextChild();
-    } else {
-        return ((VirtualKToolBar*)self)->focusNextChild();
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        return vktoolbar->VirtualKToolBar::focusNextChild();
+    } else
+        qFatal("Error: Protected method KToolBar::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KToolBar_SuperFocusNextChild(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_FocusNextChild_IsBase(true);
-        return vktoolbar->focusNextChild();
-    } else {
-        return ((VirtualKToolBar*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnFocusNextChild(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_FocusNextChild_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KToolBar_FocusPreviousChild(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->focusPreviousChild();
-    } else {
-        return ((VirtualKToolBar*)self)->focusPreviousChild();
-    }
+    if (auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self)) {
+        return vktoolbar->VirtualKToolBar::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KToolBar::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KToolBar_SuperFocusPreviousChild(KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_FocusPreviousChild_IsBase(true);
-        return vktoolbar->focusPreviousChild();
-    } else {
-        return ((VirtualKToolBar*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnFocusPreviousChild(KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KToolBar_Sender(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->sender();
-    } else {
-        return ((VirtualKToolBar*)self)->sender();
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        return vktoolbar->VirtualKToolBar::sender();
+    } else
+        qFatal("Error: Protected method KToolBar::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KToolBar_SuperSender(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Sender_IsBase(true);
-        return vktoolbar->sender();
-    } else {
-        return ((VirtualKToolBar*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnSender(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Sender_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KToolBar_SenderSignalIndex(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->senderSignalIndex();
-    } else {
-        return ((VirtualKToolBar*)self)->senderSignalIndex();
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        return vktoolbar->VirtualKToolBar::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KToolBar::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KToolBar_SuperSenderSignalIndex(const KToolBar* self) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_SenderSignalIndex_IsBase(true);
-        return vktoolbar->senderSignalIndex();
-    } else {
-        return ((VirtualKToolBar*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnSenderSignalIndex(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KToolBar_Receivers(const KToolBar* self, const char* signal) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->receivers(signal);
-    } else {
-        return ((VirtualKToolBar*)self)->receivers(signal);
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        return vktoolbar->VirtualKToolBar::receivers(signal);
+    } else
+        qFatal("Error: Protected method KToolBar::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KToolBar_SuperReceivers(const KToolBar* self, const char* signal) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_Receivers_IsBase(true);
-        return vktoolbar->receivers(signal);
-    } else {
-        return ((VirtualKToolBar*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnReceivers(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_Receivers_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KToolBar_IsSignalConnected(const KToolBar* self, const QMetaMethod* signal) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKToolBar*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        return vktoolbar->VirtualKToolBar::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KToolBar::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KToolBar_SuperIsSignalConnected(const KToolBar* self, const QMetaMethod* signal) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_IsSignalConnected_IsBase(true);
-        return vktoolbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKToolBar*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnIsSignalConnected(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KToolBar_GetDecodedMetricF(const KToolBar* self, int metricA, int metricB) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return vktoolbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKToolBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KToolBar_SuperGetDecodedMetricF(const KToolBar* self, int metricA, int metricB) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        vktoolbar->setKToolBar_GetDecodedMetricF_IsBase(true);
-        return vktoolbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKToolBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToolBar_OnGetDecodedMetricF(const KToolBar* self, intptr_t slot) {
-    auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self));
-    if (vktoolbar && vktoolbar->isVirtualKToolBar)
-        vktoolbar->setKToolBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKToolBar::KToolBar_GetDecodedMetricF_Callback>(slot));
+    if (auto* vktoolbar = const_cast<VirtualKToolBar*>(dynamic_cast<const VirtualKToolBar*>(self))) {
+        return vktoolbar->VirtualKToolBar::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KToolBar::getDecodedMetricF called without a directly constructed type");
 }
 
 void KToolBar_Delete(KToolBar* self) {

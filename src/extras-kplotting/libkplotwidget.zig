@@ -139,9 +139,9 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KPlotWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KPlotWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) QMetaObject) void {
         qtc.KPlotWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -312,11 +312,11 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPlotWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KPlotWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) QSize) void {
         qtc.KPlotWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -362,11 +362,11 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPlotWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KPlotWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) QSize) void {
         qtc.KPlotWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1275,40 +1275,6 @@ pub const KPlotWidget = extern struct {
         qtc.KPlotWidget_SetPixRect(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetPixRect` instead
-    ///
-    pub const OnSetPixRect = onSetPixRect;
-
-    /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setPixRect)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSetPixRect(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KPlotWidget_OnSetPixRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPixRect` instead
-    ///
-    pub const SuperSetPixRect = superSetPixRect;
-
-    /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setPixRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn superSetPixRect(self: KPlotWidget) void {
-        qtc.KPlotWidget_SuperSetPixRect(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `pointsUnderPoint` instead
     ///
     pub const PointsUnderPoint = pointsUnderPoint;
@@ -1326,57 +1292,6 @@ pub const KPlotWidget = extern struct {
     pub fn pointsUnderPoint(self: KPlotWidget, allocator: std.mem.Allocator, p: anytype) []KPlotPoint {
         comptime _ = @TypeOf(p)._is_QPoint;
         const _arr: qtc.libqt_list = qtc.KPlotWidget_PointsUnderPoint(@ptrCast(self.ptr), @ptrCast(p.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotWidget.pointsUnderPoint: Memory allocation failed");
-        const _data_val: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onPointsUnderPoint` instead
-    ///
-    pub const OnPointsUnderPoint = onPointsUnderPoint;
-
-    /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#pointsUnderPoint)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` callback: *const fn (self: KPlotWidget, p: QPoint) callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []KPlotPoint `
-    ///
-    pub fn onPointsUnderPoint(self: KPlotWidget, callback: *const fn (KPlotWidget, QPoint) callconv(.c) qtc.libqt_list) void {
-        qtc.KPlotWidget_OnPointsUnderPoint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPointsUnderPoint` instead
-    ///
-    pub const SuperPointsUnderPoint = superPointsUnderPoint;
-
-    /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#pointsUnderPoint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` p: QPoint `
-    ///
-    pub fn superPointsUnderPoint(self: KPlotWidget, allocator: std.mem.Allocator, p: anytype) []KPlotPoint {
-        comptime _ = @TypeOf(p)._is_QPoint;
-        const _arr: qtc.libqt_list = qtc.KPlotWidget_SuperPointsUnderPoint(@ptrCast(self.ptr), @ptrCast(p.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotWidget.pointsUnderPoint: Memory allocation failed");
         const _data_val: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
@@ -8089,9 +8004,9 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPlotWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KPlotWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) i32) void {
         qtc.KPlotWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8265,9 +8180,9 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KPlotWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) bool) void {
         qtc.KPlotWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8321,9 +8236,9 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KPlotWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KPlotWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) QPaintEngine) void {
         qtc.KPlotWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10001,9 +9916,9 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KPlotWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KPlotWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) QPainter) void {
         qtc.KPlotWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10590,47 +10505,6 @@ pub const KPlotWidget = extern struct {
         qtc.KPlotWidget_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: KPlotWidget, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.KPlotWidget_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn (self: KPlotWidget, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: KPlotWidget, callback: *const fn (KPlotWidget, QPainter) callconv(.c) void) void {
-        qtc.KPlotWidget_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10647,44 +10521,6 @@ pub const KPlotWidget = extern struct {
     ///
     pub fn updateMicroFocus(self: KPlotWidget) void {
         qtc.KPlotWidget_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: KPlotWidget) void {
-        qtc.KPlotWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KPlotWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10705,44 +10541,6 @@ pub const KPlotWidget = extern struct {
         qtc.KPlotWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn superCreate(self: KPlotWidget) void {
-        qtc.KPlotWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KPlotWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10759,44 +10557,6 @@ pub const KPlotWidget = extern struct {
     ///
     pub fn destroy(self: KPlotWidget) void {
         qtc.KPlotWidget_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn superDestroy(self: KPlotWidget) void {
-        qtc.KPlotWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KPlotWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10817,44 +10577,6 @@ pub const KPlotWidget = extern struct {
         return qtc.KPlotWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn superFocusNextChild(self: KPlotWidget) bool {
-        return qtc.KPlotWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPlotWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10871,44 +10593,6 @@ pub const KPlotWidget = extern struct {
     ///
     pub fn focusPreviousChild(self: KPlotWidget) bool {
         return qtc.KPlotWidget_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn superFocusPreviousChild(self: KPlotWidget) bool {
-        return qtc.KPlotWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPlotWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10929,44 +10613,6 @@ pub const KPlotWidget = extern struct {
         return .{ .ptr = qtc.KPlotWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn superSender(self: KPlotWidget) QObject {
-        return .{ .ptr = qtc.KPlotWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KPlotWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KPlotWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10983,44 +10629,6 @@ pub const KPlotWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn superSenderSignalIndex(self: KPlotWidget) i32 {
-        return qtc.KPlotWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KPlotWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPlotWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11044,47 +10652,6 @@ pub const KPlotWidget = extern struct {
         return qtc.KPlotWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KPlotWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KPlotWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn (self: KPlotWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPlotWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11104,47 +10671,6 @@ pub const KPlotWidget = extern struct {
     pub fn isSignalConnected(self: KPlotWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPlotWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KPlotWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KPlotWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn (self: KPlotWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KPlotWidget, callback: *const fn (KPlotWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.KPlotWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11167,48 +10693,6 @@ pub const KPlotWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: KPlotWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KPlotWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KPlotWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.KPlotWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPlotWidget`
-    ///
-    /// ` callback: *const fn (self: KPlotWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KPlotWidget, callback: *const fn (KPlotWidget, i32, i32) callconv(.c) f64) void {
-        qtc.KPlotWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

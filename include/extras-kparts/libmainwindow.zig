@@ -196,9 +196,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KParts__MainWindow, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) QMetaObject) void {
         qtc.KParts__MainWindow_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -369,9 +369,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) void `
     ///
-    pub fn onConfigureToolbars(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onConfigureToolbars(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) void) void {
         qtc.KParts__MainWindow_OnConfigureToolbars(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -408,43 +408,6 @@ pub const KParts__MainWindow = extern struct {
         qtc.KParts__MainWindow_CreateGUI(@ptrCast(self.ptr), @ptrCast(part.ptr));
     }
 
-    /// ### DEPRECATED: Use `onCreateGUI` instead
-    ///
-    pub const OnCreateGUI = onCreateGUI;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createGUI)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` callback: *const fn (self: KParts__MainWindow, part: KParts__Part) callconv(.c) void `
-    ///
-    pub fn onCreateGUI(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KParts__Part) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCreateGUI(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreateGUI` instead
-    ///
-    pub const SuperCreateGUI = superCreateGUI;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createGUI)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` part: KParts__Part `
-    ///
-    pub fn superCreateGUI(self: KParts__MainWindow, part: anytype) void {
-        comptime _ = @TypeOf(part)._is_KParts__Part;
-        qtc.KParts__MainWindow_SuperCreateGUI(@ptrCast(self.ptr), @ptrCast(part.ptr));
-    }
-
     /// ### DEPRECATED: Use `setWindowTitleHandling` instead
     ///
     pub const SetWindowTitleHandling = setWindowTitleHandling;
@@ -459,42 +422,6 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn setWindowTitleHandling(self: KParts__MainWindow, enabled: bool) void {
         qtc.KParts__MainWindow_SetWindowTitleHandling(@ptrCast(self.ptr), enabled);
-    }
-
-    /// ### DEPRECATED: Use `onSetWindowTitleHandling` instead
-    ///
-    pub const OnSetWindowTitleHandling = onSetWindowTitleHandling;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` callback: *const fn (self: KParts__MainWindow, enabled: bool) callconv(.c) void `
-    ///
-    pub fn onSetWindowTitleHandling(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, bool) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetWindowTitleHandling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetWindowTitleHandling` instead
-    ///
-    pub const SuperSetWindowTitleHandling = superSetWindowTitleHandling;
-
-    /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` enabled: bool `
-    ///
-    pub fn superSetWindowTitleHandling(self: KParts__MainWindow, enabled: bool) void {
-        qtc.KParts__MainWindow_SuperSetWindowTitleHandling(@ptrCast(self.ptr), enabled);
     }
 
     /// ### DEPRECATED: Use `slotSetStatusBarText` instead
@@ -583,9 +510,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) void `
     ///
-    pub fn onSaveNewToolbarConfig(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+    pub fn onSaveNewToolbarConfig(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) void) void {
         qtc.KParts__MainWindow_OnSaveNewToolbarConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9748,9 +9675,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) KXMLGUIFactory `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) KXMLGUIFactory `
     ///
-    pub fn onGuiFactory(self: KParts__MainWindow, callback: *const fn () callconv(.c) KXMLGUIFactory) void {
+    pub fn onGuiFactory(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) KXMLGUIFactory) void {
         qtc.KParts__MainWindow_OnGuiFactory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10256,9 +10183,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) bool `
     ///
-    pub fn onQueryClose(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onQueryClose(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) bool) void {
         qtc.KParts__MainWindow_OnQueryClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10560,9 +10487,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QMenu `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) QMenu `
     ///
-    pub fn onCreatePopupMenu(self: KParts__MainWindow, callback: *const fn () callconv(.c) QMenu) void {
+    pub fn onCreatePopupMenu(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) QMenu) void {
         qtc.KParts__MainWindow_OnCreatePopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10678,9 +10605,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KParts__MainWindow, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) i32) void {
         qtc.KParts__MainWindow_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10794,11 +10721,11 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KParts__MainWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) QSize) void {
         qtc.KParts__MainWindow_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10852,11 +10779,11 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KParts__MainWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) QSize) void {
         qtc.KParts__MainWindow_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10970,9 +10897,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) bool) void {
         qtc.KParts__MainWindow_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11026,9 +10953,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KParts__MainWindow, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) QPaintEngine) void {
         qtc.KParts__MainWindow_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12706,9 +12633,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KParts__MainWindow, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) QPainter) void {
         qtc.KParts__MainWindow_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13358,9 +13285,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onContainerTags(self: KParts__MainWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onContainerTags(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KParts__MainWindow_OnContainerTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13606,9 +13533,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onCustomTags(self: KParts__MainWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onCustomTags(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KParts__MainWindow_OnCustomTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13860,9 +13787,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) KActionCollection `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) KActionCollection `
     ///
-    pub fn onActionCollection(self: KParts__MainWindow, callback: *const fn () callconv(.c) KActionCollection) void {
+    pub fn onActionCollection(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) KActionCollection) void {
         qtc.KParts__MainWindow_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13928,9 +13855,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onComponentName(self: KParts__MainWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onComponentName(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) [*:0]const u8) void {
         qtc.KParts__MainWindow_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13984,11 +13911,11 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QDomDocument `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) QDomDocument `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onDomDocument(self: KParts__MainWindow, callback: *const fn () callconv(.c) QDomDocument) void {
+    pub fn onDomDocument(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) QDomDocument) void {
         qtc.KParts__MainWindow_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14054,9 +13981,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onXmlFile(self: KParts__MainWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onXmlFile(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) [*:0]const u8) void {
         qtc.KParts__MainWindow_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14122,9 +14049,9 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onLocalXMLFile(self: KParts__MainWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onLocalXMLFile(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) [*:0]const u8) void {
         qtc.KParts__MainWindow_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14580,44 +14507,6 @@ pub const KParts__MainWindow = extern struct {
         qtc.KParts__MainWindow_CheckAmbiguousShortcuts(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCheckAmbiguousShortcuts` instead
-    ///
-    pub const SuperCheckAmbiguousShortcuts = superCheckAmbiguousShortcuts;
-
-    /// Inherited from KXmlGuiWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superCheckAmbiguousShortcuts(self: KParts__MainWindow) void {
-        qtc.KParts__MainWindow_SuperCheckAmbiguousShortcuts(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCheckAmbiguousShortcuts` instead
-    ///
-    pub const OnCheckAmbiguousShortcuts = onCheckAmbiguousShortcuts;
-
-    /// Inherited from KXmlGuiWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCheckAmbiguousShortcuts(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCheckAmbiguousShortcuts(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `savePropertiesInternal` instead
     ///
     pub const SavePropertiesInternal = savePropertiesInternal;
@@ -14639,49 +14528,6 @@ pub const KParts__MainWindow = extern struct {
     pub fn savePropertiesInternal(self: KParts__MainWindow, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_KConfig;
         qtc.KParts__MainWindow_SavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
-    }
-
-    /// ### DEPRECATED: Use `superSavePropertiesInternal` instead
-    ///
-    pub const SuperSavePropertiesInternal = superSavePropertiesInternal;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` param1: KConfig `
-    ///
-    /// ` param2: i32 `
-    ///
-    pub fn superSavePropertiesInternal(self: KParts__MainWindow, param1: anytype, param2: i32) void {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        qtc.KParts__MainWindow_SuperSavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
-    }
-
-    /// ### DEPRECATED: Use `onSavePropertiesInternal` instead
-    ///
-    pub const OnSavePropertiesInternal = onSavePropertiesInternal;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn (self: KParts__MainWindow, param1: KConfig, param2: i32) callconv(.c) void `
-    ///
-    pub fn onSavePropertiesInternal(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfig, i32) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSavePropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `readPropertiesInternal` instead
@@ -14707,49 +14553,6 @@ pub const KParts__MainWindow = extern struct {
         return qtc.KParts__MainWindow_ReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `superReadPropertiesInternal` instead
-    ///
-    pub const SuperReadPropertiesInternal = superReadPropertiesInternal;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` param1: KConfig `
-    ///
-    /// ` param2: i32 `
-    ///
-    pub fn superReadPropertiesInternal(self: KParts__MainWindow, param1: anytype, param2: i32) bool {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        return qtc.KParts__MainWindow_SuperReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
-    }
-
-    /// ### DEPRECATED: Use `onReadPropertiesInternal` instead
-    ///
-    pub const OnReadPropertiesInternal = onReadPropertiesInternal;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn (self: KParts__MainWindow, param1: KConfig, param2: i32) callconv(.c) bool `
-    ///
-    pub fn onReadPropertiesInternal(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfig, i32) callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnReadPropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `settingsDirty` instead
     ///
     pub const SettingsDirty = settingsDirty;
@@ -14766,44 +14569,6 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn settingsDirty(self: KParts__MainWindow) bool {
         return qtc.KParts__MainWindow_SettingsDirty(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSettingsDirty` instead
-    ///
-    pub const SuperSettingsDirty = superSettingsDirty;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superSettingsDirty(self: KParts__MainWindow) bool {
-        return qtc.KParts__MainWindow_SuperSettingsDirty(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSettingsDirty` instead
-    ///
-    pub const OnSettingsDirty = onSettingsDirty;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSettingsDirty(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnSettingsDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `saveAutoSaveSettings` instead
@@ -14824,44 +14589,6 @@ pub const KParts__MainWindow = extern struct {
         qtc.KParts__MainWindow_SaveAutoSaveSettings(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSaveAutoSaveSettings` instead
-    ///
-    pub const SuperSaveAutoSaveSettings = superSaveAutoSaveSettings;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superSaveAutoSaveSettings(self: KParts__MainWindow) void {
-        qtc.KParts__MainWindow_SuperSaveAutoSaveSettings(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSaveAutoSaveSettings` instead
-    ///
-    pub const OnSaveAutoSaveSettings = onSaveAutoSaveSettings;
-
-    /// Inherited from KMainWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSaveAutoSaveSettings(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSaveAutoSaveSettings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -14878,44 +14605,6 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn updateMicroFocus(self: KParts__MainWindow) void {
         qtc.KParts__MainWindow_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superUpdateMicroFocus(self: KParts__MainWindow) void {
-        qtc.KParts__MainWindow_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -14936,44 +14625,6 @@ pub const KParts__MainWindow = extern struct {
         qtc.KParts__MainWindow_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superCreate(self: KParts__MainWindow) void {
-        qtc.KParts__MainWindow_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -14990,44 +14641,6 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn destroy(self: KParts__MainWindow) void {
         qtc.KParts__MainWindow_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superDestroy(self: KParts__MainWindow) void {
-        qtc.KParts__MainWindow_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -15048,44 +14661,6 @@ pub const KParts__MainWindow = extern struct {
         return qtc.KParts__MainWindow_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superFocusNextChild(self: KParts__MainWindow) bool {
-        return qtc.KParts__MainWindow_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -15102,44 +14677,6 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn focusPreviousChild(self: KParts__MainWindow) bool {
         return qtc.KParts__MainWindow_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superFocusPreviousChild(self: KParts__MainWindow) bool {
-        return qtc.KParts__MainWindow_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -15160,44 +14697,6 @@ pub const KParts__MainWindow = extern struct {
         return .{ .ptr = qtc.KParts__MainWindow_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superSender(self: KParts__MainWindow) QObject {
-        return .{ .ptr = qtc.KParts__MainWindow_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KParts__MainWindow, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KParts__MainWindow_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -15214,44 +14713,6 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn senderSignalIndex(self: KParts__MainWindow) i32 {
         return qtc.KParts__MainWindow_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superSenderSignalIndex(self: KParts__MainWindow) i32 {
-        return qtc.KParts__MainWindow_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KParts__MainWindow, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__MainWindow_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -15275,47 +14736,6 @@ pub const KParts__MainWindow = extern struct {
         return qtc.KParts__MainWindow_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KParts__MainWindow, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KParts__MainWindow_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn (self: KParts__MainWindow, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KParts__MainWindow_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -15335,47 +14755,6 @@ pub const KParts__MainWindow = extern struct {
     pub fn isSignalConnected(self: KParts__MainWindow, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__MainWindow_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KParts__MainWindow, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KParts__MainWindow_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn (self: KParts__MainWindow, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMetaMethod) callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -15398,48 +14777,6 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn getDecodedMetricF(self: KParts__MainWindow, metricA: i32, metricB: i32) f64 {
         return qtc.KParts__MainWindow_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KParts__MainWindow, metricA: i32, metricB: i32) f64 {
-        return qtc.KParts__MainWindow_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn (self: KParts__MainWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, i32, i32) callconv(.c) f64) void {
-        qtc.KParts__MainWindow_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `standardsXmlFileLocation` instead
@@ -15466,50 +14803,6 @@ pub const KParts__MainWindow = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superStandardsXmlFileLocation` instead
-    ///
-    pub const SuperStandardsXmlFileLocation = superStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superStandardsXmlFileLocation(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__MainWindow.standardsXmlFileLocation: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onStandardsXmlFileLocation` instead
-    ///
-    pub const OnStandardsXmlFileLocation = onStandardsXmlFileLocation;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#standardsXmlFileLocation)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onStandardsXmlFileLocation(self: KParts__MainWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__MainWindow_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `loadStandardsXmlFile` instead
     ///
     pub const LoadStandardsXmlFile = loadStandardsXmlFile;
@@ -15526,44 +14819,6 @@ pub const KParts__MainWindow = extern struct {
     ///
     pub fn loadStandardsXmlFile(self: KParts__MainWindow) void {
         qtc.KParts__MainWindow_LoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superLoadStandardsXmlFile` instead
-    ///
-    pub const SuperLoadStandardsXmlFile = superLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__MainWindow `
-    ///
-    pub fn superLoadStandardsXmlFile(self: KParts__MainWindow) void {
-        qtc.KParts__MainWindow_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLoadStandardsXmlFile` instead
-    ///
-    pub const OnLoadStandardsXmlFile = onLoadStandardsXmlFile;
-
-    /// Inherited from KXMLGUIClient
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiclient.html#loadStandardsXmlFile)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KParts__MainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onLoadStandardsXmlFile(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

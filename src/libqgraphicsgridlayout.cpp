@@ -207,306 +207,156 @@ void QGraphicsGridLayout_AddItem4(QGraphicsGridLayout* self, QGraphicsLayoutItem
 
 // Base class handler implementation
 int QGraphicsGridLayout_SuperCount(const QGraphicsGridLayout* self) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_Count_IsBase(true);
-        return vqgraphicsgridlayout->count();
-    } else {
-        return self->QGraphicsGridLayout::count();
-    }
+    return self->QGraphicsGridLayout::count();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnCount(const QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_Count_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_Count_Callback>(slot));
+void QGraphicsGridLayout_OnCount(QGraphicsGridLayout* self, intptr_t slot) {
+    if (auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self)))
+        vqgraphicsgridlayout->qgraphicsgridlayout_count_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_Count_Callback>(slot);
 }
 
 // Base class handler implementation
 QGraphicsLayoutItem* QGraphicsGridLayout_SuperItemAt2(const QGraphicsGridLayout* self, int index) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_ItemAt2_IsBase(true);
-        return vqgraphicsgridlayout->itemAt(static_cast<int>(index));
-    } else {
-        return self->QGraphicsGridLayout::itemAt(static_cast<int>(index));
-    }
+    return self->QGraphicsGridLayout::itemAt(static_cast<int>(index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnItemAt2(const QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_ItemAt2_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_ItemAt2_Callback>(slot));
+void QGraphicsGridLayout_OnItemAt2(QGraphicsGridLayout* self, intptr_t slot) {
+    if (auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self)))
+        vqgraphicsgridlayout->qgraphicsgridlayout_itemat2_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_ItemAt2_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsGridLayout_SuperRemoveAt(QGraphicsGridLayout* self, int index) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_RemoveAt_IsBase(true);
-        vqgraphicsgridlayout->removeAt(static_cast<int>(index));
-    } else {
-        self->QGraphicsGridLayout::removeAt(static_cast<int>(index));
-    }
+    self->QGraphicsGridLayout::removeAt(static_cast<int>(index));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsGridLayout_OnRemoveAt(QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_RemoveAt_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_RemoveAt_Callback>(slot));
+    if (auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self))
+        vqgraphicsgridlayout->qgraphicsgridlayout_removeat_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_RemoveAt_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsGridLayout_SuperInvalidate(QGraphicsGridLayout* self) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_Invalidate_IsBase(true);
-        vqgraphicsgridlayout->invalidate();
-    } else {
-        self->QGraphicsGridLayout::invalidate();
-    }
+    self->QGraphicsGridLayout::invalidate();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsGridLayout_OnInvalidate(QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_Invalidate_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_Invalidate_Callback>(slot));
+    if (auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self))
+        vqgraphicsgridlayout->qgraphicsgridlayout_invalidate_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_Invalidate_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsGridLayout_SuperSetGeometry(QGraphicsGridLayout* self, const QRectF* rect) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_SetGeometry_IsBase(true);
-        vqgraphicsgridlayout->setGeometry(*rect);
-    } else {
-        self->QGraphicsGridLayout::setGeometry(*rect);
-    }
+    self->QGraphicsGridLayout::setGeometry(*rect);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsGridLayout_OnSetGeometry(QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_SetGeometry_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_SetGeometry_Callback>(slot));
+    if (auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self))
+        vqgraphicsgridlayout->qgraphicsgridlayout_setgeometry_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_SetGeometry_Callback>(slot);
 }
 
 // Base class handler implementation
 QSizeF* QGraphicsGridLayout_SuperSizeHint(const QGraphicsGridLayout* self, int which, const QSizeF* constraint) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_SizeHint_IsBase(true);
-        return new QSizeF(vqgraphicsgridlayout->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    } else {
-        return new QSizeF(((VirtualQGraphicsGridLayout*)self)->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    }
+    return new QSizeF(self->QGraphicsGridLayout::sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnSizeHint(const QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_SizeHint_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_SizeHint_Callback>(slot));
+void QGraphicsGridLayout_OnSizeHint(QGraphicsGridLayout* self, intptr_t slot) {
+    if (auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self)))
+        vqgraphicsgridlayout->qgraphicsgridlayout_sizehint_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsGridLayout_GetContentsMargins(const QGraphicsGridLayout* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        self->QGraphicsGridLayout::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
+    self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
 }
 
 // Base class handler implementation
 void QGraphicsGridLayout_SuperGetContentsMargins(const QGraphicsGridLayout* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_GetContentsMargins_IsBase(true);
-        vqgraphicsgridlayout->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        self->QGraphicsGridLayout::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
+    self->QGraphicsGridLayout::getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnGetContentsMargins(const QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_GetContentsMargins_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_GetContentsMargins_Callback>(slot));
+void QGraphicsGridLayout_OnGetContentsMargins(QGraphicsGridLayout* self, intptr_t slot) {
+    if (auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self)))
+        vqgraphicsgridlayout->qgraphicsgridlayout_getcontentsmargins_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_GetContentsMargins_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsGridLayout_UpdateGeometry(QGraphicsGridLayout* self) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->updateGeometry();
-    } else {
-        self->QGraphicsGridLayout::updateGeometry();
-    }
+    self->updateGeometry();
 }
 
 // Base class handler implementation
 void QGraphicsGridLayout_SuperUpdateGeometry(QGraphicsGridLayout* self) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_UpdateGeometry_IsBase(true);
-        vqgraphicsgridlayout->updateGeometry();
-    } else {
-        self->QGraphicsGridLayout::updateGeometry();
-    }
+    self->QGraphicsGridLayout::updateGeometry();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsGridLayout_OnUpdateGeometry(QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_UpdateGeometry_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_UpdateGeometry_Callback>(slot));
+    if (auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self))
+        vqgraphicsgridlayout->qgraphicsgridlayout_updategeometry_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_UpdateGeometry_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsGridLayout_WidgetEvent(QGraphicsGridLayout* self, QEvent* e) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->widgetEvent(e);
-    } else {
-        self->QGraphicsGridLayout::widgetEvent(e);
-    }
+    self->widgetEvent(e);
 }
 
 // Base class handler implementation
 void QGraphicsGridLayout_SuperWidgetEvent(QGraphicsGridLayout* self, QEvent* e) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_WidgetEvent_IsBase(true);
-        vqgraphicsgridlayout->widgetEvent(e);
-    } else {
-        self->QGraphicsGridLayout::widgetEvent(e);
-    }
+    self->QGraphicsGridLayout::widgetEvent(e);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsGridLayout_OnWidgetEvent(QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_WidgetEvent_Callback>(slot));
+    if (auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self))
+        vqgraphicsgridlayout->qgraphicsgridlayout_widgetevent_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_WidgetEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsGridLayout_IsEmpty(const QGraphicsGridLayout* self) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        return vqgraphicsgridlayout->isEmpty();
-    } else {
-        return self->QGraphicsGridLayout::isEmpty();
-    }
+    return self->isEmpty();
 }
 
 // Base class handler implementation
 bool QGraphicsGridLayout_SuperIsEmpty(const QGraphicsGridLayout* self) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_IsEmpty_IsBase(true);
-        return vqgraphicsgridlayout->isEmpty();
-    } else {
-        return self->QGraphicsGridLayout::isEmpty();
-    }
+    return self->QGraphicsGridLayout::isEmpty();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnIsEmpty(const QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_IsEmpty_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_IsEmpty_Callback>(slot));
+void QGraphicsGridLayout_OnIsEmpty(QGraphicsGridLayout* self, intptr_t slot) {
+    if (auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self)))
+        vqgraphicsgridlayout->qgraphicsgridlayout_isempty_callback = reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_IsEmpty_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsGridLayout_AddChildLayoutItem(QGraphicsGridLayout* self, QGraphicsLayoutItem* layoutItem) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->addChildLayoutItem(layoutItem);
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->addChildLayoutItem(layoutItem);
-    }
+    if (auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self)) {
+        vqgraphicsgridlayout->VirtualQGraphicsGridLayout::addChildLayoutItem(layoutItem);
+    } else
+        qFatal("Error: Protected method QGraphicsGridLayout::addChildLayoutItem called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsGridLayout_SuperAddChildLayoutItem(QGraphicsGridLayout* self, QGraphicsLayoutItem* layoutItem) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_AddChildLayoutItem_IsBase(true);
-        vqgraphicsgridlayout->addChildLayoutItem(layoutItem);
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->addChildLayoutItem(layoutItem);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnAddChildLayoutItem(QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_AddChildLayoutItem_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_AddChildLayoutItem_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsGridLayout_SetGraphicsItem(QGraphicsGridLayout* self, QGraphicsItem* item) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setGraphicsItem(item);
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->setGraphicsItem(item);
-    }
+    if (auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self)) {
+        vqgraphicsgridlayout->VirtualQGraphicsGridLayout::setGraphicsItem(item);
+    } else
+        qFatal("Error: Protected method QGraphicsGridLayout::setGraphicsItem called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsGridLayout_SuperSetGraphicsItem(QGraphicsGridLayout* self, QGraphicsItem* item) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_SetGraphicsItem_IsBase(true);
-        vqgraphicsgridlayout->setGraphicsItem(item);
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->setGraphicsItem(item);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnSetGraphicsItem(QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_SetGraphicsItem_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_SetGraphicsItem_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsGridLayout_SetOwnedByLayout(QGraphicsGridLayout* self, bool ownedByLayout) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setOwnedByLayout(ownedByLayout);
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->setOwnedByLayout(ownedByLayout);
-    }
-}
-
-// Base class handler implementation
-void QGraphicsGridLayout_SuperSetOwnedByLayout(QGraphicsGridLayout* self, bool ownedByLayout) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_SetOwnedByLayout_IsBase(true);
-        vqgraphicsgridlayout->setOwnedByLayout(ownedByLayout);
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->setOwnedByLayout(ownedByLayout);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnSetOwnedByLayout(QGraphicsGridLayout* self, intptr_t slot) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout)
-        vqgraphicsgridlayout->setQGraphicsGridLayout_SetOwnedByLayout_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_SetOwnedByLayout_Callback>(slot));
+    if (auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self)) {
+        vqgraphicsgridlayout->VirtualQGraphicsGridLayout::setOwnedByLayout(ownedByLayout);
+    } else
+        qFatal("Error: Protected method QGraphicsGridLayout::setOwnedByLayout called without a directly constructed type");
 }
 
 void QGraphicsGridLayout_Delete(QGraphicsGridLayout* self) {

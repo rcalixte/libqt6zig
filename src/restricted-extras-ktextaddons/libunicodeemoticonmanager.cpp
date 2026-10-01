@@ -124,364 +124,219 @@ libqt_string TextEmoticonsCore__UnicodeEmoticonManager_Tr3(const char* s, const 
 
 // Base class handler implementation
 QMetaObject* TextEmoticonsCore__UnicodeEmoticonManager_SuperMetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextemoticonscoreunicodeemoticonmanager->metaObject();
-    } else {
-        return (QMetaObject*)self->TextEmoticonsCore::UnicodeEmoticonManager::metaObject();
-    }
+    return (QMetaObject*)self->TextEmoticonsCore::UnicodeEmoticonManager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextEmoticonsCore__UnicodeEmoticonManager_OnMetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_MetaObject_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_MetaObject_Callback>(slot));
+void TextEmoticonsCore__UnicodeEmoticonManager_OnMetaObject(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self)))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_metaobject_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextEmoticonsCore__UnicodeEmoticonManager_SuperMetacast(TextEmoticonsCore__UnicodeEmoticonManager* self, const char* param1) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Metacast_IsBase(true);
-        return vtextemoticonscoreunicodeemoticonmanager->qt_metacast(param1);
-    } else {
-        return self->TextEmoticonsCore::UnicodeEmoticonManager::qt_metacast(param1);
-    }
+    return self->TextEmoticonsCore::UnicodeEmoticonManager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnMetacast(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Metacast_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_Metacast_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_metacast_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextEmoticonsCore__UnicodeEmoticonManager_SuperMetacall(TextEmoticonsCore__UnicodeEmoticonManager* self, int param1, int param2, void** param3) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Metacall_IsBase(true);
-        return vtextemoticonscoreunicodeemoticonmanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextEmoticonsCore::UnicodeEmoticonManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextEmoticonsCore::UnicodeEmoticonManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnMetacall(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Metacall_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_Metacall_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_metacall_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextEmoticonsCore__UnicodeEmoticonManager_Event(TextEmoticonsCore__UnicodeEmoticonManager* self, QEvent* event) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return vtextemoticonscoreunicodeemoticonmanager->event(event);
-    } else {
-        return self->TextEmoticonsCore::UnicodeEmoticonManager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextEmoticonsCore__UnicodeEmoticonManager_SuperEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QEvent* event) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Event_IsBase(true);
-        return vtextemoticonscoreunicodeemoticonmanager->event(event);
-    } else {
-        return self->TextEmoticonsCore::UnicodeEmoticonManager::event(event);
-    }
+    return self->TextEmoticonsCore::UnicodeEmoticonManager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Event_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_Event_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_event_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextEmoticonsCore__UnicodeEmoticonManager_EventFilter(TextEmoticonsCore__UnicodeEmoticonManager* self, QObject* watched, QEvent* event) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return vtextemoticonscoreunicodeemoticonmanager->eventFilter(watched, event);
-    } else {
-        return self->TextEmoticonsCore::UnicodeEmoticonManager::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextEmoticonsCore__UnicodeEmoticonManager_SuperEventFilter(TextEmoticonsCore__UnicodeEmoticonManager* self, QObject* watched, QEvent* event) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_EventFilter_IsBase(true);
-        return vtextemoticonscoreunicodeemoticonmanager->eventFilter(watched, event);
-    } else {
-        return self->TextEmoticonsCore::UnicodeEmoticonManager::eventFilter(watched, event);
-    }
+    return self->TextEmoticonsCore::UnicodeEmoticonManager::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnEventFilter(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_EventFilter_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_EventFilter_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_eventfilter_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_TimerEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QTimerEvent* event) {
     auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
+    if (vtextemoticonscoreunicodeemoticonmanager) {
         vtextemoticonscoreunicodeemoticonmanager->timerEvent(event);
     } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_SuperTimerEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QTimerEvent* event) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_TimerEvent_IsBase(true);
-        vtextemoticonscoreunicodeemoticonmanager->timerEvent(event);
-    } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->timerEvent(event);
-    }
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self)) {
+        vtextemoticonscoreunicodeemoticonmanager->TextEmoticonsCore::UnicodeEmoticonManager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnTimerEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_TimerEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_TimerEvent_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_timerevent_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_ChildEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QChildEvent* event) {
     auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
+    if (vtextemoticonscoreunicodeemoticonmanager) {
         vtextemoticonscoreunicodeemoticonmanager->childEvent(event);
     } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_SuperChildEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QChildEvent* event) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_ChildEvent_IsBase(true);
-        vtextemoticonscoreunicodeemoticonmanager->childEvent(event);
-    } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->childEvent(event);
-    }
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self)) {
+        vtextemoticonscoreunicodeemoticonmanager->TextEmoticonsCore::UnicodeEmoticonManager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnChildEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_ChildEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_ChildEvent_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_childevent_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_CustomEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QEvent* event) {
     auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
+    if (vtextemoticonscoreunicodeemoticonmanager) {
         vtextemoticonscoreunicodeemoticonmanager->customEvent(event);
     } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_SuperCustomEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QEvent* event) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_CustomEvent_IsBase(true);
-        vtextemoticonscoreunicodeemoticonmanager->customEvent(event);
-    } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->customEvent(event);
-    }
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self)) {
+        vtextemoticonscoreunicodeemoticonmanager->TextEmoticonsCore::UnicodeEmoticonManager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnCustomEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_CustomEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_CustomEvent_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_customevent_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_ConnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal) {
     auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
+    if (vtextemoticonscoreunicodeemoticonmanager) {
         vtextemoticonscoreunicodeemoticonmanager->connectNotify(*signal);
     } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_SuperConnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_ConnectNotify_IsBase(true);
-        vtextemoticonscoreunicodeemoticonmanager->connectNotify(*signal);
-    } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self)) {
+        vtextemoticonscoreunicodeemoticonmanager->TextEmoticonsCore::UnicodeEmoticonManager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnConnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_ConnectNotify_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_ConnectNotify_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_connectnotify_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_DisconnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal) {
     auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
+    if (vtextemoticonscoreunicodeemoticonmanager) {
         vtextemoticonscoreunicodeemoticonmanager->disconnectNotify(*signal);
     } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_SuperDisconnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_DisconnectNotify_IsBase(true);
-        vtextemoticonscoreunicodeemoticonmanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self)) {
+        vtextemoticonscoreunicodeemoticonmanager->TextEmoticonsCore::UnicodeEmoticonManager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextEmoticonsCore::UnicodeEmoticonManager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__UnicodeEmoticonManager_OnDisconnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_DisconnectNotify_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_DisconnectNotify_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))
+        vtextemoticonscoreunicodeemoticonmanager->textemoticonscore__unicodeemoticonmanager_disconnectnotify_callback = reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextEmoticonsCore__UnicodeEmoticonManager_Sender(const TextEmoticonsCore__UnicodeEmoticonManager* self) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return vtextemoticonscoreunicodeemoticonmanager->sender();
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->sender();
-    }
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))) {
+        return vtextemoticonscoreunicodeemoticonmanager->VirtualTextEmoticonsCoreUnicodeEmoticonManager::sender();
+    } else
+        qFatal("Error: Protected method TextEmoticonsCore::UnicodeEmoticonManager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextEmoticonsCore__UnicodeEmoticonManager_SuperSender(const TextEmoticonsCore__UnicodeEmoticonManager* self) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Sender_IsBase(true);
-        return vtextemoticonscoreunicodeemoticonmanager->sender();
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextEmoticonsCore__UnicodeEmoticonManager_OnSender(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Sender_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextEmoticonsCore__UnicodeEmoticonManager_SenderSignalIndex(const TextEmoticonsCore__UnicodeEmoticonManager* self) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return vtextemoticonscoreunicodeemoticonmanager->senderSignalIndex();
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->senderSignalIndex();
-    }
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))) {
+        return vtextemoticonscoreunicodeemoticonmanager->VirtualTextEmoticonsCoreUnicodeEmoticonManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextEmoticonsCore::UnicodeEmoticonManager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextEmoticonsCore__UnicodeEmoticonManager_SuperSenderSignalIndex(const TextEmoticonsCore__UnicodeEmoticonManager* self) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_SenderSignalIndex_IsBase(true);
-        return vtextemoticonscoreunicodeemoticonmanager->senderSignalIndex();
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextEmoticonsCore__UnicodeEmoticonManager_OnSenderSignalIndex(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextEmoticonsCore__UnicodeEmoticonManager_Receivers(const TextEmoticonsCore__UnicodeEmoticonManager* self, const char* signal) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return vtextemoticonscoreunicodeemoticonmanager->receivers(signal);
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->receivers(signal);
-    }
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))) {
+        return vtextemoticonscoreunicodeemoticonmanager->VirtualTextEmoticonsCoreUnicodeEmoticonManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextEmoticonsCore::UnicodeEmoticonManager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextEmoticonsCore__UnicodeEmoticonManager_SuperReceivers(const TextEmoticonsCore__UnicodeEmoticonManager* self, const char* signal) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Receivers_IsBase(true);
-        return vtextemoticonscoreunicodeemoticonmanager->receivers(signal);
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextEmoticonsCore__UnicodeEmoticonManager_OnReceivers(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_Receivers_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextEmoticonsCore__UnicodeEmoticonManager_IsSignalConnected(const TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return vtextemoticonscoreunicodeemoticonmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextEmoticonsCore__UnicodeEmoticonManager_SuperIsSignalConnected(const TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_IsSignalConnected_IsBase(true);
-        return vtextemoticonscoreunicodeemoticonmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextEmoticonsCore__UnicodeEmoticonManager_OnIsSignalConnected(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot) {
-    auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self));
-    if (vtextemoticonscoreunicodeemoticonmanager && vtextemoticonscoreunicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager)
-        vtextemoticonscoreunicodeemoticonmanager->setTextEmoticonsCore__UnicodeEmoticonManager_IsSignalConnected_Callback(reinterpret_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager::TextEmoticonsCore__UnicodeEmoticonManager_IsSignalConnected_Callback>(slot));
+    if (auto* vtextemoticonscoreunicodeemoticonmanager = const_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self))) {
+        return vtextemoticonscoreunicodeemoticonmanager->VirtualTextEmoticonsCoreUnicodeEmoticonManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextEmoticonsCore::UnicodeEmoticonManager::isSignalConnected called without a directly constructed type");
 }
 
 void TextEmoticonsCore__UnicodeEmoticonManager_Delete(TextEmoticonsCore__UnicodeEmoticonManager* self) {

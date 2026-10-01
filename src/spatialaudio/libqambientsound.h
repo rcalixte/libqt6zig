@@ -53,7 +53,7 @@ void QAmbientSound_Pause(QAmbientSound* self);
 void QAmbientSound_Stop(QAmbientSound* self);
 libqt_string QAmbientSound_Tr2(const char* s, const char* c);
 libqt_string QAmbientSound_Tr3(const char* s, const char* c, int n);
-void QAmbientSound_OnMetaObject(const QAmbientSound* self, intptr_t slot);
+void QAmbientSound_OnMetaObject(QAmbientSound* self, intptr_t slot);
 QMetaObject* QAmbientSound_SuperMetaObject(const QAmbientSound* self);
 void QAmbientSound_OnMetacast(QAmbientSound* self, intptr_t slot);
 void* QAmbientSound_SuperMetacast(QAmbientSound* self, const char* param1);
@@ -81,17 +81,9 @@ void QAmbientSound_DisconnectNotify(QAmbientSound* self, const QMetaMethod* sign
 void QAmbientSound_OnDisconnectNotify(QAmbientSound* self, intptr_t slot);
 void QAmbientSound_SuperDisconnectNotify(QAmbientSound* self, const QMetaMethod* signal);
 QObject* QAmbientSound_Sender(const QAmbientSound* self);
-void QAmbientSound_OnSender(const QAmbientSound* self, intptr_t slot);
-QObject* QAmbientSound_SuperSender(const QAmbientSound* self);
 int QAmbientSound_SenderSignalIndex(const QAmbientSound* self);
-void QAmbientSound_OnSenderSignalIndex(const QAmbientSound* self, intptr_t slot);
-int QAmbientSound_SuperSenderSignalIndex(const QAmbientSound* self);
 int QAmbientSound_Receivers(const QAmbientSound* self, const char* signal);
-void QAmbientSound_OnReceivers(const QAmbientSound* self, intptr_t slot);
-int QAmbientSound_SuperReceivers(const QAmbientSound* self, const char* signal);
 bool QAmbientSound_IsSignalConnected(const QAmbientSound* self, const QMetaMethod* signal);
-void QAmbientSound_OnIsSignalConnected(const QAmbientSound* self, intptr_t slot);
-bool QAmbientSound_SuperIsSignalConnected(const QAmbientSound* self, const QMetaMethod* signal);
 void QAmbientSound_Delete(QAmbientSound* self);
 
 #ifdef __cplusplus

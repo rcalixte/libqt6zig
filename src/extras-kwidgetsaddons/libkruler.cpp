@@ -261,7 +261,7 @@ void KRuler_SlotEndOffset(KRuler* self, int param1) {
 
 void KRuler_PaintEvent(KRuler* self, QPaintEvent* param1) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->paintEvent(param1);
     }
 }
@@ -300,1728 +300,1203 @@ void KRuler_SlideDown1(KRuler* self, int count) {
 
 // Base class handler implementation
 QMetaObject* KRuler_SuperMetaObject(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_MetaObject_IsBase(true);
-        return (QMetaObject*)vkruler->metaObject();
-    } else {
-        return (QMetaObject*)self->KRuler::metaObject();
-    }
+    return (QMetaObject*)self->KRuler::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnMetaObject(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_MetaObject_Callback(reinterpret_cast<VirtualKRuler::KRuler_MetaObject_Callback>(slot));
+void KRuler_OnMetaObject(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_metaobject_callback = reinterpret_cast<VirtualKRuler::KRuler_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KRuler_SuperMetacast(KRuler* self, const char* param1) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Metacast_IsBase(true);
-        return vkruler->qt_metacast(param1);
-    } else {
-        return self->KRuler::qt_metacast(param1);
-    }
+    return self->KRuler::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMetacast(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Metacast_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metacast_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_metacast_callback = reinterpret_cast<VirtualKRuler::KRuler_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KRuler_SuperMetacall(KRuler* self, int param1, int param2, void** param3) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Metacall_IsBase(true);
-        return vkruler->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KRuler::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KRuler::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMetacall(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Metacall_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metacall_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_metacall_callback = reinterpret_cast<VirtualKRuler::KRuler_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KRuler_SuperPaintEvent(KRuler* self, QPaintEvent* param1) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_PaintEvent_IsBase(true);
-        vkruler->paintEvent(param1);
-    } else {
-        ((VirtualKRuler*)self)->paintEvent(param1);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRuler::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnPaintEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_PaintEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_PaintEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_paintevent_callback = reinterpret_cast<VirtualKRuler::KRuler_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRuler_Event(KRuler* self, QEvent* e) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         return vkruler->event(e);
     } else {
-        return ((VirtualKRuler*)self)->event(e);
+        qFatal("Error: Protected virtual method KRuler::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRuler_SuperEvent(KRuler* self, QEvent* e) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Event_IsBase(true);
-        return vkruler->event(e);
-    } else {
-        return ((VirtualKRuler*)self)->event(e);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        return vkruler->KRuler::event(e);
+    } else
+        qFatal("Error: Protected virtual method KRuler::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Event_Callback(reinterpret_cast<VirtualKRuler::KRuler_Event_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_event_callback = reinterpret_cast<VirtualKRuler::KRuler_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_SliderChange(KRuler* self, int change) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->sliderChange(static_cast<VirtualKRuler::SliderChange>(change));
     } else {
-        ((VirtualKRuler*)self)->sliderChange(static_cast<VirtualKRuler::SliderChange>(change));
+        qFatal("Error: Protected virtual method KRuler::sliderChange called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperSliderChange(KRuler* self, int change) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_SliderChange_IsBase(true);
-        vkruler->sliderChange(static_cast<VirtualKRuler::SliderChange>(change));
-    } else {
-        ((VirtualKRuler*)self)->sliderChange(static_cast<VirtualKRuler::SliderChange>(change));
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::sliderChange(static_cast<VirtualKRuler::SliderChange>(change));
+    } else
+        qFatal("Error: Protected virtual method KRuler::sliderChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSliderChange(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_SliderChange_Callback(reinterpret_cast<VirtualKRuler::KRuler_SliderChange_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_sliderchange_callback = reinterpret_cast<VirtualKRuler::KRuler_SliderChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_KeyPressEvent(KRuler* self, QKeyEvent* ev) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->keyPressEvent(ev);
     } else {
-        ((VirtualKRuler*)self)->keyPressEvent(ev);
+        qFatal("Error: Protected virtual method KRuler::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperKeyPressEvent(KRuler* self, QKeyEvent* ev) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_KeyPressEvent_IsBase(true);
-        vkruler->keyPressEvent(ev);
-    } else {
-        ((VirtualKRuler*)self)->keyPressEvent(ev);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::keyPressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KRuler::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnKeyPressEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_KeyPressEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_KeyPressEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_keypressevent_callback = reinterpret_cast<VirtualKRuler::KRuler_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_TimerEvent(KRuler* self, QTimerEvent* param1) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->timerEvent(param1);
     } else {
-        ((VirtualKRuler*)self)->timerEvent(param1);
+        qFatal("Error: Protected virtual method KRuler::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperTimerEvent(KRuler* self, QTimerEvent* param1) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_TimerEvent_IsBase(true);
-        vkruler->timerEvent(param1);
-    } else {
-        ((VirtualKRuler*)self)->timerEvent(param1);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRuler::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnTimerEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_TimerEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_TimerEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_timerevent_callback = reinterpret_cast<VirtualKRuler::KRuler_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_WheelEvent(KRuler* self, QWheelEvent* e) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->wheelEvent(e);
     } else {
-        ((VirtualKRuler*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method KRuler::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperWheelEvent(KRuler* self, QWheelEvent* e) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_WheelEvent_IsBase(true);
-        vkruler->wheelEvent(e);
-    } else {
-        ((VirtualKRuler*)self)->wheelEvent(e);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRuler::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnWheelEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_WheelEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_WheelEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_wheelevent_callback = reinterpret_cast<VirtualKRuler::KRuler_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_ChangeEvent(KRuler* self, QEvent* e) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->changeEvent(e);
     } else {
-        ((VirtualKRuler*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KRuler::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperChangeEvent(KRuler* self, QEvent* e) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_ChangeEvent_IsBase(true);
-        vkruler->changeEvent(e);
-    } else {
-        ((VirtualKRuler*)self)->changeEvent(e);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRuler::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnChangeEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_ChangeEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ChangeEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_changeevent_callback = reinterpret_cast<VirtualKRuler::KRuler_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRuler_DevType(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->devType();
-    } else {
-        return self->KRuler::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KRuler_SuperDevType(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_DevType_IsBase(true);
-        return vkruler->devType();
-    } else {
-        return self->KRuler::devType();
-    }
+    return self->KRuler::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnDevType(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_DevType_Callback(reinterpret_cast<VirtualKRuler::KRuler_DevType_Callback>(slot));
+void KRuler_OnDevType(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_devtype_callback = reinterpret_cast<VirtualKRuler::KRuler_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_SetVisible(KRuler* self, bool visible) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setVisible(visible);
-    } else {
-        self->KRuler::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KRuler_SuperSetVisible(KRuler* self, bool visible) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_SetVisible_IsBase(true);
-        vkruler->setVisible(visible);
-    } else {
-        self->KRuler::setVisible(visible);
-    }
+    self->KRuler::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnSetVisible(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_SetVisible_Callback(reinterpret_cast<VirtualKRuler::KRuler_SetVisible_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_setvisible_callback = reinterpret_cast<VirtualKRuler::KRuler_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRuler_SizeHint(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return new QSize(vkruler->sizeHint());
-    } else {
-        return new QSize(((VirtualKRuler*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KRuler_SuperSizeHint(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_SizeHint_IsBase(true);
-        return new QSize(vkruler->sizeHint());
-    } else {
-        return new QSize(((VirtualKRuler*)self)->sizeHint());
-    }
+    return new QSize(self->KRuler::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnSizeHint(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_SizeHint_Callback(reinterpret_cast<VirtualKRuler::KRuler_SizeHint_Callback>(slot));
+void KRuler_OnSizeHint(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_sizehint_callback = reinterpret_cast<VirtualKRuler::KRuler_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRuler_MinimumSizeHint(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return new QSize(vkruler->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKRuler*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KRuler_SuperMinimumSizeHint(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_MinimumSizeHint_IsBase(true);
-        return new QSize(vkruler->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKRuler*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KRuler::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnMinimumSizeHint(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_MinimumSizeHint_Callback(reinterpret_cast<VirtualKRuler::KRuler_MinimumSizeHint_Callback>(slot));
+void KRuler_OnMinimumSizeHint(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_minimumsizehint_callback = reinterpret_cast<VirtualKRuler::KRuler_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRuler_HeightForWidth(const KRuler* self, int param1) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KRuler::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KRuler_SuperHeightForWidth(const KRuler* self, int param1) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_HeightForWidth_IsBase(true);
-        return vkruler->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KRuler::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KRuler::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnHeightForWidth(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_HeightForWidth_Callback(reinterpret_cast<VirtualKRuler::KRuler_HeightForWidth_Callback>(slot));
+void KRuler_OnHeightForWidth(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_heightforwidth_callback = reinterpret_cast<VirtualKRuler::KRuler_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRuler_HasHeightForWidth(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->hasHeightForWidth();
-    } else {
-        return self->KRuler::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KRuler_SuperHasHeightForWidth(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_HasHeightForWidth_IsBase(true);
-        return vkruler->hasHeightForWidth();
-    } else {
-        return self->KRuler::hasHeightForWidth();
-    }
+    return self->KRuler::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnHasHeightForWidth(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_HasHeightForWidth_Callback(reinterpret_cast<VirtualKRuler::KRuler_HasHeightForWidth_Callback>(slot));
+void KRuler_OnHasHeightForWidth(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_hasheightforwidth_callback = reinterpret_cast<VirtualKRuler::KRuler_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KRuler_PaintEngine(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->paintEngine();
-    } else {
-        return self->KRuler::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KRuler_SuperPaintEngine(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_PaintEngine_IsBase(true);
-        return vkruler->paintEngine();
-    } else {
-        return self->KRuler::paintEngine();
-    }
+    return self->KRuler::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnPaintEngine(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_PaintEngine_Callback(reinterpret_cast<VirtualKRuler::KRuler_PaintEngine_Callback>(slot));
+void KRuler_OnPaintEngine(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_paintengine_callback = reinterpret_cast<VirtualKRuler::KRuler_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_MousePressEvent(KRuler* self, QMouseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->mousePressEvent(event);
     } else {
-        ((VirtualKRuler*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KRuler::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperMousePressEvent(KRuler* self, QMouseEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_MousePressEvent_IsBase(true);
-        vkruler->mousePressEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->mousePressEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMousePressEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_MousePressEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MousePressEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_mousepressevent_callback = reinterpret_cast<VirtualKRuler::KRuler_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_MouseReleaseEvent(KRuler* self, QMouseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->mouseReleaseEvent(event);
     } else {
-        ((VirtualKRuler*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KRuler::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperMouseReleaseEvent(KRuler* self, QMouseEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_MouseReleaseEvent_IsBase(true);
-        vkruler->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMouseReleaseEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_mousereleaseevent_callback = reinterpret_cast<VirtualKRuler::KRuler_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_MouseDoubleClickEvent(KRuler* self, QMouseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKRuler*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KRuler::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperMouseDoubleClickEvent(KRuler* self, QMouseEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_MouseDoubleClickEvent_IsBase(true);
-        vkruler->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMouseDoubleClickEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_mousedoubleclickevent_callback = reinterpret_cast<VirtualKRuler::KRuler_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_MouseMoveEvent(KRuler* self, QMouseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->mouseMoveEvent(event);
     } else {
-        ((VirtualKRuler*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KRuler::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperMouseMoveEvent(KRuler* self, QMouseEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_MouseMoveEvent_IsBase(true);
-        vkruler->mouseMoveEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMouseMoveEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MouseMoveEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_mousemoveevent_callback = reinterpret_cast<VirtualKRuler::KRuler_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_KeyReleaseEvent(KRuler* self, QKeyEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->keyReleaseEvent(event);
     } else {
-        ((VirtualKRuler*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KRuler::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperKeyReleaseEvent(KRuler* self, QKeyEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_KeyReleaseEvent_IsBase(true);
-        vkruler->keyReleaseEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnKeyReleaseEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_keyreleaseevent_callback = reinterpret_cast<VirtualKRuler::KRuler_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_FocusInEvent(KRuler* self, QFocusEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->focusInEvent(event);
     } else {
-        ((VirtualKRuler*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KRuler::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperFocusInEvent(KRuler* self, QFocusEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_FocusInEvent_IsBase(true);
-        vkruler->focusInEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->focusInEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnFocusInEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_FocusInEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusInEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_focusinevent_callback = reinterpret_cast<VirtualKRuler::KRuler_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_FocusOutEvent(KRuler* self, QFocusEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->focusOutEvent(event);
     } else {
-        ((VirtualKRuler*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KRuler::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperFocusOutEvent(KRuler* self, QFocusEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_FocusOutEvent_IsBase(true);
-        vkruler->focusOutEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->focusOutEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnFocusOutEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_FocusOutEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusOutEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_focusoutevent_callback = reinterpret_cast<VirtualKRuler::KRuler_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_EnterEvent(KRuler* self, QEnterEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->enterEvent(event);
     } else {
-        ((VirtualKRuler*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KRuler::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperEnterEvent(KRuler* self, QEnterEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_EnterEvent_IsBase(true);
-        vkruler->enterEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->enterEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnEnterEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_EnterEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_EnterEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_enterevent_callback = reinterpret_cast<VirtualKRuler::KRuler_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_LeaveEvent(KRuler* self, QEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->leaveEvent(event);
     } else {
-        ((VirtualKRuler*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KRuler::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperLeaveEvent(KRuler* self, QEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_LeaveEvent_IsBase(true);
-        vkruler->leaveEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->leaveEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnLeaveEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_LeaveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_LeaveEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_leaveevent_callback = reinterpret_cast<VirtualKRuler::KRuler_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_MoveEvent(KRuler* self, QMoveEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->moveEvent(event);
     } else {
-        ((VirtualKRuler*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KRuler::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperMoveEvent(KRuler* self, QMoveEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_MoveEvent_IsBase(true);
-        vkruler->moveEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->moveEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnMoveEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_MoveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_MoveEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_moveevent_callback = reinterpret_cast<VirtualKRuler::KRuler_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_ResizeEvent(KRuler* self, QResizeEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->resizeEvent(event);
     } else {
-        ((VirtualKRuler*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KRuler::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperResizeEvent(KRuler* self, QResizeEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_ResizeEvent_IsBase(true);
-        vkruler->resizeEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->resizeEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnResizeEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_ResizeEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ResizeEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_resizeevent_callback = reinterpret_cast<VirtualKRuler::KRuler_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_CloseEvent(KRuler* self, QCloseEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->closeEvent(event);
     } else {
-        ((VirtualKRuler*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KRuler::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperCloseEvent(KRuler* self, QCloseEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_CloseEvent_IsBase(true);
-        vkruler->closeEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->closeEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnCloseEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_CloseEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_CloseEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_closeevent_callback = reinterpret_cast<VirtualKRuler::KRuler_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_ContextMenuEvent(KRuler* self, QContextMenuEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->contextMenuEvent(event);
     } else {
-        ((VirtualKRuler*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KRuler::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperContextMenuEvent(KRuler* self, QContextMenuEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_ContextMenuEvent_IsBase(true);
-        vkruler->contextMenuEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnContextMenuEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_ContextMenuEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ContextMenuEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_contextmenuevent_callback = reinterpret_cast<VirtualKRuler::KRuler_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_TabletEvent(KRuler* self, QTabletEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->tabletEvent(event);
     } else {
-        ((VirtualKRuler*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KRuler::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperTabletEvent(KRuler* self, QTabletEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_TabletEvent_IsBase(true);
-        vkruler->tabletEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->tabletEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnTabletEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_TabletEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_TabletEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_tabletevent_callback = reinterpret_cast<VirtualKRuler::KRuler_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_ActionEvent(KRuler* self, QActionEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->actionEvent(event);
     } else {
-        ((VirtualKRuler*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KRuler::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperActionEvent(KRuler* self, QActionEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_ActionEvent_IsBase(true);
-        vkruler->actionEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->actionEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnActionEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_ActionEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ActionEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_actionevent_callback = reinterpret_cast<VirtualKRuler::KRuler_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_DragEnterEvent(KRuler* self, QDragEnterEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->dragEnterEvent(event);
     } else {
-        ((VirtualKRuler*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KRuler::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperDragEnterEvent(KRuler* self, QDragEnterEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_DragEnterEvent_IsBase(true);
-        vkruler->dragEnterEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDragEnterEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_DragEnterEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_DragEnterEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_dragenterevent_callback = reinterpret_cast<VirtualKRuler::KRuler_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_DragMoveEvent(KRuler* self, QDragMoveEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->dragMoveEvent(event);
     } else {
-        ((VirtualKRuler*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KRuler::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperDragMoveEvent(KRuler* self, QDragMoveEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_DragMoveEvent_IsBase(true);
-        vkruler->dragMoveEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDragMoveEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_DragMoveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_DragMoveEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_dragmoveevent_callback = reinterpret_cast<VirtualKRuler::KRuler_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_DragLeaveEvent(KRuler* self, QDragLeaveEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->dragLeaveEvent(event);
     } else {
-        ((VirtualKRuler*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KRuler::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperDragLeaveEvent(KRuler* self, QDragLeaveEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_DragLeaveEvent_IsBase(true);
-        vkruler->dragLeaveEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDragLeaveEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_DragLeaveEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_DragLeaveEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_dragleaveevent_callback = reinterpret_cast<VirtualKRuler::KRuler_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_DropEvent(KRuler* self, QDropEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->dropEvent(event);
     } else {
-        ((VirtualKRuler*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KRuler::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperDropEvent(KRuler* self, QDropEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_DropEvent_IsBase(true);
-        vkruler->dropEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->dropEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDropEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_DropEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_DropEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_dropevent_callback = reinterpret_cast<VirtualKRuler::KRuler_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_ShowEvent(KRuler* self, QShowEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->showEvent(event);
     } else {
-        ((VirtualKRuler*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KRuler::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperShowEvent(KRuler* self, QShowEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_ShowEvent_IsBase(true);
-        vkruler->showEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->showEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnShowEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_ShowEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ShowEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_showevent_callback = reinterpret_cast<VirtualKRuler::KRuler_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_HideEvent(KRuler* self, QHideEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->hideEvent(event);
     } else {
-        ((VirtualKRuler*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KRuler::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperHideEvent(KRuler* self, QHideEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_HideEvent_IsBase(true);
-        vkruler->hideEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->hideEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnHideEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_HideEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_HideEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_hideevent_callback = reinterpret_cast<VirtualKRuler::KRuler_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRuler_NativeEvent(KRuler* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
+    if (vkruler) {
         return vkruler->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKRuler*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KRuler::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRuler_SuperNativeEvent(KRuler* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_NativeEvent_IsBase(true);
-        return vkruler->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKRuler*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        return vkruler->KRuler::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KRuler::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnNativeEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_NativeEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_NativeEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_nativeevent_callback = reinterpret_cast<VirtualKRuler::KRuler_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRuler_Metric(const KRuler* self, int param1) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         return vkruler->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKRuler*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KRuler::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KRuler_SuperMetric(const KRuler* self, int param1) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Metric_IsBase(true);
-        return vkruler->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKRuler*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return vkruler->KRuler::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KRuler::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnMetric(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Metric_Callback(reinterpret_cast<VirtualKRuler::KRuler_Metric_Callback>(slot));
+void KRuler_OnMetric(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_metric_callback = reinterpret_cast<VirtualKRuler::KRuler_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_InitPainter(const KRuler* self, QPainter* painter) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->initPainter(painter);
     } else {
-        ((VirtualKRuler*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KRuler::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperInitPainter(const KRuler* self, QPainter* painter) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_InitPainter_IsBase(true);
-        vkruler->initPainter(painter);
-    } else {
-        ((VirtualKRuler*)self)->initPainter(painter);
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        vkruler->KRuler::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KRuler::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnInitPainter(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_InitPainter_Callback(reinterpret_cast<VirtualKRuler::KRuler_InitPainter_Callback>(slot));
+void KRuler_OnInitPainter(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_initpainter_callback = reinterpret_cast<VirtualKRuler::KRuler_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KRuler_Redirected(const KRuler* self, QPoint* offset) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         return vkruler->redirected(offset);
     } else {
-        return ((VirtualKRuler*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KRuler::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KRuler_SuperRedirected(const KRuler* self, QPoint* offset) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Redirected_IsBase(true);
-        return vkruler->redirected(offset);
-    } else {
-        return ((VirtualKRuler*)self)->redirected(offset);
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return vkruler->KRuler::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KRuler::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnRedirected(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Redirected_Callback(reinterpret_cast<VirtualKRuler::KRuler_Redirected_Callback>(slot));
+void KRuler_OnRedirected(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_redirected_callback = reinterpret_cast<VirtualKRuler::KRuler_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KRuler_SharedPainter(const KRuler* self) {
     auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         return vkruler->sharedPainter();
     } else {
-        return ((VirtualKRuler*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KRuler::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KRuler_SuperSharedPainter(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_SharedPainter_IsBase(true);
-        return vkruler->sharedPainter();
-    } else {
-        return ((VirtualKRuler*)self)->sharedPainter();
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return vkruler->KRuler::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KRuler::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnSharedPainter(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_SharedPainter_Callback(reinterpret_cast<VirtualKRuler::KRuler_SharedPainter_Callback>(slot));
+void KRuler_OnSharedPainter(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_sharedpainter_callback = reinterpret_cast<VirtualKRuler::KRuler_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_InputMethodEvent(KRuler* self, QInputMethodEvent* param1) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->inputMethodEvent(param1);
     } else {
-        ((VirtualKRuler*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KRuler::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperInputMethodEvent(KRuler* self, QInputMethodEvent* param1) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_InputMethodEvent_IsBase(true);
-        vkruler->inputMethodEvent(param1);
-    } else {
-        ((VirtualKRuler*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRuler::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnInputMethodEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_InputMethodEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_InputMethodEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_inputmethodevent_callback = reinterpret_cast<VirtualKRuler::KRuler_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KRuler_InputMethodQuery(const KRuler* self, int param1) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return new QVariant(vkruler->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKRuler*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KRuler_SuperInputMethodQuery(const KRuler* self, int param1) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_InputMethodQuery_IsBase(true);
-        return new QVariant(vkruler->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKRuler*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KRuler::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRuler_OnInputMethodQuery(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_InputMethodQuery_Callback(reinterpret_cast<VirtualKRuler::KRuler_InputMethodQuery_Callback>(slot));
+void KRuler_OnInputMethodQuery(KRuler* self, intptr_t slot) {
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self)))
+        vkruler->kruler_inputmethodquery_callback = reinterpret_cast<VirtualKRuler::KRuler_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRuler_FocusNextPrevChild(KRuler* self, bool next) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         return vkruler->focusNextPrevChild(next);
     } else {
-        return ((VirtualKRuler*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KRuler::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRuler_SuperFocusNextPrevChild(KRuler* self, bool next) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_FocusNextPrevChild_IsBase(true);
-        return vkruler->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKRuler*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        return vkruler->KRuler::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KRuler::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnFocusNextPrevChild(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_focusnextprevchild_callback = reinterpret_cast<VirtualKRuler::KRuler_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRuler_EventFilter(KRuler* self, QObject* watched, QEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->eventFilter(watched, event);
-    } else {
-        return self->KRuler::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KRuler_SuperEventFilter(KRuler* self, QObject* watched, QEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_EventFilter_IsBase(true);
-        return vkruler->eventFilter(watched, event);
-    } else {
-        return self->KRuler::eventFilter(watched, event);
-    }
+    return self->KRuler::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnEventFilter(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_EventFilter_Callback(reinterpret_cast<VirtualKRuler::KRuler_EventFilter_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_eventfilter_callback = reinterpret_cast<VirtualKRuler::KRuler_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_ChildEvent(KRuler* self, QChildEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->childEvent(event);
     } else {
-        ((VirtualKRuler*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KRuler::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperChildEvent(KRuler* self, QChildEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_ChildEvent_IsBase(true);
-        vkruler->childEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->childEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnChildEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_ChildEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_ChildEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_childevent_callback = reinterpret_cast<VirtualKRuler::KRuler_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_CustomEvent(KRuler* self, QEvent* event) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->customEvent(event);
     } else {
-        ((VirtualKRuler*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KRuler::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperCustomEvent(KRuler* self, QEvent* event) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_CustomEvent_IsBase(true);
-        vkruler->customEvent(event);
-    } else {
-        ((VirtualKRuler*)self)->customEvent(event);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRuler::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnCustomEvent(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_CustomEvent_Callback(reinterpret_cast<VirtualKRuler::KRuler_CustomEvent_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_customevent_callback = reinterpret_cast<VirtualKRuler::KRuler_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_ConnectNotify(KRuler* self, const QMetaMethod* signal) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->connectNotify(*signal);
     } else {
-        ((VirtualKRuler*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KRuler::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperConnectNotify(KRuler* self, const QMetaMethod* signal) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_ConnectNotify_IsBase(true);
-        vkruler->connectNotify(*signal);
-    } else {
-        ((VirtualKRuler*)self)->connectNotify(*signal);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRuler::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnConnectNotify(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_ConnectNotify_Callback(reinterpret_cast<VirtualKRuler::KRuler_ConnectNotify_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_connectnotify_callback = reinterpret_cast<VirtualKRuler::KRuler_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRuler_DisconnectNotify(KRuler* self, const QMetaMethod* signal) {
     auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
+    if (vkruler) {
         vkruler->disconnectNotify(*signal);
     } else {
-        ((VirtualKRuler*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KRuler::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRuler_SuperDisconnectNotify(KRuler* self, const QMetaMethod* signal) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_DisconnectNotify_IsBase(true);
-        vkruler->disconnectNotify(*signal);
-    } else {
-        ((VirtualKRuler*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->KRuler::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRuler::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRuler_OnDisconnectNotify(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_DisconnectNotify_Callback(reinterpret_cast<VirtualKRuler::KRuler_DisconnectNotify_Callback>(slot));
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self))
+        vkruler->kruler_disconnectnotify_callback = reinterpret_cast<VirtualKRuler::KRuler_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRuler_SetRepeatAction(KRuler* self, int action) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    } else {
-        ((VirtualKRuler*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->VirtualKRuler::setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
+    } else
+        qFatal("Error: Protected method KRuler::setRepeatAction called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRuler_SuperSetRepeatAction(KRuler* self, int action) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_SetRepeatAction_IsBase(true);
-        vkruler->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    } else {
-        ((VirtualKRuler*)self)->setRepeatAction(static_cast<QAbstractSlider::SliderAction>(action));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnSetRepeatAction(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_SetRepeatAction_Callback(reinterpret_cast<VirtualKRuler::KRuler_SetRepeatAction_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRuler_RepeatAction(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return static_cast<int>(vkruler->repeatAction());
-    } else {
-        return static_cast<int>(((VirtualKRuler*)self)->repeatAction());
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return static_cast<int>(vkruler->VirtualKRuler::repeatAction());
+    } else
+        qFatal("Error: Protected method KRuler::repeatAction called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRuler_SuperRepeatAction(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_RepeatAction_IsBase(true);
-        return static_cast<int>(vkruler->repeatAction());
-    } else {
-        return static_cast<int>(((VirtualKRuler*)self)->repeatAction());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnRepeatAction(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_RepeatAction_Callback(reinterpret_cast<VirtualKRuler::KRuler_RepeatAction_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRuler_UpdateMicroFocus(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->updateMicroFocus();
-    } else {
-        ((VirtualKRuler*)self)->updateMicroFocus();
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->VirtualKRuler::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KRuler::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRuler_SuperUpdateMicroFocus(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_UpdateMicroFocus_IsBase(true);
-        vkruler->updateMicroFocus();
-    } else {
-        ((VirtualKRuler*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnUpdateMicroFocus(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKRuler::KRuler_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRuler_Create(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->create();
-    } else {
-        ((VirtualKRuler*)self)->create();
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->VirtualKRuler::create();
+    } else
+        qFatal("Error: Protected method KRuler::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRuler_SuperCreate(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Create_IsBase(true);
-        vkruler->create();
-    } else {
-        ((VirtualKRuler*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnCreate(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Create_Callback(reinterpret_cast<VirtualKRuler::KRuler_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRuler_Destroy(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->destroy();
-    } else {
-        ((VirtualKRuler*)self)->destroy();
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        vkruler->VirtualKRuler::destroy();
+    } else
+        qFatal("Error: Protected method KRuler::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRuler_SuperDestroy(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Destroy_IsBase(true);
-        vkruler->destroy();
-    } else {
-        ((VirtualKRuler*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnDestroy(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Destroy_Callback(reinterpret_cast<VirtualKRuler::KRuler_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRuler_FocusNextChild(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->focusNextChild();
-    } else {
-        return ((VirtualKRuler*)self)->focusNextChild();
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        return vkruler->VirtualKRuler::focusNextChild();
+    } else
+        qFatal("Error: Protected method KRuler::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRuler_SuperFocusNextChild(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_FocusNextChild_IsBase(true);
-        return vkruler->focusNextChild();
-    } else {
-        return ((VirtualKRuler*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnFocusNextChild(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_FocusNextChild_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRuler_FocusPreviousChild(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->focusPreviousChild();
-    } else {
-        return ((VirtualKRuler*)self)->focusPreviousChild();
-    }
+    if (auto* vkruler = dynamic_cast<VirtualKRuler*>(self)) {
+        return vkruler->VirtualKRuler::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KRuler::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRuler_SuperFocusPreviousChild(KRuler* self) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_FocusPreviousChild_IsBase(true);
-        return vkruler->focusPreviousChild();
-    } else {
-        return ((VirtualKRuler*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnFocusPreviousChild(KRuler* self, intptr_t slot) {
-    auto* vkruler = dynamic_cast<VirtualKRuler*>(self);
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_FocusPreviousChild_Callback(reinterpret_cast<VirtualKRuler::KRuler_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KRuler_Sender(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->sender();
-    } else {
-        return ((VirtualKRuler*)self)->sender();
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return vkruler->VirtualKRuler::sender();
+    } else
+        qFatal("Error: Protected method KRuler::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KRuler_SuperSender(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Sender_IsBase(true);
-        return vkruler->sender();
-    } else {
-        return ((VirtualKRuler*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnSender(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Sender_Callback(reinterpret_cast<VirtualKRuler::KRuler_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRuler_SenderSignalIndex(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->senderSignalIndex();
-    } else {
-        return ((VirtualKRuler*)self)->senderSignalIndex();
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return vkruler->VirtualKRuler::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KRuler::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRuler_SuperSenderSignalIndex(const KRuler* self) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_SenderSignalIndex_IsBase(true);
-        return vkruler->senderSignalIndex();
-    } else {
-        return ((VirtualKRuler*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnSenderSignalIndex(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRuler::KRuler_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRuler_Receivers(const KRuler* self, const char* signal) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->receivers(signal);
-    } else {
-        return ((VirtualKRuler*)self)->receivers(signal);
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return vkruler->VirtualKRuler::receivers(signal);
+    } else
+        qFatal("Error: Protected method KRuler::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRuler_SuperReceivers(const KRuler* self, const char* signal) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_Receivers_IsBase(true);
-        return vkruler->receivers(signal);
-    } else {
-        return ((VirtualKRuler*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnReceivers(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_Receivers_Callback(reinterpret_cast<VirtualKRuler::KRuler_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRuler_IsSignalConnected(const KRuler* self, const QMetaMethod* signal) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRuler*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return vkruler->VirtualKRuler::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KRuler::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRuler_SuperIsSignalConnected(const KRuler* self, const QMetaMethod* signal) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_IsSignalConnected_IsBase(true);
-        return vkruler->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRuler*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnIsSignalConnected(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_IsSignalConnected_Callback(reinterpret_cast<VirtualKRuler::KRuler_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KRuler_GetDecodedMetricF(const KRuler* self, int metricA, int metricB) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        return vkruler->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKRuler*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KRuler_SuperGetDecodedMetricF(const KRuler* self, int metricA, int metricB) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler) {
-        vkruler->setKRuler_GetDecodedMetricF_IsBase(true);
-        return vkruler->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKRuler*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRuler_OnGetDecodedMetricF(const KRuler* self, intptr_t slot) {
-    auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self));
-    if (vkruler && vkruler->isVirtualKRuler)
-        vkruler->setKRuler_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKRuler::KRuler_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkruler = const_cast<VirtualKRuler*>(dynamic_cast<const VirtualKRuler*>(self))) {
+        return vkruler->VirtualKRuler::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KRuler::getDecodedMetricF called without a directly constructed type");
 }
 
 void KRuler_Delete(KRuler* self) {

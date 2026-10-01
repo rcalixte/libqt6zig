@@ -60,7 +60,7 @@ libqt_string QSystemTrayIcon_Tr3(const char* s, const char* c, int n);
 void QSystemTrayIcon_ShowMessage4(QSystemTrayIcon* self, const libqt_string title, const libqt_string msg, const QIcon* icon, int msecs);
 void QSystemTrayIcon_ShowMessage3(QSystemTrayIcon* self, const libqt_string title, const libqt_string msg, int icon);
 void QSystemTrayIcon_ShowMessage42(QSystemTrayIcon* self, const libqt_string title, const libqt_string msg, int icon, int msecs);
-void QSystemTrayIcon_OnMetaObject(const QSystemTrayIcon* self, intptr_t slot);
+void QSystemTrayIcon_OnMetaObject(QSystemTrayIcon* self, intptr_t slot);
 QMetaObject* QSystemTrayIcon_SuperMetaObject(const QSystemTrayIcon* self);
 void QSystemTrayIcon_OnMetacast(QSystemTrayIcon* self, intptr_t slot);
 void* QSystemTrayIcon_SuperMetacast(QSystemTrayIcon* self, const char* param1);
@@ -87,17 +87,9 @@ void QSystemTrayIcon_DisconnectNotify(QSystemTrayIcon* self, const QMetaMethod* 
 void QSystemTrayIcon_OnDisconnectNotify(QSystemTrayIcon* self, intptr_t slot);
 void QSystemTrayIcon_SuperDisconnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal);
 QObject* QSystemTrayIcon_Sender(const QSystemTrayIcon* self);
-void QSystemTrayIcon_OnSender(const QSystemTrayIcon* self, intptr_t slot);
-QObject* QSystemTrayIcon_SuperSender(const QSystemTrayIcon* self);
 int QSystemTrayIcon_SenderSignalIndex(const QSystemTrayIcon* self);
-void QSystemTrayIcon_OnSenderSignalIndex(const QSystemTrayIcon* self, intptr_t slot);
-int QSystemTrayIcon_SuperSenderSignalIndex(const QSystemTrayIcon* self);
 int QSystemTrayIcon_Receivers(const QSystemTrayIcon* self, const char* signal);
-void QSystemTrayIcon_OnReceivers(const QSystemTrayIcon* self, intptr_t slot);
-int QSystemTrayIcon_SuperReceivers(const QSystemTrayIcon* self, const char* signal);
 bool QSystemTrayIcon_IsSignalConnected(const QSystemTrayIcon* self, const QMetaMethod* signal);
-void QSystemTrayIcon_OnIsSignalConnected(const QSystemTrayIcon* self, intptr_t slot);
-bool QSystemTrayIcon_SuperIsSignalConnected(const QSystemTrayIcon* self, const QMetaMethod* signal);
 void QSystemTrayIcon_Delete(QSystemTrayIcon* self);
 
 #ifdef __cplusplus

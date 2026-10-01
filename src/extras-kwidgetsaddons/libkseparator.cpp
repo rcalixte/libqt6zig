@@ -121,1710 +121,1205 @@ libqt_string KSeparator_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KSeparator_SuperMetaObject(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_MetaObject_IsBase(true);
-        return (QMetaObject*)vkseparator->metaObject();
-    } else {
-        return (QMetaObject*)self->KSeparator::metaObject();
-    }
+    return (QMetaObject*)self->KSeparator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnMetaObject(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_MetaObject_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MetaObject_Callback>(slot));
+void KSeparator_OnMetaObject(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_metaobject_callback = reinterpret_cast<VirtualKSeparator::KSeparator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSeparator_SuperMetacast(KSeparator* self, const char* param1) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Metacast_IsBase(true);
-        return vkseparator->qt_metacast(param1);
-    } else {
-        return self->KSeparator::qt_metacast(param1);
-    }
+    return self->KSeparator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMetacast(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Metacast_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metacast_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_metacast_callback = reinterpret_cast<VirtualKSeparator::KSeparator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSeparator_SuperMetacall(KSeparator* self, int param1, int param2, void** param3) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Metacall_IsBase(true);
-        return vkseparator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSeparator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSeparator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMetacall(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Metacall_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metacall_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_metacall_callback = reinterpret_cast<VirtualKSeparator::KSeparator_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KSeparator_SizeHint(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return new QSize(vkseparator->sizeHint());
-    } else {
-        return new QSize(((VirtualKSeparator*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KSeparator_SuperSizeHint(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_SizeHint_IsBase(true);
-        return new QSize(vkseparator->sizeHint());
-    } else {
-        return new QSize(((VirtualKSeparator*)self)->sizeHint());
-    }
+    return new QSize(self->KSeparator::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnSizeHint(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_SizeHint_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_SizeHint_Callback>(slot));
+void KSeparator_OnSizeHint(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_sizehint_callback = reinterpret_cast<VirtualKSeparator::KSeparator_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSeparator_Event(KSeparator* self, QEvent* e) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         return vkseparator->event(e);
     } else {
-        return ((VirtualKSeparator*)self)->event(e);
+        qFatal("Error: Protected virtual method KSeparator::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSeparator_SuperEvent(KSeparator* self, QEvent* e) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Event_IsBase(true);
-        return vkseparator->event(e);
-    } else {
-        return ((VirtualKSeparator*)self)->event(e);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        return vkseparator->KSeparator::event(e);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Event_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Event_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_event_callback = reinterpret_cast<VirtualKSeparator::KSeparator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_PaintEvent(KSeparator* self, QPaintEvent* param1) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->paintEvent(param1);
     } else {
-        ((VirtualKSeparator*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KSeparator::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperPaintEvent(KSeparator* self, QPaintEvent* param1) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_PaintEvent_IsBase(true);
-        vkseparator->paintEvent(param1);
-    } else {
-        ((VirtualKSeparator*)self)->paintEvent(param1);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnPaintEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_PaintEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_PaintEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_paintevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_ChangeEvent(KSeparator* self, QEvent* param1) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->changeEvent(param1);
     } else {
-        ((VirtualKSeparator*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KSeparator::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperChangeEvent(KSeparator* self, QEvent* param1) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_ChangeEvent_IsBase(true);
-        vkseparator->changeEvent(param1);
-    } else {
-        ((VirtualKSeparator*)self)->changeEvent(param1);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnChangeEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_ChangeEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ChangeEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_changeevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_InitStyleOption(const KSeparator* self, QStyleOptionFrame* option) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->initStyleOption(option);
     } else {
-        ((VirtualKSeparator*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KSeparator::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperInitStyleOption(const KSeparator* self, QStyleOptionFrame* option) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_InitStyleOption_IsBase(true);
-        vkseparator->initStyleOption(option);
-    } else {
-        ((VirtualKSeparator*)self)->initStyleOption(option);
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        vkseparator->KSeparator::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnInitStyleOption(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_InitStyleOption_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_InitStyleOption_Callback>(slot));
+void KSeparator_OnInitStyleOption(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_initstyleoption_callback = reinterpret_cast<VirtualKSeparator::KSeparator_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSeparator_DevType(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->devType();
-    } else {
-        return self->KSeparator::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KSeparator_SuperDevType(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_DevType_IsBase(true);
-        return vkseparator->devType();
-    } else {
-        return self->KSeparator::devType();
-    }
+    return self->KSeparator::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnDevType(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_DevType_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DevType_Callback>(slot));
+void KSeparator_OnDevType(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_devtype_callback = reinterpret_cast<VirtualKSeparator::KSeparator_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_SetVisible(KSeparator* self, bool visible) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setVisible(visible);
-    } else {
-        self->KSeparator::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KSeparator_SuperSetVisible(KSeparator* self, bool visible) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_SetVisible_IsBase(true);
-        vkseparator->setVisible(visible);
-    } else {
-        self->KSeparator::setVisible(visible);
-    }
+    self->KSeparator::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnSetVisible(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_SetVisible_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_SetVisible_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_setvisible_callback = reinterpret_cast<VirtualKSeparator::KSeparator_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KSeparator_MinimumSizeHint(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return new QSize(vkseparator->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSeparator*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KSeparator_SuperMinimumSizeHint(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_MinimumSizeHint_IsBase(true);
-        return new QSize(vkseparator->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSeparator*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KSeparator::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnMinimumSizeHint(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MinimumSizeHint_Callback>(slot));
+void KSeparator_OnMinimumSizeHint(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_minimumsizehint_callback = reinterpret_cast<VirtualKSeparator::KSeparator_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSeparator_HeightForWidth(const KSeparator* self, int param1) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSeparator::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KSeparator_SuperHeightForWidth(const KSeparator* self, int param1) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_HeightForWidth_IsBase(true);
-        return vkseparator->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KSeparator::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KSeparator::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnHeightForWidth(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_HeightForWidth_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_HeightForWidth_Callback>(slot));
+void KSeparator_OnHeightForWidth(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_heightforwidth_callback = reinterpret_cast<VirtualKSeparator::KSeparator_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSeparator_HasHeightForWidth(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->hasHeightForWidth();
-    } else {
-        return self->KSeparator::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KSeparator_SuperHasHeightForWidth(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_HasHeightForWidth_IsBase(true);
-        return vkseparator->hasHeightForWidth();
-    } else {
-        return self->KSeparator::hasHeightForWidth();
-    }
+    return self->KSeparator::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnHasHeightForWidth(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_HasHeightForWidth_Callback>(slot));
+void KSeparator_OnHasHeightForWidth(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_hasheightforwidth_callback = reinterpret_cast<VirtualKSeparator::KSeparator_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KSeparator_PaintEngine(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->paintEngine();
-    } else {
-        return self->KSeparator::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KSeparator_SuperPaintEngine(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_PaintEngine_IsBase(true);
-        return vkseparator->paintEngine();
-    } else {
-        return self->KSeparator::paintEngine();
-    }
+    return self->KSeparator::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnPaintEngine(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_PaintEngine_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_PaintEngine_Callback>(slot));
+void KSeparator_OnPaintEngine(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_paintengine_callback = reinterpret_cast<VirtualKSeparator::KSeparator_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_MousePressEvent(KSeparator* self, QMouseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->mousePressEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperMousePressEvent(KSeparator* self, QMouseEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_MousePressEvent_IsBase(true);
-        vkseparator->mousePressEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->mousePressEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMousePressEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_MousePressEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MousePressEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_mousepressevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_MouseReleaseEvent(KSeparator* self, QMouseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->mouseReleaseEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperMouseReleaseEvent(KSeparator* self, QMouseEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_MouseReleaseEvent_IsBase(true);
-        vkseparator->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMouseReleaseEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_mousereleaseevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_MouseDoubleClickEvent(KSeparator* self, QMouseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperMouseDoubleClickEvent(KSeparator* self, QMouseEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_MouseDoubleClickEvent_IsBase(true);
-        vkseparator->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMouseDoubleClickEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_mousedoubleclickevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_MouseMoveEvent(KSeparator* self, QMouseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->mouseMoveEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperMouseMoveEvent(KSeparator* self, QMouseEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_MouseMoveEvent_IsBase(true);
-        vkseparator->mouseMoveEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMouseMoveEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MouseMoveEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_mousemoveevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_WheelEvent(KSeparator* self, QWheelEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->wheelEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperWheelEvent(KSeparator* self, QWheelEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_WheelEvent_IsBase(true);
-        vkseparator->wheelEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->wheelEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnWheelEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_WheelEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_WheelEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_wheelevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_KeyPressEvent(KSeparator* self, QKeyEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->keyPressEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperKeyPressEvent(KSeparator* self, QKeyEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_KeyPressEvent_IsBase(true);
-        vkseparator->keyPressEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->keyPressEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnKeyPressEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_KeyPressEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_KeyPressEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_keypressevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_KeyReleaseEvent(KSeparator* self, QKeyEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->keyReleaseEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperKeyReleaseEvent(KSeparator* self, QKeyEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_KeyReleaseEvent_IsBase(true);
-        vkseparator->keyReleaseEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnKeyReleaseEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_keyreleaseevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_FocusInEvent(KSeparator* self, QFocusEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->focusInEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperFocusInEvent(KSeparator* self, QFocusEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_FocusInEvent_IsBase(true);
-        vkseparator->focusInEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->focusInEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnFocusInEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_FocusInEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusInEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_focusinevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_FocusOutEvent(KSeparator* self, QFocusEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->focusOutEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperFocusOutEvent(KSeparator* self, QFocusEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_FocusOutEvent_IsBase(true);
-        vkseparator->focusOutEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->focusOutEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnFocusOutEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_FocusOutEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusOutEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_focusoutevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_EnterEvent(KSeparator* self, QEnterEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->enterEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperEnterEvent(KSeparator* self, QEnterEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_EnterEvent_IsBase(true);
-        vkseparator->enterEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->enterEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnEnterEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_EnterEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_EnterEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_enterevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_LeaveEvent(KSeparator* self, QEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->leaveEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperLeaveEvent(KSeparator* self, QEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_LeaveEvent_IsBase(true);
-        vkseparator->leaveEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->leaveEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnLeaveEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_LeaveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_LeaveEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_leaveevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_MoveEvent(KSeparator* self, QMoveEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->moveEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperMoveEvent(KSeparator* self, QMoveEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_MoveEvent_IsBase(true);
-        vkseparator->moveEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->moveEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMoveEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_MoveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MoveEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_moveevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_ResizeEvent(KSeparator* self, QResizeEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->resizeEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperResizeEvent(KSeparator* self, QResizeEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_ResizeEvent_IsBase(true);
-        vkseparator->resizeEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->resizeEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnResizeEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_ResizeEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ResizeEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_resizeevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_CloseEvent(KSeparator* self, QCloseEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->closeEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperCloseEvent(KSeparator* self, QCloseEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_CloseEvent_IsBase(true);
-        vkseparator->closeEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->closeEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnCloseEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_CloseEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_CloseEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_closeevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_ContextMenuEvent(KSeparator* self, QContextMenuEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->contextMenuEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperContextMenuEvent(KSeparator* self, QContextMenuEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_ContextMenuEvent_IsBase(true);
-        vkseparator->contextMenuEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnContextMenuEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ContextMenuEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_contextmenuevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_TabletEvent(KSeparator* self, QTabletEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->tabletEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperTabletEvent(KSeparator* self, QTabletEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_TabletEvent_IsBase(true);
-        vkseparator->tabletEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->tabletEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnTabletEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_TabletEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_TabletEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_tabletevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_ActionEvent(KSeparator* self, QActionEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->actionEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperActionEvent(KSeparator* self, QActionEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_ActionEvent_IsBase(true);
-        vkseparator->actionEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->actionEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnActionEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_ActionEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ActionEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_actionevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_DragEnterEvent(KSeparator* self, QDragEnterEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->dragEnterEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperDragEnterEvent(KSeparator* self, QDragEnterEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_DragEnterEvent_IsBase(true);
-        vkseparator->dragEnterEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDragEnterEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_DragEnterEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DragEnterEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_dragenterevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_DragMoveEvent(KSeparator* self, QDragMoveEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->dragMoveEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperDragMoveEvent(KSeparator* self, QDragMoveEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_DragMoveEvent_IsBase(true);
-        vkseparator->dragMoveEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDragMoveEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_DragMoveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DragMoveEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_dragmoveevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_DragLeaveEvent(KSeparator* self, QDragLeaveEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->dragLeaveEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperDragLeaveEvent(KSeparator* self, QDragLeaveEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_DragLeaveEvent_IsBase(true);
-        vkseparator->dragLeaveEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDragLeaveEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DragLeaveEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_dragleaveevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_DropEvent(KSeparator* self, QDropEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->dropEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperDropEvent(KSeparator* self, QDropEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_DropEvent_IsBase(true);
-        vkseparator->dropEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->dropEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDropEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_DropEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DropEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_dropevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_ShowEvent(KSeparator* self, QShowEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->showEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperShowEvent(KSeparator* self, QShowEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_ShowEvent_IsBase(true);
-        vkseparator->showEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->showEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnShowEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_ShowEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ShowEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_showevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_HideEvent(KSeparator* self, QHideEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->hideEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperHideEvent(KSeparator* self, QHideEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_HideEvent_IsBase(true);
-        vkseparator->hideEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->hideEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnHideEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_HideEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_HideEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_hideevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSeparator_NativeEvent(KSeparator* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
+    if (vkseparator) {
         return vkseparator->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKSeparator*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KSeparator::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSeparator_SuperNativeEvent(KSeparator* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_NativeEvent_IsBase(true);
-        return vkseparator->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKSeparator*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        return vkseparator->KSeparator::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KSeparator::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnNativeEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_NativeEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_NativeEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_nativeevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KSeparator_Metric(const KSeparator* self, int param1) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         return vkseparator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKSeparator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KSeparator::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KSeparator_SuperMetric(const KSeparator* self, int param1) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Metric_IsBase(true);
-        return vkseparator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKSeparator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        return vkseparator->KSeparator::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KSeparator::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnMetric(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Metric_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metric_Callback>(slot));
+void KSeparator_OnMetric(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_metric_callback = reinterpret_cast<VirtualKSeparator::KSeparator_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_InitPainter(const KSeparator* self, QPainter* painter) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->initPainter(painter);
     } else {
-        ((VirtualKSeparator*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KSeparator::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperInitPainter(const KSeparator* self, QPainter* painter) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_InitPainter_IsBase(true);
-        vkseparator->initPainter(painter);
-    } else {
-        ((VirtualKSeparator*)self)->initPainter(painter);
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        vkseparator->KSeparator::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnInitPainter(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_InitPainter_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_InitPainter_Callback>(slot));
+void KSeparator_OnInitPainter(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_initpainter_callback = reinterpret_cast<VirtualKSeparator::KSeparator_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KSeparator_Redirected(const KSeparator* self, QPoint* offset) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         return vkseparator->redirected(offset);
     } else {
-        return ((VirtualKSeparator*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KSeparator::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KSeparator_SuperRedirected(const KSeparator* self, QPoint* offset) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Redirected_IsBase(true);
-        return vkseparator->redirected(offset);
-    } else {
-        return ((VirtualKSeparator*)self)->redirected(offset);
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        return vkseparator->KSeparator::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnRedirected(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Redirected_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Redirected_Callback>(slot));
+void KSeparator_OnRedirected(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_redirected_callback = reinterpret_cast<VirtualKSeparator::KSeparator_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KSeparator_SharedPainter(const KSeparator* self) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         return vkseparator->sharedPainter();
     } else {
-        return ((VirtualKSeparator*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KSeparator::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KSeparator_SuperSharedPainter(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_SharedPainter_IsBase(true);
-        return vkseparator->sharedPainter();
-    } else {
-        return ((VirtualKSeparator*)self)->sharedPainter();
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        return vkseparator->KSeparator::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KSeparator::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnSharedPainter(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_SharedPainter_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_SharedPainter_Callback>(slot));
+void KSeparator_OnSharedPainter(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_sharedpainter_callback = reinterpret_cast<VirtualKSeparator::KSeparator_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_InputMethodEvent(KSeparator* self, QInputMethodEvent* param1) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->inputMethodEvent(param1);
     } else {
-        ((VirtualKSeparator*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KSeparator::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperInputMethodEvent(KSeparator* self, QInputMethodEvent* param1) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_InputMethodEvent_IsBase(true);
-        vkseparator->inputMethodEvent(param1);
-    } else {
-        ((VirtualKSeparator*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnInputMethodEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_InputMethodEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_InputMethodEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_inputmethodevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KSeparator_InputMethodQuery(const KSeparator* self, int param1) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return new QVariant(vkseparator->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSeparator*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KSeparator_SuperInputMethodQuery(const KSeparator* self, int param1) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_InputMethodQuery_IsBase(true);
-        return new QVariant(vkseparator->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKSeparator*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KSeparator::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSeparator_OnInputMethodQuery(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_InputMethodQuery_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_InputMethodQuery_Callback>(slot));
+void KSeparator_OnInputMethodQuery(KSeparator* self, intptr_t slot) {
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self)))
+        vkseparator->kseparator_inputmethodquery_callback = reinterpret_cast<VirtualKSeparator::KSeparator_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSeparator_FocusNextPrevChild(KSeparator* self, bool next) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         return vkseparator->focusNextPrevChild(next);
     } else {
-        return ((VirtualKSeparator*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KSeparator::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KSeparator_SuperFocusNextPrevChild(KSeparator* self, bool next) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_FocusNextPrevChild_IsBase(true);
-        return vkseparator->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKSeparator*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        return vkseparator->KSeparator::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnFocusNextPrevChild(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_focusnextprevchild_callback = reinterpret_cast<VirtualKSeparator::KSeparator_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSeparator_EventFilter(KSeparator* self, QObject* watched, QEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->eventFilter(watched, event);
-    } else {
-        return self->KSeparator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KSeparator_SuperEventFilter(KSeparator* self, QObject* watched, QEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_EventFilter_IsBase(true);
-        return vkseparator->eventFilter(watched, event);
-    } else {
-        return self->KSeparator::eventFilter(watched, event);
-    }
+    return self->KSeparator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnEventFilter(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_EventFilter_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_EventFilter_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_eventfilter_callback = reinterpret_cast<VirtualKSeparator::KSeparator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_TimerEvent(KSeparator* self, QTimerEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->timerEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperTimerEvent(KSeparator* self, QTimerEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_TimerEvent_IsBase(true);
-        vkseparator->timerEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->timerEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnTimerEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_TimerEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_TimerEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_timerevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_ChildEvent(KSeparator* self, QChildEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->childEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperChildEvent(KSeparator* self, QChildEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_ChildEvent_IsBase(true);
-        vkseparator->childEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->childEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnChildEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_ChildEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ChildEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_childevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_CustomEvent(KSeparator* self, QEvent* event) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->customEvent(event);
     } else {
-        ((VirtualKSeparator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSeparator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperCustomEvent(KSeparator* self, QEvent* event) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_CustomEvent_IsBase(true);
-        vkseparator->customEvent(event);
-    } else {
-        ((VirtualKSeparator*)self)->customEvent(event);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnCustomEvent(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_CustomEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_CustomEvent_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_customevent_callback = reinterpret_cast<VirtualKSeparator::KSeparator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_ConnectNotify(KSeparator* self, const QMetaMethod* signal) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->connectNotify(*signal);
     } else {
-        ((VirtualKSeparator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSeparator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperConnectNotify(KSeparator* self, const QMetaMethod* signal) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_ConnectNotify_IsBase(true);
-        vkseparator->connectNotify(*signal);
-    } else {
-        ((VirtualKSeparator*)self)->connectNotify(*signal);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnConnectNotify(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_ConnectNotify_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ConnectNotify_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_connectnotify_callback = reinterpret_cast<VirtualKSeparator::KSeparator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSeparator_DisconnectNotify(KSeparator* self, const QMetaMethod* signal) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator) {
         vkseparator->disconnectNotify(*signal);
     } else {
-        ((VirtualKSeparator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSeparator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSeparator_SuperDisconnectNotify(KSeparator* self, const QMetaMethod* signal) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_DisconnectNotify_IsBase(true);
-        vkseparator->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSeparator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->KSeparator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSeparator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDisconnectNotify(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_DisconnectNotify_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DisconnectNotify_Callback>(slot));
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self))
+        vkseparator->kseparator_disconnectnotify_callback = reinterpret_cast<VirtualKSeparator::KSeparator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSeparator_DrawFrame(KSeparator* self, QPainter* param1) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->drawFrame(param1);
-    } else {
-        ((VirtualKSeparator*)self)->drawFrame(param1);
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->VirtualKSeparator::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KSeparator::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSeparator_SuperDrawFrame(KSeparator* self, QPainter* param1) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_DrawFrame_IsBase(true);
-        vkseparator->drawFrame(param1);
-    } else {
-        ((VirtualKSeparator*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnDrawFrame(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_DrawFrame_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSeparator_UpdateMicroFocus(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->updateMicroFocus();
-    } else {
-        ((VirtualKSeparator*)self)->updateMicroFocus();
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->VirtualKSeparator::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KSeparator::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSeparator_SuperUpdateMicroFocus(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_UpdateMicroFocus_IsBase(true);
-        vkseparator->updateMicroFocus();
-    } else {
-        ((VirtualKSeparator*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnUpdateMicroFocus(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSeparator_Create(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->create();
-    } else {
-        ((VirtualKSeparator*)self)->create();
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->VirtualKSeparator::create();
+    } else
+        qFatal("Error: Protected method KSeparator::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSeparator_SuperCreate(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Create_IsBase(true);
-        vkseparator->create();
-    } else {
-        ((VirtualKSeparator*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnCreate(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Create_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KSeparator_Destroy(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->destroy();
-    } else {
-        ((VirtualKSeparator*)self)->destroy();
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        vkseparator->VirtualKSeparator::destroy();
+    } else
+        qFatal("Error: Protected method KSeparator::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KSeparator_SuperDestroy(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Destroy_IsBase(true);
-        vkseparator->destroy();
-    } else {
-        ((VirtualKSeparator*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnDestroy(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Destroy_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSeparator_FocusNextChild(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->focusNextChild();
-    } else {
-        return ((VirtualKSeparator*)self)->focusNextChild();
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        return vkseparator->VirtualKSeparator::focusNextChild();
+    } else
+        qFatal("Error: Protected method KSeparator::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSeparator_SuperFocusNextChild(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_FocusNextChild_IsBase(true);
-        return vkseparator->focusNextChild();
-    } else {
-        return ((VirtualKSeparator*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnFocusNextChild(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_FocusNextChild_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSeparator_FocusPreviousChild(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->focusPreviousChild();
-    } else {
-        return ((VirtualKSeparator*)self)->focusPreviousChild();
-    }
+    if (auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self)) {
+        return vkseparator->VirtualKSeparator::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KSeparator::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSeparator_SuperFocusPreviousChild(KSeparator* self) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_FocusPreviousChild_IsBase(true);
-        return vkseparator->focusPreviousChild();
-    } else {
-        return ((VirtualKSeparator*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnFocusPreviousChild(KSeparator* self, intptr_t slot) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSeparator_Sender(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->sender();
-    } else {
-        return ((VirtualKSeparator*)self)->sender();
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        return vkseparator->VirtualKSeparator::sender();
+    } else
+        qFatal("Error: Protected method KSeparator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSeparator_SuperSender(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Sender_IsBase(true);
-        return vkseparator->sender();
-    } else {
-        return ((VirtualKSeparator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnSender(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Sender_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSeparator_SenderSignalIndex(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->senderSignalIndex();
-    } else {
-        return ((VirtualKSeparator*)self)->senderSignalIndex();
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        return vkseparator->VirtualKSeparator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSeparator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSeparator_SuperSenderSignalIndex(const KSeparator* self) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_SenderSignalIndex_IsBase(true);
-        return vkseparator->senderSignalIndex();
-    } else {
-        return ((VirtualKSeparator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnSenderSignalIndex(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSeparator_Receivers(const KSeparator* self, const char* signal) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->receivers(signal);
-    } else {
-        return ((VirtualKSeparator*)self)->receivers(signal);
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        return vkseparator->VirtualKSeparator::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSeparator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSeparator_SuperReceivers(const KSeparator* self, const char* signal) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_Receivers_IsBase(true);
-        return vkseparator->receivers(signal);
-    } else {
-        return ((VirtualKSeparator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnReceivers(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_Receivers_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSeparator_IsSignalConnected(const KSeparator* self, const QMetaMethod* signal) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSeparator*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        return vkseparator->VirtualKSeparator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSeparator::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KSeparator_SuperIsSignalConnected(const KSeparator* self, const QMetaMethod* signal) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_IsSignalConnected_IsBase(true);
-        return vkseparator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSeparator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnIsSignalConnected(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_IsSignalConnected_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KSeparator_GetDecodedMetricF(const KSeparator* self, int metricA, int metricB) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return vkseparator->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSeparator*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KSeparator_SuperGetDecodedMetricF(const KSeparator* self, int metricA, int metricB) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        vkseparator->setKSeparator_GetDecodedMetricF_IsBase(true);
-        return vkseparator->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKSeparator*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSeparator_OnGetDecodedMetricF(const KSeparator* self, intptr_t slot) {
-    auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator)
-        vkseparator->setKSeparator_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self))) {
+        return vkseparator->VirtualKSeparator::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KSeparator::getDecodedMetricF called without a directly constructed type");
 }
 
 void KSeparator_Delete(KSeparator* self) {

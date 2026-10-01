@@ -149,93 +149,93 @@ void QToolButton_Connect_Triggered(QToolButton* self, intptr_t slot) {
 
 bool QToolButton_Event(QToolButton* self, QEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         return vqtoolbutton->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QToolButton::event called without a directly constructed type");
 }
 
 void QToolButton_MousePressEvent(QToolButton* self, QMouseEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->mousePressEvent(param1);
     }
 }
 
 void QToolButton_MouseReleaseEvent(QToolButton* self, QMouseEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->mouseReleaseEvent(param1);
     }
 }
 
 void QToolButton_PaintEvent(QToolButton* self, QPaintEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->paintEvent(param1);
     }
 }
 
 void QToolButton_ActionEvent(QToolButton* self, QActionEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->actionEvent(param1);
     }
 }
 
 void QToolButton_EnterEvent(QToolButton* self, QEnterEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->enterEvent(param1);
     }
 }
 
 void QToolButton_LeaveEvent(QToolButton* self, QEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->leaveEvent(param1);
     }
 }
 
 void QToolButton_TimerEvent(QToolButton* self, QTimerEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->timerEvent(param1);
     }
 }
 
 void QToolButton_ChangeEvent(QToolButton* self, QEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->changeEvent(param1);
     }
 }
 
 bool QToolButton_HitButton(const QToolButton* self, const QPoint* pos) {
     auto* vqtoolbutton = dynamic_cast<const VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         return vqtoolbutton->hitButton(*pos);
     }
-    return {};
+    qFatal("Error: Protected method QToolButton::hitButton called without a directly constructed type");
 }
 
 void QToolButton_CheckStateSet(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->checkStateSet();
     }
 }
 
 void QToolButton_NextCheckState(QToolButton* self) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->nextCheckState();
     }
 }
 
 void QToolButton_InitStyleOption(const QToolButton* self, QStyleOptionToolButton* option) {
     auto* vqtoolbutton = dynamic_cast<const VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->initStyleOption(option);
     }
 }
@@ -266,1616 +266,1129 @@ libqt_string QToolButton_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QToolButton_SuperMetaObject(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtoolbutton->metaObject();
-    } else {
-        return (QMetaObject*)self->QToolButton::metaObject();
-    }
+    return (QMetaObject*)self->QToolButton::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnMetaObject(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_MetaObject_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MetaObject_Callback>(slot));
+void QToolButton_OnMetaObject(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_metaobject_callback = reinterpret_cast<VirtualQToolButton::QToolButton_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QToolButton_SuperMetacast(QToolButton* self, const char* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Metacast_IsBase(true);
-        return vqtoolbutton->qt_metacast(param1);
-    } else {
-        return self->QToolButton::qt_metacast(param1);
-    }
+    return self->QToolButton::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMetacast(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Metacast_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Metacast_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_metacast_callback = reinterpret_cast<VirtualQToolButton::QToolButton_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QToolButton_SuperMetacall(QToolButton* self, int param1, int param2, void** param3) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Metacall_IsBase(true);
-        return vqtoolbutton->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QToolButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QToolButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMetacall(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Metacall_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Metacall_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_metacall_callback = reinterpret_cast<VirtualQToolButton::QToolButton_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QToolButton_SuperSizeHint(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_SizeHint_IsBase(true);
-        return new QSize(vqtoolbutton->sizeHint());
-    } else {
-        return new QSize(((VirtualQToolButton*)self)->sizeHint());
-    }
+    return new QSize(self->QToolButton::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnSizeHint(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_SizeHint_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_SizeHint_Callback>(slot));
+void QToolButton_OnSizeHint(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_sizehint_callback = reinterpret_cast<VirtualQToolButton::QToolButton_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QToolButton_SuperMinimumSizeHint(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_MinimumSizeHint_IsBase(true);
-        return new QSize(vqtoolbutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQToolButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QToolButton::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnMinimumSizeHint(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MinimumSizeHint_Callback>(slot));
+void QToolButton_OnMinimumSizeHint(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_minimumsizehint_callback = reinterpret_cast<VirtualQToolButton::QToolButton_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QToolButton_SuperEvent(QToolButton* self, QEvent* e) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Event_IsBase(true);
-        return vqtoolbutton->event(e);
-    } else {
-        return ((VirtualQToolButton*)self)->event(e);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        return vqtoolbutton->QToolButton::event(e);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Event_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Event_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_event_callback = reinterpret_cast<VirtualQToolButton::QToolButton_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperMousePressEvent(QToolButton* self, QMouseEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_MousePressEvent_IsBase(true);
-        vqtoolbutton->mousePressEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->mousePressEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMousePressEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_MousePressEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MousePressEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_mousepressevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperMouseReleaseEvent(QToolButton* self, QMouseEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_MouseReleaseEvent_IsBase(true);
-        vqtoolbutton->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMouseReleaseEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_mousereleaseevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperPaintEvent(QToolButton* self, QPaintEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_PaintEvent_IsBase(true);
-        vqtoolbutton->paintEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->paintEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnPaintEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_PaintEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_PaintEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_paintevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperActionEvent(QToolButton* self, QActionEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_ActionEvent_IsBase(true);
-        vqtoolbutton->actionEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->actionEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::actionEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnActionEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_ActionEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ActionEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_actionevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_ActionEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperEnterEvent(QToolButton* self, QEnterEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_EnterEvent_IsBase(true);
-        vqtoolbutton->enterEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->enterEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::enterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnEnterEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_EnterEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_EnterEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_enterevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_EnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperLeaveEvent(QToolButton* self, QEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_LeaveEvent_IsBase(true);
-        vqtoolbutton->leaveEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->leaveEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::leaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnLeaveEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_LeaveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_LeaveEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_leaveevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_LeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperTimerEvent(QToolButton* self, QTimerEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_TimerEvent_IsBase(true);
-        vqtoolbutton->timerEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->timerEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnTimerEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_TimerEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_TimerEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_timerevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperChangeEvent(QToolButton* self, QEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_ChangeEvent_IsBase(true);
-        vqtoolbutton->changeEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->changeEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnChangeEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_ChangeEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ChangeEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_changeevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QToolButton_SuperHitButton(const QToolButton* self, const QPoint* pos) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_HitButton_IsBase(true);
-        return vqtoolbutton->hitButton(*pos);
-    } else {
-        return ((VirtualQToolButton*)self)->hitButton(*pos);
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->QToolButton::hitButton(*pos);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::hitButton called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnHitButton(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_HitButton_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_HitButton_Callback>(slot));
+void QToolButton_OnHitButton(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_hitbutton_callback = reinterpret_cast<VirtualQToolButton::QToolButton_HitButton_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperCheckStateSet(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_CheckStateSet_IsBase(true);
-        vqtoolbutton->checkStateSet();
-    } else {
-        ((VirtualQToolButton*)self)->checkStateSet();
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::checkStateSet();
+    } else
+        qFatal("Error: Protected virtual method QToolButton::checkStateSet called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnCheckStateSet(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_CheckStateSet_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_CheckStateSet_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_checkstateset_callback = reinterpret_cast<VirtualQToolButton::QToolButton_CheckStateSet_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperNextCheckState(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_NextCheckState_IsBase(true);
-        vqtoolbutton->nextCheckState();
-    } else {
-        ((VirtualQToolButton*)self)->nextCheckState();
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::nextCheckState();
+    } else
+        qFatal("Error: Protected virtual method QToolButton::nextCheckState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnNextCheckState(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_NextCheckState_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_NextCheckState_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_nextcheckstate_callback = reinterpret_cast<VirtualQToolButton::QToolButton_NextCheckState_Callback>(slot);
 }
 
 // Base class handler implementation
 void QToolButton_SuperInitStyleOption(const QToolButton* self, QStyleOptionToolButton* option) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_InitStyleOption_IsBase(true);
-        vqtoolbutton->initStyleOption(option);
-    } else {
-        ((VirtualQToolButton*)self)->initStyleOption(option);
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        vqtoolbutton->QToolButton::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnInitStyleOption(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_InitStyleOption_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_InitStyleOption_Callback>(slot));
+void QToolButton_OnInitStyleOption(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_initstyleoption_callback = reinterpret_cast<VirtualQToolButton::QToolButton_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_KeyPressEvent(QToolButton* self, QKeyEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->keyPressEvent(e);
     } else {
-        ((VirtualQToolButton*)self)->keyPressEvent(e);
+        qFatal("Error: Protected virtual method QToolButton::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperKeyPressEvent(QToolButton* self, QKeyEvent* e) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_KeyPressEvent_IsBase(true);
-        vqtoolbutton->keyPressEvent(e);
-    } else {
-        ((VirtualQToolButton*)self)->keyPressEvent(e);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnKeyPressEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_KeyPressEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_KeyPressEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_keypressevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_KeyReleaseEvent(QToolButton* self, QKeyEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->keyReleaseEvent(e);
     } else {
-        ((VirtualQToolButton*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method QToolButton::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperKeyReleaseEvent(QToolButton* self, QKeyEvent* e) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_KeyReleaseEvent_IsBase(true);
-        vqtoolbutton->keyReleaseEvent(e);
-    } else {
-        ((VirtualQToolButton*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnKeyReleaseEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_keyreleaseevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_MouseMoveEvent(QToolButton* self, QMouseEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->mouseMoveEvent(e);
     } else {
-        ((VirtualQToolButton*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method QToolButton::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperMouseMoveEvent(QToolButton* self, QMouseEvent* e) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_MouseMoveEvent_IsBase(true);
-        vqtoolbutton->mouseMoveEvent(e);
-    } else {
-        ((VirtualQToolButton*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMouseMoveEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MouseMoveEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_mousemoveevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_FocusInEvent(QToolButton* self, QFocusEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->focusInEvent(e);
     } else {
-        ((VirtualQToolButton*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method QToolButton::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperFocusInEvent(QToolButton* self, QFocusEvent* e) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_FocusInEvent_IsBase(true);
-        vqtoolbutton->focusInEvent(e);
-    } else {
-        ((VirtualQToolButton*)self)->focusInEvent(e);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnFocusInEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_FocusInEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusInEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_focusinevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_FocusOutEvent(QToolButton* self, QFocusEvent* e) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->focusOutEvent(e);
     } else {
-        ((VirtualQToolButton*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method QToolButton::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperFocusOutEvent(QToolButton* self, QFocusEvent* e) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_FocusOutEvent_IsBase(true);
-        vqtoolbutton->focusOutEvent(e);
-    } else {
-        ((VirtualQToolButton*)self)->focusOutEvent(e);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnFocusOutEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_FocusOutEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusOutEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_focusoutevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QToolButton_DevType(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->devType();
-    } else {
-        return self->QToolButton::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QToolButton_SuperDevType(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_DevType_IsBase(true);
-        return vqtoolbutton->devType();
-    } else {
-        return self->QToolButton::devType();
-    }
+    return self->QToolButton::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnDevType(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_DevType_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DevType_Callback>(slot));
+void QToolButton_OnDevType(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_devtype_callback = reinterpret_cast<VirtualQToolButton::QToolButton_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_SetVisible(QToolButton* self, bool visible) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setVisible(visible);
-    } else {
-        self->QToolButton::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QToolButton_SuperSetVisible(QToolButton* self, bool visible) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_SetVisible_IsBase(true);
-        vqtoolbutton->setVisible(visible);
-    } else {
-        self->QToolButton::setVisible(visible);
-    }
+    self->QToolButton::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnSetVisible(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_SetVisible_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_SetVisible_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_setvisible_callback = reinterpret_cast<VirtualQToolButton::QToolButton_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QToolButton_HeightForWidth(const QToolButton* self, int param1) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QToolButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QToolButton_SuperHeightForWidth(const QToolButton* self, int param1) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_HeightForWidth_IsBase(true);
-        return vqtoolbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QToolButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QToolButton::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnHeightForWidth(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_HeightForWidth_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_HeightForWidth_Callback>(slot));
+void QToolButton_OnHeightForWidth(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_heightforwidth_callback = reinterpret_cast<VirtualQToolButton::QToolButton_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QToolButton_HasHeightForWidth(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->hasHeightForWidth();
-    } else {
-        return self->QToolButton::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QToolButton_SuperHasHeightForWidth(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_HasHeightForWidth_IsBase(true);
-        return vqtoolbutton->hasHeightForWidth();
-    } else {
-        return self->QToolButton::hasHeightForWidth();
-    }
+    return self->QToolButton::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnHasHeightForWidth(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_HasHeightForWidth_Callback>(slot));
+void QToolButton_OnHasHeightForWidth(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_hasheightforwidth_callback = reinterpret_cast<VirtualQToolButton::QToolButton_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QToolButton_PaintEngine(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->paintEngine();
-    } else {
-        return self->QToolButton::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QToolButton_SuperPaintEngine(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_PaintEngine_IsBase(true);
-        return vqtoolbutton->paintEngine();
-    } else {
-        return self->QToolButton::paintEngine();
-    }
+    return self->QToolButton::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnPaintEngine(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_PaintEngine_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_PaintEngine_Callback>(slot));
+void QToolButton_OnPaintEngine(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_paintengine_callback = reinterpret_cast<VirtualQToolButton::QToolButton_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_MouseDoubleClickEvent(QToolButton* self, QMouseEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperMouseDoubleClickEvent(QToolButton* self, QMouseEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_MouseDoubleClickEvent_IsBase(true);
-        vqtoolbutton->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMouseDoubleClickEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_mousedoubleclickevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_WheelEvent(QToolButton* self, QWheelEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->wheelEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperWheelEvent(QToolButton* self, QWheelEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_WheelEvent_IsBase(true);
-        vqtoolbutton->wheelEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->wheelEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnWheelEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_WheelEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_WheelEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_wheelevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_MoveEvent(QToolButton* self, QMoveEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->moveEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperMoveEvent(QToolButton* self, QMoveEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_MoveEvent_IsBase(true);
-        vqtoolbutton->moveEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->moveEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnMoveEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_MoveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_MoveEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_moveevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_ResizeEvent(QToolButton* self, QResizeEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->resizeEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperResizeEvent(QToolButton* self, QResizeEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_ResizeEvent_IsBase(true);
-        vqtoolbutton->resizeEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->resizeEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnResizeEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_ResizeEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ResizeEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_resizeevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_CloseEvent(QToolButton* self, QCloseEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->closeEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperCloseEvent(QToolButton* self, QCloseEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_CloseEvent_IsBase(true);
-        vqtoolbutton->closeEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->closeEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnCloseEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_CloseEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_CloseEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_closeevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_ContextMenuEvent(QToolButton* self, QContextMenuEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->contextMenuEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperContextMenuEvent(QToolButton* self, QContextMenuEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_ContextMenuEvent_IsBase(true);
-        vqtoolbutton->contextMenuEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnContextMenuEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ContextMenuEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_contextmenuevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_TabletEvent(QToolButton* self, QTabletEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->tabletEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperTabletEvent(QToolButton* self, QTabletEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_TabletEvent_IsBase(true);
-        vqtoolbutton->tabletEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->tabletEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnTabletEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_TabletEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_TabletEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_tabletevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_DragEnterEvent(QToolButton* self, QDragEnterEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->dragEnterEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperDragEnterEvent(QToolButton* self, QDragEnterEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_DragEnterEvent_IsBase(true);
-        vqtoolbutton->dragEnterEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDragEnterEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_DragEnterEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DragEnterEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_dragenterevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_DragMoveEvent(QToolButton* self, QDragMoveEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->dragMoveEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperDragMoveEvent(QToolButton* self, QDragMoveEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_DragMoveEvent_IsBase(true);
-        vqtoolbutton->dragMoveEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDragMoveEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_DragMoveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DragMoveEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_dragmoveevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_DragLeaveEvent(QToolButton* self, QDragLeaveEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->dragLeaveEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperDragLeaveEvent(QToolButton* self, QDragLeaveEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_DragLeaveEvent_IsBase(true);
-        vqtoolbutton->dragLeaveEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDragLeaveEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DragLeaveEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_dragleaveevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_DropEvent(QToolButton* self, QDropEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->dropEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperDropEvent(QToolButton* self, QDropEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_DropEvent_IsBase(true);
-        vqtoolbutton->dropEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->dropEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDropEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_DropEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DropEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_dropevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_ShowEvent(QToolButton* self, QShowEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->showEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperShowEvent(QToolButton* self, QShowEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_ShowEvent_IsBase(true);
-        vqtoolbutton->showEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->showEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnShowEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_ShowEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ShowEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_showevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_HideEvent(QToolButton* self, QHideEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->hideEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperHideEvent(QToolButton* self, QHideEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_HideEvent_IsBase(true);
-        vqtoolbutton->hideEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->hideEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnHideEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_HideEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_HideEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_hideevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QToolButton_NativeEvent(QToolButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
+    if (vqtoolbutton) {
         return vqtoolbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQToolButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QToolButton::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QToolButton_SuperNativeEvent(QToolButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_NativeEvent_IsBase(true);
-        return vqtoolbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQToolButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        return vqtoolbutton->QToolButton::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QToolButton::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnNativeEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_NativeEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_NativeEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_nativeevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QToolButton_Metric(const QToolButton* self, int param1) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         return vqtoolbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQToolButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QToolButton::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QToolButton_SuperMetric(const QToolButton* self, int param1) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Metric_IsBase(true);
-        return vqtoolbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQToolButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->QToolButton::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QToolButton::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnMetric(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Metric_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Metric_Callback>(slot));
+void QToolButton_OnMetric(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_metric_callback = reinterpret_cast<VirtualQToolButton::QToolButton_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_InitPainter(const QToolButton* self, QPainter* painter) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->initPainter(painter);
     } else {
-        ((VirtualQToolButton*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QToolButton::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperInitPainter(const QToolButton* self, QPainter* painter) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_InitPainter_IsBase(true);
-        vqtoolbutton->initPainter(painter);
-    } else {
-        ((VirtualQToolButton*)self)->initPainter(painter);
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        vqtoolbutton->QToolButton::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnInitPainter(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_InitPainter_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_InitPainter_Callback>(slot));
+void QToolButton_OnInitPainter(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_initpainter_callback = reinterpret_cast<VirtualQToolButton::QToolButton_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QToolButton_Redirected(const QToolButton* self, QPoint* offset) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         return vqtoolbutton->redirected(offset);
     } else {
-        return ((VirtualQToolButton*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QToolButton::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QToolButton_SuperRedirected(const QToolButton* self, QPoint* offset) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Redirected_IsBase(true);
-        return vqtoolbutton->redirected(offset);
-    } else {
-        return ((VirtualQToolButton*)self)->redirected(offset);
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->QToolButton::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnRedirected(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Redirected_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Redirected_Callback>(slot));
+void QToolButton_OnRedirected(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_redirected_callback = reinterpret_cast<VirtualQToolButton::QToolButton_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QToolButton_SharedPainter(const QToolButton* self) {
     auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         return vqtoolbutton->sharedPainter();
     } else {
-        return ((VirtualQToolButton*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QToolButton::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QToolButton_SuperSharedPainter(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_SharedPainter_IsBase(true);
-        return vqtoolbutton->sharedPainter();
-    } else {
-        return ((VirtualQToolButton*)self)->sharedPainter();
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->QToolButton::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QToolButton::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnSharedPainter(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_SharedPainter_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_SharedPainter_Callback>(slot));
+void QToolButton_OnSharedPainter(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_sharedpainter_callback = reinterpret_cast<VirtualQToolButton::QToolButton_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_InputMethodEvent(QToolButton* self, QInputMethodEvent* param1) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->inputMethodEvent(param1);
     } else {
-        ((VirtualQToolButton*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QToolButton::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperInputMethodEvent(QToolButton* self, QInputMethodEvent* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_InputMethodEvent_IsBase(true);
-        vqtoolbutton->inputMethodEvent(param1);
-    } else {
-        ((VirtualQToolButton*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnInputMethodEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_InputMethodEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_InputMethodEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_inputmethodevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QToolButton_InputMethodQuery(const QToolButton* self, int param1) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return new QVariant(vqtoolbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQToolButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QToolButton_SuperInputMethodQuery(const QToolButton* self, int param1) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_InputMethodQuery_IsBase(true);
-        return new QVariant(vqtoolbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQToolButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QToolButton::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QToolButton_OnInputMethodQuery(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_InputMethodQuery_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_InputMethodQuery_Callback>(slot));
+void QToolButton_OnInputMethodQuery(QToolButton* self, intptr_t slot) {
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self)))
+        vqtoolbutton->qtoolbutton_inputmethodquery_callback = reinterpret_cast<VirtualQToolButton::QToolButton_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QToolButton_FocusNextPrevChild(QToolButton* self, bool next) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         return vqtoolbutton->focusNextPrevChild(next);
     } else {
-        return ((VirtualQToolButton*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QToolButton::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QToolButton_SuperFocusNextPrevChild(QToolButton* self, bool next) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_FocusNextPrevChild_IsBase(true);
-        return vqtoolbutton->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQToolButton*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        return vqtoolbutton->QToolButton::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnFocusNextPrevChild(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_focusnextprevchild_callback = reinterpret_cast<VirtualQToolButton::QToolButton_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QToolButton_EventFilter(QToolButton* self, QObject* watched, QEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->eventFilter(watched, event);
-    } else {
-        return self->QToolButton::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QToolButton_SuperEventFilter(QToolButton* self, QObject* watched, QEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_EventFilter_IsBase(true);
-        return vqtoolbutton->eventFilter(watched, event);
-    } else {
-        return self->QToolButton::eventFilter(watched, event);
-    }
+    return self->QToolButton::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnEventFilter(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_EventFilter_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_EventFilter_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_eventfilter_callback = reinterpret_cast<VirtualQToolButton::QToolButton_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_ChildEvent(QToolButton* self, QChildEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->childEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperChildEvent(QToolButton* self, QChildEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_ChildEvent_IsBase(true);
-        vqtoolbutton->childEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->childEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnChildEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_ChildEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ChildEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_childevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_CustomEvent(QToolButton* self, QEvent* event) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->customEvent(event);
     } else {
-        ((VirtualQToolButton*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QToolButton::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperCustomEvent(QToolButton* self, QEvent* event) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_CustomEvent_IsBase(true);
-        vqtoolbutton->customEvent(event);
-    } else {
-        ((VirtualQToolButton*)self)->customEvent(event);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnCustomEvent(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_CustomEvent_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_CustomEvent_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_customevent_callback = reinterpret_cast<VirtualQToolButton::QToolButton_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_ConnectNotify(QToolButton* self, const QMetaMethod* signal) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->connectNotify(*signal);
     } else {
-        ((VirtualQToolButton*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QToolButton::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperConnectNotify(QToolButton* self, const QMetaMethod* signal) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_ConnectNotify_IsBase(true);
-        vqtoolbutton->connectNotify(*signal);
-    } else {
-        ((VirtualQToolButton*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnConnectNotify(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_ConnectNotify_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_ConnectNotify_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_connectnotify_callback = reinterpret_cast<VirtualQToolButton::QToolButton_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QToolButton_DisconnectNotify(QToolButton* self, const QMetaMethod* signal) {
     auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
+    if (vqtoolbutton) {
         vqtoolbutton->disconnectNotify(*signal);
     } else {
-        ((VirtualQToolButton*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QToolButton::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QToolButton_SuperDisconnectNotify(QToolButton* self, const QMetaMethod* signal) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_DisconnectNotify_IsBase(true);
-        vqtoolbutton->disconnectNotify(*signal);
-    } else {
-        ((VirtualQToolButton*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->QToolButton::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QToolButton::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QToolButton_OnDisconnectNotify(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_DisconnectNotify_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_DisconnectNotify_Callback>(slot));
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self))
+        vqtoolbutton->qtoolbutton_disconnectnotify_callback = reinterpret_cast<VirtualQToolButton::QToolButton_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QToolButton_UpdateMicroFocus(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->updateMicroFocus();
-    } else {
-        ((VirtualQToolButton*)self)->updateMicroFocus();
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->VirtualQToolButton::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QToolButton::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QToolButton_SuperUpdateMicroFocus(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_UpdateMicroFocus_IsBase(true);
-        vqtoolbutton->updateMicroFocus();
-    } else {
-        ((VirtualQToolButton*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnUpdateMicroFocus(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QToolButton_Create(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->create();
-    } else {
-        ((VirtualQToolButton*)self)->create();
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->VirtualQToolButton::create();
+    } else
+        qFatal("Error: Protected method QToolButton::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QToolButton_SuperCreate(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Create_IsBase(true);
-        vqtoolbutton->create();
-    } else {
-        ((VirtualQToolButton*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnCreate(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Create_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QToolButton_Destroy(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->destroy();
-    } else {
-        ((VirtualQToolButton*)self)->destroy();
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        vqtoolbutton->VirtualQToolButton::destroy();
+    } else
+        qFatal("Error: Protected method QToolButton::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QToolButton_SuperDestroy(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Destroy_IsBase(true);
-        vqtoolbutton->destroy();
-    } else {
-        ((VirtualQToolButton*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnDestroy(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Destroy_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QToolButton_FocusNextChild(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->focusNextChild();
-    } else {
-        return ((VirtualQToolButton*)self)->focusNextChild();
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        return vqtoolbutton->VirtualQToolButton::focusNextChild();
+    } else
+        qFatal("Error: Protected method QToolButton::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QToolButton_SuperFocusNextChild(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_FocusNextChild_IsBase(true);
-        return vqtoolbutton->focusNextChild();
-    } else {
-        return ((VirtualQToolButton*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnFocusNextChild(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_FocusNextChild_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QToolButton_FocusPreviousChild(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->focusPreviousChild();
-    } else {
-        return ((VirtualQToolButton*)self)->focusPreviousChild();
-    }
+    if (auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self)) {
+        return vqtoolbutton->VirtualQToolButton::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QToolButton::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QToolButton_SuperFocusPreviousChild(QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_FocusPreviousChild_IsBase(true);
-        return vqtoolbutton->focusPreviousChild();
-    } else {
-        return ((VirtualQToolButton*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnFocusPreviousChild(QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QToolButton_Sender(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->sender();
-    } else {
-        return ((VirtualQToolButton*)self)->sender();
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->VirtualQToolButton::sender();
+    } else
+        qFatal("Error: Protected method QToolButton::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QToolButton_SuperSender(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Sender_IsBase(true);
-        return vqtoolbutton->sender();
-    } else {
-        return ((VirtualQToolButton*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnSender(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Sender_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QToolButton_SenderSignalIndex(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->senderSignalIndex();
-    } else {
-        return ((VirtualQToolButton*)self)->senderSignalIndex();
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->VirtualQToolButton::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QToolButton::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QToolButton_SuperSenderSignalIndex(const QToolButton* self) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_SenderSignalIndex_IsBase(true);
-        return vqtoolbutton->senderSignalIndex();
-    } else {
-        return ((VirtualQToolButton*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnSenderSignalIndex(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QToolButton_Receivers(const QToolButton* self, const char* signal) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->receivers(signal);
-    } else {
-        return ((VirtualQToolButton*)self)->receivers(signal);
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->VirtualQToolButton::receivers(signal);
+    } else
+        qFatal("Error: Protected method QToolButton::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QToolButton_SuperReceivers(const QToolButton* self, const char* signal) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_Receivers_IsBase(true);
-        return vqtoolbutton->receivers(signal);
-    } else {
-        return ((VirtualQToolButton*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnReceivers(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_Receivers_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QToolButton_IsSignalConnected(const QToolButton* self, const QMetaMethod* signal) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQToolButton*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->VirtualQToolButton::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QToolButton::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QToolButton_SuperIsSignalConnected(const QToolButton* self, const QMetaMethod* signal) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_IsSignalConnected_IsBase(true);
-        return vqtoolbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQToolButton*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnIsSignalConnected(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_IsSignalConnected_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QToolButton_GetDecodedMetricF(const QToolButton* self, int metricA, int metricB) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return vqtoolbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQToolButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QToolButton_SuperGetDecodedMetricF(const QToolButton* self, int metricA, int metricB) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        vqtoolbutton->setQToolButton_GetDecodedMetricF_IsBase(true);
-        return vqtoolbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQToolButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QToolButton_OnGetDecodedMetricF(const QToolButton* self, intptr_t slot) {
-    auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self));
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton)
-        vqtoolbutton->setQToolButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQToolButton::QToolButton_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqtoolbutton = const_cast<VirtualQToolButton*>(dynamic_cast<const VirtualQToolButton*>(self))) {
+        return vqtoolbutton->VirtualQToolButton::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QToolButton::getDecodedMetricF called without a directly constructed type");
 }
 
 void QToolButton_Delete(QToolButton* self) {

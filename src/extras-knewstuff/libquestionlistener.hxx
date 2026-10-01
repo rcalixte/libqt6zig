@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KNSCore::QuestionListener so that we can call protected methods
+// This class is a subclass of KNSCore::QuestionListener
 class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKNSCoreQuestionListener = true;
-
-    // Virtual class public types (including callbacks)
-    using KNSCore__QuestionListener_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KNSCore__QuestionListener_MetaObject_Callback = QMetaObject* (*)(const KNSCore__QuestionListener*);
     using KNSCore__QuestionListener_Metacast_Callback = void* (*)(KNSCore__QuestionListener*, const char*);
     using KNSCore__QuestionListener_Metacall_Callback = int (*)(KNSCore__QuestionListener*, int, int, void**);
     using KNSCore__QuestionListener_AskQuestion_Callback = void (*)(KNSCore__QuestionListener*, KNSCore__Question*);
@@ -28,12 +24,11 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
     using KNSCore__QuestionListener_CustomEvent_Callback = void (*)(KNSCore__QuestionListener*, QEvent*);
     using KNSCore__QuestionListener_ConnectNotify_Callback = void (*)(KNSCore__QuestionListener*, QMetaMethod*);
     using KNSCore__QuestionListener_DisconnectNotify_Callback = void (*)(KNSCore__QuestionListener*, QMetaMethod*);
-    using KNSCore__QuestionListener_Sender_Callback = QObject* (*)();
-    using KNSCore__QuestionListener_SenderSignalIndex_Callback = int (*)();
-    using KNSCore__QuestionListener_Receivers_Callback = int (*)(const KNSCore__QuestionListener*, const char*);
-    using KNSCore__QuestionListener_IsSignalConnected_Callback = bool (*)(const KNSCore__QuestionListener*, QMetaMethod*);
+    using KNSCore::QuestionListener::isSignalConnected;
+    using KNSCore::QuestionListener::receivers;
+    using KNSCore::QuestionListener::sender;
+    using KNSCore::QuestionListener::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KNSCore__QuestionListener_MetaObject_Callback knscore__questionlistener_metaobject_callback = nullptr;
     KNSCore__QuestionListener_Metacast_Callback knscore__questionlistener_metacast_callback = nullptr;
@@ -46,75 +41,23 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
     KNSCore__QuestionListener_CustomEvent_Callback knscore__questionlistener_customevent_callback = nullptr;
     KNSCore__QuestionListener_ConnectNotify_Callback knscore__questionlistener_connectnotify_callback = nullptr;
     KNSCore__QuestionListener_DisconnectNotify_Callback knscore__questionlistener_disconnectnotify_callback = nullptr;
-    KNSCore__QuestionListener_Sender_Callback knscore__questionlistener_sender_callback = nullptr;
-    KNSCore__QuestionListener_SenderSignalIndex_Callback knscore__questionlistener_sendersignalindex_callback = nullptr;
-    KNSCore__QuestionListener_Receivers_Callback knscore__questionlistener_receivers_callback = nullptr;
-    KNSCore__QuestionListener_IsSignalConnected_Callback knscore__questionlistener_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool knscore__questionlistener_metaobject_isbase = false;
-    mutable bool knscore__questionlistener_metacast_isbase = false;
-    mutable bool knscore__questionlistener_metacall_isbase = false;
-    mutable bool knscore__questionlistener_askquestion_isbase = false;
-    mutable bool knscore__questionlistener_event_isbase = false;
-    mutable bool knscore__questionlistener_eventfilter_isbase = false;
-    mutable bool knscore__questionlistener_timerevent_isbase = false;
-    mutable bool knscore__questionlistener_childevent_isbase = false;
-    mutable bool knscore__questionlistener_customevent_isbase = false;
-    mutable bool knscore__questionlistener_connectnotify_isbase = false;
-    mutable bool knscore__questionlistener_disconnectnotify_isbase = false;
-    mutable bool knscore__questionlistener_sender_isbase = false;
-    mutable bool knscore__questionlistener_sendersignalindex_isbase = false;
-    mutable bool knscore__questionlistener_receivers_isbase = false;
-    mutable bool knscore__questionlistener_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KNSCore::QuestionListener {
+        using KNSCore::QuestionListener::childEvent;
+        using KNSCore::QuestionListener::connectNotify;
+        using KNSCore::QuestionListener::customEvent;
+        using KNSCore::QuestionListener::disconnectNotify;
+        using KNSCore::QuestionListener::timerEvent;
+    };
 
-  public:
     VirtualKNSCoreQuestionListener() : KNSCore::QuestionListener() {};
     VirtualKNSCoreQuestionListener(QObject* parent) : KNSCore::QuestionListener(parent) {};
 
-    // Callback setters
-    inline void setKNSCore__QuestionListener_MetaObject_Callback(KNSCore__QuestionListener_MetaObject_Callback cb) { knscore__questionlistener_metaobject_callback = cb; }
-    inline void setKNSCore__QuestionListener_Metacast_Callback(KNSCore__QuestionListener_Metacast_Callback cb) { knscore__questionlistener_metacast_callback = cb; }
-    inline void setKNSCore__QuestionListener_Metacall_Callback(KNSCore__QuestionListener_Metacall_Callback cb) { knscore__questionlistener_metacall_callback = cb; }
-    inline void setKNSCore__QuestionListener_AskQuestion_Callback(KNSCore__QuestionListener_AskQuestion_Callback cb) { knscore__questionlistener_askquestion_callback = cb; }
-    inline void setKNSCore__QuestionListener_Event_Callback(KNSCore__QuestionListener_Event_Callback cb) { knscore__questionlistener_event_callback = cb; }
-    inline void setKNSCore__QuestionListener_EventFilter_Callback(KNSCore__QuestionListener_EventFilter_Callback cb) { knscore__questionlistener_eventfilter_callback = cb; }
-    inline void setKNSCore__QuestionListener_TimerEvent_Callback(KNSCore__QuestionListener_TimerEvent_Callback cb) { knscore__questionlistener_timerevent_callback = cb; }
-    inline void setKNSCore__QuestionListener_ChildEvent_Callback(KNSCore__QuestionListener_ChildEvent_Callback cb) { knscore__questionlistener_childevent_callback = cb; }
-    inline void setKNSCore__QuestionListener_CustomEvent_Callback(KNSCore__QuestionListener_CustomEvent_Callback cb) { knscore__questionlistener_customevent_callback = cb; }
-    inline void setKNSCore__QuestionListener_ConnectNotify_Callback(KNSCore__QuestionListener_ConnectNotify_Callback cb) { knscore__questionlistener_connectnotify_callback = cb; }
-    inline void setKNSCore__QuestionListener_DisconnectNotify_Callback(KNSCore__QuestionListener_DisconnectNotify_Callback cb) { knscore__questionlistener_disconnectnotify_callback = cb; }
-    inline void setKNSCore__QuestionListener_Sender_Callback(KNSCore__QuestionListener_Sender_Callback cb) { knscore__questionlistener_sender_callback = cb; }
-    inline void setKNSCore__QuestionListener_SenderSignalIndex_Callback(KNSCore__QuestionListener_SenderSignalIndex_Callback cb) { knscore__questionlistener_sendersignalindex_callback = cb; }
-    inline void setKNSCore__QuestionListener_Receivers_Callback(KNSCore__QuestionListener_Receivers_Callback cb) { knscore__questionlistener_receivers_callback = cb; }
-    inline void setKNSCore__QuestionListener_IsSignalConnected_Callback(KNSCore__QuestionListener_IsSignalConnected_Callback cb) { knscore__questionlistener_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKNSCore__QuestionListener_MetaObject_IsBase(bool value) const { knscore__questionlistener_metaobject_isbase = value; }
-    inline void setKNSCore__QuestionListener_Metacast_IsBase(bool value) const { knscore__questionlistener_metacast_isbase = value; }
-    inline void setKNSCore__QuestionListener_Metacall_IsBase(bool value) const { knscore__questionlistener_metacall_isbase = value; }
-    inline void setKNSCore__QuestionListener_AskQuestion_IsBase(bool value) const { knscore__questionlistener_askquestion_isbase = value; }
-    inline void setKNSCore__QuestionListener_Event_IsBase(bool value) const { knscore__questionlistener_event_isbase = value; }
-    inline void setKNSCore__QuestionListener_EventFilter_IsBase(bool value) const { knscore__questionlistener_eventfilter_isbase = value; }
-    inline void setKNSCore__QuestionListener_TimerEvent_IsBase(bool value) const { knscore__questionlistener_timerevent_isbase = value; }
-    inline void setKNSCore__QuestionListener_ChildEvent_IsBase(bool value) const { knscore__questionlistener_childevent_isbase = value; }
-    inline void setKNSCore__QuestionListener_CustomEvent_IsBase(bool value) const { knscore__questionlistener_customevent_isbase = value; }
-    inline void setKNSCore__QuestionListener_ConnectNotify_IsBase(bool value) const { knscore__questionlistener_connectnotify_isbase = value; }
-    inline void setKNSCore__QuestionListener_DisconnectNotify_IsBase(bool value) const { knscore__questionlistener_disconnectnotify_isbase = value; }
-    inline void setKNSCore__QuestionListener_Sender_IsBase(bool value) const { knscore__questionlistener_sender_isbase = value; }
-    inline void setKNSCore__QuestionListener_SenderSignalIndex_IsBase(bool value) const { knscore__questionlistener_sendersignalindex_isbase = value; }
-    inline void setKNSCore__QuestionListener_Receivers_IsBase(bool value) const { knscore__questionlistener_receivers_isbase = value; }
-    inline void setKNSCore__QuestionListener_IsSignalConnected_IsBase(bool value) const { knscore__questionlistener_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (knscore__questionlistener_metaobject_isbase) {
-            knscore__questionlistener_metaobject_isbase = false;
-            return KNSCore__QuestionListener::metaObject();
-        }
-        auto metaobject_cb = knscore__questionlistener_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (knscore__questionlistener_metaobject_callback) {
+            QMetaObject* callback_ret = knscore__questionlistener_metaobject_callback(this);
             return callback_ret;
         }
         return KNSCore__QuestionListener::metaObject();
@@ -122,14 +65,9 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (knscore__questionlistener_metacast_isbase) {
-            knscore__questionlistener_metacast_isbase = false;
-            return KNSCore__QuestionListener::qt_metacast(param1);
-        }
-        auto metacast_cb = knscore__questionlistener_metacast_callback;
-        if (metacast_cb) {
+        if (knscore__questionlistener_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = knscore__questionlistener_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KNSCore__QuestionListener::qt_metacast(param1);
@@ -137,16 +75,11 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (knscore__questionlistener_metacall_isbase) {
-            knscore__questionlistener_metacall_isbase = false;
-            return KNSCore__QuestionListener::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = knscore__questionlistener_metacall_callback;
-        if (metacall_cb) {
+        if (knscore__questionlistener_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = knscore__questionlistener_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KNSCore__QuestionListener::qt_metacall(param1, param2, param3);
@@ -154,23 +87,20 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void askQuestion(KNSCore::Question* question) override {
-        auto askquestion_cb = knscore__questionlistener_askquestion_callback;
-        if (askquestion_cb) {
+        if (knscore__questionlistener_askquestion_callback) {
             KNSCore__Question* cbval1 = question;
-            askquestion_cb(this, cbval1);
+            knscore__questionlistener_askquestion_callback(this, cbval1);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KNSCore::QuestionListener::askQuestion called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (knscore__questionlistener_event_isbase) {
-            knscore__questionlistener_event_isbase = false;
-            return KNSCore__QuestionListener::event(event);
-        }
-        auto event_cb = knscore__questionlistener_event_callback;
-        if (event_cb) {
+        if (knscore__questionlistener_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = knscore__questionlistener_event_callback(this, cbval1);
             return callback_ret;
         }
         return KNSCore__QuestionListener::event(event);
@@ -178,15 +108,10 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (knscore__questionlistener_eventfilter_isbase) {
-            knscore__questionlistener_eventfilter_isbase = false;
-            return KNSCore__QuestionListener::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = knscore__questionlistener_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (knscore__questionlistener_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = knscore__questionlistener_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KNSCore__QuestionListener::eventFilter(watched, event);
@@ -194,15 +119,9 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (knscore__questionlistener_timerevent_isbase) {
-            knscore__questionlistener_timerevent_isbase = false;
-            KNSCore__QuestionListener::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = knscore__questionlistener_timerevent_callback;
-        if (timerevent_cb) {
+        if (knscore__questionlistener_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            knscore__questionlistener_timerevent_callback(this, cbval1);
             return;
         }
         KNSCore__QuestionListener::timerEvent(event);
@@ -210,15 +129,9 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (knscore__questionlistener_childevent_isbase) {
-            knscore__questionlistener_childevent_isbase = false;
-            KNSCore__QuestionListener::childEvent(event);
-            return;
-        }
-        auto childevent_cb = knscore__questionlistener_childevent_callback;
-        if (childevent_cb) {
+        if (knscore__questionlistener_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            knscore__questionlistener_childevent_callback(this, cbval1);
             return;
         }
         KNSCore__QuestionListener::childEvent(event);
@@ -226,15 +139,9 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (knscore__questionlistener_customevent_isbase) {
-            knscore__questionlistener_customevent_isbase = false;
-            KNSCore__QuestionListener::customEvent(event);
-            return;
-        }
-        auto customevent_cb = knscore__questionlistener_customevent_callback;
-        if (customevent_cb) {
+        if (knscore__questionlistener_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            knscore__questionlistener_customevent_callback(this, cbval1);
             return;
         }
         KNSCore__QuestionListener::customEvent(event);
@@ -242,17 +149,11 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (knscore__questionlistener_connectnotify_isbase) {
-            knscore__questionlistener_connectnotify_isbase = false;
-            KNSCore__QuestionListener::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = knscore__questionlistener_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (knscore__questionlistener_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            knscore__questionlistener_connectnotify_callback(this, cbval1);
             return;
         }
         KNSCore__QuestionListener::connectNotify(signal);
@@ -260,101 +161,22 @@ class VirtualKNSCoreQuestionListener : public KNSCore::QuestionListener {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (knscore__questionlistener_disconnectnotify_isbase) {
-            knscore__questionlistener_disconnectnotify_isbase = false;
-            KNSCore__QuestionListener::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = knscore__questionlistener_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (knscore__questionlistener_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            knscore__questionlistener_disconnectnotify_callback(this, cbval1);
             return;
         }
         KNSCore__QuestionListener::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (knscore__questionlistener_sender_isbase) {
-            knscore__questionlistener_sender_isbase = false;
-            return KNSCore__QuestionListener::sender();
-        }
-        auto sender_cb = knscore__questionlistener_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KNSCore__QuestionListener::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (knscore__questionlistener_sendersignalindex_isbase) {
-            knscore__questionlistener_sendersignalindex_isbase = false;
-            return KNSCore__QuestionListener::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = knscore__questionlistener_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KNSCore__QuestionListener::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (knscore__questionlistener_receivers_isbase) {
-            knscore__questionlistener_receivers_isbase = false;
-            return KNSCore__QuestionListener::receivers(signal);
-        }
-        auto receivers_cb = knscore__questionlistener_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KNSCore__QuestionListener::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (knscore__questionlistener_issignalconnected_isbase) {
-            knscore__questionlistener_issignalconnected_isbase = false;
-            return KNSCore__QuestionListener::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = knscore__questionlistener_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KNSCore__QuestionListener::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KNSCore__QuestionListener_TimerEvent(KNSCore::QuestionListener* self, QTimerEvent* event);
     friend void KNSCore__QuestionListener_SuperTimerEvent(KNSCore::QuestionListener* self, QTimerEvent* event);
-    friend void KNSCore__QuestionListener_ChildEvent(KNSCore::QuestionListener* self, QChildEvent* event);
     friend void KNSCore__QuestionListener_SuperChildEvent(KNSCore::QuestionListener* self, QChildEvent* event);
-    friend void KNSCore__QuestionListener_CustomEvent(KNSCore::QuestionListener* self, QEvent* event);
     friend void KNSCore__QuestionListener_SuperCustomEvent(KNSCore::QuestionListener* self, QEvent* event);
-    friend void KNSCore__QuestionListener_ConnectNotify(KNSCore::QuestionListener* self, const QMetaMethod* signal);
     friend void KNSCore__QuestionListener_SuperConnectNotify(KNSCore::QuestionListener* self, const QMetaMethod* signal);
-    friend void KNSCore__QuestionListener_DisconnectNotify(KNSCore::QuestionListener* self, const QMetaMethod* signal);
     friend void KNSCore__QuestionListener_SuperDisconnectNotify(KNSCore::QuestionListener* self, const QMetaMethod* signal);
-    friend QObject* KNSCore__QuestionListener_Sender(const KNSCore::QuestionListener* self);
-    friend QObject* KNSCore__QuestionListener_SuperSender(const KNSCore::QuestionListener* self);
-    friend int KNSCore__QuestionListener_SenderSignalIndex(const KNSCore::QuestionListener* self);
-    friend int KNSCore__QuestionListener_SuperSenderSignalIndex(const KNSCore::QuestionListener* self);
-    friend int KNSCore__QuestionListener_Receivers(const KNSCore::QuestionListener* self, const char* signal);
-    friend int KNSCore__QuestionListener_SuperReceivers(const KNSCore::QuestionListener* self, const char* signal);
-    friend bool KNSCore__QuestionListener_IsSignalConnected(const KNSCore::QuestionListener* self, const QMetaMethod* signal);
-    friend bool KNSCore__QuestionListener_SuperIsSignalConnected(const KNSCore::QuestionListener* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -37,7 +37,7 @@ void KPropertiesDialogPlugin_Connect_Changed(KPropertiesDialogPlugin* self, intp
 libqt_string KPropertiesDialogPlugin_Tr2(const char* s, const char* c);
 libqt_string KPropertiesDialogPlugin_Tr3(const char* s, const char* c, int n);
 void KPropertiesDialogPlugin_SetDirty1(KPropertiesDialogPlugin* self, bool b);
-void KPropertiesDialogPlugin_OnMetaObject(const KPropertiesDialogPlugin* self, intptr_t slot);
+void KPropertiesDialogPlugin_OnMetaObject(KPropertiesDialogPlugin* self, intptr_t slot);
 QMetaObject* KPropertiesDialogPlugin_SuperMetaObject(const KPropertiesDialogPlugin* self);
 void KPropertiesDialogPlugin_OnMetacast(KPropertiesDialogPlugin* self, intptr_t slot);
 void* KPropertiesDialogPlugin_SuperMetacast(KPropertiesDialogPlugin* self, const char* param1);
@@ -67,20 +67,10 @@ void KPropertiesDialogPlugin_DisconnectNotify(KPropertiesDialogPlugin* self, con
 void KPropertiesDialogPlugin_OnDisconnectNotify(KPropertiesDialogPlugin* self, intptr_t slot);
 void KPropertiesDialogPlugin_SuperDisconnectNotify(KPropertiesDialogPlugin* self, const QMetaMethod* signal);
 int KPropertiesDialogPlugin_FontHeight(const KPropertiesDialogPlugin* self);
-void KPropertiesDialogPlugin_OnFontHeight(const KPropertiesDialogPlugin* self, intptr_t slot);
-int KPropertiesDialogPlugin_SuperFontHeight(const KPropertiesDialogPlugin* self);
 QObject* KPropertiesDialogPlugin_Sender(const KPropertiesDialogPlugin* self);
-void KPropertiesDialogPlugin_OnSender(const KPropertiesDialogPlugin* self, intptr_t slot);
-QObject* KPropertiesDialogPlugin_SuperSender(const KPropertiesDialogPlugin* self);
 int KPropertiesDialogPlugin_SenderSignalIndex(const KPropertiesDialogPlugin* self);
-void KPropertiesDialogPlugin_OnSenderSignalIndex(const KPropertiesDialogPlugin* self, intptr_t slot);
-int KPropertiesDialogPlugin_SuperSenderSignalIndex(const KPropertiesDialogPlugin* self);
 int KPropertiesDialogPlugin_Receivers(const KPropertiesDialogPlugin* self, const char* signal);
-void KPropertiesDialogPlugin_OnReceivers(const KPropertiesDialogPlugin* self, intptr_t slot);
-int KPropertiesDialogPlugin_SuperReceivers(const KPropertiesDialogPlugin* self, const char* signal);
 bool KPropertiesDialogPlugin_IsSignalConnected(const KPropertiesDialogPlugin* self, const QMetaMethod* signal);
-void KPropertiesDialogPlugin_OnIsSignalConnected(const KPropertiesDialogPlugin* self, intptr_t slot);
-bool KPropertiesDialogPlugin_SuperIsSignalConnected(const KPropertiesDialogPlugin* self, const QMetaMethod* signal);
 void KPropertiesDialogPlugin_Delete(KPropertiesDialogPlugin* self);
 
 #ifdef __cplusplus

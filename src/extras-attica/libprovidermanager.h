@@ -61,7 +61,7 @@ void Attica__ProviderManager_FailedToLoad(Attica__ProviderManager* self, const Q
 void Attica__ProviderManager_Connect_FailedToLoad(Attica__ProviderManager* self, intptr_t slot);
 libqt_string Attica__ProviderManager_Tr2(const char* s, const char* c);
 libqt_string Attica__ProviderManager_Tr3(const char* s, const char* c, int n);
-void Attica__ProviderManager_OnMetaObject(const Attica__ProviderManager* self, intptr_t slot);
+void Attica__ProviderManager_OnMetaObject(Attica__ProviderManager* self, intptr_t slot);
 QMetaObject* Attica__ProviderManager_SuperMetaObject(const Attica__ProviderManager* self);
 void Attica__ProviderManager_OnMetacast(Attica__ProviderManager* self, intptr_t slot);
 void* Attica__ProviderManager_SuperMetacast(Attica__ProviderManager* self, const char* param1);
@@ -89,17 +89,9 @@ void Attica__ProviderManager_DisconnectNotify(Attica__ProviderManager* self, con
 void Attica__ProviderManager_OnDisconnectNotify(Attica__ProviderManager* self, intptr_t slot);
 void Attica__ProviderManager_SuperDisconnectNotify(Attica__ProviderManager* self, const QMetaMethod* signal);
 QObject* Attica__ProviderManager_Sender(const Attica__ProviderManager* self);
-void Attica__ProviderManager_OnSender(const Attica__ProviderManager* self, intptr_t slot);
-QObject* Attica__ProviderManager_SuperSender(const Attica__ProviderManager* self);
 int Attica__ProviderManager_SenderSignalIndex(const Attica__ProviderManager* self);
-void Attica__ProviderManager_OnSenderSignalIndex(const Attica__ProviderManager* self, intptr_t slot);
-int Attica__ProviderManager_SuperSenderSignalIndex(const Attica__ProviderManager* self);
 int Attica__ProviderManager_Receivers(const Attica__ProviderManager* self, const char* signal);
-void Attica__ProviderManager_OnReceivers(const Attica__ProviderManager* self, intptr_t slot);
-int Attica__ProviderManager_SuperReceivers(const Attica__ProviderManager* self, const char* signal);
 bool Attica__ProviderManager_IsSignalConnected(const Attica__ProviderManager* self, const QMetaMethod* signal);
-void Attica__ProviderManager_OnIsSignalConnected(const Attica__ProviderManager* self, intptr_t slot);
-bool Attica__ProviderManager_SuperIsSignalConnected(const Attica__ProviderManager* self, const QMetaMethod* signal);
 void Attica__ProviderManager_Delete(Attica__ProviderManager* self);
 
 #ifdef __cplusplus

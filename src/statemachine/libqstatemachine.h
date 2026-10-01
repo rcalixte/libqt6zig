@@ -78,7 +78,7 @@ bool QStateMachine_Event(QStateMachine* self, QEvent* e);
 libqt_string QStateMachine_Tr2(const char* s, const char* c);
 libqt_string QStateMachine_Tr3(const char* s, const char* c, int n);
 void QStateMachine_PostEvent2(QStateMachine* self, QEvent* event, int priority);
-void QStateMachine_OnMetaObject(const QStateMachine* self, intptr_t slot);
+void QStateMachine_OnMetaObject(QStateMachine* self, intptr_t slot);
 QMetaObject* QStateMachine_SuperMetaObject(const QStateMachine* self);
 void QStateMachine_OnMetacast(QStateMachine* self, intptr_t slot);
 void* QStateMachine_SuperMetacast(QStateMachine* self, const char* param1);
@@ -116,17 +116,9 @@ void QStateMachine_DisconnectNotify(QStateMachine* self, const QMetaMethod* sign
 void QStateMachine_OnDisconnectNotify(QStateMachine* self, intptr_t slot);
 void QStateMachine_SuperDisconnectNotify(QStateMachine* self, const QMetaMethod* signal);
 QObject* QStateMachine_Sender(const QStateMachine* self);
-void QStateMachine_OnSender(const QStateMachine* self, intptr_t slot);
-QObject* QStateMachine_SuperSender(const QStateMachine* self);
 int QStateMachine_SenderSignalIndex(const QStateMachine* self);
-void QStateMachine_OnSenderSignalIndex(const QStateMachine* self, intptr_t slot);
-int QStateMachine_SuperSenderSignalIndex(const QStateMachine* self);
 int QStateMachine_Receivers(const QStateMachine* self, const char* signal);
-void QStateMachine_OnReceivers(const QStateMachine* self, intptr_t slot);
-int QStateMachine_SuperReceivers(const QStateMachine* self, const char* signal);
 bool QStateMachine_IsSignalConnected(const QStateMachine* self, const QMetaMethod* signal);
-void QStateMachine_OnIsSignalConnected(const QStateMachine* self, intptr_t slot);
-bool QStateMachine_SuperIsSignalConnected(const QStateMachine* self, const QMetaMethod* signal);
 void QStateMachine_Connect_Started(QStateMachine* self, intptr_t slot);
 void QStateMachine_Connect_Stopped(QStateMachine* self, intptr_t slot);
 void QStateMachine_Delete(QStateMachine* self);
@@ -141,7 +133,7 @@ void QStateMachine__SignalEvent_SetAccepted(QStateMachine__SignalEvent* self, bo
 void QStateMachine__SignalEvent_OnSetAccepted(QStateMachine__SignalEvent* self, intptr_t slot);
 void QStateMachine__SignalEvent_SuperSetAccepted(QStateMachine__SignalEvent* self, bool accepted);
 QEvent* QStateMachine__SignalEvent_Clone(const QStateMachine__SignalEvent* self);
-void QStateMachine__SignalEvent_OnClone(const QStateMachine__SignalEvent* self, intptr_t slot);
+void QStateMachine__SignalEvent_OnClone(QStateMachine__SignalEvent* self, intptr_t slot);
 QEvent* QStateMachine__SignalEvent_SuperClone(const QStateMachine__SignalEvent* self);
 void QStateMachine__SignalEvent_Delete(QStateMachine__SignalEvent* self);
 
@@ -154,7 +146,7 @@ void QStateMachine__WrappedEvent_SetAccepted(QStateMachine__WrappedEvent* self, 
 void QStateMachine__WrappedEvent_OnSetAccepted(QStateMachine__WrappedEvent* self, intptr_t slot);
 void QStateMachine__WrappedEvent_SuperSetAccepted(QStateMachine__WrappedEvent* self, bool accepted);
 QEvent* QStateMachine__WrappedEvent_Clone(const QStateMachine__WrappedEvent* self);
-void QStateMachine__WrappedEvent_OnClone(const QStateMachine__WrappedEvent* self, intptr_t slot);
+void QStateMachine__WrappedEvent_OnClone(QStateMachine__WrappedEvent* self, intptr_t slot);
 QEvent* QStateMachine__WrappedEvent_SuperClone(const QStateMachine__WrappedEvent* self);
 void QStateMachine__WrappedEvent_Delete(QStateMachine__WrappedEvent* self);
 

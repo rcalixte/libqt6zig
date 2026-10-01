@@ -130,67 +130,67 @@ void QOpenGLWindow_Connect_FrameSwapped(QOpenGLWindow* self, intptr_t slot) {
 
 void QOpenGLWindow_InitializeGL(QOpenGLWindow* self) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->initializeGL();
     }
 }
 
 void QOpenGLWindow_ResizeGL(QOpenGLWindow* self, int w, int h) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->resizeGL(static_cast<int>(w), static_cast<int>(h));
     }
 }
 
 void QOpenGLWindow_PaintGL(QOpenGLWindow* self) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->paintGL();
     }
 }
 
 void QOpenGLWindow_PaintUnderGL(QOpenGLWindow* self) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->paintUnderGL();
     }
 }
 
 void QOpenGLWindow_PaintOverGL(QOpenGLWindow* self) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->paintOverGL();
     }
 }
 
 void QOpenGLWindow_PaintEvent(QOpenGLWindow* self, QPaintEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->paintEvent(event);
     }
 }
 
 void QOpenGLWindow_ResizeEvent(QOpenGLWindow* self, QResizeEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->resizeEvent(event);
     }
 }
 
 int QOpenGLWindow_Metric(const QOpenGLWindow* self, int metric) {
     auto* vqopenglwindow = dynamic_cast<const VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         return vqopenglwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
     }
-    return {};
+    qFatal("Error: Protected method QOpenGLWindow::metric called without a directly constructed type");
 }
 
 QPaintDevice* QOpenGLWindow_Redirected(const QOpenGLWindow* self, QPoint* param1) {
     auto* vqopenglwindow = dynamic_cast<const VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         return vqopenglwindow->redirected(param1);
     }
-    return {};
+    qFatal("Error: Protected method QOpenGLWindow::redirected called without a directly constructed type");
 }
 
 libqt_string QOpenGLWindow_Tr2(const char* s, const char* c) {
@@ -219,1284 +219,923 @@ libqt_string QOpenGLWindow_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QOpenGLWindow_SuperMetaObject(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_MetaObject_IsBase(true);
-        return (QMetaObject*)vqopenglwindow->metaObject();
-    } else {
-        return (QMetaObject*)self->QOpenGLWindow::metaObject();
-    }
+    return (QMetaObject*)self->QOpenGLWindow::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnMetaObject(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MetaObject_Callback>(slot));
+void QOpenGLWindow_OnMetaObject(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_metaobject_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QOpenGLWindow_SuperMetacast(QOpenGLWindow* self, const char* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Metacast_IsBase(true);
-        return vqopenglwindow->qt_metacast(param1);
-    } else {
-        return self->QOpenGLWindow::qt_metacast(param1);
-    }
+    return self->QOpenGLWindow::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnMetacast(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Metacast_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Metacast_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_metacast_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLWindow_SuperMetacall(QOpenGLWindow* self, int param1, int param2, void** param3) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Metacall_IsBase(true);
-        return vqopenglwindow->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QOpenGLWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QOpenGLWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnMetacall(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Metacall_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Metacall_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_metacall_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperInitializeGL(QOpenGLWindow* self) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_InitializeGL_IsBase(true);
-        vqopenglwindow->initializeGL();
-    } else {
-        ((VirtualQOpenGLWindow*)self)->initializeGL();
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::initializeGL();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::initializeGL called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnInitializeGL(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_InitializeGL_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_InitializeGL_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_initializegl_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_InitializeGL_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperResizeGL(QOpenGLWindow* self, int w, int h) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_ResizeGL_IsBase(true);
-        vqopenglwindow->resizeGL(static_cast<int>(w), static_cast<int>(h));
-    } else {
-        ((VirtualQOpenGLWindow*)self)->resizeGL(static_cast<int>(w), static_cast<int>(h));
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::resizeGL(static_cast<int>(w), static_cast<int>(h));
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::resizeGL called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnResizeGL(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_ResizeGL_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ResizeGL_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_resizegl_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ResizeGL_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperPaintGL(QOpenGLWindow* self) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_PaintGL_IsBase(true);
-        vqopenglwindow->paintGL();
-    } else {
-        ((VirtualQOpenGLWindow*)self)->paintGL();
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::paintGL();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::paintGL called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnPaintGL(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_PaintGL_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_PaintGL_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_paintgl_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_PaintGL_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperPaintUnderGL(QOpenGLWindow* self) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_PaintUnderGL_IsBase(true);
-        vqopenglwindow->paintUnderGL();
-    } else {
-        ((VirtualQOpenGLWindow*)self)->paintUnderGL();
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::paintUnderGL();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::paintUnderGL called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnPaintUnderGL(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_PaintUnderGL_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_PaintUnderGL_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_paintundergl_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_PaintUnderGL_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperPaintOverGL(QOpenGLWindow* self) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_PaintOverGL_IsBase(true);
-        vqopenglwindow->paintOverGL();
-    } else {
-        ((VirtualQOpenGLWindow*)self)->paintOverGL();
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::paintOverGL();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::paintOverGL called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnPaintOverGL(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_PaintOverGL_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_PaintOverGL_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_paintovergl_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_PaintOverGL_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperPaintEvent(QOpenGLWindow* self, QPaintEvent* event) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_PaintEvent_IsBase(true);
-        vqopenglwindow->paintEvent(event);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->paintEvent(event);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnPaintEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_PaintEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_PaintEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_paintevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperResizeEvent(QOpenGLWindow* self, QResizeEvent* event) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_ResizeEvent_IsBase(true);
-        vqopenglwindow->resizeEvent(event);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->resizeEvent(event);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnResizeEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_ResizeEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ResizeEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_resizeevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLWindow_SuperMetric(const QOpenGLWindow* self, int metric) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Metric_IsBase(true);
-        return vqopenglwindow->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->QOpenGLWindow::metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnMetric(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Metric_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Metric_Callback>(slot));
+void QOpenGLWindow_OnMetric(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_metric_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Metric_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintDevice* QOpenGLWindow_SuperRedirected(const QOpenGLWindow* self, QPoint* param1) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Redirected_IsBase(true);
-        return vqopenglwindow->redirected(param1);
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->redirected(param1);
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->QOpenGLWindow::redirected(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnRedirected(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Redirected_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Redirected_Callback>(slot));
+void QOpenGLWindow_OnRedirected(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_redirected_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_ExposeEvent(QOpenGLWindow* self, QExposeEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->exposeEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->exposeEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::exposeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperExposeEvent(QOpenGLWindow* self, QExposeEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_ExposeEvent_IsBase(true);
-        vqopenglwindow->exposeEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->exposeEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::exposeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::exposeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnExposeEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_ExposeEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ExposeEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_exposeevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ExposeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLWindow_Event(QOpenGLWindow* self, QEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         return vqopenglwindow->event(event);
     } else {
-        return ((VirtualQOpenGLWindow*)self)->event(event);
+        qFatal("Error: Protected virtual method QOpenGLWindow::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QOpenGLWindow_SuperEvent(QOpenGLWindow* self, QEvent* event) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Event_IsBase(true);
-        return vqopenglwindow->event(event);
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->event(event);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        return vqopenglwindow->QOpenGLWindow::event(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Event_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Event_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_event_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QOpenGLWindow_SurfaceType(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return static_cast<int>(vqopenglwindow->surfaceType());
-    } else {
-        return static_cast<int>(self->QOpenGLWindow::surfaceType());
-    }
+    return static_cast<int>(self->surfaceType());
 }
 
 // Base class handler implementation
 int QOpenGLWindow_SuperSurfaceType(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_SurfaceType_IsBase(true);
-        return static_cast<int>(vqopenglwindow->surfaceType());
-    } else {
-        return static_cast<int>(self->QOpenGLWindow::surfaceType());
-    }
+    return static_cast<int>(self->QOpenGLWindow::surfaceType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnSurfaceType(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_SurfaceType_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_SurfaceType_Callback>(slot));
+void QOpenGLWindow_OnSurfaceType(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_surfacetype_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_SurfaceType_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSurfaceFormat* QOpenGLWindow_Format(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return new QSurfaceFormat(vqopenglwindow->format());
-    } else {
-        return new QSurfaceFormat(((VirtualQOpenGLWindow*)self)->format());
-    }
+    return new QSurfaceFormat(self->format());
 }
 
 // Base class handler implementation
 QSurfaceFormat* QOpenGLWindow_SuperFormat(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Format_IsBase(true);
-        return new QSurfaceFormat(vqopenglwindow->format());
-    } else {
-        return new QSurfaceFormat(((VirtualQOpenGLWindow*)self)->format());
-    }
+    return new QSurfaceFormat(self->QOpenGLWindow::format());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnFormat(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Format_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Format_Callback>(slot));
+void QOpenGLWindow_OnFormat(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_format_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Format_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QOpenGLWindow_Size(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return new QSize(vqopenglwindow->size());
-    } else {
-        return new QSize(((VirtualQOpenGLWindow*)self)->size());
-    }
+    return new QSize(self->size());
 }
 
 // Base class handler implementation
 QSize* QOpenGLWindow_SuperSize(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Size_IsBase(true);
-        return new QSize(vqopenglwindow->size());
-    } else {
-        return new QSize(((VirtualQOpenGLWindow*)self)->size());
-    }
+    return new QSize(self->QOpenGLWindow::size());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnSize(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Size_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Size_Callback>(slot));
+void QOpenGLWindow_OnSize(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_size_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Size_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAccessibleInterface* QOpenGLWindow_AccessibleRoot(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->accessibleRoot();
-    } else {
-        return self->QOpenGLWindow::accessibleRoot();
-    }
+    return self->accessibleRoot();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QOpenGLWindow_SuperAccessibleRoot(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_AccessibleRoot_IsBase(true);
-        return vqopenglwindow->accessibleRoot();
-    } else {
-        return self->QOpenGLWindow::accessibleRoot();
-    }
+    return self->QOpenGLWindow::accessibleRoot();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnAccessibleRoot(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_AccessibleRoot_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_AccessibleRoot_Callback>(slot));
+void QOpenGLWindow_OnAccessibleRoot(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_accessibleroot_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_AccessibleRoot_Callback>(slot);
 }
 
 // Derived class handler implementation
 QObject* QOpenGLWindow_FocusObject(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->focusObject();
-    } else {
-        return self->QOpenGLWindow::focusObject();
-    }
+    return self->focusObject();
 }
 
 // Base class handler implementation
 QObject* QOpenGLWindow_SuperFocusObject(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_FocusObject_IsBase(true);
-        return vqopenglwindow->focusObject();
-    } else {
-        return self->QOpenGLWindow::focusObject();
-    }
+    return self->QOpenGLWindow::focusObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnFocusObject(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_FocusObject_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_FocusObject_Callback>(slot));
+void QOpenGLWindow_OnFocusObject(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_focusobject_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_FocusObject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_MoveEvent(QOpenGLWindow* self, QMoveEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->moveEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->moveEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperMoveEvent(QOpenGLWindow* self, QMoveEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_MoveEvent_IsBase(true);
-        vqopenglwindow->moveEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->moveEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::moveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnMoveEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_MoveEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MoveEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_moveevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_FocusInEvent(QOpenGLWindow* self, QFocusEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->focusInEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->focusInEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperFocusInEvent(QOpenGLWindow* self, QFocusEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_FocusInEvent_IsBase(true);
-        vqopenglwindow->focusInEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->focusInEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnFocusInEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_FocusInEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_FocusInEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_focusinevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_FocusOutEvent(QOpenGLWindow* self, QFocusEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->focusOutEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->focusOutEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperFocusOutEvent(QOpenGLWindow* self, QFocusEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_FocusOutEvent_IsBase(true);
-        vqopenglwindow->focusOutEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->focusOutEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnFocusOutEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_FocusOutEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_focusoutevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_ShowEvent(QOpenGLWindow* self, QShowEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->showEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperShowEvent(QOpenGLWindow* self, QShowEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_ShowEvent_IsBase(true);
-        vqopenglwindow->showEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->showEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnShowEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_ShowEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ShowEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_showevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_HideEvent(QOpenGLWindow* self, QHideEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->hideEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->hideEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperHideEvent(QOpenGLWindow* self, QHideEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_HideEvent_IsBase(true);
-        vqopenglwindow->hideEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->hideEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::hideEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnHideEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_HideEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_HideEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_hideevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_CloseEvent(QOpenGLWindow* self, QCloseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->closeEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperCloseEvent(QOpenGLWindow* self, QCloseEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_CloseEvent_IsBase(true);
-        vqopenglwindow->closeEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->closeEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnCloseEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_CloseEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_CloseEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_closeevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_KeyPressEvent(QOpenGLWindow* self, QKeyEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->keyPressEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperKeyPressEvent(QOpenGLWindow* self, QKeyEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_KeyPressEvent_IsBase(true);
-        vqopenglwindow->keyPressEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnKeyPressEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_KeyPressEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_keypressevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_KeyReleaseEvent(QOpenGLWindow* self, QKeyEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->keyReleaseEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->keyReleaseEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperKeyReleaseEvent(QOpenGLWindow* self, QKeyEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_KeyReleaseEvent_IsBase(true);
-        vqopenglwindow->keyReleaseEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->keyReleaseEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::keyReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnKeyReleaseEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_keyreleaseevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_MousePressEvent(QOpenGLWindow* self, QMouseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->mousePressEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->mousePressEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperMousePressEvent(QOpenGLWindow* self, QMouseEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_MousePressEvent_IsBase(true);
-        vqopenglwindow->mousePressEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->mousePressEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnMousePressEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_MousePressEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MousePressEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_mousepressevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_MouseReleaseEvent(QOpenGLWindow* self, QMouseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->mouseReleaseEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->mouseReleaseEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperMouseReleaseEvent(QOpenGLWindow* self, QMouseEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_MouseReleaseEvent_IsBase(true);
-        vqopenglwindow->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnMouseReleaseEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_mousereleaseevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_MouseDoubleClickEvent(QOpenGLWindow* self, QMouseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->mouseDoubleClickEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->mouseDoubleClickEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperMouseDoubleClickEvent(QOpenGLWindow* self, QMouseEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_MouseDoubleClickEvent_IsBase(true);
-        vqopenglwindow->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->mouseDoubleClickEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::mouseDoubleClickEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnMouseDoubleClickEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_mousedoubleclickevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_MouseMoveEvent(QOpenGLWindow* self, QMouseEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->mouseMoveEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->mouseMoveEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperMouseMoveEvent(QOpenGLWindow* self, QMouseEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_MouseMoveEvent_IsBase(true);
-        vqopenglwindow->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnMouseMoveEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MouseMoveEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_mousemoveevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_WheelEvent(QOpenGLWindow* self, QWheelEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->wheelEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperWheelEvent(QOpenGLWindow* self, QWheelEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_WheelEvent_IsBase(true);
-        vqopenglwindow->wheelEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->wheelEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnWheelEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_WheelEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_WheelEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_wheelevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_TouchEvent(QOpenGLWindow* self, QTouchEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->touchEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->touchEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::touchEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperTouchEvent(QOpenGLWindow* self, QTouchEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_TouchEvent_IsBase(true);
-        vqopenglwindow->touchEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->touchEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::touchEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::touchEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnTouchEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_TouchEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_TouchEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_touchevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_TouchEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_TabletEvent(QOpenGLWindow* self, QTabletEvent* param1) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->tabletEvent(param1);
     } else {
-        ((VirtualQOpenGLWindow*)self)->tabletEvent(param1);
+        qFatal("Error: Protected virtual method QOpenGLWindow::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperTabletEvent(QOpenGLWindow* self, QTabletEvent* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_TabletEvent_IsBase(true);
-        vqopenglwindow->tabletEvent(param1);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->tabletEvent(param1);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::tabletEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnTabletEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_TabletEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_TabletEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_tabletevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLWindow_NativeEvent(QOpenGLWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
+    if (vqopenglwindow) {
         return vqopenglwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQOpenGLWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QOpenGLWindow::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QOpenGLWindow_SuperNativeEvent(QOpenGLWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_NativeEvent_IsBase(true);
-        return vqopenglwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        return vqopenglwindow->QOpenGLWindow::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnNativeEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_NativeEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_NativeEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_nativeevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLWindow_EventFilter(QOpenGLWindow* self, QObject* watched, QEvent* event) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLWindow::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QOpenGLWindow_SuperEventFilter(QOpenGLWindow* self, QObject* watched, QEvent* event) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_EventFilter_IsBase(true);
-        return vqopenglwindow->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLWindow::eventFilter(watched, event);
-    }
+    return self->QOpenGLWindow::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnEventFilter(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_EventFilter_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_eventfilter_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_TimerEvent(QOpenGLWindow* self, QTimerEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->timerEvent(event);
     } else {
-        ((VirtualQOpenGLWindow*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWindow::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperTimerEvent(QOpenGLWindow* self, QTimerEvent* event) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_TimerEvent_IsBase(true);
-        vqopenglwindow->timerEvent(event);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->timerEvent(event);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnTimerEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_TimerEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_timerevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_ChildEvent(QOpenGLWindow* self, QChildEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->childEvent(event);
     } else {
-        ((VirtualQOpenGLWindow*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWindow::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperChildEvent(QOpenGLWindow* self, QChildEvent* event) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_ChildEvent_IsBase(true);
-        vqopenglwindow->childEvent(event);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->childEvent(event);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnChildEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ChildEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_childevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_CustomEvent(QOpenGLWindow* self, QEvent* event) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->customEvent(event);
     } else {
-        ((VirtualQOpenGLWindow*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLWindow::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperCustomEvent(QOpenGLWindow* self, QEvent* event) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_CustomEvent_IsBase(true);
-        vqopenglwindow->customEvent(event);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->customEvent(event);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnCustomEvent(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_CustomEvent_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_customevent_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_ConnectNotify(QOpenGLWindow* self, const QMetaMethod* signal) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->connectNotify(*signal);
     } else {
-        ((VirtualQOpenGLWindow*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLWindow::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperConnectNotify(QOpenGLWindow* self, const QMetaMethod* signal) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_ConnectNotify_IsBase(true);
-        vqopenglwindow->connectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->connectNotify(*signal);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnConnectNotify(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ConnectNotify_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_connectnotify_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_DisconnectNotify(QOpenGLWindow* self, const QMetaMethod* signal) {
     auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->disconnectNotify(*signal);
     } else {
-        ((VirtualQOpenGLWindow*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLWindow::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperDisconnectNotify(QOpenGLWindow* self, const QMetaMethod* signal) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_DisconnectNotify_IsBase(true);
-        vqopenglwindow->disconnectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self)) {
+        vqopenglwindow->QOpenGLWindow::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLWindow_OnDisconnectNotify(QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_DisconnectNotify_Callback>(slot));
+    if (auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self))
+        vqopenglwindow->qopenglwindow_disconnectnotify_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QOpenGLWindow_DevType(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->devType();
-    } else {
-        return self->QOpenGLWindow::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QOpenGLWindow_SuperDevType(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_DevType_IsBase(true);
-        return vqopenglwindow->devType();
-    } else {
-        return self->QOpenGLWindow::devType();
-    }
+    return self->QOpenGLWindow::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnDevType(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_DevType_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_DevType_Callback>(slot));
+void QOpenGLWindow_OnDevType(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_devtype_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLWindow_InitPainter(const QOpenGLWindow* self, QPainter* painter) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         vqopenglwindow->initPainter(painter);
     } else {
-        ((VirtualQOpenGLWindow*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QOpenGLWindow::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLWindow_SuperInitPainter(const QOpenGLWindow* self, QPainter* painter) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_InitPainter_IsBase(true);
-        vqopenglwindow->initPainter(painter);
-    } else {
-        ((VirtualQOpenGLWindow*)self)->initPainter(painter);
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        vqopenglwindow->QOpenGLWindow::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnInitPainter(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_InitPainter_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_InitPainter_Callback>(slot));
+void QOpenGLWindow_OnInitPainter(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_initpainter_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QOpenGLWindow_SharedPainter(const QOpenGLWindow* self) {
     auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
+    if (vqopenglwindow) {
         return vqopenglwindow->sharedPainter();
     } else {
-        return ((VirtualQOpenGLWindow*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QOpenGLWindow::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QOpenGLWindow_SuperSharedPainter(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_SharedPainter_IsBase(true);
-        return vqopenglwindow->sharedPainter();
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->sharedPainter();
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->QOpenGLWindow::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QOpenGLWindow::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnSharedPainter(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_SharedPainter_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_SharedPainter_Callback>(slot));
+void QOpenGLWindow_OnSharedPainter(QOpenGLWindow* self, intptr_t slot) {
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self)))
+        vqopenglwindow->qopenglwindow_sharedpainter_callback = reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_SharedPainter_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void* QOpenGLWindow_ResolveInterface(const QOpenGLWindow* self, const char* name, int revision) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->VirtualQOpenGLWindow::resolveInterface(name, static_cast<int>(revision));
+    } else
+        qFatal("Error: Protected method QOpenGLWindow::resolveInterface called without a directly constructed type");
 }
 
-// Base class handler implementation
-void* QOpenGLWindow_SuperResolveInterface(const QOpenGLWindow* self, const char* name, int revision) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_ResolveInterface_IsBase(true);
-        return vqopenglwindow->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnResolveInterface(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_ResolveInterface_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_ResolveInterface_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QOpenGLWindow_Sender(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->sender();
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->sender();
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->VirtualQOpenGLWindow::sender();
+    } else
+        qFatal("Error: Protected method QOpenGLWindow::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QOpenGLWindow_SuperSender(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Sender_IsBase(true);
-        return vqopenglwindow->sender();
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnSender(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Sender_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLWindow_SenderSignalIndex(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->senderSignalIndex();
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->VirtualQOpenGLWindow::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QOpenGLWindow::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLWindow_SuperSenderSignalIndex(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_SenderSignalIndex_IsBase(true);
-        return vqopenglwindow->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnSenderSignalIndex(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLWindow_Receivers(const QOpenGLWindow* self, const char* signal) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->receivers(signal);
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->VirtualQOpenGLWindow::receivers(signal);
+    } else
+        qFatal("Error: Protected method QOpenGLWindow::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLWindow_SuperReceivers(const QOpenGLWindow* self, const char* signal) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_Receivers_IsBase(true);
-        return vqopenglwindow->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnReceivers(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_Receivers_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLWindow_IsSignalConnected(const QOpenGLWindow* self, const QMetaMethod* signal) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->VirtualQOpenGLWindow::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QOpenGLWindow::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QOpenGLWindow_SuperIsSignalConnected(const QOpenGLWindow* self, const QMetaMethod* signal) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_IsSignalConnected_IsBase(true);
-        return vqopenglwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnIsSignalConnected(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QOpenGLWindow_GetDecodedMetricF(const QOpenGLWindow* self, int metricA, int metricB) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return vqopenglwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QOpenGLWindow_SuperGetDecodedMetricF(const QOpenGLWindow* self, int metricA, int metricB) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        vqopenglwindow->setQOpenGLWindow_GetDecodedMetricF_IsBase(true);
-        return vqopenglwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLWindow_OnGetDecodedMetricF(const QOpenGLWindow* self, intptr_t slot) {
-    auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self));
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow)
-        vqopenglwindow->setQOpenGLWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQOpenGLWindow::QOpenGLWindow_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqopenglwindow = const_cast<VirtualQOpenGLWindow*>(dynamic_cast<const VirtualQOpenGLWindow*>(self))) {
+        return vqopenglwindow->VirtualQOpenGLWindow::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QOpenGLWindow::getDecodedMetricF called without a directly constructed type");
 }
 
 void QOpenGLWindow_Delete(QOpenGLWindow* self) {

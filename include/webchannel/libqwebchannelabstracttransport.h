@@ -36,14 +36,13 @@ void QWebChannelAbstractTransport_MessageReceived(QWebChannelAbstractTransport* 
 void QWebChannelAbstractTransport_Connect_MessageReceived(QWebChannelAbstractTransport* self, intptr_t slot);
 libqt_string QWebChannelAbstractTransport_Tr2(const char* s, const char* c);
 libqt_string QWebChannelAbstractTransport_Tr3(const char* s, const char* c, int n);
-void QWebChannelAbstractTransport_OnMetaObject(const QWebChannelAbstractTransport* self, intptr_t slot);
+void QWebChannelAbstractTransport_OnMetaObject(QWebChannelAbstractTransport* self, intptr_t slot);
 QMetaObject* QWebChannelAbstractTransport_SuperMetaObject(const QWebChannelAbstractTransport* self);
 void QWebChannelAbstractTransport_OnMetacast(QWebChannelAbstractTransport* self, intptr_t slot);
 void* QWebChannelAbstractTransport_SuperMetacast(QWebChannelAbstractTransport* self, const char* param1);
 void QWebChannelAbstractTransport_OnMetacall(QWebChannelAbstractTransport* self, intptr_t slot);
 int QWebChannelAbstractTransport_SuperMetacall(QWebChannelAbstractTransport* self, int param1, int param2, void** param3);
 void QWebChannelAbstractTransport_OnSendMessage(QWebChannelAbstractTransport* self, intptr_t slot);
-void QWebChannelAbstractTransport_SuperSendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message);
 bool QWebChannelAbstractTransport_Event(QWebChannelAbstractTransport* self, QEvent* event);
 void QWebChannelAbstractTransport_OnEvent(QWebChannelAbstractTransport* self, intptr_t slot);
 bool QWebChannelAbstractTransport_SuperEvent(QWebChannelAbstractTransport* self, QEvent* event);
@@ -66,17 +65,9 @@ void QWebChannelAbstractTransport_DisconnectNotify(QWebChannelAbstractTransport*
 void QWebChannelAbstractTransport_OnDisconnectNotify(QWebChannelAbstractTransport* self, intptr_t slot);
 void QWebChannelAbstractTransport_SuperDisconnectNotify(QWebChannelAbstractTransport* self, const QMetaMethod* signal);
 QObject* QWebChannelAbstractTransport_Sender(const QWebChannelAbstractTransport* self);
-void QWebChannelAbstractTransport_OnSender(const QWebChannelAbstractTransport* self, intptr_t slot);
-QObject* QWebChannelAbstractTransport_SuperSender(const QWebChannelAbstractTransport* self);
 int QWebChannelAbstractTransport_SenderSignalIndex(const QWebChannelAbstractTransport* self);
-void QWebChannelAbstractTransport_OnSenderSignalIndex(const QWebChannelAbstractTransport* self, intptr_t slot);
-int QWebChannelAbstractTransport_SuperSenderSignalIndex(const QWebChannelAbstractTransport* self);
 int QWebChannelAbstractTransport_Receivers(const QWebChannelAbstractTransport* self, const char* signal);
-void QWebChannelAbstractTransport_OnReceivers(const QWebChannelAbstractTransport* self, intptr_t slot);
-int QWebChannelAbstractTransport_SuperReceivers(const QWebChannelAbstractTransport* self, const char* signal);
 bool QWebChannelAbstractTransport_IsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal);
-void QWebChannelAbstractTransport_OnIsSignalConnected(const QWebChannelAbstractTransport* self, intptr_t slot);
-bool QWebChannelAbstractTransport_SuperIsSignalConnected(const QWebChannelAbstractTransport* self, const QMetaMethod* signal);
 void QWebChannelAbstractTransport_Delete(QWebChannelAbstractTransport* self);
 
 #ifdef __cplusplus

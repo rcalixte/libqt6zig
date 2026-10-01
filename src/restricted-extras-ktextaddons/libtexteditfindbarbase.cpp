@@ -141,50 +141,50 @@ void TextCustomEditor__TextEditFindBarBase_Connect_HideFindBar(TextCustomEditor_
 
 bool TextCustomEditor__TextEditFindBarBase_ViewIsReadOnly(const TextCustomEditor__TextEditFindBarBase* self) {
     auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditor__texteditfindbarbase) {
         return vtextcustomeditor__texteditfindbarbase->viewIsReadOnly();
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::viewIsReadOnly called without a directly constructed type");
 }
 
 bool TextCustomEditor__TextEditFindBarBase_DocumentIsEmpty(const TextCustomEditor__TextEditFindBarBase* self) {
     auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditor__texteditfindbarbase) {
         return vtextcustomeditor__texteditfindbarbase->documentIsEmpty();
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::documentIsEmpty called without a directly constructed type");
 }
 
 bool TextCustomEditor__TextEditFindBarBase_SearchInDocument(TextCustomEditor__TextEditFindBarBase* self, const libqt_string text, int searchOptions) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditor__texteditfindbarbase) {
         return vtextcustomeditor__texteditfindbarbase->searchInDocument(text_QString, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::searchInDocument called without a directly constructed type");
 }
 
 bool TextCustomEditor__TextEditFindBarBase_SearchInDocument2(TextCustomEditor__TextEditFindBarBase* self, const QRegularExpression* regExp, int searchOptions) {
     auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditor__texteditfindbarbase) {
         return vtextcustomeditor__texteditfindbarbase->searchInDocument(*regExp, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::searchInDocument2 called without a directly constructed type");
 }
 
 void TextCustomEditor__TextEditFindBarBase_AutoSearchMoveCursor(TextCustomEditor__TextEditFindBarBase* self) {
     auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditor__texteditfindbarbase) {
         vtextcustomeditor__texteditfindbarbase->autoSearchMoveCursor();
     }
 }
 
 bool TextCustomEditor__TextEditFindBarBase_Event(TextCustomEditor__TextEditFindBarBase* self, QEvent* e) {
     auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditor__texteditfindbarbase) {
         return vtextcustomeditor__texteditfindbarbase->event(e);
     }
-    return {};
+    qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::event called without a directly constructed type");
 }
 
 void TextCustomEditor__TextEditFindBarBase_FindNext(TextCustomEditor__TextEditFindBarBase* self) {
@@ -234,1865 +234,1231 @@ libqt_string TextCustomEditor__TextEditFindBarBase_Tr3(const char* s, const char
 
 // Base class handler implementation
 QMetaObject* TextCustomEditor__TextEditFindBarBase_SuperMetaObject(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextcustomeditortexteditfindbarbase->metaObject();
-    } else {
-        return (QMetaObject*)self->TextCustomEditor::TextEditFindBarBase::metaObject();
-    }
+    return (QMetaObject*)self->TextCustomEditor::TextEditFindBarBase::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnMetaObject(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MetaObject_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnMetaObject(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_metaobject_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextCustomEditor__TextEditFindBarBase_SuperMetacast(TextCustomEditor__TextEditFindBarBase* self, const char* param1) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Metacast_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->qt_metacast(param1);
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::qt_metacast(param1);
-    }
+    return self->TextCustomEditor::TextEditFindBarBase::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnMetacast(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Metacast_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_metacast_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextCustomEditor__TextEditFindBarBase_SuperMetacall(TextCustomEditor__TextEditFindBarBase* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Metacall_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextCustomEditor::TextEditFindBarBase::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnMetacall(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-bool TextCustomEditor__TextEditFindBarBase_SuperViewIsReadOnly(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ViewIsReadOnly_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->viewIsReadOnly();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->viewIsReadOnly();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_metacall_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnViewIsReadOnly(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ViewIsReadOnly_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ViewIsReadOnly_Callback>(slot));
-}
-
-// Base class handler implementation
-bool TextCustomEditor__TextEditFindBarBase_SuperDocumentIsEmpty(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DocumentIsEmpty_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->documentIsEmpty();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->documentIsEmpty();
-    }
+void TextCustomEditor__TextEditFindBarBase_OnViewIsReadOnly(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_viewisreadonly_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ViewIsReadOnly_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnDocumentIsEmpty(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DocumentIsEmpty_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DocumentIsEmpty_Callback>(slot));
-}
-
-// Base class handler implementation
-bool TextCustomEditor__TextEditFindBarBase_SuperSearchInDocument(TextCustomEditor__TextEditFindBarBase* self, const libqt_string text, int searchOptions) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SearchInDocument_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->searchInDocument(text_QString, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->searchInDocument(text_QString, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
-    }
+void TextCustomEditor__TextEditFindBarBase_OnDocumentIsEmpty(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_documentisempty_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DocumentIsEmpty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnSearchInDocument(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SearchInDocument_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SearchInDocument_Callback>(slot));
-}
-
-// Base class handler implementation
-bool TextCustomEditor__TextEditFindBarBase_SuperSearchInDocument2(TextCustomEditor__TextEditFindBarBase* self, const QRegularExpression* regExp, int searchOptions) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SearchInDocument2_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->searchInDocument(*regExp, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->searchInDocument(*regExp, static_cast<TextCustomEditor::TextEditFindBarBase::FindFlags>(searchOptions));
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_searchindocument_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SearchInDocument_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnSearchInDocument2(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SearchInDocument2_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SearchInDocument2_Callback>(slot));
-}
-
-// Base class handler implementation
-void TextCustomEditor__TextEditFindBarBase_SuperAutoSearchMoveCursor(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_AutoSearchMoveCursor_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->autoSearchMoveCursor();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->autoSearchMoveCursor();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_searchindocument2_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SearchInDocument2_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnAutoSearchMoveCursor(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_AutoSearchMoveCursor_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_AutoSearchMoveCursor_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_autosearchmovecursor_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_AutoSearchMoveCursor_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_SuperEvent(TextCustomEditor__TextEditFindBarBase* self, QEvent* e) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Event_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->event(e);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->event(e);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        return vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::event(e);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Event_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Event_Callback>(slot));
-}
-
-// Base class handler implementation
-void TextCustomEditor__TextEditFindBarBase_SuperSlotSearchText(TextCustomEditor__TextEditFindBarBase* self, bool backward, bool isAutoSearch) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SlotSearchText_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->slotSearchText(backward, isAutoSearch);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->slotSearchText(backward, isAutoSearch);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_event_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Event_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnSlotSearchText(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SlotSearchText_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SlotSearchText_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_slotsearchtext_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SlotSearchText_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__TextEditFindBarBase_DevType(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->devType();
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextCustomEditor__TextEditFindBarBase_SuperDevType(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DevType_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->devType();
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::devType();
-    }
+    return self->TextCustomEditor::TextEditFindBarBase::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnDevType(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DevType_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnDevType(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_devtype_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SetVisible(TextCustomEditor__TextEditFindBarBase* self, bool visible) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setVisible(visible);
-    } else {
-        self->TextCustomEditor::TextEditFindBarBase::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperSetVisible(TextCustomEditor__TextEditFindBarBase* self, bool visible) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SetVisible_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->setVisible(visible);
-    } else {
-        self->TextCustomEditor::TextEditFindBarBase::setVisible(visible);
-    }
+    self->TextCustomEditor::TextEditFindBarBase::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnSetVisible(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SetVisible_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_setvisible_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__TextEditFindBarBase_SizeHint(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return new QSize(vtextcustomeditortexteditfindbarbase->sizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorTextEditFindBarBase*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__TextEditFindBarBase_SuperSizeHint(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SizeHint_IsBase(true);
-        return new QSize(vtextcustomeditortexteditfindbarbase->sizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorTextEditFindBarBase*)self)->sizeHint());
-    }
+    return new QSize(self->TextCustomEditor::TextEditFindBarBase::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnSizeHint(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SizeHint_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnSizeHint(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_sizehint_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextCustomEditor__TextEditFindBarBase_MinimumSizeHint(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return new QSize(vtextcustomeditortexteditfindbarbase->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorTextEditFindBarBase*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextCustomEditor__TextEditFindBarBase_SuperMinimumSizeHint(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MinimumSizeHint_IsBase(true);
-        return new QSize(vtextcustomeditortexteditfindbarbase->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextCustomEditorTextEditFindBarBase*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextCustomEditor::TextEditFindBarBase::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnMinimumSizeHint(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MinimumSizeHint_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnMinimumSizeHint(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_minimumsizehint_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__TextEditFindBarBase_HeightForWidth(const TextCustomEditor__TextEditFindBarBase* self, int param1) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextCustomEditor__TextEditFindBarBase_SuperHeightForWidth(const TextCustomEditor__TextEditFindBarBase* self, int param1) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_HeightForWidth_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextCustomEditor::TextEditFindBarBase::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnHeightForWidth(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_HeightForWidth_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnHeightForWidth(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_heightforwidth_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_HasHeightForWidth(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->hasHeightForWidth();
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_SuperHasHeightForWidth(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_HasHeightForWidth_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->hasHeightForWidth();
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::hasHeightForWidth();
-    }
+    return self->TextCustomEditor::TextEditFindBarBase::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnHasHeightForWidth(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_HasHeightForWidth_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnHasHeightForWidth(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_hasheightforwidth_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextCustomEditor__TextEditFindBarBase_PaintEngine(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->paintEngine();
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextCustomEditor__TextEditFindBarBase_SuperPaintEngine(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_PaintEngine_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->paintEngine();
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::paintEngine();
-    }
+    return self->TextCustomEditor::TextEditFindBarBase::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnPaintEngine(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_PaintEngine_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnPaintEngine(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_paintengine_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_MousePressEvent(TextCustomEditor__TextEditFindBarBase* self, QMouseEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->mousePressEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperMousePressEvent(TextCustomEditor__TextEditFindBarBase* self, QMouseEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MousePressEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->mousePressEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->mousePressEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnMousePressEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MousePressEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_mousepressevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_MouseReleaseEvent(TextCustomEditor__TextEditFindBarBase* self, QMouseEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->mouseReleaseEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperMouseReleaseEvent(TextCustomEditor__TextEditFindBarBase* self, QMouseEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MouseReleaseEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->mouseReleaseEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnMouseReleaseEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_mousereleaseevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_MouseDoubleClickEvent(TextCustomEditor__TextEditFindBarBase* self, QMouseEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperMouseDoubleClickEvent(TextCustomEditor__TextEditFindBarBase* self, QMouseEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MouseDoubleClickEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnMouseDoubleClickEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_MouseMoveEvent(TextCustomEditor__TextEditFindBarBase* self, QMouseEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->mouseMoveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperMouseMoveEvent(TextCustomEditor__TextEditFindBarBase* self, QMouseEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MouseMoveEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->mouseMoveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnMouseMoveEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MouseMoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_mousemoveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_WheelEvent(TextCustomEditor__TextEditFindBarBase* self, QWheelEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->wheelEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperWheelEvent(TextCustomEditor__TextEditFindBarBase* self, QWheelEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_WheelEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->wheelEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->wheelEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnWheelEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_WheelEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_wheelevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_KeyPressEvent(TextCustomEditor__TextEditFindBarBase* self, QKeyEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->keyPressEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperKeyPressEvent(TextCustomEditor__TextEditFindBarBase* self, QKeyEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_KeyPressEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->keyPressEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->keyPressEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnKeyPressEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_KeyPressEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_keypressevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_KeyReleaseEvent(TextCustomEditor__TextEditFindBarBase* self, QKeyEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->keyReleaseEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperKeyReleaseEvent(TextCustomEditor__TextEditFindBarBase* self, QKeyEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_KeyReleaseEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->keyReleaseEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnKeyReleaseEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_keyreleaseevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_FocusInEvent(TextCustomEditor__TextEditFindBarBase* self, QFocusEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->focusInEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperFocusInEvent(TextCustomEditor__TextEditFindBarBase* self, QFocusEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusInEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->focusInEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusInEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnFocusInEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_FocusInEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_focusinevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_FocusOutEvent(TextCustomEditor__TextEditFindBarBase* self, QFocusEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->focusOutEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperFocusOutEvent(TextCustomEditor__TextEditFindBarBase* self, QFocusEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusOutEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->focusOutEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusOutEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnFocusOutEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_FocusOutEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_focusoutevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_EnterEvent(TextCustomEditor__TextEditFindBarBase* self, QEnterEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->enterEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperEnterEvent(TextCustomEditor__TextEditFindBarBase* self, QEnterEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_EnterEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->enterEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->enterEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnEnterEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_EnterEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_enterevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_LeaveEvent(TextCustomEditor__TextEditFindBarBase* self, QEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->leaveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperLeaveEvent(TextCustomEditor__TextEditFindBarBase* self, QEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_LeaveEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->leaveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->leaveEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnLeaveEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_LeaveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_leaveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_PaintEvent(TextCustomEditor__TextEditFindBarBase* self, QPaintEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->paintEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperPaintEvent(TextCustomEditor__TextEditFindBarBase* self, QPaintEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_PaintEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->paintEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->paintEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnPaintEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_PaintEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_paintevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_MoveEvent(TextCustomEditor__TextEditFindBarBase* self, QMoveEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->moveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperMoveEvent(TextCustomEditor__TextEditFindBarBase* self, QMoveEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MoveEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->moveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->moveEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnMoveEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_moveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_ResizeEvent(TextCustomEditor__TextEditFindBarBase* self, QResizeEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->resizeEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperResizeEvent(TextCustomEditor__TextEditFindBarBase* self, QResizeEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ResizeEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->resizeEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->resizeEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnResizeEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ResizeEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_resizeevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_CloseEvent(TextCustomEditor__TextEditFindBarBase* self, QCloseEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->closeEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperCloseEvent(TextCustomEditor__TextEditFindBarBase* self, QCloseEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_CloseEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->closeEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->closeEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnCloseEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_CloseEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_closeevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_ContextMenuEvent(TextCustomEditor__TextEditFindBarBase* self, QContextMenuEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->contextMenuEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperContextMenuEvent(TextCustomEditor__TextEditFindBarBase* self, QContextMenuEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ContextMenuEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->contextMenuEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->contextMenuEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnContextMenuEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ContextMenuEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_contextmenuevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_TabletEvent(TextCustomEditor__TextEditFindBarBase* self, QTabletEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->tabletEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperTabletEvent(TextCustomEditor__TextEditFindBarBase* self, QTabletEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_TabletEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->tabletEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->tabletEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnTabletEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_TabletEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_tabletevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_ActionEvent(TextCustomEditor__TextEditFindBarBase* self, QActionEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->actionEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperActionEvent(TextCustomEditor__TextEditFindBarBase* self, QActionEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ActionEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->actionEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->actionEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnActionEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ActionEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_actionevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_DragEnterEvent(TextCustomEditor__TextEditFindBarBase* self, QDragEnterEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->dragEnterEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperDragEnterEvent(TextCustomEditor__TextEditFindBarBase* self, QDragEnterEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DragEnterEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->dragEnterEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->dragEnterEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnDragEnterEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DragEnterEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_dragenterevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_DragMoveEvent(TextCustomEditor__TextEditFindBarBase* self, QDragMoveEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->dragMoveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperDragMoveEvent(TextCustomEditor__TextEditFindBarBase* self, QDragMoveEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DragMoveEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->dragMoveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->dragMoveEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnDragMoveEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DragMoveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_dragmoveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_DragLeaveEvent(TextCustomEditor__TextEditFindBarBase* self, QDragLeaveEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->dragLeaveEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperDragLeaveEvent(TextCustomEditor__TextEditFindBarBase* self, QDragLeaveEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DragLeaveEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->dragLeaveEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnDragLeaveEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DragLeaveEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_dragleaveevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_DropEvent(TextCustomEditor__TextEditFindBarBase* self, QDropEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->dropEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperDropEvent(TextCustomEditor__TextEditFindBarBase* self, QDropEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DropEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->dropEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->dropEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnDropEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DropEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_dropevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_ShowEvent(TextCustomEditor__TextEditFindBarBase* self, QShowEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->showEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperShowEvent(TextCustomEditor__TextEditFindBarBase* self, QShowEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ShowEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->showEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->showEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnShowEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ShowEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_showevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_HideEvent(TextCustomEditor__TextEditFindBarBase* self, QHideEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->hideEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperHideEvent(TextCustomEditor__TextEditFindBarBase* self, QHideEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_HideEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->hideEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->hideEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnHideEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_HideEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_hideevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_NativeEvent(TextCustomEditor__TextEditFindBarBase* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
+    if (vtextcustomeditortexteditfindbarbase) {
         return vtextcustomeditortexteditfindbarbase->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_SuperNativeEvent(TextCustomEditor__TextEditFindBarBase* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_NativeEvent_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        return vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnNativeEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_NativeEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_nativeevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_ChangeEvent(TextCustomEditor__TextEditFindBarBase* self, QEvent* param1) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->changeEvent(param1);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperChangeEvent(TextCustomEditor__TextEditFindBarBase* self, QEvent* param1) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ChangeEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->changeEvent(param1);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->changeEvent(param1);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnChangeEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ChangeEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_changeevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextCustomEditor__TextEditFindBarBase_Metric(const TextCustomEditor__TextEditFindBarBase* self, int param1) {
     auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         return vtextcustomeditortexteditfindbarbase->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextCustomEditor__TextEditFindBarBase_SuperMetric(const TextCustomEditor__TextEditFindBarBase* self, int param1) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Metric_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        return vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnMetric(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Metric_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnMetric(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_metric_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_InitPainter(const TextCustomEditor__TextEditFindBarBase* self, QPainter* painter) {
     auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->initPainter(painter);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperInitPainter(const TextCustomEditor__TextEditFindBarBase* self, QPainter* painter) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_InitPainter_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->initPainter(painter);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->initPainter(painter);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnInitPainter(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_InitPainter_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnInitPainter(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_initpainter_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextCustomEditor__TextEditFindBarBase_Redirected(const TextCustomEditor__TextEditFindBarBase* self, QPoint* offset) {
     auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         return vtextcustomeditortexteditfindbarbase->redirected(offset);
     } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextCustomEditor__TextEditFindBarBase_SuperRedirected(const TextCustomEditor__TextEditFindBarBase* self, QPoint* offset) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Redirected_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->redirected(offset);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->redirected(offset);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        return vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnRedirected(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Redirected_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnRedirected(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_redirected_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextCustomEditor__TextEditFindBarBase_SharedPainter(const TextCustomEditor__TextEditFindBarBase* self) {
     auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         return vtextcustomeditortexteditfindbarbase->sharedPainter();
     } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextCustomEditor__TextEditFindBarBase_SuperSharedPainter(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SharedPainter_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->sharedPainter();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->sharedPainter();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        return vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnSharedPainter(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SharedPainter_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnSharedPainter(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_sharedpainter_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_InputMethodEvent(TextCustomEditor__TextEditFindBarBase* self, QInputMethodEvent* param1) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->inputMethodEvent(param1);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperInputMethodEvent(TextCustomEditor__TextEditFindBarBase* self, QInputMethodEvent* param1) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_InputMethodEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnInputMethodEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_InputMethodEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_inputmethodevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextCustomEditor__TextEditFindBarBase_InputMethodQuery(const TextCustomEditor__TextEditFindBarBase* self, int param1) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return new QVariant(vtextcustomeditortexteditfindbarbase->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorTextEditFindBarBase*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* TextCustomEditor__TextEditFindBarBase_SuperInputMethodQuery(const TextCustomEditor__TextEditFindBarBase* self, int param1) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_InputMethodQuery_IsBase(true);
-        return new QVariant(vtextcustomeditortexteditfindbarbase->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextCustomEditorTextEditFindBarBase*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->TextCustomEditor::TextEditFindBarBase::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnInputMethodQuery(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_InputMethodQuery_Callback>(slot));
+void TextCustomEditor__TextEditFindBarBase_OnInputMethodQuery(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self)))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_inputmethodquery_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_FocusNextPrevChild(TextCustomEditor__TextEditFindBarBase* self, bool next) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         return vtextcustomeditortexteditfindbarbase->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_SuperFocusNextPrevChild(TextCustomEditor__TextEditFindBarBase* self, bool next) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusNextPrevChild_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        return vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnFocusNextPrevChild(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_focusnextprevchild_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_EventFilter(TextCustomEditor__TextEditFindBarBase* self, QObject* watched, QEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->eventFilter(watched, event);
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextCustomEditor__TextEditFindBarBase_SuperEventFilter(TextCustomEditor__TextEditFindBarBase* self, QObject* watched, QEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_EventFilter_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->eventFilter(watched, event);
-    } else {
-        return self->TextCustomEditor::TextEditFindBarBase::eventFilter(watched, event);
-    }
+    return self->TextCustomEditor::TextEditFindBarBase::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnEventFilter(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_EventFilter_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_eventfilter_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_TimerEvent(TextCustomEditor__TextEditFindBarBase* self, QTimerEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->timerEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperTimerEvent(TextCustomEditor__TextEditFindBarBase* self, QTimerEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_TimerEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->timerEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->timerEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnTimerEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_TimerEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_timerevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_ChildEvent(TextCustomEditor__TextEditFindBarBase* self, QChildEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->childEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperChildEvent(TextCustomEditor__TextEditFindBarBase* self, QChildEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ChildEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->childEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->childEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnChildEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ChildEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_childevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_CustomEvent(TextCustomEditor__TextEditFindBarBase* self, QEvent* event) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->customEvent(event);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperCustomEvent(TextCustomEditor__TextEditFindBarBase* self, QEvent* event) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_CustomEvent_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->customEvent(event);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->customEvent(event);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnCustomEvent(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_CustomEvent_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_customevent_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_ConnectNotify(TextCustomEditor__TextEditFindBarBase* self, const QMetaMethod* signal) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->connectNotify(*signal);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperConnectNotify(TextCustomEditor__TextEditFindBarBase* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ConnectNotify_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->connectNotify(*signal);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnConnectNotify(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ConnectNotify_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_connectnotify_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextCustomEditor__TextEditFindBarBase_DisconnectNotify(TextCustomEditor__TextEditFindBarBase* self, const QMetaMethod* signal) {
     auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
+    if (vtextcustomeditortexteditfindbarbase) {
         vtextcustomeditortexteditfindbarbase->disconnectNotify(*signal);
     } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextCustomEditor__TextEditFindBarBase_SuperDisconnectNotify(TextCustomEditor__TextEditFindBarBase* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DisconnectNotify_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->TextCustomEditor::TextEditFindBarBase::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextCustomEditor::TextEditFindBarBase::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextEditFindBarBase_OnDisconnectNotify(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DisconnectNotify_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self))
+        vtextcustomeditortexteditfindbarbase->textcustomeditor__texteditfindbarbase_disconnectnotify_callback = reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextEditFindBarBase_ClearSelections(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->clearSelections();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->clearSelections();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::clearSelections();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::clearSelections called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextEditFindBarBase_SuperClearSelections(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ClearSelections_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->clearSelections();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->clearSelections();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnClearSelections(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_ClearSelections_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_ClearSelections_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__TextEditFindBarBase_SearchText(TextCustomEditor__TextEditFindBarBase* self, bool backward, bool isAutoSearch) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->searchText(backward, isAutoSearch);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->searchText(backward, isAutoSearch);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        return vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::searchText(backward, isAutoSearch);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::searchText called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__TextEditFindBarBase_SuperSearchText(TextCustomEditor__TextEditFindBarBase* self, bool backward, bool isAutoSearch) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SearchText_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->searchText(backward, isAutoSearch);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->searchText(backward, isAutoSearch);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnSearchText(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SearchText_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SearchText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextEditFindBarBase_SetFoundMatch(TextCustomEditor__TextEditFindBarBase* self, bool match) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setFoundMatch(match);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->setFoundMatch(match);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::setFoundMatch(match);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::setFoundMatch called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextEditFindBarBase_SuperSetFoundMatch(TextCustomEditor__TextEditFindBarBase* self, bool match) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SetFoundMatch_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->setFoundMatch(match);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->setFoundMatch(match);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnSetFoundMatch(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SetFoundMatch_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SetFoundMatch_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextEditFindBarBase_MessageInfo(TextCustomEditor__TextEditFindBarBase* self, bool backward, bool isAutoSearch, bool found) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->messageInfo(backward, isAutoSearch, found);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->messageInfo(backward, isAutoSearch, found);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::messageInfo(backward, isAutoSearch, found);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::messageInfo called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextEditFindBarBase_SuperMessageInfo(TextCustomEditor__TextEditFindBarBase* self, bool backward, bool isAutoSearch, bool found) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MessageInfo_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->messageInfo(backward, isAutoSearch, found);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->messageInfo(backward, isAutoSearch, found);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnMessageInfo(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_MessageInfo_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_MessageInfo_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextEditFindBarBase_UpdateMicroFocus(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->updateMicroFocus();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->updateMicroFocus();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextEditFindBarBase_SuperUpdateMicroFocus(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_UpdateMicroFocus_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->updateMicroFocus();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnUpdateMicroFocus(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextEditFindBarBase_Create(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->create();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->create();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::create();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextEditFindBarBase_SuperCreate(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Create_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->create();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnCreate(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Create_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextCustomEditor__TextEditFindBarBase_Destroy(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->destroy();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->destroy();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::destroy();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextCustomEditor__TextEditFindBarBase_SuperDestroy(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Destroy_IsBase(true);
-        vtextcustomeditortexteditfindbarbase->destroy();
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnDestroy(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__TextEditFindBarBase_FocusNextChild(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->focusNextChild();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusNextChild();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        return vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__TextEditFindBarBase_SuperFocusNextChild(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusNextChild_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->focusNextChild();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnFocusNextChild(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__TextEditFindBarBase_FocusPreviousChild(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->focusPreviousChild();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusPreviousChild();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self)) {
+        return vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__TextEditFindBarBase_SuperFocusPreviousChild(TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusPreviousChild_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->focusPreviousChild();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnFocusPreviousChild(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextCustomEditor__TextEditFindBarBase_Sender(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->sender();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->sender();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        return vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::sender();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextCustomEditor__TextEditFindBarBase_SuperSender(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Sender_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->sender();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnSender(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextCustomEditor__TextEditFindBarBase_SenderSignalIndex(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->senderSignalIndex();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->senderSignalIndex();
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        return vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextCustomEditor__TextEditFindBarBase_SuperSenderSignalIndex(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SenderSignalIndex_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->senderSignalIndex();
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnSenderSignalIndex(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextCustomEditor__TextEditFindBarBase_Receivers(const TextCustomEditor__TextEditFindBarBase* self, const char* signal) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->receivers(signal);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->receivers(signal);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        return vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextCustomEditor__TextEditFindBarBase_SuperReceivers(const TextCustomEditor__TextEditFindBarBase* self, const char* signal) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Receivers_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->receivers(signal);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnReceivers(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextCustomEditor__TextEditFindBarBase_IsSignalConnected(const TextCustomEditor__TextEditFindBarBase* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        return vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextCustomEditor__TextEditFindBarBase_SuperIsSignalConnected(const TextCustomEditor__TextEditFindBarBase* self, const QMetaMethod* signal) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_IsSignalConnected_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnIsSignalConnected(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextCustomEditor__TextEditFindBarBase_GetDecodedMetricF(const TextCustomEditor__TextEditFindBarBase* self, int metricA, int metricB) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return vtextcustomeditortexteditfindbarbase->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextCustomEditor__TextEditFindBarBase_SuperGetDecodedMetricF(const TextCustomEditor__TextEditFindBarBase* self, int metricA, int metricB) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_GetDecodedMetricF_IsBase(true);
-        return vtextcustomeditortexteditfindbarbase->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextCustomEditor__TextEditFindBarBase_OnGetDecodedMetricF(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
-    auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self));
-    if (vtextcustomeditortexteditfindbarbase && vtextcustomeditortexteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase)
-        vtextcustomeditortexteditfindbarbase->setTextCustomEditor__TextEditFindBarBase_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorTextEditFindBarBase::TextCustomEditor__TextEditFindBarBase_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtextcustomeditortexteditfindbarbase = const_cast<VirtualTextCustomEditorTextEditFindBarBase*>(dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self))) {
+        return vtextcustomeditortexteditfindbarbase->VirtualTextCustomEditorTextEditFindBarBase::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextCustomEditor::TextEditFindBarBase::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextCustomEditor__TextEditFindBarBase_Delete(TextCustomEditor__TextEditFindBarBase* self) {

@@ -44,7 +44,7 @@ void QPropertyAnimation_UpdateCurrentValue(QPropertyAnimation* self, const QVari
 void QPropertyAnimation_UpdateState(QPropertyAnimation* self, int newState, int oldState);
 libqt_string QPropertyAnimation_Tr2(const char* s, const char* c);
 libqt_string QPropertyAnimation_Tr3(const char* s, const char* c, int n);
-void QPropertyAnimation_OnMetaObject(const QPropertyAnimation* self, intptr_t slot);
+void QPropertyAnimation_OnMetaObject(QPropertyAnimation* self, intptr_t slot);
 QMetaObject* QPropertyAnimation_SuperMetaObject(const QPropertyAnimation* self);
 void QPropertyAnimation_OnMetacast(QPropertyAnimation* self, intptr_t slot);
 void* QPropertyAnimation_SuperMetacast(QPropertyAnimation* self, const char* param1);
@@ -57,13 +57,13 @@ void QPropertyAnimation_SuperUpdateCurrentValue(QPropertyAnimation* self, const 
 void QPropertyAnimation_OnUpdateState(QPropertyAnimation* self, intptr_t slot);
 void QPropertyAnimation_SuperUpdateState(QPropertyAnimation* self, int newState, int oldState);
 int QPropertyAnimation_Duration(const QPropertyAnimation* self);
-void QPropertyAnimation_OnDuration(const QPropertyAnimation* self, intptr_t slot);
+void QPropertyAnimation_OnDuration(QPropertyAnimation* self, intptr_t slot);
 int QPropertyAnimation_SuperDuration(const QPropertyAnimation* self);
 void QPropertyAnimation_UpdateCurrentTime(QPropertyAnimation* self, int param1);
 void QPropertyAnimation_OnUpdateCurrentTime(QPropertyAnimation* self, intptr_t slot);
 void QPropertyAnimation_SuperUpdateCurrentTime(QPropertyAnimation* self, int param1);
 QVariant* QPropertyAnimation_Interpolated(const QPropertyAnimation* self, const QVariant* from, const QVariant* to, double progress);
-void QPropertyAnimation_OnInterpolated(const QPropertyAnimation* self, intptr_t slot);
+void QPropertyAnimation_OnInterpolated(QPropertyAnimation* self, intptr_t slot);
 QVariant* QPropertyAnimation_SuperInterpolated(const QPropertyAnimation* self, const QVariant* from, const QVariant* to, double progress);
 void QPropertyAnimation_UpdateDirection(QPropertyAnimation* self, int direction);
 void QPropertyAnimation_OnUpdateDirection(QPropertyAnimation* self, intptr_t slot);
@@ -87,17 +87,9 @@ void QPropertyAnimation_DisconnectNotify(QPropertyAnimation* self, const QMetaMe
 void QPropertyAnimation_OnDisconnectNotify(QPropertyAnimation* self, intptr_t slot);
 void QPropertyAnimation_SuperDisconnectNotify(QPropertyAnimation* self, const QMetaMethod* signal);
 QObject* QPropertyAnimation_Sender(const QPropertyAnimation* self);
-void QPropertyAnimation_OnSender(const QPropertyAnimation* self, intptr_t slot);
-QObject* QPropertyAnimation_SuperSender(const QPropertyAnimation* self);
 int QPropertyAnimation_SenderSignalIndex(const QPropertyAnimation* self);
-void QPropertyAnimation_OnSenderSignalIndex(const QPropertyAnimation* self, intptr_t slot);
-int QPropertyAnimation_SuperSenderSignalIndex(const QPropertyAnimation* self);
 int QPropertyAnimation_Receivers(const QPropertyAnimation* self, const char* signal);
-void QPropertyAnimation_OnReceivers(const QPropertyAnimation* self, intptr_t slot);
-int QPropertyAnimation_SuperReceivers(const QPropertyAnimation* self, const char* signal);
 bool QPropertyAnimation_IsSignalConnected(const QPropertyAnimation* self, const QMetaMethod* signal);
-void QPropertyAnimation_OnIsSignalConnected(const QPropertyAnimation* self, intptr_t slot);
-bool QPropertyAnimation_SuperIsSignalConnected(const QPropertyAnimation* self, const QMetaMethod* signal);
 void QPropertyAnimation_Delete(QPropertyAnimation* self);
 
 #ifdef __cplusplus

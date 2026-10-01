@@ -74,382 +74,230 @@ libqt_string QBarSeries_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QBarSeries_SuperMetaObject(const QBarSeries* self) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_MetaObject_IsBase(true);
-        return (QMetaObject*)vqbarseries->metaObject();
-    } else {
-        return (QMetaObject*)self->QBarSeries::metaObject();
-    }
+    return (QMetaObject*)self->QBarSeries::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBarSeries_OnMetaObject(const QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_MetaObject_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_MetaObject_Callback>(slot));
+void QBarSeries_OnMetaObject(QBarSeries* self, intptr_t slot) {
+    if (auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self)))
+        vqbarseries->qbarseries_metaobject_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QBarSeries_SuperMetacast(QBarSeries* self, const char* param1) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_Metacast_IsBase(true);
-        return vqbarseries->qt_metacast(param1);
-    } else {
-        return self->QBarSeries::qt_metacast(param1);
-    }
+    return self->QBarSeries::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnMetacast(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_Metacast_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Metacast_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_metacast_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBarSeries_SuperMetacall(QBarSeries* self, int param1, int param2, void** param3) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_Metacall_IsBase(true);
-        return vqbarseries->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QBarSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QBarSeries::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnMetacall(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_Metacall_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Metacall_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_metacall_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QBarSeries_SuperType(const QBarSeries* self) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_Type_IsBase(true);
-        return static_cast<int>(vqbarseries->type());
-    } else {
-        return static_cast<int>(self->QBarSeries::type());
-    }
+    return static_cast<int>(self->QBarSeries::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QBarSeries_OnType(const QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_Type_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Type_Callback>(slot));
+void QBarSeries_OnType(QBarSeries* self, intptr_t slot) {
+    if (auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self)))
+        vqbarseries->qbarseries_type_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBarSeries_Event(QBarSeries* self, QEvent* event) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        return vqbarseries->event(event);
-    } else {
-        return self->QBarSeries::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QBarSeries_SuperEvent(QBarSeries* self, QEvent* event) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_Event_IsBase(true);
-        return vqbarseries->event(event);
-    } else {
-        return self->QBarSeries::event(event);
-    }
+    return self->QBarSeries::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnEvent(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_Event_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Event_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_event_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QBarSeries_EventFilter(QBarSeries* self, QObject* watched, QEvent* event) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        return vqbarseries->eventFilter(watched, event);
-    } else {
-        return self->QBarSeries::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QBarSeries_SuperEventFilter(QBarSeries* self, QObject* watched, QEvent* event) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_EventFilter_IsBase(true);
-        return vqbarseries->eventFilter(watched, event);
-    } else {
-        return self->QBarSeries::eventFilter(watched, event);
-    }
+    return self->QBarSeries::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnEventFilter(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_EventFilter_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_EventFilter_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_eventfilter_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarSeries_TimerEvent(QBarSeries* self, QTimerEvent* event) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries) {
         vqbarseries->timerEvent(event);
     } else {
-        ((VirtualQBarSeries*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QBarSeries::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarSeries_SuperTimerEvent(QBarSeries* self, QTimerEvent* event) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_TimerEvent_IsBase(true);
-        vqbarseries->timerEvent(event);
-    } else {
-        ((VirtualQBarSeries*)self)->timerEvent(event);
-    }
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self)) {
+        vqbarseries->QBarSeries::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBarSeries::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnTimerEvent(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_TimerEvent_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_TimerEvent_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_timerevent_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarSeries_ChildEvent(QBarSeries* self, QChildEvent* event) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries) {
         vqbarseries->childEvent(event);
     } else {
-        ((VirtualQBarSeries*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QBarSeries::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarSeries_SuperChildEvent(QBarSeries* self, QChildEvent* event) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_ChildEvent_IsBase(true);
-        vqbarseries->childEvent(event);
-    } else {
-        ((VirtualQBarSeries*)self)->childEvent(event);
-    }
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self)) {
+        vqbarseries->QBarSeries::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBarSeries::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnChildEvent(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_ChildEvent_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_ChildEvent_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_childevent_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarSeries_CustomEvent(QBarSeries* self, QEvent* event) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries) {
         vqbarseries->customEvent(event);
     } else {
-        ((VirtualQBarSeries*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QBarSeries::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarSeries_SuperCustomEvent(QBarSeries* self, QEvent* event) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_CustomEvent_IsBase(true);
-        vqbarseries->customEvent(event);
-    } else {
-        ((VirtualQBarSeries*)self)->customEvent(event);
-    }
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self)) {
+        vqbarseries->QBarSeries::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QBarSeries::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnCustomEvent(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_CustomEvent_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_CustomEvent_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_customevent_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarSeries_ConnectNotify(QBarSeries* self, const QMetaMethod* signal) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries) {
         vqbarseries->connectNotify(*signal);
     } else {
-        ((VirtualQBarSeries*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QBarSeries::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarSeries_SuperConnectNotify(QBarSeries* self, const QMetaMethod* signal) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_ConnectNotify_IsBase(true);
-        vqbarseries->connectNotify(*signal);
-    } else {
-        ((VirtualQBarSeries*)self)->connectNotify(*signal);
-    }
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self)) {
+        vqbarseries->QBarSeries::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBarSeries::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnConnectNotify(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_ConnectNotify_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_connectnotify_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QBarSeries_DisconnectNotify(QBarSeries* self, const QMetaMethod* signal) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries) {
         vqbarseries->disconnectNotify(*signal);
     } else {
-        ((VirtualQBarSeries*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QBarSeries::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QBarSeries_SuperDisconnectNotify(QBarSeries* self, const QMetaMethod* signal) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_DisconnectNotify_IsBase(true);
-        vqbarseries->disconnectNotify(*signal);
-    } else {
-        ((VirtualQBarSeries*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self)) {
+        vqbarseries->QBarSeries::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QBarSeries::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnDisconnectNotify(QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_DisconnectNotify_Callback>(slot));
+    if (auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self))
+        vqbarseries->qbarseries_disconnectnotify_callback = reinterpret_cast<VirtualQBarSeries::QBarSeries_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QBarSeries_Sender(const QBarSeries* self) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        return vqbarseries->sender();
-    } else {
-        return ((VirtualQBarSeries*)self)->sender();
-    }
+    if (auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self))) {
+        return vqbarseries->VirtualQBarSeries::sender();
+    } else
+        qFatal("Error: Protected method QBarSeries::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QBarSeries_SuperSender(const QBarSeries* self) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_Sender_IsBase(true);
-        return vqbarseries->sender();
-    } else {
-        return ((VirtualQBarSeries*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarSeries_OnSender(const QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_Sender_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBarSeries_SenderSignalIndex(const QBarSeries* self) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        return vqbarseries->senderSignalIndex();
-    } else {
-        return ((VirtualQBarSeries*)self)->senderSignalIndex();
-    }
+    if (auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self))) {
+        return vqbarseries->VirtualQBarSeries::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QBarSeries::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBarSeries_SuperSenderSignalIndex(const QBarSeries* self) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_SenderSignalIndex_IsBase(true);
-        return vqbarseries->senderSignalIndex();
-    } else {
-        return ((VirtualQBarSeries*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarSeries_OnSenderSignalIndex(const QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QBarSeries_Receivers(const QBarSeries* self, const char* signal) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        return vqbarseries->receivers(signal);
-    } else {
-        return ((VirtualQBarSeries*)self)->receivers(signal);
-    }
+    if (auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self))) {
+        return vqbarseries->VirtualQBarSeries::receivers(signal);
+    } else
+        qFatal("Error: Protected method QBarSeries::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QBarSeries_SuperReceivers(const QBarSeries* self, const char* signal) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_Receivers_IsBase(true);
-        return vqbarseries->receivers(signal);
-    } else {
-        return ((VirtualQBarSeries*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarSeries_OnReceivers(const QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_Receivers_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QBarSeries_IsSignalConnected(const QBarSeries* self, const QMetaMethod* signal) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        return vqbarseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBarSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QBarSeries_SuperIsSignalConnected(const QBarSeries* self, const QMetaMethod* signal) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
-        vqbarseries->setQBarSeries_IsSignalConnected_IsBase(true);
-        return vqbarseries->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQBarSeries*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QBarSeries_OnIsSignalConnected(const QBarSeries* self, intptr_t slot) {
-    auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
-        vqbarseries->setQBarSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_IsSignalConnected_Callback>(slot));
+    if (auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self))) {
+        return vqbarseries->VirtualQBarSeries::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QBarSeries::isSignalConnected called without a directly constructed type");
 }
 
 void QBarSeries_Delete(QBarSeries* self) {

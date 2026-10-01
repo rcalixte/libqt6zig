@@ -467,382 +467,230 @@ bool QWebSocketServer_Listen2(QWebSocketServer* self, const QHostAddress* addres
 
 // Base class handler implementation
 QMetaObject* QWebSocketServer_SuperMetaObject(const QWebSocketServer* self) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_MetaObject_IsBase(true);
-        return (QMetaObject*)vqwebsocketserver->metaObject();
-    } else {
-        return (QMetaObject*)self->QWebSocketServer::metaObject();
-    }
+    return (QMetaObject*)self->QWebSocketServer::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWebSocketServer_OnMetaObject(const QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_MetaObject_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_MetaObject_Callback>(slot));
+void QWebSocketServer_OnMetaObject(QWebSocketServer* self, intptr_t slot) {
+    if (auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self)))
+        vqwebsocketserver->qwebsocketserver_metaobject_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QWebSocketServer_SuperMetacast(QWebSocketServer* self, const char* param1) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_Metacast_IsBase(true);
-        return vqwebsocketserver->qt_metacast(param1);
-    } else {
-        return self->QWebSocketServer::qt_metacast(param1);
-    }
+    return self->QWebSocketServer::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnMetacast(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_Metacast_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_Metacast_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_metacast_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWebSocketServer_SuperMetacall(QWebSocketServer* self, int param1, int param2, void** param3) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_Metacall_IsBase(true);
-        return vqwebsocketserver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QWebSocketServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QWebSocketServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnMetacall(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_Metacall_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_Metacall_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_metacall_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QWebSocket* QWebSocketServer_SuperNextPendingConnection(QWebSocketServer* self) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_NextPendingConnection_IsBase(true);
-        return vqwebsocketserver->nextPendingConnection();
-    } else {
-        return self->QWebSocketServer::nextPendingConnection();
-    }
+    return self->QWebSocketServer::nextPendingConnection();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnNextPendingConnection(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_NextPendingConnection_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_nextpendingconnection_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_NextPendingConnection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWebSocketServer_Event(QWebSocketServer* self, QEvent* event) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return vqwebsocketserver->event(event);
-    } else {
-        return self->QWebSocketServer::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QWebSocketServer_SuperEvent(QWebSocketServer* self, QEvent* event) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_Event_IsBase(true);
-        return vqwebsocketserver->event(event);
-    } else {
-        return self->QWebSocketServer::event(event);
-    }
+    return self->QWebSocketServer::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnEvent(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_Event_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_Event_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_event_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWebSocketServer_EventFilter(QWebSocketServer* self, QObject* watched, QEvent* event) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return vqwebsocketserver->eventFilter(watched, event);
-    } else {
-        return self->QWebSocketServer::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QWebSocketServer_SuperEventFilter(QWebSocketServer* self, QObject* watched, QEvent* event) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_EventFilter_IsBase(true);
-        return vqwebsocketserver->eventFilter(watched, event);
-    } else {
-        return self->QWebSocketServer::eventFilter(watched, event);
-    }
+    return self->QWebSocketServer::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnEventFilter(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_EventFilter_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_EventFilter_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_eventfilter_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebSocketServer_TimerEvent(QWebSocketServer* self, QTimerEvent* event) {
     auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
+    if (vqwebsocketserver) {
         vqwebsocketserver->timerEvent(event);
     } else {
-        ((VirtualQWebSocketServer*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QWebSocketServer::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebSocketServer_SuperTimerEvent(QWebSocketServer* self, QTimerEvent* event) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_TimerEvent_IsBase(true);
-        vqwebsocketserver->timerEvent(event);
-    } else {
-        ((VirtualQWebSocketServer*)self)->timerEvent(event);
-    }
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self)) {
+        vqwebsocketserver->QWebSocketServer::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWebSocketServer::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnTimerEvent(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_TimerEvent_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_TimerEvent_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_timerevent_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebSocketServer_ChildEvent(QWebSocketServer* self, QChildEvent* event) {
     auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
+    if (vqwebsocketserver) {
         vqwebsocketserver->childEvent(event);
     } else {
-        ((VirtualQWebSocketServer*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QWebSocketServer::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebSocketServer_SuperChildEvent(QWebSocketServer* self, QChildEvent* event) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_ChildEvent_IsBase(true);
-        vqwebsocketserver->childEvent(event);
-    } else {
-        ((VirtualQWebSocketServer*)self)->childEvent(event);
-    }
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self)) {
+        vqwebsocketserver->QWebSocketServer::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWebSocketServer::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnChildEvent(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_ChildEvent_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_ChildEvent_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_childevent_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebSocketServer_CustomEvent(QWebSocketServer* self, QEvent* event) {
     auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
+    if (vqwebsocketserver) {
         vqwebsocketserver->customEvent(event);
     } else {
-        ((VirtualQWebSocketServer*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QWebSocketServer::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebSocketServer_SuperCustomEvent(QWebSocketServer* self, QEvent* event) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_CustomEvent_IsBase(true);
-        vqwebsocketserver->customEvent(event);
-    } else {
-        ((VirtualQWebSocketServer*)self)->customEvent(event);
-    }
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self)) {
+        vqwebsocketserver->QWebSocketServer::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWebSocketServer::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnCustomEvent(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_CustomEvent_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_CustomEvent_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_customevent_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebSocketServer_ConnectNotify(QWebSocketServer* self, const QMetaMethod* signal) {
     auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
+    if (vqwebsocketserver) {
         vqwebsocketserver->connectNotify(*signal);
     } else {
-        ((VirtualQWebSocketServer*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QWebSocketServer::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebSocketServer_SuperConnectNotify(QWebSocketServer* self, const QMetaMethod* signal) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_ConnectNotify_IsBase(true);
-        vqwebsocketserver->connectNotify(*signal);
-    } else {
-        ((VirtualQWebSocketServer*)self)->connectNotify(*signal);
-    }
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self)) {
+        vqwebsocketserver->QWebSocketServer::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWebSocketServer::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnConnectNotify(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_ConnectNotify_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_ConnectNotify_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_connectnotify_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebSocketServer_DisconnectNotify(QWebSocketServer* self, const QMetaMethod* signal) {
     auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
+    if (vqwebsocketserver) {
         vqwebsocketserver->disconnectNotify(*signal);
     } else {
-        ((VirtualQWebSocketServer*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QWebSocketServer::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebSocketServer_SuperDisconnectNotify(QWebSocketServer* self, const QMetaMethod* signal) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_DisconnectNotify_IsBase(true);
-        vqwebsocketserver->disconnectNotify(*signal);
-    } else {
-        ((VirtualQWebSocketServer*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self)) {
+        vqwebsocketserver->QWebSocketServer::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWebSocketServer::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebSocketServer_OnDisconnectNotify(QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_DisconnectNotify_Callback>(slot));
+    if (auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self))
+        vqwebsocketserver->qwebsocketserver_disconnectnotify_callback = reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QWebSocketServer_Sender(const QWebSocketServer* self) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return vqwebsocketserver->sender();
-    } else {
-        return ((VirtualQWebSocketServer*)self)->sender();
-    }
+    if (auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self))) {
+        return vqwebsocketserver->VirtualQWebSocketServer::sender();
+    } else
+        qFatal("Error: Protected method QWebSocketServer::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QWebSocketServer_SuperSender(const QWebSocketServer* self) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_Sender_IsBase(true);
-        return vqwebsocketserver->sender();
-    } else {
-        return ((VirtualQWebSocketServer*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebSocketServer_OnSender(const QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_Sender_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWebSocketServer_SenderSignalIndex(const QWebSocketServer* self) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return vqwebsocketserver->senderSignalIndex();
-    } else {
-        return ((VirtualQWebSocketServer*)self)->senderSignalIndex();
-    }
+    if (auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self))) {
+        return vqwebsocketserver->VirtualQWebSocketServer::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QWebSocketServer::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWebSocketServer_SuperSenderSignalIndex(const QWebSocketServer* self) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_SenderSignalIndex_IsBase(true);
-        return vqwebsocketserver->senderSignalIndex();
-    } else {
-        return ((VirtualQWebSocketServer*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebSocketServer_OnSenderSignalIndex(const QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWebSocketServer_Receivers(const QWebSocketServer* self, const char* signal) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return vqwebsocketserver->receivers(signal);
-    } else {
-        return ((VirtualQWebSocketServer*)self)->receivers(signal);
-    }
+    if (auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self))) {
+        return vqwebsocketserver->VirtualQWebSocketServer::receivers(signal);
+    } else
+        qFatal("Error: Protected method QWebSocketServer::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWebSocketServer_SuperReceivers(const QWebSocketServer* self, const char* signal) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_Receivers_IsBase(true);
-        return vqwebsocketserver->receivers(signal);
-    } else {
-        return ((VirtualQWebSocketServer*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebSocketServer_OnReceivers(const QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_Receivers_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWebSocketServer_IsSignalConnected(const QWebSocketServer* self, const QMetaMethod* signal) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return vqwebsocketserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWebSocketServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QWebSocketServer_SuperIsSignalConnected(const QWebSocketServer* self, const QMetaMethod* signal) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        vqwebsocketserver->setQWebSocketServer_IsSignalConnected_IsBase(true);
-        return vqwebsocketserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWebSocketServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebSocketServer_OnIsSignalConnected(const QWebSocketServer* self, intptr_t slot) {
-    auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self));
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer)
-        vqwebsocketserver->setQWebSocketServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebSocketServer::QWebSocketServer_IsSignalConnected_Callback>(slot));
+    if (auto* vqwebsocketserver = const_cast<VirtualQWebSocketServer*>(dynamic_cast<const VirtualQWebSocketServer*>(self))) {
+        return vqwebsocketserver->VirtualQWebSocketServer::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QWebSocketServer::isSignalConnected called without a directly constructed type");
 }
 
 void QWebSocketServer_Delete(QWebSocketServer* self) {

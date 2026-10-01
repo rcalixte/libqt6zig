@@ -298,6 +298,8 @@ pub const QPaintEngine = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#begin)
     ///
+    /// This method must be implemented with `onBegin` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QPaintEngine `
@@ -328,31 +330,13 @@ pub const QPaintEngine = extern struct {
         qtc.QPaintEngine_OnBegin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superBegin` instead
-    ///
-    pub const SuperBegin = superBegin;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#begin)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPaintEngine `
-    ///
-    /// ` pdev: QPaintDevice `
-    ///
-    pub fn superBegin(self: QPaintEngine, pdev: anytype) bool {
-        comptime _ = @TypeOf(pdev)._is_QPaintDevice;
-        const pdev_ = if (@hasDecl(@TypeOf(pdev), "asQPaintDevice")) pdev.asQPaintDevice() else pdev;
-        return qtc.QPaintEngine_SuperBegin(@ptrCast(self.ptr), @ptrCast(pdev_.ptr));
-    }
-
     /// ### DEPRECATED: Use `end` instead
     ///
     pub const End = end;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#end)
+    ///
+    /// This method must be implemented with `onEnd` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -374,26 +358,10 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QPaintEngine) callconv(.c) bool `
     ///
-    pub fn onEnd(self: QPaintEngine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onEnd(self: QPaintEngine, callback: *const fn (QPaintEngine) callconv(.c) bool) void {
         qtc.QPaintEngine_OnEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEnd` instead
-    ///
-    pub const SuperEnd = superEnd;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#end)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPaintEngine `
-    ///
-    pub fn superEnd(self: QPaintEngine) bool {
-        return qtc.QPaintEngine_SuperEnd(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `updateState` instead
@@ -401,6 +369,8 @@ pub const QPaintEngine = extern struct {
     pub const UpdateState = updateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
+    ///
+    /// This method must be implemented with `onUpdateState` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -429,25 +399,6 @@ pub const QPaintEngine = extern struct {
     ///
     pub fn onUpdateState(self: QPaintEngine, callback: *const fn (QPaintEngine, QPaintEngineState) callconv(.c) void) void {
         qtc.QPaintEngine_OnUpdateState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateState` instead
-    ///
-    pub const SuperUpdateState = superUpdateState;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPaintEngine `
-    ///
-    /// ` state: QPaintEngineState `
-    ///
-    pub fn superUpdateState(self: QPaintEngine, state: anytype) void {
-        comptime _ = @TypeOf(state)._is_QPaintEngineState;
-        qtc.QPaintEngine_SuperUpdateState(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
 
     /// ### DEPRECATED: Use `drawRects` instead
@@ -1090,6 +1041,8 @@ pub const QPaintEngine = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
     ///
+    /// This method must be implemented with `onDrawPixmap` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QPaintEngine `
@@ -1123,31 +1076,6 @@ pub const QPaintEngine = extern struct {
     ///
     pub fn onDrawPixmap(self: QPaintEngine, callback: *const fn (QPaintEngine, QRectF, QPixmap, QRectF) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDrawPixmap` instead
-    ///
-    pub const SuperDrawPixmap = superDrawPixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPaintEngine `
-    ///
-    /// ` r: QRectF `
-    ///
-    /// ` pm: QPixmap `
-    ///
-    /// ` sr: QRectF `
-    ///
-    pub fn superDrawPixmap(self: QPaintEngine, r: anytype, pm: anytype, sr: anytype) void {
-        comptime _ = @TypeOf(r)._is_QRectF;
-        comptime _ = @TypeOf(pm)._is_QPixmap;
-        comptime _ = @TypeOf(sr)._is_QRectF;
-        qtc.QPaintEngine_SuperDrawPixmap(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr));
     }
 
     /// ### DEPRECATED: Use `drawTextItem` instead
@@ -1466,11 +1394,11 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
+    /// ` callback: *const fn (self: QPaintEngine) callconv(.c) QPoint `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onCoordinateOffset(self: QPaintEngine, callback: *const fn () callconv(.c) QPoint) void {
+    pub fn onCoordinateOffset(self: QPaintEngine, callback: *const fn (QPaintEngine) callconv(.c) QPoint) void {
         qtc.QPaintEngine_OnCoordinateOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1498,6 +1426,8 @@ pub const QPaintEngine = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#type)
     ///
+    /// This method must be implemented with `onType` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QPaintEngine `
@@ -1522,30 +1452,10 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` self: QPaintEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPaintEngine) callconv(.c) i32 `
     ///
-    pub fn onType(self: QPaintEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QPaintEngine, callback: *const fn (QPaintEngine) callconv(.c) i32) void {
         qtc.QPaintEngine_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superType` instead
-    ///
-    pub const SuperType = superType;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintengine.html#type)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPaintEngine `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qpaintengine_enums.Type `
-    ///
-    pub fn superType(self: QPaintEngine) i32 {
-        return qtc.QPaintEngine_SuperType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `fixNegRect` instead

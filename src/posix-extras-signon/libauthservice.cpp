@@ -239,364 +239,219 @@ void SignOn__AuthService_QueryIdentities1(SignOn__AuthService* self, const libqt
 
 // Base class handler implementation
 QMetaObject* SignOn__AuthService_SuperMetaObject(const SignOn__AuthService* self) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_MetaObject_IsBase(true);
-        return (QMetaObject*)vsignonauthservice->metaObject();
-    } else {
-        return (QMetaObject*)self->SignOn::AuthService::metaObject();
-    }
+    return (QMetaObject*)self->SignOn::AuthService::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void SignOn__AuthService_OnMetaObject(const SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_MetaObject_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_MetaObject_Callback>(slot));
+void SignOn__AuthService_OnMetaObject(SignOn__AuthService* self, intptr_t slot) {
+    if (auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self)))
+        vsignonauthservice->signon__authservice_metaobject_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* SignOn__AuthService_SuperMetacast(SignOn__AuthService* self, const char* param1) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_Metacast_IsBase(true);
-        return vsignonauthservice->qt_metacast(param1);
-    } else {
-        return self->SignOn::AuthService::qt_metacast(param1);
-    }
+    return self->SignOn::AuthService::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnMetacast(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_Metacast_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Metacast_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_metacast_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int SignOn__AuthService_SuperMetacall(SignOn__AuthService* self, int param1, int param2, void** param3) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_Metacall_IsBase(true);
-        return vsignonauthservice->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->SignOn::AuthService::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->SignOn::AuthService::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnMetacall(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_Metacall_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Metacall_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_metacall_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool SignOn__AuthService_Event(SignOn__AuthService* self, QEvent* event) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        return vsignonauthservice->event(event);
-    } else {
-        return self->SignOn::AuthService::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool SignOn__AuthService_SuperEvent(SignOn__AuthService* self, QEvent* event) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_Event_IsBase(true);
-        return vsignonauthservice->event(event);
-    } else {
-        return self->SignOn::AuthService::event(event);
-    }
+    return self->SignOn::AuthService::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnEvent(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_Event_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Event_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_event_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool SignOn__AuthService_EventFilter(SignOn__AuthService* self, QObject* watched, QEvent* event) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        return vsignonauthservice->eventFilter(watched, event);
-    } else {
-        return self->SignOn::AuthService::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool SignOn__AuthService_SuperEventFilter(SignOn__AuthService* self, QObject* watched, QEvent* event) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_EventFilter_IsBase(true);
-        return vsignonauthservice->eventFilter(watched, event);
-    } else {
-        return self->SignOn::AuthService::eventFilter(watched, event);
-    }
+    return self->SignOn::AuthService::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnEventFilter(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_EventFilter_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_EventFilter_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_eventfilter_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void SignOn__AuthService_TimerEvent(SignOn__AuthService* self, QTimerEvent* event) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice) {
         vsignonauthservice->timerEvent(event);
     } else {
-        ((VirtualSignOnAuthService*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method SignOn::AuthService::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void SignOn__AuthService_SuperTimerEvent(SignOn__AuthService* self, QTimerEvent* event) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_TimerEvent_IsBase(true);
-        vsignonauthservice->timerEvent(event);
-    } else {
-        ((VirtualSignOnAuthService*)self)->timerEvent(event);
-    }
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self)) {
+        vsignonauthservice->SignOn::AuthService::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method SignOn::AuthService::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnTimerEvent(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_TimerEvent_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_TimerEvent_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_timerevent_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void SignOn__AuthService_ChildEvent(SignOn__AuthService* self, QChildEvent* event) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice) {
         vsignonauthservice->childEvent(event);
     } else {
-        ((VirtualSignOnAuthService*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method SignOn::AuthService::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void SignOn__AuthService_SuperChildEvent(SignOn__AuthService* self, QChildEvent* event) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_ChildEvent_IsBase(true);
-        vsignonauthservice->childEvent(event);
-    } else {
-        ((VirtualSignOnAuthService*)self)->childEvent(event);
-    }
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self)) {
+        vsignonauthservice->SignOn::AuthService::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method SignOn::AuthService::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnChildEvent(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_ChildEvent_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_ChildEvent_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_childevent_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void SignOn__AuthService_CustomEvent(SignOn__AuthService* self, QEvent* event) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice) {
         vsignonauthservice->customEvent(event);
     } else {
-        ((VirtualSignOnAuthService*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method SignOn::AuthService::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void SignOn__AuthService_SuperCustomEvent(SignOn__AuthService* self, QEvent* event) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_CustomEvent_IsBase(true);
-        vsignonauthservice->customEvent(event);
-    } else {
-        ((VirtualSignOnAuthService*)self)->customEvent(event);
-    }
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self)) {
+        vsignonauthservice->SignOn::AuthService::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method SignOn::AuthService::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnCustomEvent(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_CustomEvent_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_CustomEvent_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_customevent_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void SignOn__AuthService_ConnectNotify(SignOn__AuthService* self, const QMetaMethod* signal) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice) {
         vsignonauthservice->connectNotify(*signal);
     } else {
-        ((VirtualSignOnAuthService*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method SignOn::AuthService::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void SignOn__AuthService_SuperConnectNotify(SignOn__AuthService* self, const QMetaMethod* signal) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_ConnectNotify_IsBase(true);
-        vsignonauthservice->connectNotify(*signal);
-    } else {
-        ((VirtualSignOnAuthService*)self)->connectNotify(*signal);
-    }
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self)) {
+        vsignonauthservice->SignOn::AuthService::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method SignOn::AuthService::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnConnectNotify(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_ConnectNotify_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_ConnectNotify_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_connectnotify_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void SignOn__AuthService_DisconnectNotify(SignOn__AuthService* self, const QMetaMethod* signal) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice) {
         vsignonauthservice->disconnectNotify(*signal);
     } else {
-        ((VirtualSignOnAuthService*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method SignOn::AuthService::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void SignOn__AuthService_SuperDisconnectNotify(SignOn__AuthService* self, const QMetaMethod* signal) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_DisconnectNotify_IsBase(true);
-        vsignonauthservice->disconnectNotify(*signal);
-    } else {
-        ((VirtualSignOnAuthService*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self)) {
+        vsignonauthservice->SignOn::AuthService::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method SignOn::AuthService::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnDisconnectNotify(SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_DisconnectNotify_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_DisconnectNotify_Callback>(slot));
+    if (auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self))
+        vsignonauthservice->signon__authservice_disconnectnotify_callback = reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* SignOn__AuthService_Sender(const SignOn__AuthService* self) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        return vsignonauthservice->sender();
-    } else {
-        return ((VirtualSignOnAuthService*)self)->sender();
-    }
+    if (auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self))) {
+        return vsignonauthservice->VirtualSignOnAuthService::sender();
+    } else
+        qFatal("Error: Protected method SignOn::AuthService::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* SignOn__AuthService_SuperSender(const SignOn__AuthService* self) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_Sender_IsBase(true);
-        return vsignonauthservice->sender();
-    } else {
-        return ((VirtualSignOnAuthService*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void SignOn__AuthService_OnSender(const SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_Sender_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int SignOn__AuthService_SenderSignalIndex(const SignOn__AuthService* self) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        return vsignonauthservice->senderSignalIndex();
-    } else {
-        return ((VirtualSignOnAuthService*)self)->senderSignalIndex();
-    }
+    if (auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self))) {
+        return vsignonauthservice->VirtualSignOnAuthService::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method SignOn::AuthService::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int SignOn__AuthService_SuperSenderSignalIndex(const SignOn__AuthService* self) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_SenderSignalIndex_IsBase(true);
-        return vsignonauthservice->senderSignalIndex();
-    } else {
-        return ((VirtualSignOnAuthService*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void SignOn__AuthService_OnSenderSignalIndex(const SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_SenderSignalIndex_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int SignOn__AuthService_Receivers(const SignOn__AuthService* self, const char* signal) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        return vsignonauthservice->receivers(signal);
-    } else {
-        return ((VirtualSignOnAuthService*)self)->receivers(signal);
-    }
+    if (auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self))) {
+        return vsignonauthservice->VirtualSignOnAuthService::receivers(signal);
+    } else
+        qFatal("Error: Protected method SignOn::AuthService::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int SignOn__AuthService_SuperReceivers(const SignOn__AuthService* self, const char* signal) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_Receivers_IsBase(true);
-        return vsignonauthservice->receivers(signal);
-    } else {
-        return ((VirtualSignOnAuthService*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void SignOn__AuthService_OnReceivers(const SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_Receivers_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool SignOn__AuthService_IsSignalConnected(const SignOn__AuthService* self, const QMetaMethod* signal) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        return vsignonauthservice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSignOnAuthService*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool SignOn__AuthService_SuperIsSignalConnected(const SignOn__AuthService* self, const QMetaMethod* signal) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
-        vsignonauthservice->setSignOn__AuthService_IsSignalConnected_IsBase(true);
-        return vsignonauthservice->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSignOnAuthService*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void SignOn__AuthService_OnIsSignalConnected(const SignOn__AuthService* self, intptr_t slot) {
-    auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
-        vsignonauthservice->setSignOn__AuthService_IsSignalConnected_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_IsSignalConnected_Callback>(slot));
+    if (auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self))) {
+        return vsignonauthservice->VirtualSignOnAuthService::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method SignOn::AuthService::isSignalConnected called without a directly constructed type");
 }
 
 void SignOn__AuthService_Delete(SignOn__AuthService* self) {

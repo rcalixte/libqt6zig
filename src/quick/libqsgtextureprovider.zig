@@ -100,6 +100,8 @@ pub const QSGTextureProvider = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextureprovider.html#texture)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextureProvider `

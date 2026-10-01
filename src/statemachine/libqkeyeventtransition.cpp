@@ -71,17 +71,17 @@ void QKeyEventTransition_SetModifierMask(QKeyEventTransition* self, int modifier
 
 void QKeyEventTransition_OnTransition(QKeyEventTransition* self, QEvent* event) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition) {
         vqkeyeventtransition->onTransition(event);
     }
 }
 
 bool QKeyEventTransition_EventTest(QKeyEventTransition* self, QEvent* event) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition) {
         return vqkeyeventtransition->eventTest(event);
     }
-    return {};
+    qFatal("Error: Protected method QKeyEventTransition::eventTest called without a directly constructed type");
 }
 
 libqt_string QKeyEventTransition_Tr2(const char* s, const char* c) {
@@ -110,400 +110,255 @@ libqt_string QKeyEventTransition_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QKeyEventTransition_SuperMetaObject(const QKeyEventTransition* self) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_MetaObject_IsBase(true);
-        return (QMetaObject*)vqkeyeventtransition->metaObject();
-    } else {
-        return (QMetaObject*)self->QKeyEventTransition::metaObject();
-    }
+    return (QMetaObject*)self->QKeyEventTransition::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeyEventTransition_OnMetaObject(const QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_MetaObject_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_MetaObject_Callback>(slot));
+void QKeyEventTransition_OnMetaObject(QKeyEventTransition* self, intptr_t slot) {
+    if (auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self)))
+        vqkeyeventtransition->qkeyeventtransition_metaobject_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QKeyEventTransition_SuperMetacast(QKeyEventTransition* self, const char* param1) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_Metacast_IsBase(true);
-        return vqkeyeventtransition->qt_metacast(param1);
-    } else {
-        return self->QKeyEventTransition::qt_metacast(param1);
-    }
+    return self->QKeyEventTransition::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnMetacast(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_Metacast_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Metacast_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_metacast_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QKeyEventTransition_SuperMetacall(QKeyEventTransition* self, int param1, int param2, void** param3) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_Metacall_IsBase(true);
-        return vqkeyeventtransition->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QKeyEventTransition::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QKeyEventTransition::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnMetacall(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_Metacall_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Metacall_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_metacall_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QKeyEventTransition_SuperOnTransition(QKeyEventTransition* self, QEvent* event) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_OnTransition_IsBase(true);
-        vqkeyeventtransition->onTransition(event);
-    } else {
-        ((VirtualQKeyEventTransition*)self)->onTransition(event);
-    }
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self)) {
+        vqkeyeventtransition->QKeyEventTransition::onTransition(event);
+    } else
+        qFatal("Error: Protected virtual method QKeyEventTransition::onTransition called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnOnTransition(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_OnTransition_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_OnTransition_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_ontransition_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_OnTransition_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QKeyEventTransition_SuperEventTest(QKeyEventTransition* self, QEvent* event) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_EventTest_IsBase(true);
-        return vqkeyeventtransition->eventTest(event);
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->eventTest(event);
-    }
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self)) {
+        return vqkeyeventtransition->QKeyEventTransition::eventTest(event);
+    } else
+        qFatal("Error: Protected virtual method QKeyEventTransition::eventTest called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnEventTest(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_EventTest_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_EventTest_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_eventtest_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_EventTest_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QKeyEventTransition_Event(QKeyEventTransition* self, QEvent* e) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition) {
         return vqkeyeventtransition->event(e);
     } else {
-        return ((VirtualQKeyEventTransition*)self)->event(e);
+        qFatal("Error: Protected virtual method QKeyEventTransition::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QKeyEventTransition_SuperEvent(QKeyEventTransition* self, QEvent* e) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_Event_IsBase(true);
-        return vqkeyeventtransition->event(e);
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->event(e);
-    }
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self)) {
+        return vqkeyeventtransition->QKeyEventTransition::event(e);
+    } else
+        qFatal("Error: Protected virtual method QKeyEventTransition::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnEvent(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_Event_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Event_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_event_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QKeyEventTransition_EventFilter(QKeyEventTransition* self, QObject* watched, QEvent* event) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        return vqkeyeventtransition->eventFilter(watched, event);
-    } else {
-        return self->QKeyEventTransition::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QKeyEventTransition_SuperEventFilter(QKeyEventTransition* self, QObject* watched, QEvent* event) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_EventFilter_IsBase(true);
-        return vqkeyeventtransition->eventFilter(watched, event);
-    } else {
-        return self->QKeyEventTransition::eventFilter(watched, event);
-    }
+    return self->QKeyEventTransition::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnEventFilter(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_EventFilter_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_EventFilter_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_eventfilter_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeyEventTransition_TimerEvent(QKeyEventTransition* self, QTimerEvent* event) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition) {
         vqkeyeventtransition->timerEvent(event);
     } else {
-        ((VirtualQKeyEventTransition*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QKeyEventTransition::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeyEventTransition_SuperTimerEvent(QKeyEventTransition* self, QTimerEvent* event) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_TimerEvent_IsBase(true);
-        vqkeyeventtransition->timerEvent(event);
-    } else {
-        ((VirtualQKeyEventTransition*)self)->timerEvent(event);
-    }
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self)) {
+        vqkeyeventtransition->QKeyEventTransition::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeyEventTransition::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnTimerEvent(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_TimerEvent_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_TimerEvent_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_timerevent_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeyEventTransition_ChildEvent(QKeyEventTransition* self, QChildEvent* event) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition) {
         vqkeyeventtransition->childEvent(event);
     } else {
-        ((VirtualQKeyEventTransition*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QKeyEventTransition::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeyEventTransition_SuperChildEvent(QKeyEventTransition* self, QChildEvent* event) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_ChildEvent_IsBase(true);
-        vqkeyeventtransition->childEvent(event);
-    } else {
-        ((VirtualQKeyEventTransition*)self)->childEvent(event);
-    }
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self)) {
+        vqkeyeventtransition->QKeyEventTransition::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeyEventTransition::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnChildEvent(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_ChildEvent_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_ChildEvent_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_childevent_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeyEventTransition_CustomEvent(QKeyEventTransition* self, QEvent* event) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition) {
         vqkeyeventtransition->customEvent(event);
     } else {
-        ((VirtualQKeyEventTransition*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QKeyEventTransition::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeyEventTransition_SuperCustomEvent(QKeyEventTransition* self, QEvent* event) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_CustomEvent_IsBase(true);
-        vqkeyeventtransition->customEvent(event);
-    } else {
-        ((VirtualQKeyEventTransition*)self)->customEvent(event);
-    }
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self)) {
+        vqkeyeventtransition->QKeyEventTransition::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeyEventTransition::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnCustomEvent(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_CustomEvent_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_CustomEvent_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_customevent_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeyEventTransition_ConnectNotify(QKeyEventTransition* self, const QMetaMethod* signal) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition) {
         vqkeyeventtransition->connectNotify(*signal);
     } else {
-        ((VirtualQKeyEventTransition*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QKeyEventTransition::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeyEventTransition_SuperConnectNotify(QKeyEventTransition* self, const QMetaMethod* signal) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_ConnectNotify_IsBase(true);
-        vqkeyeventtransition->connectNotify(*signal);
-    } else {
-        ((VirtualQKeyEventTransition*)self)->connectNotify(*signal);
-    }
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self)) {
+        vqkeyeventtransition->QKeyEventTransition::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QKeyEventTransition::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnConnectNotify(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_ConnectNotify_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_ConnectNotify_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_connectnotify_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeyEventTransition_DisconnectNotify(QKeyEventTransition* self, const QMetaMethod* signal) {
     auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
+    if (vqkeyeventtransition) {
         vqkeyeventtransition->disconnectNotify(*signal);
     } else {
-        ((VirtualQKeyEventTransition*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QKeyEventTransition::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeyEventTransition_SuperDisconnectNotify(QKeyEventTransition* self, const QMetaMethod* signal) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_DisconnectNotify_IsBase(true);
-        vqkeyeventtransition->disconnectNotify(*signal);
-    } else {
-        ((VirtualQKeyEventTransition*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self)) {
+        vqkeyeventtransition->QKeyEventTransition::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QKeyEventTransition::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeyEventTransition_OnDisconnectNotify(QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self);
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_DisconnectNotify_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_DisconnectNotify_Callback>(slot));
+    if (auto* vqkeyeventtransition = dynamic_cast<VirtualQKeyEventTransition*>(self))
+        vqkeyeventtransition->qkeyeventtransition_disconnectnotify_callback = reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QKeyEventTransition_Sender(const QKeyEventTransition* self) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        return vqkeyeventtransition->sender();
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->sender();
-    }
+    if (auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self))) {
+        return vqkeyeventtransition->VirtualQKeyEventTransition::sender();
+    } else
+        qFatal("Error: Protected method QKeyEventTransition::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QKeyEventTransition_SuperSender(const QKeyEventTransition* self) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_Sender_IsBase(true);
-        return vqkeyeventtransition->sender();
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeyEventTransition_OnSender(const QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_Sender_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QKeyEventTransition_SenderSignalIndex(const QKeyEventTransition* self) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        return vqkeyeventtransition->senderSignalIndex();
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->senderSignalIndex();
-    }
+    if (auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self))) {
+        return vqkeyeventtransition->VirtualQKeyEventTransition::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QKeyEventTransition::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QKeyEventTransition_SuperSenderSignalIndex(const QKeyEventTransition* self) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_SenderSignalIndex_IsBase(true);
-        return vqkeyeventtransition->senderSignalIndex();
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeyEventTransition_OnSenderSignalIndex(const QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_SenderSignalIndex_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QKeyEventTransition_Receivers(const QKeyEventTransition* self, const char* signal) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        return vqkeyeventtransition->receivers(signal);
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->receivers(signal);
-    }
+    if (auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self))) {
+        return vqkeyeventtransition->VirtualQKeyEventTransition::receivers(signal);
+    } else
+        qFatal("Error: Protected method QKeyEventTransition::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QKeyEventTransition_SuperReceivers(const QKeyEventTransition* self, const char* signal) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_Receivers_IsBase(true);
-        return vqkeyeventtransition->receivers(signal);
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeyEventTransition_OnReceivers(const QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_Receivers_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QKeyEventTransition_IsSignalConnected(const QKeyEventTransition* self, const QMetaMethod* signal) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        return vqkeyeventtransition->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QKeyEventTransition_SuperIsSignalConnected(const QKeyEventTransition* self, const QMetaMethod* signal) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition) {
-        vqkeyeventtransition->setQKeyEventTransition_IsSignalConnected_IsBase(true);
-        return vqkeyeventtransition->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQKeyEventTransition*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeyEventTransition_OnIsSignalConnected(const QKeyEventTransition* self, intptr_t slot) {
-    auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self));
-    if (vqkeyeventtransition && vqkeyeventtransition->isVirtualQKeyEventTransition)
-        vqkeyeventtransition->setQKeyEventTransition_IsSignalConnected_Callback(reinterpret_cast<VirtualQKeyEventTransition::QKeyEventTransition_IsSignalConnected_Callback>(slot));
+    if (auto* vqkeyeventtransition = const_cast<VirtualQKeyEventTransition*>(dynamic_cast<const VirtualQKeyEventTransition*>(self))) {
+        return vqkeyeventtransition->VirtualQKeyEventTransition::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QKeyEventTransition::isSignalConnected called without a directly constructed type");
 }
 
 void QKeyEventTransition_Delete(QKeyEventTransition* self) {

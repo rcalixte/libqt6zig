@@ -104,364 +104,219 @@ libqt_string QAudioBufferInput_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAudioBufferInput_SuperMetaObject(const QAudioBufferInput* self) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_MetaObject_IsBase(true);
-        return (QMetaObject*)vqaudiobufferinput->metaObject();
-    } else {
-        return (QMetaObject*)self->QAudioBufferInput::metaObject();
-    }
+    return (QMetaObject*)self->QAudioBufferInput::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAudioBufferInput_OnMetaObject(const QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_MetaObject_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_MetaObject_Callback>(slot));
+void QAudioBufferInput_OnMetaObject(QAudioBufferInput* self, intptr_t slot) {
+    if (auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self)))
+        vqaudiobufferinput->qaudiobufferinput_metaobject_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAudioBufferInput_SuperMetacast(QAudioBufferInput* self, const char* param1) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_Metacast_IsBase(true);
-        return vqaudiobufferinput->qt_metacast(param1);
-    } else {
-        return self->QAudioBufferInput::qt_metacast(param1);
-    }
+    return self->QAudioBufferInput::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnMetacast(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_Metacast_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Metacast_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_metacast_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAudioBufferInput_SuperMetacall(QAudioBufferInput* self, int param1, int param2, void** param3) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_Metacall_IsBase(true);
-        return vqaudiobufferinput->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAudioBufferInput::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAudioBufferInput::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnMetacall(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_Metacall_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Metacall_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_metacall_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAudioBufferInput_Event(QAudioBufferInput* self, QEvent* event) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return vqaudiobufferinput->event(event);
-    } else {
-        return self->QAudioBufferInput::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QAudioBufferInput_SuperEvent(QAudioBufferInput* self, QEvent* event) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_Event_IsBase(true);
-        return vqaudiobufferinput->event(event);
-    } else {
-        return self->QAudioBufferInput::event(event);
-    }
+    return self->QAudioBufferInput::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnEvent(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_Event_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Event_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_event_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAudioBufferInput_EventFilter(QAudioBufferInput* self, QObject* watched, QEvent* event) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return vqaudiobufferinput->eventFilter(watched, event);
-    } else {
-        return self->QAudioBufferInput::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAudioBufferInput_SuperEventFilter(QAudioBufferInput* self, QObject* watched, QEvent* event) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_EventFilter_IsBase(true);
-        return vqaudiobufferinput->eventFilter(watched, event);
-    } else {
-        return self->QAudioBufferInput::eventFilter(watched, event);
-    }
+    return self->QAudioBufferInput::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnEventFilter(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_EventFilter_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_EventFilter_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_eventfilter_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioBufferInput_TimerEvent(QAudioBufferInput* self, QTimerEvent* event) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput) {
         vqaudiobufferinput->timerEvent(event);
     } else {
-        ((VirtualQAudioBufferInput*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QAudioBufferInput::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioBufferInput_SuperTimerEvent(QAudioBufferInput* self, QTimerEvent* event) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_TimerEvent_IsBase(true);
-        vqaudiobufferinput->timerEvent(event);
-    } else {
-        ((VirtualQAudioBufferInput*)self)->timerEvent(event);
-    }
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self)) {
+        vqaudiobufferinput->QAudioBufferInput::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioBufferInput::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnTimerEvent(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_TimerEvent_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_TimerEvent_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_timerevent_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioBufferInput_ChildEvent(QAudioBufferInput* self, QChildEvent* event) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput) {
         vqaudiobufferinput->childEvent(event);
     } else {
-        ((VirtualQAudioBufferInput*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAudioBufferInput::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioBufferInput_SuperChildEvent(QAudioBufferInput* self, QChildEvent* event) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_ChildEvent_IsBase(true);
-        vqaudiobufferinput->childEvent(event);
-    } else {
-        ((VirtualQAudioBufferInput*)self)->childEvent(event);
-    }
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self)) {
+        vqaudiobufferinput->QAudioBufferInput::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioBufferInput::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnChildEvent(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_ChildEvent_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_ChildEvent_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_childevent_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioBufferInput_CustomEvent(QAudioBufferInput* self, QEvent* event) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput) {
         vqaudiobufferinput->customEvent(event);
     } else {
-        ((VirtualQAudioBufferInput*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAudioBufferInput::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioBufferInput_SuperCustomEvent(QAudioBufferInput* self, QEvent* event) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_CustomEvent_IsBase(true);
-        vqaudiobufferinput->customEvent(event);
-    } else {
-        ((VirtualQAudioBufferInput*)self)->customEvent(event);
-    }
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self)) {
+        vqaudiobufferinput->QAudioBufferInput::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAudioBufferInput::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnCustomEvent(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_CustomEvent_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_CustomEvent_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_customevent_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioBufferInput_ConnectNotify(QAudioBufferInput* self, const QMetaMethod* signal) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput) {
         vqaudiobufferinput->connectNotify(*signal);
     } else {
-        ((VirtualQAudioBufferInput*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAudioBufferInput::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioBufferInput_SuperConnectNotify(QAudioBufferInput* self, const QMetaMethod* signal) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_ConnectNotify_IsBase(true);
-        vqaudiobufferinput->connectNotify(*signal);
-    } else {
-        ((VirtualQAudioBufferInput*)self)->connectNotify(*signal);
-    }
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self)) {
+        vqaudiobufferinput->QAudioBufferInput::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAudioBufferInput::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnConnectNotify(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_ConnectNotify_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_connectnotify_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAudioBufferInput_DisconnectNotify(QAudioBufferInput* self, const QMetaMethod* signal) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput) {
         vqaudiobufferinput->disconnectNotify(*signal);
     } else {
-        ((VirtualQAudioBufferInput*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAudioBufferInput::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAudioBufferInput_SuperDisconnectNotify(QAudioBufferInput* self, const QMetaMethod* signal) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_DisconnectNotify_IsBase(true);
-        vqaudiobufferinput->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAudioBufferInput*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self)) {
+        vqaudiobufferinput->QAudioBufferInput::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAudioBufferInput::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnDisconnectNotify(QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_DisconnectNotify_Callback>(slot));
+    if (auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self))
+        vqaudiobufferinput->qaudiobufferinput_disconnectnotify_callback = reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAudioBufferInput_Sender(const QAudioBufferInput* self) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return vqaudiobufferinput->sender();
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->sender();
-    }
+    if (auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self))) {
+        return vqaudiobufferinput->VirtualQAudioBufferInput::sender();
+    } else
+        qFatal("Error: Protected method QAudioBufferInput::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAudioBufferInput_SuperSender(const QAudioBufferInput* self) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_Sender_IsBase(true);
-        return vqaudiobufferinput->sender();
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioBufferInput_OnSender(const QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_Sender_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAudioBufferInput_SenderSignalIndex(const QAudioBufferInput* self) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return vqaudiobufferinput->senderSignalIndex();
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->senderSignalIndex();
-    }
+    if (auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self))) {
+        return vqaudiobufferinput->VirtualQAudioBufferInput::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAudioBufferInput::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAudioBufferInput_SuperSenderSignalIndex(const QAudioBufferInput* self) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_SenderSignalIndex_IsBase(true);
-        return vqaudiobufferinput->senderSignalIndex();
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioBufferInput_OnSenderSignalIndex(const QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAudioBufferInput_Receivers(const QAudioBufferInput* self, const char* signal) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return vqaudiobufferinput->receivers(signal);
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->receivers(signal);
-    }
+    if (auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self))) {
+        return vqaudiobufferinput->VirtualQAudioBufferInput::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAudioBufferInput::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAudioBufferInput_SuperReceivers(const QAudioBufferInput* self, const char* signal) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_Receivers_IsBase(true);
-        return vqaudiobufferinput->receivers(signal);
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioBufferInput_OnReceivers(const QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_Receivers_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAudioBufferInput_IsSignalConnected(const QAudioBufferInput* self, const QMetaMethod* signal) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return vqaudiobufferinput->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QAudioBufferInput_SuperIsSignalConnected(const QAudioBufferInput* self, const QMetaMethod* signal) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        vqaudiobufferinput->setQAudioBufferInput_IsSignalConnected_IsBase(true);
-        return vqaudiobufferinput->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAudioBufferInput_OnIsSignalConnected(const QAudioBufferInput* self, intptr_t slot) {
-    auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
-        vqaudiobufferinput->setQAudioBufferInput_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_IsSignalConnected_Callback>(slot));
+    if (auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self))) {
+        return vqaudiobufferinput->VirtualQAudioBufferInput::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAudioBufferInput::isSignalConnected called without a directly constructed type");
 }
 
 void QAudioBufferInput_Delete(QAudioBufferInput* self) {

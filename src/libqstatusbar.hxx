@@ -9,28 +9,24 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QStatusBar so that we can call protected methods
+// This class is a subclass of QStatusBar
 class VirtualQStatusBar final : public QStatusBar {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQStatusBar = true;
-
-    // Virtual class public types (including callbacks)
-    using QStatusBar_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QStatusBar_MetaObject_Callback = QMetaObject* (*)(const QStatusBar*);
     using QStatusBar_Metacast_Callback = void* (*)(QStatusBar*, const char*);
     using QStatusBar_Metacall_Callback = int (*)(QStatusBar*, int, int, void**);
     using QStatusBar_ShowEvent_Callback = void (*)(QStatusBar*, QShowEvent*);
     using QStatusBar_PaintEvent_Callback = void (*)(QStatusBar*, QPaintEvent*);
     using QStatusBar_ResizeEvent_Callback = void (*)(QStatusBar*, QResizeEvent*);
     using QStatusBar_Event_Callback = bool (*)(QStatusBar*, QEvent*);
-    using QStatusBar_DevType_Callback = int (*)();
+    using QStatusBar_DevType_Callback = int (*)(const QStatusBar*);
     using QStatusBar_SetVisible_Callback = void (*)(QStatusBar*, bool);
-    using QStatusBar_SizeHint_Callback = QSize* (*)();
-    using QStatusBar_MinimumSizeHint_Callback = QSize* (*)();
+    using QStatusBar_SizeHint_Callback = QSize* (*)(const QStatusBar*);
+    using QStatusBar_MinimumSizeHint_Callback = QSize* (*)(const QStatusBar*);
     using QStatusBar_HeightForWidth_Callback = int (*)(const QStatusBar*, int);
-    using QStatusBar_HasHeightForWidth_Callback = bool (*)();
-    using QStatusBar_PaintEngine_Callback = QPaintEngine* (*)();
+    using QStatusBar_HasHeightForWidth_Callback = bool (*)(const QStatusBar*);
+    using QStatusBar_PaintEngine_Callback = QPaintEngine* (*)(const QStatusBar*);
     using QStatusBar_MousePressEvent_Callback = void (*)(QStatusBar*, QMouseEvent*);
     using QStatusBar_MouseReleaseEvent_Callback = void (*)(QStatusBar*, QMouseEvent*);
     using QStatusBar_MouseDoubleClickEvent_Callback = void (*)(QStatusBar*, QMouseEvent*);
@@ -57,7 +53,7 @@ class VirtualQStatusBar final : public QStatusBar {
     using QStatusBar_Metric_Callback = int (*)(const QStatusBar*, int);
     using QStatusBar_InitPainter_Callback = void (*)(const QStatusBar*, QPainter*);
     using QStatusBar_Redirected_Callback = QPaintDevice* (*)(const QStatusBar*, QPoint*);
-    using QStatusBar_SharedPainter_Callback = QPainter* (*)();
+    using QStatusBar_SharedPainter_Callback = QPainter* (*)(const QStatusBar*);
     using QStatusBar_InputMethodEvent_Callback = void (*)(QStatusBar*, QInputMethodEvent*);
     using QStatusBar_InputMethodQuery_Callback = QVariant* (*)(const QStatusBar*, int);
     using QStatusBar_FocusNextPrevChild_Callback = bool (*)(QStatusBar*, bool);
@@ -67,20 +63,19 @@ class VirtualQStatusBar final : public QStatusBar {
     using QStatusBar_CustomEvent_Callback = void (*)(QStatusBar*, QEvent*);
     using QStatusBar_ConnectNotify_Callback = void (*)(QStatusBar*, QMetaMethod*);
     using QStatusBar_DisconnectNotify_Callback = void (*)(QStatusBar*, QMetaMethod*);
-    using QStatusBar_Reformat_Callback = void (*)();
-    using QStatusBar_HideOrShow_Callback = void (*)();
-    using QStatusBar_UpdateMicroFocus_Callback = void (*)();
-    using QStatusBar_Create_Callback = void (*)();
-    using QStatusBar_Destroy_Callback = void (*)();
-    using QStatusBar_FocusNextChild_Callback = bool (*)();
-    using QStatusBar_FocusPreviousChild_Callback = bool (*)();
-    using QStatusBar_Sender_Callback = QObject* (*)();
-    using QStatusBar_SenderSignalIndex_Callback = int (*)();
-    using QStatusBar_Receivers_Callback = int (*)(const QStatusBar*, const char*);
-    using QStatusBar_IsSignalConnected_Callback = bool (*)(const QStatusBar*, QMetaMethod*);
-    using QStatusBar_GetDecodedMetricF_Callback = double (*)(const QStatusBar*, int, int);
+    using QStatusBar::create;
+    using QStatusBar::destroy;
+    using QStatusBar::focusNextChild;
+    using QStatusBar::focusPreviousChild;
+    using QStatusBar::getDecodedMetricF;
+    using QStatusBar::hideOrShow;
+    using QStatusBar::isSignalConnected;
+    using QStatusBar::receivers;
+    using QStatusBar::reformat;
+    using QStatusBar::sender;
+    using QStatusBar::senderSignalIndex;
+    using QStatusBar::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QStatusBar_MetaObject_Callback qstatusbar_metaobject_callback = nullptr;
     QStatusBar_Metacast_Callback qstatusbar_metacast_callback = nullptr;
@@ -132,224 +127,56 @@ class VirtualQStatusBar final : public QStatusBar {
     QStatusBar_CustomEvent_Callback qstatusbar_customevent_callback = nullptr;
     QStatusBar_ConnectNotify_Callback qstatusbar_connectnotify_callback = nullptr;
     QStatusBar_DisconnectNotify_Callback qstatusbar_disconnectnotify_callback = nullptr;
-    QStatusBar_Reformat_Callback qstatusbar_reformat_callback = nullptr;
-    QStatusBar_HideOrShow_Callback qstatusbar_hideorshow_callback = nullptr;
-    QStatusBar_UpdateMicroFocus_Callback qstatusbar_updatemicrofocus_callback = nullptr;
-    QStatusBar_Create_Callback qstatusbar_create_callback = nullptr;
-    QStatusBar_Destroy_Callback qstatusbar_destroy_callback = nullptr;
-    QStatusBar_FocusNextChild_Callback qstatusbar_focusnextchild_callback = nullptr;
-    QStatusBar_FocusPreviousChild_Callback qstatusbar_focuspreviouschild_callback = nullptr;
-    QStatusBar_Sender_Callback qstatusbar_sender_callback = nullptr;
-    QStatusBar_SenderSignalIndex_Callback qstatusbar_sendersignalindex_callback = nullptr;
-    QStatusBar_Receivers_Callback qstatusbar_receivers_callback = nullptr;
-    QStatusBar_IsSignalConnected_Callback qstatusbar_issignalconnected_callback = nullptr;
-    QStatusBar_GetDecodedMetricF_Callback qstatusbar_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qstatusbar_metaobject_isbase = false;
-    mutable bool qstatusbar_metacast_isbase = false;
-    mutable bool qstatusbar_metacall_isbase = false;
-    mutable bool qstatusbar_showevent_isbase = false;
-    mutable bool qstatusbar_paintevent_isbase = false;
-    mutable bool qstatusbar_resizeevent_isbase = false;
-    mutable bool qstatusbar_event_isbase = false;
-    mutable bool qstatusbar_devtype_isbase = false;
-    mutable bool qstatusbar_setvisible_isbase = false;
-    mutable bool qstatusbar_sizehint_isbase = false;
-    mutable bool qstatusbar_minimumsizehint_isbase = false;
-    mutable bool qstatusbar_heightforwidth_isbase = false;
-    mutable bool qstatusbar_hasheightforwidth_isbase = false;
-    mutable bool qstatusbar_paintengine_isbase = false;
-    mutable bool qstatusbar_mousepressevent_isbase = false;
-    mutable bool qstatusbar_mousereleaseevent_isbase = false;
-    mutable bool qstatusbar_mousedoubleclickevent_isbase = false;
-    mutable bool qstatusbar_mousemoveevent_isbase = false;
-    mutable bool qstatusbar_wheelevent_isbase = false;
-    mutable bool qstatusbar_keypressevent_isbase = false;
-    mutable bool qstatusbar_keyreleaseevent_isbase = false;
-    mutable bool qstatusbar_focusinevent_isbase = false;
-    mutable bool qstatusbar_focusoutevent_isbase = false;
-    mutable bool qstatusbar_enterevent_isbase = false;
-    mutable bool qstatusbar_leaveevent_isbase = false;
-    mutable bool qstatusbar_moveevent_isbase = false;
-    mutable bool qstatusbar_closeevent_isbase = false;
-    mutable bool qstatusbar_contextmenuevent_isbase = false;
-    mutable bool qstatusbar_tabletevent_isbase = false;
-    mutable bool qstatusbar_actionevent_isbase = false;
-    mutable bool qstatusbar_dragenterevent_isbase = false;
-    mutable bool qstatusbar_dragmoveevent_isbase = false;
-    mutable bool qstatusbar_dragleaveevent_isbase = false;
-    mutable bool qstatusbar_dropevent_isbase = false;
-    mutable bool qstatusbar_hideevent_isbase = false;
-    mutable bool qstatusbar_nativeevent_isbase = false;
-    mutable bool qstatusbar_changeevent_isbase = false;
-    mutable bool qstatusbar_metric_isbase = false;
-    mutable bool qstatusbar_initpainter_isbase = false;
-    mutable bool qstatusbar_redirected_isbase = false;
-    mutable bool qstatusbar_sharedpainter_isbase = false;
-    mutable bool qstatusbar_inputmethodevent_isbase = false;
-    mutable bool qstatusbar_inputmethodquery_isbase = false;
-    mutable bool qstatusbar_focusnextprevchild_isbase = false;
-    mutable bool qstatusbar_eventfilter_isbase = false;
-    mutable bool qstatusbar_timerevent_isbase = false;
-    mutable bool qstatusbar_childevent_isbase = false;
-    mutable bool qstatusbar_customevent_isbase = false;
-    mutable bool qstatusbar_connectnotify_isbase = false;
-    mutable bool qstatusbar_disconnectnotify_isbase = false;
-    mutable bool qstatusbar_reformat_isbase = false;
-    mutable bool qstatusbar_hideorshow_isbase = false;
-    mutable bool qstatusbar_updatemicrofocus_isbase = false;
-    mutable bool qstatusbar_create_isbase = false;
-    mutable bool qstatusbar_destroy_isbase = false;
-    mutable bool qstatusbar_focusnextchild_isbase = false;
-    mutable bool qstatusbar_focuspreviouschild_isbase = false;
-    mutable bool qstatusbar_sender_isbase = false;
-    mutable bool qstatusbar_sendersignalindex_isbase = false;
-    mutable bool qstatusbar_receivers_isbase = false;
-    mutable bool qstatusbar_issignalconnected_isbase = false;
-    mutable bool qstatusbar_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QStatusBar {
+        using QStatusBar::actionEvent;
+        using QStatusBar::changeEvent;
+        using QStatusBar::childEvent;
+        using QStatusBar::closeEvent;
+        using QStatusBar::connectNotify;
+        using QStatusBar::contextMenuEvent;
+        using QStatusBar::customEvent;
+        using QStatusBar::disconnectNotify;
+        using QStatusBar::dragEnterEvent;
+        using QStatusBar::dragLeaveEvent;
+        using QStatusBar::dragMoveEvent;
+        using QStatusBar::dropEvent;
+        using QStatusBar::enterEvent;
+        using QStatusBar::event;
+        using QStatusBar::focusInEvent;
+        using QStatusBar::focusNextPrevChild;
+        using QStatusBar::focusOutEvent;
+        using QStatusBar::hideEvent;
+        using QStatusBar::initPainter;
+        using QStatusBar::inputMethodEvent;
+        using QStatusBar::keyPressEvent;
+        using QStatusBar::keyReleaseEvent;
+        using QStatusBar::leaveEvent;
+        using QStatusBar::metric;
+        using QStatusBar::mouseDoubleClickEvent;
+        using QStatusBar::mouseMoveEvent;
+        using QStatusBar::mousePressEvent;
+        using QStatusBar::mouseReleaseEvent;
+        using QStatusBar::moveEvent;
+        using QStatusBar::nativeEvent;
+        using QStatusBar::paintEvent;
+        using QStatusBar::redirected;
+        using QStatusBar::resizeEvent;
+        using QStatusBar::sharedPainter;
+        using QStatusBar::showEvent;
+        using QStatusBar::tabletEvent;
+        using QStatusBar::timerEvent;
+        using QStatusBar::wheelEvent;
+    };
 
-  public:
     VirtualQStatusBar(QWidget* parent) : QStatusBar(parent) {};
     VirtualQStatusBar() : QStatusBar() {};
 
-    // Callback setters
-    inline void setQStatusBar_MetaObject_Callback(QStatusBar_MetaObject_Callback cb) { qstatusbar_metaobject_callback = cb; }
-    inline void setQStatusBar_Metacast_Callback(QStatusBar_Metacast_Callback cb) { qstatusbar_metacast_callback = cb; }
-    inline void setQStatusBar_Metacall_Callback(QStatusBar_Metacall_Callback cb) { qstatusbar_metacall_callback = cb; }
-    inline void setQStatusBar_ShowEvent_Callback(QStatusBar_ShowEvent_Callback cb) { qstatusbar_showevent_callback = cb; }
-    inline void setQStatusBar_PaintEvent_Callback(QStatusBar_PaintEvent_Callback cb) { qstatusbar_paintevent_callback = cb; }
-    inline void setQStatusBar_ResizeEvent_Callback(QStatusBar_ResizeEvent_Callback cb) { qstatusbar_resizeevent_callback = cb; }
-    inline void setQStatusBar_Event_Callback(QStatusBar_Event_Callback cb) { qstatusbar_event_callback = cb; }
-    inline void setQStatusBar_DevType_Callback(QStatusBar_DevType_Callback cb) { qstatusbar_devtype_callback = cb; }
-    inline void setQStatusBar_SetVisible_Callback(QStatusBar_SetVisible_Callback cb) { qstatusbar_setvisible_callback = cb; }
-    inline void setQStatusBar_SizeHint_Callback(QStatusBar_SizeHint_Callback cb) { qstatusbar_sizehint_callback = cb; }
-    inline void setQStatusBar_MinimumSizeHint_Callback(QStatusBar_MinimumSizeHint_Callback cb) { qstatusbar_minimumsizehint_callback = cb; }
-    inline void setQStatusBar_HeightForWidth_Callback(QStatusBar_HeightForWidth_Callback cb) { qstatusbar_heightforwidth_callback = cb; }
-    inline void setQStatusBar_HasHeightForWidth_Callback(QStatusBar_HasHeightForWidth_Callback cb) { qstatusbar_hasheightforwidth_callback = cb; }
-    inline void setQStatusBar_PaintEngine_Callback(QStatusBar_PaintEngine_Callback cb) { qstatusbar_paintengine_callback = cb; }
-    inline void setQStatusBar_MousePressEvent_Callback(QStatusBar_MousePressEvent_Callback cb) { qstatusbar_mousepressevent_callback = cb; }
-    inline void setQStatusBar_MouseReleaseEvent_Callback(QStatusBar_MouseReleaseEvent_Callback cb) { qstatusbar_mousereleaseevent_callback = cb; }
-    inline void setQStatusBar_MouseDoubleClickEvent_Callback(QStatusBar_MouseDoubleClickEvent_Callback cb) { qstatusbar_mousedoubleclickevent_callback = cb; }
-    inline void setQStatusBar_MouseMoveEvent_Callback(QStatusBar_MouseMoveEvent_Callback cb) { qstatusbar_mousemoveevent_callback = cb; }
-    inline void setQStatusBar_WheelEvent_Callback(QStatusBar_WheelEvent_Callback cb) { qstatusbar_wheelevent_callback = cb; }
-    inline void setQStatusBar_KeyPressEvent_Callback(QStatusBar_KeyPressEvent_Callback cb) { qstatusbar_keypressevent_callback = cb; }
-    inline void setQStatusBar_KeyReleaseEvent_Callback(QStatusBar_KeyReleaseEvent_Callback cb) { qstatusbar_keyreleaseevent_callback = cb; }
-    inline void setQStatusBar_FocusInEvent_Callback(QStatusBar_FocusInEvent_Callback cb) { qstatusbar_focusinevent_callback = cb; }
-    inline void setQStatusBar_FocusOutEvent_Callback(QStatusBar_FocusOutEvent_Callback cb) { qstatusbar_focusoutevent_callback = cb; }
-    inline void setQStatusBar_EnterEvent_Callback(QStatusBar_EnterEvent_Callback cb) { qstatusbar_enterevent_callback = cb; }
-    inline void setQStatusBar_LeaveEvent_Callback(QStatusBar_LeaveEvent_Callback cb) { qstatusbar_leaveevent_callback = cb; }
-    inline void setQStatusBar_MoveEvent_Callback(QStatusBar_MoveEvent_Callback cb) { qstatusbar_moveevent_callback = cb; }
-    inline void setQStatusBar_CloseEvent_Callback(QStatusBar_CloseEvent_Callback cb) { qstatusbar_closeevent_callback = cb; }
-    inline void setQStatusBar_ContextMenuEvent_Callback(QStatusBar_ContextMenuEvent_Callback cb) { qstatusbar_contextmenuevent_callback = cb; }
-    inline void setQStatusBar_TabletEvent_Callback(QStatusBar_TabletEvent_Callback cb) { qstatusbar_tabletevent_callback = cb; }
-    inline void setQStatusBar_ActionEvent_Callback(QStatusBar_ActionEvent_Callback cb) { qstatusbar_actionevent_callback = cb; }
-    inline void setQStatusBar_DragEnterEvent_Callback(QStatusBar_DragEnterEvent_Callback cb) { qstatusbar_dragenterevent_callback = cb; }
-    inline void setQStatusBar_DragMoveEvent_Callback(QStatusBar_DragMoveEvent_Callback cb) { qstatusbar_dragmoveevent_callback = cb; }
-    inline void setQStatusBar_DragLeaveEvent_Callback(QStatusBar_DragLeaveEvent_Callback cb) { qstatusbar_dragleaveevent_callback = cb; }
-    inline void setQStatusBar_DropEvent_Callback(QStatusBar_DropEvent_Callback cb) { qstatusbar_dropevent_callback = cb; }
-    inline void setQStatusBar_HideEvent_Callback(QStatusBar_HideEvent_Callback cb) { qstatusbar_hideevent_callback = cb; }
-    inline void setQStatusBar_NativeEvent_Callback(QStatusBar_NativeEvent_Callback cb) { qstatusbar_nativeevent_callback = cb; }
-    inline void setQStatusBar_ChangeEvent_Callback(QStatusBar_ChangeEvent_Callback cb) { qstatusbar_changeevent_callback = cb; }
-    inline void setQStatusBar_Metric_Callback(QStatusBar_Metric_Callback cb) { qstatusbar_metric_callback = cb; }
-    inline void setQStatusBar_InitPainter_Callback(QStatusBar_InitPainter_Callback cb) { qstatusbar_initpainter_callback = cb; }
-    inline void setQStatusBar_Redirected_Callback(QStatusBar_Redirected_Callback cb) { qstatusbar_redirected_callback = cb; }
-    inline void setQStatusBar_SharedPainter_Callback(QStatusBar_SharedPainter_Callback cb) { qstatusbar_sharedpainter_callback = cb; }
-    inline void setQStatusBar_InputMethodEvent_Callback(QStatusBar_InputMethodEvent_Callback cb) { qstatusbar_inputmethodevent_callback = cb; }
-    inline void setQStatusBar_InputMethodQuery_Callback(QStatusBar_InputMethodQuery_Callback cb) { qstatusbar_inputmethodquery_callback = cb; }
-    inline void setQStatusBar_FocusNextPrevChild_Callback(QStatusBar_FocusNextPrevChild_Callback cb) { qstatusbar_focusnextprevchild_callback = cb; }
-    inline void setQStatusBar_EventFilter_Callback(QStatusBar_EventFilter_Callback cb) { qstatusbar_eventfilter_callback = cb; }
-    inline void setQStatusBar_TimerEvent_Callback(QStatusBar_TimerEvent_Callback cb) { qstatusbar_timerevent_callback = cb; }
-    inline void setQStatusBar_ChildEvent_Callback(QStatusBar_ChildEvent_Callback cb) { qstatusbar_childevent_callback = cb; }
-    inline void setQStatusBar_CustomEvent_Callback(QStatusBar_CustomEvent_Callback cb) { qstatusbar_customevent_callback = cb; }
-    inline void setQStatusBar_ConnectNotify_Callback(QStatusBar_ConnectNotify_Callback cb) { qstatusbar_connectnotify_callback = cb; }
-    inline void setQStatusBar_DisconnectNotify_Callback(QStatusBar_DisconnectNotify_Callback cb) { qstatusbar_disconnectnotify_callback = cb; }
-    inline void setQStatusBar_Reformat_Callback(QStatusBar_Reformat_Callback cb) { qstatusbar_reformat_callback = cb; }
-    inline void setQStatusBar_HideOrShow_Callback(QStatusBar_HideOrShow_Callback cb) { qstatusbar_hideorshow_callback = cb; }
-    inline void setQStatusBar_UpdateMicroFocus_Callback(QStatusBar_UpdateMicroFocus_Callback cb) { qstatusbar_updatemicrofocus_callback = cb; }
-    inline void setQStatusBar_Create_Callback(QStatusBar_Create_Callback cb) { qstatusbar_create_callback = cb; }
-    inline void setQStatusBar_Destroy_Callback(QStatusBar_Destroy_Callback cb) { qstatusbar_destroy_callback = cb; }
-    inline void setQStatusBar_FocusNextChild_Callback(QStatusBar_FocusNextChild_Callback cb) { qstatusbar_focusnextchild_callback = cb; }
-    inline void setQStatusBar_FocusPreviousChild_Callback(QStatusBar_FocusPreviousChild_Callback cb) { qstatusbar_focuspreviouschild_callback = cb; }
-    inline void setQStatusBar_Sender_Callback(QStatusBar_Sender_Callback cb) { qstatusbar_sender_callback = cb; }
-    inline void setQStatusBar_SenderSignalIndex_Callback(QStatusBar_SenderSignalIndex_Callback cb) { qstatusbar_sendersignalindex_callback = cb; }
-    inline void setQStatusBar_Receivers_Callback(QStatusBar_Receivers_Callback cb) { qstatusbar_receivers_callback = cb; }
-    inline void setQStatusBar_IsSignalConnected_Callback(QStatusBar_IsSignalConnected_Callback cb) { qstatusbar_issignalconnected_callback = cb; }
-    inline void setQStatusBar_GetDecodedMetricF_Callback(QStatusBar_GetDecodedMetricF_Callback cb) { qstatusbar_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQStatusBar_MetaObject_IsBase(bool value) const { qstatusbar_metaobject_isbase = value; }
-    inline void setQStatusBar_Metacast_IsBase(bool value) const { qstatusbar_metacast_isbase = value; }
-    inline void setQStatusBar_Metacall_IsBase(bool value) const { qstatusbar_metacall_isbase = value; }
-    inline void setQStatusBar_ShowEvent_IsBase(bool value) const { qstatusbar_showevent_isbase = value; }
-    inline void setQStatusBar_PaintEvent_IsBase(bool value) const { qstatusbar_paintevent_isbase = value; }
-    inline void setQStatusBar_ResizeEvent_IsBase(bool value) const { qstatusbar_resizeevent_isbase = value; }
-    inline void setQStatusBar_Event_IsBase(bool value) const { qstatusbar_event_isbase = value; }
-    inline void setQStatusBar_DevType_IsBase(bool value) const { qstatusbar_devtype_isbase = value; }
-    inline void setQStatusBar_SetVisible_IsBase(bool value) const { qstatusbar_setvisible_isbase = value; }
-    inline void setQStatusBar_SizeHint_IsBase(bool value) const { qstatusbar_sizehint_isbase = value; }
-    inline void setQStatusBar_MinimumSizeHint_IsBase(bool value) const { qstatusbar_minimumsizehint_isbase = value; }
-    inline void setQStatusBar_HeightForWidth_IsBase(bool value) const { qstatusbar_heightforwidth_isbase = value; }
-    inline void setQStatusBar_HasHeightForWidth_IsBase(bool value) const { qstatusbar_hasheightforwidth_isbase = value; }
-    inline void setQStatusBar_PaintEngine_IsBase(bool value) const { qstatusbar_paintengine_isbase = value; }
-    inline void setQStatusBar_MousePressEvent_IsBase(bool value) const { qstatusbar_mousepressevent_isbase = value; }
-    inline void setQStatusBar_MouseReleaseEvent_IsBase(bool value) const { qstatusbar_mousereleaseevent_isbase = value; }
-    inline void setQStatusBar_MouseDoubleClickEvent_IsBase(bool value) const { qstatusbar_mousedoubleclickevent_isbase = value; }
-    inline void setQStatusBar_MouseMoveEvent_IsBase(bool value) const { qstatusbar_mousemoveevent_isbase = value; }
-    inline void setQStatusBar_WheelEvent_IsBase(bool value) const { qstatusbar_wheelevent_isbase = value; }
-    inline void setQStatusBar_KeyPressEvent_IsBase(bool value) const { qstatusbar_keypressevent_isbase = value; }
-    inline void setQStatusBar_KeyReleaseEvent_IsBase(bool value) const { qstatusbar_keyreleaseevent_isbase = value; }
-    inline void setQStatusBar_FocusInEvent_IsBase(bool value) const { qstatusbar_focusinevent_isbase = value; }
-    inline void setQStatusBar_FocusOutEvent_IsBase(bool value) const { qstatusbar_focusoutevent_isbase = value; }
-    inline void setQStatusBar_EnterEvent_IsBase(bool value) const { qstatusbar_enterevent_isbase = value; }
-    inline void setQStatusBar_LeaveEvent_IsBase(bool value) const { qstatusbar_leaveevent_isbase = value; }
-    inline void setQStatusBar_MoveEvent_IsBase(bool value) const { qstatusbar_moveevent_isbase = value; }
-    inline void setQStatusBar_CloseEvent_IsBase(bool value) const { qstatusbar_closeevent_isbase = value; }
-    inline void setQStatusBar_ContextMenuEvent_IsBase(bool value) const { qstatusbar_contextmenuevent_isbase = value; }
-    inline void setQStatusBar_TabletEvent_IsBase(bool value) const { qstatusbar_tabletevent_isbase = value; }
-    inline void setQStatusBar_ActionEvent_IsBase(bool value) const { qstatusbar_actionevent_isbase = value; }
-    inline void setQStatusBar_DragEnterEvent_IsBase(bool value) const { qstatusbar_dragenterevent_isbase = value; }
-    inline void setQStatusBar_DragMoveEvent_IsBase(bool value) const { qstatusbar_dragmoveevent_isbase = value; }
-    inline void setQStatusBar_DragLeaveEvent_IsBase(bool value) const { qstatusbar_dragleaveevent_isbase = value; }
-    inline void setQStatusBar_DropEvent_IsBase(bool value) const { qstatusbar_dropevent_isbase = value; }
-    inline void setQStatusBar_HideEvent_IsBase(bool value) const { qstatusbar_hideevent_isbase = value; }
-    inline void setQStatusBar_NativeEvent_IsBase(bool value) const { qstatusbar_nativeevent_isbase = value; }
-    inline void setQStatusBar_ChangeEvent_IsBase(bool value) const { qstatusbar_changeevent_isbase = value; }
-    inline void setQStatusBar_Metric_IsBase(bool value) const { qstatusbar_metric_isbase = value; }
-    inline void setQStatusBar_InitPainter_IsBase(bool value) const { qstatusbar_initpainter_isbase = value; }
-    inline void setQStatusBar_Redirected_IsBase(bool value) const { qstatusbar_redirected_isbase = value; }
-    inline void setQStatusBar_SharedPainter_IsBase(bool value) const { qstatusbar_sharedpainter_isbase = value; }
-    inline void setQStatusBar_InputMethodEvent_IsBase(bool value) const { qstatusbar_inputmethodevent_isbase = value; }
-    inline void setQStatusBar_InputMethodQuery_IsBase(bool value) const { qstatusbar_inputmethodquery_isbase = value; }
-    inline void setQStatusBar_FocusNextPrevChild_IsBase(bool value) const { qstatusbar_focusnextprevchild_isbase = value; }
-    inline void setQStatusBar_EventFilter_IsBase(bool value) const { qstatusbar_eventfilter_isbase = value; }
-    inline void setQStatusBar_TimerEvent_IsBase(bool value) const { qstatusbar_timerevent_isbase = value; }
-    inline void setQStatusBar_ChildEvent_IsBase(bool value) const { qstatusbar_childevent_isbase = value; }
-    inline void setQStatusBar_CustomEvent_IsBase(bool value) const { qstatusbar_customevent_isbase = value; }
-    inline void setQStatusBar_ConnectNotify_IsBase(bool value) const { qstatusbar_connectnotify_isbase = value; }
-    inline void setQStatusBar_DisconnectNotify_IsBase(bool value) const { qstatusbar_disconnectnotify_isbase = value; }
-    inline void setQStatusBar_Reformat_IsBase(bool value) const { qstatusbar_reformat_isbase = value; }
-    inline void setQStatusBar_HideOrShow_IsBase(bool value) const { qstatusbar_hideorshow_isbase = value; }
-    inline void setQStatusBar_UpdateMicroFocus_IsBase(bool value) const { qstatusbar_updatemicrofocus_isbase = value; }
-    inline void setQStatusBar_Create_IsBase(bool value) const { qstatusbar_create_isbase = value; }
-    inline void setQStatusBar_Destroy_IsBase(bool value) const { qstatusbar_destroy_isbase = value; }
-    inline void setQStatusBar_FocusNextChild_IsBase(bool value) const { qstatusbar_focusnextchild_isbase = value; }
-    inline void setQStatusBar_FocusPreviousChild_IsBase(bool value) const { qstatusbar_focuspreviouschild_isbase = value; }
-    inline void setQStatusBar_Sender_IsBase(bool value) const { qstatusbar_sender_isbase = value; }
-    inline void setQStatusBar_SenderSignalIndex_IsBase(bool value) const { qstatusbar_sendersignalindex_isbase = value; }
-    inline void setQStatusBar_Receivers_IsBase(bool value) const { qstatusbar_receivers_isbase = value; }
-    inline void setQStatusBar_IsSignalConnected_IsBase(bool value) const { qstatusbar_issignalconnected_isbase = value; }
-    inline void setQStatusBar_GetDecodedMetricF_IsBase(bool value) const { qstatusbar_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qstatusbar_metaobject_isbase) {
-            qstatusbar_metaobject_isbase = false;
-            return QStatusBar::metaObject();
-        }
-        auto metaobject_cb = qstatusbar_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qstatusbar_metaobject_callback) {
+            QMetaObject* callback_ret = qstatusbar_metaobject_callback(this);
             return callback_ret;
         }
         return QStatusBar::metaObject();
@@ -357,14 +184,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qstatusbar_metacast_isbase) {
-            qstatusbar_metacast_isbase = false;
-            return QStatusBar::qt_metacast(param1);
-        }
-        auto metacast_cb = qstatusbar_metacast_callback;
-        if (metacast_cb) {
+        if (qstatusbar_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qstatusbar_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QStatusBar::qt_metacast(param1);
@@ -372,16 +194,11 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qstatusbar_metacall_isbase) {
-            qstatusbar_metacall_isbase = false;
-            return QStatusBar::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qstatusbar_metacall_callback;
-        if (metacall_cb) {
+        if (qstatusbar_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qstatusbar_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QStatusBar::qt_metacall(param1, param2, param3);
@@ -389,15 +206,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (qstatusbar_showevent_isbase) {
-            qstatusbar_showevent_isbase = false;
-            QStatusBar::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = qstatusbar_showevent_callback;
-        if (showevent_cb) {
+        if (qstatusbar_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            qstatusbar_showevent_callback(this, cbval1);
             return;
         }
         QStatusBar::showEvent(param1);
@@ -405,15 +216,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* param1) override {
-        if (qstatusbar_paintevent_isbase) {
-            qstatusbar_paintevent_isbase = false;
-            QStatusBar::paintEvent(param1);
-            return;
-        }
-        auto paintevent_cb = qstatusbar_paintevent_callback;
-        if (paintevent_cb) {
+        if (qstatusbar_paintevent_callback) {
             QPaintEvent* cbval1 = param1;
-            paintevent_cb(this, cbval1);
+            qstatusbar_paintevent_callback(this, cbval1);
             return;
         }
         QStatusBar::paintEvent(param1);
@@ -421,15 +226,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* param1) override {
-        if (qstatusbar_resizeevent_isbase) {
-            qstatusbar_resizeevent_isbase = false;
-            QStatusBar::resizeEvent(param1);
-            return;
-        }
-        auto resizeevent_cb = qstatusbar_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qstatusbar_resizeevent_callback) {
             QResizeEvent* cbval1 = param1;
-            resizeevent_cb(this, cbval1);
+            qstatusbar_resizeevent_callback(this, cbval1);
             return;
         }
         QStatusBar::resizeEvent(param1);
@@ -437,14 +236,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (qstatusbar_event_isbase) {
-            qstatusbar_event_isbase = false;
-            return QStatusBar::event(param1);
-        }
-        auto event_cb = qstatusbar_event_callback;
-        if (event_cb) {
+        if (qstatusbar_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qstatusbar_event_callback(this, cbval1);
             return callback_ret;
         }
         return QStatusBar::event(param1);
@@ -452,13 +246,8 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qstatusbar_devtype_isbase) {
-            qstatusbar_devtype_isbase = false;
-            return QStatusBar::devType();
-        }
-        auto devtype_cb = qstatusbar_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qstatusbar_devtype_callback) {
+            int callback_ret = qstatusbar_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QStatusBar::devType();
@@ -466,15 +255,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qstatusbar_setvisible_isbase) {
-            qstatusbar_setvisible_isbase = false;
-            QStatusBar::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qstatusbar_setvisible_callback;
-        if (setvisible_cb) {
+        if (qstatusbar_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qstatusbar_setvisible_callback(this, cbval1);
             return;
         }
         QStatusBar::setVisible(visible);
@@ -482,13 +265,8 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qstatusbar_sizehint_isbase) {
-            qstatusbar_sizehint_isbase = false;
-            return QStatusBar::sizeHint();
-        }
-        auto sizehint_cb = qstatusbar_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qstatusbar_sizehint_callback) {
+            QSize* callback_ret = qstatusbar_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -498,13 +276,8 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qstatusbar_minimumsizehint_isbase) {
-            qstatusbar_minimumsizehint_isbase = false;
-            return QStatusBar::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qstatusbar_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qstatusbar_minimumsizehint_callback) {
+            QSize* callback_ret = qstatusbar_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -514,14 +287,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qstatusbar_heightforwidth_isbase) {
-            qstatusbar_heightforwidth_isbase = false;
-            return QStatusBar::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qstatusbar_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qstatusbar_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qstatusbar_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QStatusBar::heightForWidth(param1);
@@ -529,13 +297,8 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qstatusbar_hasheightforwidth_isbase) {
-            qstatusbar_hasheightforwidth_isbase = false;
-            return QStatusBar::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qstatusbar_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qstatusbar_hasheightforwidth_callback) {
+            bool callback_ret = qstatusbar_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QStatusBar::hasHeightForWidth();
@@ -543,13 +306,8 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qstatusbar_paintengine_isbase) {
-            qstatusbar_paintengine_isbase = false;
-            return QStatusBar::paintEngine();
-        }
-        auto paintengine_cb = qstatusbar_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qstatusbar_paintengine_callback) {
+            QPaintEngine* callback_ret = qstatusbar_paintengine_callback(this);
             return callback_ret;
         }
         return QStatusBar::paintEngine();
@@ -557,15 +315,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qstatusbar_mousepressevent_isbase) {
-            qstatusbar_mousepressevent_isbase = false;
-            QStatusBar::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qstatusbar_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qstatusbar_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qstatusbar_mousepressevent_callback(this, cbval1);
             return;
         }
         QStatusBar::mousePressEvent(event);
@@ -573,15 +325,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qstatusbar_mousereleaseevent_isbase) {
-            qstatusbar_mousereleaseevent_isbase = false;
-            QStatusBar::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qstatusbar_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qstatusbar_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qstatusbar_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QStatusBar::mouseReleaseEvent(event);
@@ -589,15 +335,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qstatusbar_mousedoubleclickevent_isbase) {
-            qstatusbar_mousedoubleclickevent_isbase = false;
-            QStatusBar::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qstatusbar_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qstatusbar_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qstatusbar_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QStatusBar::mouseDoubleClickEvent(event);
@@ -605,15 +345,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qstatusbar_mousemoveevent_isbase) {
-            qstatusbar_mousemoveevent_isbase = false;
-            QStatusBar::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qstatusbar_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qstatusbar_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qstatusbar_mousemoveevent_callback(this, cbval1);
             return;
         }
         QStatusBar::mouseMoveEvent(event);
@@ -621,15 +355,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qstatusbar_wheelevent_isbase) {
-            qstatusbar_wheelevent_isbase = false;
-            QStatusBar::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qstatusbar_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qstatusbar_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qstatusbar_wheelevent_callback(this, cbval1);
             return;
         }
         QStatusBar::wheelEvent(event);
@@ -637,15 +365,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qstatusbar_keypressevent_isbase) {
-            qstatusbar_keypressevent_isbase = false;
-            QStatusBar::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qstatusbar_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qstatusbar_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qstatusbar_keypressevent_callback(this, cbval1);
             return;
         }
         QStatusBar::keyPressEvent(event);
@@ -653,15 +375,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qstatusbar_keyreleaseevent_isbase) {
-            qstatusbar_keyreleaseevent_isbase = false;
-            QStatusBar::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qstatusbar_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qstatusbar_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qstatusbar_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QStatusBar::keyReleaseEvent(event);
@@ -669,15 +385,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qstatusbar_focusinevent_isbase) {
-            qstatusbar_focusinevent_isbase = false;
-            QStatusBar::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qstatusbar_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qstatusbar_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qstatusbar_focusinevent_callback(this, cbval1);
             return;
         }
         QStatusBar::focusInEvent(event);
@@ -685,15 +395,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qstatusbar_focusoutevent_isbase) {
-            qstatusbar_focusoutevent_isbase = false;
-            QStatusBar::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qstatusbar_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qstatusbar_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qstatusbar_focusoutevent_callback(this, cbval1);
             return;
         }
         QStatusBar::focusOutEvent(event);
@@ -701,15 +405,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qstatusbar_enterevent_isbase) {
-            qstatusbar_enterevent_isbase = false;
-            QStatusBar::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qstatusbar_enterevent_callback;
-        if (enterevent_cb) {
+        if (qstatusbar_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qstatusbar_enterevent_callback(this, cbval1);
             return;
         }
         QStatusBar::enterEvent(event);
@@ -717,15 +415,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qstatusbar_leaveevent_isbase) {
-            qstatusbar_leaveevent_isbase = false;
-            QStatusBar::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qstatusbar_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qstatusbar_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qstatusbar_leaveevent_callback(this, cbval1);
             return;
         }
         QStatusBar::leaveEvent(event);
@@ -733,15 +425,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qstatusbar_moveevent_isbase) {
-            qstatusbar_moveevent_isbase = false;
-            QStatusBar::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qstatusbar_moveevent_callback;
-        if (moveevent_cb) {
+        if (qstatusbar_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qstatusbar_moveevent_callback(this, cbval1);
             return;
         }
         QStatusBar::moveEvent(event);
@@ -749,15 +435,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qstatusbar_closeevent_isbase) {
-            qstatusbar_closeevent_isbase = false;
-            QStatusBar::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qstatusbar_closeevent_callback;
-        if (closeevent_cb) {
+        if (qstatusbar_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qstatusbar_closeevent_callback(this, cbval1);
             return;
         }
         QStatusBar::closeEvent(event);
@@ -765,15 +445,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qstatusbar_contextmenuevent_isbase) {
-            qstatusbar_contextmenuevent_isbase = false;
-            QStatusBar::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qstatusbar_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qstatusbar_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qstatusbar_contextmenuevent_callback(this, cbval1);
             return;
         }
         QStatusBar::contextMenuEvent(event);
@@ -781,15 +455,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qstatusbar_tabletevent_isbase) {
-            qstatusbar_tabletevent_isbase = false;
-            QStatusBar::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qstatusbar_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qstatusbar_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qstatusbar_tabletevent_callback(this, cbval1);
             return;
         }
         QStatusBar::tabletEvent(event);
@@ -797,15 +465,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qstatusbar_actionevent_isbase) {
-            qstatusbar_actionevent_isbase = false;
-            QStatusBar::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qstatusbar_actionevent_callback;
-        if (actionevent_cb) {
+        if (qstatusbar_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qstatusbar_actionevent_callback(this, cbval1);
             return;
         }
         QStatusBar::actionEvent(event);
@@ -813,15 +475,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qstatusbar_dragenterevent_isbase) {
-            qstatusbar_dragenterevent_isbase = false;
-            QStatusBar::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qstatusbar_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qstatusbar_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qstatusbar_dragenterevent_callback(this, cbval1);
             return;
         }
         QStatusBar::dragEnterEvent(event);
@@ -829,15 +485,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qstatusbar_dragmoveevent_isbase) {
-            qstatusbar_dragmoveevent_isbase = false;
-            QStatusBar::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qstatusbar_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qstatusbar_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qstatusbar_dragmoveevent_callback(this, cbval1);
             return;
         }
         QStatusBar::dragMoveEvent(event);
@@ -845,15 +495,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qstatusbar_dragleaveevent_isbase) {
-            qstatusbar_dragleaveevent_isbase = false;
-            QStatusBar::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qstatusbar_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qstatusbar_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qstatusbar_dragleaveevent_callback(this, cbval1);
             return;
         }
         QStatusBar::dragLeaveEvent(event);
@@ -861,15 +505,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qstatusbar_dropevent_isbase) {
-            qstatusbar_dropevent_isbase = false;
-            QStatusBar::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qstatusbar_dropevent_callback;
-        if (dropevent_cb) {
+        if (qstatusbar_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qstatusbar_dropevent_callback(this, cbval1);
             return;
         }
         QStatusBar::dropEvent(event);
@@ -877,15 +515,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qstatusbar_hideevent_isbase) {
-            qstatusbar_hideevent_isbase = false;
-            QStatusBar::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qstatusbar_hideevent_callback;
-        if (hideevent_cb) {
+        if (qstatusbar_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qstatusbar_hideevent_callback(this, cbval1);
             return;
         }
         QStatusBar::hideEvent(event);
@@ -893,12 +525,7 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qstatusbar_nativeevent_isbase) {
-            qstatusbar_nativeevent_isbase = false;
-            return QStatusBar::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qstatusbar_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qstatusbar_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -908,7 +535,7 @@ class VirtualQStatusBar final : public QStatusBar {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qstatusbar_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -917,15 +544,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qstatusbar_changeevent_isbase) {
-            qstatusbar_changeevent_isbase = false;
-            QStatusBar::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qstatusbar_changeevent_callback;
-        if (changeevent_cb) {
+        if (qstatusbar_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qstatusbar_changeevent_callback(this, cbval1);
             return;
         }
         QStatusBar::changeEvent(param1);
@@ -933,14 +554,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qstatusbar_metric_isbase) {
-            qstatusbar_metric_isbase = false;
-            return QStatusBar::metric(param1);
-        }
-        auto metric_cb = qstatusbar_metric_callback;
-        if (metric_cb) {
+        if (qstatusbar_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qstatusbar_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QStatusBar::metric(param1);
@@ -948,15 +564,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qstatusbar_initpainter_isbase) {
-            qstatusbar_initpainter_isbase = false;
-            QStatusBar::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qstatusbar_initpainter_callback;
-        if (initpainter_cb) {
+        if (qstatusbar_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qstatusbar_initpainter_callback(this, cbval1);
             return;
         }
         QStatusBar::initPainter(painter);
@@ -964,14 +574,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qstatusbar_redirected_isbase) {
-            qstatusbar_redirected_isbase = false;
-            return QStatusBar::redirected(offset);
-        }
-        auto redirected_cb = qstatusbar_redirected_callback;
-        if (redirected_cb) {
+        if (qstatusbar_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qstatusbar_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QStatusBar::redirected(offset);
@@ -979,13 +584,8 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qstatusbar_sharedpainter_isbase) {
-            qstatusbar_sharedpainter_isbase = false;
-            return QStatusBar::sharedPainter();
-        }
-        auto sharedpainter_cb = qstatusbar_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qstatusbar_sharedpainter_callback) {
+            QPainter* callback_ret = qstatusbar_sharedpainter_callback(this);
             return callback_ret;
         }
         return QStatusBar::sharedPainter();
@@ -993,15 +593,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qstatusbar_inputmethodevent_isbase) {
-            qstatusbar_inputmethodevent_isbase = false;
-            QStatusBar::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qstatusbar_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qstatusbar_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qstatusbar_inputmethodevent_callback(this, cbval1);
             return;
         }
         QStatusBar::inputMethodEvent(param1);
@@ -1009,14 +603,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qstatusbar_inputmethodquery_isbase) {
-            qstatusbar_inputmethodquery_isbase = false;
-            return QStatusBar::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qstatusbar_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qstatusbar_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qstatusbar_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1026,14 +615,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qstatusbar_focusnextprevchild_isbase) {
-            qstatusbar_focusnextprevchild_isbase = false;
-            return QStatusBar::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qstatusbar_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qstatusbar_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qstatusbar_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QStatusBar::focusNextPrevChild(next);
@@ -1041,15 +625,10 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qstatusbar_eventfilter_isbase) {
-            qstatusbar_eventfilter_isbase = false;
-            return QStatusBar::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qstatusbar_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qstatusbar_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qstatusbar_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QStatusBar::eventFilter(watched, event);
@@ -1057,15 +636,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qstatusbar_timerevent_isbase) {
-            qstatusbar_timerevent_isbase = false;
-            QStatusBar::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qstatusbar_timerevent_callback;
-        if (timerevent_cb) {
+        if (qstatusbar_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qstatusbar_timerevent_callback(this, cbval1);
             return;
         }
         QStatusBar::timerEvent(event);
@@ -1073,15 +646,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qstatusbar_childevent_isbase) {
-            qstatusbar_childevent_isbase = false;
-            QStatusBar::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qstatusbar_childevent_callback;
-        if (childevent_cb) {
+        if (qstatusbar_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qstatusbar_childevent_callback(this, cbval1);
             return;
         }
         QStatusBar::childEvent(event);
@@ -1089,15 +656,9 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qstatusbar_customevent_isbase) {
-            qstatusbar_customevent_isbase = false;
-            QStatusBar::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qstatusbar_customevent_callback;
-        if (customevent_cb) {
+        if (qstatusbar_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qstatusbar_customevent_callback(this, cbval1);
             return;
         }
         QStatusBar::customEvent(event);
@@ -1105,17 +666,11 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qstatusbar_connectnotify_isbase) {
-            qstatusbar_connectnotify_isbase = false;
-            QStatusBar::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qstatusbar_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qstatusbar_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qstatusbar_connectnotify_callback(this, cbval1);
             return;
         }
         QStatusBar::connectNotify(signal);
@@ -1123,302 +678,55 @@ class VirtualQStatusBar final : public QStatusBar {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qstatusbar_disconnectnotify_isbase) {
-            qstatusbar_disconnectnotify_isbase = false;
-            QStatusBar::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qstatusbar_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qstatusbar_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qstatusbar_disconnectnotify_callback(this, cbval1);
             return;
         }
         QStatusBar::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void reformat() {
-        if (qstatusbar_reformat_isbase) {
-            qstatusbar_reformat_isbase = false;
-            QStatusBar::reformat();
-            return;
-        }
-        auto reformat_cb = qstatusbar_reformat_callback;
-        if (reformat_cb) {
-            reformat_cb();
-            return;
-        }
-        QStatusBar::reformat();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void hideOrShow() {
-        if (qstatusbar_hideorshow_isbase) {
-            qstatusbar_hideorshow_isbase = false;
-            QStatusBar::hideOrShow();
-            return;
-        }
-        auto hideorshow_cb = qstatusbar_hideorshow_callback;
-        if (hideorshow_cb) {
-            hideorshow_cb();
-            return;
-        }
-        QStatusBar::hideOrShow();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qstatusbar_updatemicrofocus_isbase) {
-            qstatusbar_updatemicrofocus_isbase = false;
-            QStatusBar::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qstatusbar_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QStatusBar::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qstatusbar_create_isbase) {
-            qstatusbar_create_isbase = false;
-            QStatusBar::create();
-            return;
-        }
-        auto create_cb = qstatusbar_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QStatusBar::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qstatusbar_destroy_isbase) {
-            qstatusbar_destroy_isbase = false;
-            QStatusBar::destroy();
-            return;
-        }
-        auto destroy_cb = qstatusbar_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QStatusBar::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qstatusbar_focusnextchild_isbase) {
-            qstatusbar_focusnextchild_isbase = false;
-            return QStatusBar::focusNextChild();
-        }
-        auto focusnextchild_cb = qstatusbar_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QStatusBar::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qstatusbar_focuspreviouschild_isbase) {
-            qstatusbar_focuspreviouschild_isbase = false;
-            return QStatusBar::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qstatusbar_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QStatusBar::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qstatusbar_sender_isbase) {
-            qstatusbar_sender_isbase = false;
-            return QStatusBar::sender();
-        }
-        auto sender_cb = qstatusbar_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QStatusBar::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qstatusbar_sendersignalindex_isbase) {
-            qstatusbar_sendersignalindex_isbase = false;
-            return QStatusBar::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qstatusbar_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QStatusBar::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qstatusbar_receivers_isbase) {
-            qstatusbar_receivers_isbase = false;
-            return QStatusBar::receivers(signal);
-        }
-        auto receivers_cb = qstatusbar_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QStatusBar::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qstatusbar_issignalconnected_isbase) {
-            qstatusbar_issignalconnected_isbase = false;
-            return QStatusBar::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qstatusbar_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QStatusBar::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qstatusbar_getdecodedmetricf_isbase) {
-            qstatusbar_getdecodedmetricf_isbase = false;
-            return QStatusBar::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qstatusbar_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QStatusBar::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QStatusBar_ShowEvent(QStatusBar* self, QShowEvent* param1);
     friend void QStatusBar_SuperShowEvent(QStatusBar* self, QShowEvent* param1);
-    friend void QStatusBar_PaintEvent(QStatusBar* self, QPaintEvent* param1);
     friend void QStatusBar_SuperPaintEvent(QStatusBar* self, QPaintEvent* param1);
-    friend void QStatusBar_ResizeEvent(QStatusBar* self, QResizeEvent* param1);
     friend void QStatusBar_SuperResizeEvent(QStatusBar* self, QResizeEvent* param1);
-    friend bool QStatusBar_Event(QStatusBar* self, QEvent* param1);
     friend bool QStatusBar_SuperEvent(QStatusBar* self, QEvent* param1);
-    friend void QStatusBar_MousePressEvent(QStatusBar* self, QMouseEvent* event);
     friend void QStatusBar_SuperMousePressEvent(QStatusBar* self, QMouseEvent* event);
-    friend void QStatusBar_MouseReleaseEvent(QStatusBar* self, QMouseEvent* event);
     friend void QStatusBar_SuperMouseReleaseEvent(QStatusBar* self, QMouseEvent* event);
-    friend void QStatusBar_MouseDoubleClickEvent(QStatusBar* self, QMouseEvent* event);
     friend void QStatusBar_SuperMouseDoubleClickEvent(QStatusBar* self, QMouseEvent* event);
-    friend void QStatusBar_MouseMoveEvent(QStatusBar* self, QMouseEvent* event);
     friend void QStatusBar_SuperMouseMoveEvent(QStatusBar* self, QMouseEvent* event);
-    friend void QStatusBar_WheelEvent(QStatusBar* self, QWheelEvent* event);
     friend void QStatusBar_SuperWheelEvent(QStatusBar* self, QWheelEvent* event);
-    friend void QStatusBar_KeyPressEvent(QStatusBar* self, QKeyEvent* event);
     friend void QStatusBar_SuperKeyPressEvent(QStatusBar* self, QKeyEvent* event);
-    friend void QStatusBar_KeyReleaseEvent(QStatusBar* self, QKeyEvent* event);
     friend void QStatusBar_SuperKeyReleaseEvent(QStatusBar* self, QKeyEvent* event);
-    friend void QStatusBar_FocusInEvent(QStatusBar* self, QFocusEvent* event);
     friend void QStatusBar_SuperFocusInEvent(QStatusBar* self, QFocusEvent* event);
-    friend void QStatusBar_FocusOutEvent(QStatusBar* self, QFocusEvent* event);
     friend void QStatusBar_SuperFocusOutEvent(QStatusBar* self, QFocusEvent* event);
-    friend void QStatusBar_EnterEvent(QStatusBar* self, QEnterEvent* event);
     friend void QStatusBar_SuperEnterEvent(QStatusBar* self, QEnterEvent* event);
-    friend void QStatusBar_LeaveEvent(QStatusBar* self, QEvent* event);
     friend void QStatusBar_SuperLeaveEvent(QStatusBar* self, QEvent* event);
-    friend void QStatusBar_MoveEvent(QStatusBar* self, QMoveEvent* event);
     friend void QStatusBar_SuperMoveEvent(QStatusBar* self, QMoveEvent* event);
-    friend void QStatusBar_CloseEvent(QStatusBar* self, QCloseEvent* event);
     friend void QStatusBar_SuperCloseEvent(QStatusBar* self, QCloseEvent* event);
-    friend void QStatusBar_ContextMenuEvent(QStatusBar* self, QContextMenuEvent* event);
     friend void QStatusBar_SuperContextMenuEvent(QStatusBar* self, QContextMenuEvent* event);
-    friend void QStatusBar_TabletEvent(QStatusBar* self, QTabletEvent* event);
     friend void QStatusBar_SuperTabletEvent(QStatusBar* self, QTabletEvent* event);
-    friend void QStatusBar_ActionEvent(QStatusBar* self, QActionEvent* event);
     friend void QStatusBar_SuperActionEvent(QStatusBar* self, QActionEvent* event);
-    friend void QStatusBar_DragEnterEvent(QStatusBar* self, QDragEnterEvent* event);
     friend void QStatusBar_SuperDragEnterEvent(QStatusBar* self, QDragEnterEvent* event);
-    friend void QStatusBar_DragMoveEvent(QStatusBar* self, QDragMoveEvent* event);
     friend void QStatusBar_SuperDragMoveEvent(QStatusBar* self, QDragMoveEvent* event);
-    friend void QStatusBar_DragLeaveEvent(QStatusBar* self, QDragLeaveEvent* event);
     friend void QStatusBar_SuperDragLeaveEvent(QStatusBar* self, QDragLeaveEvent* event);
-    friend void QStatusBar_DropEvent(QStatusBar* self, QDropEvent* event);
     friend void QStatusBar_SuperDropEvent(QStatusBar* self, QDropEvent* event);
-    friend void QStatusBar_HideEvent(QStatusBar* self, QHideEvent* event);
     friend void QStatusBar_SuperHideEvent(QStatusBar* self, QHideEvent* event);
-    friend bool QStatusBar_NativeEvent(QStatusBar* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QStatusBar_SuperNativeEvent(QStatusBar* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QStatusBar_ChangeEvent(QStatusBar* self, QEvent* param1);
     friend void QStatusBar_SuperChangeEvent(QStatusBar* self, QEvent* param1);
-    friend int QStatusBar_Metric(const QStatusBar* self, int param1);
     friend int QStatusBar_SuperMetric(const QStatusBar* self, int param1);
-    friend void QStatusBar_InitPainter(const QStatusBar* self, QPainter* painter);
     friend void QStatusBar_SuperInitPainter(const QStatusBar* self, QPainter* painter);
-    friend QPaintDevice* QStatusBar_Redirected(const QStatusBar* self, QPoint* offset);
     friend QPaintDevice* QStatusBar_SuperRedirected(const QStatusBar* self, QPoint* offset);
-    friend QPainter* QStatusBar_SharedPainter(const QStatusBar* self);
     friend QPainter* QStatusBar_SuperSharedPainter(const QStatusBar* self);
-    friend void QStatusBar_InputMethodEvent(QStatusBar* self, QInputMethodEvent* param1);
     friend void QStatusBar_SuperInputMethodEvent(QStatusBar* self, QInputMethodEvent* param1);
-    friend bool QStatusBar_FocusNextPrevChild(QStatusBar* self, bool next);
     friend bool QStatusBar_SuperFocusNextPrevChild(QStatusBar* self, bool next);
-    friend void QStatusBar_TimerEvent(QStatusBar* self, QTimerEvent* event);
     friend void QStatusBar_SuperTimerEvent(QStatusBar* self, QTimerEvent* event);
-    friend void QStatusBar_ChildEvent(QStatusBar* self, QChildEvent* event);
     friend void QStatusBar_SuperChildEvent(QStatusBar* self, QChildEvent* event);
-    friend void QStatusBar_CustomEvent(QStatusBar* self, QEvent* event);
     friend void QStatusBar_SuperCustomEvent(QStatusBar* self, QEvent* event);
-    friend void QStatusBar_ConnectNotify(QStatusBar* self, const QMetaMethod* signal);
     friend void QStatusBar_SuperConnectNotify(QStatusBar* self, const QMetaMethod* signal);
-    friend void QStatusBar_DisconnectNotify(QStatusBar* self, const QMetaMethod* signal);
     friend void QStatusBar_SuperDisconnectNotify(QStatusBar* self, const QMetaMethod* signal);
-    friend void QStatusBar_Reformat(QStatusBar* self);
-    friend void QStatusBar_SuperReformat(QStatusBar* self);
-    friend void QStatusBar_HideOrShow(QStatusBar* self);
-    friend void QStatusBar_SuperHideOrShow(QStatusBar* self);
-    friend void QStatusBar_UpdateMicroFocus(QStatusBar* self);
-    friend void QStatusBar_SuperUpdateMicroFocus(QStatusBar* self);
-    friend void QStatusBar_Create(QStatusBar* self);
-    friend void QStatusBar_SuperCreate(QStatusBar* self);
-    friend void QStatusBar_Destroy(QStatusBar* self);
-    friend void QStatusBar_SuperDestroy(QStatusBar* self);
-    friend bool QStatusBar_FocusNextChild(QStatusBar* self);
-    friend bool QStatusBar_SuperFocusNextChild(QStatusBar* self);
-    friend bool QStatusBar_FocusPreviousChild(QStatusBar* self);
-    friend bool QStatusBar_SuperFocusPreviousChild(QStatusBar* self);
-    friend QObject* QStatusBar_Sender(const QStatusBar* self);
-    friend QObject* QStatusBar_SuperSender(const QStatusBar* self);
-    friend int QStatusBar_SenderSignalIndex(const QStatusBar* self);
-    friend int QStatusBar_SuperSenderSignalIndex(const QStatusBar* self);
-    friend int QStatusBar_Receivers(const QStatusBar* self, const char* signal);
-    friend int QStatusBar_SuperReceivers(const QStatusBar* self, const char* signal);
-    friend bool QStatusBar_IsSignalConnected(const QStatusBar* self, const QMetaMethod* signal);
-    friend bool QStatusBar_SuperIsSignalConnected(const QStatusBar* self, const QMetaMethod* signal);
-    friend double QStatusBar_GetDecodedMetricF(const QStatusBar* self, int metricA, int metricB);
-    friend double QStatusBar_SuperGetDecodedMetricF(const QStatusBar* self, int metricA, int metricB);
 };
 
 #endif

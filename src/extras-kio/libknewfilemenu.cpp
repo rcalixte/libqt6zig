@@ -248,7 +248,7 @@ void KNewFileMenu_Connect_SelectExistingDir(KNewFileMenu* self, intptr_t slot) {
 
 void KNewFileMenu_SlotResult(KNewFileMenu* self, KJob* job) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         vknewfilemenu->slotResult(job);
     }
 }
@@ -279,333 +279,263 @@ libqt_string KNewFileMenu_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KNewFileMenu_SuperMetaObject(const KNewFileMenu* self) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_MetaObject_IsBase(true);
-        return (QMetaObject*)vknewfilemenu->metaObject();
-    } else {
-        return (QMetaObject*)self->KNewFileMenu::metaObject();
-    }
+    return (QMetaObject*)self->KNewFileMenu::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNewFileMenu_OnMetaObject(const KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_MetaObject_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_MetaObject_Callback>(slot));
+void KNewFileMenu_OnMetaObject(KNewFileMenu* self, intptr_t slot) {
+    if (auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self)))
+        vknewfilemenu->knewfilemenu_metaobject_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KNewFileMenu_SuperMetacast(KNewFileMenu* self, const char* param1) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_Metacast_IsBase(true);
-        return vknewfilemenu->qt_metacast(param1);
-    } else {
-        return self->KNewFileMenu::qt_metacast(param1);
-    }
+    return self->KNewFileMenu::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnMetacast(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_Metacast_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Metacast_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_metacast_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KNewFileMenu_SuperMetacall(KNewFileMenu* self, int param1, int param2, void** param3) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_Metacall_IsBase(true);
-        return vknewfilemenu->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KNewFileMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KNewFileMenu::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnMetacall(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_Metacall_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Metacall_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_metacall_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KNewFileMenu_SuperSlotResult(KNewFileMenu* self, KJob* job) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_SlotResult_IsBase(true);
-        vknewfilemenu->slotResult(job);
-    } else {
-        ((VirtualKNewFileMenu*)self)->slotResult(job);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        vknewfilemenu->KNewFileMenu::slotResult(job);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::slotResult called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnSlotResult(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_SlotResult_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_SlotResult_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_slotresult_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_SlotResult_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* KNewFileMenu_CreateWidget(KNewFileMenu* self, QWidget* parent) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        return vknewfilemenu->createWidget(parent);
-    } else {
-        return self->KNewFileMenu::createWidget(parent);
-    }
+    return self->createWidget(parent);
 }
 
 // Base class handler implementation
 QWidget* KNewFileMenu_SuperCreateWidget(KNewFileMenu* self, QWidget* parent) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_CreateWidget_IsBase(true);
-        return vknewfilemenu->createWidget(parent);
-    } else {
-        return self->KNewFileMenu::createWidget(parent);
-    }
+    return self->KNewFileMenu::createWidget(parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnCreateWidget(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_CreateWidget_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_CreateWidget_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_createwidget_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_CreateWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNewFileMenu_Event(KNewFileMenu* self, QEvent* param1) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         return vknewfilemenu->event(param1);
     } else {
-        return ((VirtualKNewFileMenu*)self)->event(param1);
+        qFatal("Error: Protected virtual method KNewFileMenu::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KNewFileMenu_SuperEvent(KNewFileMenu* self, QEvent* param1) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_Event_IsBase(true);
-        return vknewfilemenu->event(param1);
-    } else {
-        return ((VirtualKNewFileMenu*)self)->event(param1);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        return vknewfilemenu->KNewFileMenu::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnEvent(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_Event_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Event_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_event_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNewFileMenu_EventFilter(KNewFileMenu* self, QObject* param1, QEvent* param2) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         return vknewfilemenu->eventFilter(param1, param2);
     } else {
-        return ((VirtualKNewFileMenu*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KNewFileMenu::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KNewFileMenu_SuperEventFilter(KNewFileMenu* self, QObject* param1, QEvent* param2) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_EventFilter_IsBase(true);
-        return vknewfilemenu->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKNewFileMenu*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        return vknewfilemenu->KNewFileMenu::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnEventFilter(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_EventFilter_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_EventFilter_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_eventfilter_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewFileMenu_DeleteWidget(KNewFileMenu* self, QWidget* widget) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         vknewfilemenu->deleteWidget(widget);
     } else {
-        ((VirtualKNewFileMenu*)self)->deleteWidget(widget);
+        qFatal("Error: Protected virtual method KNewFileMenu::deleteWidget called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewFileMenu_SuperDeleteWidget(KNewFileMenu* self, QWidget* widget) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_DeleteWidget_IsBase(true);
-        vknewfilemenu->deleteWidget(widget);
-    } else {
-        ((VirtualKNewFileMenu*)self)->deleteWidget(widget);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        vknewfilemenu->KNewFileMenu::deleteWidget(widget);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::deleteWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnDeleteWidget(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_DeleteWidget_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_DeleteWidget_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_deletewidget_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_DeleteWidget_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewFileMenu_TimerEvent(KNewFileMenu* self, QTimerEvent* event) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         vknewfilemenu->timerEvent(event);
     } else {
-        ((VirtualKNewFileMenu*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KNewFileMenu::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewFileMenu_SuperTimerEvent(KNewFileMenu* self, QTimerEvent* event) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_TimerEvent_IsBase(true);
-        vknewfilemenu->timerEvent(event);
-    } else {
-        ((VirtualKNewFileMenu*)self)->timerEvent(event);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        vknewfilemenu->KNewFileMenu::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnTimerEvent(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_TimerEvent_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_TimerEvent_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_timerevent_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewFileMenu_ChildEvent(KNewFileMenu* self, QChildEvent* event) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         vknewfilemenu->childEvent(event);
     } else {
-        ((VirtualKNewFileMenu*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KNewFileMenu::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewFileMenu_SuperChildEvent(KNewFileMenu* self, QChildEvent* event) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_ChildEvent_IsBase(true);
-        vknewfilemenu->childEvent(event);
-    } else {
-        ((VirtualKNewFileMenu*)self)->childEvent(event);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        vknewfilemenu->KNewFileMenu::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnChildEvent(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_ChildEvent_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_ChildEvent_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_childevent_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewFileMenu_CustomEvent(KNewFileMenu* self, QEvent* event) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         vknewfilemenu->customEvent(event);
     } else {
-        ((VirtualKNewFileMenu*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KNewFileMenu::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewFileMenu_SuperCustomEvent(KNewFileMenu* self, QEvent* event) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_CustomEvent_IsBase(true);
-        vknewfilemenu->customEvent(event);
-    } else {
-        ((VirtualKNewFileMenu*)self)->customEvent(event);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        vknewfilemenu->KNewFileMenu::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnCustomEvent(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_CustomEvent_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_CustomEvent_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_customevent_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewFileMenu_ConnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         vknewfilemenu->connectNotify(*signal);
     } else {
-        ((VirtualKNewFileMenu*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KNewFileMenu::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewFileMenu_SuperConnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_ConnectNotify_IsBase(true);
-        vknewfilemenu->connectNotify(*signal);
-    } else {
-        ((VirtualKNewFileMenu*)self)->connectNotify(*signal);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        vknewfilemenu->KNewFileMenu::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnConnectNotify(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_ConnectNotify_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_connectnotify_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNewFileMenu_DisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
     auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
+    if (vknewfilemenu) {
         vknewfilemenu->disconnectNotify(*signal);
     } else {
-        ((VirtualKNewFileMenu*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KNewFileMenu::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNewFileMenu_SuperDisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_DisconnectNotify_IsBase(true);
-        vknewfilemenu->disconnectNotify(*signal);
-    } else {
-        ((VirtualKNewFileMenu*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self)) {
+        vknewfilemenu->KNewFileMenu::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNewFileMenu::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNewFileMenu_OnDisconnectNotify(KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_DisconnectNotify_Callback>(slot));
+    if (auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self))
+        vknewfilemenu->knewfilemenu_disconnectnotify_callback = reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QWidget* */ KNewFileMenu_CreatedWidgets(const KNewFileMenu* self) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        QList<QWidget*> _ret = vknewfilemenu->createdWidgets();
+    if (auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self))) {
+        QList<QWidget*> _ret = vknewfilemenu->VirtualKNewFileMenu::createdWidgets();
         // Convert QList<> from C++ memory to manually-managed C memory
         QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -615,166 +545,40 @@ libqt_list /* of QWidget* */ KNewFileMenu_CreatedWidgets(const KNewFileMenu* sel
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKNewFileMenu*)self)->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KNewFileMenu::createdWidgets called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QWidget* */ KNewFileMenu_SuperCreatedWidgets(const KNewFileMenu* self) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_CreatedWidgets_IsBase(true);
-        QList<QWidget*> _ret = vknewfilemenu->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualKNewFileMenu*)self)->createdWidgets();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewFileMenu_OnCreatedWidgets(const KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_CreatedWidgets_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_CreatedWidgets_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KNewFileMenu_Sender(const KNewFileMenu* self) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        return vknewfilemenu->sender();
-    } else {
-        return ((VirtualKNewFileMenu*)self)->sender();
-    }
+    if (auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self))) {
+        return vknewfilemenu->VirtualKNewFileMenu::sender();
+    } else
+        qFatal("Error: Protected method KNewFileMenu::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KNewFileMenu_SuperSender(const KNewFileMenu* self) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_Sender_IsBase(true);
-        return vknewfilemenu->sender();
-    } else {
-        return ((VirtualKNewFileMenu*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewFileMenu_OnSender(const KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_Sender_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNewFileMenu_SenderSignalIndex(const KNewFileMenu* self) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        return vknewfilemenu->senderSignalIndex();
-    } else {
-        return ((VirtualKNewFileMenu*)self)->senderSignalIndex();
-    }
+    if (auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self))) {
+        return vknewfilemenu->VirtualKNewFileMenu::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KNewFileMenu::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNewFileMenu_SuperSenderSignalIndex(const KNewFileMenu* self) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_SenderSignalIndex_IsBase(true);
-        return vknewfilemenu->senderSignalIndex();
-    } else {
-        return ((VirtualKNewFileMenu*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewFileMenu_OnSenderSignalIndex(const KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNewFileMenu_Receivers(const KNewFileMenu* self, const char* signal) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        return vknewfilemenu->receivers(signal);
-    } else {
-        return ((VirtualKNewFileMenu*)self)->receivers(signal);
-    }
+    if (auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self))) {
+        return vknewfilemenu->VirtualKNewFileMenu::receivers(signal);
+    } else
+        qFatal("Error: Protected method KNewFileMenu::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNewFileMenu_SuperReceivers(const KNewFileMenu* self, const char* signal) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_Receivers_IsBase(true);
-        return vknewfilemenu->receivers(signal);
-    } else {
-        return ((VirtualKNewFileMenu*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewFileMenu_OnReceivers(const KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_Receivers_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNewFileMenu_IsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        return vknewfilemenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNewFileMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KNewFileMenu_SuperIsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        vknewfilemenu->setKNewFileMenu_IsSignalConnected_IsBase(true);
-        return vknewfilemenu->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNewFileMenu*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNewFileMenu_OnIsSignalConnected(const KNewFileMenu* self, intptr_t slot) {
-    auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self));
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu)
-        vknewfilemenu->setKNewFileMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKNewFileMenu::KNewFileMenu_IsSignalConnected_Callback>(slot));
+    if (auto* vknewfilemenu = const_cast<VirtualKNewFileMenu*>(dynamic_cast<const VirtualKNewFileMenu*>(self))) {
+        return vknewfilemenu->VirtualKNewFileMenu::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KNewFileMenu::isSignalConnected called without a directly constructed type");
 }
 
 void KNewFileMenu_Delete(KNewFileMenu* self) {

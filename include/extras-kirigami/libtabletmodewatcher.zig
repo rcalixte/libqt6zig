@@ -372,9 +372,9 @@ pub const Kirigami__Platform__TabletModeChangedEvent = extern struct {
     ///
     /// ` self: Kirigami__Platform__TabletModeChangedEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: Kirigami__Platform__TabletModeChangedEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: Kirigami__Platform__TabletModeChangedEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: Kirigami__Platform__TabletModeChangedEvent, callback: *const fn (Kirigami__Platform__TabletModeChangedEvent) callconv(.c) QEvent) void {
         qtc.Kirigami__Platform__TabletModeChangedEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

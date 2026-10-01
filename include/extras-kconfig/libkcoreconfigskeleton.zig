@@ -389,6 +389,8 @@ pub const KConfigSkeletonItem = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readConfig)
     ///
+    /// This method must be implemented with `onReadConfig` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KConfigSkeletonItem `
@@ -418,30 +420,13 @@ pub const KConfigSkeletonItem = extern struct {
         qtc.KConfigSkeletonItem_OnReadConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superReadConfig` instead
-    ///
-    pub const SuperReadConfig = superReadConfig;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readConfig)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    /// ` param1: KConfig `
-    ///
-    pub fn superReadConfig(self: KConfigSkeletonItem, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        qtc.KConfigSkeletonItem_SuperReadConfig(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `writeConfig` instead
     ///
     pub const WriteConfig = writeConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#writeConfig)
+    ///
+    /// This method must be implemented with `onWriteConfig` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -472,30 +457,13 @@ pub const KConfigSkeletonItem = extern struct {
         qtc.KConfigSkeletonItem_OnWriteConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superWriteConfig` instead
-    ///
-    pub const SuperWriteConfig = superWriteConfig;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#writeConfig)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    /// ` param1: KConfig `
-    ///
-    pub fn superWriteConfig(self: KConfigSkeletonItem, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        qtc.KConfigSkeletonItem_SuperWriteConfig(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `readDefault` instead
     ///
     pub const ReadDefault = readDefault;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readDefault)
+    ///
+    /// This method must be implemented with `onReadDefault` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -526,30 +494,13 @@ pub const KConfigSkeletonItem = extern struct {
         qtc.KConfigSkeletonItem_OnReadDefault(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superReadDefault` instead
-    ///
-    pub const SuperReadDefault = superReadDefault;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readDefault)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    /// ` param1: KConfig `
-    ///
-    pub fn superReadDefault(self: KConfigSkeletonItem, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        qtc.KConfigSkeletonItem_SuperReadDefault(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `setProperty` instead
     ///
     pub const SetProperty = setProperty;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#setProperty)
+    ///
+    /// This method must be implemented with `onSetProperty` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -580,30 +531,13 @@ pub const KConfigSkeletonItem = extern struct {
         qtc.KConfigSkeletonItem_OnSetProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetProperty` instead
-    ///
-    pub const SuperSetProperty = superSetProperty;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#setProperty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    /// ` p: QVariant `
-    ///
-    pub fn superSetProperty(self: KConfigSkeletonItem, p: anytype) void {
-        comptime _ = @TypeOf(p)._is_QVariant;
-        qtc.KConfigSkeletonItem_SuperSetProperty(@ptrCast(self.ptr), @ptrCast(p.ptr));
-    }
-
     /// ### DEPRECATED: Use `isEqual` instead
     ///
     pub const IsEqual = isEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#isEqual)
+    ///
+    /// This method must be implemented with `onIsEqual` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -634,30 +568,13 @@ pub const KConfigSkeletonItem = extern struct {
         qtc.KConfigSkeletonItem_OnIsEqual(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIsEqual` instead
-    ///
-    pub const SuperIsEqual = superIsEqual;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#isEqual)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    /// ` p: QVariant `
-    ///
-    pub fn superIsEqual(self: KConfigSkeletonItem, p: anytype) bool {
-        comptime _ = @TypeOf(p)._is_QVariant;
-        return qtc.KConfigSkeletonItem_SuperIsEqual(@ptrCast(self.ptr), @ptrCast(p.ptr));
-    }
-
     /// ### DEPRECATED: Use `property` instead
     ///
     pub const Property = property;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#property)
+    ///
+    /// This method must be implemented with `onProperty` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -679,28 +596,12 @@ pub const KConfigSkeletonItem = extern struct {
     ///
     /// ` self: KConfigSkeletonItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KConfigSkeletonItem) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KConfigSkeletonItem, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KConfigSkeletonItem, callback: *const fn (KConfigSkeletonItem) callconv(.c) QVariant) void {
         qtc.KConfigSkeletonItem_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superProperty` instead
-    ///
-    pub const SuperProperty = superProperty;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#property)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    pub fn superProperty(self: KConfigSkeletonItem) QVariant {
-        return .{ .ptr = qtc.KConfigSkeletonItem_SuperProperty(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `minValue` instead
@@ -729,11 +630,11 @@ pub const KConfigSkeletonItem = extern struct {
     ///
     /// ` self: KConfigSkeletonItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KConfigSkeletonItem) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinValue(self: KConfigSkeletonItem, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMinValue(self: KConfigSkeletonItem, callback: *const fn (KConfigSkeletonItem) callconv(.c) QVariant) void {
         qtc.KConfigSkeletonItem_OnMinValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -779,11 +680,11 @@ pub const KConfigSkeletonItem = extern struct {
     ///
     /// ` self: KConfigSkeletonItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KConfigSkeletonItem) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaxValue(self: KConfigSkeletonItem, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMaxValue(self: KConfigSkeletonItem, callback: *const fn (KConfigSkeletonItem) callconv(.c) QVariant) void {
         qtc.KConfigSkeletonItem_OnMaxValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -809,6 +710,8 @@ pub const KConfigSkeletonItem = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#setDefault)
     ///
+    /// This method must be implemented with `onSetDefault` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KConfigSkeletonItem `
@@ -829,26 +732,10 @@ pub const KConfigSkeletonItem = extern struct {
     ///
     /// ` self: KConfigSkeletonItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigSkeletonItem) callconv(.c) void `
     ///
-    pub fn onSetDefault(self: KConfigSkeletonItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetDefault(self: KConfigSkeletonItem, callback: *const fn (KConfigSkeletonItem) callconv(.c) void) void {
         qtc.KConfigSkeletonItem_OnSetDefault(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetDefault` instead
-    ///
-    pub const SuperSetDefault = superSetDefault;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#setDefault)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    pub fn superSetDefault(self: KConfigSkeletonItem) void {
-        qtc.KConfigSkeletonItem_SuperSetDefault(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `swapDefault` instead
@@ -856,6 +743,8 @@ pub const KConfigSkeletonItem = extern struct {
     pub const SwapDefault = swapDefault;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#swapDefault)
+    ///
+    /// This method must be implemented with `onSwapDefault` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -877,26 +766,10 @@ pub const KConfigSkeletonItem = extern struct {
     ///
     /// ` self: KConfigSkeletonItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigSkeletonItem) callconv(.c) void `
     ///
-    pub fn onSwapDefault(self: KConfigSkeletonItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onSwapDefault(self: KConfigSkeletonItem, callback: *const fn (KConfigSkeletonItem) callconv(.c) void) void {
         qtc.KConfigSkeletonItem_OnSwapDefault(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSwapDefault` instead
-    ///
-    pub const SuperSwapDefault = superSwapDefault;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#swapDefault)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    pub fn superSwapDefault(self: KConfigSkeletonItem) void {
-        qtc.KConfigSkeletonItem_SuperSwapDefault(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `isImmutable` instead
@@ -970,43 +843,6 @@ pub const KConfigSkeletonItem = extern struct {
     pub fn readImmutability(self: KConfigSkeletonItem, _group: anytype) void {
         comptime _ = @TypeOf(_group)._is_KConfigGroup;
         qtc.KConfigSkeletonItem_ReadImmutability(@ptrCast(self.ptr), @ptrCast(_group.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onReadImmutability` instead
-    ///
-    pub const OnReadImmutability = onReadImmutability;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readImmutability)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    /// ` callback: *const fn (self: KConfigSkeletonItem, group: KConfigGroup) callconv(.c) void `
-    ///
-    pub fn onReadImmutability(self: KConfigSkeletonItem, callback: *const fn (KConfigSkeletonItem, KConfigGroup) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnReadImmutability(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReadImmutability` instead
-    ///
-    pub const SuperReadImmutability = superReadImmutability;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readImmutability)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigSkeletonItem `
-    ///
-    /// ` _group: KConfigGroup `
-    ///
-    pub fn superReadImmutability(self: KConfigSkeletonItem, _group: anytype) void {
-        comptime _ = @TypeOf(_group)._is_KConfigGroup;
-        qtc.KConfigSkeletonItem_SuperReadImmutability(@ptrCast(self.ptr), @ptrCast(_group.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -1102,11 +938,11 @@ pub const KPropertySkeletonItem = extern struct {
     ///
     /// ` self: KPropertySkeletonItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KPropertySkeletonItem) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KPropertySkeletonItem, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KPropertySkeletonItem, callback: *const fn (KPropertySkeletonItem) callconv(.c) QVariant) void {
         qtc.KPropertySkeletonItem_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1422,9 +1258,9 @@ pub const KPropertySkeletonItem = extern struct {
     ///
     /// ` self: KPropertySkeletonItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KPropertySkeletonItem) callconv(.c) void `
     ///
-    pub fn onSetDefault(self: KPropertySkeletonItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetDefault(self: KPropertySkeletonItem, callback: *const fn (KPropertySkeletonItem) callconv(.c) void) void {
         qtc.KPropertySkeletonItem_OnSetDefault(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1470,9 +1306,9 @@ pub const KPropertySkeletonItem = extern struct {
     ///
     /// ` self: KPropertySkeletonItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KPropertySkeletonItem) callconv(.c) void `
     ///
-    pub fn onSwapDefault(self: KPropertySkeletonItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onSwapDefault(self: KPropertySkeletonItem, callback: *const fn (KPropertySkeletonItem) callconv(.c) void) void {
         qtc.KPropertySkeletonItem_OnSwapDefault(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1962,11 +1798,11 @@ pub const KPropertySkeletonItem = extern struct {
     ///
     /// ` self: KPropertySkeletonItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KPropertySkeletonItem) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinValue(self: KPropertySkeletonItem, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMinValue(self: KPropertySkeletonItem, callback: *const fn (KPropertySkeletonItem) callconv(.c) QVariant) void {
         qtc.KPropertySkeletonItem_OnMinValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2020,11 +1856,11 @@ pub const KPropertySkeletonItem = extern struct {
     ///
     /// ` self: KPropertySkeletonItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KPropertySkeletonItem) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaxValue(self: KPropertySkeletonItem, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMaxValue(self: KPropertySkeletonItem, callback: *const fn (KPropertySkeletonItem) callconv(.c) QVariant) void {
         qtc.KPropertySkeletonItem_OnMaxValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2047,47 +1883,6 @@ pub const KPropertySkeletonItem = extern struct {
     pub fn readImmutability(self: KPropertySkeletonItem, _group: anytype) void {
         comptime _ = @TypeOf(_group)._is_KConfigGroup;
         qtc.KPropertySkeletonItem_ReadImmutability(@ptrCast(self.ptr), @ptrCast(_group.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superReadImmutability` instead
-    ///
-    pub const SuperReadImmutability = superReadImmutability;
-
-    /// Inherited from KConfigSkeletonItem
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readImmutability)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPropertySkeletonItem `
-    ///
-    /// ` _group: KConfigGroup `
-    ///
-    pub fn superReadImmutability(self: KPropertySkeletonItem, _group: anytype) void {
-        comptime _ = @TypeOf(_group)._is_KConfigGroup;
-        qtc.KPropertySkeletonItem_SuperReadImmutability(@ptrCast(self.ptr), @ptrCast(_group.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onReadImmutability` instead
-    ///
-    pub const OnReadImmutability = onReadImmutability;
-
-    /// Inherited from KConfigSkeletonItem
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kconfigskeletonitem.html#readImmutability)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPropertySkeletonItem`
-    ///
-    /// ` callback: *const fn (self: KPropertySkeletonItem, group: KConfigGroup) callconv(.c) void `
-    ///
-    pub fn onReadImmutability(self: KPropertySkeletonItem, callback: *const fn (KPropertySkeletonItem, KConfigGroup) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnReadImmutability(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -2769,9 +2564,9 @@ pub const KCoreConfigSkeleton = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KCoreConfigSkeleton, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCoreConfigSkeleton, callback: *const fn (KCoreConfigSkeleton) callconv(.c) QMetaObject) void {
         qtc.KCoreConfigSkeleton_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2942,9 +2737,9 @@ pub const KCoreConfigSkeleton = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton) callconv(.c) void `
     ///
-    pub fn onSetDefaults(self: KCoreConfigSkeleton, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetDefaults(self: KCoreConfigSkeleton, callback: *const fn (KCoreConfigSkeleton) callconv(.c) void) void {
         qtc.KCoreConfigSkeleton_OnSetDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3830,9 +3625,9 @@ pub const KCoreConfigSkeleton = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton) callconv(.c) void `
     ///
-    pub fn onUsrSetDefaults(self: KCoreConfigSkeleton, callback: *const fn () callconv(.c) void) void {
+    pub fn onUsrSetDefaults(self: KCoreConfigSkeleton, callback: *const fn (KCoreConfigSkeleton) callconv(.c) void) void {
         qtc.KCoreConfigSkeleton_OnUsrSetDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3878,9 +3673,9 @@ pub const KCoreConfigSkeleton = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton) callconv(.c) void `
     ///
-    pub fn onUsrRead(self: KCoreConfigSkeleton, callback: *const fn () callconv(.c) void) void {
+    pub fn onUsrRead(self: KCoreConfigSkeleton, callback: *const fn (KCoreConfigSkeleton) callconv(.c) void) void {
         qtc.KCoreConfigSkeleton_OnUsrRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3926,9 +3721,9 @@ pub const KCoreConfigSkeleton = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton) callconv(.c) bool `
     ///
-    pub fn onUsrSave(self: KCoreConfigSkeleton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onUsrSave(self: KCoreConfigSkeleton, callback: *const fn (KCoreConfigSkeleton) callconv(.c) bool) void {
         qtc.KCoreConfigSkeleton_OnUsrSave(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6618,44 +6413,6 @@ pub const KCoreConfigSkeleton = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCoreConfigSkeleton `
-    ///
-    pub fn superSender(self: KCoreConfigSkeleton) QObject {
-        return .{ .ptr = qtc.KCoreConfigSkeleton_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCoreConfigSkeleton`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KCoreConfigSkeleton, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KCoreConfigSkeleton_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -6672,44 +6429,6 @@ pub const KCoreConfigSkeleton = extern struct {
     ///
     pub fn senderSignalIndex(self: KCoreConfigSkeleton) i32 {
         return qtc.KCoreConfigSkeleton_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCoreConfigSkeleton `
-    ///
-    pub fn superSenderSignalIndex(self: KCoreConfigSkeleton) i32 {
-        return qtc.KCoreConfigSkeleton_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCoreConfigSkeleton`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KCoreConfigSkeleton, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCoreConfigSkeleton_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -6733,47 +6452,6 @@ pub const KCoreConfigSkeleton = extern struct {
         return qtc.KCoreConfigSkeleton_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCoreConfigSkeleton `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KCoreConfigSkeleton, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KCoreConfigSkeleton_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCoreConfigSkeleton`
-    ///
-    /// ` callback: *const fn (self: KCoreConfigSkeleton, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KCoreConfigSkeleton, callback: *const fn (KCoreConfigSkeleton, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCoreConfigSkeleton_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -6793,47 +6471,6 @@ pub const KCoreConfigSkeleton = extern struct {
     pub fn isSignalConnected(self: KCoreConfigSkeleton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCoreConfigSkeleton_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCoreConfigSkeleton `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KCoreConfigSkeleton, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KCoreConfigSkeleton_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCoreConfigSkeleton`
-    ///
-    /// ` callback: *const fn (self: KCoreConfigSkeleton, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KCoreConfigSkeleton, callback: *const fn (KCoreConfigSkeleton, QMetaMethod) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -7231,11 +6868,11 @@ pub const KCoreConfigSkeleton__ItemString = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemString `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemString) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemString, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemString, callback: *const fn (KCoreConfigSkeleton__ItemString) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemString_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7645,11 +7282,11 @@ pub const KCoreConfigSkeleton__ItemPassword = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemPassword`
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemPassword) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemPassword, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemPassword, callback: *const fn (KCoreConfigSkeleton__ItemPassword) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemPassword_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8043,11 +7680,11 @@ pub const KCoreConfigSkeleton__ItemPath = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemPath`
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemPath) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemPath, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemPath, callback: *const fn (KCoreConfigSkeleton__ItemPath) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemPath_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8377,11 +8014,11 @@ pub const KCoreConfigSkeleton__ItemUrl = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemUrl `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemUrl) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemUrl, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemUrl, callback: *const fn (KCoreConfigSkeleton__ItemUrl) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemUrl_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8673,11 +8310,11 @@ pub const KCoreConfigSkeleton__ItemProperty = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemProperty `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemProperty) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemProperty, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemProperty, callback: *const fn (KCoreConfigSkeleton__ItemProperty) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemProperty_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8966,11 +8603,11 @@ pub const KCoreConfigSkeleton__ItemBool = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemBool `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemBool) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemBool, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemBool, callback: *const fn (KCoreConfigSkeleton__ItemBool) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemBool_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9259,11 +8896,11 @@ pub const KCoreConfigSkeleton__ItemInt = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemInt `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemInt) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemInt, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemInt, callback: *const fn (KCoreConfigSkeleton__ItemInt) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemInt_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9309,11 +8946,11 @@ pub const KCoreConfigSkeleton__ItemInt = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemInt `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemInt) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinValue(self: KCoreConfigSkeleton__ItemInt, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMinValue(self: KCoreConfigSkeleton__ItemInt, callback: *const fn (KCoreConfigSkeleton__ItemInt) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemInt_OnMinValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9359,11 +8996,11 @@ pub const KCoreConfigSkeleton__ItemInt = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemInt `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemInt) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemInt, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemInt, callback: *const fn (KCoreConfigSkeleton__ItemInt) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemInt_OnMaxValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9652,11 +9289,11 @@ pub const KCoreConfigSkeleton__ItemLongLong = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemLongLong `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemLongLong) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemLongLong, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemLongLong, callback: *const fn (KCoreConfigSkeleton__ItemLongLong) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemLongLong_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9702,11 +9339,11 @@ pub const KCoreConfigSkeleton__ItemLongLong = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemLongLong `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemLongLong) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinValue(self: KCoreConfigSkeleton__ItemLongLong, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMinValue(self: KCoreConfigSkeleton__ItemLongLong, callback: *const fn (KCoreConfigSkeleton__ItemLongLong) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemLongLong_OnMinValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9752,11 +9389,11 @@ pub const KCoreConfigSkeleton__ItemLongLong = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemLongLong `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemLongLong) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemLongLong, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemLongLong, callback: *const fn (KCoreConfigSkeleton__ItemLongLong) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemLongLong_OnMaxValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10523,11 +10160,11 @@ pub const KCoreConfigSkeleton__ItemEnum = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemEnum`
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemEnum) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemEnum, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemEnum, callback: *const fn (KCoreConfigSkeleton__ItemEnum) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemEnum_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10581,11 +10218,11 @@ pub const KCoreConfigSkeleton__ItemEnum = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemEnum`
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemEnum) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinValue(self: KCoreConfigSkeleton__ItemEnum, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMinValue(self: KCoreConfigSkeleton__ItemEnum, callback: *const fn (KCoreConfigSkeleton__ItemEnum) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemEnum_OnMinValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10639,11 +10276,11 @@ pub const KCoreConfigSkeleton__ItemEnum = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemEnum`
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemEnum) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemEnum, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemEnum, callback: *const fn (KCoreConfigSkeleton__ItemEnum) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemEnum_OnMaxValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10916,11 +10553,11 @@ pub const KCoreConfigSkeleton__ItemUInt = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemUInt `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemUInt) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemUInt, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemUInt, callback: *const fn (KCoreConfigSkeleton__ItemUInt) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemUInt_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10966,11 +10603,11 @@ pub const KCoreConfigSkeleton__ItemUInt = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemUInt `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemUInt) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinValue(self: KCoreConfigSkeleton__ItemUInt, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMinValue(self: KCoreConfigSkeleton__ItemUInt, callback: *const fn (KCoreConfigSkeleton__ItemUInt) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemUInt_OnMinValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11016,11 +10653,11 @@ pub const KCoreConfigSkeleton__ItemUInt = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemUInt `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemUInt) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemUInt, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemUInt, callback: *const fn (KCoreConfigSkeleton__ItemUInt) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemUInt_OnMaxValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11341,11 +10978,11 @@ pub const KCoreConfigSkeleton__ItemULongLong = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemULongLong `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemULongLong) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemULongLong, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemULongLong, callback: *const fn (KCoreConfigSkeleton__ItemULongLong) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemULongLong_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11391,11 +11028,11 @@ pub const KCoreConfigSkeleton__ItemULongLong = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemULongLong `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemULongLong) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinValue(self: KCoreConfigSkeleton__ItemULongLong, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMinValue(self: KCoreConfigSkeleton__ItemULongLong, callback: *const fn (KCoreConfigSkeleton__ItemULongLong) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemULongLong_OnMinValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11441,11 +11078,11 @@ pub const KCoreConfigSkeleton__ItemULongLong = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemULongLong `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemULongLong) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemULongLong, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemULongLong, callback: *const fn (KCoreConfigSkeleton__ItemULongLong) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemULongLong_OnMaxValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11766,11 +11403,11 @@ pub const KCoreConfigSkeleton__ItemDouble = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemDouble `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemDouble) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemDouble, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemDouble, callback: *const fn (KCoreConfigSkeleton__ItemDouble) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemDouble_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11816,11 +11453,11 @@ pub const KCoreConfigSkeleton__ItemDouble = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemDouble `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemDouble) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinValue(self: KCoreConfigSkeleton__ItemDouble, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMinValue(self: KCoreConfigSkeleton__ItemDouble, callback: *const fn (KCoreConfigSkeleton__ItemDouble) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemDouble_OnMinValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11866,11 +11503,11 @@ pub const KCoreConfigSkeleton__ItemDouble = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemDouble `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemDouble) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemDouble, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onMaxValue(self: KCoreConfigSkeleton__ItemDouble, callback: *const fn (KCoreConfigSkeleton__ItemDouble) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemDouble_OnMaxValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12194,11 +11831,11 @@ pub const KCoreConfigSkeleton__ItemRect = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemRect `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemRect) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemRect, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemRect, callback: *const fn (KCoreConfigSkeleton__ItemRect) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemRect_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12490,11 +12127,11 @@ pub const KCoreConfigSkeleton__ItemRectF = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemRectF `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemRectF) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemRectF, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemRectF, callback: *const fn (KCoreConfigSkeleton__ItemRectF) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemRectF_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12786,11 +12423,11 @@ pub const KCoreConfigSkeleton__ItemPoint = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemPoint `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemPoint) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemPoint, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemPoint, callback: *const fn (KCoreConfigSkeleton__ItemPoint) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemPoint_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13082,11 +12719,11 @@ pub const KCoreConfigSkeleton__ItemPointF = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemPointF `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemPointF) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemPointF, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemPointF, callback: *const fn (KCoreConfigSkeleton__ItemPointF) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemPointF_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13378,11 +13015,11 @@ pub const KCoreConfigSkeleton__ItemSize = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemSize `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemSize) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemSize, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemSize, callback: *const fn (KCoreConfigSkeleton__ItemSize) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemSize_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13674,11 +13311,11 @@ pub const KCoreConfigSkeleton__ItemSizeF = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemSizeF `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemSizeF) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemSizeF, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemSizeF, callback: *const fn (KCoreConfigSkeleton__ItemSizeF) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemSizeF_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13970,11 +13607,11 @@ pub const KCoreConfigSkeleton__ItemDateTime = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemDateTime `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemDateTime) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemDateTime, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemDateTime, callback: *const fn (KCoreConfigSkeleton__ItemDateTime) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemDateTime_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14300,11 +13937,11 @@ pub const KCoreConfigSkeleton__ItemStringList = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemStringList `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemStringList) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemStringList, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemStringList, callback: *const fn (KCoreConfigSkeleton__ItemStringList) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemStringList_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14723,11 +14360,11 @@ pub const KCoreConfigSkeleton__ItemPathList = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemPathList`
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemPathList) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemPathList, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemPathList, callback: *const fn (KCoreConfigSkeleton__ItemPathList) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemPathList_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15066,11 +14703,11 @@ pub const KCoreConfigSkeleton__ItemUrlList = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemUrlList `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemUrlList) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemUrlList, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemUrlList, callback: *const fn (KCoreConfigSkeleton__ItemUrlList) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemUrlList_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15371,11 +15008,11 @@ pub const KCoreConfigSkeleton__ItemIntList = extern struct {
     ///
     /// ` self: KCoreConfigSkeleton__ItemIntList `
     ///
-    /// ` callback: *const fn () callconv(.c) QVariant `
+    /// ` callback: *const fn (self: KCoreConfigSkeleton__ItemIntList) callconv(.c) QVariant `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onProperty(self: KCoreConfigSkeleton__ItemIntList, callback: *const fn () callconv(.c) QVariant) void {
+    pub fn onProperty(self: KCoreConfigSkeleton__ItemIntList, callback: *const fn (KCoreConfigSkeleton__ItemIntList) callconv(.c) QVariant) void {
         qtc.KCoreConfigSkeleton__ItemIntList_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

@@ -9,19 +9,15 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QAnimationGroup so that we can call protected methods
+// This class is a subclass of QAnimationGroup
 class VirtualQAnimationGroup : public QAnimationGroup {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQAnimationGroup = true;
-
-    // Virtual class public types (including callbacks)
-    using QAnimationGroup_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QAnimationGroup_MetaObject_Callback = QMetaObject* (*)(const QAnimationGroup*);
     using QAnimationGroup_Metacast_Callback = void* (*)(QAnimationGroup*, const char*);
     using QAnimationGroup_Metacall_Callback = int (*)(QAnimationGroup*, int, int, void**);
     using QAnimationGroup_Event_Callback = bool (*)(QAnimationGroup*, QEvent*);
-    using QAnimationGroup_Duration_Callback = int (*)();
+    using QAnimationGroup_Duration_Callback = int (*)(const QAnimationGroup*);
     using QAnimationGroup_UpdateCurrentTime_Callback = void (*)(QAnimationGroup*, int);
     using QAnimationGroup_UpdateState_Callback = void (*)(QAnimationGroup*, int, int);
     using QAnimationGroup_UpdateDirection_Callback = void (*)(QAnimationGroup*, int);
@@ -31,12 +27,11 @@ class VirtualQAnimationGroup : public QAnimationGroup {
     using QAnimationGroup_CustomEvent_Callback = void (*)(QAnimationGroup*, QEvent*);
     using QAnimationGroup_ConnectNotify_Callback = void (*)(QAnimationGroup*, QMetaMethod*);
     using QAnimationGroup_DisconnectNotify_Callback = void (*)(QAnimationGroup*, QMetaMethod*);
-    using QAnimationGroup_Sender_Callback = QObject* (*)();
-    using QAnimationGroup_SenderSignalIndex_Callback = int (*)();
-    using QAnimationGroup_Receivers_Callback = int (*)(const QAnimationGroup*, const char*);
-    using QAnimationGroup_IsSignalConnected_Callback = bool (*)(const QAnimationGroup*, QMetaMethod*);
+    using QAnimationGroup::isSignalConnected;
+    using QAnimationGroup::receivers;
+    using QAnimationGroup::sender;
+    using QAnimationGroup::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QAnimationGroup_MetaObject_Callback qanimationgroup_metaobject_callback = nullptr;
     QAnimationGroup_Metacast_Callback qanimationgroup_metacast_callback = nullptr;
@@ -52,84 +47,27 @@ class VirtualQAnimationGroup : public QAnimationGroup {
     QAnimationGroup_CustomEvent_Callback qanimationgroup_customevent_callback = nullptr;
     QAnimationGroup_ConnectNotify_Callback qanimationgroup_connectnotify_callback = nullptr;
     QAnimationGroup_DisconnectNotify_Callback qanimationgroup_disconnectnotify_callback = nullptr;
-    QAnimationGroup_Sender_Callback qanimationgroup_sender_callback = nullptr;
-    QAnimationGroup_SenderSignalIndex_Callback qanimationgroup_sendersignalindex_callback = nullptr;
-    QAnimationGroup_Receivers_Callback qanimationgroup_receivers_callback = nullptr;
-    QAnimationGroup_IsSignalConnected_Callback qanimationgroup_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qanimationgroup_metaobject_isbase = false;
-    mutable bool qanimationgroup_metacast_isbase = false;
-    mutable bool qanimationgroup_metacall_isbase = false;
-    mutable bool qanimationgroup_event_isbase = false;
-    mutable bool qanimationgroup_duration_isbase = false;
-    mutable bool qanimationgroup_updatecurrenttime_isbase = false;
-    mutable bool qanimationgroup_updatestate_isbase = false;
-    mutable bool qanimationgroup_updatedirection_isbase = false;
-    mutable bool qanimationgroup_eventfilter_isbase = false;
-    mutable bool qanimationgroup_timerevent_isbase = false;
-    mutable bool qanimationgroup_childevent_isbase = false;
-    mutable bool qanimationgroup_customevent_isbase = false;
-    mutable bool qanimationgroup_connectnotify_isbase = false;
-    mutable bool qanimationgroup_disconnectnotify_isbase = false;
-    mutable bool qanimationgroup_sender_isbase = false;
-    mutable bool qanimationgroup_sendersignalindex_isbase = false;
-    mutable bool qanimationgroup_receivers_isbase = false;
-    mutable bool qanimationgroup_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QAnimationGroup {
+        using QAnimationGroup::childEvent;
+        using QAnimationGroup::connectNotify;
+        using QAnimationGroup::customEvent;
+        using QAnimationGroup::disconnectNotify;
+        using QAnimationGroup::event;
+        using QAnimationGroup::timerEvent;
+        using QAnimationGroup::updateCurrentTime;
+        using QAnimationGroup::updateDirection;
+        using QAnimationGroup::updateState;
+    };
 
-  public:
     VirtualQAnimationGroup() : QAnimationGroup() {};
     VirtualQAnimationGroup(QObject* parent) : QAnimationGroup(parent) {};
 
-    // Callback setters
-    inline void setQAnimationGroup_MetaObject_Callback(QAnimationGroup_MetaObject_Callback cb) { qanimationgroup_metaobject_callback = cb; }
-    inline void setQAnimationGroup_Metacast_Callback(QAnimationGroup_Metacast_Callback cb) { qanimationgroup_metacast_callback = cb; }
-    inline void setQAnimationGroup_Metacall_Callback(QAnimationGroup_Metacall_Callback cb) { qanimationgroup_metacall_callback = cb; }
-    inline void setQAnimationGroup_Event_Callback(QAnimationGroup_Event_Callback cb) { qanimationgroup_event_callback = cb; }
-    inline void setQAnimationGroup_Duration_Callback(QAnimationGroup_Duration_Callback cb) { qanimationgroup_duration_callback = cb; }
-    inline void setQAnimationGroup_UpdateCurrentTime_Callback(QAnimationGroup_UpdateCurrentTime_Callback cb) { qanimationgroup_updatecurrenttime_callback = cb; }
-    inline void setQAnimationGroup_UpdateState_Callback(QAnimationGroup_UpdateState_Callback cb) { qanimationgroup_updatestate_callback = cb; }
-    inline void setQAnimationGroup_UpdateDirection_Callback(QAnimationGroup_UpdateDirection_Callback cb) { qanimationgroup_updatedirection_callback = cb; }
-    inline void setQAnimationGroup_EventFilter_Callback(QAnimationGroup_EventFilter_Callback cb) { qanimationgroup_eventfilter_callback = cb; }
-    inline void setQAnimationGroup_TimerEvent_Callback(QAnimationGroup_TimerEvent_Callback cb) { qanimationgroup_timerevent_callback = cb; }
-    inline void setQAnimationGroup_ChildEvent_Callback(QAnimationGroup_ChildEvent_Callback cb) { qanimationgroup_childevent_callback = cb; }
-    inline void setQAnimationGroup_CustomEvent_Callback(QAnimationGroup_CustomEvent_Callback cb) { qanimationgroup_customevent_callback = cb; }
-    inline void setQAnimationGroup_ConnectNotify_Callback(QAnimationGroup_ConnectNotify_Callback cb) { qanimationgroup_connectnotify_callback = cb; }
-    inline void setQAnimationGroup_DisconnectNotify_Callback(QAnimationGroup_DisconnectNotify_Callback cb) { qanimationgroup_disconnectnotify_callback = cb; }
-    inline void setQAnimationGroup_Sender_Callback(QAnimationGroup_Sender_Callback cb) { qanimationgroup_sender_callback = cb; }
-    inline void setQAnimationGroup_SenderSignalIndex_Callback(QAnimationGroup_SenderSignalIndex_Callback cb) { qanimationgroup_sendersignalindex_callback = cb; }
-    inline void setQAnimationGroup_Receivers_Callback(QAnimationGroup_Receivers_Callback cb) { qanimationgroup_receivers_callback = cb; }
-    inline void setQAnimationGroup_IsSignalConnected_Callback(QAnimationGroup_IsSignalConnected_Callback cb) { qanimationgroup_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQAnimationGroup_MetaObject_IsBase(bool value) const { qanimationgroup_metaobject_isbase = value; }
-    inline void setQAnimationGroup_Metacast_IsBase(bool value) const { qanimationgroup_metacast_isbase = value; }
-    inline void setQAnimationGroup_Metacall_IsBase(bool value) const { qanimationgroup_metacall_isbase = value; }
-    inline void setQAnimationGroup_Event_IsBase(bool value) const { qanimationgroup_event_isbase = value; }
-    inline void setQAnimationGroup_Duration_IsBase(bool value) const { qanimationgroup_duration_isbase = value; }
-    inline void setQAnimationGroup_UpdateCurrentTime_IsBase(bool value) const { qanimationgroup_updatecurrenttime_isbase = value; }
-    inline void setQAnimationGroup_UpdateState_IsBase(bool value) const { qanimationgroup_updatestate_isbase = value; }
-    inline void setQAnimationGroup_UpdateDirection_IsBase(bool value) const { qanimationgroup_updatedirection_isbase = value; }
-    inline void setQAnimationGroup_EventFilter_IsBase(bool value) const { qanimationgroup_eventfilter_isbase = value; }
-    inline void setQAnimationGroup_TimerEvent_IsBase(bool value) const { qanimationgroup_timerevent_isbase = value; }
-    inline void setQAnimationGroup_ChildEvent_IsBase(bool value) const { qanimationgroup_childevent_isbase = value; }
-    inline void setQAnimationGroup_CustomEvent_IsBase(bool value) const { qanimationgroup_customevent_isbase = value; }
-    inline void setQAnimationGroup_ConnectNotify_IsBase(bool value) const { qanimationgroup_connectnotify_isbase = value; }
-    inline void setQAnimationGroup_DisconnectNotify_IsBase(bool value) const { qanimationgroup_disconnectnotify_isbase = value; }
-    inline void setQAnimationGroup_Sender_IsBase(bool value) const { qanimationgroup_sender_isbase = value; }
-    inline void setQAnimationGroup_SenderSignalIndex_IsBase(bool value) const { qanimationgroup_sendersignalindex_isbase = value; }
-    inline void setQAnimationGroup_Receivers_IsBase(bool value) const { qanimationgroup_receivers_isbase = value; }
-    inline void setQAnimationGroup_IsSignalConnected_IsBase(bool value) const { qanimationgroup_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qanimationgroup_metaobject_isbase) {
-            qanimationgroup_metaobject_isbase = false;
-            return QAnimationGroup::metaObject();
-        }
-        auto metaobject_cb = qanimationgroup_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qanimationgroup_metaobject_callback) {
+            QMetaObject* callback_ret = qanimationgroup_metaobject_callback(this);
             return callback_ret;
         }
         return QAnimationGroup::metaObject();
@@ -137,14 +75,9 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qanimationgroup_metacast_isbase) {
-            qanimationgroup_metacast_isbase = false;
-            return QAnimationGroup::qt_metacast(param1);
-        }
-        auto metacast_cb = qanimationgroup_metacast_callback;
-        if (metacast_cb) {
+        if (qanimationgroup_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qanimationgroup_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QAnimationGroup::qt_metacast(param1);
@@ -152,16 +85,11 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qanimationgroup_metacall_isbase) {
-            qanimationgroup_metacall_isbase = false;
-            return QAnimationGroup::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qanimationgroup_metacall_callback;
-        if (metacall_cb) {
+        if (qanimationgroup_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qanimationgroup_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QAnimationGroup::qt_metacall(param1, param2, param3);
@@ -169,14 +97,9 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qanimationgroup_event_isbase) {
-            qanimationgroup_event_isbase = false;
-            return QAnimationGroup::event(event);
-        }
-        auto event_cb = qanimationgroup_event_callback;
-        if (event_cb) {
+        if (qanimationgroup_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qanimationgroup_event_callback(this, cbval1);
             return callback_ret;
         }
         return QAnimationGroup::event(event);
@@ -184,35 +107,31 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual int duration() const override {
-        auto duration_cb = qanimationgroup_duration_callback;
-        if (duration_cb) {
-            int callback_ret = duration_cb();
+        if (qanimationgroup_duration_callback) {
+            int callback_ret = qanimationgroup_duration_callback(this);
             return static_cast<int>(callback_ret);
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QAnimationGroup::duration called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void updateCurrentTime(int currentTime) override {
-        auto updatecurrenttime_cb = qanimationgroup_updatecurrenttime_callback;
-        if (updatecurrenttime_cb) {
+        if (qanimationgroup_updatecurrenttime_callback) {
             int cbval1 = currentTime;
-            updatecurrenttime_cb(this, cbval1);
+            qanimationgroup_updatecurrenttime_callback(this, cbval1);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QAnimationGroup::updateCurrentTime called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void updateState(QAbstractAnimation::State newState, QAbstractAnimation::State oldState) override {
-        if (qanimationgroup_updatestate_isbase) {
-            qanimationgroup_updatestate_isbase = false;
-            QAnimationGroup::updateState(newState, oldState);
-            return;
-        }
-        auto updatestate_cb = qanimationgroup_updatestate_callback;
-        if (updatestate_cb) {
+        if (qanimationgroup_updatestate_callback) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
-            updatestate_cb(this, cbval1, cbval2);
+            qanimationgroup_updatestate_callback(this, cbval1, cbval2);
             return;
         }
         QAnimationGroup::updateState(newState, oldState);
@@ -220,15 +139,9 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateDirection(QAbstractAnimation::Direction direction) override {
-        if (qanimationgroup_updatedirection_isbase) {
-            qanimationgroup_updatedirection_isbase = false;
-            QAnimationGroup::updateDirection(direction);
-            return;
-        }
-        auto updatedirection_cb = qanimationgroup_updatedirection_callback;
-        if (updatedirection_cb) {
+        if (qanimationgroup_updatedirection_callback) {
             int cbval1 = static_cast<int>(direction);
-            updatedirection_cb(this, cbval1);
+            qanimationgroup_updatedirection_callback(this, cbval1);
             return;
         }
         QAnimationGroup::updateDirection(direction);
@@ -236,15 +149,10 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qanimationgroup_eventfilter_isbase) {
-            qanimationgroup_eventfilter_isbase = false;
-            return QAnimationGroup::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qanimationgroup_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qanimationgroup_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qanimationgroup_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QAnimationGroup::eventFilter(watched, event);
@@ -252,15 +160,9 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qanimationgroup_timerevent_isbase) {
-            qanimationgroup_timerevent_isbase = false;
-            QAnimationGroup::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qanimationgroup_timerevent_callback;
-        if (timerevent_cb) {
+        if (qanimationgroup_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qanimationgroup_timerevent_callback(this, cbval1);
             return;
         }
         QAnimationGroup::timerEvent(event);
@@ -268,15 +170,9 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qanimationgroup_childevent_isbase) {
-            qanimationgroup_childevent_isbase = false;
-            QAnimationGroup::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qanimationgroup_childevent_callback;
-        if (childevent_cb) {
+        if (qanimationgroup_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qanimationgroup_childevent_callback(this, cbval1);
             return;
         }
         QAnimationGroup::childEvent(event);
@@ -284,15 +180,9 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qanimationgroup_customevent_isbase) {
-            qanimationgroup_customevent_isbase = false;
-            QAnimationGroup::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qanimationgroup_customevent_callback;
-        if (customevent_cb) {
+        if (qanimationgroup_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qanimationgroup_customevent_callback(this, cbval1);
             return;
         }
         QAnimationGroup::customEvent(event);
@@ -300,17 +190,11 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qanimationgroup_connectnotify_isbase) {
-            qanimationgroup_connectnotify_isbase = false;
-            QAnimationGroup::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qanimationgroup_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qanimationgroup_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qanimationgroup_connectnotify_callback(this, cbval1);
             return;
         }
         QAnimationGroup::connectNotify(signal);
@@ -318,109 +202,25 @@ class VirtualQAnimationGroup : public QAnimationGroup {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qanimationgroup_disconnectnotify_isbase) {
-            qanimationgroup_disconnectnotify_isbase = false;
-            QAnimationGroup::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qanimationgroup_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qanimationgroup_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qanimationgroup_disconnectnotify_callback(this, cbval1);
             return;
         }
         QAnimationGroup::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qanimationgroup_sender_isbase) {
-            qanimationgroup_sender_isbase = false;
-            return QAnimationGroup::sender();
-        }
-        auto sender_cb = qanimationgroup_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QAnimationGroup::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qanimationgroup_sendersignalindex_isbase) {
-            qanimationgroup_sendersignalindex_isbase = false;
-            return QAnimationGroup::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qanimationgroup_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QAnimationGroup::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qanimationgroup_receivers_isbase) {
-            qanimationgroup_receivers_isbase = false;
-            return QAnimationGroup::receivers(signal);
-        }
-        auto receivers_cb = qanimationgroup_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QAnimationGroup::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qanimationgroup_issignalconnected_isbase) {
-            qanimationgroup_issignalconnected_isbase = false;
-            return QAnimationGroup::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qanimationgroup_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QAnimationGroup::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event);
     friend bool QAnimationGroup_SuperEvent(QAnimationGroup* self, QEvent* event);
-    friend void QAnimationGroup_UpdateCurrentTime(QAnimationGroup* self, int currentTime);
-    friend void QAnimationGroup_SuperUpdateCurrentTime(QAnimationGroup* self, int currentTime);
-    friend void QAnimationGroup_UpdateState(QAnimationGroup* self, int newState, int oldState);
     friend void QAnimationGroup_SuperUpdateState(QAnimationGroup* self, int newState, int oldState);
-    friend void QAnimationGroup_UpdateDirection(QAnimationGroup* self, int direction);
     friend void QAnimationGroup_SuperUpdateDirection(QAnimationGroup* self, int direction);
-    friend void QAnimationGroup_TimerEvent(QAnimationGroup* self, QTimerEvent* event);
     friend void QAnimationGroup_SuperTimerEvent(QAnimationGroup* self, QTimerEvent* event);
-    friend void QAnimationGroup_ChildEvent(QAnimationGroup* self, QChildEvent* event);
     friend void QAnimationGroup_SuperChildEvent(QAnimationGroup* self, QChildEvent* event);
-    friend void QAnimationGroup_CustomEvent(QAnimationGroup* self, QEvent* event);
     friend void QAnimationGroup_SuperCustomEvent(QAnimationGroup* self, QEvent* event);
-    friend void QAnimationGroup_ConnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
     friend void QAnimationGroup_SuperConnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
-    friend void QAnimationGroup_DisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
     friend void QAnimationGroup_SuperDisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
-    friend QObject* QAnimationGroup_Sender(const QAnimationGroup* self);
-    friend QObject* QAnimationGroup_SuperSender(const QAnimationGroup* self);
-    friend int QAnimationGroup_SenderSignalIndex(const QAnimationGroup* self);
-    friend int QAnimationGroup_SuperSenderSignalIndex(const QAnimationGroup* self);
-    friend int QAnimationGroup_Receivers(const QAnimationGroup* self, const char* signal);
-    friend int QAnimationGroup_SuperReceivers(const QAnimationGroup* self, const char* signal);
-    friend bool QAnimationGroup_IsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
-    friend bool QAnimationGroup_SuperIsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -141,900 +141,507 @@ libqt_string KExtendableItemDelegate_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KExtendableItemDelegate_SuperMetaObject(const KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_MetaObject_IsBase(true);
-        return (QMetaObject*)vkextendableitemdelegate->metaObject();
-    } else {
-        return (QMetaObject*)self->KExtendableItemDelegate::metaObject();
-    }
+    return (QMetaObject*)self->KExtendableItemDelegate::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnMetaObject(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_MetaObject_Callback>(slot));
+void KExtendableItemDelegate_OnMetaObject(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_metaobject_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KExtendableItemDelegate_SuperMetacast(KExtendableItemDelegate* self, const char* param1) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_Metacast_IsBase(true);
-        return vkextendableitemdelegate->qt_metacast(param1);
-    } else {
-        return self->KExtendableItemDelegate::qt_metacast(param1);
-    }
+    return self->KExtendableItemDelegate::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnMetacast(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_Metacast_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Metacast_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_metacast_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KExtendableItemDelegate_SuperMetacall(KExtendableItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_Metacall_IsBase(true);
-        return vkextendableitemdelegate->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KExtendableItemDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KExtendableItemDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnMetacall(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_Metacall_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Metacall_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_metacall_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KExtendableItemDelegate_SuperSizeHint(const KExtendableItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_SizeHint_IsBase(true);
-        return new QSize(vkextendableitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualKExtendableItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->KExtendableItemDelegate::sizeHint(*option, *index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnSizeHint(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SizeHint_Callback>(slot));
+void KExtendableItemDelegate_OnSizeHint(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_sizehint_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperPaint(const KExtendableItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_Paint_IsBase(true);
-        vkextendableitemdelegate->paint(painter, *option, *index);
-    } else {
-        self->KExtendableItemDelegate::paint(painter, *option, *index);
-    }
+    self->KExtendableItemDelegate::paint(painter, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnPaint(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_Paint_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Paint_Callback>(slot));
+void KExtendableItemDelegate_OnPaint(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_paint_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Paint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperUpdateExtenderGeometry(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_UpdateExtenderGeometry_IsBase(true);
-        vkextendableitemdelegate->updateExtenderGeometry(extender, *option, *index);
-    } else {
-        self->KExtendableItemDelegate::updateExtenderGeometry(extender, *option, *index);
-    }
+    self->KExtendableItemDelegate::updateExtenderGeometry(extender, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnUpdateExtenderGeometry(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_UpdateExtenderGeometry_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_UpdateExtenderGeometry_Callback>(slot));
+void KExtendableItemDelegate_OnUpdateExtenderGeometry(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_updateextendergeometry_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_UpdateExtenderGeometry_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* KExtendableItemDelegate_CreateEditor(const KExtendableItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return vkextendableitemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->KExtendableItemDelegate::createEditor(parent, *option, *index);
-    }
+    return self->createEditor(parent, *option, *index);
 }
 
 // Base class handler implementation
 QWidget* KExtendableItemDelegate_SuperCreateEditor(const KExtendableItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_CreateEditor_IsBase(true);
-        return vkextendableitemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->KExtendableItemDelegate::createEditor(parent, *option, *index);
-    }
+    return self->KExtendableItemDelegate::createEditor(parent, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnCreateEditor(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_CreateEditor_Callback>(slot));
+void KExtendableItemDelegate_OnCreateEditor(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_createeditor_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_CreateEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_SetEditorData(const KExtendableItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setEditorData(editor, *index);
-    } else {
-        self->KExtendableItemDelegate::setEditorData(editor, *index);
-    }
+    self->setEditorData(editor, *index);
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperSetEditorData(const KExtendableItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_SetEditorData_IsBase(true);
-        vkextendableitemdelegate->setEditorData(editor, *index);
-    } else {
-        self->KExtendableItemDelegate::setEditorData(editor, *index);
-    }
+    self->KExtendableItemDelegate::setEditorData(editor, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnSetEditorData(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetEditorData_Callback>(slot));
+void KExtendableItemDelegate_OnSetEditorData(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_seteditordata_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetEditorData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_SetModelData(const KExtendableItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->KExtendableItemDelegate::setModelData(editor, model, *index);
-    }
+    self->setModelData(editor, model, *index);
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperSetModelData(const KExtendableItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_SetModelData_IsBase(true);
-        vkextendableitemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->KExtendableItemDelegate::setModelData(editor, model, *index);
-    }
+    self->KExtendableItemDelegate::setModelData(editor, model, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnSetModelData(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetModelData_Callback>(slot));
+void KExtendableItemDelegate_OnSetModelData(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_setmodeldata_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetModelData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_UpdateEditorGeometry(const KExtendableItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->KExtendableItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
+    self->updateEditorGeometry(editor, *option, *index);
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperUpdateEditorGeometry(const KExtendableItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_UpdateEditorGeometry_IsBase(true);
-        vkextendableitemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->KExtendableItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
+    self->KExtendableItemDelegate::updateEditorGeometry(editor, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnUpdateEditorGeometry(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_UpdateEditorGeometry_Callback>(slot));
+void KExtendableItemDelegate_OnUpdateEditorGeometry(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_updateeditorgeometry_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_UpdateEditorGeometry_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KExtendableItemDelegate_DisplayText(const KExtendableItemDelegate* self, const QVariant* value, const QLocale* locale) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        auto _ret = vkextendableitemdelegate->displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KExtendableItemDelegate::displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->displayText(*value, *locale);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KExtendableItemDelegate_SuperDisplayText(const KExtendableItemDelegate* self, const QVariant* value, const QLocale* locale) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_DisplayText_IsBase(true);
-        auto _ret = vkextendableitemdelegate->displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KExtendableItemDelegate::displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KExtendableItemDelegate::displayText(*value, *locale);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnDisplayText(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_DisplayText_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DisplayText_Callback>(slot));
+void KExtendableItemDelegate_OnDisplayText(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_displaytext_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DisplayText_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_InitStyleOption(const KExtendableItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate) {
         vkextendableitemdelegate->initStyleOption(option, *index);
     } else {
-        ((VirtualKExtendableItemDelegate*)self)->initStyleOption(option, *index);
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperInitStyleOption(const KExtendableItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_InitStyleOption_IsBase(true);
-        vkextendableitemdelegate->initStyleOption(option, *index);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->initStyleOption(option, *index);
-    }
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self))) {
+        vkextendableitemdelegate->KExtendableItemDelegate::initStyleOption(option, *index);
+    } else
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnInitStyleOption(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_InitStyleOption_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_InitStyleOption_Callback>(slot));
+void KExtendableItemDelegate_OnInitStyleOption(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_initstyleoption_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KExtendableItemDelegate_EventFilter(KExtendableItemDelegate* self, QObject* object, QEvent* event) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate) {
         return vkextendableitemdelegate->eventFilter(object, event);
     } else {
-        return ((VirtualKExtendableItemDelegate*)self)->eventFilter(object, event);
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KExtendableItemDelegate_SuperEventFilter(KExtendableItemDelegate* self, QObject* object, QEvent* event) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_EventFilter_IsBase(true);
-        return vkextendableitemdelegate->eventFilter(object, event);
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->eventFilter(object, event);
-    }
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        return vkextendableitemdelegate->KExtendableItemDelegate::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnEventFilter(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_EventFilter_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_eventfilter_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KExtendableItemDelegate_EditorEvent(KExtendableItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate) {
         return vkextendableitemdelegate->editorEvent(event, model, *option, *index);
     } else {
-        return ((VirtualKExtendableItemDelegate*)self)->editorEvent(event, model, *option, *index);
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::editorEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KExtendableItemDelegate_SuperEditorEvent(KExtendableItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_EditorEvent_IsBase(true);
-        return vkextendableitemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->editorEvent(event, model, *option, *index);
-    }
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        return vkextendableitemdelegate->KExtendableItemDelegate::editorEvent(event, model, *option, *index);
+    } else
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::editorEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnEditorEvent(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_EditorEvent_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_editorevent_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_EditorEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_DestroyEditor(const KExtendableItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->destroyEditor(editor, *index);
-    } else {
-        self->KExtendableItemDelegate::destroyEditor(editor, *index);
-    }
+    self->destroyEditor(editor, *index);
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperDestroyEditor(const KExtendableItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_DestroyEditor_IsBase(true);
-        vkextendableitemdelegate->destroyEditor(editor, *index);
-    } else {
-        self->KExtendableItemDelegate::destroyEditor(editor, *index);
-    }
+    self->KExtendableItemDelegate::destroyEditor(editor, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnDestroyEditor(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_DestroyEditor_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DestroyEditor_Callback>(slot));
+void KExtendableItemDelegate_OnDestroyEditor(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_destroyeditor_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DestroyEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KExtendableItemDelegate_HelpEvent(KExtendableItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return vkextendableitemdelegate->helpEvent(event, view, *option, *index);
-    } else {
-        return self->KExtendableItemDelegate::helpEvent(event, view, *option, *index);
-    }
+    return self->helpEvent(event, view, *option, *index);
 }
 
 // Base class handler implementation
 bool KExtendableItemDelegate_SuperHelpEvent(KExtendableItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_HelpEvent_IsBase(true);
-        return vkextendableitemdelegate->helpEvent(event, view, *option, *index);
-    } else {
-        return self->KExtendableItemDelegate::helpEvent(event, view, *option, *index);
-    }
+    return self->KExtendableItemDelegate::helpEvent(event, view, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnHelpEvent(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_HelpEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_HelpEvent_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_helpevent_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_HelpEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of int */ KExtendableItemDelegate_PaintingRoles(const KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        QList<int> _ret = vkextendableitemdelegate->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = self->KExtendableItemDelegate::paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of int */ KExtendableItemDelegate_SuperPaintingRoles(const KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_PaintingRoles_IsBase(true);
-        QList<int> _ret = vkextendableitemdelegate->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = self->KExtendableItemDelegate::paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->KExtendableItemDelegate::paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnPaintingRoles(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_PaintingRoles_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_PaintingRoles_Callback>(slot));
+void KExtendableItemDelegate_OnPaintingRoles(KExtendableItemDelegate* self, intptr_t slot) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
+        vkextendableitemdelegate->kextendableitemdelegate_paintingroles_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_PaintingRoles_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KExtendableItemDelegate_Event(KExtendableItemDelegate* self, QEvent* event) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return vkextendableitemdelegate->event(event);
-    } else {
-        return self->KExtendableItemDelegate::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KExtendableItemDelegate_SuperEvent(KExtendableItemDelegate* self, QEvent* event) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_Event_IsBase(true);
-        return vkextendableitemdelegate->event(event);
-    } else {
-        return self->KExtendableItemDelegate::event(event);
-    }
+    return self->KExtendableItemDelegate::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnEvent(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_Event_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Event_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_event_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_TimerEvent(KExtendableItemDelegate* self, QTimerEvent* event) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate) {
         vkextendableitemdelegate->timerEvent(event);
     } else {
-        ((VirtualKExtendableItemDelegate*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperTimerEvent(KExtendableItemDelegate* self, QTimerEvent* event) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_TimerEvent_IsBase(true);
-        vkextendableitemdelegate->timerEvent(event);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->timerEvent(event);
-    }
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        vkextendableitemdelegate->KExtendableItemDelegate::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnTimerEvent(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_TimerEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_TimerEvent_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_timerevent_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_ChildEvent(KExtendableItemDelegate* self, QChildEvent* event) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate) {
         vkextendableitemdelegate->childEvent(event);
     } else {
-        ((VirtualKExtendableItemDelegate*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperChildEvent(KExtendableItemDelegate* self, QChildEvent* event) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_ChildEvent_IsBase(true);
-        vkextendableitemdelegate->childEvent(event);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->childEvent(event);
-    }
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        vkextendableitemdelegate->KExtendableItemDelegate::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnChildEvent(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_ChildEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ChildEvent_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_childevent_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_CustomEvent(KExtendableItemDelegate* self, QEvent* event) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate) {
         vkextendableitemdelegate->customEvent(event);
     } else {
-        ((VirtualKExtendableItemDelegate*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperCustomEvent(KExtendableItemDelegate* self, QEvent* event) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_CustomEvent_IsBase(true);
-        vkextendableitemdelegate->customEvent(event);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->customEvent(event);
-    }
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        vkextendableitemdelegate->KExtendableItemDelegate::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnCustomEvent(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_CustomEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_CustomEvent_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_customevent_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_ConnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate) {
         vkextendableitemdelegate->connectNotify(*signal);
     } else {
-        ((VirtualKExtendableItemDelegate*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperConnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_ConnectNotify_IsBase(true);
-        vkextendableitemdelegate->connectNotify(*signal);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->connectNotify(*signal);
-    }
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        vkextendableitemdelegate->KExtendableItemDelegate::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnConnectNotify(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ConnectNotify_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_connectnotify_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KExtendableItemDelegate_DisconnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate) {
         vkextendableitemdelegate->disconnectNotify(*signal);
     } else {
-        ((VirtualKExtendableItemDelegate*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KExtendableItemDelegate_SuperDisconnectNotify(KExtendableItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_DisconnectNotify_IsBase(true);
-        vkextendableitemdelegate->disconnectNotify(*signal);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        vkextendableitemdelegate->KExtendableItemDelegate::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KExtendableItemDelegate::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnDisconnectNotify(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DisconnectNotify_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
+        vkextendableitemdelegate->kextendableitemdelegate_disconnectnotify_callback = reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRect* KExtendableItemDelegate_ExtenderRect(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self)))
         return new QRect(vkextendableitemdelegate->extenderRect(extender, *option, *index));
-    }
-    return {};
+    qFatal("Error: Protected method KExtendableItemDelegate::extenderRect called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* KExtendableItemDelegate_SuperExtenderRect(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_ExtenderRect_IsBase(true);
-        return new QRect(vkextendableitemdelegate->extenderRect(extender, *option, *index));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnExtenderRect(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_ExtenderRect_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ExtenderRect_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KExtendableItemDelegate_SetExtendPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setExtendPixmap(*pixmap);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->setExtendPixmap(*pixmap);
-    }
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        vkextendableitemdelegate->VirtualKExtendableItemDelegate::setExtendPixmap(*pixmap);
+    } else
+        qFatal("Error: Protected method KExtendableItemDelegate::setExtendPixmap called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KExtendableItemDelegate_SuperSetExtendPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_SetExtendPixmap_IsBase(true);
-        vkextendableitemdelegate->setExtendPixmap(*pixmap);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->setExtendPixmap(*pixmap);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnSetExtendPixmap(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_SetExtendPixmap_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetExtendPixmap_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KExtendableItemDelegate_SetContractPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setContractPixmap(*pixmap);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->setContractPixmap(*pixmap);
-    }
-}
-
-// Base class handler implementation
-void KExtendableItemDelegate_SuperSetContractPixmap(KExtendableItemDelegate* self, const QPixmap* pixmap) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_SetContractPixmap_IsBase(true);
-        vkextendableitemdelegate->setContractPixmap(*pixmap);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->setContractPixmap(*pixmap);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnSetContractPixmap(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_SetContractPixmap_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetContractPixmap_Callback>(slot));
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self)) {
+        vkextendableitemdelegate->VirtualKExtendableItemDelegate::setContractPixmap(*pixmap);
+    } else
+        qFatal("Error: Protected method KExtendableItemDelegate::setContractPixmap called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPixmap* KExtendableItemDelegate_ExtendPixmap(KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
         return new QPixmap(vkextendableitemdelegate->extendPixmap());
-    }
-    return {};
-}
-
-// Base class handler implementation
-QPixmap* KExtendableItemDelegate_SuperExtendPixmap(KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_ExtendPixmap_IsBase(true);
-        return new QPixmap(vkextendableitemdelegate->extendPixmap());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnExtendPixmap(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_ExtendPixmap_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ExtendPixmap_Callback>(slot));
+    qFatal("Error: Protected method KExtendableItemDelegate::extendPixmap called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPixmap* KExtendableItemDelegate_ContractPixmap(KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self))
         return new QPixmap(vkextendableitemdelegate->contractPixmap());
-    }
-    return {};
+    qFatal("Error: Protected method KExtendableItemDelegate::contractPixmap called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPixmap* KExtendableItemDelegate_SuperContractPixmap(KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_ContractPixmap_IsBase(true);
-        return new QPixmap(vkextendableitemdelegate->contractPixmap());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnContractPixmap(KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_ContractPixmap_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ContractPixmap_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KExtendableItemDelegate_Sender(const KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return vkextendableitemdelegate->sender();
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->sender();
-    }
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self))) {
+        return vkextendableitemdelegate->VirtualKExtendableItemDelegate::sender();
+    } else
+        qFatal("Error: Protected method KExtendableItemDelegate::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KExtendableItemDelegate_SuperSender(const KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_Sender_IsBase(true);
-        return vkextendableitemdelegate->sender();
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnSender(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_Sender_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KExtendableItemDelegate_SenderSignalIndex(const KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return vkextendableitemdelegate->senderSignalIndex();
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->senderSignalIndex();
-    }
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self))) {
+        return vkextendableitemdelegate->VirtualKExtendableItemDelegate::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KExtendableItemDelegate::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KExtendableItemDelegate_SuperSenderSignalIndex(const KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_SenderSignalIndex_IsBase(true);
-        return vkextendableitemdelegate->senderSignalIndex();
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnSenderSignalIndex(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KExtendableItemDelegate_Receivers(const KExtendableItemDelegate* self, const char* signal) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return vkextendableitemdelegate->receivers(signal);
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->receivers(signal);
-    }
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self))) {
+        return vkextendableitemdelegate->VirtualKExtendableItemDelegate::receivers(signal);
+    } else
+        qFatal("Error: Protected method KExtendableItemDelegate::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KExtendableItemDelegate_SuperReceivers(const KExtendableItemDelegate* self, const char* signal) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_Receivers_IsBase(true);
-        return vkextendableitemdelegate->receivers(signal);
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnReceivers(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_Receivers_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KExtendableItemDelegate_IsSignalConnected(const KExtendableItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return vkextendableitemdelegate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KExtendableItemDelegate_SuperIsSignalConnected(const KExtendableItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        vkextendableitemdelegate->setKExtendableItemDelegate_IsSignalConnected_IsBase(true);
-        return vkextendableitemdelegate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KExtendableItemDelegate_OnIsSignalConnected(const KExtendableItemDelegate* self, intptr_t slot) {
-    auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
-        vkextendableitemdelegate->setKExtendableItemDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_IsSignalConnected_Callback>(slot));
+    if (auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self))) {
+        return vkextendableitemdelegate->VirtualKExtendableItemDelegate::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KExtendableItemDelegate::isSignalConnected called without a directly constructed type");
 }
 
 void KExtendableItemDelegate_Delete(KExtendableItemDelegate* self) {

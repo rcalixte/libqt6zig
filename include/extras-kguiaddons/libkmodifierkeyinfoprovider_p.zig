@@ -74,9 +74,9 @@ pub const KModifierKeyInfoProvider = extern struct {
     ///
     /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KModifierKeyInfoProvider, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider) callconv(.c) QMetaObject) void {
         qtc.KModifierKeyInfoProvider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -654,44 +654,6 @@ pub const KModifierKeyInfoProvider = extern struct {
     ///
     pub fn stateUpdated(self: KModifierKeyInfoProvider, key: i32, state: i32) void {
         qtc.KModifierKeyInfoProvider_StateUpdated(@ptrCast(self.ptr), @bitCast(key), @bitCast(state));
-    }
-
-    /// ### DEPRECATED: Use `onStateUpdated` instead
-    ///
-    pub const OnStateUpdated = onStateUpdated;
-
-    /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KModifierKeyInfoProvider `
-    ///
-    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState) callconv(.c) void `
-    ///
-    pub fn onStateUpdated(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnStateUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superStateUpdated` instead
-    ///
-    pub const SuperStateUpdated = superStateUpdated;
-
-    /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KModifierKeyInfoProvider `
-    ///
-    /// ` key: qnamespace_enums.Key `
-    ///
-    /// ` state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState `
-    ///
-    pub fn superStateUpdated(self: KModifierKeyInfoProvider, key: i32, state: i32) void {
-        qtc.KModifierKeyInfoProvider_SuperStateUpdated(@ptrCast(self.ptr), @bitCast(key), @bitCast(state));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2171,44 +2133,6 @@ pub const KModifierKeyInfoProvider = extern struct {
         return .{ .ptr = qtc.KModifierKeyInfoProvider_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KModifierKeyInfoProvider `
-    ///
-    pub fn superSender(self: KModifierKeyInfoProvider) QObject {
-        return .{ .ptr = qtc.KModifierKeyInfoProvider_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KModifierKeyInfoProvider`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KModifierKeyInfoProvider, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KModifierKeyInfoProvider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2225,44 +2149,6 @@ pub const KModifierKeyInfoProvider = extern struct {
     ///
     pub fn senderSignalIndex(self: KModifierKeyInfoProvider) i32 {
         return qtc.KModifierKeyInfoProvider_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KModifierKeyInfoProvider `
-    ///
-    pub fn superSenderSignalIndex(self: KModifierKeyInfoProvider) i32 {
-        return qtc.KModifierKeyInfoProvider_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KModifierKeyInfoProvider`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KModifierKeyInfoProvider, callback: *const fn () callconv(.c) i32) void {
-        qtc.KModifierKeyInfoProvider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2286,47 +2172,6 @@ pub const KModifierKeyInfoProvider = extern struct {
         return qtc.KModifierKeyInfoProvider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KModifierKeyInfoProvider `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KModifierKeyInfoProvider, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KModifierKeyInfoProvider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KModifierKeyInfoProvider`
-    ///
-    /// ` callback: *const fn (self: KModifierKeyInfoProvider, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KModifierKeyInfoProvider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2346,47 +2191,6 @@ pub const KModifierKeyInfoProvider = extern struct {
     pub fn isSignalConnected(self: KModifierKeyInfoProvider, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KModifierKeyInfoProvider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KModifierKeyInfoProvider `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KModifierKeyInfoProvider, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KModifierKeyInfoProvider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KModifierKeyInfoProvider`
-    ///
-    /// ` callback: *const fn (self: KModifierKeyInfoProvider, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QMetaMethod) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

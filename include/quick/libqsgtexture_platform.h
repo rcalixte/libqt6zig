@@ -34,8 +34,7 @@ QSGTexture* QNativeInterface__QSGOpenGLTexture_FromNative(uint32_t textureId, QQ
 QSGTexture* QNativeInterface__QSGOpenGLTexture_FromNativeExternalOES(uint32_t textureId, QQuickWindow* window, const QSize* size);
 QSGTexture* QNativeInterface__QSGOpenGLTexture_FromNative4(uint32_t textureId, QQuickWindow* window, const QSize* size, int options);
 QSGTexture* QNativeInterface__QSGOpenGLTexture_FromNativeExternalOES4(uint32_t textureId, QQuickWindow* window, const QSize* size, int options);
-void QNativeInterface__QSGOpenGLTexture_OnNativeTexture(const QNativeInterface__QSGOpenGLTexture* self, intptr_t slot);
-uint32_t QNativeInterface__QSGOpenGLTexture_SuperNativeTexture(const QNativeInterface__QSGOpenGLTexture* self);
+void QNativeInterface__QSGOpenGLTexture_OnNativeTexture(QNativeInterface__QSGOpenGLTexture* self, intptr_t slot);
 
 #ifdef __cplusplus
 } /* extern C */

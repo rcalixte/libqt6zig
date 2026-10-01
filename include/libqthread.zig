@@ -78,9 +78,9 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QThread) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QThread, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QThread, callback: *const fn (QThread) callconv(.c) QMetaObject) void {
         qtc.QThread_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -676,9 +676,9 @@ pub const QThread = extern struct {
     ///
     /// ` self: QThread `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QThread) callconv(.c) void `
     ///
-    pub fn onRun(self: QThread, callback: *const fn () callconv(.c) void) void {
+    pub fn onRun(self: QThread, callback: *const fn (QThread) callconv(.c) void) void {
         qtc.QThread_OnRun(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -712,40 +712,6 @@ pub const QThread = extern struct {
         return qtc.QThread_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onExec` instead
-    ///
-    pub const OnExec = onExec;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#exec)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QThread `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onExec(self: QThread, callback: *const fn () callconv(.c) i32) void {
-        qtc.QThread_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superExec` instead
-    ///
-    pub const SuperExec = superExec;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#exec)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QThread `
-    ///
-    pub fn superExec(self: QThread) i32 {
-        return qtc.QThread_SuperExec(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `setTerminationEnabled` instead
     ///
     pub const SetTerminationEnabled = setTerminationEnabled;
@@ -758,40 +724,6 @@ pub const QThread = extern struct {
     ///
     pub fn setTerminationEnabled(self: QThread) void {
         qtc.QThread_SetTerminationEnabled(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetTerminationEnabled` instead
-    ///
-    pub const OnSetTerminationEnabled = onSetTerminationEnabled;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QThread `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSetTerminationEnabled(self: QThread, callback: *const fn () callconv(.c) void) void {
-        qtc.QThread_OnSetTerminationEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetTerminationEnabled` instead
-    ///
-    pub const SuperSetTerminationEnabled = superSetTerminationEnabled;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QThread `
-    ///
-    pub fn superSetTerminationEnabled(self: QThread) void {
-        qtc.QThread_SuperSetTerminationEnabled(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -911,42 +843,6 @@ pub const QThread = extern struct {
     ///
     pub fn setTerminationEnabled1(self: QThread, enabled: bool) void {
         qtc.QThread_SetTerminationEnabled1(@ptrCast(self.ptr), enabled);
-    }
-
-    /// ### DEPRECATED: Use `onSetTerminationEnabled1` instead
-    ///
-    pub const OnSetTerminationEnabled1 = onSetTerminationEnabled1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QThread `
-    ///
-    /// ` callback: *const fn (self: QThread, enabled: bool) callconv(.c) void `
-    ///
-    pub fn onSetTerminationEnabled1(self: QThread, callback: *const fn (QThread, bool) callconv(.c) void) void {
-        qtc.QThread_OnSetTerminationEnabled1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetTerminationEnabled1` instead
-    ///
-    pub const SuperSetTerminationEnabled1 = superSetTerminationEnabled1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QThread `
-    ///
-    /// ` enabled: bool `
-    ///
-    pub fn superSetTerminationEnabled1(self: QThread, enabled: bool) void {
-        qtc.QThread_SuperSetTerminationEnabled1(@ptrCast(self.ptr), enabled);
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -2310,44 +2206,6 @@ pub const QThread = extern struct {
         return .{ .ptr = qtc.QThread_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QThread `
-    ///
-    pub fn superSender(self: QThread) QObject {
-        return .{ .ptr = qtc.QThread_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QThread`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QThread, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QThread_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2364,44 +2222,6 @@ pub const QThread = extern struct {
     ///
     pub fn senderSignalIndex(self: QThread) i32 {
         return qtc.QThread_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QThread `
-    ///
-    pub fn superSenderSignalIndex(self: QThread) i32 {
-        return qtc.QThread_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QThread`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QThread, callback: *const fn () callconv(.c) i32) void {
-        qtc.QThread_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2425,47 +2245,6 @@ pub const QThread = extern struct {
         return qtc.QThread_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QThread `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QThread, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QThread_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QThread`
-    ///
-    /// ` callback: *const fn (self: QThread, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QThread, callback: *const fn (QThread, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QThread_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2485,47 +2264,6 @@ pub const QThread = extern struct {
     pub fn isSignalConnected(self: QThread, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QThread_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QThread `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QThread, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QThread_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QThread`
-    ///
-    /// ` callback: *const fn (self: QThread, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QThread, callback: *const fn (QThread, QMetaMethod) callconv(.c) bool) void {
-        qtc.QThread_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onStarted` instead

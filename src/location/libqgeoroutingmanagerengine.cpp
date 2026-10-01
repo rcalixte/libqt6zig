@@ -207,568 +207,284 @@ void QGeoRoutingManagerEngine_Connect_ErrorOccurred3(QGeoRoutingManagerEngine* s
 
 // Base class handler implementation
 QMetaObject* QGeoRoutingManagerEngine_SuperMetaObject(const QGeoRoutingManagerEngine* self) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_MetaObject_IsBase(true);
-        return (QMetaObject*)vqgeoroutingmanagerengine->metaObject();
-    } else {
-        return (QMetaObject*)self->QGeoRoutingManagerEngine::metaObject();
-    }
+    return (QMetaObject*)self->QGeoRoutingManagerEngine::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnMetaObject(const QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_MetaObject_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_MetaObject_Callback>(slot));
+void QGeoRoutingManagerEngine_OnMetaObject(QGeoRoutingManagerEngine* self, intptr_t slot) {
+    if (auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self)))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_metaobject_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QGeoRoutingManagerEngine_SuperMetacast(QGeoRoutingManagerEngine* self, const char* param1) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacast_IsBase(true);
-        return vqgeoroutingmanagerengine->qt_metacast(param1);
-    } else {
-        return self->QGeoRoutingManagerEngine::qt_metacast(param1);
-    }
+    return self->QGeoRoutingManagerEngine::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnMetacast(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacast_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Metacast_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_metacast_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGeoRoutingManagerEngine_SuperMetacall(QGeoRoutingManagerEngine* self, int param1, int param2, void** param3) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacall_IsBase(true);
-        return vqgeoroutingmanagerengine->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QGeoRoutingManagerEngine::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QGeoRoutingManagerEngine::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnMetacall(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacall_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-QGeoRouteReply* QGeoRoutingManagerEngine_SuperCalculateRoute(QGeoRoutingManagerEngine* self, const QGeoRouteRequest* request) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_CalculateRoute_IsBase(true);
-        return vqgeoroutingmanagerengine->calculateRoute(*request);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->calculateRoute(*request);
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_metacall_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnCalculateRoute(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_CalculateRoute_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_CalculateRoute_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_calculateroute_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_CalculateRoute_Callback>(slot);
 }
 
 // Base class handler implementation
 QGeoRouteReply* QGeoRoutingManagerEngine_SuperUpdateRoute(QGeoRoutingManagerEngine* self, const QGeoRoute* route, const QGeoCoordinate* position) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_UpdateRoute_IsBase(true);
-        return vqgeoroutingmanagerengine->updateRoute(*route, *position);
-    } else {
-        return self->QGeoRoutingManagerEngine::updateRoute(*route, *position);
-    }
+    return self->QGeoRoutingManagerEngine::updateRoute(*route, *position);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnUpdateRoute(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_UpdateRoute_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_UpdateRoute_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_updateroute_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_UpdateRoute_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGeoRoutingManagerEngine_Event(QGeoRoutingManagerEngine* self, QEvent* event) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return vqgeoroutingmanagerengine->event(event);
-    } else {
-        return self->QGeoRoutingManagerEngine::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QGeoRoutingManagerEngine_SuperEvent(QGeoRoutingManagerEngine* self, QEvent* event) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Event_IsBase(true);
-        return vqgeoroutingmanagerengine->event(event);
-    } else {
-        return self->QGeoRoutingManagerEngine::event(event);
-    }
+    return self->QGeoRoutingManagerEngine::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnEvent(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Event_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Event_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_event_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGeoRoutingManagerEngine_EventFilter(QGeoRoutingManagerEngine* self, QObject* watched, QEvent* event) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return vqgeoroutingmanagerengine->eventFilter(watched, event);
-    } else {
-        return self->QGeoRoutingManagerEngine::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QGeoRoutingManagerEngine_SuperEventFilter(QGeoRoutingManagerEngine* self, QObject* watched, QEvent* event) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_EventFilter_IsBase(true);
-        return vqgeoroutingmanagerengine->eventFilter(watched, event);
-    } else {
-        return self->QGeoRoutingManagerEngine::eventFilter(watched, event);
-    }
+    return self->QGeoRoutingManagerEngine::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnEventFilter(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_EventFilter_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_EventFilter_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_eventfilter_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoRoutingManagerEngine_TimerEvent(QGeoRoutingManagerEngine* self, QTimerEvent* event) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine) {
         vqgeoroutingmanagerengine->timerEvent(event);
     } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoRoutingManagerEngine_SuperTimerEvent(QGeoRoutingManagerEngine* self, QTimerEvent* event) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_TimerEvent_IsBase(true);
-        vqgeoroutingmanagerengine->timerEvent(event);
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->timerEvent(event);
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->QGeoRoutingManagerEngine::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnTimerEvent(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_TimerEvent_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_TimerEvent_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_timerevent_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoRoutingManagerEngine_ChildEvent(QGeoRoutingManagerEngine* self, QChildEvent* event) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine) {
         vqgeoroutingmanagerengine->childEvent(event);
     } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoRoutingManagerEngine_SuperChildEvent(QGeoRoutingManagerEngine* self, QChildEvent* event) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_ChildEvent_IsBase(true);
-        vqgeoroutingmanagerengine->childEvent(event);
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->childEvent(event);
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->QGeoRoutingManagerEngine::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnChildEvent(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_ChildEvent_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_ChildEvent_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_childevent_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoRoutingManagerEngine_CustomEvent(QGeoRoutingManagerEngine* self, QEvent* event) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine) {
         vqgeoroutingmanagerengine->customEvent(event);
     } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoRoutingManagerEngine_SuperCustomEvent(QGeoRoutingManagerEngine* self, QEvent* event) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_CustomEvent_IsBase(true);
-        vqgeoroutingmanagerengine->customEvent(event);
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->customEvent(event);
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->QGeoRoutingManagerEngine::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnCustomEvent(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_CustomEvent_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_CustomEvent_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_customevent_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoRoutingManagerEngine_ConnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine) {
         vqgeoroutingmanagerengine->connectNotify(*signal);
     } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoRoutingManagerEngine_SuperConnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_ConnectNotify_IsBase(true);
-        vqgeoroutingmanagerengine->connectNotify(*signal);
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->connectNotify(*signal);
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->QGeoRoutingManagerEngine::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnConnectNotify(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_ConnectNotify_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_connectnotify_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoRoutingManagerEngine_DisconnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine) {
         vqgeoroutingmanagerengine->disconnectNotify(*signal);
     } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoRoutingManagerEngine_SuperDisconnectNotify(QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_DisconnectNotify_IsBase(true);
-        vqgeoroutingmanagerengine->disconnectNotify(*signal);
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->QGeoRoutingManagerEngine::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGeoRoutingManagerEngine::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnDisconnectNotify(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_DisconnectNotify_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self))
+        vqgeoroutingmanagerengine->qgeoroutingmanagerengine_disconnectnotify_callback = reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoRoutingManagerEngine_SetSupportedTravelModes(QGeoRoutingManagerEngine* self, int travelModes) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setSupportedTravelModes(static_cast<QGeoRouteRequest::TravelModes>(travelModes));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedTravelModes(static_cast<QGeoRouteRequest::TravelModes>(travelModes));
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::setSupportedTravelModes(static_cast<QGeoRouteRequest::TravelModes>(travelModes));
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::setSupportedTravelModes called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoRoutingManagerEngine_SuperSetSupportedTravelModes(QGeoRoutingManagerEngine* self, int travelModes) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedTravelModes_IsBase(true);
-        vqgeoroutingmanagerengine->setSupportedTravelModes(static_cast<QGeoRouteRequest::TravelModes>(travelModes));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedTravelModes(static_cast<QGeoRouteRequest::TravelModes>(travelModes));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnSetSupportedTravelModes(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedTravelModes_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedTravelModes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoRoutingManagerEngine_SetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, int featureTypes) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setSupportedFeatureTypes(static_cast<QGeoRouteRequest::FeatureTypes>(featureTypes));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedFeatureTypes(static_cast<QGeoRouteRequest::FeatureTypes>(featureTypes));
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::setSupportedFeatureTypes(static_cast<QGeoRouteRequest::FeatureTypes>(featureTypes));
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::setSupportedFeatureTypes called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoRoutingManagerEngine_SuperSetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, int featureTypes) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedFeatureTypes_IsBase(true);
-        vqgeoroutingmanagerengine->setSupportedFeatureTypes(static_cast<QGeoRouteRequest::FeatureTypes>(featureTypes));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedFeatureTypes(static_cast<QGeoRouteRequest::FeatureTypes>(featureTypes));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnSetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedFeatureTypes_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedFeatureTypes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoRoutingManagerEngine_SetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, int featureWeights) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setSupportedFeatureWeights(static_cast<QGeoRouteRequest::FeatureWeights>(featureWeights));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedFeatureWeights(static_cast<QGeoRouteRequest::FeatureWeights>(featureWeights));
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::setSupportedFeatureWeights(static_cast<QGeoRouteRequest::FeatureWeights>(featureWeights));
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::setSupportedFeatureWeights called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoRoutingManagerEngine_SuperSetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, int featureWeights) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedFeatureWeights_IsBase(true);
-        vqgeoroutingmanagerengine->setSupportedFeatureWeights(static_cast<QGeoRouteRequest::FeatureWeights>(featureWeights));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedFeatureWeights(static_cast<QGeoRouteRequest::FeatureWeights>(featureWeights));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnSetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedFeatureWeights_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedFeatureWeights_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoRoutingManagerEngine_SetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, int optimizations) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setSupportedRouteOptimizations(static_cast<QGeoRouteRequest::RouteOptimizations>(optimizations));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedRouteOptimizations(static_cast<QGeoRouteRequest::RouteOptimizations>(optimizations));
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::setSupportedRouteOptimizations(static_cast<QGeoRouteRequest::RouteOptimizations>(optimizations));
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::setSupportedRouteOptimizations called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoRoutingManagerEngine_SuperSetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, int optimizations) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedRouteOptimizations_IsBase(true);
-        vqgeoroutingmanagerengine->setSupportedRouteOptimizations(static_cast<QGeoRouteRequest::RouteOptimizations>(optimizations));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedRouteOptimizations(static_cast<QGeoRouteRequest::RouteOptimizations>(optimizations));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnSetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedRouteOptimizations_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedRouteOptimizations_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoRoutingManagerEngine_SetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, int segmentDetails) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setSupportedSegmentDetails(static_cast<QGeoRouteRequest::SegmentDetails>(segmentDetails));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedSegmentDetails(static_cast<QGeoRouteRequest::SegmentDetails>(segmentDetails));
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::setSupportedSegmentDetails(static_cast<QGeoRouteRequest::SegmentDetails>(segmentDetails));
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::setSupportedSegmentDetails called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoRoutingManagerEngine_SuperSetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, int segmentDetails) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedSegmentDetails_IsBase(true);
-        vqgeoroutingmanagerengine->setSupportedSegmentDetails(static_cast<QGeoRouteRequest::SegmentDetails>(segmentDetails));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedSegmentDetails(static_cast<QGeoRouteRequest::SegmentDetails>(segmentDetails));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnSetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedSegmentDetails_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedSegmentDetails_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGeoRoutingManagerEngine_SetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, int maneuverDetails) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setSupportedManeuverDetails(static_cast<QGeoRouteRequest::ManeuverDetails>(maneuverDetails));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedManeuverDetails(static_cast<QGeoRouteRequest::ManeuverDetails>(maneuverDetails));
-    }
+    if (auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self)) {
+        vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::setSupportedManeuverDetails(static_cast<QGeoRouteRequest::ManeuverDetails>(maneuverDetails));
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::setSupportedManeuverDetails called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGeoRoutingManagerEngine_SuperSetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, int maneuverDetails) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedManeuverDetails_IsBase(true);
-        vqgeoroutingmanagerengine->setSupportedManeuverDetails(static_cast<QGeoRouteRequest::ManeuverDetails>(maneuverDetails));
-    } else {
-        ((VirtualQGeoRoutingManagerEngine*)self)->setSupportedManeuverDetails(static_cast<QGeoRouteRequest::ManeuverDetails>(maneuverDetails));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnSetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedManeuverDetails_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedManeuverDetails_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QGeoRoutingManagerEngine_Sender(const QGeoRoutingManagerEngine* self) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return vqgeoroutingmanagerengine->sender();
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->sender();
-    }
+    if (auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self))) {
+        return vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::sender();
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QGeoRoutingManagerEngine_SuperSender(const QGeoRoutingManagerEngine* self) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Sender_IsBase(true);
-        return vqgeoroutingmanagerengine->sender();
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnSender(const QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Sender_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGeoRoutingManagerEngine_SenderSignalIndex(const QGeoRoutingManagerEngine* self) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return vqgeoroutingmanagerengine->senderSignalIndex();
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->senderSignalIndex();
-    }
+    if (auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self))) {
+        return vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGeoRoutingManagerEngine_SuperSenderSignalIndex(const QGeoRoutingManagerEngine* self) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SenderSignalIndex_IsBase(true);
-        return vqgeoroutingmanagerengine->senderSignalIndex();
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnSenderSignalIndex(const QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGeoRoutingManagerEngine_Receivers(const QGeoRoutingManagerEngine* self, const char* signal) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return vqgeoroutingmanagerengine->receivers(signal);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->receivers(signal);
-    }
+    if (auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self))) {
+        return vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::receivers(signal);
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGeoRoutingManagerEngine_SuperReceivers(const QGeoRoutingManagerEngine* self, const char* signal) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Receivers_IsBase(true);
-        return vqgeoroutingmanagerengine->receivers(signal);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnReceivers(const QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Receivers_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGeoRoutingManagerEngine_IsSignalConnected(const QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return vqgeoroutingmanagerengine->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QGeoRoutingManagerEngine_SuperIsSignalConnected(const QGeoRoutingManagerEngine* self, const QMetaMethod* signal) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_IsSignalConnected_IsBase(true);
-        return vqgeoroutingmanagerengine->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoRoutingManagerEngine_OnIsSignalConnected(const QGeoRoutingManagerEngine* self, intptr_t slot) {
-    auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
-        vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_IsSignalConnected_Callback>(slot));
+    if (auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self))) {
+        return vqgeoroutingmanagerengine->VirtualQGeoRoutingManagerEngine::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QGeoRoutingManagerEngine::isSignalConnected called without a directly constructed type");
 }
 
 void QGeoRoutingManagerEngine_Delete(QGeoRoutingManagerEngine* self) {

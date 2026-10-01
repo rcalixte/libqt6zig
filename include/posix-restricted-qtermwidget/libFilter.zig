@@ -45,6 +45,8 @@ pub const Konsole__Filter = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// This method must be implemented with `onProcess` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Konsole__Filter `
@@ -65,26 +67,10 @@ pub const Konsole__Filter = extern struct {
     ///
     /// ` self: Konsole__Filter `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Konsole__Filter) callconv(.c) void `
     ///
-    pub fn onProcess(self: Konsole__Filter, callback: *const fn () callconv(.c) void) void {
+    pub fn onProcess(self: Konsole__Filter, callback: *const fn (Konsole__Filter) callconv(.c) void) void {
         qtc.Konsole__Filter_OnProcess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superProcess` instead
-    ///
-    pub const SuperProcess = superProcess;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    pub fn superProcess(self: Konsole__Filter) void {
-        qtc.Konsole__Filter_SuperProcess(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `reset` instead
@@ -136,43 +122,6 @@ pub const Konsole__Filter = extern struct {
         qtc.Konsole__Filter_AddHotSpot(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `onAddHotSpot` instead
-    ///
-    pub const OnAddHotSpot = onAddHotSpot;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    /// ` callback: *const fn (self: Konsole__Filter, param1: Konsole__Filter__HotSpot) callconv(.c) void `
-    ///
-    pub fn onAddHotSpot(self: Konsole__Filter, callback: *const fn (Konsole__Filter, Konsole__Filter__HotSpot) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnAddHotSpot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddHotSpot` instead
-    ///
-    pub const SuperAddHotSpot = superAddHotSpot;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    /// ` param1: Konsole__Filter__HotSpot `
-    ///
-    pub fn superAddHotSpot(self: Konsole__Filter, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Konsole__Filter__HotSpot;
-        qtc.Konsole__Filter_SuperAddHotSpot(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `buffer` instead
     ///
     pub const Buffer = buffer;
@@ -187,46 +136,6 @@ pub const Konsole__Filter = extern struct {
     ///
     pub fn buffer(self: Konsole__Filter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__Filter_Buffer(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.buffer: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onBuffer` instead
-    ///
-    pub const OnBuffer = onBuffer;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onBuffer(self: Konsole__Filter, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__Filter_OnBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBuffer` instead
-    ///
-    pub const SuperBuffer = superBuffer;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superBuffer(self: Konsole__Filter, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Konsole__Filter_SuperBuffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -251,46 +160,6 @@ pub const Konsole__Filter = extern struct {
     ///
     pub fn getLineColumn(self: Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32) void {
         qtc.Konsole__Filter_GetLineColumn(@ptrCast(self.ptr), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
-    }
-
-    /// ### DEPRECATED: Use `onGetLineColumn` instead
-    ///
-    pub const OnGetLineColumn = onGetLineColumn;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    /// ` callback: *const fn (self: Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
-    ///
-    pub fn onGetLineColumn(self: Konsole__Filter, callback: *const fn (Konsole__Filter, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnGetLineColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superGetLineColumn` instead
-    ///
-    pub const SuperGetLineColumn = superGetLineColumn;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    /// ` position: i32 `
-    ///
-    /// ` startLine: *i32 `
-    ///
-    /// ` startColumn: *i32 `
-    ///
-    pub fn superGetLineColumn(self: Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__Filter_SuperGetLineColumn(@ptrCast(self.ptr), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -1308,9 +1177,9 @@ pub const Konsole__Filter = extern struct {
     ///
     /// ` self: Konsole__Filter`
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Konsole__Filter) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Konsole__Filter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Konsole__Filter, callback: *const fn (Konsole__Filter) callconv(.c) QMetaObject) void {
         qtc.Konsole__Filter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1902,44 +1771,6 @@ pub const Konsole__Filter = extern struct {
         return .{ .ptr = qtc.Konsole__Filter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    pub fn superSender(self: Konsole__Filter) QObject {
-        return .{ .ptr = qtc.Konsole__Filter_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Filter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Konsole__Filter, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Konsole__Filter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1956,44 +1787,6 @@ pub const Konsole__Filter = extern struct {
     ///
     pub fn senderSignalIndex(self: Konsole__Filter) i32 {
         return qtc.Konsole__Filter_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    pub fn superSenderSignalIndex(self: Konsole__Filter) i32 {
-        return qtc.Konsole__Filter_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Filter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Konsole__Filter, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__Filter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2017,47 +1810,6 @@ pub const Konsole__Filter = extern struct {
         return qtc.Konsole__Filter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Konsole__Filter, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Konsole__Filter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Filter`
-    ///
-    /// ` callback: *const fn (self: Konsole__Filter, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Konsole__Filter, callback: *const fn (Konsole__Filter, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__Filter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2077,47 +1829,6 @@ pub const Konsole__Filter = extern struct {
     pub fn isSignalConnected(self: Konsole__Filter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Konsole__Filter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Konsole__Filter, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Konsole__Filter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Filter`
-    ///
-    /// ` callback: *const fn (self: Konsole__Filter, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Konsole__Filter, callback: *const fn (Konsole__Filter, QMetaMethod) callconv(.c) bool) void {
-        qtc.Konsole__Filter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2234,9 +1945,9 @@ pub const Konsole__RegExpFilter = extern struct {
     ///
     /// ` self: Konsole__RegExpFilter `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Konsole__RegExpFilter) callconv(.c) void `
     ///
-    pub fn onProcess(self: Konsole__RegExpFilter, callback: *const fn () callconv(.c) void) void {
+    pub fn onProcess(self: Konsole__RegExpFilter, callback: *const fn (Konsole__RegExpFilter) callconv(.c) void) void {
         qtc.Konsole__RegExpFilter_OnProcess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3371,9 +3082,9 @@ pub const Konsole__RegExpFilter = extern struct {
     ///
     /// ` self: Konsole__RegExpFilter`
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Konsole__RegExpFilter) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Konsole__RegExpFilter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Konsole__RegExpFilter, callback: *const fn (Konsole__RegExpFilter) callconv(.c) QMetaObject) void {
         qtc.Konsole__RegExpFilter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3968,47 +3679,6 @@ pub const Konsole__RegExpFilter = extern struct {
         qtc.Konsole__RegExpFilter_AddHotSpot(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAddHotSpot` instead
-    ///
-    pub const SuperAddHotSpot = superAddHotSpot;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter `
-    ///
-    /// ` param1: Konsole__Filter__HotSpot `
-    ///
-    pub fn superAddHotSpot(self: Konsole__RegExpFilter, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Konsole__Filter__HotSpot;
-        qtc.Konsole__RegExpFilter_SuperAddHotSpot(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddHotSpot` instead
-    ///
-    pub const OnAddHotSpot = onAddHotSpot;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__RegExpFilter`
-    ///
-    /// ` callback: *const fn (self: Konsole__RegExpFilter, param1: Konsole__Filter__HotSpot) callconv(.c) void `
-    ///
-    pub fn onAddHotSpot(self: Konsole__RegExpFilter, callback: *const fn (Konsole__RegExpFilter, Konsole__Filter__HotSpot) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnAddHotSpot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `buffer` instead
     ///
     pub const Buffer = buffer;
@@ -4031,50 +3701,6 @@ pub const Konsole__RegExpFilter = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// ### DEPRECATED: Use `superBuffer` instead
-    ///
-    pub const SuperBuffer = superBuffer;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superBuffer(self: Konsole__RegExpFilter, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Konsole__RegExpFilter_SuperBuffer(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.buffer: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onBuffer` instead
-    ///
-    pub const OnBuffer = onBuffer;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__RegExpFilter`
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onBuffer(self: Konsole__RegExpFilter, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__RegExpFilter_OnBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getLineColumn` instead
@@ -4101,50 +3727,6 @@ pub const Konsole__RegExpFilter = extern struct {
         qtc.Konsole__RegExpFilter_GetLineColumn(@ptrCast(self.ptr), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
-    /// ### DEPRECATED: Use `superGetLineColumn` instead
-    ///
-    pub const SuperGetLineColumn = superGetLineColumn;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter `
-    ///
-    /// ` position: i32 `
-    ///
-    /// ` startLine: *i32 `
-    ///
-    /// ` startColumn: *i32 `
-    ///
-    pub fn superGetLineColumn(self: Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__RegExpFilter_SuperGetLineColumn(@ptrCast(self.ptr), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
-    }
-
-    /// ### DEPRECATED: Use `onGetLineColumn` instead
-    ///
-    pub const OnGetLineColumn = onGetLineColumn;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__RegExpFilter`
-    ///
-    /// ` callback: *const fn (self: Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
-    ///
-    pub fn onGetLineColumn(self: Konsole__RegExpFilter, callback: *const fn (Konsole__RegExpFilter, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnGetLineColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4163,44 +3745,6 @@ pub const Konsole__RegExpFilter = extern struct {
         return .{ .ptr = qtc.Konsole__RegExpFilter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter `
-    ///
-    pub fn superSender(self: Konsole__RegExpFilter) QObject {
-        return .{ .ptr = qtc.Konsole__RegExpFilter_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__RegExpFilter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Konsole__RegExpFilter, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Konsole__RegExpFilter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4217,44 +3761,6 @@ pub const Konsole__RegExpFilter = extern struct {
     ///
     pub fn senderSignalIndex(self: Konsole__RegExpFilter) i32 {
         return qtc.Konsole__RegExpFilter_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter `
-    ///
-    pub fn superSenderSignalIndex(self: Konsole__RegExpFilter) i32 {
-        return qtc.Konsole__RegExpFilter_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__RegExpFilter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Konsole__RegExpFilter, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__RegExpFilter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4278,47 +3784,6 @@ pub const Konsole__RegExpFilter = extern struct {
         return qtc.Konsole__RegExpFilter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Konsole__RegExpFilter, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Konsole__RegExpFilter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__RegExpFilter`
-    ///
-    /// ` callback: *const fn (self: Konsole__RegExpFilter, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Konsole__RegExpFilter, callback: *const fn (Konsole__RegExpFilter, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__RegExpFilter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4338,47 +3803,6 @@ pub const Konsole__RegExpFilter = extern struct {
     pub fn isSignalConnected(self: Konsole__RegExpFilter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Konsole__RegExpFilter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Konsole__RegExpFilter, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Konsole__RegExpFilter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__RegExpFilter`
-    ///
-    /// ` callback: *const fn (self: Konsole__RegExpFilter, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Konsole__RegExpFilter, callback: *const fn (Konsole__RegExpFilter, QMetaMethod) callconv(.c) bool) void {
-        qtc.Konsole__RegExpFilter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -4465,9 +3889,9 @@ pub const Konsole__UrlFilter = extern struct {
     ///
     /// ` self: Konsole__UrlFilter `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Konsole__UrlFilter) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Konsole__UrlFilter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Konsole__UrlFilter, callback: *const fn (Konsole__UrlFilter) callconv(.c) QMetaObject) void {
         qtc.Konsole__UrlFilter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5851,9 +5275,9 @@ pub const Konsole__UrlFilter = extern struct {
     ///
     /// ` self: Konsole__UrlFilter`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Konsole__UrlFilter) callconv(.c) void `
     ///
-    pub fn onProcess(self: Konsole__UrlFilter, callback: *const fn () callconv(.c) void) void {
+    pub fn onProcess(self: Konsole__UrlFilter, callback: *const fn (Konsole__UrlFilter) callconv(.c) void) void {
         qtc.Konsole__UrlFilter_OnProcess(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6318,47 +5742,6 @@ pub const Konsole__UrlFilter = extern struct {
         qtc.Konsole__UrlFilter_AddHotSpot(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAddHotSpot` instead
-    ///
-    pub const SuperAddHotSpot = superAddHotSpot;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter `
-    ///
-    /// ` param1: Konsole__Filter__HotSpot `
-    ///
-    pub fn superAddHotSpot(self: Konsole__UrlFilter, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Konsole__Filter__HotSpot;
-        qtc.Konsole__UrlFilter_SuperAddHotSpot(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddHotSpot` instead
-    ///
-    pub const OnAddHotSpot = onAddHotSpot;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__UrlFilter`
-    ///
-    /// ` callback: *const fn (self: Konsole__UrlFilter, param1: Konsole__Filter__HotSpot) callconv(.c) void `
-    ///
-    pub fn onAddHotSpot(self: Konsole__UrlFilter, callback: *const fn (Konsole__UrlFilter, Konsole__Filter__HotSpot) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnAddHotSpot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `buffer` instead
     ///
     pub const Buffer = buffer;
@@ -6381,50 +5764,6 @@ pub const Konsole__UrlFilter = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// ### DEPRECATED: Use `superBuffer` instead
-    ///
-    pub const SuperBuffer = superBuffer;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superBuffer(self: Konsole__UrlFilter, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Konsole__UrlFilter_SuperBuffer(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.buffer: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onBuffer` instead
-    ///
-    pub const OnBuffer = onBuffer;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__UrlFilter`
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onBuffer(self: Konsole__UrlFilter, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__UrlFilter_OnBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getLineColumn` instead
@@ -6451,50 +5790,6 @@ pub const Konsole__UrlFilter = extern struct {
         qtc.Konsole__UrlFilter_GetLineColumn(@ptrCast(self.ptr), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
-    /// ### DEPRECATED: Use `superGetLineColumn` instead
-    ///
-    pub const SuperGetLineColumn = superGetLineColumn;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter `
-    ///
-    /// ` position: i32 `
-    ///
-    /// ` startLine: *i32 `
-    ///
-    /// ` startColumn: *i32 `
-    ///
-    pub fn superGetLineColumn(self: Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32) void {
-        qtc.Konsole__UrlFilter_SuperGetLineColumn(@ptrCast(self.ptr), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
-    }
-
-    /// ### DEPRECATED: Use `onGetLineColumn` instead
-    ///
-    pub const OnGetLineColumn = onGetLineColumn;
-
-    /// Inherited from Konsole::Filter
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__UrlFilter`
-    ///
-    /// ` callback: *const fn (self: Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void `
-    ///
-    pub fn onGetLineColumn(self: Konsole__UrlFilter, callback: *const fn (Konsole__UrlFilter, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnGetLineColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -6513,44 +5808,6 @@ pub const Konsole__UrlFilter = extern struct {
         return .{ .ptr = qtc.Konsole__UrlFilter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter `
-    ///
-    pub fn superSender(self: Konsole__UrlFilter) QObject {
-        return .{ .ptr = qtc.Konsole__UrlFilter_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__UrlFilter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Konsole__UrlFilter, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Konsole__UrlFilter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -6567,44 +5824,6 @@ pub const Konsole__UrlFilter = extern struct {
     ///
     pub fn senderSignalIndex(self: Konsole__UrlFilter) i32 {
         return qtc.Konsole__UrlFilter_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter `
-    ///
-    pub fn superSenderSignalIndex(self: Konsole__UrlFilter) i32 {
-        return qtc.Konsole__UrlFilter_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__UrlFilter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Konsole__UrlFilter, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__UrlFilter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -6628,47 +5847,6 @@ pub const Konsole__UrlFilter = extern struct {
         return qtc.Konsole__UrlFilter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Konsole__UrlFilter, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Konsole__UrlFilter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__UrlFilter`
-    ///
-    /// ` callback: *const fn (self: Konsole__UrlFilter, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Konsole__UrlFilter, callback: *const fn (Konsole__UrlFilter, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__UrlFilter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -6688,47 +5866,6 @@ pub const Konsole__UrlFilter = extern struct {
     pub fn isSignalConnected(self: Konsole__UrlFilter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Konsole__UrlFilter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Konsole__UrlFilter, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Konsole__UrlFilter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__UrlFilter`
-    ///
-    /// ` callback: *const fn (self: Konsole__UrlFilter, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Konsole__UrlFilter, callback: *const fn (Konsole__UrlFilter, QMetaMethod) callconv(.c) bool) void {
-        qtc.Konsole__UrlFilter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -6818,9 +5955,9 @@ pub const Konsole__FilterObject = extern struct {
     ///
     /// ` self: Konsole__FilterObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Konsole__FilterObject) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Konsole__FilterObject, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Konsole__FilterObject, callback: *const fn (Konsole__FilterObject) callconv(.c) QMetaObject) void {
         qtc.Konsole__FilterObject_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8510,44 +7647,6 @@ pub const Konsole__FilterObject = extern struct {
         return .{ .ptr = qtc.Konsole__FilterObject_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__FilterObject `
-    ///
-    pub fn superSender(self: Konsole__FilterObject) QObject {
-        return .{ .ptr = qtc.Konsole__FilterObject_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__FilterObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Konsole__FilterObject, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Konsole__FilterObject_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -8564,44 +7663,6 @@ pub const Konsole__FilterObject = extern struct {
     ///
     pub fn senderSignalIndex(self: Konsole__FilterObject) i32 {
         return qtc.Konsole__FilterObject_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__FilterObject `
-    ///
-    pub fn superSenderSignalIndex(self: Konsole__FilterObject) i32 {
-        return qtc.Konsole__FilterObject_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__FilterObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Konsole__FilterObject, callback: *const fn () callconv(.c) i32) void {
-        qtc.Konsole__FilterObject_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -8625,47 +7686,6 @@ pub const Konsole__FilterObject = extern struct {
         return qtc.Konsole__FilterObject_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__FilterObject `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Konsole__FilterObject, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Konsole__FilterObject_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__FilterObject`
-    ///
-    /// ` callback: *const fn (self: Konsole__FilterObject, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Konsole__FilterObject, callback: *const fn (Konsole__FilterObject, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__FilterObject_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -8685,47 +7705,6 @@ pub const Konsole__FilterObject = extern struct {
     pub fn isSignalConnected(self: Konsole__FilterObject, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Konsole__FilterObject_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__FilterObject `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Konsole__FilterObject, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Konsole__FilterObject_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__FilterObject`
-    ///
-    /// ` callback: *const fn (self: Konsole__FilterObject, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Konsole__FilterObject, callback: *const fn (Konsole__FilterObject, QMetaMethod) callconv(.c) bool) void {
-        qtc.Konsole__FilterObject_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -9307,6 +8286,8 @@ pub const Konsole__Filter__HotSpot = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// This method must be implemented with `onActivate` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Konsole__Filter__HotSpot `
@@ -9337,28 +8318,6 @@ pub const Konsole__Filter__HotSpot = extern struct {
     ///
     pub fn onActivate(self: Konsole__Filter__HotSpot, callback: *const fn (Konsole__Filter__HotSpot, [*:0]const u8) callconv(.c) void) void {
         qtc.Konsole__Filter__HotSpot_OnActivate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superActivate` instead
-    ///
-    pub const SuperActivate = superActivate;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter__HotSpot `
-    ///
-    /// ` action: []const u8 `
-    ///
-    pub fn superActivate(self: Konsole__Filter__HotSpot, action: []const u8) void {
-        const action_str = qtc.libqt_string{
-            .len = action.len,
-            .data = action.ptr,
-        };
-        qtc.Konsole__Filter__HotSpot_SuperActivate(@ptrCast(self.ptr), action_str);
     }
 
     /// ### DEPRECATED: Use `actions` instead
@@ -9397,13 +8356,13 @@ pub const Konsole__Filter__HotSpot = extern struct {
     ///
     /// ` self: Konsole__Filter__HotSpot `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: Konsole__Filter__HotSpot) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QAction `
     ///
-    pub fn onActions(self: Konsole__Filter__HotSpot, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onActions(self: Konsole__Filter__HotSpot, callback: *const fn (Konsole__Filter__HotSpot) callconv(.c) qtc.libqt_list) void {
         qtc.Konsole__Filter__HotSpot_OnActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9445,42 +8404,6 @@ pub const Konsole__Filter__HotSpot = extern struct {
     ///
     pub fn setType(self: Konsole__Filter__HotSpot, typeVal: i32) void {
         qtc.Konsole__Filter__HotSpot_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
-    }
-
-    /// ### DEPRECATED: Use `onSetType` instead
-    ///
-    pub const OnSetType = onSetType;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__Filter__HotSpot `
-    ///
-    /// ` callback: *const fn (self: Konsole__Filter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
-    ///
-    pub fn onSetType(self: Konsole__Filter__HotSpot, callback: *const fn (Konsole__Filter__HotSpot, i32) callconv(.c) void) void {
-        qtc.Konsole__Filter__HotSpot_OnSetType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetType` instead
-    ///
-    pub const SuperSetType = superSetType;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter__HotSpot `
-    ///
-    /// ` typeVal: Filter_enums.Type `
-    ///
-    pub fn superSetType(self: Konsole__Filter__HotSpot, typeVal: i32) void {
-        qtc.Konsole__Filter__HotSpot_SuperSetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead
@@ -9851,13 +8774,13 @@ pub const Konsole__RegExpFilter__HotSpot = extern struct {
     ///
     /// ` self: Konsole__RegExpFilter__HotSpot`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: Konsole__RegExpFilter__HotSpot) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QAction `
     ///
-    pub fn onActions(self: Konsole__RegExpFilter__HotSpot, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onActions(self: Konsole__RegExpFilter__HotSpot, callback: *const fn (Konsole__RegExpFilter__HotSpot) callconv(.c) qtc.libqt_list) void {
         qtc.Konsole__RegExpFilter__HotSpot_OnActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9879,46 +8802,6 @@ pub const Konsole__RegExpFilter__HotSpot = extern struct {
     ///
     pub fn setType(self: Konsole__RegExpFilter__HotSpot, typeVal: i32) void {
         qtc.Konsole__RegExpFilter__HotSpot_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
-    }
-
-    /// ### DEPRECATED: Use `superSetType` instead
-    ///
-    pub const SuperSetType = superSetType;
-
-    /// Inherited from Konsole::Filter::HotSpot
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter__HotSpot `
-    ///
-    /// ` typeVal: Filter_enums.Type `
-    ///
-    pub fn superSetType(self: Konsole__RegExpFilter__HotSpot, typeVal: i32) void {
-        qtc.Konsole__RegExpFilter__HotSpot_SuperSetType(@ptrCast(self.ptr), @bitCast(typeVal));
-    }
-
-    /// ### DEPRECATED: Use `onSetType` instead
-    ///
-    pub const OnSetType = onSetType;
-
-    /// Inherited from Konsole::Filter::HotSpot
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__RegExpFilter__HotSpot`
-    ///
-    /// ` callback: *const fn (self: Konsole__RegExpFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
-    ///
-    pub fn onSetType(self: Konsole__RegExpFilter__HotSpot, callback: *const fn (Konsole__RegExpFilter__HotSpot, i32) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter__HotSpot_OnSetType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -10018,13 +8901,13 @@ pub const Konsole__UrlFilter__HotSpot = extern struct {
     ///
     /// ` self: Konsole__UrlFilter__HotSpot `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: Konsole__UrlFilter__HotSpot) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QAction `
     ///
-    pub fn onActions(self: Konsole__UrlFilter__HotSpot, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onActions(self: Konsole__UrlFilter__HotSpot, callback: *const fn (Konsole__UrlFilter__HotSpot) callconv(.c) qtc.libqt_list) void {
         qtc.Konsole__UrlFilter__HotSpot_OnActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10298,46 +9181,6 @@ pub const Konsole__UrlFilter__HotSpot = extern struct {
     ///
     pub fn setType(self: Konsole__UrlFilter__HotSpot, typeVal: i32) void {
         qtc.Konsole__UrlFilter__HotSpot_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
-    }
-
-    /// ### DEPRECATED: Use `superSetType` instead
-    ///
-    pub const SuperSetType = superSetType;
-
-    /// Inherited from Konsole::Filter::HotSpot
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter__HotSpot `
-    ///
-    /// ` typeVal: Filter_enums.Type `
-    ///
-    pub fn superSetType(self: Konsole__UrlFilter__HotSpot, typeVal: i32) void {
-        qtc.Konsole__UrlFilter__HotSpot_SuperSetType(@ptrCast(self.ptr), @bitCast(typeVal));
-    }
-
-    /// ### DEPRECATED: Use `onSetType` instead
-    ///
-    pub const OnSetType = onSetType;
-
-    /// Inherited from Konsole::Filter::HotSpot
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Konsole__UrlFilter__HotSpot`
-    ///
-    /// ` callback: *const fn (self: Konsole__UrlFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void `
-    ///
-    pub fn onSetType(self: Konsole__UrlFilter__HotSpot, callback: *const fn (Konsole__UrlFilter__HotSpot, i32) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter__HotSpot_OnSetType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

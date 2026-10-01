@@ -161,364 +161,219 @@ libqt_string QQmlContext_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQmlContext_SuperMetaObject(const QQmlContext* self) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_MetaObject_IsBase(true);
-        return (QMetaObject*)vqqmlcontext->metaObject();
-    } else {
-        return (QMetaObject*)self->QQmlContext::metaObject();
-    }
+    return (QMetaObject*)self->QQmlContext::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQmlContext_OnMetaObject(const QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_MetaObject_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_MetaObject_Callback>(slot));
+void QQmlContext_OnMetaObject(QQmlContext* self, intptr_t slot) {
+    if (auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self)))
+        vqqmlcontext->qqmlcontext_metaobject_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQmlContext_SuperMetacast(QQmlContext* self, const char* param1) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_Metacast_IsBase(true);
-        return vqqmlcontext->qt_metacast(param1);
-    } else {
-        return self->QQmlContext::qt_metacast(param1);
-    }
+    return self->QQmlContext::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnMetacast(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_Metacast_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_Metacast_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_metacast_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQmlContext_SuperMetacall(QQmlContext* self, int param1, int param2, void** param3) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_Metacall_IsBase(true);
-        return vqqmlcontext->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQmlContext::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQmlContext::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnMetacall(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_Metacall_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_Metacall_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_metacall_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQmlContext_Event(QQmlContext* self, QEvent* event) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        return vqqmlcontext->event(event);
-    } else {
-        return self->QQmlContext::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQmlContext_SuperEvent(QQmlContext* self, QEvent* event) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_Event_IsBase(true);
-        return vqqmlcontext->event(event);
-    } else {
-        return self->QQmlContext::event(event);
-    }
+    return self->QQmlContext::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnEvent(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_Event_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_Event_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_event_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQmlContext_EventFilter(QQmlContext* self, QObject* watched, QEvent* event) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        return vqqmlcontext->eventFilter(watched, event);
-    } else {
-        return self->QQmlContext::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQmlContext_SuperEventFilter(QQmlContext* self, QObject* watched, QEvent* event) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_EventFilter_IsBase(true);
-        return vqqmlcontext->eventFilter(watched, event);
-    } else {
-        return self->QQmlContext::eventFilter(watched, event);
-    }
+    return self->QQmlContext::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnEventFilter(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_EventFilter_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_EventFilter_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_eventfilter_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlContext_TimerEvent(QQmlContext* self, QTimerEvent* event) {
     auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
+    if (vqqmlcontext) {
         vqqmlcontext->timerEvent(event);
     } else {
-        ((VirtualQQmlContext*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQmlContext::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlContext_SuperTimerEvent(QQmlContext* self, QTimerEvent* event) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_TimerEvent_IsBase(true);
-        vqqmlcontext->timerEvent(event);
-    } else {
-        ((VirtualQQmlContext*)self)->timerEvent(event);
-    }
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self)) {
+        vqqmlcontext->QQmlContext::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlContext::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnTimerEvent(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_TimerEvent_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_TimerEvent_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_timerevent_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlContext_ChildEvent(QQmlContext* self, QChildEvent* event) {
     auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
+    if (vqqmlcontext) {
         vqqmlcontext->childEvent(event);
     } else {
-        ((VirtualQQmlContext*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQmlContext::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlContext_SuperChildEvent(QQmlContext* self, QChildEvent* event) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_ChildEvent_IsBase(true);
-        vqqmlcontext->childEvent(event);
-    } else {
-        ((VirtualQQmlContext*)self)->childEvent(event);
-    }
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self)) {
+        vqqmlcontext->QQmlContext::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlContext::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnChildEvent(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_ChildEvent_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_ChildEvent_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_childevent_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlContext_CustomEvent(QQmlContext* self, QEvent* event) {
     auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
+    if (vqqmlcontext) {
         vqqmlcontext->customEvent(event);
     } else {
-        ((VirtualQQmlContext*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQmlContext::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlContext_SuperCustomEvent(QQmlContext* self, QEvent* event) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_CustomEvent_IsBase(true);
-        vqqmlcontext->customEvent(event);
-    } else {
-        ((VirtualQQmlContext*)self)->customEvent(event);
-    }
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self)) {
+        vqqmlcontext->QQmlContext::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlContext::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnCustomEvent(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_CustomEvent_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_CustomEvent_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_customevent_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlContext_ConnectNotify(QQmlContext* self, const QMetaMethod* signal) {
     auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
+    if (vqqmlcontext) {
         vqqmlcontext->connectNotify(*signal);
     } else {
-        ((VirtualQQmlContext*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQmlContext::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlContext_SuperConnectNotify(QQmlContext* self, const QMetaMethod* signal) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_ConnectNotify_IsBase(true);
-        vqqmlcontext->connectNotify(*signal);
-    } else {
-        ((VirtualQQmlContext*)self)->connectNotify(*signal);
-    }
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self)) {
+        vqqmlcontext->QQmlContext::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQmlContext::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnConnectNotify(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_ConnectNotify_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_ConnectNotify_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_connectnotify_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlContext_DisconnectNotify(QQmlContext* self, const QMetaMethod* signal) {
     auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
+    if (vqqmlcontext) {
         vqqmlcontext->disconnectNotify(*signal);
     } else {
-        ((VirtualQQmlContext*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQmlContext::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlContext_SuperDisconnectNotify(QQmlContext* self, const QMetaMethod* signal) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_DisconnectNotify_IsBase(true);
-        vqqmlcontext->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQmlContext*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self)) {
+        vqqmlcontext->QQmlContext::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQmlContext::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlContext_OnDisconnectNotify(QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self);
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_DisconnectNotify_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_DisconnectNotify_Callback>(slot));
+    if (auto* vqqmlcontext = dynamic_cast<VirtualQQmlContext*>(self))
+        vqqmlcontext->qqmlcontext_disconnectnotify_callback = reinterpret_cast<VirtualQQmlContext::QQmlContext_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQmlContext_Sender(const QQmlContext* self) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        return vqqmlcontext->sender();
-    } else {
-        return ((VirtualQQmlContext*)self)->sender();
-    }
+    if (auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self))) {
+        return vqqmlcontext->VirtualQQmlContext::sender();
+    } else
+        qFatal("Error: Protected method QQmlContext::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQmlContext_SuperSender(const QQmlContext* self) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_Sender_IsBase(true);
-        return vqqmlcontext->sender();
-    } else {
-        return ((VirtualQQmlContext*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlContext_OnSender(const QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_Sender_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQmlContext_SenderSignalIndex(const QQmlContext* self) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        return vqqmlcontext->senderSignalIndex();
-    } else {
-        return ((VirtualQQmlContext*)self)->senderSignalIndex();
-    }
+    if (auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self))) {
+        return vqqmlcontext->VirtualQQmlContext::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQmlContext::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQmlContext_SuperSenderSignalIndex(const QQmlContext* self) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_SenderSignalIndex_IsBase(true);
-        return vqqmlcontext->senderSignalIndex();
-    } else {
-        return ((VirtualQQmlContext*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlContext_OnSenderSignalIndex(const QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQmlContext_Receivers(const QQmlContext* self, const char* signal) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        return vqqmlcontext->receivers(signal);
-    } else {
-        return ((VirtualQQmlContext*)self)->receivers(signal);
-    }
+    if (auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self))) {
+        return vqqmlcontext->VirtualQQmlContext::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQmlContext::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQmlContext_SuperReceivers(const QQmlContext* self, const char* signal) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_Receivers_IsBase(true);
-        return vqqmlcontext->receivers(signal);
-    } else {
-        return ((VirtualQQmlContext*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlContext_OnReceivers(const QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_Receivers_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQmlContext_IsSignalConnected(const QQmlContext* self, const QMetaMethod* signal) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        return vqqmlcontext->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQmlContext*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQmlContext_SuperIsSignalConnected(const QQmlContext* self, const QMetaMethod* signal) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext) {
-        vqqmlcontext->setQQmlContext_IsSignalConnected_IsBase(true);
-        return vqqmlcontext->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQmlContext*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlContext_OnIsSignalConnected(const QQmlContext* self, intptr_t slot) {
-    auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self));
-    if (vqqmlcontext && vqqmlcontext->isVirtualQQmlContext)
-        vqqmlcontext->setQQmlContext_IsSignalConnected_Callback(reinterpret_cast<VirtualQQmlContext::QQmlContext_IsSignalConnected_Callback>(slot));
+    if (auto* vqqmlcontext = const_cast<VirtualQQmlContext*>(dynamic_cast<const VirtualQQmlContext*>(self))) {
+        return vqqmlcontext->VirtualQQmlContext::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQmlContext::isSignalConnected called without a directly constructed type");
 }
 
 void QQmlContext_Delete(QQmlContext* self) {

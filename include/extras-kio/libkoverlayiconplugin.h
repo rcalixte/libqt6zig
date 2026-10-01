@@ -36,14 +36,13 @@ void KOverlayIconPlugin_OverlaysChanged(KOverlayIconPlugin* self, const QUrl* ur
 void KOverlayIconPlugin_Connect_OverlaysChanged(KOverlayIconPlugin* self, intptr_t slot);
 libqt_string KOverlayIconPlugin_Tr2(const char* s, const char* c);
 libqt_string KOverlayIconPlugin_Tr3(const char* s, const char* c, int n);
-void KOverlayIconPlugin_OnMetaObject(const KOverlayIconPlugin* self, intptr_t slot);
+void KOverlayIconPlugin_OnMetaObject(KOverlayIconPlugin* self, intptr_t slot);
 QMetaObject* KOverlayIconPlugin_SuperMetaObject(const KOverlayIconPlugin* self);
 void KOverlayIconPlugin_OnMetacast(KOverlayIconPlugin* self, intptr_t slot);
 void* KOverlayIconPlugin_SuperMetacast(KOverlayIconPlugin* self, const char* param1);
 void KOverlayIconPlugin_OnMetacall(KOverlayIconPlugin* self, intptr_t slot);
 int KOverlayIconPlugin_SuperMetacall(KOverlayIconPlugin* self, int param1, int param2, void** param3);
 void KOverlayIconPlugin_OnGetOverlays(KOverlayIconPlugin* self, intptr_t slot);
-libqt_list /* of libqt_string */ KOverlayIconPlugin_SuperGetOverlays(KOverlayIconPlugin* self, const QUrl* item);
 bool KOverlayIconPlugin_Event(KOverlayIconPlugin* self, QEvent* event);
 void KOverlayIconPlugin_OnEvent(KOverlayIconPlugin* self, intptr_t slot);
 bool KOverlayIconPlugin_SuperEvent(KOverlayIconPlugin* self, QEvent* event);
@@ -66,17 +65,9 @@ void KOverlayIconPlugin_DisconnectNotify(KOverlayIconPlugin* self, const QMetaMe
 void KOverlayIconPlugin_OnDisconnectNotify(KOverlayIconPlugin* self, intptr_t slot);
 void KOverlayIconPlugin_SuperDisconnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
 QObject* KOverlayIconPlugin_Sender(const KOverlayIconPlugin* self);
-void KOverlayIconPlugin_OnSender(const KOverlayIconPlugin* self, intptr_t slot);
-QObject* KOverlayIconPlugin_SuperSender(const KOverlayIconPlugin* self);
 int KOverlayIconPlugin_SenderSignalIndex(const KOverlayIconPlugin* self);
-void KOverlayIconPlugin_OnSenderSignalIndex(const KOverlayIconPlugin* self, intptr_t slot);
-int KOverlayIconPlugin_SuperSenderSignalIndex(const KOverlayIconPlugin* self);
 int KOverlayIconPlugin_Receivers(const KOverlayIconPlugin* self, const char* signal);
-void KOverlayIconPlugin_OnReceivers(const KOverlayIconPlugin* self, intptr_t slot);
-int KOverlayIconPlugin_SuperReceivers(const KOverlayIconPlugin* self, const char* signal);
 bool KOverlayIconPlugin_IsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal);
-void KOverlayIconPlugin_OnIsSignalConnected(const KOverlayIconPlugin* self, intptr_t slot);
-bool KOverlayIconPlugin_SuperIsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal);
 void KOverlayIconPlugin_Delete(KOverlayIconPlugin* self);
 
 #ifdef __cplusplus

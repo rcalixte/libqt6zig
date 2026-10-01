@@ -1140,7 +1140,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_list, " + p.ParameterName + `.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
-			preamble += "for (" + p.ParameterName + ", 0.." + ") |" + nameprefix + "_inner, i|\n"
+			preamble += "for (" + p.ParameterName + ", 0..) |" + nameprefix + "_inner, i|\n"
 			preamble += "    " + nameprefix + "_arr[i] = qtc.libqt_list{\n"
 			preamble += "        .len = " + nameprefix + "_inner.len,\n"
 			preamble += "        .data = @ptrCast(" + nameprefix + "_inner.ptr),\n"
@@ -1152,7 +1152,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 				preamble += "defer allocator.free(" + nameprefix + "_pairs);\n"
 				preamble += "const " + nameprefix + "_str = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len * 2) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				preamble += "defer allocator.free(" + nameprefix + "_str);\n"
-				preamble += "for (" + p.ParameterName + ", 0.." + ") |" + nameprefix + "_item, i| {\n"
+				preamble += "for (" + p.ParameterName + ", 0..) |" + nameprefix + "_item, i| {\n"
 				preamble += "    " + nameprefix + "_str[i * 2] = qtc.libqt_string{\n"
 				preamble += "        .len = " + nameprefix + "_item.first.len,\n"
 				preamble += "        .data = " + nameprefix + "_item.first.ptr,\n"
@@ -2473,8 +2473,7 @@ const qtc = @import("qt6c");`)
 			zigIncs[zigStructName+maybeDedupe] = "pub const " + zigStructName + maybeDedupe + " = " + maybePlatformRestriction(zigStructName) +
 				`@import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStructName + ";"
 			pageUrl := zfs.getPageUrl(QtPage, pageName, "", zigStructName)
-			ret.WriteString(pageUrl + "\n" +
-				"pub const " + zigStructName + " = extern struct {\n")
+			ret.WriteString(pageUrl + "\npub const " + zigStructName + " = extern struct {\n")
 
 			if !c.IsFreeFunctions && AllowStructDef(c.ClassName) && !isBindingRemoved(c.ClassName) {
 				ret.WriteString(pageUrl + "\n" + ptrFieldDesc +
@@ -2670,6 +2669,11 @@ const qtc = @import("qt6c");`)
 			if _, ok := previousMethods[mSafeMethodName]; ok {
 				continue
 			}
+
+			if m.IsPureVirtual && !IsKnownReturnClass(c.ClassName) && len(c.Ctors) == 0 {
+				continue
+			}
+
 			overrideTr := (m.MethodName == "tr" || m.OverrideMethodName == "tr") && zigStructName != "QMetaObject"
 			cmdStructName := zigStructName
 			var inheritedFrom, inheritedParentClass string
@@ -2766,6 +2770,16 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				maybeNewLine = "///\n"
 			}
 
+			if m.IsPureVirtual {
+				maybeVirtualWarning := ""
+				if virtualEligible {
+					maybeVirtualWarning = "\n///\n/// This method must be implemented with `on" + mSafeMethodName + "` before it can be called.\n"
+				} else if IsKnownReturnClass(c.ClassName) {
+					maybeVirtualWarning = "\n///\n/// **Warning:** Use caution when calling this method as it might not be defined.\n"
+				}
+				ret.WriteString(maybeVirtualWarning)
+			}
+
 			previousMethods[m.MethodName] = struct{}{}
 			previousMethods[mSafeMethodName] = struct{}{}
 
@@ -2844,7 +2858,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				}
 			}
 
-			if m.IsFinal {
+			if m.IsFinal || (m.IsProtected && !(m.IsVirtual || m.IsPureVirtual)) {
 				continue
 			}
 
@@ -2862,11 +2876,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 					continue
 				}
 
-				var maybeClassName, maybeComma, maybeCommentSelf string
-				if len(m.Parameters) != 0 || (showHiddenParams && len(m.HiddenParams) != 0) {
-					maybeClassName = zigStructName
-					maybeCommentSelf = "self: " + zigStructName
-				}
+				var maybeComma string
 				if len(m.Parameters) > 0 {
 					maybeComma = ", "
 				}
@@ -2893,11 +2903,15 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 					"\n    pub const On" + mSafeMethodName + " = on" + mSafeMethodName + ";\n")
 
 				ret.WriteString(inheritedFrom + docCommentUrl + onDocComment + "\n///\n/// ` self: " + zigStructName +
-					" `\n///\n/// ` callback: *const fn (" + maybeCommentSelf + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) +
+					" `\n///\n/// ` callback: *const fn (self: " + zigStructName + maybeComma + zfs.emitCommentParametersZig(m.Parameters, true) +
 					") callconv(.c) " + retType + " `\n///\n" + maybeReturnString +
-					"    pub fn on" + mSafeMethodName + "(self: " + zigStructName + ", callback: *const fn (" + maybeClassName + maybeComma +
+					"    pub fn on" + mSafeMethodName + "(self: " + zigStructName + ", callback: *const fn (" + zigStructName + maybeComma +
 					paramsZig + ") callconv(.c) " + retType + ") void {\n" + maybePlatformCompileError +
 					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));\n}\n")
+
+				if m.IsPureVirtual || m.IsFinal || (m.IsProtected && !(m.IsVirtual || m.IsPureVirtual)) {
+					continue
+				}
 
 				maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: "+zigStructName)
 				superDocComment := maybeNewLine + "/// Base class method implementation\n///\n" + maybeParamsLine
@@ -2957,7 +2971,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			cSafeMethodName := mSafeMethodName
 
 			// Include inheritance information if we have it
-			var inheritedFrom, maybeAllocatorComment, maybeCommentStruct, maybeClassName, maybeCommentSelf string
+			var inheritedFrom, maybeAllocatorComment string
 			cmdStructName := zigStructName
 			commaParams := ifv(len(m.Parameters) > 0, ", ", "")
 			if m.InheritedFrom != "" {
@@ -3011,6 +3025,10 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				allocatorParam = ", " + allocatorParam
 			}
 
+			if m.IsPureVirtual {
+				maybeReturnWarning += "\n/// This method must be implemented with `on" + mSafeMethodName + "` before it can be called.\n///\n"
+			}
+
 			headerComment := " /// Wrapper to allow calling virtual or protected method\n ///" + maybeReturnWarning + "\n/// ## Parameter(s):\n///"
 
 			if methodName != mSafeMethodName {
@@ -3027,7 +3045,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				"\n    pub fn " + methodName + "(self: " + zigStructName + allocatorParam + commaParams + zfsParams + ") " + returnTypeDecl + " {\n" +
 				preamble + returnFunc + "\n}\n")
 
-			if !AllowVirtual(m) || m.IsFinal {
+			if !AllowVirtual(m) || m.IsFinal || (m.IsProtected && !(m.IsVirtual || m.IsPureVirtual)) {
 				continue
 			}
 
@@ -3039,24 +3057,21 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: "+zigStructName)
 			returnFunc = zfs.emitCabiToZig("return ", m.ReturnType, "qtc."+cmdStructName+"_Super"+cSafeMethodName+"("+forwarding+")")
 
-			ret.WriteString("\n/// ### DEPRECATED: Use `super" + mSafeMethodName + "` instead\n///\n" +
-				"\n    pub const Super" + mSafeMethodName + " = super" + mSafeMethodName + ";\n")
+			if !m.IsPureVirtual {
+				ret.WriteString("\n/// ### DEPRECATED: Use `super" + mSafeMethodName + "` instead\n///\n" +
+					"\n    pub const Super" + mSafeMethodName + " = super" + mSafeMethodName + ";\n")
 
-			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n/// ` self: " + zigStructName + " `" +
-				maybeAllocatorComment + zfs.emitCommentParametersZig(m.Parameters, false) + returnComment + "\n///" +
-				"\n    pub fn super" + mSafeMethodName + "(" + maybeSelf + allocatorParam + commaParams + zfsParams + ") " + returnTypeDecl + " {\n" +
-				preamble + returnFunc + "\n}\n")
+				ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n/// ` self: " + zigStructName + " `" +
+					maybeAllocatorComment + zfs.emitCommentParametersZig(m.Parameters, false) + returnComment + "\n///" +
+					"\n    pub fn super" + mSafeMethodName + "(" + maybeSelf + allocatorParam + commaParams + zfsParams + ") " + returnTypeDecl + " {\n" +
+					preamble + returnFunc + "\n}\n")
+			}
 
 			if len(m.Parameters) > 0 {
 				commaParams = ", "
 			}
 			if showHiddenParams && (len(m.Parameters) > 0 || len(m.HiddenParams) > 0) {
 				commaParams = ", "
-			}
-			if len(m.Parameters) != 0 || (showHiddenParams && len(m.HiddenParams) != 0) {
-				maybeCommentStruct = zigStructName + commaParams
-				maybeClassName = zigStructName
-				maybeCommentSelf = "self: "
 			}
 
 			headerComment = "/// Wrapper to allow overriding base class virtual or protected method\n///" + maybeCallbackReturnWarning
@@ -3065,9 +3080,9 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				"\n    pub const On" + mSafeMethodName + " = on" + mSafeMethodName + ";\n")
 
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n/// ## Parameters:\n///\n/// ` self: " + zigStructName +
-				"`\n///\n/// ` callback: *const fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
+				"`\n///\n/// ` callback: *const fn (self: " + zigStructName + commaParams + zfs.emitCommentParametersZig(m.Parameters, true) +
 				") callconv(.c) " + retType + " `\n///\n" + maybeCallbackReturnString +
-				"    pub fn on" + mSafeMethodName + "(self: " + zigStructName + ", callback: *const fn (" + maybeClassName + commaParams +
+				"    pub fn on" + mSafeMethodName + "(self: " + zigStructName + ", callback: *const fn (" + zigStructName + commaParams +
 				paramsZig + ") callconv(.c) " +
 				retType + ") void {\n" +
 				"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));\n}\n")

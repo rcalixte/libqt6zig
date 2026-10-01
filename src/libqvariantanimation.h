@@ -67,13 +67,13 @@ void QVariantAnimation_UpdateCurrentValue(QVariantAnimation* self, const QVarian
 QVariant* QVariantAnimation_Interpolated(const QVariantAnimation* self, const QVariant* from, const QVariant* to, double progress);
 libqt_string QVariantAnimation_Tr2(const char* s, const char* c);
 libqt_string QVariantAnimation_Tr3(const char* s, const char* c, int n);
-void QVariantAnimation_OnMetaObject(const QVariantAnimation* self, intptr_t slot);
+void QVariantAnimation_OnMetaObject(QVariantAnimation* self, intptr_t slot);
 QMetaObject* QVariantAnimation_SuperMetaObject(const QVariantAnimation* self);
 void QVariantAnimation_OnMetacast(QVariantAnimation* self, intptr_t slot);
 void* QVariantAnimation_SuperMetacast(QVariantAnimation* self, const char* param1);
 void QVariantAnimation_OnMetacall(QVariantAnimation* self, intptr_t slot);
 int QVariantAnimation_SuperMetacall(QVariantAnimation* self, int param1, int param2, void** param3);
-void QVariantAnimation_OnDuration(const QVariantAnimation* self, intptr_t slot);
+void QVariantAnimation_OnDuration(QVariantAnimation* self, intptr_t slot);
 int QVariantAnimation_SuperDuration(const QVariantAnimation* self);
 void QVariantAnimation_OnEvent(QVariantAnimation* self, intptr_t slot);
 bool QVariantAnimation_SuperEvent(QVariantAnimation* self, QEvent* event);
@@ -83,7 +83,7 @@ void QVariantAnimation_OnUpdateState(QVariantAnimation* self, intptr_t slot);
 void QVariantAnimation_SuperUpdateState(QVariantAnimation* self, int newState, int oldState);
 void QVariantAnimation_OnUpdateCurrentValue(QVariantAnimation* self, intptr_t slot);
 void QVariantAnimation_SuperUpdateCurrentValue(QVariantAnimation* self, const QVariant* value);
-void QVariantAnimation_OnInterpolated(const QVariantAnimation* self, intptr_t slot);
+void QVariantAnimation_OnInterpolated(QVariantAnimation* self, intptr_t slot);
 QVariant* QVariantAnimation_SuperInterpolated(const QVariantAnimation* self, const QVariant* from, const QVariant* to, double progress);
 void QVariantAnimation_UpdateDirection(QVariantAnimation* self, int direction);
 void QVariantAnimation_OnUpdateDirection(QVariantAnimation* self, intptr_t slot);
@@ -107,17 +107,9 @@ void QVariantAnimation_DisconnectNotify(QVariantAnimation* self, const QMetaMeth
 void QVariantAnimation_OnDisconnectNotify(QVariantAnimation* self, intptr_t slot);
 void QVariantAnimation_SuperDisconnectNotify(QVariantAnimation* self, const QMetaMethod* signal);
 QObject* QVariantAnimation_Sender(const QVariantAnimation* self);
-void QVariantAnimation_OnSender(const QVariantAnimation* self, intptr_t slot);
-QObject* QVariantAnimation_SuperSender(const QVariantAnimation* self);
 int QVariantAnimation_SenderSignalIndex(const QVariantAnimation* self);
-void QVariantAnimation_OnSenderSignalIndex(const QVariantAnimation* self, intptr_t slot);
-int QVariantAnimation_SuperSenderSignalIndex(const QVariantAnimation* self);
 int QVariantAnimation_Receivers(const QVariantAnimation* self, const char* signal);
-void QVariantAnimation_OnReceivers(const QVariantAnimation* self, intptr_t slot);
-int QVariantAnimation_SuperReceivers(const QVariantAnimation* self, const char* signal);
 bool QVariantAnimation_IsSignalConnected(const QVariantAnimation* self, const QMetaMethod* signal);
-void QVariantAnimation_OnIsSignalConnected(const QVariantAnimation* self, intptr_t slot);
-bool QVariantAnimation_SuperIsSignalConnected(const QVariantAnimation* self, const QMetaMethod* signal);
 void QVariantAnimation_Delete(QVariantAnimation* self);
 
 #ifdef __cplusplus

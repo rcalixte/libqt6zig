@@ -155,364 +155,219 @@ libqt_string TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Tr3(const char
 
 // Base class handler implementation
 QMetaObject* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperMetaObject(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextgrammarcheckgrammalectegenerateconfigoptionjob->metaObject();
-    } else {
-        return (QMetaObject*)self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::metaObject();
-    }
+    return (QMetaObject*)self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnMetaObject(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_MetaObject_Callback>(slot));
+void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnMetaObject(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self)))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_metaobject_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperMetacast(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const char* param1) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacast_IsBase(true);
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->qt_metacast(param1);
-    } else {
-        return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::qt_metacast(param1);
-    }
+    return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnMetacast(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacast_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_metacast_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperMetacall(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacall_IsBase(true);
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnMetacall(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacall_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_metacall_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Event(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->event(event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Event_IsBase(true);
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->event(event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::event(event);
-    }
+    return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Event_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_event_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_EventFilter(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperEventFilter(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_EventFilter_IsBase(true);
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::eventFilter(watched, event);
-    }
+    return self->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnEventFilter(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_EventFilter_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_eventfilter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_TimerEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QTimerEvent* event) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob) {
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->timerEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperTimerEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QTimerEvent* event) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_TimerEvent_IsBase(true);
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->timerEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->timerEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self)) {
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnTimerEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_TimerEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_timerevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_ChildEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QChildEvent* event) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob) {
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->childEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperChildEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QChildEvent* event) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_ChildEvent_IsBase(true);
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->childEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->childEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self)) {
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnChildEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_ChildEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_childevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_CustomEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QEvent* event) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob) {
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->customEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperCustomEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_CustomEvent_IsBase(true);
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->customEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->customEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self)) {
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnCustomEvent(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_CustomEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_customevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_ConnectNotify(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob) {
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->connectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperConnectNotify(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_ConnectNotify_IsBase(true);
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->connectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self)) {
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnConnectNotify(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_ConnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_connectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_DisconnectNotify(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
+    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob) {
         vtextgrammarcheckgrammalectegenerateconfigoptionjob->disconnectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperDisconnectNotify(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_DisconnectNotify_IsBase(true);
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self)) {
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->TextGrammarCheck::GrammalecteGenerateConfigOptionJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnDisconnectNotify(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_DisconnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))
+        vtextgrammarcheckgrammalectegenerateconfigoptionjob->textgrammarcheck__grammalectegenerateconfigoptionjob_disconnectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Sender(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->sender();
-    }
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))) {
+        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::sender();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperSender(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Sender_IsBase(true);
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnSender(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SenderSignalIndex(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->senderSignalIndex();
-    }
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))) {
+        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperSenderSignalIndex(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_SenderSignalIndex_IsBase(true);
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Receivers(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const char* signal) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->receivers(signal);
-    }
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))) {
+        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperReceivers(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const char* signal) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Receivers_IsBase(true);
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnReceivers(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_IsSignalConnected(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SuperIsSignalConnected(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_IsSignalConnected_IsBase(true);
-        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_OnIsSignalConnected(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self));
-    if (vtextgrammarcheckgrammalectegenerateconfigoptionjob && vtextgrammarcheckgrammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob)
-        vtextgrammarcheckgrammalectegenerateconfigoptionjob->setTextGrammarCheck__GrammalecteGenerateConfigOptionJob_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::TextGrammarCheck__GrammalecteGenerateConfigOptionJob_IsSignalConnected_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectegenerateconfigoptionjob = const_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self))) {
+        return vtextgrammarcheckgrammalectegenerateconfigoptionjob->VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteGenerateConfigOptionJob::isSignalConnected called without a directly constructed type");
 }
 
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Delete(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {

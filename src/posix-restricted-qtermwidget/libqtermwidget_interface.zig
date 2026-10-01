@@ -23,6 +23,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -39,6 +41,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -52,6 +56,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const StartShellProgram = startShellProgram;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -67,6 +73,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -80,6 +88,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const GetShellPID = getShellPID;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -95,6 +105,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -108,6 +120,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const ChangeDir = changeDir;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -129,6 +143,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -146,6 +162,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -159,6 +177,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetTerminalOpacity = setTerminalOpacity;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -175,6 +195,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetTerminalBackgroundImage = setTerminalBackgroundImage;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -196,6 +218,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -211,6 +235,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetEnvironment = setEnvironment;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -241,6 +267,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -260,6 +288,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetWorkingDirectory = setWorkingDirectory;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -281,6 +311,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -300,6 +332,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetArgs = setArgs;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -330,6 +364,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -349,6 +385,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const GetAvailableColorSchemes = getAvailableColorSchemes;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -380,6 +418,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -396,6 +436,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -409,6 +451,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetScrollBarPosition = setScrollBarPosition;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -426,6 +470,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -439,6 +485,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SendText = sendText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -460,6 +508,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -477,6 +527,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -493,6 +545,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -506,6 +560,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetFlowControlWarningEnabled = setFlowControlWarningEnabled;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -522,6 +578,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const KeyBindings = keyBindings;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -543,6 +601,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -559,6 +619,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -572,6 +634,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const ScreenColumnsCount = screenColumnsCount;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -587,6 +651,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -600,6 +666,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetSelectionStart = setSelectionStart;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -619,6 +687,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -636,6 +706,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const GetSelectionStart = getSelectionStart;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -655,6 +727,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -672,6 +746,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SelectedText = selectedText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -695,6 +771,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -710,6 +788,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetMonitorSilence = setMonitorSilence;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -727,6 +807,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -742,6 +824,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const FilterActions = filterActions;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -768,6 +852,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -781,6 +867,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetBlinkingCursor = setBlinkingCursor;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -798,6 +886,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -814,6 +904,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -827,6 +919,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetAutoClose = setAutoClose;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -843,6 +937,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const Title = title;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -864,6 +960,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -884,6 +982,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -897,6 +997,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const BracketText = bracketText;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -918,6 +1020,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -934,6 +1038,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -947,6 +1053,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetMargin = setMargin;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -964,6 +1072,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -977,6 +1087,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetDrawLineChars = setDrawLineChars;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -994,6 +1106,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -1009,6 +1123,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const SetConfirmMultilinePaste = setConfirmMultilinePaste;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1026,6 +1142,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -1041,6 +1159,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const WordCharacters = wordCharacters;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1062,6 +1182,8 @@ pub const QTermWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTermWidgetInterface `
@@ -1081,6 +1203,8 @@ pub const QTermWidgetInterface = extern struct {
     pub const CreateWidget = createWidget;
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

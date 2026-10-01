@@ -242,364 +242,219 @@ libqt_string KNotificationReplyAction_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KNotificationReplyAction_SuperMetaObject(const KNotificationReplyAction* self) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_MetaObject_IsBase(true);
-        return (QMetaObject*)vknotificationreplyaction->metaObject();
-    } else {
-        return (QMetaObject*)self->KNotificationReplyAction::metaObject();
-    }
+    return (QMetaObject*)self->KNotificationReplyAction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNotificationReplyAction_OnMetaObject(const KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_MetaObject_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_MetaObject_Callback>(slot));
+void KNotificationReplyAction_OnMetaObject(KNotificationReplyAction* self, intptr_t slot) {
+    if (auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self)))
+        vknotificationreplyaction->knotificationreplyaction_metaobject_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KNotificationReplyAction_SuperMetacast(KNotificationReplyAction* self, const char* param1) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_Metacast_IsBase(true);
-        return vknotificationreplyaction->qt_metacast(param1);
-    } else {
-        return self->KNotificationReplyAction::qt_metacast(param1);
-    }
+    return self->KNotificationReplyAction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnMetacast(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_Metacast_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Metacast_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_metacast_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KNotificationReplyAction_SuperMetacall(KNotificationReplyAction* self, int param1, int param2, void** param3) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_Metacall_IsBase(true);
-        return vknotificationreplyaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KNotificationReplyAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KNotificationReplyAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnMetacall(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_Metacall_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Metacall_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_metacall_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNotificationReplyAction_Event(KNotificationReplyAction* self, QEvent* event) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return vknotificationreplyaction->event(event);
-    } else {
-        return self->KNotificationReplyAction::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KNotificationReplyAction_SuperEvent(KNotificationReplyAction* self, QEvent* event) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_Event_IsBase(true);
-        return vknotificationreplyaction->event(event);
-    } else {
-        return self->KNotificationReplyAction::event(event);
-    }
+    return self->KNotificationReplyAction::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnEvent(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_Event_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Event_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_event_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNotificationReplyAction_EventFilter(KNotificationReplyAction* self, QObject* watched, QEvent* event) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return vknotificationreplyaction->eventFilter(watched, event);
-    } else {
-        return self->KNotificationReplyAction::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KNotificationReplyAction_SuperEventFilter(KNotificationReplyAction* self, QObject* watched, QEvent* event) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_EventFilter_IsBase(true);
-        return vknotificationreplyaction->eventFilter(watched, event);
-    } else {
-        return self->KNotificationReplyAction::eventFilter(watched, event);
-    }
+    return self->KNotificationReplyAction::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnEventFilter(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_EventFilter_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_EventFilter_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_eventfilter_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationReplyAction_TimerEvent(KNotificationReplyAction* self, QTimerEvent* event) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction) {
         vknotificationreplyaction->timerEvent(event);
     } else {
-        ((VirtualKNotificationReplyAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KNotificationReplyAction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationReplyAction_SuperTimerEvent(KNotificationReplyAction* self, QTimerEvent* event) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_TimerEvent_IsBase(true);
-        vknotificationreplyaction->timerEvent(event);
-    } else {
-        ((VirtualKNotificationReplyAction*)self)->timerEvent(event);
-    }
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self)) {
+        vknotificationreplyaction->KNotificationReplyAction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotificationReplyAction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnTimerEvent(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_TimerEvent_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_TimerEvent_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_timerevent_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationReplyAction_ChildEvent(KNotificationReplyAction* self, QChildEvent* event) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction) {
         vknotificationreplyaction->childEvent(event);
     } else {
-        ((VirtualKNotificationReplyAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KNotificationReplyAction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationReplyAction_SuperChildEvent(KNotificationReplyAction* self, QChildEvent* event) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_ChildEvent_IsBase(true);
-        vknotificationreplyaction->childEvent(event);
-    } else {
-        ((VirtualKNotificationReplyAction*)self)->childEvent(event);
-    }
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self)) {
+        vknotificationreplyaction->KNotificationReplyAction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotificationReplyAction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnChildEvent(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_ChildEvent_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_ChildEvent_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_childevent_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationReplyAction_CustomEvent(KNotificationReplyAction* self, QEvent* event) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction) {
         vknotificationreplyaction->customEvent(event);
     } else {
-        ((VirtualKNotificationReplyAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KNotificationReplyAction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationReplyAction_SuperCustomEvent(KNotificationReplyAction* self, QEvent* event) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_CustomEvent_IsBase(true);
-        vknotificationreplyaction->customEvent(event);
-    } else {
-        ((VirtualKNotificationReplyAction*)self)->customEvent(event);
-    }
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self)) {
+        vknotificationreplyaction->KNotificationReplyAction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotificationReplyAction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnCustomEvent(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_CustomEvent_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_CustomEvent_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_customevent_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationReplyAction_ConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction) {
         vknotificationreplyaction->connectNotify(*signal);
     } else {
-        ((VirtualKNotificationReplyAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KNotificationReplyAction::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationReplyAction_SuperConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_ConnectNotify_IsBase(true);
-        vknotificationreplyaction->connectNotify(*signal);
-    } else {
-        ((VirtualKNotificationReplyAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self)) {
+        vknotificationreplyaction->KNotificationReplyAction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNotificationReplyAction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnConnectNotify(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_ConnectNotify_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_ConnectNotify_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_connectnotify_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationReplyAction_DisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction) {
         vknotificationreplyaction->disconnectNotify(*signal);
     } else {
-        ((VirtualKNotificationReplyAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KNotificationReplyAction::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationReplyAction_SuperDisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_DisconnectNotify_IsBase(true);
-        vknotificationreplyaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKNotificationReplyAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self)) {
+        vknotificationreplyaction->KNotificationReplyAction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNotificationReplyAction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnDisconnectNotify(KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_DisconnectNotify_Callback>(slot));
+    if (auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self))
+        vknotificationreplyaction->knotificationreplyaction_disconnectnotify_callback = reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KNotificationReplyAction_Sender(const KNotificationReplyAction* self) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return vknotificationreplyaction->sender();
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->sender();
-    }
+    if (auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self))) {
+        return vknotificationreplyaction->VirtualKNotificationReplyAction::sender();
+    } else
+        qFatal("Error: Protected method KNotificationReplyAction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KNotificationReplyAction_SuperSender(const KNotificationReplyAction* self) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_Sender_IsBase(true);
-        return vknotificationreplyaction->sender();
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotificationReplyAction_OnSender(const KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_Sender_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNotificationReplyAction_SenderSignalIndex(const KNotificationReplyAction* self) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return vknotificationreplyaction->senderSignalIndex();
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->senderSignalIndex();
-    }
+    if (auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self))) {
+        return vknotificationreplyaction->VirtualKNotificationReplyAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KNotificationReplyAction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNotificationReplyAction_SuperSenderSignalIndex(const KNotificationReplyAction* self) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_SenderSignalIndex_IsBase(true);
-        return vknotificationreplyaction->senderSignalIndex();
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotificationReplyAction_OnSenderSignalIndex(const KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNotificationReplyAction_Receivers(const KNotificationReplyAction* self, const char* signal) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return vknotificationreplyaction->receivers(signal);
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->receivers(signal);
-    }
+    if (auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self))) {
+        return vknotificationreplyaction->VirtualKNotificationReplyAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KNotificationReplyAction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNotificationReplyAction_SuperReceivers(const KNotificationReplyAction* self, const char* signal) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_Receivers_IsBase(true);
-        return vknotificationreplyaction->receivers(signal);
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotificationReplyAction_OnReceivers(const KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_Receivers_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNotificationReplyAction_IsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return vknotificationreplyaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KNotificationReplyAction_SuperIsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        vknotificationreplyaction->setKNotificationReplyAction_IsSignalConnected_IsBase(true);
-        return vknotificationreplyaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotificationReplyAction_OnIsSignalConnected(const KNotificationReplyAction* self, intptr_t slot) {
-    auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
-        vknotificationreplyaction->setKNotificationReplyAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_IsSignalConnected_Callback>(slot));
+    if (auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self))) {
+        return vknotificationreplyaction->VirtualKNotificationReplyAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KNotificationReplyAction::isSignalConnected called without a directly constructed type");
 }
 
 void KNotificationReplyAction_Delete(KNotificationReplyAction* self) {

@@ -130,9 +130,9 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerResourceBrowserInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -283,6 +283,8 @@ pub const QDesignerResourceBrowserInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerresourcebrowserinterface.html#setCurrentPath)
     ///
+    /// This method must be implemented with `onSetCurrentPath` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerResourceBrowserInterface `
@@ -315,33 +317,13 @@ pub const QDesignerResourceBrowserInterface = extern struct {
         qtc.QDesignerResourceBrowserInterface_OnSetCurrentPath(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetCurrentPath` instead
-    ///
-    pub const SuperSetCurrentPath = superSetCurrentPath;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerresourcebrowserinterface.html#setCurrentPath)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    /// ` filePath: []const u8 `
-    ///
-    pub fn superSetCurrentPath(self: QDesignerResourceBrowserInterface, filePath: []const u8) void {
-        const filePath_str = qtc.libqt_string{
-            .len = filePath.len,
-            .data = filePath.ptr,
-        };
-        qtc.QDesignerResourceBrowserInterface_SuperSetCurrentPath(@ptrCast(self.ptr), filePath_str);
-    }
-
     /// ### DEPRECATED: Use `currentPath` instead
     ///
     pub const CurrentPath = currentPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerresourcebrowserinterface.html#currentPath)
+    ///
+    /// This method must be implemented with `onCurrentPath` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -369,32 +351,10 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onCurrentPath(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onCurrentPath(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerResourceBrowserInterface_OnCurrentPath(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCurrentPath` instead
-    ///
-    pub const SuperCurrentPath = superCurrentPath;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerresourcebrowserinterface.html#currentPath)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superCurrentPath(self: QDesignerResourceBrowserInterface, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerResourceBrowserInterface_SuperCurrentPath(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerResourceBrowserInterface.currentPath: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `currentPathChanged` instead
@@ -6779,9 +6739,9 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface) callconv(.c) i32) void {
         qtc.QDesignerResourceBrowserInterface_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6895,11 +6855,11 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface) callconv(.c) QSize) void {
         qtc.QDesignerResourceBrowserInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6953,11 +6913,11 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface) callconv(.c) QSize) void {
         qtc.QDesignerResourceBrowserInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7071,9 +7031,9 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface) callconv(.c) bool) void {
         qtc.QDesignerResourceBrowserInterface_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7127,9 +7087,9 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface) callconv(.c) QPaintEngine) void {
         qtc.QDesignerResourceBrowserInterface_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9055,9 +9015,9 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface) callconv(.c) QPainter) void {
         qtc.QDesignerResourceBrowserInterface_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9641,44 +9601,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
         qtc.QDesignerResourceBrowserInterface_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    pub fn superUpdateMicroFocus(self: QDesignerResourceBrowserInterface) void {
-        qtc.QDesignerResourceBrowserInterface_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerResourceBrowserInterface_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9695,44 +9617,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     pub fn create(self: QDesignerResourceBrowserInterface) void {
         qtc.QDesignerResourceBrowserInterface_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    pub fn superCreate(self: QDesignerResourceBrowserInterface) void {
-        qtc.QDesignerResourceBrowserInterface_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerResourceBrowserInterface_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9753,44 +9637,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
         qtc.QDesignerResourceBrowserInterface_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    pub fn superDestroy(self: QDesignerResourceBrowserInterface) void {
-        qtc.QDesignerResourceBrowserInterface_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerResourceBrowserInterface_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9807,44 +9653,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     pub fn focusNextChild(self: QDesignerResourceBrowserInterface) bool {
         return qtc.QDesignerResourceBrowserInterface_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    pub fn superFocusNextChild(self: QDesignerResourceBrowserInterface) bool {
-        return qtc.QDesignerResourceBrowserInterface_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerResourceBrowserInterface_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9865,44 +9673,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
         return qtc.QDesignerResourceBrowserInterface_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    pub fn superFocusPreviousChild(self: QDesignerResourceBrowserInterface) bool {
-        return qtc.QDesignerResourceBrowserInterface_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerResourceBrowserInterface_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9921,44 +9691,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
         return .{ .ptr = qtc.QDesignerResourceBrowserInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    pub fn superSender(self: QDesignerResourceBrowserInterface) QObject {
-        return .{ .ptr = qtc.QDesignerResourceBrowserInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerResourceBrowserInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9975,44 +9707,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerResourceBrowserInterface) i32 {
         return qtc.QDesignerResourceBrowserInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerResourceBrowserInterface) i32 {
-        return qtc.QDesignerResourceBrowserInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerResourceBrowserInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10036,47 +9730,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
         return qtc.QDesignerResourceBrowserInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerResourceBrowserInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerResourceBrowserInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerResourceBrowserInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10096,47 +9749,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerResourceBrowserInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerResourceBrowserInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerResourceBrowserInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerResourceBrowserInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerResourceBrowserInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10159,48 +9771,6 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     pub fn getDecodedMetricF(self: QDesignerResourceBrowserInterface, metricA: i32, metricB: i32) f64 {
         return qtc.QDesignerResourceBrowserInterface_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerResourceBrowserInterface `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QDesignerResourceBrowserInterface, metricA: i32, metricB: i32) f64 {
-        return qtc.QDesignerResourceBrowserInterface_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerResourceBrowserInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface, i32, i32) callconv(.c) f64) void {
-        qtc.QDesignerResourceBrowserInterface_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

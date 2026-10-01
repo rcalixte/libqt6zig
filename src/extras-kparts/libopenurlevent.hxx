@@ -9,49 +9,25 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KParts::OpenUrlEvent so that we can call protected methods
+// This class is a subclass of KParts::OpenUrlEvent
 class VirtualKPartsOpenUrlEvent final : public KParts::OpenUrlEvent {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKPartsOpenUrlEvent = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using KParts__OpenUrlEvent_SetAccepted_Callback = void (*)(KParts__OpenUrlEvent*, bool);
-    using KParts__OpenUrlEvent_Clone_Callback = QEvent* (*)();
+    using KParts__OpenUrlEvent_Clone_Callback = QEvent* (*)(const KParts__OpenUrlEvent*);
 
-  protected:
     // Instance callback storage
     KParts__OpenUrlEvent_SetAccepted_Callback kparts__openurlevent_setaccepted_callback = nullptr;
     KParts__OpenUrlEvent_Clone_Callback kparts__openurlevent_clone_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kparts__openurlevent_setaccepted_isbase = false;
-    mutable bool kparts__openurlevent_clone_isbase = false;
-
-  public:
     VirtualKPartsOpenUrlEvent(KParts::ReadOnlyPart* part, const QUrl& url) : KParts::OpenUrlEvent(part, url) {};
     VirtualKPartsOpenUrlEvent(KParts::ReadOnlyPart* part, const QUrl& url, const KParts::OpenUrlArguments& args) : KParts::OpenUrlEvent(part, url, args) {};
 
-    // Callback setters
-    inline void setKParts__OpenUrlEvent_SetAccepted_Callback(KParts__OpenUrlEvent_SetAccepted_Callback cb) { kparts__openurlevent_setaccepted_callback = cb; }
-    inline void setKParts__OpenUrlEvent_Clone_Callback(KParts__OpenUrlEvent_Clone_Callback cb) { kparts__openurlevent_clone_callback = cb; }
-
-    // Base flag setters
-    inline void setKParts__OpenUrlEvent_SetAccepted_IsBase(bool value) const { kparts__openurlevent_setaccepted_isbase = value; }
-    inline void setKParts__OpenUrlEvent_Clone_IsBase(bool value) const { kparts__openurlevent_clone_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual void setAccepted(bool accepted) override {
-        if (kparts__openurlevent_setaccepted_isbase) {
-            kparts__openurlevent_setaccepted_isbase = false;
-            KParts__OpenUrlEvent::setAccepted(accepted);
-            return;
-        }
-        auto setaccepted_cb = kparts__openurlevent_setaccepted_callback;
-        if (setaccepted_cb) {
+        if (kparts__openurlevent_setaccepted_callback) {
             bool cbval1 = accepted;
-            setaccepted_cb(this, cbval1);
+            kparts__openurlevent_setaccepted_callback(this, cbval1);
             return;
         }
         KParts__OpenUrlEvent::setAccepted(accepted);
@@ -59,13 +35,8 @@ class VirtualKPartsOpenUrlEvent final : public KParts::OpenUrlEvent {
 
     // Virtual method for C ABI access and custom callback
     virtual QEvent* clone() const override {
-        if (kparts__openurlevent_clone_isbase) {
-            kparts__openurlevent_clone_isbase = false;
-            return KParts__OpenUrlEvent::clone();
-        }
-        auto clone_cb = kparts__openurlevent_clone_callback;
-        if (clone_cb) {
-            QEvent* callback_ret = clone_cb();
+        if (kparts__openurlevent_clone_callback) {
+            QEvent* callback_ret = kparts__openurlevent_clone_callback(this);
             return callback_ret;
         }
         return KParts__OpenUrlEvent::clone();

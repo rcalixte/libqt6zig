@@ -40,7 +40,7 @@ void KToolBarPopupAction_SetPopupMode(KToolBarPopupAction* self, int popupMode);
 QWidget* KToolBarPopupAction_CreateWidget(KToolBarPopupAction* self, QWidget* parent);
 libqt_string KToolBarPopupAction_Tr2(const char* s, const char* c);
 libqt_string KToolBarPopupAction_Tr3(const char* s, const char* c, int n);
-void KToolBarPopupAction_OnMetaObject(const KToolBarPopupAction* self, intptr_t slot);
+void KToolBarPopupAction_OnMetaObject(KToolBarPopupAction* self, intptr_t slot);
 QMetaObject* KToolBarPopupAction_SuperMetaObject(const KToolBarPopupAction* self);
 void KToolBarPopupAction_OnMetacast(KToolBarPopupAction* self, intptr_t slot);
 void* KToolBarPopupAction_SuperMetacast(KToolBarPopupAction* self, const char* param1);
@@ -73,20 +73,10 @@ void KToolBarPopupAction_DisconnectNotify(KToolBarPopupAction* self, const QMeta
 void KToolBarPopupAction_OnDisconnectNotify(KToolBarPopupAction* self, intptr_t slot);
 void KToolBarPopupAction_SuperDisconnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
 libqt_list /* of QWidget* */ KToolBarPopupAction_CreatedWidgets(const KToolBarPopupAction* self);
-void KToolBarPopupAction_OnCreatedWidgets(const KToolBarPopupAction* self, intptr_t slot);
-libqt_list /* of QWidget* */ KToolBarPopupAction_SuperCreatedWidgets(const KToolBarPopupAction* self);
 QObject* KToolBarPopupAction_Sender(const KToolBarPopupAction* self);
-void KToolBarPopupAction_OnSender(const KToolBarPopupAction* self, intptr_t slot);
-QObject* KToolBarPopupAction_SuperSender(const KToolBarPopupAction* self);
 int KToolBarPopupAction_SenderSignalIndex(const KToolBarPopupAction* self);
-void KToolBarPopupAction_OnSenderSignalIndex(const KToolBarPopupAction* self, intptr_t slot);
-int KToolBarPopupAction_SuperSenderSignalIndex(const KToolBarPopupAction* self);
 int KToolBarPopupAction_Receivers(const KToolBarPopupAction* self, const char* signal);
-void KToolBarPopupAction_OnReceivers(const KToolBarPopupAction* self, intptr_t slot);
-int KToolBarPopupAction_SuperReceivers(const KToolBarPopupAction* self, const char* signal);
 bool KToolBarPopupAction_IsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal);
-void KToolBarPopupAction_OnIsSignalConnected(const KToolBarPopupAction* self, intptr_t slot);
-bool KToolBarPopupAction_SuperIsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal);
 void KToolBarPopupAction_Delete(KToolBarPopupAction* self);
 
 #ifdef __cplusplus

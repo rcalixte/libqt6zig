@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QUiLoader so that we can call protected methods
+// This class is a subclass of QUiLoader
 class VirtualQUiLoader final : public QUiLoader {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQUiLoader = true;
-
-    // Virtual class public types (including callbacks)
-    using QUiLoader_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QUiLoader_MetaObject_Callback = QMetaObject* (*)(const QUiLoader*);
     using QUiLoader_Metacast_Callback = void* (*)(QUiLoader*, const char*);
     using QUiLoader_Metacall_Callback = int (*)(QUiLoader*, int, int, void**);
     using QUiLoader_CreateWidget_Callback = QWidget* (*)(QUiLoader*, const char*, QWidget*, const char*);
@@ -31,12 +27,11 @@ class VirtualQUiLoader final : public QUiLoader {
     using QUiLoader_CustomEvent_Callback = void (*)(QUiLoader*, QEvent*);
     using QUiLoader_ConnectNotify_Callback = void (*)(QUiLoader*, QMetaMethod*);
     using QUiLoader_DisconnectNotify_Callback = void (*)(QUiLoader*, QMetaMethod*);
-    using QUiLoader_Sender_Callback = QObject* (*)();
-    using QUiLoader_SenderSignalIndex_Callback = int (*)();
-    using QUiLoader_Receivers_Callback = int (*)(const QUiLoader*, const char*);
-    using QUiLoader_IsSignalConnected_Callback = bool (*)(const QUiLoader*, QMetaMethod*);
+    using QUiLoader::isSignalConnected;
+    using QUiLoader::receivers;
+    using QUiLoader::sender;
+    using QUiLoader::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QUiLoader_MetaObject_Callback quiloader_metaobject_callback = nullptr;
     QUiLoader_Metacast_Callback quiloader_metacast_callback = nullptr;
@@ -52,84 +47,23 @@ class VirtualQUiLoader final : public QUiLoader {
     QUiLoader_CustomEvent_Callback quiloader_customevent_callback = nullptr;
     QUiLoader_ConnectNotify_Callback quiloader_connectnotify_callback = nullptr;
     QUiLoader_DisconnectNotify_Callback quiloader_disconnectnotify_callback = nullptr;
-    QUiLoader_Sender_Callback quiloader_sender_callback = nullptr;
-    QUiLoader_SenderSignalIndex_Callback quiloader_sendersignalindex_callback = nullptr;
-    QUiLoader_Receivers_Callback quiloader_receivers_callback = nullptr;
-    QUiLoader_IsSignalConnected_Callback quiloader_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool quiloader_metaobject_isbase = false;
-    mutable bool quiloader_metacast_isbase = false;
-    mutable bool quiloader_metacall_isbase = false;
-    mutable bool quiloader_createwidget_isbase = false;
-    mutable bool quiloader_createlayout_isbase = false;
-    mutable bool quiloader_createactiongroup_isbase = false;
-    mutable bool quiloader_createaction_isbase = false;
-    mutable bool quiloader_event_isbase = false;
-    mutable bool quiloader_eventfilter_isbase = false;
-    mutable bool quiloader_timerevent_isbase = false;
-    mutable bool quiloader_childevent_isbase = false;
-    mutable bool quiloader_customevent_isbase = false;
-    mutable bool quiloader_connectnotify_isbase = false;
-    mutable bool quiloader_disconnectnotify_isbase = false;
-    mutable bool quiloader_sender_isbase = false;
-    mutable bool quiloader_sendersignalindex_isbase = false;
-    mutable bool quiloader_receivers_isbase = false;
-    mutable bool quiloader_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QUiLoader {
+        using QUiLoader::childEvent;
+        using QUiLoader::connectNotify;
+        using QUiLoader::customEvent;
+        using QUiLoader::disconnectNotify;
+        using QUiLoader::timerEvent;
+    };
 
-  public:
     VirtualQUiLoader() : QUiLoader() {};
     VirtualQUiLoader(QObject* parent) : QUiLoader(parent) {};
 
-    // Callback setters
-    inline void setQUiLoader_MetaObject_Callback(QUiLoader_MetaObject_Callback cb) { quiloader_metaobject_callback = cb; }
-    inline void setQUiLoader_Metacast_Callback(QUiLoader_Metacast_Callback cb) { quiloader_metacast_callback = cb; }
-    inline void setQUiLoader_Metacall_Callback(QUiLoader_Metacall_Callback cb) { quiloader_metacall_callback = cb; }
-    inline void setQUiLoader_CreateWidget_Callback(QUiLoader_CreateWidget_Callback cb) { quiloader_createwidget_callback = cb; }
-    inline void setQUiLoader_CreateLayout_Callback(QUiLoader_CreateLayout_Callback cb) { quiloader_createlayout_callback = cb; }
-    inline void setQUiLoader_CreateActionGroup_Callback(QUiLoader_CreateActionGroup_Callback cb) { quiloader_createactiongroup_callback = cb; }
-    inline void setQUiLoader_CreateAction_Callback(QUiLoader_CreateAction_Callback cb) { quiloader_createaction_callback = cb; }
-    inline void setQUiLoader_Event_Callback(QUiLoader_Event_Callback cb) { quiloader_event_callback = cb; }
-    inline void setQUiLoader_EventFilter_Callback(QUiLoader_EventFilter_Callback cb) { quiloader_eventfilter_callback = cb; }
-    inline void setQUiLoader_TimerEvent_Callback(QUiLoader_TimerEvent_Callback cb) { quiloader_timerevent_callback = cb; }
-    inline void setQUiLoader_ChildEvent_Callback(QUiLoader_ChildEvent_Callback cb) { quiloader_childevent_callback = cb; }
-    inline void setQUiLoader_CustomEvent_Callback(QUiLoader_CustomEvent_Callback cb) { quiloader_customevent_callback = cb; }
-    inline void setQUiLoader_ConnectNotify_Callback(QUiLoader_ConnectNotify_Callback cb) { quiloader_connectnotify_callback = cb; }
-    inline void setQUiLoader_DisconnectNotify_Callback(QUiLoader_DisconnectNotify_Callback cb) { quiloader_disconnectnotify_callback = cb; }
-    inline void setQUiLoader_Sender_Callback(QUiLoader_Sender_Callback cb) { quiloader_sender_callback = cb; }
-    inline void setQUiLoader_SenderSignalIndex_Callback(QUiLoader_SenderSignalIndex_Callback cb) { quiloader_sendersignalindex_callback = cb; }
-    inline void setQUiLoader_Receivers_Callback(QUiLoader_Receivers_Callback cb) { quiloader_receivers_callback = cb; }
-    inline void setQUiLoader_IsSignalConnected_Callback(QUiLoader_IsSignalConnected_Callback cb) { quiloader_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQUiLoader_MetaObject_IsBase(bool value) const { quiloader_metaobject_isbase = value; }
-    inline void setQUiLoader_Metacast_IsBase(bool value) const { quiloader_metacast_isbase = value; }
-    inline void setQUiLoader_Metacall_IsBase(bool value) const { quiloader_metacall_isbase = value; }
-    inline void setQUiLoader_CreateWidget_IsBase(bool value) const { quiloader_createwidget_isbase = value; }
-    inline void setQUiLoader_CreateLayout_IsBase(bool value) const { quiloader_createlayout_isbase = value; }
-    inline void setQUiLoader_CreateActionGroup_IsBase(bool value) const { quiloader_createactiongroup_isbase = value; }
-    inline void setQUiLoader_CreateAction_IsBase(bool value) const { quiloader_createaction_isbase = value; }
-    inline void setQUiLoader_Event_IsBase(bool value) const { quiloader_event_isbase = value; }
-    inline void setQUiLoader_EventFilter_IsBase(bool value) const { quiloader_eventfilter_isbase = value; }
-    inline void setQUiLoader_TimerEvent_IsBase(bool value) const { quiloader_timerevent_isbase = value; }
-    inline void setQUiLoader_ChildEvent_IsBase(bool value) const { quiloader_childevent_isbase = value; }
-    inline void setQUiLoader_CustomEvent_IsBase(bool value) const { quiloader_customevent_isbase = value; }
-    inline void setQUiLoader_ConnectNotify_IsBase(bool value) const { quiloader_connectnotify_isbase = value; }
-    inline void setQUiLoader_DisconnectNotify_IsBase(bool value) const { quiloader_disconnectnotify_isbase = value; }
-    inline void setQUiLoader_Sender_IsBase(bool value) const { quiloader_sender_isbase = value; }
-    inline void setQUiLoader_SenderSignalIndex_IsBase(bool value) const { quiloader_sendersignalindex_isbase = value; }
-    inline void setQUiLoader_Receivers_IsBase(bool value) const { quiloader_receivers_isbase = value; }
-    inline void setQUiLoader_IsSignalConnected_IsBase(bool value) const { quiloader_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (quiloader_metaobject_isbase) {
-            quiloader_metaobject_isbase = false;
-            return QUiLoader::metaObject();
-        }
-        auto metaobject_cb = quiloader_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (quiloader_metaobject_callback) {
+            QMetaObject* callback_ret = quiloader_metaobject_callback(this);
             return callback_ret;
         }
         return QUiLoader::metaObject();
@@ -137,14 +71,9 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (quiloader_metacast_isbase) {
-            quiloader_metacast_isbase = false;
-            return QUiLoader::qt_metacast(param1);
-        }
-        auto metacast_cb = quiloader_metacast_callback;
-        if (metacast_cb) {
+        if (quiloader_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = quiloader_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QUiLoader::qt_metacast(param1);
@@ -152,16 +81,11 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (quiloader_metacall_isbase) {
-            quiloader_metacall_isbase = false;
-            return QUiLoader::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = quiloader_metacall_callback;
-        if (metacall_cb) {
+        if (quiloader_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = quiloader_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QUiLoader::qt_metacall(param1, param2, param3);
@@ -169,12 +93,7 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* createWidget(const QString& className, QWidget* parent, const QString& name) override {
-        if (quiloader_createwidget_isbase) {
-            quiloader_createwidget_isbase = false;
-            return QUiLoader::createWidget(className, parent, name);
-        }
-        auto createwidget_cb = quiloader_createwidget_callback;
-        if (createwidget_cb) {
+        if (quiloader_createwidget_callback) {
             const auto className_ret = className;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
@@ -192,7 +111,7 @@ class VirtualQUiLoader final : public QUiLoader {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
-            QWidget* callback_ret = createwidget_cb(this, cbval1, cbval2, cbval3);
+            QWidget* callback_ret = quiloader_createwidget_callback(this, cbval1, cbval2, cbval3);
             libqt_free(className_str);
             libqt_free(name_str);
             return callback_ret;
@@ -202,12 +121,7 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual QLayout* createLayout(const QString& className, QObject* parent, const QString& name) override {
-        if (quiloader_createlayout_isbase) {
-            quiloader_createlayout_isbase = false;
-            return QUiLoader::createLayout(className, parent, name);
-        }
-        auto createlayout_cb = quiloader_createlayout_callback;
-        if (createlayout_cb) {
+        if (quiloader_createlayout_callback) {
             const auto className_ret = className;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
@@ -225,7 +139,7 @@ class VirtualQUiLoader final : public QUiLoader {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
-            QLayout* callback_ret = createlayout_cb(this, cbval1, cbval2, cbval3);
+            QLayout* callback_ret = quiloader_createlayout_callback(this, cbval1, cbval2, cbval3);
             libqt_free(className_str);
             libqt_free(name_str);
             return callback_ret;
@@ -235,12 +149,7 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual QActionGroup* createActionGroup(QObject* parent, const QString& name) override {
-        if (quiloader_createactiongroup_isbase) {
-            quiloader_createactiongroup_isbase = false;
-            return QUiLoader::createActionGroup(parent, name);
-        }
-        auto createactiongroup_cb = quiloader_createactiongroup_callback;
-        if (createactiongroup_cb) {
+        if (quiloader_createactiongroup_callback) {
             QObject* cbval1 = parent;
             const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -250,7 +159,7 @@ class VirtualQUiLoader final : public QUiLoader {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-            QActionGroup* callback_ret = createactiongroup_cb(this, cbval1, cbval2);
+            QActionGroup* callback_ret = quiloader_createactiongroup_callback(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
         }
@@ -259,12 +168,7 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual QAction* createAction(QObject* parent, const QString& name) override {
-        if (quiloader_createaction_isbase) {
-            quiloader_createaction_isbase = false;
-            return QUiLoader::createAction(parent, name);
-        }
-        auto createaction_cb = quiloader_createaction_callback;
-        if (createaction_cb) {
+        if (quiloader_createaction_callback) {
             QObject* cbval1 = parent;
             const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -274,7 +178,7 @@ class VirtualQUiLoader final : public QUiLoader {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-            QAction* callback_ret = createaction_cb(this, cbval1, cbval2);
+            QAction* callback_ret = quiloader_createaction_callback(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
         }
@@ -283,14 +187,9 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (quiloader_event_isbase) {
-            quiloader_event_isbase = false;
-            return QUiLoader::event(event);
-        }
-        auto event_cb = quiloader_event_callback;
-        if (event_cb) {
+        if (quiloader_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = quiloader_event_callback(this, cbval1);
             return callback_ret;
         }
         return QUiLoader::event(event);
@@ -298,15 +197,10 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (quiloader_eventfilter_isbase) {
-            quiloader_eventfilter_isbase = false;
-            return QUiLoader::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = quiloader_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (quiloader_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = quiloader_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QUiLoader::eventFilter(watched, event);
@@ -314,15 +208,9 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (quiloader_timerevent_isbase) {
-            quiloader_timerevent_isbase = false;
-            QUiLoader::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = quiloader_timerevent_callback;
-        if (timerevent_cb) {
+        if (quiloader_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            quiloader_timerevent_callback(this, cbval1);
             return;
         }
         QUiLoader::timerEvent(event);
@@ -330,15 +218,9 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (quiloader_childevent_isbase) {
-            quiloader_childevent_isbase = false;
-            QUiLoader::childEvent(event);
-            return;
-        }
-        auto childevent_cb = quiloader_childevent_callback;
-        if (childevent_cb) {
+        if (quiloader_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            quiloader_childevent_callback(this, cbval1);
             return;
         }
         QUiLoader::childEvent(event);
@@ -346,15 +228,9 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (quiloader_customevent_isbase) {
-            quiloader_customevent_isbase = false;
-            QUiLoader::customEvent(event);
-            return;
-        }
-        auto customevent_cb = quiloader_customevent_callback;
-        if (customevent_cb) {
+        if (quiloader_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            quiloader_customevent_callback(this, cbval1);
             return;
         }
         QUiLoader::customEvent(event);
@@ -362,17 +238,11 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (quiloader_connectnotify_isbase) {
-            quiloader_connectnotify_isbase = false;
-            QUiLoader::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = quiloader_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (quiloader_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            quiloader_connectnotify_callback(this, cbval1);
             return;
         }
         QUiLoader::connectNotify(signal);
@@ -380,101 +250,22 @@ class VirtualQUiLoader final : public QUiLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (quiloader_disconnectnotify_isbase) {
-            quiloader_disconnectnotify_isbase = false;
-            QUiLoader::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = quiloader_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (quiloader_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            quiloader_disconnectnotify_callback(this, cbval1);
             return;
         }
         QUiLoader::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (quiloader_sender_isbase) {
-            quiloader_sender_isbase = false;
-            return QUiLoader::sender();
-        }
-        auto sender_cb = quiloader_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QUiLoader::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (quiloader_sendersignalindex_isbase) {
-            quiloader_sendersignalindex_isbase = false;
-            return QUiLoader::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = quiloader_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QUiLoader::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (quiloader_receivers_isbase) {
-            quiloader_receivers_isbase = false;
-            return QUiLoader::receivers(signal);
-        }
-        auto receivers_cb = quiloader_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QUiLoader::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (quiloader_issignalconnected_isbase) {
-            quiloader_issignalconnected_isbase = false;
-            return QUiLoader::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = quiloader_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QUiLoader::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QUiLoader_TimerEvent(QUiLoader* self, QTimerEvent* event);
     friend void QUiLoader_SuperTimerEvent(QUiLoader* self, QTimerEvent* event);
-    friend void QUiLoader_ChildEvent(QUiLoader* self, QChildEvent* event);
     friend void QUiLoader_SuperChildEvent(QUiLoader* self, QChildEvent* event);
-    friend void QUiLoader_CustomEvent(QUiLoader* self, QEvent* event);
     friend void QUiLoader_SuperCustomEvent(QUiLoader* self, QEvent* event);
-    friend void QUiLoader_ConnectNotify(QUiLoader* self, const QMetaMethod* signal);
     friend void QUiLoader_SuperConnectNotify(QUiLoader* self, const QMetaMethod* signal);
-    friend void QUiLoader_DisconnectNotify(QUiLoader* self, const QMetaMethod* signal);
     friend void QUiLoader_SuperDisconnectNotify(QUiLoader* self, const QMetaMethod* signal);
-    friend QObject* QUiLoader_Sender(const QUiLoader* self);
-    friend QObject* QUiLoader_SuperSender(const QUiLoader* self);
-    friend int QUiLoader_SenderSignalIndex(const QUiLoader* self);
-    friend int QUiLoader_SuperSenderSignalIndex(const QUiLoader* self);
-    friend int QUiLoader_Receivers(const QUiLoader* self, const char* signal);
-    friend int QUiLoader_SuperReceivers(const QUiLoader* self, const char* signal);
-    friend bool QUiLoader_IsSignalConnected(const QUiLoader* self, const QMetaMethod* signal);
-    friend bool QUiLoader_SuperIsSignalConnected(const QUiLoader* self, const QMetaMethod* signal);
 };
 
 #endif

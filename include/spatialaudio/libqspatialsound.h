@@ -95,7 +95,7 @@ void QSpatialSound_Pause(QSpatialSound* self);
 void QSpatialSound_Stop(QSpatialSound* self);
 libqt_string QSpatialSound_Tr2(const char* s, const char* c);
 libqt_string QSpatialSound_Tr3(const char* s, const char* c, int n);
-void QSpatialSound_OnMetaObject(const QSpatialSound* self, intptr_t slot);
+void QSpatialSound_OnMetaObject(QSpatialSound* self, intptr_t slot);
 QMetaObject* QSpatialSound_SuperMetaObject(const QSpatialSound* self);
 void QSpatialSound_OnMetacast(QSpatialSound* self, intptr_t slot);
 void* QSpatialSound_SuperMetacast(QSpatialSound* self, const char* param1);
@@ -123,17 +123,9 @@ void QSpatialSound_DisconnectNotify(QSpatialSound* self, const QMetaMethod* sign
 void QSpatialSound_OnDisconnectNotify(QSpatialSound* self, intptr_t slot);
 void QSpatialSound_SuperDisconnectNotify(QSpatialSound* self, const QMetaMethod* signal);
 QObject* QSpatialSound_Sender(const QSpatialSound* self);
-void QSpatialSound_OnSender(const QSpatialSound* self, intptr_t slot);
-QObject* QSpatialSound_SuperSender(const QSpatialSound* self);
 int QSpatialSound_SenderSignalIndex(const QSpatialSound* self);
-void QSpatialSound_OnSenderSignalIndex(const QSpatialSound* self, intptr_t slot);
-int QSpatialSound_SuperSenderSignalIndex(const QSpatialSound* self);
 int QSpatialSound_Receivers(const QSpatialSound* self, const char* signal);
-void QSpatialSound_OnReceivers(const QSpatialSound* self, intptr_t slot);
-int QSpatialSound_SuperReceivers(const QSpatialSound* self, const char* signal);
 bool QSpatialSound_IsSignalConnected(const QSpatialSound* self, const QMetaMethod* signal);
-void QSpatialSound_OnIsSignalConnected(const QSpatialSound* self, intptr_t slot);
-bool QSpatialSound_SuperIsSignalConnected(const QSpatialSound* self, const QMetaMethod* signal);
 void QSpatialSound_Delete(QSpatialSound* self);
 
 #ifdef __cplusplus

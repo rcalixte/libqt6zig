@@ -391,10 +391,10 @@ void Kirigami__Platform__PlatformTheme_Connect_UseAlternateBackgroundColorChange
 
 bool Kirigami__Platform__PlatformTheme_Event(Kirigami__Platform__PlatformTheme* self, QEvent* event) {
     auto* vkirigami__platform__platformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigami__platform__platformtheme && vkirigami__platform__platformtheme->isVirtualKirigamiPlatformPlatformTheme) {
+    if (vkirigami__platform__platformtheme) {
         return vkirigami__platform__platformtheme->event(event);
     }
-    return {};
+    qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::event called without a directly constructed type");
 }
 
 libqt_string Kirigami__Platform__PlatformTheme_Tr2(const char* s, const char* c) {
@@ -503,1017 +503,413 @@ void Kirigami__Platform__PlatformTheme_SetCustomHoverColor1(Kirigami__Platform__
 
 // Base class handler implementation
 QMetaObject* Kirigami__Platform__PlatformTheme_SuperMetaObject(const Kirigami__Platform__PlatformTheme* self) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_MetaObject_IsBase(true);
-        return (QMetaObject*)vkirigamiplatformplatformtheme->metaObject();
-    } else {
-        return (QMetaObject*)self->Kirigami::Platform::PlatformTheme::metaObject();
-    }
+    return (QMetaObject*)self->Kirigami::Platform::PlatformTheme::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnMetaObject(const Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_MetaObject_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_MetaObject_Callback>(slot));
+void Kirigami__Platform__PlatformTheme_OnMetaObject(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
+    if (auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self)))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_metaobject_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Kirigami__Platform__PlatformTheme_SuperMetacast(Kirigami__Platform__PlatformTheme* self, const char* param1) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Metacast_IsBase(true);
-        return vkirigamiplatformplatformtheme->qt_metacast(param1);
-    } else {
-        return self->Kirigami::Platform::PlatformTheme::qt_metacast(param1);
-    }
+    return self->Kirigami::Platform::PlatformTheme::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnMetacast(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Metacast_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_Metacast_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_metacast_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Kirigami__Platform__PlatformTheme_SuperMetacall(Kirigami__Platform__PlatformTheme* self, int param1, int param2, void** param3) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Metacall_IsBase(true);
-        return vkirigamiplatformplatformtheme->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Kirigami::Platform::PlatformTheme::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Kirigami::Platform::PlatformTheme::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnMetacall(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Metacall_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_Metacall_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_metacall_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QIcon* Kirigami__Platform__PlatformTheme_SuperIconFromTheme(Kirigami__Platform__PlatformTheme* self, const libqt_string name, const QColor* customColor) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_IconFromTheme_IsBase(true);
-        return new QIcon(vkirigamiplatformplatformtheme->iconFromTheme(name_QString, *customColor));
-    } else {
-        return new QIcon(((VirtualKirigamiPlatformPlatformTheme*)self)->iconFromTheme(name_QString, *customColor));
-    }
+    return new QIcon(self->Kirigami::Platform::PlatformTheme::iconFromTheme(name_QString, *customColor));
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnIconFromTheme(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_IconFromTheme_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_IconFromTheme_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_iconfromtheme_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_IconFromTheme_Callback>(slot);
 }
 
 // Base class handler implementation
 bool Kirigami__Platform__PlatformTheme_SuperEvent(Kirigami__Platform__PlatformTheme* self, QEvent* event) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Event_IsBase(true);
-        return vkirigamiplatformplatformtheme->event(event);
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->event(event);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        return vkirigamiplatformplatformtheme->Kirigami::Platform::PlatformTheme::event(event);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnEvent(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Event_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_Event_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_event_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Kirigami__Platform__PlatformTheme_EventFilter(Kirigami__Platform__PlatformTheme* self, QObject* watched, QEvent* event) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        return vkirigamiplatformplatformtheme->eventFilter(watched, event);
-    } else {
-        return self->Kirigami::Platform::PlatformTheme::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Kirigami__Platform__PlatformTheme_SuperEventFilter(Kirigami__Platform__PlatformTheme* self, QObject* watched, QEvent* event) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_EventFilter_IsBase(true);
-        return vkirigamiplatformplatformtheme->eventFilter(watched, event);
-    } else {
-        return self->Kirigami::Platform::PlatformTheme::eventFilter(watched, event);
-    }
+    return self->Kirigami::Platform::PlatformTheme::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnEventFilter(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_EventFilter_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_EventFilter_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_eventfilter_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__PlatformTheme_TimerEvent(Kirigami__Platform__PlatformTheme* self, QTimerEvent* event) {
     auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
+    if (vkirigamiplatformplatformtheme) {
         vkirigamiplatformplatformtheme->timerEvent(event);
     } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__PlatformTheme_SuperTimerEvent(Kirigami__Platform__PlatformTheme* self, QTimerEvent* event) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_TimerEvent_IsBase(true);
-        vkirigamiplatformplatformtheme->timerEvent(event);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->timerEvent(event);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->Kirigami::Platform::PlatformTheme::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnTimerEvent(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_TimerEvent_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_TimerEvent_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_timerevent_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__PlatformTheme_ChildEvent(Kirigami__Platform__PlatformTheme* self, QChildEvent* event) {
     auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
+    if (vkirigamiplatformplatformtheme) {
         vkirigamiplatformplatformtheme->childEvent(event);
     } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__PlatformTheme_SuperChildEvent(Kirigami__Platform__PlatformTheme* self, QChildEvent* event) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_ChildEvent_IsBase(true);
-        vkirigamiplatformplatformtheme->childEvent(event);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->childEvent(event);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->Kirigami::Platform::PlatformTheme::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnChildEvent(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_ChildEvent_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_ChildEvent_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_childevent_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__PlatformTheme_CustomEvent(Kirigami__Platform__PlatformTheme* self, QEvent* event) {
     auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
+    if (vkirigamiplatformplatformtheme) {
         vkirigamiplatformplatformtheme->customEvent(event);
     } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__PlatformTheme_SuperCustomEvent(Kirigami__Platform__PlatformTheme* self, QEvent* event) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_CustomEvent_IsBase(true);
-        vkirigamiplatformplatformtheme->customEvent(event);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->customEvent(event);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->Kirigami::Platform::PlatformTheme::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnCustomEvent(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_CustomEvent_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_CustomEvent_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_customevent_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__PlatformTheme_ConnectNotify(Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal) {
     auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
+    if (vkirigamiplatformplatformtheme) {
         vkirigamiplatformplatformtheme->connectNotify(*signal);
     } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__PlatformTheme_SuperConnectNotify(Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_ConnectNotify_IsBase(true);
-        vkirigamiplatformplatformtheme->connectNotify(*signal);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->connectNotify(*signal);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->Kirigami::Platform::PlatformTheme::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnConnectNotify(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_ConnectNotify_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_ConnectNotify_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_connectnotify_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__PlatformTheme_DisconnectNotify(Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal) {
     auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
+    if (vkirigamiplatformplatformtheme) {
         vkirigamiplatformplatformtheme->disconnectNotify(*signal);
     } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__PlatformTheme_SuperDisconnectNotify(Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_DisconnectNotify_IsBase(true);
-        vkirigamiplatformplatformtheme->disconnectNotify(*signal);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->Kirigami::Platform::PlatformTheme::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::PlatformTheme::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__PlatformTheme_OnDisconnectNotify(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_DisconnectNotify_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_DisconnectNotify_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self))
+        vkirigamiplatformplatformtheme->kirigami__platform__platformtheme_disconnectnotify_callback = reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetSupportsIconColoring(Kirigami__Platform__PlatformTheme* self, bool support) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setSupportsIconColoring(support);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setSupportsIconColoring(support);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setSupportsIconColoring(support);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setSupportsIconColoring called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetSupportsIconColoring(Kirigami__Platform__PlatformTheme* self, bool support) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetSupportsIconColoring_IsBase(true);
-        vkirigamiplatformplatformtheme->setSupportsIconColoring(support);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setSupportsIconColoring(support);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetSupportsIconColoring(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetSupportsIconColoring_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetSupportsIconColoring_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setTextColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setTextColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setTextColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetTextColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setTextColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetTextColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetTextColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetDisabledTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setDisabledTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setDisabledTextColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setDisabledTextColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setDisabledTextColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetDisabledTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetDisabledTextColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setDisabledTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setDisabledTextColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetDisabledTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetDisabledTextColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetDisabledTextColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetHighlightedTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setHighlightedTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setHighlightedTextColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setHighlightedTextColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setHighlightedTextColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetHighlightedTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetHighlightedTextColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setHighlightedTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setHighlightedTextColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetHighlightedTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetHighlightedTextColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetHighlightedTextColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetActiveTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setActiveTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setActiveTextColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setActiveTextColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setActiveTextColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetActiveTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetActiveTextColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setActiveTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setActiveTextColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetActiveTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetActiveTextColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetActiveTextColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetLinkColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setLinkColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setLinkColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setLinkColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setLinkColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetLinkColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetLinkColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setLinkColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setLinkColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetLinkColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetLinkColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetLinkColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetVisitedLinkColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setVisitedLinkColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setVisitedLinkColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setVisitedLinkColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setVisitedLinkColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetVisitedLinkColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetVisitedLinkColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setVisitedLinkColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setVisitedLinkColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetVisitedLinkColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetVisitedLinkColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetVisitedLinkColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetNegativeTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setNegativeTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setNegativeTextColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setNegativeTextColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setNegativeTextColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetNegativeTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetNegativeTextColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setNegativeTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setNegativeTextColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetNegativeTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetNegativeTextColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetNegativeTextColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetNeutralTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setNeutralTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setNeutralTextColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setNeutralTextColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setNeutralTextColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetNeutralTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetNeutralTextColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setNeutralTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setNeutralTextColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetNeutralTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetNeutralTextColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetNeutralTextColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetPositiveTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setPositiveTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setPositiveTextColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setPositiveTextColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setPositiveTextColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetPositiveTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetPositiveTextColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setPositiveTextColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setPositiveTextColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetPositiveTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetPositiveTextColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetPositiveTextColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setBackgroundColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setBackgroundColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setBackgroundColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetBackgroundColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setBackgroundColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetBackgroundColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetBackgroundColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetAlternateBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setAlternateBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setAlternateBackgroundColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setAlternateBackgroundColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setAlternateBackgroundColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetAlternateBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetAlternateBackgroundColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setAlternateBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setAlternateBackgroundColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetAlternateBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetAlternateBackgroundColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetAlternateBackgroundColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetHighlightColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setHighlightColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setHighlightColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setHighlightColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setHighlightColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetHighlightColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetHighlightColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setHighlightColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setHighlightColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetHighlightColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetHighlightColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetHighlightColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetActiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setActiveBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setActiveBackgroundColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setActiveBackgroundColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setActiveBackgroundColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetActiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetActiveBackgroundColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setActiveBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setActiveBackgroundColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetActiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetActiveBackgroundColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetActiveBackgroundColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setLinkBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setLinkBackgroundColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setLinkBackgroundColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setLinkBackgroundColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetLinkBackgroundColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setLinkBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setLinkBackgroundColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetLinkBackgroundColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetLinkBackgroundColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetVisitedLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setVisitedLinkBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setVisitedLinkBackgroundColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setVisitedLinkBackgroundColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setVisitedLinkBackgroundColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetVisitedLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetVisitedLinkBackgroundColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setVisitedLinkBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setVisitedLinkBackgroundColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetVisitedLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetVisitedLinkBackgroundColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetVisitedLinkBackgroundColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetNegativeBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setNegativeBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setNegativeBackgroundColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setNegativeBackgroundColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setNegativeBackgroundColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetNegativeBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetNegativeBackgroundColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setNegativeBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setNegativeBackgroundColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetNegativeBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetNegativeBackgroundColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetNegativeBackgroundColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetNeutralBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setNeutralBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setNeutralBackgroundColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setNeutralBackgroundColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setNeutralBackgroundColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetNeutralBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetNeutralBackgroundColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setNeutralBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setNeutralBackgroundColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetNeutralBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetNeutralBackgroundColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetNeutralBackgroundColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetPositiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setPositiveBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setPositiveBackgroundColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setPositiveBackgroundColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setPositiveBackgroundColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetPositiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetPositiveBackgroundColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setPositiveBackgroundColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setPositiveBackgroundColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetPositiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetPositiveBackgroundColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetPositiveBackgroundColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetFocusColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setFocusColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setFocusColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setFocusColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setFocusColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetFocusColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetFocusColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setFocusColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setFocusColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetFocusColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetFocusColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetFocusColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetHoverColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setHoverColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setHoverColor(*color);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setHoverColor(*color);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setHoverColor called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetHoverColor(Kirigami__Platform__PlatformTheme* self, const QColor* color) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetHoverColor_IsBase(true);
-        vkirigamiplatformplatformtheme->setHoverColor(*color);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setHoverColor(*color);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetHoverColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetHoverColor_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetHoverColor_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetDefaultFont(Kirigami__Platform__PlatformTheme* self, const QFont* defaultFont) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setDefaultFont(*defaultFont);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setDefaultFont(*defaultFont);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setDefaultFont(*defaultFont);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setDefaultFont called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetDefaultFont(Kirigami__Platform__PlatformTheme* self, const QFont* defaultFont) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetDefaultFont_IsBase(true);
-        vkirigamiplatformplatformtheme->setDefaultFont(*defaultFont);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setDefaultFont(*defaultFont);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetDefaultFont(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetDefaultFont_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetDefaultFont_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Kirigami__Platform__PlatformTheme_SetSmallFont(Kirigami__Platform__PlatformTheme* self, const QFont* smallFont) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setSmallFont(*smallFont);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setSmallFont(*smallFont);
-    }
+    if (auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self)) {
+        vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::setSmallFont(*smallFont);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::setSmallFont called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Kirigami__Platform__PlatformTheme_SuperSetSmallFont(Kirigami__Platform__PlatformTheme* self, const QFont* smallFont) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetSmallFont_IsBase(true);
-        vkirigamiplatformplatformtheme->setSmallFont(*smallFont);
-    } else {
-        ((VirtualKirigamiPlatformPlatformTheme*)self)->setSmallFont(*smallFont);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSetSmallFont(Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = dynamic_cast<VirtualKirigamiPlatformPlatformTheme*>(self);
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SetSmallFont_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SetSmallFont_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Kirigami__Platform__PlatformTheme_Sender(const Kirigami__Platform__PlatformTheme* self) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        return vkirigamiplatformplatformtheme->sender();
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->sender();
-    }
+    if (auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self))) {
+        return vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::sender();
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Kirigami__Platform__PlatformTheme_SuperSender(const Kirigami__Platform__PlatformTheme* self) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Sender_IsBase(true);
-        return vkirigamiplatformplatformtheme->sender();
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSender(const Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Sender_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Kirigami__Platform__PlatformTheme_SenderSignalIndex(const Kirigami__Platform__PlatformTheme* self) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        return vkirigamiplatformplatformtheme->senderSignalIndex();
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->senderSignalIndex();
-    }
+    if (auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self))) {
+        return vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Kirigami__Platform__PlatformTheme_SuperSenderSignalIndex(const Kirigami__Platform__PlatformTheme* self) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SenderSignalIndex_IsBase(true);
-        return vkirigamiplatformplatformtheme->senderSignalIndex();
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnSenderSignalIndex(const Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_SenderSignalIndex_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Kirigami__Platform__PlatformTheme_Receivers(const Kirigami__Platform__PlatformTheme* self, const char* signal) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        return vkirigamiplatformplatformtheme->receivers(signal);
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->receivers(signal);
-    }
+    if (auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self))) {
+        return vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::receivers(signal);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Kirigami__Platform__PlatformTheme_SuperReceivers(const Kirigami__Platform__PlatformTheme* self, const char* signal) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Receivers_IsBase(true);
-        return vkirigamiplatformplatformtheme->receivers(signal);
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnReceivers(const Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_Receivers_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Kirigami__Platform__PlatformTheme_IsSignalConnected(const Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        return vkirigamiplatformplatformtheme->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Kirigami__Platform__PlatformTheme_SuperIsSignalConnected(const Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme) {
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_IsSignalConnected_IsBase(true);
-        return vkirigamiplatformplatformtheme->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKirigamiPlatformPlatformTheme*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__PlatformTheme_OnIsSignalConnected(const Kirigami__Platform__PlatformTheme* self, intptr_t slot) {
-    auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self));
-    if (vkirigamiplatformplatformtheme && vkirigamiplatformplatformtheme->isVirtualKirigamiPlatformPlatformTheme)
-        vkirigamiplatformplatformtheme->setKirigami__Platform__PlatformTheme_IsSignalConnected_Callback(reinterpret_cast<VirtualKirigamiPlatformPlatformTheme::Kirigami__Platform__PlatformTheme_IsSignalConnected_Callback>(slot));
+    if (auto* vkirigamiplatformplatformtheme = const_cast<VirtualKirigamiPlatformPlatformTheme*>(dynamic_cast<const VirtualKirigamiPlatformPlatformTheme*>(self))) {
+        return vkirigamiplatformplatformtheme->VirtualKirigamiPlatformPlatformTheme::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::PlatformTheme::isSignalConnected called without a directly constructed type");
 }
 
 void Kirigami__Platform__PlatformTheme_Delete(Kirigami__Platform__PlatformTheme* self) {

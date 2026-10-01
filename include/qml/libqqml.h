@@ -53,7 +53,7 @@ int QQmlTypeNotAvailable_Metacall(QQmlTypeNotAvailable* self, int param1, int pa
 libqt_string QQmlTypeNotAvailable_Tr(const char* s);
 libqt_string QQmlTypeNotAvailable_Tr2(const char* s, const char* c);
 libqt_string QQmlTypeNotAvailable_Tr3(const char* s, const char* c, int n);
-void QQmlTypeNotAvailable_OnMetaObject(const QQmlTypeNotAvailable* self, intptr_t slot);
+void QQmlTypeNotAvailable_OnMetaObject(QQmlTypeNotAvailable* self, intptr_t slot);
 QMetaObject* QQmlTypeNotAvailable_SuperMetaObject(const QQmlTypeNotAvailable* self);
 void QQmlTypeNotAvailable_OnMetacast(QQmlTypeNotAvailable* self, intptr_t slot);
 void* QQmlTypeNotAvailable_SuperMetacast(QQmlTypeNotAvailable* self, const char* param1);
@@ -81,17 +81,9 @@ void QQmlTypeNotAvailable_DisconnectNotify(QQmlTypeNotAvailable* self, const QMe
 void QQmlTypeNotAvailable_OnDisconnectNotify(QQmlTypeNotAvailable* self, intptr_t slot);
 void QQmlTypeNotAvailable_SuperDisconnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal);
 QObject* QQmlTypeNotAvailable_Sender(const QQmlTypeNotAvailable* self);
-void QQmlTypeNotAvailable_OnSender(const QQmlTypeNotAvailable* self, intptr_t slot);
-QObject* QQmlTypeNotAvailable_SuperSender(const QQmlTypeNotAvailable* self);
 int QQmlTypeNotAvailable_SenderSignalIndex(const QQmlTypeNotAvailable* self);
-void QQmlTypeNotAvailable_OnSenderSignalIndex(const QQmlTypeNotAvailable* self, intptr_t slot);
-int QQmlTypeNotAvailable_SuperSenderSignalIndex(const QQmlTypeNotAvailable* self);
 int QQmlTypeNotAvailable_Receivers(const QQmlTypeNotAvailable* self, const char* signal);
-void QQmlTypeNotAvailable_OnReceivers(const QQmlTypeNotAvailable* self, intptr_t slot);
-int QQmlTypeNotAvailable_SuperReceivers(const QQmlTypeNotAvailable* self, const char* signal);
 bool QQmlTypeNotAvailable_IsSignalConnected(const QQmlTypeNotAvailable* self, const QMetaMethod* signal);
-void QQmlTypeNotAvailable_OnIsSignalConnected(const QQmlTypeNotAvailable* self, intptr_t slot);
-bool QQmlTypeNotAvailable_SuperIsSignalConnected(const QQmlTypeNotAvailable* self, const QMetaMethod* signal);
 void QQmlTypeNotAvailable_Delete(QQmlTypeNotAvailable* self);
 
 #ifdef __cplusplus

@@ -810,134 +810,134 @@ void QWindow_Connect_TransientParentChanged(QWindow* self, intptr_t slot) {
 
 void QWindow_ExposeEvent(QWindow* self, QExposeEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->exposeEvent(param1);
     }
 }
 
 void QWindow_ResizeEvent(QWindow* self, QResizeEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->resizeEvent(param1);
     }
 }
 
 void QWindow_PaintEvent(QWindow* self, QPaintEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->paintEvent(param1);
     }
 }
 
 void QWindow_MoveEvent(QWindow* self, QMoveEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->moveEvent(param1);
     }
 }
 
 void QWindow_FocusInEvent(QWindow* self, QFocusEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->focusInEvent(param1);
     }
 }
 
 void QWindow_FocusOutEvent(QWindow* self, QFocusEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->focusOutEvent(param1);
     }
 }
 
 void QWindow_ShowEvent(QWindow* self, QShowEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->showEvent(param1);
     }
 }
 
 void QWindow_HideEvent(QWindow* self, QHideEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->hideEvent(param1);
     }
 }
 
 void QWindow_CloseEvent(QWindow* self, QCloseEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->closeEvent(param1);
     }
 }
 
 bool QWindow_Event(QWindow* self, QEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         return vqwindow->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QWindow::event called without a directly constructed type");
 }
 
 void QWindow_KeyPressEvent(QWindow* self, QKeyEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->keyPressEvent(param1);
     }
 }
 
 void QWindow_KeyReleaseEvent(QWindow* self, QKeyEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->keyReleaseEvent(param1);
     }
 }
 
 void QWindow_MousePressEvent(QWindow* self, QMouseEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->mousePressEvent(param1);
     }
 }
 
 void QWindow_MouseReleaseEvent(QWindow* self, QMouseEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->mouseReleaseEvent(param1);
     }
 }
 
 void QWindow_MouseDoubleClickEvent(QWindow* self, QMouseEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->mouseDoubleClickEvent(param1);
     }
 }
 
 void QWindow_MouseMoveEvent(QWindow* self, QMouseEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->mouseMoveEvent(param1);
     }
 }
 
 void QWindow_WheelEvent(QWindow* self, QWheelEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->wheelEvent(param1);
     }
 }
 
 void QWindow_TouchEvent(QWindow* self, QTouchEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->touchEvent(param1);
     }
 }
 
 void QWindow_TabletEvent(QWindow* self, QTabletEvent* param1) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->tabletEvent(param1);
     }
 }
@@ -945,10 +945,10 @@ void QWindow_TabletEvent(QWindow* self, QTabletEvent* param1) {
 bool QWindow_NativeEvent(QWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         return vqwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     }
-    return {};
+    qFatal("Error: Protected method QWindow::nativeEvent called without a directly constructed type");
 }
 
 libqt_string QWindow_Tr2(const char* s, const char* c) {
@@ -989,815 +989,547 @@ bool QWindow_IsAncestorOf2(const QWindow* self, const QWindow* child, int mode) 
 
 // Base class handler implementation
 QMetaObject* QWindow_SuperMetaObject(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_MetaObject_IsBase(true);
-        return (QMetaObject*)vqwindow->metaObject();
-    } else {
-        return (QMetaObject*)self->QWindow::metaObject();
-    }
+    return (QMetaObject*)self->QWindow::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWindow_OnMetaObject(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_MetaObject_Callback(reinterpret_cast<VirtualQWindow::QWindow_MetaObject_Callback>(slot));
+void QWindow_OnMetaObject(QWindow* self, intptr_t slot) {
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self)))
+        vqwindow->qwindow_metaobject_callback = reinterpret_cast<VirtualQWindow::QWindow_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QWindow_SuperMetacast(QWindow* self, const char* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_Metacast_IsBase(true);
-        return vqwindow->qt_metacast(param1);
-    } else {
-        return self->QWindow::qt_metacast(param1);
-    }
+    return self->QWindow::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnMetacast(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_Metacast_Callback(reinterpret_cast<VirtualQWindow::QWindow_Metacast_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_metacast_callback = reinterpret_cast<VirtualQWindow::QWindow_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWindow_SuperMetacall(QWindow* self, int param1, int param2, void** param3) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_Metacall_IsBase(true);
-        return vqwindow->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnMetacall(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_Metacall_Callback(reinterpret_cast<VirtualQWindow::QWindow_Metacall_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_metacall_callback = reinterpret_cast<VirtualQWindow::QWindow_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWindow_SuperSurfaceType(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_SurfaceType_IsBase(true);
-        return static_cast<int>(vqwindow->surfaceType());
-    } else {
-        return static_cast<int>(self->QWindow::surfaceType());
-    }
+    return static_cast<int>(self->QWindow::surfaceType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWindow_OnSurfaceType(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_SurfaceType_Callback(reinterpret_cast<VirtualQWindow::QWindow_SurfaceType_Callback>(slot));
+void QWindow_OnSurfaceType(QWindow* self, intptr_t slot) {
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self)))
+        vqwindow->qwindow_surfacetype_callback = reinterpret_cast<VirtualQWindow::QWindow_SurfaceType_Callback>(slot);
 }
 
 // Base class handler implementation
 QSurfaceFormat* QWindow_SuperFormat(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_Format_IsBase(true);
-        return new QSurfaceFormat(vqwindow->format());
-    } else {
-        return new QSurfaceFormat(((VirtualQWindow*)self)->format());
-    }
+    return new QSurfaceFormat(self->QWindow::format());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWindow_OnFormat(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_Format_Callback(reinterpret_cast<VirtualQWindow::QWindow_Format_Callback>(slot));
+void QWindow_OnFormat(QWindow* self, intptr_t slot) {
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self)))
+        vqwindow->qwindow_format_callback = reinterpret_cast<VirtualQWindow::QWindow_Format_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QWindow_SuperSize(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_Size_IsBase(true);
-        return new QSize(vqwindow->size());
-    } else {
-        return new QSize(((VirtualQWindow*)self)->size());
-    }
+    return new QSize(self->QWindow::size());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWindow_OnSize(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_Size_Callback(reinterpret_cast<VirtualQWindow::QWindow_Size_Callback>(slot));
+void QWindow_OnSize(QWindow* self, intptr_t slot) {
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self)))
+        vqwindow->qwindow_size_callback = reinterpret_cast<VirtualQWindow::QWindow_Size_Callback>(slot);
 }
 
 // Base class handler implementation
 QAccessibleInterface* QWindow_SuperAccessibleRoot(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_AccessibleRoot_IsBase(true);
-        return vqwindow->accessibleRoot();
-    } else {
-        return self->QWindow::accessibleRoot();
-    }
+    return self->QWindow::accessibleRoot();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWindow_OnAccessibleRoot(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_AccessibleRoot_Callback(reinterpret_cast<VirtualQWindow::QWindow_AccessibleRoot_Callback>(slot));
+void QWindow_OnAccessibleRoot(QWindow* self, intptr_t slot) {
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self)))
+        vqwindow->qwindow_accessibleroot_callback = reinterpret_cast<VirtualQWindow::QWindow_AccessibleRoot_Callback>(slot);
 }
 
 // Base class handler implementation
 QObject* QWindow_SuperFocusObject(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_FocusObject_IsBase(true);
-        return vqwindow->focusObject();
-    } else {
-        return self->QWindow::focusObject();
-    }
+    return self->QWindow::focusObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWindow_OnFocusObject(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_FocusObject_Callback(reinterpret_cast<VirtualQWindow::QWindow_FocusObject_Callback>(slot));
+void QWindow_OnFocusObject(QWindow* self, intptr_t slot) {
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self)))
+        vqwindow->qwindow_focusobject_callback = reinterpret_cast<VirtualQWindow::QWindow_FocusObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperExposeEvent(QWindow* self, QExposeEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_ExposeEvent_IsBase(true);
-        vqwindow->exposeEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->exposeEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::exposeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::exposeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnExposeEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_ExposeEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_ExposeEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_exposeevent_callback = reinterpret_cast<VirtualQWindow::QWindow_ExposeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperResizeEvent(QWindow* self, QResizeEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_ResizeEvent_IsBase(true);
-        vqwindow->resizeEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->resizeEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnResizeEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_ResizeEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_ResizeEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_resizeevent_callback = reinterpret_cast<VirtualQWindow::QWindow_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperPaintEvent(QWindow* self, QPaintEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_PaintEvent_IsBase(true);
-        vqwindow->paintEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->paintEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnPaintEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_PaintEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_PaintEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_paintevent_callback = reinterpret_cast<VirtualQWindow::QWindow_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperMoveEvent(QWindow* self, QMoveEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_MoveEvent_IsBase(true);
-        vqwindow->moveEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->moveEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::moveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnMoveEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_MoveEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_MoveEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_moveevent_callback = reinterpret_cast<VirtualQWindow::QWindow_MoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperFocusInEvent(QWindow* self, QFocusEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_FocusInEvent_IsBase(true);
-        vqwindow->focusInEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->focusInEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnFocusInEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_FocusInEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_FocusInEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_focusinevent_callback = reinterpret_cast<VirtualQWindow::QWindow_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperFocusOutEvent(QWindow* self, QFocusEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_FocusOutEvent_IsBase(true);
-        vqwindow->focusOutEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->focusOutEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnFocusOutEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_FocusOutEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_focusoutevent_callback = reinterpret_cast<VirtualQWindow::QWindow_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperShowEvent(QWindow* self, QShowEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_ShowEvent_IsBase(true);
-        vqwindow->showEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->showEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnShowEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_ShowEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_ShowEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_showevent_callback = reinterpret_cast<VirtualQWindow::QWindow_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperHideEvent(QWindow* self, QHideEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_HideEvent_IsBase(true);
-        vqwindow->hideEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->hideEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::hideEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnHideEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_HideEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_HideEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_hideevent_callback = reinterpret_cast<VirtualQWindow::QWindow_HideEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperCloseEvent(QWindow* self, QCloseEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_CloseEvent_IsBase(true);
-        vqwindow->closeEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->closeEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnCloseEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_CloseEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_CloseEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_closeevent_callback = reinterpret_cast<VirtualQWindow::QWindow_CloseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWindow_SuperEvent(QWindow* self, QEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_Event_IsBase(true);
-        return vqwindow->event(param1);
-    } else {
-        return ((VirtualQWindow*)self)->event(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        return vqwindow->QWindow::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_Event_Callback(reinterpret_cast<VirtualQWindow::QWindow_Event_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_event_callback = reinterpret_cast<VirtualQWindow::QWindow_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperKeyPressEvent(QWindow* self, QKeyEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_KeyPressEvent_IsBase(true);
-        vqwindow->keyPressEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnKeyPressEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_KeyPressEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_keypressevent_callback = reinterpret_cast<VirtualQWindow::QWindow_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperKeyReleaseEvent(QWindow* self, QKeyEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_KeyReleaseEvent_IsBase(true);
-        vqwindow->keyReleaseEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->keyReleaseEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::keyReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnKeyReleaseEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_keyreleaseevent_callback = reinterpret_cast<VirtualQWindow::QWindow_KeyReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperMousePressEvent(QWindow* self, QMouseEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_MousePressEvent_IsBase(true);
-        vqwindow->mousePressEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->mousePressEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnMousePressEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_MousePressEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_MousePressEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_mousepressevent_callback = reinterpret_cast<VirtualQWindow::QWindow_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperMouseReleaseEvent(QWindow* self, QMouseEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_MouseReleaseEvent_IsBase(true);
-        vqwindow->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnMouseReleaseEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_mousereleaseevent_callback = reinterpret_cast<VirtualQWindow::QWindow_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperMouseDoubleClickEvent(QWindow* self, QMouseEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_MouseDoubleClickEvent_IsBase(true);
-        vqwindow->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->mouseDoubleClickEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::mouseDoubleClickEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnMouseDoubleClickEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_mousedoubleclickevent_callback = reinterpret_cast<VirtualQWindow::QWindow_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperMouseMoveEvent(QWindow* self, QMouseEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_MouseMoveEvent_IsBase(true);
-        vqwindow->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnMouseMoveEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_MouseMoveEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_mousemoveevent_callback = reinterpret_cast<VirtualQWindow::QWindow_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperWheelEvent(QWindow* self, QWheelEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_WheelEvent_IsBase(true);
-        vqwindow->wheelEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->wheelEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnWheelEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_WheelEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_WheelEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_wheelevent_callback = reinterpret_cast<VirtualQWindow::QWindow_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperTouchEvent(QWindow* self, QTouchEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_TouchEvent_IsBase(true);
-        vqwindow->touchEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->touchEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::touchEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::touchEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnTouchEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_TouchEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_TouchEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_touchevent_callback = reinterpret_cast<VirtualQWindow::QWindow_TouchEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWindow_SuperTabletEvent(QWindow* self, QTabletEvent* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_TabletEvent_IsBase(true);
-        vqwindow->tabletEvent(param1);
-    } else {
-        ((VirtualQWindow*)self)->tabletEvent(param1);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::tabletEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWindow::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnTabletEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_TabletEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_TabletEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_tabletevent_callback = reinterpret_cast<VirtualQWindow::QWindow_TabletEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWindow_SuperNativeEvent(QWindow* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_NativeEvent_IsBase(true);
-        return vqwindow->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQWindow*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        return vqwindow->QWindow::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QWindow::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnNativeEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_NativeEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_NativeEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_nativeevent_callback = reinterpret_cast<VirtualQWindow::QWindow_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWindow_EventFilter(QWindow* self, QObject* watched, QEvent* event) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return vqwindow->eventFilter(watched, event);
-    } else {
-        return self->QWindow::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QWindow_SuperEventFilter(QWindow* self, QObject* watched, QEvent* event) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_EventFilter_IsBase(true);
-        return vqwindow->eventFilter(watched, event);
-    } else {
-        return self->QWindow::eventFilter(watched, event);
-    }
+    return self->QWindow::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnEventFilter(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_EventFilter_Callback(reinterpret_cast<VirtualQWindow::QWindow_EventFilter_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_eventfilter_callback = reinterpret_cast<VirtualQWindow::QWindow_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindow_TimerEvent(QWindow* self, QTimerEvent* event) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->timerEvent(event);
     } else {
-        ((VirtualQWindow*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QWindow::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindow_SuperTimerEvent(QWindow* self, QTimerEvent* event) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_TimerEvent_IsBase(true);
-        vqwindow->timerEvent(event);
-    } else {
-        ((VirtualQWindow*)self)->timerEvent(event);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWindow::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnTimerEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_TimerEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_TimerEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_timerevent_callback = reinterpret_cast<VirtualQWindow::QWindow_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindow_ChildEvent(QWindow* self, QChildEvent* event) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->childEvent(event);
     } else {
-        ((VirtualQWindow*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QWindow::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindow_SuperChildEvent(QWindow* self, QChildEvent* event) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_ChildEvent_IsBase(true);
-        vqwindow->childEvent(event);
-    } else {
-        ((VirtualQWindow*)self)->childEvent(event);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWindow::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnChildEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_ChildEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_ChildEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_childevent_callback = reinterpret_cast<VirtualQWindow::QWindow_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindow_CustomEvent(QWindow* self, QEvent* event) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->customEvent(event);
     } else {
-        ((VirtualQWindow*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QWindow::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindow_SuperCustomEvent(QWindow* self, QEvent* event) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_CustomEvent_IsBase(true);
-        vqwindow->customEvent(event);
-    } else {
-        ((VirtualQWindow*)self)->customEvent(event);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWindow::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnCustomEvent(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_CustomEvent_Callback(reinterpret_cast<VirtualQWindow::QWindow_CustomEvent_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_customevent_callback = reinterpret_cast<VirtualQWindow::QWindow_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindow_ConnectNotify(QWindow* self, const QMetaMethod* signal) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->connectNotify(*signal);
     } else {
-        ((VirtualQWindow*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QWindow::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindow_SuperConnectNotify(QWindow* self, const QMetaMethod* signal) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_ConnectNotify_IsBase(true);
-        vqwindow->connectNotify(*signal);
-    } else {
-        ((VirtualQWindow*)self)->connectNotify(*signal);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWindow::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnConnectNotify(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_ConnectNotify_Callback(reinterpret_cast<VirtualQWindow::QWindow_ConnectNotify_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_connectnotify_callback = reinterpret_cast<VirtualQWindow::QWindow_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindow_DisconnectNotify(QWindow* self, const QMetaMethod* signal) {
     auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
+    if (vqwindow) {
         vqwindow->disconnectNotify(*signal);
     } else {
-        ((VirtualQWindow*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QWindow::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindow_SuperDisconnectNotify(QWindow* self, const QMetaMethod* signal) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_DisconnectNotify_IsBase(true);
-        vqwindow->disconnectNotify(*signal);
-    } else {
-        ((VirtualQWindow*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self)) {
+        vqwindow->QWindow::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWindow::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindow_OnDisconnectNotify(QWindow* self, intptr_t slot) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualQWindow::QWindow_DisconnectNotify_Callback>(slot));
+    if (auto* vqwindow = dynamic_cast<VirtualQWindow*>(self))
+        vqwindow->qwindow_disconnectnotify_callback = reinterpret_cast<VirtualQWindow::QWindow_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void* QWindow_ResolveInterface(const QWindow* self, const char* name, int revision) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return vqwindow->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQWindow*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self))) {
+        return vqwindow->VirtualQWindow::resolveInterface(name, static_cast<int>(revision));
+    } else
+        qFatal("Error: Protected method QWindow::resolveInterface called without a directly constructed type");
 }
 
-// Base class handler implementation
-void* QWindow_SuperResolveInterface(const QWindow* self, const char* name, int revision) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_ResolveInterface_IsBase(true);
-        return vqwindow->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQWindow*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindow_OnResolveInterface(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_ResolveInterface_Callback(reinterpret_cast<VirtualQWindow::QWindow_ResolveInterface_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QWindow_Sender(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return vqwindow->sender();
-    } else {
-        return ((VirtualQWindow*)self)->sender();
-    }
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self))) {
+        return vqwindow->VirtualQWindow::sender();
+    } else
+        qFatal("Error: Protected method QWindow::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QWindow_SuperSender(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_Sender_IsBase(true);
-        return vqwindow->sender();
-    } else {
-        return ((VirtualQWindow*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindow_OnSender(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_Sender_Callback(reinterpret_cast<VirtualQWindow::QWindow_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWindow_SenderSignalIndex(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return vqwindow->senderSignalIndex();
-    } else {
-        return ((VirtualQWindow*)self)->senderSignalIndex();
-    }
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self))) {
+        return vqwindow->VirtualQWindow::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QWindow::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWindow_SuperSenderSignalIndex(const QWindow* self) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_SenderSignalIndex_IsBase(true);
-        return vqwindow->senderSignalIndex();
-    } else {
-        return ((VirtualQWindow*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindow_OnSenderSignalIndex(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWindow::QWindow_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWindow_Receivers(const QWindow* self, const char* signal) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return vqwindow->receivers(signal);
-    } else {
-        return ((VirtualQWindow*)self)->receivers(signal);
-    }
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self))) {
+        return vqwindow->VirtualQWindow::receivers(signal);
+    } else
+        qFatal("Error: Protected method QWindow::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWindow_SuperReceivers(const QWindow* self, const char* signal) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_Receivers_IsBase(true);
-        return vqwindow->receivers(signal);
-    } else {
-        return ((VirtualQWindow*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindow_OnReceivers(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_Receivers_Callback(reinterpret_cast<VirtualQWindow::QWindow_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWindow_IsSignalConnected(const QWindow* self, const QMetaMethod* signal) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return vqwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWindow*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QWindow_SuperIsSignalConnected(const QWindow* self, const QMetaMethod* signal) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        vqwindow->setQWindow_IsSignalConnected_IsBase(true);
-        return vqwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWindow*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindow_OnIsSignalConnected(const QWindow* self, intptr_t slot) {
-    auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self));
-    if (vqwindow && vqwindow->isVirtualQWindow)
-        vqwindow->setQWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualQWindow::QWindow_IsSignalConnected_Callback>(slot));
+    if (auto* vqwindow = const_cast<VirtualQWindow*>(dynamic_cast<const VirtualQWindow*>(self))) {
+        return vqwindow->VirtualQWindow::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QWindow::isSignalConnected called without a directly constructed type");
 }
 
 void QWindow_Delete(QWindow* self) {

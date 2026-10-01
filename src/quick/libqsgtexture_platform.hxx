@@ -9,40 +9,25 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QNativeInterface::QSGOpenGLTexture so that we can call protected methods
+// This class is a subclass of QNativeInterface::QSGOpenGLTexture
 class VirtualQNativeInterfaceQSGOpenGLTexture : public QNativeInterface::QSGOpenGLTexture {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQNativeInterfaceQSGOpenGLTexture = true;
+    // Virtual class public types (including callbacks and access types)
+    using QNativeInterface__QSGOpenGLTexture_NativeTexture_Callback = uint32_t (*)(const QNativeInterface__QSGOpenGLTexture*);
 
-    // Virtual class public types (including callbacks)
-    using QNativeInterface__QSGOpenGLTexture_NativeTexture_Callback = uint32_t (*)();
-
-  protected:
     // Instance callback storage
     QNativeInterface__QSGOpenGLTexture_NativeTexture_Callback qnativeinterface__qsgopengltexture_nativetexture_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qnativeinterface__qsgopengltexture_nativetexture_isbase = false;
-
-  public:
     VirtualQNativeInterfaceQSGOpenGLTexture() : QNativeInterface::QSGOpenGLTexture() {};
-
-    // Callback setters
-    inline void setQNativeInterface__QSGOpenGLTexture_NativeTexture_Callback(QNativeInterface__QSGOpenGLTexture_NativeTexture_Callback cb) { qnativeinterface__qsgopengltexture_nativetexture_callback = cb; }
-
-    // Base flag setters
-    inline void setQNativeInterface__QSGOpenGLTexture_NativeTexture_IsBase(bool value) const { qnativeinterface__qsgopengltexture_nativetexture_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual GLuint nativeTexture() const override {
-        auto nativetexture_cb = qnativeinterface__qsgopengltexture_nativetexture_callback;
-        if (nativetexture_cb) {
-            uint32_t callback_ret = nativetexture_cb();
+        if (qnativeinterface__qsgopengltexture_nativetexture_callback) {
+            uint32_t callback_ret = qnativeinterface__qsgopengltexture_nativetexture_callback(this);
             return static_cast<GLuint>(callback_ret);
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QNativeInterface::QSGOpenGLTexture::nativeTexture called without being implemented");
     }
 };
 

@@ -155,24 +155,24 @@ void KTitleWidget_SetLevel(KTitleWidget* self, int level) {
 
 void KTitleWidget_ChangeEvent(KTitleWidget* self, QEvent* e) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->changeEvent(e);
     }
 }
 
 void KTitleWidget_ShowEvent(KTitleWidget* self, QShowEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->showEvent(event);
     }
 }
 
 bool KTitleWidget_EventFilter(KTitleWidget* self, QObject* object, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         return vktitlewidget->eventFilter(object, event);
     }
-    return {};
+    qFatal("Error: Protected method KTitleWidget::eventFilter called without a directly constructed type");
 }
 
 libqt_string KTitleWidget_Tr2(const char* s, const char* c) {
@@ -219,1624 +219,1151 @@ void KTitleWidget_SetIcon23(KTitleWidget* self, int typeVal, int alignment) {
 
 // Base class handler implementation
 QMetaObject* KTitleWidget_SuperMetaObject(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vktitlewidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KTitleWidget::metaObject();
-    }
+    return (QMetaObject*)self->KTitleWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnMetaObject(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_MetaObject_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MetaObject_Callback>(slot));
+void KTitleWidget_OnMetaObject(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_metaobject_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KTitleWidget_SuperMetacast(KTitleWidget* self, const char* param1) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Metacast_IsBase(true);
-        return vktitlewidget->qt_metacast(param1);
-    } else {
-        return self->KTitleWidget::qt_metacast(param1);
-    }
+    return self->KTitleWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMetacast(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Metacast_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacast_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_metacast_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KTitleWidget_SuperMetacall(KTitleWidget* self, int param1, int param2, void** param3) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Metacall_IsBase(true);
-        return vktitlewidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KTitleWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KTitleWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMetacall(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Metacall_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacall_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_metacall_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperChangeEvent(KTitleWidget* self, QEvent* e) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ChangeEvent_IsBase(true);
-        vktitlewidget->changeEvent(e);
-    } else {
-        ((VirtualKTitleWidget*)self)->changeEvent(e);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnChangeEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ChangeEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_changeevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperShowEvent(KTitleWidget* self, QShowEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ShowEvent_IsBase(true);
-        vktitlewidget->showEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->showEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnShowEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_ShowEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ShowEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_showevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTitleWidget_SuperEventFilter(KTitleWidget* self, QObject* object, QEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_EventFilter_IsBase(true);
-        return vktitlewidget->eventFilter(object, event);
-    } else {
-        return ((VirtualKTitleWidget*)self)->eventFilter(object, event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        return vktitlewidget->KTitleWidget::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnEventFilter(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_EventFilter_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_EventFilter_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_eventfilter_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTitleWidget_DevType(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->devType();
-    } else {
-        return self->KTitleWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KTitleWidget_SuperDevType(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_DevType_IsBase(true);
-        return vktitlewidget->devType();
-    } else {
-        return self->KTitleWidget::devType();
-    }
+    return self->KTitleWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnDevType(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_DevType_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DevType_Callback>(slot));
+void KTitleWidget_OnDevType(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_devtype_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_SetVisible(KTitleWidget* self, bool visible) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setVisible(visible);
-    } else {
-        self->KTitleWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperSetVisible(KTitleWidget* self, bool visible) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_SetVisible_IsBase(true);
-        vktitlewidget->setVisible(visible);
-    } else {
-        self->KTitleWidget::setVisible(visible);
-    }
+    self->KTitleWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnSetVisible(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_SetVisible_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SetVisible_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_setvisible_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTitleWidget_SizeHint(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return new QSize(vktitlewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKTitleWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KTitleWidget_SuperSizeHint(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_SizeHint_IsBase(true);
-        return new QSize(vktitlewidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKTitleWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KTitleWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnSizeHint(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_SizeHint_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SizeHint_Callback>(slot));
+void KTitleWidget_OnSizeHint(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_sizehint_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTitleWidget_MinimumSizeHint(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return new QSize(vktitlewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKTitleWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KTitleWidget_SuperMinimumSizeHint(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vktitlewidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKTitleWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KTitleWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnMinimumSizeHint(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MinimumSizeHint_Callback>(slot));
+void KTitleWidget_OnMinimumSizeHint(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_minimumsizehint_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTitleWidget_HeightForWidth(const KTitleWidget* self, int param1) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KTitleWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KTitleWidget_SuperHeightForWidth(const KTitleWidget* self, int param1) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_HeightForWidth_IsBase(true);
-        return vktitlewidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KTitleWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KTitleWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnHeightForWidth(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HeightForWidth_Callback>(slot));
+void KTitleWidget_OnHeightForWidth(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_heightforwidth_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTitleWidget_HasHeightForWidth(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->hasHeightForWidth();
-    } else {
-        return self->KTitleWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KTitleWidget_SuperHasHeightForWidth(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_HasHeightForWidth_IsBase(true);
-        return vktitlewidget->hasHeightForWidth();
-    } else {
-        return self->KTitleWidget::hasHeightForWidth();
-    }
+    return self->KTitleWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnHasHeightForWidth(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HasHeightForWidth_Callback>(slot));
+void KTitleWidget_OnHasHeightForWidth(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_hasheightforwidth_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KTitleWidget_PaintEngine(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->paintEngine();
-    } else {
-        return self->KTitleWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KTitleWidget_SuperPaintEngine(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_PaintEngine_IsBase(true);
-        return vktitlewidget->paintEngine();
-    } else {
-        return self->KTitleWidget::paintEngine();
-    }
+    return self->KTitleWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnPaintEngine(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_PaintEngine_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_PaintEngine_Callback>(slot));
+void KTitleWidget_OnPaintEngine(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_paintengine_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTitleWidget_Event(KTitleWidget* self, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         return vktitlewidget->event(event);
     } else {
-        return ((VirtualKTitleWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method KTitleWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTitleWidget_SuperEvent(KTitleWidget* self, QEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Event_IsBase(true);
-        return vktitlewidget->event(event);
-    } else {
-        return ((VirtualKTitleWidget*)self)->event(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        return vktitlewidget->KTitleWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Event_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Event_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_event_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_MousePressEvent(KTitleWidget* self, QMouseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->mousePressEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperMousePressEvent(KTitleWidget* self, QMouseEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_MousePressEvent_IsBase(true);
-        vktitlewidget->mousePressEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMousePressEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MousePressEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_mousepressevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_MouseReleaseEvent(KTitleWidget* self, QMouseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperMouseReleaseEvent(KTitleWidget* self, QMouseEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_MouseReleaseEvent_IsBase(true);
-        vktitlewidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMouseReleaseEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_mousereleaseevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_MouseDoubleClickEvent(KTitleWidget* self, QMouseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperMouseDoubleClickEvent(KTitleWidget* self, QMouseEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_MouseDoubleClickEvent_IsBase(true);
-        vktitlewidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMouseDoubleClickEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_MouseMoveEvent(KTitleWidget* self, QMouseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->mouseMoveEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperMouseMoveEvent(KTitleWidget* self, QMouseEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_MouseMoveEvent_IsBase(true);
-        vktitlewidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMouseMoveEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_mousemoveevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_WheelEvent(KTitleWidget* self, QWheelEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->wheelEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperWheelEvent(KTitleWidget* self, QWheelEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_WheelEvent_IsBase(true);
-        vktitlewidget->wheelEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnWheelEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_WheelEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_WheelEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_wheelevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_KeyPressEvent(KTitleWidget* self, QKeyEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->keyPressEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperKeyPressEvent(KTitleWidget* self, QKeyEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_KeyPressEvent_IsBase(true);
-        vktitlewidget->keyPressEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnKeyPressEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_keypressevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_KeyReleaseEvent(KTitleWidget* self, QKeyEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperKeyReleaseEvent(KTitleWidget* self, QKeyEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_KeyReleaseEvent_IsBase(true);
-        vktitlewidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnKeyReleaseEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_keyreleaseevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_FocusInEvent(KTitleWidget* self, QFocusEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->focusInEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperFocusInEvent(KTitleWidget* self, QFocusEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_FocusInEvent_IsBase(true);
-        vktitlewidget->focusInEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnFocusInEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusInEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_focusinevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_FocusOutEvent(KTitleWidget* self, QFocusEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->focusOutEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperFocusOutEvent(KTitleWidget* self, QFocusEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_FocusOutEvent_IsBase(true);
-        vktitlewidget->focusOutEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnFocusOutEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_focusoutevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_EnterEvent(KTitleWidget* self, QEnterEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->enterEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperEnterEvent(KTitleWidget* self, QEnterEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_EnterEvent_IsBase(true);
-        vktitlewidget->enterEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->enterEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnEnterEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_EnterEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_EnterEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_enterevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_LeaveEvent(KTitleWidget* self, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->leaveEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperLeaveEvent(KTitleWidget* self, QEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_LeaveEvent_IsBase(true);
-        vktitlewidget->leaveEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnLeaveEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_LeaveEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_leaveevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_PaintEvent(KTitleWidget* self, QPaintEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->paintEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperPaintEvent(KTitleWidget* self, QPaintEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_PaintEvent_IsBase(true);
-        vktitlewidget->paintEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->paintEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnPaintEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_PaintEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_PaintEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_paintevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_MoveEvent(KTitleWidget* self, QMoveEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->moveEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperMoveEvent(KTitleWidget* self, QMoveEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_MoveEvent_IsBase(true);
-        vktitlewidget->moveEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->moveEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMoveEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_MoveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MoveEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_moveevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_ResizeEvent(KTitleWidget* self, QResizeEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->resizeEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperResizeEvent(KTitleWidget* self, QResizeEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ResizeEvent_IsBase(true);
-        vktitlewidget->resizeEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnResizeEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ResizeEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_resizeevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_CloseEvent(KTitleWidget* self, QCloseEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->closeEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperCloseEvent(KTitleWidget* self, QCloseEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_CloseEvent_IsBase(true);
-        vktitlewidget->closeEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->closeEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnCloseEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_CloseEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_CloseEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_closeevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_ContextMenuEvent(KTitleWidget* self, QContextMenuEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->contextMenuEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperContextMenuEvent(KTitleWidget* self, QContextMenuEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ContextMenuEvent_IsBase(true);
-        vktitlewidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnContextMenuEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_contextmenuevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_TabletEvent(KTitleWidget* self, QTabletEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->tabletEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperTabletEvent(KTitleWidget* self, QTabletEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_TabletEvent_IsBase(true);
-        vktitlewidget->tabletEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnTabletEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_TabletEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_TabletEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_tabletevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_ActionEvent(KTitleWidget* self, QActionEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->actionEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperActionEvent(KTitleWidget* self, QActionEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ActionEvent_IsBase(true);
-        vktitlewidget->actionEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->actionEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnActionEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_ActionEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ActionEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_actionevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_DragEnterEvent(KTitleWidget* self, QDragEnterEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->dragEnterEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperDragEnterEvent(KTitleWidget* self, QDragEnterEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_DragEnterEvent_IsBase(true);
-        vktitlewidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDragEnterEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_dragenterevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_DragMoveEvent(KTitleWidget* self, QDragMoveEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->dragMoveEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperDragMoveEvent(KTitleWidget* self, QDragMoveEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_DragMoveEvent_IsBase(true);
-        vktitlewidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDragMoveEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_dragmoveevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_DragLeaveEvent(KTitleWidget* self, QDragLeaveEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperDragLeaveEvent(KTitleWidget* self, QDragLeaveEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_DragLeaveEvent_IsBase(true);
-        vktitlewidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDragLeaveEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_dragleaveevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_DropEvent(KTitleWidget* self, QDropEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->dropEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperDropEvent(KTitleWidget* self, QDropEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_DropEvent_IsBase(true);
-        vktitlewidget->dropEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->dropEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDropEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_DropEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DropEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_dropevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_HideEvent(KTitleWidget* self, QHideEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->hideEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperHideEvent(KTitleWidget* self, QHideEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_HideEvent_IsBase(true);
-        vktitlewidget->hideEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->hideEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnHideEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_HideEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HideEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_hideevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTitleWidget_NativeEvent(KTitleWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
+    if (vktitlewidget) {
         return vktitlewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKTitleWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KTitleWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTitleWidget_SuperNativeEvent(KTitleWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_NativeEvent_IsBase(true);
-        return vktitlewidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKTitleWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        return vktitlewidget->KTitleWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnNativeEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_NativeEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_NativeEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_nativeevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTitleWidget_Metric(const KTitleWidget* self, int param1) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         return vktitlewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKTitleWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KTitleWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KTitleWidget_SuperMetric(const KTitleWidget* self, int param1) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Metric_IsBase(true);
-        return vktitlewidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKTitleWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        return vktitlewidget->KTitleWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnMetric(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Metric_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metric_Callback>(slot));
+void KTitleWidget_OnMetric(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_metric_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_InitPainter(const KTitleWidget* self, QPainter* painter) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->initPainter(painter);
     } else {
-        ((VirtualKTitleWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KTitleWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperInitPainter(const KTitleWidget* self, QPainter* painter) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_InitPainter_IsBase(true);
-        vktitlewidget->initPainter(painter);
-    } else {
-        ((VirtualKTitleWidget*)self)->initPainter(painter);
-    }
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        vktitlewidget->KTitleWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnInitPainter(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_InitPainter_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InitPainter_Callback>(slot));
+void KTitleWidget_OnInitPainter(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_initpainter_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KTitleWidget_Redirected(const KTitleWidget* self, QPoint* offset) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         return vktitlewidget->redirected(offset);
     } else {
-        return ((VirtualKTitleWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KTitleWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KTitleWidget_SuperRedirected(const KTitleWidget* self, QPoint* offset) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Redirected_IsBase(true);
-        return vktitlewidget->redirected(offset);
-    } else {
-        return ((VirtualKTitleWidget*)self)->redirected(offset);
-    }
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        return vktitlewidget->KTitleWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnRedirected(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Redirected_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Redirected_Callback>(slot));
+void KTitleWidget_OnRedirected(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_redirected_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KTitleWidget_SharedPainter(const KTitleWidget* self) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         return vktitlewidget->sharedPainter();
     } else {
-        return ((VirtualKTitleWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KTitleWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KTitleWidget_SuperSharedPainter(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_SharedPainter_IsBase(true);
-        return vktitlewidget->sharedPainter();
-    } else {
-        return ((VirtualKTitleWidget*)self)->sharedPainter();
-    }
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        return vktitlewidget->KTitleWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnSharedPainter(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_SharedPainter_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SharedPainter_Callback>(slot));
+void KTitleWidget_OnSharedPainter(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_sharedpainter_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_InputMethodEvent(KTitleWidget* self, QInputMethodEvent* param1) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKTitleWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KTitleWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperInputMethodEvent(KTitleWidget* self, QInputMethodEvent* param1) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_InputMethodEvent_IsBase(true);
-        vktitlewidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKTitleWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnInputMethodEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_inputmethodevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KTitleWidget_InputMethodQuery(const KTitleWidget* self, int param1) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return new QVariant(vktitlewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKTitleWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KTitleWidget_SuperInputMethodQuery(const KTitleWidget* self, int param1) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vktitlewidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKTitleWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KTitleWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnInputMethodQuery(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InputMethodQuery_Callback>(slot));
+void KTitleWidget_OnInputMethodQuery(KTitleWidget* self, intptr_t slot) {
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self)))
+        vktitlewidget->ktitlewidget_inputmethodquery_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTitleWidget_FocusNextPrevChild(KTitleWidget* self, bool next) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         return vktitlewidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKTitleWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KTitleWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTitleWidget_SuperFocusNextPrevChild(KTitleWidget* self, bool next) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_FocusNextPrevChild_IsBase(true);
-        return vktitlewidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKTitleWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        return vktitlewidget->KTitleWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnFocusNextPrevChild(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_focusnextprevchild_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_TimerEvent(KTitleWidget* self, QTimerEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->timerEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperTimerEvent(KTitleWidget* self, QTimerEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_TimerEvent_IsBase(true);
-        vktitlewidget->timerEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->timerEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnTimerEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_TimerEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_TimerEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_timerevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_ChildEvent(KTitleWidget* self, QChildEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->childEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperChildEvent(KTitleWidget* self, QChildEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ChildEvent_IsBase(true);
-        vktitlewidget->childEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->childEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnChildEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_ChildEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ChildEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_childevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_CustomEvent(KTitleWidget* self, QEvent* event) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->customEvent(event);
     } else {
-        ((VirtualKTitleWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KTitleWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperCustomEvent(KTitleWidget* self, QEvent* event) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_CustomEvent_IsBase(true);
-        vktitlewidget->customEvent(event);
-    } else {
-        ((VirtualKTitleWidget*)self)->customEvent(event);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnCustomEvent(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_CustomEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_CustomEvent_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_customevent_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_ConnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->connectNotify(*signal);
     } else {
-        ((VirtualKTitleWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KTitleWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperConnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_ConnectNotify_IsBase(true);
-        vktitlewidget->connectNotify(*signal);
-    } else {
-        ((VirtualKTitleWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnConnectNotify(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ConnectNotify_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_connectnotify_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTitleWidget_DisconnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget) {
         vktitlewidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKTitleWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KTitleWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTitleWidget_SuperDisconnectNotify(KTitleWidget* self, const QMetaMethod* signal) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_DisconnectNotify_IsBase(true);
-        vktitlewidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKTitleWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->KTitleWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTitleWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDisconnectNotify(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self))
+        vktitlewidget->ktitlewidget_disconnectnotify_callback = reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTitleWidget_UpdateMicroFocus(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->updateMicroFocus();
-    } else {
-        ((VirtualKTitleWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->VirtualKTitleWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KTitleWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTitleWidget_SuperUpdateMicroFocus(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_UpdateMicroFocus_IsBase(true);
-        vktitlewidget->updateMicroFocus();
-    } else {
-        ((VirtualKTitleWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnUpdateMicroFocus(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTitleWidget_Create(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->create();
-    } else {
-        ((VirtualKTitleWidget*)self)->create();
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->VirtualKTitleWidget::create();
+    } else
+        qFatal("Error: Protected method KTitleWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTitleWidget_SuperCreate(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Create_IsBase(true);
-        vktitlewidget->create();
-    } else {
-        ((VirtualKTitleWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnCreate(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Create_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTitleWidget_Destroy(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->destroy();
-    } else {
-        ((VirtualKTitleWidget*)self)->destroy();
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        vktitlewidget->VirtualKTitleWidget::destroy();
+    } else
+        qFatal("Error: Protected method KTitleWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTitleWidget_SuperDestroy(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Destroy_IsBase(true);
-        vktitlewidget->destroy();
-    } else {
-        ((VirtualKTitleWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnDestroy(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Destroy_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTitleWidget_FocusNextChild(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->focusNextChild();
-    } else {
-        return ((VirtualKTitleWidget*)self)->focusNextChild();
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        return vktitlewidget->VirtualKTitleWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KTitleWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTitleWidget_SuperFocusNextChild(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_FocusNextChild_IsBase(true);
-        return vktitlewidget->focusNextChild();
-    } else {
-        return ((VirtualKTitleWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnFocusNextChild(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTitleWidget_FocusPreviousChild(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->focusPreviousChild();
-    } else {
-        return ((VirtualKTitleWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self)) {
+        return vktitlewidget->VirtualKTitleWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KTitleWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTitleWidget_SuperFocusPreviousChild(KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_FocusPreviousChild_IsBase(true);
-        return vktitlewidget->focusPreviousChild();
-    } else {
-        return ((VirtualKTitleWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnFocusPreviousChild(KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KTitleWidget_Sender(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->sender();
-    } else {
-        return ((VirtualKTitleWidget*)self)->sender();
-    }
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        return vktitlewidget->VirtualKTitleWidget::sender();
+    } else
+        qFatal("Error: Protected method KTitleWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KTitleWidget_SuperSender(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Sender_IsBase(true);
-        return vktitlewidget->sender();
-    } else {
-        return ((VirtualKTitleWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnSender(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Sender_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTitleWidget_SenderSignalIndex(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->senderSignalIndex();
-    } else {
-        return ((VirtualKTitleWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        return vktitlewidget->VirtualKTitleWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KTitleWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTitleWidget_SuperSenderSignalIndex(const KTitleWidget* self) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_SenderSignalIndex_IsBase(true);
-        return vktitlewidget->senderSignalIndex();
-    } else {
-        return ((VirtualKTitleWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnSenderSignalIndex(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTitleWidget_Receivers(const KTitleWidget* self, const char* signal) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->receivers(signal);
-    } else {
-        return ((VirtualKTitleWidget*)self)->receivers(signal);
-    }
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        return vktitlewidget->VirtualKTitleWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KTitleWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTitleWidget_SuperReceivers(const KTitleWidget* self, const char* signal) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_Receivers_IsBase(true);
-        return vktitlewidget->receivers(signal);
-    } else {
-        return ((VirtualKTitleWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnReceivers(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_Receivers_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTitleWidget_IsSignalConnected(const KTitleWidget* self, const QMetaMethod* signal) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTitleWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        return vktitlewidget->VirtualKTitleWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KTitleWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTitleWidget_SuperIsSignalConnected(const KTitleWidget* self, const QMetaMethod* signal) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_IsSignalConnected_IsBase(true);
-        return vktitlewidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTitleWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnIsSignalConnected(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KTitleWidget_GetDecodedMetricF(const KTitleWidget* self, int metricA, int metricB) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return vktitlewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKTitleWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KTitleWidget_SuperGetDecodedMetricF(const KTitleWidget* self, int metricA, int metricB) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        vktitlewidget->setKTitleWidget_GetDecodedMetricF_IsBase(true);
-        return vktitlewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKTitleWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTitleWidget_OnGetDecodedMetricF(const KTitleWidget* self, intptr_t slot) {
-    auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
-        vktitlewidget->setKTitleWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self))) {
+        return vktitlewidget->VirtualKTitleWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KTitleWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KTitleWidget_Delete(KTitleWidget* self) {

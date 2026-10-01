@@ -79,9 +79,9 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     /// ` self: QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractTextDocumentLayout) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout) callconv(.c) QMetaObject) void {
         qtc.QAbstractTextDocumentLayout_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -232,6 +232,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
     ///
+    /// This method must be implemented with `onDraw` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractTextDocumentLayout `
@@ -264,33 +266,13 @@ pub const QAbstractTextDocumentLayout = extern struct {
         qtc.QAbstractTextDocumentLayout_OnDraw(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superDraw` instead
-    ///
-    pub const SuperDraw = superDraw;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#draw)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` context: QAbstractTextDocumentLayout__PaintContext `
-    ///
-    pub fn superDraw(self: QAbstractTextDocumentLayout, painter: anytype, context: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(context)._is_QAbstractTextDocumentLayout__PaintContext;
-        qtc.QAbstractTextDocumentLayout_SuperDraw(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(context.ptr));
-    }
-
     /// ### DEPRECATED: Use `hitTest` instead
     ///
     pub const HitTest = hitTest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
+    ///
+    /// This method must be implemented with `onHitTest` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -321,27 +303,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     pub fn onHitTest(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, QPointF, i32) callconv(.c) i32) void {
         qtc.QAbstractTextDocumentLayout_OnHitTest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHitTest` instead
-    ///
-    pub const SuperHitTest = superHitTest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#hitTest)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` point: QPointF `
-    ///
-    /// ` accuracy: qnamespace_enums.HitTestAccuracy `
-    ///
-    pub fn superHitTest(self: QAbstractTextDocumentLayout, point: anytype, accuracy: i32) i32 {
-        comptime _ = @TypeOf(point)._is_QPointF;
-        return qtc.QAbstractTextDocumentLayout_SuperHitTest(@ptrCast(self.ptr), @ptrCast(point.ptr), @bitCast(accuracy));
     }
 
     /// ### DEPRECATED: Use `anchorAt` instead
@@ -430,6 +391,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
     ///
+    /// This method must be implemented with `onPageCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractTextDocumentLayout `
@@ -450,26 +413,10 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     /// ` self: QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractTextDocumentLayout) callconv(.c) i32 `
     ///
-    pub fn onPageCount(self: QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onPageCount(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout) callconv(.c) i32) void {
         qtc.QAbstractTextDocumentLayout_OnPageCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPageCount` instead
-    ///
-    pub const SuperPageCount = superPageCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#pageCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    pub fn superPageCount(self: QAbstractTextDocumentLayout) i32 {
-        return qtc.QAbstractTextDocumentLayout_SuperPageCount(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `documentSize` instead
@@ -477,6 +424,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
     pub const DocumentSize = documentSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
+    ///
+    /// This method must be implemented with `onDocumentSize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -498,28 +447,12 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     /// ` self: QAbstractTextDocumentLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSizeF `
+    /// ` callback: *const fn (self: QAbstractTextDocumentLayout) callconv(.c) QSizeF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onDocumentSize(self: QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) QSizeF) void {
+    pub fn onDocumentSize(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout) callconv(.c) QSizeF) void {
         qtc.QAbstractTextDocumentLayout_OnDocumentSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDocumentSize` instead
-    ///
-    pub const SuperDocumentSize = superDocumentSize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentSize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    pub fn superDocumentSize(self: QAbstractTextDocumentLayout) QSizeF {
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout_SuperDocumentSize(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `frameBoundingRect` instead
@@ -527,6 +460,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
     pub const FrameBoundingRect = frameBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
+    ///
+    /// This method must be implemented with `onFrameBoundingRect` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -559,30 +494,13 @@ pub const QAbstractTextDocumentLayout = extern struct {
         qtc.QAbstractTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superFrameBoundingRect` instead
-    ///
-    pub const SuperFrameBoundingRect = superFrameBoundingRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#frameBoundingRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` frame: QTextFrame `
-    ///
-    pub fn superFrameBoundingRect(self: QAbstractTextDocumentLayout, frame: anytype) QRectF {
-        comptime _ = @TypeOf(frame)._is_QTextFrame;
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout_SuperFrameBoundingRect(@ptrCast(self.ptr), @ptrCast(frame.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `blockBoundingRect` instead
     ///
     pub const BlockBoundingRect = blockBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
+    ///
+    /// This method must be implemented with `onBlockBoundingRect` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -613,25 +531,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     pub fn onBlockBoundingRect(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, QTextBlock) callconv(.c) QRectF) void {
         qtc.QAbstractTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBlockBoundingRect` instead
-    ///
-    pub const SuperBlockBoundingRect = superBlockBoundingRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#blockBoundingRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` block: QTextBlock `
-    ///
-    pub fn superBlockBoundingRect(self: QAbstractTextDocumentLayout, block: anytype) QRectF {
-        comptime _ = @TypeOf(block)._is_QTextBlock;
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout_SuperBlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setPaintDevice` instead
@@ -865,6 +764,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
     ///
+    /// This method must be implemented with `onDocumentChanged` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractTextDocumentLayout `
@@ -895,28 +796,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     pub fn onDocumentChanged(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_OnDocumentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDocumentChanged` instead
-    ///
-    pub const SuperDocumentChanged = superDocumentChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#documentChanged)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` from: i32 `
-    ///
-    /// ` charsRemoved: i32 `
-    ///
-    /// ` charsAdded: i32 `
-    ///
-    pub fn superDocumentChanged(self: QAbstractTextDocumentLayout, from: i32, charsRemoved: i32, charsAdded: i32) void {
-        qtc.QAbstractTextDocumentLayout_SuperDocumentChanged(@ptrCast(self.ptr), @bitCast(from), @bitCast(charsRemoved), @bitCast(charsAdded));
     }
 
     /// ### DEPRECATED: Use `resizeInlineObject` instead
@@ -1139,42 +1018,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
         return qtc.QAbstractTextDocumentLayout_FormatIndex(@ptrCast(self.ptr), @bitCast(pos));
     }
 
-    /// ### DEPRECATED: Use `onFormatIndex` instead
-    ///
-    pub const OnFormatIndex = onFormatIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` callback: *const fn (self: QAbstractTextDocumentLayout, pos: i32) callconv(.c) i32 `
-    ///
-    pub fn onFormatIndex(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, i32) callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnFormatIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFormatIndex` instead
-    ///
-    pub const SuperFormatIndex = superFormatIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#formatIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` pos: i32 `
-    ///
-    pub fn superFormatIndex(self: QAbstractTextDocumentLayout, pos: i32) i32 {
-        return qtc.QAbstractTextDocumentLayout_SuperFormatIndex(@ptrCast(self.ptr), @bitCast(pos));
-    }
-
     /// ### DEPRECATED: Use `format` instead
     ///
     pub const Format = format;
@@ -1189,44 +1032,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     pub fn format(self: QAbstractTextDocumentLayout, pos: i32) QTextCharFormat {
         return .{ .ptr = qtc.QAbstractTextDocumentLayout_Format(@ptrCast(self.ptr), @bitCast(pos)) };
-    }
-
-    /// ### DEPRECATED: Use `onFormat` instead
-    ///
-    pub const OnFormat = onFormat;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` callback: *const fn (self: QAbstractTextDocumentLayout, pos: i32) callconv(.c) QTextCharFormat `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onFormat(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, i32) callconv(.c) QTextCharFormat) void {
-        qtc.QAbstractTextDocumentLayout_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFormat` instead
-    ///
-    pub const SuperFormat = superFormat;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#format)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` pos: i32 `
-    ///
-    pub fn superFormat(self: QAbstractTextDocumentLayout, pos: i32) QTextCharFormat {
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout_SuperFormat(@ptrCast(self.ptr), @bitCast(pos)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2758,44 +2563,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
         return .{ .ptr = qtc.QAbstractTextDocumentLayout_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    pub fn superSender(self: QAbstractTextDocumentLayout) QObject {
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTextDocumentLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractTextDocumentLayout_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2812,44 +2579,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractTextDocumentLayout) i32 {
         return qtc.QAbstractTextDocumentLayout_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractTextDocumentLayout) i32 {
-        return qtc.QAbstractTextDocumentLayout_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTextDocumentLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2873,47 +2602,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
         return qtc.QAbstractTextDocumentLayout_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractTextDocumentLayout, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractTextDocumentLayout_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTextDocumentLayout`
-    ///
-    /// ` callback: *const fn (self: QAbstractTextDocumentLayout, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractTextDocumentLayout_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2933,47 +2621,6 @@ pub const QAbstractTextDocumentLayout = extern struct {
     pub fn isSignalConnected(self: QAbstractTextDocumentLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractTextDocumentLayout_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTextDocumentLayout `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractTextDocumentLayout, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractTextDocumentLayout_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTextDocumentLayout`
-    ///
-    /// ` callback: *const fn (self: QAbstractTextDocumentLayout, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractTextDocumentLayout_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -3029,6 +2676,8 @@ pub const QTextObjectInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#intrinsicSize)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QTextObjectInterface `
@@ -3050,6 +2699,8 @@ pub const QTextObjectInterface = extern struct {
     pub const DrawObject = drawObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#drawObject)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

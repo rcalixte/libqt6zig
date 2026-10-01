@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KCoreDirLister so that we can call protected methods
+// This class is a subclass of KCoreDirLister
 class VirtualKCoreDirLister final : public KCoreDirLister {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKCoreDirLister = true;
-
-    // Virtual class public types (including callbacks)
-    using KCoreDirLister_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KCoreDirLister_MetaObject_Callback = QMetaObject* (*)(const KCoreDirLister*);
     using KCoreDirLister_Metacast_Callback = void* (*)(KCoreDirLister*, const char*);
     using KCoreDirLister_Metacall_Callback = int (*)(KCoreDirLister*, int, int, void**);
     using KCoreDirLister_JobStarted_Callback = void (*)(KCoreDirLister*, KIO__ListJob*);
@@ -28,12 +24,11 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     using KCoreDirLister_CustomEvent_Callback = void (*)(KCoreDirLister*, QEvent*);
     using KCoreDirLister_ConnectNotify_Callback = void (*)(KCoreDirLister*, QMetaMethod*);
     using KCoreDirLister_DisconnectNotify_Callback = void (*)(KCoreDirLister*, QMetaMethod*);
-    using KCoreDirLister_Sender_Callback = QObject* (*)();
-    using KCoreDirLister_SenderSignalIndex_Callback = int (*)();
-    using KCoreDirLister_Receivers_Callback = int (*)(const KCoreDirLister*, const char*);
-    using KCoreDirLister_IsSignalConnected_Callback = bool (*)(const KCoreDirLister*, QMetaMethod*);
+    using KCoreDirLister::isSignalConnected;
+    using KCoreDirLister::receivers;
+    using KCoreDirLister::sender;
+    using KCoreDirLister::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KCoreDirLister_MetaObject_Callback kcoredirlister_metaobject_callback = nullptr;
     KCoreDirLister_Metacast_Callback kcoredirlister_metacast_callback = nullptr;
@@ -46,75 +41,24 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
     KCoreDirLister_CustomEvent_Callback kcoredirlister_customevent_callback = nullptr;
     KCoreDirLister_ConnectNotify_Callback kcoredirlister_connectnotify_callback = nullptr;
     KCoreDirLister_DisconnectNotify_Callback kcoredirlister_disconnectnotify_callback = nullptr;
-    KCoreDirLister_Sender_Callback kcoredirlister_sender_callback = nullptr;
-    KCoreDirLister_SenderSignalIndex_Callback kcoredirlister_sendersignalindex_callback = nullptr;
-    KCoreDirLister_Receivers_Callback kcoredirlister_receivers_callback = nullptr;
-    KCoreDirLister_IsSignalConnected_Callback kcoredirlister_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kcoredirlister_metaobject_isbase = false;
-    mutable bool kcoredirlister_metacast_isbase = false;
-    mutable bool kcoredirlister_metacall_isbase = false;
-    mutable bool kcoredirlister_jobstarted_isbase = false;
-    mutable bool kcoredirlister_event_isbase = false;
-    mutable bool kcoredirlister_eventfilter_isbase = false;
-    mutable bool kcoredirlister_timerevent_isbase = false;
-    mutable bool kcoredirlister_childevent_isbase = false;
-    mutable bool kcoredirlister_customevent_isbase = false;
-    mutable bool kcoredirlister_connectnotify_isbase = false;
-    mutable bool kcoredirlister_disconnectnotify_isbase = false;
-    mutable bool kcoredirlister_sender_isbase = false;
-    mutable bool kcoredirlister_sendersignalindex_isbase = false;
-    mutable bool kcoredirlister_receivers_isbase = false;
-    mutable bool kcoredirlister_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KCoreDirLister {
+        using KCoreDirLister::childEvent;
+        using KCoreDirLister::connectNotify;
+        using KCoreDirLister::customEvent;
+        using KCoreDirLister::disconnectNotify;
+        using KCoreDirLister::jobStarted;
+        using KCoreDirLister::timerEvent;
+    };
 
-  public:
     VirtualKCoreDirLister() : KCoreDirLister() {};
     VirtualKCoreDirLister(QObject* parent) : KCoreDirLister(parent) {};
 
-    // Callback setters
-    inline void setKCoreDirLister_MetaObject_Callback(KCoreDirLister_MetaObject_Callback cb) { kcoredirlister_metaobject_callback = cb; }
-    inline void setKCoreDirLister_Metacast_Callback(KCoreDirLister_Metacast_Callback cb) { kcoredirlister_metacast_callback = cb; }
-    inline void setKCoreDirLister_Metacall_Callback(KCoreDirLister_Metacall_Callback cb) { kcoredirlister_metacall_callback = cb; }
-    inline void setKCoreDirLister_JobStarted_Callback(KCoreDirLister_JobStarted_Callback cb) { kcoredirlister_jobstarted_callback = cb; }
-    inline void setKCoreDirLister_Event_Callback(KCoreDirLister_Event_Callback cb) { kcoredirlister_event_callback = cb; }
-    inline void setKCoreDirLister_EventFilter_Callback(KCoreDirLister_EventFilter_Callback cb) { kcoredirlister_eventfilter_callback = cb; }
-    inline void setKCoreDirLister_TimerEvent_Callback(KCoreDirLister_TimerEvent_Callback cb) { kcoredirlister_timerevent_callback = cb; }
-    inline void setKCoreDirLister_ChildEvent_Callback(KCoreDirLister_ChildEvent_Callback cb) { kcoredirlister_childevent_callback = cb; }
-    inline void setKCoreDirLister_CustomEvent_Callback(KCoreDirLister_CustomEvent_Callback cb) { kcoredirlister_customevent_callback = cb; }
-    inline void setKCoreDirLister_ConnectNotify_Callback(KCoreDirLister_ConnectNotify_Callback cb) { kcoredirlister_connectnotify_callback = cb; }
-    inline void setKCoreDirLister_DisconnectNotify_Callback(KCoreDirLister_DisconnectNotify_Callback cb) { kcoredirlister_disconnectnotify_callback = cb; }
-    inline void setKCoreDirLister_Sender_Callback(KCoreDirLister_Sender_Callback cb) { kcoredirlister_sender_callback = cb; }
-    inline void setKCoreDirLister_SenderSignalIndex_Callback(KCoreDirLister_SenderSignalIndex_Callback cb) { kcoredirlister_sendersignalindex_callback = cb; }
-    inline void setKCoreDirLister_Receivers_Callback(KCoreDirLister_Receivers_Callback cb) { kcoredirlister_receivers_callback = cb; }
-    inline void setKCoreDirLister_IsSignalConnected_Callback(KCoreDirLister_IsSignalConnected_Callback cb) { kcoredirlister_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKCoreDirLister_MetaObject_IsBase(bool value) const { kcoredirlister_metaobject_isbase = value; }
-    inline void setKCoreDirLister_Metacast_IsBase(bool value) const { kcoredirlister_metacast_isbase = value; }
-    inline void setKCoreDirLister_Metacall_IsBase(bool value) const { kcoredirlister_metacall_isbase = value; }
-    inline void setKCoreDirLister_JobStarted_IsBase(bool value) const { kcoredirlister_jobstarted_isbase = value; }
-    inline void setKCoreDirLister_Event_IsBase(bool value) const { kcoredirlister_event_isbase = value; }
-    inline void setKCoreDirLister_EventFilter_IsBase(bool value) const { kcoredirlister_eventfilter_isbase = value; }
-    inline void setKCoreDirLister_TimerEvent_IsBase(bool value) const { kcoredirlister_timerevent_isbase = value; }
-    inline void setKCoreDirLister_ChildEvent_IsBase(bool value) const { kcoredirlister_childevent_isbase = value; }
-    inline void setKCoreDirLister_CustomEvent_IsBase(bool value) const { kcoredirlister_customevent_isbase = value; }
-    inline void setKCoreDirLister_ConnectNotify_IsBase(bool value) const { kcoredirlister_connectnotify_isbase = value; }
-    inline void setKCoreDirLister_DisconnectNotify_IsBase(bool value) const { kcoredirlister_disconnectnotify_isbase = value; }
-    inline void setKCoreDirLister_Sender_IsBase(bool value) const { kcoredirlister_sender_isbase = value; }
-    inline void setKCoreDirLister_SenderSignalIndex_IsBase(bool value) const { kcoredirlister_sendersignalindex_isbase = value; }
-    inline void setKCoreDirLister_Receivers_IsBase(bool value) const { kcoredirlister_receivers_isbase = value; }
-    inline void setKCoreDirLister_IsSignalConnected_IsBase(bool value) const { kcoredirlister_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kcoredirlister_metaobject_isbase) {
-            kcoredirlister_metaobject_isbase = false;
-            return KCoreDirLister::metaObject();
-        }
-        auto metaobject_cb = kcoredirlister_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kcoredirlister_metaobject_callback) {
+            QMetaObject* callback_ret = kcoredirlister_metaobject_callback(this);
             return callback_ret;
         }
         return KCoreDirLister::metaObject();
@@ -122,14 +66,9 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kcoredirlister_metacast_isbase) {
-            kcoredirlister_metacast_isbase = false;
-            return KCoreDirLister::qt_metacast(param1);
-        }
-        auto metacast_cb = kcoredirlister_metacast_callback;
-        if (metacast_cb) {
+        if (kcoredirlister_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kcoredirlister_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KCoreDirLister::qt_metacast(param1);
@@ -137,16 +76,11 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kcoredirlister_metacall_isbase) {
-            kcoredirlister_metacall_isbase = false;
-            return KCoreDirLister::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kcoredirlister_metacall_callback;
-        if (metacall_cb) {
+        if (kcoredirlister_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kcoredirlister_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KCoreDirLister::qt_metacall(param1, param2, param3);
@@ -154,15 +88,9 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual void jobStarted(KIO::ListJob* param1) override {
-        if (kcoredirlister_jobstarted_isbase) {
-            kcoredirlister_jobstarted_isbase = false;
-            KCoreDirLister::jobStarted(param1);
-            return;
-        }
-        auto jobstarted_cb = kcoredirlister_jobstarted_callback;
-        if (jobstarted_cb) {
+        if (kcoredirlister_jobstarted_callback) {
             KIO__ListJob* cbval1 = param1;
-            jobstarted_cb(this, cbval1);
+            kcoredirlister_jobstarted_callback(this, cbval1);
             return;
         }
         KCoreDirLister::jobStarted(param1);
@@ -170,14 +98,9 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kcoredirlister_event_isbase) {
-            kcoredirlister_event_isbase = false;
-            return KCoreDirLister::event(event);
-        }
-        auto event_cb = kcoredirlister_event_callback;
-        if (event_cb) {
+        if (kcoredirlister_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kcoredirlister_event_callback(this, cbval1);
             return callback_ret;
         }
         return KCoreDirLister::event(event);
@@ -185,15 +108,10 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kcoredirlister_eventfilter_isbase) {
-            kcoredirlister_eventfilter_isbase = false;
-            return KCoreDirLister::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kcoredirlister_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kcoredirlister_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kcoredirlister_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KCoreDirLister::eventFilter(watched, event);
@@ -201,15 +119,9 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kcoredirlister_timerevent_isbase) {
-            kcoredirlister_timerevent_isbase = false;
-            KCoreDirLister::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kcoredirlister_timerevent_callback;
-        if (timerevent_cb) {
+        if (kcoredirlister_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kcoredirlister_timerevent_callback(this, cbval1);
             return;
         }
         KCoreDirLister::timerEvent(event);
@@ -217,15 +129,9 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kcoredirlister_childevent_isbase) {
-            kcoredirlister_childevent_isbase = false;
-            KCoreDirLister::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kcoredirlister_childevent_callback;
-        if (childevent_cb) {
+        if (kcoredirlister_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kcoredirlister_childevent_callback(this, cbval1);
             return;
         }
         KCoreDirLister::childEvent(event);
@@ -233,15 +139,9 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kcoredirlister_customevent_isbase) {
-            kcoredirlister_customevent_isbase = false;
-            KCoreDirLister::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kcoredirlister_customevent_callback;
-        if (customevent_cb) {
+        if (kcoredirlister_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kcoredirlister_customevent_callback(this, cbval1);
             return;
         }
         KCoreDirLister::customEvent(event);
@@ -249,17 +149,11 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kcoredirlister_connectnotify_isbase) {
-            kcoredirlister_connectnotify_isbase = false;
-            KCoreDirLister::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kcoredirlister_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kcoredirlister_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kcoredirlister_connectnotify_callback(this, cbval1);
             return;
         }
         KCoreDirLister::connectNotify(signal);
@@ -267,103 +161,23 @@ class VirtualKCoreDirLister final : public KCoreDirLister {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kcoredirlister_disconnectnotify_isbase) {
-            kcoredirlister_disconnectnotify_isbase = false;
-            KCoreDirLister::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kcoredirlister_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kcoredirlister_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kcoredirlister_disconnectnotify_callback(this, cbval1);
             return;
         }
         KCoreDirLister::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kcoredirlister_sender_isbase) {
-            kcoredirlister_sender_isbase = false;
-            return KCoreDirLister::sender();
-        }
-        auto sender_cb = kcoredirlister_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KCoreDirLister::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kcoredirlister_sendersignalindex_isbase) {
-            kcoredirlister_sendersignalindex_isbase = false;
-            return KCoreDirLister::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kcoredirlister_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KCoreDirLister::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kcoredirlister_receivers_isbase) {
-            kcoredirlister_receivers_isbase = false;
-            return KCoreDirLister::receivers(signal);
-        }
-        auto receivers_cb = kcoredirlister_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KCoreDirLister::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kcoredirlister_issignalconnected_isbase) {
-            kcoredirlister_issignalconnected_isbase = false;
-            return KCoreDirLister::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kcoredirlister_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KCoreDirLister::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KCoreDirLister_JobStarted(KCoreDirLister* self, KIO__ListJob* param1);
     friend void KCoreDirLister_SuperJobStarted(KCoreDirLister* self, KIO__ListJob* param1);
-    friend void KCoreDirLister_TimerEvent(KCoreDirLister* self, QTimerEvent* event);
     friend void KCoreDirLister_SuperTimerEvent(KCoreDirLister* self, QTimerEvent* event);
-    friend void KCoreDirLister_ChildEvent(KCoreDirLister* self, QChildEvent* event);
     friend void KCoreDirLister_SuperChildEvent(KCoreDirLister* self, QChildEvent* event);
-    friend void KCoreDirLister_CustomEvent(KCoreDirLister* self, QEvent* event);
     friend void KCoreDirLister_SuperCustomEvent(KCoreDirLister* self, QEvent* event);
-    friend void KCoreDirLister_ConnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
     friend void KCoreDirLister_SuperConnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
-    friend void KCoreDirLister_DisconnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
     friend void KCoreDirLister_SuperDisconnectNotify(KCoreDirLister* self, const QMetaMethod* signal);
-    friend QObject* KCoreDirLister_Sender(const KCoreDirLister* self);
-    friend QObject* KCoreDirLister_SuperSender(const KCoreDirLister* self);
-    friend int KCoreDirLister_SenderSignalIndex(const KCoreDirLister* self);
-    friend int KCoreDirLister_SuperSenderSignalIndex(const KCoreDirLister* self);
-    friend int KCoreDirLister_Receivers(const KCoreDirLister* self, const char* signal);
-    friend int KCoreDirLister_SuperReceivers(const KCoreDirLister* self, const char* signal);
-    friend bool KCoreDirLister_IsSignalConnected(const KCoreDirLister* self, const QMetaMethod* signal);
-    friend bool KCoreDirLister_SuperIsSignalConnected(const KCoreDirLister* self, const QMetaMethod* signal);
 };
 
 #endif

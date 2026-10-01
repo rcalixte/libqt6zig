@@ -533,10 +533,10 @@ void QGuiApplication_Connect_FontChanged(QGuiApplication* self, intptr_t slot) {
 
 bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication) {
         return vqguiapplication->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QGuiApplication::event called without a directly constructed type");
 }
 
 libqt_string QGuiApplication_Tr2(const char* s, const char* c) {
@@ -565,400 +565,236 @@ libqt_string QGuiApplication_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QGuiApplication_SuperMetaObject(const QGuiApplication* self) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_MetaObject_IsBase(true);
-        return (QMetaObject*)vqguiapplication->metaObject();
-    } else {
-        return (QMetaObject*)self->QGuiApplication::metaObject();
-    }
+    return (QMetaObject*)self->QGuiApplication::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGuiApplication_OnMetaObject(const QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_MetaObject_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_MetaObject_Callback>(slot));
+void QGuiApplication_OnMetaObject(QGuiApplication* self, intptr_t slot) {
+    if (auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self)))
+        vqguiapplication->qguiapplication_metaobject_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QGuiApplication_SuperMetacast(QGuiApplication* self, const char* param1) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Metacast_IsBase(true);
-        return vqguiapplication->qt_metacast(param1);
-    } else {
-        return self->QGuiApplication::qt_metacast(param1);
-    }
+    return self->QGuiApplication::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnMetacast(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_Metacast_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacast_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_metacast_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGuiApplication_SuperMetacall(QGuiApplication* self, int param1, int param2, void** param3) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Metacall_IsBase(true);
-        return vqguiapplication->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QGuiApplication::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QGuiApplication::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnMetacall(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_Metacall_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacall_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_metacall_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QGuiApplication_SuperNotify(QGuiApplication* self, QObject* param1, QEvent* param2) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Notify_IsBase(true);
-        return vqguiapplication->notify(param1, param2);
-    } else {
-        return self->QGuiApplication::notify(param1, param2);
-    }
+    return self->QGuiApplication::notify(param1, param2);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnNotify(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_Notify_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Notify_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_notify_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Notify_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QGuiApplication_SuperEvent(QGuiApplication* self, QEvent* param1) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Event_IsBase(true);
-        return vqguiapplication->event(param1);
-    } else {
-        return ((VirtualQGuiApplication*)self)->event(param1);
-    }
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self)) {
+        return vqguiapplication->QGuiApplication::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QGuiApplication::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnEvent(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_Event_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Event_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_event_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGuiApplication_EventFilter(QGuiApplication* self, QObject* watched, QEvent* event) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return vqguiapplication->eventFilter(watched, event);
-    } else {
-        return self->QGuiApplication::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QGuiApplication_SuperEventFilter(QGuiApplication* self, QObject* watched, QEvent* event) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_EventFilter_IsBase(true);
-        return vqguiapplication->eventFilter(watched, event);
-    } else {
-        return self->QGuiApplication::eventFilter(watched, event);
-    }
+    return self->QGuiApplication::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnEventFilter(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_EventFilter_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_EventFilter_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_eventfilter_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGuiApplication_TimerEvent(QGuiApplication* self, QTimerEvent* event) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication) {
         vqguiapplication->timerEvent(event);
     } else {
-        ((VirtualQGuiApplication*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QGuiApplication::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGuiApplication_SuperTimerEvent(QGuiApplication* self, QTimerEvent* event) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_TimerEvent_IsBase(true);
-        vqguiapplication->timerEvent(event);
-    } else {
-        ((VirtualQGuiApplication*)self)->timerEvent(event);
-    }
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self)) {
+        vqguiapplication->QGuiApplication::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGuiApplication::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnTimerEvent(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_TimerEvent_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_TimerEvent_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_timerevent_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGuiApplication_ChildEvent(QGuiApplication* self, QChildEvent* event) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication) {
         vqguiapplication->childEvent(event);
     } else {
-        ((VirtualQGuiApplication*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QGuiApplication::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGuiApplication_SuperChildEvent(QGuiApplication* self, QChildEvent* event) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_ChildEvent_IsBase(true);
-        vqguiapplication->childEvent(event);
-    } else {
-        ((VirtualQGuiApplication*)self)->childEvent(event);
-    }
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self)) {
+        vqguiapplication->QGuiApplication::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGuiApplication::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnChildEvent(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_ChildEvent_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_ChildEvent_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_childevent_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGuiApplication_CustomEvent(QGuiApplication* self, QEvent* event) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication) {
         vqguiapplication->customEvent(event);
     } else {
-        ((VirtualQGuiApplication*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QGuiApplication::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGuiApplication_SuperCustomEvent(QGuiApplication* self, QEvent* event) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_CustomEvent_IsBase(true);
-        vqguiapplication->customEvent(event);
-    } else {
-        ((VirtualQGuiApplication*)self)->customEvent(event);
-    }
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self)) {
+        vqguiapplication->QGuiApplication::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGuiApplication::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnCustomEvent(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_CustomEvent_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_CustomEvent_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_customevent_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGuiApplication_ConnectNotify(QGuiApplication* self, const QMetaMethod* signal) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication) {
         vqguiapplication->connectNotify(*signal);
     } else {
-        ((VirtualQGuiApplication*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QGuiApplication::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGuiApplication_SuperConnectNotify(QGuiApplication* self, const QMetaMethod* signal) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_ConnectNotify_IsBase(true);
-        vqguiapplication->connectNotify(*signal);
-    } else {
-        ((VirtualQGuiApplication*)self)->connectNotify(*signal);
-    }
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self)) {
+        vqguiapplication->QGuiApplication::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGuiApplication::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnConnectNotify(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_ConnectNotify_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_ConnectNotify_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_connectnotify_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGuiApplication_DisconnectNotify(QGuiApplication* self, const QMetaMethod* signal) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication) {
         vqguiapplication->disconnectNotify(*signal);
     } else {
-        ((VirtualQGuiApplication*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QGuiApplication::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGuiApplication_SuperDisconnectNotify(QGuiApplication* self, const QMetaMethod* signal) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_DisconnectNotify_IsBase(true);
-        vqguiapplication->disconnectNotify(*signal);
-    } else {
-        ((VirtualQGuiApplication*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self)) {
+        vqguiapplication->QGuiApplication::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGuiApplication::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnDisconnectNotify(QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_DisconnectNotify_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_DisconnectNotify_Callback>(slot));
+    if (auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self))
+        vqguiapplication->qguiapplication_disconnectnotify_callback = reinterpret_cast<VirtualQGuiApplication::QGuiApplication_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void* QGuiApplication_ResolveInterface(const QGuiApplication* self, const char* name, int revision) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return vqguiapplication->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQGuiApplication*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
+    if (auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self))) {
+        return vqguiapplication->VirtualQGuiApplication::resolveInterface(name, static_cast<int>(revision));
+    } else
+        qFatal("Error: Protected method QGuiApplication::resolveInterface called without a directly constructed type");
 }
 
-// Base class handler implementation
-void* QGuiApplication_SuperResolveInterface(const QGuiApplication* self, const char* name, int revision) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_ResolveInterface_IsBase(true);
-        return vqguiapplication->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQGuiApplication*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGuiApplication_OnResolveInterface(const QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_ResolveInterface_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_ResolveInterface_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QGuiApplication_Sender(const QGuiApplication* self) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return vqguiapplication->sender();
-    } else {
-        return ((VirtualQGuiApplication*)self)->sender();
-    }
+    if (auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self))) {
+        return vqguiapplication->VirtualQGuiApplication::sender();
+    } else
+        qFatal("Error: Protected method QGuiApplication::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QGuiApplication_SuperSender(const QGuiApplication* self) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Sender_IsBase(true);
-        return vqguiapplication->sender();
-    } else {
-        return ((VirtualQGuiApplication*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGuiApplication_OnSender(const QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_Sender_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGuiApplication_SenderSignalIndex(const QGuiApplication* self) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return vqguiapplication->senderSignalIndex();
-    } else {
-        return ((VirtualQGuiApplication*)self)->senderSignalIndex();
-    }
+    if (auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self))) {
+        return vqguiapplication->VirtualQGuiApplication::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QGuiApplication::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGuiApplication_SuperSenderSignalIndex(const QGuiApplication* self) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_SenderSignalIndex_IsBase(true);
-        return vqguiapplication->senderSignalIndex();
-    } else {
-        return ((VirtualQGuiApplication*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGuiApplication_OnSenderSignalIndex(const QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGuiApplication_Receivers(const QGuiApplication* self, const char* signal) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return vqguiapplication->receivers(signal);
-    } else {
-        return ((VirtualQGuiApplication*)self)->receivers(signal);
-    }
+    if (auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self))) {
+        return vqguiapplication->VirtualQGuiApplication::receivers(signal);
+    } else
+        qFatal("Error: Protected method QGuiApplication::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGuiApplication_SuperReceivers(const QGuiApplication* self, const char* signal) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_Receivers_IsBase(true);
-        return vqguiapplication->receivers(signal);
-    } else {
-        return ((VirtualQGuiApplication*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGuiApplication_OnReceivers(const QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_Receivers_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGuiApplication_IsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return vqguiapplication->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGuiApplication*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QGuiApplication_SuperIsSignalConnected(const QGuiApplication* self, const QMetaMethod* signal) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        vqguiapplication->setQGuiApplication_IsSignalConnected_IsBase(true);
-        return vqguiapplication->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGuiApplication*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGuiApplication_OnIsSignalConnected(const QGuiApplication* self, intptr_t slot) {
-    auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
-        vqguiapplication->setQGuiApplication_IsSignalConnected_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_IsSignalConnected_Callback>(slot));
+    if (auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self))) {
+        return vqguiapplication->VirtualQGuiApplication::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QGuiApplication::isSignalConnected called without a directly constructed type");
 }
 
 void QGuiApplication_Delete(QGuiApplication* self) {

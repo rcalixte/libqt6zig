@@ -77,9 +77,9 @@ pub const KNSCore__QuestionListener = extern struct {
     ///
     /// ` self: KNSCore__QuestionListener `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KNSCore__QuestionListener) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KNSCore__QuestionListener, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KNSCore__QuestionListener, callback: *const fn (KNSCore__QuestionListener) callconv(.c) QMetaObject) void {
         qtc.KNSCore__QuestionListener_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -230,6 +230,8 @@ pub const KNSCore__QuestionListener = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/knscore-questionlistener.html#askQuestion)
     ///
+    /// This method must be implemented with `onAskQuestion` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KNSCore__QuestionListener `
@@ -257,25 +259,6 @@ pub const KNSCore__QuestionListener = extern struct {
     ///
     pub fn onAskQuestion(self: KNSCore__QuestionListener, callback: *const fn (KNSCore__QuestionListener, KNSCore__Question) callconv(.c) void) void {
         qtc.KNSCore__QuestionListener_OnAskQuestion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAskQuestion` instead
-    ///
-    pub const SuperAskQuestion = superAskQuestion;
-
-    /// ### [Upstream resources](https://api.kde.org/knscore-questionlistener.html#askQuestion)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__QuestionListener `
-    ///
-    /// ` question: KNSCore__Question `
-    ///
-    pub fn superAskQuestion(self: KNSCore__QuestionListener, question: anytype) void {
-        comptime _ = @TypeOf(question)._is_KNSCore__Question;
-        qtc.KNSCore__QuestionListener_SuperAskQuestion(@ptrCast(self.ptr), @ptrCast(question.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1755,44 +1738,6 @@ pub const KNSCore__QuestionListener = extern struct {
         return .{ .ptr = qtc.KNSCore__QuestionListener_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__QuestionListener `
-    ///
-    pub fn superSender(self: KNSCore__QuestionListener) QObject {
-        return .{ .ptr = qtc.KNSCore__QuestionListener_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__QuestionListener`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KNSCore__QuestionListener, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KNSCore__QuestionListener_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1809,44 +1754,6 @@ pub const KNSCore__QuestionListener = extern struct {
     ///
     pub fn senderSignalIndex(self: KNSCore__QuestionListener) i32 {
         return qtc.KNSCore__QuestionListener_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__QuestionListener `
-    ///
-    pub fn superSenderSignalIndex(self: KNSCore__QuestionListener) i32 {
-        return qtc.KNSCore__QuestionListener_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__QuestionListener`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KNSCore__QuestionListener, callback: *const fn () callconv(.c) i32) void {
-        qtc.KNSCore__QuestionListener_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1870,47 +1777,6 @@ pub const KNSCore__QuestionListener = extern struct {
         return qtc.KNSCore__QuestionListener_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__QuestionListener `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KNSCore__QuestionListener, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KNSCore__QuestionListener_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__QuestionListener`
-    ///
-    /// ` callback: *const fn (self: KNSCore__QuestionListener, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KNSCore__QuestionListener, callback: *const fn (KNSCore__QuestionListener, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KNSCore__QuestionListener_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -1930,47 +1796,6 @@ pub const KNSCore__QuestionListener = extern struct {
     pub fn isSignalConnected(self: KNSCore__QuestionListener, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KNSCore__QuestionListener_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__QuestionListener `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KNSCore__QuestionListener, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KNSCore__QuestionListener_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KNSCore__QuestionListener`
-    ///
-    /// ` callback: *const fn (self: KNSCore__QuestionListener, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KNSCore__QuestionListener, callback: *const fn (KNSCore__QuestionListener, QMetaMethod) callconv(.c) bool) void {
-        qtc.KNSCore__QuestionListener_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -91,9 +91,9 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QItemDelegate) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QItemDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QItemDelegate, callback: *const fn (QItemDelegate) callconv(.c) QMetaObject) void {
         qtc.QItemDelegate_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -994,49 +994,6 @@ pub const QItemDelegate = extern struct {
         qtc.QItemDelegate_DrawBackground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `onDrawBackground` instead
-    ///
-    pub const OnDrawBackground = onDrawBackground;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onDrawBackground(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawBackground(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDrawBackground` instead
-    ///
-    pub const SuperDrawBackground = superDrawBackground;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superDrawBackground(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.QItemDelegate_SuperDrawBackground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
-    }
-
     /// ### DEPRECATED: Use `doLayout` instead
     ///
     pub const DoLayout = doLayout;
@@ -1065,54 +1022,6 @@ pub const QItemDelegate = extern struct {
         qtc.QItemDelegate_DoLayout(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(checkRect.ptr), @ptrCast(iconRect.ptr), @ptrCast(textRect.ptr), hint);
     }
 
-    /// ### DEPRECATED: Use `onDoLayout` instead
-    ///
-    pub const OnDoLayout = onDoLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, checkRect: QRect, iconRect: QRect, textRect: QRect, hint: bool) callconv(.c) void `
-    ///
-    pub fn onDoLayout(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QRect, QRect, QRect, bool) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDoLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDoLayout` instead
-    ///
-    pub const SuperDoLayout = superDoLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` checkRect: QRect `
-    ///
-    /// ` iconRect: QRect `
-    ///
-    /// ` textRect: QRect `
-    ///
-    /// ` hint: bool `
-    ///
-    pub fn superDoLayout(self: QItemDelegate, option: anytype, checkRect: anytype, iconRect: anytype, textRect: anytype, hint: bool) void {
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(checkRect)._is_QRect;
-        comptime _ = @TypeOf(iconRect)._is_QRect;
-        comptime _ = @TypeOf(textRect)._is_QRect;
-        qtc.QItemDelegate_SuperDoLayout(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(checkRect.ptr), @ptrCast(iconRect.ptr), @ptrCast(textRect.ptr), hint);
-    }
-
     /// ### DEPRECATED: Use `rect` instead
     ///
     pub const Rect = rect;
@@ -1133,50 +1042,6 @@ pub const QItemDelegate = extern struct {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QItemDelegate_Rect(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr), @bitCast(role)) };
-    }
-
-    /// ### DEPRECATED: Use `onRect` instead
-    ///
-    pub const OnRect = onRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, index: QModelIndex, role: i32) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onRect(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QModelIndex, i32) callconv(.c) QRect) void {
-        qtc.QItemDelegate_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRect` instead
-    ///
-    pub const SuperRect = superRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    /// ` role: i32 `
-    ///
-    pub fn superRect(self: QItemDelegate, option: anytype, index: anytype, role: i32) QRect {
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QItemDelegate_SuperRect(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### DEPRECATED: Use `eventFilter` instead
@@ -1331,48 +1196,6 @@ pub const QItemDelegate = extern struct {
         return .{ .ptr = qtc.QItemDelegate_SetOptions(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(option.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onSetOptions` instead
-    ///
-    pub const OnSetOptions = onSetOptions;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, index: QModelIndex, option: QStyleOptionViewItem) callconv(.c) QStyleOptionViewItem `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSetOptions(self: QItemDelegate, callback: *const fn (QItemDelegate, QModelIndex, QStyleOptionViewItem) callconv(.c) QStyleOptionViewItem) void {
-        qtc.QItemDelegate_OnSetOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetOptions` instead
-    ///
-    pub const SuperSetOptions = superSetOptions;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    pub fn superSetOptions(self: QItemDelegate, index: anytype, option: anytype) QStyleOptionViewItem {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        return .{ .ptr = qtc.QItemDelegate_SuperSetOptions(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(option.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `decoration` instead
     ///
     pub const Decoration = decoration;
@@ -1391,48 +1214,6 @@ pub const QItemDelegate = extern struct {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QItemDelegate_Decoration(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(variant.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDecoration` instead
-    ///
-    pub const OnDecoration = onDecoration;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, variant: QVariant) callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDecoration(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QVariant) callconv(.c) QPixmap) void {
-        qtc.QItemDelegate_OnDecoration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDecoration` instead
-    ///
-    pub const SuperDecoration = superDecoration;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` variant: QVariant `
-    ///
-    pub fn superDecoration(self: QItemDelegate, option: anytype, variant: anytype) QPixmap {
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(variant)._is_QVariant;
-        return .{ .ptr = qtc.QItemDelegate_SuperDecoration(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(variant.ptr)) };
     }
 
     /// ### DEPRECATED: Use `selectedPixmap` instead
@@ -1457,50 +1238,6 @@ pub const QItemDelegate = extern struct {
         return .{ .ptr = qtc.QItemDelegate_SelectedPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @ptrCast(palette.ptr), enabled) };
     }
 
-    /// ### DEPRECATED: Use `onSelectedPixmap` instead
-    ///
-    pub const OnSelectedPixmap = onSelectedPixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#selectedPixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, pixmap: QPixmap, palette: QPalette, enabled: bool) callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onSelectedPixmap(self: QItemDelegate, callback: *const fn (QItemDelegate, QPixmap, QPalette, bool) callconv(.c) QPixmap) void {
-        qtc.QItemDelegate_OnSelectedPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSelectedPixmap` instead
-    ///
-    pub const SuperSelectedPixmap = superSelectedPixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#selectedPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` pixmap: QPixmap `
-    ///
-    /// ` palette: QPalette `
-    ///
-    /// ` enabled: bool `
-    ///
-    pub fn superSelectedPixmap(self: QItemDelegate, pixmap: anytype, palette: anytype, enabled: bool) QPixmap {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        return .{ .ptr = qtc.QItemDelegate_SuperSelectedPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @ptrCast(palette.ptr), enabled) };
-    }
-
     /// ### DEPRECATED: Use `doCheck` instead
     ///
     pub const DoCheck = doCheck;
@@ -1522,51 +1259,6 @@ pub const QItemDelegate = extern struct {
         comptime _ = @TypeOf(bounding)._is_QRect;
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QItemDelegate_DoCheck(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(bounding.ptr), @ptrCast(variant.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDoCheck` instead
-    ///
-    pub const OnDoCheck = onDoCheck;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, bounding: QRect, variant: QVariant) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDoCheck(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QRect, QVariant) callconv(.c) QRect) void {
-        qtc.QItemDelegate_OnDoCheck(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDoCheck` instead
-    ///
-    pub const SuperDoCheck = superDoCheck;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` bounding: QRect `
-    ///
-    /// ` variant: QVariant `
-    ///
-    pub fn superDoCheck(self: QItemDelegate, option: anytype, bounding: anytype, variant: anytype) QRect {
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(bounding)._is_QRect;
-        comptime _ = @TypeOf(variant)._is_QVariant;
-        return .{ .ptr = qtc.QItemDelegate_SuperDoCheck(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(bounding.ptr), @ptrCast(variant.ptr)) };
     }
 
     /// ### DEPRECATED: Use `textRectangle` instead
@@ -1596,57 +1288,6 @@ pub const QItemDelegate = extern struct {
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QItemDelegate_TextRectangle(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @ptrCast(font.ptr), text_str) };
-    }
-
-    /// ### DEPRECATED: Use `onTextRectangle` instead
-    ///
-    pub const OnTextRectangle = onTextRectangle;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, rect: QRect, font: QFont, text: [*:0]const u8) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onTextRectangle(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QRect, QFont, [*:0]const u8) callconv(.c) QRect) void {
-        qtc.QItemDelegate_OnTextRectangle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTextRectangle` instead
-    ///
-    pub const SuperTextRectangle = superTextRectangle;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` _rect: QRect `
-    ///
-    /// ` font: QFont `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superTextRectangle(self: QItemDelegate, painter: anytype, _rect: anytype, font: anytype, text: []const u8) QRect {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(_rect)._is_QRect;
-        comptime _ = @TypeOf(font)._is_QFont;
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return .{ .ptr = qtc.QItemDelegate_SuperTextRectangle(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @ptrCast(font.ptr), text_str) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3032,13 +2673,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QItemDelegate) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []i32 `
     ///
-    pub fn onPaintingRoles(self: QItemDelegate, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPaintingRoles(self: QItemDelegate, callback: *const fn (QItemDelegate) callconv(.c) qtc.libqt_list) void {
         qtc.QItemDelegate_OnPaintingRoles(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3432,44 +3073,6 @@ pub const QItemDelegate = extern struct {
         return .{ .ptr = qtc.QItemDelegate_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    pub fn superSender(self: QItemDelegate) QObject {
-        return .{ .ptr = qtc.QItemDelegate_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QItemDelegate, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QItemDelegate_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3486,44 +3089,6 @@ pub const QItemDelegate = extern struct {
     ///
     pub fn senderSignalIndex(self: QItemDelegate) i32 {
         return qtc.QItemDelegate_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    pub fn superSenderSignalIndex(self: QItemDelegate) i32 {
-        return qtc.QItemDelegate_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QItemDelegate, callback: *const fn () callconv(.c) i32) void {
-        qtc.QItemDelegate_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3547,47 +3112,6 @@ pub const QItemDelegate = extern struct {
         return qtc.QItemDelegate_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QItemDelegate, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QItemDelegate_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate`
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QItemDelegate, callback: *const fn (QItemDelegate, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QItemDelegate_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3607,47 +3131,6 @@ pub const QItemDelegate = extern struct {
     pub fn isSignalConnected(self: QItemDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QItemDelegate_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QItemDelegate, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QItemDelegate_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QItemDelegate`
-    ///
-    /// ` callback: *const fn (self: QItemDelegate, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QItemDelegate, callback: *const fn (QItemDelegate, QMetaMethod) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

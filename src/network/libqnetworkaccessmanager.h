@@ -106,13 +106,13 @@ void QNetworkAccessManager_ConnectToHostEncrypted22(QNetworkAccessManager* self,
 void QNetworkAccessManager_ConnectToHostEncrypted3(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port, const QSslConfiguration* sslConfiguration);
 void QNetworkAccessManager_ConnectToHost2(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port);
 void QNetworkAccessManager_SetTransferTimeout1(QNetworkAccessManager* self, int64_t duration);
-void QNetworkAccessManager_OnMetaObject(const QNetworkAccessManager* self, intptr_t slot);
+void QNetworkAccessManager_OnMetaObject(QNetworkAccessManager* self, intptr_t slot);
 QMetaObject* QNetworkAccessManager_SuperMetaObject(const QNetworkAccessManager* self);
 void QNetworkAccessManager_OnMetacast(QNetworkAccessManager* self, intptr_t slot);
 void* QNetworkAccessManager_SuperMetacast(QNetworkAccessManager* self, const char* param1);
 void QNetworkAccessManager_OnMetacall(QNetworkAccessManager* self, intptr_t slot);
 int QNetworkAccessManager_SuperMetacall(QNetworkAccessManager* self, int param1, int param2, void** param3);
-void QNetworkAccessManager_OnSupportedSchemes(const QNetworkAccessManager* self, intptr_t slot);
+void QNetworkAccessManager_OnSupportedSchemes(QNetworkAccessManager* self, intptr_t slot);
 libqt_list /* of libqt_string */ QNetworkAccessManager_SuperSupportedSchemes(const QNetworkAccessManager* self);
 void QNetworkAccessManager_OnCreateRequest(QNetworkAccessManager* self, intptr_t slot);
 QNetworkReply* QNetworkAccessManager_SuperCreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData);
@@ -138,20 +138,10 @@ void QNetworkAccessManager_DisconnectNotify(QNetworkAccessManager* self, const Q
 void QNetworkAccessManager_OnDisconnectNotify(QNetworkAccessManager* self, intptr_t slot);
 void QNetworkAccessManager_SuperDisconnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal);
 libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemesImplementation(const QNetworkAccessManager* self);
-void QNetworkAccessManager_OnSupportedSchemesImplementation(const QNetworkAccessManager* self, intptr_t slot);
-libqt_list /* of libqt_string */ QNetworkAccessManager_SuperSupportedSchemesImplementation(const QNetworkAccessManager* self);
 QObject* QNetworkAccessManager_Sender(const QNetworkAccessManager* self);
-void QNetworkAccessManager_OnSender(const QNetworkAccessManager* self, intptr_t slot);
-QObject* QNetworkAccessManager_SuperSender(const QNetworkAccessManager* self);
 int QNetworkAccessManager_SenderSignalIndex(const QNetworkAccessManager* self);
-void QNetworkAccessManager_OnSenderSignalIndex(const QNetworkAccessManager* self, intptr_t slot);
-int QNetworkAccessManager_SuperSenderSignalIndex(const QNetworkAccessManager* self);
 int QNetworkAccessManager_Receivers(const QNetworkAccessManager* self, const char* signal);
-void QNetworkAccessManager_OnReceivers(const QNetworkAccessManager* self, intptr_t slot);
-int QNetworkAccessManager_SuperReceivers(const QNetworkAccessManager* self, const char* signal);
 bool QNetworkAccessManager_IsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal);
-void QNetworkAccessManager_OnIsSignalConnected(const QNetworkAccessManager* self, intptr_t slot);
-bool QNetworkAccessManager_SuperIsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal);
 void QNetworkAccessManager_Delete(QNetworkAccessManager* self);
 
 #ifdef __cplusplus

@@ -186,9 +186,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KRichTextWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) QMetaObject) void {
         qtc.KRichTextWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -369,13 +369,13 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QAction `
     ///
-    pub fn onCreateActions(self: KRichTextWidget, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onCreateActions(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) qtc.libqt_list) void {
         qtc.KRichTextWidget_OnCreateActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10709,9 +10709,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) bool `
     ///
-    pub fn onCheckSpellingEnabled(self: KRichTextWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCheckSpellingEnabled(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) bool) void {
         qtc.KRichTextWidget_OnCheckSpellingEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10833,9 +10833,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) void `
     ///
-    pub fn onCreateHighlighter(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreateHighlighter(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) void) void {
         qtc.KRichTextWidget_OnCreateHighlighter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10889,9 +10889,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QMenu `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) QMenu `
     ///
-    pub fn onMousePopupMenu(self: KRichTextWidget, callback: *const fn () callconv(.c) QMenu) void {
+    pub fn onMousePopupMenu(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) QMenu) void {
         qtc.KRichTextWidget_OnMousePopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11069,9 +11069,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) void `
     ///
-    pub fn onDeleteWordBack(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDeleteWordBack(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) void) void {
         qtc.KRichTextWidget_OnDeleteWordBack(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11125,9 +11125,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) void `
     ///
-    pub fn onDeleteWordForward(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDeleteWordForward(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) void) void {
         qtc.KRichTextWidget_OnDeleteWordForward(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12363,9 +12363,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QMimeData `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) QMimeData `
     ///
-    pub fn onCreateMimeDataFromSelection(self: KRichTextWidget, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) QMimeData) void {
         qtc.KRichTextWidget_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12731,11 +12731,11 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KRichTextWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) QSize) void {
         qtc.KRichTextWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12789,11 +12789,11 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KRichTextWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) QSize) void {
         qtc.KRichTextWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13039,11 +13039,11 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: KRichTextWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) QSize) void {
         qtc.KRichTextWidget_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13159,9 +13159,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KRichTextWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) i32) void {
         qtc.KRichTextWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13335,9 +13335,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KRichTextWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) bool) void {
         qtc.KRichTextWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13391,9 +13391,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KRichTextWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) QPaintEngine) void {
         qtc.KRichTextWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14141,9 +14141,9 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KRichTextWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KRichTextWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KRichTextWidget, callback: *const fn (KRichTextWidget) callconv(.c) QPainter) void {
         qtc.KRichTextWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14413,44 +14413,6 @@ pub const KRichTextWidget = extern struct {
         qtc.KRichTextWidget_SlotDoReplace(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSlotDoReplace` instead
-    ///
-    pub const SuperSlotDoReplace = superSlotDoReplace;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSlotDoReplace(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperSlotDoReplace(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotDoReplace` instead
-    ///
-    pub const OnSlotDoReplace = onSlotDoReplace;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoReplace)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotDoReplace(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotDoReplace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `slotReplaceNext` instead
     ///
     pub const SlotReplaceNext = slotReplaceNext;
@@ -14467,44 +14429,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn slotReplaceNext(self: KRichTextWidget) void {
         qtc.KRichTextWidget_SlotReplaceNext(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSlotReplaceNext` instead
-    ///
-    pub const SuperSlotReplaceNext = superSlotReplaceNext;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSlotReplaceNext(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperSlotReplaceNext(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotReplaceNext` instead
-    ///
-    pub const OnSlotReplaceNext = onSlotReplaceNext;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplaceNext)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotReplaceNext(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotReplaceNext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `slotDoFind` instead
@@ -14525,44 +14449,6 @@ pub const KRichTextWidget = extern struct {
         qtc.KRichTextWidget_SlotDoFind(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSlotDoFind` instead
-    ///
-    pub const SuperSlotDoFind = superSlotDoFind;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSlotDoFind(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperSlotDoFind(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotDoFind` instead
-    ///
-    pub const OnSlotDoFind = onSlotDoFind;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotDoFind)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotDoFind(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotDoFind(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `slotFind` instead
     ///
     pub const SlotFind = slotFind;
@@ -14579,44 +14465,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn slotFind(self: KRichTextWidget) void {
         qtc.KRichTextWidget_SlotFind(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSlotFind` instead
-    ///
-    pub const SuperSlotFind = superSlotFind;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSlotFind(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperSlotFind(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotFind` instead
-    ///
-    pub const OnSlotFind = onSlotFind;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFind)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotFind(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotFind(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `slotFindNext` instead
@@ -14637,44 +14485,6 @@ pub const KRichTextWidget = extern struct {
         qtc.KRichTextWidget_SlotFindNext(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSlotFindNext` instead
-    ///
-    pub const SuperSlotFindNext = superSlotFindNext;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSlotFindNext(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperSlotFindNext(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotFindNext` instead
-    ///
-    pub const OnSlotFindNext = onSlotFindNext;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindNext)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotFindNext(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotFindNext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `slotFindPrevious` instead
     ///
     pub const SlotFindPrevious = slotFindPrevious;
@@ -14691,44 +14501,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn slotFindPrevious(self: KRichTextWidget) void {
         qtc.KRichTextWidget_SlotFindPrevious(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSlotFindPrevious` instead
-    ///
-    pub const SuperSlotFindPrevious = superSlotFindPrevious;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSlotFindPrevious(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperSlotFindPrevious(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotFindPrevious` instead
-    ///
-    pub const OnSlotFindPrevious = onSlotFindPrevious;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotFindPrevious)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotFindPrevious(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotFindPrevious(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `slotReplace` instead
@@ -14749,44 +14521,6 @@ pub const KRichTextWidget = extern struct {
         qtc.KRichTextWidget_SlotReplace(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSlotReplace` instead
-    ///
-    pub const SuperSlotReplace = superSlotReplace;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSlotReplace(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperSlotReplace(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotReplace` instead
-    ///
-    pub const OnSlotReplace = onSlotReplace;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotReplace)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotReplace(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotReplace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `slotSpeakText` instead
     ///
     pub const SlotSpeakText = slotSpeakText;
@@ -14803,44 +14537,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn slotSpeakText(self: KRichTextWidget) void {
         qtc.KRichTextWidget_SlotSpeakText(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSlotSpeakText` instead
-    ///
-    pub const SuperSlotSpeakText = superSlotSpeakText;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSlotSpeakText(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperSlotSpeakText(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotSpeakText` instead
-    ///
-    pub const OnSlotSpeakText = onSlotSpeakText;
-
-    /// Inherited from KTextEdit
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ktextedit.html#slotSpeakText)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotSpeakText(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSlotSpeakText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `zoomInF` instead
@@ -14861,46 +14557,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn zoomInF(self: KRichTextWidget, range: f32) void {
         qtc.KRichTextWidget_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `superZoomInF` instead
-    ///
-    pub const SuperZoomInF = superZoomInF;
-
-    /// Inherited from QTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    /// ` range: f32 `
-    ///
-    pub fn superZoomInF(self: KRichTextWidget, range: f32) void {
-        qtc.KRichTextWidget_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `onZoomInF` instead
-    ///
-    pub const OnZoomInF = onZoomInF;
-
-    /// Inherited from QTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn (self: KRichTextWidget, range: f32) callconv(.c) void `
-    ///
-    pub fn onZoomInF(self: KRichTextWidget, callback: *const fn (KRichTextWidget, f32) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -14929,52 +14585,6 @@ pub const KRichTextWidget = extern struct {
         qtc.KRichTextWidget_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: KRichTextWidget, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.KRichTextWidget_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn (self: KRichTextWidget, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: KRichTextWidget, callback: *const fn (KRichTextWidget, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -14991,46 +14601,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn viewportMargins(self: KRichTextWidget) QMargins {
         return .{ .ptr = qtc.KRichTextWidget_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superViewportMargins(self: KRichTextWidget) QMargins {
-        return .{ .ptr = qtc.KRichTextWidget_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: KRichTextWidget, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.KRichTextWidget_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -15054,47 +14624,6 @@ pub const KRichTextWidget = extern struct {
         qtc.KRichTextWidget_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: KRichTextWidget, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.KRichTextWidget_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn (self: KRichTextWidget, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: KRichTextWidget, callback: *const fn (KRichTextWidget, QPainter) callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -15111,44 +14640,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn updateMicroFocus(self: KRichTextWidget) void {
         qtc.KRichTextWidget_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -15169,44 +14660,6 @@ pub const KRichTextWidget = extern struct {
         qtc.KRichTextWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superCreate(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -15223,44 +14676,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn destroy(self: KRichTextWidget) void {
         qtc.KRichTextWidget_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superDestroy(self: KRichTextWidget) void {
-        qtc.KRichTextWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KRichTextWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.KRichTextWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -15281,44 +14696,6 @@ pub const KRichTextWidget = extern struct {
         return qtc.KRichTextWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superFocusNextChild(self: KRichTextWidget) bool {
-        return qtc.KRichTextWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KRichTextWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -15335,44 +14712,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn focusPreviousChild(self: KRichTextWidget) bool {
         return qtc.KRichTextWidget_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superFocusPreviousChild(self: KRichTextWidget) bool {
-        return qtc.KRichTextWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KRichTextWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -15393,44 +14732,6 @@ pub const KRichTextWidget = extern struct {
         return .{ .ptr = qtc.KRichTextWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSender(self: KRichTextWidget) QObject {
-        return .{ .ptr = qtc.KRichTextWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KRichTextWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KRichTextWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -15447,44 +14748,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: KRichTextWidget) i32 {
         return qtc.KRichTextWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    pub fn superSenderSignalIndex(self: KRichTextWidget) i32 {
-        return qtc.KRichTextWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KRichTextWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.KRichTextWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -15508,47 +14771,6 @@ pub const KRichTextWidget = extern struct {
         return qtc.KRichTextWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KRichTextWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KRichTextWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn (self: KRichTextWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KRichTextWidget, callback: *const fn (KRichTextWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KRichTextWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -15568,47 +14790,6 @@ pub const KRichTextWidget = extern struct {
     pub fn isSignalConnected(self: KRichTextWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KRichTextWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KRichTextWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KRichTextWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn (self: KRichTextWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KRichTextWidget, callback: *const fn (KRichTextWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.KRichTextWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -15631,48 +14812,6 @@ pub const KRichTextWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: KRichTextWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KRichTextWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KRichTextWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KRichTextWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.KRichTextWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KRichTextWidget`
-    ///
-    /// ` callback: *const fn (self: KRichTextWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KRichTextWidget, callback: *const fn (KRichTextWidget, i32, i32) callconv(.c) f64) void {
-        qtc.KRichTextWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

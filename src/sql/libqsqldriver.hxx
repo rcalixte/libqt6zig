@@ -9,39 +9,35 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QSqlDriver so that we can call protected methods
+// This class is a subclass of QSqlDriver
 class VirtualQSqlDriver : public QSqlDriver {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQSqlDriver = true;
-
-    // Virtual class public types (including callbacks)
-    using QSqlDriver_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QSqlDriver_MetaObject_Callback = QMetaObject* (*)(const QSqlDriver*);
     using QSqlDriver_Metacast_Callback = void* (*)(QSqlDriver*, const char*);
     using QSqlDriver_Metacall_Callback = int (*)(QSqlDriver*, int, int, void**);
-    using QSqlDriver_IsOpen_Callback = bool (*)();
-    using QSqlDriver_BeginTransaction_Callback = bool (*)();
-    using QSqlDriver_CommitTransaction_Callback = bool (*)();
-    using QSqlDriver_RollbackTransaction_Callback = bool (*)();
+    using QSqlDriver_IsOpen_Callback = bool (*)(const QSqlDriver*);
+    using QSqlDriver_BeginTransaction_Callback = bool (*)(QSqlDriver*);
+    using QSqlDriver_CommitTransaction_Callback = bool (*)(QSqlDriver*);
+    using QSqlDriver_RollbackTransaction_Callback = bool (*)(QSqlDriver*);
     using QSqlDriver_Tables_Callback = const char** (*)(const QSqlDriver*, int);
     using QSqlDriver_PrimaryIndex_Callback = QSqlIndex* (*)(const QSqlDriver*, const char*);
     using QSqlDriver_Record_Callback = QSqlRecord* (*)(const QSqlDriver*, const char*);
     using QSqlDriver_FormatValue_Callback = const char* (*)(const QSqlDriver*, QSqlField*, bool);
     using QSqlDriver_EscapeIdentifier_Callback = const char* (*)(const QSqlDriver*, const char*, int);
     using QSqlDriver_SqlStatement_Callback = const char* (*)(const QSqlDriver*, int, const char*, QSqlRecord*, bool);
-    using QSqlDriver_Handle_Callback = QVariant* (*)();
+    using QSqlDriver_Handle_Callback = QVariant* (*)(const QSqlDriver*);
     using QSqlDriver_HasFeature_Callback = bool (*)(const QSqlDriver*, int);
-    using QSqlDriver_Close_Callback = void (*)();
-    using QSqlDriver_CreateResult_Callback = QSqlResult* (*)();
+    using QSqlDriver_Close_Callback = void (*)(QSqlDriver*);
+    using QSqlDriver_CreateResult_Callback = QSqlResult* (*)(const QSqlDriver*);
     using QSqlDriver_Open_Callback = bool (*)(QSqlDriver*, const char*, const char*, const char*, const char*, int, const char*);
     using QSqlDriver_SubscribeToNotification_Callback = bool (*)(QSqlDriver*, const char*);
     using QSqlDriver_UnsubscribeFromNotification_Callback = bool (*)(QSqlDriver*, const char*);
-    using QSqlDriver_SubscribedToNotifications_Callback = const char** (*)();
+    using QSqlDriver_SubscribedToNotifications_Callback = const char** (*)(const QSqlDriver*);
     using QSqlDriver_IsIdentifierEscaped_Callback = bool (*)(const QSqlDriver*, const char*, int);
     using QSqlDriver_StripDelimiters_Callback = const char* (*)(const QSqlDriver*, const char*, int);
     using QSqlDriver_MaximumIdentifierLength_Callback = int (*)(const QSqlDriver*, int);
-    using QSqlDriver_CancelQuery_Callback = bool (*)();
+    using QSqlDriver_CancelQuery_Callback = bool (*)(QSqlDriver*);
     using QSqlDriver_SetOpen_Callback = void (*)(QSqlDriver*, bool);
     using QSqlDriver_SetOpenError_Callback = void (*)(QSqlDriver*, bool);
     using QSqlDriver_SetLastError_Callback = void (*)(QSqlDriver*, QSqlError*);
@@ -52,12 +48,11 @@ class VirtualQSqlDriver : public QSqlDriver {
     using QSqlDriver_CustomEvent_Callback = void (*)(QSqlDriver*, QEvent*);
     using QSqlDriver_ConnectNotify_Callback = void (*)(QSqlDriver*, QMetaMethod*);
     using QSqlDriver_DisconnectNotify_Callback = void (*)(QSqlDriver*, QMetaMethod*);
-    using QSqlDriver_Sender_Callback = QObject* (*)();
-    using QSqlDriver_SenderSignalIndex_Callback = int (*)();
-    using QSqlDriver_Receivers_Callback = int (*)(const QSqlDriver*, const char*);
-    using QSqlDriver_IsSignalConnected_Callback = bool (*)(const QSqlDriver*, QMetaMethod*);
+    using QSqlDriver::isSignalConnected;
+    using QSqlDriver::receivers;
+    using QSqlDriver::sender;
+    using QSqlDriver::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QSqlDriver_MetaObject_Callback qsqldriver_metaobject_callback = nullptr;
     QSqlDriver_Metacast_Callback qsqldriver_metacast_callback = nullptr;
@@ -94,147 +89,26 @@ class VirtualQSqlDriver : public QSqlDriver {
     QSqlDriver_CustomEvent_Callback qsqldriver_customevent_callback = nullptr;
     QSqlDriver_ConnectNotify_Callback qsqldriver_connectnotify_callback = nullptr;
     QSqlDriver_DisconnectNotify_Callback qsqldriver_disconnectnotify_callback = nullptr;
-    QSqlDriver_Sender_Callback qsqldriver_sender_callback = nullptr;
-    QSqlDriver_SenderSignalIndex_Callback qsqldriver_sendersignalindex_callback = nullptr;
-    QSqlDriver_Receivers_Callback qsqldriver_receivers_callback = nullptr;
-    QSqlDriver_IsSignalConnected_Callback qsqldriver_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qsqldriver_metaobject_isbase = false;
-    mutable bool qsqldriver_metacast_isbase = false;
-    mutable bool qsqldriver_metacall_isbase = false;
-    mutable bool qsqldriver_isopen_isbase = false;
-    mutable bool qsqldriver_begintransaction_isbase = false;
-    mutable bool qsqldriver_committransaction_isbase = false;
-    mutable bool qsqldriver_rollbacktransaction_isbase = false;
-    mutable bool qsqldriver_tables_isbase = false;
-    mutable bool qsqldriver_primaryindex_isbase = false;
-    mutable bool qsqldriver_record_isbase = false;
-    mutable bool qsqldriver_formatvalue_isbase = false;
-    mutable bool qsqldriver_escapeidentifier_isbase = false;
-    mutable bool qsqldriver_sqlstatement_isbase = false;
-    mutable bool qsqldriver_handle_isbase = false;
-    mutable bool qsqldriver_hasfeature_isbase = false;
-    mutable bool qsqldriver_close_isbase = false;
-    mutable bool qsqldriver_createresult_isbase = false;
-    mutable bool qsqldriver_open_isbase = false;
-    mutable bool qsqldriver_subscribetonotification_isbase = false;
-    mutable bool qsqldriver_unsubscribefromnotification_isbase = false;
-    mutable bool qsqldriver_subscribedtonotifications_isbase = false;
-    mutable bool qsqldriver_isidentifierescaped_isbase = false;
-    mutable bool qsqldriver_stripdelimiters_isbase = false;
-    mutable bool qsqldriver_maximumidentifierlength_isbase = false;
-    mutable bool qsqldriver_cancelquery_isbase = false;
-    mutable bool qsqldriver_setopen_isbase = false;
-    mutable bool qsqldriver_setopenerror_isbase = false;
-    mutable bool qsqldriver_setlasterror_isbase = false;
-    mutable bool qsqldriver_event_isbase = false;
-    mutable bool qsqldriver_eventfilter_isbase = false;
-    mutable bool qsqldriver_timerevent_isbase = false;
-    mutable bool qsqldriver_childevent_isbase = false;
-    mutable bool qsqldriver_customevent_isbase = false;
-    mutable bool qsqldriver_connectnotify_isbase = false;
-    mutable bool qsqldriver_disconnectnotify_isbase = false;
-    mutable bool qsqldriver_sender_isbase = false;
-    mutable bool qsqldriver_sendersignalindex_isbase = false;
-    mutable bool qsqldriver_receivers_isbase = false;
-    mutable bool qsqldriver_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QSqlDriver {
+        using QSqlDriver::childEvent;
+        using QSqlDriver::connectNotify;
+        using QSqlDriver::customEvent;
+        using QSqlDriver::disconnectNotify;
+        using QSqlDriver::setLastError;
+        using QSqlDriver::setOpen;
+        using QSqlDriver::setOpenError;
+        using QSqlDriver::timerEvent;
+    };
 
-  public:
     VirtualQSqlDriver() : QSqlDriver() {};
     VirtualQSqlDriver(QObject* parent) : QSqlDriver(parent) {};
 
-    // Callback setters
-    inline void setQSqlDriver_MetaObject_Callback(QSqlDriver_MetaObject_Callback cb) { qsqldriver_metaobject_callback = cb; }
-    inline void setQSqlDriver_Metacast_Callback(QSqlDriver_Metacast_Callback cb) { qsqldriver_metacast_callback = cb; }
-    inline void setQSqlDriver_Metacall_Callback(QSqlDriver_Metacall_Callback cb) { qsqldriver_metacall_callback = cb; }
-    inline void setQSqlDriver_IsOpen_Callback(QSqlDriver_IsOpen_Callback cb) { qsqldriver_isopen_callback = cb; }
-    inline void setQSqlDriver_BeginTransaction_Callback(QSqlDriver_BeginTransaction_Callback cb) { qsqldriver_begintransaction_callback = cb; }
-    inline void setQSqlDriver_CommitTransaction_Callback(QSqlDriver_CommitTransaction_Callback cb) { qsqldriver_committransaction_callback = cb; }
-    inline void setQSqlDriver_RollbackTransaction_Callback(QSqlDriver_RollbackTransaction_Callback cb) { qsqldriver_rollbacktransaction_callback = cb; }
-    inline void setQSqlDriver_Tables_Callback(QSqlDriver_Tables_Callback cb) { qsqldriver_tables_callback = cb; }
-    inline void setQSqlDriver_PrimaryIndex_Callback(QSqlDriver_PrimaryIndex_Callback cb) { qsqldriver_primaryindex_callback = cb; }
-    inline void setQSqlDriver_Record_Callback(QSqlDriver_Record_Callback cb) { qsqldriver_record_callback = cb; }
-    inline void setQSqlDriver_FormatValue_Callback(QSqlDriver_FormatValue_Callback cb) { qsqldriver_formatvalue_callback = cb; }
-    inline void setQSqlDriver_EscapeIdentifier_Callback(QSqlDriver_EscapeIdentifier_Callback cb) { qsqldriver_escapeidentifier_callback = cb; }
-    inline void setQSqlDriver_SqlStatement_Callback(QSqlDriver_SqlStatement_Callback cb) { qsqldriver_sqlstatement_callback = cb; }
-    inline void setQSqlDriver_Handle_Callback(QSqlDriver_Handle_Callback cb) { qsqldriver_handle_callback = cb; }
-    inline void setQSqlDriver_HasFeature_Callback(QSqlDriver_HasFeature_Callback cb) { qsqldriver_hasfeature_callback = cb; }
-    inline void setQSqlDriver_Close_Callback(QSqlDriver_Close_Callback cb) { qsqldriver_close_callback = cb; }
-    inline void setQSqlDriver_CreateResult_Callback(QSqlDriver_CreateResult_Callback cb) { qsqldriver_createresult_callback = cb; }
-    inline void setQSqlDriver_Open_Callback(QSqlDriver_Open_Callback cb) { qsqldriver_open_callback = cb; }
-    inline void setQSqlDriver_SubscribeToNotification_Callback(QSqlDriver_SubscribeToNotification_Callback cb) { qsqldriver_subscribetonotification_callback = cb; }
-    inline void setQSqlDriver_UnsubscribeFromNotification_Callback(QSqlDriver_UnsubscribeFromNotification_Callback cb) { qsqldriver_unsubscribefromnotification_callback = cb; }
-    inline void setQSqlDriver_SubscribedToNotifications_Callback(QSqlDriver_SubscribedToNotifications_Callback cb) { qsqldriver_subscribedtonotifications_callback = cb; }
-    inline void setQSqlDriver_IsIdentifierEscaped_Callback(QSqlDriver_IsIdentifierEscaped_Callback cb) { qsqldriver_isidentifierescaped_callback = cb; }
-    inline void setQSqlDriver_StripDelimiters_Callback(QSqlDriver_StripDelimiters_Callback cb) { qsqldriver_stripdelimiters_callback = cb; }
-    inline void setQSqlDriver_MaximumIdentifierLength_Callback(QSqlDriver_MaximumIdentifierLength_Callback cb) { qsqldriver_maximumidentifierlength_callback = cb; }
-    inline void setQSqlDriver_CancelQuery_Callback(QSqlDriver_CancelQuery_Callback cb) { qsqldriver_cancelquery_callback = cb; }
-    inline void setQSqlDriver_SetOpen_Callback(QSqlDriver_SetOpen_Callback cb) { qsqldriver_setopen_callback = cb; }
-    inline void setQSqlDriver_SetOpenError_Callback(QSqlDriver_SetOpenError_Callback cb) { qsqldriver_setopenerror_callback = cb; }
-    inline void setQSqlDriver_SetLastError_Callback(QSqlDriver_SetLastError_Callback cb) { qsqldriver_setlasterror_callback = cb; }
-    inline void setQSqlDriver_Event_Callback(QSqlDriver_Event_Callback cb) { qsqldriver_event_callback = cb; }
-    inline void setQSqlDriver_EventFilter_Callback(QSqlDriver_EventFilter_Callback cb) { qsqldriver_eventfilter_callback = cb; }
-    inline void setQSqlDriver_TimerEvent_Callback(QSqlDriver_TimerEvent_Callback cb) { qsqldriver_timerevent_callback = cb; }
-    inline void setQSqlDriver_ChildEvent_Callback(QSqlDriver_ChildEvent_Callback cb) { qsqldriver_childevent_callback = cb; }
-    inline void setQSqlDriver_CustomEvent_Callback(QSqlDriver_CustomEvent_Callback cb) { qsqldriver_customevent_callback = cb; }
-    inline void setQSqlDriver_ConnectNotify_Callback(QSqlDriver_ConnectNotify_Callback cb) { qsqldriver_connectnotify_callback = cb; }
-    inline void setQSqlDriver_DisconnectNotify_Callback(QSqlDriver_DisconnectNotify_Callback cb) { qsqldriver_disconnectnotify_callback = cb; }
-    inline void setQSqlDriver_Sender_Callback(QSqlDriver_Sender_Callback cb) { qsqldriver_sender_callback = cb; }
-    inline void setQSqlDriver_SenderSignalIndex_Callback(QSqlDriver_SenderSignalIndex_Callback cb) { qsqldriver_sendersignalindex_callback = cb; }
-    inline void setQSqlDriver_Receivers_Callback(QSqlDriver_Receivers_Callback cb) { qsqldriver_receivers_callback = cb; }
-    inline void setQSqlDriver_IsSignalConnected_Callback(QSqlDriver_IsSignalConnected_Callback cb) { qsqldriver_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQSqlDriver_MetaObject_IsBase(bool value) const { qsqldriver_metaobject_isbase = value; }
-    inline void setQSqlDriver_Metacast_IsBase(bool value) const { qsqldriver_metacast_isbase = value; }
-    inline void setQSqlDriver_Metacall_IsBase(bool value) const { qsqldriver_metacall_isbase = value; }
-    inline void setQSqlDriver_IsOpen_IsBase(bool value) const { qsqldriver_isopen_isbase = value; }
-    inline void setQSqlDriver_BeginTransaction_IsBase(bool value) const { qsqldriver_begintransaction_isbase = value; }
-    inline void setQSqlDriver_CommitTransaction_IsBase(bool value) const { qsqldriver_committransaction_isbase = value; }
-    inline void setQSqlDriver_RollbackTransaction_IsBase(bool value) const { qsqldriver_rollbacktransaction_isbase = value; }
-    inline void setQSqlDriver_Tables_IsBase(bool value) const { qsqldriver_tables_isbase = value; }
-    inline void setQSqlDriver_PrimaryIndex_IsBase(bool value) const { qsqldriver_primaryindex_isbase = value; }
-    inline void setQSqlDriver_Record_IsBase(bool value) const { qsqldriver_record_isbase = value; }
-    inline void setQSqlDriver_FormatValue_IsBase(bool value) const { qsqldriver_formatvalue_isbase = value; }
-    inline void setQSqlDriver_EscapeIdentifier_IsBase(bool value) const { qsqldriver_escapeidentifier_isbase = value; }
-    inline void setQSqlDriver_SqlStatement_IsBase(bool value) const { qsqldriver_sqlstatement_isbase = value; }
-    inline void setQSqlDriver_Handle_IsBase(bool value) const { qsqldriver_handle_isbase = value; }
-    inline void setQSqlDriver_HasFeature_IsBase(bool value) const { qsqldriver_hasfeature_isbase = value; }
-    inline void setQSqlDriver_Close_IsBase(bool value) const { qsqldriver_close_isbase = value; }
-    inline void setQSqlDriver_CreateResult_IsBase(bool value) const { qsqldriver_createresult_isbase = value; }
-    inline void setQSqlDriver_Open_IsBase(bool value) const { qsqldriver_open_isbase = value; }
-    inline void setQSqlDriver_SubscribeToNotification_IsBase(bool value) const { qsqldriver_subscribetonotification_isbase = value; }
-    inline void setQSqlDriver_UnsubscribeFromNotification_IsBase(bool value) const { qsqldriver_unsubscribefromnotification_isbase = value; }
-    inline void setQSqlDriver_SubscribedToNotifications_IsBase(bool value) const { qsqldriver_subscribedtonotifications_isbase = value; }
-    inline void setQSqlDriver_IsIdentifierEscaped_IsBase(bool value) const { qsqldriver_isidentifierescaped_isbase = value; }
-    inline void setQSqlDriver_StripDelimiters_IsBase(bool value) const { qsqldriver_stripdelimiters_isbase = value; }
-    inline void setQSqlDriver_MaximumIdentifierLength_IsBase(bool value) const { qsqldriver_maximumidentifierlength_isbase = value; }
-    inline void setQSqlDriver_CancelQuery_IsBase(bool value) const { qsqldriver_cancelquery_isbase = value; }
-    inline void setQSqlDriver_SetOpen_IsBase(bool value) const { qsqldriver_setopen_isbase = value; }
-    inline void setQSqlDriver_SetOpenError_IsBase(bool value) const { qsqldriver_setopenerror_isbase = value; }
-    inline void setQSqlDriver_SetLastError_IsBase(bool value) const { qsqldriver_setlasterror_isbase = value; }
-    inline void setQSqlDriver_Event_IsBase(bool value) const { qsqldriver_event_isbase = value; }
-    inline void setQSqlDriver_EventFilter_IsBase(bool value) const { qsqldriver_eventfilter_isbase = value; }
-    inline void setQSqlDriver_TimerEvent_IsBase(bool value) const { qsqldriver_timerevent_isbase = value; }
-    inline void setQSqlDriver_ChildEvent_IsBase(bool value) const { qsqldriver_childevent_isbase = value; }
-    inline void setQSqlDriver_CustomEvent_IsBase(bool value) const { qsqldriver_customevent_isbase = value; }
-    inline void setQSqlDriver_ConnectNotify_IsBase(bool value) const { qsqldriver_connectnotify_isbase = value; }
-    inline void setQSqlDriver_DisconnectNotify_IsBase(bool value) const { qsqldriver_disconnectnotify_isbase = value; }
-    inline void setQSqlDriver_Sender_IsBase(bool value) const { qsqldriver_sender_isbase = value; }
-    inline void setQSqlDriver_SenderSignalIndex_IsBase(bool value) const { qsqldriver_sendersignalindex_isbase = value; }
-    inline void setQSqlDriver_Receivers_IsBase(bool value) const { qsqldriver_receivers_isbase = value; }
-    inline void setQSqlDriver_IsSignalConnected_IsBase(bool value) const { qsqldriver_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qsqldriver_metaobject_isbase) {
-            qsqldriver_metaobject_isbase = false;
-            return QSqlDriver::metaObject();
-        }
-        auto metaobject_cb = qsqldriver_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qsqldriver_metaobject_callback) {
+            QMetaObject* callback_ret = qsqldriver_metaobject_callback(this);
             return callback_ret;
         }
         return QSqlDriver::metaObject();
@@ -242,14 +116,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qsqldriver_metacast_isbase) {
-            qsqldriver_metacast_isbase = false;
-            return QSqlDriver::qt_metacast(param1);
-        }
-        auto metacast_cb = qsqldriver_metacast_callback;
-        if (metacast_cb) {
+        if (qsqldriver_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qsqldriver_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QSqlDriver::qt_metacast(param1);
@@ -257,16 +126,11 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qsqldriver_metacall_isbase) {
-            qsqldriver_metacall_isbase = false;
-            return QSqlDriver::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qsqldriver_metacall_callback;
-        if (metacall_cb) {
+        if (qsqldriver_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qsqldriver_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QSqlDriver::qt_metacall(param1, param2, param3);
@@ -274,13 +138,8 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool isOpen() const override {
-        if (qsqldriver_isopen_isbase) {
-            qsqldriver_isopen_isbase = false;
-            return QSqlDriver::isOpen();
-        }
-        auto isopen_cb = qsqldriver_isopen_callback;
-        if (isopen_cb) {
-            bool callback_ret = isopen_cb();
+        if (qsqldriver_isopen_callback) {
+            bool callback_ret = qsqldriver_isopen_callback(this);
             return callback_ret;
         }
         return QSqlDriver::isOpen();
@@ -288,13 +147,8 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool beginTransaction() override {
-        if (qsqldriver_begintransaction_isbase) {
-            qsqldriver_begintransaction_isbase = false;
-            return QSqlDriver::beginTransaction();
-        }
-        auto begintransaction_cb = qsqldriver_begintransaction_callback;
-        if (begintransaction_cb) {
-            bool callback_ret = begintransaction_cb();
+        if (qsqldriver_begintransaction_callback) {
+            bool callback_ret = qsqldriver_begintransaction_callback(this);
             return callback_ret;
         }
         return QSqlDriver::beginTransaction();
@@ -302,13 +156,8 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool commitTransaction() override {
-        if (qsqldriver_committransaction_isbase) {
-            qsqldriver_committransaction_isbase = false;
-            return QSqlDriver::commitTransaction();
-        }
-        auto committransaction_cb = qsqldriver_committransaction_callback;
-        if (committransaction_cb) {
-            bool callback_ret = committransaction_cb();
+        if (qsqldriver_committransaction_callback) {
+            bool callback_ret = qsqldriver_committransaction_callback(this);
             return callback_ret;
         }
         return QSqlDriver::commitTransaction();
@@ -316,13 +165,8 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool rollbackTransaction() override {
-        if (qsqldriver_rollbacktransaction_isbase) {
-            qsqldriver_rollbacktransaction_isbase = false;
-            return QSqlDriver::rollbackTransaction();
-        }
-        auto rollbacktransaction_cb = qsqldriver_rollbacktransaction_callback;
-        if (rollbacktransaction_cb) {
-            bool callback_ret = rollbacktransaction_cb();
+        if (qsqldriver_rollbacktransaction_callback) {
+            bool callback_ret = qsqldriver_rollbacktransaction_callback(this);
             return callback_ret;
         }
         return QSqlDriver::rollbackTransaction();
@@ -330,14 +174,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> tables(QSql::TableType tableType) const override {
-        if (qsqldriver_tables_isbase) {
-            qsqldriver_tables_isbase = false;
-            return QSqlDriver::tables(tableType);
-        }
-        auto tables_cb = qsqldriver_tables_callback;
-        if (tables_cb) {
+        if (qsqldriver_tables_callback) {
             int cbval1 = static_cast<int>(tableType);
-            const char** callback_ret = tables_cb(this, cbval1);
+            const char** callback_ret = qsqldriver_tables_callback(this, cbval1);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -354,12 +193,7 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QSqlIndex primaryIndex(const QString& tableName) const override {
-        if (qsqldriver_primaryindex_isbase) {
-            qsqldriver_primaryindex_isbase = false;
-            return QSqlDriver::primaryIndex(tableName);
-        }
-        auto primaryindex_cb = qsqldriver_primaryindex_callback;
-        if (primaryindex_cb) {
+        if (qsqldriver_primaryindex_callback) {
             const auto tableName_ret = tableName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
@@ -368,7 +202,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
             ((char*)tableName_str)[tableName_str_len] = '\0';
             const char* cbval1 = tableName_str;
-            QSqlIndex* callback_ret = primaryindex_cb(this, cbval1);
+            QSqlIndex* callback_ret = qsqldriver_primaryindex_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(tableName_str);
@@ -379,12 +213,7 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QSqlRecord record(const QString& tableName) const override {
-        if (qsqldriver_record_isbase) {
-            qsqldriver_record_isbase = false;
-            return QSqlDriver::record(tableName);
-        }
-        auto record_cb = qsqldriver_record_callback;
-        if (record_cb) {
+        if (qsqldriver_record_callback) {
             const auto tableName_ret = tableName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
@@ -393,7 +222,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
             ((char*)tableName_str)[tableName_str_len] = '\0';
             const char* cbval1 = tableName_str;
-            QSqlRecord* callback_ret = record_cb(this, cbval1);
+            QSqlRecord* callback_ret = qsqldriver_record_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(tableName_str);
@@ -404,17 +233,12 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QString formatValue(const QSqlField& field, bool trimStrings) const override {
-        if (qsqldriver_formatvalue_isbase) {
-            qsqldriver_formatvalue_isbase = false;
-            return QSqlDriver::formatValue(field, trimStrings);
-        }
-        auto formatvalue_cb = qsqldriver_formatvalue_callback;
-        if (formatvalue_cb) {
+        if (qsqldriver_formatvalue_callback) {
             const QSqlField& field_ret = field;
             // Cast returned reference into pointer
             QSqlField* cbval1 = const_cast<QSqlField*>(&field_ret);
             bool cbval2 = trimStrings;
-            const char* callback_ret = formatvalue_cb(this, cbval1, cbval2);
+            const char* callback_ret = qsqldriver_formatvalue_callback(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -423,12 +247,7 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QString escapeIdentifier(const QString& identifier, QSqlDriver::IdentifierType typeVal) const override {
-        if (qsqldriver_escapeidentifier_isbase) {
-            qsqldriver_escapeidentifier_isbase = false;
-            return QSqlDriver::escapeIdentifier(identifier, typeVal);
-        }
-        auto escapeidentifier_cb = qsqldriver_escapeidentifier_callback;
-        if (escapeidentifier_cb) {
+        if (qsqldriver_escapeidentifier_callback) {
             const auto identifier_ret = identifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
@@ -438,7 +257,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             ((char*)identifier_str)[identifier_str_len] = '\0';
             const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
-            const char* callback_ret = escapeidentifier_cb(this, cbval1, cbval2);
+            const char* callback_ret = qsqldriver_escapeidentifier_callback(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(identifier_str);
             return callback_ret_QString;
@@ -448,12 +267,7 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QString sqlStatement(QSqlDriver::StatementType typeVal, const QString& tableName, const QSqlRecord& rec, bool preparedStatement) const override {
-        if (qsqldriver_sqlstatement_isbase) {
-            qsqldriver_sqlstatement_isbase = false;
-            return QSqlDriver::sqlStatement(typeVal, tableName, rec, preparedStatement);
-        }
-        auto sqlstatement_cb = qsqldriver_sqlstatement_callback;
-        if (sqlstatement_cb) {
+        if (qsqldriver_sqlstatement_callback) {
             int cbval1 = static_cast<int>(typeVal);
             const auto tableName_ret = tableName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -467,7 +281,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             // Cast returned reference into pointer
             QSqlRecord* cbval3 = const_cast<QSqlRecord*>(&rec_ret);
             bool cbval4 = preparedStatement;
-            const char* callback_ret = sqlstatement_cb(this, cbval1, cbval2, cbval3, cbval4);
+            const char* callback_ret = qsqldriver_sqlstatement_callback(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(tableName_str);
             return callback_ret_QString;
@@ -477,13 +291,8 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant handle() const override {
-        if (qsqldriver_handle_isbase) {
-            qsqldriver_handle_isbase = false;
-            return QSqlDriver::handle();
-        }
-        auto handle_cb = qsqldriver_handle_callback;
-        if (handle_cb) {
-            QVariant* callback_ret = handle_cb();
+        if (qsqldriver_handle_callback) {
+            QVariant* callback_ret = qsqldriver_handle_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -493,37 +302,38 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasFeature(QSqlDriver::DriverFeature f) const override {
-        auto hasfeature_cb = qsqldriver_hasfeature_callback;
-        if (hasfeature_cb) {
+        if (qsqldriver_hasfeature_callback) {
             int cbval1 = static_cast<int>(f);
-            bool callback_ret = hasfeature_cb(this, cbval1);
+            bool callback_ret = qsqldriver_hasfeature_callback(this, cbval1);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QSqlDriver::hasFeature called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void close() override {
-        auto close_cb = qsqldriver_close_callback;
-        if (close_cb) {
-            close_cb();
+        if (qsqldriver_close_callback) {
+            qsqldriver_close_callback(this);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QSqlDriver::close called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSqlResult* createResult() const override {
-        auto createresult_cb = qsqldriver_createresult_callback;
-        if (createresult_cb) {
-            QSqlResult* callback_ret = createresult_cb();
+        if (qsqldriver_createresult_callback) {
+            QSqlResult* callback_ret = qsqldriver_createresult_callback(this);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QSqlDriver::createResult called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool open(const QString& db, const QString& user, const QString& password, const QString& host, int port, const QString& connOpts) override {
-        auto open_cb = qsqldriver_open_callback;
-        if (open_cb) {
+        if (qsqldriver_open_callback) {
             const auto db_ret = db;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray db_b = db_ret.toUtf8();
@@ -565,7 +375,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)connOpts_str, connOpts_b.data(), connOpts_str_len);
             ((char*)connOpts_str)[connOpts_str_len] = '\0';
             const char* cbval6 = connOpts_str;
-            bool callback_ret = open_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6);
+            bool callback_ret = qsqldriver_open_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6);
             libqt_free(db_str);
             libqt_free(user_str);
             libqt_free(password_str);
@@ -573,17 +383,13 @@ class VirtualQSqlDriver : public QSqlDriver {
             libqt_free(connOpts_str);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QSqlDriver::open called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool subscribeToNotification(const QString& name) override {
-        if (qsqldriver_subscribetonotification_isbase) {
-            qsqldriver_subscribetonotification_isbase = false;
-            return QSqlDriver::subscribeToNotification(name);
-        }
-        auto subscribetonotification_cb = qsqldriver_subscribetonotification_callback;
-        if (subscribetonotification_cb) {
+        if (qsqldriver_subscribetonotification_callback) {
             const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -592,7 +398,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-            bool callback_ret = subscribetonotification_cb(this, cbval1);
+            bool callback_ret = qsqldriver_subscribetonotification_callback(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
         }
@@ -601,12 +407,7 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool unsubscribeFromNotification(const QString& name) override {
-        if (qsqldriver_unsubscribefromnotification_isbase) {
-            qsqldriver_unsubscribefromnotification_isbase = false;
-            return QSqlDriver::unsubscribeFromNotification(name);
-        }
-        auto unsubscribefromnotification_cb = qsqldriver_unsubscribefromnotification_callback;
-        if (unsubscribefromnotification_cb) {
+        if (qsqldriver_unsubscribefromnotification_callback) {
             const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
@@ -615,7 +416,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-            bool callback_ret = unsubscribefromnotification_cb(this, cbval1);
+            bool callback_ret = qsqldriver_unsubscribefromnotification_callback(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
         }
@@ -624,13 +425,8 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> subscribedToNotifications() const override {
-        if (qsqldriver_subscribedtonotifications_isbase) {
-            qsqldriver_subscribedtonotifications_isbase = false;
-            return QSqlDriver::subscribedToNotifications();
-        }
-        auto subscribedtonotifications_cb = qsqldriver_subscribedtonotifications_callback;
-        if (subscribedtonotifications_cb) {
-            const char** callback_ret = subscribedtonotifications_cb();
+        if (qsqldriver_subscribedtonotifications_callback) {
+            const char** callback_ret = qsqldriver_subscribedtonotifications_callback(this);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -647,12 +443,7 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool isIdentifierEscaped(const QString& identifier, QSqlDriver::IdentifierType typeVal) const override {
-        if (qsqldriver_isidentifierescaped_isbase) {
-            qsqldriver_isidentifierescaped_isbase = false;
-            return QSqlDriver::isIdentifierEscaped(identifier, typeVal);
-        }
-        auto isidentifierescaped_cb = qsqldriver_isidentifierescaped_callback;
-        if (isidentifierescaped_cb) {
+        if (qsqldriver_isidentifierescaped_callback) {
             const auto identifier_ret = identifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
@@ -662,7 +453,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             ((char*)identifier_str)[identifier_str_len] = '\0';
             const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
-            bool callback_ret = isidentifierescaped_cb(this, cbval1, cbval2);
+            bool callback_ret = qsqldriver_isidentifierescaped_callback(this, cbval1, cbval2);
             libqt_free(identifier_str);
             return callback_ret;
         }
@@ -671,12 +462,7 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual QString stripDelimiters(const QString& identifier, QSqlDriver::IdentifierType typeVal) const override {
-        if (qsqldriver_stripdelimiters_isbase) {
-            qsqldriver_stripdelimiters_isbase = false;
-            return QSqlDriver::stripDelimiters(identifier, typeVal);
-        }
-        auto stripdelimiters_cb = qsqldriver_stripdelimiters_callback;
-        if (stripdelimiters_cb) {
+        if (qsqldriver_stripdelimiters_callback) {
             const auto identifier_ret = identifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
@@ -686,7 +472,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             ((char*)identifier_str)[identifier_str_len] = '\0';
             const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
-            const char* callback_ret = stripdelimiters_cb(this, cbval1, cbval2);
+            const char* callback_ret = qsqldriver_stripdelimiters_callback(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(identifier_str);
             return callback_ret_QString;
@@ -696,14 +482,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual int maximumIdentifierLength(QSqlDriver::IdentifierType typeVal) const override {
-        if (qsqldriver_maximumidentifierlength_isbase) {
-            qsqldriver_maximumidentifierlength_isbase = false;
-            return QSqlDriver::maximumIdentifierLength(typeVal);
-        }
-        auto maximumidentifierlength_cb = qsqldriver_maximumidentifierlength_callback;
-        if (maximumidentifierlength_cb) {
+        if (qsqldriver_maximumidentifierlength_callback) {
             int cbval1 = static_cast<int>(typeVal);
-            int callback_ret = maximumidentifierlength_cb(this, cbval1);
+            int callback_ret = qsqldriver_maximumidentifierlength_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSqlDriver::maximumIdentifierLength(typeVal);
@@ -711,13 +492,8 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool cancelQuery() override {
-        if (qsqldriver_cancelquery_isbase) {
-            qsqldriver_cancelquery_isbase = false;
-            return QSqlDriver::cancelQuery();
-        }
-        auto cancelquery_cb = qsqldriver_cancelquery_callback;
-        if (cancelquery_cb) {
-            bool callback_ret = cancelquery_cb();
+        if (qsqldriver_cancelquery_callback) {
+            bool callback_ret = qsqldriver_cancelquery_callback(this);
             return callback_ret;
         }
         return QSqlDriver::cancelQuery();
@@ -725,15 +501,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void setOpen(bool o) override {
-        if (qsqldriver_setopen_isbase) {
-            qsqldriver_setopen_isbase = false;
-            QSqlDriver::setOpen(o);
-            return;
-        }
-        auto setopen_cb = qsqldriver_setopen_callback;
-        if (setopen_cb) {
+        if (qsqldriver_setopen_callback) {
             bool cbval1 = o;
-            setopen_cb(this, cbval1);
+            qsqldriver_setopen_callback(this, cbval1);
             return;
         }
         QSqlDriver::setOpen(o);
@@ -741,15 +511,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void setOpenError(bool e) override {
-        if (qsqldriver_setopenerror_isbase) {
-            qsqldriver_setopenerror_isbase = false;
-            QSqlDriver::setOpenError(e);
-            return;
-        }
-        auto setopenerror_cb = qsqldriver_setopenerror_callback;
-        if (setopenerror_cb) {
+        if (qsqldriver_setopenerror_callback) {
             bool cbval1 = e;
-            setopenerror_cb(this, cbval1);
+            qsqldriver_setopenerror_callback(this, cbval1);
             return;
         }
         QSqlDriver::setOpenError(e);
@@ -757,17 +521,11 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void setLastError(const QSqlError& e) override {
-        if (qsqldriver_setlasterror_isbase) {
-            qsqldriver_setlasterror_isbase = false;
-            QSqlDriver::setLastError(e);
-            return;
-        }
-        auto setlasterror_cb = qsqldriver_setlasterror_callback;
-        if (setlasterror_cb) {
+        if (qsqldriver_setlasterror_callback) {
             const QSqlError& e_ret = e;
             // Cast returned reference into pointer
             QSqlError* cbval1 = const_cast<QSqlError*>(&e_ret);
-            setlasterror_cb(this, cbval1);
+            qsqldriver_setlasterror_callback(this, cbval1);
             return;
         }
         QSqlDriver::setLastError(e);
@@ -775,14 +533,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qsqldriver_event_isbase) {
-            qsqldriver_event_isbase = false;
-            return QSqlDriver::event(event);
-        }
-        auto event_cb = qsqldriver_event_callback;
-        if (event_cb) {
+        if (qsqldriver_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qsqldriver_event_callback(this, cbval1);
             return callback_ret;
         }
         return QSqlDriver::event(event);
@@ -790,15 +543,10 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qsqldriver_eventfilter_isbase) {
-            qsqldriver_eventfilter_isbase = false;
-            return QSqlDriver::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qsqldriver_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qsqldriver_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qsqldriver_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QSqlDriver::eventFilter(watched, event);
@@ -806,15 +554,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qsqldriver_timerevent_isbase) {
-            qsqldriver_timerevent_isbase = false;
-            QSqlDriver::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qsqldriver_timerevent_callback;
-        if (timerevent_cb) {
+        if (qsqldriver_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qsqldriver_timerevent_callback(this, cbval1);
             return;
         }
         QSqlDriver::timerEvent(event);
@@ -822,15 +564,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qsqldriver_childevent_isbase) {
-            qsqldriver_childevent_isbase = false;
-            QSqlDriver::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qsqldriver_childevent_callback;
-        if (childevent_cb) {
+        if (qsqldriver_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qsqldriver_childevent_callback(this, cbval1);
             return;
         }
         QSqlDriver::childEvent(event);
@@ -838,15 +574,9 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qsqldriver_customevent_isbase) {
-            qsqldriver_customevent_isbase = false;
-            QSqlDriver::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qsqldriver_customevent_callback;
-        if (customevent_cb) {
+        if (qsqldriver_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qsqldriver_customevent_callback(this, cbval1);
             return;
         }
         QSqlDriver::customEvent(event);
@@ -854,17 +584,11 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qsqldriver_connectnotify_isbase) {
-            qsqldriver_connectnotify_isbase = false;
-            QSqlDriver::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qsqldriver_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qsqldriver_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qsqldriver_connectnotify_callback(this, cbval1);
             return;
         }
         QSqlDriver::connectNotify(signal);
@@ -872,107 +596,25 @@ class VirtualQSqlDriver : public QSqlDriver {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qsqldriver_disconnectnotify_isbase) {
-            qsqldriver_disconnectnotify_isbase = false;
-            QSqlDriver::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qsqldriver_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qsqldriver_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qsqldriver_disconnectnotify_callback(this, cbval1);
             return;
         }
         QSqlDriver::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qsqldriver_sender_isbase) {
-            qsqldriver_sender_isbase = false;
-            return QSqlDriver::sender();
-        }
-        auto sender_cb = qsqldriver_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QSqlDriver::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qsqldriver_sendersignalindex_isbase) {
-            qsqldriver_sendersignalindex_isbase = false;
-            return QSqlDriver::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qsqldriver_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QSqlDriver::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qsqldriver_receivers_isbase) {
-            qsqldriver_receivers_isbase = false;
-            return QSqlDriver::receivers(signal);
-        }
-        auto receivers_cb = qsqldriver_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QSqlDriver::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qsqldriver_issignalconnected_isbase) {
-            qsqldriver_issignalconnected_isbase = false;
-            return QSqlDriver::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qsqldriver_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QSqlDriver::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QSqlDriver_SetOpen(QSqlDriver* self, bool o);
     friend void QSqlDriver_SuperSetOpen(QSqlDriver* self, bool o);
-    friend void QSqlDriver_SetOpenError(QSqlDriver* self, bool e);
     friend void QSqlDriver_SuperSetOpenError(QSqlDriver* self, bool e);
-    friend void QSqlDriver_SetLastError(QSqlDriver* self, const QSqlError* e);
     friend void QSqlDriver_SuperSetLastError(QSqlDriver* self, const QSqlError* e);
-    friend void QSqlDriver_TimerEvent(QSqlDriver* self, QTimerEvent* event);
     friend void QSqlDriver_SuperTimerEvent(QSqlDriver* self, QTimerEvent* event);
-    friend void QSqlDriver_ChildEvent(QSqlDriver* self, QChildEvent* event);
     friend void QSqlDriver_SuperChildEvent(QSqlDriver* self, QChildEvent* event);
-    friend void QSqlDriver_CustomEvent(QSqlDriver* self, QEvent* event);
     friend void QSqlDriver_SuperCustomEvent(QSqlDriver* self, QEvent* event);
-    friend void QSqlDriver_ConnectNotify(QSqlDriver* self, const QMetaMethod* signal);
     friend void QSqlDriver_SuperConnectNotify(QSqlDriver* self, const QMetaMethod* signal);
-    friend void QSqlDriver_DisconnectNotify(QSqlDriver* self, const QMetaMethod* signal);
     friend void QSqlDriver_SuperDisconnectNotify(QSqlDriver* self, const QMetaMethod* signal);
-    friend QObject* QSqlDriver_Sender(const QSqlDriver* self);
-    friend QObject* QSqlDriver_SuperSender(const QSqlDriver* self);
-    friend int QSqlDriver_SenderSignalIndex(const QSqlDriver* self);
-    friend int QSqlDriver_SuperSenderSignalIndex(const QSqlDriver* self);
-    friend int QSqlDriver_Receivers(const QSqlDriver* self, const char* signal);
-    friend int QSqlDriver_SuperReceivers(const QSqlDriver* self, const char* signal);
-    friend bool QSqlDriver_IsSignalConnected(const QSqlDriver* self, const QMetaMethod* signal);
-    friend bool QSqlDriver_SuperIsSignalConnected(const QSqlDriver* self, const QMetaMethod* signal);
 };
 
 #endif

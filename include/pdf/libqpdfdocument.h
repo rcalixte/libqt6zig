@@ -69,7 +69,7 @@ void QPdfDocument_Connect_PageModelChanged(QPdfDocument* self, intptr_t slot);
 libqt_string QPdfDocument_Tr2(const char* s, const char* c);
 libqt_string QPdfDocument_Tr3(const char* s, const char* c, int n);
 QImage* QPdfDocument_Render3(QPdfDocument* self, int page, QSize* imageSize, QPdfDocumentRenderOptions* options);
-void QPdfDocument_OnMetaObject(const QPdfDocument* self, intptr_t slot);
+void QPdfDocument_OnMetaObject(QPdfDocument* self, intptr_t slot);
 QMetaObject* QPdfDocument_SuperMetaObject(const QPdfDocument* self);
 void QPdfDocument_OnMetacast(QPdfDocument* self, intptr_t slot);
 void* QPdfDocument_SuperMetacast(QPdfDocument* self, const char* param1);
@@ -97,17 +97,9 @@ void QPdfDocument_DisconnectNotify(QPdfDocument* self, const QMetaMethod* signal
 void QPdfDocument_OnDisconnectNotify(QPdfDocument* self, intptr_t slot);
 void QPdfDocument_SuperDisconnectNotify(QPdfDocument* self, const QMetaMethod* signal);
 QObject* QPdfDocument_Sender(const QPdfDocument* self);
-void QPdfDocument_OnSender(const QPdfDocument* self, intptr_t slot);
-QObject* QPdfDocument_SuperSender(const QPdfDocument* self);
 int QPdfDocument_SenderSignalIndex(const QPdfDocument* self);
-void QPdfDocument_OnSenderSignalIndex(const QPdfDocument* self, intptr_t slot);
-int QPdfDocument_SuperSenderSignalIndex(const QPdfDocument* self);
 int QPdfDocument_Receivers(const QPdfDocument* self, const char* signal);
-void QPdfDocument_OnReceivers(const QPdfDocument* self, intptr_t slot);
-int QPdfDocument_SuperReceivers(const QPdfDocument* self, const char* signal);
 bool QPdfDocument_IsSignalConnected(const QPdfDocument* self, const QMetaMethod* signal);
-void QPdfDocument_OnIsSignalConnected(const QPdfDocument* self, intptr_t slot);
-bool QPdfDocument_SuperIsSignalConnected(const QPdfDocument* self, const QMetaMethod* signal);
 void QPdfDocument_Delete(QPdfDocument* self);
 
 #ifdef __cplusplus

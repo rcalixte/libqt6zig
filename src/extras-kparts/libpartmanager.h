@@ -65,7 +65,7 @@ void KParts__PartManager_ActivePartChanged(KParts__PartManager* self, KParts__Pa
 void KParts__PartManager_Connect_ActivePartChanged(KParts__PartManager* self, intptr_t slot);
 libqt_string KParts__PartManager_Tr2(const char* s, const char* c);
 libqt_string KParts__PartManager_Tr3(const char* s, const char* c, int n);
-void KParts__PartManager_OnMetaObject(const KParts__PartManager* self, intptr_t slot);
+void KParts__PartManager_OnMetaObject(KParts__PartManager* self, intptr_t slot);
 QMetaObject* KParts__PartManager_SuperMetaObject(const KParts__PartManager* self);
 void KParts__PartManager_OnMetacast(KParts__PartManager* self, intptr_t slot);
 void* KParts__PartManager_SuperMetacast(KParts__PartManager* self, const char* param1);
@@ -81,9 +81,9 @@ void KParts__PartManager_OnReplacePart(KParts__PartManager* self, intptr_t slot)
 void KParts__PartManager_SuperReplacePart(KParts__PartManager* self, KParts__Part* oldPart, KParts__Part* newPart, bool setActive);
 void KParts__PartManager_OnSetActivePart(KParts__PartManager* self, intptr_t slot);
 void KParts__PartManager_SuperSetActivePart(KParts__PartManager* self, KParts__Part* part, QWidget* widget);
-void KParts__PartManager_OnActivePart(const KParts__PartManager* self, intptr_t slot);
+void KParts__PartManager_OnActivePart(KParts__PartManager* self, intptr_t slot);
 KParts__Part* KParts__PartManager_SuperActivePart(const KParts__PartManager* self);
-void KParts__PartManager_OnActiveWidget(const KParts__PartManager* self, intptr_t slot);
+void KParts__PartManager_OnActiveWidget(KParts__PartManager* self, intptr_t slot);
 QWidget* KParts__PartManager_SuperActiveWidget(const KParts__PartManager* self);
 bool KParts__PartManager_Event(KParts__PartManager* self, QEvent* event);
 void KParts__PartManager_OnEvent(KParts__PartManager* self, intptr_t slot);
@@ -104,29 +104,13 @@ void KParts__PartManager_DisconnectNotify(KParts__PartManager* self, const QMeta
 void KParts__PartManager_OnDisconnectNotify(KParts__PartManager* self, intptr_t slot);
 void KParts__PartManager_SuperDisconnectNotify(KParts__PartManager* self, const QMetaMethod* signal);
 void KParts__PartManager_SetIgnoreExplictFocusRequests(KParts__PartManager* self, bool ignoreExplictFocusRequests);
-void KParts__PartManager_OnSetIgnoreExplictFocusRequests(KParts__PartManager* self, intptr_t slot);
-void KParts__PartManager_SuperSetIgnoreExplictFocusRequests(KParts__PartManager* self, bool ignoreExplictFocusRequests);
 void KParts__PartManager_SlotObjectDestroyed(KParts__PartManager* self);
-void KParts__PartManager_OnSlotObjectDestroyed(KParts__PartManager* self, intptr_t slot);
-void KParts__PartManager_SuperSlotObjectDestroyed(KParts__PartManager* self);
 void KParts__PartManager_SlotWidgetDestroyed(KParts__PartManager* self);
-void KParts__PartManager_OnSlotWidgetDestroyed(KParts__PartManager* self, intptr_t slot);
-void KParts__PartManager_SuperSlotWidgetDestroyed(KParts__PartManager* self);
 void KParts__PartManager_SlotManagedTopLevelWidgetDestroyed(KParts__PartManager* self);
-void KParts__PartManager_OnSlotManagedTopLevelWidgetDestroyed(KParts__PartManager* self, intptr_t slot);
-void KParts__PartManager_SuperSlotManagedTopLevelWidgetDestroyed(KParts__PartManager* self);
 QObject* KParts__PartManager_Sender(const KParts__PartManager* self);
-void KParts__PartManager_OnSender(const KParts__PartManager* self, intptr_t slot);
-QObject* KParts__PartManager_SuperSender(const KParts__PartManager* self);
 int KParts__PartManager_SenderSignalIndex(const KParts__PartManager* self);
-void KParts__PartManager_OnSenderSignalIndex(const KParts__PartManager* self, intptr_t slot);
-int KParts__PartManager_SuperSenderSignalIndex(const KParts__PartManager* self);
 int KParts__PartManager_Receivers(const KParts__PartManager* self, const char* signal);
-void KParts__PartManager_OnReceivers(const KParts__PartManager* self, intptr_t slot);
-int KParts__PartManager_SuperReceivers(const KParts__PartManager* self, const char* signal);
 bool KParts__PartManager_IsSignalConnected(const KParts__PartManager* self, const QMetaMethod* signal);
-void KParts__PartManager_OnIsSignalConnected(const KParts__PartManager* self, intptr_t slot);
-bool KParts__PartManager_SuperIsSignalConnected(const KParts__PartManager* self, const QMetaMethod* signal);
 void KParts__PartManager_Delete(KParts__PartManager* self);
 
 #ifdef __cplusplus

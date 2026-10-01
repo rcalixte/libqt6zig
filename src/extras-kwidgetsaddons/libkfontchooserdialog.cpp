@@ -153,1822 +153,1269 @@ int KFontChooserDialog_GetFontDiff4(QFont* theFont, int* diffFlags, const int* f
 
 // Base class handler implementation
 QMetaObject* KFontChooserDialog_SuperMetaObject(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfontchooserdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KFontChooserDialog::metaObject();
-    }
+    return (QMetaObject*)self->KFontChooserDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnMetaObject(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_MetaObject_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MetaObject_Callback>(slot));
+void KFontChooserDialog_OnMetaObject(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_metaobject_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFontChooserDialog_SuperMetacast(KFontChooserDialog* self, const char* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Metacast_IsBase(true);
-        return vkfontchooserdialog->qt_metacast(param1);
-    } else {
-        return self->KFontChooserDialog::qt_metacast(param1);
-    }
+    return self->KFontChooserDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnMetacast(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Metacast_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Metacast_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_metacast_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFontChooserDialog_SuperMetacall(KFontChooserDialog* self, int param1, int param2, void** param3) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Metacall_IsBase(true);
-        return vkfontchooserdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFontChooserDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFontChooserDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnMetacall(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Metacall_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Metacall_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_metacall_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_SetVisible(KFontChooserDialog* self, bool visible) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setVisible(visible);
-    } else {
-        self->KFontChooserDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperSetVisible(KFontChooserDialog* self, bool visible) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_SetVisible_IsBase(true);
-        vkfontchooserdialog->setVisible(visible);
-    } else {
-        self->KFontChooserDialog::setVisible(visible);
-    }
+    self->KFontChooserDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnSetVisible(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_SetVisible_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_SetVisible_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_setvisible_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFontChooserDialog_SizeHint(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return new QSize(vkfontchooserdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKFontChooserDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KFontChooserDialog_SuperSizeHint(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_SizeHint_IsBase(true);
-        return new QSize(vkfontchooserdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKFontChooserDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KFontChooserDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnSizeHint(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_SizeHint_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_SizeHint_Callback>(slot));
+void KFontChooserDialog_OnSizeHint(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_sizehint_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFontChooserDialog_MinimumSizeHint(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return new QSize(vkfontchooserdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFontChooserDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KFontChooserDialog_SuperMinimumSizeHint(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkfontchooserdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFontChooserDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KFontChooserDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnMinimumSizeHint(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MinimumSizeHint_Callback>(slot));
+void KFontChooserDialog_OnMinimumSizeHint(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_minimumsizehint_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_Open(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->open();
-    } else {
-        self->KFontChooserDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperOpen(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Open_IsBase(true);
-        vkfontchooserdialog->open();
-    } else {
-        self->KFontChooserDialog::open();
-    }
+    self->KFontChooserDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnOpen(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Open_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Open_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_open_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFontChooserDialog_Exec(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->exec();
-    } else {
-        return self->KFontChooserDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KFontChooserDialog_SuperExec(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Exec_IsBase(true);
-        return vkfontchooserdialog->exec();
-    } else {
-        return self->KFontChooserDialog::exec();
-    }
+    return self->KFontChooserDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnExec(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Exec_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Exec_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_exec_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_Done(KFontChooserDialog* self, int param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->done(static_cast<int>(param1));
-    } else {
-        self->KFontChooserDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperDone(KFontChooserDialog* self, int param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Done_IsBase(true);
-        vkfontchooserdialog->done(static_cast<int>(param1));
-    } else {
-        self->KFontChooserDialog::done(static_cast<int>(param1));
-    }
+    self->KFontChooserDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnDone(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Done_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Done_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_done_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_Accept(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->accept();
-    } else {
-        self->KFontChooserDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperAccept(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Accept_IsBase(true);
-        vkfontchooserdialog->accept();
-    } else {
-        self->KFontChooserDialog::accept();
-    }
+    self->KFontChooserDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnAccept(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Accept_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Accept_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_accept_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_Reject(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->reject();
-    } else {
-        self->KFontChooserDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperReject(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Reject_IsBase(true);
-        vkfontchooserdialog->reject();
-    } else {
-        self->KFontChooserDialog::reject();
-    }
+    self->KFontChooserDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnReject(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Reject_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Reject_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_reject_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_KeyPressEvent(KFontChooserDialog* self, QKeyEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->keyPressEvent(param1);
     } else {
-        ((VirtualKFontChooserDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KFontChooserDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperKeyPressEvent(KFontChooserDialog* self, QKeyEvent* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_KeyPressEvent_IsBase(true);
-        vkfontchooserdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnKeyPressEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_keypressevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_CloseEvent(KFontChooserDialog* self, QCloseEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->closeEvent(param1);
     } else {
-        ((VirtualKFontChooserDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KFontChooserDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperCloseEvent(KFontChooserDialog* self, QCloseEvent* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_CloseEvent_IsBase(true);
-        vkfontchooserdialog->closeEvent(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnCloseEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_CloseEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_CloseEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_closeevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_ShowEvent(KFontChooserDialog* self, QShowEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->showEvent(param1);
     } else {
-        ((VirtualKFontChooserDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KFontChooserDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperShowEvent(KFontChooserDialog* self, QShowEvent* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_ShowEvent_IsBase(true);
-        vkfontchooserdialog->showEvent(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnShowEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_ShowEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ShowEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_showevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_ResizeEvent(KFontChooserDialog* self, QResizeEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->resizeEvent(param1);
     } else {
-        ((VirtualKFontChooserDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KFontChooserDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperResizeEvent(KFontChooserDialog* self, QResizeEvent* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_ResizeEvent_IsBase(true);
-        vkfontchooserdialog->resizeEvent(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnResizeEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_resizeevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_ContextMenuEvent(KFontChooserDialog* self, QContextMenuEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKFontChooserDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KFontChooserDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperContextMenuEvent(KFontChooserDialog* self, QContextMenuEvent* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_ContextMenuEvent_IsBase(true);
-        vkfontchooserdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnContextMenuEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_contextmenuevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontChooserDialog_EventFilter(KFontChooserDialog* self, QObject* param1, QEvent* param2) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         return vkfontchooserdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKFontChooserDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KFontChooserDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontChooserDialog_SuperEventFilter(KFontChooserDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_EventFilter_IsBase(true);
-        return vkfontchooserdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        return vkfontchooserdialog->KFontChooserDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnEventFilter(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_EventFilter_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_EventFilter_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_eventfilter_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFontChooserDialog_DevType(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->devType();
-    } else {
-        return self->KFontChooserDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KFontChooserDialog_SuperDevType(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_DevType_IsBase(true);
-        return vkfontchooserdialog->devType();
-    } else {
-        return self->KFontChooserDialog::devType();
-    }
+    return self->KFontChooserDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnDevType(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_DevType_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DevType_Callback>(slot));
+void KFontChooserDialog_OnDevType(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_devtype_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFontChooserDialog_HeightForWidth(const KFontChooserDialog* self, int param1) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFontChooserDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KFontChooserDialog_SuperHeightForWidth(const KFontChooserDialog* self, int param1) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_HeightForWidth_IsBase(true);
-        return vkfontchooserdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFontChooserDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KFontChooserDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnHeightForWidth(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_HeightForWidth_Callback>(slot));
+void KFontChooserDialog_OnHeightForWidth(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_heightforwidth_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontChooserDialog_HasHeightForWidth(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->hasHeightForWidth();
-    } else {
-        return self->KFontChooserDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KFontChooserDialog_SuperHasHeightForWidth(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_HasHeightForWidth_IsBase(true);
-        return vkfontchooserdialog->hasHeightForWidth();
-    } else {
-        return self->KFontChooserDialog::hasHeightForWidth();
-    }
+    return self->KFontChooserDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnHasHeightForWidth(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_HasHeightForWidth_Callback>(slot));
+void KFontChooserDialog_OnHasHeightForWidth(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_hasheightforwidth_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KFontChooserDialog_PaintEngine(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->paintEngine();
-    } else {
-        return self->KFontChooserDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KFontChooserDialog_SuperPaintEngine(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_PaintEngine_IsBase(true);
-        return vkfontchooserdialog->paintEngine();
-    } else {
-        return self->KFontChooserDialog::paintEngine();
-    }
+    return self->KFontChooserDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnPaintEngine(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_PaintEngine_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_PaintEngine_Callback>(slot));
+void KFontChooserDialog_OnPaintEngine(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_paintengine_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontChooserDialog_Event(KFontChooserDialog* self, QEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         return vkfontchooserdialog->event(event);
     } else {
-        return ((VirtualKFontChooserDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontChooserDialog_SuperEvent(KFontChooserDialog* self, QEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Event_IsBase(true);
-        return vkfontchooserdialog->event(event);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->event(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        return vkfontchooserdialog->KFontChooserDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Event_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Event_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_event_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_MousePressEvent(KFontChooserDialog* self, QMouseEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->mousePressEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperMousePressEvent(KFontChooserDialog* self, QMouseEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_MousePressEvent_IsBase(true);
-        vkfontchooserdialog->mousePressEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnMousePressEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_mousepressevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_MouseReleaseEvent(KFontChooserDialog* self, QMouseEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperMouseReleaseEvent(KFontChooserDialog* self, QMouseEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_MouseReleaseEvent_IsBase(true);
-        vkfontchooserdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnMouseReleaseEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_mousereleaseevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_MouseDoubleClickEvent(KFontChooserDialog* self, QMouseEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperMouseDoubleClickEvent(KFontChooserDialog* self, QMouseEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_MouseDoubleClickEvent_IsBase(true);
-        vkfontchooserdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnMouseDoubleClickEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_MouseMoveEvent(KFontChooserDialog* self, QMouseEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperMouseMoveEvent(KFontChooserDialog* self, QMouseEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_MouseMoveEvent_IsBase(true);
-        vkfontchooserdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnMouseMoveEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_mousemoveevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_WheelEvent(KFontChooserDialog* self, QWheelEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->wheelEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperWheelEvent(KFontChooserDialog* self, QWheelEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_WheelEvent_IsBase(true);
-        vkfontchooserdialog->wheelEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnWheelEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_WheelEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_WheelEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_wheelevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_KeyReleaseEvent(KFontChooserDialog* self, QKeyEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperKeyReleaseEvent(KFontChooserDialog* self, QKeyEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_KeyReleaseEvent_IsBase(true);
-        vkfontchooserdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnKeyReleaseEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_keyreleaseevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_FocusInEvent(KFontChooserDialog* self, QFocusEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->focusInEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperFocusInEvent(KFontChooserDialog* self, QFocusEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_FocusInEvent_IsBase(true);
-        vkfontchooserdialog->focusInEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnFocusInEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_focusinevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_FocusOutEvent(KFontChooserDialog* self, QFocusEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->focusOutEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperFocusOutEvent(KFontChooserDialog* self, QFocusEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_FocusOutEvent_IsBase(true);
-        vkfontchooserdialog->focusOutEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnFocusOutEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_focusoutevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_EnterEvent(KFontChooserDialog* self, QEnterEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->enterEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperEnterEvent(KFontChooserDialog* self, QEnterEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_EnterEvent_IsBase(true);
-        vkfontchooserdialog->enterEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnEnterEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_EnterEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_EnterEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_enterevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_LeaveEvent(KFontChooserDialog* self, QEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->leaveEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperLeaveEvent(KFontChooserDialog* self, QEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_LeaveEvent_IsBase(true);
-        vkfontchooserdialog->leaveEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnLeaveEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_leaveevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_PaintEvent(KFontChooserDialog* self, QPaintEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->paintEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperPaintEvent(KFontChooserDialog* self, QPaintEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_PaintEvent_IsBase(true);
-        vkfontchooserdialog->paintEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnPaintEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_PaintEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_PaintEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_paintevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_MoveEvent(KFontChooserDialog* self, QMoveEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->moveEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperMoveEvent(KFontChooserDialog* self, QMoveEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_MoveEvent_IsBase(true);
-        vkfontchooserdialog->moveEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnMoveEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_MoveEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MoveEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_moveevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_TabletEvent(KFontChooserDialog* self, QTabletEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->tabletEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperTabletEvent(KFontChooserDialog* self, QTabletEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_TabletEvent_IsBase(true);
-        vkfontchooserdialog->tabletEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnTabletEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_TabletEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_TabletEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_tabletevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_ActionEvent(KFontChooserDialog* self, QActionEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->actionEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperActionEvent(KFontChooserDialog* self, QActionEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_ActionEvent_IsBase(true);
-        vkfontchooserdialog->actionEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnActionEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_ActionEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ActionEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_actionevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_DragEnterEvent(KFontChooserDialog* self, QDragEnterEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->dragEnterEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperDragEnterEvent(KFontChooserDialog* self, QDragEnterEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_DragEnterEvent_IsBase(true);
-        vkfontchooserdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnDragEnterEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_dragenterevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_DragMoveEvent(KFontChooserDialog* self, QDragMoveEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->dragMoveEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperDragMoveEvent(KFontChooserDialog* self, QDragMoveEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_DragMoveEvent_IsBase(true);
-        vkfontchooserdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnDragMoveEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_dragmoveevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_DragLeaveEvent(KFontChooserDialog* self, QDragLeaveEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperDragLeaveEvent(KFontChooserDialog* self, QDragLeaveEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_DragLeaveEvent_IsBase(true);
-        vkfontchooserdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnDragLeaveEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_dragleaveevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_DropEvent(KFontChooserDialog* self, QDropEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->dropEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperDropEvent(KFontChooserDialog* self, QDropEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_DropEvent_IsBase(true);
-        vkfontchooserdialog->dropEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnDropEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_DropEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DropEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_dropevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_HideEvent(KFontChooserDialog* self, QHideEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->hideEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperHideEvent(KFontChooserDialog* self, QHideEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_HideEvent_IsBase(true);
-        vkfontchooserdialog->hideEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnHideEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_HideEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_HideEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_hideevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontChooserDialog_NativeEvent(KFontChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
+    if (vkfontchooserdialog) {
         return vkfontchooserdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKFontChooserDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KFontChooserDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontChooserDialog_SuperNativeEvent(KFontChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_NativeEvent_IsBase(true);
-        return vkfontchooserdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        return vkfontchooserdialog->KFontChooserDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnNativeEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_NativeEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_NativeEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_nativeevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_ChangeEvent(KFontChooserDialog* self, QEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->changeEvent(param1);
     } else {
-        ((VirtualKFontChooserDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KFontChooserDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperChangeEvent(KFontChooserDialog* self, QEvent* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_ChangeEvent_IsBase(true);
-        vkfontchooserdialog->changeEvent(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnChangeEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_changeevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFontChooserDialog_Metric(const KFontChooserDialog* self, int param1) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         return vkfontchooserdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKFontChooserDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KFontChooserDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFontChooserDialog_SuperMetric(const KFontChooserDialog* self, int param1) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Metric_IsBase(true);
-        return vkfontchooserdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        return vkfontchooserdialog->KFontChooserDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnMetric(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Metric_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Metric_Callback>(slot));
+void KFontChooserDialog_OnMetric(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_metric_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_InitPainter(const KFontChooserDialog* self, QPainter* painter) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->initPainter(painter);
     } else {
-        ((VirtualKFontChooserDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KFontChooserDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperInitPainter(const KFontChooserDialog* self, QPainter* painter) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_InitPainter_IsBase(true);
-        vkfontchooserdialog->initPainter(painter);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        vkfontchooserdialog->KFontChooserDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnInitPainter(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_InitPainter_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_InitPainter_Callback>(slot));
+void KFontChooserDialog_OnInitPainter(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_initpainter_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KFontChooserDialog_Redirected(const KFontChooserDialog* self, QPoint* offset) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         return vkfontchooserdialog->redirected(offset);
     } else {
-        return ((VirtualKFontChooserDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KFontChooserDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KFontChooserDialog_SuperRedirected(const KFontChooserDialog* self, QPoint* offset) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Redirected_IsBase(true);
-        return vkfontchooserdialog->redirected(offset);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->redirected(offset);
-    }
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        return vkfontchooserdialog->KFontChooserDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnRedirected(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Redirected_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Redirected_Callback>(slot));
+void KFontChooserDialog_OnRedirected(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_redirected_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KFontChooserDialog_SharedPainter(const KFontChooserDialog* self) {
     auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         return vkfontchooserdialog->sharedPainter();
     } else {
-        return ((VirtualKFontChooserDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KFontChooserDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KFontChooserDialog_SuperSharedPainter(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_SharedPainter_IsBase(true);
-        return vkfontchooserdialog->sharedPainter();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->sharedPainter();
-    }
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        return vkfontchooserdialog->KFontChooserDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnSharedPainter(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_SharedPainter_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_SharedPainter_Callback>(slot));
+void KFontChooserDialog_OnSharedPainter(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_sharedpainter_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_InputMethodEvent(KFontChooserDialog* self, QInputMethodEvent* param1) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKFontChooserDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KFontChooserDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperInputMethodEvent(KFontChooserDialog* self, QInputMethodEvent* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_InputMethodEvent_IsBase(true);
-        vkfontchooserdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnInputMethodEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_inputmethodevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KFontChooserDialog_InputMethodQuery(const KFontChooserDialog* self, int param1) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return new QVariant(vkfontchooserdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFontChooserDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KFontChooserDialog_SuperInputMethodQuery(const KFontChooserDialog* self, int param1) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkfontchooserdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFontChooserDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KFontChooserDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnInputMethodQuery(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_InputMethodQuery_Callback>(slot));
+void KFontChooserDialog_OnInputMethodQuery(KFontChooserDialog* self, intptr_t slot) {
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self)))
+        vkfontchooserdialog->kfontchooserdialog_inputmethodquery_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFontChooserDialog_FocusNextPrevChild(KFontChooserDialog* self, bool next) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         return vkfontchooserdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKFontChooserDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KFontChooserDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFontChooserDialog_SuperFocusNextPrevChild(KFontChooserDialog* self, bool next) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_FocusNextPrevChild_IsBase(true);
-        return vkfontchooserdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        return vkfontchooserdialog->KFontChooserDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnFocusNextPrevChild(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_focusnextprevchild_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_TimerEvent(KFontChooserDialog* self, QTimerEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->timerEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperTimerEvent(KFontChooserDialog* self, QTimerEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_TimerEvent_IsBase(true);
-        vkfontchooserdialog->timerEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnTimerEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_TimerEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_TimerEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_timerevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_ChildEvent(KFontChooserDialog* self, QChildEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->childEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperChildEvent(KFontChooserDialog* self, QChildEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_ChildEvent_IsBase(true);
-        vkfontchooserdialog->childEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->childEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnChildEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_ChildEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ChildEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_childevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_CustomEvent(KFontChooserDialog* self, QEvent* event) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->customEvent(event);
     } else {
-        ((VirtualKFontChooserDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFontChooserDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperCustomEvent(KFontChooserDialog* self, QEvent* event) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_CustomEvent_IsBase(true);
-        vkfontchooserdialog->customEvent(event);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->customEvent(event);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnCustomEvent(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_CustomEvent_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_CustomEvent_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_customevent_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_ConnectNotify(KFontChooserDialog* self, const QMetaMethod* signal) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->connectNotify(*signal);
     } else {
-        ((VirtualKFontChooserDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFontChooserDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperConnectNotify(KFontChooserDialog* self, const QMetaMethod* signal) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_ConnectNotify_IsBase(true);
-        vkfontchooserdialog->connectNotify(*signal);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnConnectNotify(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_connectnotify_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFontChooserDialog_DisconnectNotify(KFontChooserDialog* self, const QMetaMethod* signal) {
     auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
+    if (vkfontchooserdialog) {
         vkfontchooserdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKFontChooserDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFontChooserDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFontChooserDialog_SuperDisconnectNotify(KFontChooserDialog* self, const QMetaMethod* signal) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_DisconnectNotify_IsBase(true);
-        vkfontchooserdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->KFontChooserDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFontChooserDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFontChooserDialog_OnDisconnectNotify(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self))
+        vkfontchooserdialog->kfontchooserdialog_disconnectnotify_callback = reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFontChooserDialog_AdjustPosition(KFontChooserDialog* self, QWidget* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->VirtualKFontChooserDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFontChooserDialog_SuperAdjustPosition(KFontChooserDialog* self, QWidget* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_AdjustPosition_IsBase(true);
-        vkfontchooserdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKFontChooserDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnAdjustPosition(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFontChooserDialog_UpdateMicroFocus(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->updateMicroFocus();
-    } else {
-        ((VirtualKFontChooserDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->VirtualKFontChooserDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFontChooserDialog_SuperUpdateMicroFocus(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_UpdateMicroFocus_IsBase(true);
-        vkfontchooserdialog->updateMicroFocus();
-    } else {
-        ((VirtualKFontChooserDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnUpdateMicroFocus(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFontChooserDialog_Create(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->create();
-    } else {
-        ((VirtualKFontChooserDialog*)self)->create();
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->VirtualKFontChooserDialog::create();
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFontChooserDialog_SuperCreate(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Create_IsBase(true);
-        vkfontchooserdialog->create();
-    } else {
-        ((VirtualKFontChooserDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnCreate(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Create_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFontChooserDialog_Destroy(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->destroy();
-    } else {
-        ((VirtualKFontChooserDialog*)self)->destroy();
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        vkfontchooserdialog->VirtualKFontChooserDialog::destroy();
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFontChooserDialog_SuperDestroy(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Destroy_IsBase(true);
-        vkfontchooserdialog->destroy();
-    } else {
-        ((VirtualKFontChooserDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnDestroy(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Destroy_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFontChooserDialog_FocusNextChild(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->focusNextChild();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->focusNextChild();
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        return vkfontchooserdialog->VirtualKFontChooserDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFontChooserDialog_SuperFocusNextChild(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_FocusNextChild_IsBase(true);
-        return vkfontchooserdialog->focusNextChild();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnFocusNextChild(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFontChooserDialog_FocusPreviousChild(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self)) {
+        return vkfontchooserdialog->VirtualKFontChooserDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFontChooserDialog_SuperFocusPreviousChild(KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_FocusPreviousChild_IsBase(true);
-        return vkfontchooserdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnFocusPreviousChild(KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFontChooserDialog_Sender(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->sender();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->sender();
-    }
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        return vkfontchooserdialog->VirtualKFontChooserDialog::sender();
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFontChooserDialog_SuperSender(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Sender_IsBase(true);
-        return vkfontchooserdialog->sender();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnSender(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Sender_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFontChooserDialog_SenderSignalIndex(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        return vkfontchooserdialog->VirtualKFontChooserDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFontChooserDialog_SuperSenderSignalIndex(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_SenderSignalIndex_IsBase(true);
-        return vkfontchooserdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnSenderSignalIndex(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFontChooserDialog_Receivers(const KFontChooserDialog* self, const char* signal) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->receivers(signal);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->receivers(signal);
-    }
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        return vkfontchooserdialog->VirtualKFontChooserDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFontChooserDialog_SuperReceivers(const KFontChooserDialog* self, const char* signal) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_Receivers_IsBase(true);
-        return vkfontchooserdialog->receivers(signal);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnReceivers(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_Receivers_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFontChooserDialog_IsSignalConnected(const KFontChooserDialog* self, const QMetaMethod* signal) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        return vkfontchooserdialog->VirtualKFontChooserDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFontChooserDialog_SuperIsSignalConnected(const KFontChooserDialog* self, const QMetaMethod* signal) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_IsSignalConnected_IsBase(true);
-        return vkfontchooserdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnIsSignalConnected(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KFontChooserDialog_GetDecodedMetricF(const KFontChooserDialog* self, int metricA, int metricB) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return vkfontchooserdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KFontChooserDialog_SuperGetDecodedMetricF(const KFontChooserDialog* self, int metricA, int metricB) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        vkfontchooserdialog->setKFontChooserDialog_GetDecodedMetricF_IsBase(true);
-        return vkfontchooserdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFontChooserDialog_OnGetDecodedMetricF(const KFontChooserDialog* self, intptr_t slot) {
-    auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self));
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog)
-        vkfontchooserdialog->setKFontChooserDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFontChooserDialog::KFontChooserDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkfontchooserdialog = const_cast<VirtualKFontChooserDialog*>(dynamic_cast<const VirtualKFontChooserDialog*>(self))) {
+        return vkfontchooserdialog->VirtualKFontChooserDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KFontChooserDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KFontChooserDialog_Delete(KFontChooserDialog* self) {

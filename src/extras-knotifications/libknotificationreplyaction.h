@@ -55,7 +55,7 @@ void KNotificationReplyAction_FallbackBehaviorChanged(KNotificationReplyAction* 
 void KNotificationReplyAction_Connect_FallbackBehaviorChanged(KNotificationReplyAction* self, intptr_t slot);
 libqt_string KNotificationReplyAction_Tr2(const char* s, const char* c);
 libqt_string KNotificationReplyAction_Tr3(const char* s, const char* c, int n);
-void KNotificationReplyAction_OnMetaObject(const KNotificationReplyAction* self, intptr_t slot);
+void KNotificationReplyAction_OnMetaObject(KNotificationReplyAction* self, intptr_t slot);
 QMetaObject* KNotificationReplyAction_SuperMetaObject(const KNotificationReplyAction* self);
 void KNotificationReplyAction_OnMetacast(KNotificationReplyAction* self, intptr_t slot);
 void* KNotificationReplyAction_SuperMetacast(KNotificationReplyAction* self, const char* param1);
@@ -83,17 +83,9 @@ void KNotificationReplyAction_DisconnectNotify(KNotificationReplyAction* self, c
 void KNotificationReplyAction_OnDisconnectNotify(KNotificationReplyAction* self, intptr_t slot);
 void KNotificationReplyAction_SuperDisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
 QObject* KNotificationReplyAction_Sender(const KNotificationReplyAction* self);
-void KNotificationReplyAction_OnSender(const KNotificationReplyAction* self, intptr_t slot);
-QObject* KNotificationReplyAction_SuperSender(const KNotificationReplyAction* self);
 int KNotificationReplyAction_SenderSignalIndex(const KNotificationReplyAction* self);
-void KNotificationReplyAction_OnSenderSignalIndex(const KNotificationReplyAction* self, intptr_t slot);
-int KNotificationReplyAction_SuperSenderSignalIndex(const KNotificationReplyAction* self);
 int KNotificationReplyAction_Receivers(const KNotificationReplyAction* self, const char* signal);
-void KNotificationReplyAction_OnReceivers(const KNotificationReplyAction* self, intptr_t slot);
-int KNotificationReplyAction_SuperReceivers(const KNotificationReplyAction* self, const char* signal);
 bool KNotificationReplyAction_IsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal);
-void KNotificationReplyAction_OnIsSignalConnected(const KNotificationReplyAction* self, intptr_t slot);
-bool KNotificationReplyAction_SuperIsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal);
 void KNotificationReplyAction_Delete(KNotificationReplyAction* self);
 
 #ifdef __cplusplus

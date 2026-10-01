@@ -35,6 +35,8 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#widgets)
     ///
+    /// This method must be implemented with `onWidgets` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerLayoutDecorationExtension `
@@ -78,38 +80,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superWidgets` instead
-    ///
-    pub const SuperWidgets = superWidgets;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#widgets)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` layout: QLayout `
-    ///
-    pub fn superWidgets(self: QDesignerLayoutDecorationExtension, allocator: std.mem.Allocator, layout: anytype) []QWidget {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        const _arr: qtc.libqt_list = qtc.QDesignerLayoutDecorationExtension_SuperWidgets(@ptrCast(self.ptr), @ptrCast(layout.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QDesignerLayoutDecorationExtension.widgets: Memory allocation failed");
-        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `itemInfo` instead
     ///
     pub const ItemInfo = itemInfo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#itemInfo)
+    ///
+    /// This method must be implemented with `onItemInfo` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -141,29 +118,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnItemInfo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superItemInfo` instead
-    ///
-    pub const SuperItemInfo = superItemInfo;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#itemInfo)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superItemInfo(self: QDesignerLayoutDecorationExtension, index: i32) QRect {
-        return .{ .ptr = qtc.QDesignerLayoutDecorationExtension_SuperItemInfo(@ptrCast(self.ptr), @bitCast(index)) };
-    }
-
     /// ### DEPRECATED: Use `indexOf` instead
     ///
     pub const IndexOf = indexOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#indexOf)
+    ///
+    /// This method must be implemented with `onIndexOf` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -194,30 +155,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnIndexOf(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIndexOf` instead
-    ///
-    pub const SuperIndexOf = superIndexOf;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#indexOf)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superIndexOf(self: QDesignerLayoutDecorationExtension, widget: anytype) i32 {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return qtc.QDesignerLayoutDecorationExtension_SuperIndexOf(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-    }
-
     /// ### DEPRECATED: Use `indexOf2` instead
     ///
     pub const IndexOf2 = indexOf2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#indexOf)
+    ///
+    /// This method must be implemented with `onIndexOf2` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -249,31 +193,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnIndexOf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIndexOf2` instead
-    ///
-    pub const SuperIndexOf2 = superIndexOf2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#indexOf)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` item: QLayoutItem `
-    ///
-    pub fn superIndexOf2(self: QDesignerLayoutDecorationExtension, item: anytype) i32 {
-        comptime _ = @TypeOf(item)._is_QLayoutItem;
-        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
-        return qtc.QDesignerLayoutDecorationExtension_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(item_.ptr));
-    }
-
     /// ### DEPRECATED: Use `currentInsertMode` instead
     ///
     pub const CurrentInsertMode = currentInsertMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentInsertMode)
+    ///
+    /// This method must be implemented with `onCurrentInsertMode` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -299,30 +225,10 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     /// ` self: QDesignerLayoutDecorationExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerLayoutDecorationExtension) callconv(.c) i32 `
     ///
-    pub fn onCurrentInsertMode(self: QDesignerLayoutDecorationExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCurrentInsertMode(self: QDesignerLayoutDecorationExtension, callback: *const fn (QDesignerLayoutDecorationExtension) callconv(.c) i32) void {
         qtc.QDesignerLayoutDecorationExtension_OnCurrentInsertMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCurrentInsertMode` instead
-    ///
-    pub const SuperCurrentInsertMode = superCurrentInsertMode;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentInsertMode)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ## Returns:
-    ///
-    /// ` layoutdecoration_enums.InsertMode `
-    ///
-    pub fn superCurrentInsertMode(self: QDesignerLayoutDecorationExtension) i32 {
-        return qtc.QDesignerLayoutDecorationExtension_SuperCurrentInsertMode(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `currentIndex` instead
@@ -330,6 +236,8 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     pub const CurrentIndex = currentIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentIndex)
+    ///
+    /// This method must be implemented with `onCurrentIndex` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -351,26 +259,10 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     /// ` self: QDesignerLayoutDecorationExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerLayoutDecorationExtension) callconv(.c) i32 `
     ///
-    pub fn onCurrentIndex(self: QDesignerLayoutDecorationExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCurrentIndex(self: QDesignerLayoutDecorationExtension, callback: *const fn (QDesignerLayoutDecorationExtension) callconv(.c) i32) void {
         qtc.QDesignerLayoutDecorationExtension_OnCurrentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCurrentIndex` instead
-    ///
-    pub const SuperCurrentIndex = superCurrentIndex;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentIndex)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    pub fn superCurrentIndex(self: QDesignerLayoutDecorationExtension) i32 {
-        return qtc.QDesignerLayoutDecorationExtension_SuperCurrentIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `currentCell` instead
@@ -378,6 +270,8 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     pub const CurrentCell = currentCell;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentCell)
+    ///
+    /// This method must be implemented with `onCurrentCell` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -403,30 +297,10 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     /// ` self: QDesignerLayoutDecorationExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) Struct_i32_i32 `
+    /// ` callback: *const fn (self: QDesignerLayoutDecorationExtension) callconv(.c) Struct_i32_i32 `
     ///
-    pub fn onCurrentCell(self: QDesignerLayoutDecorationExtension, callback: *const fn () callconv(.c) Struct_i32_i32) void {
+    pub fn onCurrentCell(self: QDesignerLayoutDecorationExtension, callback: *const fn (QDesignerLayoutDecorationExtension) callconv(.c) Struct_i32_i32) void {
         qtc.QDesignerLayoutDecorationExtension_OnCurrentCell(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCurrentCell` instead
-    ///
-    pub const SuperCurrentCell = superCurrentCell;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentCell)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    pub fn superCurrentCell(self: QDesignerLayoutDecorationExtension) Struct_i32_i32 {
-        const _pair = qtc.QDesignerLayoutDecorationExtension_SuperCurrentCell(@ptrCast(self.ptr));
-        return .{
-            .first = @bitCast(_pair.first),
-            .second = @bitCast(_pair.second),
-        };
     }
 
     /// ### DEPRECATED: Use `insertWidget` instead
@@ -434,6 +308,8 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     pub const InsertWidget = insertWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertWidget)
+    ///
+    /// This method must be implemented with `onInsertWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -469,35 +345,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnInsertWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInsertWidget` instead
-    ///
-    pub const SuperInsertWidget = superInsertWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` widget: QWidget `
-    ///
-    /// ` cell: Struct_i32_i32 `
-    ///
-    pub fn superInsertWidget(self: QDesignerLayoutDecorationExtension, widget: anytype, cell: Struct_i32_i32) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QDesignerLayoutDecorationExtension_SuperInsertWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), .{
-            .first = @bitCast(cell.first),
-            .second = @bitCast(cell.second),
-        });
-    }
-
     /// ### DEPRECATED: Use `removeWidget` instead
     ///
     pub const RemoveWidget = removeWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#removeWidget)
+    ///
+    /// This method must be implemented with `onRemoveWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -528,30 +382,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnRemoveWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superRemoveWidget` instead
-    ///
-    pub const SuperRemoveWidget = superRemoveWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#removeWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superRemoveWidget(self: QDesignerLayoutDecorationExtension, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QDesignerLayoutDecorationExtension_SuperRemoveWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-    }
-
     /// ### DEPRECATED: Use `insertRow` instead
     ///
     pub const InsertRow = insertRow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertRow)
+    ///
+    /// This method must be implemented with `onInsertRow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -581,29 +418,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnInsertRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInsertRow` instead
-    ///
-    pub const SuperInsertRow = superInsertRow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertRow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` row: i32 `
-    ///
-    pub fn superInsertRow(self: QDesignerLayoutDecorationExtension, row: i32) void {
-        qtc.QDesignerLayoutDecorationExtension_SuperInsertRow(@ptrCast(self.ptr), @bitCast(row));
-    }
-
     /// ### DEPRECATED: Use `insertColumn` instead
     ///
     pub const InsertColumn = insertColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertColumn)
+    ///
+    /// This method must be implemented with `onInsertColumn` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -633,29 +454,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnInsertColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superInsertColumn` instead
-    ///
-    pub const SuperInsertColumn = superInsertColumn;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertColumn)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` column: i32 `
-    ///
-    pub fn superInsertColumn(self: QDesignerLayoutDecorationExtension, column: i32) void {
-        qtc.QDesignerLayoutDecorationExtension_SuperInsertColumn(@ptrCast(self.ptr), @bitCast(column));
-    }
-
     /// ### DEPRECATED: Use `simplify` instead
     ///
     pub const Simplify = simplify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#simplify)
+    ///
+    /// This method must be implemented with `onSimplify` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -677,26 +482,10 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     /// ` self: QDesignerLayoutDecorationExtension `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerLayoutDecorationExtension) callconv(.c) void `
     ///
-    pub fn onSimplify(self: QDesignerLayoutDecorationExtension, callback: *const fn () callconv(.c) void) void {
+    pub fn onSimplify(self: QDesignerLayoutDecorationExtension, callback: *const fn (QDesignerLayoutDecorationExtension) callconv(.c) void) void {
         qtc.QDesignerLayoutDecorationExtension_OnSimplify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSimplify` instead
-    ///
-    pub const SuperSimplify = superSimplify;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#simplify)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    pub fn superSimplify(self: QDesignerLayoutDecorationExtension) void {
-        qtc.QDesignerLayoutDecorationExtension_SuperSimplify(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `findItemAt` instead
@@ -704,6 +493,8 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     pub const FindItemAt = findItemAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#findItemAt)
+    ///
+    /// This method must be implemented with `onFindItemAt` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -734,30 +525,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnFindItemAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superFindItemAt` instead
-    ///
-    pub const SuperFindItemAt = superFindItemAt;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#findItemAt)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` pos: QPoint `
-    ///
-    pub fn superFindItemAt(self: QDesignerLayoutDecorationExtension, pos: anytype) i32 {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.QDesignerLayoutDecorationExtension_SuperFindItemAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
-    }
-
     /// ### DEPRECATED: Use `findItemAt2` instead
     ///
     pub const FindItemAt2 = findItemAt2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#findItemAt)
+    ///
+    /// This method must be implemented with `onFindItemAt2` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -789,31 +563,13 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         qtc.QDesignerLayoutDecorationExtension_OnFindItemAt2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superFindItemAt2` instead
-    ///
-    pub const SuperFindItemAt2 = superFindItemAt2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#findItemAt)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` row: i32 `
-    ///
-    /// ` column: i32 `
-    ///
-    pub fn superFindItemAt2(self: QDesignerLayoutDecorationExtension, row: i32, column: i32) i32 {
-        return qtc.QDesignerLayoutDecorationExtension_SuperFindItemAt2(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
-    }
-
     /// ### DEPRECATED: Use `adjustIndicator` instead
     ///
     pub const AdjustIndicator = adjustIndicator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#adjustIndicator)
+    ///
+    /// This method must be implemented with `onAdjustIndicator` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -844,27 +600,6 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     pub fn onAdjustIndicator(self: QDesignerLayoutDecorationExtension, callback: *const fn (QDesignerLayoutDecorationExtension, QPoint, i32) callconv(.c) void) void {
         qtc.QDesignerLayoutDecorationExtension_OnAdjustIndicator(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAdjustIndicator` instead
-    ///
-    pub const SuperAdjustIndicator = superAdjustIndicator;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#adjustIndicator)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerLayoutDecorationExtension `
-    ///
-    /// ` pos: QPoint `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superAdjustIndicator(self: QDesignerLayoutDecorationExtension, pos: anytype, index: i32) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QDesignerLayoutDecorationExtension_SuperAdjustIndicator(@ptrCast(self.ptr), @ptrCast(pos.ptr), @bitCast(index));
     }
 
     /// ### DEPRECATED: Use `delete` instead

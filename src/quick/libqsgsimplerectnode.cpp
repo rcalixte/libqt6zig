@@ -38,58 +38,34 @@ QColor* QSGSimpleRectNode_Color(const QSGSimpleRectNode* self) {
 
 // Derived class handler implementation
 bool QSGSimpleRectNode_IsSubtreeBlocked(const QSGSimpleRectNode* self) {
-    auto* vqsgsimplerectnode = const_cast<VirtualQSGSimpleRectNode*>(dynamic_cast<const VirtualQSGSimpleRectNode*>(self));
-    if (vqsgsimplerectnode && vqsgsimplerectnode->isVirtualQSGSimpleRectNode) {
-        return vqsgsimplerectnode->isSubtreeBlocked();
-    } else {
-        return self->QSGSimpleRectNode::isSubtreeBlocked();
-    }
+    return self->isSubtreeBlocked();
 }
 
 // Base class handler implementation
 bool QSGSimpleRectNode_SuperIsSubtreeBlocked(const QSGSimpleRectNode* self) {
-    auto* vqsgsimplerectnode = const_cast<VirtualQSGSimpleRectNode*>(dynamic_cast<const VirtualQSGSimpleRectNode*>(self));
-    if (vqsgsimplerectnode && vqsgsimplerectnode->isVirtualQSGSimpleRectNode) {
-        vqsgsimplerectnode->setQSGSimpleRectNode_IsSubtreeBlocked_IsBase(true);
-        return vqsgsimplerectnode->isSubtreeBlocked();
-    } else {
-        return self->QSGSimpleRectNode::isSubtreeBlocked();
-    }
+    return self->QSGSimpleRectNode::isSubtreeBlocked();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGSimpleRectNode_OnIsSubtreeBlocked(const QSGSimpleRectNode* self, intptr_t slot) {
-    auto* vqsgsimplerectnode = const_cast<VirtualQSGSimpleRectNode*>(dynamic_cast<const VirtualQSGSimpleRectNode*>(self));
-    if (vqsgsimplerectnode && vqsgsimplerectnode->isVirtualQSGSimpleRectNode)
-        vqsgsimplerectnode->setQSGSimpleRectNode_IsSubtreeBlocked_Callback(reinterpret_cast<VirtualQSGSimpleRectNode::QSGSimpleRectNode_IsSubtreeBlocked_Callback>(slot));
+void QSGSimpleRectNode_OnIsSubtreeBlocked(QSGSimpleRectNode* self, intptr_t slot) {
+    if (auto* vqsgsimplerectnode = const_cast<VirtualQSGSimpleRectNode*>(dynamic_cast<const VirtualQSGSimpleRectNode*>(self)))
+        vqsgsimplerectnode->qsgsimplerectnode_issubtreeblocked_callback = reinterpret_cast<VirtualQSGSimpleRectNode::QSGSimpleRectNode_IsSubtreeBlocked_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSGSimpleRectNode_Preprocess(QSGSimpleRectNode* self) {
-    auto* vqsgsimplerectnode = dynamic_cast<VirtualQSGSimpleRectNode*>(self);
-    if (vqsgsimplerectnode && vqsgsimplerectnode->isVirtualQSGSimpleRectNode) {
-        vqsgsimplerectnode->preprocess();
-    } else {
-        self->QSGSimpleRectNode::preprocess();
-    }
+    self->preprocess();
 }
 
 // Base class handler implementation
 void QSGSimpleRectNode_SuperPreprocess(QSGSimpleRectNode* self) {
-    auto* vqsgsimplerectnode = dynamic_cast<VirtualQSGSimpleRectNode*>(self);
-    if (vqsgsimplerectnode && vqsgsimplerectnode->isVirtualQSGSimpleRectNode) {
-        vqsgsimplerectnode->setQSGSimpleRectNode_Preprocess_IsBase(true);
-        vqsgsimplerectnode->preprocess();
-    } else {
-        self->QSGSimpleRectNode::preprocess();
-    }
+    self->QSGSimpleRectNode::preprocess();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGSimpleRectNode_OnPreprocess(QSGSimpleRectNode* self, intptr_t slot) {
-    auto* vqsgsimplerectnode = dynamic_cast<VirtualQSGSimpleRectNode*>(self);
-    if (vqsgsimplerectnode && vqsgsimplerectnode->isVirtualQSGSimpleRectNode)
-        vqsgsimplerectnode->setQSGSimpleRectNode_Preprocess_Callback(reinterpret_cast<VirtualQSGSimpleRectNode::QSGSimpleRectNode_Preprocess_Callback>(slot));
+    if (auto* vqsgsimplerectnode = dynamic_cast<VirtualQSGSimpleRectNode*>(self))
+        vqsgsimplerectnode->qsgsimplerectnode_preprocess_callback = reinterpret_cast<VirtualQSGSimpleRectNode::QSGSimpleRectNode_Preprocess_Callback>(slot);
 }
 
 void QSGSimpleRectNode_Delete(QSGSimpleRectNode* self) {

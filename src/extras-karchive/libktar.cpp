@@ -51,10 +51,10 @@ bool KTar_DoWriteSymLink(KTar* self, const libqt_string name, const libqt_string
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->doWriteSymLink(name_QString, target_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
     }
-    return {};
+    qFatal("Error: Protected method KTar::doWriteSymLink called without a directly constructed type");
 }
 
 bool KTar_DoWriteDir(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
@@ -62,10 +62,10 @@ bool KTar_DoWriteDir(KTar* self, const libqt_string name, const libqt_string use
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->doWriteDir(name_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
     }
-    return {};
+    qFatal("Error: Protected method KTar::doWriteDir called without a directly constructed type");
 }
 
 bool KTar_DoPrepareWriting(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
@@ -73,47 +73,47 @@ bool KTar_DoPrepareWriting(KTar* self, const libqt_string name, const libqt_stri
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->doPrepareWriting(name_QString, user_QString, group_QString, static_cast<qint64>(size), perm, *atime, *mtime, *ctime);
     }
-    return {};
+    qFatal("Error: Protected method KTar::doPrepareWriting called without a directly constructed type");
 }
 
 bool KTar_DoFinishWriting(KTar* self, long long size) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->doFinishWriting(static_cast<qint64>(size));
     }
-    return {};
+    qFatal("Error: Protected method KTar::doFinishWriting called without a directly constructed type");
 }
 
 bool KTar_OpenArchive(KTar* self, int mode) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->openArchive(static_cast<QIODevice::OpenMode>(mode));
     }
-    return {};
+    qFatal("Error: Protected method KTar::openArchive called without a directly constructed type");
 }
 
 bool KTar_CloseArchive(KTar* self) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->closeArchive();
     }
-    return {};
+    qFatal("Error: Protected method KTar::closeArchive called without a directly constructed type");
 }
 
 bool KTar_CreateDevice(KTar* self, int mode) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->createDevice(static_cast<QIODevice::OpenMode>(mode));
     }
-    return {};
+    qFatal("Error: Protected method KTar::createDevice called without a directly constructed type");
 }
 
 void KTar_VirtualHook(KTar* self, int id, void* data) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         vktar->virtual_hook(static_cast<int>(id), data);
     }
 }
@@ -144,384 +144,238 @@ libqt_string KTar_Tr3(const char* sourceText, const char* disambiguation, int n)
 
 // Base class handler implementation
 bool KTar_SuperDoWriteSymLink(KTar* self, const libqt_string name, const libqt_string target, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString target_QString = QString::fromUtf8(target.data, target.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_DoWriteSymLink_IsBase(true);
-        return vktar->doWriteSymLink(name_QString, target_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
-    } else {
-        return ((VirtualKTar*)self)->doWriteSymLink(name_QString, target_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::doWriteSymLink(name_QString, target_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
+    } else
+        qFatal("Error: Protected virtual method KTar::doWriteSymLink called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoWriteSymLink(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_DoWriteSymLink_Callback(reinterpret_cast<VirtualKTar::KTar_DoWriteSymLink_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_dowritesymlink_callback = reinterpret_cast<VirtualKTar::KTar_DoWriteSymLink_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTar_SuperDoWriteDir(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_DoWriteDir_IsBase(true);
-        return vktar->doWriteDir(name_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
-    } else {
-        return ((VirtualKTar*)self)->doWriteDir(name_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::doWriteDir(name_QString, user_QString, group_QString, perm, *atime, *mtime, *ctime);
+    } else
+        qFatal("Error: Protected virtual method KTar::doWriteDir called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoWriteDir(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_DoWriteDir_Callback(reinterpret_cast<VirtualKTar::KTar_DoWriteDir_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_dowritedir_callback = reinterpret_cast<VirtualKTar::KTar_DoWriteDir_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTar_SuperDoPrepareWriting(KTar* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_DoPrepareWriting_IsBase(true);
-        return vktar->doPrepareWriting(name_QString, user_QString, group_QString, static_cast<qint64>(size), perm, *atime, *mtime, *ctime);
-    } else {
-        return ((VirtualKTar*)self)->doPrepareWriting(name_QString, user_QString, group_QString, static_cast<qint64>(size), perm, *atime, *mtime, *ctime);
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::doPrepareWriting(name_QString, user_QString, group_QString, static_cast<qint64>(size), perm, *atime, *mtime, *ctime);
+    } else
+        qFatal("Error: Protected virtual method KTar::doPrepareWriting called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoPrepareWriting(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_DoPrepareWriting_Callback(reinterpret_cast<VirtualKTar::KTar_DoPrepareWriting_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_dopreparewriting_callback = reinterpret_cast<VirtualKTar::KTar_DoPrepareWriting_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTar_SuperDoFinishWriting(KTar* self, long long size) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_DoFinishWriting_IsBase(true);
-        return vktar->doFinishWriting(static_cast<qint64>(size));
-    } else {
-        return ((VirtualKTar*)self)->doFinishWriting(static_cast<qint64>(size));
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::doFinishWriting(static_cast<qint64>(size));
+    } else
+        qFatal("Error: Protected virtual method KTar::doFinishWriting called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoFinishWriting(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_DoFinishWriting_Callback(reinterpret_cast<VirtualKTar::KTar_DoFinishWriting_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_dofinishwriting_callback = reinterpret_cast<VirtualKTar::KTar_DoFinishWriting_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTar_SuperOpenArchive(KTar* self, int mode) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_OpenArchive_IsBase(true);
-        return vktar->openArchive(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return ((VirtualKTar*)self)->openArchive(static_cast<QIODevice::OpenMode>(mode));
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::openArchive(static_cast<QIODevice::OpenMode>(mode));
+    } else
+        qFatal("Error: Protected virtual method KTar::openArchive called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnOpenArchive(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_OpenArchive_Callback(reinterpret_cast<VirtualKTar::KTar_OpenArchive_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_openarchive_callback = reinterpret_cast<VirtualKTar::KTar_OpenArchive_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTar_SuperCloseArchive(KTar* self) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_CloseArchive_IsBase(true);
-        return vktar->closeArchive();
-    } else {
-        return ((VirtualKTar*)self)->closeArchive();
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::closeArchive();
+    } else
+        qFatal("Error: Protected virtual method KTar::closeArchive called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnCloseArchive(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_CloseArchive_Callback(reinterpret_cast<VirtualKTar::KTar_CloseArchive_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_closearchive_callback = reinterpret_cast<VirtualKTar::KTar_CloseArchive_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTar_SuperCreateDevice(KTar* self, int mode) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_CreateDevice_IsBase(true);
-        return vktar->createDevice(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return ((VirtualKTar*)self)->createDevice(static_cast<QIODevice::OpenMode>(mode));
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::createDevice(static_cast<QIODevice::OpenMode>(mode));
+    } else
+        qFatal("Error: Protected virtual method KTar::createDevice called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnCreateDevice(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_CreateDevice_Callback(reinterpret_cast<VirtualKTar::KTar_CreateDevice_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_createdevice_callback = reinterpret_cast<VirtualKTar::KTar_CreateDevice_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTar_SuperVirtualHook(KTar* self, int id, void* data) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_VirtualHook_IsBase(true);
-        vktar->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKTar*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        vktar->KTar::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KTar::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnVirtualHook(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_VirtualHook_Callback(reinterpret_cast<VirtualKTar::KTar_VirtualHook_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_virtualhook_callback = reinterpret_cast<VirtualKTar::KTar_VirtualHook_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTar_Open(KTar* self, int mode) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        return vktar->open(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return self->KTar::open(static_cast<QIODevice::OpenMode>(mode));
-    }
+    return self->open(static_cast<QIODevice::OpenMode>(mode));
 }
 
 // Base class handler implementation
 bool KTar_SuperOpen(KTar* self, int mode) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_Open_IsBase(true);
-        return vktar->open(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return self->KTar::open(static_cast<QIODevice::OpenMode>(mode));
-    }
+    return self->KTar::open(static_cast<QIODevice::OpenMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnOpen(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_Open_Callback(reinterpret_cast<VirtualKTar::KTar_Open_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_open_callback = reinterpret_cast<VirtualKTar::KTar_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTar_Close(KTar* self) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        return vktar->close();
-    } else {
-        return self->KTar::close();
-    }
+    return self->close();
 }
 
 // Base class handler implementation
 bool KTar_SuperClose(KTar* self) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_Close_IsBase(true);
-        return vktar->close();
-    } else {
-        return self->KTar::close();
-    }
+    return self->KTar::close();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnClose(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_Close_Callback(reinterpret_cast<VirtualKTar::KTar_Close_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_close_callback = reinterpret_cast<VirtualKTar::KTar_Close_Callback>(slot);
 }
 
 // Derived class handler implementation
 KArchiveDirectory* KTar_RootDir(KTar* self) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->rootDir();
     } else {
-        return ((VirtualKTar*)self)->rootDir();
+        qFatal("Error: Protected virtual method KTar::rootDir called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 KArchiveDirectory* KTar_SuperRootDir(KTar* self) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_RootDir_IsBase(true);
-        return vktar->rootDir();
-    } else {
-        return ((VirtualKTar*)self)->rootDir();
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::rootDir();
+    } else
+        qFatal("Error: Protected virtual method KTar::rootDir called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnRootDir(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_RootDir_Callback(reinterpret_cast<VirtualKTar::KTar_RootDir_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_rootdir_callback = reinterpret_cast<VirtualKTar::KTar_RootDir_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTar_DoWriteData(KTar* self, const char* data, long long size) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar) {
         return vktar->doWriteData(data, static_cast<qint64>(size));
     } else {
-        return ((VirtualKTar*)self)->doWriteData(data, static_cast<qint64>(size));
+        qFatal("Error: Protected virtual method KTar::doWriteData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTar_SuperDoWriteData(KTar* self, const char* data, long long size) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_DoWriteData_IsBase(true);
-        return vktar->doWriteData(data, static_cast<qint64>(size));
-    } else {
-        return ((VirtualKTar*)self)->doWriteData(data, static_cast<qint64>(size));
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        return vktar->KTar::doWriteData(data, static_cast<qint64>(size));
+    } else
+        qFatal("Error: Protected virtual method KTar::doWriteData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoWriteData(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_DoWriteData_Callback(reinterpret_cast<VirtualKTar::KTar_DoWriteData_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self))
+        vktar->ktar_dowritedata_callback = reinterpret_cast<VirtualKTar::KTar_DoWriteData_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTar_SetErrorString(KTar* self, const libqt_string errorStr) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setErrorString(errorStr_QString);
-    } else {
-        ((VirtualKTar*)self)->setErrorString(errorStr_QString);
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
+        vktar->VirtualKTar::setErrorString(errorStr_QString);
+    } else
+        qFatal("Error: Protected method KTar::setErrorString called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTar_SuperSetErrorString(KTar* self, const libqt_string errorStr) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    QString errorStr_QString = QString::fromUtf8(errorStr.data, errorStr.len);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_SetErrorString_IsBase(true);
-        vktar->setErrorString(errorStr_QString);
-    } else {
-        ((VirtualKTar*)self)->setErrorString(errorStr_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTar_OnSetErrorString(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_SetErrorString_Callback(reinterpret_cast<VirtualKTar::KTar_SetErrorString_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 KArchiveDirectory* KTar_FindOrCreate(KTar* self, const libqt_string path) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    QString path_QString = QString::fromUtf8(path.data, path.len);
-    if (vktar && vktar->isVirtualKTar) {
-        return vktar->findOrCreate(path_QString);
-    } else {
-        return ((VirtualKTar*)self)->findOrCreate(path_QString);
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        QString path_QString = QString::fromUtf8(path.data, path.len);
+        return vktar->VirtualKTar::findOrCreate(path_QString);
+    } else
+        qFatal("Error: Protected method KTar::findOrCreate called without a directly constructed type");
 }
 
-// Base class handler implementation
-KArchiveDirectory* KTar_SuperFindOrCreate(KTar* self, const libqt_string path) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    QString path_QString = QString::fromUtf8(path.data, path.len);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_FindOrCreate_IsBase(true);
-        return vktar->findOrCreate(path_QString);
-    } else {
-        return ((VirtualKTar*)self)->findOrCreate(path_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTar_OnFindOrCreate(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_FindOrCreate_Callback(reinterpret_cast<VirtualKTar::KTar_FindOrCreate_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTar_SetDevice(KTar* self, QIODevice* dev) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setDevice(dev);
-    } else {
-        ((VirtualKTar*)self)->setDevice(dev);
-    }
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        vktar->VirtualKTar::setDevice(dev);
+    } else
+        qFatal("Error: Protected method KTar::setDevice called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTar_SuperSetDevice(KTar* self, QIODevice* dev) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_SetDevice_IsBase(true);
-        vktar->setDevice(dev);
-    } else {
-        ((VirtualKTar*)self)->setDevice(dev);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTar_OnSetDevice(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_SetDevice_Callback(reinterpret_cast<VirtualKTar::KTar_SetDevice_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTar_SetRootDir(KTar* self, KArchiveDirectory* rootDir) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setRootDir(rootDir);
-    } else {
-        ((VirtualKTar*)self)->setRootDir(rootDir);
-    }
-}
-
-// Base class handler implementation
-void KTar_SuperSetRootDir(KTar* self, KArchiveDirectory* rootDir) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
-        vktar->setKTar_SetRootDir_IsBase(true);
-        vktar->setRootDir(rootDir);
-    } else {
-        ((VirtualKTar*)self)->setRootDir(rootDir);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTar_OnSetRootDir(KTar* self, intptr_t slot) {
-    auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar)
-        vktar->setKTar_SetRootDir_Callback(reinterpret_cast<VirtualKTar::KTar_SetRootDir_Callback>(slot));
+    if (auto* vktar = dynamic_cast<VirtualKTar*>(self)) {
+        vktar->VirtualKTar::setRootDir(rootDir);
+    } else
+        qFatal("Error: Protected method KTar::setRootDir called without a directly constructed type");
 }
 
 void KTar_Delete(KTar* self) {

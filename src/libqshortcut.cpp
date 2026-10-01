@@ -180,10 +180,10 @@ void QShortcut_Connect_ActivatedAmbiguously(QShortcut* self, intptr_t slot) {
 
 bool QShortcut_Event(QShortcut* self, QEvent* e) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut) {
         return vqshortcut->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QShortcut::event called without a directly constructed type");
 }
 
 libqt_string QShortcut_Tr2(const char* s, const char* c) {
@@ -212,354 +212,217 @@ libqt_string QShortcut_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QShortcut_SuperMetaObject(const QShortcut* self) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_MetaObject_IsBase(true);
-        return (QMetaObject*)vqshortcut->metaObject();
-    } else {
-        return (QMetaObject*)self->QShortcut::metaObject();
-    }
+    return (QMetaObject*)self->QShortcut::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QShortcut_OnMetaObject(const QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_MetaObject_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_MetaObject_Callback>(slot));
+void QShortcut_OnMetaObject(QShortcut* self, intptr_t slot) {
+    if (auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self)))
+        vqshortcut->qshortcut_metaobject_callback = reinterpret_cast<VirtualQShortcut::QShortcut_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QShortcut_SuperMetacast(QShortcut* self, const char* param1) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_Metacast_IsBase(true);
-        return vqshortcut->qt_metacast(param1);
-    } else {
-        return self->QShortcut::qt_metacast(param1);
-    }
+    return self->QShortcut::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnMetacast(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_Metacast_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Metacast_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_metacast_callback = reinterpret_cast<VirtualQShortcut::QShortcut_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QShortcut_SuperMetacall(QShortcut* self, int param1, int param2, void** param3) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_Metacall_IsBase(true);
-        return vqshortcut->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QShortcut::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QShortcut::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnMetacall(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_Metacall_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Metacall_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_metacall_callback = reinterpret_cast<VirtualQShortcut::QShortcut_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QShortcut_SuperEvent(QShortcut* self, QEvent* e) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_Event_IsBase(true);
-        return vqshortcut->event(e);
-    } else {
-        return ((VirtualQShortcut*)self)->event(e);
-    }
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self)) {
+        return vqshortcut->QShortcut::event(e);
+    } else
+        qFatal("Error: Protected virtual method QShortcut::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnEvent(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_Event_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Event_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_event_callback = reinterpret_cast<VirtualQShortcut::QShortcut_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QShortcut_EventFilter(QShortcut* self, QObject* watched, QEvent* event) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return vqshortcut->eventFilter(watched, event);
-    } else {
-        return self->QShortcut::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QShortcut_SuperEventFilter(QShortcut* self, QObject* watched, QEvent* event) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_EventFilter_IsBase(true);
-        return vqshortcut->eventFilter(watched, event);
-    } else {
-        return self->QShortcut::eventFilter(watched, event);
-    }
+    return self->QShortcut::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnEventFilter(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_EventFilter_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_EventFilter_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_eventfilter_callback = reinterpret_cast<VirtualQShortcut::QShortcut_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QShortcut_TimerEvent(QShortcut* self, QTimerEvent* event) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut) {
         vqshortcut->timerEvent(event);
     } else {
-        ((VirtualQShortcut*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QShortcut::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QShortcut_SuperTimerEvent(QShortcut* self, QTimerEvent* event) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_TimerEvent_IsBase(true);
-        vqshortcut->timerEvent(event);
-    } else {
-        ((VirtualQShortcut*)self)->timerEvent(event);
-    }
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self)) {
+        vqshortcut->QShortcut::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QShortcut::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnTimerEvent(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_TimerEvent_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_TimerEvent_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_timerevent_callback = reinterpret_cast<VirtualQShortcut::QShortcut_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QShortcut_ChildEvent(QShortcut* self, QChildEvent* event) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut) {
         vqshortcut->childEvent(event);
     } else {
-        ((VirtualQShortcut*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QShortcut::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QShortcut_SuperChildEvent(QShortcut* self, QChildEvent* event) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_ChildEvent_IsBase(true);
-        vqshortcut->childEvent(event);
-    } else {
-        ((VirtualQShortcut*)self)->childEvent(event);
-    }
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self)) {
+        vqshortcut->QShortcut::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QShortcut::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnChildEvent(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_ChildEvent_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_ChildEvent_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_childevent_callback = reinterpret_cast<VirtualQShortcut::QShortcut_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QShortcut_CustomEvent(QShortcut* self, QEvent* event) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut) {
         vqshortcut->customEvent(event);
     } else {
-        ((VirtualQShortcut*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QShortcut::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QShortcut_SuperCustomEvent(QShortcut* self, QEvent* event) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_CustomEvent_IsBase(true);
-        vqshortcut->customEvent(event);
-    } else {
-        ((VirtualQShortcut*)self)->customEvent(event);
-    }
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self)) {
+        vqshortcut->QShortcut::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QShortcut::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnCustomEvent(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_CustomEvent_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_CustomEvent_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_customevent_callback = reinterpret_cast<VirtualQShortcut::QShortcut_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QShortcut_ConnectNotify(QShortcut* self, const QMetaMethod* signal) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut) {
         vqshortcut->connectNotify(*signal);
     } else {
-        ((VirtualQShortcut*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QShortcut::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QShortcut_SuperConnectNotify(QShortcut* self, const QMetaMethod* signal) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_ConnectNotify_IsBase(true);
-        vqshortcut->connectNotify(*signal);
-    } else {
-        ((VirtualQShortcut*)self)->connectNotify(*signal);
-    }
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self)) {
+        vqshortcut->QShortcut::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QShortcut::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnConnectNotify(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_ConnectNotify_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_ConnectNotify_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_connectnotify_callback = reinterpret_cast<VirtualQShortcut::QShortcut_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QShortcut_DisconnectNotify(QShortcut* self, const QMetaMethod* signal) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut) {
         vqshortcut->disconnectNotify(*signal);
     } else {
-        ((VirtualQShortcut*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QShortcut::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QShortcut_SuperDisconnectNotify(QShortcut* self, const QMetaMethod* signal) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_DisconnectNotify_IsBase(true);
-        vqshortcut->disconnectNotify(*signal);
-    } else {
-        ((VirtualQShortcut*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self)) {
+        vqshortcut->QShortcut::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QShortcut::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnDisconnectNotify(QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_DisconnectNotify_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_DisconnectNotify_Callback>(slot));
+    if (auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self))
+        vqshortcut->qshortcut_disconnectnotify_callback = reinterpret_cast<VirtualQShortcut::QShortcut_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QShortcut_Sender(const QShortcut* self) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return vqshortcut->sender();
-    } else {
-        return ((VirtualQShortcut*)self)->sender();
-    }
+    if (auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self))) {
+        return vqshortcut->VirtualQShortcut::sender();
+    } else
+        qFatal("Error: Protected method QShortcut::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QShortcut_SuperSender(const QShortcut* self) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_Sender_IsBase(true);
-        return vqshortcut->sender();
-    } else {
-        return ((VirtualQShortcut*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QShortcut_OnSender(const QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_Sender_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QShortcut_SenderSignalIndex(const QShortcut* self) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return vqshortcut->senderSignalIndex();
-    } else {
-        return ((VirtualQShortcut*)self)->senderSignalIndex();
-    }
+    if (auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self))) {
+        return vqshortcut->VirtualQShortcut::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QShortcut::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QShortcut_SuperSenderSignalIndex(const QShortcut* self) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_SenderSignalIndex_IsBase(true);
-        return vqshortcut->senderSignalIndex();
-    } else {
-        return ((VirtualQShortcut*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QShortcut_OnSenderSignalIndex(const QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_SenderSignalIndex_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QShortcut_Receivers(const QShortcut* self, const char* signal) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return vqshortcut->receivers(signal);
-    } else {
-        return ((VirtualQShortcut*)self)->receivers(signal);
-    }
+    if (auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self))) {
+        return vqshortcut->VirtualQShortcut::receivers(signal);
+    } else
+        qFatal("Error: Protected method QShortcut::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QShortcut_SuperReceivers(const QShortcut* self, const char* signal) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_Receivers_IsBase(true);
-        return vqshortcut->receivers(signal);
-    } else {
-        return ((VirtualQShortcut*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QShortcut_OnReceivers(const QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_Receivers_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QShortcut_IsSignalConnected(const QShortcut* self, const QMetaMethod* signal) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return vqshortcut->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQShortcut*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QShortcut_SuperIsSignalConnected(const QShortcut* self, const QMetaMethod* signal) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        vqshortcut->setQShortcut_IsSignalConnected_IsBase(true);
-        return vqshortcut->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQShortcut*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QShortcut_OnIsSignalConnected(const QShortcut* self, intptr_t slot) {
-    auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut)
-        vqshortcut->setQShortcut_IsSignalConnected_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_IsSignalConnected_Callback>(slot));
+    if (auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self))) {
+        return vqshortcut->VirtualQShortcut::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QShortcut::isSignalConnected called without a directly constructed type");
 }
 
 void QShortcut_Delete(QShortcut* self) {

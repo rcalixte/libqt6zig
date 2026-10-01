@@ -161,15 +161,15 @@ void KViewStateSerializer_RestoreScrollState(KViewStateSerializer* self, int ver
 QModelIndex* KViewStateSerializer_IndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     auto* vkviewstateserializer = dynamic_cast<const VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+    if (vkviewstateserializer) {
         return new QModelIndex(vkviewstateserializer->indexFromConfigString(model, key_QString));
     }
-    return {};
+    qFatal("Error: Protected method KViewStateSerializer::indexFromConfigString called without a directly constructed type");
 }
 
 libqt_string KViewStateSerializer_IndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index) {
     auto* vkviewstateserializer = dynamic_cast<const VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+    if (vkviewstateserializer) {
         auto _ret = vkviewstateserializer->indexToConfigString(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
@@ -180,7 +180,7 @@ libqt_string KViewStateSerializer_IndexToConfigString(const KViewStateSerializer
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
-    return {};
+    qFatal("Error: Protected method KViewStateSerializer::indexToConfigString called without a directly constructed type");
 }
 
 libqt_string KViewStateSerializer_Tr2(const char* s, const char* c) {
@@ -209,444 +209,239 @@ libqt_string KViewStateSerializer_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KViewStateSerializer_SuperMetaObject(const KViewStateSerializer* self) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_MetaObject_IsBase(true);
-        return (QMetaObject*)vkviewstateserializer->metaObject();
-    } else {
-        return (QMetaObject*)self->KViewStateSerializer::metaObject();
-    }
+    return (QMetaObject*)self->KViewStateSerializer::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnMetaObject(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_MetaObject_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_MetaObject_Callback>(slot));
+void KViewStateSerializer_OnMetaObject(KViewStateSerializer* self, intptr_t slot) {
+    if (auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self)))
+        vkviewstateserializer->kviewstateserializer_metaobject_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KViewStateSerializer_SuperMetacast(KViewStateSerializer* self, const char* param1) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_Metacast_IsBase(true);
-        return vkviewstateserializer->qt_metacast(param1);
-    } else {
-        return self->KViewStateSerializer::qt_metacast(param1);
-    }
+    return self->KViewStateSerializer::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnMetacast(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_Metacast_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Metacast_Callback>(slot));
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_metacast_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KViewStateSerializer_SuperMetacall(KViewStateSerializer* self, int param1, int param2, void** param3) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_Metacall_IsBase(true);
-        return vkviewstateserializer->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KViewStateSerializer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KViewStateSerializer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnMetacall(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_Metacall_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-QModelIndex* KViewStateSerializer_SuperIndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_IndexFromConfigString_IsBase(true);
-        return new QModelIndex(vkviewstateserializer->indexFromConfigString(model, key_QString));
-    }
-    return {};
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_metacall_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnIndexFromConfigString(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_IndexFromConfigString_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IndexFromConfigString_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_string KViewStateSerializer_SuperIndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_IndexToConfigString_IsBase(true);
-        auto _ret = vkviewstateserializer->indexToConfigString(*index);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKViewStateSerializer*)self)->indexToConfigString(*index);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+void KViewStateSerializer_OnIndexFromConfigString(KViewStateSerializer* self, intptr_t slot) {
+    if (auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self)))
+        vkviewstateserializer->kviewstateserializer_indexfromconfigstring_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IndexFromConfigString_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnIndexToConfigString(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_IndexToConfigString_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IndexToConfigString_Callback>(slot));
+void KViewStateSerializer_OnIndexToConfigString(KViewStateSerializer* self, intptr_t slot) {
+    if (auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self)))
+        vkviewstateserializer->kviewstateserializer_indextoconfigstring_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IndexToConfigString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KViewStateSerializer_Event(KViewStateSerializer* self, QEvent* event) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return vkviewstateserializer->event(event);
-    } else {
-        return self->KViewStateSerializer::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KViewStateSerializer_SuperEvent(KViewStateSerializer* self, QEvent* event) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_Event_IsBase(true);
-        return vkviewstateserializer->event(event);
-    } else {
-        return self->KViewStateSerializer::event(event);
-    }
+    return self->KViewStateSerializer::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnEvent(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_Event_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Event_Callback>(slot));
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_event_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KViewStateSerializer_EventFilter(KViewStateSerializer* self, QObject* watched, QEvent* event) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return vkviewstateserializer->eventFilter(watched, event);
-    } else {
-        return self->KViewStateSerializer::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KViewStateSerializer_SuperEventFilter(KViewStateSerializer* self, QObject* watched, QEvent* event) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_EventFilter_IsBase(true);
-        return vkviewstateserializer->eventFilter(watched, event);
-    } else {
-        return self->KViewStateSerializer::eventFilter(watched, event);
-    }
+    return self->KViewStateSerializer::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnEventFilter(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_EventFilter_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_EventFilter_Callback>(slot));
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_eventfilter_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KViewStateSerializer_TimerEvent(KViewStateSerializer* self, QTimerEvent* event) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+    if (vkviewstateserializer) {
         vkviewstateserializer->timerEvent(event);
     } else {
-        ((VirtualKViewStateSerializer*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KViewStateSerializer::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KViewStateSerializer_SuperTimerEvent(KViewStateSerializer* self, QTimerEvent* event) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_TimerEvent_IsBase(true);
-        vkviewstateserializer->timerEvent(event);
-    } else {
-        ((VirtualKViewStateSerializer*)self)->timerEvent(event);
-    }
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self)) {
+        vkviewstateserializer->KViewStateSerializer::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KViewStateSerializer::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnTimerEvent(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_TimerEvent_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_TimerEvent_Callback>(slot));
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_timerevent_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KViewStateSerializer_ChildEvent(KViewStateSerializer* self, QChildEvent* event) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+    if (vkviewstateserializer) {
         vkviewstateserializer->childEvent(event);
     } else {
-        ((VirtualKViewStateSerializer*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KViewStateSerializer::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KViewStateSerializer_SuperChildEvent(KViewStateSerializer* self, QChildEvent* event) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_ChildEvent_IsBase(true);
-        vkviewstateserializer->childEvent(event);
-    } else {
-        ((VirtualKViewStateSerializer*)self)->childEvent(event);
-    }
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self)) {
+        vkviewstateserializer->KViewStateSerializer::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KViewStateSerializer::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnChildEvent(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_ChildEvent_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_ChildEvent_Callback>(slot));
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_childevent_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KViewStateSerializer_CustomEvent(KViewStateSerializer* self, QEvent* event) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+    if (vkviewstateserializer) {
         vkviewstateserializer->customEvent(event);
     } else {
-        ((VirtualKViewStateSerializer*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KViewStateSerializer::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KViewStateSerializer_SuperCustomEvent(KViewStateSerializer* self, QEvent* event) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_CustomEvent_IsBase(true);
-        vkviewstateserializer->customEvent(event);
-    } else {
-        ((VirtualKViewStateSerializer*)self)->customEvent(event);
-    }
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self)) {
+        vkviewstateserializer->KViewStateSerializer::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KViewStateSerializer::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnCustomEvent(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_CustomEvent_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_CustomEvent_Callback>(slot));
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_customevent_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KViewStateSerializer_ConnectNotify(KViewStateSerializer* self, const QMetaMethod* signal) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+    if (vkviewstateserializer) {
         vkviewstateserializer->connectNotify(*signal);
     } else {
-        ((VirtualKViewStateSerializer*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KViewStateSerializer::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KViewStateSerializer_SuperConnectNotify(KViewStateSerializer* self, const QMetaMethod* signal) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_ConnectNotify_IsBase(true);
-        vkviewstateserializer->connectNotify(*signal);
-    } else {
-        ((VirtualKViewStateSerializer*)self)->connectNotify(*signal);
-    }
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self)) {
+        vkviewstateserializer->KViewStateSerializer::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KViewStateSerializer::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnConnectNotify(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_ConnectNotify_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_ConnectNotify_Callback>(slot));
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_connectnotify_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KViewStateSerializer_DisconnectNotify(KViewStateSerializer* self, const QMetaMethod* signal) {
     auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
+    if (vkviewstateserializer) {
         vkviewstateserializer->disconnectNotify(*signal);
     } else {
-        ((VirtualKViewStateSerializer*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KViewStateSerializer::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KViewStateSerializer_SuperDisconnectNotify(KViewStateSerializer* self, const QMetaMethod* signal) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_DisconnectNotify_IsBase(true);
-        vkviewstateserializer->disconnectNotify(*signal);
-    } else {
-        ((VirtualKViewStateSerializer*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self)) {
+        vkviewstateserializer->KViewStateSerializer::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KViewStateSerializer::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KViewStateSerializer_OnDisconnectNotify(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_DisconnectNotify_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_DisconnectNotify_Callback>(slot));
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self))
+        vkviewstateserializer->kviewstateserializer_disconnectnotify_callback = reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KViewStateSerializer_RestoreState(KViewStateSerializer* self) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->restoreState();
-    } else {
-        ((VirtualKViewStateSerializer*)self)->restoreState();
-    }
+    if (auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self)) {
+        vkviewstateserializer->VirtualKViewStateSerializer::restoreState();
+    } else
+        qFatal("Error: Protected method KViewStateSerializer::restoreState called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KViewStateSerializer_SuperRestoreState(KViewStateSerializer* self) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_RestoreState_IsBase(true);
-        vkviewstateserializer->restoreState();
-    } else {
-        ((VirtualKViewStateSerializer*)self)->restoreState();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnRestoreState(KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_RestoreState_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_RestoreState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KViewStateSerializer_Sender(const KViewStateSerializer* self) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return vkviewstateserializer->sender();
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->sender();
-    }
+    if (auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self))) {
+        return vkviewstateserializer->VirtualKViewStateSerializer::sender();
+    } else
+        qFatal("Error: Protected method KViewStateSerializer::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KViewStateSerializer_SuperSender(const KViewStateSerializer* self) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_Sender_IsBase(true);
-        return vkviewstateserializer->sender();
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnSender(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_Sender_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KViewStateSerializer_SenderSignalIndex(const KViewStateSerializer* self) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return vkviewstateserializer->senderSignalIndex();
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->senderSignalIndex();
-    }
+    if (auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self))) {
+        return vkviewstateserializer->VirtualKViewStateSerializer::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KViewStateSerializer::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KViewStateSerializer_SuperSenderSignalIndex(const KViewStateSerializer* self) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_SenderSignalIndex_IsBase(true);
-        return vkviewstateserializer->senderSignalIndex();
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnSenderSignalIndex(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_SenderSignalIndex_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KViewStateSerializer_Receivers(const KViewStateSerializer* self, const char* signal) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return vkviewstateserializer->receivers(signal);
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->receivers(signal);
-    }
+    if (auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self))) {
+        return vkviewstateserializer->VirtualKViewStateSerializer::receivers(signal);
+    } else
+        qFatal("Error: Protected method KViewStateSerializer::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KViewStateSerializer_SuperReceivers(const KViewStateSerializer* self, const char* signal) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_Receivers_IsBase(true);
-        return vkviewstateserializer->receivers(signal);
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnReceivers(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_Receivers_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KViewStateSerializer_IsSignalConnected(const KViewStateSerializer* self, const QMetaMethod* signal) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return vkviewstateserializer->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KViewStateSerializer_SuperIsSignalConnected(const KViewStateSerializer* self, const QMetaMethod* signal) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        vkviewstateserializer->setKViewStateSerializer_IsSignalConnected_IsBase(true);
-        return vkviewstateserializer->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KViewStateSerializer_OnIsSignalConnected(const KViewStateSerializer* self, intptr_t slot) {
-    auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self));
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer)
-        vkviewstateserializer->setKViewStateSerializer_IsSignalConnected_Callback(reinterpret_cast<VirtualKViewStateSerializer::KViewStateSerializer_IsSignalConnected_Callback>(slot));
+    if (auto* vkviewstateserializer = const_cast<VirtualKViewStateSerializer*>(dynamic_cast<const VirtualKViewStateSerializer*>(self))) {
+        return vkviewstateserializer->VirtualKViewStateSerializer::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KViewStateSerializer::isSignalConnected called without a directly constructed type");
 }
 
 void KViewStateSerializer_Delete(KViewStateSerializer* self) {

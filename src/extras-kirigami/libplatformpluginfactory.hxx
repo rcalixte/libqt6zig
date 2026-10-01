@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of Kirigami::Platform::PlatformPluginFactory so that we can call protected methods
+// This class is a subclass of Kirigami::Platform::PlatformPluginFactory
 class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::PlatformPluginFactory {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKirigamiPlatformPlatformPluginFactory = true;
-
-    // Virtual class public types (including callbacks)
-    using Kirigami__Platform__PlatformPluginFactory_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using Kirigami__Platform__PlatformPluginFactory_MetaObject_Callback = QMetaObject* (*)(const Kirigami__Platform__PlatformPluginFactory*);
     using Kirigami__Platform__PlatformPluginFactory_Metacast_Callback = void* (*)(Kirigami__Platform__PlatformPluginFactory*, const char*);
     using Kirigami__Platform__PlatformPluginFactory_Metacall_Callback = int (*)(Kirigami__Platform__PlatformPluginFactory*, int, int, void**);
     using Kirigami__Platform__PlatformPluginFactory_CreatePlatformTheme_Callback = Kirigami__Platform__PlatformTheme* (*)(Kirigami__Platform__PlatformPluginFactory*, QObject*);
@@ -29,12 +25,11 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
     using Kirigami__Platform__PlatformPluginFactory_CustomEvent_Callback = void (*)(Kirigami__Platform__PlatformPluginFactory*, QEvent*);
     using Kirigami__Platform__PlatformPluginFactory_ConnectNotify_Callback = void (*)(Kirigami__Platform__PlatformPluginFactory*, QMetaMethod*);
     using Kirigami__Platform__PlatformPluginFactory_DisconnectNotify_Callback = void (*)(Kirigami__Platform__PlatformPluginFactory*, QMetaMethod*);
-    using Kirigami__Platform__PlatformPluginFactory_Sender_Callback = QObject* (*)();
-    using Kirigami__Platform__PlatformPluginFactory_SenderSignalIndex_Callback = int (*)();
-    using Kirigami__Platform__PlatformPluginFactory_Receivers_Callback = int (*)(const Kirigami__Platform__PlatformPluginFactory*, const char*);
-    using Kirigami__Platform__PlatformPluginFactory_IsSignalConnected_Callback = bool (*)(const Kirigami__Platform__PlatformPluginFactory*, QMetaMethod*);
+    using Kirigami::Platform::PlatformPluginFactory::isSignalConnected;
+    using Kirigami::Platform::PlatformPluginFactory::receivers;
+    using Kirigami::Platform::PlatformPluginFactory::sender;
+    using Kirigami::Platform::PlatformPluginFactory::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     Kirigami__Platform__PlatformPluginFactory_MetaObject_Callback kirigami__platform__platformpluginfactory_metaobject_callback = nullptr;
     Kirigami__Platform__PlatformPluginFactory_Metacast_Callback kirigami__platform__platformpluginfactory_metacast_callback = nullptr;
@@ -48,78 +43,23 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
     Kirigami__Platform__PlatformPluginFactory_CustomEvent_Callback kirigami__platform__platformpluginfactory_customevent_callback = nullptr;
     Kirigami__Platform__PlatformPluginFactory_ConnectNotify_Callback kirigami__platform__platformpluginfactory_connectnotify_callback = nullptr;
     Kirigami__Platform__PlatformPluginFactory_DisconnectNotify_Callback kirigami__platform__platformpluginfactory_disconnectnotify_callback = nullptr;
-    Kirigami__Platform__PlatformPluginFactory_Sender_Callback kirigami__platform__platformpluginfactory_sender_callback = nullptr;
-    Kirigami__Platform__PlatformPluginFactory_SenderSignalIndex_Callback kirigami__platform__platformpluginfactory_sendersignalindex_callback = nullptr;
-    Kirigami__Platform__PlatformPluginFactory_Receivers_Callback kirigami__platform__platformpluginfactory_receivers_callback = nullptr;
-    Kirigami__Platform__PlatformPluginFactory_IsSignalConnected_Callback kirigami__platform__platformpluginfactory_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kirigami__platform__platformpluginfactory_metaobject_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_metacast_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_metacall_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_createplatformtheme_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_createunits_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_event_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_eventfilter_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_timerevent_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_childevent_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_customevent_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_connectnotify_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_disconnectnotify_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_sender_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_sendersignalindex_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_receivers_isbase = false;
-    mutable bool kirigami__platform__platformpluginfactory_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : Kirigami::Platform::PlatformPluginFactory {
+        using Kirigami::Platform::PlatformPluginFactory::childEvent;
+        using Kirigami::Platform::PlatformPluginFactory::connectNotify;
+        using Kirigami::Platform::PlatformPluginFactory::customEvent;
+        using Kirigami::Platform::PlatformPluginFactory::disconnectNotify;
+        using Kirigami::Platform::PlatformPluginFactory::timerEvent;
+    };
 
-  public:
     VirtualKirigamiPlatformPlatformPluginFactory() : Kirigami::Platform::PlatformPluginFactory() {};
     VirtualKirigamiPlatformPlatformPluginFactory(QObject* parent) : Kirigami::Platform::PlatformPluginFactory(parent) {};
 
-    // Callback setters
-    inline void setKirigami__Platform__PlatformPluginFactory_MetaObject_Callback(Kirigami__Platform__PlatformPluginFactory_MetaObject_Callback cb) { kirigami__platform__platformpluginfactory_metaobject_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Metacast_Callback(Kirigami__Platform__PlatformPluginFactory_Metacast_Callback cb) { kirigami__platform__platformpluginfactory_metacast_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Metacall_Callback(Kirigami__Platform__PlatformPluginFactory_Metacall_Callback cb) { kirigami__platform__platformpluginfactory_metacall_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_CreatePlatformTheme_Callback(Kirigami__Platform__PlatformPluginFactory_CreatePlatformTheme_Callback cb) { kirigami__platform__platformpluginfactory_createplatformtheme_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_CreateUnits_Callback(Kirigami__Platform__PlatformPluginFactory_CreateUnits_Callback cb) { kirigami__platform__platformpluginfactory_createunits_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Event_Callback(Kirigami__Platform__PlatformPluginFactory_Event_Callback cb) { kirigami__platform__platformpluginfactory_event_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_EventFilter_Callback(Kirigami__Platform__PlatformPluginFactory_EventFilter_Callback cb) { kirigami__platform__platformpluginfactory_eventfilter_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_TimerEvent_Callback(Kirigami__Platform__PlatformPluginFactory_TimerEvent_Callback cb) { kirigami__platform__platformpluginfactory_timerevent_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_ChildEvent_Callback(Kirigami__Platform__PlatformPluginFactory_ChildEvent_Callback cb) { kirigami__platform__platformpluginfactory_childevent_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_CustomEvent_Callback(Kirigami__Platform__PlatformPluginFactory_CustomEvent_Callback cb) { kirigami__platform__platformpluginfactory_customevent_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_ConnectNotify_Callback(Kirigami__Platform__PlatformPluginFactory_ConnectNotify_Callback cb) { kirigami__platform__platformpluginfactory_connectnotify_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_DisconnectNotify_Callback(Kirigami__Platform__PlatformPluginFactory_DisconnectNotify_Callback cb) { kirigami__platform__platformpluginfactory_disconnectnotify_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Sender_Callback(Kirigami__Platform__PlatformPluginFactory_Sender_Callback cb) { kirigami__platform__platformpluginfactory_sender_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_SenderSignalIndex_Callback(Kirigami__Platform__PlatformPluginFactory_SenderSignalIndex_Callback cb) { kirigami__platform__platformpluginfactory_sendersignalindex_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Receivers_Callback(Kirigami__Platform__PlatformPluginFactory_Receivers_Callback cb) { kirigami__platform__platformpluginfactory_receivers_callback = cb; }
-    inline void setKirigami__Platform__PlatformPluginFactory_IsSignalConnected_Callback(Kirigami__Platform__PlatformPluginFactory_IsSignalConnected_Callback cb) { kirigami__platform__platformpluginfactory_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKirigami__Platform__PlatformPluginFactory_MetaObject_IsBase(bool value) const { kirigami__platform__platformpluginfactory_metaobject_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Metacast_IsBase(bool value) const { kirigami__platform__platformpluginfactory_metacast_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Metacall_IsBase(bool value) const { kirigami__platform__platformpluginfactory_metacall_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_CreatePlatformTheme_IsBase(bool value) const { kirigami__platform__platformpluginfactory_createplatformtheme_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_CreateUnits_IsBase(bool value) const { kirigami__platform__platformpluginfactory_createunits_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Event_IsBase(bool value) const { kirigami__platform__platformpluginfactory_event_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_EventFilter_IsBase(bool value) const { kirigami__platform__platformpluginfactory_eventfilter_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_TimerEvent_IsBase(bool value) const { kirigami__platform__platformpluginfactory_timerevent_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_ChildEvent_IsBase(bool value) const { kirigami__platform__platformpluginfactory_childevent_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_CustomEvent_IsBase(bool value) const { kirigami__platform__platformpluginfactory_customevent_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_ConnectNotify_IsBase(bool value) const { kirigami__platform__platformpluginfactory_connectnotify_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_DisconnectNotify_IsBase(bool value) const { kirigami__platform__platformpluginfactory_disconnectnotify_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Sender_IsBase(bool value) const { kirigami__platform__platformpluginfactory_sender_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_SenderSignalIndex_IsBase(bool value) const { kirigami__platform__platformpluginfactory_sendersignalindex_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_Receivers_IsBase(bool value) const { kirigami__platform__platformpluginfactory_receivers_isbase = value; }
-    inline void setKirigami__Platform__PlatformPluginFactory_IsSignalConnected_IsBase(bool value) const { kirigami__platform__platformpluginfactory_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kirigami__platform__platformpluginfactory_metaobject_isbase) {
-            kirigami__platform__platformpluginfactory_metaobject_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::metaObject();
-        }
-        auto metaobject_cb = kirigami__platform__platformpluginfactory_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kirigami__platform__platformpluginfactory_metaobject_callback) {
+            QMetaObject* callback_ret = kirigami__platform__platformpluginfactory_metaobject_callback(this);
             return callback_ret;
         }
         return Kirigami__Platform__PlatformPluginFactory::metaObject();
@@ -127,14 +67,9 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kirigami__platform__platformpluginfactory_metacast_isbase) {
-            kirigami__platform__platformpluginfactory_metacast_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::qt_metacast(param1);
-        }
-        auto metacast_cb = kirigami__platform__platformpluginfactory_metacast_callback;
-        if (metacast_cb) {
+        if (kirigami__platform__platformpluginfactory_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kirigami__platform__platformpluginfactory_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return Kirigami__Platform__PlatformPluginFactory::qt_metacast(param1);
@@ -142,16 +77,11 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kirigami__platform__platformpluginfactory_metacall_isbase) {
-            kirigami__platform__platformpluginfactory_metacall_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kirigami__platform__platformpluginfactory_metacall_callback;
-        if (metacall_cb) {
+        if (kirigami__platform__platformpluginfactory_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kirigami__platform__platformpluginfactory_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return Kirigami__Platform__PlatformPluginFactory::qt_metacall(param1, param2, param3);
@@ -159,36 +89,31 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual Kirigami::Platform::PlatformTheme* createPlatformTheme(QObject* parent) override {
-        auto createplatformtheme_cb = kirigami__platform__platformpluginfactory_createplatformtheme_callback;
-        if (createplatformtheme_cb) {
+        if (kirigami__platform__platformpluginfactory_createplatformtheme_callback) {
             QObject* cbval1 = parent;
-            Kirigami__Platform__PlatformTheme* callback_ret = createplatformtheme_cb(this, cbval1);
+            Kirigami__Platform__PlatformTheme* callback_ret = kirigami__platform__platformpluginfactory_createplatformtheme_callback(this, cbval1);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method Kirigami::Platform::PlatformPluginFactory::createPlatformTheme called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual Kirigami::Platform::Units* createUnits(QObject* parent) override {
-        auto createunits_cb = kirigami__platform__platformpluginfactory_createunits_callback;
-        if (createunits_cb) {
+        if (kirigami__platform__platformpluginfactory_createunits_callback) {
             QObject* cbval1 = parent;
-            Kirigami__Platform__Units* callback_ret = createunits_cb(this, cbval1);
+            Kirigami__Platform__Units* callback_ret = kirigami__platform__platformpluginfactory_createunits_callback(this, cbval1);
             return callback_ret;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method Kirigami::Platform::PlatformPluginFactory::createUnits called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kirigami__platform__platformpluginfactory_event_isbase) {
-            kirigami__platform__platformpluginfactory_event_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::event(event);
-        }
-        auto event_cb = kirigami__platform__platformpluginfactory_event_callback;
-        if (event_cb) {
+        if (kirigami__platform__platformpluginfactory_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kirigami__platform__platformpluginfactory_event_callback(this, cbval1);
             return callback_ret;
         }
         return Kirigami__Platform__PlatformPluginFactory::event(event);
@@ -196,15 +121,10 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kirigami__platform__platformpluginfactory_eventfilter_isbase) {
-            kirigami__platform__platformpluginfactory_eventfilter_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kirigami__platform__platformpluginfactory_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kirigami__platform__platformpluginfactory_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kirigami__platform__platformpluginfactory_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return Kirigami__Platform__PlatformPluginFactory::eventFilter(watched, event);
@@ -212,15 +132,9 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kirigami__platform__platformpluginfactory_timerevent_isbase) {
-            kirigami__platform__platformpluginfactory_timerevent_isbase = false;
-            Kirigami__Platform__PlatformPluginFactory::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kirigami__platform__platformpluginfactory_timerevent_callback;
-        if (timerevent_cb) {
+        if (kirigami__platform__platformpluginfactory_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kirigami__platform__platformpluginfactory_timerevent_callback(this, cbval1);
             return;
         }
         Kirigami__Platform__PlatformPluginFactory::timerEvent(event);
@@ -228,15 +142,9 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kirigami__platform__platformpluginfactory_childevent_isbase) {
-            kirigami__platform__platformpluginfactory_childevent_isbase = false;
-            Kirigami__Platform__PlatformPluginFactory::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kirigami__platform__platformpluginfactory_childevent_callback;
-        if (childevent_cb) {
+        if (kirigami__platform__platformpluginfactory_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kirigami__platform__platformpluginfactory_childevent_callback(this, cbval1);
             return;
         }
         Kirigami__Platform__PlatformPluginFactory::childEvent(event);
@@ -244,15 +152,9 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kirigami__platform__platformpluginfactory_customevent_isbase) {
-            kirigami__platform__platformpluginfactory_customevent_isbase = false;
-            Kirigami__Platform__PlatformPluginFactory::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kirigami__platform__platformpluginfactory_customevent_callback;
-        if (customevent_cb) {
+        if (kirigami__platform__platformpluginfactory_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kirigami__platform__platformpluginfactory_customevent_callback(this, cbval1);
             return;
         }
         Kirigami__Platform__PlatformPluginFactory::customEvent(event);
@@ -260,17 +162,11 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kirigami__platform__platformpluginfactory_connectnotify_isbase) {
-            kirigami__platform__platformpluginfactory_connectnotify_isbase = false;
-            Kirigami__Platform__PlatformPluginFactory::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kirigami__platform__platformpluginfactory_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kirigami__platform__platformpluginfactory_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kirigami__platform__platformpluginfactory_connectnotify_callback(this, cbval1);
             return;
         }
         Kirigami__Platform__PlatformPluginFactory::connectNotify(signal);
@@ -278,101 +174,22 @@ class VirtualKirigamiPlatformPlatformPluginFactory : public Kirigami::Platform::
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kirigami__platform__platformpluginfactory_disconnectnotify_isbase) {
-            kirigami__platform__platformpluginfactory_disconnectnotify_isbase = false;
-            Kirigami__Platform__PlatformPluginFactory::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kirigami__platform__platformpluginfactory_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kirigami__platform__platformpluginfactory_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kirigami__platform__platformpluginfactory_disconnectnotify_callback(this, cbval1);
             return;
         }
         Kirigami__Platform__PlatformPluginFactory::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kirigami__platform__platformpluginfactory_sender_isbase) {
-            kirigami__platform__platformpluginfactory_sender_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::sender();
-        }
-        auto sender_cb = kirigami__platform__platformpluginfactory_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return Kirigami__Platform__PlatformPluginFactory::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kirigami__platform__platformpluginfactory_sendersignalindex_isbase) {
-            kirigami__platform__platformpluginfactory_sendersignalindex_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kirigami__platform__platformpluginfactory_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return Kirigami__Platform__PlatformPluginFactory::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kirigami__platform__platformpluginfactory_receivers_isbase) {
-            kirigami__platform__platformpluginfactory_receivers_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::receivers(signal);
-        }
-        auto receivers_cb = kirigami__platform__platformpluginfactory_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return Kirigami__Platform__PlatformPluginFactory::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kirigami__platform__platformpluginfactory_issignalconnected_isbase) {
-            kirigami__platform__platformpluginfactory_issignalconnected_isbase = false;
-            return Kirigami__Platform__PlatformPluginFactory::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kirigami__platform__platformpluginfactory_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return Kirigami__Platform__PlatformPluginFactory::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void Kirigami__Platform__PlatformPluginFactory_TimerEvent(Kirigami::Platform::PlatformPluginFactory* self, QTimerEvent* event);
     friend void Kirigami__Platform__PlatformPluginFactory_SuperTimerEvent(Kirigami::Platform::PlatformPluginFactory* self, QTimerEvent* event);
-    friend void Kirigami__Platform__PlatformPluginFactory_ChildEvent(Kirigami::Platform::PlatformPluginFactory* self, QChildEvent* event);
     friend void Kirigami__Platform__PlatformPluginFactory_SuperChildEvent(Kirigami::Platform::PlatformPluginFactory* self, QChildEvent* event);
-    friend void Kirigami__Platform__PlatformPluginFactory_CustomEvent(Kirigami::Platform::PlatformPluginFactory* self, QEvent* event);
     friend void Kirigami__Platform__PlatformPluginFactory_SuperCustomEvent(Kirigami::Platform::PlatformPluginFactory* self, QEvent* event);
-    friend void Kirigami__Platform__PlatformPluginFactory_ConnectNotify(Kirigami::Platform::PlatformPluginFactory* self, const QMetaMethod* signal);
     friend void Kirigami__Platform__PlatformPluginFactory_SuperConnectNotify(Kirigami::Platform::PlatformPluginFactory* self, const QMetaMethod* signal);
-    friend void Kirigami__Platform__PlatformPluginFactory_DisconnectNotify(Kirigami::Platform::PlatformPluginFactory* self, const QMetaMethod* signal);
     friend void Kirigami__Platform__PlatformPluginFactory_SuperDisconnectNotify(Kirigami::Platform::PlatformPluginFactory* self, const QMetaMethod* signal);
-    friend QObject* Kirigami__Platform__PlatformPluginFactory_Sender(const Kirigami::Platform::PlatformPluginFactory* self);
-    friend QObject* Kirigami__Platform__PlatformPluginFactory_SuperSender(const Kirigami::Platform::PlatformPluginFactory* self);
-    friend int Kirigami__Platform__PlatformPluginFactory_SenderSignalIndex(const Kirigami::Platform::PlatformPluginFactory* self);
-    friend int Kirigami__Platform__PlatformPluginFactory_SuperSenderSignalIndex(const Kirigami::Platform::PlatformPluginFactory* self);
-    friend int Kirigami__Platform__PlatformPluginFactory_Receivers(const Kirigami::Platform::PlatformPluginFactory* self, const char* signal);
-    friend int Kirigami__Platform__PlatformPluginFactory_SuperReceivers(const Kirigami::Platform::PlatformPluginFactory* self, const char* signal);
-    friend bool Kirigami__Platform__PlatformPluginFactory_IsSignalConnected(const Kirigami::Platform::PlatformPluginFactory* self, const QMetaMethod* signal);
-    friend bool Kirigami__Platform__PlatformPluginFactory_SuperIsSignalConnected(const Kirigami::Platform::PlatformPluginFactory* self, const QMetaMethod* signal);
 };
 
 #endif

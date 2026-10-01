@@ -81,400 +81,225 @@ libqt_string KIO__DndPopupMenuPlugin_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KIO__DndPopupMenuPlugin_SuperMetaObject(const KIO__DndPopupMenuPlugin* self) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiodndpopupmenuplugin->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::DndPopupMenuPlugin::metaObject();
-    }
+    return (QMetaObject*)self->KIO::DndPopupMenuPlugin::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__DndPopupMenuPlugin_OnMetaObject(const KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_MetaObject_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_MetaObject_Callback>(slot));
+void KIO__DndPopupMenuPlugin_OnMetaObject(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
+    if (auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self)))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_metaobject_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIO__DndPopupMenuPlugin_SuperMetacast(KIO__DndPopupMenuPlugin* self, const char* param1) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Metacast_IsBase(true);
-        return vkiodndpopupmenuplugin->qt_metacast(param1);
-    } else {
-        return self->KIO::DndPopupMenuPlugin::qt_metacast(param1);
-    }
+    return self->KIO::DndPopupMenuPlugin::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnMetacast(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Metacast_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Metacast_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_metacast_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIO__DndPopupMenuPlugin_SuperMetacall(KIO__DndPopupMenuPlugin* self, int param1, int param2, void** param3) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Metacall_IsBase(true);
-        return vkiodndpopupmenuplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::DndPopupMenuPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::DndPopupMenuPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnMetacall(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Metacall_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_SuperSetup(KIO__DndPopupMenuPlugin* self, const KFileItemListProperties* popupMenuInfo, const QUrl* destination) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Setup_IsBase(true);
-        QList<QAction*> _ret = vkiodndpopupmenuplugin->setup(*popupMenuInfo, *destination);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QAction*> _ret = ((VirtualKIODndPopupMenuPlugin*)self)->setup(*popupMenuInfo, *destination);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_metacall_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnSetup(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Setup_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Setup_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_setup_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Setup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__DndPopupMenuPlugin_Event(KIO__DndPopupMenuPlugin* self, QEvent* event) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return vkiodndpopupmenuplugin->event(event);
-    } else {
-        return self->KIO::DndPopupMenuPlugin::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__DndPopupMenuPlugin_SuperEvent(KIO__DndPopupMenuPlugin* self, QEvent* event) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Event_IsBase(true);
-        return vkiodndpopupmenuplugin->event(event);
-    } else {
-        return self->KIO::DndPopupMenuPlugin::event(event);
-    }
+    return self->KIO::DndPopupMenuPlugin::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnEvent(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Event_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Event_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_event_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__DndPopupMenuPlugin_EventFilter(KIO__DndPopupMenuPlugin* self, QObject* watched, QEvent* event) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return vkiodndpopupmenuplugin->eventFilter(watched, event);
-    } else {
-        return self->KIO::DndPopupMenuPlugin::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__DndPopupMenuPlugin_SuperEventFilter(KIO__DndPopupMenuPlugin* self, QObject* watched, QEvent* event) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_EventFilter_IsBase(true);
-        return vkiodndpopupmenuplugin->eventFilter(watched, event);
-    } else {
-        return self->KIO::DndPopupMenuPlugin::eventFilter(watched, event);
-    }
+    return self->KIO::DndPopupMenuPlugin::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnEventFilter(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_EventFilter_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_EventFilter_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_eventfilter_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__DndPopupMenuPlugin_TimerEvent(KIO__DndPopupMenuPlugin* self, QTimerEvent* event) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+    if (vkiodndpopupmenuplugin) {
         vkiodndpopupmenuplugin->timerEvent(event);
     } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__DndPopupMenuPlugin_SuperTimerEvent(KIO__DndPopupMenuPlugin* self, QTimerEvent* event) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_TimerEvent_IsBase(true);
-        vkiodndpopupmenuplugin->timerEvent(event);
-    } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->timerEvent(event);
-    }
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self)) {
+        vkiodndpopupmenuplugin->KIO::DndPopupMenuPlugin::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnTimerEvent(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_TimerEvent_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_TimerEvent_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_timerevent_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__DndPopupMenuPlugin_ChildEvent(KIO__DndPopupMenuPlugin* self, QChildEvent* event) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+    if (vkiodndpopupmenuplugin) {
         vkiodndpopupmenuplugin->childEvent(event);
     } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__DndPopupMenuPlugin_SuperChildEvent(KIO__DndPopupMenuPlugin* self, QChildEvent* event) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_ChildEvent_IsBase(true);
-        vkiodndpopupmenuplugin->childEvent(event);
-    } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->childEvent(event);
-    }
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self)) {
+        vkiodndpopupmenuplugin->KIO::DndPopupMenuPlugin::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnChildEvent(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_ChildEvent_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_ChildEvent_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_childevent_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__DndPopupMenuPlugin_CustomEvent(KIO__DndPopupMenuPlugin* self, QEvent* event) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+    if (vkiodndpopupmenuplugin) {
         vkiodndpopupmenuplugin->customEvent(event);
     } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__DndPopupMenuPlugin_SuperCustomEvent(KIO__DndPopupMenuPlugin* self, QEvent* event) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_CustomEvent_IsBase(true);
-        vkiodndpopupmenuplugin->customEvent(event);
-    } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->customEvent(event);
-    }
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self)) {
+        vkiodndpopupmenuplugin->KIO::DndPopupMenuPlugin::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnCustomEvent(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_CustomEvent_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_CustomEvent_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_customevent_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__DndPopupMenuPlugin_ConnectNotify(KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+    if (vkiodndpopupmenuplugin) {
         vkiodndpopupmenuplugin->connectNotify(*signal);
     } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__DndPopupMenuPlugin_SuperConnectNotify(KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_ConnectNotify_IsBase(true);
-        vkiodndpopupmenuplugin->connectNotify(*signal);
-    } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self)) {
+        vkiodndpopupmenuplugin->KIO::DndPopupMenuPlugin::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnConnectNotify(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_ConnectNotify_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_connectnotify_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__DndPopupMenuPlugin_DisconnectNotify(KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
     auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
+    if (vkiodndpopupmenuplugin) {
         vkiodndpopupmenuplugin->disconnectNotify(*signal);
     } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__DndPopupMenuPlugin_SuperDisconnectNotify(KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_DisconnectNotify_IsBase(true);
-        vkiodndpopupmenuplugin->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIODndPopupMenuPlugin*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self)) {
+        vkiodndpopupmenuplugin->KIO::DndPopupMenuPlugin::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::DndPopupMenuPlugin::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__DndPopupMenuPlugin_OnDisconnectNotify(KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_DisconnectNotify_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self))
+        vkiodndpopupmenuplugin->kio__dndpopupmenuplugin_disconnectnotify_callback = reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__DndPopupMenuPlugin_Sender(const KIO__DndPopupMenuPlugin* self) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return vkiodndpopupmenuplugin->sender();
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->sender();
-    }
+    if (auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self))) {
+        return vkiodndpopupmenuplugin->VirtualKIODndPopupMenuPlugin::sender();
+    } else
+        qFatal("Error: Protected method KIO::DndPopupMenuPlugin::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__DndPopupMenuPlugin_SuperSender(const KIO__DndPopupMenuPlugin* self) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Sender_IsBase(true);
-        return vkiodndpopupmenuplugin->sender();
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__DndPopupMenuPlugin_OnSender(const KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Sender_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__DndPopupMenuPlugin_SenderSignalIndex(const KIO__DndPopupMenuPlugin* self) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return vkiodndpopupmenuplugin->senderSignalIndex();
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->senderSignalIndex();
-    }
+    if (auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self))) {
+        return vkiodndpopupmenuplugin->VirtualKIODndPopupMenuPlugin::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::DndPopupMenuPlugin::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__DndPopupMenuPlugin_SuperSenderSignalIndex(const KIO__DndPopupMenuPlugin* self) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_SenderSignalIndex_IsBase(true);
-        return vkiodndpopupmenuplugin->senderSignalIndex();
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__DndPopupMenuPlugin_OnSenderSignalIndex(const KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__DndPopupMenuPlugin_Receivers(const KIO__DndPopupMenuPlugin* self, const char* signal) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return vkiodndpopupmenuplugin->receivers(signal);
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->receivers(signal);
-    }
+    if (auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self))) {
+        return vkiodndpopupmenuplugin->VirtualKIODndPopupMenuPlugin::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::DndPopupMenuPlugin::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__DndPopupMenuPlugin_SuperReceivers(const KIO__DndPopupMenuPlugin* self, const char* signal) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Receivers_IsBase(true);
-        return vkiodndpopupmenuplugin->receivers(signal);
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__DndPopupMenuPlugin_OnReceivers(const KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_Receivers_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__DndPopupMenuPlugin_IsSignalConnected(const KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return vkiodndpopupmenuplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__DndPopupMenuPlugin_SuperIsSignalConnected(const KIO__DndPopupMenuPlugin* self, const QMetaMethod* signal) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_IsSignalConnected_IsBase(true);
-        return vkiodndpopupmenuplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__DndPopupMenuPlugin_OnIsSignalConnected(const KIO__DndPopupMenuPlugin* self, intptr_t slot) {
-    auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self));
-    if (vkiodndpopupmenuplugin && vkiodndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin)
-        vkiodndpopupmenuplugin->setKIO__DndPopupMenuPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualKIODndPopupMenuPlugin::KIO__DndPopupMenuPlugin_IsSignalConnected_Callback>(slot));
+    if (auto* vkiodndpopupmenuplugin = const_cast<VirtualKIODndPopupMenuPlugin*>(dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self))) {
+        return vkiodndpopupmenuplugin->VirtualKIODndPopupMenuPlugin::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::DndPopupMenuPlugin::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__DndPopupMenuPlugin_Delete(KIO__DndPopupMenuPlugin* self) {

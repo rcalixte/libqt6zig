@@ -104,238 +104,137 @@ bool QImageIOHandler_AllocateImage(QSize* size, int format, QImage* image) {
     return QImageIOHandler::allocateImage(*size, static_cast<QImage::Format>(format), image);
 }
 
-// Base class handler implementation
-bool QImageIOHandler_SuperCanRead(const QImageIOHandler* self) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_CanRead_IsBase(true);
-        return vqimageiohandler->canRead();
-    } else {
-        return ((VirtualQImageIOHandler*)self)->canRead();
-    }
-}
-
 // Auxiliary method to allow providing re-implementation
-void QImageIOHandler_OnCanRead(const QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_CanRead_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_CanRead_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QImageIOHandler_SuperRead(QImageIOHandler* self, QImage* image) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_Read_IsBase(true);
-        return vqimageiohandler->read(image);
-    } else {
-        return ((VirtualQImageIOHandler*)self)->read(image);
-    }
+void QImageIOHandler_OnCanRead(QImageIOHandler* self, intptr_t slot) {
+    if (auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self)))
+        vqimageiohandler->qimageiohandler_canread_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_CanRead_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOHandler_OnRead(QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_Read_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_Read_Callback>(slot));
+    if (auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self))
+        vqimageiohandler->qimageiohandler_read_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_Read_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QImageIOHandler_SuperWrite(QImageIOHandler* self, const QImage* image) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_Write_IsBase(true);
-        return vqimageiohandler->write(*image);
-    } else {
-        return self->QImageIOHandler::write(*image);
-    }
+    return self->QImageIOHandler::write(*image);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOHandler_OnWrite(QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_Write_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_Write_Callback>(slot));
+    if (auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self))
+        vqimageiohandler->qimageiohandler_write_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_Write_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QImageIOHandler_SuperOption(const QImageIOHandler* self, int option) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_Option_IsBase(true);
-        return new QVariant(vqimageiohandler->option(static_cast<QImageIOHandler::ImageOption>(option)));
-    } else {
-        return new QVariant(((VirtualQImageIOHandler*)self)->option(static_cast<QImageIOHandler::ImageOption>(option)));
-    }
+    return new QVariant(self->QImageIOHandler::option(static_cast<QImageIOHandler::ImageOption>(option)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOHandler_OnOption(const QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_Option_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_Option_Callback>(slot));
+void QImageIOHandler_OnOption(QImageIOHandler* self, intptr_t slot) {
+    if (auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self)))
+        vqimageiohandler->qimageiohandler_option_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_Option_Callback>(slot);
 }
 
 // Base class handler implementation
 void QImageIOHandler_SuperSetOption(QImageIOHandler* self, int option, const QVariant* value) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_SetOption_IsBase(true);
-        vqimageiohandler->setOption(static_cast<QImageIOHandler::ImageOption>(option), *value);
-    } else {
-        self->QImageIOHandler::setOption(static_cast<QImageIOHandler::ImageOption>(option), *value);
-    }
+    self->QImageIOHandler::setOption(static_cast<QImageIOHandler::ImageOption>(option), *value);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOHandler_OnSetOption(QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_SetOption_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_SetOption_Callback>(slot));
+    if (auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self))
+        vqimageiohandler->qimageiohandler_setoption_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_SetOption_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QImageIOHandler_SuperSupportsOption(const QImageIOHandler* self, int option) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_SupportsOption_IsBase(true);
-        return vqimageiohandler->supportsOption(static_cast<QImageIOHandler::ImageOption>(option));
-    } else {
-        return self->QImageIOHandler::supportsOption(static_cast<QImageIOHandler::ImageOption>(option));
-    }
+    return self->QImageIOHandler::supportsOption(static_cast<QImageIOHandler::ImageOption>(option));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOHandler_OnSupportsOption(const QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_SupportsOption_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_SupportsOption_Callback>(slot));
+void QImageIOHandler_OnSupportsOption(QImageIOHandler* self, intptr_t slot) {
+    if (auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self)))
+        vqimageiohandler->qimageiohandler_supportsoption_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_SupportsOption_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QImageIOHandler_SuperJumpToNextImage(QImageIOHandler* self) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_JumpToNextImage_IsBase(true);
-        return vqimageiohandler->jumpToNextImage();
-    } else {
-        return self->QImageIOHandler::jumpToNextImage();
-    }
+    return self->QImageIOHandler::jumpToNextImage();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOHandler_OnJumpToNextImage(QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_JumpToNextImage_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_JumpToNextImage_Callback>(slot));
+    if (auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self))
+        vqimageiohandler->qimageiohandler_jumptonextimage_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_JumpToNextImage_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QImageIOHandler_SuperJumpToImage(QImageIOHandler* self, int imageNumber) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_JumpToImage_IsBase(true);
-        return vqimageiohandler->jumpToImage(static_cast<int>(imageNumber));
-    } else {
-        return self->QImageIOHandler::jumpToImage(static_cast<int>(imageNumber));
-    }
+    return self->QImageIOHandler::jumpToImage(static_cast<int>(imageNumber));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOHandler_OnJumpToImage(QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_JumpToImage_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_JumpToImage_Callback>(slot));
+    if (auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self))
+        vqimageiohandler->qimageiohandler_jumptoimage_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_JumpToImage_Callback>(slot);
 }
 
 // Base class handler implementation
 int QImageIOHandler_SuperLoopCount(const QImageIOHandler* self) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_LoopCount_IsBase(true);
-        return vqimageiohandler->loopCount();
-    } else {
-        return self->QImageIOHandler::loopCount();
-    }
+    return self->QImageIOHandler::loopCount();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOHandler_OnLoopCount(const QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_LoopCount_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_LoopCount_Callback>(slot));
+void QImageIOHandler_OnLoopCount(QImageIOHandler* self, intptr_t slot) {
+    if (auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self)))
+        vqimageiohandler->qimageiohandler_loopcount_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_LoopCount_Callback>(slot);
 }
 
 // Base class handler implementation
 int QImageIOHandler_SuperImageCount(const QImageIOHandler* self) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_ImageCount_IsBase(true);
-        return vqimageiohandler->imageCount();
-    } else {
-        return self->QImageIOHandler::imageCount();
-    }
+    return self->QImageIOHandler::imageCount();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOHandler_OnImageCount(const QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_ImageCount_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_ImageCount_Callback>(slot));
+void QImageIOHandler_OnImageCount(QImageIOHandler* self, intptr_t slot) {
+    if (auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self)))
+        vqimageiohandler->qimageiohandler_imagecount_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_ImageCount_Callback>(slot);
 }
 
 // Base class handler implementation
 int QImageIOHandler_SuperNextImageDelay(const QImageIOHandler* self) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_NextImageDelay_IsBase(true);
-        return vqimageiohandler->nextImageDelay();
-    } else {
-        return self->QImageIOHandler::nextImageDelay();
-    }
+    return self->QImageIOHandler::nextImageDelay();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOHandler_OnNextImageDelay(const QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_NextImageDelay_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_NextImageDelay_Callback>(slot));
+void QImageIOHandler_OnNextImageDelay(QImageIOHandler* self, intptr_t slot) {
+    if (auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self)))
+        vqimageiohandler->qimageiohandler_nextimagedelay_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_NextImageDelay_Callback>(slot);
 }
 
 // Base class handler implementation
 int QImageIOHandler_SuperCurrentImageNumber(const QImageIOHandler* self) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_CurrentImageNumber_IsBase(true);
-        return vqimageiohandler->currentImageNumber();
-    } else {
-        return self->QImageIOHandler::currentImageNumber();
-    }
+    return self->QImageIOHandler::currentImageNumber();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOHandler_OnCurrentImageNumber(const QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_CurrentImageNumber_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_CurrentImageNumber_Callback>(slot));
+void QImageIOHandler_OnCurrentImageNumber(QImageIOHandler* self, intptr_t slot) {
+    if (auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self)))
+        vqimageiohandler->qimageiohandler_currentimagenumber_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_CurrentImageNumber_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QImageIOHandler_SuperCurrentImageRect(const QImageIOHandler* self) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        vqimageiohandler->setQImageIOHandler_CurrentImageRect_IsBase(true);
-        return new QRect(vqimageiohandler->currentImageRect());
-    } else {
-        return new QRect(((VirtualQImageIOHandler*)self)->currentImageRect());
-    }
+    return new QRect(self->QImageIOHandler::currentImageRect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOHandler_OnCurrentImageRect(const QImageIOHandler* self, intptr_t slot) {
-    auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self));
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler)
-        vqimageiohandler->setQImageIOHandler_CurrentImageRect_Callback(reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_CurrentImageRect_Callback>(slot));
+void QImageIOHandler_OnCurrentImageRect(QImageIOHandler* self, intptr_t slot) {
+    if (auto* vqimageiohandler = const_cast<VirtualQImageIOHandler*>(dynamic_cast<const VirtualQImageIOHandler*>(self)))
+        vqimageiohandler->qimageiohandler_currentimagerect_callback = reinterpret_cast<VirtualQImageIOHandler::QImageIOHandler_CurrentImageRect_Callback>(slot);
 }
 
 void QImageIOHandler_Delete(QImageIOHandler* self) {
@@ -410,402 +309,231 @@ libqt_string QImageIOPlugin_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QImageIOPlugin_SuperMetaObject(const QImageIOPlugin* self) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_MetaObject_IsBase(true);
-        return (QMetaObject*)vqimageioplugin->metaObject();
-    } else {
-        return (QMetaObject*)self->QImageIOPlugin::metaObject();
-    }
+    return (QMetaObject*)self->QImageIOPlugin::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOPlugin_OnMetaObject(const QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_MetaObject_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_MetaObject_Callback>(slot));
+void QImageIOPlugin_OnMetaObject(QImageIOPlugin* self, intptr_t slot) {
+    if (auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self)))
+        vqimageioplugin->qimageioplugin_metaobject_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QImageIOPlugin_SuperMetacast(QImageIOPlugin* self, const char* param1) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_Metacast_IsBase(true);
-        return vqimageioplugin->qt_metacast(param1);
-    } else {
-        return self->QImageIOPlugin::qt_metacast(param1);
-    }
+    return self->QImageIOPlugin::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnMetacast(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_Metacast_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Metacast_Callback>(slot));
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_metacast_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QImageIOPlugin_SuperMetacall(QImageIOPlugin* self, int param1, int param2, void** param3) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_Metacall_IsBase(true);
-        return vqimageioplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QImageIOPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QImageIOPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnMetacall(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_Metacall_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-int QImageIOPlugin_SuperCapabilities(const QImageIOPlugin* self, QIODevice* device, const libqt_string format) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    QByteArray format_QByteArray(format.data, format.len);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_Capabilities_IsBase(true);
-        return static_cast<int>(vqimageioplugin->capabilities(device, format_QByteArray));
-    } else {
-        return static_cast<int>(((VirtualQImageIOPlugin*)self)->capabilities(device, format_QByteArray));
-    }
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_metacall_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOPlugin_OnCapabilities(const QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_Capabilities_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Capabilities_Callback>(slot));
-}
-
-// Base class handler implementation
-QImageIOHandler* QImageIOPlugin_SuperCreate(const QImageIOPlugin* self, QIODevice* device, const libqt_string format) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    QByteArray format_QByteArray(format.data, format.len);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_Create_IsBase(true);
-        return vqimageioplugin->create(device, format_QByteArray);
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->create(device, format_QByteArray);
-    }
+void QImageIOPlugin_OnCapabilities(QImageIOPlugin* self, intptr_t slot) {
+    if (auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self)))
+        vqimageioplugin->qimageioplugin_capabilities_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Capabilities_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QImageIOPlugin_OnCreate(const QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_Create_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Create_Callback>(slot));
+void QImageIOPlugin_OnCreate(QImageIOPlugin* self, intptr_t slot) {
+    if (auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self)))
+        vqimageioplugin->qimageioplugin_create_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Create_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QImageIOPlugin_Event(QImageIOPlugin* self, QEvent* event) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return vqimageioplugin->event(event);
-    } else {
-        return self->QImageIOPlugin::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QImageIOPlugin_SuperEvent(QImageIOPlugin* self, QEvent* event) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_Event_IsBase(true);
-        return vqimageioplugin->event(event);
-    } else {
-        return self->QImageIOPlugin::event(event);
-    }
+    return self->QImageIOPlugin::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnEvent(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_Event_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Event_Callback>(slot));
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_event_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QImageIOPlugin_EventFilter(QImageIOPlugin* self, QObject* watched, QEvent* event) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return vqimageioplugin->eventFilter(watched, event);
-    } else {
-        return self->QImageIOPlugin::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QImageIOPlugin_SuperEventFilter(QImageIOPlugin* self, QObject* watched, QEvent* event) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_EventFilter_IsBase(true);
-        return vqimageioplugin->eventFilter(watched, event);
-    } else {
-        return self->QImageIOPlugin::eventFilter(watched, event);
-    }
+    return self->QImageIOPlugin::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnEventFilter(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_EventFilter_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_EventFilter_Callback>(slot));
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_eventfilter_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageIOPlugin_TimerEvent(QImageIOPlugin* self, QTimerEvent* event) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+    if (vqimageioplugin) {
         vqimageioplugin->timerEvent(event);
     } else {
-        ((VirtualQImageIOPlugin*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QImageIOPlugin::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageIOPlugin_SuperTimerEvent(QImageIOPlugin* self, QTimerEvent* event) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_TimerEvent_IsBase(true);
-        vqimageioplugin->timerEvent(event);
-    } else {
-        ((VirtualQImageIOPlugin*)self)->timerEvent(event);
-    }
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self)) {
+        vqimageioplugin->QImageIOPlugin::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QImageIOPlugin::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnTimerEvent(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_TimerEvent_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_TimerEvent_Callback>(slot));
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_timerevent_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageIOPlugin_ChildEvent(QImageIOPlugin* self, QChildEvent* event) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+    if (vqimageioplugin) {
         vqimageioplugin->childEvent(event);
     } else {
-        ((VirtualQImageIOPlugin*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QImageIOPlugin::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageIOPlugin_SuperChildEvent(QImageIOPlugin* self, QChildEvent* event) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_ChildEvent_IsBase(true);
-        vqimageioplugin->childEvent(event);
-    } else {
-        ((VirtualQImageIOPlugin*)self)->childEvent(event);
-    }
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self)) {
+        vqimageioplugin->QImageIOPlugin::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QImageIOPlugin::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnChildEvent(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_ChildEvent_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_ChildEvent_Callback>(slot));
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_childevent_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageIOPlugin_CustomEvent(QImageIOPlugin* self, QEvent* event) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+    if (vqimageioplugin) {
         vqimageioplugin->customEvent(event);
     } else {
-        ((VirtualQImageIOPlugin*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QImageIOPlugin::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageIOPlugin_SuperCustomEvent(QImageIOPlugin* self, QEvent* event) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_CustomEvent_IsBase(true);
-        vqimageioplugin->customEvent(event);
-    } else {
-        ((VirtualQImageIOPlugin*)self)->customEvent(event);
-    }
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self)) {
+        vqimageioplugin->QImageIOPlugin::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QImageIOPlugin::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnCustomEvent(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_CustomEvent_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_CustomEvent_Callback>(slot));
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_customevent_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageIOPlugin_ConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+    if (vqimageioplugin) {
         vqimageioplugin->connectNotify(*signal);
     } else {
-        ((VirtualQImageIOPlugin*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QImageIOPlugin::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageIOPlugin_SuperConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_ConnectNotify_IsBase(true);
-        vqimageioplugin->connectNotify(*signal);
-    } else {
-        ((VirtualQImageIOPlugin*)self)->connectNotify(*signal);
-    }
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self)) {
+        vqimageioplugin->QImageIOPlugin::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QImageIOPlugin::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnConnectNotify(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_ConnectNotify_Callback>(slot));
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_connectnotify_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QImageIOPlugin_DisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal) {
     auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
+    if (vqimageioplugin) {
         vqimageioplugin->disconnectNotify(*signal);
     } else {
-        ((VirtualQImageIOPlugin*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QImageIOPlugin::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QImageIOPlugin_SuperDisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_DisconnectNotify_IsBase(true);
-        vqimageioplugin->disconnectNotify(*signal);
-    } else {
-        ((VirtualQImageIOPlugin*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self)) {
+        vqimageioplugin->QImageIOPlugin::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QImageIOPlugin::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QImageIOPlugin_OnDisconnectNotify(QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_DisconnectNotify_Callback>(slot));
+    if (auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self))
+        vqimageioplugin->qimageioplugin_disconnectnotify_callback = reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QImageIOPlugin_Sender(const QImageIOPlugin* self) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return vqimageioplugin->sender();
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->sender();
-    }
+    if (auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self))) {
+        return vqimageioplugin->VirtualQImageIOPlugin::sender();
+    } else
+        qFatal("Error: Protected method QImageIOPlugin::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QImageIOPlugin_SuperSender(const QImageIOPlugin* self) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_Sender_IsBase(true);
-        return vqimageioplugin->sender();
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QImageIOPlugin_OnSender(const QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_Sender_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QImageIOPlugin_SenderSignalIndex(const QImageIOPlugin* self) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return vqimageioplugin->senderSignalIndex();
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->senderSignalIndex();
-    }
+    if (auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self))) {
+        return vqimageioplugin->VirtualQImageIOPlugin::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QImageIOPlugin::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QImageIOPlugin_SuperSenderSignalIndex(const QImageIOPlugin* self) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_SenderSignalIndex_IsBase(true);
-        return vqimageioplugin->senderSignalIndex();
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QImageIOPlugin_OnSenderSignalIndex(const QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QImageIOPlugin_Receivers(const QImageIOPlugin* self, const char* signal) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return vqimageioplugin->receivers(signal);
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->receivers(signal);
-    }
+    if (auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self))) {
+        return vqimageioplugin->VirtualQImageIOPlugin::receivers(signal);
+    } else
+        qFatal("Error: Protected method QImageIOPlugin::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QImageIOPlugin_SuperReceivers(const QImageIOPlugin* self, const char* signal) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_Receivers_IsBase(true);
-        return vqimageioplugin->receivers(signal);
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QImageIOPlugin_OnReceivers(const QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_Receivers_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QImageIOPlugin_IsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return vqimageioplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QImageIOPlugin_SuperIsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        vqimageioplugin->setQImageIOPlugin_IsSignalConnected_IsBase(true);
-        return vqimageioplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QImageIOPlugin_OnIsSignalConnected(const QImageIOPlugin* self, intptr_t slot) {
-    auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self));
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin)
-        vqimageioplugin->setQImageIOPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualQImageIOPlugin::QImageIOPlugin_IsSignalConnected_Callback>(slot));
+    if (auto* vqimageioplugin = const_cast<VirtualQImageIOPlugin*>(dynamic_cast<const VirtualQImageIOPlugin*>(self))) {
+        return vqimageioplugin->VirtualQImageIOPlugin::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QImageIOPlugin::isSignalConnected called without a directly constructed type");
 }
 
 void QImageIOPlugin_Delete(QImageIOPlugin* self) {

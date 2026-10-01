@@ -28,58 +28,34 @@ bool KParts__PartActivateEvent_Test(const QEvent* event) {
 
 // Derived class handler implementation
 void KParts__PartActivateEvent_SetAccepted(KParts__PartActivateEvent* self, bool accepted) {
-    auto* vkpartspartactivateevent = dynamic_cast<VirtualKPartsPartActivateEvent*>(self);
-    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent) {
-        vkpartspartactivateevent->setAccepted(accepted);
-    } else {
-        self->KParts::PartActivateEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void KParts__PartActivateEvent_SuperSetAccepted(KParts__PartActivateEvent* self, bool accepted) {
-    auto* vkpartspartactivateevent = dynamic_cast<VirtualKPartsPartActivateEvent*>(self);
-    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent) {
-        vkpartspartactivateevent->setKParts__PartActivateEvent_SetAccepted_IsBase(true);
-        vkpartspartactivateevent->setAccepted(accepted);
-    } else {
-        self->KParts::PartActivateEvent::setAccepted(accepted);
-    }
+    self->KParts::PartActivateEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartActivateEvent_OnSetAccepted(KParts__PartActivateEvent* self, intptr_t slot) {
-    auto* vkpartspartactivateevent = dynamic_cast<VirtualKPartsPartActivateEvent*>(self);
-    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent)
-        vkpartspartactivateevent->setKParts__PartActivateEvent_SetAccepted_Callback(reinterpret_cast<VirtualKPartsPartActivateEvent::KParts__PartActivateEvent_SetAccepted_Callback>(slot));
+    if (auto* vkpartspartactivateevent = dynamic_cast<VirtualKPartsPartActivateEvent*>(self))
+        vkpartspartactivateevent->kparts__partactivateevent_setaccepted_callback = reinterpret_cast<VirtualKPartsPartActivateEvent::KParts__PartActivateEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* KParts__PartActivateEvent_Clone(const KParts__PartActivateEvent* self) {
-    auto* vkpartspartactivateevent = const_cast<VirtualKPartsPartActivateEvent*>(dynamic_cast<const VirtualKPartsPartActivateEvent*>(self));
-    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent) {
-        return vkpartspartactivateevent->clone();
-    } else {
-        return self->KParts::PartActivateEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* KParts__PartActivateEvent_SuperClone(const KParts__PartActivateEvent* self) {
-    auto* vkpartspartactivateevent = const_cast<VirtualKPartsPartActivateEvent*>(dynamic_cast<const VirtualKPartsPartActivateEvent*>(self));
-    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent) {
-        vkpartspartactivateevent->setKParts__PartActivateEvent_Clone_IsBase(true);
-        return vkpartspartactivateevent->clone();
-    } else {
-        return self->KParts::PartActivateEvent::clone();
-    }
+    return self->KParts::PartActivateEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartActivateEvent_OnClone(const KParts__PartActivateEvent* self, intptr_t slot) {
-    auto* vkpartspartactivateevent = const_cast<VirtualKPartsPartActivateEvent*>(dynamic_cast<const VirtualKPartsPartActivateEvent*>(self));
-    if (vkpartspartactivateevent && vkpartspartactivateevent->isVirtualKPartsPartActivateEvent)
-        vkpartspartactivateevent->setKParts__PartActivateEvent_Clone_Callback(reinterpret_cast<VirtualKPartsPartActivateEvent::KParts__PartActivateEvent_Clone_Callback>(slot));
+void KParts__PartActivateEvent_OnClone(KParts__PartActivateEvent* self, intptr_t slot) {
+    if (auto* vkpartspartactivateevent = const_cast<VirtualKPartsPartActivateEvent*>(dynamic_cast<const VirtualKPartsPartActivateEvent*>(self)))
+        vkpartspartactivateevent->kparts__partactivateevent_clone_callback = reinterpret_cast<VirtualKPartsPartActivateEvent::KParts__PartActivateEvent_Clone_Callback>(slot);
 }
 
 void KParts__PartActivateEvent_Delete(KParts__PartActivateEvent* self) {

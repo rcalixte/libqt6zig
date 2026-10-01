@@ -54,13 +54,13 @@ void AbstractKirigamiApplication_Connect_ConfigurationViewChanged(AbstractKiriga
 void AbstractKirigamiApplication_SetupActions(AbstractKirigamiApplication* self);
 libqt_string AbstractKirigamiApplication_Tr2(const char* s, const char* c);
 libqt_string AbstractKirigamiApplication_Tr3(const char* s, const char* c, int n);
-void AbstractKirigamiApplication_OnMetaObject(const AbstractKirigamiApplication* self, intptr_t slot);
+void AbstractKirigamiApplication_OnMetaObject(AbstractKirigamiApplication* self, intptr_t slot);
 QMetaObject* AbstractKirigamiApplication_SuperMetaObject(const AbstractKirigamiApplication* self);
 void AbstractKirigamiApplication_OnMetacast(AbstractKirigamiApplication* self, intptr_t slot);
 void* AbstractKirigamiApplication_SuperMetacast(AbstractKirigamiApplication* self, const char* param1);
 void AbstractKirigamiApplication_OnMetacall(AbstractKirigamiApplication* self, intptr_t slot);
 int AbstractKirigamiApplication_SuperMetacall(AbstractKirigamiApplication* self, int param1, int param2, void** param3);
-void AbstractKirigamiApplication_OnActionCollections(const AbstractKirigamiApplication* self, intptr_t slot);
+void AbstractKirigamiApplication_OnActionCollections(AbstractKirigamiApplication* self, intptr_t slot);
 libqt_list /* of KirigamiActionCollection* */ AbstractKirigamiApplication_SuperActionCollections(const AbstractKirigamiApplication* self);
 void AbstractKirigamiApplication_OnSetupActions(AbstractKirigamiApplication* self, intptr_t slot);
 void AbstractKirigamiApplication_SuperSetupActions(AbstractKirigamiApplication* self);
@@ -86,20 +86,10 @@ void AbstractKirigamiApplication_DisconnectNotify(AbstractKirigamiApplication* s
 void AbstractKirigamiApplication_OnDisconnectNotify(AbstractKirigamiApplication* self, intptr_t slot);
 void AbstractKirigamiApplication_SuperDisconnectNotify(AbstractKirigamiApplication* self, const QMetaMethod* signal);
 void AbstractKirigamiApplication_ReadSettings(AbstractKirigamiApplication* self);
-void AbstractKirigamiApplication_OnReadSettings(AbstractKirigamiApplication* self, intptr_t slot);
-void AbstractKirigamiApplication_SuperReadSettings(AbstractKirigamiApplication* self);
 QObject* AbstractKirigamiApplication_Sender(const AbstractKirigamiApplication* self);
-void AbstractKirigamiApplication_OnSender(const AbstractKirigamiApplication* self, intptr_t slot);
-QObject* AbstractKirigamiApplication_SuperSender(const AbstractKirigamiApplication* self);
 int AbstractKirigamiApplication_SenderSignalIndex(const AbstractKirigamiApplication* self);
-void AbstractKirigamiApplication_OnSenderSignalIndex(const AbstractKirigamiApplication* self, intptr_t slot);
-int AbstractKirigamiApplication_SuperSenderSignalIndex(const AbstractKirigamiApplication* self);
 int AbstractKirigamiApplication_Receivers(const AbstractKirigamiApplication* self, const char* signal);
-void AbstractKirigamiApplication_OnReceivers(const AbstractKirigamiApplication* self, intptr_t slot);
-int AbstractKirigamiApplication_SuperReceivers(const AbstractKirigamiApplication* self, const char* signal);
 bool AbstractKirigamiApplication_IsSignalConnected(const AbstractKirigamiApplication* self, const QMetaMethod* signal);
-void AbstractKirigamiApplication_OnIsSignalConnected(const AbstractKirigamiApplication* self, intptr_t slot);
-bool AbstractKirigamiApplication_SuperIsSignalConnected(const AbstractKirigamiApplication* self, const QMetaMethod* signal);
 void AbstractKirigamiApplication_Delete(AbstractKirigamiApplication* self);
 
 #ifdef __cplusplus

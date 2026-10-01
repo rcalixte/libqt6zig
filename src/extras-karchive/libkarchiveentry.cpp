@@ -80,91 +80,53 @@ bool KArchiveEntry_IsDirectory(const KArchiveEntry* self) {
 
 void KArchiveEntry_VirtualHook(KArchiveEntry* self, int id, void* data) {
     auto* vkarchiveentry = dynamic_cast<VirtualKArchiveEntry*>(self);
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
+    if (vkarchiveentry) {
         vkarchiveentry->virtual_hook(static_cast<int>(id), data);
     }
 }
 
 // Base class handler implementation
 bool KArchiveEntry_SuperIsFile(const KArchiveEntry* self) {
-    auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
-        vkarchiveentry->setKArchiveEntry_IsFile_IsBase(true);
-        return vkarchiveentry->isFile();
-    } else {
-        return self->KArchiveEntry::isFile();
-    }
+    return self->KArchiveEntry::isFile();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KArchiveEntry_OnIsFile(const KArchiveEntry* self, intptr_t slot) {
-    auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry)
-        vkarchiveentry->setKArchiveEntry_IsFile_Callback(reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_IsFile_Callback>(slot));
+void KArchiveEntry_OnIsFile(KArchiveEntry* self, intptr_t slot) {
+    if (auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self)))
+        vkarchiveentry->karchiveentry_isfile_callback = reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_IsFile_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KArchiveEntry_SuperIsDirectory(const KArchiveEntry* self) {
-    auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
-        vkarchiveentry->setKArchiveEntry_IsDirectory_IsBase(true);
-        return vkarchiveentry->isDirectory();
-    } else {
-        return self->KArchiveEntry::isDirectory();
-    }
+    return self->KArchiveEntry::isDirectory();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KArchiveEntry_OnIsDirectory(const KArchiveEntry* self, intptr_t slot) {
-    auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry)
-        vkarchiveentry->setKArchiveEntry_IsDirectory_Callback(reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_IsDirectory_Callback>(slot));
+void KArchiveEntry_OnIsDirectory(KArchiveEntry* self, intptr_t slot) {
+    if (auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self)))
+        vkarchiveentry->karchiveentry_isdirectory_callback = reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_IsDirectory_Callback>(slot);
 }
 
 // Base class handler implementation
 void KArchiveEntry_SuperVirtualHook(KArchiveEntry* self, int id, void* data) {
-    auto* vkarchiveentry = dynamic_cast<VirtualKArchiveEntry*>(self);
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
-        vkarchiveentry->setKArchiveEntry_VirtualHook_IsBase(true);
-        vkarchiveentry->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKArchiveEntry*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vkarchiveentry = dynamic_cast<VirtualKArchiveEntry*>(self)) {
+        vkarchiveentry->KArchiveEntry::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KArchiveEntry::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KArchiveEntry_OnVirtualHook(KArchiveEntry* self, intptr_t slot) {
-    auto* vkarchiveentry = dynamic_cast<VirtualKArchiveEntry*>(self);
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry)
-        vkarchiveentry->setKArchiveEntry_VirtualHook_Callback(reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_VirtualHook_Callback>(slot));
+    if (auto* vkarchiveentry = dynamic_cast<VirtualKArchiveEntry*>(self))
+        vkarchiveentry->karchiveentry_virtualhook_callback = reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_VirtualHook_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 KArchive* KArchiveEntry_Archive(const KArchiveEntry* self) {
-    auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
-        return vkarchiveentry->archive();
-    } else {
-        return ((VirtualKArchiveEntry*)self)->archive();
-    }
-}
-
-// Base class handler implementation
-KArchive* KArchiveEntry_SuperArchive(const KArchiveEntry* self) {
-    auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
-        vkarchiveentry->setKArchiveEntry_Archive_IsBase(true);
-        return vkarchiveentry->archive();
-    } else {
-        return ((VirtualKArchiveEntry*)self)->archive();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KArchiveEntry_OnArchive(const KArchiveEntry* self, intptr_t slot) {
-    auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self));
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry)
-        vkarchiveentry->setKArchiveEntry_Archive_Callback(reinterpret_cast<VirtualKArchiveEntry::KArchiveEntry_Archive_Callback>(slot));
+    if (auto* vkarchiveentry = const_cast<VirtualKArchiveEntry*>(dynamic_cast<const VirtualKArchiveEntry*>(self))) {
+        return vkarchiveentry->VirtualKArchiveEntry::archive();
+    } else
+        qFatal("Error: Protected method KArchiveEntry::archive called without a directly constructed type");
 }
 
 void KArchiveEntry_Delete(KArchiveEntry* self) {

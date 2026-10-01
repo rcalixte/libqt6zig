@@ -69,9 +69,9 @@ pub const QGeoSatelliteInfoSource = extern struct {
     ///
     /// ` self: QGeoSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGeoSatelliteInfoSource) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGeoSatelliteInfoSource, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource) callconv(.c) QMetaObject) void {
         qtc.QGeoSatelliteInfoSource_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -456,6 +456,8 @@ pub const QGeoSatelliteInfoSource = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#minimumUpdateInterval)
     ///
+    /// This method must be implemented with `onMinimumUpdateInterval` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QGeoSatelliteInfoSource `
@@ -476,26 +478,10 @@ pub const QGeoSatelliteInfoSource = extern struct {
     ///
     /// ` self: QGeoSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGeoSatelliteInfoSource) callconv(.c) i32 `
     ///
-    pub fn onMinimumUpdateInterval(self: QGeoSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onMinimumUpdateInterval(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource) callconv(.c) i32) void {
         qtc.QGeoSatelliteInfoSource_OnMinimumUpdateInterval(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMinimumUpdateInterval` instead
-    ///
-    pub const SuperMinimumUpdateInterval = superMinimumUpdateInterval;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#minimumUpdateInterval)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    pub fn superMinimumUpdateInterval(self: QGeoSatelliteInfoSource) i32 {
-        return qtc.QGeoSatelliteInfoSource_SuperMinimumUpdateInterval(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `error0` instead
@@ -505,6 +491,8 @@ pub const QGeoSatelliteInfoSource = extern struct {
     pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#error)
+    ///
+    /// This method must be implemented with `onError` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -530,30 +518,10 @@ pub const QGeoSatelliteInfoSource = extern struct {
     ///
     /// ` self: QGeoSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGeoSatelliteInfoSource) callconv(.c) i32 `
     ///
-    pub fn onError(self: QGeoSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onError(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource) callconv(.c) i32) void {
         qtc.QGeoSatelliteInfoSource_OnError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superError` instead
-    ///
-    pub const SuperError = superError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#error)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qgeosatelliteinfosource_enums.Error `
-    ///
-    pub fn superError(self: QGeoSatelliteInfoSource) i32 {
-        return qtc.QGeoSatelliteInfoSource_SuperError(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setBackendProperty` instead
@@ -690,6 +658,8 @@ pub const QGeoSatelliteInfoSource = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#startUpdates)
     ///
+    /// This method must be implemented with `onStartUpdates` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QGeoSatelliteInfoSource `
@@ -710,26 +680,10 @@ pub const QGeoSatelliteInfoSource = extern struct {
     ///
     /// ` self: QGeoSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoSatelliteInfoSource) callconv(.c) void `
     ///
-    pub fn onStartUpdates(self: QGeoSatelliteInfoSource, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartUpdates(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_OnStartUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superStartUpdates` instead
-    ///
-    pub const SuperStartUpdates = superStartUpdates;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#startUpdates)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    pub fn superStartUpdates(self: QGeoSatelliteInfoSource) void {
-        qtc.QGeoSatelliteInfoSource_SuperStartUpdates(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `stopUpdates` instead
@@ -737,6 +691,8 @@ pub const QGeoSatelliteInfoSource = extern struct {
     pub const StopUpdates = stopUpdates;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#stopUpdates)
+    ///
+    /// This method must be implemented with `onStopUpdates` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -758,26 +714,10 @@ pub const QGeoSatelliteInfoSource = extern struct {
     ///
     /// ` self: QGeoSatelliteInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoSatelliteInfoSource) callconv(.c) void `
     ///
-    pub fn onStopUpdates(self: QGeoSatelliteInfoSource, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopUpdates(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_OnStopUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superStopUpdates` instead
-    ///
-    pub const SuperStopUpdates = superStopUpdates;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#stopUpdates)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    pub fn superStopUpdates(self: QGeoSatelliteInfoSource) void {
-        qtc.QGeoSatelliteInfoSource_SuperStopUpdates(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `requestUpdate` instead
@@ -785,6 +725,8 @@ pub const QGeoSatelliteInfoSource = extern struct {
     pub const RequestUpdate = requestUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#requestUpdate)
+    ///
+    /// This method must be implemented with `onRequestUpdate` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -812,24 +754,6 @@ pub const QGeoSatelliteInfoSource = extern struct {
     ///
     pub fn onRequestUpdate(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource, i32) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_OnRequestUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRequestUpdate` instead
-    ///
-    pub const SuperRequestUpdate = superRequestUpdate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#requestUpdate)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    /// ` timeout: i32 `
-    ///
-    pub fn superRequestUpdate(self: QGeoSatelliteInfoSource, timeout: i32) void {
-        qtc.QGeoSatelliteInfoSource_SuperRequestUpdate(@ptrCast(self.ptr), @bitCast(timeout));
     }
 
     /// ### DEPRECATED: Use `satellitesInViewUpdated` instead
@@ -2413,44 +2337,6 @@ pub const QGeoSatelliteInfoSource = extern struct {
         return .{ .ptr = qtc.QGeoSatelliteInfoSource_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    pub fn superSender(self: QGeoSatelliteInfoSource) QObject {
-        return .{ .ptr = qtc.QGeoSatelliteInfoSource_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoSatelliteInfoSource`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGeoSatelliteInfoSource, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGeoSatelliteInfoSource_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2467,44 +2353,6 @@ pub const QGeoSatelliteInfoSource = extern struct {
     ///
     pub fn senderSignalIndex(self: QGeoSatelliteInfoSource) i32 {
         return qtc.QGeoSatelliteInfoSource_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    pub fn superSenderSignalIndex(self: QGeoSatelliteInfoSource) i32 {
-        return qtc.QGeoSatelliteInfoSource_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoSatelliteInfoSource`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGeoSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoSatelliteInfoSource_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2528,47 +2376,6 @@ pub const QGeoSatelliteInfoSource = extern struct {
         return qtc.QGeoSatelliteInfoSource_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGeoSatelliteInfoSource, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGeoSatelliteInfoSource_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoSatelliteInfoSource`
-    ///
-    /// ` callback: *const fn (self: QGeoSatelliteInfoSource, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoSatelliteInfoSource_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2588,47 +2395,6 @@ pub const QGeoSatelliteInfoSource = extern struct {
     pub fn isSignalConnected(self: QGeoSatelliteInfoSource, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGeoSatelliteInfoSource_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoSatelliteInfoSource `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGeoSatelliteInfoSource, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGeoSatelliteInfoSource_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoSatelliteInfoSource`
-    ///
-    /// ` callback: *const fn (self: QGeoSatelliteInfoSource, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGeoSatelliteInfoSource_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

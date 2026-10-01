@@ -9,35 +9,31 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QDialog so that we can call protected methods
+// This class is a subclass of QDialog
 class VirtualQDialog final : public QDialog {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDialog = true;
-
-    // Virtual class public types (including callbacks)
-    using QDialog_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QDialog_MetaObject_Callback = QMetaObject* (*)(const QDialog*);
     using QDialog_Metacast_Callback = void* (*)(QDialog*, const char*);
     using QDialog_Metacall_Callback = int (*)(QDialog*, int, int, void**);
     using QDialog_SetVisible_Callback = void (*)(QDialog*, bool);
-    using QDialog_SizeHint_Callback = QSize* (*)();
-    using QDialog_MinimumSizeHint_Callback = QSize* (*)();
-    using QDialog_Open_Callback = void (*)();
-    using QDialog_Exec_Callback = int (*)();
+    using QDialog_SizeHint_Callback = QSize* (*)(const QDialog*);
+    using QDialog_MinimumSizeHint_Callback = QSize* (*)(const QDialog*);
+    using QDialog_Open_Callback = void (*)(QDialog*);
+    using QDialog_Exec_Callback = int (*)(QDialog*);
     using QDialog_Done_Callback = void (*)(QDialog*, int);
-    using QDialog_Accept_Callback = void (*)();
-    using QDialog_Reject_Callback = void (*)();
+    using QDialog_Accept_Callback = void (*)(QDialog*);
+    using QDialog_Reject_Callback = void (*)(QDialog*);
     using QDialog_KeyPressEvent_Callback = void (*)(QDialog*, QKeyEvent*);
     using QDialog_CloseEvent_Callback = void (*)(QDialog*, QCloseEvent*);
     using QDialog_ShowEvent_Callback = void (*)(QDialog*, QShowEvent*);
     using QDialog_ResizeEvent_Callback = void (*)(QDialog*, QResizeEvent*);
     using QDialog_ContextMenuEvent_Callback = void (*)(QDialog*, QContextMenuEvent*);
     using QDialog_EventFilter_Callback = bool (*)(QDialog*, QObject*, QEvent*);
-    using QDialog_DevType_Callback = int (*)();
+    using QDialog_DevType_Callback = int (*)(const QDialog*);
     using QDialog_HeightForWidth_Callback = int (*)(const QDialog*, int);
-    using QDialog_HasHeightForWidth_Callback = bool (*)();
-    using QDialog_PaintEngine_Callback = QPaintEngine* (*)();
+    using QDialog_HasHeightForWidth_Callback = bool (*)(const QDialog*);
+    using QDialog_PaintEngine_Callback = QPaintEngine* (*)(const QDialog*);
     using QDialog_Event_Callback = bool (*)(QDialog*, QEvent*);
     using QDialog_MousePressEvent_Callback = void (*)(QDialog*, QMouseEvent*);
     using QDialog_MouseReleaseEvent_Callback = void (*)(QDialog*, QMouseEvent*);
@@ -63,7 +59,7 @@ class VirtualQDialog final : public QDialog {
     using QDialog_Metric_Callback = int (*)(const QDialog*, int);
     using QDialog_InitPainter_Callback = void (*)(const QDialog*, QPainter*);
     using QDialog_Redirected_Callback = QPaintDevice* (*)(const QDialog*, QPoint*);
-    using QDialog_SharedPainter_Callback = QPainter* (*)();
+    using QDialog_SharedPainter_Callback = QPainter* (*)(const QDialog*);
     using QDialog_InputMethodEvent_Callback = void (*)(QDialog*, QInputMethodEvent*);
     using QDialog_InputMethodQuery_Callback = QVariant* (*)(const QDialog*, int);
     using QDialog_FocusNextPrevChild_Callback = bool (*)(QDialog*, bool);
@@ -72,19 +68,18 @@ class VirtualQDialog final : public QDialog {
     using QDialog_CustomEvent_Callback = void (*)(QDialog*, QEvent*);
     using QDialog_ConnectNotify_Callback = void (*)(QDialog*, QMetaMethod*);
     using QDialog_DisconnectNotify_Callback = void (*)(QDialog*, QMetaMethod*);
-    using QDialog_AdjustPosition_Callback = void (*)(QDialog*, QWidget*);
-    using QDialog_UpdateMicroFocus_Callback = void (*)();
-    using QDialog_Create_Callback = void (*)();
-    using QDialog_Destroy_Callback = void (*)();
-    using QDialog_FocusNextChild_Callback = bool (*)();
-    using QDialog_FocusPreviousChild_Callback = bool (*)();
-    using QDialog_Sender_Callback = QObject* (*)();
-    using QDialog_SenderSignalIndex_Callback = int (*)();
-    using QDialog_Receivers_Callback = int (*)(const QDialog*, const char*);
-    using QDialog_IsSignalConnected_Callback = bool (*)(const QDialog*, QMetaMethod*);
-    using QDialog_GetDecodedMetricF_Callback = double (*)(const QDialog*, int, int);
+    using QDialog::adjustPosition;
+    using QDialog::create;
+    using QDialog::destroy;
+    using QDialog::focusNextChild;
+    using QDialog::focusPreviousChild;
+    using QDialog::getDecodedMetricF;
+    using QDialog::isSignalConnected;
+    using QDialog::receivers;
+    using QDialog::sender;
+    using QDialog::senderSignalIndex;
+    using QDialog::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QDialog_MetaObject_Callback qdialog_metaobject_callback = nullptr;
     QDialog_Metacast_Callback qdialog_metacast_callback = nullptr;
@@ -141,236 +136,58 @@ class VirtualQDialog final : public QDialog {
     QDialog_CustomEvent_Callback qdialog_customevent_callback = nullptr;
     QDialog_ConnectNotify_Callback qdialog_connectnotify_callback = nullptr;
     QDialog_DisconnectNotify_Callback qdialog_disconnectnotify_callback = nullptr;
-    QDialog_AdjustPosition_Callback qdialog_adjustposition_callback = nullptr;
-    QDialog_UpdateMicroFocus_Callback qdialog_updatemicrofocus_callback = nullptr;
-    QDialog_Create_Callback qdialog_create_callback = nullptr;
-    QDialog_Destroy_Callback qdialog_destroy_callback = nullptr;
-    QDialog_FocusNextChild_Callback qdialog_focusnextchild_callback = nullptr;
-    QDialog_FocusPreviousChild_Callback qdialog_focuspreviouschild_callback = nullptr;
-    QDialog_Sender_Callback qdialog_sender_callback = nullptr;
-    QDialog_SenderSignalIndex_Callback qdialog_sendersignalindex_callback = nullptr;
-    QDialog_Receivers_Callback qdialog_receivers_callback = nullptr;
-    QDialog_IsSignalConnected_Callback qdialog_issignalconnected_callback = nullptr;
-    QDialog_GetDecodedMetricF_Callback qdialog_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdialog_metaobject_isbase = false;
-    mutable bool qdialog_metacast_isbase = false;
-    mutable bool qdialog_metacall_isbase = false;
-    mutable bool qdialog_setvisible_isbase = false;
-    mutable bool qdialog_sizehint_isbase = false;
-    mutable bool qdialog_minimumsizehint_isbase = false;
-    mutable bool qdialog_open_isbase = false;
-    mutable bool qdialog_exec_isbase = false;
-    mutable bool qdialog_done_isbase = false;
-    mutable bool qdialog_accept_isbase = false;
-    mutable bool qdialog_reject_isbase = false;
-    mutable bool qdialog_keypressevent_isbase = false;
-    mutable bool qdialog_closeevent_isbase = false;
-    mutable bool qdialog_showevent_isbase = false;
-    mutable bool qdialog_resizeevent_isbase = false;
-    mutable bool qdialog_contextmenuevent_isbase = false;
-    mutable bool qdialog_eventfilter_isbase = false;
-    mutable bool qdialog_devtype_isbase = false;
-    mutable bool qdialog_heightforwidth_isbase = false;
-    mutable bool qdialog_hasheightforwidth_isbase = false;
-    mutable bool qdialog_paintengine_isbase = false;
-    mutable bool qdialog_event_isbase = false;
-    mutable bool qdialog_mousepressevent_isbase = false;
-    mutable bool qdialog_mousereleaseevent_isbase = false;
-    mutable bool qdialog_mousedoubleclickevent_isbase = false;
-    mutable bool qdialog_mousemoveevent_isbase = false;
-    mutable bool qdialog_wheelevent_isbase = false;
-    mutable bool qdialog_keyreleaseevent_isbase = false;
-    mutable bool qdialog_focusinevent_isbase = false;
-    mutable bool qdialog_focusoutevent_isbase = false;
-    mutable bool qdialog_enterevent_isbase = false;
-    mutable bool qdialog_leaveevent_isbase = false;
-    mutable bool qdialog_paintevent_isbase = false;
-    mutable bool qdialog_moveevent_isbase = false;
-    mutable bool qdialog_tabletevent_isbase = false;
-    mutable bool qdialog_actionevent_isbase = false;
-    mutable bool qdialog_dragenterevent_isbase = false;
-    mutable bool qdialog_dragmoveevent_isbase = false;
-    mutable bool qdialog_dragleaveevent_isbase = false;
-    mutable bool qdialog_dropevent_isbase = false;
-    mutable bool qdialog_hideevent_isbase = false;
-    mutable bool qdialog_nativeevent_isbase = false;
-    mutable bool qdialog_changeevent_isbase = false;
-    mutable bool qdialog_metric_isbase = false;
-    mutable bool qdialog_initpainter_isbase = false;
-    mutable bool qdialog_redirected_isbase = false;
-    mutable bool qdialog_sharedpainter_isbase = false;
-    mutable bool qdialog_inputmethodevent_isbase = false;
-    mutable bool qdialog_inputmethodquery_isbase = false;
-    mutable bool qdialog_focusnextprevchild_isbase = false;
-    mutable bool qdialog_timerevent_isbase = false;
-    mutable bool qdialog_childevent_isbase = false;
-    mutable bool qdialog_customevent_isbase = false;
-    mutable bool qdialog_connectnotify_isbase = false;
-    mutable bool qdialog_disconnectnotify_isbase = false;
-    mutable bool qdialog_adjustposition_isbase = false;
-    mutable bool qdialog_updatemicrofocus_isbase = false;
-    mutable bool qdialog_create_isbase = false;
-    mutable bool qdialog_destroy_isbase = false;
-    mutable bool qdialog_focusnextchild_isbase = false;
-    mutable bool qdialog_focuspreviouschild_isbase = false;
-    mutable bool qdialog_sender_isbase = false;
-    mutable bool qdialog_sendersignalindex_isbase = false;
-    mutable bool qdialog_receivers_isbase = false;
-    mutable bool qdialog_issignalconnected_isbase = false;
-    mutable bool qdialog_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QDialog {
+        using QDialog::actionEvent;
+        using QDialog::changeEvent;
+        using QDialog::childEvent;
+        using QDialog::closeEvent;
+        using QDialog::connectNotify;
+        using QDialog::contextMenuEvent;
+        using QDialog::customEvent;
+        using QDialog::disconnectNotify;
+        using QDialog::dragEnterEvent;
+        using QDialog::dragLeaveEvent;
+        using QDialog::dragMoveEvent;
+        using QDialog::dropEvent;
+        using QDialog::enterEvent;
+        using QDialog::event;
+        using QDialog::eventFilter;
+        using QDialog::focusInEvent;
+        using QDialog::focusNextPrevChild;
+        using QDialog::focusOutEvent;
+        using QDialog::hideEvent;
+        using QDialog::initPainter;
+        using QDialog::inputMethodEvent;
+        using QDialog::keyPressEvent;
+        using QDialog::keyReleaseEvent;
+        using QDialog::leaveEvent;
+        using QDialog::metric;
+        using QDialog::mouseDoubleClickEvent;
+        using QDialog::mouseMoveEvent;
+        using QDialog::mousePressEvent;
+        using QDialog::mouseReleaseEvent;
+        using QDialog::moveEvent;
+        using QDialog::nativeEvent;
+        using QDialog::paintEvent;
+        using QDialog::redirected;
+        using QDialog::resizeEvent;
+        using QDialog::sharedPainter;
+        using QDialog::showEvent;
+        using QDialog::tabletEvent;
+        using QDialog::timerEvent;
+        using QDialog::wheelEvent;
+    };
 
-  public:
     VirtualQDialog(QWidget* parent) : QDialog(parent) {};
     VirtualQDialog() : QDialog() {};
     VirtualQDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f) {};
 
-    // Callback setters
-    inline void setQDialog_MetaObject_Callback(QDialog_MetaObject_Callback cb) { qdialog_metaobject_callback = cb; }
-    inline void setQDialog_Metacast_Callback(QDialog_Metacast_Callback cb) { qdialog_metacast_callback = cb; }
-    inline void setQDialog_Metacall_Callback(QDialog_Metacall_Callback cb) { qdialog_metacall_callback = cb; }
-    inline void setQDialog_SetVisible_Callback(QDialog_SetVisible_Callback cb) { qdialog_setvisible_callback = cb; }
-    inline void setQDialog_SizeHint_Callback(QDialog_SizeHint_Callback cb) { qdialog_sizehint_callback = cb; }
-    inline void setQDialog_MinimumSizeHint_Callback(QDialog_MinimumSizeHint_Callback cb) { qdialog_minimumsizehint_callback = cb; }
-    inline void setQDialog_Open_Callback(QDialog_Open_Callback cb) { qdialog_open_callback = cb; }
-    inline void setQDialog_Exec_Callback(QDialog_Exec_Callback cb) { qdialog_exec_callback = cb; }
-    inline void setQDialog_Done_Callback(QDialog_Done_Callback cb) { qdialog_done_callback = cb; }
-    inline void setQDialog_Accept_Callback(QDialog_Accept_Callback cb) { qdialog_accept_callback = cb; }
-    inline void setQDialog_Reject_Callback(QDialog_Reject_Callback cb) { qdialog_reject_callback = cb; }
-    inline void setQDialog_KeyPressEvent_Callback(QDialog_KeyPressEvent_Callback cb) { qdialog_keypressevent_callback = cb; }
-    inline void setQDialog_CloseEvent_Callback(QDialog_CloseEvent_Callback cb) { qdialog_closeevent_callback = cb; }
-    inline void setQDialog_ShowEvent_Callback(QDialog_ShowEvent_Callback cb) { qdialog_showevent_callback = cb; }
-    inline void setQDialog_ResizeEvent_Callback(QDialog_ResizeEvent_Callback cb) { qdialog_resizeevent_callback = cb; }
-    inline void setQDialog_ContextMenuEvent_Callback(QDialog_ContextMenuEvent_Callback cb) { qdialog_contextmenuevent_callback = cb; }
-    inline void setQDialog_EventFilter_Callback(QDialog_EventFilter_Callback cb) { qdialog_eventfilter_callback = cb; }
-    inline void setQDialog_DevType_Callback(QDialog_DevType_Callback cb) { qdialog_devtype_callback = cb; }
-    inline void setQDialog_HeightForWidth_Callback(QDialog_HeightForWidth_Callback cb) { qdialog_heightforwidth_callback = cb; }
-    inline void setQDialog_HasHeightForWidth_Callback(QDialog_HasHeightForWidth_Callback cb) { qdialog_hasheightforwidth_callback = cb; }
-    inline void setQDialog_PaintEngine_Callback(QDialog_PaintEngine_Callback cb) { qdialog_paintengine_callback = cb; }
-    inline void setQDialog_Event_Callback(QDialog_Event_Callback cb) { qdialog_event_callback = cb; }
-    inline void setQDialog_MousePressEvent_Callback(QDialog_MousePressEvent_Callback cb) { qdialog_mousepressevent_callback = cb; }
-    inline void setQDialog_MouseReleaseEvent_Callback(QDialog_MouseReleaseEvent_Callback cb) { qdialog_mousereleaseevent_callback = cb; }
-    inline void setQDialog_MouseDoubleClickEvent_Callback(QDialog_MouseDoubleClickEvent_Callback cb) { qdialog_mousedoubleclickevent_callback = cb; }
-    inline void setQDialog_MouseMoveEvent_Callback(QDialog_MouseMoveEvent_Callback cb) { qdialog_mousemoveevent_callback = cb; }
-    inline void setQDialog_WheelEvent_Callback(QDialog_WheelEvent_Callback cb) { qdialog_wheelevent_callback = cb; }
-    inline void setQDialog_KeyReleaseEvent_Callback(QDialog_KeyReleaseEvent_Callback cb) { qdialog_keyreleaseevent_callback = cb; }
-    inline void setQDialog_FocusInEvent_Callback(QDialog_FocusInEvent_Callback cb) { qdialog_focusinevent_callback = cb; }
-    inline void setQDialog_FocusOutEvent_Callback(QDialog_FocusOutEvent_Callback cb) { qdialog_focusoutevent_callback = cb; }
-    inline void setQDialog_EnterEvent_Callback(QDialog_EnterEvent_Callback cb) { qdialog_enterevent_callback = cb; }
-    inline void setQDialog_LeaveEvent_Callback(QDialog_LeaveEvent_Callback cb) { qdialog_leaveevent_callback = cb; }
-    inline void setQDialog_PaintEvent_Callback(QDialog_PaintEvent_Callback cb) { qdialog_paintevent_callback = cb; }
-    inline void setQDialog_MoveEvent_Callback(QDialog_MoveEvent_Callback cb) { qdialog_moveevent_callback = cb; }
-    inline void setQDialog_TabletEvent_Callback(QDialog_TabletEvent_Callback cb) { qdialog_tabletevent_callback = cb; }
-    inline void setQDialog_ActionEvent_Callback(QDialog_ActionEvent_Callback cb) { qdialog_actionevent_callback = cb; }
-    inline void setQDialog_DragEnterEvent_Callback(QDialog_DragEnterEvent_Callback cb) { qdialog_dragenterevent_callback = cb; }
-    inline void setQDialog_DragMoveEvent_Callback(QDialog_DragMoveEvent_Callback cb) { qdialog_dragmoveevent_callback = cb; }
-    inline void setQDialog_DragLeaveEvent_Callback(QDialog_DragLeaveEvent_Callback cb) { qdialog_dragleaveevent_callback = cb; }
-    inline void setQDialog_DropEvent_Callback(QDialog_DropEvent_Callback cb) { qdialog_dropevent_callback = cb; }
-    inline void setQDialog_HideEvent_Callback(QDialog_HideEvent_Callback cb) { qdialog_hideevent_callback = cb; }
-    inline void setQDialog_NativeEvent_Callback(QDialog_NativeEvent_Callback cb) { qdialog_nativeevent_callback = cb; }
-    inline void setQDialog_ChangeEvent_Callback(QDialog_ChangeEvent_Callback cb) { qdialog_changeevent_callback = cb; }
-    inline void setQDialog_Metric_Callback(QDialog_Metric_Callback cb) { qdialog_metric_callback = cb; }
-    inline void setQDialog_InitPainter_Callback(QDialog_InitPainter_Callback cb) { qdialog_initpainter_callback = cb; }
-    inline void setQDialog_Redirected_Callback(QDialog_Redirected_Callback cb) { qdialog_redirected_callback = cb; }
-    inline void setQDialog_SharedPainter_Callback(QDialog_SharedPainter_Callback cb) { qdialog_sharedpainter_callback = cb; }
-    inline void setQDialog_InputMethodEvent_Callback(QDialog_InputMethodEvent_Callback cb) { qdialog_inputmethodevent_callback = cb; }
-    inline void setQDialog_InputMethodQuery_Callback(QDialog_InputMethodQuery_Callback cb) { qdialog_inputmethodquery_callback = cb; }
-    inline void setQDialog_FocusNextPrevChild_Callback(QDialog_FocusNextPrevChild_Callback cb) { qdialog_focusnextprevchild_callback = cb; }
-    inline void setQDialog_TimerEvent_Callback(QDialog_TimerEvent_Callback cb) { qdialog_timerevent_callback = cb; }
-    inline void setQDialog_ChildEvent_Callback(QDialog_ChildEvent_Callback cb) { qdialog_childevent_callback = cb; }
-    inline void setQDialog_CustomEvent_Callback(QDialog_CustomEvent_Callback cb) { qdialog_customevent_callback = cb; }
-    inline void setQDialog_ConnectNotify_Callback(QDialog_ConnectNotify_Callback cb) { qdialog_connectnotify_callback = cb; }
-    inline void setQDialog_DisconnectNotify_Callback(QDialog_DisconnectNotify_Callback cb) { qdialog_disconnectnotify_callback = cb; }
-    inline void setQDialog_AdjustPosition_Callback(QDialog_AdjustPosition_Callback cb) { qdialog_adjustposition_callback = cb; }
-    inline void setQDialog_UpdateMicroFocus_Callback(QDialog_UpdateMicroFocus_Callback cb) { qdialog_updatemicrofocus_callback = cb; }
-    inline void setQDialog_Create_Callback(QDialog_Create_Callback cb) { qdialog_create_callback = cb; }
-    inline void setQDialog_Destroy_Callback(QDialog_Destroy_Callback cb) { qdialog_destroy_callback = cb; }
-    inline void setQDialog_FocusNextChild_Callback(QDialog_FocusNextChild_Callback cb) { qdialog_focusnextchild_callback = cb; }
-    inline void setQDialog_FocusPreviousChild_Callback(QDialog_FocusPreviousChild_Callback cb) { qdialog_focuspreviouschild_callback = cb; }
-    inline void setQDialog_Sender_Callback(QDialog_Sender_Callback cb) { qdialog_sender_callback = cb; }
-    inline void setQDialog_SenderSignalIndex_Callback(QDialog_SenderSignalIndex_Callback cb) { qdialog_sendersignalindex_callback = cb; }
-    inline void setQDialog_Receivers_Callback(QDialog_Receivers_Callback cb) { qdialog_receivers_callback = cb; }
-    inline void setQDialog_IsSignalConnected_Callback(QDialog_IsSignalConnected_Callback cb) { qdialog_issignalconnected_callback = cb; }
-    inline void setQDialog_GetDecodedMetricF_Callback(QDialog_GetDecodedMetricF_Callback cb) { qdialog_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQDialog_MetaObject_IsBase(bool value) const { qdialog_metaobject_isbase = value; }
-    inline void setQDialog_Metacast_IsBase(bool value) const { qdialog_metacast_isbase = value; }
-    inline void setQDialog_Metacall_IsBase(bool value) const { qdialog_metacall_isbase = value; }
-    inline void setQDialog_SetVisible_IsBase(bool value) const { qdialog_setvisible_isbase = value; }
-    inline void setQDialog_SizeHint_IsBase(bool value) const { qdialog_sizehint_isbase = value; }
-    inline void setQDialog_MinimumSizeHint_IsBase(bool value) const { qdialog_minimumsizehint_isbase = value; }
-    inline void setQDialog_Open_IsBase(bool value) const { qdialog_open_isbase = value; }
-    inline void setQDialog_Exec_IsBase(bool value) const { qdialog_exec_isbase = value; }
-    inline void setQDialog_Done_IsBase(bool value) const { qdialog_done_isbase = value; }
-    inline void setQDialog_Accept_IsBase(bool value) const { qdialog_accept_isbase = value; }
-    inline void setQDialog_Reject_IsBase(bool value) const { qdialog_reject_isbase = value; }
-    inline void setQDialog_KeyPressEvent_IsBase(bool value) const { qdialog_keypressevent_isbase = value; }
-    inline void setQDialog_CloseEvent_IsBase(bool value) const { qdialog_closeevent_isbase = value; }
-    inline void setQDialog_ShowEvent_IsBase(bool value) const { qdialog_showevent_isbase = value; }
-    inline void setQDialog_ResizeEvent_IsBase(bool value) const { qdialog_resizeevent_isbase = value; }
-    inline void setQDialog_ContextMenuEvent_IsBase(bool value) const { qdialog_contextmenuevent_isbase = value; }
-    inline void setQDialog_EventFilter_IsBase(bool value) const { qdialog_eventfilter_isbase = value; }
-    inline void setQDialog_DevType_IsBase(bool value) const { qdialog_devtype_isbase = value; }
-    inline void setQDialog_HeightForWidth_IsBase(bool value) const { qdialog_heightforwidth_isbase = value; }
-    inline void setQDialog_HasHeightForWidth_IsBase(bool value) const { qdialog_hasheightforwidth_isbase = value; }
-    inline void setQDialog_PaintEngine_IsBase(bool value) const { qdialog_paintengine_isbase = value; }
-    inline void setQDialog_Event_IsBase(bool value) const { qdialog_event_isbase = value; }
-    inline void setQDialog_MousePressEvent_IsBase(bool value) const { qdialog_mousepressevent_isbase = value; }
-    inline void setQDialog_MouseReleaseEvent_IsBase(bool value) const { qdialog_mousereleaseevent_isbase = value; }
-    inline void setQDialog_MouseDoubleClickEvent_IsBase(bool value) const { qdialog_mousedoubleclickevent_isbase = value; }
-    inline void setQDialog_MouseMoveEvent_IsBase(bool value) const { qdialog_mousemoveevent_isbase = value; }
-    inline void setQDialog_WheelEvent_IsBase(bool value) const { qdialog_wheelevent_isbase = value; }
-    inline void setQDialog_KeyReleaseEvent_IsBase(bool value) const { qdialog_keyreleaseevent_isbase = value; }
-    inline void setQDialog_FocusInEvent_IsBase(bool value) const { qdialog_focusinevent_isbase = value; }
-    inline void setQDialog_FocusOutEvent_IsBase(bool value) const { qdialog_focusoutevent_isbase = value; }
-    inline void setQDialog_EnterEvent_IsBase(bool value) const { qdialog_enterevent_isbase = value; }
-    inline void setQDialog_LeaveEvent_IsBase(bool value) const { qdialog_leaveevent_isbase = value; }
-    inline void setQDialog_PaintEvent_IsBase(bool value) const { qdialog_paintevent_isbase = value; }
-    inline void setQDialog_MoveEvent_IsBase(bool value) const { qdialog_moveevent_isbase = value; }
-    inline void setQDialog_TabletEvent_IsBase(bool value) const { qdialog_tabletevent_isbase = value; }
-    inline void setQDialog_ActionEvent_IsBase(bool value) const { qdialog_actionevent_isbase = value; }
-    inline void setQDialog_DragEnterEvent_IsBase(bool value) const { qdialog_dragenterevent_isbase = value; }
-    inline void setQDialog_DragMoveEvent_IsBase(bool value) const { qdialog_dragmoveevent_isbase = value; }
-    inline void setQDialog_DragLeaveEvent_IsBase(bool value) const { qdialog_dragleaveevent_isbase = value; }
-    inline void setQDialog_DropEvent_IsBase(bool value) const { qdialog_dropevent_isbase = value; }
-    inline void setQDialog_HideEvent_IsBase(bool value) const { qdialog_hideevent_isbase = value; }
-    inline void setQDialog_NativeEvent_IsBase(bool value) const { qdialog_nativeevent_isbase = value; }
-    inline void setQDialog_ChangeEvent_IsBase(bool value) const { qdialog_changeevent_isbase = value; }
-    inline void setQDialog_Metric_IsBase(bool value) const { qdialog_metric_isbase = value; }
-    inline void setQDialog_InitPainter_IsBase(bool value) const { qdialog_initpainter_isbase = value; }
-    inline void setQDialog_Redirected_IsBase(bool value) const { qdialog_redirected_isbase = value; }
-    inline void setQDialog_SharedPainter_IsBase(bool value) const { qdialog_sharedpainter_isbase = value; }
-    inline void setQDialog_InputMethodEvent_IsBase(bool value) const { qdialog_inputmethodevent_isbase = value; }
-    inline void setQDialog_InputMethodQuery_IsBase(bool value) const { qdialog_inputmethodquery_isbase = value; }
-    inline void setQDialog_FocusNextPrevChild_IsBase(bool value) const { qdialog_focusnextprevchild_isbase = value; }
-    inline void setQDialog_TimerEvent_IsBase(bool value) const { qdialog_timerevent_isbase = value; }
-    inline void setQDialog_ChildEvent_IsBase(bool value) const { qdialog_childevent_isbase = value; }
-    inline void setQDialog_CustomEvent_IsBase(bool value) const { qdialog_customevent_isbase = value; }
-    inline void setQDialog_ConnectNotify_IsBase(bool value) const { qdialog_connectnotify_isbase = value; }
-    inline void setQDialog_DisconnectNotify_IsBase(bool value) const { qdialog_disconnectnotify_isbase = value; }
-    inline void setQDialog_AdjustPosition_IsBase(bool value) const { qdialog_adjustposition_isbase = value; }
-    inline void setQDialog_UpdateMicroFocus_IsBase(bool value) const { qdialog_updatemicrofocus_isbase = value; }
-    inline void setQDialog_Create_IsBase(bool value) const { qdialog_create_isbase = value; }
-    inline void setQDialog_Destroy_IsBase(bool value) const { qdialog_destroy_isbase = value; }
-    inline void setQDialog_FocusNextChild_IsBase(bool value) const { qdialog_focusnextchild_isbase = value; }
-    inline void setQDialog_FocusPreviousChild_IsBase(bool value) const { qdialog_focuspreviouschild_isbase = value; }
-    inline void setQDialog_Sender_IsBase(bool value) const { qdialog_sender_isbase = value; }
-    inline void setQDialog_SenderSignalIndex_IsBase(bool value) const { qdialog_sendersignalindex_isbase = value; }
-    inline void setQDialog_Receivers_IsBase(bool value) const { qdialog_receivers_isbase = value; }
-    inline void setQDialog_IsSignalConnected_IsBase(bool value) const { qdialog_issignalconnected_isbase = value; }
-    inline void setQDialog_GetDecodedMetricF_IsBase(bool value) const { qdialog_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qdialog_metaobject_isbase) {
-            qdialog_metaobject_isbase = false;
-            return QDialog::metaObject();
-        }
-        auto metaobject_cb = qdialog_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qdialog_metaobject_callback) {
+            QMetaObject* callback_ret = qdialog_metaobject_callback(this);
             return callback_ret;
         }
         return QDialog::metaObject();
@@ -378,14 +195,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qdialog_metacast_isbase) {
-            qdialog_metacast_isbase = false;
-            return QDialog::qt_metacast(param1);
-        }
-        auto metacast_cb = qdialog_metacast_callback;
-        if (metacast_cb) {
+        if (qdialog_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qdialog_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QDialog::qt_metacast(param1);
@@ -393,16 +205,11 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qdialog_metacall_isbase) {
-            qdialog_metacall_isbase = false;
-            return QDialog::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qdialog_metacall_callback;
-        if (metacall_cb) {
+        if (qdialog_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qdialog_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QDialog::qt_metacall(param1, param2, param3);
@@ -410,15 +217,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qdialog_setvisible_isbase) {
-            qdialog_setvisible_isbase = false;
-            QDialog::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qdialog_setvisible_callback;
-        if (setvisible_cb) {
+        if (qdialog_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qdialog_setvisible_callback(this, cbval1);
             return;
         }
         QDialog::setVisible(visible);
@@ -426,13 +227,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qdialog_sizehint_isbase) {
-            qdialog_sizehint_isbase = false;
-            return QDialog::sizeHint();
-        }
-        auto sizehint_cb = qdialog_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qdialog_sizehint_callback) {
+            QSize* callback_ret = qdialog_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -442,13 +238,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qdialog_minimumsizehint_isbase) {
-            qdialog_minimumsizehint_isbase = false;
-            return QDialog::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qdialog_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qdialog_minimumsizehint_callback) {
+            QSize* callback_ret = qdialog_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -458,14 +249,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void open() override {
-        if (qdialog_open_isbase) {
-            qdialog_open_isbase = false;
-            QDialog::open();
-            return;
-        }
-        auto open_cb = qdialog_open_callback;
-        if (open_cb) {
-            open_cb();
+        if (qdialog_open_callback) {
+            qdialog_open_callback(this);
             return;
         }
         QDialog::open();
@@ -473,13 +258,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int exec() override {
-        if (qdialog_exec_isbase) {
-            qdialog_exec_isbase = false;
-            return QDialog::exec();
-        }
-        auto exec_cb = qdialog_exec_callback;
-        if (exec_cb) {
-            int callback_ret = exec_cb();
+        if (qdialog_exec_callback) {
+            int callback_ret = qdialog_exec_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QDialog::exec();
@@ -487,15 +267,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void done(int param1) override {
-        if (qdialog_done_isbase) {
-            qdialog_done_isbase = false;
-            QDialog::done(param1);
-            return;
-        }
-        auto done_cb = qdialog_done_callback;
-        if (done_cb) {
+        if (qdialog_done_callback) {
             int cbval1 = param1;
-            done_cb(this, cbval1);
+            qdialog_done_callback(this, cbval1);
             return;
         }
         QDialog::done(param1);
@@ -503,14 +277,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void accept() override {
-        if (qdialog_accept_isbase) {
-            qdialog_accept_isbase = false;
-            QDialog::accept();
-            return;
-        }
-        auto accept_cb = qdialog_accept_callback;
-        if (accept_cb) {
-            accept_cb();
+        if (qdialog_accept_callback) {
+            qdialog_accept_callback(this);
             return;
         }
         QDialog::accept();
@@ -518,14 +286,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void reject() override {
-        if (qdialog_reject_isbase) {
-            qdialog_reject_isbase = false;
-            QDialog::reject();
-            return;
-        }
-        auto reject_cb = qdialog_reject_callback;
-        if (reject_cb) {
-            reject_cb();
+        if (qdialog_reject_callback) {
+            qdialog_reject_callback(this);
             return;
         }
         QDialog::reject();
@@ -533,15 +295,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (qdialog_keypressevent_isbase) {
-            qdialog_keypressevent_isbase = false;
-            QDialog::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = qdialog_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qdialog_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            qdialog_keypressevent_callback(this, cbval1);
             return;
         }
         QDialog::keyPressEvent(param1);
@@ -549,15 +305,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* param1) override {
-        if (qdialog_closeevent_isbase) {
-            qdialog_closeevent_isbase = false;
-            QDialog::closeEvent(param1);
-            return;
-        }
-        auto closeevent_cb = qdialog_closeevent_callback;
-        if (closeevent_cb) {
+        if (qdialog_closeevent_callback) {
             QCloseEvent* cbval1 = param1;
-            closeevent_cb(this, cbval1);
+            qdialog_closeevent_callback(this, cbval1);
             return;
         }
         QDialog::closeEvent(param1);
@@ -565,15 +315,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (qdialog_showevent_isbase) {
-            qdialog_showevent_isbase = false;
-            QDialog::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = qdialog_showevent_callback;
-        if (showevent_cb) {
+        if (qdialog_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            qdialog_showevent_callback(this, cbval1);
             return;
         }
         QDialog::showEvent(param1);
@@ -581,15 +325,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* param1) override {
-        if (qdialog_resizeevent_isbase) {
-            qdialog_resizeevent_isbase = false;
-            QDialog::resizeEvent(param1);
-            return;
-        }
-        auto resizeevent_cb = qdialog_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qdialog_resizeevent_callback) {
             QResizeEvent* cbval1 = param1;
-            resizeevent_cb(this, cbval1);
+            qdialog_resizeevent_callback(this, cbval1);
             return;
         }
         QDialog::resizeEvent(param1);
@@ -597,15 +335,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (qdialog_contextmenuevent_isbase) {
-            qdialog_contextmenuevent_isbase = false;
-            QDialog::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = qdialog_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qdialog_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            qdialog_contextmenuevent_callback(this, cbval1);
             return;
         }
         QDialog::contextMenuEvent(param1);
@@ -613,15 +345,10 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (qdialog_eventfilter_isbase) {
-            qdialog_eventfilter_isbase = false;
-            return QDialog::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = qdialog_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qdialog_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qdialog_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QDialog::eventFilter(param1, param2);
@@ -629,13 +356,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qdialog_devtype_isbase) {
-            qdialog_devtype_isbase = false;
-            return QDialog::devType();
-        }
-        auto devtype_cb = qdialog_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qdialog_devtype_callback) {
+            int callback_ret = qdialog_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QDialog::devType();
@@ -643,14 +365,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qdialog_heightforwidth_isbase) {
-            qdialog_heightforwidth_isbase = false;
-            return QDialog::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qdialog_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qdialog_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qdialog_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QDialog::heightForWidth(param1);
@@ -658,13 +375,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qdialog_hasheightforwidth_isbase) {
-            qdialog_hasheightforwidth_isbase = false;
-            return QDialog::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qdialog_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qdialog_hasheightforwidth_callback) {
+            bool callback_ret = qdialog_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QDialog::hasHeightForWidth();
@@ -672,13 +384,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qdialog_paintengine_isbase) {
-            qdialog_paintengine_isbase = false;
-            return QDialog::paintEngine();
-        }
-        auto paintengine_cb = qdialog_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qdialog_paintengine_callback) {
+            QPaintEngine* callback_ret = qdialog_paintengine_callback(this);
             return callback_ret;
         }
         return QDialog::paintEngine();
@@ -686,14 +393,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qdialog_event_isbase) {
-            qdialog_event_isbase = false;
-            return QDialog::event(event);
-        }
-        auto event_cb = qdialog_event_callback;
-        if (event_cb) {
+        if (qdialog_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qdialog_event_callback(this, cbval1);
             return callback_ret;
         }
         return QDialog::event(event);
@@ -701,15 +403,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qdialog_mousepressevent_isbase) {
-            qdialog_mousepressevent_isbase = false;
-            QDialog::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qdialog_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qdialog_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qdialog_mousepressevent_callback(this, cbval1);
             return;
         }
         QDialog::mousePressEvent(event);
@@ -717,15 +413,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qdialog_mousereleaseevent_isbase) {
-            qdialog_mousereleaseevent_isbase = false;
-            QDialog::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qdialog_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qdialog_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qdialog_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QDialog::mouseReleaseEvent(event);
@@ -733,15 +423,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qdialog_mousedoubleclickevent_isbase) {
-            qdialog_mousedoubleclickevent_isbase = false;
-            QDialog::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qdialog_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qdialog_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qdialog_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QDialog::mouseDoubleClickEvent(event);
@@ -749,15 +433,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qdialog_mousemoveevent_isbase) {
-            qdialog_mousemoveevent_isbase = false;
-            QDialog::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qdialog_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qdialog_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qdialog_mousemoveevent_callback(this, cbval1);
             return;
         }
         QDialog::mouseMoveEvent(event);
@@ -765,15 +443,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qdialog_wheelevent_isbase) {
-            qdialog_wheelevent_isbase = false;
-            QDialog::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qdialog_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qdialog_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qdialog_wheelevent_callback(this, cbval1);
             return;
         }
         QDialog::wheelEvent(event);
@@ -781,15 +453,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qdialog_keyreleaseevent_isbase) {
-            qdialog_keyreleaseevent_isbase = false;
-            QDialog::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qdialog_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qdialog_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qdialog_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QDialog::keyReleaseEvent(event);
@@ -797,15 +463,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qdialog_focusinevent_isbase) {
-            qdialog_focusinevent_isbase = false;
-            QDialog::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qdialog_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qdialog_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qdialog_focusinevent_callback(this, cbval1);
             return;
         }
         QDialog::focusInEvent(event);
@@ -813,15 +473,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qdialog_focusoutevent_isbase) {
-            qdialog_focusoutevent_isbase = false;
-            QDialog::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qdialog_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qdialog_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qdialog_focusoutevent_callback(this, cbval1);
             return;
         }
         QDialog::focusOutEvent(event);
@@ -829,15 +483,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qdialog_enterevent_isbase) {
-            qdialog_enterevent_isbase = false;
-            QDialog::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qdialog_enterevent_callback;
-        if (enterevent_cb) {
+        if (qdialog_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qdialog_enterevent_callback(this, cbval1);
             return;
         }
         QDialog::enterEvent(event);
@@ -845,15 +493,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qdialog_leaveevent_isbase) {
-            qdialog_leaveevent_isbase = false;
-            QDialog::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qdialog_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qdialog_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qdialog_leaveevent_callback(this, cbval1);
             return;
         }
         QDialog::leaveEvent(event);
@@ -861,15 +503,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qdialog_paintevent_isbase) {
-            qdialog_paintevent_isbase = false;
-            QDialog::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qdialog_paintevent_callback;
-        if (paintevent_cb) {
+        if (qdialog_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qdialog_paintevent_callback(this, cbval1);
             return;
         }
         QDialog::paintEvent(event);
@@ -877,15 +513,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qdialog_moveevent_isbase) {
-            qdialog_moveevent_isbase = false;
-            QDialog::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qdialog_moveevent_callback;
-        if (moveevent_cb) {
+        if (qdialog_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qdialog_moveevent_callback(this, cbval1);
             return;
         }
         QDialog::moveEvent(event);
@@ -893,15 +523,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qdialog_tabletevent_isbase) {
-            qdialog_tabletevent_isbase = false;
-            QDialog::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qdialog_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qdialog_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qdialog_tabletevent_callback(this, cbval1);
             return;
         }
         QDialog::tabletEvent(event);
@@ -909,15 +533,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qdialog_actionevent_isbase) {
-            qdialog_actionevent_isbase = false;
-            QDialog::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qdialog_actionevent_callback;
-        if (actionevent_cb) {
+        if (qdialog_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qdialog_actionevent_callback(this, cbval1);
             return;
         }
         QDialog::actionEvent(event);
@@ -925,15 +543,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qdialog_dragenterevent_isbase) {
-            qdialog_dragenterevent_isbase = false;
-            QDialog::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qdialog_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qdialog_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qdialog_dragenterevent_callback(this, cbval1);
             return;
         }
         QDialog::dragEnterEvent(event);
@@ -941,15 +553,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qdialog_dragmoveevent_isbase) {
-            qdialog_dragmoveevent_isbase = false;
-            QDialog::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qdialog_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qdialog_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qdialog_dragmoveevent_callback(this, cbval1);
             return;
         }
         QDialog::dragMoveEvent(event);
@@ -957,15 +563,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qdialog_dragleaveevent_isbase) {
-            qdialog_dragleaveevent_isbase = false;
-            QDialog::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qdialog_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qdialog_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qdialog_dragleaveevent_callback(this, cbval1);
             return;
         }
         QDialog::dragLeaveEvent(event);
@@ -973,15 +573,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qdialog_dropevent_isbase) {
-            qdialog_dropevent_isbase = false;
-            QDialog::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qdialog_dropevent_callback;
-        if (dropevent_cb) {
+        if (qdialog_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qdialog_dropevent_callback(this, cbval1);
             return;
         }
         QDialog::dropEvent(event);
@@ -989,15 +583,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qdialog_hideevent_isbase) {
-            qdialog_hideevent_isbase = false;
-            QDialog::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qdialog_hideevent_callback;
-        if (hideevent_cb) {
+        if (qdialog_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qdialog_hideevent_callback(this, cbval1);
             return;
         }
         QDialog::hideEvent(event);
@@ -1005,12 +593,7 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qdialog_nativeevent_isbase) {
-            qdialog_nativeevent_isbase = false;
-            return QDialog::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qdialog_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qdialog_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1020,7 +603,7 @@ class VirtualQDialog final : public QDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1029,15 +612,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qdialog_changeevent_isbase) {
-            qdialog_changeevent_isbase = false;
-            QDialog::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qdialog_changeevent_callback;
-        if (changeevent_cb) {
+        if (qdialog_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qdialog_changeevent_callback(this, cbval1);
             return;
         }
         QDialog::changeEvent(param1);
@@ -1045,14 +622,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qdialog_metric_isbase) {
-            qdialog_metric_isbase = false;
-            return QDialog::metric(param1);
-        }
-        auto metric_cb = qdialog_metric_callback;
-        if (metric_cb) {
+        if (qdialog_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qdialog_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QDialog::metric(param1);
@@ -1060,15 +632,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qdialog_initpainter_isbase) {
-            qdialog_initpainter_isbase = false;
-            QDialog::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qdialog_initpainter_callback;
-        if (initpainter_cb) {
+        if (qdialog_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qdialog_initpainter_callback(this, cbval1);
             return;
         }
         QDialog::initPainter(painter);
@@ -1076,14 +642,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qdialog_redirected_isbase) {
-            qdialog_redirected_isbase = false;
-            return QDialog::redirected(offset);
-        }
-        auto redirected_cb = qdialog_redirected_callback;
-        if (redirected_cb) {
+        if (qdialog_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qdialog_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QDialog::redirected(offset);
@@ -1091,13 +652,8 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qdialog_sharedpainter_isbase) {
-            qdialog_sharedpainter_isbase = false;
-            return QDialog::sharedPainter();
-        }
-        auto sharedpainter_cb = qdialog_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qdialog_sharedpainter_callback) {
+            QPainter* callback_ret = qdialog_sharedpainter_callback(this);
             return callback_ret;
         }
         return QDialog::sharedPainter();
@@ -1105,15 +661,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qdialog_inputmethodevent_isbase) {
-            qdialog_inputmethodevent_isbase = false;
-            QDialog::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qdialog_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qdialog_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qdialog_inputmethodevent_callback(this, cbval1);
             return;
         }
         QDialog::inputMethodEvent(param1);
@@ -1121,14 +671,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qdialog_inputmethodquery_isbase) {
-            qdialog_inputmethodquery_isbase = false;
-            return QDialog::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qdialog_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qdialog_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qdialog_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1138,14 +683,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qdialog_focusnextprevchild_isbase) {
-            qdialog_focusnextprevchild_isbase = false;
-            return QDialog::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qdialog_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qdialog_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qdialog_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QDialog::focusNextPrevChild(next);
@@ -1153,15 +693,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qdialog_timerevent_isbase) {
-            qdialog_timerevent_isbase = false;
-            QDialog::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qdialog_timerevent_callback;
-        if (timerevent_cb) {
+        if (qdialog_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qdialog_timerevent_callback(this, cbval1);
             return;
         }
         QDialog::timerEvent(event);
@@ -1169,15 +703,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qdialog_childevent_isbase) {
-            qdialog_childevent_isbase = false;
-            QDialog::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qdialog_childevent_callback;
-        if (childevent_cb) {
+        if (qdialog_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qdialog_childevent_callback(this, cbval1);
             return;
         }
         QDialog::childEvent(event);
@@ -1185,15 +713,9 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qdialog_customevent_isbase) {
-            qdialog_customevent_isbase = false;
-            QDialog::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qdialog_customevent_callback;
-        if (customevent_cb) {
+        if (qdialog_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qdialog_customevent_callback(this, cbval1);
             return;
         }
         QDialog::customEvent(event);
@@ -1201,17 +723,11 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qdialog_connectnotify_isbase) {
-            qdialog_connectnotify_isbase = false;
-            QDialog::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qdialog_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qdialog_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qdialog_connectnotify_callback(this, cbval1);
             return;
         }
         QDialog::connectNotify(signal);
@@ -1219,288 +735,56 @@ class VirtualQDialog final : public QDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qdialog_disconnectnotify_isbase) {
-            qdialog_disconnectnotify_isbase = false;
-            QDialog::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qdialog_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qdialog_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qdialog_disconnectnotify_callback(this, cbval1);
             return;
         }
         QDialog::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void adjustPosition(QWidget* param1) {
-        if (qdialog_adjustposition_isbase) {
-            qdialog_adjustposition_isbase = false;
-            QDialog::adjustPosition(param1);
-            return;
-        }
-        auto adjustposition_cb = qdialog_adjustposition_callback;
-        if (adjustposition_cb) {
-            QWidget* cbval1 = param1;
-            adjustposition_cb(this, cbval1);
-            return;
-        }
-        QDialog::adjustPosition(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qdialog_updatemicrofocus_isbase) {
-            qdialog_updatemicrofocus_isbase = false;
-            QDialog::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qdialog_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QDialog::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qdialog_create_isbase) {
-            qdialog_create_isbase = false;
-            QDialog::create();
-            return;
-        }
-        auto create_cb = qdialog_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QDialog::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qdialog_destroy_isbase) {
-            qdialog_destroy_isbase = false;
-            QDialog::destroy();
-            return;
-        }
-        auto destroy_cb = qdialog_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QDialog::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qdialog_focusnextchild_isbase) {
-            qdialog_focusnextchild_isbase = false;
-            return QDialog::focusNextChild();
-        }
-        auto focusnextchild_cb = qdialog_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QDialog::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qdialog_focuspreviouschild_isbase) {
-            qdialog_focuspreviouschild_isbase = false;
-            return QDialog::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qdialog_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QDialog::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qdialog_sender_isbase) {
-            qdialog_sender_isbase = false;
-            return QDialog::sender();
-        }
-        auto sender_cb = qdialog_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QDialog::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qdialog_sendersignalindex_isbase) {
-            qdialog_sendersignalindex_isbase = false;
-            return QDialog::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qdialog_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QDialog::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qdialog_receivers_isbase) {
-            qdialog_receivers_isbase = false;
-            return QDialog::receivers(signal);
-        }
-        auto receivers_cb = qdialog_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QDialog::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qdialog_issignalconnected_isbase) {
-            qdialog_issignalconnected_isbase = false;
-            return QDialog::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qdialog_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QDialog::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qdialog_getdecodedmetricf_isbase) {
-            qdialog_getdecodedmetricf_isbase = false;
-            return QDialog::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qdialog_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QDialog::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QDialog_KeyPressEvent(QDialog* self, QKeyEvent* param1);
     friend void QDialog_SuperKeyPressEvent(QDialog* self, QKeyEvent* param1);
-    friend void QDialog_CloseEvent(QDialog* self, QCloseEvent* param1);
     friend void QDialog_SuperCloseEvent(QDialog* self, QCloseEvent* param1);
-    friend void QDialog_ShowEvent(QDialog* self, QShowEvent* param1);
     friend void QDialog_SuperShowEvent(QDialog* self, QShowEvent* param1);
-    friend void QDialog_ResizeEvent(QDialog* self, QResizeEvent* param1);
     friend void QDialog_SuperResizeEvent(QDialog* self, QResizeEvent* param1);
-    friend void QDialog_ContextMenuEvent(QDialog* self, QContextMenuEvent* param1);
     friend void QDialog_SuperContextMenuEvent(QDialog* self, QContextMenuEvent* param1);
-    friend bool QDialog_EventFilter(QDialog* self, QObject* param1, QEvent* param2);
     friend bool QDialog_SuperEventFilter(QDialog* self, QObject* param1, QEvent* param2);
-    friend bool QDialog_Event(QDialog* self, QEvent* event);
     friend bool QDialog_SuperEvent(QDialog* self, QEvent* event);
-    friend void QDialog_MousePressEvent(QDialog* self, QMouseEvent* event);
     friend void QDialog_SuperMousePressEvent(QDialog* self, QMouseEvent* event);
-    friend void QDialog_MouseReleaseEvent(QDialog* self, QMouseEvent* event);
     friend void QDialog_SuperMouseReleaseEvent(QDialog* self, QMouseEvent* event);
-    friend void QDialog_MouseDoubleClickEvent(QDialog* self, QMouseEvent* event);
     friend void QDialog_SuperMouseDoubleClickEvent(QDialog* self, QMouseEvent* event);
-    friend void QDialog_MouseMoveEvent(QDialog* self, QMouseEvent* event);
     friend void QDialog_SuperMouseMoveEvent(QDialog* self, QMouseEvent* event);
-    friend void QDialog_WheelEvent(QDialog* self, QWheelEvent* event);
     friend void QDialog_SuperWheelEvent(QDialog* self, QWheelEvent* event);
-    friend void QDialog_KeyReleaseEvent(QDialog* self, QKeyEvent* event);
     friend void QDialog_SuperKeyReleaseEvent(QDialog* self, QKeyEvent* event);
-    friend void QDialog_FocusInEvent(QDialog* self, QFocusEvent* event);
     friend void QDialog_SuperFocusInEvent(QDialog* self, QFocusEvent* event);
-    friend void QDialog_FocusOutEvent(QDialog* self, QFocusEvent* event);
     friend void QDialog_SuperFocusOutEvent(QDialog* self, QFocusEvent* event);
-    friend void QDialog_EnterEvent(QDialog* self, QEnterEvent* event);
     friend void QDialog_SuperEnterEvent(QDialog* self, QEnterEvent* event);
-    friend void QDialog_LeaveEvent(QDialog* self, QEvent* event);
     friend void QDialog_SuperLeaveEvent(QDialog* self, QEvent* event);
-    friend void QDialog_PaintEvent(QDialog* self, QPaintEvent* event);
     friend void QDialog_SuperPaintEvent(QDialog* self, QPaintEvent* event);
-    friend void QDialog_MoveEvent(QDialog* self, QMoveEvent* event);
     friend void QDialog_SuperMoveEvent(QDialog* self, QMoveEvent* event);
-    friend void QDialog_TabletEvent(QDialog* self, QTabletEvent* event);
     friend void QDialog_SuperTabletEvent(QDialog* self, QTabletEvent* event);
-    friend void QDialog_ActionEvent(QDialog* self, QActionEvent* event);
     friend void QDialog_SuperActionEvent(QDialog* self, QActionEvent* event);
-    friend void QDialog_DragEnterEvent(QDialog* self, QDragEnterEvent* event);
     friend void QDialog_SuperDragEnterEvent(QDialog* self, QDragEnterEvent* event);
-    friend void QDialog_DragMoveEvent(QDialog* self, QDragMoveEvent* event);
     friend void QDialog_SuperDragMoveEvent(QDialog* self, QDragMoveEvent* event);
-    friend void QDialog_DragLeaveEvent(QDialog* self, QDragLeaveEvent* event);
     friend void QDialog_SuperDragLeaveEvent(QDialog* self, QDragLeaveEvent* event);
-    friend void QDialog_DropEvent(QDialog* self, QDropEvent* event);
     friend void QDialog_SuperDropEvent(QDialog* self, QDropEvent* event);
-    friend void QDialog_HideEvent(QDialog* self, QHideEvent* event);
     friend void QDialog_SuperHideEvent(QDialog* self, QHideEvent* event);
-    friend bool QDialog_NativeEvent(QDialog* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QDialog_SuperNativeEvent(QDialog* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QDialog_ChangeEvent(QDialog* self, QEvent* param1);
     friend void QDialog_SuperChangeEvent(QDialog* self, QEvent* param1);
-    friend int QDialog_Metric(const QDialog* self, int param1);
     friend int QDialog_SuperMetric(const QDialog* self, int param1);
-    friend void QDialog_InitPainter(const QDialog* self, QPainter* painter);
     friend void QDialog_SuperInitPainter(const QDialog* self, QPainter* painter);
-    friend QPaintDevice* QDialog_Redirected(const QDialog* self, QPoint* offset);
     friend QPaintDevice* QDialog_SuperRedirected(const QDialog* self, QPoint* offset);
-    friend QPainter* QDialog_SharedPainter(const QDialog* self);
     friend QPainter* QDialog_SuperSharedPainter(const QDialog* self);
-    friend void QDialog_InputMethodEvent(QDialog* self, QInputMethodEvent* param1);
     friend void QDialog_SuperInputMethodEvent(QDialog* self, QInputMethodEvent* param1);
-    friend bool QDialog_FocusNextPrevChild(QDialog* self, bool next);
     friend bool QDialog_SuperFocusNextPrevChild(QDialog* self, bool next);
-    friend void QDialog_TimerEvent(QDialog* self, QTimerEvent* event);
     friend void QDialog_SuperTimerEvent(QDialog* self, QTimerEvent* event);
-    friend void QDialog_ChildEvent(QDialog* self, QChildEvent* event);
     friend void QDialog_SuperChildEvent(QDialog* self, QChildEvent* event);
-    friend void QDialog_CustomEvent(QDialog* self, QEvent* event);
     friend void QDialog_SuperCustomEvent(QDialog* self, QEvent* event);
-    friend void QDialog_ConnectNotify(QDialog* self, const QMetaMethod* signal);
     friend void QDialog_SuperConnectNotify(QDialog* self, const QMetaMethod* signal);
-    friend void QDialog_DisconnectNotify(QDialog* self, const QMetaMethod* signal);
     friend void QDialog_SuperDisconnectNotify(QDialog* self, const QMetaMethod* signal);
-    friend void QDialog_AdjustPosition(QDialog* self, QWidget* param1);
-    friend void QDialog_SuperAdjustPosition(QDialog* self, QWidget* param1);
-    friend void QDialog_UpdateMicroFocus(QDialog* self);
-    friend void QDialog_SuperUpdateMicroFocus(QDialog* self);
-    friend void QDialog_Create(QDialog* self);
-    friend void QDialog_SuperCreate(QDialog* self);
-    friend void QDialog_Destroy(QDialog* self);
-    friend void QDialog_SuperDestroy(QDialog* self);
-    friend bool QDialog_FocusNextChild(QDialog* self);
-    friend bool QDialog_SuperFocusNextChild(QDialog* self);
-    friend bool QDialog_FocusPreviousChild(QDialog* self);
-    friend bool QDialog_SuperFocusPreviousChild(QDialog* self);
-    friend QObject* QDialog_Sender(const QDialog* self);
-    friend QObject* QDialog_SuperSender(const QDialog* self);
-    friend int QDialog_SenderSignalIndex(const QDialog* self);
-    friend int QDialog_SuperSenderSignalIndex(const QDialog* self);
-    friend int QDialog_Receivers(const QDialog* self, const char* signal);
-    friend int QDialog_SuperReceivers(const QDialog* self, const char* signal);
-    friend bool QDialog_IsSignalConnected(const QDialog* self, const QMetaMethod* signal);
-    friend bool QDialog_SuperIsSignalConnected(const QDialog* self, const QMetaMethod* signal);
-    friend double QDialog_GetDecodedMetricF(const QDialog* self, int metricA, int metricB);
-    friend double QDialog_SuperGetDecodedMetricF(const QDialog* self, int metricA, int metricB);
 };
 
 #endif

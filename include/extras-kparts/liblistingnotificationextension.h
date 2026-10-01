@@ -43,13 +43,13 @@ void KParts__ListingNotificationExtension_ListingEvent(KParts__ListingNotificati
 void KParts__ListingNotificationExtension_Connect_ListingEvent(KParts__ListingNotificationExtension* self, intptr_t slot);
 libqt_string KParts__ListingNotificationExtension_Tr2(const char* s, const char* c);
 libqt_string KParts__ListingNotificationExtension_Tr3(const char* s, const char* c, int n);
-void KParts__ListingNotificationExtension_OnMetaObject(const KParts__ListingNotificationExtension* self, intptr_t slot);
+void KParts__ListingNotificationExtension_OnMetaObject(KParts__ListingNotificationExtension* self, intptr_t slot);
 QMetaObject* KParts__ListingNotificationExtension_SuperMetaObject(const KParts__ListingNotificationExtension* self);
 void KParts__ListingNotificationExtension_OnMetacast(KParts__ListingNotificationExtension* self, intptr_t slot);
 void* KParts__ListingNotificationExtension_SuperMetacast(KParts__ListingNotificationExtension* self, const char* param1);
 void KParts__ListingNotificationExtension_OnMetacall(KParts__ListingNotificationExtension* self, intptr_t slot);
 int KParts__ListingNotificationExtension_SuperMetacall(KParts__ListingNotificationExtension* self, int param1, int param2, void** param3);
-void KParts__ListingNotificationExtension_OnSupportedNotificationEventTypes(const KParts__ListingNotificationExtension* self, intptr_t slot);
+void KParts__ListingNotificationExtension_OnSupportedNotificationEventTypes(KParts__ListingNotificationExtension* self, intptr_t slot);
 int KParts__ListingNotificationExtension_SuperSupportedNotificationEventTypes(const KParts__ListingNotificationExtension* self);
 bool KParts__ListingNotificationExtension_Event(KParts__ListingNotificationExtension* self, QEvent* event);
 void KParts__ListingNotificationExtension_OnEvent(KParts__ListingNotificationExtension* self, intptr_t slot);
@@ -73,17 +73,9 @@ void KParts__ListingNotificationExtension_DisconnectNotify(KParts__ListingNotifi
 void KParts__ListingNotificationExtension_OnDisconnectNotify(KParts__ListingNotificationExtension* self, intptr_t slot);
 void KParts__ListingNotificationExtension_SuperDisconnectNotify(KParts__ListingNotificationExtension* self, const QMetaMethod* signal);
 QObject* KParts__ListingNotificationExtension_Sender(const KParts__ListingNotificationExtension* self);
-void KParts__ListingNotificationExtension_OnSender(const KParts__ListingNotificationExtension* self, intptr_t slot);
-QObject* KParts__ListingNotificationExtension_SuperSender(const KParts__ListingNotificationExtension* self);
 int KParts__ListingNotificationExtension_SenderSignalIndex(const KParts__ListingNotificationExtension* self);
-void KParts__ListingNotificationExtension_OnSenderSignalIndex(const KParts__ListingNotificationExtension* self, intptr_t slot);
-int KParts__ListingNotificationExtension_SuperSenderSignalIndex(const KParts__ListingNotificationExtension* self);
 int KParts__ListingNotificationExtension_Receivers(const KParts__ListingNotificationExtension* self, const char* signal);
-void KParts__ListingNotificationExtension_OnReceivers(const KParts__ListingNotificationExtension* self, intptr_t slot);
-int KParts__ListingNotificationExtension_SuperReceivers(const KParts__ListingNotificationExtension* self, const char* signal);
 bool KParts__ListingNotificationExtension_IsSignalConnected(const KParts__ListingNotificationExtension* self, const QMetaMethod* signal);
-void KParts__ListingNotificationExtension_OnIsSignalConnected(const KParts__ListingNotificationExtension* self, intptr_t slot);
-bool KParts__ListingNotificationExtension_SuperIsSignalConnected(const KParts__ListingNotificationExtension* self, const QMetaMethod* signal);
 void KParts__ListingNotificationExtension_Delete(KParts__ListingNotificationExtension* self);
 
 #ifdef __cplusplus

@@ -59,20 +59,12 @@ QActionGroup* QFormBuilder_CreateActionGroup(QFormBuilder* self, QObject* parent
 void QFormBuilder_OnCreateActionGroup(QFormBuilder* self, intptr_t slot);
 QActionGroup* QFormBuilder_SuperCreateActionGroup(QFormBuilder* self, QObject* parent, const libqt_string name);
 bool QFormBuilder_CheckProperty(const QFormBuilder* self, QObject* obj, const libqt_string prop);
-void QFormBuilder_OnCheckProperty(const QFormBuilder* self, intptr_t slot);
+void QFormBuilder_OnCheckProperty(QFormBuilder* self, intptr_t slot);
 bool QFormBuilder_SuperCheckProperty(const QFormBuilder* self, QObject* obj, const libqt_string prop);
 QWidget* QFormBuilder_WidgetByName(QFormBuilder* self, QWidget* topLevel, const libqt_string name);
-void QFormBuilder_OnWidgetByName(QFormBuilder* self, intptr_t slot);
-QWidget* QFormBuilder_SuperWidgetByName(QFormBuilder* self, QWidget* topLevel, const libqt_string name);
 bool QFormBuilder_ApplyPropertyInternally(QFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
-void QFormBuilder_OnApplyPropertyInternally(QFormBuilder* self, intptr_t slot);
-bool QFormBuilder_SuperApplyPropertyInternally(QFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
 void QFormBuilder_Reset(QFormBuilder* self);
-void QFormBuilder_OnReset(QFormBuilder* self, intptr_t slot);
-void QFormBuilder_SuperReset(QFormBuilder* self);
 QMetaEnum* QFormBuilder_ToolBarAreaMetaEnum(QFormBuilder* self);
-void QFormBuilder_OnToolBarAreaMetaEnum(QFormBuilder* self, intptr_t slot);
-QMetaEnum* QFormBuilder_SuperToolBarAreaMetaEnum(QFormBuilder* self);
 void QFormBuilder_Delete(QFormBuilder* self);
 
 #ifdef __cplusplus

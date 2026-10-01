@@ -35,13 +35,13 @@ libqt_string QHorizontalPercentBarSeries_Tr(const char* s);
 int QHorizontalPercentBarSeries_Type(const QHorizontalPercentBarSeries* self);
 libqt_string QHorizontalPercentBarSeries_Tr2(const char* s, const char* c);
 libqt_string QHorizontalPercentBarSeries_Tr3(const char* s, const char* c, int n);
-void QHorizontalPercentBarSeries_OnMetaObject(const QHorizontalPercentBarSeries* self, intptr_t slot);
+void QHorizontalPercentBarSeries_OnMetaObject(QHorizontalPercentBarSeries* self, intptr_t slot);
 QMetaObject* QHorizontalPercentBarSeries_SuperMetaObject(const QHorizontalPercentBarSeries* self);
 void QHorizontalPercentBarSeries_OnMetacast(QHorizontalPercentBarSeries* self, intptr_t slot);
 void* QHorizontalPercentBarSeries_SuperMetacast(QHorizontalPercentBarSeries* self, const char* param1);
 void QHorizontalPercentBarSeries_OnMetacall(QHorizontalPercentBarSeries* self, intptr_t slot);
 int QHorizontalPercentBarSeries_SuperMetacall(QHorizontalPercentBarSeries* self, int param1, int param2, void** param3);
-void QHorizontalPercentBarSeries_OnType(const QHorizontalPercentBarSeries* self, intptr_t slot);
+void QHorizontalPercentBarSeries_OnType(QHorizontalPercentBarSeries* self, intptr_t slot);
 int QHorizontalPercentBarSeries_SuperType(const QHorizontalPercentBarSeries* self);
 bool QHorizontalPercentBarSeries_Event(QHorizontalPercentBarSeries* self, QEvent* event);
 void QHorizontalPercentBarSeries_OnEvent(QHorizontalPercentBarSeries* self, intptr_t slot);
@@ -65,17 +65,9 @@ void QHorizontalPercentBarSeries_DisconnectNotify(QHorizontalPercentBarSeries* s
 void QHorizontalPercentBarSeries_OnDisconnectNotify(QHorizontalPercentBarSeries* self, intptr_t slot);
 void QHorizontalPercentBarSeries_SuperDisconnectNotify(QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
 QObject* QHorizontalPercentBarSeries_Sender(const QHorizontalPercentBarSeries* self);
-void QHorizontalPercentBarSeries_OnSender(const QHorizontalPercentBarSeries* self, intptr_t slot);
-QObject* QHorizontalPercentBarSeries_SuperSender(const QHorizontalPercentBarSeries* self);
 int QHorizontalPercentBarSeries_SenderSignalIndex(const QHorizontalPercentBarSeries* self);
-void QHorizontalPercentBarSeries_OnSenderSignalIndex(const QHorizontalPercentBarSeries* self, intptr_t slot);
-int QHorizontalPercentBarSeries_SuperSenderSignalIndex(const QHorizontalPercentBarSeries* self);
 int QHorizontalPercentBarSeries_Receivers(const QHorizontalPercentBarSeries* self, const char* signal);
-void QHorizontalPercentBarSeries_OnReceivers(const QHorizontalPercentBarSeries* self, intptr_t slot);
-int QHorizontalPercentBarSeries_SuperReceivers(const QHorizontalPercentBarSeries* self, const char* signal);
 bool QHorizontalPercentBarSeries_IsSignalConnected(const QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
-void QHorizontalPercentBarSeries_OnIsSignalConnected(const QHorizontalPercentBarSeries* self, intptr_t slot);
-bool QHorizontalPercentBarSeries_SuperIsSignalConnected(const QHorizontalPercentBarSeries* self, const QMetaMethod* signal);
 void QHorizontalPercentBarSeries_Delete(QHorizontalPercentBarSeries* self);
 
 #ifdef __cplusplus

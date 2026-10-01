@@ -76,7 +76,7 @@ void QOpenGLContext_AboutToBeDestroyed(QOpenGLContext* self);
 void QOpenGLContext_Connect_AboutToBeDestroyed(QOpenGLContext* self, intptr_t slot);
 libqt_string QOpenGLContext_Tr2(const char* s, const char* c);
 libqt_string QOpenGLContext_Tr3(const char* s, const char* c, int n);
-void QOpenGLContext_OnMetaObject(const QOpenGLContext* self, intptr_t slot);
+void QOpenGLContext_OnMetaObject(QOpenGLContext* self, intptr_t slot);
 QMetaObject* QOpenGLContext_SuperMetaObject(const QOpenGLContext* self);
 void QOpenGLContext_OnMetacast(QOpenGLContext* self, intptr_t slot);
 void* QOpenGLContext_SuperMetacast(QOpenGLContext* self, const char* param1);
@@ -104,20 +104,10 @@ void QOpenGLContext_DisconnectNotify(QOpenGLContext* self, const QMetaMethod* si
 void QOpenGLContext_OnDisconnectNotify(QOpenGLContext* self, intptr_t slot);
 void QOpenGLContext_SuperDisconnectNotify(QOpenGLContext* self, const QMetaMethod* signal);
 void* QOpenGLContext_ResolveInterface(const QOpenGLContext* self, const char* name, int revision);
-void QOpenGLContext_OnResolveInterface(const QOpenGLContext* self, intptr_t slot);
-void* QOpenGLContext_SuperResolveInterface(const QOpenGLContext* self, const char* name, int revision);
 QObject* QOpenGLContext_Sender(const QOpenGLContext* self);
-void QOpenGLContext_OnSender(const QOpenGLContext* self, intptr_t slot);
-QObject* QOpenGLContext_SuperSender(const QOpenGLContext* self);
 int QOpenGLContext_SenderSignalIndex(const QOpenGLContext* self);
-void QOpenGLContext_OnSenderSignalIndex(const QOpenGLContext* self, intptr_t slot);
-int QOpenGLContext_SuperSenderSignalIndex(const QOpenGLContext* self);
 int QOpenGLContext_Receivers(const QOpenGLContext* self, const char* signal);
-void QOpenGLContext_OnReceivers(const QOpenGLContext* self, intptr_t slot);
-int QOpenGLContext_SuperReceivers(const QOpenGLContext* self, const char* signal);
 bool QOpenGLContext_IsSignalConnected(const QOpenGLContext* self, const QMetaMethod* signal);
-void QOpenGLContext_OnIsSignalConnected(const QOpenGLContext* self, intptr_t slot);
-bool QOpenGLContext_SuperIsSignalConnected(const QOpenGLContext* self, const QMetaMethod* signal);
 void QOpenGLContext_Delete(QOpenGLContext* self);
 
 #ifdef __cplusplus

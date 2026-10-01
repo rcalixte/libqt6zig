@@ -679,364 +679,219 @@ libqt_string Poppler__AsyncObject_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* Poppler__AsyncObject_SuperMetaObject(const Poppler__AsyncObject* self) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_MetaObject_IsBase(true);
-        return (QMetaObject*)vpopplerasyncobject->metaObject();
-    } else {
-        return (QMetaObject*)self->Poppler::AsyncObject::metaObject();
-    }
+    return (QMetaObject*)self->Poppler::AsyncObject::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Poppler__AsyncObject_OnMetaObject(const Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_MetaObject_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_MetaObject_Callback>(slot));
+void Poppler__AsyncObject_OnMetaObject(Poppler__AsyncObject* self, intptr_t slot) {
+    if (auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self)))
+        vpopplerasyncobject->poppler__asyncobject_metaobject_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Poppler__AsyncObject_SuperMetacast(Poppler__AsyncObject* self, const char* param1) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_Metacast_IsBase(true);
-        return vpopplerasyncobject->qt_metacast(param1);
-    } else {
-        return self->Poppler::AsyncObject::qt_metacast(param1);
-    }
+    return self->Poppler::AsyncObject::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnMetacast(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_Metacast_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Metacast_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_metacast_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Poppler__AsyncObject_SuperMetacall(Poppler__AsyncObject* self, int param1, int param2, void** param3) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_Metacall_IsBase(true);
-        return vpopplerasyncobject->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Poppler::AsyncObject::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Poppler::AsyncObject::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnMetacall(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_Metacall_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Metacall_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_metacall_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Poppler__AsyncObject_Event(Poppler__AsyncObject* self, QEvent* event) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        return vpopplerasyncobject->event(event);
-    } else {
-        return self->Poppler::AsyncObject::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Poppler__AsyncObject_SuperEvent(Poppler__AsyncObject* self, QEvent* event) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_Event_IsBase(true);
-        return vpopplerasyncobject->event(event);
-    } else {
-        return self->Poppler::AsyncObject::event(event);
-    }
+    return self->Poppler::AsyncObject::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnEvent(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_Event_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Event_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_event_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Poppler__AsyncObject_EventFilter(Poppler__AsyncObject* self, QObject* watched, QEvent* event) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        return vpopplerasyncobject->eventFilter(watched, event);
-    } else {
-        return self->Poppler::AsyncObject::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Poppler__AsyncObject_SuperEventFilter(Poppler__AsyncObject* self, QObject* watched, QEvent* event) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_EventFilter_IsBase(true);
-        return vpopplerasyncobject->eventFilter(watched, event);
-    } else {
-        return self->Poppler::AsyncObject::eventFilter(watched, event);
-    }
+    return self->Poppler::AsyncObject::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnEventFilter(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_EventFilter_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_EventFilter_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_eventfilter_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Poppler__AsyncObject_TimerEvent(Poppler__AsyncObject* self, QTimerEvent* event) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject) {
         vpopplerasyncobject->timerEvent(event);
     } else {
-        ((VirtualPopplerAsyncObject*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Poppler__AsyncObject_SuperTimerEvent(Poppler__AsyncObject* self, QTimerEvent* event) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_TimerEvent_IsBase(true);
-        vpopplerasyncobject->timerEvent(event);
-    } else {
-        ((VirtualPopplerAsyncObject*)self)->timerEvent(event);
-    }
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self)) {
+        vpopplerasyncobject->Poppler::AsyncObject::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnTimerEvent(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_TimerEvent_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_TimerEvent_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_timerevent_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Poppler__AsyncObject_ChildEvent(Poppler__AsyncObject* self, QChildEvent* event) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject) {
         vpopplerasyncobject->childEvent(event);
     } else {
-        ((VirtualPopplerAsyncObject*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Poppler__AsyncObject_SuperChildEvent(Poppler__AsyncObject* self, QChildEvent* event) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_ChildEvent_IsBase(true);
-        vpopplerasyncobject->childEvent(event);
-    } else {
-        ((VirtualPopplerAsyncObject*)self)->childEvent(event);
-    }
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self)) {
+        vpopplerasyncobject->Poppler::AsyncObject::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnChildEvent(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_ChildEvent_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_ChildEvent_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_childevent_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Poppler__AsyncObject_CustomEvent(Poppler__AsyncObject* self, QEvent* event) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject) {
         vpopplerasyncobject->customEvent(event);
     } else {
-        ((VirtualPopplerAsyncObject*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Poppler__AsyncObject_SuperCustomEvent(Poppler__AsyncObject* self, QEvent* event) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_CustomEvent_IsBase(true);
-        vpopplerasyncobject->customEvent(event);
-    } else {
-        ((VirtualPopplerAsyncObject*)self)->customEvent(event);
-    }
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self)) {
+        vpopplerasyncobject->Poppler::AsyncObject::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnCustomEvent(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_CustomEvent_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_CustomEvent_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_customevent_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Poppler__AsyncObject_ConnectNotify(Poppler__AsyncObject* self, const QMetaMethod* signal) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject) {
         vpopplerasyncobject->connectNotify(*signal);
     } else {
-        ((VirtualPopplerAsyncObject*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Poppler__AsyncObject_SuperConnectNotify(Poppler__AsyncObject* self, const QMetaMethod* signal) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_ConnectNotify_IsBase(true);
-        vpopplerasyncobject->connectNotify(*signal);
-    } else {
-        ((VirtualPopplerAsyncObject*)self)->connectNotify(*signal);
-    }
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self)) {
+        vpopplerasyncobject->Poppler::AsyncObject::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnConnectNotify(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_ConnectNotify_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_ConnectNotify_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_connectnotify_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Poppler__AsyncObject_DisconnectNotify(Poppler__AsyncObject* self, const QMetaMethod* signal) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject) {
         vpopplerasyncobject->disconnectNotify(*signal);
     } else {
-        ((VirtualPopplerAsyncObject*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Poppler__AsyncObject_SuperDisconnectNotify(Poppler__AsyncObject* self, const QMetaMethod* signal) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_DisconnectNotify_IsBase(true);
-        vpopplerasyncobject->disconnectNotify(*signal);
-    } else {
-        ((VirtualPopplerAsyncObject*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self)) {
+        vpopplerasyncobject->Poppler::AsyncObject::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Poppler::AsyncObject::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnDisconnectNotify(Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_DisconnectNotify_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_DisconnectNotify_Callback>(slot));
+    if (auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self))
+        vpopplerasyncobject->poppler__asyncobject_disconnectnotify_callback = reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Poppler__AsyncObject_Sender(const Poppler__AsyncObject* self) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        return vpopplerasyncobject->sender();
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->sender();
-    }
+    if (auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self))) {
+        return vpopplerasyncobject->VirtualPopplerAsyncObject::sender();
+    } else
+        qFatal("Error: Protected method Poppler::AsyncObject::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Poppler__AsyncObject_SuperSender(const Poppler__AsyncObject* self) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_Sender_IsBase(true);
-        return vpopplerasyncobject->sender();
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Poppler__AsyncObject_OnSender(const Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_Sender_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Poppler__AsyncObject_SenderSignalIndex(const Poppler__AsyncObject* self) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        return vpopplerasyncobject->senderSignalIndex();
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->senderSignalIndex();
-    }
+    if (auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self))) {
+        return vpopplerasyncobject->VirtualPopplerAsyncObject::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Poppler::AsyncObject::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Poppler__AsyncObject_SuperSenderSignalIndex(const Poppler__AsyncObject* self) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_SenderSignalIndex_IsBase(true);
-        return vpopplerasyncobject->senderSignalIndex();
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Poppler__AsyncObject_OnSenderSignalIndex(const Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_SenderSignalIndex_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Poppler__AsyncObject_Receivers(const Poppler__AsyncObject* self, const char* signal) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        return vpopplerasyncobject->receivers(signal);
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->receivers(signal);
-    }
+    if (auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self))) {
+        return vpopplerasyncobject->VirtualPopplerAsyncObject::receivers(signal);
+    } else
+        qFatal("Error: Protected method Poppler::AsyncObject::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Poppler__AsyncObject_SuperReceivers(const Poppler__AsyncObject* self, const char* signal) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_Receivers_IsBase(true);
-        return vpopplerasyncobject->receivers(signal);
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Poppler__AsyncObject_OnReceivers(const Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_Receivers_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Poppler__AsyncObject_IsSignalConnected(const Poppler__AsyncObject* self, const QMetaMethod* signal) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        return vpopplerasyncobject->isSignalConnected(*signal);
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Poppler__AsyncObject_SuperIsSignalConnected(const Poppler__AsyncObject* self, const QMetaMethod* signal) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
-        vpopplerasyncobject->setPoppler__AsyncObject_IsSignalConnected_IsBase(true);
-        return vpopplerasyncobject->isSignalConnected(*signal);
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Poppler__AsyncObject_OnIsSignalConnected(const Poppler__AsyncObject* self, intptr_t slot) {
-    auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
-        vpopplerasyncobject->setPoppler__AsyncObject_IsSignalConnected_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_IsSignalConnected_Callback>(slot));
+    if (auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self))) {
+        return vpopplerasyncobject->VirtualPopplerAsyncObject::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Poppler::AsyncObject::isSignalConnected called without a directly constructed type");
 }
 
 void Poppler__AsyncObject_Delete(Poppler__AsyncObject* self) {

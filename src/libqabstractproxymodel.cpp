@@ -262,1885 +262,954 @@ libqt_string QAbstractProxyModel_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QAbstractProxyModel_SuperMetaObject(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MetaObject_IsBase(true);
-        return (QMetaObject*)vqabstractproxymodel->metaObject();
-    } else {
-        return (QMetaObject*)self->QAbstractProxyModel::metaObject();
-    }
+    return (QMetaObject*)self->QAbstractProxyModel::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMetaObject(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MetaObject_Callback>(slot));
+void QAbstractProxyModel_OnMetaObject(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_metaobject_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAbstractProxyModel_SuperMetacast(QAbstractProxyModel* self, const char* param1) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Metacast_IsBase(true);
-        return vqabstractproxymodel->qt_metacast(param1);
-    } else {
-        return self->QAbstractProxyModel::qt_metacast(param1);
-    }
+    return self->QAbstractProxyModel::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnMetacast(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Metacast_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Metacast_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_metacast_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAbstractProxyModel_SuperMetacall(QAbstractProxyModel* self, int param1, int param2, void** param3) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Metacall_IsBase(true);
-        return vqabstractproxymodel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QAbstractProxyModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QAbstractProxyModel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnMetacall(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Metacall_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Metacall_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_metacall_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperSetSourceModel(QAbstractProxyModel* self, QAbstractItemModel* sourceModel) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_SetSourceModel_IsBase(true);
-        vqabstractproxymodel->setSourceModel(sourceModel);
-    } else {
-        self->QAbstractProxyModel::setSourceModel(sourceModel);
-    }
+    self->QAbstractProxyModel::setSourceModel(sourceModel);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnSetSourceModel(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SetSourceModel_Callback>(slot));
-}
-
-// Base class handler implementation
-QModelIndex* QAbstractProxyModel_SuperMapToSource(const QAbstractProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MapToSource_IsBase(true);
-        return new QModelIndex(vqabstractproxymodel->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->mapToSource(*proxyIndex));
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_setsourcemodel_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SetSourceModel_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMapToSource(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MapToSource_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MapToSource_Callback>(slot));
-}
-
-// Base class handler implementation
-QModelIndex* QAbstractProxyModel_SuperMapFromSource(const QAbstractProxyModel* self, const QModelIndex* sourceIndex) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MapFromSource_IsBase(true);
-        return new QModelIndex(vqabstractproxymodel->mapFromSource(*sourceIndex));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->mapFromSource(*sourceIndex));
-    }
+void QAbstractProxyModel_OnMapToSource(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_maptosource_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MapToSource_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMapFromSource(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MapFromSource_Callback>(slot));
+void QAbstractProxyModel_OnMapFromSource(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_mapfromsource_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MapFromSource_Callback>(slot);
 }
 
 // Base class handler implementation
 QItemSelection* QAbstractProxyModel_SuperMapSelectionToSource(const QAbstractProxyModel* self, const QItemSelection* selection) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MapSelectionToSource_IsBase(true);
-        return new QItemSelection(vqabstractproxymodel->mapSelectionToSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualQAbstractProxyModel*)self)->mapSelectionToSource(*selection));
-    }
+    return new QItemSelection(self->QAbstractProxyModel::mapSelectionToSource(*selection));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMapSelectionToSource(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MapSelectionToSource_Callback>(slot));
+void QAbstractProxyModel_OnMapSelectionToSource(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_mapselectiontosource_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MapSelectionToSource_Callback>(slot);
 }
 
 // Base class handler implementation
 QItemSelection* QAbstractProxyModel_SuperMapSelectionFromSource(const QAbstractProxyModel* self, const QItemSelection* selection) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MapSelectionFromSource_IsBase(true);
-        return new QItemSelection(vqabstractproxymodel->mapSelectionFromSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualQAbstractProxyModel*)self)->mapSelectionFromSource(*selection));
-    }
+    return new QItemSelection(self->QAbstractProxyModel::mapSelectionFromSource(*selection));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMapSelectionFromSource(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MapSelectionFromSource_Callback>(slot));
+void QAbstractProxyModel_OnMapSelectionFromSource(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_mapselectionfromsource_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MapSelectionFromSource_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperSubmit(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Submit_IsBase(true);
-        return vqabstractproxymodel->submit();
-    } else {
-        return self->QAbstractProxyModel::submit();
-    }
+    return self->QAbstractProxyModel::submit();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnSubmit(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Submit_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Submit_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_submit_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Submit_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperRevert(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Revert_IsBase(true);
-        vqabstractproxymodel->revert();
-    } else {
-        self->QAbstractProxyModel::revert();
-    }
+    self->QAbstractProxyModel::revert();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnRevert(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Revert_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Revert_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_revert_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Revert_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QAbstractProxyModel_SuperData(const QAbstractProxyModel* self, const QModelIndex* proxyIndex, int role) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Data_IsBase(true);
-        return new QVariant(vqabstractproxymodel->data(*proxyIndex, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQAbstractProxyModel*)self)->data(*proxyIndex, static_cast<int>(role)));
-    }
+    return new QVariant(self->QAbstractProxyModel::data(*proxyIndex, static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnData(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Data_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Data_Callback>(slot));
+void QAbstractProxyModel_OnData(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_data_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Data_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QAbstractProxyModel_SuperHeaderData(const QAbstractProxyModel* self, int section, int orientation, int role) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_HeaderData_IsBase(true);
-        return new QVariant(vqabstractproxymodel->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQAbstractProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->QAbstractProxyModel::headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnHeaderData(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_HeaderData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_HeaderData_Callback>(slot));
+void QAbstractProxyModel_OnHeaderData(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_headerdata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_HeaderData_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_map /* of int to QVariant* */ QAbstractProxyModel_SuperItemData(const QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_ItemData_IsBase(true);
-        QMap<int, QVariant> _ret = vqabstractproxymodel->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = self->QAbstractProxyModel::itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->QAbstractProxyModel::itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnItemData(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_ItemData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ItemData_Callback>(slot));
+void QAbstractProxyModel_OnItemData(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_itemdata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ItemData_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAbstractProxyModel_SuperFlags(const QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Flags_IsBase(true);
-        return static_cast<int>(vqabstractproxymodel->flags(*index));
-    } else {
-        return static_cast<int>(self->QAbstractProxyModel::flags(*index));
-    }
+    return static_cast<int>(self->QAbstractProxyModel::flags(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnFlags(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Flags_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Flags_Callback>(slot));
+void QAbstractProxyModel_OnFlags(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_flags_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Flags_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperSetData(QAbstractProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_SetData_IsBase(true);
-        return vqabstractproxymodel->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return self->QAbstractProxyModel::setData(*index, *value, static_cast<int>(role));
-    }
+    return self->QAbstractProxyModel::setData(*index, *value, static_cast<int>(role));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnSetData(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_SetData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SetData_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_setdata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SetData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperSetItemData(QAbstractProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
     QMap<int, QVariant> roles_QMap;
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_SetItemData_IsBase(true);
-        return vqabstractproxymodel->setItemData(*index, roles_QMap);
-    } else {
-        return self->QAbstractProxyModel::setItemData(*index, roles_QMap);
-    }
+    return self->QAbstractProxyModel::setItemData(*index, roles_QMap);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnSetItemData(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_SetItemData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SetItemData_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_setitemdata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SetItemData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperSetHeaderData(QAbstractProxyModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_SetHeaderData_IsBase(true);
-        return vqabstractproxymodel->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return self->QAbstractProxyModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->QAbstractProxyModel::setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnSetHeaderData(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SetHeaderData_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_setheaderdata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SetHeaderData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperClearItemData(QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_ClearItemData_IsBase(true);
-        return vqabstractproxymodel->clearItemData(*index);
-    } else {
-        return self->QAbstractProxyModel::clearItemData(*index);
-    }
+    return self->QAbstractProxyModel::clearItemData(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnClearItemData(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ClearItemData_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_clearitemdata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ClearItemData_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* QAbstractProxyModel_SuperBuddy(const QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Buddy_IsBase(true);
-        return new QModelIndex(vqabstractproxymodel->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->QAbstractProxyModel::buddy(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnBuddy(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Buddy_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Buddy_Callback>(slot));
+void QAbstractProxyModel_OnBuddy(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_buddy_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Buddy_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperCanFetchMore(const QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_CanFetchMore_IsBase(true);
-        return vqabstractproxymodel->canFetchMore(*parent);
-    } else {
-        return self->QAbstractProxyModel::canFetchMore(*parent);
-    }
+    return self->QAbstractProxyModel::canFetchMore(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnCanFetchMore(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_CanFetchMore_Callback>(slot));
+void QAbstractProxyModel_OnCanFetchMore(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_canfetchmore_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_CanFetchMore_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperFetchMore(QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_FetchMore_IsBase(true);
-        vqabstractproxymodel->fetchMore(*parent);
-    } else {
-        self->QAbstractProxyModel::fetchMore(*parent);
-    }
+    self->QAbstractProxyModel::fetchMore(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnFetchMore(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_FetchMore_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_FetchMore_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_fetchmore_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_FetchMore_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperSort(QAbstractProxyModel* self, int column, int order) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Sort_IsBase(true);
-        vqabstractproxymodel->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        self->QAbstractProxyModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->QAbstractProxyModel::sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnSort(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Sort_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Sort_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_sort_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Sort_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QAbstractProxyModel_SuperSpan(const QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Span_IsBase(true);
-        return new QSize(vqabstractproxymodel->span(*index));
-    } else {
-        return new QSize(((VirtualQAbstractProxyModel*)self)->span(*index));
-    }
+    return new QSize(self->QAbstractProxyModel::span(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnSpan(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Span_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Span_Callback>(slot));
+void QAbstractProxyModel_OnSpan(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_span_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Span_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperHasChildren(const QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_HasChildren_IsBase(true);
-        return vqabstractproxymodel->hasChildren(*parent);
-    } else {
-        return self->QAbstractProxyModel::hasChildren(*parent);
-    }
+    return self->QAbstractProxyModel::hasChildren(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnHasChildren(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_HasChildren_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_HasChildren_Callback>(slot));
+void QAbstractProxyModel_OnHasChildren(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_haschildren_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_HasChildren_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* QAbstractProxyModel_SuperSibling(const QAbstractProxyModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Sibling_IsBase(true);
-        return new QModelIndex(vqabstractproxymodel->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->QAbstractProxyModel::sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnSibling(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Sibling_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Sibling_Callback>(slot));
+void QAbstractProxyModel_OnSibling(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_sibling_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Sibling_Callback>(slot);
 }
 
 // Base class handler implementation
 QMimeData* QAbstractProxyModel_SuperMimeData(const QAbstractProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
     QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MimeData_IsBase(true);
-        return vqabstractproxymodel->mimeData(indexes_QList);
-    } else {
-        return self->QAbstractProxyModel::mimeData(indexes_QList);
-    }
+    return self->QAbstractProxyModel::mimeData(indexes_QList);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMimeData(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MimeData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MimeData_Callback>(slot));
+void QAbstractProxyModel_OnMimeData(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_mimedata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperCanDropMimeData(const QAbstractProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_CanDropMimeData_IsBase(true);
-        return vqabstractproxymodel->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->QAbstractProxyModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->QAbstractProxyModel::canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnCanDropMimeData(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_CanDropMimeData_Callback>(slot));
+void QAbstractProxyModel_OnCanDropMimeData(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_candropmimedata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_CanDropMimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperDropMimeData(QAbstractProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_DropMimeData_IsBase(true);
-        return vqabstractproxymodel->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return self->QAbstractProxyModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->QAbstractProxyModel::dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnDropMimeData(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_DropMimeData_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_dropmimedata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_DropMimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QAbstractProxyModel_SuperMimeTypes(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MimeTypes_IsBase(true);
-        QList<QString> _ret = vqabstractproxymodel->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QAbstractProxyModel::mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QAbstractProxyModel::mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMimeTypes(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MimeTypes_Callback>(slot));
+void QAbstractProxyModel_OnMimeTypes(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_mimetypes_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MimeTypes_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAbstractProxyModel_SuperSupportedDragActions(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_SupportedDragActions_IsBase(true);
-        return static_cast<int>(vqabstractproxymodel->supportedDragActions());
-    } else {
-        return static_cast<int>(self->QAbstractProxyModel::supportedDragActions());
-    }
+    return static_cast<int>(self->QAbstractProxyModel::supportedDragActions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnSupportedDragActions(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SupportedDragActions_Callback>(slot));
+void QAbstractProxyModel_OnSupportedDragActions(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_supporteddragactions_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SupportedDragActions_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAbstractProxyModel_SuperSupportedDropActions(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_SupportedDropActions_IsBase(true);
-        return static_cast<int>(vqabstractproxymodel->supportedDropActions());
-    } else {
-        return static_cast<int>(self->QAbstractProxyModel::supportedDropActions());
-    }
+    return static_cast<int>(self->QAbstractProxyModel::supportedDropActions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnSupportedDropActions(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SupportedDropActions_Callback>(slot));
+void QAbstractProxyModel_OnSupportedDropActions(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_supporteddropactions_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SupportedDropActions_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_map /* of int to libqt_string */ QAbstractProxyModel_SuperRoleNames(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_RoleNames_IsBase(true);
-        QHash<int, QByteArray> _ret = vqabstractproxymodel->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = self->QAbstractProxyModel::roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->QAbstractProxyModel::roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnRoleNames(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_RoleNames_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_RoleNames_Callback>(slot));
+void QAbstractProxyModel_OnRoleNames(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_rolenames_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_RoleNames_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QAbstractProxyModel_Index(const QAbstractProxyModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QModelIndex(vqabstractproxymodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
-}
-
-// Base class handler implementation
-QModelIndex* QAbstractProxyModel_SuperIndex(const QAbstractProxyModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Index_IsBase(true);
-        return new QModelIndex(vqabstractproxymodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnIndex(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Index_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Index_Callback>(slot));
+void QAbstractProxyModel_OnIndex(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_index_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Index_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QAbstractProxyModel_Parent(const QAbstractProxyModel* self, const QModelIndex* child) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QModelIndex(vqabstractproxymodel->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->parent(*child));
-    }
-}
-
-// Base class handler implementation
-QModelIndex* QAbstractProxyModel_SuperParent(const QAbstractProxyModel* self, const QModelIndex* child) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Parent_IsBase(true);
-        return new QModelIndex(vqabstractproxymodel->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->parent(*child));
-    }
+    return new QModelIndex(self->parent(*child));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnParent(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Parent_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Parent_Callback>(slot));
+void QAbstractProxyModel_OnParent(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_parent_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Parent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QAbstractProxyModel_RowCount(const QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->rowCount(*parent);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->rowCount(*parent);
-    }
-}
-
-// Base class handler implementation
-int QAbstractProxyModel_SuperRowCount(const QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_RowCount_IsBase(true);
-        return vqabstractproxymodel->rowCount(*parent);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnRowCount(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_RowCount_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_RowCount_Callback>(slot));
+void QAbstractProxyModel_OnRowCount(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_rowcount_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_RowCount_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QAbstractProxyModel_ColumnCount(const QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->columnCount(*parent);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->columnCount(*parent);
-    }
-}
-
-// Base class handler implementation
-int QAbstractProxyModel_SuperColumnCount(const QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_ColumnCount_IsBase(true);
-        return vqabstractproxymodel->columnCount(*parent);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnColumnCount(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ColumnCount_Callback>(slot));
+void QAbstractProxyModel_OnColumnCount(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_columncount_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ColumnCount_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractProxyModel_InsertRows(QAbstractProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QAbstractProxyModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperInsertRows(QAbstractProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_InsertRows_IsBase(true);
-        return vqabstractproxymodel->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QAbstractProxyModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->QAbstractProxyModel::insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnInsertRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_InsertRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_InsertRows_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_insertrows_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_InsertRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractProxyModel_InsertColumns(QAbstractProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QAbstractProxyModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperInsertColumns(QAbstractProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_InsertColumns_IsBase(true);
-        return vqabstractproxymodel->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QAbstractProxyModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->QAbstractProxyModel::insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnInsertColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_InsertColumns_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_insertcolumns_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_InsertColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractProxyModel_RemoveRows(QAbstractProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QAbstractProxyModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperRemoveRows(QAbstractProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_RemoveRows_IsBase(true);
-        return vqabstractproxymodel->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return self->QAbstractProxyModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->QAbstractProxyModel::removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnRemoveRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_RemoveRows_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_removerows_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_RemoveRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractProxyModel_RemoveColumns(QAbstractProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QAbstractProxyModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperRemoveColumns(QAbstractProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_RemoveColumns_IsBase(true);
-        return vqabstractproxymodel->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return self->QAbstractProxyModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->QAbstractProxyModel::removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnRemoveColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_RemoveColumns_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_removecolumns_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_RemoveColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractProxyModel_MoveRows(QAbstractProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->QAbstractProxyModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperMoveRows(QAbstractProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MoveRows_IsBase(true);
-        return vqabstractproxymodel->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->QAbstractProxyModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->QAbstractProxyModel::moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnMoveRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MoveRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MoveRows_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_moverows_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MoveRows_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractProxyModel_MoveColumns(QAbstractProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->QAbstractProxyModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperMoveColumns(QAbstractProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MoveColumns_IsBase(true);
-        return vqabstractproxymodel->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return self->QAbstractProxyModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->QAbstractProxyModel::moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnMoveColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MoveColumns_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_movecolumns_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MoveColumns_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ QAbstractProxyModel_Match(const QAbstractProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        QList<QModelIndex> _ret = vqabstractproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = self->QAbstractProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ QAbstractProxyModel_SuperMatch(const QAbstractProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Match_IsBase(true);
-        QList<QModelIndex> _ret = vqabstractproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = self->QAbstractProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->QAbstractProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMatch(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Match_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Match_Callback>(slot));
+void QAbstractProxyModel_OnMatch(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_match_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Match_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractProxyModel_MultiData(const QAbstractProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->QAbstractProxyModel::multiData(*index, *roleDataSpan);
-    }
+    self->multiData(*index, *roleDataSpan);
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperMultiData(const QAbstractProxyModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_MultiData_IsBase(true);
-        vqabstractproxymodel->multiData(*index, *roleDataSpan);
-    } else {
-        self->QAbstractProxyModel::multiData(*index, *roleDataSpan);
-    }
+    self->QAbstractProxyModel::multiData(*index, *roleDataSpan);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnMultiData(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_MultiData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MultiData_Callback>(slot));
+void QAbstractProxyModel_OnMultiData(QAbstractProxyModel* self, intptr_t slot) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
+        vqabstractproxymodel->qabstractproxymodel_multidata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_MultiData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractProxyModel_ResetInternalData(QAbstractProxyModel* self) {
     auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+    if (vqabstractproxymodel) {
         vqabstractproxymodel->resetInternalData();
     } else {
-        ((VirtualQAbstractProxyModel*)self)->resetInternalData();
+        qFatal("Error: Protected virtual method QAbstractProxyModel::resetInternalData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperResetInternalData(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_ResetInternalData_IsBase(true);
-        vqabstractproxymodel->resetInternalData();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->resetInternalData();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->QAbstractProxyModel::resetInternalData();
+    } else
+        qFatal("Error: Protected virtual method QAbstractProxyModel::resetInternalData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnResetInternalData(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ResetInternalData_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_resetinternaldata_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ResetInternalData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractProxyModel_Event(QAbstractProxyModel* self, QEvent* event) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->event(event);
-    } else {
-        return self->QAbstractProxyModel::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperEvent(QAbstractProxyModel* self, QEvent* event) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Event_IsBase(true);
-        return vqabstractproxymodel->event(event);
-    } else {
-        return self->QAbstractProxyModel::event(event);
-    }
+    return self->QAbstractProxyModel::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnEvent(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Event_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Event_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_event_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QAbstractProxyModel_EventFilter(QAbstractProxyModel* self, QObject* watched, QEvent* event) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->eventFilter(watched, event);
-    } else {
-        return self->QAbstractProxyModel::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QAbstractProxyModel_SuperEventFilter(QAbstractProxyModel* self, QObject* watched, QEvent* event) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EventFilter_IsBase(true);
-        return vqabstractproxymodel->eventFilter(watched, event);
-    } else {
-        return self->QAbstractProxyModel::eventFilter(watched, event);
-    }
+    return self->QAbstractProxyModel::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnEventFilter(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EventFilter_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EventFilter_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_eventfilter_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractProxyModel_TimerEvent(QAbstractProxyModel* self, QTimerEvent* event) {
     auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+    if (vqabstractproxymodel) {
         vqabstractproxymodel->timerEvent(event);
     } else {
-        ((VirtualQAbstractProxyModel*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QAbstractProxyModel::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperTimerEvent(QAbstractProxyModel* self, QTimerEvent* event) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_TimerEvent_IsBase(true);
-        vqabstractproxymodel->timerEvent(event);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->timerEvent(event);
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->QAbstractProxyModel::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractProxyModel::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnTimerEvent(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_TimerEvent_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_timerevent_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractProxyModel_ChildEvent(QAbstractProxyModel* self, QChildEvent* event) {
     auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+    if (vqabstractproxymodel) {
         vqabstractproxymodel->childEvent(event);
     } else {
-        ((VirtualQAbstractProxyModel*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QAbstractProxyModel::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperChildEvent(QAbstractProxyModel* self, QChildEvent* event) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_ChildEvent_IsBase(true);
-        vqabstractproxymodel->childEvent(event);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->childEvent(event);
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->QAbstractProxyModel::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractProxyModel::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnChildEvent(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ChildEvent_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_childevent_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractProxyModel_CustomEvent(QAbstractProxyModel* self, QEvent* event) {
     auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+    if (vqabstractproxymodel) {
         vqabstractproxymodel->customEvent(event);
     } else {
-        ((VirtualQAbstractProxyModel*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QAbstractProxyModel::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperCustomEvent(QAbstractProxyModel* self, QEvent* event) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_CustomEvent_IsBase(true);
-        vqabstractproxymodel->customEvent(event);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->customEvent(event);
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->QAbstractProxyModel::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QAbstractProxyModel::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnCustomEvent(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_CustomEvent_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_customevent_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractProxyModel_ConnectNotify(QAbstractProxyModel* self, const QMetaMethod* signal) {
     auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+    if (vqabstractproxymodel) {
         vqabstractproxymodel->connectNotify(*signal);
     } else {
-        ((VirtualQAbstractProxyModel*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QAbstractProxyModel::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperConnectNotify(QAbstractProxyModel* self, const QMetaMethod* signal) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_ConnectNotify_IsBase(true);
-        vqabstractproxymodel->connectNotify(*signal);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->connectNotify(*signal);
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->QAbstractProxyModel::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAbstractProxyModel::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnConnectNotify(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ConnectNotify_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_connectnotify_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAbstractProxyModel_DisconnectNotify(QAbstractProxyModel* self, const QMetaMethod* signal) {
     auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+    if (vqabstractproxymodel) {
         vqabstractproxymodel->disconnectNotify(*signal);
     } else {
-        ((VirtualQAbstractProxyModel*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QAbstractProxyModel::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QAbstractProxyModel_SuperDisconnectNotify(QAbstractProxyModel* self, const QMetaMethod* signal) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_DisconnectNotify_IsBase(true);
-        vqabstractproxymodel->disconnectNotify(*signal);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->QAbstractProxyModel::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QAbstractProxyModel::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAbstractProxyModel_OnDisconnectNotify(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_DisconnectNotify_Callback>(slot));
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self))
+        vqabstractproxymodel->qabstractproxymodel_disconnectnotify_callback = reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QAbstractProxyModel_CreateSourceIndex(const QAbstractProxyModel* self, int row, int col, void* internalPtr) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
         return new QModelIndex(vqabstractproxymodel->createSourceIndex(static_cast<int>(row), static_cast<int>(col), internalPtr));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QModelIndex* QAbstractProxyModel_SuperCreateSourceIndex(const QAbstractProxyModel* self, int row, int col, void* internalPtr) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_CreateSourceIndex_IsBase(true);
-        return new QModelIndex(vqabstractproxymodel->createSourceIndex(static_cast<int>(row), static_cast<int>(col), internalPtr));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnCreateSourceIndex(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_CreateSourceIndex_Callback>(slot));
+    qFatal("Error: Protected method QAbstractProxyModel::createSourceIndex called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QModelIndex* QAbstractProxyModel_CreateIndex(const QAbstractProxyModel* self, int row, int column) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self)))
         return new QModelIndex(vqabstractproxymodel->createIndex(static_cast<int>(row), static_cast<int>(column)));
-    }
-    return {};
+    qFatal("Error: Protected method QAbstractProxyModel::createIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-QModelIndex* QAbstractProxyModel_SuperCreateIndex(const QAbstractProxyModel* self, int row, int column) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_CreateIndex_IsBase(true);
-        return new QModelIndex(vqabstractproxymodel->createIndex(static_cast<int>(row), static_cast<int>(column)));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnCreateIndex(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_CreateIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_EncodeData(const QAbstractProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->encodeData(indexes_QList, *stream);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->encodeData(indexes_QList, *stream);
-    }
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self))) {
+        QList<QModelIndex> indexes_QList;
+        indexes_QList.reserve(indexes.len);
+        QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
+        for (size_t i = 0; i < indexes.len; ++i) {
+            indexes_QList.push_back(*(indexes_arr[i]));
+        }
+        vqabstractproxymodel->VirtualQAbstractProxyModel::encodeData(indexes_QList, *stream);
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::encodeData called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperEncodeData(const QAbstractProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    QList<QModelIndex> indexes_QList;
-    indexes_QList.reserve(indexes.len);
-    QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
-    for (size_t i = 0; i < indexes.len; ++i) {
-        indexes_QList.push_back(*(indexes_arr[i]));
-    }
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EncodeData_IsBase(true);
-        vqabstractproxymodel->encodeData(indexes_QList, *stream);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->encodeData(indexes_QList, *stream);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnEncodeData(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EncodeData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EncodeData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractProxyModel_DecodeData(QAbstractProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        return vqabstractproxymodel->VirtualQAbstractProxyModel::decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::decodeData called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractProxyModel_SuperDecodeData(QAbstractProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_DecodeData_IsBase(true);
-        return vqabstractproxymodel->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->decodeData(static_cast<int>(row), static_cast<int>(column), *parent, *stream);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnDecodeData(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_DecodeData_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_DecodeData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_BeginInsertRows(QAbstractProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::beginInsertRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperBeginInsertRows(QAbstractProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_BeginInsertRows_IsBase(true);
-        vqabstractproxymodel->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginInsertRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnBeginInsertRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_BeginInsertRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_EndInsertRows(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->endInsertRows();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endInsertRows();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::endInsertRows();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::endInsertRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperEndInsertRows(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EndInsertRows_IsBase(true);
-        vqabstractproxymodel->endInsertRows();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endInsertRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnEndInsertRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EndInsertRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_BeginRemoveRows(QAbstractProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::beginRemoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperBeginRemoveRows(QAbstractProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_BeginRemoveRows_IsBase(true);
-        vqabstractproxymodel->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginRemoveRows(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnBeginRemoveRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_BeginRemoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_EndRemoveRows(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->endRemoveRows();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endRemoveRows();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::endRemoveRows();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::endRemoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperEndRemoveRows(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EndRemoveRows_IsBase(true);
-        vqabstractproxymodel->endRemoveRows();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endRemoveRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnEndRemoveRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EndRemoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractProxyModel_BeginMoveRows(QAbstractProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        return vqabstractproxymodel->VirtualQAbstractProxyModel::beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::beginMoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractProxyModel_SuperBeginMoveRows(QAbstractProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_BeginMoveRows_IsBase(true);
-        return vqabstractproxymodel->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->beginMoveRows(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationRow));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnBeginMoveRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_BeginMoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_EndMoveRows(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->endMoveRows();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endMoveRows();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::endMoveRows();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::endMoveRows called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperEndMoveRows(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EndMoveRows_IsBase(true);
-        vqabstractproxymodel->endMoveRows();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endMoveRows();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnEndMoveRows(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EndMoveRows_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_BeginInsertColumns(QAbstractProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::beginInsertColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperBeginInsertColumns(QAbstractProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_BeginInsertColumns_IsBase(true);
-        vqabstractproxymodel->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginInsertColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnBeginInsertColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_BeginInsertColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_EndInsertColumns(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->endInsertColumns();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endInsertColumns();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::endInsertColumns();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::endInsertColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperEndInsertColumns(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EndInsertColumns_IsBase(true);
-        vqabstractproxymodel->endInsertColumns();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endInsertColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnEndInsertColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EndInsertColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_BeginRemoveColumns(QAbstractProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::beginRemoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperBeginRemoveColumns(QAbstractProxyModel* self, const QModelIndex* parent, int first, int last) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_BeginRemoveColumns_IsBase(true);
-        vqabstractproxymodel->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginRemoveColumns(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnBeginRemoveColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_BeginRemoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_EndRemoveColumns(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->endRemoveColumns();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endRemoveColumns();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::endRemoveColumns();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::endRemoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperEndRemoveColumns(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EndRemoveColumns_IsBase(true);
-        vqabstractproxymodel->endRemoveColumns();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endRemoveColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnEndRemoveColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EndRemoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractProxyModel_BeginMoveColumns(QAbstractProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        return vqabstractproxymodel->VirtualQAbstractProxyModel::beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::beginMoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QAbstractProxyModel_SuperBeginMoveColumns(QAbstractProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_BeginMoveColumns_IsBase(true);
-        return vqabstractproxymodel->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->beginMoveColumns(*sourceParent, static_cast<int>(sourceFirst), static_cast<int>(sourceLast), *destinationParent, static_cast<int>(destinationColumn));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnBeginMoveColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_BeginMoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_EndMoveColumns(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->endMoveColumns();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endMoveColumns();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::endMoveColumns();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::endMoveColumns called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperEndMoveColumns(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EndMoveColumns_IsBase(true);
-        vqabstractproxymodel->endMoveColumns();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endMoveColumns();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnEndMoveColumns(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EndMoveColumns_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_BeginResetModel(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->beginResetModel();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginResetModel();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::beginResetModel();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::beginResetModel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperBeginResetModel(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_BeginResetModel_IsBase(true);
-        vqabstractproxymodel->beginResetModel();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->beginResetModel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnBeginResetModel(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_BeginResetModel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_EndResetModel(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->endResetModel();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endResetModel();
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::endResetModel();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::endResetModel called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperEndResetModel(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_EndResetModel_IsBase(true);
-        vqabstractproxymodel->endResetModel();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->endResetModel();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnEndResetModel(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_EndResetModel_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_ChangePersistentIndex(QAbstractProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->changePersistentIndex(*from, *to);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->changePersistentIndex(*from, *to);
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        vqabstractproxymodel->VirtualQAbstractProxyModel::changePersistentIndex(*from, *to);
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::changePersistentIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperChangePersistentIndex(QAbstractProxyModel* self, const QModelIndex* from, const QModelIndex* to) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_ChangePersistentIndex_IsBase(true);
-        vqabstractproxymodel->changePersistentIndex(*from, *to);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->changePersistentIndex(*from, *to);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnChangePersistentIndex(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ChangePersistentIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAbstractProxyModel_ChangePersistentIndexList(QAbstractProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    QList<QModelIndex> from_QList;
-    from_QList.reserve(from.len);
-    QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
-    for (size_t i = 0; i < from.len; ++i) {
-        from_QList.push_back(*(from_arr[i]));
-    }
-    QList<QModelIndex> to_QList;
-    to_QList.reserve(to.len);
-    QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
-    for (size_t i = 0; i < to.len; ++i) {
-        to_QList.push_back(*(to_arr[i]));
-    }
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->changePersistentIndexList(from_QList, to_QList);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->changePersistentIndexList(from_QList, to_QList);
-    }
+    if (auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self)) {
+        QList<QModelIndex> from_QList;
+        from_QList.reserve(from.len);
+        QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
+        for (size_t i = 0; i < from.len; ++i) {
+            from_QList.push_back(*(from_arr[i]));
+        }
+        QList<QModelIndex> to_QList;
+        to_QList.reserve(to.len);
+        QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
+        for (size_t i = 0; i < to.len; ++i) {
+            to_QList.push_back(*(to_arr[i]));
+        }
+        vqabstractproxymodel->VirtualQAbstractProxyModel::changePersistentIndexList(from_QList, to_QList);
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::changePersistentIndexList called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QAbstractProxyModel_SuperChangePersistentIndexList(QAbstractProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    QList<QModelIndex> from_QList;
-    from_QList.reserve(from.len);
-    QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
-    for (size_t i = 0; i < from.len; ++i) {
-        from_QList.push_back(*(from_arr[i]));
-    }
-    QList<QModelIndex> to_QList;
-    to_QList.reserve(to.len);
-    QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
-    for (size_t i = 0; i < to.len; ++i) {
-        to_QList.push_back(*(to_arr[i]));
-    }
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_ChangePersistentIndexList_IsBase(true);
-        vqabstractproxymodel->changePersistentIndexList(from_QList, to_QList);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->changePersistentIndexList(from_QList, to_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnChangePersistentIndexList(QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_ChangePersistentIndexList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QModelIndex* */ QAbstractProxyModel_PersistentIndexList(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        QList<QModelIndex> _ret = vqabstractproxymodel->persistentIndexList();
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self))) {
+        QList<QModelIndex> _ret = vqabstractproxymodel->VirtualQAbstractProxyModel::persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -2150,166 +1219,40 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_PersistentIndexList(const Q
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQAbstractProxyModel*)self)->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::persistentIndexList called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QModelIndex* */ QAbstractProxyModel_SuperPersistentIndexList(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_PersistentIndexList_IsBase(true);
-        QList<QModelIndex> _ret = vqabstractproxymodel->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQAbstractProxyModel*)self)->persistentIndexList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnPersistentIndexList(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_PersistentIndexList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAbstractProxyModel_Sender(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->sender();
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->sender();
-    }
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self))) {
+        return vqabstractproxymodel->VirtualQAbstractProxyModel::sender();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAbstractProxyModel_SuperSender(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Sender_IsBase(true);
-        return vqabstractproxymodel->sender();
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnSender(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Sender_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAbstractProxyModel_SenderSignalIndex(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->senderSignalIndex();
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->senderSignalIndex();
-    }
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self))) {
+        return vqabstractproxymodel->VirtualQAbstractProxyModel::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAbstractProxyModel_SuperSenderSignalIndex(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_SenderSignalIndex_IsBase(true);
-        return vqabstractproxymodel->senderSignalIndex();
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnSenderSignalIndex(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QAbstractProxyModel_Receivers(const QAbstractProxyModel* self, const char* signal) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->receivers(signal);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->receivers(signal);
-    }
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self))) {
+        return vqabstractproxymodel->VirtualQAbstractProxyModel::receivers(signal);
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QAbstractProxyModel_SuperReceivers(const QAbstractProxyModel* self, const char* signal) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_Receivers_IsBase(true);
-        return vqabstractproxymodel->receivers(signal);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnReceivers(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_Receivers_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QAbstractProxyModel_IsSignalConnected(const QAbstractProxyModel* self, const QMetaMethod* signal) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return vqabstractproxymodel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QAbstractProxyModel_SuperIsSignalConnected(const QAbstractProxyModel* self, const QMetaMethod* signal) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        vqabstractproxymodel->setQAbstractProxyModel_IsSignalConnected_IsBase(true);
-        return vqabstractproxymodel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAbstractProxyModel_OnIsSignalConnected(const QAbstractProxyModel* self, intptr_t slot) {
-    auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self));
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel)
-        vqabstractproxymodel->setQAbstractProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractProxyModel::QAbstractProxyModel_IsSignalConnected_Callback>(slot));
+    if (auto* vqabstractproxymodel = const_cast<VirtualQAbstractProxyModel*>(dynamic_cast<const VirtualQAbstractProxyModel*>(self))) {
+        return vqabstractproxymodel->VirtualQAbstractProxyModel::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QAbstractProxyModel::isSignalConnected called without a directly constructed type");
 }
 
 void QAbstractProxyModel_Connect_SourceModelChanged(QAbstractProxyModel* self, intptr_t slot) {

@@ -62,7 +62,7 @@ void Kirigami__Platform__IconSizes_EnormousChanged(Kirigami__Platform__IconSizes
 void Kirigami__Platform__IconSizes_Connect_EnormousChanged(Kirigami__Platform__IconSizes* self, intptr_t slot);
 libqt_string Kirigami__Platform__IconSizes_Tr2(const char* s, const char* c);
 libqt_string Kirigami__Platform__IconSizes_Tr3(const char* s, const char* c, int n);
-void Kirigami__Platform__IconSizes_OnMetaObject(const Kirigami__Platform__IconSizes* self, intptr_t slot);
+void Kirigami__Platform__IconSizes_OnMetaObject(Kirigami__Platform__IconSizes* self, intptr_t slot);
 QMetaObject* Kirigami__Platform__IconSizes_SuperMetaObject(const Kirigami__Platform__IconSizes* self);
 void Kirigami__Platform__IconSizes_OnMetacast(Kirigami__Platform__IconSizes* self, intptr_t slot);
 void* Kirigami__Platform__IconSizes_SuperMetacast(Kirigami__Platform__IconSizes* self, const char* param1);
@@ -90,17 +90,9 @@ void Kirigami__Platform__IconSizes_DisconnectNotify(Kirigami__Platform__IconSize
 void Kirigami__Platform__IconSizes_OnDisconnectNotify(Kirigami__Platform__IconSizes* self, intptr_t slot);
 void Kirigami__Platform__IconSizes_SuperDisconnectNotify(Kirigami__Platform__IconSizes* self, const QMetaMethod* signal);
 QObject* Kirigami__Platform__IconSizes_Sender(const Kirigami__Platform__IconSizes* self);
-void Kirigami__Platform__IconSizes_OnSender(const Kirigami__Platform__IconSizes* self, intptr_t slot);
-QObject* Kirigami__Platform__IconSizes_SuperSender(const Kirigami__Platform__IconSizes* self);
 int Kirigami__Platform__IconSizes_SenderSignalIndex(const Kirigami__Platform__IconSizes* self);
-void Kirigami__Platform__IconSizes_OnSenderSignalIndex(const Kirigami__Platform__IconSizes* self, intptr_t slot);
-int Kirigami__Platform__IconSizes_SuperSenderSignalIndex(const Kirigami__Platform__IconSizes* self);
 int Kirigami__Platform__IconSizes_Receivers(const Kirigami__Platform__IconSizes* self, const char* signal);
-void Kirigami__Platform__IconSizes_OnReceivers(const Kirigami__Platform__IconSizes* self, intptr_t slot);
-int Kirigami__Platform__IconSizes_SuperReceivers(const Kirigami__Platform__IconSizes* self, const char* signal);
 bool Kirigami__Platform__IconSizes_IsSignalConnected(const Kirigami__Platform__IconSizes* self, const QMetaMethod* signal);
-void Kirigami__Platform__IconSizes_OnIsSignalConnected(const Kirigami__Platform__IconSizes* self, intptr_t slot);
-bool Kirigami__Platform__IconSizes_SuperIsSignalConnected(const Kirigami__Platform__IconSizes* self, const QMetaMethod* signal);
 void Kirigami__Platform__IconSizes_Delete(Kirigami__Platform__IconSizes* self);
 
 QMetaObject* Kirigami__Platform__Units_MetaObject(const Kirigami__Platform__Units* self);

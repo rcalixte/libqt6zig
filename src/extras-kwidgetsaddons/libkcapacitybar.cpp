@@ -157,14 +157,14 @@ QSize* KCapacityBar_MinimumSizeHint(const KCapacityBar* self) {
 
 void KCapacityBar_PaintEvent(KCapacityBar* self, QPaintEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->paintEvent(event);
     }
 }
 
 void KCapacityBar_ChangeEvent(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->changeEvent(event);
     }
 }
@@ -195,1624 +195,1148 @@ libqt_string KCapacityBar_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KCapacityBar_SuperMetaObject(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MetaObject_IsBase(true);
-        return (QMetaObject*)vkcapacitybar->metaObject();
-    } else {
-        return (QMetaObject*)self->KCapacityBar::metaObject();
-    }
+    return (QMetaObject*)self->KCapacityBar::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnMetaObject(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_MetaObject_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MetaObject_Callback>(slot));
+void KCapacityBar_OnMetaObject(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_metaobject_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KCapacityBar_SuperMetacast(KCapacityBar* self, const char* param1) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Metacast_IsBase(true);
-        return vkcapacitybar->qt_metacast(param1);
-    } else {
-        return self->KCapacityBar::qt_metacast(param1);
-    }
+    return self->KCapacityBar::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMetacast(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Metacast_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metacast_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_metacast_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KCapacityBar_SuperMetacall(KCapacityBar* self, int param1, int param2, void** param3) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Metacall_IsBase(true);
-        return vkcapacitybar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KCapacityBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KCapacityBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMetacall(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Metacall_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metacall_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_metacall_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KCapacityBar_SuperMinimumSizeHint(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vkcapacitybar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCapacityBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KCapacityBar::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnMinimumSizeHint(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MinimumSizeHint_Callback>(slot));
+void KCapacityBar_OnMinimumSizeHint(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_minimumsizehint_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperPaintEvent(KCapacityBar* self, QPaintEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_PaintEvent_IsBase(true);
-        vkcapacitybar->paintEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->paintEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnPaintEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_PaintEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_PaintEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_paintevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperChangeEvent(KCapacityBar* self, QEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ChangeEvent_IsBase(true);
-        vkcapacitybar->changeEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->changeEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnChangeEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_ChangeEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ChangeEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_changeevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCapacityBar_DevType(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->devType();
-    } else {
-        return self->KCapacityBar::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KCapacityBar_SuperDevType(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_DevType_IsBase(true);
-        return vkcapacitybar->devType();
-    } else {
-        return self->KCapacityBar::devType();
-    }
+    return self->KCapacityBar::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnDevType(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_DevType_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DevType_Callback>(slot));
+void KCapacityBar_OnDevType(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_devtype_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_SetVisible(KCapacityBar* self, bool visible) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setVisible(visible);
-    } else {
-        self->KCapacityBar::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperSetVisible(KCapacityBar* self, bool visible) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_SetVisible_IsBase(true);
-        vkcapacitybar->setVisible(visible);
-    } else {
-        self->KCapacityBar::setVisible(visible);
-    }
+    self->KCapacityBar::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnSetVisible(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_SetVisible_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SetVisible_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_setvisible_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KCapacityBar_SizeHint(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return new QSize(vkcapacitybar->sizeHint());
-    } else {
-        return new QSize(((VirtualKCapacityBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KCapacityBar_SuperSizeHint(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_SizeHint_IsBase(true);
-        return new QSize(vkcapacitybar->sizeHint());
-    } else {
-        return new QSize(((VirtualKCapacityBar*)self)->sizeHint());
-    }
+    return new QSize(self->KCapacityBar::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnSizeHint(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_SizeHint_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SizeHint_Callback>(slot));
+void KCapacityBar_OnSizeHint(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_sizehint_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCapacityBar_HeightForWidth(const KCapacityBar* self, int param1) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KCapacityBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KCapacityBar_SuperHeightForWidth(const KCapacityBar* self, int param1) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_HeightForWidth_IsBase(true);
-        return vkcapacitybar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KCapacityBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KCapacityBar::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnHeightForWidth(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_HeightForWidth_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HeightForWidth_Callback>(slot));
+void KCapacityBar_OnHeightForWidth(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_heightforwidth_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCapacityBar_HasHeightForWidth(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->hasHeightForWidth();
-    } else {
-        return self->KCapacityBar::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KCapacityBar_SuperHasHeightForWidth(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_HasHeightForWidth_IsBase(true);
-        return vkcapacitybar->hasHeightForWidth();
-    } else {
-        return self->KCapacityBar::hasHeightForWidth();
-    }
+    return self->KCapacityBar::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnHasHeightForWidth(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HasHeightForWidth_Callback>(slot));
+void KCapacityBar_OnHasHeightForWidth(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_hasheightforwidth_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KCapacityBar_PaintEngine(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->paintEngine();
-    } else {
-        return self->KCapacityBar::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KCapacityBar_SuperPaintEngine(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_PaintEngine_IsBase(true);
-        return vkcapacitybar->paintEngine();
-    } else {
-        return self->KCapacityBar::paintEngine();
-    }
+    return self->KCapacityBar::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnPaintEngine(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_PaintEngine_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_PaintEngine_Callback>(slot));
+void KCapacityBar_OnPaintEngine(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_paintengine_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCapacityBar_Event(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         return vkcapacitybar->event(event);
     } else {
-        return ((VirtualKCapacityBar*)self)->event(event);
+        qFatal("Error: Protected virtual method KCapacityBar::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCapacityBar_SuperEvent(KCapacityBar* self, QEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Event_IsBase(true);
-        return vkcapacitybar->event(event);
-    } else {
-        return ((VirtualKCapacityBar*)self)->event(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        return vkcapacitybar->KCapacityBar::event(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Event_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Event_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_event_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_MousePressEvent(KCapacityBar* self, QMouseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->mousePressEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperMousePressEvent(KCapacityBar* self, QMouseEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MousePressEvent_IsBase(true);
-        vkcapacitybar->mousePressEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->mousePressEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMousePressEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_MousePressEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MousePressEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_mousepressevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_MouseReleaseEvent(KCapacityBar* self, QMouseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->mouseReleaseEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperMouseReleaseEvent(KCapacityBar* self, QMouseEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MouseReleaseEvent_IsBase(true);
-        vkcapacitybar->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMouseReleaseEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_mousereleaseevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_MouseDoubleClickEvent(KCapacityBar* self, QMouseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperMouseDoubleClickEvent(KCapacityBar* self, QMouseEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MouseDoubleClickEvent_IsBase(true);
-        vkcapacitybar->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMouseDoubleClickEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_mousedoubleclickevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_MouseMoveEvent(KCapacityBar* self, QMouseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->mouseMoveEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperMouseMoveEvent(KCapacityBar* self, QMouseEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MouseMoveEvent_IsBase(true);
-        vkcapacitybar->mouseMoveEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMouseMoveEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseMoveEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_mousemoveevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_WheelEvent(KCapacityBar* self, QWheelEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->wheelEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperWheelEvent(KCapacityBar* self, QWheelEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_WheelEvent_IsBase(true);
-        vkcapacitybar->wheelEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->wheelEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnWheelEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_WheelEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_WheelEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_wheelevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_KeyPressEvent(KCapacityBar* self, QKeyEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->keyPressEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperKeyPressEvent(KCapacityBar* self, QKeyEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_KeyPressEvent_IsBase(true);
-        vkcapacitybar->keyPressEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->keyPressEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnKeyPressEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_KeyPressEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_keypressevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_KeyReleaseEvent(KCapacityBar* self, QKeyEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->keyReleaseEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperKeyReleaseEvent(KCapacityBar* self, QKeyEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_KeyReleaseEvent_IsBase(true);
-        vkcapacitybar->keyReleaseEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnKeyReleaseEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_keyreleaseevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_FocusInEvent(KCapacityBar* self, QFocusEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->focusInEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperFocusInEvent(KCapacityBar* self, QFocusEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_FocusInEvent_IsBase(true);
-        vkcapacitybar->focusInEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->focusInEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnFocusInEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_FocusInEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusInEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_focusinevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_FocusOutEvent(KCapacityBar* self, QFocusEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->focusOutEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperFocusOutEvent(KCapacityBar* self, QFocusEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_FocusOutEvent_IsBase(true);
-        vkcapacitybar->focusOutEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->focusOutEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnFocusOutEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusOutEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_focusoutevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_EnterEvent(KCapacityBar* self, QEnterEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->enterEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperEnterEvent(KCapacityBar* self, QEnterEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_EnterEvent_IsBase(true);
-        vkcapacitybar->enterEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->enterEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnEnterEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_EnterEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_EnterEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_enterevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_LeaveEvent(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->leaveEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperLeaveEvent(KCapacityBar* self, QEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_LeaveEvent_IsBase(true);
-        vkcapacitybar->leaveEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->leaveEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnLeaveEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_LeaveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_LeaveEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_leaveevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_MoveEvent(KCapacityBar* self, QMoveEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->moveEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperMoveEvent(KCapacityBar* self, QMoveEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_MoveEvent_IsBase(true);
-        vkcapacitybar->moveEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->moveEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnMoveEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_MoveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MoveEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_moveevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_ResizeEvent(KCapacityBar* self, QResizeEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->resizeEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperResizeEvent(KCapacityBar* self, QResizeEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ResizeEvent_IsBase(true);
-        vkcapacitybar->resizeEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->resizeEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnResizeEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_ResizeEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ResizeEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_resizeevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_CloseEvent(KCapacityBar* self, QCloseEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->closeEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperCloseEvent(KCapacityBar* self, QCloseEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_CloseEvent_IsBase(true);
-        vkcapacitybar->closeEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->closeEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnCloseEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_CloseEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_CloseEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_closeevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_ContextMenuEvent(KCapacityBar* self, QContextMenuEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->contextMenuEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperContextMenuEvent(KCapacityBar* self, QContextMenuEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ContextMenuEvent_IsBase(true);
-        vkcapacitybar->contextMenuEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnContextMenuEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ContextMenuEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_contextmenuevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_TabletEvent(KCapacityBar* self, QTabletEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->tabletEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperTabletEvent(KCapacityBar* self, QTabletEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_TabletEvent_IsBase(true);
-        vkcapacitybar->tabletEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->tabletEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnTabletEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_TabletEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_TabletEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_tabletevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_ActionEvent(KCapacityBar* self, QActionEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->actionEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperActionEvent(KCapacityBar* self, QActionEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ActionEvent_IsBase(true);
-        vkcapacitybar->actionEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->actionEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnActionEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_ActionEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ActionEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_actionevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_DragEnterEvent(KCapacityBar* self, QDragEnterEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->dragEnterEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperDragEnterEvent(KCapacityBar* self, QDragEnterEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_DragEnterEvent_IsBase(true);
-        vkcapacitybar->dragEnterEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDragEnterEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragEnterEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_dragenterevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_DragMoveEvent(KCapacityBar* self, QDragMoveEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->dragMoveEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperDragMoveEvent(KCapacityBar* self, QDragMoveEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_DragMoveEvent_IsBase(true);
-        vkcapacitybar->dragMoveEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDragMoveEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragMoveEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_dragmoveevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_DragLeaveEvent(KCapacityBar* self, QDragLeaveEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->dragLeaveEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperDragLeaveEvent(KCapacityBar* self, QDragLeaveEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_DragLeaveEvent_IsBase(true);
-        vkcapacitybar->dragLeaveEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDragLeaveEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragLeaveEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_dragleaveevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_DropEvent(KCapacityBar* self, QDropEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->dropEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperDropEvent(KCapacityBar* self, QDropEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_DropEvent_IsBase(true);
-        vkcapacitybar->dropEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->dropEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDropEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_DropEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DropEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_dropevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_ShowEvent(KCapacityBar* self, QShowEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->showEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperShowEvent(KCapacityBar* self, QShowEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ShowEvent_IsBase(true);
-        vkcapacitybar->showEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->showEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnShowEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_ShowEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ShowEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_showevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_HideEvent(KCapacityBar* self, QHideEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->hideEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperHideEvent(KCapacityBar* self, QHideEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_HideEvent_IsBase(true);
-        vkcapacitybar->hideEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->hideEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnHideEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_HideEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HideEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_hideevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCapacityBar_NativeEvent(KCapacityBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
+    if (vkcapacitybar) {
         return vkcapacitybar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKCapacityBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KCapacityBar::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCapacityBar_SuperNativeEvent(KCapacityBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_NativeEvent_IsBase(true);
-        return vkcapacitybar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKCapacityBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        return vkcapacitybar->KCapacityBar::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnNativeEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_NativeEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_NativeEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_nativeevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCapacityBar_Metric(const KCapacityBar* self, int param1) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         return vkcapacitybar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKCapacityBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KCapacityBar::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KCapacityBar_SuperMetric(const KCapacityBar* self, int param1) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Metric_IsBase(true);
-        return vkcapacitybar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKCapacityBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        return vkcapacitybar->KCapacityBar::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnMetric(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Metric_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metric_Callback>(slot));
+void KCapacityBar_OnMetric(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_metric_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_InitPainter(const KCapacityBar* self, QPainter* painter) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->initPainter(painter);
     } else {
-        ((VirtualKCapacityBar*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KCapacityBar::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperInitPainter(const KCapacityBar* self, QPainter* painter) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_InitPainter_IsBase(true);
-        vkcapacitybar->initPainter(painter);
-    } else {
-        ((VirtualKCapacityBar*)self)->initPainter(painter);
-    }
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        vkcapacitybar->KCapacityBar::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnInitPainter(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_InitPainter_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InitPainter_Callback>(slot));
+void KCapacityBar_OnInitPainter(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_initpainter_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KCapacityBar_Redirected(const KCapacityBar* self, QPoint* offset) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         return vkcapacitybar->redirected(offset);
     } else {
-        return ((VirtualKCapacityBar*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KCapacityBar::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KCapacityBar_SuperRedirected(const KCapacityBar* self, QPoint* offset) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Redirected_IsBase(true);
-        return vkcapacitybar->redirected(offset);
-    } else {
-        return ((VirtualKCapacityBar*)self)->redirected(offset);
-    }
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        return vkcapacitybar->KCapacityBar::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnRedirected(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Redirected_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Redirected_Callback>(slot));
+void KCapacityBar_OnRedirected(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_redirected_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KCapacityBar_SharedPainter(const KCapacityBar* self) {
     auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         return vkcapacitybar->sharedPainter();
     } else {
-        return ((VirtualKCapacityBar*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KCapacityBar::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KCapacityBar_SuperSharedPainter(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_SharedPainter_IsBase(true);
-        return vkcapacitybar->sharedPainter();
-    } else {
-        return ((VirtualKCapacityBar*)self)->sharedPainter();
-    }
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        return vkcapacitybar->KCapacityBar::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnSharedPainter(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_SharedPainter_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SharedPainter_Callback>(slot));
+void KCapacityBar_OnSharedPainter(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_sharedpainter_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_InputMethodEvent(KCapacityBar* self, QInputMethodEvent* param1) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->inputMethodEvent(param1);
     } else {
-        ((VirtualKCapacityBar*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KCapacityBar::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperInputMethodEvent(KCapacityBar* self, QInputMethodEvent* param1) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_InputMethodEvent_IsBase(true);
-        vkcapacitybar->inputMethodEvent(param1);
-    } else {
-        ((VirtualKCapacityBar*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnInputMethodEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InputMethodEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_inputmethodevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KCapacityBar_InputMethodQuery(const KCapacityBar* self, int param1) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return new QVariant(vkcapacitybar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKCapacityBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KCapacityBar_SuperInputMethodQuery(const KCapacityBar* self, int param1) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_InputMethodQuery_IsBase(true);
-        return new QVariant(vkcapacitybar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKCapacityBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KCapacityBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnInputMethodQuery(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InputMethodQuery_Callback>(slot));
+void KCapacityBar_OnInputMethodQuery(KCapacityBar* self, intptr_t slot) {
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self)))
+        vkcapacitybar->kcapacitybar_inputmethodquery_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCapacityBar_FocusNextPrevChild(KCapacityBar* self, bool next) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         return vkcapacitybar->focusNextPrevChild(next);
     } else {
-        return ((VirtualKCapacityBar*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KCapacityBar::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCapacityBar_SuperFocusNextPrevChild(KCapacityBar* self, bool next) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_FocusNextPrevChild_IsBase(true);
-        return vkcapacitybar->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKCapacityBar*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        return vkcapacitybar->KCapacityBar::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnFocusNextPrevChild(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_focusnextprevchild_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCapacityBar_EventFilter(KCapacityBar* self, QObject* watched, QEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->eventFilter(watched, event);
-    } else {
-        return self->KCapacityBar::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KCapacityBar_SuperEventFilter(KCapacityBar* self, QObject* watched, QEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_EventFilter_IsBase(true);
-        return vkcapacitybar->eventFilter(watched, event);
-    } else {
-        return self->KCapacityBar::eventFilter(watched, event);
-    }
+    return self->KCapacityBar::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnEventFilter(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_EventFilter_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_EventFilter_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_eventfilter_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_TimerEvent(KCapacityBar* self, QTimerEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->timerEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperTimerEvent(KCapacityBar* self, QTimerEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_TimerEvent_IsBase(true);
-        vkcapacitybar->timerEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->timerEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnTimerEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_TimerEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_TimerEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_timerevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_ChildEvent(KCapacityBar* self, QChildEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->childEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperChildEvent(KCapacityBar* self, QChildEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ChildEvent_IsBase(true);
-        vkcapacitybar->childEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->childEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnChildEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_ChildEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ChildEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_childevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_CustomEvent(KCapacityBar* self, QEvent* event) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->customEvent(event);
     } else {
-        ((VirtualKCapacityBar*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KCapacityBar::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperCustomEvent(KCapacityBar* self, QEvent* event) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_CustomEvent_IsBase(true);
-        vkcapacitybar->customEvent(event);
-    } else {
-        ((VirtualKCapacityBar*)self)->customEvent(event);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnCustomEvent(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_CustomEvent_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_CustomEvent_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_customevent_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_ConnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->connectNotify(*signal);
     } else {
-        ((VirtualKCapacityBar*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KCapacityBar::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperConnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_ConnectNotify_IsBase(true);
-        vkcapacitybar->connectNotify(*signal);
-    } else {
-        ((VirtualKCapacityBar*)self)->connectNotify(*signal);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnConnectNotify(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_ConnectNotify_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ConnectNotify_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_connectnotify_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCapacityBar_DisconnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
     auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
+    if (vkcapacitybar) {
         vkcapacitybar->disconnectNotify(*signal);
     } else {
-        ((VirtualKCapacityBar*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KCapacityBar::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCapacityBar_SuperDisconnectNotify(KCapacityBar* self, const QMetaMethod* signal) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_DisconnectNotify_IsBase(true);
-        vkcapacitybar->disconnectNotify(*signal);
-    } else {
-        ((VirtualKCapacityBar*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->KCapacityBar::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCapacityBar::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCapacityBar_OnDisconnectNotify(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DisconnectNotify_Callback>(slot));
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self))
+        vkcapacitybar->kcapacitybar_disconnectnotify_callback = reinterpret_cast<VirtualKCapacityBar::KCapacityBar_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCapacityBar_UpdateMicroFocus(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->updateMicroFocus();
-    } else {
-        ((VirtualKCapacityBar*)self)->updateMicroFocus();
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->VirtualKCapacityBar::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KCapacityBar::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCapacityBar_SuperUpdateMicroFocus(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_UpdateMicroFocus_IsBase(true);
-        vkcapacitybar->updateMicroFocus();
-    } else {
-        ((VirtualKCapacityBar*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnUpdateMicroFocus(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCapacityBar_Create(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->create();
-    } else {
-        ((VirtualKCapacityBar*)self)->create();
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->VirtualKCapacityBar::create();
+    } else
+        qFatal("Error: Protected method KCapacityBar::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCapacityBar_SuperCreate(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Create_IsBase(true);
-        vkcapacitybar->create();
-    } else {
-        ((VirtualKCapacityBar*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnCreate(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Create_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCapacityBar_Destroy(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->destroy();
-    } else {
-        ((VirtualKCapacityBar*)self)->destroy();
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        vkcapacitybar->VirtualKCapacityBar::destroy();
+    } else
+        qFatal("Error: Protected method KCapacityBar::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCapacityBar_SuperDestroy(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Destroy_IsBase(true);
-        vkcapacitybar->destroy();
-    } else {
-        ((VirtualKCapacityBar*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnDestroy(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Destroy_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCapacityBar_FocusNextChild(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->focusNextChild();
-    } else {
-        return ((VirtualKCapacityBar*)self)->focusNextChild();
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        return vkcapacitybar->VirtualKCapacityBar::focusNextChild();
+    } else
+        qFatal("Error: Protected method KCapacityBar::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCapacityBar_SuperFocusNextChild(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_FocusNextChild_IsBase(true);
-        return vkcapacitybar->focusNextChild();
-    } else {
-        return ((VirtualKCapacityBar*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnFocusNextChild(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_FocusNextChild_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCapacityBar_FocusPreviousChild(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->focusPreviousChild();
-    } else {
-        return ((VirtualKCapacityBar*)self)->focusPreviousChild();
-    }
+    if (auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self)) {
+        return vkcapacitybar->VirtualKCapacityBar::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KCapacityBar::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCapacityBar_SuperFocusPreviousChild(KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_FocusPreviousChild_IsBase(true);
-        return vkcapacitybar->focusPreviousChild();
-    } else {
-        return ((VirtualKCapacityBar*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnFocusPreviousChild(KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KCapacityBar_Sender(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->sender();
-    } else {
-        return ((VirtualKCapacityBar*)self)->sender();
-    }
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        return vkcapacitybar->VirtualKCapacityBar::sender();
+    } else
+        qFatal("Error: Protected method KCapacityBar::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KCapacityBar_SuperSender(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Sender_IsBase(true);
-        return vkcapacitybar->sender();
-    } else {
-        return ((VirtualKCapacityBar*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnSender(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Sender_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCapacityBar_SenderSignalIndex(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->senderSignalIndex();
-    } else {
-        return ((VirtualKCapacityBar*)self)->senderSignalIndex();
-    }
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        return vkcapacitybar->VirtualKCapacityBar::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KCapacityBar::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCapacityBar_SuperSenderSignalIndex(const KCapacityBar* self) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_SenderSignalIndex_IsBase(true);
-        return vkcapacitybar->senderSignalIndex();
-    } else {
-        return ((VirtualKCapacityBar*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnSenderSignalIndex(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCapacityBar_Receivers(const KCapacityBar* self, const char* signal) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->receivers(signal);
-    } else {
-        return ((VirtualKCapacityBar*)self)->receivers(signal);
-    }
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        return vkcapacitybar->VirtualKCapacityBar::receivers(signal);
+    } else
+        qFatal("Error: Protected method KCapacityBar::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCapacityBar_SuperReceivers(const KCapacityBar* self, const char* signal) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_Receivers_IsBase(true);
-        return vkcapacitybar->receivers(signal);
-    } else {
-        return ((VirtualKCapacityBar*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnReceivers(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_Receivers_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCapacityBar_IsSignalConnected(const KCapacityBar* self, const QMetaMethod* signal) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCapacityBar*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        return vkcapacitybar->VirtualKCapacityBar::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KCapacityBar::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCapacityBar_SuperIsSignalConnected(const KCapacityBar* self, const QMetaMethod* signal) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_IsSignalConnected_IsBase(true);
-        return vkcapacitybar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCapacityBar*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnIsSignalConnected(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KCapacityBar_GetDecodedMetricF(const KCapacityBar* self, int metricA, int metricB) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return vkcapacitybar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKCapacityBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KCapacityBar_SuperGetDecodedMetricF(const KCapacityBar* self, int metricA, int metricB) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        vkcapacitybar->setKCapacityBar_GetDecodedMetricF_IsBase(true);
-        return vkcapacitybar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKCapacityBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCapacityBar_OnGetDecodedMetricF(const KCapacityBar* self, intptr_t slot) {
-    auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self));
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar)
-        vkcapacitybar->setKCapacityBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKCapacityBar::KCapacityBar_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkcapacitybar = const_cast<VirtualKCapacityBar*>(dynamic_cast<const VirtualKCapacityBar*>(self))) {
+        return vkcapacitybar->VirtualKCapacityBar::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KCapacityBar::getDecodedMetricF called without a directly constructed type");
 }
 
 void KCapacityBar_Delete(KCapacityBar* self) {

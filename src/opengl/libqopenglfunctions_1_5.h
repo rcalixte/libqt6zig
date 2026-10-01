@@ -510,14 +510,8 @@ void QOpenGLFunctions_1_5_GlFogCoordf(QOpenGLFunctions_1_5* self, float coord);
 void QOpenGLFunctions_1_5_OnInitializeOpenGLFunctions(QOpenGLFunctions_1_5* self, intptr_t slot);
 bool QOpenGLFunctions_1_5_SuperInitializeOpenGLFunctions(QOpenGLFunctions_1_5* self);
 bool QOpenGLFunctions_1_5_IsInitialized(const QOpenGLFunctions_1_5* self);
-void QOpenGLFunctions_1_5_OnIsInitialized(const QOpenGLFunctions_1_5* self, intptr_t slot);
-bool QOpenGLFunctions_1_5_SuperIsInitialized(const QOpenGLFunctions_1_5* self);
 void QOpenGLFunctions_1_5_SetOwningContext(QOpenGLFunctions_1_5* self, const QOpenGLContext* context);
-void QOpenGLFunctions_1_5_OnSetOwningContext(QOpenGLFunctions_1_5* self, intptr_t slot);
-void QOpenGLFunctions_1_5_SuperSetOwningContext(QOpenGLFunctions_1_5* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_1_5_OwningContext(const QOpenGLFunctions_1_5* self);
-void QOpenGLFunctions_1_5_OnOwningContext(const QOpenGLFunctions_1_5* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_1_5_SuperOwningContext(const QOpenGLFunctions_1_5* self);
 void QOpenGLFunctions_1_5_Delete(QOpenGLFunctions_1_5* self);
 
 #ifdef __cplusplus

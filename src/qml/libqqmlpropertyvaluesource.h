@@ -23,7 +23,6 @@ QQmlPropertyValueSource* QQmlPropertyValueSource_new();
 void QQmlPropertyValueSource_SetTarget(QQmlPropertyValueSource* self, const QQmlProperty* target);
 void QQmlPropertyValueSource_OperatorAssign(QQmlPropertyValueSource* self, const QQmlPropertyValueSource* param1);
 void QQmlPropertyValueSource_OnSetTarget(QQmlPropertyValueSource* self, intptr_t slot);
-void QQmlPropertyValueSource_SuperSetTarget(QQmlPropertyValueSource* self, const QQmlProperty* target);
 void QQmlPropertyValueSource_Delete(QQmlPropertyValueSource* self);
 
 #ifdef __cplusplus

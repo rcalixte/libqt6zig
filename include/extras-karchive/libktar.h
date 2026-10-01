@@ -67,17 +67,9 @@ bool KTar_DoWriteData(KTar* self, const char* data, long long size);
 void KTar_OnDoWriteData(KTar* self, intptr_t slot);
 bool KTar_SuperDoWriteData(KTar* self, const char* data, long long size);
 void KTar_SetErrorString(KTar* self, const libqt_string errorStr);
-void KTar_OnSetErrorString(KTar* self, intptr_t slot);
-void KTar_SuperSetErrorString(KTar* self, const libqt_string errorStr);
 KArchiveDirectory* KTar_FindOrCreate(KTar* self, const libqt_string path);
-void KTar_OnFindOrCreate(KTar* self, intptr_t slot);
-KArchiveDirectory* KTar_SuperFindOrCreate(KTar* self, const libqt_string path);
 void KTar_SetDevice(KTar* self, QIODevice* dev);
-void KTar_OnSetDevice(KTar* self, intptr_t slot);
-void KTar_SuperSetDevice(KTar* self, QIODevice* dev);
 void KTar_SetRootDir(KTar* self, KArchiveDirectory* rootDir);
-void KTar_OnSetRootDir(KTar* self, intptr_t slot);
-void KTar_SuperSetRootDir(KTar* self, KArchiveDirectory* rootDir);
 void KTar_Delete(KTar* self);
 
 #ifdef __cplusplus

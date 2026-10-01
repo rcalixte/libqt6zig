@@ -52,7 +52,7 @@ void KPixmapSequenceOverlayPainter_Stop(KPixmapSequenceOverlayPainter* self);
 bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
 libqt_string KPixmapSequenceOverlayPainter_Tr2(const char* s, const char* c);
 libqt_string KPixmapSequenceOverlayPainter_Tr3(const char* s, const char* c, int n);
-void KPixmapSequenceOverlayPainter_OnMetaObject(const KPixmapSequenceOverlayPainter* self, intptr_t slot);
+void KPixmapSequenceOverlayPainter_OnMetaObject(KPixmapSequenceOverlayPainter* self, intptr_t slot);
 QMetaObject* KPixmapSequenceOverlayPainter_SuperMetaObject(const KPixmapSequenceOverlayPainter* self);
 void KPixmapSequenceOverlayPainter_OnMetacast(KPixmapSequenceOverlayPainter* self, intptr_t slot);
 void* KPixmapSequenceOverlayPainter_SuperMetacast(KPixmapSequenceOverlayPainter* self, const char* param1);
@@ -79,17 +79,9 @@ void KPixmapSequenceOverlayPainter_DisconnectNotify(KPixmapSequenceOverlayPainte
 void KPixmapSequenceOverlayPainter_OnDisconnectNotify(KPixmapSequenceOverlayPainter* self, intptr_t slot);
 void KPixmapSequenceOverlayPainter_SuperDisconnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
 QObject* KPixmapSequenceOverlayPainter_Sender(const KPixmapSequenceOverlayPainter* self);
-void KPixmapSequenceOverlayPainter_OnSender(const KPixmapSequenceOverlayPainter* self, intptr_t slot);
-QObject* KPixmapSequenceOverlayPainter_SuperSender(const KPixmapSequenceOverlayPainter* self);
 int KPixmapSequenceOverlayPainter_SenderSignalIndex(const KPixmapSequenceOverlayPainter* self);
-void KPixmapSequenceOverlayPainter_OnSenderSignalIndex(const KPixmapSequenceOverlayPainter* self, intptr_t slot);
-int KPixmapSequenceOverlayPainter_SuperSenderSignalIndex(const KPixmapSequenceOverlayPainter* self);
 int KPixmapSequenceOverlayPainter_Receivers(const KPixmapSequenceOverlayPainter* self, const char* signal);
-void KPixmapSequenceOverlayPainter_OnReceivers(const KPixmapSequenceOverlayPainter* self, intptr_t slot);
-int KPixmapSequenceOverlayPainter_SuperReceivers(const KPixmapSequenceOverlayPainter* self, const char* signal);
 bool KPixmapSequenceOverlayPainter_IsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
-void KPixmapSequenceOverlayPainter_OnIsSignalConnected(const KPixmapSequenceOverlayPainter* self, intptr_t slot);
-bool KPixmapSequenceOverlayPainter_SuperIsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal);
 void KPixmapSequenceOverlayPainter_Delete(KPixmapSequenceOverlayPainter* self);
 
 #ifdef __cplusplus

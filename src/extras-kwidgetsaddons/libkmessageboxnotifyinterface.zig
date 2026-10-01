@@ -29,6 +29,8 @@ pub const KMessageBoxNotifyInterface = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
     ///
+    /// This method must be implemented with `onSendNotification` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KMessageBoxNotifyInterface `
@@ -64,33 +66,6 @@ pub const KMessageBoxNotifyInterface = extern struct {
     ///
     pub fn onSendNotification(self: KMessageBoxNotifyInterface, callback: *const fn (KMessageBoxNotifyInterface, i32, [*:0]const u8, QWidget) callconv(.c) void) void {
         qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSendNotification` instead
-    ///
-    pub const SuperSendNotification = superSendNotification;
-
-    /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMessageBoxNotifyInterface `
-    ///
-    /// ` notificationType: qmessagebox_enums.Icon `
-    ///
-    /// ` message: []const u8 `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn superSendNotification(self: KMessageBoxNotifyInterface, notificationType: i32, message: []const u8, parent: anytype) void {
-        const message_str = qtc.libqt_string{
-            .len = message.len,
-            .data = message.ptr,
-        };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.KMessageBoxNotifyInterface_SuperSendNotification(@ptrCast(self.ptr), @bitCast(notificationType), message_str, @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead

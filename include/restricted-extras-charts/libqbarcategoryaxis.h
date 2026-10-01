@@ -59,13 +59,13 @@ void QBarCategoryAxis_CountChanged(QBarCategoryAxis* self);
 void QBarCategoryAxis_Connect_CountChanged(QBarCategoryAxis* self, intptr_t slot);
 libqt_string QBarCategoryAxis_Tr2(const char* s, const char* c);
 libqt_string QBarCategoryAxis_Tr3(const char* s, const char* c, int n);
-void QBarCategoryAxis_OnMetaObject(const QBarCategoryAxis* self, intptr_t slot);
+void QBarCategoryAxis_OnMetaObject(QBarCategoryAxis* self, intptr_t slot);
 QMetaObject* QBarCategoryAxis_SuperMetaObject(const QBarCategoryAxis* self);
 void QBarCategoryAxis_OnMetacast(QBarCategoryAxis* self, intptr_t slot);
 void* QBarCategoryAxis_SuperMetacast(QBarCategoryAxis* self, const char* param1);
 void QBarCategoryAxis_OnMetacall(QBarCategoryAxis* self, intptr_t slot);
 int QBarCategoryAxis_SuperMetacall(QBarCategoryAxis* self, int param1, int param2, void** param3);
-void QBarCategoryAxis_OnType(const QBarCategoryAxis* self, intptr_t slot);
+void QBarCategoryAxis_OnType(QBarCategoryAxis* self, intptr_t slot);
 int QBarCategoryAxis_SuperType(const QBarCategoryAxis* self);
 bool QBarCategoryAxis_Event(QBarCategoryAxis* self, QEvent* event);
 void QBarCategoryAxis_OnEvent(QBarCategoryAxis* self, intptr_t slot);
@@ -89,17 +89,9 @@ void QBarCategoryAxis_DisconnectNotify(QBarCategoryAxis* self, const QMetaMethod
 void QBarCategoryAxis_OnDisconnectNotify(QBarCategoryAxis* self, intptr_t slot);
 void QBarCategoryAxis_SuperDisconnectNotify(QBarCategoryAxis* self, const QMetaMethod* signal);
 QObject* QBarCategoryAxis_Sender(const QBarCategoryAxis* self);
-void QBarCategoryAxis_OnSender(const QBarCategoryAxis* self, intptr_t slot);
-QObject* QBarCategoryAxis_SuperSender(const QBarCategoryAxis* self);
 int QBarCategoryAxis_SenderSignalIndex(const QBarCategoryAxis* self);
-void QBarCategoryAxis_OnSenderSignalIndex(const QBarCategoryAxis* self, intptr_t slot);
-int QBarCategoryAxis_SuperSenderSignalIndex(const QBarCategoryAxis* self);
 int QBarCategoryAxis_Receivers(const QBarCategoryAxis* self, const char* signal);
-void QBarCategoryAxis_OnReceivers(const QBarCategoryAxis* self, intptr_t slot);
-int QBarCategoryAxis_SuperReceivers(const QBarCategoryAxis* self, const char* signal);
 bool QBarCategoryAxis_IsSignalConnected(const QBarCategoryAxis* self, const QMetaMethod* signal);
-void QBarCategoryAxis_OnIsSignalConnected(const QBarCategoryAxis* self, intptr_t slot);
-bool QBarCategoryAxis_SuperIsSignalConnected(const QBarCategoryAxis* self, const QMetaMethod* signal);
 void QBarCategoryAxis_Delete(QBarCategoryAxis* self);
 
 #ifdef __cplusplus

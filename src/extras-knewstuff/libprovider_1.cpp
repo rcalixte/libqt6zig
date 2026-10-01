@@ -548,749 +548,391 @@ libqt_string KNSCore__Provider_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KNSCore__Provider_SuperMetaObject(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_MetaObject_IsBase(true);
-        return (QMetaObject*)vknscoreprovider->metaObject();
-    } else {
-        return (QMetaObject*)self->KNSCore::Provider::metaObject();
-    }
+    return (QMetaObject*)self->KNSCore::Provider::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnMetaObject(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_MetaObject_Callback>(slot));
+void KNSCore__Provider_OnMetaObject(KNSCore__Provider* self, intptr_t slot) {
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self)))
+        vknscoreprovider->knscore__provider_metaobject_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KNSCore__Provider_SuperMetacast(KNSCore__Provider* self, const char* param1) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Metacast_IsBase(true);
-        return vknscoreprovider->qt_metacast(param1);
-    } else {
-        return self->KNSCore::Provider::qt_metacast(param1);
-    }
+    return self->KNSCore::Provider::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnMetacast(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Metacast_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Metacast_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_metacast_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KNSCore__Provider_SuperMetacall(KNSCore__Provider* self, int param1, int param2, void** param3) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Metacall_IsBase(true);
-        return vknscoreprovider->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KNSCore::Provider::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KNSCore::Provider::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnMetacall(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Metacall_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_string KNSCore__Provider_SuperId(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Id_IsBase(true);
-        auto _ret = vknscoreprovider->id();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKNSCoreProvider*)self)->id();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_metacall_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnId(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Id_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Id_Callback>(slot));
-}
-
-// Base class handler implementation
-bool KNSCore__Provider_SuperSetProviderXML(KNSCore__Provider* self, const QDomElement* xmldata) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_SetProviderXML_IsBase(true);
-        return vknscoreprovider->setProviderXML(*xmldata);
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->setProviderXML(*xmldata);
-    }
+void KNSCore__Provider_OnId(KNSCore__Provider* self, intptr_t slot) {
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self)))
+        vknscoreprovider->knscore__provider_id_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Id_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnSetProviderXML(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_SetProviderXML_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_SetProviderXML_Callback>(slot));
-}
-
-// Base class handler implementation
-bool KNSCore__Provider_SuperIsInitialized(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_IsInitialized_IsBase(true);
-        return vknscoreprovider->isInitialized();
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->isInitialized();
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_setproviderxml_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_SetProviderXML_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnIsInitialized(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_IsInitialized_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_IsInitialized_Callback>(slot));
-}
-
-// Base class handler implementation
-void KNSCore__Provider_SuperSetCachedEntries(KNSCore__Provider* self, const libqt_list /* of KNSCore__Entry* */ cachedEntries) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    QList<KNSCore::Entry> cachedEntries_QList;
-    cachedEntries_QList.reserve(cachedEntries.len);
-    KNSCore__Entry** cachedEntries_arr = static_cast<KNSCore__Entry**>(cachedEntries.data);
-    for (size_t i = 0; i < cachedEntries.len; ++i) {
-        cachedEntries_QList.push_back(*(cachedEntries_arr[i]));
-    }
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_SetCachedEntries_IsBase(true);
-        vknscoreprovider->setCachedEntries(cachedEntries_QList);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->setCachedEntries(cachedEntries_QList);
-    }
+void KNSCore__Provider_OnIsInitialized(KNSCore__Provider* self, intptr_t slot) {
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self)))
+        vknscoreprovider->knscore__provider_isinitialized_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_IsInitialized_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnSetCachedEntries(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_SetCachedEntries_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_SetCachedEntries_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_setcachedentries_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_SetCachedEntries_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string KNSCore__Provider_SuperName(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Name_IsBase(true);
-        auto _ret = vknscoreprovider->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KNSCore::Provider::name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KNSCore::Provider::name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnName(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Name_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Name_Callback>(slot));
+void KNSCore__Provider_OnName(KNSCore__Provider* self, intptr_t slot) {
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self)))
+        vknscoreprovider->knscore__provider_name_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Name_Callback>(slot);
 }
 
 // Base class handler implementation
 QUrl* KNSCore__Provider_SuperIcon(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Icon_IsBase(true);
-        return new QUrl(vknscoreprovider->icon());
-    } else {
-        return new QUrl(((VirtualKNSCoreProvider*)self)->icon());
-    }
+    return new QUrl(self->KNSCore::Provider::icon());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnIcon(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Icon_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Icon_Callback>(slot));
-}
-
-// Base class handler implementation
-void KNSCore__Provider_SuperLoadEntries(KNSCore__Provider* self, const KNSCore__Provider__SearchRequest* request) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_LoadEntries_IsBase(true);
-        vknscoreprovider->loadEntries(*request);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->loadEntries(*request);
-    }
+void KNSCore__Provider_OnIcon(KNSCore__Provider* self, intptr_t slot) {
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self)))
+        vknscoreprovider->knscore__provider_icon_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Icon_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnLoadEntries(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_LoadEntries_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadEntries_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_loadentries_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadEntries_Callback>(slot);
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperLoadEntryDetails(KNSCore__Provider* self, const KNSCore__Entry* param1) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_LoadEntryDetails_IsBase(true);
-        vknscoreprovider->loadEntryDetails(*param1);
-    } else {
-        self->KNSCore::Provider::loadEntryDetails(*param1);
-    }
+    self->KNSCore::Provider::loadEntryDetails(*param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnLoadEntryDetails(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_LoadEntryDetails_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadEntryDetails_Callback>(slot));
-}
-
-// Base class handler implementation
-void KNSCore__Provider_SuperLoadPayloadLink(KNSCore__Provider* self, const KNSCore__Entry* entry, int linkId) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_LoadPayloadLink_IsBase(true);
-        vknscoreprovider->loadPayloadLink(*entry, static_cast<int>(linkId));
-    } else {
-        ((VirtualKNSCoreProvider*)self)->loadPayloadLink(*entry, static_cast<int>(linkId));
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_loadentrydetails_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadEntryDetails_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnLoadPayloadLink(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_LoadPayloadLink_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadPayloadLink_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_loadpayloadlink_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadPayloadLink_Callback>(slot);
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperLoadComments(KNSCore__Provider* self, const KNSCore__Entry* param1, int param2, int param3) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_LoadComments_IsBase(true);
-        vknscoreprovider->loadComments(*param1, static_cast<int>(param2), static_cast<int>(param3));
-    } else {
-        self->KNSCore::Provider::loadComments(*param1, static_cast<int>(param2), static_cast<int>(param3));
-    }
+    self->KNSCore::Provider::loadComments(*param1, static_cast<int>(param2), static_cast<int>(param3));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnLoadComments(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_LoadComments_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadComments_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_loadcomments_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadComments_Callback>(slot);
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperLoadPerson(KNSCore__Provider* self, const libqt_string param1) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_LoadPerson_IsBase(true);
-        vknscoreprovider->loadPerson(param1_QString);
-    } else {
-        self->KNSCore::Provider::loadPerson(param1_QString);
-    }
+    self->KNSCore::Provider::loadPerson(param1_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnLoadPerson(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_LoadPerson_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadPerson_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_loadperson_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadPerson_Callback>(slot);
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperLoadBasics(KNSCore__Provider* self) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_LoadBasics_IsBase(true);
-        vknscoreprovider->loadBasics();
-    } else {
-        self->KNSCore::Provider::loadBasics();
-    }
+    self->KNSCore::Provider::loadBasics();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnLoadBasics(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_LoadBasics_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadBasics_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_loadbasics_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_LoadBasics_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KNSCore__Provider_SuperUserCanVote(KNSCore__Provider* self) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_UserCanVote_IsBase(true);
-        return vknscoreprovider->userCanVote();
-    } else {
-        return self->KNSCore::Provider::userCanVote();
-    }
+    return self->KNSCore::Provider::userCanVote();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnUserCanVote(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_UserCanVote_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_UserCanVote_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_usercanvote_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_UserCanVote_Callback>(slot);
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperVote(KNSCore__Provider* self, const KNSCore__Entry* param1, unsigned int param2) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Vote_IsBase(true);
-        vknscoreprovider->vote(*param1, static_cast<uint>(param2));
-    } else {
-        self->KNSCore::Provider::vote(*param1, static_cast<uint>(param2));
-    }
+    self->KNSCore::Provider::vote(*param1, static_cast<uint>(param2));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnVote(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Vote_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Vote_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_vote_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Vote_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KNSCore__Provider_SuperUserCanBecomeFan(KNSCore__Provider* self) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_UserCanBecomeFan_IsBase(true);
-        return vknscoreprovider->userCanBecomeFan();
-    } else {
-        return self->KNSCore::Provider::userCanBecomeFan();
-    }
+    return self->KNSCore::Provider::userCanBecomeFan();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnUserCanBecomeFan(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_UserCanBecomeFan_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_UserCanBecomeFan_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_usercanbecomefan_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_UserCanBecomeFan_Callback>(slot);
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperBecomeFan(KNSCore__Provider* self, const KNSCore__Entry* param1) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_BecomeFan_IsBase(true);
-        vknscoreprovider->becomeFan(*param1);
-    } else {
-        self->KNSCore::Provider::becomeFan(*param1);
-    }
+    self->KNSCore::Provider::becomeFan(*param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnBecomeFan(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_BecomeFan_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_BecomeFan_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_becomefan_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_BecomeFan_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNSCore__Provider_Event(KNSCore__Provider* self, QEvent* event) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        return vknscoreprovider->event(event);
-    } else {
-        return self->KNSCore::Provider::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KNSCore__Provider_SuperEvent(KNSCore__Provider* self, QEvent* event) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Event_IsBase(true);
-        return vknscoreprovider->event(event);
-    } else {
-        return self->KNSCore::Provider::event(event);
-    }
+    return self->KNSCore::Provider::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnEvent(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Event_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Event_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_event_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNSCore__Provider_EventFilter(KNSCore__Provider* self, QObject* watched, QEvent* event) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        return vknscoreprovider->eventFilter(watched, event);
-    } else {
-        return self->KNSCore::Provider::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KNSCore__Provider_SuperEventFilter(KNSCore__Provider* self, QObject* watched, QEvent* event) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_EventFilter_IsBase(true);
-        return vknscoreprovider->eventFilter(watched, event);
-    } else {
-        return self->KNSCore::Provider::eventFilter(watched, event);
-    }
+    return self->KNSCore::Provider::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnEventFilter(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_EventFilter_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_EventFilter_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_eventfilter_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__Provider_TimerEvent(KNSCore__Provider* self, QTimerEvent* event) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+    if (vknscoreprovider) {
         vknscoreprovider->timerEvent(event);
     } else {
-        ((VirtualKNSCoreProvider*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KNSCore::Provider::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperTimerEvent(KNSCore__Provider* self, QTimerEvent* event) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_TimerEvent_IsBase(true);
-        vknscoreprovider->timerEvent(event);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->timerEvent(event);
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self)) {
+        vknscoreprovider->KNSCore::Provider::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::Provider::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnTimerEvent(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_TimerEvent_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_TimerEvent_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_timerevent_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__Provider_ChildEvent(KNSCore__Provider* self, QChildEvent* event) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+    if (vknscoreprovider) {
         vknscoreprovider->childEvent(event);
     } else {
-        ((VirtualKNSCoreProvider*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KNSCore::Provider::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperChildEvent(KNSCore__Provider* self, QChildEvent* event) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_ChildEvent_IsBase(true);
-        vknscoreprovider->childEvent(event);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->childEvent(event);
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self)) {
+        vknscoreprovider->KNSCore::Provider::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::Provider::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnChildEvent(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_ChildEvent_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_ChildEvent_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_childevent_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__Provider_CustomEvent(KNSCore__Provider* self, QEvent* event) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+    if (vknscoreprovider) {
         vknscoreprovider->customEvent(event);
     } else {
-        ((VirtualKNSCoreProvider*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KNSCore::Provider::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperCustomEvent(KNSCore__Provider* self, QEvent* event) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_CustomEvent_IsBase(true);
-        vknscoreprovider->customEvent(event);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->customEvent(event);
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self)) {
+        vknscoreprovider->KNSCore::Provider::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::Provider::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnCustomEvent(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_CustomEvent_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_CustomEvent_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_customevent_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__Provider_ConnectNotify(KNSCore__Provider* self, const QMetaMethod* signal) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+    if (vknscoreprovider) {
         vknscoreprovider->connectNotify(*signal);
     } else {
-        ((VirtualKNSCoreProvider*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KNSCore::Provider::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperConnectNotify(KNSCore__Provider* self, const QMetaMethod* signal) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_ConnectNotify_IsBase(true);
-        vknscoreprovider->connectNotify(*signal);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->connectNotify(*signal);
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self)) {
+        vknscoreprovider->KNSCore::Provider::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::Provider::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnConnectNotify(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_ConnectNotify_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_ConnectNotify_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_connectnotify_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSCore__Provider_DisconnectNotify(KNSCore__Provider* self, const QMetaMethod* signal) {
     auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
+    if (vknscoreprovider) {
         vknscoreprovider->disconnectNotify(*signal);
     } else {
-        ((VirtualKNSCoreProvider*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KNSCore::Provider::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSCore__Provider_SuperDisconnectNotify(KNSCore__Provider* self, const QMetaMethod* signal) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_DisconnectNotify_IsBase(true);
-        vknscoreprovider->disconnectNotify(*signal);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self)) {
+        vknscoreprovider->KNSCore::Provider::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNSCore::Provider::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Provider_OnDisconnectNotify(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_DisconnectNotify_Callback>(slot));
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self))
+        vknscoreprovider->knscore__provider_disconnectnotify_callback = reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KNSCore__Provider_SetName(KNSCore__Provider* self, const libqt_string name) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setName(name_QString);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->setName(name_QString);
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self)) {
+        QString name_QString = QString::fromUtf8(name.data, name.len);
+        vknscoreprovider->VirtualKNSCoreProvider::setName(name_QString);
+    } else
+        qFatal("Error: Protected method KNSCore::Provider::setName called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KNSCore__Provider_SuperSetName(KNSCore__Provider* self, const libqt_string name) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_SetName_IsBase(true);
-        vknscoreprovider->setName(name_QString);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->setName(name_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnSetName(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_SetName_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_SetName_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KNSCore__Provider_SetIcon(KNSCore__Provider* self, const QUrl* icon) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setIcon(*icon);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->setIcon(*icon);
-    }
+    if (auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self)) {
+        vknscoreprovider->VirtualKNSCoreProvider::setIcon(*icon);
+    } else
+        qFatal("Error: Protected method KNSCore::Provider::setIcon called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KNSCore__Provider_SuperSetIcon(KNSCore__Provider* self, const QUrl* icon) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_SetIcon_IsBase(true);
-        vknscoreprovider->setIcon(*icon);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->setIcon(*icon);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnSetIcon(KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_SetIcon_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_SetIcon_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KNSCore__Provider_Sender(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        return vknscoreprovider->sender();
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->sender();
-    }
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self))) {
+        return vknscoreprovider->VirtualKNSCoreProvider::sender();
+    } else
+        qFatal("Error: Protected method KNSCore::Provider::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KNSCore__Provider_SuperSender(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Sender_IsBase(true);
-        return vknscoreprovider->sender();
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnSender(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Sender_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNSCore__Provider_SenderSignalIndex(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        return vknscoreprovider->senderSignalIndex();
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->senderSignalIndex();
-    }
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self))) {
+        return vknscoreprovider->VirtualKNSCoreProvider::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KNSCore::Provider::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNSCore__Provider_SuperSenderSignalIndex(const KNSCore__Provider* self) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_SenderSignalIndex_IsBase(true);
-        return vknscoreprovider->senderSignalIndex();
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnSenderSignalIndex(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNSCore__Provider_Receivers(const KNSCore__Provider* self, const char* signal) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        return vknscoreprovider->receivers(signal);
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->receivers(signal);
-    }
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self))) {
+        return vknscoreprovider->VirtualKNSCoreProvider::receivers(signal);
+    } else
+        qFatal("Error: Protected method KNSCore::Provider::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNSCore__Provider_SuperReceivers(const KNSCore__Provider* self, const char* signal) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_Receivers_IsBase(true);
-        return vknscoreprovider->receivers(signal);
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnReceivers(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_Receivers_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNSCore__Provider_IsSignalConnected(const KNSCore__Provider* self, const QMetaMethod* signal) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        return vknscoreprovider->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KNSCore__Provider_SuperIsSignalConnected(const KNSCore__Provider* self, const QMetaMethod* signal) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
-        vknscoreprovider->setKNSCore__Provider_IsSignalConnected_IsBase(true);
-        return vknscoreprovider->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSCore__Provider_OnIsSignalConnected(const KNSCore__Provider* self, intptr_t slot) {
-    auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
-    if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider)
-        vknscoreprovider->setKNSCore__Provider_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSCoreProvider::KNSCore__Provider_IsSignalConnected_Callback>(slot));
+    if (auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self))) {
+        return vknscoreprovider->VirtualKNSCoreProvider::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KNSCore::Provider::isSignalConnected called without a directly constructed type");
 }
 
 void KNSCore__Provider_Delete(KNSCore__Provider* self) {

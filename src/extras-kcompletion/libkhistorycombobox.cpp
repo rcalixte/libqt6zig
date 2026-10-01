@@ -179,14 +179,14 @@ void KHistoryComboBox_Connect_Cleared(KHistoryComboBox* self, intptr_t slot) {
 
 void KHistoryComboBox_KeyPressEvent(KHistoryComboBox* self, QKeyEvent* param1) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->keyPressEvent(param1);
     }
 }
 
 void KHistoryComboBox_WheelEvent(KHistoryComboBox* self, QWheelEvent* ev) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->wheelEvent(ev);
     }
 }
@@ -217,211 +217,133 @@ libqt_string KHistoryComboBox_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KHistoryComboBox_SuperMetaObject(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vkhistorycombobox->metaObject();
-    } else {
-        return (QMetaObject*)self->KHistoryComboBox::metaObject();
-    }
+    return (QMetaObject*)self->KHistoryComboBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnMetaObject(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_MetaObject_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MetaObject_Callback>(slot));
+void KHistoryComboBox_OnMetaObject(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_metaobject_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KHistoryComboBox_SuperMetacast(KHistoryComboBox* self, const char* param1) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Metacast_IsBase(true);
-        return vkhistorycombobox->qt_metacast(param1);
-    } else {
-        return self->KHistoryComboBox::qt_metacast(param1);
-    }
+    return self->KHistoryComboBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMetacast(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Metacast_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metacast_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_metacast_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KHistoryComboBox_SuperMetacall(KHistoryComboBox* self, int param1, int param2, void** param3) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Metacall_IsBase(true);
-        return vkhistorycombobox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KHistoryComboBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KHistoryComboBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMetacall(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Metacall_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metacall_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_metacall_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperKeyPressEvent(KHistoryComboBox* self, QKeyEvent* param1) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_KeyPressEvent_IsBase(true);
-        vkhistorycombobox->keyPressEvent(param1);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnKeyPressEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_KeyPressEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_keypressevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperWheelEvent(KHistoryComboBox* self, QWheelEvent* ev) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_WheelEvent_IsBase(true);
-        vkhistorycombobox->wheelEvent(ev);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->wheelEvent(ev);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::wheelEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnWheelEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_WheelEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_WheelEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_wheelevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetAutoCompletion(KHistoryComboBox* self, bool autocomplete) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setAutoCompletion(autocomplete);
-    } else {
-        self->KHistoryComboBox::setAutoCompletion(autocomplete);
-    }
+    self->setAutoCompletion(autocomplete);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetAutoCompletion(KHistoryComboBox* self, bool autocomplete) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetAutoCompletion_IsBase(true);
-        vkhistorycombobox->setAutoCompletion(autocomplete);
-    } else {
-        self->KHistoryComboBox::setAutoCompletion(autocomplete);
-    }
+    self->KHistoryComboBox::setAutoCompletion(autocomplete);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetAutoCompletion(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetAutoCompletion_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetAutoCompletion_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_setautocompletion_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetAutoCompletion_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetLineEdit(KHistoryComboBox* self, QLineEdit* lineEdit) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setLineEdit(lineEdit);
-    } else {
-        self->KHistoryComboBox::setLineEdit(lineEdit);
-    }
+    self->setLineEdit(lineEdit);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetLineEdit(KHistoryComboBox* self, QLineEdit* lineEdit) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetLineEdit_IsBase(true);
-        vkhistorycombobox->setLineEdit(lineEdit);
-    } else {
-        self->KHistoryComboBox::setLineEdit(lineEdit);
-    }
+    self->KHistoryComboBox::setLineEdit(lineEdit);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetLineEdit(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetLineEdit_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetLineEdit_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_setlineedit_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetLineEdit_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KHistoryComboBox_MinimumSizeHint(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return new QSize(vkhistorycombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKHistoryComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KHistoryComboBox_SuperMinimumSizeHint(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vkhistorycombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKHistoryComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KHistoryComboBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnMinimumSizeHint(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MinimumSizeHint_Callback>(slot));
+void KHistoryComboBox_OnMinimumSizeHint(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_minimumsizehint_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetCompletedText(KHistoryComboBox* self, const libqt_string completedText) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setCompletedText(completedText_QString);
-    } else {
-        self->KHistoryComboBox::setCompletedText(completedText_QString);
-    }
+    self->setCompletedText(completedText_QString);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetCompletedText(KHistoryComboBox* self, const libqt_string completedText) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetCompletedText_IsBase(true);
-        vkhistorycombobox->setCompletedText(completedText_QString);
-    } else {
-        self->KHistoryComboBox::setCompletedText(completedText_QString);
-    }
+    self->KHistoryComboBox::setCompletedText(completedText_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetCompletedText(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetCompletedText_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletedText_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_setcompletedtext_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletedText_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetCompletedItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
@@ -429,16 +351,11 @@ void KHistoryComboBox_SetCompletedItems(KHistoryComboBox* self, const libqt_list
         QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
         items_QList.push_back(items_arr_i_QString);
     }
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setCompletedItems(items_QList, autoSuggest);
-    } else {
-        self->KHistoryComboBox::setCompletedItems(items_QList, autoSuggest);
-    }
+    self->setCompletedItems(items_QList, autoSuggest);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetCompletedItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
@@ -446,1864 +363,1278 @@ void KHistoryComboBox_SuperSetCompletedItems(KHistoryComboBox* self, const libqt
         QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
         items_QList.push_back(items_arr_i_QString);
     }
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetCompletedItems_IsBase(true);
-        vkhistorycombobox->setCompletedItems(items_QList, autoSuggest);
-    } else {
-        self->KHistoryComboBox::setCompletedItems(items_QList, autoSuggest);
-    }
+    self->KHistoryComboBox::setCompletedItems(items_QList, autoSuggest);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetCompletedItems(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetCompletedItems_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletedItems_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_setcompleteditems_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletedItems_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_MakeCompletion(KHistoryComboBox* self, const libqt_string param1) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
+    if (vkhistorycombobox) {
         vkhistorycombobox->makeCompletion(param1_QString);
     } else {
-        ((VirtualKHistoryComboBox*)self)->makeCompletion(param1_QString);
+        qFatal("Error: Protected virtual method KHistoryComboBox::makeCompletion called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperMakeCompletion(KHistoryComboBox* self, const libqt_string param1) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_MakeCompletion_IsBase(true);
-        vkhistorycombobox->makeCompletion(param1_QString);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->makeCompletion(param1_QString);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::makeCompletion(param1_QString);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::makeCompletion called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMakeCompletion(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_MakeCompletion_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MakeCompletion_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_makecompletion_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MakeCompletion_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetModel(KHistoryComboBox* self, QAbstractItemModel* model) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setModel(model);
-    } else {
-        self->KHistoryComboBox::setModel(model);
-    }
+    self->setModel(model);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetModel(KHistoryComboBox* self, QAbstractItemModel* model) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetModel_IsBase(true);
-        vkhistorycombobox->setModel(model);
-    } else {
-        self->KHistoryComboBox::setModel(model);
-    }
+    self->KHistoryComboBox::setModel(model);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetModel(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetModel_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetModel_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_setmodel_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KHistoryComboBox_SizeHint(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return new QSize(vkhistorycombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualKHistoryComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KHistoryComboBox_SuperSizeHint(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SizeHint_IsBase(true);
-        return new QSize(vkhistorycombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualKHistoryComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->KHistoryComboBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnSizeHint(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SizeHint_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SizeHint_Callback>(slot));
+void KHistoryComboBox_OnSizeHint(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_sizehint_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_ShowPopup(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->showPopup();
-    } else {
-        self->KHistoryComboBox::showPopup();
-    }
+    self->showPopup();
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperShowPopup(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_ShowPopup_IsBase(true);
-        vkhistorycombobox->showPopup();
-    } else {
-        self->KHistoryComboBox::showPopup();
-    }
+    self->KHistoryComboBox::showPopup();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnShowPopup(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_ShowPopup_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ShowPopup_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_showpopup_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ShowPopup_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_HidePopup(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->hidePopup();
-    } else {
-        self->KHistoryComboBox::hidePopup();
-    }
+    self->hidePopup();
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperHidePopup(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_HidePopup_IsBase(true);
-        vkhistorycombobox->hidePopup();
-    } else {
-        self->KHistoryComboBox::hidePopup();
-    }
+    self->KHistoryComboBox::hidePopup();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnHidePopup(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_HidePopup_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HidePopup_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_hidepopup_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HidePopup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KHistoryComboBox_Event(KHistoryComboBox* self, QEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->event(event);
-    } else {
-        return self->KHistoryComboBox::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KHistoryComboBox_SuperEvent(KHistoryComboBox* self, QEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Event_IsBase(true);
-        return vkhistorycombobox->event(event);
-    } else {
-        return self->KHistoryComboBox::event(event);
-    }
+    return self->KHistoryComboBox::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Event_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Event_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_event_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KHistoryComboBox_InputMethodQuery(const KHistoryComboBox* self, int param1) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return new QVariant(vkhistorycombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKHistoryComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KHistoryComboBox_SuperInputMethodQuery(const KHistoryComboBox* self, int param1) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vkhistorycombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKHistoryComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KHistoryComboBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnInputMethodQuery(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InputMethodQuery_Callback>(slot));
+void KHistoryComboBox_OnInputMethodQuery(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_inputmethodquery_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_FocusInEvent(KHistoryComboBox* self, QFocusEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->focusInEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperFocusInEvent(KHistoryComboBox* self, QFocusEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_FocusInEvent_IsBase(true);
-        vkhistorycombobox->focusInEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->focusInEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnFocusInEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusInEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_focusinevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_FocusOutEvent(KHistoryComboBox* self, QFocusEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->focusOutEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperFocusOutEvent(KHistoryComboBox* self, QFocusEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_FocusOutEvent_IsBase(true);
-        vkhistorycombobox->focusOutEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->focusOutEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnFocusOutEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusOutEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_focusoutevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_ChangeEvent(KHistoryComboBox* self, QEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->changeEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperChangeEvent(KHistoryComboBox* self, QEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_ChangeEvent_IsBase(true);
-        vkhistorycombobox->changeEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->changeEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnChangeEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ChangeEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_changeevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_ResizeEvent(KHistoryComboBox* self, QResizeEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->resizeEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperResizeEvent(KHistoryComboBox* self, QResizeEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_ResizeEvent_IsBase(true);
-        vkhistorycombobox->resizeEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->resizeEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnResizeEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ResizeEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_resizeevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_PaintEvent(KHistoryComboBox* self, QPaintEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->paintEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperPaintEvent(KHistoryComboBox* self, QPaintEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_PaintEvent_IsBase(true);
-        vkhistorycombobox->paintEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->paintEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnPaintEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_PaintEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_PaintEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_paintevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_ShowEvent(KHistoryComboBox* self, QShowEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->showEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->showEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperShowEvent(KHistoryComboBox* self, QShowEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_ShowEvent_IsBase(true);
-        vkhistorycombobox->showEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->showEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::showEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnShowEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_ShowEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ShowEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_showevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_HideEvent(KHistoryComboBox* self, QHideEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->hideEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->hideEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperHideEvent(KHistoryComboBox* self, QHideEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_HideEvent_IsBase(true);
-        vkhistorycombobox->hideEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->hideEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::hideEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnHideEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_HideEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HideEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_hideevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_MousePressEvent(KHistoryComboBox* self, QMouseEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->mousePressEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperMousePressEvent(KHistoryComboBox* self, QMouseEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_MousePressEvent_IsBase(true);
-        vkhistorycombobox->mousePressEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->mousePressEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMousePressEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MousePressEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_mousepressevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_MouseReleaseEvent(KHistoryComboBox* self, QMouseEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->mouseReleaseEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperMouseReleaseEvent(KHistoryComboBox* self, QMouseEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_MouseReleaseEvent_IsBase(true);
-        vkhistorycombobox->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMouseReleaseEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_mousereleaseevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_KeyReleaseEvent(KHistoryComboBox* self, QKeyEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->keyReleaseEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperKeyReleaseEvent(KHistoryComboBox* self, QKeyEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_KeyReleaseEvent_IsBase(true);
-        vkhistorycombobox->keyReleaseEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnKeyReleaseEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_keyreleaseevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_ContextMenuEvent(KHistoryComboBox* self, QContextMenuEvent* e) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->contextMenuEvent(e);
     } else {
-        ((VirtualKHistoryComboBox*)self)->contextMenuEvent(e);
+        qFatal("Error: Protected virtual method KHistoryComboBox::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperContextMenuEvent(KHistoryComboBox* self, QContextMenuEvent* e) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_ContextMenuEvent_IsBase(true);
-        vkhistorycombobox->contextMenuEvent(e);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->contextMenuEvent(e);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::contextMenuEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnContextMenuEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_contextmenuevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_InputMethodEvent(KHistoryComboBox* self, QInputMethodEvent* param1) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->inputMethodEvent(param1);
     } else {
-        ((VirtualKHistoryComboBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KHistoryComboBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperInputMethodEvent(KHistoryComboBox* self, QInputMethodEvent* param1) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_InputMethodEvent_IsBase(true);
-        vkhistorycombobox->inputMethodEvent(param1);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnInputMethodEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InputMethodEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_inputmethodevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_InitStyleOption(const KHistoryComboBox* self, QStyleOptionComboBox* option) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->initStyleOption(option);
     } else {
-        ((VirtualKHistoryComboBox*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KHistoryComboBox::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperInitStyleOption(const KHistoryComboBox* self, QStyleOptionComboBox* option) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_InitStyleOption_IsBase(true);
-        vkhistorycombobox->initStyleOption(option);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->initStyleOption(option);
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        vkhistorycombobox->KHistoryComboBox::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnInitStyleOption(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InitStyleOption_Callback>(slot));
+void KHistoryComboBox_OnInitStyleOption(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_initstyleoption_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KHistoryComboBox_DevType(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->devType();
-    } else {
-        return self->KHistoryComboBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KHistoryComboBox_SuperDevType(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_DevType_IsBase(true);
-        return vkhistorycombobox->devType();
-    } else {
-        return self->KHistoryComboBox::devType();
-    }
+    return self->KHistoryComboBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnDevType(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_DevType_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DevType_Callback>(slot));
+void KHistoryComboBox_OnDevType(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_devtype_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetVisible(KHistoryComboBox* self, bool visible) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setVisible(visible);
-    } else {
-        self->KHistoryComboBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetVisible(KHistoryComboBox* self, bool visible) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetVisible_IsBase(true);
-        vkhistorycombobox->setVisible(visible);
-    } else {
-        self->KHistoryComboBox::setVisible(visible);
-    }
+    self->KHistoryComboBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetVisible(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetVisible_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetVisible_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_setvisible_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KHistoryComboBox_HeightForWidth(const KHistoryComboBox* self, int param1) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KHistoryComboBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KHistoryComboBox_SuperHeightForWidth(const KHistoryComboBox* self, int param1) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_HeightForWidth_IsBase(true);
-        return vkhistorycombobox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KHistoryComboBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KHistoryComboBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnHeightForWidth(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HeightForWidth_Callback>(slot));
+void KHistoryComboBox_OnHeightForWidth(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_heightforwidth_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KHistoryComboBox_HasHeightForWidth(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->hasHeightForWidth();
-    } else {
-        return self->KHistoryComboBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KHistoryComboBox_SuperHasHeightForWidth(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_HasHeightForWidth_IsBase(true);
-        return vkhistorycombobox->hasHeightForWidth();
-    } else {
-        return self->KHistoryComboBox::hasHeightForWidth();
-    }
+    return self->KHistoryComboBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnHasHeightForWidth(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HasHeightForWidth_Callback>(slot));
+void KHistoryComboBox_OnHasHeightForWidth(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_hasheightforwidth_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KHistoryComboBox_PaintEngine(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->paintEngine();
-    } else {
-        return self->KHistoryComboBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KHistoryComboBox_SuperPaintEngine(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_PaintEngine_IsBase(true);
-        return vkhistorycombobox->paintEngine();
-    } else {
-        return self->KHistoryComboBox::paintEngine();
-    }
+    return self->KHistoryComboBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnPaintEngine(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_PaintEngine_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_PaintEngine_Callback>(slot));
+void KHistoryComboBox_OnPaintEngine(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_paintengine_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_MouseDoubleClickEvent(KHistoryComboBox* self, QMouseEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperMouseDoubleClickEvent(KHistoryComboBox* self, QMouseEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_MouseDoubleClickEvent_IsBase(true);
-        vkhistorycombobox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMouseDoubleClickEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_mousedoubleclickevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_MouseMoveEvent(KHistoryComboBox* self, QMouseEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->mouseMoveEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperMouseMoveEvent(KHistoryComboBox* self, QMouseEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_MouseMoveEvent_IsBase(true);
-        vkhistorycombobox->mouseMoveEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMouseMoveEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_mousemoveevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_EnterEvent(KHistoryComboBox* self, QEnterEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->enterEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperEnterEvent(KHistoryComboBox* self, QEnterEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_EnterEvent_IsBase(true);
-        vkhistorycombobox->enterEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->enterEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnEnterEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_EnterEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_EnterEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_enterevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_LeaveEvent(KHistoryComboBox* self, QEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->leaveEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperLeaveEvent(KHistoryComboBox* self, QEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_LeaveEvent_IsBase(true);
-        vkhistorycombobox->leaveEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->leaveEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnLeaveEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_LeaveEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_leaveevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_MoveEvent(KHistoryComboBox* self, QMoveEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->moveEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperMoveEvent(KHistoryComboBox* self, QMoveEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_MoveEvent_IsBase(true);
-        vkhistorycombobox->moveEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->moveEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMoveEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_MoveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MoveEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_moveevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_CloseEvent(KHistoryComboBox* self, QCloseEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->closeEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperCloseEvent(KHistoryComboBox* self, QCloseEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_CloseEvent_IsBase(true);
-        vkhistorycombobox->closeEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->closeEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnCloseEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_CloseEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_CloseEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_closeevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_TabletEvent(KHistoryComboBox* self, QTabletEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->tabletEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperTabletEvent(KHistoryComboBox* self, QTabletEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_TabletEvent_IsBase(true);
-        vkhistorycombobox->tabletEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->tabletEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnTabletEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_TabletEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_TabletEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_tabletevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_ActionEvent(KHistoryComboBox* self, QActionEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->actionEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperActionEvent(KHistoryComboBox* self, QActionEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_ActionEvent_IsBase(true);
-        vkhistorycombobox->actionEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->actionEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnActionEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_ActionEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ActionEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_actionevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_DragEnterEvent(KHistoryComboBox* self, QDragEnterEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->dragEnterEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperDragEnterEvent(KHistoryComboBox* self, QDragEnterEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_DragEnterEvent_IsBase(true);
-        vkhistorycombobox->dragEnterEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDragEnterEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragEnterEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_dragenterevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_DragMoveEvent(KHistoryComboBox* self, QDragMoveEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->dragMoveEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperDragMoveEvent(KHistoryComboBox* self, QDragMoveEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_DragMoveEvent_IsBase(true);
-        vkhistorycombobox->dragMoveEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDragMoveEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragMoveEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_dragmoveevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_DragLeaveEvent(KHistoryComboBox* self, QDragLeaveEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->dragLeaveEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperDragLeaveEvent(KHistoryComboBox* self, QDragLeaveEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_DragLeaveEvent_IsBase(true);
-        vkhistorycombobox->dragLeaveEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDragLeaveEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_dragleaveevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_DropEvent(KHistoryComboBox* self, QDropEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->dropEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperDropEvent(KHistoryComboBox* self, QDropEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_DropEvent_IsBase(true);
-        vkhistorycombobox->dropEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->dropEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDropEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_DropEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DropEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_dropevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KHistoryComboBox_NativeEvent(KHistoryComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
+    if (vkhistorycombobox) {
         return vkhistorycombobox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKHistoryComboBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KHistoryComboBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KHistoryComboBox_SuperNativeEvent(KHistoryComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_NativeEvent_IsBase(true);
-        return vkhistorycombobox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        return vkhistorycombobox->KHistoryComboBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnNativeEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_NativeEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_NativeEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_nativeevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KHistoryComboBox_Metric(const KHistoryComboBox* self, int param1) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         return vkhistorycombobox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKHistoryComboBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KHistoryComboBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KHistoryComboBox_SuperMetric(const KHistoryComboBox* self, int param1) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Metric_IsBase(true);
-        return vkhistorycombobox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->KHistoryComboBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnMetric(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Metric_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metric_Callback>(slot));
+void KHistoryComboBox_OnMetric(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_metric_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_InitPainter(const KHistoryComboBox* self, QPainter* painter) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->initPainter(painter);
     } else {
-        ((VirtualKHistoryComboBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KHistoryComboBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperInitPainter(const KHistoryComboBox* self, QPainter* painter) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_InitPainter_IsBase(true);
-        vkhistorycombobox->initPainter(painter);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->initPainter(painter);
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        vkhistorycombobox->KHistoryComboBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnInitPainter(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_InitPainter_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InitPainter_Callback>(slot));
+void KHistoryComboBox_OnInitPainter(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_initpainter_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KHistoryComboBox_Redirected(const KHistoryComboBox* self, QPoint* offset) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         return vkhistorycombobox->redirected(offset);
     } else {
-        return ((VirtualKHistoryComboBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KHistoryComboBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KHistoryComboBox_SuperRedirected(const KHistoryComboBox* self, QPoint* offset) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Redirected_IsBase(true);
-        return vkhistorycombobox->redirected(offset);
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->redirected(offset);
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->KHistoryComboBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnRedirected(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Redirected_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Redirected_Callback>(slot));
+void KHistoryComboBox_OnRedirected(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_redirected_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KHistoryComboBox_SharedPainter(const KHistoryComboBox* self) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         return vkhistorycombobox->sharedPainter();
     } else {
-        return ((VirtualKHistoryComboBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KHistoryComboBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KHistoryComboBox_SuperSharedPainter(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SharedPainter_IsBase(true);
-        return vkhistorycombobox->sharedPainter();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->sharedPainter();
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->KHistoryComboBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnSharedPainter(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SharedPainter_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SharedPainter_Callback>(slot));
+void KHistoryComboBox_OnSharedPainter(KHistoryComboBox* self, intptr_t slot) {
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self)))
+        vkhistorycombobox->khistorycombobox_sharedpainter_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KHistoryComboBox_FocusNextPrevChild(KHistoryComboBox* self, bool next) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         return vkhistorycombobox->focusNextPrevChild(next);
     } else {
-        return ((VirtualKHistoryComboBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KHistoryComboBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KHistoryComboBox_SuperFocusNextPrevChild(KHistoryComboBox* self, bool next) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_FocusNextPrevChild_IsBase(true);
-        return vkhistorycombobox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        return vkhistorycombobox->KHistoryComboBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnFocusNextPrevChild(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_focusnextprevchild_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KHistoryComboBox_EventFilter(KHistoryComboBox* self, QObject* watched, QEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->eventFilter(watched, event);
-    } else {
-        return self->KHistoryComboBox::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KHistoryComboBox_SuperEventFilter(KHistoryComboBox* self, QObject* watched, QEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_EventFilter_IsBase(true);
-        return vkhistorycombobox->eventFilter(watched, event);
-    } else {
-        return self->KHistoryComboBox::eventFilter(watched, event);
-    }
+    return self->KHistoryComboBox::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnEventFilter(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_EventFilter_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_EventFilter_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_eventfilter_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_TimerEvent(KHistoryComboBox* self, QTimerEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->timerEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperTimerEvent(KHistoryComboBox* self, QTimerEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_TimerEvent_IsBase(true);
-        vkhistorycombobox->timerEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->timerEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnTimerEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_TimerEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_TimerEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_timerevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_ChildEvent(KHistoryComboBox* self, QChildEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->childEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperChildEvent(KHistoryComboBox* self, QChildEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_ChildEvent_IsBase(true);
-        vkhistorycombobox->childEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->childEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnChildEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_ChildEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ChildEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_childevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_CustomEvent(KHistoryComboBox* self, QEvent* event) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->customEvent(event);
     } else {
-        ((VirtualKHistoryComboBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KHistoryComboBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperCustomEvent(KHistoryComboBox* self, QEvent* event) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_CustomEvent_IsBase(true);
-        vkhistorycombobox->customEvent(event);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->customEvent(event);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnCustomEvent(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_CustomEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_CustomEvent_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_customevent_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_ConnectNotify(KHistoryComboBox* self, const QMetaMethod* signal) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->connectNotify(*signal);
     } else {
-        ((VirtualKHistoryComboBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KHistoryComboBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperConnectNotify(KHistoryComboBox* self, const QMetaMethod* signal) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_ConnectNotify_IsBase(true);
-        vkhistorycombobox->connectNotify(*signal);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnConnectNotify(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ConnectNotify_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_connectnotify_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_DisconnectNotify(KHistoryComboBox* self, const QMetaMethod* signal) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->disconnectNotify(*signal);
     } else {
-        ((VirtualKHistoryComboBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KHistoryComboBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperDisconnectNotify(KHistoryComboBox* self, const QMetaMethod* signal) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_DisconnectNotify_IsBase(true);
-        vkhistorycombobox->disconnectNotify(*signal);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDisconnectNotify(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DisconnectNotify_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_disconnectnotify_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetCompletionObject(KHistoryComboBox* self, KCompletion* completionObject, bool handleSignals) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setCompletionObject(completionObject, handleSignals);
-    } else {
-        self->KHistoryComboBox::setCompletionObject(completionObject, handleSignals);
-    }
+    self->setCompletionObject(completionObject, handleSignals);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetCompletionObject(KHistoryComboBox* self, KCompletion* completionObject, bool handleSignals) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetCompletionObject_IsBase(true);
-        vkhistorycombobox->setCompletionObject(completionObject, handleSignals);
-    } else {
-        self->KHistoryComboBox::setCompletionObject(completionObject, handleSignals);
-    }
+    self->KHistoryComboBox::setCompletionObject(completionObject, handleSignals);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetCompletionObject(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetCompletionObject_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletionObject_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_setcompletionobject_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletionObject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetHandleSignals(KHistoryComboBox* self, bool handle) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setHandleSignals(handle);
-    } else {
-        self->KHistoryComboBox::setHandleSignals(handle);
-    }
+    self->setHandleSignals(handle);
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetHandleSignals(KHistoryComboBox* self, bool handle) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetHandleSignals_IsBase(true);
-        vkhistorycombobox->setHandleSignals(handle);
-    } else {
-        self->KHistoryComboBox::setHandleSignals(handle);
-    }
+    self->KHistoryComboBox::setHandleSignals(handle);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetHandleSignals(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetHandleSignals_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetHandleSignals_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_sethandlesignals_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetHandleSignals_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_SetCompletionMode(KHistoryComboBox* self, int mode) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    } else {
-        self->KHistoryComboBox::setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    }
+    self->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperSetCompletionMode(KHistoryComboBox* self, int mode) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetCompletionMode_IsBase(true);
-        vkhistorycombobox->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    } else {
-        self->KHistoryComboBox::setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    }
+    self->KHistoryComboBox::setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetCompletionMode(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetCompletionMode_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletionMode_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_setcompletionmode_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletionMode_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KHistoryComboBox_VirtualHook(KHistoryComboBox* self, int id, void* data) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox) {
         vkhistorycombobox->virtual_hook(static_cast<int>(id), data);
     } else {
-        ((VirtualKHistoryComboBox*)self)->virtual_hook(static_cast<int>(id), data);
+        qFatal("Error: Protected virtual method KHistoryComboBox::virtual_hook called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KHistoryComboBox_SuperVirtualHook(KHistoryComboBox* self, int id, void* data) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_VirtualHook_IsBase(true);
-        vkhistorycombobox->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->KHistoryComboBox::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KHistoryComboBox::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnVirtualHook(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_VirtualHook_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_VirtualHook_Callback>(slot));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self))
+        vkhistorycombobox->khistorycombobox_virtualhook_callback = reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_VirtualHook_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KHistoryComboBox_InsertItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    QList<QString> items_QList;
-    items_QList.reserve(items.len);
-    libqt_string* items_arr = static_cast<libqt_string*>(items.data);
-    for (size_t i = 0; i < items.len; ++i) {
-        QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
-        items_QList.push_back(items_arr_i_QString);
-    }
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->insertItems(items_QList);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->insertItems(items_QList);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        QList<QString> items_QList;
+        items_QList.reserve(items.len);
+        libqt_string* items_arr = static_cast<libqt_string*>(items.data);
+        for (size_t i = 0; i < items.len; ++i) {
+            QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
+            items_QList.push_back(items_arr_i_QString);
+        }
+        vkhistorycombobox->VirtualKHistoryComboBox::insertItems(items_QList);
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::insertItems called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KHistoryComboBox_SuperInsertItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    QList<QString> items_QList;
-    items_QList.reserve(items.len);
-    libqt_string* items_arr = static_cast<libqt_string*>(items.data);
-    for (size_t i = 0; i < items.len; ++i) {
-        QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
-        items_QList.push_back(items_arr_i_QString);
-    }
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_InsertItems_IsBase(true);
-        vkhistorycombobox->insertItems(items_QList);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->insertItems(items_QList);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnInsertItems(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_InsertItems_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InsertItems_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KHistoryComboBox_UseCompletion(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->useCompletion();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->useCompletion();
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::useCompletion();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::useCompletion called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KHistoryComboBox_SuperUseCompletion(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_UseCompletion_IsBase(true);
-        return vkhistorycombobox->useCompletion();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->useCompletion();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnUseCompletion(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_UseCompletion_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_UseCompletion_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KHistoryComboBox_UpdateMicroFocus(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->updateMicroFocus();
-    } else {
-        ((VirtualKHistoryComboBox*)self)->updateMicroFocus();
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->VirtualKHistoryComboBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KHistoryComboBox_SuperUpdateMicroFocus(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_UpdateMicroFocus_IsBase(true);
-        vkhistorycombobox->updateMicroFocus();
-    } else {
-        ((VirtualKHistoryComboBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnUpdateMicroFocus(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KHistoryComboBox_Create(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->create();
-    } else {
-        ((VirtualKHistoryComboBox*)self)->create();
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->VirtualKHistoryComboBox::create();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KHistoryComboBox_SuperCreate(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Create_IsBase(true);
-        vkhistorycombobox->create();
-    } else {
-        ((VirtualKHistoryComboBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnCreate(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Create_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KHistoryComboBox_Destroy(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->destroy();
-    } else {
-        ((VirtualKHistoryComboBox*)self)->destroy();
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->VirtualKHistoryComboBox::destroy();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KHistoryComboBox_SuperDestroy(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Destroy_IsBase(true);
-        vkhistorycombobox->destroy();
-    } else {
-        ((VirtualKHistoryComboBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnDestroy(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Destroy_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KHistoryComboBox_FocusNextChild(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->focusNextChild();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->focusNextChild();
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KHistoryComboBox_SuperFocusNextChild(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_FocusNextChild_IsBase(true);
-        return vkhistorycombobox->focusNextChild();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnFocusNextChild(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KHistoryComboBox_FocusPreviousChild(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->focusPreviousChild();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->focusPreviousChild();
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KHistoryComboBox_SuperFocusPreviousChild(KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_FocusPreviousChild_IsBase(true);
-        return vkhistorycombobox->focusPreviousChild();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnFocusPreviousChild(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KHistoryComboBox_Sender(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->sender();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->sender();
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::sender();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KHistoryComboBox_SuperSender(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Sender_IsBase(true);
-        return vkhistorycombobox->sender();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnSender(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Sender_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KHistoryComboBox_SenderSignalIndex(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->senderSignalIndex();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->senderSignalIndex();
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KHistoryComboBox_SuperSenderSignalIndex(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SenderSignalIndex_IsBase(true);
-        return vkhistorycombobox->senderSignalIndex();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnSenderSignalIndex(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KHistoryComboBox_Receivers(const KHistoryComboBox* self, const char* signal) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->receivers(signal);
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->receivers(signal);
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KHistoryComboBox_SuperReceivers(const KHistoryComboBox* self, const char* signal) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Receivers_IsBase(true);
-        return vkhistorycombobox->receivers(signal);
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnReceivers(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Receivers_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KHistoryComboBox_IsSignalConnected(const KHistoryComboBox* self, const QMetaMethod* signal) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KHistoryComboBox_SuperIsSignalConnected(const KHistoryComboBox* self, const QMetaMethod* signal) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_IsSignalConnected_IsBase(true);
-        return vkhistorycombobox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnIsSignalConnected(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KHistoryComboBox_GetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::getDecodedMetricF called without a directly constructed type");
 }
 
-// Base class handler implementation
-double KHistoryComboBox_SuperGetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_GetDecodedMetricF_IsBase(true);
-        return vkhistorycombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnGetDecodedMetricF(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_GetDecodedMetricF_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_KeyBindingMap(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vkhistorycombobox->keyBindingMap();
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vkhistorycombobox->VirtualKHistoryComboBox::keyBindingMap();
         // Convert QMap<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_list /* of QKeySequence* */* _varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * _ret.size()));
@@ -2327,204 +1658,44 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_KeyBindin
         _out.keys = static_cast<void*>(_karr);
         _out.values = static_cast<void*>(_varr);
         return _out;
-    } else {
-        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = ((VirtualKHistoryComboBox*)self)->keyBindingMap();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_list /* of QKeySequence* */* _varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            QList<QKeySequence> _mapval_ret = _itr->second;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
-            for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
-                _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
-            }
-            libqt_list _mapval_out;
-            _mapval_out.len = _mapval_ret.size();
-            _mapval_out.data = static_cast<void*>(_mapval_arr);
-            _varr[_ctr] = _mapval_out;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::keyBindingMap called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_SuperKeyBindingMap(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_KeyBindingMap_IsBase(true);
-        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vkhistorycombobox->keyBindingMap();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_list /* of QKeySequence* */* _varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            QList<QKeySequence> _mapval_ret = _itr->second;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
-            for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
-                _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
-            }
-            libqt_list _mapval_out;
-            _mapval_out.len = _mapval_ret.size();
-            _mapval_out.data = static_cast<void*>(_mapval_arr);
-            _varr[_ctr] = _mapval_out;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = ((VirtualKHistoryComboBox*)self)->keyBindingMap();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_list /* of QKeySequence* */* _varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            QList<QKeySequence> _mapval_ret = _itr->second;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
-            for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
-                _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
-            }
-            libqt_list _mapval_out;
-            _mapval_out.len = _mapval_ret.size();
-            _mapval_out.data = static_cast<void*>(_mapval_arr);
-            _varr[_ctr] = _mapval_out;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnKeyBindingMap(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_KeyBindingMap_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_KeyBindingMap_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
-    int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
-    libqt_list /* of QKeySequence* */* keyBindingMap_varr = static_cast<libqt_list /* of QKeySequence* */*>(keyBindingMap.values);
-    for (size_t i = 0; i < keyBindingMap.len; ++i) {
-        QList<QKeySequence> keyBindingMap_varr_i_QList;
-        keyBindingMap_varr_i_QList.reserve(keyBindingMap_varr[i].len);
-        QKeySequence** keyBindingMap_varr_i_arr = static_cast<QKeySequence**>(keyBindingMap_varr[i].data);
-        for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
-            keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
+        int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
+        libqt_list /* of QKeySequence* */* keyBindingMap_varr = static_cast<libqt_list /* of QKeySequence* */*>(keyBindingMap.values);
+        for (size_t i = 0; i < keyBindingMap.len; ++i) {
+            QList<QKeySequence> keyBindingMap_varr_i_QList;
+            keyBindingMap_varr_i_QList.reserve(keyBindingMap_varr[i].len);
+            QKeySequence** keyBindingMap_varr_i_arr = static_cast<QKeySequence**>(keyBindingMap_varr[i].data);
+            for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
+                keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
+            }
+            keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
         }
-        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
-    }
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKeyBindingMap(keyBindingMap_QMap);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->setKeyBindingMap(keyBindingMap_QMap);
-    }
+        vkhistorycombobox->VirtualKHistoryComboBox::setKeyBindingMap(keyBindingMap_QMap);
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::setKeyBindingMap called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KHistoryComboBox_SuperSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
-    int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
-    libqt_list /* of QKeySequence* */* keyBindingMap_varr = static_cast<libqt_list /* of QKeySequence* */*>(keyBindingMap.values);
-    for (size_t i = 0; i < keyBindingMap.len; ++i) {
-        QList<QKeySequence> keyBindingMap_varr_i_QList;
-        keyBindingMap_varr_i_QList.reserve(keyBindingMap_varr[i].len);
-        QKeySequence** keyBindingMap_varr_i_arr = static_cast<QKeySequence**>(keyBindingMap_varr[i].data);
-        for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
-            keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
-        }
-        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
-    }
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetKeyBindingMap_IsBase(true);
-        vkhistorycombobox->setKeyBindingMap(keyBindingMap_QMap);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->setKeyBindingMap(keyBindingMap_QMap);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnSetKeyBindingMap(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetKeyBindingMap_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetKeyBindingMap_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KHistoryComboBox_SetDelegate(KHistoryComboBox* self, KCompletionBase* delegate) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setDelegate(delegate);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->setDelegate(delegate);
-    }
+    if (auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self)) {
+        vkhistorycombobox->VirtualKHistoryComboBox::setDelegate(delegate);
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::setDelegate called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KHistoryComboBox_SuperSetDelegate(KHistoryComboBox* self, KCompletionBase* delegate) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_SetDelegate_IsBase(true);
-        vkhistorycombobox->setDelegate(delegate);
-    } else {
-        ((VirtualKHistoryComboBox*)self)->setDelegate(delegate);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnSetDelegate(KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_SetDelegate_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetDelegate_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 KCompletionBase* KHistoryComboBox_Delegate(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return vkhistorycombobox->delegate();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->delegate();
-    }
-}
-
-// Base class handler implementation
-KCompletionBase* KHistoryComboBox_SuperDelegate(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        vkhistorycombobox->setKHistoryComboBox_Delegate_IsBase(true);
-        return vkhistorycombobox->delegate();
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->delegate();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KHistoryComboBox_OnDelegate(const KHistoryComboBox* self, intptr_t slot) {
-    auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
-        vkhistorycombobox->setKHistoryComboBox_Delegate_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Delegate_Callback>(slot));
+    if (auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self))) {
+        return vkhistorycombobox->VirtualKHistoryComboBox::delegate();
+    } else
+        qFatal("Error: Protected method KHistoryComboBox::delegate called without a directly constructed type");
 }
 
 void KHistoryComboBox_Delete(KHistoryComboBox* self) {

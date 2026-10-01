@@ -268,29 +268,29 @@ void KPlotWidget_SetObjectToolTipShown(KPlotWidget* self, bool show) {
 
 bool KPlotWidget_Event(KPlotWidget* self, QEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         return vkplotwidget->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method KPlotWidget::event called without a directly constructed type");
 }
 
 void KPlotWidget_PaintEvent(KPlotWidget* self, QPaintEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->paintEvent(param1);
     }
 }
 
 void KPlotWidget_ResizeEvent(KPlotWidget* self, QResizeEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->resizeEvent(param1);
     }
 }
 
 void KPlotWidget_DrawAxes(KPlotWidget* self, QPainter* p) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->drawAxes(p);
     }
 }
@@ -329,1405 +329,1105 @@ void KPlotWidget_MaskAlongLine3(KPlotWidget* self, const QPointF* p1, const QPoi
 
 // Base class handler implementation
 QMetaObject* KPlotWidget_SuperMetaObject(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vkplotwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KPlotWidget::metaObject();
-    }
+    return (QMetaObject*)self->KPlotWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnMetaObject(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_MetaObject_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MetaObject_Callback>(slot));
+void KPlotWidget_OnMetaObject(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_metaobject_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPlotWidget_SuperMetacast(KPlotWidget* self, const char* param1) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Metacast_IsBase(true);
-        return vkplotwidget->qt_metacast(param1);
-    } else {
-        return self->KPlotWidget::qt_metacast(param1);
-    }
+    return self->KPlotWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMetacast(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Metacast_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metacast_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_metacast_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPlotWidget_SuperMetacall(KPlotWidget* self, int param1, int param2, void** param3) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Metacall_IsBase(true);
-        return vkplotwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPlotWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPlotWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMetacall(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Metacall_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metacall_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_metacall_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KPlotWidget_SuperMinimumSizeHint(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vkplotwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPlotWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KPlotWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnMinimumSizeHint(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MinimumSizeHint_Callback>(slot));
+void KPlotWidget_OnMinimumSizeHint(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_minimumsizehint_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KPlotWidget_SuperSizeHint(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_SizeHint_IsBase(true);
-        return new QSize(vkplotwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKPlotWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KPlotWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnSizeHint(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_SizeHint_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SizeHint_Callback>(slot));
+void KPlotWidget_OnSizeHint(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_sizehint_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KPlotWidget_SuperEvent(KPlotWidget* self, QEvent* param1) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Event_IsBase(true);
-        return vkplotwidget->event(param1);
-    } else {
-        return ((VirtualKPlotWidget*)self)->event(param1);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        return vkplotwidget->KPlotWidget::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Event_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Event_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_event_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperPaintEvent(KPlotWidget* self, QPaintEvent* param1) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_PaintEvent_IsBase(true);
-        vkplotwidget->paintEvent(param1);
-    } else {
-        ((VirtualKPlotWidget*)self)->paintEvent(param1);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnPaintEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_PaintEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_PaintEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_paintevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperResizeEvent(KPlotWidget* self, QResizeEvent* param1) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_ResizeEvent_IsBase(true);
-        vkplotwidget->resizeEvent(param1);
-    } else {
-        ((VirtualKPlotWidget*)self)->resizeEvent(param1);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnResizeEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ResizeEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_resizeevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperDrawAxes(KPlotWidget* self, QPainter* p) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_DrawAxes_IsBase(true);
-        vkplotwidget->drawAxes(p);
-    } else {
-        ((VirtualKPlotWidget*)self)->drawAxes(p);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::drawAxes(p);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::drawAxes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDrawAxes(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_DrawAxes_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DrawAxes_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_drawaxes_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DrawAxes_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_ChangeEvent(KPlotWidget* self, QEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->changeEvent(param1);
     } else {
-        ((VirtualKPlotWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KPlotWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperChangeEvent(KPlotWidget* self, QEvent* param1) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_ChangeEvent_IsBase(true);
-        vkplotwidget->changeEvent(param1);
-    } else {
-        ((VirtualKPlotWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnChangeEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ChangeEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_changeevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_InitStyleOption(const KPlotWidget* self, QStyleOptionFrame* option) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->initStyleOption(option);
     } else {
-        ((VirtualKPlotWidget*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KPlotWidget::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperInitStyleOption(const KPlotWidget* self, QStyleOptionFrame* option) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_InitStyleOption_IsBase(true);
-        vkplotwidget->initStyleOption(option);
-    } else {
-        ((VirtualKPlotWidget*)self)->initStyleOption(option);
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        vkplotwidget->KPlotWidget::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnInitStyleOption(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_InitStyleOption_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InitStyleOption_Callback>(slot));
+void KPlotWidget_OnInitStyleOption(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_initstyleoption_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPlotWidget_DevType(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->devType();
-    } else {
-        return self->KPlotWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KPlotWidget_SuperDevType(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_DevType_IsBase(true);
-        return vkplotwidget->devType();
-    } else {
-        return self->KPlotWidget::devType();
-    }
+    return self->KPlotWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnDevType(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_DevType_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DevType_Callback>(slot));
+void KPlotWidget_OnDevType(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_devtype_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_SetVisible(KPlotWidget* self, bool visible) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setVisible(visible);
-    } else {
-        self->KPlotWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperSetVisible(KPlotWidget* self, bool visible) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_SetVisible_IsBase(true);
-        vkplotwidget->setVisible(visible);
-    } else {
-        self->KPlotWidget::setVisible(visible);
-    }
+    self->KPlotWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnSetVisible(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_SetVisible_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SetVisible_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_setvisible_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPlotWidget_HeightForWidth(const KPlotWidget* self, int param1) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPlotWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KPlotWidget_SuperHeightForWidth(const KPlotWidget* self, int param1) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_HeightForWidth_IsBase(true);
-        return vkplotwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPlotWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KPlotWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnHeightForWidth(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HeightForWidth_Callback>(slot));
+void KPlotWidget_OnHeightForWidth(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_heightforwidth_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPlotWidget_HasHeightForWidth(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->hasHeightForWidth();
-    } else {
-        return self->KPlotWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KPlotWidget_SuperHasHeightForWidth(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_HasHeightForWidth_IsBase(true);
-        return vkplotwidget->hasHeightForWidth();
-    } else {
-        return self->KPlotWidget::hasHeightForWidth();
-    }
+    return self->KPlotWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnHasHeightForWidth(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HasHeightForWidth_Callback>(slot));
+void KPlotWidget_OnHasHeightForWidth(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_hasheightforwidth_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KPlotWidget_PaintEngine(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->paintEngine();
-    } else {
-        return self->KPlotWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KPlotWidget_SuperPaintEngine(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_PaintEngine_IsBase(true);
-        return vkplotwidget->paintEngine();
-    } else {
-        return self->KPlotWidget::paintEngine();
-    }
+    return self->KPlotWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnPaintEngine(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_PaintEngine_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_PaintEngine_Callback>(slot));
+void KPlotWidget_OnPaintEngine(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_paintengine_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_MousePressEvent(KPlotWidget* self, QMouseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->mousePressEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperMousePressEvent(KPlotWidget* self, QMouseEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_MousePressEvent_IsBase(true);
-        vkplotwidget->mousePressEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMousePressEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MousePressEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_mousepressevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_MouseReleaseEvent(KPlotWidget* self, QMouseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperMouseReleaseEvent(KPlotWidget* self, QMouseEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_MouseReleaseEvent_IsBase(true);
-        vkplotwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMouseReleaseEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_mousereleaseevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_MouseDoubleClickEvent(KPlotWidget* self, QMouseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperMouseDoubleClickEvent(KPlotWidget* self, QMouseEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_MouseDoubleClickEvent_IsBase(true);
-        vkplotwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMouseDoubleClickEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_MouseMoveEvent(KPlotWidget* self, QMouseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperMouseMoveEvent(KPlotWidget* self, QMouseEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_MouseMoveEvent_IsBase(true);
-        vkplotwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMouseMoveEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_mousemoveevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_WheelEvent(KPlotWidget* self, QWheelEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->wheelEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperWheelEvent(KPlotWidget* self, QWheelEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_WheelEvent_IsBase(true);
-        vkplotwidget->wheelEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnWheelEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_WheelEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_WheelEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_wheelevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_KeyPressEvent(KPlotWidget* self, QKeyEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->keyPressEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperKeyPressEvent(KPlotWidget* self, QKeyEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_KeyPressEvent_IsBase(true);
-        vkplotwidget->keyPressEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnKeyPressEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_keypressevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_KeyReleaseEvent(KPlotWidget* self, QKeyEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperKeyReleaseEvent(KPlotWidget* self, QKeyEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_KeyReleaseEvent_IsBase(true);
-        vkplotwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnKeyReleaseEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_keyreleaseevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_FocusInEvent(KPlotWidget* self, QFocusEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->focusInEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperFocusInEvent(KPlotWidget* self, QFocusEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_FocusInEvent_IsBase(true);
-        vkplotwidget->focusInEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnFocusInEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusInEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_focusinevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_FocusOutEvent(KPlotWidget* self, QFocusEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->focusOutEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperFocusOutEvent(KPlotWidget* self, QFocusEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_FocusOutEvent_IsBase(true);
-        vkplotwidget->focusOutEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnFocusOutEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_focusoutevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_EnterEvent(KPlotWidget* self, QEnterEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->enterEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperEnterEvent(KPlotWidget* self, QEnterEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_EnterEvent_IsBase(true);
-        vkplotwidget->enterEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->enterEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnEnterEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_EnterEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_EnterEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_enterevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_LeaveEvent(KPlotWidget* self, QEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->leaveEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperLeaveEvent(KPlotWidget* self, QEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_LeaveEvent_IsBase(true);
-        vkplotwidget->leaveEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnLeaveEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_LeaveEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_leaveevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_MoveEvent(KPlotWidget* self, QMoveEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->moveEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperMoveEvent(KPlotWidget* self, QMoveEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_MoveEvent_IsBase(true);
-        vkplotwidget->moveEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->moveEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMoveEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_MoveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MoveEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_moveevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_CloseEvent(KPlotWidget* self, QCloseEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->closeEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperCloseEvent(KPlotWidget* self, QCloseEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_CloseEvent_IsBase(true);
-        vkplotwidget->closeEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->closeEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnCloseEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_CloseEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_CloseEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_closeevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_ContextMenuEvent(KPlotWidget* self, QContextMenuEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->contextMenuEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperContextMenuEvent(KPlotWidget* self, QContextMenuEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_ContextMenuEvent_IsBase(true);
-        vkplotwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnContextMenuEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_contextmenuevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_TabletEvent(KPlotWidget* self, QTabletEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->tabletEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperTabletEvent(KPlotWidget* self, QTabletEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_TabletEvent_IsBase(true);
-        vkplotwidget->tabletEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnTabletEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_TabletEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_TabletEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_tabletevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_ActionEvent(KPlotWidget* self, QActionEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->actionEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperActionEvent(KPlotWidget* self, QActionEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_ActionEvent_IsBase(true);
-        vkplotwidget->actionEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->actionEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnActionEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_ActionEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ActionEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_actionevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_DragEnterEvent(KPlotWidget* self, QDragEnterEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->dragEnterEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperDragEnterEvent(KPlotWidget* self, QDragEnterEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_DragEnterEvent_IsBase(true);
-        vkplotwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDragEnterEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_dragenterevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_DragMoveEvent(KPlotWidget* self, QDragMoveEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->dragMoveEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperDragMoveEvent(KPlotWidget* self, QDragMoveEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_DragMoveEvent_IsBase(true);
-        vkplotwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDragMoveEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_dragmoveevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_DragLeaveEvent(KPlotWidget* self, QDragLeaveEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperDragLeaveEvent(KPlotWidget* self, QDragLeaveEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_DragLeaveEvent_IsBase(true);
-        vkplotwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDragLeaveEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_dragleaveevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_DropEvent(KPlotWidget* self, QDropEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->dropEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperDropEvent(KPlotWidget* self, QDropEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_DropEvent_IsBase(true);
-        vkplotwidget->dropEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->dropEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDropEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_DropEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DropEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_dropevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_ShowEvent(KPlotWidget* self, QShowEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->showEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperShowEvent(KPlotWidget* self, QShowEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_ShowEvent_IsBase(true);
-        vkplotwidget->showEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->showEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnShowEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_ShowEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ShowEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_showevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_HideEvent(KPlotWidget* self, QHideEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->hideEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperHideEvent(KPlotWidget* self, QHideEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_HideEvent_IsBase(true);
-        vkplotwidget->hideEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->hideEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnHideEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_HideEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HideEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_hideevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPlotWidget_NativeEvent(KPlotWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
+    if (vkplotwidget) {
         return vkplotwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKPlotWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KPlotWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPlotWidget_SuperNativeEvent(KPlotWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_NativeEvent_IsBase(true);
-        return vkplotwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKPlotWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        return vkplotwidget->KPlotWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnNativeEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_NativeEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_NativeEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_nativeevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPlotWidget_Metric(const KPlotWidget* self, int param1) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         return vkplotwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKPlotWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KPlotWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KPlotWidget_SuperMetric(const KPlotWidget* self, int param1) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Metric_IsBase(true);
-        return vkplotwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKPlotWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        return vkplotwidget->KPlotWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnMetric(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Metric_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metric_Callback>(slot));
+void KPlotWidget_OnMetric(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_metric_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_InitPainter(const KPlotWidget* self, QPainter* painter) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->initPainter(painter);
     } else {
-        ((VirtualKPlotWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KPlotWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperInitPainter(const KPlotWidget* self, QPainter* painter) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_InitPainter_IsBase(true);
-        vkplotwidget->initPainter(painter);
-    } else {
-        ((VirtualKPlotWidget*)self)->initPainter(painter);
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        vkplotwidget->KPlotWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnInitPainter(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_InitPainter_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InitPainter_Callback>(slot));
+void KPlotWidget_OnInitPainter(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_initpainter_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KPlotWidget_Redirected(const KPlotWidget* self, QPoint* offset) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         return vkplotwidget->redirected(offset);
     } else {
-        return ((VirtualKPlotWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KPlotWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KPlotWidget_SuperRedirected(const KPlotWidget* self, QPoint* offset) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Redirected_IsBase(true);
-        return vkplotwidget->redirected(offset);
-    } else {
-        return ((VirtualKPlotWidget*)self)->redirected(offset);
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        return vkplotwidget->KPlotWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnRedirected(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Redirected_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Redirected_Callback>(slot));
+void KPlotWidget_OnRedirected(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_redirected_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KPlotWidget_SharedPainter(const KPlotWidget* self) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         return vkplotwidget->sharedPainter();
     } else {
-        return ((VirtualKPlotWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KPlotWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KPlotWidget_SuperSharedPainter(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_SharedPainter_IsBase(true);
-        return vkplotwidget->sharedPainter();
-    } else {
-        return ((VirtualKPlotWidget*)self)->sharedPainter();
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        return vkplotwidget->KPlotWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnSharedPainter(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_SharedPainter_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SharedPainter_Callback>(slot));
+void KPlotWidget_OnSharedPainter(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_sharedpainter_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_InputMethodEvent(KPlotWidget* self, QInputMethodEvent* param1) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKPlotWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KPlotWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperInputMethodEvent(KPlotWidget* self, QInputMethodEvent* param1) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_InputMethodEvent_IsBase(true);
-        vkplotwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKPlotWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnInputMethodEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_inputmethodevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KPlotWidget_InputMethodQuery(const KPlotWidget* self, int param1) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return new QVariant(vkplotwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPlotWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KPlotWidget_SuperInputMethodQuery(const KPlotWidget* self, int param1) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vkplotwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPlotWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KPlotWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnInputMethodQuery(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InputMethodQuery_Callback>(slot));
+void KPlotWidget_OnInputMethodQuery(KPlotWidget* self, intptr_t slot) {
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self)))
+        vkplotwidget->kplotwidget_inputmethodquery_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPlotWidget_FocusNextPrevChild(KPlotWidget* self, bool next) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         return vkplotwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKPlotWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KPlotWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPlotWidget_SuperFocusNextPrevChild(KPlotWidget* self, bool next) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_FocusNextPrevChild_IsBase(true);
-        return vkplotwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKPlotWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        return vkplotwidget->KPlotWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnFocusNextPrevChild(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_focusnextprevchild_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPlotWidget_EventFilter(KPlotWidget* self, QObject* watched, QEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->eventFilter(watched, event);
-    } else {
-        return self->KPlotWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KPlotWidget_SuperEventFilter(KPlotWidget* self, QObject* watched, QEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_EventFilter_IsBase(true);
-        return vkplotwidget->eventFilter(watched, event);
-    } else {
-        return self->KPlotWidget::eventFilter(watched, event);
-    }
+    return self->KPlotWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnEventFilter(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_EventFilter_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_EventFilter_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_eventfilter_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_TimerEvent(KPlotWidget* self, QTimerEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->timerEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperTimerEvent(KPlotWidget* self, QTimerEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_TimerEvent_IsBase(true);
-        vkplotwidget->timerEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->timerEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnTimerEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_TimerEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_TimerEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_timerevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_ChildEvent(KPlotWidget* self, QChildEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->childEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperChildEvent(KPlotWidget* self, QChildEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_ChildEvent_IsBase(true);
-        vkplotwidget->childEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->childEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnChildEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_ChildEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ChildEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_childevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_CustomEvent(KPlotWidget* self, QEvent* event) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->customEvent(event);
     } else {
-        ((VirtualKPlotWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPlotWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperCustomEvent(KPlotWidget* self, QEvent* event) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_CustomEvent_IsBase(true);
-        vkplotwidget->customEvent(event);
-    } else {
-        ((VirtualKPlotWidget*)self)->customEvent(event);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnCustomEvent(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_CustomEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_CustomEvent_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_customevent_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_ConnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->connectNotify(*signal);
     } else {
-        ((VirtualKPlotWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPlotWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperConnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_ConnectNotify_IsBase(true);
-        vkplotwidget->connectNotify(*signal);
-    } else {
-        ((VirtualKPlotWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnConnectNotify(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ConnectNotify_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_connectnotify_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPlotWidget_DisconnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget) {
         vkplotwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKPlotWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPlotWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPlotWidget_SuperDisconnectNotify(KPlotWidget* self, const QMetaMethod* signal) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_DisconnectNotify_IsBase(true);
-        vkplotwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPlotWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->KPlotWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPlotWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDisconnectNotify(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self))
+        vkplotwidget->kplotwidget_disconnectnotify_callback = reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPlotWidget_SetPixRect(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setPixRect();
-    } else {
-        ((VirtualKPlotWidget*)self)->setPixRect();
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->VirtualKPlotWidget::setPixRect();
+    } else
+        qFatal("Error: Protected method KPlotWidget::setPixRect called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPlotWidget_SuperSetPixRect(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_SetPixRect_IsBase(true);
-        vkplotwidget->setPixRect();
-    } else {
-        ((VirtualKPlotWidget*)self)->setPixRect();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnSetPixRect(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_SetPixRect_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SetPixRect_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of KPlotPoint* */ KPlotWidget_PointsUnderPoint(const KPlotWidget* self, const QPoint* p) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        QList<KPlotPoint*> _ret = vkplotwidget->pointsUnderPoint(*p);
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        QList<KPlotPoint*> _ret = vkplotwidget->VirtualKPlotWidget::pointsUnderPoint(*p);
         // Convert QList<> from C++ memory to manually-managed C memory
         KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1737,362 +1437,96 @@ libqt_list /* of KPlotPoint* */ KPlotWidget_PointsUnderPoint(const KPlotWidget* 
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<KPlotPoint*> _ret = ((VirtualKPlotWidget*)self)->pointsUnderPoint(*p);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KPlotWidget::pointsUnderPoint called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of KPlotPoint* */ KPlotWidget_SuperPointsUnderPoint(const KPlotWidget* self, const QPoint* p) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_PointsUnderPoint_IsBase(true);
-        QList<KPlotPoint*> _ret = vkplotwidget->pointsUnderPoint(*p);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<KPlotPoint*> _ret = ((VirtualKPlotWidget*)self)->pointsUnderPoint(*p);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KPlotPoint** _arr = static_cast<KPlotPoint**>(malloc(sizeof(KPlotPoint*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnPointsUnderPoint(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_PointsUnderPoint_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_PointsUnderPoint_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPlotWidget_DrawFrame(KPlotWidget* self, QPainter* param1) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->drawFrame(param1);
-    } else {
-        ((VirtualKPlotWidget*)self)->drawFrame(param1);
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->VirtualKPlotWidget::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KPlotWidget::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPlotWidget_SuperDrawFrame(KPlotWidget* self, QPainter* param1) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_DrawFrame_IsBase(true);
-        vkplotwidget->drawFrame(param1);
-    } else {
-        ((VirtualKPlotWidget*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnDrawFrame(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_DrawFrame_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPlotWidget_UpdateMicroFocus(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->updateMicroFocus();
-    } else {
-        ((VirtualKPlotWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->VirtualKPlotWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KPlotWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPlotWidget_SuperUpdateMicroFocus(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_UpdateMicroFocus_IsBase(true);
-        vkplotwidget->updateMicroFocus();
-    } else {
-        ((VirtualKPlotWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnUpdateMicroFocus(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPlotWidget_Create(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->create();
-    } else {
-        ((VirtualKPlotWidget*)self)->create();
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->VirtualKPlotWidget::create();
+    } else
+        qFatal("Error: Protected method KPlotWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPlotWidget_SuperCreate(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Create_IsBase(true);
-        vkplotwidget->create();
-    } else {
-        ((VirtualKPlotWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnCreate(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Create_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPlotWidget_Destroy(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->destroy();
-    } else {
-        ((VirtualKPlotWidget*)self)->destroy();
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        vkplotwidget->VirtualKPlotWidget::destroy();
+    } else
+        qFatal("Error: Protected method KPlotWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPlotWidget_SuperDestroy(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Destroy_IsBase(true);
-        vkplotwidget->destroy();
-    } else {
-        ((VirtualKPlotWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnDestroy(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Destroy_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPlotWidget_FocusNextChild(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->focusNextChild();
-    } else {
-        return ((VirtualKPlotWidget*)self)->focusNextChild();
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        return vkplotwidget->VirtualKPlotWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KPlotWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPlotWidget_SuperFocusNextChild(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_FocusNextChild_IsBase(true);
-        return vkplotwidget->focusNextChild();
-    } else {
-        return ((VirtualKPlotWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnFocusNextChild(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPlotWidget_FocusPreviousChild(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKPlotWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self)) {
+        return vkplotwidget->VirtualKPlotWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KPlotWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPlotWidget_SuperFocusPreviousChild(KPlotWidget* self) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_FocusPreviousChild_IsBase(true);
-        return vkplotwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKPlotWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnFocusPreviousChild(KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPlotWidget_Sender(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->sender();
-    } else {
-        return ((VirtualKPlotWidget*)self)->sender();
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        return vkplotwidget->VirtualKPlotWidget::sender();
+    } else
+        qFatal("Error: Protected method KPlotWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPlotWidget_SuperSender(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Sender_IsBase(true);
-        return vkplotwidget->sender();
-    } else {
-        return ((VirtualKPlotWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnSender(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Sender_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPlotWidget_SenderSignalIndex(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKPlotWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        return vkplotwidget->VirtualKPlotWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPlotWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPlotWidget_SuperSenderSignalIndex(const KPlotWidget* self) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_SenderSignalIndex_IsBase(true);
-        return vkplotwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKPlotWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnSenderSignalIndex(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPlotWidget_Receivers(const KPlotWidget* self, const char* signal) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->receivers(signal);
-    } else {
-        return ((VirtualKPlotWidget*)self)->receivers(signal);
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        return vkplotwidget->VirtualKPlotWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPlotWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPlotWidget_SuperReceivers(const KPlotWidget* self, const char* signal) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_Receivers_IsBase(true);
-        return vkplotwidget->receivers(signal);
-    } else {
-        return ((VirtualKPlotWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnReceivers(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_Receivers_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPlotWidget_IsSignalConnected(const KPlotWidget* self, const QMetaMethod* signal) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPlotWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        return vkplotwidget->VirtualKPlotWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPlotWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPlotWidget_SuperIsSignalConnected(const KPlotWidget* self, const QMetaMethod* signal) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_IsSignalConnected_IsBase(true);
-        return vkplotwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPlotWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnIsSignalConnected(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KPlotWidget_GetDecodedMetricF(const KPlotWidget* self, int metricA, int metricB) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        return vkplotwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPlotWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KPlotWidget_SuperGetDecodedMetricF(const KPlotWidget* self, int metricA, int metricB) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
-        vkplotwidget->setKPlotWidget_GetDecodedMetricF_IsBase(true);
-        return vkplotwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPlotWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPlotWidget_OnGetDecodedMetricF(const KPlotWidget* self, intptr_t slot) {
-    auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
-        vkplotwidget->setKPlotWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self))) {
+        return vkplotwidget->VirtualKPlotWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KPlotWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KPlotWidget_Delete(KPlotWidget* self) {

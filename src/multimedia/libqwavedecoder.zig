@@ -129,9 +129,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QWaveDecoder, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) QMetaObject) void {
         qtc.QWaveDecoder_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -406,9 +406,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) void `
     ///
-    pub fn onClose(self: QWaveDecoder, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) void) void {
         qtc.QWaveDecoder_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -506,9 +506,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) i64 `
     ///
-    pub fn onPos(self: QWaveDecoder, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) i64) void {
         qtc.QWaveDecoder_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -571,9 +571,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) i64 `
     ///
-    pub fn onSize(self: QWaveDecoder, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) i64) void {
         qtc.QWaveDecoder_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -619,9 +619,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: QWaveDecoder, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) bool) void {
         qtc.QWaveDecoder_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -667,9 +667,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: QWaveDecoder, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) i64) void {
         qtc.QWaveDecoder_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2644,9 +2644,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: QWaveDecoder, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) bool) void {
         qtc.QWaveDecoder_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2700,9 +2700,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) bool `
     ///
-    pub fn onReset(self: QWaveDecoder, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) bool) void {
         qtc.QWaveDecoder_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2756,9 +2756,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: QWaveDecoder, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) i64) void {
         qtc.QWaveDecoder_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2812,9 +2812,9 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` self: QWaveDecoder`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QWaveDecoder) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: QWaveDecoder, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QWaveDecoder, callback: *const fn (QWaveDecoder) callconv(.c) bool) void {
         qtc.QWaveDecoder_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3524,46 +3524,6 @@ pub const QWaveDecoder = extern struct {
         qtc.QWaveDecoder_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWaveDecoder `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: QWaveDecoder, _openMode: i32) void {
-        qtc.QWaveDecoder_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWaveDecoder`
-    ///
-    /// ` callback: *const fn (self: QWaveDecoder, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: QWaveDecoder, callback: *const fn (QWaveDecoder, i32) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setErrorString` instead
     ///
     pub const SetErrorString = setErrorString;
@@ -3588,50 +3548,6 @@ pub const QWaveDecoder = extern struct {
         qtc.QWaveDecoder_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWaveDecoder `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: QWaveDecoder, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QWaveDecoder_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWaveDecoder`
-    ///
-    /// ` callback: *const fn (self: QWaveDecoder, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: QWaveDecoder, callback: *const fn (QWaveDecoder, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWaveDecoder_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -3650,44 +3566,6 @@ pub const QWaveDecoder = extern struct {
         return .{ .ptr = qtc.QWaveDecoder_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWaveDecoder `
-    ///
-    pub fn superSender(self: QWaveDecoder) QObject {
-        return .{ .ptr = qtc.QWaveDecoder_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWaveDecoder`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QWaveDecoder, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QWaveDecoder_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3704,44 +3582,6 @@ pub const QWaveDecoder = extern struct {
     ///
     pub fn senderSignalIndex(self: QWaveDecoder) i32 {
         return qtc.QWaveDecoder_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWaveDecoder `
-    ///
-    pub fn superSenderSignalIndex(self: QWaveDecoder) i32 {
-        return qtc.QWaveDecoder_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWaveDecoder`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QWaveDecoder, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWaveDecoder_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3765,47 +3605,6 @@ pub const QWaveDecoder = extern struct {
         return qtc.QWaveDecoder_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWaveDecoder `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QWaveDecoder, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QWaveDecoder_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWaveDecoder`
-    ///
-    /// ` callback: *const fn (self: QWaveDecoder, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QWaveDecoder, callback: *const fn (QWaveDecoder, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWaveDecoder_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3825,47 +3624,6 @@ pub const QWaveDecoder = extern struct {
     pub fn isSignalConnected(self: QWaveDecoder, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWaveDecoder_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWaveDecoder `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QWaveDecoder, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QWaveDecoder_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QWaveDecoder`
-    ///
-    /// ` callback: *const fn (self: QWaveDecoder, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QWaveDecoder, callback: *const fn (QWaveDecoder, QMetaMethod) callconv(.c) bool) void {
-        qtc.QWaveDecoder_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

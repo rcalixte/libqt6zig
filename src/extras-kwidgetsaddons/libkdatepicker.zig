@@ -167,9 +167,9 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KDatePicker) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KDatePicker, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) QMetaObject) void {
         qtc.KDatePicker_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -340,11 +340,11 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KDatePicker) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KDatePicker, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) QSize) void {
         qtc.KDatePicker_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -657,43 +657,6 @@ pub const KDatePicker = extern struct {
         qtc.KDatePicker_DateChangedSlot(@ptrCast(self.ptr), @ptrCast(_date.ptr));
     }
 
-    /// ### DEPRECATED: Use `onDateChangedSlot` instead
-    ///
-    pub const OnDateChangedSlot = onDateChangedSlot;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateChangedSlot)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn (self: KDatePicker, date: QDate) callconv(.c) void `
-    ///
-    pub fn onDateChangedSlot(self: KDatePicker, callback: *const fn (KDatePicker, QDate) callconv(.c) void) void {
-        qtc.KDatePicker_OnDateChangedSlot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDateChangedSlot` instead
-    ///
-    pub const SuperDateChangedSlot = superDateChangedSlot;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#dateChangedSlot)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` _date: QDate `
-    ///
-    pub fn superDateChangedSlot(self: KDatePicker, _date: anytype) void {
-        comptime _ = @TypeOf(_date)._is_QDate;
-        qtc.KDatePicker_SuperDateChangedSlot(@ptrCast(self.ptr), @ptrCast(_date.ptr));
-    }
-
     /// ### DEPRECATED: Use `tableClickedSlot` instead
     ///
     pub const TableClickedSlot = tableClickedSlot;
@@ -706,40 +669,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn tableClickedSlot(self: KDatePicker) void {
         qtc.KDatePicker_TableClickedSlot(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onTableClickedSlot` instead
-    ///
-    pub const OnTableClickedSlot = onTableClickedSlot;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#tableClickedSlot)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onTableClickedSlot(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnTableClickedSlot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTableClickedSlot` instead
-    ///
-    pub const SuperTableClickedSlot = superTableClickedSlot;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#tableClickedSlot)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superTableClickedSlot(self: KDatePicker) void {
-        qtc.KDatePicker_SuperTableClickedSlot(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `monthForwardClicked` instead
@@ -756,40 +685,6 @@ pub const KDatePicker = extern struct {
         qtc.KDatePicker_MonthForwardClicked(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onMonthForwardClicked` instead
-    ///
-    pub const OnMonthForwardClicked = onMonthForwardClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthForwardClicked)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onMonthForwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnMonthForwardClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMonthForwardClicked` instead
-    ///
-    pub const SuperMonthForwardClicked = superMonthForwardClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthForwardClicked)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superMonthForwardClicked(self: KDatePicker) void {
-        qtc.KDatePicker_SuperMonthForwardClicked(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `monthBackwardClicked` instead
     ///
     pub const MonthBackwardClicked = monthBackwardClicked;
@@ -802,40 +697,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn monthBackwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_MonthBackwardClicked(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onMonthBackwardClicked` instead
-    ///
-    pub const OnMonthBackwardClicked = onMonthBackwardClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthBackwardClicked)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onMonthBackwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnMonthBackwardClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superMonthBackwardClicked` instead
-    ///
-    pub const SuperMonthBackwardClicked = superMonthBackwardClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#monthBackwardClicked)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superMonthBackwardClicked(self: KDatePicker) void {
-        qtc.KDatePicker_SuperMonthBackwardClicked(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `yearForwardClicked` instead
@@ -852,40 +713,6 @@ pub const KDatePicker = extern struct {
         qtc.KDatePicker_YearForwardClicked(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onYearForwardClicked` instead
-    ///
-    pub const OnYearForwardClicked = onYearForwardClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearForwardClicked)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onYearForwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnYearForwardClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superYearForwardClicked` instead
-    ///
-    pub const SuperYearForwardClicked = superYearForwardClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearForwardClicked)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superYearForwardClicked(self: KDatePicker) void {
-        qtc.KDatePicker_SuperYearForwardClicked(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `yearBackwardClicked` instead
     ///
     pub const YearBackwardClicked = yearBackwardClicked;
@@ -898,40 +725,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn yearBackwardClicked(self: KDatePicker) void {
         qtc.KDatePicker_YearBackwardClicked(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onYearBackwardClicked` instead
-    ///
-    pub const OnYearBackwardClicked = onYearBackwardClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearBackwardClicked)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onYearBackwardClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnYearBackwardClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superYearBackwardClicked` instead
-    ///
-    pub const SuperYearBackwardClicked = superYearBackwardClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#yearBackwardClicked)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superYearBackwardClicked(self: KDatePicker) void {
-        qtc.KDatePicker_SuperYearBackwardClicked(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `selectMonthClicked` instead
@@ -948,40 +741,6 @@ pub const KDatePicker = extern struct {
         qtc.KDatePicker_SelectMonthClicked(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSelectMonthClicked` instead
-    ///
-    pub const OnSelectMonthClicked = onSelectMonthClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectMonthClicked)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSelectMonthClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnSelectMonthClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSelectMonthClicked` instead
-    ///
-    pub const SuperSelectMonthClicked = superSelectMonthClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectMonthClicked)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superSelectMonthClicked(self: KDatePicker) void {
-        qtc.KDatePicker_SuperSelectMonthClicked(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `selectYearClicked` instead
     ///
     pub const SelectYearClicked = selectYearClicked;
@@ -994,40 +753,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn selectYearClicked(self: KDatePicker) void {
         qtc.KDatePicker_SelectYearClicked(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSelectYearClicked` instead
-    ///
-    pub const OnSelectYearClicked = onSelectYearClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectYearClicked)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSelectYearClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnSelectYearClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSelectYearClicked` instead
-    ///
-    pub const SuperSelectYearClicked = superSelectYearClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#selectYearClicked)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superSelectYearClicked(self: KDatePicker) void {
-        qtc.KDatePicker_SuperSelectYearClicked(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `uncheckYearSelector` instead
@@ -1044,40 +769,6 @@ pub const KDatePicker = extern struct {
         qtc.KDatePicker_UncheckYearSelector(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onUncheckYearSelector` instead
-    ///
-    pub const OnUncheckYearSelector = onUncheckYearSelector;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#uncheckYearSelector)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUncheckYearSelector(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnUncheckYearSelector(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUncheckYearSelector` instead
-    ///
-    pub const SuperUncheckYearSelector = superUncheckYearSelector;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#uncheckYearSelector)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superUncheckYearSelector(self: KDatePicker) void {
-        qtc.KDatePicker_SuperUncheckYearSelector(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `lineEnterPressed` instead
     ///
     pub const LineEnterPressed = lineEnterPressed;
@@ -1090,40 +781,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn lineEnterPressed(self: KDatePicker) void {
         qtc.KDatePicker_LineEnterPressed(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLineEnterPressed` instead
-    ///
-    pub const OnLineEnterPressed = onLineEnterPressed;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#lineEnterPressed)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onLineEnterPressed(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnLineEnterPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLineEnterPressed` instead
-    ///
-    pub const SuperLineEnterPressed = superLineEnterPressed;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#lineEnterPressed)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superLineEnterPressed(self: KDatePicker) void {
-        qtc.KDatePicker_SuperLineEnterPressed(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `todayButtonClicked` instead
@@ -1140,40 +797,6 @@ pub const KDatePicker = extern struct {
         qtc.KDatePicker_TodayButtonClicked(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onTodayButtonClicked` instead
-    ///
-    pub const OnTodayButtonClicked = onTodayButtonClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#todayButtonClicked)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onTodayButtonClicked(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnTodayButtonClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTodayButtonClicked` instead
-    ///
-    pub const SuperTodayButtonClicked = superTodayButtonClicked;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#todayButtonClicked)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superTodayButtonClicked(self: KDatePicker) void {
-        qtc.KDatePicker_SuperTodayButtonClicked(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `weekSelected` instead
     ///
     pub const WeekSelected = weekSelected;
@@ -1188,42 +811,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn weekSelected(self: KDatePicker, param1: i32) void {
         qtc.KDatePicker_WeekSelected(@ptrCast(self.ptr), @bitCast(param1));
-    }
-
-    /// ### DEPRECATED: Use `onWeekSelected` instead
-    ///
-    pub const OnWeekSelected = onWeekSelected;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#weekSelected)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` callback: *const fn (self: KDatePicker, param1: i32) callconv(.c) void `
-    ///
-    pub fn onWeekSelected(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) void) void {
-        qtc.KDatePicker_OnWeekSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superWeekSelected` instead
-    ///
-    pub const SuperWeekSelected = superWeekSelected;
-
-    /// ### [Upstream resources](https://api.kde.org/kdatepicker.html#weekSelected)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` param1: i32 `
-    ///
-    pub fn superWeekSelected(self: KDatePicker, param1: i32) void {
-        qtc.KDatePicker_SuperWeekSelected(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `dateChanged` instead
@@ -8100,9 +7687,9 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDatePicker) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KDatePicker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) i32) void {
         qtc.KDatePicker_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8216,11 +7803,11 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KDatePicker) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KDatePicker, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) QSize) void {
         qtc.KDatePicker_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8334,9 +7921,9 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KDatePicker) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) bool) void {
         qtc.KDatePicker_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8390,9 +7977,9 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KDatePicker) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KDatePicker, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) QPaintEngine) void {
         qtc.KDatePicker_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10070,9 +9657,9 @@ pub const KDatePicker = extern struct {
     ///
     /// ` self: KDatePicker`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KDatePicker) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KDatePicker, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KDatePicker, callback: *const fn (KDatePicker) callconv(.c) QPainter) void {
         qtc.KDatePicker_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10591,47 +10178,6 @@ pub const KDatePicker = extern struct {
         qtc.KDatePicker_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: KDatePicker, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.KDatePicker_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn (self: KDatePicker, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: KDatePicker, callback: *const fn (KDatePicker, QPainter) callconv(.c) void) void {
-        qtc.KDatePicker_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10648,44 +10194,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn updateMicroFocus(self: KDatePicker) void {
         qtc.KDatePicker_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superUpdateMicroFocus(self: KDatePicker) void {
-        qtc.KDatePicker_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10706,44 +10214,6 @@ pub const KDatePicker = extern struct {
         qtc.KDatePicker_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superCreate(self: KDatePicker) void {
-        qtc.KDatePicker_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10760,44 +10230,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn destroy(self: KDatePicker) void {
         qtc.KDatePicker_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superDestroy(self: KDatePicker) void {
-        qtc.KDatePicker_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KDatePicker, callback: *const fn () callconv(.c) void) void {
-        qtc.KDatePicker_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10818,44 +10250,6 @@ pub const KDatePicker = extern struct {
         return qtc.KDatePicker_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superFocusNextChild(self: KDatePicker) bool {
-        return qtc.KDatePicker_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDatePicker_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10872,44 +10266,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn focusPreviousChild(self: KDatePicker) bool {
         return qtc.KDatePicker_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superFocusPreviousChild(self: KDatePicker) bool {
-        return qtc.KDatePicker_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KDatePicker, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDatePicker_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10930,44 +10286,6 @@ pub const KDatePicker = extern struct {
         return .{ .ptr = qtc.KDatePicker_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superSender(self: KDatePicker) QObject {
-        return .{ .ptr = qtc.KDatePicker_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KDatePicker, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KDatePicker_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10984,44 +10302,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn senderSignalIndex(self: KDatePicker) i32 {
         return qtc.KDatePicker_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    pub fn superSenderSignalIndex(self: KDatePicker) i32 {
-        return qtc.KDatePicker_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KDatePicker, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDatePicker_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11045,47 +10325,6 @@ pub const KDatePicker = extern struct {
         return qtc.KDatePicker_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KDatePicker, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KDatePicker_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn (self: KDatePicker, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KDatePicker, callback: *const fn (KDatePicker, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KDatePicker_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11105,47 +10344,6 @@ pub const KDatePicker = extern struct {
     pub fn isSignalConnected(self: KDatePicker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDatePicker_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KDatePicker, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KDatePicker_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn (self: KDatePicker, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KDatePicker, callback: *const fn (KDatePicker, QMetaMethod) callconv(.c) bool) void {
-        qtc.KDatePicker_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11168,48 +10366,6 @@ pub const KDatePicker = extern struct {
     ///
     pub fn getDecodedMetricF(self: KDatePicker, metricA: i32, metricB: i32) f64 {
         return qtc.KDatePicker_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDatePicker `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KDatePicker, metricA: i32, metricB: i32) f64 {
-        return qtc.KDatePicker_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KDatePicker`
-    ///
-    /// ` callback: *const fn (self: KDatePicker, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KDatePicker, callback: *const fn (KDatePicker, i32, i32) callconv(.c) f64) void {
-        qtc.KDatePicker_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

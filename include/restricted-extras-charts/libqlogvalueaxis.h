@@ -60,13 +60,13 @@ void QLogValueAxis_MinorTickCountChanged(QLogValueAxis* self, int minorTickCount
 void QLogValueAxis_Connect_MinorTickCountChanged(QLogValueAxis* self, intptr_t slot);
 libqt_string QLogValueAxis_Tr2(const char* s, const char* c);
 libqt_string QLogValueAxis_Tr3(const char* s, const char* c, int n);
-void QLogValueAxis_OnMetaObject(const QLogValueAxis* self, intptr_t slot);
+void QLogValueAxis_OnMetaObject(QLogValueAxis* self, intptr_t slot);
 QMetaObject* QLogValueAxis_SuperMetaObject(const QLogValueAxis* self);
 void QLogValueAxis_OnMetacast(QLogValueAxis* self, intptr_t slot);
 void* QLogValueAxis_SuperMetacast(QLogValueAxis* self, const char* param1);
 void QLogValueAxis_OnMetacall(QLogValueAxis* self, intptr_t slot);
 int QLogValueAxis_SuperMetacall(QLogValueAxis* self, int param1, int param2, void** param3);
-void QLogValueAxis_OnType(const QLogValueAxis* self, intptr_t slot);
+void QLogValueAxis_OnType(QLogValueAxis* self, intptr_t slot);
 int QLogValueAxis_SuperType(const QLogValueAxis* self);
 bool QLogValueAxis_Event(QLogValueAxis* self, QEvent* event);
 void QLogValueAxis_OnEvent(QLogValueAxis* self, intptr_t slot);
@@ -90,17 +90,9 @@ void QLogValueAxis_DisconnectNotify(QLogValueAxis* self, const QMetaMethod* sign
 void QLogValueAxis_OnDisconnectNotify(QLogValueAxis* self, intptr_t slot);
 void QLogValueAxis_SuperDisconnectNotify(QLogValueAxis* self, const QMetaMethod* signal);
 QObject* QLogValueAxis_Sender(const QLogValueAxis* self);
-void QLogValueAxis_OnSender(const QLogValueAxis* self, intptr_t slot);
-QObject* QLogValueAxis_SuperSender(const QLogValueAxis* self);
 int QLogValueAxis_SenderSignalIndex(const QLogValueAxis* self);
-void QLogValueAxis_OnSenderSignalIndex(const QLogValueAxis* self, intptr_t slot);
-int QLogValueAxis_SuperSenderSignalIndex(const QLogValueAxis* self);
 int QLogValueAxis_Receivers(const QLogValueAxis* self, const char* signal);
-void QLogValueAxis_OnReceivers(const QLogValueAxis* self, intptr_t slot);
-int QLogValueAxis_SuperReceivers(const QLogValueAxis* self, const char* signal);
 bool QLogValueAxis_IsSignalConnected(const QLogValueAxis* self, const QMetaMethod* signal);
-void QLogValueAxis_OnIsSignalConnected(const QLogValueAxis* self, intptr_t slot);
-bool QLogValueAxis_SuperIsSignalConnected(const QLogValueAxis* self, const QMetaMethod* signal);
 void QLogValueAxis_Delete(QLogValueAxis* self);
 
 #ifdef __cplusplus

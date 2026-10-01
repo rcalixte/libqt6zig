@@ -47,7 +47,6 @@ int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const lib
 void KWordMacroExpander_OnExpandEscapedMacro(KWordMacroExpander* self, intptr_t slot);
 int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
 void KWordMacroExpander_OnExpandMacro(KWordMacroExpander* self, intptr_t slot);
-bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ ret);
 void KWordMacroExpander_Delete(KWordMacroExpander* self);
 
 KCharMacroExpander* KCharMacroExpander_new();
@@ -60,7 +59,6 @@ int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const lib
 void KCharMacroExpander_OnExpandEscapedMacro(KCharMacroExpander* self, intptr_t slot);
 int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret);
 void KCharMacroExpander_OnExpandMacro(KCharMacroExpander* self, intptr_t slot);
-bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ ret);
 void KCharMacroExpander_Delete(KCharMacroExpander* self);
 
 libqt_string KMacroExpander_ExpandMacros(const libqt_string str, const libqt_map /* of QChar* to libqt_string */ map, QChar* c);

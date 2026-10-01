@@ -39,23 +39,23 @@ void QSGOpaqueTextureMaterial_SetVerticalWrapMode(QSGOpaqueTextureMaterial* self
 int QSGOpaqueTextureMaterial_VerticalWrapMode(const QSGOpaqueTextureMaterial* self);
 void QSGOpaqueTextureMaterial_SetAnisotropyLevel(QSGOpaqueTextureMaterial* self, int level);
 int QSGOpaqueTextureMaterial_AnisotropyLevel(const QSGOpaqueTextureMaterial* self);
-void QSGOpaqueTextureMaterial_OnType(const QSGOpaqueTextureMaterial* self, intptr_t slot);
+void QSGOpaqueTextureMaterial_OnType(QSGOpaqueTextureMaterial* self, intptr_t slot);
 QSGMaterialType* QSGOpaqueTextureMaterial_SuperType(const QSGOpaqueTextureMaterial* self);
-void QSGOpaqueTextureMaterial_OnCreateShader(const QSGOpaqueTextureMaterial* self, intptr_t slot);
+void QSGOpaqueTextureMaterial_OnCreateShader(QSGOpaqueTextureMaterial* self, intptr_t slot);
 QSGMaterialShader* QSGOpaqueTextureMaterial_SuperCreateShader(const QSGOpaqueTextureMaterial* self, int renderMode);
-void QSGOpaqueTextureMaterial_OnCompare(const QSGOpaqueTextureMaterial* self, intptr_t slot);
+void QSGOpaqueTextureMaterial_OnCompare(QSGOpaqueTextureMaterial* self, intptr_t slot);
 int QSGOpaqueTextureMaterial_SuperCompare(const QSGOpaqueTextureMaterial* self, const QSGMaterial* other);
 void QSGOpaqueTextureMaterial_Delete(QSGOpaqueTextureMaterial* self);
 
 QSGTextureMaterial* QSGTextureMaterial_new();
 QSGMaterialType* QSGTextureMaterial_Type(const QSGTextureMaterial* self);
 QSGMaterialShader* QSGTextureMaterial_CreateShader(const QSGTextureMaterial* self, int renderMode);
-void QSGTextureMaterial_OnType(const QSGTextureMaterial* self, intptr_t slot);
+void QSGTextureMaterial_OnType(QSGTextureMaterial* self, intptr_t slot);
 QSGMaterialType* QSGTextureMaterial_SuperType(const QSGTextureMaterial* self);
-void QSGTextureMaterial_OnCreateShader(const QSGTextureMaterial* self, intptr_t slot);
+void QSGTextureMaterial_OnCreateShader(QSGTextureMaterial* self, intptr_t slot);
 QSGMaterialShader* QSGTextureMaterial_SuperCreateShader(const QSGTextureMaterial* self, int renderMode);
 int QSGTextureMaterial_Compare(const QSGTextureMaterial* self, const QSGMaterial* other);
-void QSGTextureMaterial_OnCompare(const QSGTextureMaterial* self, intptr_t slot);
+void QSGTextureMaterial_OnCompare(QSGTextureMaterial* self, intptr_t slot);
 int QSGTextureMaterial_SuperCompare(const QSGTextureMaterial* self, const QSGMaterial* other);
 void QSGTextureMaterial_Delete(QSGTextureMaterial* self);
 

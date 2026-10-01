@@ -31,58 +31,34 @@ void Kirigami__Platform__TabletModeChangedEvent_OperatorAssign(Kirigami__Platfor
 
 // Derived class handler implementation
 void Kirigami__Platform__TabletModeChangedEvent_SetAccepted(Kirigami__Platform__TabletModeChangedEvent* self, bool accepted) {
-    auto* vkirigamiplatformtabletmodechangedevent = dynamic_cast<VirtualKirigamiPlatformTabletModeChangedEvent*>(self);
-    if (vkirigamiplatformtabletmodechangedevent && vkirigamiplatformtabletmodechangedevent->isVirtualKirigamiPlatformTabletModeChangedEvent) {
-        vkirigamiplatformtabletmodechangedevent->setAccepted(accepted);
-    } else {
-        self->Kirigami::Platform::TabletModeChangedEvent::setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 // Base class handler implementation
 void Kirigami__Platform__TabletModeChangedEvent_SuperSetAccepted(Kirigami__Platform__TabletModeChangedEvent* self, bool accepted) {
-    auto* vkirigamiplatformtabletmodechangedevent = dynamic_cast<VirtualKirigamiPlatformTabletModeChangedEvent*>(self);
-    if (vkirigamiplatformtabletmodechangedevent && vkirigamiplatformtabletmodechangedevent->isVirtualKirigamiPlatformTabletModeChangedEvent) {
-        vkirigamiplatformtabletmodechangedevent->setKirigami__Platform__TabletModeChangedEvent_SetAccepted_IsBase(true);
-        vkirigamiplatformtabletmodechangedevent->setAccepted(accepted);
-    } else {
-        self->Kirigami::Platform::TabletModeChangedEvent::setAccepted(accepted);
-    }
+    self->Kirigami::Platform::TabletModeChangedEvent::setAccepted(accepted);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__TabletModeChangedEvent_OnSetAccepted(Kirigami__Platform__TabletModeChangedEvent* self, intptr_t slot) {
-    auto* vkirigamiplatformtabletmodechangedevent = dynamic_cast<VirtualKirigamiPlatformTabletModeChangedEvent*>(self);
-    if (vkirigamiplatformtabletmodechangedevent && vkirigamiplatformtabletmodechangedevent->isVirtualKirigamiPlatformTabletModeChangedEvent)
-        vkirigamiplatformtabletmodechangedevent->setKirigami__Platform__TabletModeChangedEvent_SetAccepted_Callback(reinterpret_cast<VirtualKirigamiPlatformTabletModeChangedEvent::Kirigami__Platform__TabletModeChangedEvent_SetAccepted_Callback>(slot));
+    if (auto* vkirigamiplatformtabletmodechangedevent = dynamic_cast<VirtualKirigamiPlatformTabletModeChangedEvent*>(self))
+        vkirigamiplatformtabletmodechangedevent->kirigami__platform__tabletmodechangedevent_setaccepted_callback = reinterpret_cast<VirtualKirigamiPlatformTabletModeChangedEvent::Kirigami__Platform__TabletModeChangedEvent_SetAccepted_Callback>(slot);
 }
 
 // Derived class handler implementation
 QEvent* Kirigami__Platform__TabletModeChangedEvent_Clone(const Kirigami__Platform__TabletModeChangedEvent* self) {
-    auto* vkirigamiplatformtabletmodechangedevent = const_cast<VirtualKirigamiPlatformTabletModeChangedEvent*>(dynamic_cast<const VirtualKirigamiPlatformTabletModeChangedEvent*>(self));
-    if (vkirigamiplatformtabletmodechangedevent && vkirigamiplatformtabletmodechangedevent->isVirtualKirigamiPlatformTabletModeChangedEvent) {
-        return vkirigamiplatformtabletmodechangedevent->clone();
-    } else {
-        return self->Kirigami::Platform::TabletModeChangedEvent::clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
 QEvent* Kirigami__Platform__TabletModeChangedEvent_SuperClone(const Kirigami__Platform__TabletModeChangedEvent* self) {
-    auto* vkirigamiplatformtabletmodechangedevent = const_cast<VirtualKirigamiPlatformTabletModeChangedEvent*>(dynamic_cast<const VirtualKirigamiPlatformTabletModeChangedEvent*>(self));
-    if (vkirigamiplatformtabletmodechangedevent && vkirigamiplatformtabletmodechangedevent->isVirtualKirigamiPlatformTabletModeChangedEvent) {
-        vkirigamiplatformtabletmodechangedevent->setKirigami__Platform__TabletModeChangedEvent_Clone_IsBase(true);
-        return vkirigamiplatformtabletmodechangedevent->clone();
-    } else {
-        return self->Kirigami::Platform::TabletModeChangedEvent::clone();
-    }
+    return self->Kirigami::Platform::TabletModeChangedEvent::clone();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__TabletModeChangedEvent_OnClone(const Kirigami__Platform__TabletModeChangedEvent* self, intptr_t slot) {
-    auto* vkirigamiplatformtabletmodechangedevent = const_cast<VirtualKirigamiPlatformTabletModeChangedEvent*>(dynamic_cast<const VirtualKirigamiPlatformTabletModeChangedEvent*>(self));
-    if (vkirigamiplatformtabletmodechangedevent && vkirigamiplatformtabletmodechangedevent->isVirtualKirigamiPlatformTabletModeChangedEvent)
-        vkirigamiplatformtabletmodechangedevent->setKirigami__Platform__TabletModeChangedEvent_Clone_Callback(reinterpret_cast<VirtualKirigamiPlatformTabletModeChangedEvent::Kirigami__Platform__TabletModeChangedEvent_Clone_Callback>(slot));
+void Kirigami__Platform__TabletModeChangedEvent_OnClone(Kirigami__Platform__TabletModeChangedEvent* self, intptr_t slot) {
+    if (auto* vkirigamiplatformtabletmodechangedevent = const_cast<VirtualKirigamiPlatformTabletModeChangedEvent*>(dynamic_cast<const VirtualKirigamiPlatformTabletModeChangedEvent*>(self)))
+        vkirigamiplatformtabletmodechangedevent->kirigami__platform__tabletmodechangedevent_clone_callback = reinterpret_cast<VirtualKirigamiPlatformTabletModeChangedEvent::Kirigami__Platform__TabletModeChangedEvent_Clone_Callback>(slot);
 }
 
 void Kirigami__Platform__TabletModeChangedEvent_Delete(Kirigami__Platform__TabletModeChangedEvent* self) {

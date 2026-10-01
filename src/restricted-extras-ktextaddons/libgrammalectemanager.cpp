@@ -147,364 +147,219 @@ libqt_string TextGrammarCheck__GrammalecteManager_Tr3(const char* s, const char*
 
 // Base class handler implementation
 QMetaObject* TextGrammarCheck__GrammalecteManager_SuperMetaObject(const TextGrammarCheck__GrammalecteManager* self) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextgrammarcheckgrammalectemanager->metaObject();
-    } else {
-        return (QMetaObject*)self->TextGrammarCheck::GrammalecteManager::metaObject();
-    }
+    return (QMetaObject*)self->TextGrammarCheck::GrammalecteManager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteManager_OnMetaObject(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_MetaObject_Callback>(slot));
+void TextGrammarCheck__GrammalecteManager_OnMetaObject(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
+    if (auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self)))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_metaobject_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextGrammarCheck__GrammalecteManager_SuperMetacast(TextGrammarCheck__GrammalecteManager* self, const char* param1) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Metacast_IsBase(true);
-        return vtextgrammarcheckgrammalectemanager->qt_metacast(param1);
-    } else {
-        return self->TextGrammarCheck::GrammalecteManager::qt_metacast(param1);
-    }
+    return self->TextGrammarCheck::GrammalecteManager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnMetacast(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_Metacast_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_metacast_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextGrammarCheck__GrammalecteManager_SuperMetacall(TextGrammarCheck__GrammalecteManager* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Metacall_IsBase(true);
-        return vtextgrammarcheckgrammalectemanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextGrammarCheck::GrammalecteManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextGrammarCheck::GrammalecteManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnMetacall(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_Metacall_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_metacall_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteManager_Event(TextGrammarCheck__GrammalecteManager* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return vtextgrammarcheckgrammalectemanager->event(event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteManager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteManager_SuperEvent(TextGrammarCheck__GrammalecteManager* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Event_IsBase(true);
-        return vtextgrammarcheckgrammalectemanager->event(event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteManager::event(event);
-    }
+    return self->TextGrammarCheck::GrammalecteManager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnEvent(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_Event_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_event_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__GrammalecteManager_EventFilter(TextGrammarCheck__GrammalecteManager* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return vtextgrammarcheckgrammalectemanager->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteManager::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__GrammalecteManager_SuperEventFilter(TextGrammarCheck__GrammalecteManager* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_EventFilter_IsBase(true);
-        return vtextgrammarcheckgrammalectemanager->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::GrammalecteManager::eventFilter(watched, event);
-    }
+    return self->TextGrammarCheck::GrammalecteManager::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnEventFilter(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_EventFilter_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_eventfilter_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteManager_TimerEvent(TextGrammarCheck__GrammalecteManager* self, QTimerEvent* event) {
     auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
+    if (vtextgrammarcheckgrammalectemanager) {
         vtextgrammarcheckgrammalectemanager->timerEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteManager_SuperTimerEvent(TextGrammarCheck__GrammalecteManager* self, QTimerEvent* event) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_TimerEvent_IsBase(true);
-        vtextgrammarcheckgrammalectemanager->timerEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->timerEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self)) {
+        vtextgrammarcheckgrammalectemanager->TextGrammarCheck::GrammalecteManager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnTimerEvent(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_TimerEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_timerevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteManager_ChildEvent(TextGrammarCheck__GrammalecteManager* self, QChildEvent* event) {
     auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
+    if (vtextgrammarcheckgrammalectemanager) {
         vtextgrammarcheckgrammalectemanager->childEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteManager_SuperChildEvent(TextGrammarCheck__GrammalecteManager* self, QChildEvent* event) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_ChildEvent_IsBase(true);
-        vtextgrammarcheckgrammalectemanager->childEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->childEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self)) {
+        vtextgrammarcheckgrammalectemanager->TextGrammarCheck::GrammalecteManager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnChildEvent(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_ChildEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_childevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteManager_CustomEvent(TextGrammarCheck__GrammalecteManager* self, QEvent* event) {
     auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
+    if (vtextgrammarcheckgrammalectemanager) {
         vtextgrammarcheckgrammalectemanager->customEvent(event);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteManager_SuperCustomEvent(TextGrammarCheck__GrammalecteManager* self, QEvent* event) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_CustomEvent_IsBase(true);
-        vtextgrammarcheckgrammalectemanager->customEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->customEvent(event);
-    }
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self)) {
+        vtextgrammarcheckgrammalectemanager->TextGrammarCheck::GrammalecteManager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnCustomEvent(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_CustomEvent_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_customevent_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteManager_ConnectNotify(TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
+    if (vtextgrammarcheckgrammalectemanager) {
         vtextgrammarcheckgrammalectemanager->connectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteManager_SuperConnectNotify(TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_ConnectNotify_IsBase(true);
-        vtextgrammarcheckgrammalectemanager->connectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self)) {
+        vtextgrammarcheckgrammalectemanager->TextGrammarCheck::GrammalecteManager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnConnectNotify(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_ConnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_connectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__GrammalecteManager_DisconnectNotify(TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal) {
     auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
+    if (vtextgrammarcheckgrammalectemanager) {
         vtextgrammarcheckgrammalectemanager->disconnectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__GrammalecteManager_SuperDisconnectNotify(TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_DisconnectNotify_IsBase(true);
-        vtextgrammarcheckgrammalectemanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckGrammalecteManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self)) {
+        vtextgrammarcheckgrammalectemanager->TextGrammarCheck::GrammalecteManager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::GrammalecteManager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteManager_OnDisconnectNotify(TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_DisconnectNotify_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self))
+        vtextgrammarcheckgrammalectemanager->textgrammarcheck__grammalectemanager_disconnectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextGrammarCheck__GrammalecteManager_Sender(const TextGrammarCheck__GrammalecteManager* self) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return vtextgrammarcheckgrammalectemanager->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->sender();
-    }
+    if (auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self))) {
+        return vtextgrammarcheckgrammalectemanager->VirtualTextGrammarCheckGrammalecteManager::sender();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteManager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextGrammarCheck__GrammalecteManager_SuperSender(const TextGrammarCheck__GrammalecteManager* self) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Sender_IsBase(true);
-        return vtextgrammarcheckgrammalectemanager->sender();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteManager_OnSender(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammalecteManager_SenderSignalIndex(const TextGrammarCheck__GrammalecteManager* self) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return vtextgrammarcheckgrammalectemanager->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->senderSignalIndex();
-    }
+    if (auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self))) {
+        return vtextgrammarcheckgrammalectemanager->VirtualTextGrammarCheckGrammalecteManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteManager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammalecteManager_SuperSenderSignalIndex(const TextGrammarCheck__GrammalecteManager* self) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_SenderSignalIndex_IsBase(true);
-        return vtextgrammarcheckgrammalectemanager->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteManager_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__GrammalecteManager_Receivers(const TextGrammarCheck__GrammalecteManager* self, const char* signal) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return vtextgrammarcheckgrammalectemanager->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->receivers(signal);
-    }
+    if (auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self))) {
+        return vtextgrammarcheckgrammalectemanager->VirtualTextGrammarCheckGrammalecteManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteManager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__GrammalecteManager_SuperReceivers(const TextGrammarCheck__GrammalecteManager* self, const char* signal) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Receivers_IsBase(true);
-        return vtextgrammarcheckgrammalectemanager->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteManager_OnReceivers(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__GrammalecteManager_IsSignalConnected(const TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return vtextgrammarcheckgrammalectemanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextGrammarCheck__GrammalecteManager_SuperIsSignalConnected(const TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_IsSignalConnected_IsBase(true);
-        return vtextgrammarcheckgrammalectemanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__GrammalecteManager_OnIsSignalConnected(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self));
-    if (vtextgrammarcheckgrammalectemanager && vtextgrammarcheckgrammalectemanager->isVirtualTextGrammarCheckGrammalecteManager)
-        vtextgrammarcheckgrammalectemanager->setTextGrammarCheck__GrammalecteManager_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteManager::TextGrammarCheck__GrammalecteManager_IsSignalConnected_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammalectemanager = const_cast<VirtualTextGrammarCheckGrammalecteManager*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self))) {
+        return vtextgrammarcheckgrammalectemanager->VirtualTextGrammarCheckGrammalecteManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::GrammalecteManager::isSignalConnected called without a directly constructed type");
 }
 
 void TextGrammarCheck__GrammalecteManager_Delete(TextGrammarCheck__GrammalecteManager* self) {

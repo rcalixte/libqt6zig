@@ -143,1766 +143,1269 @@ void kColorPicker__KColorPicker_ResetColors1(kColorPicker__KColorPicker* self, b
 
 // Base class handler implementation
 QMetaObject* kColorPicker__KColorPicker_SuperMetaObject(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MetaObject_IsBase(true);
-        return (QMetaObject*)vkcolorpickerkcolorpicker->metaObject();
-    } else {
-        return (QMetaObject*)self->kColorPicker::KColorPicker::metaObject();
-    }
+    return (QMetaObject*)self->kColorPicker::KColorPicker::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnMetaObject(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MetaObject_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MetaObject_Callback>(slot));
+void kColorPicker__KColorPicker_OnMetaObject(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_metaobject_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* kColorPicker__KColorPicker_SuperMetacast(kColorPicker__KColorPicker* self, const char* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacast_IsBase(true);
-        return vkcolorpickerkcolorpicker->qt_metacast(param1);
-    } else {
-        return self->kColorPicker::KColorPicker::qt_metacast(param1);
-    }
+    return self->kColorPicker::KColorPicker::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMetacast(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacast_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metacast_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_metacast_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int kColorPicker__KColorPicker_SuperMetacall(kColorPicker__KColorPicker* self, int param1, int param2, void** param3) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacall_IsBase(true);
-        return vkcolorpickerkcolorpicker->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->kColorPicker::KColorPicker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->kColorPicker::KColorPicker::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMetacall(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metacall_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metacall_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_metacall_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* kColorPicker__KColorPicker_SizeHint(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return new QSize(vkcolorpickerkcolorpicker->sizeHint());
-    } else {
-        return new QSize(((VirtualkColorPickerKColorPicker*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* kColorPicker__KColorPicker_SuperSizeHint(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SizeHint_IsBase(true);
-        return new QSize(vkcolorpickerkcolorpicker->sizeHint());
-    } else {
-        return new QSize(((VirtualkColorPickerKColorPicker*)self)->sizeHint());
-    }
+    return new QSize(self->kColorPicker::KColorPicker::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnSizeHint(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SizeHint_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SizeHint_Callback>(slot));
+void kColorPicker__KColorPicker_OnSizeHint(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_sizehint_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* kColorPicker__KColorPicker_MinimumSizeHint(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return new QSize(vkcolorpickerkcolorpicker->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualkColorPickerKColorPicker*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* kColorPicker__KColorPicker_SuperMinimumSizeHint(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MinimumSizeHint_IsBase(true);
-        return new QSize(vkcolorpickerkcolorpicker->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualkColorPickerKColorPicker*)self)->minimumSizeHint());
-    }
+    return new QSize(self->kColorPicker::KColorPicker::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnMinimumSizeHint(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MinimumSizeHint_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MinimumSizeHint_Callback>(slot));
+void kColorPicker__KColorPicker_OnMinimumSizeHint(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_minimumsizehint_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool kColorPicker__KColorPicker_Event(kColorPicker__KColorPicker* self, QEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         return vkcolorpickerkcolorpicker->event(e);
     } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->event(e);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool kColorPicker__KColorPicker_SuperEvent(kColorPicker__KColorPicker* self, QEvent* e) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Event_IsBase(true);
-        return vkcolorpickerkcolorpicker->event(e);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->event(e);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        return vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::event(e);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Event_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Event_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_event_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_MousePressEvent(kColorPicker__KColorPicker* self, QMouseEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->mousePressEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->mousePressEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperMousePressEvent(kColorPicker__KColorPicker* self, QMouseEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MousePressEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->mousePressEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->mousePressEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMousePressEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MousePressEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MousePressEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_mousepressevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_MouseReleaseEvent(kColorPicker__KColorPicker* self, QMouseEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->mouseReleaseEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->mouseReleaseEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperMouseReleaseEvent(kColorPicker__KColorPicker* self, QMouseEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseReleaseEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMouseReleaseEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseReleaseEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_mousereleaseevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_PaintEvent(kColorPicker__KColorPicker* self, QPaintEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->paintEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperPaintEvent(kColorPicker__KColorPicker* self, QPaintEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_PaintEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->paintEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->paintEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnPaintEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_PaintEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_PaintEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_paintevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_ActionEvent(kColorPicker__KColorPicker* self, QActionEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->actionEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->actionEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperActionEvent(kColorPicker__KColorPicker* self, QActionEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ActionEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->actionEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->actionEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::actionEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnActionEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ActionEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ActionEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_actionevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_EnterEvent(kColorPicker__KColorPicker* self, QEnterEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->enterEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->enterEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperEnterEvent(kColorPicker__KColorPicker* self, QEnterEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_EnterEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->enterEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->enterEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::enterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnEnterEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_EnterEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_EnterEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_enterevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_LeaveEvent(kColorPicker__KColorPicker* self, QEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->leaveEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->leaveEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperLeaveEvent(kColorPicker__KColorPicker* self, QEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_LeaveEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->leaveEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->leaveEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::leaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnLeaveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_LeaveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_LeaveEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_leaveevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_TimerEvent(kColorPicker__KColorPicker* self, QTimerEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->timerEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->timerEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperTimerEvent(kColorPicker__KColorPicker* self, QTimerEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_TimerEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->timerEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->timerEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnTimerEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_TimerEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_TimerEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_timerevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_ChangeEvent(kColorPicker__KColorPicker* self, QEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->changeEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperChangeEvent(kColorPicker__KColorPicker* self, QEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ChangeEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->changeEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->changeEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnChangeEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ChangeEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ChangeEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_changeevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool kColorPicker__KColorPicker_HitButton(const kColorPicker__KColorPicker* self, const QPoint* pos) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         return vkcolorpickerkcolorpicker->hitButton(*pos);
     } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->hitButton(*pos);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::hitButton called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool kColorPicker__KColorPicker_SuperHitButton(const kColorPicker__KColorPicker* self, const QPoint* pos) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HitButton_IsBase(true);
-        return vkcolorpickerkcolorpicker->hitButton(*pos);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->hitButton(*pos);
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::hitButton(*pos);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::hitButton called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnHitButton(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HitButton_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HitButton_Callback>(slot));
+void kColorPicker__KColorPicker_OnHitButton(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_hitbutton_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HitButton_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_CheckStateSet(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->checkStateSet();
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->checkStateSet();
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::checkStateSet called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperCheckStateSet(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CheckStateSet_IsBase(true);
-        vkcolorpickerkcolorpicker->checkStateSet();
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->checkStateSet();
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::checkStateSet();
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::checkStateSet called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnCheckStateSet(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CheckStateSet_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CheckStateSet_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_checkstateset_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CheckStateSet_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_NextCheckState(kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->nextCheckState();
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->nextCheckState();
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::nextCheckState called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperNextCheckState(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_NextCheckState_IsBase(true);
-        vkcolorpickerkcolorpicker->nextCheckState();
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->nextCheckState();
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::nextCheckState();
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::nextCheckState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnNextCheckState(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_NextCheckState_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_NextCheckState_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_nextcheckstate_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_NextCheckState_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_InitStyleOption(const kColorPicker__KColorPicker* self, QStyleOptionToolButton* option) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->initStyleOption(option);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperInitStyleOption(const kColorPicker__KColorPicker* self, QStyleOptionToolButton* option) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InitStyleOption_IsBase(true);
-        vkcolorpickerkcolorpicker->initStyleOption(option);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->initStyleOption(option);
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnInitStyleOption(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InitStyleOption_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InitStyleOption_Callback>(slot));
+void kColorPicker__KColorPicker_OnInitStyleOption(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_initstyleoption_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_KeyPressEvent(kColorPicker__KColorPicker* self, QKeyEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->keyPressEvent(e);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->keyPressEvent(e);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperKeyPressEvent(kColorPicker__KColorPicker* self, QKeyEvent* e) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_KeyPressEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->keyPressEvent(e);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->keyPressEvent(e);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnKeyPressEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_KeyPressEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_KeyPressEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_keypressevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_KeyReleaseEvent(kColorPicker__KColorPicker* self, QKeyEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->keyReleaseEvent(e);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperKeyReleaseEvent(kColorPicker__KColorPicker* self, QKeyEvent* e) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_KeyReleaseEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->keyReleaseEvent(e);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnKeyReleaseEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_KeyReleaseEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_keyreleaseevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_MouseMoveEvent(kColorPicker__KColorPicker* self, QMouseEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->mouseMoveEvent(e);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperMouseMoveEvent(kColorPicker__KColorPicker* self, QMouseEvent* e) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseMoveEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->mouseMoveEvent(e);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMouseMoveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseMoveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseMoveEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_mousemoveevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_FocusInEvent(kColorPicker__KColorPicker* self, QFocusEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->focusInEvent(e);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperFocusInEvent(kColorPicker__KColorPicker* self, QFocusEvent* e) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusInEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->focusInEvent(e);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->focusInEvent(e);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnFocusInEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusInEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusInEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_focusinevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_FocusOutEvent(kColorPicker__KColorPicker* self, QFocusEvent* e) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->focusOutEvent(e);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperFocusOutEvent(kColorPicker__KColorPicker* self, QFocusEvent* e) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusOutEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->focusOutEvent(e);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->focusOutEvent(e);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnFocusOutEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusOutEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusOutEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_focusoutevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int kColorPicker__KColorPicker_DevType(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->devType();
-    } else {
-        return self->kColorPicker::KColorPicker::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int kColorPicker__KColorPicker_SuperDevType(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DevType_IsBase(true);
-        return vkcolorpickerkcolorpicker->devType();
-    } else {
-        return self->kColorPicker::KColorPicker::devType();
-    }
+    return self->kColorPicker::KColorPicker::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnDevType(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DevType_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DevType_Callback>(slot));
+void kColorPicker__KColorPicker_OnDevType(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_devtype_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_SetVisible(kColorPicker__KColorPicker* self, bool visible) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setVisible(visible);
-    } else {
-        self->kColorPicker::KColorPicker::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperSetVisible(kColorPicker__KColorPicker* self, bool visible) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SetVisible_IsBase(true);
-        vkcolorpickerkcolorpicker->setVisible(visible);
-    } else {
-        self->kColorPicker::KColorPicker::setVisible(visible);
-    }
+    self->kColorPicker::KColorPicker::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnSetVisible(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SetVisible_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SetVisible_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_setvisible_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int kColorPicker__KColorPicker_HeightForWidth(const kColorPicker__KColorPicker* self, int param1) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->kColorPicker::KColorPicker::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int kColorPicker__KColorPicker_SuperHeightForWidth(const kColorPicker__KColorPicker* self, int param1) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HeightForWidth_IsBase(true);
-        return vkcolorpickerkcolorpicker->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->kColorPicker::KColorPicker::heightForWidth(static_cast<int>(param1));
-    }
+    return self->kColorPicker::KColorPicker::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnHeightForWidth(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HeightForWidth_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HeightForWidth_Callback>(slot));
+void kColorPicker__KColorPicker_OnHeightForWidth(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_heightforwidth_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool kColorPicker__KColorPicker_HasHeightForWidth(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->hasHeightForWidth();
-    } else {
-        return self->kColorPicker::KColorPicker::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool kColorPicker__KColorPicker_SuperHasHeightForWidth(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HasHeightForWidth_IsBase(true);
-        return vkcolorpickerkcolorpicker->hasHeightForWidth();
-    } else {
-        return self->kColorPicker::KColorPicker::hasHeightForWidth();
-    }
+    return self->kColorPicker::KColorPicker::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnHasHeightForWidth(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HasHeightForWidth_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HasHeightForWidth_Callback>(slot));
+void kColorPicker__KColorPicker_OnHasHeightForWidth(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_hasheightforwidth_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* kColorPicker__KColorPicker_PaintEngine(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->paintEngine();
-    } else {
-        return self->kColorPicker::KColorPicker::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* kColorPicker__KColorPicker_SuperPaintEngine(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_PaintEngine_IsBase(true);
-        return vkcolorpickerkcolorpicker->paintEngine();
-    } else {
-        return self->kColorPicker::KColorPicker::paintEngine();
-    }
+    return self->kColorPicker::KColorPicker::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnPaintEngine(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_PaintEngine_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_PaintEngine_Callback>(slot));
+void kColorPicker__KColorPicker_OnPaintEngine(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_paintengine_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_MouseDoubleClickEvent(kColorPicker__KColorPicker* self, QMouseEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperMouseDoubleClickEvent(kColorPicker__KColorPicker* self, QMouseEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseDoubleClickEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMouseDoubleClickEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_mousedoubleclickevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_WheelEvent(kColorPicker__KColorPicker* self, QWheelEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->wheelEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperWheelEvent(kColorPicker__KColorPicker* self, QWheelEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_WheelEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->wheelEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->wheelEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnWheelEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_WheelEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_WheelEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_wheelevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_MoveEvent(kColorPicker__KColorPicker* self, QMoveEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->moveEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperMoveEvent(kColorPicker__KColorPicker* self, QMoveEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MoveEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->moveEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->moveEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnMoveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_MoveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MoveEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_moveevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_ResizeEvent(kColorPicker__KColorPicker* self, QResizeEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->resizeEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperResizeEvent(kColorPicker__KColorPicker* self, QResizeEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ResizeEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->resizeEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->resizeEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnResizeEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ResizeEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ResizeEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_resizeevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_CloseEvent(kColorPicker__KColorPicker* self, QCloseEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->closeEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperCloseEvent(kColorPicker__KColorPicker* self, QCloseEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CloseEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->closeEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->closeEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnCloseEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CloseEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CloseEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_closeevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_ContextMenuEvent(kColorPicker__KColorPicker* self, QContextMenuEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->contextMenuEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperContextMenuEvent(kColorPicker__KColorPicker* self, QContextMenuEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ContextMenuEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->contextMenuEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnContextMenuEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ContextMenuEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ContextMenuEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_contextmenuevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_TabletEvent(kColorPicker__KColorPicker* self, QTabletEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->tabletEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperTabletEvent(kColorPicker__KColorPicker* self, QTabletEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_TabletEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->tabletEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->tabletEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnTabletEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_TabletEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_TabletEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_tabletevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_DragEnterEvent(kColorPicker__KColorPicker* self, QDragEnterEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->dragEnterEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperDragEnterEvent(kColorPicker__KColorPicker* self, QDragEnterEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragEnterEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->dragEnterEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDragEnterEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragEnterEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragEnterEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_dragenterevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_DragMoveEvent(kColorPicker__KColorPicker* self, QDragMoveEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->dragMoveEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperDragMoveEvent(kColorPicker__KColorPicker* self, QDragMoveEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragMoveEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->dragMoveEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDragMoveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragMoveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragMoveEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_dragmoveevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_DragLeaveEvent(kColorPicker__KColorPicker* self, QDragLeaveEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->dragLeaveEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperDragLeaveEvent(kColorPicker__KColorPicker* self, QDragLeaveEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragLeaveEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->dragLeaveEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDragLeaveEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DragLeaveEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragLeaveEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_dragleaveevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_DropEvent(kColorPicker__KColorPicker* self, QDropEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->dropEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperDropEvent(kColorPicker__KColorPicker* self, QDropEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DropEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->dropEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->dropEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDropEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DropEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DropEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_dropevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_ShowEvent(kColorPicker__KColorPicker* self, QShowEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->showEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperShowEvent(kColorPicker__KColorPicker* self, QShowEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ShowEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->showEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->showEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnShowEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ShowEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ShowEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_showevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_HideEvent(kColorPicker__KColorPicker* self, QHideEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->hideEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperHideEvent(kColorPicker__KColorPicker* self, QHideEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HideEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->hideEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->hideEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnHideEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_HideEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HideEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_hideevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool kColorPicker__KColorPicker_NativeEvent(kColorPicker__KColorPicker* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
+    if (vkcolorpickerkcolorpicker) {
         return vkcolorpickerkcolorpicker->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool kColorPicker__KColorPicker_SuperNativeEvent(kColorPicker__KColorPicker* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_NativeEvent_IsBase(true);
-        return vkcolorpickerkcolorpicker->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        return vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnNativeEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_NativeEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_NativeEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_nativeevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int kColorPicker__KColorPicker_Metric(const kColorPicker__KColorPicker* self, int param1) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         return vkcolorpickerkcolorpicker->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int kColorPicker__KColorPicker_SuperMetric(const kColorPicker__KColorPicker* self, int param1) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metric_IsBase(true);
-        return vkcolorpickerkcolorpicker->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnMetric(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Metric_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metric_Callback>(slot));
+void kColorPicker__KColorPicker_OnMetric(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_metric_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_InitPainter(const kColorPicker__KColorPicker* self, QPainter* painter) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->initPainter(painter);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperInitPainter(const kColorPicker__KColorPicker* self, QPainter* painter) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InitPainter_IsBase(true);
-        vkcolorpickerkcolorpicker->initPainter(painter);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->initPainter(painter);
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnInitPainter(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InitPainter_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InitPainter_Callback>(slot));
+void kColorPicker__KColorPicker_OnInitPainter(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_initpainter_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* kColorPicker__KColorPicker_Redirected(const kColorPicker__KColorPicker* self, QPoint* offset) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         return vkcolorpickerkcolorpicker->redirected(offset);
     } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* kColorPicker__KColorPicker_SuperRedirected(const kColorPicker__KColorPicker* self, QPoint* offset) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Redirected_IsBase(true);
-        return vkcolorpickerkcolorpicker->redirected(offset);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->redirected(offset);
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnRedirected(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Redirected_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Redirected_Callback>(slot));
+void kColorPicker__KColorPicker_OnRedirected(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_redirected_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* kColorPicker__KColorPicker_SharedPainter(const kColorPicker__KColorPicker* self) {
     auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         return vkcolorpickerkcolorpicker->sharedPainter();
     } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* kColorPicker__KColorPicker_SuperSharedPainter(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SharedPainter_IsBase(true);
-        return vkcolorpickerkcolorpicker->sharedPainter();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->sharedPainter();
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnSharedPainter(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SharedPainter_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SharedPainter_Callback>(slot));
+void kColorPicker__KColorPicker_OnSharedPainter(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_sharedpainter_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_InputMethodEvent(kColorPicker__KColorPicker* self, QInputMethodEvent* param1) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->inputMethodEvent(param1);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperInputMethodEvent(kColorPicker__KColorPicker* self, QInputMethodEvent* param1) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InputMethodEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->inputMethodEvent(param1);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnInputMethodEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InputMethodEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InputMethodEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_inputmethodevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* kColorPicker__KColorPicker_InputMethodQuery(const kColorPicker__KColorPicker* self, int param1) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return new QVariant(vkcolorpickerkcolorpicker->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualkColorPickerKColorPicker*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* kColorPicker__KColorPicker_SuperInputMethodQuery(const kColorPicker__KColorPicker* self, int param1) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InputMethodQuery_IsBase(true);
-        return new QVariant(vkcolorpickerkcolorpicker->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualkColorPickerKColorPicker*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->kColorPicker::KColorPicker::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnInputMethodQuery(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_InputMethodQuery_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InputMethodQuery_Callback>(slot));
+void kColorPicker__KColorPicker_OnInputMethodQuery(kColorPicker__KColorPicker* self, intptr_t slot) {
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self)))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_inputmethodquery_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool kColorPicker__KColorPicker_FocusNextPrevChild(kColorPicker__KColorPicker* self, bool next) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         return vkcolorpickerkcolorpicker->focusNextPrevChild(next);
     } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool kColorPicker__KColorPicker_SuperFocusNextPrevChild(kColorPicker__KColorPicker* self, bool next) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusNextPrevChild_IsBase(true);
-        return vkcolorpickerkcolorpicker->focusNextPrevChild(next);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        return vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnFocusNextPrevChild(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusNextPrevChild_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_focusnextprevchild_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool kColorPicker__KColorPicker_EventFilter(kColorPicker__KColorPicker* self, QObject* watched, QEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->eventFilter(watched, event);
-    } else {
-        return self->kColorPicker::KColorPicker::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool kColorPicker__KColorPicker_SuperEventFilter(kColorPicker__KColorPicker* self, QObject* watched, QEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_EventFilter_IsBase(true);
-        return vkcolorpickerkcolorpicker->eventFilter(watched, event);
-    } else {
-        return self->kColorPicker::KColorPicker::eventFilter(watched, event);
-    }
+    return self->kColorPicker::KColorPicker::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnEventFilter(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_EventFilter_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_EventFilter_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_eventfilter_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_ChildEvent(kColorPicker__KColorPicker* self, QChildEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->childEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperChildEvent(kColorPicker__KColorPicker* self, QChildEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ChildEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->childEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->childEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnChildEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ChildEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ChildEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_childevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_CustomEvent(kColorPicker__KColorPicker* self, QEvent* event) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->customEvent(event);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperCustomEvent(kColorPicker__KColorPicker* self, QEvent* event) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CustomEvent_IsBase(true);
-        vkcolorpickerkcolorpicker->customEvent(event);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->customEvent(event);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnCustomEvent(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_CustomEvent_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CustomEvent_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_customevent_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_ConnectNotify(kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->connectNotify(*signal);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperConnectNotify(kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ConnectNotify_IsBase(true);
-        vkcolorpickerkcolorpicker->connectNotify(*signal);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->connectNotify(*signal);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnConnectNotify(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_ConnectNotify_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ConnectNotify_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_connectnotify_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void kColorPicker__KColorPicker_DisconnectNotify(kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
     auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
+    if (vkcolorpickerkcolorpicker) {
         vkcolorpickerkcolorpicker->disconnectNotify(*signal);
     } else {
-        ((VirtualkColorPickerKColorPicker*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void kColorPicker__KColorPicker_SuperDisconnectNotify(kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DisconnectNotify_IsBase(true);
-        vkcolorpickerkcolorpicker->disconnectNotify(*signal);
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->kColorPicker::KColorPicker::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method kColorPicker::KColorPicker::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void kColorPicker__KColorPicker_OnDisconnectNotify(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_DisconnectNotify_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DisconnectNotify_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self))
+        vkcolorpickerkcolorpicker->kcolorpicker__kcolorpicker_disconnectnotify_callback = reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void kColorPicker__KColorPicker_UpdateMicroFocus(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->updateMicroFocus();
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->updateMicroFocus();
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void kColorPicker__KColorPicker_SuperUpdateMicroFocus(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_UpdateMicroFocus_IsBase(true);
-        vkcolorpickerkcolorpicker->updateMicroFocus();
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnUpdateMicroFocus(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_UpdateMicroFocus_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void kColorPicker__KColorPicker_Create(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->create();
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->create();
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::create();
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void kColorPicker__KColorPicker_SuperCreate(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Create_IsBase(true);
-        vkcolorpickerkcolorpicker->create();
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnCreate(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Create_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void kColorPicker__KColorPicker_Destroy(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->destroy();
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->destroy();
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::destroy();
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void kColorPicker__KColorPicker_SuperDestroy(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Destroy_IsBase(true);
-        vkcolorpickerkcolorpicker->destroy();
-    } else {
-        ((VirtualkColorPickerKColorPicker*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnDestroy(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Destroy_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool kColorPicker__KColorPicker_FocusNextChild(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->focusNextChild();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->focusNextChild();
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        return vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::focusNextChild();
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool kColorPicker__KColorPicker_SuperFocusNextChild(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusNextChild_IsBase(true);
-        return vkcolorpickerkcolorpicker->focusNextChild();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnFocusNextChild(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusNextChild_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool kColorPicker__KColorPicker_FocusPreviousChild(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->focusPreviousChild();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->focusPreviousChild();
-    }
+    if (auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self)) {
+        return vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool kColorPicker__KColorPicker_SuperFocusPreviousChild(kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusPreviousChild_IsBase(true);
-        return vkcolorpickerkcolorpicker->focusPreviousChild();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnFocusPreviousChild(kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_FocusPreviousChild_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* kColorPicker__KColorPicker_Sender(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->sender();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->sender();
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::sender();
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* kColorPicker__KColorPicker_SuperSender(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Sender_IsBase(true);
-        return vkcolorpickerkcolorpicker->sender();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnSender(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Sender_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int kColorPicker__KColorPicker_SenderSignalIndex(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->senderSignalIndex();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->senderSignalIndex();
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int kColorPicker__KColorPicker_SuperSenderSignalIndex(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SenderSignalIndex_IsBase(true);
-        return vkcolorpickerkcolorpicker->senderSignalIndex();
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnSenderSignalIndex(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_SenderSignalIndex_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int kColorPicker__KColorPicker_Receivers(const kColorPicker__KColorPicker* self, const char* signal) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->receivers(signal);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->receivers(signal);
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::receivers(signal);
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int kColorPicker__KColorPicker_SuperReceivers(const kColorPicker__KColorPicker* self, const char* signal) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Receivers_IsBase(true);
-        return vkcolorpickerkcolorpicker->receivers(signal);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnReceivers(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_Receivers_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool kColorPicker__KColorPicker_IsSignalConnected(const kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool kColorPicker__KColorPicker_SuperIsSignalConnected(const kColorPicker__KColorPicker* self, const QMetaMethod* signal) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_IsSignalConnected_IsBase(true);
-        return vkcolorpickerkcolorpicker->isSignalConnected(*signal);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnIsSignalConnected(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_IsSignalConnected_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double kColorPicker__KColorPicker_GetDecodedMetricF(const kColorPicker__KColorPicker* self, int metricA, int metricB) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return vkcolorpickerkcolorpicker->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double kColorPicker__KColorPicker_SuperGetDecodedMetricF(const kColorPicker__KColorPicker* self, int metricA, int metricB) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker) {
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_GetDecodedMetricF_IsBase(true);
-        return vkcolorpickerkcolorpicker->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void kColorPicker__KColorPicker_OnGetDecodedMetricF(const kColorPicker__KColorPicker* self, intptr_t slot) {
-    auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self));
-    if (vkcolorpickerkcolorpicker && vkcolorpickerkcolorpicker->isVirtualkColorPickerKColorPicker)
-        vkcolorpickerkcolorpicker->setkColorPicker__KColorPicker_GetDecodedMetricF_Callback(reinterpret_cast<VirtualkColorPickerKColorPicker::kColorPicker__KColorPicker_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkcolorpickerkcolorpicker = const_cast<VirtualkColorPickerKColorPicker*>(dynamic_cast<const VirtualkColorPickerKColorPicker*>(self))) {
+        return vkcolorpickerkcolorpicker->VirtualkColorPickerKColorPicker::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method kColorPicker::KColorPicker::getDecodedMetricF called without a directly constructed type");
 }
 
 void kColorPicker__KColorPicker_Delete(kColorPicker__KColorPicker* self) {

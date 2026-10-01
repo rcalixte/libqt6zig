@@ -20,6 +20,8 @@ pub const KIO__JobUiDelegateExtension = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegateextension.html#askDeleteConfirmation)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KIO__JobUiDelegateExtension `

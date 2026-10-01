@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QPluginLoader so that we can call protected methods
+// This class is a subclass of QPluginLoader
 class VirtualQPluginLoader final : public QPluginLoader {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQPluginLoader = true;
-
-    // Virtual class public types (including callbacks)
-    using QPluginLoader_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QPluginLoader_MetaObject_Callback = QMetaObject* (*)(const QPluginLoader*);
     using QPluginLoader_Metacast_Callback = void* (*)(QPluginLoader*, const char*);
     using QPluginLoader_Metacall_Callback = int (*)(QPluginLoader*, int, int, void**);
     using QPluginLoader_Event_Callback = bool (*)(QPluginLoader*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQPluginLoader final : public QPluginLoader {
     using QPluginLoader_CustomEvent_Callback = void (*)(QPluginLoader*, QEvent*);
     using QPluginLoader_ConnectNotify_Callback = void (*)(QPluginLoader*, QMetaMethod*);
     using QPluginLoader_DisconnectNotify_Callback = void (*)(QPluginLoader*, QMetaMethod*);
-    using QPluginLoader_Sender_Callback = QObject* (*)();
-    using QPluginLoader_SenderSignalIndex_Callback = int (*)();
-    using QPluginLoader_Receivers_Callback = int (*)(const QPluginLoader*, const char*);
-    using QPluginLoader_IsSignalConnected_Callback = bool (*)(const QPluginLoader*, QMetaMethod*);
+    using QPluginLoader::isSignalConnected;
+    using QPluginLoader::receivers;
+    using QPluginLoader::sender;
+    using QPluginLoader::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QPluginLoader_MetaObject_Callback qpluginloader_metaobject_callback = nullptr;
     QPluginLoader_Metacast_Callback qpluginloader_metacast_callback = nullptr;
@@ -44,74 +39,25 @@ class VirtualQPluginLoader final : public QPluginLoader {
     QPluginLoader_CustomEvent_Callback qpluginloader_customevent_callback = nullptr;
     QPluginLoader_ConnectNotify_Callback qpluginloader_connectnotify_callback = nullptr;
     QPluginLoader_DisconnectNotify_Callback qpluginloader_disconnectnotify_callback = nullptr;
-    QPluginLoader_Sender_Callback qpluginloader_sender_callback = nullptr;
-    QPluginLoader_SenderSignalIndex_Callback qpluginloader_sendersignalindex_callback = nullptr;
-    QPluginLoader_Receivers_Callback qpluginloader_receivers_callback = nullptr;
-    QPluginLoader_IsSignalConnected_Callback qpluginloader_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qpluginloader_metaobject_isbase = false;
-    mutable bool qpluginloader_metacast_isbase = false;
-    mutable bool qpluginloader_metacall_isbase = false;
-    mutable bool qpluginloader_event_isbase = false;
-    mutable bool qpluginloader_eventfilter_isbase = false;
-    mutable bool qpluginloader_timerevent_isbase = false;
-    mutable bool qpluginloader_childevent_isbase = false;
-    mutable bool qpluginloader_customevent_isbase = false;
-    mutable bool qpluginloader_connectnotify_isbase = false;
-    mutable bool qpluginloader_disconnectnotify_isbase = false;
-    mutable bool qpluginloader_sender_isbase = false;
-    mutable bool qpluginloader_sendersignalindex_isbase = false;
-    mutable bool qpluginloader_receivers_isbase = false;
-    mutable bool qpluginloader_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QPluginLoader {
+        using QPluginLoader::childEvent;
+        using QPluginLoader::connectNotify;
+        using QPluginLoader::customEvent;
+        using QPluginLoader::disconnectNotify;
+        using QPluginLoader::timerEvent;
+    };
 
-  public:
     VirtualQPluginLoader() : QPluginLoader() {};
     VirtualQPluginLoader(const QString& fileName) : QPluginLoader(fileName) {};
     VirtualQPluginLoader(QObject* parent) : QPluginLoader(parent) {};
     VirtualQPluginLoader(const QString& fileName, QObject* parent) : QPluginLoader(fileName, parent) {};
 
-    // Callback setters
-    inline void setQPluginLoader_MetaObject_Callback(QPluginLoader_MetaObject_Callback cb) { qpluginloader_metaobject_callback = cb; }
-    inline void setQPluginLoader_Metacast_Callback(QPluginLoader_Metacast_Callback cb) { qpluginloader_metacast_callback = cb; }
-    inline void setQPluginLoader_Metacall_Callback(QPluginLoader_Metacall_Callback cb) { qpluginloader_metacall_callback = cb; }
-    inline void setQPluginLoader_Event_Callback(QPluginLoader_Event_Callback cb) { qpluginloader_event_callback = cb; }
-    inline void setQPluginLoader_EventFilter_Callback(QPluginLoader_EventFilter_Callback cb) { qpluginloader_eventfilter_callback = cb; }
-    inline void setQPluginLoader_TimerEvent_Callback(QPluginLoader_TimerEvent_Callback cb) { qpluginloader_timerevent_callback = cb; }
-    inline void setQPluginLoader_ChildEvent_Callback(QPluginLoader_ChildEvent_Callback cb) { qpluginloader_childevent_callback = cb; }
-    inline void setQPluginLoader_CustomEvent_Callback(QPluginLoader_CustomEvent_Callback cb) { qpluginloader_customevent_callback = cb; }
-    inline void setQPluginLoader_ConnectNotify_Callback(QPluginLoader_ConnectNotify_Callback cb) { qpluginloader_connectnotify_callback = cb; }
-    inline void setQPluginLoader_DisconnectNotify_Callback(QPluginLoader_DisconnectNotify_Callback cb) { qpluginloader_disconnectnotify_callback = cb; }
-    inline void setQPluginLoader_Sender_Callback(QPluginLoader_Sender_Callback cb) { qpluginloader_sender_callback = cb; }
-    inline void setQPluginLoader_SenderSignalIndex_Callback(QPluginLoader_SenderSignalIndex_Callback cb) { qpluginloader_sendersignalindex_callback = cb; }
-    inline void setQPluginLoader_Receivers_Callback(QPluginLoader_Receivers_Callback cb) { qpluginloader_receivers_callback = cb; }
-    inline void setQPluginLoader_IsSignalConnected_Callback(QPluginLoader_IsSignalConnected_Callback cb) { qpluginloader_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQPluginLoader_MetaObject_IsBase(bool value) const { qpluginloader_metaobject_isbase = value; }
-    inline void setQPluginLoader_Metacast_IsBase(bool value) const { qpluginloader_metacast_isbase = value; }
-    inline void setQPluginLoader_Metacall_IsBase(bool value) const { qpluginloader_metacall_isbase = value; }
-    inline void setQPluginLoader_Event_IsBase(bool value) const { qpluginloader_event_isbase = value; }
-    inline void setQPluginLoader_EventFilter_IsBase(bool value) const { qpluginloader_eventfilter_isbase = value; }
-    inline void setQPluginLoader_TimerEvent_IsBase(bool value) const { qpluginloader_timerevent_isbase = value; }
-    inline void setQPluginLoader_ChildEvent_IsBase(bool value) const { qpluginloader_childevent_isbase = value; }
-    inline void setQPluginLoader_CustomEvent_IsBase(bool value) const { qpluginloader_customevent_isbase = value; }
-    inline void setQPluginLoader_ConnectNotify_IsBase(bool value) const { qpluginloader_connectnotify_isbase = value; }
-    inline void setQPluginLoader_DisconnectNotify_IsBase(bool value) const { qpluginloader_disconnectnotify_isbase = value; }
-    inline void setQPluginLoader_Sender_IsBase(bool value) const { qpluginloader_sender_isbase = value; }
-    inline void setQPluginLoader_SenderSignalIndex_IsBase(bool value) const { qpluginloader_sendersignalindex_isbase = value; }
-    inline void setQPluginLoader_Receivers_IsBase(bool value) const { qpluginloader_receivers_isbase = value; }
-    inline void setQPluginLoader_IsSignalConnected_IsBase(bool value) const { qpluginloader_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qpluginloader_metaobject_isbase) {
-            qpluginloader_metaobject_isbase = false;
-            return QPluginLoader::metaObject();
-        }
-        auto metaobject_cb = qpluginloader_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qpluginloader_metaobject_callback) {
+            QMetaObject* callback_ret = qpluginloader_metaobject_callback(this);
             return callback_ret;
         }
         return QPluginLoader::metaObject();
@@ -119,14 +65,9 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qpluginloader_metacast_isbase) {
-            qpluginloader_metacast_isbase = false;
-            return QPluginLoader::qt_metacast(param1);
-        }
-        auto metacast_cb = qpluginloader_metacast_callback;
-        if (metacast_cb) {
+        if (qpluginloader_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qpluginloader_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QPluginLoader::qt_metacast(param1);
@@ -134,16 +75,11 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qpluginloader_metacall_isbase) {
-            qpluginloader_metacall_isbase = false;
-            return QPluginLoader::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qpluginloader_metacall_callback;
-        if (metacall_cb) {
+        if (qpluginloader_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qpluginloader_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QPluginLoader::qt_metacall(param1, param2, param3);
@@ -151,14 +87,9 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qpluginloader_event_isbase) {
-            qpluginloader_event_isbase = false;
-            return QPluginLoader::event(event);
-        }
-        auto event_cb = qpluginloader_event_callback;
-        if (event_cb) {
+        if (qpluginloader_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qpluginloader_event_callback(this, cbval1);
             return callback_ret;
         }
         return QPluginLoader::event(event);
@@ -166,15 +97,10 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qpluginloader_eventfilter_isbase) {
-            qpluginloader_eventfilter_isbase = false;
-            return QPluginLoader::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qpluginloader_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qpluginloader_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qpluginloader_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QPluginLoader::eventFilter(watched, event);
@@ -182,15 +108,9 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qpluginloader_timerevent_isbase) {
-            qpluginloader_timerevent_isbase = false;
-            QPluginLoader::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qpluginloader_timerevent_callback;
-        if (timerevent_cb) {
+        if (qpluginloader_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qpluginloader_timerevent_callback(this, cbval1);
             return;
         }
         QPluginLoader::timerEvent(event);
@@ -198,15 +118,9 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qpluginloader_childevent_isbase) {
-            qpluginloader_childevent_isbase = false;
-            QPluginLoader::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qpluginloader_childevent_callback;
-        if (childevent_cb) {
+        if (qpluginloader_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qpluginloader_childevent_callback(this, cbval1);
             return;
         }
         QPluginLoader::childEvent(event);
@@ -214,15 +128,9 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qpluginloader_customevent_isbase) {
-            qpluginloader_customevent_isbase = false;
-            QPluginLoader::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qpluginloader_customevent_callback;
-        if (customevent_cb) {
+        if (qpluginloader_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qpluginloader_customevent_callback(this, cbval1);
             return;
         }
         QPluginLoader::customEvent(event);
@@ -230,17 +138,11 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qpluginloader_connectnotify_isbase) {
-            qpluginloader_connectnotify_isbase = false;
-            QPluginLoader::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qpluginloader_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qpluginloader_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qpluginloader_connectnotify_callback(this, cbval1);
             return;
         }
         QPluginLoader::connectNotify(signal);
@@ -248,101 +150,22 @@ class VirtualQPluginLoader final : public QPluginLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qpluginloader_disconnectnotify_isbase) {
-            qpluginloader_disconnectnotify_isbase = false;
-            QPluginLoader::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qpluginloader_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qpluginloader_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qpluginloader_disconnectnotify_callback(this, cbval1);
             return;
         }
         QPluginLoader::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qpluginloader_sender_isbase) {
-            qpluginloader_sender_isbase = false;
-            return QPluginLoader::sender();
-        }
-        auto sender_cb = qpluginloader_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QPluginLoader::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qpluginloader_sendersignalindex_isbase) {
-            qpluginloader_sendersignalindex_isbase = false;
-            return QPluginLoader::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qpluginloader_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QPluginLoader::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qpluginloader_receivers_isbase) {
-            qpluginloader_receivers_isbase = false;
-            return QPluginLoader::receivers(signal);
-        }
-        auto receivers_cb = qpluginloader_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QPluginLoader::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qpluginloader_issignalconnected_isbase) {
-            qpluginloader_issignalconnected_isbase = false;
-            return QPluginLoader::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qpluginloader_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QPluginLoader::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QPluginLoader_TimerEvent(QPluginLoader* self, QTimerEvent* event);
     friend void QPluginLoader_SuperTimerEvent(QPluginLoader* self, QTimerEvent* event);
-    friend void QPluginLoader_ChildEvent(QPluginLoader* self, QChildEvent* event);
     friend void QPluginLoader_SuperChildEvent(QPluginLoader* self, QChildEvent* event);
-    friend void QPluginLoader_CustomEvent(QPluginLoader* self, QEvent* event);
     friend void QPluginLoader_SuperCustomEvent(QPluginLoader* self, QEvent* event);
-    friend void QPluginLoader_ConnectNotify(QPluginLoader* self, const QMetaMethod* signal);
     friend void QPluginLoader_SuperConnectNotify(QPluginLoader* self, const QMetaMethod* signal);
-    friend void QPluginLoader_DisconnectNotify(QPluginLoader* self, const QMetaMethod* signal);
     friend void QPluginLoader_SuperDisconnectNotify(QPluginLoader* self, const QMetaMethod* signal);
-    friend QObject* QPluginLoader_Sender(const QPluginLoader* self);
-    friend QObject* QPluginLoader_SuperSender(const QPluginLoader* self);
-    friend int QPluginLoader_SenderSignalIndex(const QPluginLoader* self);
-    friend int QPluginLoader_SuperSenderSignalIndex(const QPluginLoader* self);
-    friend int QPluginLoader_Receivers(const QPluginLoader* self, const char* signal);
-    friend int QPluginLoader_SuperReceivers(const QPluginLoader* self, const char* signal);
-    friend bool QPluginLoader_IsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal);
-    friend bool QPluginLoader_SuperIsSignalConnected(const QPluginLoader* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -192,9 +192,9 @@ pub const KArchiveEntry = extern struct {
     ///
     /// ` self: KArchiveEntry `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KArchiveEntry) callconv(.c) bool `
     ///
-    pub fn onIsFile(self: KArchiveEntry, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsFile(self: KArchiveEntry, callback: *const fn (KArchiveEntry) callconv(.c) bool) void {
         qtc.KArchiveEntry_OnIsFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -240,9 +240,9 @@ pub const KArchiveEntry = extern struct {
     ///
     /// ` self: KArchiveEntry `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KArchiveEntry) callconv(.c) bool `
     ///
-    pub fn onIsDirectory(self: KArchiveEntry, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsDirectory(self: KArchiveEntry, callback: *const fn (KArchiveEntry) callconv(.c) bool) void {
         qtc.KArchiveEntry_OnIsDirectory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -274,40 +274,6 @@ pub const KArchiveEntry = extern struct {
     ///
     pub fn archive(self: KArchiveEntry) KArchive {
         return .{ .ptr = qtc.KArchiveEntry_Archive(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onArchive` instead
-    ///
-    pub const OnArchive = onArchive;
-
-    /// ### [Upstream resources](https://api.kde.org/karchiveentry.html#archive)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KArchiveEntry `
-    ///
-    /// ` callback: *const fn () callconv(.c) KArchive `
-    ///
-    pub fn onArchive(self: KArchiveEntry, callback: *const fn () callconv(.c) KArchive) void {
-        qtc.KArchiveEntry_OnArchive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superArchive` instead
-    ///
-    pub const SuperArchive = superArchive;
-
-    /// ### [Upstream resources](https://api.kde.org/karchiveentry.html#archive)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KArchiveEntry `
-    ///
-    pub fn superArchive(self: KArchiveEntry) KArchive {
-        return .{ .ptr = qtc.KArchiveEntry_SuperArchive(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `virtualHook` instead

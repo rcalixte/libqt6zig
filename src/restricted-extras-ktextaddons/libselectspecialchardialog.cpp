@@ -128,1822 +128,1269 @@ libqt_string TextAddonsWidgets__SelectSpecialCharDialog_Tr3(const char* s, const
 
 // Base class handler implementation
 QMetaObject* TextAddonsWidgets__SelectSpecialCharDialog_SuperMetaObject(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextaddonswidgetsselectspecialchardialog->metaObject();
-    } else {
-        return (QMetaObject*)self->TextAddonsWidgets::SelectSpecialCharDialog::metaObject();
-    }
+    return (QMetaObject*)self->TextAddonsWidgets::SelectSpecialCharDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnMetaObject(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MetaObject_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MetaObject_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnMetaObject(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_metaobject_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextAddonsWidgets__SelectSpecialCharDialog_SuperMetacast(TextAddonsWidgets__SelectSpecialCharDialog* self, const char* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metacast_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->qt_metacast(param1);
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::qt_metacast(param1);
-    }
+    return self->TextAddonsWidgets::SelectSpecialCharDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMetacast(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metacast_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metacast_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_metacast_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_SuperMetacall(TextAddonsWidgets__SelectSpecialCharDialog* self, int param1, int param2, void** param3) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metacall_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextAddonsWidgets::SelectSpecialCharDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMetacall(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metacall_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metacall_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_metacall_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SetVisible(TextAddonsWidgets__SelectSpecialCharDialog* self, bool visible) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setVisible(visible);
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperSetVisible(TextAddonsWidgets__SelectSpecialCharDialog* self, bool visible) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SetVisible_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->setVisible(visible);
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::setVisible(visible);
-    }
+    self->TextAddonsWidgets::SelectSpecialCharDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnSetVisible(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SetVisible_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SetVisible_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_setvisible_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextAddonsWidgets__SelectSpecialCharDialog_SizeHint(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return new QSize(vtextaddonswidgetsselectspecialchardialog->sizeHint());
-    } else {
-        return new QSize(((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextAddonsWidgets__SelectSpecialCharDialog_SuperSizeHint(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SizeHint_IsBase(true);
-        return new QSize(vtextaddonswidgetsselectspecialchardialog->sizeHint());
-    } else {
-        return new QSize(((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->sizeHint());
-    }
+    return new QSize(self->TextAddonsWidgets::SelectSpecialCharDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnSizeHint(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SizeHint_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SizeHint_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnSizeHint(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_sizehint_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextAddonsWidgets__SelectSpecialCharDialog_MinimumSizeHint(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return new QSize(vtextaddonswidgetsselectspecialchardialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextAddonsWidgets__SelectSpecialCharDialog_SuperMinimumSizeHint(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vtextaddonswidgetsselectspecialchardialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextAddonsWidgets::SelectSpecialCharDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnMinimumSizeHint(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MinimumSizeHint_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnMinimumSizeHint(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_minimumsizehint_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_Open(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->open();
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperOpen(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Open_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->open();
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::open();
-    }
+    self->TextAddonsWidgets::SelectSpecialCharDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnOpen(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Open_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Open_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_open_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_Exec(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->exec();
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_SuperExec(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Exec_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->exec();
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::exec();
-    }
+    return self->TextAddonsWidgets::SelectSpecialCharDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnExec(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Exec_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Exec_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_exec_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_Done(TextAddonsWidgets__SelectSpecialCharDialog* self, int param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->done(static_cast<int>(param1));
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperDone(TextAddonsWidgets__SelectSpecialCharDialog* self, int param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Done_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->done(static_cast<int>(param1));
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::done(static_cast<int>(param1));
-    }
+    self->TextAddonsWidgets::SelectSpecialCharDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDone(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Done_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Done_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_done_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_Accept(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->accept();
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperAccept(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Accept_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->accept();
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::accept();
-    }
+    self->TextAddonsWidgets::SelectSpecialCharDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnAccept(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Accept_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Accept_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_accept_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_Reject(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->reject();
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperReject(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Reject_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->reject();
-    } else {
-        self->TextAddonsWidgets::SelectSpecialCharDialog::reject();
-    }
+    self->TextAddonsWidgets::SelectSpecialCharDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnReject(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Reject_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Reject_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_reject_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_KeyPressEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QKeyEvent* param1) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->keyPressEvent(param1);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperKeyPressEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QKeyEvent* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_KeyPressEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->keyPressEvent(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnKeyPressEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_keypressevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_CloseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QCloseEvent* param1) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->closeEvent(param1);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperCloseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QCloseEvent* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_CloseEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->closeEvent(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnCloseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_CloseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_CloseEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_closeevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_ShowEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QShowEvent* param1) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->showEvent(param1);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperShowEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QShowEvent* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ShowEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->showEvent(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->showEvent(param1);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnShowEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ShowEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ShowEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_showevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_ResizeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QResizeEvent* param1) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->resizeEvent(param1);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperResizeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QResizeEvent* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ResizeEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->resizeEvent(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnResizeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ResizeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ResizeEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_resizeevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_ContextMenuEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QContextMenuEvent* param1) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->contextMenuEvent(param1);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperContextMenuEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QContextMenuEvent* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ContextMenuEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnContextMenuEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_contextmenuevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_EventFilter(TextAddonsWidgets__SelectSpecialCharDialog* self, QObject* param1, QEvent* param2) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         return vtextaddonswidgetsselectspecialchardialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_SuperEventFilter(TextAddonsWidgets__SelectSpecialCharDialog* self, QObject* param1, QEvent* param2) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_EventFilter_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        return vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnEventFilter(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_EventFilter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_EventFilter_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_eventfilter_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_DevType(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->devType();
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_SuperDevType(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DevType_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->devType();
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::devType();
-    }
+    return self->TextAddonsWidgets::SelectSpecialCharDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnDevType(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DevType_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DevType_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnDevType(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_devtype_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_HeightForWidth(const TextAddonsWidgets__SelectSpecialCharDialog* self, int param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_SuperHeightForWidth(const TextAddonsWidgets__SelectSpecialCharDialog* self, int param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HeightForWidth_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextAddonsWidgets::SelectSpecialCharDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnHeightForWidth(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HeightForWidth_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HeightForWidth_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnHeightForWidth(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_heightforwidth_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_HasHeightForWidth(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->hasHeightForWidth();
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_SuperHasHeightForWidth(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HasHeightForWidth_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->hasHeightForWidth();
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::hasHeightForWidth();
-    }
+    return self->TextAddonsWidgets::SelectSpecialCharDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnHasHeightForWidth(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HasHeightForWidth_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnHasHeightForWidth(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_hasheightforwidth_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextAddonsWidgets__SelectSpecialCharDialog_PaintEngine(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->paintEngine();
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextAddonsWidgets__SelectSpecialCharDialog_SuperPaintEngine(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_PaintEngine_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->paintEngine();
-    } else {
-        return self->TextAddonsWidgets::SelectSpecialCharDialog::paintEngine();
-    }
+    return self->TextAddonsWidgets::SelectSpecialCharDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnPaintEngine(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_PaintEngine_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_PaintEngine_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnPaintEngine(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_paintengine_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_Event(TextAddonsWidgets__SelectSpecialCharDialog* self, QEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         return vtextaddonswidgetsselectspecialchardialog->event(event);
     } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_SuperEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Event_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->event(event);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->event(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        return vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Event_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Event_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_event_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_MousePressEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMouseEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->mousePressEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperMousePressEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMouseEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MousePressEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->mousePressEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMousePressEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MousePressEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MousePressEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_mousepressevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_MouseReleaseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMouseEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperMouseReleaseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMouseEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseReleaseEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMouseReleaseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_mousereleaseevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_MouseDoubleClickEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMouseEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperMouseDoubleClickEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMouseEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseDoubleClickEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMouseDoubleClickEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_MouseMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMouseEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->mouseMoveEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperMouseMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMouseEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseMoveEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMouseMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_mousemoveevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_WheelEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QWheelEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->wheelEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperWheelEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QWheelEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_WheelEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->wheelEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnWheelEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_WheelEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_WheelEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_wheelevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_KeyReleaseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QKeyEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->keyReleaseEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperKeyReleaseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QKeyEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_KeyReleaseEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnKeyReleaseEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_keyreleaseevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_FocusInEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QFocusEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->focusInEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusInEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QFocusEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusInEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->focusInEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusInEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusInEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusInEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_focusinevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_FocusOutEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QFocusEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->focusOutEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusOutEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QFocusEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusOutEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->focusOutEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusOutEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_focusoutevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_EnterEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEnterEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->enterEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperEnterEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEnterEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_EnterEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->enterEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->enterEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnEnterEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_EnterEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_EnterEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_enterevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_LeaveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->leaveEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperLeaveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_LeaveEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->leaveEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnLeaveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_LeaveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_LeaveEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_leaveevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_PaintEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QPaintEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->paintEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperPaintEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QPaintEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_PaintEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->paintEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->paintEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnPaintEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_PaintEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_PaintEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_paintevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_MoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMoveEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->moveEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QMoveEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MoveEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->moveEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->moveEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_MoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MoveEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_moveevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_TabletEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QTabletEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->tabletEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperTabletEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QTabletEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_TabletEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->tabletEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnTabletEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_TabletEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_TabletEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_tabletevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_ActionEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QActionEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->actionEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperActionEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QActionEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ActionEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->actionEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->actionEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnActionEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ActionEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ActionEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_actionevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_DragEnterEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QDragEnterEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->dragEnterEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperDragEnterEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QDragEnterEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragEnterEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->dragEnterEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDragEnterEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_dragenterevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_DragMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QDragMoveEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->dragMoveEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperDragMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QDragMoveEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragMoveEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->dragMoveEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDragMoveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_dragmoveevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_DragLeaveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QDragLeaveEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->dragLeaveEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperDragLeaveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QDragLeaveEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragLeaveEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDragLeaveEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_dragleaveevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_DropEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QDropEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->dropEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperDropEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QDropEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DropEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->dropEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->dropEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDropEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DropEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DropEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_dropevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_HideEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QHideEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->hideEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperHideEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QHideEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HideEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->hideEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->hideEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnHideEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_HideEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HideEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_hideevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_NativeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
+    if (vtextaddonswidgetsselectspecialchardialog) {
         return vtextaddonswidgetsselectspecialchardialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_SuperNativeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_NativeEvent_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        return vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnNativeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_NativeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_NativeEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_nativeevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_ChangeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEvent* param1) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->changeEvent(param1);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperChangeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEvent* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ChangeEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->changeEvent(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnChangeEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ChangeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ChangeEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_changeevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_Metric(const TextAddonsWidgets__SelectSpecialCharDialog* self, int param1) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         return vtextaddonswidgetsselectspecialchardialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_SuperMetric(const TextAddonsWidgets__SelectSpecialCharDialog* self, int param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metric_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        return vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnMetric(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Metric_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metric_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnMetric(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_metric_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_InitPainter(const TextAddonsWidgets__SelectSpecialCharDialog* self, QPainter* painter) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->initPainter(painter);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperInitPainter(const TextAddonsWidgets__SelectSpecialCharDialog* self, QPainter* painter) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InitPainter_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->initPainter(painter);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->initPainter(painter);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnInitPainter(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InitPainter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InitPainter_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnInitPainter(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_initpainter_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextAddonsWidgets__SelectSpecialCharDialog_Redirected(const TextAddonsWidgets__SelectSpecialCharDialog* self, QPoint* offset) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         return vtextaddonswidgetsselectspecialchardialog->redirected(offset);
     } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextAddonsWidgets__SelectSpecialCharDialog_SuperRedirected(const TextAddonsWidgets__SelectSpecialCharDialog* self, QPoint* offset) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Redirected_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->redirected(offset);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->redirected(offset);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        return vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnRedirected(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Redirected_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Redirected_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnRedirected(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_redirected_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextAddonsWidgets__SelectSpecialCharDialog_SharedPainter(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
     auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         return vtextaddonswidgetsselectspecialchardialog->sharedPainter();
     } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextAddonsWidgets__SelectSpecialCharDialog_SuperSharedPainter(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SharedPainter_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->sharedPainter();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->sharedPainter();
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        return vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnSharedPainter(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SharedPainter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SharedPainter_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnSharedPainter(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_sharedpainter_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_InputMethodEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QInputMethodEvent* param1) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->inputMethodEvent(param1);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperInputMethodEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QInputMethodEvent* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InputMethodEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnInputMethodEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_inputmethodevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextAddonsWidgets__SelectSpecialCharDialog_InputMethodQuery(const TextAddonsWidgets__SelectSpecialCharDialog* self, int param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return new QVariant(vtextaddonswidgetsselectspecialchardialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* TextAddonsWidgets__SelectSpecialCharDialog_SuperInputMethodQuery(const TextAddonsWidgets__SelectSpecialCharDialog* self, int param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vtextaddonswidgetsselectspecialchardialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->TextAddonsWidgets::SelectSpecialCharDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnInputMethodQuery(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InputMethodQuery_Callback>(slot));
+void TextAddonsWidgets__SelectSpecialCharDialog_OnInputMethodQuery(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_inputmethodquery_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_FocusNextPrevChild(TextAddonsWidgets__SelectSpecialCharDialog* self, bool next) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         return vtextaddonswidgetsselectspecialchardialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusNextPrevChild(TextAddonsWidgets__SelectSpecialCharDialog* self, bool next) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusNextPrevChild_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        return vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusNextPrevChild(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_focusnextprevchild_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_TimerEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QTimerEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->timerEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperTimerEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QTimerEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_TimerEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->timerEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->timerEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnTimerEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_TimerEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_TimerEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_timerevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_ChildEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QChildEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->childEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperChildEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QChildEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ChildEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->childEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->childEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnChildEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ChildEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ChildEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_childevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_CustomEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEvent* event) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->customEvent(event);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperCustomEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, QEvent* event) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_CustomEvent_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->customEvent(event);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->customEvent(event);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnCustomEvent(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_CustomEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_CustomEvent_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_customevent_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_ConnectNotify(TextAddonsWidgets__SelectSpecialCharDialog* self, const QMetaMethod* signal) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->connectNotify(*signal);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperConnectNotify(TextAddonsWidgets__SelectSpecialCharDialog* self, const QMetaMethod* signal) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ConnectNotify_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->connectNotify(*signal);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnConnectNotify(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_ConnectNotify_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ConnectNotify_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_connectnotify_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_DisconnectNotify(TextAddonsWidgets__SelectSpecialCharDialog* self, const QMetaMethod* signal) {
     auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
+    if (vtextaddonswidgetsselectspecialchardialog) {
         vtextaddonswidgetsselectspecialchardialog->disconnectNotify(*signal);
     } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_SuperDisconnectNotify(TextAddonsWidgets__SelectSpecialCharDialog* self, const QMetaMethod* signal) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DisconnectNotify_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->TextAddonsWidgets::SelectSpecialCharDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextAddonsWidgets::SelectSpecialCharDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_OnDisconnectNotify(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))
+        vtextaddonswidgetsselectspecialchardialog->textaddonswidgets__selectspecialchardialog_disconnectnotify_callback = reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_AdjustPosition(TextAddonsWidgets__SelectSpecialCharDialog* self, QWidget* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->adjustPosition(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_SuperAdjustPosition(TextAddonsWidgets__SelectSpecialCharDialog* self, QWidget* param1) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_AdjustPosition_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->adjustPosition(param1);
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnAdjustPosition(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_AdjustPosition_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_UpdateMicroFocus(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->updateMicroFocus();
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_SuperUpdateMicroFocus(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_UpdateMicroFocus_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->updateMicroFocus();
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnUpdateMicroFocus(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_Create(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->create();
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->create();
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::create();
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_SuperCreate(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Create_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->create();
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnCreate(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Create_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextAddonsWidgets__SelectSpecialCharDialog_Destroy(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->destroy();
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->destroy();
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::destroy();
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_SuperDestroy(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Destroy_IsBase(true);
-        vtextaddonswidgetsselectspecialchardialog->destroy();
-    } else {
-        ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnDestroy(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Destroy_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_FocusNextChild(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->focusNextChild();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusNextChild();
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        return vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusNextChild(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusNextChild_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->focusNextChild();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusNextChild(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusNextChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_FocusPreviousChild(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->focusPreviousChild();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self)) {
+        return vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextAddonsWidgets__SelectSpecialCharDialog_SuperFocusPreviousChild(TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusPreviousChild_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->focusPreviousChild();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnFocusPreviousChild(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextAddonsWidgets__SelectSpecialCharDialog_Sender(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->sender();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->sender();
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        return vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::sender();
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextAddonsWidgets__SelectSpecialCharDialog_SuperSender(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Sender_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->sender();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnSender(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Sender_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_SenderSignalIndex(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->senderSignalIndex();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        return vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextAddonsWidgets__SelectSpecialCharDialog_SuperSenderSignalIndex(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SenderSignalIndex_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->senderSignalIndex();
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnSenderSignalIndex(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextAddonsWidgets__SelectSpecialCharDialog_Receivers(const TextAddonsWidgets__SelectSpecialCharDialog* self, const char* signal) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->receivers(signal);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->receivers(signal);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        return vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextAddonsWidgets__SelectSpecialCharDialog_SuperReceivers(const TextAddonsWidgets__SelectSpecialCharDialog* self, const char* signal) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Receivers_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->receivers(signal);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnReceivers(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_Receivers_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextAddonsWidgets__SelectSpecialCharDialog_IsSignalConnected(const TextAddonsWidgets__SelectSpecialCharDialog* self, const QMetaMethod* signal) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        return vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextAddonsWidgets__SelectSpecialCharDialog_SuperIsSignalConnected(const TextAddonsWidgets__SelectSpecialCharDialog* self, const QMetaMethod* signal) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_IsSignalConnected_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnIsSignalConnected(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextAddonsWidgets__SelectSpecialCharDialog_GetDecodedMetricF(const TextAddonsWidgets__SelectSpecialCharDialog* self, int metricA, int metricB) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return vtextaddonswidgetsselectspecialchardialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextAddonsWidgets__SelectSpecialCharDialog_SuperGetDecodedMetricF(const TextAddonsWidgets__SelectSpecialCharDialog* self, int metricA, int metricB) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_GetDecodedMetricF_IsBase(true);
-        return vtextaddonswidgetsselectspecialchardialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextAddonsWidgets__SelectSpecialCharDialog_OnGetDecodedMetricF(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot) {
-    auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self));
-    if (vtextaddonswidgetsselectspecialchardialog && vtextaddonswidgetsselectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog)
-        vtextaddonswidgetsselectspecialchardialog->setTextAddonsWidgets__SelectSpecialCharDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog::TextAddonsWidgets__SelectSpecialCharDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtextaddonswidgetsselectspecialchardialog = const_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self))) {
+        return vtextaddonswidgetsselectspecialchardialog->VirtualTextAddonsWidgetsSelectSpecialCharDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextAddonsWidgets::SelectSpecialCharDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextAddonsWidgets__SelectSpecialCharDialog_Delete(TextAddonsWidgets__SelectSpecialCharDialog* self) {

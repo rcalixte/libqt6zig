@@ -377,10 +377,10 @@ void QNetworkAccessManager_Connect_PreSharedKeyAuthenticationRequired(QNetworkAc
 
 QNetworkReply* QNetworkAccessManager_CreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+    if (vqnetworkaccessmanager) {
         return vqnetworkaccessmanager->createRequest(static_cast<QNetworkAccessManager::Operation>(op), *request, outgoingData);
     }
-    return {};
+    qFatal("Error: Protected method QNetworkAccessManager::createRequest called without a directly constructed type");
 }
 
 libqt_string QNetworkAccessManager_Tr2(const char* s, const char* c) {
@@ -438,329 +438,235 @@ void QNetworkAccessManager_SetTransferTimeout1(QNetworkAccessManager* self, int6
 
 // Base class handler implementation
 QMetaObject* QNetworkAccessManager_SuperMetaObject(const QNetworkAccessManager* self) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_MetaObject_IsBase(true);
-        return (QMetaObject*)vqnetworkaccessmanager->metaObject();
-    } else {
-        return (QMetaObject*)self->QNetworkAccessManager::metaObject();
-    }
+    return (QMetaObject*)self->QNetworkAccessManager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QNetworkAccessManager_OnMetaObject(const QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_MetaObject_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_MetaObject_Callback>(slot));
+void QNetworkAccessManager_OnMetaObject(QNetworkAccessManager* self, intptr_t slot) {
+    if (auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self)))
+        vqnetworkaccessmanager->qnetworkaccessmanager_metaobject_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QNetworkAccessManager_SuperMetacast(QNetworkAccessManager* self, const char* param1) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_Metacast_IsBase(true);
-        return vqnetworkaccessmanager->qt_metacast(param1);
-    } else {
-        return self->QNetworkAccessManager::qt_metacast(param1);
-    }
+    return self->QNetworkAccessManager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnMetacast(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_Metacast_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Metacast_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_metacast_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QNetworkAccessManager_SuperMetacall(QNetworkAccessManager* self, int param1, int param2, void** param3) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_Metacall_IsBase(true);
-        return vqnetworkaccessmanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QNetworkAccessManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QNetworkAccessManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnMetacall(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_Metacall_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Metacall_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_metacall_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QNetworkAccessManager_SuperSupportedSchemes(const QNetworkAccessManager* self) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_SupportedSchemes_IsBase(true);
-        QList<QString> _ret = vqnetworkaccessmanager->supportedSchemes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QNetworkAccessManager::supportedSchemes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QNetworkAccessManager::supportedSchemes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QNetworkAccessManager_OnSupportedSchemes(const QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_SupportedSchemes_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_SupportedSchemes_Callback>(slot));
+void QNetworkAccessManager_OnSupportedSchemes(QNetworkAccessManager* self, intptr_t slot) {
+    if (auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self)))
+        vqnetworkaccessmanager->qnetworkaccessmanager_supportedschemes_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_SupportedSchemes_Callback>(slot);
 }
 
 // Base class handler implementation
 QNetworkReply* QNetworkAccessManager_SuperCreateRequest(QNetworkAccessManager* self, int op, const QNetworkRequest* request, QIODevice* outgoingData) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_CreateRequest_IsBase(true);
-        return vqnetworkaccessmanager->createRequest(static_cast<QNetworkAccessManager::Operation>(op), *request, outgoingData);
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->createRequest(static_cast<QNetworkAccessManager::Operation>(op), *request, outgoingData);
-    }
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self)) {
+        return vqnetworkaccessmanager->QNetworkAccessManager::createRequest(static_cast<QNetworkAccessManager::Operation>(op), *request, outgoingData);
+    } else
+        qFatal("Error: Protected virtual method QNetworkAccessManager::createRequest called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnCreateRequest(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_CreateRequest_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_CreateRequest_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_createrequest_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_CreateRequest_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QNetworkAccessManager_Event(QNetworkAccessManager* self, QEvent* event) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        return vqnetworkaccessmanager->event(event);
-    } else {
-        return self->QNetworkAccessManager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QNetworkAccessManager_SuperEvent(QNetworkAccessManager* self, QEvent* event) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_Event_IsBase(true);
-        return vqnetworkaccessmanager->event(event);
-    } else {
-        return self->QNetworkAccessManager::event(event);
-    }
+    return self->QNetworkAccessManager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnEvent(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_Event_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Event_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_event_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QNetworkAccessManager_EventFilter(QNetworkAccessManager* self, QObject* watched, QEvent* event) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        return vqnetworkaccessmanager->eventFilter(watched, event);
-    } else {
-        return self->QNetworkAccessManager::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QNetworkAccessManager_SuperEventFilter(QNetworkAccessManager* self, QObject* watched, QEvent* event) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_EventFilter_IsBase(true);
-        return vqnetworkaccessmanager->eventFilter(watched, event);
-    } else {
-        return self->QNetworkAccessManager::eventFilter(watched, event);
-    }
+    return self->QNetworkAccessManager::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnEventFilter(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_EventFilter_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_EventFilter_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_eventfilter_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QNetworkAccessManager_TimerEvent(QNetworkAccessManager* self, QTimerEvent* event) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+    if (vqnetworkaccessmanager) {
         vqnetworkaccessmanager->timerEvent(event);
     } else {
-        ((VirtualQNetworkAccessManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QNetworkAccessManager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QNetworkAccessManager_SuperTimerEvent(QNetworkAccessManager* self, QTimerEvent* event) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_TimerEvent_IsBase(true);
-        vqnetworkaccessmanager->timerEvent(event);
-    } else {
-        ((VirtualQNetworkAccessManager*)self)->timerEvent(event);
-    }
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self)) {
+        vqnetworkaccessmanager->QNetworkAccessManager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QNetworkAccessManager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnTimerEvent(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_TimerEvent_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_TimerEvent_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_timerevent_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QNetworkAccessManager_ChildEvent(QNetworkAccessManager* self, QChildEvent* event) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+    if (vqnetworkaccessmanager) {
         vqnetworkaccessmanager->childEvent(event);
     } else {
-        ((VirtualQNetworkAccessManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QNetworkAccessManager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QNetworkAccessManager_SuperChildEvent(QNetworkAccessManager* self, QChildEvent* event) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_ChildEvent_IsBase(true);
-        vqnetworkaccessmanager->childEvent(event);
-    } else {
-        ((VirtualQNetworkAccessManager*)self)->childEvent(event);
-    }
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self)) {
+        vqnetworkaccessmanager->QNetworkAccessManager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QNetworkAccessManager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnChildEvent(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_ChildEvent_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_ChildEvent_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_childevent_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QNetworkAccessManager_CustomEvent(QNetworkAccessManager* self, QEvent* event) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+    if (vqnetworkaccessmanager) {
         vqnetworkaccessmanager->customEvent(event);
     } else {
-        ((VirtualQNetworkAccessManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QNetworkAccessManager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QNetworkAccessManager_SuperCustomEvent(QNetworkAccessManager* self, QEvent* event) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_CustomEvent_IsBase(true);
-        vqnetworkaccessmanager->customEvent(event);
-    } else {
-        ((VirtualQNetworkAccessManager*)self)->customEvent(event);
-    }
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self)) {
+        vqnetworkaccessmanager->QNetworkAccessManager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QNetworkAccessManager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnCustomEvent(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_CustomEvent_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_CustomEvent_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_customevent_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QNetworkAccessManager_ConnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+    if (vqnetworkaccessmanager) {
         vqnetworkaccessmanager->connectNotify(*signal);
     } else {
-        ((VirtualQNetworkAccessManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QNetworkAccessManager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QNetworkAccessManager_SuperConnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_ConnectNotify_IsBase(true);
-        vqnetworkaccessmanager->connectNotify(*signal);
-    } else {
-        ((VirtualQNetworkAccessManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self)) {
+        vqnetworkaccessmanager->QNetworkAccessManager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QNetworkAccessManager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnConnectNotify(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_ConnectNotify_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_ConnectNotify_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_connectnotify_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QNetworkAccessManager_DisconnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal) {
     auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
+    if (vqnetworkaccessmanager) {
         vqnetworkaccessmanager->disconnectNotify(*signal);
     } else {
-        ((VirtualQNetworkAccessManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QNetworkAccessManager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QNetworkAccessManager_SuperDisconnectNotify(QNetworkAccessManager* self, const QMetaMethod* signal) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_DisconnectNotify_IsBase(true);
-        vqnetworkaccessmanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualQNetworkAccessManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self)) {
+        vqnetworkaccessmanager->QNetworkAccessManager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QNetworkAccessManager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QNetworkAccessManager_OnDisconnectNotify(QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self);
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_DisconnectNotify_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_DisconnectNotify_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = dynamic_cast<VirtualQNetworkAccessManager*>(self))
+        vqnetworkaccessmanager->qnetworkaccessmanager_disconnectnotify_callback = reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemesImplementation(const QNetworkAccessManager* self) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        QList<QString> _ret = vqnetworkaccessmanager->supportedSchemesImplementation();
+    if (auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self))) {
+        QList<QString> _ret = vqnetworkaccessmanager->VirtualQNetworkAccessManager::supportedSchemesImplementation();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -778,190 +684,40 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemesImplement
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQNetworkAccessManager*)self)->supportedSchemesImplementation();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method QNetworkAccessManager::supportedSchemesImplementation called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of libqt_string */ QNetworkAccessManager_SuperSupportedSchemesImplementation(const QNetworkAccessManager* self) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_SupportedSchemesImplementation_IsBase(true);
-        QList<QString> _ret = vqnetworkaccessmanager->supportedSchemesImplementation();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQNetworkAccessManager*)self)->supportedSchemesImplementation();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QNetworkAccessManager_OnSupportedSchemesImplementation(const QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_SupportedSchemesImplementation_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_SupportedSchemesImplementation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QNetworkAccessManager_Sender(const QNetworkAccessManager* self) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        return vqnetworkaccessmanager->sender();
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->sender();
-    }
+    if (auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self))) {
+        return vqnetworkaccessmanager->VirtualQNetworkAccessManager::sender();
+    } else
+        qFatal("Error: Protected method QNetworkAccessManager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QNetworkAccessManager_SuperSender(const QNetworkAccessManager* self) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_Sender_IsBase(true);
-        return vqnetworkaccessmanager->sender();
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QNetworkAccessManager_OnSender(const QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_Sender_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QNetworkAccessManager_SenderSignalIndex(const QNetworkAccessManager* self) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        return vqnetworkaccessmanager->senderSignalIndex();
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->senderSignalIndex();
-    }
+    if (auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self))) {
+        return vqnetworkaccessmanager->VirtualQNetworkAccessManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QNetworkAccessManager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QNetworkAccessManager_SuperSenderSignalIndex(const QNetworkAccessManager* self) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_SenderSignalIndex_IsBase(true);
-        return vqnetworkaccessmanager->senderSignalIndex();
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QNetworkAccessManager_OnSenderSignalIndex(const QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QNetworkAccessManager_Receivers(const QNetworkAccessManager* self, const char* signal) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        return vqnetworkaccessmanager->receivers(signal);
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->receivers(signal);
-    }
+    if (auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self))) {
+        return vqnetworkaccessmanager->VirtualQNetworkAccessManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method QNetworkAccessManager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QNetworkAccessManager_SuperReceivers(const QNetworkAccessManager* self, const char* signal) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_Receivers_IsBase(true);
-        return vqnetworkaccessmanager->receivers(signal);
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QNetworkAccessManager_OnReceivers(const QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_Receivers_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QNetworkAccessManager_IsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        return vqnetworkaccessmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QNetworkAccessManager_SuperIsSignalConnected(const QNetworkAccessManager* self, const QMetaMethod* signal) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
-        vqnetworkaccessmanager->setQNetworkAccessManager_IsSignalConnected_IsBase(true);
-        return vqnetworkaccessmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQNetworkAccessManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QNetworkAccessManager_OnIsSignalConnected(const QNetworkAccessManager* self, intptr_t slot) {
-    auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self));
-    if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager)
-        vqnetworkaccessmanager->setQNetworkAccessManager_IsSignalConnected_Callback(reinterpret_cast<VirtualQNetworkAccessManager::QNetworkAccessManager_IsSignalConnected_Callback>(slot));
+    if (auto* vqnetworkaccessmanager = const_cast<VirtualQNetworkAccessManager*>(dynamic_cast<const VirtualQNetworkAccessManager*>(self))) {
+        return vqnetworkaccessmanager->VirtualQNetworkAccessManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QNetworkAccessManager::isSignalConnected called without a directly constructed type");
 }
 
 void QNetworkAccessManager_Delete(QNetworkAccessManager* self) {

@@ -1327,176 +1327,176 @@ void QWidget_Connect_CustomContextMenuRequested(QWidget* self, intptr_t slot) {
 
 bool QWidget_Event(QWidget* self, QEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         return vqwidget->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QWidget::event called without a directly constructed type");
 }
 
 void QWidget_MousePressEvent(QWidget* self, QMouseEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->mousePressEvent(event);
     }
 }
 
 void QWidget_MouseReleaseEvent(QWidget* self, QMouseEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->mouseReleaseEvent(event);
     }
 }
 
 void QWidget_MouseDoubleClickEvent(QWidget* self, QMouseEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->mouseDoubleClickEvent(event);
     }
 }
 
 void QWidget_MouseMoveEvent(QWidget* self, QMouseEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->mouseMoveEvent(event);
     }
 }
 
 void QWidget_WheelEvent(QWidget* self, QWheelEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->wheelEvent(event);
     }
 }
 
 void QWidget_KeyPressEvent(QWidget* self, QKeyEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->keyPressEvent(event);
     }
 }
 
 void QWidget_KeyReleaseEvent(QWidget* self, QKeyEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->keyReleaseEvent(event);
     }
 }
 
 void QWidget_FocusInEvent(QWidget* self, QFocusEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->focusInEvent(event);
     }
 }
 
 void QWidget_FocusOutEvent(QWidget* self, QFocusEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->focusOutEvent(event);
     }
 }
 
 void QWidget_EnterEvent(QWidget* self, QEnterEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->enterEvent(event);
     }
 }
 
 void QWidget_LeaveEvent(QWidget* self, QEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->leaveEvent(event);
     }
 }
 
 void QWidget_PaintEvent(QWidget* self, QPaintEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->paintEvent(event);
     }
 }
 
 void QWidget_MoveEvent(QWidget* self, QMoveEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->moveEvent(event);
     }
 }
 
 void QWidget_ResizeEvent(QWidget* self, QResizeEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->resizeEvent(event);
     }
 }
 
 void QWidget_CloseEvent(QWidget* self, QCloseEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->closeEvent(event);
     }
 }
 
 void QWidget_ContextMenuEvent(QWidget* self, QContextMenuEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->contextMenuEvent(event);
     }
 }
 
 void QWidget_TabletEvent(QWidget* self, QTabletEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->tabletEvent(event);
     }
 }
 
 void QWidget_ActionEvent(QWidget* self, QActionEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->actionEvent(event);
     }
 }
 
 void QWidget_DragEnterEvent(QWidget* self, QDragEnterEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->dragEnterEvent(event);
     }
 }
 
 void QWidget_DragMoveEvent(QWidget* self, QDragMoveEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->dragMoveEvent(event);
     }
 }
 
 void QWidget_DragLeaveEvent(QWidget* self, QDragLeaveEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->dragLeaveEvent(event);
     }
 }
 
 void QWidget_DropEvent(QWidget* self, QDropEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->dropEvent(event);
     }
 }
 
 void QWidget_ShowEvent(QWidget* self, QShowEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->showEvent(event);
     }
 }
 
 void QWidget_HideEvent(QWidget* self, QHideEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->hideEvent(event);
     }
 }
@@ -1504,53 +1504,53 @@ void QWidget_HideEvent(QWidget* self, QHideEvent* event) {
 bool QWidget_NativeEvent(QWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         return vqwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     }
-    return {};
+    qFatal("Error: Protected method QWidget::nativeEvent called without a directly constructed type");
 }
 
 void QWidget_ChangeEvent(QWidget* self, QEvent* param1) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->changeEvent(param1);
     }
 }
 
 int QWidget_Metric(const QWidget* self, int param1) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         return vqwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     }
-    return {};
+    qFatal("Error: Protected method QWidget::metric called without a directly constructed type");
 }
 
 void QWidget_InitPainter(const QWidget* self, QPainter* painter) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->initPainter(painter);
     }
 }
 
 QPaintDevice* QWidget_Redirected(const QWidget* self, QPoint* offset) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         return vqwidget->redirected(offset);
     }
-    return {};
+    qFatal("Error: Protected method QWidget::redirected called without a directly constructed type");
 }
 
 QPainter* QWidget_SharedPainter(const QWidget* self) {
     auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         return vqwidget->sharedPainter();
     }
-    return {};
+    qFatal("Error: Protected method QWidget::sharedPainter called without a directly constructed type");
 }
 
 void QWidget_InputMethodEvent(QWidget* self, QInputMethodEvent* param1) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->inputMethodEvent(param1);
     }
 }
@@ -1569,10 +1569,10 @@ void QWidget_SetInputMethodHints(QWidget* self, int hints) {
 
 bool QWidget_FocusNextPrevChild(QWidget* self, bool next) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         return vqwidget->focusNextPrevChild(next);
     }
-    return {};
+    qFatal("Error: Protected method QWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 libqt_string QWidget_Tr2(const char* s, const char* c) {
@@ -1661,1411 +1661,850 @@ QWidget* QWidget_CreateWindowContainer3(QWindow* window, QWidget* parent, int fl
 
 // Base class handler implementation
 QMetaObject* QWidget_SuperMetaObject(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vqwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->QWidget::metaObject();
-    }
+    return (QMetaObject*)self->QWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnMetaObject(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_MetaObject_Callback(reinterpret_cast<VirtualQWidget::QWidget_MetaObject_Callback>(slot));
+void QWidget_OnMetaObject(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_metaobject_callback = reinterpret_cast<VirtualQWidget::QWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QWidget_SuperMetacast(QWidget* self, const char* param1) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Metacast_IsBase(true);
-        return vqwidget->qt_metacast(param1);
-    } else {
-        return self->QWidget::qt_metacast(param1);
-    }
+    return self->QWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnMetacast(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Metacast_Callback(reinterpret_cast<VirtualQWidget::QWidget_Metacast_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_metacast_callback = reinterpret_cast<VirtualQWidget::QWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWidget_SuperMetacall(QWidget* self, int param1, int param2, void** param3) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Metacall_IsBase(true);
-        return vqwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnMetacall(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Metacall_Callback(reinterpret_cast<VirtualQWidget::QWidget_Metacall_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_metacall_callback = reinterpret_cast<VirtualQWidget::QWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWidget_SuperDevType(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DevType_IsBase(true);
-        return vqwidget->devType();
-    } else {
-        return self->QWidget::devType();
-    }
+    return self->QWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnDevType(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_DevType_Callback(reinterpret_cast<VirtualQWidget::QWidget_DevType_Callback>(slot));
+void QWidget_OnDevType(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_devtype_callback = reinterpret_cast<VirtualQWidget::QWidget_DevType_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperSetVisible(QWidget* self, bool visible) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SetVisible_IsBase(true);
-        vqwidget->setVisible(visible);
-    } else {
-        self->QWidget::setVisible(visible);
-    }
+    self->QWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnSetVisible(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_SetVisible_Callback(reinterpret_cast<VirtualQWidget::QWidget_SetVisible_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_setvisible_callback = reinterpret_cast<VirtualQWidget::QWidget_SetVisible_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QWidget_SuperSizeHint(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SizeHint_IsBase(true);
-        return new QSize(vqwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQWidget*)self)->sizeHint());
-    }
+    return new QSize(self->QWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnSizeHint(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_SizeHint_Callback(reinterpret_cast<VirtualQWidget::QWidget_SizeHint_Callback>(slot));
+void QWidget_OnSizeHint(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_sizehint_callback = reinterpret_cast<VirtualQWidget::QWidget_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QWidget_SuperMinimumSizeHint(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vqwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnMinimumSizeHint(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQWidget::QWidget_MinimumSizeHint_Callback>(slot));
+void QWidget_OnMinimumSizeHint(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_minimumsizehint_callback = reinterpret_cast<VirtualQWidget::QWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWidget_SuperHeightForWidth(const QWidget* self, int param1) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HeightForWidth_IsBase(true);
-        return vqwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnHeightForWidth(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQWidget::QWidget_HeightForWidth_Callback>(slot));
+void QWidget_OnHeightForWidth(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_heightforwidth_callback = reinterpret_cast<VirtualQWidget::QWidget_HeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWidget_SuperHasHeightForWidth(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HasHeightForWidth_IsBase(true);
-        return vqwidget->hasHeightForWidth();
-    } else {
-        return self->QWidget::hasHeightForWidth();
-    }
+    return self->QWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnHasHeightForWidth(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQWidget::QWidget_HasHeightForWidth_Callback>(slot));
+void QWidget_OnHasHeightForWidth(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_hasheightforwidth_callback = reinterpret_cast<VirtualQWidget::QWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintEngine* QWidget_SuperPaintEngine(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_PaintEngine_IsBase(true);
-        return vqwidget->paintEngine();
-    } else {
-        return self->QWidget::paintEngine();
-    }
+    return self->QWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnPaintEngine(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_PaintEngine_Callback(reinterpret_cast<VirtualQWidget::QWidget_PaintEngine_Callback>(slot));
+void QWidget_OnPaintEngine(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_paintengine_callback = reinterpret_cast<VirtualQWidget::QWidget_PaintEngine_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWidget_SuperEvent(QWidget* self, QEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Event_IsBase(true);
-        return vqwidget->event(event);
-    } else {
-        return ((VirtualQWidget*)self)->event(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        return vqwidget->QWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Event_Callback(reinterpret_cast<VirtualQWidget::QWidget_Event_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_event_callback = reinterpret_cast<VirtualQWidget::QWidget_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperMousePressEvent(QWidget* self, QMouseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MousePressEvent_IsBase(true);
-        vqwidget->mousePressEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnMousePressEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MousePressEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_mousepressevent_callback = reinterpret_cast<VirtualQWidget::QWidget_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperMouseReleaseEvent(QWidget* self, QMouseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseReleaseEvent_IsBase(true);
-        vqwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnMouseReleaseEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_mousereleaseevent_callback = reinterpret_cast<VirtualQWidget::QWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperMouseDoubleClickEvent(QWidget* self, QMouseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseDoubleClickEvent_IsBase(true);
-        vqwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnMouseDoubleClickEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualQWidget::QWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperMouseMoveEvent(QWidget* self, QMouseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MouseMoveEvent_IsBase(true);
-        vqwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnMouseMoveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_mousemoveevent_callback = reinterpret_cast<VirtualQWidget::QWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperWheelEvent(QWidget* self, QWheelEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_WheelEvent_IsBase(true);
-        vqwidget->wheelEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnWheelEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_WheelEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_WheelEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_wheelevent_callback = reinterpret_cast<VirtualQWidget::QWidget_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperKeyPressEvent(QWidget* self, QKeyEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_KeyPressEvent_IsBase(true);
-        vqwidget->keyPressEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnKeyPressEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_keypressevent_callback = reinterpret_cast<VirtualQWidget::QWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperKeyReleaseEvent(QWidget* self, QKeyEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_KeyReleaseEvent_IsBase(true);
-        vqwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnKeyReleaseEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_keyreleaseevent_callback = reinterpret_cast<VirtualQWidget::QWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperFocusInEvent(QWidget* self, QFocusEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusInEvent_IsBase(true);
-        vqwidget->focusInEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnFocusInEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusInEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_focusinevent_callback = reinterpret_cast<VirtualQWidget::QWidget_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperFocusOutEvent(QWidget* self, QFocusEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusOutEvent_IsBase(true);
-        vqwidget->focusOutEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnFocusOutEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_focusoutevent_callback = reinterpret_cast<VirtualQWidget::QWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperEnterEvent(QWidget* self, QEnterEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_EnterEvent_IsBase(true);
-        vqwidget->enterEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->enterEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnEnterEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_EnterEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_EnterEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_enterevent_callback = reinterpret_cast<VirtualQWidget::QWidget_EnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperLeaveEvent(QWidget* self, QEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_LeaveEvent_IsBase(true);
-        vqwidget->leaveEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnLeaveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_LeaveEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_leaveevent_callback = reinterpret_cast<VirtualQWidget::QWidget_LeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperPaintEvent(QWidget* self, QPaintEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_PaintEvent_IsBase(true);
-        vqwidget->paintEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->paintEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnPaintEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_PaintEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_PaintEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_paintevent_callback = reinterpret_cast<VirtualQWidget::QWidget_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperMoveEvent(QWidget* self, QMoveEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_MoveEvent_IsBase(true);
-        vqwidget->moveEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->moveEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnMoveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_MoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_MoveEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_moveevent_callback = reinterpret_cast<VirtualQWidget::QWidget_MoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperResizeEvent(QWidget* self, QResizeEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ResizeEvent_IsBase(true);
-        vqwidget->resizeEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnResizeEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ResizeEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_resizeevent_callback = reinterpret_cast<VirtualQWidget::QWidget_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperCloseEvent(QWidget* self, QCloseEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_CloseEvent_IsBase(true);
-        vqwidget->closeEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->closeEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnCloseEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_CloseEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_CloseEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_closeevent_callback = reinterpret_cast<VirtualQWidget::QWidget_CloseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperContextMenuEvent(QWidget* self, QContextMenuEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ContextMenuEvent_IsBase(true);
-        vqwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnContextMenuEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_contextmenuevent_callback = reinterpret_cast<VirtualQWidget::QWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperTabletEvent(QWidget* self, QTabletEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_TabletEvent_IsBase(true);
-        vqwidget->tabletEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnTabletEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_TabletEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_TabletEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_tabletevent_callback = reinterpret_cast<VirtualQWidget::QWidget_TabletEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperActionEvent(QWidget* self, QActionEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ActionEvent_IsBase(true);
-        vqwidget->actionEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->actionEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnActionEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_ActionEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ActionEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_actionevent_callback = reinterpret_cast<VirtualQWidget::QWidget_ActionEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperDragEnterEvent(QWidget* self, QDragEnterEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragEnterEvent_IsBase(true);
-        vqwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnDragEnterEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_dragenterevent_callback = reinterpret_cast<VirtualQWidget::QWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperDragMoveEvent(QWidget* self, QDragMoveEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragMoveEvent_IsBase(true);
-        vqwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnDragMoveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_dragmoveevent_callback = reinterpret_cast<VirtualQWidget::QWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperDragLeaveEvent(QWidget* self, QDragLeaveEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DragLeaveEvent_IsBase(true);
-        vqwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnDragLeaveEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_dragleaveevent_callback = reinterpret_cast<VirtualQWidget::QWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperDropEvent(QWidget* self, QDropEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DropEvent_IsBase(true);
-        vqwidget->dropEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->dropEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnDropEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_DropEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_DropEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_dropevent_callback = reinterpret_cast<VirtualQWidget::QWidget_DropEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperShowEvent(QWidget* self, QShowEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ShowEvent_IsBase(true);
-        vqwidget->showEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->showEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnShowEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_ShowEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ShowEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_showevent_callback = reinterpret_cast<VirtualQWidget::QWidget_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperHideEvent(QWidget* self, QHideEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_HideEvent_IsBase(true);
-        vqwidget->hideEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->hideEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnHideEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_HideEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_HideEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_hideevent_callback = reinterpret_cast<VirtualQWidget::QWidget_HideEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWidget_SuperNativeEvent(QWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_NativeEvent_IsBase(true);
-        return vqwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        return vqwidget->QWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnNativeEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_NativeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_NativeEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_nativeevent_callback = reinterpret_cast<VirtualQWidget::QWidget_NativeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperChangeEvent(QWidget* self, QEvent* param1) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ChangeEvent_IsBase(true);
-        vqwidget->changeEvent(param1);
-    } else {
-        ((VirtualQWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnChangeEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ChangeEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_changeevent_callback = reinterpret_cast<VirtualQWidget::QWidget_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWidget_SuperMetric(const QWidget* self, int param1) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Metric_IsBase(true);
-        return vqwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        return vqwidget->QWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnMetric(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Metric_Callback(reinterpret_cast<VirtualQWidget::QWidget_Metric_Callback>(slot));
+void QWidget_OnMetric(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_metric_callback = reinterpret_cast<VirtualQWidget::QWidget_Metric_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperInitPainter(const QWidget* self, QPainter* painter) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InitPainter_IsBase(true);
-        vqwidget->initPainter(painter);
-    } else {
-        ((VirtualQWidget*)self)->initPainter(painter);
-    }
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        vqwidget->QWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnInitPainter(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_InitPainter_Callback(reinterpret_cast<VirtualQWidget::QWidget_InitPainter_Callback>(slot));
+void QWidget_OnInitPainter(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_initpainter_callback = reinterpret_cast<VirtualQWidget::QWidget_InitPainter_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintDevice* QWidget_SuperRedirected(const QWidget* self, QPoint* offset) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Redirected_IsBase(true);
-        return vqwidget->redirected(offset);
-    } else {
-        return ((VirtualQWidget*)self)->redirected(offset);
-    }
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        return vqwidget->QWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnRedirected(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Redirected_Callback(reinterpret_cast<VirtualQWidget::QWidget_Redirected_Callback>(slot));
+void QWidget_OnRedirected(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_redirected_callback = reinterpret_cast<VirtualQWidget::QWidget_Redirected_Callback>(slot);
 }
 
 // Base class handler implementation
 QPainter* QWidget_SuperSharedPainter(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SharedPainter_IsBase(true);
-        return vqwidget->sharedPainter();
-    } else {
-        return ((VirtualQWidget*)self)->sharedPainter();
-    }
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        return vqwidget->QWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnSharedPainter(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_SharedPainter_Callback(reinterpret_cast<VirtualQWidget::QWidget_SharedPainter_Callback>(slot));
+void QWidget_OnSharedPainter(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_sharedpainter_callback = reinterpret_cast<VirtualQWidget::QWidget_SharedPainter_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWidget_SuperInputMethodEvent(QWidget* self, QInputMethodEvent* param1) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InputMethodEvent_IsBase(true);
-        vqwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualQWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnInputMethodEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_inputmethodevent_callback = reinterpret_cast<VirtualQWidget::QWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QWidget_SuperInputMethodQuery(const QWidget* self, int param1) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vqwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWidget_OnInputMethodQuery(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQWidget::QWidget_InputMethodQuery_Callback>(slot));
+void QWidget_OnInputMethodQuery(QWidget* self, intptr_t slot) {
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self)))
+        vqwidget->qwidget_inputmethodquery_callback = reinterpret_cast<VirtualQWidget::QWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWidget_SuperFocusNextPrevChild(QWidget* self, bool next) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusNextPrevChild_IsBase(true);
-        return vqwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        return vqwidget->QWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnFocusNextPrevChild(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_focusnextprevchild_callback = reinterpret_cast<VirtualQWidget::QWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWidget_EventFilter(QWidget* self, QObject* watched, QEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->eventFilter(watched, event);
-    } else {
-        return self->QWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QWidget_SuperEventFilter(QWidget* self, QObject* watched, QEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_EventFilter_IsBase(true);
-        return vqwidget->eventFilter(watched, event);
-    } else {
-        return self->QWidget::eventFilter(watched, event);
-    }
+    return self->QWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnEventFilter(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_EventFilter_Callback(reinterpret_cast<VirtualQWidget::QWidget_EventFilter_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_eventfilter_callback = reinterpret_cast<VirtualQWidget::QWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWidget_TimerEvent(QWidget* self, QTimerEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->timerEvent(event);
     } else {
-        ((VirtualQWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWidget_SuperTimerEvent(QWidget* self, QTimerEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_TimerEvent_IsBase(true);
-        vqwidget->timerEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->timerEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnTimerEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_TimerEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_TimerEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_timerevent_callback = reinterpret_cast<VirtualQWidget::QWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWidget_ChildEvent(QWidget* self, QChildEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->childEvent(event);
     } else {
-        ((VirtualQWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWidget_SuperChildEvent(QWidget* self, QChildEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ChildEvent_IsBase(true);
-        vqwidget->childEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->childEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnChildEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_ChildEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_ChildEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_childevent_callback = reinterpret_cast<VirtualQWidget::QWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWidget_CustomEvent(QWidget* self, QEvent* event) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->customEvent(event);
     } else {
-        ((VirtualQWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWidget_SuperCustomEvent(QWidget* self, QEvent* event) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_CustomEvent_IsBase(true);
-        vqwidget->customEvent(event);
-    } else {
-        ((VirtualQWidget*)self)->customEvent(event);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnCustomEvent(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_CustomEvent_Callback(reinterpret_cast<VirtualQWidget::QWidget_CustomEvent_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_customevent_callback = reinterpret_cast<VirtualQWidget::QWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWidget_ConnectNotify(QWidget* self, const QMetaMethod* signal) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->connectNotify(*signal);
     } else {
-        ((VirtualQWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWidget_SuperConnectNotify(QWidget* self, const QMetaMethod* signal) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_ConnectNotify_IsBase(true);
-        vqwidget->connectNotify(*signal);
-    } else {
-        ((VirtualQWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnConnectNotify(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQWidget::QWidget_ConnectNotify_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_connectnotify_callback = reinterpret_cast<VirtualQWidget::QWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWidget_DisconnectNotify(QWidget* self, const QMetaMethod* signal) {
     auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
+    if (vqwidget) {
         vqwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualQWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWidget_SuperDisconnectNotify(QWidget* self, const QMetaMethod* signal) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_DisconnectNotify_IsBase(true);
-        vqwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualQWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->QWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWidget_OnDisconnectNotify(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQWidget::QWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self))
+        vqwidget->qwidget_disconnectnotify_callback = reinterpret_cast<VirtualQWidget::QWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_UpdateMicroFocus(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->updateMicroFocus();
-    } else {
-        ((VirtualQWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperUpdateMicroFocus(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_UpdateMicroFocus_IsBase(true);
-        vqwidget->updateMicroFocus();
-    } else {
-        ((VirtualQWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnUpdateMicroFocus(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQWidget::QWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_Create(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->create();
-    } else {
-        ((VirtualQWidget*)self)->create();
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::create();
+    } else
+        qFatal("Error: Protected method QWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperCreate(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Create_IsBase(true);
-        vqwidget->create();
-    } else {
-        ((VirtualQWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnCreate(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Create_Callback(reinterpret_cast<VirtualQWidget::QWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_Destroy(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->destroy();
-    } else {
-        ((VirtualQWidget*)self)->destroy();
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::destroy();
+    } else
+        qFatal("Error: Protected method QWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperDestroy(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Destroy_IsBase(true);
-        vqwidget->destroy();
-    } else {
-        ((VirtualQWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnDestroy(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Destroy_Callback(reinterpret_cast<VirtualQWidget::QWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWidget_FocusNextChild(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->focusNextChild();
-    } else {
-        return ((VirtualQWidget*)self)->focusNextChild();
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        return vqwidget->VirtualQWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method QWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWidget_SuperFocusNextChild(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusNextChild_IsBase(true);
-        return vqwidget->focusNextChild();
-    } else {
-        return ((VirtualQWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnFocusNextChild(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWidget_FocusPreviousChild(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->focusPreviousChild();
-    } else {
-        return ((VirtualQWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        return vqwidget->VirtualQWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWidget_SuperFocusPreviousChild(QWidget* self) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_FocusPreviousChild_IsBase(true);
-        return vqwidget->focusPreviousChild();
-    } else {
-        return ((VirtualQWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnFocusPreviousChild(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQWidget::QWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_UpdateMicroFocus1(QWidget* self, int query) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->updateMicroFocus(static_cast<Qt::InputMethodQuery>(query));
-    } else {
-        ((VirtualQWidget*)self)->updateMicroFocus(static_cast<Qt::InputMethodQuery>(query));
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::updateMicroFocus(static_cast<Qt::InputMethodQuery>(query));
+    } else
+        qFatal("Error: Protected method QWidget::updateMicroFocus1 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperUpdateMicroFocus1(QWidget* self, int query) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_UpdateMicroFocus1_IsBase(true);
-        vqwidget->updateMicroFocus(static_cast<Qt::InputMethodQuery>(query));
-    } else {
-        ((VirtualQWidget*)self)->updateMicroFocus(static_cast<Qt::InputMethodQuery>(query));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnUpdateMicroFocus1(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_UpdateMicroFocus1_Callback(reinterpret_cast<VirtualQWidget::QWidget_UpdateMicroFocus1_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_Create1(QWidget* self, unsigned long long param1) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->create(static_cast<WId>(param1));
-    } else {
-        ((VirtualQWidget*)self)->create(static_cast<WId>(param1));
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::create(static_cast<WId>(param1));
+    } else
+        qFatal("Error: Protected method QWidget::create1 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperCreate1(QWidget* self, unsigned long long param1) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Create1_IsBase(true);
-        vqwidget->create(static_cast<WId>(param1));
-    } else {
-        ((VirtualQWidget*)self)->create(static_cast<WId>(param1));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnCreate1(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Create1_Callback(reinterpret_cast<VirtualQWidget::QWidget_Create1_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_Create2(QWidget* self, unsigned long long param1, bool initializeWindow) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->create(static_cast<WId>(param1), initializeWindow);
-    } else {
-        ((VirtualQWidget*)self)->create(static_cast<WId>(param1), initializeWindow);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::create(static_cast<WId>(param1), initializeWindow);
+    } else
+        qFatal("Error: Protected method QWidget::create2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperCreate2(QWidget* self, unsigned long long param1, bool initializeWindow) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Create2_IsBase(true);
-        vqwidget->create(static_cast<WId>(param1), initializeWindow);
-    } else {
-        ((VirtualQWidget*)self)->create(static_cast<WId>(param1), initializeWindow);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnCreate2(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Create2_Callback(reinterpret_cast<VirtualQWidget::QWidget_Create2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_Create3(QWidget* self, unsigned long long param1, bool initializeWindow, bool destroyOldWindow) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
-    } else {
-        ((VirtualQWidget*)self)->create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
+    } else
+        qFatal("Error: Protected method QWidget::create3 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperCreate3(QWidget* self, unsigned long long param1, bool initializeWindow, bool destroyOldWindow) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Create3_IsBase(true);
-        vqwidget->create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
-    } else {
-        ((VirtualQWidget*)self)->create(static_cast<WId>(param1), initializeWindow, destroyOldWindow);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnCreate3(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Create3_Callback(reinterpret_cast<VirtualQWidget::QWidget_Create3_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_Destroy1(QWidget* self, bool destroyWindow) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->destroy(destroyWindow);
-    } else {
-        ((VirtualQWidget*)self)->destroy(destroyWindow);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::destroy(destroyWindow);
+    } else
+        qFatal("Error: Protected method QWidget::destroy1 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperDestroy1(QWidget* self, bool destroyWindow) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Destroy1_IsBase(true);
-        vqwidget->destroy(destroyWindow);
-    } else {
-        ((VirtualQWidget*)self)->destroy(destroyWindow);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnDestroy1(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Destroy1_Callback(reinterpret_cast<VirtualQWidget::QWidget_Destroy1_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QWidget_Destroy2(QWidget* self, bool destroyWindow, bool destroySubWindows) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->destroy(destroyWindow, destroySubWindows);
-    } else {
-        ((VirtualQWidget*)self)->destroy(destroyWindow, destroySubWindows);
-    }
+    if (auto* vqwidget = dynamic_cast<VirtualQWidget*>(self)) {
+        vqwidget->VirtualQWidget::destroy(destroyWindow, destroySubWindows);
+    } else
+        qFatal("Error: Protected method QWidget::destroy2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QWidget_SuperDestroy2(QWidget* self, bool destroyWindow, bool destroySubWindows) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Destroy2_IsBase(true);
-        vqwidget->destroy(destroyWindow, destroySubWindows);
-    } else {
-        ((VirtualQWidget*)self)->destroy(destroyWindow, destroySubWindows);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnDestroy2(QWidget* self, intptr_t slot) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Destroy2_Callback(reinterpret_cast<VirtualQWidget::QWidget_Destroy2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QWidget_Sender(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->sender();
-    } else {
-        return ((VirtualQWidget*)self)->sender();
-    }
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        return vqwidget->VirtualQWidget::sender();
+    } else
+        qFatal("Error: Protected method QWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QWidget_SuperSender(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Sender_IsBase(true);
-        return vqwidget->sender();
-    } else {
-        return ((VirtualQWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnSender(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Sender_Callback(reinterpret_cast<VirtualQWidget::QWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWidget_SenderSignalIndex(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->senderSignalIndex();
-    } else {
-        return ((VirtualQWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        return vqwidget->VirtualQWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWidget_SuperSenderSignalIndex(const QWidget* self) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_SenderSignalIndex_IsBase(true);
-        return vqwidget->senderSignalIndex();
-    } else {
-        return ((VirtualQWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnSenderSignalIndex(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWidget::QWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWidget_Receivers(const QWidget* self, const char* signal) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->receivers(signal);
-    } else {
-        return ((VirtualQWidget*)self)->receivers(signal);
-    }
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        return vqwidget->VirtualQWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method QWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWidget_SuperReceivers(const QWidget* self, const char* signal) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_Receivers_IsBase(true);
-        return vqwidget->receivers(signal);
-    } else {
-        return ((VirtualQWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnReceivers(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_Receivers_Callback(reinterpret_cast<VirtualQWidget::QWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWidget_IsSignalConnected(const QWidget* self, const QMetaMethod* signal) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        return vqwidget->VirtualQWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QWidget_SuperIsSignalConnected(const QWidget* self, const QMetaMethod* signal) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_IsSignalConnected_IsBase(true);
-        return vqwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnIsSignalConnected(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQWidget::QWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QWidget_GetDecodedMetricF(const QWidget* self, int metricA, int metricB) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return vqwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QWidget_SuperGetDecodedMetricF(const QWidget* self, int metricA, int metricB) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        vqwidget->setQWidget_GetDecodedMetricF_IsBase(true);
-        return vqwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWidget_OnGetDecodedMetricF(const QWidget* self, intptr_t slot) {
-    auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self));
-    if (vqwidget && vqwidget->isVirtualQWidget)
-        vqwidget->setQWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQWidget::QWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqwidget = const_cast<VirtualQWidget*>(dynamic_cast<const VirtualQWidget*>(self))) {
+        return vqwidget->VirtualQWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void QWidget_Delete(QWidget* self) {

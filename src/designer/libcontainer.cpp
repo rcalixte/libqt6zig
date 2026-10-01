@@ -44,166 +44,58 @@ void QDesignerContainerExtension_Remove(QDesignerContainerExtension* self, int i
     self->remove(static_cast<int>(index));
 }
 
-// Base class handler implementation
-int QDesignerContainerExtension_SuperCount(const QDesignerContainerExtension* self) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_Count_IsBase(true);
-        return vqdesignercontainerextension->count();
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->count();
-    }
+// Auxiliary method to allow providing re-implementation
+void QDesignerContainerExtension_OnCount(QDesignerContainerExtension* self, intptr_t slot) {
+    if (auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self)))
+        vqdesignercontainerextension->qdesignercontainerextension_count_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_Count_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerContainerExtension_OnCount(const QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_Count_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_Count_Callback>(slot));
-}
-
-// Base class handler implementation
-QWidget* QDesignerContainerExtension_SuperWidget(const QDesignerContainerExtension* self, int index) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_Widget_IsBase(true);
-        return vqdesignercontainerextension->widget(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->widget(static_cast<int>(index));
-    }
+void QDesignerContainerExtension_OnWidget(QDesignerContainerExtension* self, intptr_t slot) {
+    if (auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self)))
+        vqdesignercontainerextension->qdesignercontainerextension_widget_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_Widget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerContainerExtension_OnWidget(const QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_Widget_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_Widget_Callback>(slot));
-}
-
-// Base class handler implementation
-int QDesignerContainerExtension_SuperCurrentIndex(const QDesignerContainerExtension* self) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_CurrentIndex_IsBase(true);
-        return vqdesignercontainerextension->currentIndex();
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->currentIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerContainerExtension_OnCurrentIndex(const QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_CurrentIndex_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_CurrentIndex_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerContainerExtension_SuperSetCurrentIndex(QDesignerContainerExtension* self, int index) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_SetCurrentIndex_IsBase(true);
-        vqdesignercontainerextension->setCurrentIndex(static_cast<int>(index));
-    } else {
-        ((VirtualQDesignerContainerExtension*)self)->setCurrentIndex(static_cast<int>(index));
-    }
+void QDesignerContainerExtension_OnCurrentIndex(QDesignerContainerExtension* self, intptr_t slot) {
+    if (auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self)))
+        vqdesignercontainerextension->qdesignercontainerextension_currentindex_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_CurrentIndex_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerContainerExtension_OnSetCurrentIndex(QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_SetCurrentIndex_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_SetCurrentIndex_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QDesignerContainerExtension_SuperCanAddWidget(const QDesignerContainerExtension* self) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_CanAddWidget_IsBase(true);
-        return vqdesignercontainerextension->canAddWidget();
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->canAddWidget();
-    }
+    if (auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self))
+        vqdesignercontainerextension->qdesignercontainerextension_setcurrentindex_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_SetCurrentIndex_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerContainerExtension_OnCanAddWidget(const QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_CanAddWidget_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_CanAddWidget_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerContainerExtension_SuperAddWidget(QDesignerContainerExtension* self, QWidget* widget) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_AddWidget_IsBase(true);
-        vqdesignercontainerextension->addWidget(widget);
-    } else {
-        ((VirtualQDesignerContainerExtension*)self)->addWidget(widget);
-    }
+void QDesignerContainerExtension_OnCanAddWidget(QDesignerContainerExtension* self, intptr_t slot) {
+    if (auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self)))
+        vqdesignercontainerextension->qdesignercontainerextension_canaddwidget_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_CanAddWidget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerContainerExtension_OnAddWidget(QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_AddWidget_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_AddWidget_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerContainerExtension_SuperInsertWidget(QDesignerContainerExtension* self, int index, QWidget* widget) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_InsertWidget_IsBase(true);
-        vqdesignercontainerextension->insertWidget(static_cast<int>(index), widget);
-    } else {
-        ((VirtualQDesignerContainerExtension*)self)->insertWidget(static_cast<int>(index), widget);
-    }
+    if (auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self))
+        vqdesignercontainerextension->qdesignercontainerextension_addwidget_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_AddWidget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerContainerExtension_OnInsertWidget(QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_InsertWidget_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_InsertWidget_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QDesignerContainerExtension_SuperCanRemove(const QDesignerContainerExtension* self, int index) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_CanRemove_IsBase(true);
-        return vqdesignercontainerextension->canRemove(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->canRemove(static_cast<int>(index));
-    }
+    if (auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self))
+        vqdesignercontainerextension->qdesignercontainerextension_insertwidget_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_InsertWidget_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerContainerExtension_OnCanRemove(const QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self));
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_CanRemove_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_CanRemove_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerContainerExtension_SuperRemove(QDesignerContainerExtension* self, int index) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setQDesignerContainerExtension_Remove_IsBase(true);
-        vqdesignercontainerextension->remove(static_cast<int>(index));
-    } else {
-        ((VirtualQDesignerContainerExtension*)self)->remove(static_cast<int>(index));
-    }
+void QDesignerContainerExtension_OnCanRemove(QDesignerContainerExtension* self, intptr_t slot) {
+    if (auto* vqdesignercontainerextension = const_cast<VirtualQDesignerContainerExtension*>(dynamic_cast<const VirtualQDesignerContainerExtension*>(self)))
+        vqdesignercontainerextension->qdesignercontainerextension_canremove_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_CanRemove_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerContainerExtension_OnRemove(QDesignerContainerExtension* self, intptr_t slot) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension)
-        vqdesignercontainerextension->setQDesignerContainerExtension_Remove_Callback(reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_Remove_Callback>(slot));
+    if (auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self))
+        vqdesignercontainerextension->qdesignercontainerextension_remove_callback = reinterpret_cast<VirtualQDesignerContainerExtension::QDesignerContainerExtension_Remove_Callback>(slot);
 }
 
 void QDesignerContainerExtension_Delete(QDesignerContainerExtension* self) {

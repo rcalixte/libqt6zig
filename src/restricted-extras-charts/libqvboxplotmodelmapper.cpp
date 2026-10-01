@@ -197,644 +197,299 @@ libqt_string QVBoxPlotModelMapper_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QVBoxPlotModelMapper_SuperMetaObject(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_MetaObject_IsBase(true);
-        return (QMetaObject*)vqvboxplotmodelmapper->metaObject();
-    } else {
-        return (QMetaObject*)self->QVBoxPlotModelMapper::metaObject();
-    }
+    return (QMetaObject*)self->QVBoxPlotModelMapper::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnMetaObject(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_MetaObject_Callback>(slot));
+void QVBoxPlotModelMapper_OnMetaObject(QVBoxPlotModelMapper* self, intptr_t slot) {
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self)))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_metaobject_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QVBoxPlotModelMapper_SuperMetacast(QVBoxPlotModelMapper* self, const char* param1) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacast_IsBase(true);
-        return vqvboxplotmodelmapper->qt_metacast(param1);
-    } else {
-        return self->QVBoxPlotModelMapper::qt_metacast(param1);
-    }
+    return self->QVBoxPlotModelMapper::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnMetacast(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacast_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Metacast_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_metacast_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QVBoxPlotModelMapper_SuperMetacall(QVBoxPlotModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacall_IsBase(true);
-        return vqvboxplotmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QVBoxPlotModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QVBoxPlotModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnMetacall(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Metacall_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_metacall_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVBoxPlotModelMapper_Event(QVBoxPlotModelMapper* self, QEvent* event) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->event(event);
-    } else {
-        return self->QVBoxPlotModelMapper::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QVBoxPlotModelMapper_SuperEvent(QVBoxPlotModelMapper* self, QEvent* event) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Event_IsBase(true);
-        return vqvboxplotmodelmapper->event(event);
-    } else {
-        return self->QVBoxPlotModelMapper::event(event);
-    }
+    return self->QVBoxPlotModelMapper::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnEvent(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Event_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Event_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_event_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVBoxPlotModelMapper_EventFilter(QVBoxPlotModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QVBoxPlotModelMapper::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QVBoxPlotModelMapper_SuperEventFilter(QVBoxPlotModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_EventFilter_IsBase(true);
-        return vqvboxplotmodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QVBoxPlotModelMapper::eventFilter(watched, event);
-    }
+    return self->QVBoxPlotModelMapper::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnEventFilter(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_EventFilter_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_eventfilter_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVBoxPlotModelMapper_TimerEvent(QVBoxPlotModelMapper* self, QTimerEvent* event) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
+    if (vqvboxplotmodelmapper) {
         vqvboxplotmodelmapper->timerEvent(event);
     } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVBoxPlotModelMapper_SuperTimerEvent(QVBoxPlotModelMapper* self, QTimerEvent* event) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_TimerEvent_IsBase(true);
-        vqvboxplotmodelmapper->timerEvent(event);
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->timerEvent(event);
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->QVBoxPlotModelMapper::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnTimerEvent(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_TimerEvent_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_timerevent_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVBoxPlotModelMapper_ChildEvent(QVBoxPlotModelMapper* self, QChildEvent* event) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
+    if (vqvboxplotmodelmapper) {
         vqvboxplotmodelmapper->childEvent(event);
     } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVBoxPlotModelMapper_SuperChildEvent(QVBoxPlotModelMapper* self, QChildEvent* event) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_ChildEvent_IsBase(true);
-        vqvboxplotmodelmapper->childEvent(event);
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->childEvent(event);
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->QVBoxPlotModelMapper::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnChildEvent(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_ChildEvent_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_childevent_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVBoxPlotModelMapper_CustomEvent(QVBoxPlotModelMapper* self, QEvent* event) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
+    if (vqvboxplotmodelmapper) {
         vqvboxplotmodelmapper->customEvent(event);
     } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVBoxPlotModelMapper_SuperCustomEvent(QVBoxPlotModelMapper* self, QEvent* event) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_CustomEvent_IsBase(true);
-        vqvboxplotmodelmapper->customEvent(event);
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->customEvent(event);
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->QVBoxPlotModelMapper::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnCustomEvent(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_CustomEvent_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_customevent_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVBoxPlotModelMapper_ConnectNotify(QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
+    if (vqvboxplotmodelmapper) {
         vqvboxplotmodelmapper->connectNotify(*signal);
     } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVBoxPlotModelMapper_SuperConnectNotify(QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_ConnectNotify_IsBase(true);
-        vqvboxplotmodelmapper->connectNotify(*signal);
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->connectNotify(*signal);
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->QVBoxPlotModelMapper::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnConnectNotify(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_ConnectNotify_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_connectnotify_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVBoxPlotModelMapper_DisconnectNotify(QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
     auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
+    if (vqvboxplotmodelmapper) {
         vqvboxplotmodelmapper->disconnectNotify(*signal);
     } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVBoxPlotModelMapper_SuperDisconnectNotify(QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_DisconnectNotify_IsBase(true);
-        vqvboxplotmodelmapper->disconnectNotify(*signal);
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->QVBoxPlotModelMapper::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVBoxPlotModelMapper::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVBoxPlotModelMapper_OnDisconnectNotify(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_DisconnectNotify_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self))
+        vqvboxplotmodelmapper->qvboxplotmodelmapper_disconnectnotify_callback = reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVBoxPlotModelMapper_First(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->first();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->first();
-    }
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::first();
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::first called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVBoxPlotModelMapper_SuperFirst(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_First_IsBase(true);
-        return vqvboxplotmodelmapper->first();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->first();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnFirst(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_First_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_First_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVBoxPlotModelMapper_SetFirst(QVBoxPlotModelMapper* self, int first) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setFirst(static_cast<int>(first));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setFirst(static_cast<int>(first));
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::setFirst(static_cast<int>(first));
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::setFirst called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVBoxPlotModelMapper_SuperSetFirst(QVBoxPlotModelMapper* self, int first) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetFirst_IsBase(true);
-        vqvboxplotmodelmapper->setFirst(static_cast<int>(first));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setFirst(static_cast<int>(first));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnSetFirst(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_SetFirst_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVBoxPlotModelMapper_Count(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->count();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->count();
-    }
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::count();
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::count called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVBoxPlotModelMapper_SuperCount(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Count_IsBase(true);
-        return vqvboxplotmodelmapper->count();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->count();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnCount(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Count_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Count_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVBoxPlotModelMapper_SetCount(QVBoxPlotModelMapper* self, int count) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setCount(static_cast<int>(count));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setCount(static_cast<int>(count));
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::setCount(static_cast<int>(count));
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::setCount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVBoxPlotModelMapper_SuperSetCount(QVBoxPlotModelMapper* self, int count) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetCount_IsBase(true);
-        vqvboxplotmodelmapper->setCount(static_cast<int>(count));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setCount(static_cast<int>(count));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnSetCount(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetCount_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_SetCount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVBoxPlotModelMapper_FirstBoxSetSection(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->firstBoxSetSection();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->firstBoxSetSection();
-    }
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::firstBoxSetSection();
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::firstBoxSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVBoxPlotModelMapper_SuperFirstBoxSetSection(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_FirstBoxSetSection_IsBase(true);
-        return vqvboxplotmodelmapper->firstBoxSetSection();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->firstBoxSetSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnFirstBoxSetSection(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_FirstBoxSetSection_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_FirstBoxSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVBoxPlotModelMapper_SetFirstBoxSetSection(QVBoxPlotModelMapper* self, int firstBoxSetSection) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setFirstBoxSetSection(static_cast<int>(firstBoxSetSection));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setFirstBoxSetSection(static_cast<int>(firstBoxSetSection));
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::setFirstBoxSetSection(static_cast<int>(firstBoxSetSection));
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::setFirstBoxSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVBoxPlotModelMapper_SuperSetFirstBoxSetSection(QVBoxPlotModelMapper* self, int firstBoxSetSection) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetFirstBoxSetSection_IsBase(true);
-        vqvboxplotmodelmapper->setFirstBoxSetSection(static_cast<int>(firstBoxSetSection));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setFirstBoxSetSection(static_cast<int>(firstBoxSetSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnSetFirstBoxSetSection(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetFirstBoxSetSection_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_SetFirstBoxSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVBoxPlotModelMapper_LastBoxSetSection(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->lastBoxSetSection();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->lastBoxSetSection();
-    }
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::lastBoxSetSection();
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::lastBoxSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVBoxPlotModelMapper_SuperLastBoxSetSection(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_LastBoxSetSection_IsBase(true);
-        return vqvboxplotmodelmapper->lastBoxSetSection();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->lastBoxSetSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnLastBoxSetSection(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_LastBoxSetSection_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_LastBoxSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVBoxPlotModelMapper_SetLastBoxSetSection(QVBoxPlotModelMapper* self, int lastBoxSetSection) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setLastBoxSetSection(static_cast<int>(lastBoxSetSection));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setLastBoxSetSection(static_cast<int>(lastBoxSetSection));
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::setLastBoxSetSection(static_cast<int>(lastBoxSetSection));
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::setLastBoxSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVBoxPlotModelMapper_SuperSetLastBoxSetSection(QVBoxPlotModelMapper* self, int lastBoxSetSection) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetLastBoxSetSection_IsBase(true);
-        vqvboxplotmodelmapper->setLastBoxSetSection(static_cast<int>(lastBoxSetSection));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setLastBoxSetSection(static_cast<int>(lastBoxSetSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnSetLastBoxSetSection(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetLastBoxSetSection_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_SetLastBoxSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVBoxPlotModelMapper_Orientation(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return static_cast<int>(vqvboxplotmodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQVBoxPlotModelMapper*)self)->orientation());
-    }
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return static_cast<int>(vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::orientation());
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::orientation called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVBoxPlotModelMapper_SuperOrientation(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Orientation_IsBase(true);
-        return static_cast<int>(vqvboxplotmodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQVBoxPlotModelMapper*)self)->orientation());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnOrientation(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Orientation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVBoxPlotModelMapper_SetOrientation(QVBoxPlotModelMapper* self, int orientation) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setOrientation(static_cast<Qt::Orientation>(orientation));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setOrientation(static_cast<Qt::Orientation>(orientation));
-    }
+    if (auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self)) {
+        vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::setOrientation(static_cast<Qt::Orientation>(orientation));
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::setOrientation called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVBoxPlotModelMapper_SuperSetOrientation(QVBoxPlotModelMapper* self, int orientation) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetOrientation_IsBase(true);
-        vqvboxplotmodelmapper->setOrientation(static_cast<Qt::Orientation>(orientation));
-    } else {
-        ((VirtualQVBoxPlotModelMapper*)self)->setOrientation(static_cast<Qt::Orientation>(orientation));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnSetOrientation(QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_SetOrientation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QVBoxPlotModelMapper_Sender(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->sender();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->sender();
-    }
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::sender();
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QVBoxPlotModelMapper_SuperSender(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Sender_IsBase(true);
-        return vqvboxplotmodelmapper->sender();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnSender(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Sender_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVBoxPlotModelMapper_SenderSignalIndex(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->senderSignalIndex();
-    }
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVBoxPlotModelMapper_SuperSenderSignalIndex(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SenderSignalIndex_IsBase(true);
-        return vqvboxplotmodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnSenderSignalIndex(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVBoxPlotModelMapper_Receivers(const QVBoxPlotModelMapper* self, const char* signal) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->receivers(signal);
-    }
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::receivers(signal);
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVBoxPlotModelMapper_SuperReceivers(const QVBoxPlotModelMapper* self, const char* signal) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Receivers_IsBase(true);
-        return vqvboxplotmodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnReceivers(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_Receivers_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVBoxPlotModelMapper_IsSignalConnected(const QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return vqvboxplotmodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QVBoxPlotModelMapper_SuperIsSignalConnected(const QVBoxPlotModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_IsSignalConnected_IsBase(true);
-        return vqvboxplotmodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVBoxPlotModelMapper_OnIsSignalConnected(const QVBoxPlotModelMapper* self, intptr_t slot) {
-    auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self));
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper)
-        vqvboxplotmodelmapper->setQVBoxPlotModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQVBoxPlotModelMapper::QVBoxPlotModelMapper_IsSignalConnected_Callback>(slot));
+    if (auto* vqvboxplotmodelmapper = const_cast<VirtualQVBoxPlotModelMapper*>(dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self))) {
+        return vqvboxplotmodelmapper->VirtualQVBoxPlotModelMapper::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QVBoxPlotModelMapper::isSignalConnected called without a directly constructed type");
 }
 
 void QVBoxPlotModelMapper_Delete(QVBoxPlotModelMapper* self) {

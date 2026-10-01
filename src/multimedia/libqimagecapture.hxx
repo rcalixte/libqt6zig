@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QImageCapture so that we can call protected methods
+// This class is a subclass of QImageCapture
 class VirtualQImageCapture final : public QImageCapture {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQImageCapture = true;
-
-    // Virtual class public types (including callbacks)
-    using QImageCapture_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QImageCapture_MetaObject_Callback = QMetaObject* (*)(const QImageCapture*);
     using QImageCapture_Metacast_Callback = void* (*)(QImageCapture*, const char*);
     using QImageCapture_Metacall_Callback = int (*)(QImageCapture*, int, int, void**);
     using QImageCapture_Event_Callback = bool (*)(QImageCapture*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQImageCapture final : public QImageCapture {
     using QImageCapture_CustomEvent_Callback = void (*)(QImageCapture*, QEvent*);
     using QImageCapture_ConnectNotify_Callback = void (*)(QImageCapture*, QMetaMethod*);
     using QImageCapture_DisconnectNotify_Callback = void (*)(QImageCapture*, QMetaMethod*);
-    using QImageCapture_Sender_Callback = QObject* (*)();
-    using QImageCapture_SenderSignalIndex_Callback = int (*)();
-    using QImageCapture_Receivers_Callback = int (*)(const QImageCapture*, const char*);
-    using QImageCapture_IsSignalConnected_Callback = bool (*)(const QImageCapture*, QMetaMethod*);
+    using QImageCapture::isSignalConnected;
+    using QImageCapture::receivers;
+    using QImageCapture::sender;
+    using QImageCapture::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QImageCapture_MetaObject_Callback qimagecapture_metaobject_callback = nullptr;
     QImageCapture_Metacast_Callback qimagecapture_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualQImageCapture final : public QImageCapture {
     QImageCapture_CustomEvent_Callback qimagecapture_customevent_callback = nullptr;
     QImageCapture_ConnectNotify_Callback qimagecapture_connectnotify_callback = nullptr;
     QImageCapture_DisconnectNotify_Callback qimagecapture_disconnectnotify_callback = nullptr;
-    QImageCapture_Sender_Callback qimagecapture_sender_callback = nullptr;
-    QImageCapture_SenderSignalIndex_Callback qimagecapture_sendersignalindex_callback = nullptr;
-    QImageCapture_Receivers_Callback qimagecapture_receivers_callback = nullptr;
-    QImageCapture_IsSignalConnected_Callback qimagecapture_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qimagecapture_metaobject_isbase = false;
-    mutable bool qimagecapture_metacast_isbase = false;
-    mutable bool qimagecapture_metacall_isbase = false;
-    mutable bool qimagecapture_event_isbase = false;
-    mutable bool qimagecapture_eventfilter_isbase = false;
-    mutable bool qimagecapture_timerevent_isbase = false;
-    mutable bool qimagecapture_childevent_isbase = false;
-    mutable bool qimagecapture_customevent_isbase = false;
-    mutable bool qimagecapture_connectnotify_isbase = false;
-    mutable bool qimagecapture_disconnectnotify_isbase = false;
-    mutable bool qimagecapture_sender_isbase = false;
-    mutable bool qimagecapture_sendersignalindex_isbase = false;
-    mutable bool qimagecapture_receivers_isbase = false;
-    mutable bool qimagecapture_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QImageCapture {
+        using QImageCapture::childEvent;
+        using QImageCapture::connectNotify;
+        using QImageCapture::customEvent;
+        using QImageCapture::disconnectNotify;
+        using QImageCapture::timerEvent;
+    };
 
-  public:
     VirtualQImageCapture() : QImageCapture() {};
     VirtualQImageCapture(QObject* parent) : QImageCapture(parent) {};
 
-    // Callback setters
-    inline void setQImageCapture_MetaObject_Callback(QImageCapture_MetaObject_Callback cb) { qimagecapture_metaobject_callback = cb; }
-    inline void setQImageCapture_Metacast_Callback(QImageCapture_Metacast_Callback cb) { qimagecapture_metacast_callback = cb; }
-    inline void setQImageCapture_Metacall_Callback(QImageCapture_Metacall_Callback cb) { qimagecapture_metacall_callback = cb; }
-    inline void setQImageCapture_Event_Callback(QImageCapture_Event_Callback cb) { qimagecapture_event_callback = cb; }
-    inline void setQImageCapture_EventFilter_Callback(QImageCapture_EventFilter_Callback cb) { qimagecapture_eventfilter_callback = cb; }
-    inline void setQImageCapture_TimerEvent_Callback(QImageCapture_TimerEvent_Callback cb) { qimagecapture_timerevent_callback = cb; }
-    inline void setQImageCapture_ChildEvent_Callback(QImageCapture_ChildEvent_Callback cb) { qimagecapture_childevent_callback = cb; }
-    inline void setQImageCapture_CustomEvent_Callback(QImageCapture_CustomEvent_Callback cb) { qimagecapture_customevent_callback = cb; }
-    inline void setQImageCapture_ConnectNotify_Callback(QImageCapture_ConnectNotify_Callback cb) { qimagecapture_connectnotify_callback = cb; }
-    inline void setQImageCapture_DisconnectNotify_Callback(QImageCapture_DisconnectNotify_Callback cb) { qimagecapture_disconnectnotify_callback = cb; }
-    inline void setQImageCapture_Sender_Callback(QImageCapture_Sender_Callback cb) { qimagecapture_sender_callback = cb; }
-    inline void setQImageCapture_SenderSignalIndex_Callback(QImageCapture_SenderSignalIndex_Callback cb) { qimagecapture_sendersignalindex_callback = cb; }
-    inline void setQImageCapture_Receivers_Callback(QImageCapture_Receivers_Callback cb) { qimagecapture_receivers_callback = cb; }
-    inline void setQImageCapture_IsSignalConnected_Callback(QImageCapture_IsSignalConnected_Callback cb) { qimagecapture_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQImageCapture_MetaObject_IsBase(bool value) const { qimagecapture_metaobject_isbase = value; }
-    inline void setQImageCapture_Metacast_IsBase(bool value) const { qimagecapture_metacast_isbase = value; }
-    inline void setQImageCapture_Metacall_IsBase(bool value) const { qimagecapture_metacall_isbase = value; }
-    inline void setQImageCapture_Event_IsBase(bool value) const { qimagecapture_event_isbase = value; }
-    inline void setQImageCapture_EventFilter_IsBase(bool value) const { qimagecapture_eventfilter_isbase = value; }
-    inline void setQImageCapture_TimerEvent_IsBase(bool value) const { qimagecapture_timerevent_isbase = value; }
-    inline void setQImageCapture_ChildEvent_IsBase(bool value) const { qimagecapture_childevent_isbase = value; }
-    inline void setQImageCapture_CustomEvent_IsBase(bool value) const { qimagecapture_customevent_isbase = value; }
-    inline void setQImageCapture_ConnectNotify_IsBase(bool value) const { qimagecapture_connectnotify_isbase = value; }
-    inline void setQImageCapture_DisconnectNotify_IsBase(bool value) const { qimagecapture_disconnectnotify_isbase = value; }
-    inline void setQImageCapture_Sender_IsBase(bool value) const { qimagecapture_sender_isbase = value; }
-    inline void setQImageCapture_SenderSignalIndex_IsBase(bool value) const { qimagecapture_sendersignalindex_isbase = value; }
-    inline void setQImageCapture_Receivers_IsBase(bool value) const { qimagecapture_receivers_isbase = value; }
-    inline void setQImageCapture_IsSignalConnected_IsBase(bool value) const { qimagecapture_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qimagecapture_metaobject_isbase) {
-            qimagecapture_metaobject_isbase = false;
-            return QImageCapture::metaObject();
-        }
-        auto metaobject_cb = qimagecapture_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qimagecapture_metaobject_callback) {
+            QMetaObject* callback_ret = qimagecapture_metaobject_callback(this);
             return callback_ret;
         }
         return QImageCapture::metaObject();
@@ -117,14 +63,9 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qimagecapture_metacast_isbase) {
-            qimagecapture_metacast_isbase = false;
-            return QImageCapture::qt_metacast(param1);
-        }
-        auto metacast_cb = qimagecapture_metacast_callback;
-        if (metacast_cb) {
+        if (qimagecapture_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qimagecapture_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QImageCapture::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qimagecapture_metacall_isbase) {
-            qimagecapture_metacall_isbase = false;
-            return QImageCapture::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qimagecapture_metacall_callback;
-        if (metacall_cb) {
+        if (qimagecapture_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qimagecapture_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QImageCapture::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qimagecapture_event_isbase) {
-            qimagecapture_event_isbase = false;
-            return QImageCapture::event(event);
-        }
-        auto event_cb = qimagecapture_event_callback;
-        if (event_cb) {
+        if (qimagecapture_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qimagecapture_event_callback(this, cbval1);
             return callback_ret;
         }
         return QImageCapture::event(event);
@@ -164,15 +95,10 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qimagecapture_eventfilter_isbase) {
-            qimagecapture_eventfilter_isbase = false;
-            return QImageCapture::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qimagecapture_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qimagecapture_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qimagecapture_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QImageCapture::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qimagecapture_timerevent_isbase) {
-            qimagecapture_timerevent_isbase = false;
-            QImageCapture::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qimagecapture_timerevent_callback;
-        if (timerevent_cb) {
+        if (qimagecapture_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qimagecapture_timerevent_callback(this, cbval1);
             return;
         }
         QImageCapture::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qimagecapture_childevent_isbase) {
-            qimagecapture_childevent_isbase = false;
-            QImageCapture::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qimagecapture_childevent_callback;
-        if (childevent_cb) {
+        if (qimagecapture_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qimagecapture_childevent_callback(this, cbval1);
             return;
         }
         QImageCapture::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qimagecapture_customevent_isbase) {
-            qimagecapture_customevent_isbase = false;
-            QImageCapture::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qimagecapture_customevent_callback;
-        if (customevent_cb) {
+        if (qimagecapture_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qimagecapture_customevent_callback(this, cbval1);
             return;
         }
         QImageCapture::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qimagecapture_connectnotify_isbase) {
-            qimagecapture_connectnotify_isbase = false;
-            QImageCapture::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qimagecapture_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qimagecapture_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qimagecapture_connectnotify_callback(this, cbval1);
             return;
         }
         QImageCapture::connectNotify(signal);
@@ -246,101 +148,22 @@ class VirtualQImageCapture final : public QImageCapture {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qimagecapture_disconnectnotify_isbase) {
-            qimagecapture_disconnectnotify_isbase = false;
-            QImageCapture::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qimagecapture_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qimagecapture_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qimagecapture_disconnectnotify_callback(this, cbval1);
             return;
         }
         QImageCapture::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qimagecapture_sender_isbase) {
-            qimagecapture_sender_isbase = false;
-            return QImageCapture::sender();
-        }
-        auto sender_cb = qimagecapture_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QImageCapture::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qimagecapture_sendersignalindex_isbase) {
-            qimagecapture_sendersignalindex_isbase = false;
-            return QImageCapture::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qimagecapture_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QImageCapture::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qimagecapture_receivers_isbase) {
-            qimagecapture_receivers_isbase = false;
-            return QImageCapture::receivers(signal);
-        }
-        auto receivers_cb = qimagecapture_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QImageCapture::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qimagecapture_issignalconnected_isbase) {
-            qimagecapture_issignalconnected_isbase = false;
-            return QImageCapture::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qimagecapture_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QImageCapture::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QImageCapture_TimerEvent(QImageCapture* self, QTimerEvent* event);
     friend void QImageCapture_SuperTimerEvent(QImageCapture* self, QTimerEvent* event);
-    friend void QImageCapture_ChildEvent(QImageCapture* self, QChildEvent* event);
     friend void QImageCapture_SuperChildEvent(QImageCapture* self, QChildEvent* event);
-    friend void QImageCapture_CustomEvent(QImageCapture* self, QEvent* event);
     friend void QImageCapture_SuperCustomEvent(QImageCapture* self, QEvent* event);
-    friend void QImageCapture_ConnectNotify(QImageCapture* self, const QMetaMethod* signal);
     friend void QImageCapture_SuperConnectNotify(QImageCapture* self, const QMetaMethod* signal);
-    friend void QImageCapture_DisconnectNotify(QImageCapture* self, const QMetaMethod* signal);
     friend void QImageCapture_SuperDisconnectNotify(QImageCapture* self, const QMetaMethod* signal);
-    friend QObject* QImageCapture_Sender(const QImageCapture* self);
-    friend QObject* QImageCapture_SuperSender(const QImageCapture* self);
-    friend int QImageCapture_SenderSignalIndex(const QImageCapture* self);
-    friend int QImageCapture_SuperSenderSignalIndex(const QImageCapture* self);
-    friend int QImageCapture_Receivers(const QImageCapture* self, const char* signal);
-    friend int QImageCapture_SuperReceivers(const QImageCapture* self, const char* signal);
-    friend bool QImageCapture_IsSignalConnected(const QImageCapture* self, const QMetaMethod* signal);
-    friend bool QImageCapture_SuperIsSignalConnected(const QImageCapture* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -31,6 +31,8 @@ pub const QNativeInterface__QSGOpenGLTexture = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qsgopengltexture.html#nativeTexture)
     ///
+    /// This method must be implemented with `onNativeTexture` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QNativeInterface__QSGOpenGLTexture `
@@ -51,26 +53,10 @@ pub const QNativeInterface__QSGOpenGLTexture = extern struct {
     ///
     /// ` self: QNativeInterface__QSGOpenGLTexture `
     ///
-    /// ` callback: *const fn () callconv(.c) u32 `
+    /// ` callback: *const fn (self: QNativeInterface__QSGOpenGLTexture) callconv(.c) u32 `
     ///
-    pub fn onNativeTexture(self: QNativeInterface__QSGOpenGLTexture, callback: *const fn () callconv(.c) u32) void {
+    pub fn onNativeTexture(self: QNativeInterface__QSGOpenGLTexture, callback: *const fn (QNativeInterface__QSGOpenGLTexture) callconv(.c) u32) void {
         qtc.QNativeInterface__QSGOpenGLTexture_OnNativeTexture(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superNativeTexture` instead
-    ///
-    pub const SuperNativeTexture = superNativeTexture;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnativeinterface-qsgopengltexture.html#nativeTexture)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNativeInterface__QSGOpenGLTexture `
-    ///
-    pub fn superNativeTexture(self: QNativeInterface__QSGOpenGLTexture) u32 {
-        return qtc.QNativeInterface__QSGOpenGLTexture_SuperNativeTexture(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `fromNative` instead

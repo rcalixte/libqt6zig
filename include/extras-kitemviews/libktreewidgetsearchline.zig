@@ -177,9 +177,9 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) QMetaObject) void {
         qtc.KTreeWidgetSearchLine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1039,9 +1039,9 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) bool `
     ///
-    pub fn onCanChooseColumnsCheck(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanChooseColumnsCheck(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) bool) void {
         qtc.KTreeWidgetSearchLine_OnCanChooseColumnsCheck(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8855,11 +8855,11 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) QSize) void {
         qtc.KTreeWidgetSearchLine_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8913,11 +8913,11 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) QSize) void {
         qtc.KTreeWidgetSearchLine_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10087,9 +10087,9 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) i32) void {
         qtc.KTreeWidgetSearchLine_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10263,9 +10263,9 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) bool) void {
         qtc.KTreeWidgetSearchLine_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10319,9 +10319,9 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) QPaintEngine) void {
         qtc.KTreeWidgetSearchLine_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11255,9 +11255,9 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) QPainter) void {
         qtc.KTreeWidgetSearchLine_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11655,46 +11655,6 @@ pub const KTreeWidgetSearchLine = extern struct {
         return .{ .ptr = qtc.KTreeWidgetSearchLine_CursorRect(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superCursorRect` instead
-    ///
-    pub const SuperCursorRect = superCursorRect;
-
-    /// Inherited from QLineEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#cursorRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    pub fn superCursorRect(self: KTreeWidgetSearchLine) QRect {
-        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperCursorRect(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCursorRect` instead
-    ///
-    pub const OnCursorRect = onCursorRect;
-
-    /// Inherited from QLineEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#cursorRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn () callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCursorRect(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QRect) void {
-        qtc.KTreeWidgetSearchLine_OnCursorRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -11711,44 +11671,6 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     pub fn updateMicroFocus(self: KTreeWidgetSearchLine) void {
         qtc.KTreeWidgetSearchLine_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    pub fn superUpdateMicroFocus(self: KTreeWidgetSearchLine) void {
-        qtc.KTreeWidgetSearchLine_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -11769,44 +11691,6 @@ pub const KTreeWidgetSearchLine = extern struct {
         qtc.KTreeWidgetSearchLine_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    pub fn superCreate(self: KTreeWidgetSearchLine) void {
-        qtc.KTreeWidgetSearchLine_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -11823,44 +11707,6 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     pub fn destroy(self: KTreeWidgetSearchLine) void {
         qtc.KTreeWidgetSearchLine_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    pub fn superDestroy(self: KTreeWidgetSearchLine) void {
-        qtc.KTreeWidgetSearchLine_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -11881,44 +11727,6 @@ pub const KTreeWidgetSearchLine = extern struct {
         return qtc.KTreeWidgetSearchLine_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    pub fn superFocusNextChild(self: KTreeWidgetSearchLine) bool {
-        return qtc.KTreeWidgetSearchLine_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -11935,44 +11743,6 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     pub fn focusPreviousChild(self: KTreeWidgetSearchLine) bool {
         return qtc.KTreeWidgetSearchLine_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    pub fn superFocusPreviousChild(self: KTreeWidgetSearchLine) bool {
-        return qtc.KTreeWidgetSearchLine_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -11993,44 +11763,6 @@ pub const KTreeWidgetSearchLine = extern struct {
         return .{ .ptr = qtc.KTreeWidgetSearchLine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    pub fn superSender(self: KTreeWidgetSearchLine) QObject {
-        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KTreeWidgetSearchLine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -12047,44 +11779,6 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     pub fn senderSignalIndex(self: KTreeWidgetSearchLine) i32 {
         return qtc.KTreeWidgetSearchLine_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    pub fn superSenderSignalIndex(self: KTreeWidgetSearchLine) i32 {
-        return qtc.KTreeWidgetSearchLine_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTreeWidgetSearchLine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -12108,47 +11802,6 @@ pub const KTreeWidgetSearchLine = extern struct {
         return qtc.KTreeWidgetSearchLine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KTreeWidgetSearchLine, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KTreeWidgetSearchLine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn (self: KTreeWidgetSearchLine, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTreeWidgetSearchLine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -12168,47 +11821,6 @@ pub const KTreeWidgetSearchLine = extern struct {
     pub fn isSignalConnected(self: KTreeWidgetSearchLine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTreeWidgetSearchLine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KTreeWidgetSearchLine, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KTreeWidgetSearchLine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn (self: KTreeWidgetSearchLine, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMetaMethod) callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -12231,48 +11843,6 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     pub fn getDecodedMetricF(self: KTreeWidgetSearchLine, metricA: i32, metricB: i32) f64 {
         return qtc.KTreeWidgetSearchLine_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTreeWidgetSearchLine `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KTreeWidgetSearchLine, metricA: i32, metricB: i32) f64 {
-        return qtc.KTreeWidgetSearchLine_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTreeWidgetSearchLine`
-    ///
-    /// ` callback: *const fn (self: KTreeWidgetSearchLine, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32, i32) callconv(.c) f64) void {
-        qtc.KTreeWidgetSearchLine_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

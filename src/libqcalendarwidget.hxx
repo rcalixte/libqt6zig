@@ -9,30 +9,26 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QCalendarWidget so that we can call protected methods
+// This class is a subclass of QCalendarWidget
 class VirtualQCalendarWidget final : public QCalendarWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQCalendarWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using QCalendarWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QCalendarWidget_MetaObject_Callback = QMetaObject* (*)(const QCalendarWidget*);
     using QCalendarWidget_Metacast_Callback = void* (*)(QCalendarWidget*, const char*);
     using QCalendarWidget_Metacall_Callback = int (*)(QCalendarWidget*, int, int, void**);
-    using QCalendarWidget_SizeHint_Callback = QSize* (*)();
-    using QCalendarWidget_MinimumSizeHint_Callback = QSize* (*)();
+    using QCalendarWidget_SizeHint_Callback = QSize* (*)(const QCalendarWidget*);
+    using QCalendarWidget_MinimumSizeHint_Callback = QSize* (*)(const QCalendarWidget*);
     using QCalendarWidget_Event_Callback = bool (*)(QCalendarWidget*, QEvent*);
     using QCalendarWidget_EventFilter_Callback = bool (*)(QCalendarWidget*, QObject*, QEvent*);
     using QCalendarWidget_MousePressEvent_Callback = void (*)(QCalendarWidget*, QMouseEvent*);
     using QCalendarWidget_ResizeEvent_Callback = void (*)(QCalendarWidget*, QResizeEvent*);
     using QCalendarWidget_KeyPressEvent_Callback = void (*)(QCalendarWidget*, QKeyEvent*);
     using QCalendarWidget_PaintCell_Callback = void (*)(const QCalendarWidget*, QPainter*, QRect*, QDate*);
-    using QCalendarWidget_DevType_Callback = int (*)();
+    using QCalendarWidget_DevType_Callback = int (*)(const QCalendarWidget*);
     using QCalendarWidget_SetVisible_Callback = void (*)(QCalendarWidget*, bool);
     using QCalendarWidget_HeightForWidth_Callback = int (*)(const QCalendarWidget*, int);
-    using QCalendarWidget_HasHeightForWidth_Callback = bool (*)();
-    using QCalendarWidget_PaintEngine_Callback = QPaintEngine* (*)();
+    using QCalendarWidget_HasHeightForWidth_Callback = bool (*)(const QCalendarWidget*);
+    using QCalendarWidget_PaintEngine_Callback = QPaintEngine* (*)(const QCalendarWidget*);
     using QCalendarWidget_MouseReleaseEvent_Callback = void (*)(QCalendarWidget*, QMouseEvent*);
     using QCalendarWidget_MouseDoubleClickEvent_Callback = void (*)(QCalendarWidget*, QMouseEvent*);
     using QCalendarWidget_MouseMoveEvent_Callback = void (*)(QCalendarWidget*, QMouseEvent*);
@@ -59,7 +55,7 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     using QCalendarWidget_Metric_Callback = int (*)(const QCalendarWidget*, int);
     using QCalendarWidget_InitPainter_Callback = void (*)(const QCalendarWidget*, QPainter*);
     using QCalendarWidget_Redirected_Callback = QPaintDevice* (*)(const QCalendarWidget*, QPoint*);
-    using QCalendarWidget_SharedPainter_Callback = QPainter* (*)();
+    using QCalendarWidget_SharedPainter_Callback = QPainter* (*)(const QCalendarWidget*);
     using QCalendarWidget_InputMethodEvent_Callback = void (*)(QCalendarWidget*, QInputMethodEvent*);
     using QCalendarWidget_InputMethodQuery_Callback = QVariant* (*)(const QCalendarWidget*, int);
     using QCalendarWidget_FocusNextPrevChild_Callback = bool (*)(QCalendarWidget*, bool);
@@ -68,20 +64,19 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     using QCalendarWidget_CustomEvent_Callback = void (*)(QCalendarWidget*, QEvent*);
     using QCalendarWidget_ConnectNotify_Callback = void (*)(QCalendarWidget*, QMetaMethod*);
     using QCalendarWidget_DisconnectNotify_Callback = void (*)(QCalendarWidget*, QMetaMethod*);
-    using QCalendarWidget_UpdateCell_Callback = void (*)(QCalendarWidget*, QDate*);
-    using QCalendarWidget_UpdateCells_Callback = void (*)();
-    using QCalendarWidget_UpdateMicroFocus_Callback = void (*)();
-    using QCalendarWidget_Create_Callback = void (*)();
-    using QCalendarWidget_Destroy_Callback = void (*)();
-    using QCalendarWidget_FocusNextChild_Callback = bool (*)();
-    using QCalendarWidget_FocusPreviousChild_Callback = bool (*)();
-    using QCalendarWidget_Sender_Callback = QObject* (*)();
-    using QCalendarWidget_SenderSignalIndex_Callback = int (*)();
-    using QCalendarWidget_Receivers_Callback = int (*)(const QCalendarWidget*, const char*);
-    using QCalendarWidget_IsSignalConnected_Callback = bool (*)(const QCalendarWidget*, QMetaMethod*);
-    using QCalendarWidget_GetDecodedMetricF_Callback = double (*)(const QCalendarWidget*, int, int);
+    using QCalendarWidget::create;
+    using QCalendarWidget::destroy;
+    using QCalendarWidget::focusNextChild;
+    using QCalendarWidget::focusPreviousChild;
+    using QCalendarWidget::getDecodedMetricF;
+    using QCalendarWidget::isSignalConnected;
+    using QCalendarWidget::receivers;
+    using QCalendarWidget::sender;
+    using QCalendarWidget::senderSignalIndex;
+    using QCalendarWidget::updateCell;
+    using QCalendarWidget::updateCells;
+    using QCalendarWidget::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QCalendarWidget_MetaObject_Callback qcalendarwidget_metaobject_callback = nullptr;
     QCalendarWidget_Metacast_Callback qcalendarwidget_metacast_callback = nullptr;
@@ -134,227 +129,58 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
     QCalendarWidget_CustomEvent_Callback qcalendarwidget_customevent_callback = nullptr;
     QCalendarWidget_ConnectNotify_Callback qcalendarwidget_connectnotify_callback = nullptr;
     QCalendarWidget_DisconnectNotify_Callback qcalendarwidget_disconnectnotify_callback = nullptr;
-    QCalendarWidget_UpdateCell_Callback qcalendarwidget_updatecell_callback = nullptr;
-    QCalendarWidget_UpdateCells_Callback qcalendarwidget_updatecells_callback = nullptr;
-    QCalendarWidget_UpdateMicroFocus_Callback qcalendarwidget_updatemicrofocus_callback = nullptr;
-    QCalendarWidget_Create_Callback qcalendarwidget_create_callback = nullptr;
-    QCalendarWidget_Destroy_Callback qcalendarwidget_destroy_callback = nullptr;
-    QCalendarWidget_FocusNextChild_Callback qcalendarwidget_focusnextchild_callback = nullptr;
-    QCalendarWidget_FocusPreviousChild_Callback qcalendarwidget_focuspreviouschild_callback = nullptr;
-    QCalendarWidget_Sender_Callback qcalendarwidget_sender_callback = nullptr;
-    QCalendarWidget_SenderSignalIndex_Callback qcalendarwidget_sendersignalindex_callback = nullptr;
-    QCalendarWidget_Receivers_Callback qcalendarwidget_receivers_callback = nullptr;
-    QCalendarWidget_IsSignalConnected_Callback qcalendarwidget_issignalconnected_callback = nullptr;
-    QCalendarWidget_GetDecodedMetricF_Callback qcalendarwidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qcalendarwidget_metaobject_isbase = false;
-    mutable bool qcalendarwidget_metacast_isbase = false;
-    mutable bool qcalendarwidget_metacall_isbase = false;
-    mutable bool qcalendarwidget_sizehint_isbase = false;
-    mutable bool qcalendarwidget_minimumsizehint_isbase = false;
-    mutable bool qcalendarwidget_event_isbase = false;
-    mutable bool qcalendarwidget_eventfilter_isbase = false;
-    mutable bool qcalendarwidget_mousepressevent_isbase = false;
-    mutable bool qcalendarwidget_resizeevent_isbase = false;
-    mutable bool qcalendarwidget_keypressevent_isbase = false;
-    mutable bool qcalendarwidget_paintcell_isbase = false;
-    mutable bool qcalendarwidget_devtype_isbase = false;
-    mutable bool qcalendarwidget_setvisible_isbase = false;
-    mutable bool qcalendarwidget_heightforwidth_isbase = false;
-    mutable bool qcalendarwidget_hasheightforwidth_isbase = false;
-    mutable bool qcalendarwidget_paintengine_isbase = false;
-    mutable bool qcalendarwidget_mousereleaseevent_isbase = false;
-    mutable bool qcalendarwidget_mousedoubleclickevent_isbase = false;
-    mutable bool qcalendarwidget_mousemoveevent_isbase = false;
-    mutable bool qcalendarwidget_wheelevent_isbase = false;
-    mutable bool qcalendarwidget_keyreleaseevent_isbase = false;
-    mutable bool qcalendarwidget_focusinevent_isbase = false;
-    mutable bool qcalendarwidget_focusoutevent_isbase = false;
-    mutable bool qcalendarwidget_enterevent_isbase = false;
-    mutable bool qcalendarwidget_leaveevent_isbase = false;
-    mutable bool qcalendarwidget_paintevent_isbase = false;
-    mutable bool qcalendarwidget_moveevent_isbase = false;
-    mutable bool qcalendarwidget_closeevent_isbase = false;
-    mutable bool qcalendarwidget_contextmenuevent_isbase = false;
-    mutable bool qcalendarwidget_tabletevent_isbase = false;
-    mutable bool qcalendarwidget_actionevent_isbase = false;
-    mutable bool qcalendarwidget_dragenterevent_isbase = false;
-    mutable bool qcalendarwidget_dragmoveevent_isbase = false;
-    mutable bool qcalendarwidget_dragleaveevent_isbase = false;
-    mutable bool qcalendarwidget_dropevent_isbase = false;
-    mutable bool qcalendarwidget_showevent_isbase = false;
-    mutable bool qcalendarwidget_hideevent_isbase = false;
-    mutable bool qcalendarwidget_nativeevent_isbase = false;
-    mutable bool qcalendarwidget_changeevent_isbase = false;
-    mutable bool qcalendarwidget_metric_isbase = false;
-    mutable bool qcalendarwidget_initpainter_isbase = false;
-    mutable bool qcalendarwidget_redirected_isbase = false;
-    mutable bool qcalendarwidget_sharedpainter_isbase = false;
-    mutable bool qcalendarwidget_inputmethodevent_isbase = false;
-    mutable bool qcalendarwidget_inputmethodquery_isbase = false;
-    mutable bool qcalendarwidget_focusnextprevchild_isbase = false;
-    mutable bool qcalendarwidget_timerevent_isbase = false;
-    mutable bool qcalendarwidget_childevent_isbase = false;
-    mutable bool qcalendarwidget_customevent_isbase = false;
-    mutable bool qcalendarwidget_connectnotify_isbase = false;
-    mutable bool qcalendarwidget_disconnectnotify_isbase = false;
-    mutable bool qcalendarwidget_updatecell_isbase = false;
-    mutable bool qcalendarwidget_updatecells_isbase = false;
-    mutable bool qcalendarwidget_updatemicrofocus_isbase = false;
-    mutable bool qcalendarwidget_create_isbase = false;
-    mutable bool qcalendarwidget_destroy_isbase = false;
-    mutable bool qcalendarwidget_focusnextchild_isbase = false;
-    mutable bool qcalendarwidget_focuspreviouschild_isbase = false;
-    mutable bool qcalendarwidget_sender_isbase = false;
-    mutable bool qcalendarwidget_sendersignalindex_isbase = false;
-    mutable bool qcalendarwidget_receivers_isbase = false;
-    mutable bool qcalendarwidget_issignalconnected_isbase = false;
-    mutable bool qcalendarwidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QCalendarWidget {
+        using QCalendarWidget::actionEvent;
+        using QCalendarWidget::changeEvent;
+        using QCalendarWidget::childEvent;
+        using QCalendarWidget::closeEvent;
+        using QCalendarWidget::connectNotify;
+        using QCalendarWidget::contextMenuEvent;
+        using QCalendarWidget::customEvent;
+        using QCalendarWidget::disconnectNotify;
+        using QCalendarWidget::dragEnterEvent;
+        using QCalendarWidget::dragLeaveEvent;
+        using QCalendarWidget::dragMoveEvent;
+        using QCalendarWidget::dropEvent;
+        using QCalendarWidget::enterEvent;
+        using QCalendarWidget::event;
+        using QCalendarWidget::eventFilter;
+        using QCalendarWidget::focusInEvent;
+        using QCalendarWidget::focusNextPrevChild;
+        using QCalendarWidget::focusOutEvent;
+        using QCalendarWidget::hideEvent;
+        using QCalendarWidget::initPainter;
+        using QCalendarWidget::inputMethodEvent;
+        using QCalendarWidget::keyPressEvent;
+        using QCalendarWidget::keyReleaseEvent;
+        using QCalendarWidget::leaveEvent;
+        using QCalendarWidget::metric;
+        using QCalendarWidget::mouseDoubleClickEvent;
+        using QCalendarWidget::mouseMoveEvent;
+        using QCalendarWidget::mousePressEvent;
+        using QCalendarWidget::mouseReleaseEvent;
+        using QCalendarWidget::moveEvent;
+        using QCalendarWidget::nativeEvent;
+        using QCalendarWidget::paintCell;
+        using QCalendarWidget::paintEvent;
+        using QCalendarWidget::redirected;
+        using QCalendarWidget::resizeEvent;
+        using QCalendarWidget::sharedPainter;
+        using QCalendarWidget::showEvent;
+        using QCalendarWidget::tabletEvent;
+        using QCalendarWidget::timerEvent;
+        using QCalendarWidget::wheelEvent;
+    };
 
-  public:
     VirtualQCalendarWidget(QWidget* parent) : QCalendarWidget(parent) {};
     VirtualQCalendarWidget() : QCalendarWidget() {};
 
-    // Callback setters
-    inline void setQCalendarWidget_MetaObject_Callback(QCalendarWidget_MetaObject_Callback cb) { qcalendarwidget_metaobject_callback = cb; }
-    inline void setQCalendarWidget_Metacast_Callback(QCalendarWidget_Metacast_Callback cb) { qcalendarwidget_metacast_callback = cb; }
-    inline void setQCalendarWidget_Metacall_Callback(QCalendarWidget_Metacall_Callback cb) { qcalendarwidget_metacall_callback = cb; }
-    inline void setQCalendarWidget_SizeHint_Callback(QCalendarWidget_SizeHint_Callback cb) { qcalendarwidget_sizehint_callback = cb; }
-    inline void setQCalendarWidget_MinimumSizeHint_Callback(QCalendarWidget_MinimumSizeHint_Callback cb) { qcalendarwidget_minimumsizehint_callback = cb; }
-    inline void setQCalendarWidget_Event_Callback(QCalendarWidget_Event_Callback cb) { qcalendarwidget_event_callback = cb; }
-    inline void setQCalendarWidget_EventFilter_Callback(QCalendarWidget_EventFilter_Callback cb) { qcalendarwidget_eventfilter_callback = cb; }
-    inline void setQCalendarWidget_MousePressEvent_Callback(QCalendarWidget_MousePressEvent_Callback cb) { qcalendarwidget_mousepressevent_callback = cb; }
-    inline void setQCalendarWidget_ResizeEvent_Callback(QCalendarWidget_ResizeEvent_Callback cb) { qcalendarwidget_resizeevent_callback = cb; }
-    inline void setQCalendarWidget_KeyPressEvent_Callback(QCalendarWidget_KeyPressEvent_Callback cb) { qcalendarwidget_keypressevent_callback = cb; }
-    inline void setQCalendarWidget_PaintCell_Callback(QCalendarWidget_PaintCell_Callback cb) { qcalendarwidget_paintcell_callback = cb; }
-    inline void setQCalendarWidget_DevType_Callback(QCalendarWidget_DevType_Callback cb) { qcalendarwidget_devtype_callback = cb; }
-    inline void setQCalendarWidget_SetVisible_Callback(QCalendarWidget_SetVisible_Callback cb) { qcalendarwidget_setvisible_callback = cb; }
-    inline void setQCalendarWidget_HeightForWidth_Callback(QCalendarWidget_HeightForWidth_Callback cb) { qcalendarwidget_heightforwidth_callback = cb; }
-    inline void setQCalendarWidget_HasHeightForWidth_Callback(QCalendarWidget_HasHeightForWidth_Callback cb) { qcalendarwidget_hasheightforwidth_callback = cb; }
-    inline void setQCalendarWidget_PaintEngine_Callback(QCalendarWidget_PaintEngine_Callback cb) { qcalendarwidget_paintengine_callback = cb; }
-    inline void setQCalendarWidget_MouseReleaseEvent_Callback(QCalendarWidget_MouseReleaseEvent_Callback cb) { qcalendarwidget_mousereleaseevent_callback = cb; }
-    inline void setQCalendarWidget_MouseDoubleClickEvent_Callback(QCalendarWidget_MouseDoubleClickEvent_Callback cb) { qcalendarwidget_mousedoubleclickevent_callback = cb; }
-    inline void setQCalendarWidget_MouseMoveEvent_Callback(QCalendarWidget_MouseMoveEvent_Callback cb) { qcalendarwidget_mousemoveevent_callback = cb; }
-    inline void setQCalendarWidget_WheelEvent_Callback(QCalendarWidget_WheelEvent_Callback cb) { qcalendarwidget_wheelevent_callback = cb; }
-    inline void setQCalendarWidget_KeyReleaseEvent_Callback(QCalendarWidget_KeyReleaseEvent_Callback cb) { qcalendarwidget_keyreleaseevent_callback = cb; }
-    inline void setQCalendarWidget_FocusInEvent_Callback(QCalendarWidget_FocusInEvent_Callback cb) { qcalendarwidget_focusinevent_callback = cb; }
-    inline void setQCalendarWidget_FocusOutEvent_Callback(QCalendarWidget_FocusOutEvent_Callback cb) { qcalendarwidget_focusoutevent_callback = cb; }
-    inline void setQCalendarWidget_EnterEvent_Callback(QCalendarWidget_EnterEvent_Callback cb) { qcalendarwidget_enterevent_callback = cb; }
-    inline void setQCalendarWidget_LeaveEvent_Callback(QCalendarWidget_LeaveEvent_Callback cb) { qcalendarwidget_leaveevent_callback = cb; }
-    inline void setQCalendarWidget_PaintEvent_Callback(QCalendarWidget_PaintEvent_Callback cb) { qcalendarwidget_paintevent_callback = cb; }
-    inline void setQCalendarWidget_MoveEvent_Callback(QCalendarWidget_MoveEvent_Callback cb) { qcalendarwidget_moveevent_callback = cb; }
-    inline void setQCalendarWidget_CloseEvent_Callback(QCalendarWidget_CloseEvent_Callback cb) { qcalendarwidget_closeevent_callback = cb; }
-    inline void setQCalendarWidget_ContextMenuEvent_Callback(QCalendarWidget_ContextMenuEvent_Callback cb) { qcalendarwidget_contextmenuevent_callback = cb; }
-    inline void setQCalendarWidget_TabletEvent_Callback(QCalendarWidget_TabletEvent_Callback cb) { qcalendarwidget_tabletevent_callback = cb; }
-    inline void setQCalendarWidget_ActionEvent_Callback(QCalendarWidget_ActionEvent_Callback cb) { qcalendarwidget_actionevent_callback = cb; }
-    inline void setQCalendarWidget_DragEnterEvent_Callback(QCalendarWidget_DragEnterEvent_Callback cb) { qcalendarwidget_dragenterevent_callback = cb; }
-    inline void setQCalendarWidget_DragMoveEvent_Callback(QCalendarWidget_DragMoveEvent_Callback cb) { qcalendarwidget_dragmoveevent_callback = cb; }
-    inline void setQCalendarWidget_DragLeaveEvent_Callback(QCalendarWidget_DragLeaveEvent_Callback cb) { qcalendarwidget_dragleaveevent_callback = cb; }
-    inline void setQCalendarWidget_DropEvent_Callback(QCalendarWidget_DropEvent_Callback cb) { qcalendarwidget_dropevent_callback = cb; }
-    inline void setQCalendarWidget_ShowEvent_Callback(QCalendarWidget_ShowEvent_Callback cb) { qcalendarwidget_showevent_callback = cb; }
-    inline void setQCalendarWidget_HideEvent_Callback(QCalendarWidget_HideEvent_Callback cb) { qcalendarwidget_hideevent_callback = cb; }
-    inline void setQCalendarWidget_NativeEvent_Callback(QCalendarWidget_NativeEvent_Callback cb) { qcalendarwidget_nativeevent_callback = cb; }
-    inline void setQCalendarWidget_ChangeEvent_Callback(QCalendarWidget_ChangeEvent_Callback cb) { qcalendarwidget_changeevent_callback = cb; }
-    inline void setQCalendarWidget_Metric_Callback(QCalendarWidget_Metric_Callback cb) { qcalendarwidget_metric_callback = cb; }
-    inline void setQCalendarWidget_InitPainter_Callback(QCalendarWidget_InitPainter_Callback cb) { qcalendarwidget_initpainter_callback = cb; }
-    inline void setQCalendarWidget_Redirected_Callback(QCalendarWidget_Redirected_Callback cb) { qcalendarwidget_redirected_callback = cb; }
-    inline void setQCalendarWidget_SharedPainter_Callback(QCalendarWidget_SharedPainter_Callback cb) { qcalendarwidget_sharedpainter_callback = cb; }
-    inline void setQCalendarWidget_InputMethodEvent_Callback(QCalendarWidget_InputMethodEvent_Callback cb) { qcalendarwidget_inputmethodevent_callback = cb; }
-    inline void setQCalendarWidget_InputMethodQuery_Callback(QCalendarWidget_InputMethodQuery_Callback cb) { qcalendarwidget_inputmethodquery_callback = cb; }
-    inline void setQCalendarWidget_FocusNextPrevChild_Callback(QCalendarWidget_FocusNextPrevChild_Callback cb) { qcalendarwidget_focusnextprevchild_callback = cb; }
-    inline void setQCalendarWidget_TimerEvent_Callback(QCalendarWidget_TimerEvent_Callback cb) { qcalendarwidget_timerevent_callback = cb; }
-    inline void setQCalendarWidget_ChildEvent_Callback(QCalendarWidget_ChildEvent_Callback cb) { qcalendarwidget_childevent_callback = cb; }
-    inline void setQCalendarWidget_CustomEvent_Callback(QCalendarWidget_CustomEvent_Callback cb) { qcalendarwidget_customevent_callback = cb; }
-    inline void setQCalendarWidget_ConnectNotify_Callback(QCalendarWidget_ConnectNotify_Callback cb) { qcalendarwidget_connectnotify_callback = cb; }
-    inline void setQCalendarWidget_DisconnectNotify_Callback(QCalendarWidget_DisconnectNotify_Callback cb) { qcalendarwidget_disconnectnotify_callback = cb; }
-    inline void setQCalendarWidget_UpdateCell_Callback(QCalendarWidget_UpdateCell_Callback cb) { qcalendarwidget_updatecell_callback = cb; }
-    inline void setQCalendarWidget_UpdateCells_Callback(QCalendarWidget_UpdateCells_Callback cb) { qcalendarwidget_updatecells_callback = cb; }
-    inline void setQCalendarWidget_UpdateMicroFocus_Callback(QCalendarWidget_UpdateMicroFocus_Callback cb) { qcalendarwidget_updatemicrofocus_callback = cb; }
-    inline void setQCalendarWidget_Create_Callback(QCalendarWidget_Create_Callback cb) { qcalendarwidget_create_callback = cb; }
-    inline void setQCalendarWidget_Destroy_Callback(QCalendarWidget_Destroy_Callback cb) { qcalendarwidget_destroy_callback = cb; }
-    inline void setQCalendarWidget_FocusNextChild_Callback(QCalendarWidget_FocusNextChild_Callback cb) { qcalendarwidget_focusnextchild_callback = cb; }
-    inline void setQCalendarWidget_FocusPreviousChild_Callback(QCalendarWidget_FocusPreviousChild_Callback cb) { qcalendarwidget_focuspreviouschild_callback = cb; }
-    inline void setQCalendarWidget_Sender_Callback(QCalendarWidget_Sender_Callback cb) { qcalendarwidget_sender_callback = cb; }
-    inline void setQCalendarWidget_SenderSignalIndex_Callback(QCalendarWidget_SenderSignalIndex_Callback cb) { qcalendarwidget_sendersignalindex_callback = cb; }
-    inline void setQCalendarWidget_Receivers_Callback(QCalendarWidget_Receivers_Callback cb) { qcalendarwidget_receivers_callback = cb; }
-    inline void setQCalendarWidget_IsSignalConnected_Callback(QCalendarWidget_IsSignalConnected_Callback cb) { qcalendarwidget_issignalconnected_callback = cb; }
-    inline void setQCalendarWidget_GetDecodedMetricF_Callback(QCalendarWidget_GetDecodedMetricF_Callback cb) { qcalendarwidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQCalendarWidget_MetaObject_IsBase(bool value) const { qcalendarwidget_metaobject_isbase = value; }
-    inline void setQCalendarWidget_Metacast_IsBase(bool value) const { qcalendarwidget_metacast_isbase = value; }
-    inline void setQCalendarWidget_Metacall_IsBase(bool value) const { qcalendarwidget_metacall_isbase = value; }
-    inline void setQCalendarWidget_SizeHint_IsBase(bool value) const { qcalendarwidget_sizehint_isbase = value; }
-    inline void setQCalendarWidget_MinimumSizeHint_IsBase(bool value) const { qcalendarwidget_minimumsizehint_isbase = value; }
-    inline void setQCalendarWidget_Event_IsBase(bool value) const { qcalendarwidget_event_isbase = value; }
-    inline void setQCalendarWidget_EventFilter_IsBase(bool value) const { qcalendarwidget_eventfilter_isbase = value; }
-    inline void setQCalendarWidget_MousePressEvent_IsBase(bool value) const { qcalendarwidget_mousepressevent_isbase = value; }
-    inline void setQCalendarWidget_ResizeEvent_IsBase(bool value) const { qcalendarwidget_resizeevent_isbase = value; }
-    inline void setQCalendarWidget_KeyPressEvent_IsBase(bool value) const { qcalendarwidget_keypressevent_isbase = value; }
-    inline void setQCalendarWidget_PaintCell_IsBase(bool value) const { qcalendarwidget_paintcell_isbase = value; }
-    inline void setQCalendarWidget_DevType_IsBase(bool value) const { qcalendarwidget_devtype_isbase = value; }
-    inline void setQCalendarWidget_SetVisible_IsBase(bool value) const { qcalendarwidget_setvisible_isbase = value; }
-    inline void setQCalendarWidget_HeightForWidth_IsBase(bool value) const { qcalendarwidget_heightforwidth_isbase = value; }
-    inline void setQCalendarWidget_HasHeightForWidth_IsBase(bool value) const { qcalendarwidget_hasheightforwidth_isbase = value; }
-    inline void setQCalendarWidget_PaintEngine_IsBase(bool value) const { qcalendarwidget_paintengine_isbase = value; }
-    inline void setQCalendarWidget_MouseReleaseEvent_IsBase(bool value) const { qcalendarwidget_mousereleaseevent_isbase = value; }
-    inline void setQCalendarWidget_MouseDoubleClickEvent_IsBase(bool value) const { qcalendarwidget_mousedoubleclickevent_isbase = value; }
-    inline void setQCalendarWidget_MouseMoveEvent_IsBase(bool value) const { qcalendarwidget_mousemoveevent_isbase = value; }
-    inline void setQCalendarWidget_WheelEvent_IsBase(bool value) const { qcalendarwidget_wheelevent_isbase = value; }
-    inline void setQCalendarWidget_KeyReleaseEvent_IsBase(bool value) const { qcalendarwidget_keyreleaseevent_isbase = value; }
-    inline void setQCalendarWidget_FocusInEvent_IsBase(bool value) const { qcalendarwidget_focusinevent_isbase = value; }
-    inline void setQCalendarWidget_FocusOutEvent_IsBase(bool value) const { qcalendarwidget_focusoutevent_isbase = value; }
-    inline void setQCalendarWidget_EnterEvent_IsBase(bool value) const { qcalendarwidget_enterevent_isbase = value; }
-    inline void setQCalendarWidget_LeaveEvent_IsBase(bool value) const { qcalendarwidget_leaveevent_isbase = value; }
-    inline void setQCalendarWidget_PaintEvent_IsBase(bool value) const { qcalendarwidget_paintevent_isbase = value; }
-    inline void setQCalendarWidget_MoveEvent_IsBase(bool value) const { qcalendarwidget_moveevent_isbase = value; }
-    inline void setQCalendarWidget_CloseEvent_IsBase(bool value) const { qcalendarwidget_closeevent_isbase = value; }
-    inline void setQCalendarWidget_ContextMenuEvent_IsBase(bool value) const { qcalendarwidget_contextmenuevent_isbase = value; }
-    inline void setQCalendarWidget_TabletEvent_IsBase(bool value) const { qcalendarwidget_tabletevent_isbase = value; }
-    inline void setQCalendarWidget_ActionEvent_IsBase(bool value) const { qcalendarwidget_actionevent_isbase = value; }
-    inline void setQCalendarWidget_DragEnterEvent_IsBase(bool value) const { qcalendarwidget_dragenterevent_isbase = value; }
-    inline void setQCalendarWidget_DragMoveEvent_IsBase(bool value) const { qcalendarwidget_dragmoveevent_isbase = value; }
-    inline void setQCalendarWidget_DragLeaveEvent_IsBase(bool value) const { qcalendarwidget_dragleaveevent_isbase = value; }
-    inline void setQCalendarWidget_DropEvent_IsBase(bool value) const { qcalendarwidget_dropevent_isbase = value; }
-    inline void setQCalendarWidget_ShowEvent_IsBase(bool value) const { qcalendarwidget_showevent_isbase = value; }
-    inline void setQCalendarWidget_HideEvent_IsBase(bool value) const { qcalendarwidget_hideevent_isbase = value; }
-    inline void setQCalendarWidget_NativeEvent_IsBase(bool value) const { qcalendarwidget_nativeevent_isbase = value; }
-    inline void setQCalendarWidget_ChangeEvent_IsBase(bool value) const { qcalendarwidget_changeevent_isbase = value; }
-    inline void setQCalendarWidget_Metric_IsBase(bool value) const { qcalendarwidget_metric_isbase = value; }
-    inline void setQCalendarWidget_InitPainter_IsBase(bool value) const { qcalendarwidget_initpainter_isbase = value; }
-    inline void setQCalendarWidget_Redirected_IsBase(bool value) const { qcalendarwidget_redirected_isbase = value; }
-    inline void setQCalendarWidget_SharedPainter_IsBase(bool value) const { qcalendarwidget_sharedpainter_isbase = value; }
-    inline void setQCalendarWidget_InputMethodEvent_IsBase(bool value) const { qcalendarwidget_inputmethodevent_isbase = value; }
-    inline void setQCalendarWidget_InputMethodQuery_IsBase(bool value) const { qcalendarwidget_inputmethodquery_isbase = value; }
-    inline void setQCalendarWidget_FocusNextPrevChild_IsBase(bool value) const { qcalendarwidget_focusnextprevchild_isbase = value; }
-    inline void setQCalendarWidget_TimerEvent_IsBase(bool value) const { qcalendarwidget_timerevent_isbase = value; }
-    inline void setQCalendarWidget_ChildEvent_IsBase(bool value) const { qcalendarwidget_childevent_isbase = value; }
-    inline void setQCalendarWidget_CustomEvent_IsBase(bool value) const { qcalendarwidget_customevent_isbase = value; }
-    inline void setQCalendarWidget_ConnectNotify_IsBase(bool value) const { qcalendarwidget_connectnotify_isbase = value; }
-    inline void setQCalendarWidget_DisconnectNotify_IsBase(bool value) const { qcalendarwidget_disconnectnotify_isbase = value; }
-    inline void setQCalendarWidget_UpdateCell_IsBase(bool value) const { qcalendarwidget_updatecell_isbase = value; }
-    inline void setQCalendarWidget_UpdateCells_IsBase(bool value) const { qcalendarwidget_updatecells_isbase = value; }
-    inline void setQCalendarWidget_UpdateMicroFocus_IsBase(bool value) const { qcalendarwidget_updatemicrofocus_isbase = value; }
-    inline void setQCalendarWidget_Create_IsBase(bool value) const { qcalendarwidget_create_isbase = value; }
-    inline void setQCalendarWidget_Destroy_IsBase(bool value) const { qcalendarwidget_destroy_isbase = value; }
-    inline void setQCalendarWidget_FocusNextChild_IsBase(bool value) const { qcalendarwidget_focusnextchild_isbase = value; }
-    inline void setQCalendarWidget_FocusPreviousChild_IsBase(bool value) const { qcalendarwidget_focuspreviouschild_isbase = value; }
-    inline void setQCalendarWidget_Sender_IsBase(bool value) const { qcalendarwidget_sender_isbase = value; }
-    inline void setQCalendarWidget_SenderSignalIndex_IsBase(bool value) const { qcalendarwidget_sendersignalindex_isbase = value; }
-    inline void setQCalendarWidget_Receivers_IsBase(bool value) const { qcalendarwidget_receivers_isbase = value; }
-    inline void setQCalendarWidget_IsSignalConnected_IsBase(bool value) const { qcalendarwidget_issignalconnected_isbase = value; }
-    inline void setQCalendarWidget_GetDecodedMetricF_IsBase(bool value) const { qcalendarwidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qcalendarwidget_metaobject_isbase) {
-            qcalendarwidget_metaobject_isbase = false;
-            return QCalendarWidget::metaObject();
-        }
-        auto metaobject_cb = qcalendarwidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qcalendarwidget_metaobject_callback) {
+            QMetaObject* callback_ret = qcalendarwidget_metaobject_callback(this);
             return callback_ret;
         }
         return QCalendarWidget::metaObject();
@@ -362,14 +188,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qcalendarwidget_metacast_isbase) {
-            qcalendarwidget_metacast_isbase = false;
-            return QCalendarWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = qcalendarwidget_metacast_callback;
-        if (metacast_cb) {
+        if (qcalendarwidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qcalendarwidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QCalendarWidget::qt_metacast(param1);
@@ -377,16 +198,11 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qcalendarwidget_metacall_isbase) {
-            qcalendarwidget_metacall_isbase = false;
-            return QCalendarWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qcalendarwidget_metacall_callback;
-        if (metacall_cb) {
+        if (qcalendarwidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qcalendarwidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QCalendarWidget::qt_metacall(param1, param2, param3);
@@ -394,13 +210,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qcalendarwidget_sizehint_isbase) {
-            qcalendarwidget_sizehint_isbase = false;
-            return QCalendarWidget::sizeHint();
-        }
-        auto sizehint_cb = qcalendarwidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qcalendarwidget_sizehint_callback) {
+            QSize* callback_ret = qcalendarwidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -410,13 +221,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qcalendarwidget_minimumsizehint_isbase) {
-            qcalendarwidget_minimumsizehint_isbase = false;
-            return QCalendarWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qcalendarwidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qcalendarwidget_minimumsizehint_callback) {
+            QSize* callback_ret = qcalendarwidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -426,14 +232,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qcalendarwidget_event_isbase) {
-            qcalendarwidget_event_isbase = false;
-            return QCalendarWidget::event(event);
-        }
-        auto event_cb = qcalendarwidget_event_callback;
-        if (event_cb) {
+        if (qcalendarwidget_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qcalendarwidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return QCalendarWidget::event(event);
@@ -441,15 +242,10 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qcalendarwidget_eventfilter_isbase) {
-            qcalendarwidget_eventfilter_isbase = false;
-            return QCalendarWidget::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qcalendarwidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qcalendarwidget_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qcalendarwidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QCalendarWidget::eventFilter(watched, event);
@@ -457,15 +253,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qcalendarwidget_mousepressevent_isbase) {
-            qcalendarwidget_mousepressevent_isbase = false;
-            QCalendarWidget::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qcalendarwidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qcalendarwidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qcalendarwidget_mousepressevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::mousePressEvent(event);
@@ -473,15 +263,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qcalendarwidget_resizeevent_isbase) {
-            qcalendarwidget_resizeevent_isbase = false;
-            QCalendarWidget::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qcalendarwidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qcalendarwidget_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qcalendarwidget_resizeevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::resizeEvent(event);
@@ -489,15 +273,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qcalendarwidget_keypressevent_isbase) {
-            qcalendarwidget_keypressevent_isbase = false;
-            QCalendarWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qcalendarwidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qcalendarwidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qcalendarwidget_keypressevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::keyPressEvent(event);
@@ -505,19 +283,13 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintCell(QPainter* painter, const QRect& rect, QDate date) const override {
-        if (qcalendarwidget_paintcell_isbase) {
-            qcalendarwidget_paintcell_isbase = false;
-            QCalendarWidget::paintCell(painter, rect, date);
-            return;
-        }
-        auto paintcell_cb = qcalendarwidget_paintcell_callback;
-        if (paintcell_cb) {
+        if (qcalendarwidget_paintcell_callback) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval2 = const_cast<QRect*>(&rect_ret);
             QDate* cbval3 = new QDate(date);
-            paintcell_cb(this, cbval1, cbval2, cbval3);
+            qcalendarwidget_paintcell_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         QCalendarWidget::paintCell(painter, rect, date);
@@ -525,13 +297,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qcalendarwidget_devtype_isbase) {
-            qcalendarwidget_devtype_isbase = false;
-            return QCalendarWidget::devType();
-        }
-        auto devtype_cb = qcalendarwidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qcalendarwidget_devtype_callback) {
+            int callback_ret = qcalendarwidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QCalendarWidget::devType();
@@ -539,15 +306,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qcalendarwidget_setvisible_isbase) {
-            qcalendarwidget_setvisible_isbase = false;
-            QCalendarWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qcalendarwidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (qcalendarwidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qcalendarwidget_setvisible_callback(this, cbval1);
             return;
         }
         QCalendarWidget::setVisible(visible);
@@ -555,14 +316,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qcalendarwidget_heightforwidth_isbase) {
-            qcalendarwidget_heightforwidth_isbase = false;
-            return QCalendarWidget::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qcalendarwidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qcalendarwidget_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qcalendarwidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QCalendarWidget::heightForWidth(param1);
@@ -570,13 +326,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qcalendarwidget_hasheightforwidth_isbase) {
-            qcalendarwidget_hasheightforwidth_isbase = false;
-            return QCalendarWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qcalendarwidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qcalendarwidget_hasheightforwidth_callback) {
+            bool callback_ret = qcalendarwidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QCalendarWidget::hasHeightForWidth();
@@ -584,13 +335,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qcalendarwidget_paintengine_isbase) {
-            qcalendarwidget_paintengine_isbase = false;
-            return QCalendarWidget::paintEngine();
-        }
-        auto paintengine_cb = qcalendarwidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qcalendarwidget_paintengine_callback) {
+            QPaintEngine* callback_ret = qcalendarwidget_paintengine_callback(this);
             return callback_ret;
         }
         return QCalendarWidget::paintEngine();
@@ -598,15 +344,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qcalendarwidget_mousereleaseevent_isbase) {
-            qcalendarwidget_mousereleaseevent_isbase = false;
-            QCalendarWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qcalendarwidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qcalendarwidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qcalendarwidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::mouseReleaseEvent(event);
@@ -614,15 +354,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qcalendarwidget_mousedoubleclickevent_isbase) {
-            qcalendarwidget_mousedoubleclickevent_isbase = false;
-            QCalendarWidget::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qcalendarwidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qcalendarwidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qcalendarwidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::mouseDoubleClickEvent(event);
@@ -630,15 +364,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qcalendarwidget_mousemoveevent_isbase) {
-            qcalendarwidget_mousemoveevent_isbase = false;
-            QCalendarWidget::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qcalendarwidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qcalendarwidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qcalendarwidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::mouseMoveEvent(event);
@@ -646,15 +374,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qcalendarwidget_wheelevent_isbase) {
-            qcalendarwidget_wheelevent_isbase = false;
-            QCalendarWidget::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qcalendarwidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qcalendarwidget_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qcalendarwidget_wheelevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::wheelEvent(event);
@@ -662,15 +384,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qcalendarwidget_keyreleaseevent_isbase) {
-            qcalendarwidget_keyreleaseevent_isbase = false;
-            QCalendarWidget::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qcalendarwidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qcalendarwidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qcalendarwidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::keyReleaseEvent(event);
@@ -678,15 +394,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qcalendarwidget_focusinevent_isbase) {
-            qcalendarwidget_focusinevent_isbase = false;
-            QCalendarWidget::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qcalendarwidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qcalendarwidget_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qcalendarwidget_focusinevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::focusInEvent(event);
@@ -694,15 +404,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qcalendarwidget_focusoutevent_isbase) {
-            qcalendarwidget_focusoutevent_isbase = false;
-            QCalendarWidget::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qcalendarwidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qcalendarwidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qcalendarwidget_focusoutevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::focusOutEvent(event);
@@ -710,15 +414,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qcalendarwidget_enterevent_isbase) {
-            qcalendarwidget_enterevent_isbase = false;
-            QCalendarWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qcalendarwidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (qcalendarwidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qcalendarwidget_enterevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::enterEvent(event);
@@ -726,15 +424,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qcalendarwidget_leaveevent_isbase) {
-            qcalendarwidget_leaveevent_isbase = false;
-            QCalendarWidget::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qcalendarwidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qcalendarwidget_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qcalendarwidget_leaveevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::leaveEvent(event);
@@ -742,15 +434,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qcalendarwidget_paintevent_isbase) {
-            qcalendarwidget_paintevent_isbase = false;
-            QCalendarWidget::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qcalendarwidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (qcalendarwidget_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qcalendarwidget_paintevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::paintEvent(event);
@@ -758,15 +444,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qcalendarwidget_moveevent_isbase) {
-            qcalendarwidget_moveevent_isbase = false;
-            QCalendarWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qcalendarwidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (qcalendarwidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qcalendarwidget_moveevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::moveEvent(event);
@@ -774,15 +454,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qcalendarwidget_closeevent_isbase) {
-            qcalendarwidget_closeevent_isbase = false;
-            QCalendarWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qcalendarwidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (qcalendarwidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qcalendarwidget_closeevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::closeEvent(event);
@@ -790,15 +464,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qcalendarwidget_contextmenuevent_isbase) {
-            qcalendarwidget_contextmenuevent_isbase = false;
-            QCalendarWidget::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qcalendarwidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qcalendarwidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qcalendarwidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::contextMenuEvent(event);
@@ -806,15 +474,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qcalendarwidget_tabletevent_isbase) {
-            qcalendarwidget_tabletevent_isbase = false;
-            QCalendarWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qcalendarwidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qcalendarwidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qcalendarwidget_tabletevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::tabletEvent(event);
@@ -822,15 +484,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qcalendarwidget_actionevent_isbase) {
-            qcalendarwidget_actionevent_isbase = false;
-            QCalendarWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qcalendarwidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (qcalendarwidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qcalendarwidget_actionevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::actionEvent(event);
@@ -838,15 +494,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qcalendarwidget_dragenterevent_isbase) {
-            qcalendarwidget_dragenterevent_isbase = false;
-            QCalendarWidget::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qcalendarwidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qcalendarwidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qcalendarwidget_dragenterevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::dragEnterEvent(event);
@@ -854,15 +504,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qcalendarwidget_dragmoveevent_isbase) {
-            qcalendarwidget_dragmoveevent_isbase = false;
-            QCalendarWidget::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qcalendarwidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qcalendarwidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qcalendarwidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::dragMoveEvent(event);
@@ -870,15 +514,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qcalendarwidget_dragleaveevent_isbase) {
-            qcalendarwidget_dragleaveevent_isbase = false;
-            QCalendarWidget::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qcalendarwidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qcalendarwidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qcalendarwidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::dragLeaveEvent(event);
@@ -886,15 +524,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qcalendarwidget_dropevent_isbase) {
-            qcalendarwidget_dropevent_isbase = false;
-            QCalendarWidget::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qcalendarwidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (qcalendarwidget_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qcalendarwidget_dropevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::dropEvent(event);
@@ -902,15 +534,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qcalendarwidget_showevent_isbase) {
-            qcalendarwidget_showevent_isbase = false;
-            QCalendarWidget::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qcalendarwidget_showevent_callback;
-        if (showevent_cb) {
+        if (qcalendarwidget_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qcalendarwidget_showevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::showEvent(event);
@@ -918,15 +544,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qcalendarwidget_hideevent_isbase) {
-            qcalendarwidget_hideevent_isbase = false;
-            QCalendarWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qcalendarwidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (qcalendarwidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qcalendarwidget_hideevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::hideEvent(event);
@@ -934,12 +554,7 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qcalendarwidget_nativeevent_isbase) {
-            qcalendarwidget_nativeevent_isbase = false;
-            return QCalendarWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qcalendarwidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qcalendarwidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -949,7 +564,7 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qcalendarwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -958,15 +573,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qcalendarwidget_changeevent_isbase) {
-            qcalendarwidget_changeevent_isbase = false;
-            QCalendarWidget::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qcalendarwidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (qcalendarwidget_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qcalendarwidget_changeevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::changeEvent(param1);
@@ -974,14 +583,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qcalendarwidget_metric_isbase) {
-            qcalendarwidget_metric_isbase = false;
-            return QCalendarWidget::metric(param1);
-        }
-        auto metric_cb = qcalendarwidget_metric_callback;
-        if (metric_cb) {
+        if (qcalendarwidget_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qcalendarwidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QCalendarWidget::metric(param1);
@@ -989,15 +593,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qcalendarwidget_initpainter_isbase) {
-            qcalendarwidget_initpainter_isbase = false;
-            QCalendarWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qcalendarwidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (qcalendarwidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qcalendarwidget_initpainter_callback(this, cbval1);
             return;
         }
         QCalendarWidget::initPainter(painter);
@@ -1005,14 +603,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qcalendarwidget_redirected_isbase) {
-            qcalendarwidget_redirected_isbase = false;
-            return QCalendarWidget::redirected(offset);
-        }
-        auto redirected_cb = qcalendarwidget_redirected_callback;
-        if (redirected_cb) {
+        if (qcalendarwidget_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qcalendarwidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QCalendarWidget::redirected(offset);
@@ -1020,13 +613,8 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qcalendarwidget_sharedpainter_isbase) {
-            qcalendarwidget_sharedpainter_isbase = false;
-            return QCalendarWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = qcalendarwidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qcalendarwidget_sharedpainter_callback) {
+            QPainter* callback_ret = qcalendarwidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return QCalendarWidget::sharedPainter();
@@ -1034,15 +622,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qcalendarwidget_inputmethodevent_isbase) {
-            qcalendarwidget_inputmethodevent_isbase = false;
-            QCalendarWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qcalendarwidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qcalendarwidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qcalendarwidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::inputMethodEvent(param1);
@@ -1050,14 +632,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qcalendarwidget_inputmethodquery_isbase) {
-            qcalendarwidget_inputmethodquery_isbase = false;
-            return QCalendarWidget::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qcalendarwidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qcalendarwidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qcalendarwidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1067,14 +644,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qcalendarwidget_focusnextprevchild_isbase) {
-            qcalendarwidget_focusnextprevchild_isbase = false;
-            return QCalendarWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qcalendarwidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qcalendarwidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qcalendarwidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QCalendarWidget::focusNextPrevChild(next);
@@ -1082,15 +654,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qcalendarwidget_timerevent_isbase) {
-            qcalendarwidget_timerevent_isbase = false;
-            QCalendarWidget::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qcalendarwidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (qcalendarwidget_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qcalendarwidget_timerevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::timerEvent(event);
@@ -1098,15 +664,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qcalendarwidget_childevent_isbase) {
-            qcalendarwidget_childevent_isbase = false;
-            QCalendarWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qcalendarwidget_childevent_callback;
-        if (childevent_cb) {
+        if (qcalendarwidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qcalendarwidget_childevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::childEvent(event);
@@ -1114,15 +674,9 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qcalendarwidget_customevent_isbase) {
-            qcalendarwidget_customevent_isbase = false;
-            QCalendarWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qcalendarwidget_customevent_callback;
-        if (customevent_cb) {
+        if (qcalendarwidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qcalendarwidget_customevent_callback(this, cbval1);
             return;
         }
         QCalendarWidget::customEvent(event);
@@ -1130,17 +684,11 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qcalendarwidget_connectnotify_isbase) {
-            qcalendarwidget_connectnotify_isbase = false;
-            QCalendarWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qcalendarwidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qcalendarwidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qcalendarwidget_connectnotify_callback(this, cbval1);
             return;
         }
         QCalendarWidget::connectNotify(signal);
@@ -1148,307 +696,57 @@ class VirtualQCalendarWidget final : public QCalendarWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qcalendarwidget_disconnectnotify_isbase) {
-            qcalendarwidget_disconnectnotify_isbase = false;
-            QCalendarWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qcalendarwidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qcalendarwidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qcalendarwidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         QCalendarWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateCell(QDate date) {
-        if (qcalendarwidget_updatecell_isbase) {
-            qcalendarwidget_updatecell_isbase = false;
-            QCalendarWidget::updateCell(date);
-            return;
-        }
-        auto updatecell_cb = qcalendarwidget_updatecell_callback;
-        if (updatecell_cb) {
-            QDate* cbval1 = new QDate(date);
-            updatecell_cb(this, cbval1);
-            return;
-        }
-        QCalendarWidget::updateCell(date);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateCells() {
-        if (qcalendarwidget_updatecells_isbase) {
-            qcalendarwidget_updatecells_isbase = false;
-            QCalendarWidget::updateCells();
-            return;
-        }
-        auto updatecells_cb = qcalendarwidget_updatecells_callback;
-        if (updatecells_cb) {
-            updatecells_cb();
-            return;
-        }
-        QCalendarWidget::updateCells();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qcalendarwidget_updatemicrofocus_isbase) {
-            qcalendarwidget_updatemicrofocus_isbase = false;
-            QCalendarWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qcalendarwidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QCalendarWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qcalendarwidget_create_isbase) {
-            qcalendarwidget_create_isbase = false;
-            QCalendarWidget::create();
-            return;
-        }
-        auto create_cb = qcalendarwidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QCalendarWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qcalendarwidget_destroy_isbase) {
-            qcalendarwidget_destroy_isbase = false;
-            QCalendarWidget::destroy();
-            return;
-        }
-        auto destroy_cb = qcalendarwidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QCalendarWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qcalendarwidget_focusnextchild_isbase) {
-            qcalendarwidget_focusnextchild_isbase = false;
-            return QCalendarWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = qcalendarwidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QCalendarWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qcalendarwidget_focuspreviouschild_isbase) {
-            qcalendarwidget_focuspreviouschild_isbase = false;
-            return QCalendarWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qcalendarwidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QCalendarWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qcalendarwidget_sender_isbase) {
-            qcalendarwidget_sender_isbase = false;
-            return QCalendarWidget::sender();
-        }
-        auto sender_cb = qcalendarwidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QCalendarWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qcalendarwidget_sendersignalindex_isbase) {
-            qcalendarwidget_sendersignalindex_isbase = false;
-            return QCalendarWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qcalendarwidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QCalendarWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qcalendarwidget_receivers_isbase) {
-            qcalendarwidget_receivers_isbase = false;
-            return QCalendarWidget::receivers(signal);
-        }
-        auto receivers_cb = qcalendarwidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QCalendarWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qcalendarwidget_issignalconnected_isbase) {
-            qcalendarwidget_issignalconnected_isbase = false;
-            return QCalendarWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qcalendarwidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QCalendarWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qcalendarwidget_getdecodedmetricf_isbase) {
-            qcalendarwidget_getdecodedmetricf_isbase = false;
-            return QCalendarWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qcalendarwidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QCalendarWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool QCalendarWidget_Event(QCalendarWidget* self, QEvent* event);
     friend bool QCalendarWidget_SuperEvent(QCalendarWidget* self, QEvent* event);
-    friend bool QCalendarWidget_EventFilter(QCalendarWidget* self, QObject* watched, QEvent* event);
     friend bool QCalendarWidget_SuperEventFilter(QCalendarWidget* self, QObject* watched, QEvent* event);
-    friend void QCalendarWidget_MousePressEvent(QCalendarWidget* self, QMouseEvent* event);
     friend void QCalendarWidget_SuperMousePressEvent(QCalendarWidget* self, QMouseEvent* event);
-    friend void QCalendarWidget_ResizeEvent(QCalendarWidget* self, QResizeEvent* event);
     friend void QCalendarWidget_SuperResizeEvent(QCalendarWidget* self, QResizeEvent* event);
-    friend void QCalendarWidget_KeyPressEvent(QCalendarWidget* self, QKeyEvent* event);
     friend void QCalendarWidget_SuperKeyPressEvent(QCalendarWidget* self, QKeyEvent* event);
-    friend void QCalendarWidget_PaintCell(const QCalendarWidget* self, QPainter* painter, const QRect* rect, QDate* date);
     friend void QCalendarWidget_SuperPaintCell(const QCalendarWidget* self, QPainter* painter, const QRect* rect, QDate* date);
-    friend void QCalendarWidget_MouseReleaseEvent(QCalendarWidget* self, QMouseEvent* event);
     friend void QCalendarWidget_SuperMouseReleaseEvent(QCalendarWidget* self, QMouseEvent* event);
-    friend void QCalendarWidget_MouseDoubleClickEvent(QCalendarWidget* self, QMouseEvent* event);
     friend void QCalendarWidget_SuperMouseDoubleClickEvent(QCalendarWidget* self, QMouseEvent* event);
-    friend void QCalendarWidget_MouseMoveEvent(QCalendarWidget* self, QMouseEvent* event);
     friend void QCalendarWidget_SuperMouseMoveEvent(QCalendarWidget* self, QMouseEvent* event);
-    friend void QCalendarWidget_WheelEvent(QCalendarWidget* self, QWheelEvent* event);
     friend void QCalendarWidget_SuperWheelEvent(QCalendarWidget* self, QWheelEvent* event);
-    friend void QCalendarWidget_KeyReleaseEvent(QCalendarWidget* self, QKeyEvent* event);
     friend void QCalendarWidget_SuperKeyReleaseEvent(QCalendarWidget* self, QKeyEvent* event);
-    friend void QCalendarWidget_FocusInEvent(QCalendarWidget* self, QFocusEvent* event);
     friend void QCalendarWidget_SuperFocusInEvent(QCalendarWidget* self, QFocusEvent* event);
-    friend void QCalendarWidget_FocusOutEvent(QCalendarWidget* self, QFocusEvent* event);
     friend void QCalendarWidget_SuperFocusOutEvent(QCalendarWidget* self, QFocusEvent* event);
-    friend void QCalendarWidget_EnterEvent(QCalendarWidget* self, QEnterEvent* event);
     friend void QCalendarWidget_SuperEnterEvent(QCalendarWidget* self, QEnterEvent* event);
-    friend void QCalendarWidget_LeaveEvent(QCalendarWidget* self, QEvent* event);
     friend void QCalendarWidget_SuperLeaveEvent(QCalendarWidget* self, QEvent* event);
-    friend void QCalendarWidget_PaintEvent(QCalendarWidget* self, QPaintEvent* event);
     friend void QCalendarWidget_SuperPaintEvent(QCalendarWidget* self, QPaintEvent* event);
-    friend void QCalendarWidget_MoveEvent(QCalendarWidget* self, QMoveEvent* event);
     friend void QCalendarWidget_SuperMoveEvent(QCalendarWidget* self, QMoveEvent* event);
-    friend void QCalendarWidget_CloseEvent(QCalendarWidget* self, QCloseEvent* event);
     friend void QCalendarWidget_SuperCloseEvent(QCalendarWidget* self, QCloseEvent* event);
-    friend void QCalendarWidget_ContextMenuEvent(QCalendarWidget* self, QContextMenuEvent* event);
     friend void QCalendarWidget_SuperContextMenuEvent(QCalendarWidget* self, QContextMenuEvent* event);
-    friend void QCalendarWidget_TabletEvent(QCalendarWidget* self, QTabletEvent* event);
     friend void QCalendarWidget_SuperTabletEvent(QCalendarWidget* self, QTabletEvent* event);
-    friend void QCalendarWidget_ActionEvent(QCalendarWidget* self, QActionEvent* event);
     friend void QCalendarWidget_SuperActionEvent(QCalendarWidget* self, QActionEvent* event);
-    friend void QCalendarWidget_DragEnterEvent(QCalendarWidget* self, QDragEnterEvent* event);
     friend void QCalendarWidget_SuperDragEnterEvent(QCalendarWidget* self, QDragEnterEvent* event);
-    friend void QCalendarWidget_DragMoveEvent(QCalendarWidget* self, QDragMoveEvent* event);
     friend void QCalendarWidget_SuperDragMoveEvent(QCalendarWidget* self, QDragMoveEvent* event);
-    friend void QCalendarWidget_DragLeaveEvent(QCalendarWidget* self, QDragLeaveEvent* event);
     friend void QCalendarWidget_SuperDragLeaveEvent(QCalendarWidget* self, QDragLeaveEvent* event);
-    friend void QCalendarWidget_DropEvent(QCalendarWidget* self, QDropEvent* event);
     friend void QCalendarWidget_SuperDropEvent(QCalendarWidget* self, QDropEvent* event);
-    friend void QCalendarWidget_ShowEvent(QCalendarWidget* self, QShowEvent* event);
     friend void QCalendarWidget_SuperShowEvent(QCalendarWidget* self, QShowEvent* event);
-    friend void QCalendarWidget_HideEvent(QCalendarWidget* self, QHideEvent* event);
     friend void QCalendarWidget_SuperHideEvent(QCalendarWidget* self, QHideEvent* event);
-    friend bool QCalendarWidget_NativeEvent(QCalendarWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QCalendarWidget_SuperNativeEvent(QCalendarWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void QCalendarWidget_ChangeEvent(QCalendarWidget* self, QEvent* param1);
     friend void QCalendarWidget_SuperChangeEvent(QCalendarWidget* self, QEvent* param1);
-    friend int QCalendarWidget_Metric(const QCalendarWidget* self, int param1);
     friend int QCalendarWidget_SuperMetric(const QCalendarWidget* self, int param1);
-    friend void QCalendarWidget_InitPainter(const QCalendarWidget* self, QPainter* painter);
     friend void QCalendarWidget_SuperInitPainter(const QCalendarWidget* self, QPainter* painter);
-    friend QPaintDevice* QCalendarWidget_Redirected(const QCalendarWidget* self, QPoint* offset);
     friend QPaintDevice* QCalendarWidget_SuperRedirected(const QCalendarWidget* self, QPoint* offset);
-    friend QPainter* QCalendarWidget_SharedPainter(const QCalendarWidget* self);
     friend QPainter* QCalendarWidget_SuperSharedPainter(const QCalendarWidget* self);
-    friend void QCalendarWidget_InputMethodEvent(QCalendarWidget* self, QInputMethodEvent* param1);
     friend void QCalendarWidget_SuperInputMethodEvent(QCalendarWidget* self, QInputMethodEvent* param1);
-    friend bool QCalendarWidget_FocusNextPrevChild(QCalendarWidget* self, bool next);
     friend bool QCalendarWidget_SuperFocusNextPrevChild(QCalendarWidget* self, bool next);
-    friend void QCalendarWidget_TimerEvent(QCalendarWidget* self, QTimerEvent* event);
     friend void QCalendarWidget_SuperTimerEvent(QCalendarWidget* self, QTimerEvent* event);
-    friend void QCalendarWidget_ChildEvent(QCalendarWidget* self, QChildEvent* event);
     friend void QCalendarWidget_SuperChildEvent(QCalendarWidget* self, QChildEvent* event);
-    friend void QCalendarWidget_CustomEvent(QCalendarWidget* self, QEvent* event);
     friend void QCalendarWidget_SuperCustomEvent(QCalendarWidget* self, QEvent* event);
-    friend void QCalendarWidget_ConnectNotify(QCalendarWidget* self, const QMetaMethod* signal);
     friend void QCalendarWidget_SuperConnectNotify(QCalendarWidget* self, const QMetaMethod* signal);
-    friend void QCalendarWidget_DisconnectNotify(QCalendarWidget* self, const QMetaMethod* signal);
     friend void QCalendarWidget_SuperDisconnectNotify(QCalendarWidget* self, const QMetaMethod* signal);
-    friend void QCalendarWidget_UpdateCell(QCalendarWidget* self, QDate* date);
-    friend void QCalendarWidget_SuperUpdateCell(QCalendarWidget* self, QDate* date);
-    friend void QCalendarWidget_UpdateCells(QCalendarWidget* self);
-    friend void QCalendarWidget_SuperUpdateCells(QCalendarWidget* self);
-    friend void QCalendarWidget_UpdateMicroFocus(QCalendarWidget* self);
-    friend void QCalendarWidget_SuperUpdateMicroFocus(QCalendarWidget* self);
-    friend void QCalendarWidget_Create(QCalendarWidget* self);
-    friend void QCalendarWidget_SuperCreate(QCalendarWidget* self);
-    friend void QCalendarWidget_Destroy(QCalendarWidget* self);
-    friend void QCalendarWidget_SuperDestroy(QCalendarWidget* self);
-    friend bool QCalendarWidget_FocusNextChild(QCalendarWidget* self);
-    friend bool QCalendarWidget_SuperFocusNextChild(QCalendarWidget* self);
-    friend bool QCalendarWidget_FocusPreviousChild(QCalendarWidget* self);
-    friend bool QCalendarWidget_SuperFocusPreviousChild(QCalendarWidget* self);
-    friend QObject* QCalendarWidget_Sender(const QCalendarWidget* self);
-    friend QObject* QCalendarWidget_SuperSender(const QCalendarWidget* self);
-    friend int QCalendarWidget_SenderSignalIndex(const QCalendarWidget* self);
-    friend int QCalendarWidget_SuperSenderSignalIndex(const QCalendarWidget* self);
-    friend int QCalendarWidget_Receivers(const QCalendarWidget* self, const char* signal);
-    friend int QCalendarWidget_SuperReceivers(const QCalendarWidget* self, const char* signal);
-    friend bool QCalendarWidget_IsSignalConnected(const QCalendarWidget* self, const QMetaMethod* signal);
-    friend bool QCalendarWidget_SuperIsSignalConnected(const QCalendarWidget* self, const QMetaMethod* signal);
-    friend double QCalendarWidget_GetDecodedMetricF(const QCalendarWidget* self, int metricA, int metricB);
-    friend double QCalendarWidget_SuperGetDecodedMetricF(const QCalendarWidget* self, int metricA, int metricB);
 };
 
 #endif

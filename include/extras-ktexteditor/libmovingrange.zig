@@ -25,6 +25,8 @@ pub const KTextEditor__MovingRange = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setInsertBehaviors)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingRange `
@@ -40,6 +42,8 @@ pub const KTextEditor__MovingRange = extern struct {
     pub const InsertBehaviors = insertBehaviors;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#insertBehaviors)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -59,6 +63,8 @@ pub const KTextEditor__MovingRange = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setEmptyBehavior)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingRange `
@@ -74,6 +80,8 @@ pub const KTextEditor__MovingRange = extern struct {
     pub const EmptyBehavior = emptyBehavior;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#emptyBehavior)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -93,6 +101,8 @@ pub const KTextEditor__MovingRange = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#document)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingRange `
@@ -106,6 +116,8 @@ pub const KTextEditor__MovingRange = extern struct {
     pub const SetRange = setRange;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setRange)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -124,6 +136,8 @@ pub const KTextEditor__MovingRange = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#start)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingRange `
@@ -137,6 +151,8 @@ pub const KTextEditor__MovingRange = extern struct {
     pub const End = end;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#end)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -152,6 +168,8 @@ pub const KTextEditor__MovingRange = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#view)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingRange `
@@ -165,6 +183,8 @@ pub const KTextEditor__MovingRange = extern struct {
     pub const SetView = setView;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setView)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -183,6 +203,8 @@ pub const KTextEditor__MovingRange = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#attributeOnlyForViews)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingRange `
@@ -196,6 +218,8 @@ pub const KTextEditor__MovingRange = extern struct {
     pub const SetAttributeOnlyForViews = setAttributeOnlyForViews;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setAttributeOnlyForViews)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -213,6 +237,8 @@ pub const KTextEditor__MovingRange = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#feedback)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingRange `
@@ -226,6 +252,8 @@ pub const KTextEditor__MovingRange = extern struct {
     pub const SetFeedback = setFeedback;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setFeedback)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -244,6 +272,8 @@ pub const KTextEditor__MovingRange = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#zDepth)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingRange `
@@ -257,6 +287,8 @@ pub const KTextEditor__MovingRange = extern struct {
     pub const SetZDepth = setZDepth;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#setZDepth)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

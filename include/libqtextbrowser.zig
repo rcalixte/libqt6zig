@@ -151,9 +151,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QTextBrowser, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) QMetaObject) void {
         qtc.QTextBrowser_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -660,9 +660,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn onBackward(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+    pub fn onBackward(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
         qtc.QTextBrowser_OnBackward(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -708,9 +708,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn onForward(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+    pub fn onForward(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
         qtc.QTextBrowser_OnForward(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -756,9 +756,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn onHome(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+    pub fn onHome(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
         qtc.QTextBrowser_OnHome(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -804,9 +804,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn onReload(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+    pub fn onReload(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
         qtc.QTextBrowser_OnReload(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11243,9 +11243,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QMimeData `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) QMimeData `
     ///
-    pub fn onCreateMimeDataFromSelection(self: QTextBrowser, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) QMimeData) void {
         qtc.QTextBrowser_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11611,11 +11611,11 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) QSize) void {
         qtc.QTextBrowser_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11669,11 +11669,11 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) QSize) void {
         qtc.QTextBrowser_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11919,11 +11919,11 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) QSize) void {
         qtc.QTextBrowser_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12039,9 +12039,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QTextBrowser, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) i32) void {
         qtc.QTextBrowser_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12215,9 +12215,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QTextBrowser, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) bool) void {
         qtc.QTextBrowser_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12271,9 +12271,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QTextBrowser, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) QPaintEngine) void {
         qtc.QTextBrowser_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13021,9 +13021,9 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QTextBrowser, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) QPainter) void {
         qtc.QTextBrowser_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13295,46 +13295,6 @@ pub const QTextBrowser = extern struct {
         qtc.QTextBrowser_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
 
-    /// ### DEPRECATED: Use `superZoomInF` instead
-    ///
-    pub const SuperZoomInF = superZoomInF;
-
-    /// Inherited from QTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    /// ` range: f32 `
-    ///
-    pub fn superZoomInF(self: QTextBrowser, range: f32) void {
-        qtc.QTextBrowser_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `onZoomInF` instead
-    ///
-    pub const OnZoomInF = onZoomInF;
-
-    /// Inherited from QTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn (self: QTextBrowser, range: f32) callconv(.c) void `
-    ///
-    pub fn onZoomInF(self: QTextBrowser, callback: *const fn (QTextBrowser, f32) callconv(.c) void) void {
-        qtc.QTextBrowser_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setViewportMargins` instead
     ///
     pub const SetViewportMargins = setViewportMargins;
@@ -13361,52 +13321,6 @@ pub const QTextBrowser = extern struct {
         qtc.QTextBrowser_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QTextBrowser, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTextBrowser_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn (self: QTextBrowser, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QTextBrowser, callback: *const fn (QTextBrowser, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTextBrowser_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -13423,46 +13337,6 @@ pub const QTextBrowser = extern struct {
     ///
     pub fn viewportMargins(self: QTextBrowser) QMargins {
         return .{ .ptr = qtc.QTextBrowser_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    pub fn superViewportMargins(self: QTextBrowser) QMargins {
-        return .{ .ptr = qtc.QTextBrowser_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QTextBrowser, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QTextBrowser_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -13486,47 +13360,6 @@ pub const QTextBrowser = extern struct {
         qtc.QTextBrowser_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QTextBrowser, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QTextBrowser_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn (self: QTextBrowser, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QTextBrowser, callback: *const fn (QTextBrowser, QPainter) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -13543,44 +13376,6 @@ pub const QTextBrowser = extern struct {
     ///
     pub fn updateMicroFocus(self: QTextBrowser) void {
         qtc.QTextBrowser_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    pub fn superUpdateMicroFocus(self: QTextBrowser) void {
-        qtc.QTextBrowser_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -13601,44 +13396,6 @@ pub const QTextBrowser = extern struct {
         qtc.QTextBrowser_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    pub fn superCreate(self: QTextBrowser) void {
-        qtc.QTextBrowser_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -13655,44 +13412,6 @@ pub const QTextBrowser = extern struct {
     ///
     pub fn destroy(self: QTextBrowser) void {
         qtc.QTextBrowser_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    pub fn superDestroy(self: QTextBrowser) void {
-        qtc.QTextBrowser_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -13713,44 +13432,6 @@ pub const QTextBrowser = extern struct {
         return qtc.QTextBrowser_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    pub fn superFocusNextChild(self: QTextBrowser) bool {
-        return qtc.QTextBrowser_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QTextBrowser, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTextBrowser_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -13767,44 +13448,6 @@ pub const QTextBrowser = extern struct {
     ///
     pub fn focusPreviousChild(self: QTextBrowser) bool {
         return qtc.QTextBrowser_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    pub fn superFocusPreviousChild(self: QTextBrowser) bool {
-        return qtc.QTextBrowser_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QTextBrowser, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTextBrowser_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -13825,44 +13468,6 @@ pub const QTextBrowser = extern struct {
         return .{ .ptr = qtc.QTextBrowser_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    pub fn superSender(self: QTextBrowser) QObject {
-        return .{ .ptr = qtc.QTextBrowser_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QTextBrowser, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QTextBrowser_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13879,44 +13484,6 @@ pub const QTextBrowser = extern struct {
     ///
     pub fn senderSignalIndex(self: QTextBrowser) i32 {
         return qtc.QTextBrowser_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    pub fn superSenderSignalIndex(self: QTextBrowser) i32 {
-        return qtc.QTextBrowser_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QTextBrowser, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextBrowser_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13940,47 +13507,6 @@ pub const QTextBrowser = extern struct {
         return qtc.QTextBrowser_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QTextBrowser, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QTextBrowser_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn (self: QTextBrowser, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QTextBrowser, callback: *const fn (QTextBrowser, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextBrowser_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -14000,47 +13526,6 @@ pub const QTextBrowser = extern struct {
     pub fn isSignalConnected(self: QTextBrowser, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTextBrowser_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QTextBrowser, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QTextBrowser_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn (self: QTextBrowser, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QTextBrowser, callback: *const fn (QTextBrowser, QMetaMethod) callconv(.c) bool) void {
-        qtc.QTextBrowser_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -14063,48 +13548,6 @@ pub const QTextBrowser = extern struct {
     ///
     pub fn getDecodedMetricF(self: QTextBrowser, metricA: i32, metricB: i32) f64 {
         return qtc.QTextBrowser_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBrowser `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QTextBrowser, metricA: i32, metricB: i32) f64 {
-        return qtc.QTextBrowser_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTextBrowser`
-    ///
-    /// ` callback: *const fn (self: QTextBrowser, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QTextBrowser, callback: *const fn (QTextBrowser, i32, i32) callconv(.c) f64) void {
-        qtc.QTextBrowser_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

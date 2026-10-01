@@ -90,26 +90,6 @@ pub const Poppler__FormField = extern struct {
 
     pub const _is_Poppler__FormField = {};
 
-    /// ### DEPRECATED: Use `type0` instead
-    ///
-    pub const Type = type0;
-
-    pub const @"type" = type0;
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FormField.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__FormField `
-    ///
-    /// ## Returns:
-    ///
-    /// ` poppler_form_enums.FormType `
-    ///
-    pub fn type0(self: Poppler__FormField) i32 {
-        return qtc.Poppler__FormField_Type(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `rect` instead
     ///
     pub const Rect = rect;
@@ -2592,9 +2572,9 @@ pub const Poppler__AsyncObject = extern struct {
     ///
     /// ` self: Poppler__AsyncObject `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Poppler__AsyncObject) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Poppler__AsyncObject, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject) callconv(.c) QMetaObject) void {
         qtc.Poppler__AsyncObject_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4246,44 +4226,6 @@ pub const Poppler__AsyncObject = extern struct {
         return .{ .ptr = qtc.Poppler__AsyncObject_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__AsyncObject `
-    ///
-    pub fn superSender(self: Poppler__AsyncObject) QObject {
-        return .{ .ptr = qtc.Poppler__AsyncObject_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Poppler__AsyncObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Poppler__AsyncObject, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Poppler__AsyncObject_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4300,44 +4242,6 @@ pub const Poppler__AsyncObject = extern struct {
     ///
     pub fn senderSignalIndex(self: Poppler__AsyncObject) i32 {
         return qtc.Poppler__AsyncObject_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__AsyncObject `
-    ///
-    pub fn superSenderSignalIndex(self: Poppler__AsyncObject) i32 {
-        return qtc.Poppler__AsyncObject_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Poppler__AsyncObject`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Poppler__AsyncObject, callback: *const fn () callconv(.c) i32) void {
-        qtc.Poppler__AsyncObject_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4361,47 +4265,6 @@ pub const Poppler__AsyncObject = extern struct {
         return qtc.Poppler__AsyncObject_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__AsyncObject `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Poppler__AsyncObject, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Poppler__AsyncObject_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Poppler__AsyncObject`
-    ///
-    /// ` callback: *const fn (self: Poppler__AsyncObject, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Poppler__AsyncObject_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4421,47 +4284,6 @@ pub const Poppler__AsyncObject = extern struct {
     pub fn isSignalConnected(self: Poppler__AsyncObject, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Poppler__AsyncObject_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__AsyncObject `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Poppler__AsyncObject, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Poppler__AsyncObject_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Poppler__AsyncObject`
-    ///
-    /// ` callback: *const fn (self: Poppler__AsyncObject, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Poppler__AsyncObject, callback: *const fn (Poppler__AsyncObject, QMetaMethod) callconv(.c) bool) void {
-        qtc.Poppler__AsyncObject_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

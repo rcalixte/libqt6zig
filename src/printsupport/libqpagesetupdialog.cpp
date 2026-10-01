@@ -117,1802 +117,1259 @@ libqt_string QPageSetupDialog_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QPageSetupDialog_SuperMetaObject(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpagesetupdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->QPageSetupDialog::metaObject();
-    }
+    return (QMetaObject*)self->QPageSetupDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnMetaObject(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_MetaObject_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MetaObject_Callback>(slot));
+void QPageSetupDialog_OnMetaObject(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_metaobject_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPageSetupDialog_SuperMetacast(QPageSetupDialog* self, const char* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Metacast_IsBase(true);
-        return vqpagesetupdialog->qt_metacast(param1);
-    } else {
-        return self->QPageSetupDialog::qt_metacast(param1);
-    }
+    return self->QPageSetupDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnMetacast(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Metacast_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metacast_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_metacast_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPageSetupDialog_SuperMetacall(QPageSetupDialog* self, int param1, int param2, void** param3) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Metacall_IsBase(true);
-        return vqpagesetupdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPageSetupDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPageSetupDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnMetacall(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Metacall_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metacall_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_metacall_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPageSetupDialog_SuperExec(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Exec_IsBase(true);
-        return vqpagesetupdialog->exec();
-    } else {
-        return self->QPageSetupDialog::exec();
-    }
+    return self->QPageSetupDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnExec(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Exec_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Exec_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_exec_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Exec_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperDone(QPageSetupDialog* self, int result) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Done_IsBase(true);
-        vqpagesetupdialog->done(static_cast<int>(result));
-    } else {
-        self->QPageSetupDialog::done(static_cast<int>(result));
-    }
+    self->QPageSetupDialog::done(static_cast<int>(result));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnDone(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Done_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Done_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_done_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_SetVisible(QPageSetupDialog* self, bool visible) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setVisible(visible);
-    } else {
-        self->QPageSetupDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperSetVisible(QPageSetupDialog* self, bool visible) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_SetVisible_IsBase(true);
-        vqpagesetupdialog->setVisible(visible);
-    } else {
-        self->QPageSetupDialog::setVisible(visible);
-    }
+    self->QPageSetupDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnSetVisible(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_SetVisible_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_SetVisible_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_setvisible_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPageSetupDialog_SizeHint(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return new QSize(vqpagesetupdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQPageSetupDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QPageSetupDialog_SuperSizeHint(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_SizeHint_IsBase(true);
-        return new QSize(vqpagesetupdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQPageSetupDialog*)self)->sizeHint());
-    }
+    return new QSize(self->QPageSetupDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnSizeHint(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_SizeHint_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_SizeHint_Callback>(slot));
+void QPageSetupDialog_OnSizeHint(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_sizehint_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QPageSetupDialog_MinimumSizeHint(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return new QSize(vqpagesetupdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPageSetupDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QPageSetupDialog_SuperMinimumSizeHint(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vqpagesetupdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPageSetupDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QPageSetupDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnMinimumSizeHint(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MinimumSizeHint_Callback>(slot));
+void QPageSetupDialog_OnMinimumSizeHint(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_minimumsizehint_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_Open(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->open();
-    } else {
-        self->QPageSetupDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperOpen(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Open_IsBase(true);
-        vqpagesetupdialog->open();
-    } else {
-        self->QPageSetupDialog::open();
-    }
+    self->QPageSetupDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnOpen(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Open_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Open_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_open_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_Accept(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->accept();
-    } else {
-        self->QPageSetupDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperAccept(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Accept_IsBase(true);
-        vqpagesetupdialog->accept();
-    } else {
-        self->QPageSetupDialog::accept();
-    }
+    self->QPageSetupDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnAccept(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Accept_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Accept_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_accept_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_Reject(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->reject();
-    } else {
-        self->QPageSetupDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperReject(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Reject_IsBase(true);
-        vqpagesetupdialog->reject();
-    } else {
-        self->QPageSetupDialog::reject();
-    }
+    self->QPageSetupDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnReject(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Reject_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Reject_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_reject_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_KeyPressEvent(QPageSetupDialog* self, QKeyEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->keyPressEvent(param1);
     } else {
-        ((VirtualQPageSetupDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QPageSetupDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperKeyPressEvent(QPageSetupDialog* self, QKeyEvent* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_KeyPressEvent_IsBase(true);
-        vqpagesetupdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnKeyPressEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_keypressevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_CloseEvent(QPageSetupDialog* self, QCloseEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->closeEvent(param1);
     } else {
-        ((VirtualQPageSetupDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method QPageSetupDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperCloseEvent(QPageSetupDialog* self, QCloseEvent* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_CloseEvent_IsBase(true);
-        vqpagesetupdialog->closeEvent(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnCloseEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_CloseEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_CloseEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_closeevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_ShowEvent(QPageSetupDialog* self, QShowEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->showEvent(param1);
     } else {
-        ((VirtualQPageSetupDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method QPageSetupDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperShowEvent(QPageSetupDialog* self, QShowEvent* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_ShowEvent_IsBase(true);
-        vqpagesetupdialog->showEvent(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->showEvent(param1);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnShowEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_ShowEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ShowEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_showevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_ResizeEvent(QPageSetupDialog* self, QResizeEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->resizeEvent(param1);
     } else {
-        ((VirtualQPageSetupDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method QPageSetupDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperResizeEvent(QPageSetupDialog* self, QResizeEvent* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_ResizeEvent_IsBase(true);
-        vqpagesetupdialog->resizeEvent(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnResizeEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ResizeEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_resizeevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_ContextMenuEvent(QPageSetupDialog* self, QContextMenuEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualQPageSetupDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QPageSetupDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperContextMenuEvent(QPageSetupDialog* self, QContextMenuEvent* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_ContextMenuEvent_IsBase(true);
-        vqpagesetupdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnContextMenuEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_contextmenuevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPageSetupDialog_EventFilter(QPageSetupDialog* self, QObject* param1, QEvent* param2) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         return vqpagesetupdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualQPageSetupDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QPageSetupDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPageSetupDialog_SuperEventFilter(QPageSetupDialog* self, QObject* param1, QEvent* param2) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_EventFilter_IsBase(true);
-        return vqpagesetupdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        return vqpagesetupdialog->QPageSetupDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnEventFilter(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_EventFilter_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_EventFilter_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_eventfilter_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPageSetupDialog_DevType(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->devType();
-    } else {
-        return self->QPageSetupDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QPageSetupDialog_SuperDevType(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_DevType_IsBase(true);
-        return vqpagesetupdialog->devType();
-    } else {
-        return self->QPageSetupDialog::devType();
-    }
+    return self->QPageSetupDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnDevType(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_DevType_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DevType_Callback>(slot));
+void QPageSetupDialog_OnDevType(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_devtype_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPageSetupDialog_HeightForWidth(const QPageSetupDialog* self, int param1) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QPageSetupDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QPageSetupDialog_SuperHeightForWidth(const QPageSetupDialog* self, int param1) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_HeightForWidth_IsBase(true);
-        return vqpagesetupdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QPageSetupDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QPageSetupDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnHeightForWidth(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_HeightForWidth_Callback>(slot));
+void QPageSetupDialog_OnHeightForWidth(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_heightforwidth_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPageSetupDialog_HasHeightForWidth(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->hasHeightForWidth();
-    } else {
-        return self->QPageSetupDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QPageSetupDialog_SuperHasHeightForWidth(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_HasHeightForWidth_IsBase(true);
-        return vqpagesetupdialog->hasHeightForWidth();
-    } else {
-        return self->QPageSetupDialog::hasHeightForWidth();
-    }
+    return self->QPageSetupDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnHasHeightForWidth(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_HasHeightForWidth_Callback>(slot));
+void QPageSetupDialog_OnHasHeightForWidth(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_hasheightforwidth_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QPageSetupDialog_PaintEngine(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->paintEngine();
-    } else {
-        return self->QPageSetupDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QPageSetupDialog_SuperPaintEngine(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_PaintEngine_IsBase(true);
-        return vqpagesetupdialog->paintEngine();
-    } else {
-        return self->QPageSetupDialog::paintEngine();
-    }
+    return self->QPageSetupDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnPaintEngine(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_PaintEngine_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_PaintEngine_Callback>(slot));
+void QPageSetupDialog_OnPaintEngine(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_paintengine_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPageSetupDialog_Event(QPageSetupDialog* self, QEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         return vqpagesetupdialog->event(event);
     } else {
-        return ((VirtualQPageSetupDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPageSetupDialog_SuperEvent(QPageSetupDialog* self, QEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Event_IsBase(true);
-        return vqpagesetupdialog->event(event);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->event(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        return vqpagesetupdialog->QPageSetupDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Event_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Event_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_event_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_MousePressEvent(QPageSetupDialog* self, QMouseEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->mousePressEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperMousePressEvent(QPageSetupDialog* self, QMouseEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_MousePressEvent_IsBase(true);
-        vqpagesetupdialog->mousePressEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnMousePressEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MousePressEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_mousepressevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_MouseReleaseEvent(QPageSetupDialog* self, QMouseEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperMouseReleaseEvent(QPageSetupDialog* self, QMouseEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_MouseReleaseEvent_IsBase(true);
-        vqpagesetupdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnMouseReleaseEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_mousereleaseevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_MouseDoubleClickEvent(QPageSetupDialog* self, QMouseEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperMouseDoubleClickEvent(QPageSetupDialog* self, QMouseEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_MouseDoubleClickEvent_IsBase(true);
-        vqpagesetupdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnMouseDoubleClickEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_MouseMoveEvent(QPageSetupDialog* self, QMouseEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperMouseMoveEvent(QPageSetupDialog* self, QMouseEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_MouseMoveEvent_IsBase(true);
-        vqpagesetupdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnMouseMoveEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_mousemoveevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_WheelEvent(QPageSetupDialog* self, QWheelEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->wheelEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperWheelEvent(QPageSetupDialog* self, QWheelEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_WheelEvent_IsBase(true);
-        vqpagesetupdialog->wheelEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnWheelEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_WheelEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_WheelEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_wheelevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_KeyReleaseEvent(QPageSetupDialog* self, QKeyEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperKeyReleaseEvent(QPageSetupDialog* self, QKeyEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_KeyReleaseEvent_IsBase(true);
-        vqpagesetupdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnKeyReleaseEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_keyreleaseevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_FocusInEvent(QPageSetupDialog* self, QFocusEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->focusInEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperFocusInEvent(QPageSetupDialog* self, QFocusEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_FocusInEvent_IsBase(true);
-        vqpagesetupdialog->focusInEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnFocusInEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_FocusInEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_focusinevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_FocusOutEvent(QPageSetupDialog* self, QFocusEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->focusOutEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperFocusOutEvent(QPageSetupDialog* self, QFocusEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_FocusOutEvent_IsBase(true);
-        vqpagesetupdialog->focusOutEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnFocusOutEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_focusoutevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_EnterEvent(QPageSetupDialog* self, QEnterEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->enterEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperEnterEvent(QPageSetupDialog* self, QEnterEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_EnterEvent_IsBase(true);
-        vqpagesetupdialog->enterEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->enterEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnEnterEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_EnterEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_EnterEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_enterevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_LeaveEvent(QPageSetupDialog* self, QEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->leaveEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperLeaveEvent(QPageSetupDialog* self, QEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_LeaveEvent_IsBase(true);
-        vqpagesetupdialog->leaveEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnLeaveEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_LeaveEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_leaveevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_PaintEvent(QPageSetupDialog* self, QPaintEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->paintEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperPaintEvent(QPageSetupDialog* self, QPaintEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_PaintEvent_IsBase(true);
-        vqpagesetupdialog->paintEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->paintEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnPaintEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_PaintEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_PaintEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_paintevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_MoveEvent(QPageSetupDialog* self, QMoveEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->moveEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperMoveEvent(QPageSetupDialog* self, QMoveEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_MoveEvent_IsBase(true);
-        vqpagesetupdialog->moveEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->moveEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnMoveEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_MoveEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MoveEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_moveevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_TabletEvent(QPageSetupDialog* self, QTabletEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->tabletEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperTabletEvent(QPageSetupDialog* self, QTabletEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_TabletEvent_IsBase(true);
-        vqpagesetupdialog->tabletEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnTabletEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_TabletEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_TabletEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_tabletevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_ActionEvent(QPageSetupDialog* self, QActionEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->actionEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperActionEvent(QPageSetupDialog* self, QActionEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_ActionEvent_IsBase(true);
-        vqpagesetupdialog->actionEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->actionEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnActionEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_ActionEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ActionEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_actionevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_DragEnterEvent(QPageSetupDialog* self, QDragEnterEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->dragEnterEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperDragEnterEvent(QPageSetupDialog* self, QDragEnterEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_DragEnterEvent_IsBase(true);
-        vqpagesetupdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnDragEnterEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_dragenterevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_DragMoveEvent(QPageSetupDialog* self, QDragMoveEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->dragMoveEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperDragMoveEvent(QPageSetupDialog* self, QDragMoveEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_DragMoveEvent_IsBase(true);
-        vqpagesetupdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnDragMoveEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_dragmoveevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_DragLeaveEvent(QPageSetupDialog* self, QDragLeaveEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperDragLeaveEvent(QPageSetupDialog* self, QDragLeaveEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_DragLeaveEvent_IsBase(true);
-        vqpagesetupdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnDragLeaveEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_dragleaveevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_DropEvent(QPageSetupDialog* self, QDropEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->dropEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperDropEvent(QPageSetupDialog* self, QDropEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_DropEvent_IsBase(true);
-        vqpagesetupdialog->dropEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->dropEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnDropEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_DropEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DropEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_dropevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_HideEvent(QPageSetupDialog* self, QHideEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->hideEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperHideEvent(QPageSetupDialog* self, QHideEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_HideEvent_IsBase(true);
-        vqpagesetupdialog->hideEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->hideEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnHideEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_HideEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_HideEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_hideevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPageSetupDialog_NativeEvent(QPageSetupDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
+    if (vqpagesetupdialog) {
         return vqpagesetupdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQPageSetupDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QPageSetupDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPageSetupDialog_SuperNativeEvent(QPageSetupDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_NativeEvent_IsBase(true);
-        return vqpagesetupdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        return vqpagesetupdialog->QPageSetupDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnNativeEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_NativeEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_NativeEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_nativeevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_ChangeEvent(QPageSetupDialog* self, QEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->changeEvent(param1);
     } else {
-        ((VirtualQPageSetupDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QPageSetupDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperChangeEvent(QPageSetupDialog* self, QEvent* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_ChangeEvent_IsBase(true);
-        vqpagesetupdialog->changeEvent(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnChangeEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ChangeEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_changeevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QPageSetupDialog_Metric(const QPageSetupDialog* self, int param1) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         return vqpagesetupdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQPageSetupDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QPageSetupDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QPageSetupDialog_SuperMetric(const QPageSetupDialog* self, int param1) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Metric_IsBase(true);
-        return vqpagesetupdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        return vqpagesetupdialog->QPageSetupDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnMetric(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Metric_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metric_Callback>(slot));
+void QPageSetupDialog_OnMetric(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_metric_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_InitPainter(const QPageSetupDialog* self, QPainter* painter) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->initPainter(painter);
     } else {
-        ((VirtualQPageSetupDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QPageSetupDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperInitPainter(const QPageSetupDialog* self, QPainter* painter) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_InitPainter_IsBase(true);
-        vqpagesetupdialog->initPainter(painter);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->initPainter(painter);
-    }
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        vqpagesetupdialog->QPageSetupDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnInitPainter(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_InitPainter_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_InitPainter_Callback>(slot));
+void QPageSetupDialog_OnInitPainter(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_initpainter_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QPageSetupDialog_Redirected(const QPageSetupDialog* self, QPoint* offset) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         return vqpagesetupdialog->redirected(offset);
     } else {
-        return ((VirtualQPageSetupDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QPageSetupDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QPageSetupDialog_SuperRedirected(const QPageSetupDialog* self, QPoint* offset) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Redirected_IsBase(true);
-        return vqpagesetupdialog->redirected(offset);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->redirected(offset);
-    }
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        return vqpagesetupdialog->QPageSetupDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnRedirected(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Redirected_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Redirected_Callback>(slot));
+void QPageSetupDialog_OnRedirected(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_redirected_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QPageSetupDialog_SharedPainter(const QPageSetupDialog* self) {
     auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         return vqpagesetupdialog->sharedPainter();
     } else {
-        return ((VirtualQPageSetupDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QPageSetupDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QPageSetupDialog_SuperSharedPainter(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_SharedPainter_IsBase(true);
-        return vqpagesetupdialog->sharedPainter();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->sharedPainter();
-    }
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        return vqpagesetupdialog->QPageSetupDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnSharedPainter(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_SharedPainter_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_SharedPainter_Callback>(slot));
+void QPageSetupDialog_OnSharedPainter(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_sharedpainter_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_InputMethodEvent(QPageSetupDialog* self, QInputMethodEvent* param1) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualQPageSetupDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QPageSetupDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperInputMethodEvent(QPageSetupDialog* self, QInputMethodEvent* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_InputMethodEvent_IsBase(true);
-        vqpagesetupdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnInputMethodEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_inputmethodevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QPageSetupDialog_InputMethodQuery(const QPageSetupDialog* self, int param1) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return new QVariant(vqpagesetupdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQPageSetupDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QPageSetupDialog_SuperInputMethodQuery(const QPageSetupDialog* self, int param1) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vqpagesetupdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQPageSetupDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QPageSetupDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnInputMethodQuery(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_InputMethodQuery_Callback>(slot));
+void QPageSetupDialog_OnInputMethodQuery(QPageSetupDialog* self, intptr_t slot) {
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self)))
+        vqpagesetupdialog->qpagesetupdialog_inputmethodquery_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPageSetupDialog_FocusNextPrevChild(QPageSetupDialog* self, bool next) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         return vqpagesetupdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualQPageSetupDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QPageSetupDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QPageSetupDialog_SuperFocusNextPrevChild(QPageSetupDialog* self, bool next) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_FocusNextPrevChild_IsBase(true);
-        return vqpagesetupdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        return vqpagesetupdialog->QPageSetupDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnFocusNextPrevChild(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_focusnextprevchild_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_TimerEvent(QPageSetupDialog* self, QTimerEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->timerEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperTimerEvent(QPageSetupDialog* self, QTimerEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_TimerEvent_IsBase(true);
-        vqpagesetupdialog->timerEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->timerEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnTimerEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_TimerEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_TimerEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_timerevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_ChildEvent(QPageSetupDialog* self, QChildEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->childEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperChildEvent(QPageSetupDialog* self, QChildEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_ChildEvent_IsBase(true);
-        vqpagesetupdialog->childEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->childEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnChildEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_ChildEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ChildEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_childevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_CustomEvent(QPageSetupDialog* self, QEvent* event) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->customEvent(event);
     } else {
-        ((VirtualQPageSetupDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPageSetupDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperCustomEvent(QPageSetupDialog* self, QEvent* event) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_CustomEvent_IsBase(true);
-        vqpagesetupdialog->customEvent(event);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->customEvent(event);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnCustomEvent(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_CustomEvent_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_CustomEvent_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_customevent_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_ConnectNotify(QPageSetupDialog* self, const QMetaMethod* signal) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->connectNotify(*signal);
     } else {
-        ((VirtualQPageSetupDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPageSetupDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperConnectNotify(QPageSetupDialog* self, const QMetaMethod* signal) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_ConnectNotify_IsBase(true);
-        vqpagesetupdialog->connectNotify(*signal);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnConnectNotify(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ConnectNotify_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_connectnotify_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPageSetupDialog_DisconnectNotify(QPageSetupDialog* self, const QMetaMethod* signal) {
     auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+    if (vqpagesetupdialog) {
         vqpagesetupdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualQPageSetupDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPageSetupDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPageSetupDialog_SuperDisconnectNotify(QPageSetupDialog* self, const QMetaMethod* signal) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_DisconnectNotify_IsBase(true);
-        vqpagesetupdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->QPageSetupDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPageSetupDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPageSetupDialog_OnDisconnectNotify(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self))
+        vqpagesetupdialog->qpagesetupdialog_disconnectnotify_callback = reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPageSetupDialog_AdjustPosition(QPageSetupDialog* self, QWidget* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->adjustPosition(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->VirtualQPageSetupDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPageSetupDialog_SuperAdjustPosition(QPageSetupDialog* self, QWidget* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_AdjustPosition_IsBase(true);
-        vqpagesetupdialog->adjustPosition(param1);
-    } else {
-        ((VirtualQPageSetupDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnAdjustPosition(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPageSetupDialog_UpdateMicroFocus(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->updateMicroFocus();
-    } else {
-        ((VirtualQPageSetupDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->VirtualQPageSetupDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPageSetupDialog_SuperUpdateMicroFocus(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_UpdateMicroFocus_IsBase(true);
-        vqpagesetupdialog->updateMicroFocus();
-    } else {
-        ((VirtualQPageSetupDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnUpdateMicroFocus(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPageSetupDialog_Create(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->create();
-    } else {
-        ((VirtualQPageSetupDialog*)self)->create();
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->VirtualQPageSetupDialog::create();
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPageSetupDialog_SuperCreate(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Create_IsBase(true);
-        vqpagesetupdialog->create();
-    } else {
-        ((VirtualQPageSetupDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnCreate(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Create_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QPageSetupDialog_Destroy(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->destroy();
-    } else {
-        ((VirtualQPageSetupDialog*)self)->destroy();
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        vqpagesetupdialog->VirtualQPageSetupDialog::destroy();
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QPageSetupDialog_SuperDestroy(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Destroy_IsBase(true);
-        vqpagesetupdialog->destroy();
-    } else {
-        ((VirtualQPageSetupDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnDestroy(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Destroy_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPageSetupDialog_FocusNextChild(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->focusNextChild();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->focusNextChild();
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        return vqpagesetupdialog->VirtualQPageSetupDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPageSetupDialog_SuperFocusNextChild(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_FocusNextChild_IsBase(true);
-        return vqpagesetupdialog->focusNextChild();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnFocusNextChild(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPageSetupDialog_FocusPreviousChild(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->focusPreviousChild();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self)) {
+        return vqpagesetupdialog->VirtualQPageSetupDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPageSetupDialog_SuperFocusPreviousChild(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_FocusPreviousChild_IsBase(true);
-        return vqpagesetupdialog->focusPreviousChild();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnFocusPreviousChild(QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPageSetupDialog_Sender(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->sender();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->sender();
-    }
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        return vqpagesetupdialog->VirtualQPageSetupDialog::sender();
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPageSetupDialog_SuperSender(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Sender_IsBase(true);
-        return vqpagesetupdialog->sender();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnSender(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Sender_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPageSetupDialog_SenderSignalIndex(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->senderSignalIndex();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        return vqpagesetupdialog->VirtualQPageSetupDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPageSetupDialog_SuperSenderSignalIndex(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_SenderSignalIndex_IsBase(true);
-        return vqpagesetupdialog->senderSignalIndex();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnSenderSignalIndex(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPageSetupDialog_Receivers(const QPageSetupDialog* self, const char* signal) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->receivers(signal);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->receivers(signal);
-    }
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        return vqpagesetupdialog->VirtualQPageSetupDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPageSetupDialog_SuperReceivers(const QPageSetupDialog* self, const char* signal) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_Receivers_IsBase(true);
-        return vqpagesetupdialog->receivers(signal);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnReceivers(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_Receivers_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPageSetupDialog_IsSignalConnected(const QPageSetupDialog* self, const QMetaMethod* signal) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        return vqpagesetupdialog->VirtualQPageSetupDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QPageSetupDialog_SuperIsSignalConnected(const QPageSetupDialog* self, const QMetaMethod* signal) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_IsSignalConnected_IsBase(true);
-        return vqpagesetupdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnIsSignalConnected(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QPageSetupDialog_GetDecodedMetricF(const QPageSetupDialog* self, int metricA, int metricB) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return vqpagesetupdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QPageSetupDialog_SuperGetDecodedMetricF(const QPageSetupDialog* self, int metricA, int metricB) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        vqpagesetupdialog->setQPageSetupDialog_GetDecodedMetricF_IsBase(true);
-        return vqpagesetupdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPageSetupDialog_OnGetDecodedMetricF(const QPageSetupDialog* self, intptr_t slot) {
-    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog)
-        vqpagesetupdialog->setQPageSetupDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self))) {
+        return vqpagesetupdialog->VirtualQPageSetupDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QPageSetupDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void QPageSetupDialog_Delete(QPageSetupDialog* self) {

@@ -155,10 +155,10 @@ void QQmlPropertyMap_Connect_ValueChanged(QQmlPropertyMap* self, intptr_t slot) 
 QVariant* QQmlPropertyMap_UpdateValue(QQmlPropertyMap* self, const libqt_string key, const QVariant* input) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
+    if (vqqmlpropertymap) {
         return new QVariant(vqqmlpropertymap->updateValue(key_QString, *input));
     }
-    return {};
+    qFatal("Error: Protected method QQmlPropertyMap::updateValue called without a directly constructed type");
 }
 
 libqt_string QQmlPropertyMap_Tr2(const char* s, const char* c) {
@@ -187,382 +187,233 @@ libqt_string QQmlPropertyMap_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQmlPropertyMap_SuperMetaObject(const QQmlPropertyMap* self) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_MetaObject_IsBase(true);
-        return (QMetaObject*)vqqmlpropertymap->metaObject();
-    } else {
-        return (QMetaObject*)self->QQmlPropertyMap::metaObject();
-    }
+    return (QMetaObject*)self->QQmlPropertyMap::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQmlPropertyMap_OnMetaObject(const QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_MetaObject_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_MetaObject_Callback>(slot));
+void QQmlPropertyMap_OnMetaObject(QQmlPropertyMap* self, intptr_t slot) {
+    if (auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self)))
+        vqqmlpropertymap->qqmlpropertymap_metaobject_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQmlPropertyMap_SuperMetacast(QQmlPropertyMap* self, const char* param1) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_Metacast_IsBase(true);
-        return vqqmlpropertymap->qt_metacast(param1);
-    } else {
-        return self->QQmlPropertyMap::qt_metacast(param1);
-    }
+    return self->QQmlPropertyMap::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnMetacast(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_Metacast_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_Metacast_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_metacast_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQmlPropertyMap_SuperMetacall(QQmlPropertyMap* self, int param1, int param2, void** param3) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_Metacall_IsBase(true);
-        return vqqmlpropertymap->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQmlPropertyMap::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQmlPropertyMap::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnMetacall(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_Metacall_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_Metacall_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_metacall_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QQmlPropertyMap_SuperUpdateValue(QQmlPropertyMap* self, const libqt_string key, const QVariant* input) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_UpdateValue_IsBase(true);
-        return new QVariant(vqqmlpropertymap->updateValue(key_QString, *input));
-    }
-    return {};
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        return new QVariant(vqqmlpropertymap->QQmlPropertyMap::updateValue(key_QString, *input));
+    qFatal("Error: Protected virtual method QQmlPropertyMap::updateValue called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnUpdateValue(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_UpdateValue_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_UpdateValue_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_updatevalue_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_UpdateValue_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQmlPropertyMap_Event(QQmlPropertyMap* self, QEvent* event) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        return vqqmlpropertymap->event(event);
-    } else {
-        return self->QQmlPropertyMap::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQmlPropertyMap_SuperEvent(QQmlPropertyMap* self, QEvent* event) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_Event_IsBase(true);
-        return vqqmlpropertymap->event(event);
-    } else {
-        return self->QQmlPropertyMap::event(event);
-    }
+    return self->QQmlPropertyMap::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnEvent(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_Event_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_Event_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_event_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQmlPropertyMap_EventFilter(QQmlPropertyMap* self, QObject* watched, QEvent* event) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        return vqqmlpropertymap->eventFilter(watched, event);
-    } else {
-        return self->QQmlPropertyMap::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQmlPropertyMap_SuperEventFilter(QQmlPropertyMap* self, QObject* watched, QEvent* event) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_EventFilter_IsBase(true);
-        return vqqmlpropertymap->eventFilter(watched, event);
-    } else {
-        return self->QQmlPropertyMap::eventFilter(watched, event);
-    }
+    return self->QQmlPropertyMap::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnEventFilter(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_EventFilter_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_EventFilter_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_eventfilter_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlPropertyMap_TimerEvent(QQmlPropertyMap* self, QTimerEvent* event) {
     auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
+    if (vqqmlpropertymap) {
         vqqmlpropertymap->timerEvent(event);
     } else {
-        ((VirtualQQmlPropertyMap*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQmlPropertyMap::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlPropertyMap_SuperTimerEvent(QQmlPropertyMap* self, QTimerEvent* event) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_TimerEvent_IsBase(true);
-        vqqmlpropertymap->timerEvent(event);
-    } else {
-        ((VirtualQQmlPropertyMap*)self)->timerEvent(event);
-    }
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self)) {
+        vqqmlpropertymap->QQmlPropertyMap::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlPropertyMap::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnTimerEvent(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_TimerEvent_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_TimerEvent_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_timerevent_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlPropertyMap_ChildEvent(QQmlPropertyMap* self, QChildEvent* event) {
     auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
+    if (vqqmlpropertymap) {
         vqqmlpropertymap->childEvent(event);
     } else {
-        ((VirtualQQmlPropertyMap*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQmlPropertyMap::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlPropertyMap_SuperChildEvent(QQmlPropertyMap* self, QChildEvent* event) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_ChildEvent_IsBase(true);
-        vqqmlpropertymap->childEvent(event);
-    } else {
-        ((VirtualQQmlPropertyMap*)self)->childEvent(event);
-    }
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self)) {
+        vqqmlpropertymap->QQmlPropertyMap::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlPropertyMap::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnChildEvent(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_ChildEvent_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_ChildEvent_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_childevent_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlPropertyMap_CustomEvent(QQmlPropertyMap* self, QEvent* event) {
     auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
+    if (vqqmlpropertymap) {
         vqqmlpropertymap->customEvent(event);
     } else {
-        ((VirtualQQmlPropertyMap*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQmlPropertyMap::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlPropertyMap_SuperCustomEvent(QQmlPropertyMap* self, QEvent* event) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_CustomEvent_IsBase(true);
-        vqqmlpropertymap->customEvent(event);
-    } else {
-        ((VirtualQQmlPropertyMap*)self)->customEvent(event);
-    }
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self)) {
+        vqqmlpropertymap->QQmlPropertyMap::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlPropertyMap::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnCustomEvent(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_CustomEvent_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_CustomEvent_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_customevent_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlPropertyMap_ConnectNotify(QQmlPropertyMap* self, const QMetaMethod* signal) {
     auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
+    if (vqqmlpropertymap) {
         vqqmlpropertymap->connectNotify(*signal);
     } else {
-        ((VirtualQQmlPropertyMap*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQmlPropertyMap::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlPropertyMap_SuperConnectNotify(QQmlPropertyMap* self, const QMetaMethod* signal) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_ConnectNotify_IsBase(true);
-        vqqmlpropertymap->connectNotify(*signal);
-    } else {
-        ((VirtualQQmlPropertyMap*)self)->connectNotify(*signal);
-    }
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self)) {
+        vqqmlpropertymap->QQmlPropertyMap::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQmlPropertyMap::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnConnectNotify(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_ConnectNotify_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_ConnectNotify_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_connectnotify_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlPropertyMap_DisconnectNotify(QQmlPropertyMap* self, const QMetaMethod* signal) {
     auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
+    if (vqqmlpropertymap) {
         vqqmlpropertymap->disconnectNotify(*signal);
     } else {
-        ((VirtualQQmlPropertyMap*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQmlPropertyMap::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlPropertyMap_SuperDisconnectNotify(QQmlPropertyMap* self, const QMetaMethod* signal) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_DisconnectNotify_IsBase(true);
-        vqqmlpropertymap->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQmlPropertyMap*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self)) {
+        vqqmlpropertymap->QQmlPropertyMap::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQmlPropertyMap::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyMap_OnDisconnectNotify(QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self);
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_DisconnectNotify_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_DisconnectNotify_Callback>(slot));
+    if (auto* vqqmlpropertymap = dynamic_cast<VirtualQQmlPropertyMap*>(self))
+        vqqmlpropertymap->qqmlpropertymap_disconnectnotify_callback = reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQmlPropertyMap_Sender(const QQmlPropertyMap* self) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        return vqqmlpropertymap->sender();
-    } else {
-        return ((VirtualQQmlPropertyMap*)self)->sender();
-    }
+    if (auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self))) {
+        return vqqmlpropertymap->VirtualQQmlPropertyMap::sender();
+    } else
+        qFatal("Error: Protected method QQmlPropertyMap::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQmlPropertyMap_SuperSender(const QQmlPropertyMap* self) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_Sender_IsBase(true);
-        return vqqmlpropertymap->sender();
-    } else {
-        return ((VirtualQQmlPropertyMap*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlPropertyMap_OnSender(const QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_Sender_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQmlPropertyMap_SenderSignalIndex(const QQmlPropertyMap* self) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        return vqqmlpropertymap->senderSignalIndex();
-    } else {
-        return ((VirtualQQmlPropertyMap*)self)->senderSignalIndex();
-    }
+    if (auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self))) {
+        return vqqmlpropertymap->VirtualQQmlPropertyMap::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQmlPropertyMap::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQmlPropertyMap_SuperSenderSignalIndex(const QQmlPropertyMap* self) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_SenderSignalIndex_IsBase(true);
-        return vqqmlpropertymap->senderSignalIndex();
-    } else {
-        return ((VirtualQQmlPropertyMap*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlPropertyMap_OnSenderSignalIndex(const QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQmlPropertyMap_Receivers(const QQmlPropertyMap* self, const char* signal) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        return vqqmlpropertymap->receivers(signal);
-    } else {
-        return ((VirtualQQmlPropertyMap*)self)->receivers(signal);
-    }
+    if (auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self))) {
+        return vqqmlpropertymap->VirtualQQmlPropertyMap::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQmlPropertyMap::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQmlPropertyMap_SuperReceivers(const QQmlPropertyMap* self, const char* signal) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_Receivers_IsBase(true);
-        return vqqmlpropertymap->receivers(signal);
-    } else {
-        return ((VirtualQQmlPropertyMap*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlPropertyMap_OnReceivers(const QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_Receivers_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQmlPropertyMap_IsSignalConnected(const QQmlPropertyMap* self, const QMetaMethod* signal) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        return vqqmlpropertymap->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQmlPropertyMap*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQmlPropertyMap_SuperIsSignalConnected(const QQmlPropertyMap* self, const QMetaMethod* signal) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap) {
-        vqqmlpropertymap->setQQmlPropertyMap_IsSignalConnected_IsBase(true);
-        return vqqmlpropertymap->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQmlPropertyMap*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlPropertyMap_OnIsSignalConnected(const QQmlPropertyMap* self, intptr_t slot) {
-    auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self));
-    if (vqqmlpropertymap && vqqmlpropertymap->isVirtualQQmlPropertyMap)
-        vqqmlpropertymap->setQQmlPropertyMap_IsSignalConnected_Callback(reinterpret_cast<VirtualQQmlPropertyMap::QQmlPropertyMap_IsSignalConnected_Callback>(slot));
+    if (auto* vqqmlpropertymap = const_cast<VirtualQQmlPropertyMap*>(dynamic_cast<const VirtualQQmlPropertyMap*>(self))) {
+        return vqqmlpropertymap->VirtualQQmlPropertyMap::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQmlPropertyMap::isSignalConnected called without a directly constructed type");
 }
 
 void QQmlPropertyMap_Delete(QQmlPropertyMap* self) {

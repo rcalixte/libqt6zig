@@ -1199,6 +1199,8 @@ pub const QNetworkProxyFactory = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
     ///
+    /// This method must be implemented with `onQueryProxy` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QNetworkProxyFactory `
@@ -1240,33 +1242,6 @@ pub const QNetworkProxyFactory = extern struct {
     ///
     pub fn onQueryProxy(self: QNetworkProxyFactory, callback: *const fn (QNetworkProxyFactory, QNetworkProxyQuery) callconv(.c) qtc.libqt_list) void {
         qtc.QNetworkProxyFactory_OnQueryProxy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superQueryProxy` instead
-    ///
-    pub const SuperQueryProxy = superQueryProxy;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#queryProxy)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkProxyFactory `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` query: QNetworkProxyQuery `
-    ///
-    pub fn superQueryProxy(self: QNetworkProxyFactory, allocator: std.mem.Allocator, query: anytype) []QNetworkProxy {
-        comptime _ = @TypeOf(query)._is_QNetworkProxyQuery;
-        const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_SuperQueryProxy(@ptrCast(self.ptr), @ptrCast(query.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QNetworkProxy, _arr.len) catch @panic("QNetworkProxyFactory.queryProxy: Memory allocation failed");
-        const _data_val: [*]QtC.QNetworkProxy = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `usesSystemConfiguration` instead

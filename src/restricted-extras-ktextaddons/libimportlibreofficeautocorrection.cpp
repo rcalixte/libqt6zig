@@ -25,22 +25,15 @@ void TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_OperatorAssign(Text
 
 // Base class handler implementation
 bool TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_SuperImport(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute) {
-    auto* vtextautocorrectioncoreimportlibreofficeautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection*>(self);
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
-    if (vtextautocorrectioncoreimportlibreofficeautocorrection && vtextautocorrectioncoreimportlibreofficeautocorrection->isVirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection) {
-        vtextautocorrectioncoreimportlibreofficeautocorrection->setTextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import_IsBase(true);
-        return vtextautocorrectioncoreimportlibreofficeautocorrection->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    } else {
-        return self->TextAutoCorrectionCore::ImportLibreOfficeAutocorrection::import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    }
+    return self->TextAutoCorrectionCore::ImportLibreOfficeAutocorrection::import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_OnImport(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, intptr_t slot) {
-    auto* vtextautocorrectioncoreimportlibreofficeautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection*>(self);
-    if (vtextautocorrectioncoreimportlibreofficeautocorrection && vtextautocorrectioncoreimportlibreofficeautocorrection->isVirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection)
-        vtextautocorrectioncoreimportlibreofficeautocorrection->setTextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import_Callback(reinterpret_cast<VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection::TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import_Callback>(slot));
+    if (auto* vtextautocorrectioncoreimportlibreofficeautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection*>(self))
+        vtextautocorrectioncoreimportlibreofficeautocorrection->textautocorrectioncore__importlibreofficeautocorrection_import_callback = reinterpret_cast<VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection::TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import_Callback>(slot);
 }
 
 void TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Delete(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self) {

@@ -245,14 +245,14 @@ void KirigamiActionCollection_Connect_ActionTriggered(KirigamiActionCollection* 
 
 void KirigamiActionCollection_ConnectNotify(KirigamiActionCollection* self, const QMetaMethod* signal) {
     auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
+    if (vkirigamiactioncollection) {
         vkirigamiactioncollection->connectNotify(*signal);
     }
 }
 
 void KirigamiActionCollection_SlotActionTriggered(KirigamiActionCollection* self) {
     auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
+    if (vkirigamiactioncollection) {
         vkirigamiactioncollection->slotActionTriggered();
     }
 }
@@ -361,372 +361,223 @@ void KirigamiActionCollection_WriteSettings3(const KirigamiActionCollection* sel
 
 // Base class handler implementation
 QMetaObject* KirigamiActionCollection_SuperMetaObject(const KirigamiActionCollection* self) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_MetaObject_IsBase(true);
-        return (QMetaObject*)vkirigamiactioncollection->metaObject();
-    } else {
-        return (QMetaObject*)self->KirigamiActionCollection::metaObject();
-    }
+    return (QMetaObject*)self->KirigamiActionCollection::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KirigamiActionCollection_OnMetaObject(const KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_MetaObject_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_MetaObject_Callback>(slot));
+void KirigamiActionCollection_OnMetaObject(KirigamiActionCollection* self, intptr_t slot) {
+    if (auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self)))
+        vkirigamiactioncollection->kirigamiactioncollection_metaobject_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KirigamiActionCollection_SuperMetacast(KirigamiActionCollection* self, const char* param1) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_Metacast_IsBase(true);
-        return vkirigamiactioncollection->qt_metacast(param1);
-    } else {
-        return self->KirigamiActionCollection::qt_metacast(param1);
-    }
+    return self->KirigamiActionCollection::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnMetacast(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_Metacast_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_Metacast_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_metacast_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KirigamiActionCollection_SuperMetacall(KirigamiActionCollection* self, int param1, int param2, void** param3) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_Metacall_IsBase(true);
-        return vkirigamiactioncollection->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KirigamiActionCollection::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KirigamiActionCollection::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnMetacall(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_Metacall_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_Metacall_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_metacall_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KirigamiActionCollection_SuperConnectNotify(KirigamiActionCollection* self, const QMetaMethod* signal) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_ConnectNotify_IsBase(true);
-        vkirigamiactioncollection->connectNotify(*signal);
-    } else {
-        ((VirtualKirigamiActionCollection*)self)->connectNotify(*signal);
-    }
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self)) {
+        vkirigamiactioncollection->KirigamiActionCollection::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KirigamiActionCollection::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnConnectNotify(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_ConnectNotify_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_ConnectNotify_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_connectnotify_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_ConnectNotify_Callback>(slot);
 }
 
 // Base class handler implementation
 void KirigamiActionCollection_SuperSlotActionTriggered(KirigamiActionCollection* self) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_SlotActionTriggered_IsBase(true);
-        vkirigamiactioncollection->slotActionTriggered();
-    } else {
-        ((VirtualKirigamiActionCollection*)self)->slotActionTriggered();
-    }
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self)) {
+        vkirigamiactioncollection->KirigamiActionCollection::slotActionTriggered();
+    } else
+        qFatal("Error: Protected virtual method KirigamiActionCollection::slotActionTriggered called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnSlotActionTriggered(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_SlotActionTriggered_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_SlotActionTriggered_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_slotactiontriggered_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_SlotActionTriggered_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KirigamiActionCollection_Event(KirigamiActionCollection* self, QEvent* event) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        return vkirigamiactioncollection->event(event);
-    } else {
-        return self->KirigamiActionCollection::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KirigamiActionCollection_SuperEvent(KirigamiActionCollection* self, QEvent* event) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_Event_IsBase(true);
-        return vkirigamiactioncollection->event(event);
-    } else {
-        return self->KirigamiActionCollection::event(event);
-    }
+    return self->KirigamiActionCollection::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnEvent(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_Event_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_Event_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_event_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KirigamiActionCollection_EventFilter(KirigamiActionCollection* self, QObject* watched, QEvent* event) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        return vkirigamiactioncollection->eventFilter(watched, event);
-    } else {
-        return self->KirigamiActionCollection::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KirigamiActionCollection_SuperEventFilter(KirigamiActionCollection* self, QObject* watched, QEvent* event) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_EventFilter_IsBase(true);
-        return vkirigamiactioncollection->eventFilter(watched, event);
-    } else {
-        return self->KirigamiActionCollection::eventFilter(watched, event);
-    }
+    return self->KirigamiActionCollection::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnEventFilter(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_EventFilter_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_EventFilter_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_eventfilter_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KirigamiActionCollection_TimerEvent(KirigamiActionCollection* self, QTimerEvent* event) {
     auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
+    if (vkirigamiactioncollection) {
         vkirigamiactioncollection->timerEvent(event);
     } else {
-        ((VirtualKirigamiActionCollection*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KirigamiActionCollection::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KirigamiActionCollection_SuperTimerEvent(KirigamiActionCollection* self, QTimerEvent* event) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_TimerEvent_IsBase(true);
-        vkirigamiactioncollection->timerEvent(event);
-    } else {
-        ((VirtualKirigamiActionCollection*)self)->timerEvent(event);
-    }
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self)) {
+        vkirigamiactioncollection->KirigamiActionCollection::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KirigamiActionCollection::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnTimerEvent(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_TimerEvent_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_TimerEvent_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_timerevent_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KirigamiActionCollection_ChildEvent(KirigamiActionCollection* self, QChildEvent* event) {
     auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
+    if (vkirigamiactioncollection) {
         vkirigamiactioncollection->childEvent(event);
     } else {
-        ((VirtualKirigamiActionCollection*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KirigamiActionCollection::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KirigamiActionCollection_SuperChildEvent(KirigamiActionCollection* self, QChildEvent* event) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_ChildEvent_IsBase(true);
-        vkirigamiactioncollection->childEvent(event);
-    } else {
-        ((VirtualKirigamiActionCollection*)self)->childEvent(event);
-    }
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self)) {
+        vkirigamiactioncollection->KirigamiActionCollection::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KirigamiActionCollection::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnChildEvent(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_ChildEvent_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_ChildEvent_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_childevent_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KirigamiActionCollection_CustomEvent(KirigamiActionCollection* self, QEvent* event) {
     auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
+    if (vkirigamiactioncollection) {
         vkirigamiactioncollection->customEvent(event);
     } else {
-        ((VirtualKirigamiActionCollection*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KirigamiActionCollection::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KirigamiActionCollection_SuperCustomEvent(KirigamiActionCollection* self, QEvent* event) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_CustomEvent_IsBase(true);
-        vkirigamiactioncollection->customEvent(event);
-    } else {
-        ((VirtualKirigamiActionCollection*)self)->customEvent(event);
-    }
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self)) {
+        vkirigamiactioncollection->KirigamiActionCollection::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KirigamiActionCollection::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnCustomEvent(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_CustomEvent_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_CustomEvent_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_customevent_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KirigamiActionCollection_DisconnectNotify(KirigamiActionCollection* self, const QMetaMethod* signal) {
     auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
+    if (vkirigamiactioncollection) {
         vkirigamiactioncollection->disconnectNotify(*signal);
     } else {
-        ((VirtualKirigamiActionCollection*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KirigamiActionCollection::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KirigamiActionCollection_SuperDisconnectNotify(KirigamiActionCollection* self, const QMetaMethod* signal) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_DisconnectNotify_IsBase(true);
-        vkirigamiactioncollection->disconnectNotify(*signal);
-    } else {
-        ((VirtualKirigamiActionCollection*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self)) {
+        vkirigamiactioncollection->KirigamiActionCollection::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KirigamiActionCollection::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KirigamiActionCollection_OnDisconnectNotify(KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self);
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_DisconnectNotify_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_DisconnectNotify_Callback>(slot));
+    if (auto* vkirigamiactioncollection = dynamic_cast<VirtualKirigamiActionCollection*>(self))
+        vkirigamiactioncollection->kirigamiactioncollection_disconnectnotify_callback = reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KirigamiActionCollection_Sender(const KirigamiActionCollection* self) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        return vkirigamiactioncollection->sender();
-    } else {
-        return ((VirtualKirigamiActionCollection*)self)->sender();
-    }
+    if (auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self))) {
+        return vkirigamiactioncollection->VirtualKirigamiActionCollection::sender();
+    } else
+        qFatal("Error: Protected method KirigamiActionCollection::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KirigamiActionCollection_SuperSender(const KirigamiActionCollection* self) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_Sender_IsBase(true);
-        return vkirigamiactioncollection->sender();
-    } else {
-        return ((VirtualKirigamiActionCollection*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KirigamiActionCollection_OnSender(const KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_Sender_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KirigamiActionCollection_SenderSignalIndex(const KirigamiActionCollection* self) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        return vkirigamiactioncollection->senderSignalIndex();
-    } else {
-        return ((VirtualKirigamiActionCollection*)self)->senderSignalIndex();
-    }
+    if (auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self))) {
+        return vkirigamiactioncollection->VirtualKirigamiActionCollection::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KirigamiActionCollection::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KirigamiActionCollection_SuperSenderSignalIndex(const KirigamiActionCollection* self) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_SenderSignalIndex_IsBase(true);
-        return vkirigamiactioncollection->senderSignalIndex();
-    } else {
-        return ((VirtualKirigamiActionCollection*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KirigamiActionCollection_OnSenderSignalIndex(const KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_SenderSignalIndex_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KirigamiActionCollection_Receivers(const KirigamiActionCollection* self, const char* signal) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        return vkirigamiactioncollection->receivers(signal);
-    } else {
-        return ((VirtualKirigamiActionCollection*)self)->receivers(signal);
-    }
+    if (auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self))) {
+        return vkirigamiactioncollection->VirtualKirigamiActionCollection::receivers(signal);
+    } else
+        qFatal("Error: Protected method KirigamiActionCollection::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KirigamiActionCollection_SuperReceivers(const KirigamiActionCollection* self, const char* signal) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_Receivers_IsBase(true);
-        return vkirigamiactioncollection->receivers(signal);
-    } else {
-        return ((VirtualKirigamiActionCollection*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KirigamiActionCollection_OnReceivers(const KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_Receivers_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KirigamiActionCollection_IsSignalConnected(const KirigamiActionCollection* self, const QMetaMethod* signal) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        return vkirigamiactioncollection->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKirigamiActionCollection*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KirigamiActionCollection_SuperIsSignalConnected(const KirigamiActionCollection* self, const QMetaMethod* signal) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection) {
-        vkirigamiactioncollection->setKirigamiActionCollection_IsSignalConnected_IsBase(true);
-        return vkirigamiactioncollection->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKirigamiActionCollection*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KirigamiActionCollection_OnIsSignalConnected(const KirigamiActionCollection* self, intptr_t slot) {
-    auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self));
-    if (vkirigamiactioncollection && vkirigamiactioncollection->isVirtualKirigamiActionCollection)
-        vkirigamiactioncollection->setKirigamiActionCollection_IsSignalConnected_Callback(reinterpret_cast<VirtualKirigamiActionCollection::KirigamiActionCollection_IsSignalConnected_Callback>(slot));
+    if (auto* vkirigamiactioncollection = const_cast<VirtualKirigamiActionCollection*>(dynamic_cast<const VirtualKirigamiActionCollection*>(self))) {
+        return vkirigamiactioncollection->VirtualKirigamiActionCollection::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KirigamiActionCollection::isSignalConnected called without a directly constructed type");
 }
 
 void KirigamiActionCollection_Delete(KirigamiActionCollection* self) {

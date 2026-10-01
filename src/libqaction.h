@@ -112,7 +112,7 @@ libqt_string QAction_Tr3(const char* s, const char* c, int n);
 bool QAction_ShowStatusText1(QAction* self, QObject* object);
 void QAction_Triggered1(QAction* self, bool checked);
 void QAction_Connect_Triggered1(QAction* self, intptr_t slot);
-void QAction_OnMetaObject(const QAction* self, intptr_t slot);
+void QAction_OnMetaObject(QAction* self, intptr_t slot);
 QMetaObject* QAction_SuperMetaObject(const QAction* self);
 void QAction_OnMetacast(QAction* self, intptr_t slot);
 void* QAction_SuperMetacast(QAction* self, const char* param1);
@@ -139,17 +139,9 @@ void QAction_DisconnectNotify(QAction* self, const QMetaMethod* signal);
 void QAction_OnDisconnectNotify(QAction* self, intptr_t slot);
 void QAction_SuperDisconnectNotify(QAction* self, const QMetaMethod* signal);
 QObject* QAction_Sender(const QAction* self);
-void QAction_OnSender(const QAction* self, intptr_t slot);
-QObject* QAction_SuperSender(const QAction* self);
 int QAction_SenderSignalIndex(const QAction* self);
-void QAction_OnSenderSignalIndex(const QAction* self, intptr_t slot);
-int QAction_SuperSenderSignalIndex(const QAction* self);
 int QAction_Receivers(const QAction* self, const char* signal);
-void QAction_OnReceivers(const QAction* self, intptr_t slot);
-int QAction_SuperReceivers(const QAction* self, const char* signal);
 bool QAction_IsSignalConnected(const QAction* self, const QMetaMethod* signal);
-void QAction_OnIsSignalConnected(const QAction* self, intptr_t slot);
-bool QAction_SuperIsSignalConnected(const QAction* self, const QMetaMethod* signal);
 void QAction_Delete(QAction* self);
 
 #ifdef __cplusplus

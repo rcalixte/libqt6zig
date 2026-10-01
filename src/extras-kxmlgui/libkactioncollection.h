@@ -100,7 +100,7 @@ QAction* KActionCollection_AddAction33(KActionCollection* self, int actionType, 
 QAction* KActionCollection_AddAction42(KActionCollection* self, int actionType, const libqt_string name, const QObject* receiver, const char* member);
 QAction* KActionCollection_AddAction23(KActionCollection* self, const libqt_string name, const QObject* receiver);
 QAction* KActionCollection_AddAction34(KActionCollection* self, const libqt_string name, const QObject* receiver, const char* member);
-void KActionCollection_OnMetaObject(const KActionCollection* self, intptr_t slot);
+void KActionCollection_OnMetaObject(KActionCollection* self, intptr_t slot);
 QMetaObject* KActionCollection_SuperMetaObject(const KActionCollection* self);
 void KActionCollection_OnMetacast(KActionCollection* self, intptr_t slot);
 void* KActionCollection_SuperMetacast(KActionCollection* self, const char* param1);
@@ -129,17 +129,9 @@ void KActionCollection_DisconnectNotify(KActionCollection* self, const QMetaMeth
 void KActionCollection_OnDisconnectNotify(KActionCollection* self, intptr_t slot);
 void KActionCollection_SuperDisconnectNotify(KActionCollection* self, const QMetaMethod* signal);
 QObject* KActionCollection_Sender(const KActionCollection* self);
-void KActionCollection_OnSender(const KActionCollection* self, intptr_t slot);
-QObject* KActionCollection_SuperSender(const KActionCollection* self);
 int KActionCollection_SenderSignalIndex(const KActionCollection* self);
-void KActionCollection_OnSenderSignalIndex(const KActionCollection* self, intptr_t slot);
-int KActionCollection_SuperSenderSignalIndex(const KActionCollection* self);
 int KActionCollection_Receivers(const KActionCollection* self, const char* signal);
-void KActionCollection_OnReceivers(const KActionCollection* self, intptr_t slot);
-int KActionCollection_SuperReceivers(const KActionCollection* self, const char* signal);
 bool KActionCollection_IsSignalConnected(const KActionCollection* self, const QMetaMethod* signal);
-void KActionCollection_OnIsSignalConnected(const KActionCollection* self, intptr_t slot);
-bool KActionCollection_SuperIsSignalConnected(const KActionCollection* self, const QMetaMethod* signal);
 void KActionCollection_Delete(KActionCollection* self);
 
 #ifdef __cplusplus

@@ -27,17 +27,11 @@ void QDesignerSettingsInterface_SetValue(QDesignerSettingsInterface* self, const
 QVariant* QDesignerSettingsInterface_Value(const QDesignerSettingsInterface* self, const libqt_string key, const QVariant* defaultValue);
 void QDesignerSettingsInterface_Remove(QDesignerSettingsInterface* self, const libqt_string key);
 void QDesignerSettingsInterface_OnBeginGroup(QDesignerSettingsInterface* self, intptr_t slot);
-void QDesignerSettingsInterface_SuperBeginGroup(QDesignerSettingsInterface* self, const libqt_string prefix);
 void QDesignerSettingsInterface_OnEndGroup(QDesignerSettingsInterface* self, intptr_t slot);
-void QDesignerSettingsInterface_SuperEndGroup(QDesignerSettingsInterface* self);
-void QDesignerSettingsInterface_OnContains(const QDesignerSettingsInterface* self, intptr_t slot);
-bool QDesignerSettingsInterface_SuperContains(const QDesignerSettingsInterface* self, const libqt_string key);
+void QDesignerSettingsInterface_OnContains(QDesignerSettingsInterface* self, intptr_t slot);
 void QDesignerSettingsInterface_OnSetValue(QDesignerSettingsInterface* self, intptr_t slot);
-void QDesignerSettingsInterface_SuperSetValue(QDesignerSettingsInterface* self, const libqt_string key, const QVariant* value);
-void QDesignerSettingsInterface_OnValue(const QDesignerSettingsInterface* self, intptr_t slot);
-QVariant* QDesignerSettingsInterface_SuperValue(const QDesignerSettingsInterface* self, const libqt_string key, const QVariant* defaultValue);
+void QDesignerSettingsInterface_OnValue(QDesignerSettingsInterface* self, intptr_t slot);
 void QDesignerSettingsInterface_OnRemove(QDesignerSettingsInterface* self, intptr_t slot);
-void QDesignerSettingsInterface_SuperRemove(QDesignerSettingsInterface* self, const libqt_string key);
 void QDesignerSettingsInterface_Delete(QDesignerSettingsInterface* self);
 
 #ifdef __cplusplus

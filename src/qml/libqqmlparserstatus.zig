@@ -27,6 +27,8 @@ pub const QQmlParserStatus = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlparserstatus.html#classBegin)
     ///
+    /// This method must be implemented with `onClassBegin` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQmlParserStatus `
@@ -47,26 +49,10 @@ pub const QQmlParserStatus = extern struct {
     ///
     /// ` self: QQmlParserStatus `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQmlParserStatus) callconv(.c) void `
     ///
-    pub fn onClassBegin(self: QQmlParserStatus, callback: *const fn () callconv(.c) void) void {
+    pub fn onClassBegin(self: QQmlParserStatus, callback: *const fn (QQmlParserStatus) callconv(.c) void) void {
         qtc.QQmlParserStatus_OnClassBegin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superClassBegin` instead
-    ///
-    pub const SuperClassBegin = superClassBegin;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlparserstatus.html#classBegin)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlParserStatus `
-    ///
-    pub fn superClassBegin(self: QQmlParserStatus) void {
-        qtc.QQmlParserStatus_SuperClassBegin(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `componentComplete` instead
@@ -74,6 +60,8 @@ pub const QQmlParserStatus = extern struct {
     pub const ComponentComplete = componentComplete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlparserstatus.html#componentComplete)
+    ///
+    /// This method must be implemented with `onComponentComplete` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -95,26 +83,10 @@ pub const QQmlParserStatus = extern struct {
     ///
     /// ` self: QQmlParserStatus `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQmlParserStatus) callconv(.c) void `
     ///
-    pub fn onComponentComplete(self: QQmlParserStatus, callback: *const fn () callconv(.c) void) void {
+    pub fn onComponentComplete(self: QQmlParserStatus, callback: *const fn (QQmlParserStatus) callconv(.c) void) void {
         qtc.QQmlParserStatus_OnComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superComponentComplete` instead
-    ///
-    pub const SuperComponentComplete = superComponentComplete;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlparserstatus.html#componentComplete)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlParserStatus `
-    ///
-    pub fn superComponentComplete(self: QQmlParserStatus) void {
-        qtc.QQmlParserStatus_SuperComponentComplete(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead

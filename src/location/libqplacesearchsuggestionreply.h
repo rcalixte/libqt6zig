@@ -35,13 +35,13 @@ libqt_list /* of libqt_string */ QPlaceSearchSuggestionReply_Suggestions(const Q
 int QPlaceSearchSuggestionReply_Type(const QPlaceSearchSuggestionReply* self);
 libqt_string QPlaceSearchSuggestionReply_Tr2(const char* s, const char* c);
 libqt_string QPlaceSearchSuggestionReply_Tr3(const char* s, const char* c, int n);
-void QPlaceSearchSuggestionReply_OnMetaObject(const QPlaceSearchSuggestionReply* self, intptr_t slot);
+void QPlaceSearchSuggestionReply_OnMetaObject(QPlaceSearchSuggestionReply* self, intptr_t slot);
 QMetaObject* QPlaceSearchSuggestionReply_SuperMetaObject(const QPlaceSearchSuggestionReply* self);
 void QPlaceSearchSuggestionReply_OnMetacast(QPlaceSearchSuggestionReply* self, intptr_t slot);
 void* QPlaceSearchSuggestionReply_SuperMetacast(QPlaceSearchSuggestionReply* self, const char* param1);
 void QPlaceSearchSuggestionReply_OnMetacall(QPlaceSearchSuggestionReply* self, intptr_t slot);
 int QPlaceSearchSuggestionReply_SuperMetacall(QPlaceSearchSuggestionReply* self, int param1, int param2, void** param3);
-void QPlaceSearchSuggestionReply_OnType(const QPlaceSearchSuggestionReply* self, intptr_t slot);
+void QPlaceSearchSuggestionReply_OnType(QPlaceSearchSuggestionReply* self, intptr_t slot);
 int QPlaceSearchSuggestionReply_SuperType(const QPlaceSearchSuggestionReply* self);
 void QPlaceSearchSuggestionReply_Abort(QPlaceSearchSuggestionReply* self);
 void QPlaceSearchSuggestionReply_OnAbort(QPlaceSearchSuggestionReply* self, intptr_t slot);
@@ -68,26 +68,12 @@ void QPlaceSearchSuggestionReply_DisconnectNotify(QPlaceSearchSuggestionReply* s
 void QPlaceSearchSuggestionReply_OnDisconnectNotify(QPlaceSearchSuggestionReply* self, intptr_t slot);
 void QPlaceSearchSuggestionReply_SuperDisconnectNotify(QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
 void QPlaceSearchSuggestionReply_SetSuggestions(QPlaceSearchSuggestionReply* self, const libqt_list /* of libqt_string */ suggestions);
-void QPlaceSearchSuggestionReply_OnSetSuggestions(QPlaceSearchSuggestionReply* self, intptr_t slot);
-void QPlaceSearchSuggestionReply_SuperSetSuggestions(QPlaceSearchSuggestionReply* self, const libqt_list /* of libqt_string */ suggestions);
 void QPlaceSearchSuggestionReply_SetFinished(QPlaceSearchSuggestionReply* self, bool finished);
-void QPlaceSearchSuggestionReply_OnSetFinished(QPlaceSearchSuggestionReply* self, intptr_t slot);
-void QPlaceSearchSuggestionReply_SuperSetFinished(QPlaceSearchSuggestionReply* self, bool finished);
 void QPlaceSearchSuggestionReply_SetError(QPlaceSearchSuggestionReply* self, int errorVal, const libqt_string errorString);
-void QPlaceSearchSuggestionReply_OnSetError(QPlaceSearchSuggestionReply* self, intptr_t slot);
-void QPlaceSearchSuggestionReply_SuperSetError(QPlaceSearchSuggestionReply* self, int errorVal, const libqt_string errorString);
 QObject* QPlaceSearchSuggestionReply_Sender(const QPlaceSearchSuggestionReply* self);
-void QPlaceSearchSuggestionReply_OnSender(const QPlaceSearchSuggestionReply* self, intptr_t slot);
-QObject* QPlaceSearchSuggestionReply_SuperSender(const QPlaceSearchSuggestionReply* self);
 int QPlaceSearchSuggestionReply_SenderSignalIndex(const QPlaceSearchSuggestionReply* self);
-void QPlaceSearchSuggestionReply_OnSenderSignalIndex(const QPlaceSearchSuggestionReply* self, intptr_t slot);
-int QPlaceSearchSuggestionReply_SuperSenderSignalIndex(const QPlaceSearchSuggestionReply* self);
 int QPlaceSearchSuggestionReply_Receivers(const QPlaceSearchSuggestionReply* self, const char* signal);
-void QPlaceSearchSuggestionReply_OnReceivers(const QPlaceSearchSuggestionReply* self, intptr_t slot);
-int QPlaceSearchSuggestionReply_SuperReceivers(const QPlaceSearchSuggestionReply* self, const char* signal);
 bool QPlaceSearchSuggestionReply_IsSignalConnected(const QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
-void QPlaceSearchSuggestionReply_OnIsSignalConnected(const QPlaceSearchSuggestionReply* self, intptr_t slot);
-bool QPlaceSearchSuggestionReply_SuperIsSignalConnected(const QPlaceSearchSuggestionReply* self, const QMetaMethod* signal);
 void QPlaceSearchSuggestionReply_Delete(QPlaceSearchSuggestionReply* self);
 
 #ifdef __cplusplus

@@ -9,22 +9,18 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QChartView so that we can call protected methods
+// This class is a subclass of QChartView
 class VirtualQChartView final : public QChartView {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQChartView = true;
-
-    // Virtual class public types (including callbacks)
-    using QChartView_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QChartView_MetaObject_Callback = QMetaObject* (*)(const QChartView*);
     using QChartView_Metacast_Callback = void* (*)(QChartView*, const char*);
     using QChartView_Metacall_Callback = int (*)(QChartView*, int, int, void**);
     using QChartView_ResizeEvent_Callback = void (*)(QChartView*, QResizeEvent*);
     using QChartView_MousePressEvent_Callback = void (*)(QChartView*, QMouseEvent*);
     using QChartView_MouseMoveEvent_Callback = void (*)(QChartView*, QMouseEvent*);
     using QChartView_MouseReleaseEvent_Callback = void (*)(QChartView*, QMouseEvent*);
-    using QChartView_SizeHint_Callback = QSize* (*)();
+    using QChartView_SizeHint_Callback = QSize* (*)(const QChartView*);
     using QChartView_InputMethodQuery_Callback = QVariant* (*)(const QChartView*, int);
     using QChartView_SetupViewport_Callback = void (*)(QChartView*, QWidget*);
     using QChartView_Event_Callback = bool (*)(QChartView*, QEvent*);
@@ -48,16 +44,16 @@ class VirtualQChartView final : public QChartView {
     using QChartView_DrawBackground_Callback = void (*)(QChartView*, QPainter*, QRectF*);
     using QChartView_DrawForeground_Callback = void (*)(QChartView*, QPainter*, QRectF*);
     using QChartView_DrawItems_Callback = void (*)(QChartView*, QPainter*, int, QGraphicsItem**, QStyleOptionGraphicsItem*);
-    using QChartView_MinimumSizeHint_Callback = QSize* (*)();
+    using QChartView_MinimumSizeHint_Callback = QSize* (*)(const QChartView*);
     using QChartView_EventFilter_Callback = bool (*)(QChartView*, QObject*, QEvent*);
-    using QChartView_ViewportSizeHint_Callback = QSize* (*)();
+    using QChartView_ViewportSizeHint_Callback = QSize* (*)(const QChartView*);
     using QChartView_ChangeEvent_Callback = void (*)(QChartView*, QEvent*);
     using QChartView_InitStyleOption_Callback = void (*)(const QChartView*, QStyleOptionFrame*);
-    using QChartView_DevType_Callback = int (*)();
+    using QChartView_DevType_Callback = int (*)(const QChartView*);
     using QChartView_SetVisible_Callback = void (*)(QChartView*, bool);
     using QChartView_HeightForWidth_Callback = int (*)(const QChartView*, int);
-    using QChartView_HasHeightForWidth_Callback = bool (*)();
-    using QChartView_PaintEngine_Callback = QPaintEngine* (*)();
+    using QChartView_HasHeightForWidth_Callback = bool (*)(const QChartView*);
+    using QChartView_PaintEngine_Callback = QPaintEngine* (*)(const QChartView*);
     using QChartView_EnterEvent_Callback = void (*)(QChartView*, QEnterEvent*);
     using QChartView_LeaveEvent_Callback = void (*)(QChartView*, QEvent*);
     using QChartView_MoveEvent_Callback = void (*)(QChartView*, QMoveEvent*);
@@ -69,27 +65,26 @@ class VirtualQChartView final : public QChartView {
     using QChartView_Metric_Callback = int (*)(const QChartView*, int);
     using QChartView_InitPainter_Callback = void (*)(const QChartView*, QPainter*);
     using QChartView_Redirected_Callback = QPaintDevice* (*)(const QChartView*, QPoint*);
-    using QChartView_SharedPainter_Callback = QPainter* (*)();
+    using QChartView_SharedPainter_Callback = QPainter* (*)(const QChartView*);
     using QChartView_TimerEvent_Callback = void (*)(QChartView*, QTimerEvent*);
     using QChartView_ChildEvent_Callback = void (*)(QChartView*, QChildEvent*);
     using QChartView_CustomEvent_Callback = void (*)(QChartView*, QEvent*);
     using QChartView_ConnectNotify_Callback = void (*)(QChartView*, QMetaMethod*);
     using QChartView_DisconnectNotify_Callback = void (*)(QChartView*, QMetaMethod*);
-    using QChartView_SetViewportMargins_Callback = void (*)(QChartView*, int, int, int, int);
-    using QChartView_ViewportMargins_Callback = QMargins* (*)();
-    using QChartView_DrawFrame_Callback = void (*)(QChartView*, QPainter*);
-    using QChartView_UpdateMicroFocus_Callback = void (*)();
-    using QChartView_Create_Callback = void (*)();
-    using QChartView_Destroy_Callback = void (*)();
-    using QChartView_FocusNextChild_Callback = bool (*)();
-    using QChartView_FocusPreviousChild_Callback = bool (*)();
-    using QChartView_Sender_Callback = QObject* (*)();
-    using QChartView_SenderSignalIndex_Callback = int (*)();
-    using QChartView_Receivers_Callback = int (*)(const QChartView*, const char*);
-    using QChartView_IsSignalConnected_Callback = bool (*)(const QChartView*, QMetaMethod*);
-    using QChartView_GetDecodedMetricF_Callback = double (*)(const QChartView*, int, int);
+    using QChartView::create;
+    using QChartView::destroy;
+    using QChartView::drawFrame;
+    using QChartView::focusNextChild;
+    using QChartView::focusPreviousChild;
+    using QChartView::getDecodedMetricF;
+    using QChartView::isSignalConnected;
+    using QChartView::receivers;
+    using QChartView::sender;
+    using QChartView::senderSignalIndex;
+    using QChartView::setViewportMargins;
+    using QChartView::updateMicroFocus;
+    using QChartView::viewportMargins;
 
-  protected:
     // Instance callback storage
     QChartView_MetaObject_Callback qchartview_metaobject_callback = nullptr;
     QChartView_Metacast_Callback qchartview_metacast_callback = nullptr;
@@ -149,254 +144,67 @@ class VirtualQChartView final : public QChartView {
     QChartView_CustomEvent_Callback qchartview_customevent_callback = nullptr;
     QChartView_ConnectNotify_Callback qchartview_connectnotify_callback = nullptr;
     QChartView_DisconnectNotify_Callback qchartview_disconnectnotify_callback = nullptr;
-    QChartView_SetViewportMargins_Callback qchartview_setviewportmargins_callback = nullptr;
-    QChartView_ViewportMargins_Callback qchartview_viewportmargins_callback = nullptr;
-    QChartView_DrawFrame_Callback qchartview_drawframe_callback = nullptr;
-    QChartView_UpdateMicroFocus_Callback qchartview_updatemicrofocus_callback = nullptr;
-    QChartView_Create_Callback qchartview_create_callback = nullptr;
-    QChartView_Destroy_Callback qchartview_destroy_callback = nullptr;
-    QChartView_FocusNextChild_Callback qchartview_focusnextchild_callback = nullptr;
-    QChartView_FocusPreviousChild_Callback qchartview_focuspreviouschild_callback = nullptr;
-    QChartView_Sender_Callback qchartview_sender_callback = nullptr;
-    QChartView_SenderSignalIndex_Callback qchartview_sendersignalindex_callback = nullptr;
-    QChartView_Receivers_Callback qchartview_receivers_callback = nullptr;
-    QChartView_IsSignalConnected_Callback qchartview_issignalconnected_callback = nullptr;
-    QChartView_GetDecodedMetricF_Callback qchartview_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qchartview_metaobject_isbase = false;
-    mutable bool qchartview_metacast_isbase = false;
-    mutable bool qchartview_metacall_isbase = false;
-    mutable bool qchartview_resizeevent_isbase = false;
-    mutable bool qchartview_mousepressevent_isbase = false;
-    mutable bool qchartview_mousemoveevent_isbase = false;
-    mutable bool qchartview_mousereleaseevent_isbase = false;
-    mutable bool qchartview_sizehint_isbase = false;
-    mutable bool qchartview_inputmethodquery_isbase = false;
-    mutable bool qchartview_setupviewport_isbase = false;
-    mutable bool qchartview_event_isbase = false;
-    mutable bool qchartview_viewportevent_isbase = false;
-    mutable bool qchartview_contextmenuevent_isbase = false;
-    mutable bool qchartview_dragenterevent_isbase = false;
-    mutable bool qchartview_dragleaveevent_isbase = false;
-    mutable bool qchartview_dragmoveevent_isbase = false;
-    mutable bool qchartview_dropevent_isbase = false;
-    mutable bool qchartview_focusinevent_isbase = false;
-    mutable bool qchartview_focusnextprevchild_isbase = false;
-    mutable bool qchartview_focusoutevent_isbase = false;
-    mutable bool qchartview_keypressevent_isbase = false;
-    mutable bool qchartview_keyreleaseevent_isbase = false;
-    mutable bool qchartview_mousedoubleclickevent_isbase = false;
-    mutable bool qchartview_wheelevent_isbase = false;
-    mutable bool qchartview_paintevent_isbase = false;
-    mutable bool qchartview_scrollcontentsby_isbase = false;
-    mutable bool qchartview_showevent_isbase = false;
-    mutable bool qchartview_inputmethodevent_isbase = false;
-    mutable bool qchartview_drawbackground_isbase = false;
-    mutable bool qchartview_drawforeground_isbase = false;
-    mutable bool qchartview_drawitems_isbase = false;
-    mutable bool qchartview_minimumsizehint_isbase = false;
-    mutable bool qchartview_eventfilter_isbase = false;
-    mutable bool qchartview_viewportsizehint_isbase = false;
-    mutable bool qchartview_changeevent_isbase = false;
-    mutable bool qchartview_initstyleoption_isbase = false;
-    mutable bool qchartview_devtype_isbase = false;
-    mutable bool qchartview_setvisible_isbase = false;
-    mutable bool qchartview_heightforwidth_isbase = false;
-    mutable bool qchartview_hasheightforwidth_isbase = false;
-    mutable bool qchartview_paintengine_isbase = false;
-    mutable bool qchartview_enterevent_isbase = false;
-    mutable bool qchartview_leaveevent_isbase = false;
-    mutable bool qchartview_moveevent_isbase = false;
-    mutable bool qchartview_closeevent_isbase = false;
-    mutable bool qchartview_tabletevent_isbase = false;
-    mutable bool qchartview_actionevent_isbase = false;
-    mutable bool qchartview_hideevent_isbase = false;
-    mutable bool qchartview_nativeevent_isbase = false;
-    mutable bool qchartview_metric_isbase = false;
-    mutable bool qchartview_initpainter_isbase = false;
-    mutable bool qchartview_redirected_isbase = false;
-    mutable bool qchartview_sharedpainter_isbase = false;
-    mutable bool qchartview_timerevent_isbase = false;
-    mutable bool qchartview_childevent_isbase = false;
-    mutable bool qchartview_customevent_isbase = false;
-    mutable bool qchartview_connectnotify_isbase = false;
-    mutable bool qchartview_disconnectnotify_isbase = false;
-    mutable bool qchartview_setviewportmargins_isbase = false;
-    mutable bool qchartview_viewportmargins_isbase = false;
-    mutable bool qchartview_drawframe_isbase = false;
-    mutable bool qchartview_updatemicrofocus_isbase = false;
-    mutable bool qchartview_create_isbase = false;
-    mutable bool qchartview_destroy_isbase = false;
-    mutable bool qchartview_focusnextchild_isbase = false;
-    mutable bool qchartview_focuspreviouschild_isbase = false;
-    mutable bool qchartview_sender_isbase = false;
-    mutable bool qchartview_sendersignalindex_isbase = false;
-    mutable bool qchartview_receivers_isbase = false;
-    mutable bool qchartview_issignalconnected_isbase = false;
-    mutable bool qchartview_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QChartView {
+        using QChartView::actionEvent;
+        using QChartView::changeEvent;
+        using QChartView::childEvent;
+        using QChartView::closeEvent;
+        using QChartView::connectNotify;
+        using QChartView::contextMenuEvent;
+        using QChartView::customEvent;
+        using QChartView::disconnectNotify;
+        using QChartView::dragEnterEvent;
+        using QChartView::dragLeaveEvent;
+        using QChartView::dragMoveEvent;
+        using QChartView::drawBackground;
+        using QChartView::drawForeground;
+        using QChartView::drawItems;
+        using QChartView::dropEvent;
+        using QChartView::enterEvent;
+        using QChartView::event;
+        using QChartView::eventFilter;
+        using QChartView::focusInEvent;
+        using QChartView::focusNextPrevChild;
+        using QChartView::focusOutEvent;
+        using QChartView::hideEvent;
+        using QChartView::initPainter;
+        using QChartView::initStyleOption;
+        using QChartView::inputMethodEvent;
+        using QChartView::keyPressEvent;
+        using QChartView::keyReleaseEvent;
+        using QChartView::leaveEvent;
+        using QChartView::metric;
+        using QChartView::mouseDoubleClickEvent;
+        using QChartView::mouseMoveEvent;
+        using QChartView::mousePressEvent;
+        using QChartView::mouseReleaseEvent;
+        using QChartView::moveEvent;
+        using QChartView::nativeEvent;
+        using QChartView::paintEvent;
+        using QChartView::redirected;
+        using QChartView::resizeEvent;
+        using QChartView::scrollContentsBy;
+        using QChartView::setupViewport;
+        using QChartView::sharedPainter;
+        using QChartView::showEvent;
+        using QChartView::tabletEvent;
+        using QChartView::timerEvent;
+        using QChartView::viewportEvent;
+        using QChartView::viewportSizeHint;
+        using QChartView::wheelEvent;
+    };
 
-  public:
     VirtualQChartView(QWidget* parent) : QChartView(parent) {};
     VirtualQChartView() : QChartView() {};
     VirtualQChartView(QChart* chart) : QChartView(chart) {};
     VirtualQChartView(QChart* chart, QWidget* parent) : QChartView(chart, parent) {};
 
-    // Callback setters
-    inline void setQChartView_MetaObject_Callback(QChartView_MetaObject_Callback cb) { qchartview_metaobject_callback = cb; }
-    inline void setQChartView_Metacast_Callback(QChartView_Metacast_Callback cb) { qchartview_metacast_callback = cb; }
-    inline void setQChartView_Metacall_Callback(QChartView_Metacall_Callback cb) { qchartview_metacall_callback = cb; }
-    inline void setQChartView_ResizeEvent_Callback(QChartView_ResizeEvent_Callback cb) { qchartview_resizeevent_callback = cb; }
-    inline void setQChartView_MousePressEvent_Callback(QChartView_MousePressEvent_Callback cb) { qchartview_mousepressevent_callback = cb; }
-    inline void setQChartView_MouseMoveEvent_Callback(QChartView_MouseMoveEvent_Callback cb) { qchartview_mousemoveevent_callback = cb; }
-    inline void setQChartView_MouseReleaseEvent_Callback(QChartView_MouseReleaseEvent_Callback cb) { qchartview_mousereleaseevent_callback = cb; }
-    inline void setQChartView_SizeHint_Callback(QChartView_SizeHint_Callback cb) { qchartview_sizehint_callback = cb; }
-    inline void setQChartView_InputMethodQuery_Callback(QChartView_InputMethodQuery_Callback cb) { qchartview_inputmethodquery_callback = cb; }
-    inline void setQChartView_SetupViewport_Callback(QChartView_SetupViewport_Callback cb) { qchartview_setupviewport_callback = cb; }
-    inline void setQChartView_Event_Callback(QChartView_Event_Callback cb) { qchartview_event_callback = cb; }
-    inline void setQChartView_ViewportEvent_Callback(QChartView_ViewportEvent_Callback cb) { qchartview_viewportevent_callback = cb; }
-    inline void setQChartView_ContextMenuEvent_Callback(QChartView_ContextMenuEvent_Callback cb) { qchartview_contextmenuevent_callback = cb; }
-    inline void setQChartView_DragEnterEvent_Callback(QChartView_DragEnterEvent_Callback cb) { qchartview_dragenterevent_callback = cb; }
-    inline void setQChartView_DragLeaveEvent_Callback(QChartView_DragLeaveEvent_Callback cb) { qchartview_dragleaveevent_callback = cb; }
-    inline void setQChartView_DragMoveEvent_Callback(QChartView_DragMoveEvent_Callback cb) { qchartview_dragmoveevent_callback = cb; }
-    inline void setQChartView_DropEvent_Callback(QChartView_DropEvent_Callback cb) { qchartview_dropevent_callback = cb; }
-    inline void setQChartView_FocusInEvent_Callback(QChartView_FocusInEvent_Callback cb) { qchartview_focusinevent_callback = cb; }
-    inline void setQChartView_FocusNextPrevChild_Callback(QChartView_FocusNextPrevChild_Callback cb) { qchartview_focusnextprevchild_callback = cb; }
-    inline void setQChartView_FocusOutEvent_Callback(QChartView_FocusOutEvent_Callback cb) { qchartview_focusoutevent_callback = cb; }
-    inline void setQChartView_KeyPressEvent_Callback(QChartView_KeyPressEvent_Callback cb) { qchartview_keypressevent_callback = cb; }
-    inline void setQChartView_KeyReleaseEvent_Callback(QChartView_KeyReleaseEvent_Callback cb) { qchartview_keyreleaseevent_callback = cb; }
-    inline void setQChartView_MouseDoubleClickEvent_Callback(QChartView_MouseDoubleClickEvent_Callback cb) { qchartview_mousedoubleclickevent_callback = cb; }
-    inline void setQChartView_WheelEvent_Callback(QChartView_WheelEvent_Callback cb) { qchartview_wheelevent_callback = cb; }
-    inline void setQChartView_PaintEvent_Callback(QChartView_PaintEvent_Callback cb) { qchartview_paintevent_callback = cb; }
-    inline void setQChartView_ScrollContentsBy_Callback(QChartView_ScrollContentsBy_Callback cb) { qchartview_scrollcontentsby_callback = cb; }
-    inline void setQChartView_ShowEvent_Callback(QChartView_ShowEvent_Callback cb) { qchartview_showevent_callback = cb; }
-    inline void setQChartView_InputMethodEvent_Callback(QChartView_InputMethodEvent_Callback cb) { qchartview_inputmethodevent_callback = cb; }
-    inline void setQChartView_DrawBackground_Callback(QChartView_DrawBackground_Callback cb) { qchartview_drawbackground_callback = cb; }
-    inline void setQChartView_DrawForeground_Callback(QChartView_DrawForeground_Callback cb) { qchartview_drawforeground_callback = cb; }
-    inline void setQChartView_DrawItems_Callback(QChartView_DrawItems_Callback cb) { qchartview_drawitems_callback = cb; }
-    inline void setQChartView_MinimumSizeHint_Callback(QChartView_MinimumSizeHint_Callback cb) { qchartview_minimumsizehint_callback = cb; }
-    inline void setQChartView_EventFilter_Callback(QChartView_EventFilter_Callback cb) { qchartview_eventfilter_callback = cb; }
-    inline void setQChartView_ViewportSizeHint_Callback(QChartView_ViewportSizeHint_Callback cb) { qchartview_viewportsizehint_callback = cb; }
-    inline void setQChartView_ChangeEvent_Callback(QChartView_ChangeEvent_Callback cb) { qchartview_changeevent_callback = cb; }
-    inline void setQChartView_InitStyleOption_Callback(QChartView_InitStyleOption_Callback cb) { qchartview_initstyleoption_callback = cb; }
-    inline void setQChartView_DevType_Callback(QChartView_DevType_Callback cb) { qchartview_devtype_callback = cb; }
-    inline void setQChartView_SetVisible_Callback(QChartView_SetVisible_Callback cb) { qchartview_setvisible_callback = cb; }
-    inline void setQChartView_HeightForWidth_Callback(QChartView_HeightForWidth_Callback cb) { qchartview_heightforwidth_callback = cb; }
-    inline void setQChartView_HasHeightForWidth_Callback(QChartView_HasHeightForWidth_Callback cb) { qchartview_hasheightforwidth_callback = cb; }
-    inline void setQChartView_PaintEngine_Callback(QChartView_PaintEngine_Callback cb) { qchartview_paintengine_callback = cb; }
-    inline void setQChartView_EnterEvent_Callback(QChartView_EnterEvent_Callback cb) { qchartview_enterevent_callback = cb; }
-    inline void setQChartView_LeaveEvent_Callback(QChartView_LeaveEvent_Callback cb) { qchartview_leaveevent_callback = cb; }
-    inline void setQChartView_MoveEvent_Callback(QChartView_MoveEvent_Callback cb) { qchartview_moveevent_callback = cb; }
-    inline void setQChartView_CloseEvent_Callback(QChartView_CloseEvent_Callback cb) { qchartview_closeevent_callback = cb; }
-    inline void setQChartView_TabletEvent_Callback(QChartView_TabletEvent_Callback cb) { qchartview_tabletevent_callback = cb; }
-    inline void setQChartView_ActionEvent_Callback(QChartView_ActionEvent_Callback cb) { qchartview_actionevent_callback = cb; }
-    inline void setQChartView_HideEvent_Callback(QChartView_HideEvent_Callback cb) { qchartview_hideevent_callback = cb; }
-    inline void setQChartView_NativeEvent_Callback(QChartView_NativeEvent_Callback cb) { qchartview_nativeevent_callback = cb; }
-    inline void setQChartView_Metric_Callback(QChartView_Metric_Callback cb) { qchartview_metric_callback = cb; }
-    inline void setQChartView_InitPainter_Callback(QChartView_InitPainter_Callback cb) { qchartview_initpainter_callback = cb; }
-    inline void setQChartView_Redirected_Callback(QChartView_Redirected_Callback cb) { qchartview_redirected_callback = cb; }
-    inline void setQChartView_SharedPainter_Callback(QChartView_SharedPainter_Callback cb) { qchartview_sharedpainter_callback = cb; }
-    inline void setQChartView_TimerEvent_Callback(QChartView_TimerEvent_Callback cb) { qchartview_timerevent_callback = cb; }
-    inline void setQChartView_ChildEvent_Callback(QChartView_ChildEvent_Callback cb) { qchartview_childevent_callback = cb; }
-    inline void setQChartView_CustomEvent_Callback(QChartView_CustomEvent_Callback cb) { qchartview_customevent_callback = cb; }
-    inline void setQChartView_ConnectNotify_Callback(QChartView_ConnectNotify_Callback cb) { qchartview_connectnotify_callback = cb; }
-    inline void setQChartView_DisconnectNotify_Callback(QChartView_DisconnectNotify_Callback cb) { qchartview_disconnectnotify_callback = cb; }
-    inline void setQChartView_SetViewportMargins_Callback(QChartView_SetViewportMargins_Callback cb) { qchartview_setviewportmargins_callback = cb; }
-    inline void setQChartView_ViewportMargins_Callback(QChartView_ViewportMargins_Callback cb) { qchartview_viewportmargins_callback = cb; }
-    inline void setQChartView_DrawFrame_Callback(QChartView_DrawFrame_Callback cb) { qchartview_drawframe_callback = cb; }
-    inline void setQChartView_UpdateMicroFocus_Callback(QChartView_UpdateMicroFocus_Callback cb) { qchartview_updatemicrofocus_callback = cb; }
-    inline void setQChartView_Create_Callback(QChartView_Create_Callback cb) { qchartview_create_callback = cb; }
-    inline void setQChartView_Destroy_Callback(QChartView_Destroy_Callback cb) { qchartview_destroy_callback = cb; }
-    inline void setQChartView_FocusNextChild_Callback(QChartView_FocusNextChild_Callback cb) { qchartview_focusnextchild_callback = cb; }
-    inline void setQChartView_FocusPreviousChild_Callback(QChartView_FocusPreviousChild_Callback cb) { qchartview_focuspreviouschild_callback = cb; }
-    inline void setQChartView_Sender_Callback(QChartView_Sender_Callback cb) { qchartview_sender_callback = cb; }
-    inline void setQChartView_SenderSignalIndex_Callback(QChartView_SenderSignalIndex_Callback cb) { qchartview_sendersignalindex_callback = cb; }
-    inline void setQChartView_Receivers_Callback(QChartView_Receivers_Callback cb) { qchartview_receivers_callback = cb; }
-    inline void setQChartView_IsSignalConnected_Callback(QChartView_IsSignalConnected_Callback cb) { qchartview_issignalconnected_callback = cb; }
-    inline void setQChartView_GetDecodedMetricF_Callback(QChartView_GetDecodedMetricF_Callback cb) { qchartview_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQChartView_MetaObject_IsBase(bool value) const { qchartview_metaobject_isbase = value; }
-    inline void setQChartView_Metacast_IsBase(bool value) const { qchartview_metacast_isbase = value; }
-    inline void setQChartView_Metacall_IsBase(bool value) const { qchartview_metacall_isbase = value; }
-    inline void setQChartView_ResizeEvent_IsBase(bool value) const { qchartview_resizeevent_isbase = value; }
-    inline void setQChartView_MousePressEvent_IsBase(bool value) const { qchartview_mousepressevent_isbase = value; }
-    inline void setQChartView_MouseMoveEvent_IsBase(bool value) const { qchartview_mousemoveevent_isbase = value; }
-    inline void setQChartView_MouseReleaseEvent_IsBase(bool value) const { qchartview_mousereleaseevent_isbase = value; }
-    inline void setQChartView_SizeHint_IsBase(bool value) const { qchartview_sizehint_isbase = value; }
-    inline void setQChartView_InputMethodQuery_IsBase(bool value) const { qchartview_inputmethodquery_isbase = value; }
-    inline void setQChartView_SetupViewport_IsBase(bool value) const { qchartview_setupviewport_isbase = value; }
-    inline void setQChartView_Event_IsBase(bool value) const { qchartview_event_isbase = value; }
-    inline void setQChartView_ViewportEvent_IsBase(bool value) const { qchartview_viewportevent_isbase = value; }
-    inline void setQChartView_ContextMenuEvent_IsBase(bool value) const { qchartview_contextmenuevent_isbase = value; }
-    inline void setQChartView_DragEnterEvent_IsBase(bool value) const { qchartview_dragenterevent_isbase = value; }
-    inline void setQChartView_DragLeaveEvent_IsBase(bool value) const { qchartview_dragleaveevent_isbase = value; }
-    inline void setQChartView_DragMoveEvent_IsBase(bool value) const { qchartview_dragmoveevent_isbase = value; }
-    inline void setQChartView_DropEvent_IsBase(bool value) const { qchartview_dropevent_isbase = value; }
-    inline void setQChartView_FocusInEvent_IsBase(bool value) const { qchartview_focusinevent_isbase = value; }
-    inline void setQChartView_FocusNextPrevChild_IsBase(bool value) const { qchartview_focusnextprevchild_isbase = value; }
-    inline void setQChartView_FocusOutEvent_IsBase(bool value) const { qchartview_focusoutevent_isbase = value; }
-    inline void setQChartView_KeyPressEvent_IsBase(bool value) const { qchartview_keypressevent_isbase = value; }
-    inline void setQChartView_KeyReleaseEvent_IsBase(bool value) const { qchartview_keyreleaseevent_isbase = value; }
-    inline void setQChartView_MouseDoubleClickEvent_IsBase(bool value) const { qchartview_mousedoubleclickevent_isbase = value; }
-    inline void setQChartView_WheelEvent_IsBase(bool value) const { qchartview_wheelevent_isbase = value; }
-    inline void setQChartView_PaintEvent_IsBase(bool value) const { qchartview_paintevent_isbase = value; }
-    inline void setQChartView_ScrollContentsBy_IsBase(bool value) const { qchartview_scrollcontentsby_isbase = value; }
-    inline void setQChartView_ShowEvent_IsBase(bool value) const { qchartview_showevent_isbase = value; }
-    inline void setQChartView_InputMethodEvent_IsBase(bool value) const { qchartview_inputmethodevent_isbase = value; }
-    inline void setQChartView_DrawBackground_IsBase(bool value) const { qchartview_drawbackground_isbase = value; }
-    inline void setQChartView_DrawForeground_IsBase(bool value) const { qchartview_drawforeground_isbase = value; }
-    inline void setQChartView_DrawItems_IsBase(bool value) const { qchartview_drawitems_isbase = value; }
-    inline void setQChartView_MinimumSizeHint_IsBase(bool value) const { qchartview_minimumsizehint_isbase = value; }
-    inline void setQChartView_EventFilter_IsBase(bool value) const { qchartview_eventfilter_isbase = value; }
-    inline void setQChartView_ViewportSizeHint_IsBase(bool value) const { qchartview_viewportsizehint_isbase = value; }
-    inline void setQChartView_ChangeEvent_IsBase(bool value) const { qchartview_changeevent_isbase = value; }
-    inline void setQChartView_InitStyleOption_IsBase(bool value) const { qchartview_initstyleoption_isbase = value; }
-    inline void setQChartView_DevType_IsBase(bool value) const { qchartview_devtype_isbase = value; }
-    inline void setQChartView_SetVisible_IsBase(bool value) const { qchartview_setvisible_isbase = value; }
-    inline void setQChartView_HeightForWidth_IsBase(bool value) const { qchartview_heightforwidth_isbase = value; }
-    inline void setQChartView_HasHeightForWidth_IsBase(bool value) const { qchartview_hasheightforwidth_isbase = value; }
-    inline void setQChartView_PaintEngine_IsBase(bool value) const { qchartview_paintengine_isbase = value; }
-    inline void setQChartView_EnterEvent_IsBase(bool value) const { qchartview_enterevent_isbase = value; }
-    inline void setQChartView_LeaveEvent_IsBase(bool value) const { qchartview_leaveevent_isbase = value; }
-    inline void setQChartView_MoveEvent_IsBase(bool value) const { qchartview_moveevent_isbase = value; }
-    inline void setQChartView_CloseEvent_IsBase(bool value) const { qchartview_closeevent_isbase = value; }
-    inline void setQChartView_TabletEvent_IsBase(bool value) const { qchartview_tabletevent_isbase = value; }
-    inline void setQChartView_ActionEvent_IsBase(bool value) const { qchartview_actionevent_isbase = value; }
-    inline void setQChartView_HideEvent_IsBase(bool value) const { qchartview_hideevent_isbase = value; }
-    inline void setQChartView_NativeEvent_IsBase(bool value) const { qchartview_nativeevent_isbase = value; }
-    inline void setQChartView_Metric_IsBase(bool value) const { qchartview_metric_isbase = value; }
-    inline void setQChartView_InitPainter_IsBase(bool value) const { qchartview_initpainter_isbase = value; }
-    inline void setQChartView_Redirected_IsBase(bool value) const { qchartview_redirected_isbase = value; }
-    inline void setQChartView_SharedPainter_IsBase(bool value) const { qchartview_sharedpainter_isbase = value; }
-    inline void setQChartView_TimerEvent_IsBase(bool value) const { qchartview_timerevent_isbase = value; }
-    inline void setQChartView_ChildEvent_IsBase(bool value) const { qchartview_childevent_isbase = value; }
-    inline void setQChartView_CustomEvent_IsBase(bool value) const { qchartview_customevent_isbase = value; }
-    inline void setQChartView_ConnectNotify_IsBase(bool value) const { qchartview_connectnotify_isbase = value; }
-    inline void setQChartView_DisconnectNotify_IsBase(bool value) const { qchartview_disconnectnotify_isbase = value; }
-    inline void setQChartView_SetViewportMargins_IsBase(bool value) const { qchartview_setviewportmargins_isbase = value; }
-    inline void setQChartView_ViewportMargins_IsBase(bool value) const { qchartview_viewportmargins_isbase = value; }
-    inline void setQChartView_DrawFrame_IsBase(bool value) const { qchartview_drawframe_isbase = value; }
-    inline void setQChartView_UpdateMicroFocus_IsBase(bool value) const { qchartview_updatemicrofocus_isbase = value; }
-    inline void setQChartView_Create_IsBase(bool value) const { qchartview_create_isbase = value; }
-    inline void setQChartView_Destroy_IsBase(bool value) const { qchartview_destroy_isbase = value; }
-    inline void setQChartView_FocusNextChild_IsBase(bool value) const { qchartview_focusnextchild_isbase = value; }
-    inline void setQChartView_FocusPreviousChild_IsBase(bool value) const { qchartview_focuspreviouschild_isbase = value; }
-    inline void setQChartView_Sender_IsBase(bool value) const { qchartview_sender_isbase = value; }
-    inline void setQChartView_SenderSignalIndex_IsBase(bool value) const { qchartview_sendersignalindex_isbase = value; }
-    inline void setQChartView_Receivers_IsBase(bool value) const { qchartview_receivers_isbase = value; }
-    inline void setQChartView_IsSignalConnected_IsBase(bool value) const { qchartview_issignalconnected_isbase = value; }
-    inline void setQChartView_GetDecodedMetricF_IsBase(bool value) const { qchartview_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qchartview_metaobject_isbase) {
-            qchartview_metaobject_isbase = false;
-            return QChartView::metaObject();
-        }
-        auto metaobject_cb = qchartview_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qchartview_metaobject_callback) {
+            QMetaObject* callback_ret = qchartview_metaobject_callback(this);
             return callback_ret;
         }
         return QChartView::metaObject();
@@ -404,14 +212,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qchartview_metacast_isbase) {
-            qchartview_metacast_isbase = false;
-            return QChartView::qt_metacast(param1);
-        }
-        auto metacast_cb = qchartview_metacast_callback;
-        if (metacast_cb) {
+        if (qchartview_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qchartview_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QChartView::qt_metacast(param1);
@@ -419,16 +222,11 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qchartview_metacall_isbase) {
-            qchartview_metacall_isbase = false;
-            return QChartView::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qchartview_metacall_callback;
-        if (metacall_cb) {
+        if (qchartview_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qchartview_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QChartView::qt_metacall(param1, param2, param3);
@@ -436,15 +234,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qchartview_resizeevent_isbase) {
-            qchartview_resizeevent_isbase = false;
-            QChartView::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qchartview_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qchartview_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qchartview_resizeevent_callback(this, cbval1);
             return;
         }
         QChartView::resizeEvent(event);
@@ -452,15 +244,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qchartview_mousepressevent_isbase) {
-            qchartview_mousepressevent_isbase = false;
-            QChartView::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qchartview_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qchartview_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qchartview_mousepressevent_callback(this, cbval1);
             return;
         }
         QChartView::mousePressEvent(event);
@@ -468,15 +254,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qchartview_mousemoveevent_isbase) {
-            qchartview_mousemoveevent_isbase = false;
-            QChartView::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qchartview_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qchartview_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qchartview_mousemoveevent_callback(this, cbval1);
             return;
         }
         QChartView::mouseMoveEvent(event);
@@ -484,15 +264,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qchartview_mousereleaseevent_isbase) {
-            qchartview_mousereleaseevent_isbase = false;
-            QChartView::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qchartview_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qchartview_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qchartview_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QChartView::mouseReleaseEvent(event);
@@ -500,13 +274,8 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qchartview_sizehint_isbase) {
-            qchartview_sizehint_isbase = false;
-            return QChartView::sizeHint();
-        }
-        auto sizehint_cb = qchartview_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qchartview_sizehint_callback) {
+            QSize* callback_ret = qchartview_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -516,14 +285,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
-        if (qchartview_inputmethodquery_isbase) {
-            qchartview_inputmethodquery_isbase = false;
-            return QChartView::inputMethodQuery(query);
-        }
-        auto inputmethodquery_cb = qchartview_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qchartview_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(query);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qchartview_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -533,15 +297,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setupViewport(QWidget* widget) override {
-        if (qchartview_setupviewport_isbase) {
-            qchartview_setupviewport_isbase = false;
-            QChartView::setupViewport(widget);
-            return;
-        }
-        auto setupviewport_cb = qchartview_setupviewport_callback;
-        if (setupviewport_cb) {
+        if (qchartview_setupviewport_callback) {
             QWidget* cbval1 = widget;
-            setupviewport_cb(this, cbval1);
+            qchartview_setupviewport_callback(this, cbval1);
             return;
         }
         QChartView::setupViewport(widget);
@@ -549,14 +307,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qchartview_event_isbase) {
-            qchartview_event_isbase = false;
-            return QChartView::event(event);
-        }
-        auto event_cb = qchartview_event_callback;
-        if (event_cb) {
+        if (qchartview_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qchartview_event_callback(this, cbval1);
             return callback_ret;
         }
         return QChartView::event(event);
@@ -564,14 +317,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool viewportEvent(QEvent* event) override {
-        if (qchartview_viewportevent_isbase) {
-            qchartview_viewportevent_isbase = false;
-            return QChartView::viewportEvent(event);
-        }
-        auto viewportevent_cb = qchartview_viewportevent_callback;
-        if (viewportevent_cb) {
+        if (qchartview_viewportevent_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = viewportevent_cb(this, cbval1);
+            bool callback_ret = qchartview_viewportevent_callback(this, cbval1);
             return callback_ret;
         }
         return QChartView::viewportEvent(event);
@@ -579,15 +327,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qchartview_contextmenuevent_isbase) {
-            qchartview_contextmenuevent_isbase = false;
-            QChartView::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qchartview_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qchartview_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qchartview_contextmenuevent_callback(this, cbval1);
             return;
         }
         QChartView::contextMenuEvent(event);
@@ -595,15 +337,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qchartview_dragenterevent_isbase) {
-            qchartview_dragenterevent_isbase = false;
-            QChartView::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qchartview_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qchartview_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qchartview_dragenterevent_callback(this, cbval1);
             return;
         }
         QChartView::dragEnterEvent(event);
@@ -611,15 +347,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qchartview_dragleaveevent_isbase) {
-            qchartview_dragleaveevent_isbase = false;
-            QChartView::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qchartview_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qchartview_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qchartview_dragleaveevent_callback(this, cbval1);
             return;
         }
         QChartView::dragLeaveEvent(event);
@@ -627,15 +357,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qchartview_dragmoveevent_isbase) {
-            qchartview_dragmoveevent_isbase = false;
-            QChartView::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qchartview_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qchartview_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qchartview_dragmoveevent_callback(this, cbval1);
             return;
         }
         QChartView::dragMoveEvent(event);
@@ -643,15 +367,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qchartview_dropevent_isbase) {
-            qchartview_dropevent_isbase = false;
-            QChartView::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qchartview_dropevent_callback;
-        if (dropevent_cb) {
+        if (qchartview_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qchartview_dropevent_callback(this, cbval1);
             return;
         }
         QChartView::dropEvent(event);
@@ -659,15 +377,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qchartview_focusinevent_isbase) {
-            qchartview_focusinevent_isbase = false;
-            QChartView::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qchartview_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qchartview_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qchartview_focusinevent_callback(this, cbval1);
             return;
         }
         QChartView::focusInEvent(event);
@@ -675,14 +387,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qchartview_focusnextprevchild_isbase) {
-            qchartview_focusnextprevchild_isbase = false;
-            return QChartView::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qchartview_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qchartview_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qchartview_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QChartView::focusNextPrevChild(next);
@@ -690,15 +397,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qchartview_focusoutevent_isbase) {
-            qchartview_focusoutevent_isbase = false;
-            QChartView::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qchartview_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qchartview_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qchartview_focusoutevent_callback(this, cbval1);
             return;
         }
         QChartView::focusOutEvent(event);
@@ -706,15 +407,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qchartview_keypressevent_isbase) {
-            qchartview_keypressevent_isbase = false;
-            QChartView::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qchartview_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qchartview_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qchartview_keypressevent_callback(this, cbval1);
             return;
         }
         QChartView::keyPressEvent(event);
@@ -722,15 +417,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qchartview_keyreleaseevent_isbase) {
-            qchartview_keyreleaseevent_isbase = false;
-            QChartView::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qchartview_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qchartview_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qchartview_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QChartView::keyReleaseEvent(event);
@@ -738,15 +427,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qchartview_mousedoubleclickevent_isbase) {
-            qchartview_mousedoubleclickevent_isbase = false;
-            QChartView::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qchartview_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qchartview_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qchartview_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QChartView::mouseDoubleClickEvent(event);
@@ -754,15 +437,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qchartview_wheelevent_isbase) {
-            qchartview_wheelevent_isbase = false;
-            QChartView::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qchartview_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qchartview_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qchartview_wheelevent_callback(this, cbval1);
             return;
         }
         QChartView::wheelEvent(event);
@@ -770,15 +447,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qchartview_paintevent_isbase) {
-            qchartview_paintevent_isbase = false;
-            QChartView::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qchartview_paintevent_callback;
-        if (paintevent_cb) {
+        if (qchartview_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qchartview_paintevent_callback(this, cbval1);
             return;
         }
         QChartView::paintEvent(event);
@@ -786,16 +457,10 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollContentsBy(int dx, int dy) override {
-        if (qchartview_scrollcontentsby_isbase) {
-            qchartview_scrollcontentsby_isbase = false;
-            QChartView::scrollContentsBy(dx, dy);
-            return;
-        }
-        auto scrollcontentsby_cb = qchartview_scrollcontentsby_callback;
-        if (scrollcontentsby_cb) {
+        if (qchartview_scrollcontentsby_callback) {
             int cbval1 = dx;
             int cbval2 = dy;
-            scrollcontentsby_cb(this, cbval1, cbval2);
+            qchartview_scrollcontentsby_callback(this, cbval1, cbval2);
             return;
         }
         QChartView::scrollContentsBy(dx, dy);
@@ -803,15 +468,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qchartview_showevent_isbase) {
-            qchartview_showevent_isbase = false;
-            QChartView::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qchartview_showevent_callback;
-        if (showevent_cb) {
+        if (qchartview_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qchartview_showevent_callback(this, cbval1);
             return;
         }
         QChartView::showEvent(event);
@@ -819,15 +478,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* event) override {
-        if (qchartview_inputmethodevent_isbase) {
-            qchartview_inputmethodevent_isbase = false;
-            QChartView::inputMethodEvent(event);
-            return;
-        }
-        auto inputmethodevent_cb = qchartview_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qchartview_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = event;
-            inputmethodevent_cb(this, cbval1);
+            qchartview_inputmethodevent_callback(this, cbval1);
             return;
         }
         QChartView::inputMethodEvent(event);
@@ -835,18 +488,12 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void drawBackground(QPainter* painter, const QRectF& rect) override {
-        if (qchartview_drawbackground_isbase) {
-            qchartview_drawbackground_isbase = false;
-            QChartView::drawBackground(painter, rect);
-            return;
-        }
-        auto drawbackground_cb = qchartview_drawbackground_callback;
-        if (drawbackground_cb) {
+        if (qchartview_drawbackground_callback) {
             QPainter* cbval1 = painter;
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-            drawbackground_cb(this, cbval1, cbval2);
+            qchartview_drawbackground_callback(this, cbval1, cbval2);
             return;
         }
         QChartView::drawBackground(painter, rect);
@@ -854,18 +501,12 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void drawForeground(QPainter* painter, const QRectF& rect) override {
-        if (qchartview_drawforeground_isbase) {
-            qchartview_drawforeground_isbase = false;
-            QChartView::drawForeground(painter, rect);
-            return;
-        }
-        auto drawforeground_cb = qchartview_drawforeground_callback;
-        if (drawforeground_cb) {
+        if (qchartview_drawforeground_callback) {
             QPainter* cbval1 = painter;
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-            drawforeground_cb(this, cbval1, cbval2);
+            qchartview_drawforeground_callback(this, cbval1, cbval2);
             return;
         }
         QChartView::drawForeground(painter, rect);
@@ -873,18 +514,12 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void drawItems(QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) override {
-        if (qchartview_drawitems_isbase) {
-            qchartview_drawitems_isbase = false;
-            QChartView::drawItems(painter, numItems, items, options);
-            return;
-        }
-        auto drawitems_cb = qchartview_drawitems_callback;
-        if (drawitems_cb) {
+        if (qchartview_drawitems_callback) {
             QPainter* cbval1 = painter;
             int cbval2 = numItems;
             QGraphicsItem** cbval3 = items;
             QStyleOptionGraphicsItem* cbval4 = (QStyleOptionGraphicsItem*)options;
-            drawitems_cb(this, cbval1, cbval2, cbval3, cbval4);
+            qchartview_drawitems_callback(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
         QChartView::drawItems(painter, numItems, items, options);
@@ -892,13 +527,8 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qchartview_minimumsizehint_isbase) {
-            qchartview_minimumsizehint_isbase = false;
-            return QChartView::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qchartview_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qchartview_minimumsizehint_callback) {
+            QSize* callback_ret = qchartview_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -908,15 +538,10 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (qchartview_eventfilter_isbase) {
-            qchartview_eventfilter_isbase = false;
-            return QChartView::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = qchartview_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qchartview_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qchartview_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QChartView::eventFilter(param1, param2);
@@ -924,13 +549,8 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize viewportSizeHint() const override {
-        if (qchartview_viewportsizehint_isbase) {
-            qchartview_viewportsizehint_isbase = false;
-            return QChartView::viewportSizeHint();
-        }
-        auto viewportsizehint_cb = qchartview_viewportsizehint_callback;
-        if (viewportsizehint_cb) {
-            QSize* callback_ret = viewportsizehint_cb();
+        if (qchartview_viewportsizehint_callback) {
+            QSize* callback_ret = qchartview_viewportsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -940,15 +560,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (qchartview_changeevent_isbase) {
-            qchartview_changeevent_isbase = false;
-            QChartView::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = qchartview_changeevent_callback;
-        if (changeevent_cb) {
+        if (qchartview_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            qchartview_changeevent_callback(this, cbval1);
             return;
         }
         QChartView::changeEvent(param1);
@@ -956,15 +570,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (qchartview_initstyleoption_isbase) {
-            qchartview_initstyleoption_isbase = false;
-            QChartView::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qchartview_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qchartview_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qchartview_initstyleoption_callback(this, cbval1);
             return;
         }
         QChartView::initStyleOption(option);
@@ -972,13 +580,8 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qchartview_devtype_isbase) {
-            qchartview_devtype_isbase = false;
-            return QChartView::devType();
-        }
-        auto devtype_cb = qchartview_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qchartview_devtype_callback) {
+            int callback_ret = qchartview_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QChartView::devType();
@@ -986,15 +589,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qchartview_setvisible_isbase) {
-            qchartview_setvisible_isbase = false;
-            QChartView::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qchartview_setvisible_callback;
-        if (setvisible_cb) {
+        if (qchartview_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qchartview_setvisible_callback(this, cbval1);
             return;
         }
         QChartView::setVisible(visible);
@@ -1002,14 +599,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qchartview_heightforwidth_isbase) {
-            qchartview_heightforwidth_isbase = false;
-            return QChartView::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qchartview_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qchartview_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qchartview_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QChartView::heightForWidth(param1);
@@ -1017,13 +609,8 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qchartview_hasheightforwidth_isbase) {
-            qchartview_hasheightforwidth_isbase = false;
-            return QChartView::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qchartview_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qchartview_hasheightforwidth_callback) {
+            bool callback_ret = qchartview_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QChartView::hasHeightForWidth();
@@ -1031,13 +618,8 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qchartview_paintengine_isbase) {
-            qchartview_paintengine_isbase = false;
-            return QChartView::paintEngine();
-        }
-        auto paintengine_cb = qchartview_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qchartview_paintengine_callback) {
+            QPaintEngine* callback_ret = qchartview_paintengine_callback(this);
             return callback_ret;
         }
         return QChartView::paintEngine();
@@ -1045,15 +627,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qchartview_enterevent_isbase) {
-            qchartview_enterevent_isbase = false;
-            QChartView::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qchartview_enterevent_callback;
-        if (enterevent_cb) {
+        if (qchartview_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qchartview_enterevent_callback(this, cbval1);
             return;
         }
         QChartView::enterEvent(event);
@@ -1061,15 +637,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qchartview_leaveevent_isbase) {
-            qchartview_leaveevent_isbase = false;
-            QChartView::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qchartview_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qchartview_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qchartview_leaveevent_callback(this, cbval1);
             return;
         }
         QChartView::leaveEvent(event);
@@ -1077,15 +647,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qchartview_moveevent_isbase) {
-            qchartview_moveevent_isbase = false;
-            QChartView::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qchartview_moveevent_callback;
-        if (moveevent_cb) {
+        if (qchartview_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qchartview_moveevent_callback(this, cbval1);
             return;
         }
         QChartView::moveEvent(event);
@@ -1093,15 +657,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qchartview_closeevent_isbase) {
-            qchartview_closeevent_isbase = false;
-            QChartView::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qchartview_closeevent_callback;
-        if (closeevent_cb) {
+        if (qchartview_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qchartview_closeevent_callback(this, cbval1);
             return;
         }
         QChartView::closeEvent(event);
@@ -1109,15 +667,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qchartview_tabletevent_isbase) {
-            qchartview_tabletevent_isbase = false;
-            QChartView::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qchartview_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qchartview_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qchartview_tabletevent_callback(this, cbval1);
             return;
         }
         QChartView::tabletEvent(event);
@@ -1125,15 +677,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qchartview_actionevent_isbase) {
-            qchartview_actionevent_isbase = false;
-            QChartView::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qchartview_actionevent_callback;
-        if (actionevent_cb) {
+        if (qchartview_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qchartview_actionevent_callback(this, cbval1);
             return;
         }
         QChartView::actionEvent(event);
@@ -1141,15 +687,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qchartview_hideevent_isbase) {
-            qchartview_hideevent_isbase = false;
-            QChartView::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qchartview_hideevent_callback;
-        if (hideevent_cb) {
+        if (qchartview_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qchartview_hideevent_callback(this, cbval1);
             return;
         }
         QChartView::hideEvent(event);
@@ -1157,12 +697,7 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qchartview_nativeevent_isbase) {
-            qchartview_nativeevent_isbase = false;
-            return QChartView::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qchartview_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qchartview_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1172,7 +707,7 @@ class VirtualQChartView final : public QChartView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qchartview_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1181,14 +716,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qchartview_metric_isbase) {
-            qchartview_metric_isbase = false;
-            return QChartView::metric(param1);
-        }
-        auto metric_cb = qchartview_metric_callback;
-        if (metric_cb) {
+        if (qchartview_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qchartview_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QChartView::metric(param1);
@@ -1196,15 +726,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qchartview_initpainter_isbase) {
-            qchartview_initpainter_isbase = false;
-            QChartView::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qchartview_initpainter_callback;
-        if (initpainter_cb) {
+        if (qchartview_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qchartview_initpainter_callback(this, cbval1);
             return;
         }
         QChartView::initPainter(painter);
@@ -1212,14 +736,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qchartview_redirected_isbase) {
-            qchartview_redirected_isbase = false;
-            return QChartView::redirected(offset);
-        }
-        auto redirected_cb = qchartview_redirected_callback;
-        if (redirected_cb) {
+        if (qchartview_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qchartview_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QChartView::redirected(offset);
@@ -1227,13 +746,8 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qchartview_sharedpainter_isbase) {
-            qchartview_sharedpainter_isbase = false;
-            return QChartView::sharedPainter();
-        }
-        auto sharedpainter_cb = qchartview_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qchartview_sharedpainter_callback) {
+            QPainter* callback_ret = qchartview_sharedpainter_callback(this);
             return callback_ret;
         }
         return QChartView::sharedPainter();
@@ -1241,15 +755,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qchartview_timerevent_isbase) {
-            qchartview_timerevent_isbase = false;
-            QChartView::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qchartview_timerevent_callback;
-        if (timerevent_cb) {
+        if (qchartview_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qchartview_timerevent_callback(this, cbval1);
             return;
         }
         QChartView::timerEvent(event);
@@ -1257,15 +765,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qchartview_childevent_isbase) {
-            qchartview_childevent_isbase = false;
-            QChartView::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qchartview_childevent_callback;
-        if (childevent_cb) {
+        if (qchartview_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qchartview_childevent_callback(this, cbval1);
             return;
         }
         QChartView::childEvent(event);
@@ -1273,15 +775,9 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qchartview_customevent_isbase) {
-            qchartview_customevent_isbase = false;
-            QChartView::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qchartview_customevent_callback;
-        if (customevent_cb) {
+        if (qchartview_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qchartview_customevent_callback(this, cbval1);
             return;
         }
         QChartView::customEvent(event);
@@ -1289,17 +785,11 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qchartview_connectnotify_isbase) {
-            qchartview_connectnotify_isbase = false;
-            QChartView::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qchartview_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qchartview_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qchartview_connectnotify_callback(this, cbval1);
             return;
         }
         QChartView::connectNotify(signal);
@@ -1307,343 +797,64 @@ class VirtualQChartView final : public QChartView {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qchartview_disconnectnotify_isbase) {
-            qchartview_disconnectnotify_isbase = false;
-            QChartView::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qchartview_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qchartview_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qchartview_disconnectnotify_callback(this, cbval1);
             return;
         }
         QChartView::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void setViewportMargins(int left, int top, int right, int bottom) {
-        if (qchartview_setviewportmargins_isbase) {
-            qchartview_setviewportmargins_isbase = false;
-            QChartView::setViewportMargins(left, top, right, bottom);
-            return;
-        }
-        auto setviewportmargins_cb = qchartview_setviewportmargins_callback;
-        if (setviewportmargins_cb) {
-            int cbval1 = left;
-            int cbval2 = top;
-            int cbval3 = right;
-            int cbval4 = bottom;
-            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return;
-        }
-        QChartView::setViewportMargins(left, top, right, bottom);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QMargins viewportMargins() const {
-        if (qchartview_viewportmargins_isbase) {
-            qchartview_viewportmargins_isbase = false;
-            return QChartView::viewportMargins();
-        }
-        auto viewportmargins_cb = qchartview_viewportmargins_callback;
-        if (viewportmargins_cb) {
-            QMargins* callback_ret = viewportmargins_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return QChartView::viewportMargins();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (qchartview_drawframe_isbase) {
-            qchartview_drawframe_isbase = false;
-            QChartView::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = qchartview_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        QChartView::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qchartview_updatemicrofocus_isbase) {
-            qchartview_updatemicrofocus_isbase = false;
-            QChartView::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qchartview_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QChartView::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qchartview_create_isbase) {
-            qchartview_create_isbase = false;
-            QChartView::create();
-            return;
-        }
-        auto create_cb = qchartview_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QChartView::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qchartview_destroy_isbase) {
-            qchartview_destroy_isbase = false;
-            QChartView::destroy();
-            return;
-        }
-        auto destroy_cb = qchartview_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QChartView::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qchartview_focusnextchild_isbase) {
-            qchartview_focusnextchild_isbase = false;
-            return QChartView::focusNextChild();
-        }
-        auto focusnextchild_cb = qchartview_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QChartView::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qchartview_focuspreviouschild_isbase) {
-            qchartview_focuspreviouschild_isbase = false;
-            return QChartView::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qchartview_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QChartView::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qchartview_sender_isbase) {
-            qchartview_sender_isbase = false;
-            return QChartView::sender();
-        }
-        auto sender_cb = qchartview_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QChartView::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qchartview_sendersignalindex_isbase) {
-            qchartview_sendersignalindex_isbase = false;
-            return QChartView::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qchartview_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QChartView::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qchartview_receivers_isbase) {
-            qchartview_receivers_isbase = false;
-            return QChartView::receivers(signal);
-        }
-        auto receivers_cb = qchartview_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QChartView::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qchartview_issignalconnected_isbase) {
-            qchartview_issignalconnected_isbase = false;
-            return QChartView::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qchartview_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QChartView::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qchartview_getdecodedmetricf_isbase) {
-            qchartview_getdecodedmetricf_isbase = false;
-            return QChartView::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qchartview_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QChartView::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QChartView_ResizeEvent(QChartView* self, QResizeEvent* event);
     friend void QChartView_SuperResizeEvent(QChartView* self, QResizeEvent* event);
-    friend void QChartView_MousePressEvent(QChartView* self, QMouseEvent* event);
     friend void QChartView_SuperMousePressEvent(QChartView* self, QMouseEvent* event);
-    friend void QChartView_MouseMoveEvent(QChartView* self, QMouseEvent* event);
     friend void QChartView_SuperMouseMoveEvent(QChartView* self, QMouseEvent* event);
-    friend void QChartView_MouseReleaseEvent(QChartView* self, QMouseEvent* event);
     friend void QChartView_SuperMouseReleaseEvent(QChartView* self, QMouseEvent* event);
-    friend void QChartView_SetupViewport(QChartView* self, QWidget* widget);
     friend void QChartView_SuperSetupViewport(QChartView* self, QWidget* widget);
-    friend bool QChartView_Event(QChartView* self, QEvent* event);
     friend bool QChartView_SuperEvent(QChartView* self, QEvent* event);
-    friend bool QChartView_ViewportEvent(QChartView* self, QEvent* event);
     friend bool QChartView_SuperViewportEvent(QChartView* self, QEvent* event);
-    friend void QChartView_ContextMenuEvent(QChartView* self, QContextMenuEvent* event);
     friend void QChartView_SuperContextMenuEvent(QChartView* self, QContextMenuEvent* event);
-    friend void QChartView_DragEnterEvent(QChartView* self, QDragEnterEvent* event);
     friend void QChartView_SuperDragEnterEvent(QChartView* self, QDragEnterEvent* event);
-    friend void QChartView_DragLeaveEvent(QChartView* self, QDragLeaveEvent* event);
     friend void QChartView_SuperDragLeaveEvent(QChartView* self, QDragLeaveEvent* event);
-    friend void QChartView_DragMoveEvent(QChartView* self, QDragMoveEvent* event);
     friend void QChartView_SuperDragMoveEvent(QChartView* self, QDragMoveEvent* event);
-    friend void QChartView_DropEvent(QChartView* self, QDropEvent* event);
     friend void QChartView_SuperDropEvent(QChartView* self, QDropEvent* event);
-    friend void QChartView_FocusInEvent(QChartView* self, QFocusEvent* event);
     friend void QChartView_SuperFocusInEvent(QChartView* self, QFocusEvent* event);
-    friend bool QChartView_FocusNextPrevChild(QChartView* self, bool next);
     friend bool QChartView_SuperFocusNextPrevChild(QChartView* self, bool next);
-    friend void QChartView_FocusOutEvent(QChartView* self, QFocusEvent* event);
     friend void QChartView_SuperFocusOutEvent(QChartView* self, QFocusEvent* event);
-    friend void QChartView_KeyPressEvent(QChartView* self, QKeyEvent* event);
     friend void QChartView_SuperKeyPressEvent(QChartView* self, QKeyEvent* event);
-    friend void QChartView_KeyReleaseEvent(QChartView* self, QKeyEvent* event);
     friend void QChartView_SuperKeyReleaseEvent(QChartView* self, QKeyEvent* event);
-    friend void QChartView_MouseDoubleClickEvent(QChartView* self, QMouseEvent* event);
     friend void QChartView_SuperMouseDoubleClickEvent(QChartView* self, QMouseEvent* event);
-    friend void QChartView_WheelEvent(QChartView* self, QWheelEvent* event);
     friend void QChartView_SuperWheelEvent(QChartView* self, QWheelEvent* event);
-    friend void QChartView_PaintEvent(QChartView* self, QPaintEvent* event);
     friend void QChartView_SuperPaintEvent(QChartView* self, QPaintEvent* event);
-    friend void QChartView_ScrollContentsBy(QChartView* self, int dx, int dy);
     friend void QChartView_SuperScrollContentsBy(QChartView* self, int dx, int dy);
-    friend void QChartView_ShowEvent(QChartView* self, QShowEvent* event);
     friend void QChartView_SuperShowEvent(QChartView* self, QShowEvent* event);
-    friend void QChartView_InputMethodEvent(QChartView* self, QInputMethodEvent* event);
     friend void QChartView_SuperInputMethodEvent(QChartView* self, QInputMethodEvent* event);
-    friend void QChartView_DrawBackground(QChartView* self, QPainter* painter, const QRectF* rect);
     friend void QChartView_SuperDrawBackground(QChartView* self, QPainter* painter, const QRectF* rect);
-    friend void QChartView_DrawForeground(QChartView* self, QPainter* painter, const QRectF* rect);
     friend void QChartView_SuperDrawForeground(QChartView* self, QPainter* painter, const QRectF* rect);
-    friend void QChartView_DrawItems(QChartView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options);
     friend void QChartView_SuperDrawItems(QChartView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options);
-    friend bool QChartView_EventFilter(QChartView* self, QObject* param1, QEvent* param2);
     friend bool QChartView_SuperEventFilter(QChartView* self, QObject* param1, QEvent* param2);
-    friend QSize* QChartView_ViewportSizeHint(const QChartView* self);
     friend QSize* QChartView_SuperViewportSizeHint(const QChartView* self);
-    friend void QChartView_ChangeEvent(QChartView* self, QEvent* param1);
     friend void QChartView_SuperChangeEvent(QChartView* self, QEvent* param1);
-    friend void QChartView_InitStyleOption(const QChartView* self, QStyleOptionFrame* option);
     friend void QChartView_SuperInitStyleOption(const QChartView* self, QStyleOptionFrame* option);
-    friend void QChartView_EnterEvent(QChartView* self, QEnterEvent* event);
     friend void QChartView_SuperEnterEvent(QChartView* self, QEnterEvent* event);
-    friend void QChartView_LeaveEvent(QChartView* self, QEvent* event);
     friend void QChartView_SuperLeaveEvent(QChartView* self, QEvent* event);
-    friend void QChartView_MoveEvent(QChartView* self, QMoveEvent* event);
     friend void QChartView_SuperMoveEvent(QChartView* self, QMoveEvent* event);
-    friend void QChartView_CloseEvent(QChartView* self, QCloseEvent* event);
     friend void QChartView_SuperCloseEvent(QChartView* self, QCloseEvent* event);
-    friend void QChartView_TabletEvent(QChartView* self, QTabletEvent* event);
     friend void QChartView_SuperTabletEvent(QChartView* self, QTabletEvent* event);
-    friend void QChartView_ActionEvent(QChartView* self, QActionEvent* event);
     friend void QChartView_SuperActionEvent(QChartView* self, QActionEvent* event);
-    friend void QChartView_HideEvent(QChartView* self, QHideEvent* event);
     friend void QChartView_SuperHideEvent(QChartView* self, QHideEvent* event);
-    friend bool QChartView_NativeEvent(QChartView* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QChartView_SuperNativeEvent(QChartView* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int QChartView_Metric(const QChartView* self, int param1);
     friend int QChartView_SuperMetric(const QChartView* self, int param1);
-    friend void QChartView_InitPainter(const QChartView* self, QPainter* painter);
     friend void QChartView_SuperInitPainter(const QChartView* self, QPainter* painter);
-    friend QPaintDevice* QChartView_Redirected(const QChartView* self, QPoint* offset);
     friend QPaintDevice* QChartView_SuperRedirected(const QChartView* self, QPoint* offset);
-    friend QPainter* QChartView_SharedPainter(const QChartView* self);
     friend QPainter* QChartView_SuperSharedPainter(const QChartView* self);
-    friend void QChartView_TimerEvent(QChartView* self, QTimerEvent* event);
     friend void QChartView_SuperTimerEvent(QChartView* self, QTimerEvent* event);
-    friend void QChartView_ChildEvent(QChartView* self, QChildEvent* event);
     friend void QChartView_SuperChildEvent(QChartView* self, QChildEvent* event);
-    friend void QChartView_CustomEvent(QChartView* self, QEvent* event);
     friend void QChartView_SuperCustomEvent(QChartView* self, QEvent* event);
-    friend void QChartView_ConnectNotify(QChartView* self, const QMetaMethod* signal);
     friend void QChartView_SuperConnectNotify(QChartView* self, const QMetaMethod* signal);
-    friend void QChartView_DisconnectNotify(QChartView* self, const QMetaMethod* signal);
     friend void QChartView_SuperDisconnectNotify(QChartView* self, const QMetaMethod* signal);
-    friend void QChartView_SetViewportMargins(QChartView* self, int left, int top, int right, int bottom);
-    friend void QChartView_SuperSetViewportMargins(QChartView* self, int left, int top, int right, int bottom);
-    friend QMargins* QChartView_ViewportMargins(const QChartView* self);
-    friend QMargins* QChartView_SuperViewportMargins(const QChartView* self);
-    friend void QChartView_DrawFrame(QChartView* self, QPainter* param1);
-    friend void QChartView_SuperDrawFrame(QChartView* self, QPainter* param1);
-    friend void QChartView_UpdateMicroFocus(QChartView* self);
-    friend void QChartView_SuperUpdateMicroFocus(QChartView* self);
-    friend void QChartView_Create(QChartView* self);
-    friend void QChartView_SuperCreate(QChartView* self);
-    friend void QChartView_Destroy(QChartView* self);
-    friend void QChartView_SuperDestroy(QChartView* self);
-    friend bool QChartView_FocusNextChild(QChartView* self);
-    friend bool QChartView_SuperFocusNextChild(QChartView* self);
-    friend bool QChartView_FocusPreviousChild(QChartView* self);
-    friend bool QChartView_SuperFocusPreviousChild(QChartView* self);
-    friend QObject* QChartView_Sender(const QChartView* self);
-    friend QObject* QChartView_SuperSender(const QChartView* self);
-    friend int QChartView_SenderSignalIndex(const QChartView* self);
-    friend int QChartView_SuperSenderSignalIndex(const QChartView* self);
-    friend int QChartView_Receivers(const QChartView* self, const char* signal);
-    friend int QChartView_SuperReceivers(const QChartView* self, const char* signal);
-    friend bool QChartView_IsSignalConnected(const QChartView* self, const QMetaMethod* signal);
-    friend bool QChartView_SuperIsSignalConnected(const QChartView* self, const QMetaMethod* signal);
-    friend double QChartView_GetDecodedMetricF(const QChartView* self, int metricA, int metricB);
-    friend double QChartView_SuperGetDecodedMetricF(const QChartView* self, int metricA, int metricB);
 };
 
 #endif

@@ -96,426 +96,254 @@ libqt_string KLocalizedTranslator_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KLocalizedTranslator_SuperMetaObject(const KLocalizedTranslator* self) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_MetaObject_IsBase(true);
-        return (QMetaObject*)vklocalizedtranslator->metaObject();
-    } else {
-        return (QMetaObject*)self->KLocalizedTranslator::metaObject();
-    }
+    return (QMetaObject*)self->KLocalizedTranslator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLocalizedTranslator_OnMetaObject(const KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_MetaObject_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_MetaObject_Callback>(slot));
+void KLocalizedTranslator_OnMetaObject(KLocalizedTranslator* self, intptr_t slot) {
+    if (auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self)))
+        vklocalizedtranslator->klocalizedtranslator_metaobject_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KLocalizedTranslator_SuperMetacast(KLocalizedTranslator* self, const char* param1) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_Metacast_IsBase(true);
-        return vklocalizedtranslator->qt_metacast(param1);
-    } else {
-        return self->KLocalizedTranslator::qt_metacast(param1);
-    }
+    return self->KLocalizedTranslator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnMetacast(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_Metacast_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Metacast_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_metacast_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KLocalizedTranslator_SuperMetacall(KLocalizedTranslator* self, int param1, int param2, void** param3) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_Metacall_IsBase(true);
-        return vklocalizedtranslator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KLocalizedTranslator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KLocalizedTranslator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnMetacall(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_Metacall_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Metacall_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_metacall_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string KLocalizedTranslator_SuperTranslate(const KLocalizedTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_Translate_IsBase(true);
-        auto _ret = vklocalizedtranslator->translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KLocalizedTranslator::translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KLocalizedTranslator::translate(context, sourceText, disambiguation, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLocalizedTranslator_OnTranslate(const KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_Translate_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Translate_Callback>(slot));
+void KLocalizedTranslator_OnTranslate(KLocalizedTranslator* self, intptr_t slot) {
+    if (auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self)))
+        vklocalizedtranslator->klocalizedtranslator_translate_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Translate_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLocalizedTranslator_IsEmpty(const KLocalizedTranslator* self) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return vklocalizedtranslator->isEmpty();
-    } else {
-        return self->KLocalizedTranslator::isEmpty();
-    }
+    return self->isEmpty();
 }
 
 // Base class handler implementation
 bool KLocalizedTranslator_SuperIsEmpty(const KLocalizedTranslator* self) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_IsEmpty_IsBase(true);
-        return vklocalizedtranslator->isEmpty();
-    } else {
-        return self->KLocalizedTranslator::isEmpty();
-    }
+    return self->KLocalizedTranslator::isEmpty();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLocalizedTranslator_OnIsEmpty(const KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_IsEmpty_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_IsEmpty_Callback>(slot));
+void KLocalizedTranslator_OnIsEmpty(KLocalizedTranslator* self, intptr_t slot) {
+    if (auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self)))
+        vklocalizedtranslator->klocalizedtranslator_isempty_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_IsEmpty_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLocalizedTranslator_Event(KLocalizedTranslator* self, QEvent* event) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return vklocalizedtranslator->event(event);
-    } else {
-        return self->KLocalizedTranslator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KLocalizedTranslator_SuperEvent(KLocalizedTranslator* self, QEvent* event) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_Event_IsBase(true);
-        return vklocalizedtranslator->event(event);
-    } else {
-        return self->KLocalizedTranslator::event(event);
-    }
+    return self->KLocalizedTranslator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnEvent(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_Event_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Event_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_event_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLocalizedTranslator_EventFilter(KLocalizedTranslator* self, QObject* watched, QEvent* event) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return vklocalizedtranslator->eventFilter(watched, event);
-    } else {
-        return self->KLocalizedTranslator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KLocalizedTranslator_SuperEventFilter(KLocalizedTranslator* self, QObject* watched, QEvent* event) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_EventFilter_IsBase(true);
-        return vklocalizedtranslator->eventFilter(watched, event);
-    } else {
-        return self->KLocalizedTranslator::eventFilter(watched, event);
-    }
+    return self->KLocalizedTranslator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnEventFilter(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_EventFilter_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_EventFilter_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_eventfilter_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedTranslator_TimerEvent(KLocalizedTranslator* self, QTimerEvent* event) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator) {
         vklocalizedtranslator->timerEvent(event);
     } else {
-        ((VirtualKLocalizedTranslator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KLocalizedTranslator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedTranslator_SuperTimerEvent(KLocalizedTranslator* self, QTimerEvent* event) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_TimerEvent_IsBase(true);
-        vklocalizedtranslator->timerEvent(event);
-    } else {
-        ((VirtualKLocalizedTranslator*)self)->timerEvent(event);
-    }
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self)) {
+        vklocalizedtranslator->KLocalizedTranslator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedTranslator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnTimerEvent(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_TimerEvent_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_TimerEvent_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_timerevent_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedTranslator_ChildEvent(KLocalizedTranslator* self, QChildEvent* event) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator) {
         vklocalizedtranslator->childEvent(event);
     } else {
-        ((VirtualKLocalizedTranslator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KLocalizedTranslator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedTranslator_SuperChildEvent(KLocalizedTranslator* self, QChildEvent* event) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_ChildEvent_IsBase(true);
-        vklocalizedtranslator->childEvent(event);
-    } else {
-        ((VirtualKLocalizedTranslator*)self)->childEvent(event);
-    }
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self)) {
+        vklocalizedtranslator->KLocalizedTranslator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedTranslator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnChildEvent(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_ChildEvent_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_ChildEvent_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_childevent_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedTranslator_CustomEvent(KLocalizedTranslator* self, QEvent* event) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator) {
         vklocalizedtranslator->customEvent(event);
     } else {
-        ((VirtualKLocalizedTranslator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KLocalizedTranslator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedTranslator_SuperCustomEvent(KLocalizedTranslator* self, QEvent* event) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_CustomEvent_IsBase(true);
-        vklocalizedtranslator->customEvent(event);
-    } else {
-        ((VirtualKLocalizedTranslator*)self)->customEvent(event);
-    }
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self)) {
+        vklocalizedtranslator->KLocalizedTranslator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedTranslator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnCustomEvent(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_CustomEvent_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_CustomEvent_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_customevent_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedTranslator_ConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator) {
         vklocalizedtranslator->connectNotify(*signal);
     } else {
-        ((VirtualKLocalizedTranslator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KLocalizedTranslator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedTranslator_SuperConnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_ConnectNotify_IsBase(true);
-        vklocalizedtranslator->connectNotify(*signal);
-    } else {
-        ((VirtualKLocalizedTranslator*)self)->connectNotify(*signal);
-    }
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self)) {
+        vklocalizedtranslator->KLocalizedTranslator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedTranslator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnConnectNotify(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_ConnectNotify_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_ConnectNotify_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_connectnotify_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLocalizedTranslator_DisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator) {
         vklocalizedtranslator->disconnectNotify(*signal);
     } else {
-        ((VirtualKLocalizedTranslator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KLocalizedTranslator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLocalizedTranslator_SuperDisconnectNotify(KLocalizedTranslator* self, const QMetaMethod* signal) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_DisconnectNotify_IsBase(true);
-        vklocalizedtranslator->disconnectNotify(*signal);
-    } else {
-        ((VirtualKLocalizedTranslator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self)) {
+        vklocalizedtranslator->KLocalizedTranslator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLocalizedTranslator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnDisconnectNotify(KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_DisconnectNotify_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_DisconnectNotify_Callback>(slot));
+    if (auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self))
+        vklocalizedtranslator->klocalizedtranslator_disconnectnotify_callback = reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KLocalizedTranslator_Sender(const KLocalizedTranslator* self) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return vklocalizedtranslator->sender();
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->sender();
-    }
+    if (auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self))) {
+        return vklocalizedtranslator->VirtualKLocalizedTranslator::sender();
+    } else
+        qFatal("Error: Protected method KLocalizedTranslator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KLocalizedTranslator_SuperSender(const KLocalizedTranslator* self) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_Sender_IsBase(true);
-        return vklocalizedtranslator->sender();
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLocalizedTranslator_OnSender(const KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_Sender_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLocalizedTranslator_SenderSignalIndex(const KLocalizedTranslator* self) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return vklocalizedtranslator->senderSignalIndex();
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->senderSignalIndex();
-    }
+    if (auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self))) {
+        return vklocalizedtranslator->VirtualKLocalizedTranslator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KLocalizedTranslator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLocalizedTranslator_SuperSenderSignalIndex(const KLocalizedTranslator* self) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_SenderSignalIndex_IsBase(true);
-        return vklocalizedtranslator->senderSignalIndex();
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLocalizedTranslator_OnSenderSignalIndex(const KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLocalizedTranslator_Receivers(const KLocalizedTranslator* self, const char* signal) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return vklocalizedtranslator->receivers(signal);
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->receivers(signal);
-    }
+    if (auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self))) {
+        return vklocalizedtranslator->VirtualKLocalizedTranslator::receivers(signal);
+    } else
+        qFatal("Error: Protected method KLocalizedTranslator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLocalizedTranslator_SuperReceivers(const KLocalizedTranslator* self, const char* signal) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_Receivers_IsBase(true);
-        return vklocalizedtranslator->receivers(signal);
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLocalizedTranslator_OnReceivers(const KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_Receivers_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLocalizedTranslator_IsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return vklocalizedtranslator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KLocalizedTranslator_SuperIsSignalConnected(const KLocalizedTranslator* self, const QMetaMethod* signal) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        vklocalizedtranslator->setKLocalizedTranslator_IsSignalConnected_IsBase(true);
-        return vklocalizedtranslator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLocalizedTranslator_OnIsSignalConnected(const KLocalizedTranslator* self, intptr_t slot) {
-    auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
-        vklocalizedtranslator->setKLocalizedTranslator_IsSignalConnected_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_IsSignalConnected_Callback>(slot));
+    if (auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self))) {
+        return vklocalizedtranslator->VirtualKLocalizedTranslator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KLocalizedTranslator::isSignalConnected called without a directly constructed type");
 }
 
 void KLocalizedTranslator_Delete(KLocalizedTranslator* self) {

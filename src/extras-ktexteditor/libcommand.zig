@@ -111,9 +111,9 @@ pub const KTextEditor__Command = extern struct {
     ///
     /// ` self: KTextEditor__Command `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KTextEditor__Command) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KTextEditor__Command, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command) callconv(.c) QMetaObject) void {
         qtc.KTextEditor__Command_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -354,6 +354,8 @@ pub const KTextEditor__Command = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#exec)
     ///
+    /// This method must be implemented with `onExec` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Command `
@@ -398,45 +400,13 @@ pub const KTextEditor__Command = extern struct {
         qtc.KTextEditor__Command_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superExec` instead
-    ///
-    pub const SuperExec = superExec;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#exec)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Command `
-    ///
-    /// ` view: KTextEditor__View `
-    ///
-    /// ` cmd: []const u8 `
-    ///
-    /// ` msg: []const u8 `
-    ///
-    /// ` range: KTextEditor__Range `
-    ///
-    pub fn superExec(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8, range: anytype) bool {
-        comptime _ = @TypeOf(view)._is_KTextEditor__View;
-        const cmd_str = qtc.libqt_string{
-            .len = cmd.len,
-            .data = cmd.ptr,
-        };
-        const msg_str = qtc.libqt_string{
-            .len = msg.len,
-            .data = msg.ptr,
-        };
-        comptime _ = @TypeOf(range)._is_KTextEditor__Range;
-        return qtc.KTextEditor__Command_SuperExec(@ptrCast(self.ptr), @ptrCast(view.ptr), cmd_str, msg_str, @ptrCast(range.ptr));
-    }
-
     /// ### DEPRECATED: Use `help` instead
     ///
     pub const Help = help;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#help)
+    ///
+    /// This method must be implemented with `onHelp` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -477,37 +447,6 @@ pub const KTextEditor__Command = extern struct {
     ///
     pub fn onHelp(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, KTextEditor__View, [*:0]const u8, [*:0]const u8) callconv(.c) bool) void {
         qtc.KTextEditor__Command_OnHelp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHelp` instead
-    ///
-    pub const SuperHelp = superHelp;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-command.html#help)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Command `
-    ///
-    /// ` view: KTextEditor__View `
-    ///
-    /// ` cmd: []const u8 `
-    ///
-    /// ` msg: []const u8 `
-    ///
-    pub fn superHelp(self: KTextEditor__Command, view: anytype, cmd: []const u8, msg: []const u8) bool {
-        comptime _ = @TypeOf(view)._is_KTextEditor__View;
-        const cmd_str = qtc.libqt_string{
-            .len = cmd.len,
-            .data = cmd.ptr,
-        };
-        const msg_str = qtc.libqt_string{
-            .len = msg.len,
-            .data = msg.ptr,
-        };
-        return qtc.KTextEditor__Command_SuperHelp(@ptrCast(self.ptr), @ptrCast(view.ptr), cmd_str, msg_str);
     }
 
     /// ### DEPRECATED: Use `completionObject` instead
@@ -2179,44 +2118,6 @@ pub const KTextEditor__Command = extern struct {
         return .{ .ptr = qtc.KTextEditor__Command_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Command `
-    ///
-    pub fn superSender(self: KTextEditor__Command) QObject {
-        return .{ .ptr = qtc.KTextEditor__Command_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__Command`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KTextEditor__Command, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KTextEditor__Command_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2233,44 +2134,6 @@ pub const KTextEditor__Command = extern struct {
     ///
     pub fn senderSignalIndex(self: KTextEditor__Command) i32 {
         return qtc.KTextEditor__Command_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Command `
-    ///
-    pub fn superSenderSignalIndex(self: KTextEditor__Command) i32 {
-        return qtc.KTextEditor__Command_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__Command`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KTextEditor__Command, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTextEditor__Command_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2294,47 +2157,6 @@ pub const KTextEditor__Command = extern struct {
         return qtc.KTextEditor__Command_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Command `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KTextEditor__Command, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KTextEditor__Command_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__Command`
-    ///
-    /// ` callback: *const fn (self: KTextEditor__Command, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTextEditor__Command_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2354,47 +2176,6 @@ pub const KTextEditor__Command = extern struct {
     pub fn isSignalConnected(self: KTextEditor__Command, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KTextEditor__Command_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Command `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KTextEditor__Command, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KTextEditor__Command_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KTextEditor__Command`
-    ///
-    /// ` callback: *const fn (self: KTextEditor__Command, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KTextEditor__Command, callback: *const fn (KTextEditor__Command, QMetaMethod) callconv(.c) bool) void {
-        qtc.KTextEditor__Command_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

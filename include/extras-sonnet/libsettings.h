@@ -86,7 +86,7 @@ void Sonnet__Settings_ModifiedChanged(Sonnet__Settings* self);
 void Sonnet__Settings_Connect_ModifiedChanged(Sonnet__Settings* self, intptr_t slot);
 libqt_string Sonnet__Settings_Tr2(const char* s, const char* c);
 libqt_string Sonnet__Settings_Tr3(const char* s, const char* c, int n);
-void Sonnet__Settings_OnMetaObject(const Sonnet__Settings* self, intptr_t slot);
+void Sonnet__Settings_OnMetaObject(Sonnet__Settings* self, intptr_t slot);
 QMetaObject* Sonnet__Settings_SuperMetaObject(const Sonnet__Settings* self);
 void Sonnet__Settings_OnMetacast(Sonnet__Settings* self, intptr_t slot);
 void* Sonnet__Settings_SuperMetacast(Sonnet__Settings* self, const char* param1);
@@ -114,17 +114,9 @@ void Sonnet__Settings_DisconnectNotify(Sonnet__Settings* self, const QMetaMethod
 void Sonnet__Settings_OnDisconnectNotify(Sonnet__Settings* self, intptr_t slot);
 void Sonnet__Settings_SuperDisconnectNotify(Sonnet__Settings* self, const QMetaMethod* signal);
 QObject* Sonnet__Settings_Sender(const Sonnet__Settings* self);
-void Sonnet__Settings_OnSender(const Sonnet__Settings* self, intptr_t slot);
-QObject* Sonnet__Settings_SuperSender(const Sonnet__Settings* self);
 int Sonnet__Settings_SenderSignalIndex(const Sonnet__Settings* self);
-void Sonnet__Settings_OnSenderSignalIndex(const Sonnet__Settings* self, intptr_t slot);
-int Sonnet__Settings_SuperSenderSignalIndex(const Sonnet__Settings* self);
 int Sonnet__Settings_Receivers(const Sonnet__Settings* self, const char* signal);
-void Sonnet__Settings_OnReceivers(const Sonnet__Settings* self, intptr_t slot);
-int Sonnet__Settings_SuperReceivers(const Sonnet__Settings* self, const char* signal);
 bool Sonnet__Settings_IsSignalConnected(const Sonnet__Settings* self, const QMetaMethod* signal);
-void Sonnet__Settings_OnIsSignalConnected(const Sonnet__Settings* self, intptr_t slot);
-bool Sonnet__Settings_SuperIsSignalConnected(const Sonnet__Settings* self, const QMetaMethod* signal);
 void Sonnet__Settings_Delete(Sonnet__Settings* self);
 
 #ifdef __cplusplus

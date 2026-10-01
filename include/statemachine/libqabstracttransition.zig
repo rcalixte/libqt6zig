@@ -81,9 +81,9 @@ pub const QAbstractTransition = extern struct {
     ///
     /// ` self: QAbstractTransition `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractTransition) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractTransition, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractTransition, callback: *const fn (QAbstractTransition) callconv(.c) QMetaObject) void {
         qtc.QAbstractTransition_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -425,6 +425,8 @@ pub const QAbstractTransition = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#eventTest)
     ///
+    /// This method must be implemented with `onEventTest` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractTransition `
@@ -454,30 +456,13 @@ pub const QAbstractTransition = extern struct {
         qtc.QAbstractTransition_OnEventTest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superEventTest` instead
-    ///
-    pub const SuperEventTest = superEventTest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#eventTest)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTransition `
-    ///
-    /// ` _event: QEvent `
-    ///
-    pub fn superEventTest(self: QAbstractTransition, _event: anytype) bool {
-        comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QAbstractTransition_SuperEventTest(@ptrCast(self.ptr), @ptrCast(_event.ptr));
-    }
-
     /// ### DEPRECATED: Use `onTransition` instead
     ///
     pub const OnTransition = onTransition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#onTransition)
+    ///
+    /// This method must be implemented with `onOnTransition` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -506,25 +491,6 @@ pub const QAbstractTransition = extern struct {
     ///
     pub fn onOnTransition(self: QAbstractTransition, callback: *const fn (QAbstractTransition, QEvent) callconv(.c) void) void {
         qtc.QAbstractTransition_OnOnTransition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOnTransition` instead
-    ///
-    pub const SuperOnTransition = superOnTransition;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttransition.html#onTransition)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTransition `
-    ///
-    /// ` _event: QEvent `
-    ///
-    pub fn superOnTransition(self: QAbstractTransition, _event: anytype) void {
-        comptime _ = @TypeOf(_event)._is_QEvent;
-        qtc.QAbstractTransition_SuperOnTransition(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead
@@ -1996,44 +1962,6 @@ pub const QAbstractTransition = extern struct {
         return .{ .ptr = qtc.QAbstractTransition_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTransition `
-    ///
-    pub fn superSender(self: QAbstractTransition) QObject {
-        return .{ .ptr = qtc.QAbstractTransition_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTransition`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractTransition, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractTransition_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2050,44 +1978,6 @@ pub const QAbstractTransition = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractTransition) i32 {
         return qtc.QAbstractTransition_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTransition `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractTransition) i32 {
-        return qtc.QAbstractTransition_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTransition`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractTransition, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractTransition_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2111,47 +2001,6 @@ pub const QAbstractTransition = extern struct {
         return qtc.QAbstractTransition_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTransition `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractTransition, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractTransition_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTransition`
-    ///
-    /// ` callback: *const fn (self: QAbstractTransition, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractTransition, callback: *const fn (QAbstractTransition, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractTransition_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2171,47 +2020,6 @@ pub const QAbstractTransition = extern struct {
     pub fn isSignalConnected(self: QAbstractTransition, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractTransition_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractTransition `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractTransition, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractTransition_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractTransition`
-    ///
-    /// ` callback: *const fn (self: QAbstractTransition, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractTransition, callback: *const fn (QAbstractTransition, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractTransition_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onTriggered` instead

@@ -40,7 +40,7 @@ QWidget* KDirLister_MainWindow(KDirLister* self);
 void KDirLister_JobStarted(KDirLister* self, KIO__ListJob* param1);
 libqt_string KDirLister_Tr2(const char* s, const char* c);
 libqt_string KDirLister_Tr3(const char* s, const char* c, int n);
-void KDirLister_OnMetaObject(const KDirLister* self, intptr_t slot);
+void KDirLister_OnMetaObject(KDirLister* self, intptr_t slot);
 QMetaObject* KDirLister_SuperMetaObject(const KDirLister* self);
 void KDirLister_OnMetacast(KDirLister* self, intptr_t slot);
 void* KDirLister_SuperMetacast(KDirLister* self, const char* param1);
@@ -70,17 +70,9 @@ void KDirLister_DisconnectNotify(KDirLister* self, const QMetaMethod* signal);
 void KDirLister_OnDisconnectNotify(KDirLister* self, intptr_t slot);
 void KDirLister_SuperDisconnectNotify(KDirLister* self, const QMetaMethod* signal);
 QObject* KDirLister_Sender(const KDirLister* self);
-void KDirLister_OnSender(const KDirLister* self, intptr_t slot);
-QObject* KDirLister_SuperSender(const KDirLister* self);
 int KDirLister_SenderSignalIndex(const KDirLister* self);
-void KDirLister_OnSenderSignalIndex(const KDirLister* self, intptr_t slot);
-int KDirLister_SuperSenderSignalIndex(const KDirLister* self);
 int KDirLister_Receivers(const KDirLister* self, const char* signal);
-void KDirLister_OnReceivers(const KDirLister* self, intptr_t slot);
-int KDirLister_SuperReceivers(const KDirLister* self, const char* signal);
 bool KDirLister_IsSignalConnected(const KDirLister* self, const QMetaMethod* signal);
-void KDirLister_OnIsSignalConnected(const KDirLister* self, intptr_t slot);
-bool KDirLister_SuperIsSignalConnected(const KDirLister* self, const QMetaMethod* signal);
 void KDirLister_Delete(KDirLister* self);
 
 #ifdef __cplusplus

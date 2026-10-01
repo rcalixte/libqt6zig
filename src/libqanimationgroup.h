@@ -42,7 +42,7 @@ void QAnimationGroup_Clear(QAnimationGroup* self);
 bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event);
 libqt_string QAnimationGroup_Tr2(const char* s, const char* c);
 libqt_string QAnimationGroup_Tr3(const char* s, const char* c, int n);
-void QAnimationGroup_OnMetaObject(const QAnimationGroup* self, intptr_t slot);
+void QAnimationGroup_OnMetaObject(QAnimationGroup* self, intptr_t slot);
 QMetaObject* QAnimationGroup_SuperMetaObject(const QAnimationGroup* self);
 void QAnimationGroup_OnMetacast(QAnimationGroup* self, intptr_t slot);
 void* QAnimationGroup_SuperMetacast(QAnimationGroup* self, const char* param1);
@@ -51,11 +51,9 @@ int QAnimationGroup_SuperMetacall(QAnimationGroup* self, int param1, int param2,
 void QAnimationGroup_OnEvent(QAnimationGroup* self, intptr_t slot);
 bool QAnimationGroup_SuperEvent(QAnimationGroup* self, QEvent* event);
 int QAnimationGroup_Duration(const QAnimationGroup* self);
-void QAnimationGroup_OnDuration(const QAnimationGroup* self, intptr_t slot);
-int QAnimationGroup_SuperDuration(const QAnimationGroup* self);
+void QAnimationGroup_OnDuration(QAnimationGroup* self, intptr_t slot);
 void QAnimationGroup_UpdateCurrentTime(QAnimationGroup* self, int currentTime);
 void QAnimationGroup_OnUpdateCurrentTime(QAnimationGroup* self, intptr_t slot);
-void QAnimationGroup_SuperUpdateCurrentTime(QAnimationGroup* self, int currentTime);
 void QAnimationGroup_UpdateState(QAnimationGroup* self, int newState, int oldState);
 void QAnimationGroup_OnUpdateState(QAnimationGroup* self, intptr_t slot);
 void QAnimationGroup_SuperUpdateState(QAnimationGroup* self, int newState, int oldState);
@@ -81,17 +79,9 @@ void QAnimationGroup_DisconnectNotify(QAnimationGroup* self, const QMetaMethod* 
 void QAnimationGroup_OnDisconnectNotify(QAnimationGroup* self, intptr_t slot);
 void QAnimationGroup_SuperDisconnectNotify(QAnimationGroup* self, const QMetaMethod* signal);
 QObject* QAnimationGroup_Sender(const QAnimationGroup* self);
-void QAnimationGroup_OnSender(const QAnimationGroup* self, intptr_t slot);
-QObject* QAnimationGroup_SuperSender(const QAnimationGroup* self);
 int QAnimationGroup_SenderSignalIndex(const QAnimationGroup* self);
-void QAnimationGroup_OnSenderSignalIndex(const QAnimationGroup* self, intptr_t slot);
-int QAnimationGroup_SuperSenderSignalIndex(const QAnimationGroup* self);
 int QAnimationGroup_Receivers(const QAnimationGroup* self, const char* signal);
-void QAnimationGroup_OnReceivers(const QAnimationGroup* self, intptr_t slot);
-int QAnimationGroup_SuperReceivers(const QAnimationGroup* self, const char* signal);
 bool QAnimationGroup_IsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
-void QAnimationGroup_OnIsSignalConnected(const QAnimationGroup* self, intptr_t slot);
-bool QAnimationGroup_SuperIsSignalConnected(const QAnimationGroup* self, const QMetaMethod* signal);
 void QAnimationGroup_Delete(QAnimationGroup* self);
 
 #ifdef __cplusplus

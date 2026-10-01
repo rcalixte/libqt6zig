@@ -401,10 +401,10 @@ void QCoreApplication_Connect_ApplicationVersionChanged(QCoreApplication* self, 
 
 bool QCoreApplication_Event(QCoreApplication* self, QEvent* param1) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+    if (vqcoreapplication) {
         return vqcoreapplication->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QCoreApplication::event called without a directly constructed type");
 }
 
 libqt_string QCoreApplication_Tr2(const char* s, const char* c) {
@@ -485,400 +485,236 @@ void QCoreApplication_Exit1(int retcode) {
 
 // Base class handler implementation
 QMetaObject* QCoreApplication_SuperMetaObject(const QCoreApplication* self) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_MetaObject_IsBase(true);
-        return (QMetaObject*)vqcoreapplication->metaObject();
-    } else {
-        return (QMetaObject*)self->QCoreApplication::metaObject();
-    }
+    return (QMetaObject*)self->QCoreApplication::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCoreApplication_OnMetaObject(const QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_MetaObject_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_MetaObject_Callback>(slot));
+void QCoreApplication_OnMetaObject(QCoreApplication* self, intptr_t slot) {
+    if (auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self)))
+        vqcoreapplication->qcoreapplication_metaobject_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QCoreApplication_SuperMetacast(QCoreApplication* self, const char* param1) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Metacast_IsBase(true);
-        return vqcoreapplication->qt_metacast(param1);
-    } else {
-        return self->QCoreApplication::qt_metacast(param1);
-    }
+    return self->QCoreApplication::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnMetacast(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_Metacast_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Metacast_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_metacast_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QCoreApplication_SuperMetacall(QCoreApplication* self, int param1, int param2, void** param3) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Metacall_IsBase(true);
-        return vqcoreapplication->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QCoreApplication::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QCoreApplication::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnMetacall(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_Metacall_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Metacall_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_metacall_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QCoreApplication_SuperNotify(QCoreApplication* self, QObject* param1, QEvent* param2) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Notify_IsBase(true);
-        return vqcoreapplication->notify(param1, param2);
-    } else {
-        return self->QCoreApplication::notify(param1, param2);
-    }
+    return self->QCoreApplication::notify(param1, param2);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnNotify(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_Notify_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Notify_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_notify_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Notify_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QCoreApplication_SuperEvent(QCoreApplication* self, QEvent* param1) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Event_IsBase(true);
-        return vqcoreapplication->event(param1);
-    } else {
-        return ((VirtualQCoreApplication*)self)->event(param1);
-    }
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self)) {
+        return vqcoreapplication->QCoreApplication::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QCoreApplication::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnEvent(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_Event_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Event_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_event_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QCoreApplication_EventFilter(QCoreApplication* self, QObject* watched, QEvent* event) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return vqcoreapplication->eventFilter(watched, event);
-    } else {
-        return self->QCoreApplication::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QCoreApplication_SuperEventFilter(QCoreApplication* self, QObject* watched, QEvent* event) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_EventFilter_IsBase(true);
-        return vqcoreapplication->eventFilter(watched, event);
-    } else {
-        return self->QCoreApplication::eventFilter(watched, event);
-    }
+    return self->QCoreApplication::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnEventFilter(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_EventFilter_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_EventFilter_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_eventfilter_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCoreApplication_TimerEvent(QCoreApplication* self, QTimerEvent* event) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+    if (vqcoreapplication) {
         vqcoreapplication->timerEvent(event);
     } else {
-        ((VirtualQCoreApplication*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QCoreApplication::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCoreApplication_SuperTimerEvent(QCoreApplication* self, QTimerEvent* event) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_TimerEvent_IsBase(true);
-        vqcoreapplication->timerEvent(event);
-    } else {
-        ((VirtualQCoreApplication*)self)->timerEvent(event);
-    }
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self)) {
+        vqcoreapplication->QCoreApplication::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCoreApplication::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnTimerEvent(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_TimerEvent_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_TimerEvent_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_timerevent_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCoreApplication_ChildEvent(QCoreApplication* self, QChildEvent* event) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+    if (vqcoreapplication) {
         vqcoreapplication->childEvent(event);
     } else {
-        ((VirtualQCoreApplication*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QCoreApplication::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCoreApplication_SuperChildEvent(QCoreApplication* self, QChildEvent* event) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_ChildEvent_IsBase(true);
-        vqcoreapplication->childEvent(event);
-    } else {
-        ((VirtualQCoreApplication*)self)->childEvent(event);
-    }
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self)) {
+        vqcoreapplication->QCoreApplication::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCoreApplication::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnChildEvent(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_ChildEvent_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_ChildEvent_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_childevent_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCoreApplication_CustomEvent(QCoreApplication* self, QEvent* event) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+    if (vqcoreapplication) {
         vqcoreapplication->customEvent(event);
     } else {
-        ((VirtualQCoreApplication*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QCoreApplication::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCoreApplication_SuperCustomEvent(QCoreApplication* self, QEvent* event) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_CustomEvent_IsBase(true);
-        vqcoreapplication->customEvent(event);
-    } else {
-        ((VirtualQCoreApplication*)self)->customEvent(event);
-    }
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self)) {
+        vqcoreapplication->QCoreApplication::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCoreApplication::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnCustomEvent(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_CustomEvent_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_CustomEvent_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_customevent_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCoreApplication_ConnectNotify(QCoreApplication* self, const QMetaMethod* signal) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+    if (vqcoreapplication) {
         vqcoreapplication->connectNotify(*signal);
     } else {
-        ((VirtualQCoreApplication*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QCoreApplication::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCoreApplication_SuperConnectNotify(QCoreApplication* self, const QMetaMethod* signal) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_ConnectNotify_IsBase(true);
-        vqcoreapplication->connectNotify(*signal);
-    } else {
-        ((VirtualQCoreApplication*)self)->connectNotify(*signal);
-    }
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self)) {
+        vqcoreapplication->QCoreApplication::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QCoreApplication::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnConnectNotify(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_ConnectNotify_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_ConnectNotify_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_connectnotify_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCoreApplication_DisconnectNotify(QCoreApplication* self, const QMetaMethod* signal) {
     auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
+    if (vqcoreapplication) {
         vqcoreapplication->disconnectNotify(*signal);
     } else {
-        ((VirtualQCoreApplication*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QCoreApplication::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCoreApplication_SuperDisconnectNotify(QCoreApplication* self, const QMetaMethod* signal) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_DisconnectNotify_IsBase(true);
-        vqcoreapplication->disconnectNotify(*signal);
-    } else {
-        ((VirtualQCoreApplication*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self)) {
+        vqcoreapplication->QCoreApplication::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QCoreApplication::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCoreApplication_OnDisconnectNotify(QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_DisconnectNotify_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_DisconnectNotify_Callback>(slot));
+    if (auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self))
+        vqcoreapplication->qcoreapplication_disconnectnotify_callback = reinterpret_cast<VirtualQCoreApplication::QCoreApplication_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void* QCoreApplication_ResolveInterface(const QCoreApplication* self, const char* name, int revision) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return vqcoreapplication->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQCoreApplication*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
+    if (auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self))) {
+        return vqcoreapplication->VirtualQCoreApplication::resolveInterface(name, static_cast<int>(revision));
+    } else
+        qFatal("Error: Protected method QCoreApplication::resolveInterface called without a directly constructed type");
 }
 
-// Base class handler implementation
-void* QCoreApplication_SuperResolveInterface(const QCoreApplication* self, const char* name, int revision) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_ResolveInterface_IsBase(true);
-        return vqcoreapplication->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQCoreApplication*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCoreApplication_OnResolveInterface(const QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_ResolveInterface_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_ResolveInterface_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QCoreApplication_Sender(const QCoreApplication* self) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return vqcoreapplication->sender();
-    } else {
-        return ((VirtualQCoreApplication*)self)->sender();
-    }
+    if (auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self))) {
+        return vqcoreapplication->VirtualQCoreApplication::sender();
+    } else
+        qFatal("Error: Protected method QCoreApplication::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QCoreApplication_SuperSender(const QCoreApplication* self) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Sender_IsBase(true);
-        return vqcoreapplication->sender();
-    } else {
-        return ((VirtualQCoreApplication*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCoreApplication_OnSender(const QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_Sender_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QCoreApplication_SenderSignalIndex(const QCoreApplication* self) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return vqcoreapplication->senderSignalIndex();
-    } else {
-        return ((VirtualQCoreApplication*)self)->senderSignalIndex();
-    }
+    if (auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self))) {
+        return vqcoreapplication->VirtualQCoreApplication::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QCoreApplication::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QCoreApplication_SuperSenderSignalIndex(const QCoreApplication* self) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_SenderSignalIndex_IsBase(true);
-        return vqcoreapplication->senderSignalIndex();
-    } else {
-        return ((VirtualQCoreApplication*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCoreApplication_OnSenderSignalIndex(const QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QCoreApplication_Receivers(const QCoreApplication* self, const char* signal) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return vqcoreapplication->receivers(signal);
-    } else {
-        return ((VirtualQCoreApplication*)self)->receivers(signal);
-    }
+    if (auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self))) {
+        return vqcoreapplication->VirtualQCoreApplication::receivers(signal);
+    } else
+        qFatal("Error: Protected method QCoreApplication::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QCoreApplication_SuperReceivers(const QCoreApplication* self, const char* signal) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_Receivers_IsBase(true);
-        return vqcoreapplication->receivers(signal);
-    } else {
-        return ((VirtualQCoreApplication*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCoreApplication_OnReceivers(const QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_Receivers_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QCoreApplication_IsSignalConnected(const QCoreApplication* self, const QMetaMethod* signal) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return vqcoreapplication->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQCoreApplication*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QCoreApplication_SuperIsSignalConnected(const QCoreApplication* self, const QMetaMethod* signal) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        vqcoreapplication->setQCoreApplication_IsSignalConnected_IsBase(true);
-        return vqcoreapplication->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQCoreApplication*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCoreApplication_OnIsSignalConnected(const QCoreApplication* self, intptr_t slot) {
-    auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self));
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication)
-        vqcoreapplication->setQCoreApplication_IsSignalConnected_Callback(reinterpret_cast<VirtualQCoreApplication::QCoreApplication_IsSignalConnected_Callback>(slot));
+    if (auto* vqcoreapplication = const_cast<VirtualQCoreApplication*>(dynamic_cast<const VirtualQCoreApplication*>(self))) {
+        return vqcoreapplication->VirtualQCoreApplication::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QCoreApplication::isSignalConnected called without a directly constructed type");
 }
 
 void QCoreApplication_Connect_AboutToQuit(QCoreApplication* self, intptr_t slot) {

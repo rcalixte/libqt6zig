@@ -61,20 +61,16 @@ void QVirtualKeyboardAbstractInputMethod_Update(QVirtualKeyboardAbstractInputMet
 void QVirtualKeyboardAbstractInputMethod_ClearInputMode(QVirtualKeyboardAbstractInputMethod* self);
 libqt_string QVirtualKeyboardAbstractInputMethod_Tr2(const char* s, const char* c);
 libqt_string QVirtualKeyboardAbstractInputMethod_Tr3(const char* s, const char* c, int n);
-void QVirtualKeyboardAbstractInputMethod_OnMetaObject(const QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
+void QVirtualKeyboardAbstractInputMethod_OnMetaObject(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
 QMetaObject* QVirtualKeyboardAbstractInputMethod_SuperMetaObject(const QVirtualKeyboardAbstractInputMethod* self);
 void QVirtualKeyboardAbstractInputMethod_OnMetacast(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
 void* QVirtualKeyboardAbstractInputMethod_SuperMetacast(QVirtualKeyboardAbstractInputMethod* self, const char* param1);
 void QVirtualKeyboardAbstractInputMethod_OnMetacall(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
 int QVirtualKeyboardAbstractInputMethod_SuperMetacall(QVirtualKeyboardAbstractInputMethod* self, int param1, int param2, void** param3);
 void QVirtualKeyboardAbstractInputMethod_OnInputModes(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
-libqt_list /* of int */ QVirtualKeyboardAbstractInputMethod_SuperInputModes(QVirtualKeyboardAbstractInputMethod* self, const libqt_string locale);
 void QVirtualKeyboardAbstractInputMethod_OnSetInputMode(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
-bool QVirtualKeyboardAbstractInputMethod_SuperSetInputMode(QVirtualKeyboardAbstractInputMethod* self, const libqt_string locale, int inputMode);
 void QVirtualKeyboardAbstractInputMethod_OnSetTextCase(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
-bool QVirtualKeyboardAbstractInputMethod_SuperSetTextCase(QVirtualKeyboardAbstractInputMethod* self, int textCase);
 void QVirtualKeyboardAbstractInputMethod_OnKeyEvent(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
-bool QVirtualKeyboardAbstractInputMethod_SuperKeyEvent(QVirtualKeyboardAbstractInputMethod* self, int key, const libqt_string text, int modifiers);
 void QVirtualKeyboardAbstractInputMethod_OnSelectionLists(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
 libqt_list /* of int */ QVirtualKeyboardAbstractInputMethod_SuperSelectionLists(QVirtualKeyboardAbstractInputMethod* self);
 void QVirtualKeyboardAbstractInputMethod_OnSelectionListItemCount(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
@@ -85,7 +81,7 @@ void QVirtualKeyboardAbstractInputMethod_OnSelectionListItemSelected(QVirtualKey
 void QVirtualKeyboardAbstractInputMethod_SuperSelectionListItemSelected(QVirtualKeyboardAbstractInputMethod* self, int typeVal, int index);
 void QVirtualKeyboardAbstractInputMethod_OnSelectionListRemoveItem(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
 bool QVirtualKeyboardAbstractInputMethod_SuperSelectionListRemoveItem(QVirtualKeyboardAbstractInputMethod* self, int typeVal, int index);
-void QVirtualKeyboardAbstractInputMethod_OnPatternRecognitionModes(const QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
+void QVirtualKeyboardAbstractInputMethod_OnPatternRecognitionModes(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
 libqt_list /* of int */ QVirtualKeyboardAbstractInputMethod_SuperPatternRecognitionModes(const QVirtualKeyboardAbstractInputMethod* self);
 void QVirtualKeyboardAbstractInputMethod_OnTraceBegin(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
 QVirtualKeyboardTrace* QVirtualKeyboardAbstractInputMethod_SuperTraceBegin(QVirtualKeyboardAbstractInputMethod* self, int traceId, int patternRecognitionMode, const libqt_map /* of libqt_string to QVariant* */ traceCaptureDeviceInfo, const libqt_map /* of libqt_string to QVariant* */ traceScreenInfo);
@@ -123,17 +119,9 @@ void QVirtualKeyboardAbstractInputMethod_DisconnectNotify(QVirtualKeyboardAbstra
 void QVirtualKeyboardAbstractInputMethod_OnDisconnectNotify(QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
 void QVirtualKeyboardAbstractInputMethod_SuperDisconnectNotify(QVirtualKeyboardAbstractInputMethod* self, const QMetaMethod* signal);
 QObject* QVirtualKeyboardAbstractInputMethod_Sender(const QVirtualKeyboardAbstractInputMethod* self);
-void QVirtualKeyboardAbstractInputMethod_OnSender(const QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
-QObject* QVirtualKeyboardAbstractInputMethod_SuperSender(const QVirtualKeyboardAbstractInputMethod* self);
 int QVirtualKeyboardAbstractInputMethod_SenderSignalIndex(const QVirtualKeyboardAbstractInputMethod* self);
-void QVirtualKeyboardAbstractInputMethod_OnSenderSignalIndex(const QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
-int QVirtualKeyboardAbstractInputMethod_SuperSenderSignalIndex(const QVirtualKeyboardAbstractInputMethod* self);
 int QVirtualKeyboardAbstractInputMethod_Receivers(const QVirtualKeyboardAbstractInputMethod* self, const char* signal);
-void QVirtualKeyboardAbstractInputMethod_OnReceivers(const QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
-int QVirtualKeyboardAbstractInputMethod_SuperReceivers(const QVirtualKeyboardAbstractInputMethod* self, const char* signal);
 bool QVirtualKeyboardAbstractInputMethod_IsSignalConnected(const QVirtualKeyboardAbstractInputMethod* self, const QMetaMethod* signal);
-void QVirtualKeyboardAbstractInputMethod_OnIsSignalConnected(const QVirtualKeyboardAbstractInputMethod* self, intptr_t slot);
-bool QVirtualKeyboardAbstractInputMethod_SuperIsSignalConnected(const QVirtualKeyboardAbstractInputMethod* self, const QMetaMethod* signal);
 void QVirtualKeyboardAbstractInputMethod_Delete(QVirtualKeyboardAbstractInputMethod* self);
 
 #ifdef __cplusplus

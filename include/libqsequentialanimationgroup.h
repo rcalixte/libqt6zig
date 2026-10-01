@@ -45,13 +45,13 @@ void QSequentialAnimationGroup_UpdateState(QSequentialAnimationGroup* self, int 
 void QSequentialAnimationGroup_UpdateDirection(QSequentialAnimationGroup* self, int direction);
 libqt_string QSequentialAnimationGroup_Tr2(const char* s, const char* c);
 libqt_string QSequentialAnimationGroup_Tr3(const char* s, const char* c, int n);
-void QSequentialAnimationGroup_OnMetaObject(const QSequentialAnimationGroup* self, intptr_t slot);
+void QSequentialAnimationGroup_OnMetaObject(QSequentialAnimationGroup* self, intptr_t slot);
 QMetaObject* QSequentialAnimationGroup_SuperMetaObject(const QSequentialAnimationGroup* self);
 void QSequentialAnimationGroup_OnMetacast(QSequentialAnimationGroup* self, intptr_t slot);
 void* QSequentialAnimationGroup_SuperMetacast(QSequentialAnimationGroup* self, const char* param1);
 void QSequentialAnimationGroup_OnMetacall(QSequentialAnimationGroup* self, intptr_t slot);
 int QSequentialAnimationGroup_SuperMetacall(QSequentialAnimationGroup* self, int param1, int param2, void** param3);
-void QSequentialAnimationGroup_OnDuration(const QSequentialAnimationGroup* self, intptr_t slot);
+void QSequentialAnimationGroup_OnDuration(QSequentialAnimationGroup* self, intptr_t slot);
 int QSequentialAnimationGroup_SuperDuration(const QSequentialAnimationGroup* self);
 void QSequentialAnimationGroup_OnEvent(QSequentialAnimationGroup* self, intptr_t slot);
 bool QSequentialAnimationGroup_SuperEvent(QSequentialAnimationGroup* self, QEvent* event);
@@ -80,17 +80,9 @@ void QSequentialAnimationGroup_DisconnectNotify(QSequentialAnimationGroup* self,
 void QSequentialAnimationGroup_OnDisconnectNotify(QSequentialAnimationGroup* self, intptr_t slot);
 void QSequentialAnimationGroup_SuperDisconnectNotify(QSequentialAnimationGroup* self, const QMetaMethod* signal);
 QObject* QSequentialAnimationGroup_Sender(const QSequentialAnimationGroup* self);
-void QSequentialAnimationGroup_OnSender(const QSequentialAnimationGroup* self, intptr_t slot);
-QObject* QSequentialAnimationGroup_SuperSender(const QSequentialAnimationGroup* self);
 int QSequentialAnimationGroup_SenderSignalIndex(const QSequentialAnimationGroup* self);
-void QSequentialAnimationGroup_OnSenderSignalIndex(const QSequentialAnimationGroup* self, intptr_t slot);
-int QSequentialAnimationGroup_SuperSenderSignalIndex(const QSequentialAnimationGroup* self);
 int QSequentialAnimationGroup_Receivers(const QSequentialAnimationGroup* self, const char* signal);
-void QSequentialAnimationGroup_OnReceivers(const QSequentialAnimationGroup* self, intptr_t slot);
-int QSequentialAnimationGroup_SuperReceivers(const QSequentialAnimationGroup* self, const char* signal);
 bool QSequentialAnimationGroup_IsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
-void QSequentialAnimationGroup_OnIsSignalConnected(const QSequentialAnimationGroup* self, intptr_t slot);
-bool QSequentialAnimationGroup_SuperIsSignalConnected(const QSequentialAnimationGroup* self, const QMetaMethod* signal);
 void QSequentialAnimationGroup_Delete(QSequentialAnimationGroup* self);
 
 #ifdef __cplusplus

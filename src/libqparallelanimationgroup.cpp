@@ -50,29 +50,29 @@ int QParallelAnimationGroup_Duration(const QParallelAnimationGroup* self) {
 
 bool QParallelAnimationGroup_Event(QParallelAnimationGroup* self, QEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         return vqparallelanimationgroup->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QParallelAnimationGroup::event called without a directly constructed type");
 }
 
 void QParallelAnimationGroup_UpdateCurrentTime(QParallelAnimationGroup* self, int currentTime) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         vqparallelanimationgroup->updateCurrentTime(static_cast<int>(currentTime));
     }
 }
 
 void QParallelAnimationGroup_UpdateState(QParallelAnimationGroup* self, int newState, int oldState) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         vqparallelanimationgroup->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     }
 }
 
 void QParallelAnimationGroup_UpdateDirection(QParallelAnimationGroup* self, int direction) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         vqparallelanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     }
 }
@@ -103,426 +103,270 @@ libqt_string QParallelAnimationGroup_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QParallelAnimationGroup_SuperMetaObject(const QParallelAnimationGroup* self) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_MetaObject_IsBase(true);
-        return (QMetaObject*)vqparallelanimationgroup->metaObject();
-    } else {
-        return (QMetaObject*)self->QParallelAnimationGroup::metaObject();
-    }
+    return (QMetaObject*)self->QParallelAnimationGroup::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QParallelAnimationGroup_OnMetaObject(const QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_MetaObject_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_MetaObject_Callback>(slot));
+void QParallelAnimationGroup_OnMetaObject(QParallelAnimationGroup* self, intptr_t slot) {
+    if (auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self)))
+        vqparallelanimationgroup->qparallelanimationgroup_metaobject_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QParallelAnimationGroup_SuperMetacast(QParallelAnimationGroup* self, const char* param1) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_Metacast_IsBase(true);
-        return vqparallelanimationgroup->qt_metacast(param1);
-    } else {
-        return self->QParallelAnimationGroup::qt_metacast(param1);
-    }
+    return self->QParallelAnimationGroup::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnMetacast(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_Metacast_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Metacast_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_metacast_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QParallelAnimationGroup_SuperMetacall(QParallelAnimationGroup* self, int param1, int param2, void** param3) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_Metacall_IsBase(true);
-        return vqparallelanimationgroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QParallelAnimationGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QParallelAnimationGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnMetacall(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_Metacall_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Metacall_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_metacall_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QParallelAnimationGroup_SuperDuration(const QParallelAnimationGroup* self) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_Duration_IsBase(true);
-        return vqparallelanimationgroup->duration();
-    } else {
-        return self->QParallelAnimationGroup::duration();
-    }
+    return self->QParallelAnimationGroup::duration();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QParallelAnimationGroup_OnDuration(const QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_Duration_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Duration_Callback>(slot));
+void QParallelAnimationGroup_OnDuration(QParallelAnimationGroup* self, intptr_t slot) {
+    if (auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self)))
+        vqparallelanimationgroup->qparallelanimationgroup_duration_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Duration_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QParallelAnimationGroup_SuperEvent(QParallelAnimationGroup* self, QEvent* event) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_Event_IsBase(true);
-        return vqparallelanimationgroup->event(event);
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->event(event);
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        return vqparallelanimationgroup->QParallelAnimationGroup::event(event);
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnEvent(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_Event_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Event_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_event_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QParallelAnimationGroup_SuperUpdateCurrentTime(QParallelAnimationGroup* self, int currentTime) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_UpdateCurrentTime_IsBase(true);
-        vqparallelanimationgroup->updateCurrentTime(static_cast<int>(currentTime));
-    } else {
-        ((VirtualQParallelAnimationGroup*)self)->updateCurrentTime(static_cast<int>(currentTime));
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        vqparallelanimationgroup->QParallelAnimationGroup::updateCurrentTime(static_cast<int>(currentTime));
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::updateCurrentTime called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnUpdateCurrentTime(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateCurrentTime_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_updatecurrenttime_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateCurrentTime_Callback>(slot);
 }
 
 // Base class handler implementation
 void QParallelAnimationGroup_SuperUpdateState(QParallelAnimationGroup* self, int newState, int oldState) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_UpdateState_IsBase(true);
-        vqparallelanimationgroup->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    } else {
-        ((VirtualQParallelAnimationGroup*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        vqparallelanimationgroup->QParallelAnimationGroup::updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::updateState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnUpdateState(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_UpdateState_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateState_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_updatestate_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateState_Callback>(slot);
 }
 
 // Base class handler implementation
 void QParallelAnimationGroup_SuperUpdateDirection(QParallelAnimationGroup* self, int direction) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_UpdateDirection_IsBase(true);
-        vqparallelanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
-    } else {
-        ((VirtualQParallelAnimationGroup*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        vqparallelanimationgroup->QParallelAnimationGroup::updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::updateDirection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnUpdateDirection(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_UpdateDirection_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateDirection_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_updatedirection_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateDirection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QParallelAnimationGroup_EventFilter(QParallelAnimationGroup* self, QObject* watched, QEvent* event) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return vqparallelanimationgroup->eventFilter(watched, event);
-    } else {
-        return self->QParallelAnimationGroup::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QParallelAnimationGroup_SuperEventFilter(QParallelAnimationGroup* self, QObject* watched, QEvent* event) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_EventFilter_IsBase(true);
-        return vqparallelanimationgroup->eventFilter(watched, event);
-    } else {
-        return self->QParallelAnimationGroup::eventFilter(watched, event);
-    }
+    return self->QParallelAnimationGroup::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnEventFilter(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_EventFilter_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_EventFilter_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_eventfilter_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QParallelAnimationGroup_TimerEvent(QParallelAnimationGroup* self, QTimerEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         vqparallelanimationgroup->timerEvent(event);
     } else {
-        ((VirtualQParallelAnimationGroup*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QParallelAnimationGroup_SuperTimerEvent(QParallelAnimationGroup* self, QTimerEvent* event) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_TimerEvent_IsBase(true);
-        vqparallelanimationgroup->timerEvent(event);
-    } else {
-        ((VirtualQParallelAnimationGroup*)self)->timerEvent(event);
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        vqparallelanimationgroup->QParallelAnimationGroup::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnTimerEvent(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_TimerEvent_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_TimerEvent_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_timerevent_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QParallelAnimationGroup_ChildEvent(QParallelAnimationGroup* self, QChildEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         vqparallelanimationgroup->childEvent(event);
     } else {
-        ((VirtualQParallelAnimationGroup*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QParallelAnimationGroup_SuperChildEvent(QParallelAnimationGroup* self, QChildEvent* event) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_ChildEvent_IsBase(true);
-        vqparallelanimationgroup->childEvent(event);
-    } else {
-        ((VirtualQParallelAnimationGroup*)self)->childEvent(event);
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        vqparallelanimationgroup->QParallelAnimationGroup::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnChildEvent(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_ChildEvent_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_ChildEvent_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_childevent_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QParallelAnimationGroup_CustomEvent(QParallelAnimationGroup* self, QEvent* event) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         vqparallelanimationgroup->customEvent(event);
     } else {
-        ((VirtualQParallelAnimationGroup*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QParallelAnimationGroup_SuperCustomEvent(QParallelAnimationGroup* self, QEvent* event) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_CustomEvent_IsBase(true);
-        vqparallelanimationgroup->customEvent(event);
-    } else {
-        ((VirtualQParallelAnimationGroup*)self)->customEvent(event);
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        vqparallelanimationgroup->QParallelAnimationGroup::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnCustomEvent(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_CustomEvent_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_CustomEvent_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_customevent_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QParallelAnimationGroup_ConnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         vqparallelanimationgroup->connectNotify(*signal);
     } else {
-        ((VirtualQParallelAnimationGroup*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QParallelAnimationGroup_SuperConnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_ConnectNotify_IsBase(true);
-        vqparallelanimationgroup->connectNotify(*signal);
-    } else {
-        ((VirtualQParallelAnimationGroup*)self)->connectNotify(*signal);
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        vqparallelanimationgroup->QParallelAnimationGroup::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnConnectNotify(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_ConnectNotify_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_ConnectNotify_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_connectnotify_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QParallelAnimationGroup_DisconnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup) {
         vqparallelanimationgroup->disconnectNotify(*signal);
     } else {
-        ((VirtualQParallelAnimationGroup*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QParallelAnimationGroup_SuperDisconnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_DisconnectNotify_IsBase(true);
-        vqparallelanimationgroup->disconnectNotify(*signal);
-    } else {
-        ((VirtualQParallelAnimationGroup*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self)) {
+        vqparallelanimationgroup->QParallelAnimationGroup::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QParallelAnimationGroup::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnDisconnectNotify(QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_DisconnectNotify_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_DisconnectNotify_Callback>(slot));
+    if (auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self))
+        vqparallelanimationgroup->qparallelanimationgroup_disconnectnotify_callback = reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QParallelAnimationGroup_Sender(const QParallelAnimationGroup* self) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return vqparallelanimationgroup->sender();
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->sender();
-    }
+    if (auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self))) {
+        return vqparallelanimationgroup->VirtualQParallelAnimationGroup::sender();
+    } else
+        qFatal("Error: Protected method QParallelAnimationGroup::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QParallelAnimationGroup_SuperSender(const QParallelAnimationGroup* self) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_Sender_IsBase(true);
-        return vqparallelanimationgroup->sender();
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QParallelAnimationGroup_OnSender(const QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_Sender_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QParallelAnimationGroup_SenderSignalIndex(const QParallelAnimationGroup* self) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return vqparallelanimationgroup->senderSignalIndex();
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->senderSignalIndex();
-    }
+    if (auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self))) {
+        return vqparallelanimationgroup->VirtualQParallelAnimationGroup::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QParallelAnimationGroup::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QParallelAnimationGroup_SuperSenderSignalIndex(const QParallelAnimationGroup* self) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_SenderSignalIndex_IsBase(true);
-        return vqparallelanimationgroup->senderSignalIndex();
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QParallelAnimationGroup_OnSenderSignalIndex(const QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QParallelAnimationGroup_Receivers(const QParallelAnimationGroup* self, const char* signal) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return vqparallelanimationgroup->receivers(signal);
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->receivers(signal);
-    }
+    if (auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self))) {
+        return vqparallelanimationgroup->VirtualQParallelAnimationGroup::receivers(signal);
+    } else
+        qFatal("Error: Protected method QParallelAnimationGroup::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QParallelAnimationGroup_SuperReceivers(const QParallelAnimationGroup* self, const char* signal) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_Receivers_IsBase(true);
-        return vqparallelanimationgroup->receivers(signal);
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QParallelAnimationGroup_OnReceivers(const QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_Receivers_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QParallelAnimationGroup_IsSignalConnected(const QParallelAnimationGroup* self, const QMetaMethod* signal) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return vqparallelanimationgroup->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QParallelAnimationGroup_SuperIsSignalConnected(const QParallelAnimationGroup* self, const QMetaMethod* signal) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        vqparallelanimationgroup->setQParallelAnimationGroup_IsSignalConnected_IsBase(true);
-        return vqparallelanimationgroup->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QParallelAnimationGroup_OnIsSignalConnected(const QParallelAnimationGroup* self, intptr_t slot) {
-    auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
-        vqparallelanimationgroup->setQParallelAnimationGroup_IsSignalConnected_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_IsSignalConnected_Callback>(slot));
+    if (auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self))) {
+        return vqparallelanimationgroup->VirtualQParallelAnimationGroup::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QParallelAnimationGroup::isSignalConnected called without a directly constructed type");
 }
 
 void QParallelAnimationGroup_Delete(QParallelAnimationGroup* self) {

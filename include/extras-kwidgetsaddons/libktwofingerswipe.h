@@ -44,7 +44,7 @@ double KTwoFingerSwipe_SwipeAngle(const KTwoFingerSwipe* self);
 void KTwoFingerSwipe_SetSwipeAngle(KTwoFingerSwipe* self, double swipeAngle);
 libqt_string KTwoFingerSwipe_Tr2(const char* s, const char* c);
 libqt_string KTwoFingerSwipe_Tr3(const char* s, const char* c, int n);
-void KTwoFingerSwipe_OnMetaObject(const KTwoFingerSwipe* self, intptr_t slot);
+void KTwoFingerSwipe_OnMetaObject(KTwoFingerSwipe* self, intptr_t slot);
 QMetaObject* KTwoFingerSwipe_SuperMetaObject(const KTwoFingerSwipe* self);
 void KTwoFingerSwipe_OnMetacast(KTwoFingerSwipe* self, intptr_t slot);
 void* KTwoFingerSwipe_SuperMetacast(KTwoFingerSwipe* self, const char* param1);
@@ -72,17 +72,9 @@ void KTwoFingerSwipe_DisconnectNotify(KTwoFingerSwipe* self, const QMetaMethod* 
 void KTwoFingerSwipe_OnDisconnectNotify(KTwoFingerSwipe* self, intptr_t slot);
 void KTwoFingerSwipe_SuperDisconnectNotify(KTwoFingerSwipe* self, const QMetaMethod* signal);
 QObject* KTwoFingerSwipe_Sender(const KTwoFingerSwipe* self);
-void KTwoFingerSwipe_OnSender(const KTwoFingerSwipe* self, intptr_t slot);
-QObject* KTwoFingerSwipe_SuperSender(const KTwoFingerSwipe* self);
 int KTwoFingerSwipe_SenderSignalIndex(const KTwoFingerSwipe* self);
-void KTwoFingerSwipe_OnSenderSignalIndex(const KTwoFingerSwipe* self, intptr_t slot);
-int KTwoFingerSwipe_SuperSenderSignalIndex(const KTwoFingerSwipe* self);
 int KTwoFingerSwipe_Receivers(const KTwoFingerSwipe* self, const char* signal);
-void KTwoFingerSwipe_OnReceivers(const KTwoFingerSwipe* self, intptr_t slot);
-int KTwoFingerSwipe_SuperReceivers(const KTwoFingerSwipe* self, const char* signal);
 bool KTwoFingerSwipe_IsSignalConnected(const KTwoFingerSwipe* self, const QMetaMethod* signal);
-void KTwoFingerSwipe_OnIsSignalConnected(const KTwoFingerSwipe* self, intptr_t slot);
-bool KTwoFingerSwipe_SuperIsSignalConnected(const KTwoFingerSwipe* self, const QMetaMethod* signal);
 void KTwoFingerSwipe_Delete(KTwoFingerSwipe* self);
 
 KTwoFingerSwipeRecognizer* KTwoFingerSwipeRecognizer_new();

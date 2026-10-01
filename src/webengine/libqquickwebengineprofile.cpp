@@ -596,364 +596,219 @@ libqt_string QQuickWebEngineProfile_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QQuickWebEngineProfile_SuperMetaObject(const QQuickWebEngineProfile* self) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquickwebengineprofile->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuickWebEngineProfile::metaObject();
-    }
+    return (QMetaObject*)self->QQuickWebEngineProfile::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuickWebEngineProfile_OnMetaObject(const QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_MetaObject_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_MetaObject_Callback>(slot));
+void QQuickWebEngineProfile_OnMetaObject(QQuickWebEngineProfile* self, intptr_t slot) {
+    if (auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self)))
+        vqquickwebengineprofile->qquickwebengineprofile_metaobject_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuickWebEngineProfile_SuperMetacast(QQuickWebEngineProfile* self, const char* param1) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Metacast_IsBase(true);
-        return vqquickwebengineprofile->qt_metacast(param1);
-    } else {
-        return self->QQuickWebEngineProfile::qt_metacast(param1);
-    }
+    return self->QQuickWebEngineProfile::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnMetacast(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Metacast_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_Metacast_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_metacast_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuickWebEngineProfile_SuperMetacall(QQuickWebEngineProfile* self, int param1, int param2, void** param3) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Metacall_IsBase(true);
-        return vqquickwebengineprofile->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuickWebEngineProfile::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuickWebEngineProfile::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnMetacall(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Metacall_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_Metacall_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_metacall_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickWebEngineProfile_Event(QQuickWebEngineProfile* self, QEvent* event) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        return vqquickwebengineprofile->event(event);
-    } else {
-        return self->QQuickWebEngineProfile::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuickWebEngineProfile_SuperEvent(QQuickWebEngineProfile* self, QEvent* event) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Event_IsBase(true);
-        return vqquickwebengineprofile->event(event);
-    } else {
-        return self->QQuickWebEngineProfile::event(event);
-    }
+    return self->QQuickWebEngineProfile::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnEvent(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Event_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_Event_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_event_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuickWebEngineProfile_EventFilter(QQuickWebEngineProfile* self, QObject* watched, QEvent* event) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        return vqquickwebengineprofile->eventFilter(watched, event);
-    } else {
-        return self->QQuickWebEngineProfile::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuickWebEngineProfile_SuperEventFilter(QQuickWebEngineProfile* self, QObject* watched, QEvent* event) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_EventFilter_IsBase(true);
-        return vqquickwebengineprofile->eventFilter(watched, event);
-    } else {
-        return self->QQuickWebEngineProfile::eventFilter(watched, event);
-    }
+    return self->QQuickWebEngineProfile::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnEventFilter(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_EventFilter_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_EventFilter_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_eventfilter_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickWebEngineProfile_TimerEvent(QQuickWebEngineProfile* self, QTimerEvent* event) {
     auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
+    if (vqquickwebengineprofile) {
         vqquickwebengineprofile->timerEvent(event);
     } else {
-        ((VirtualQQuickWebEngineProfile*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickWebEngineProfile_SuperTimerEvent(QQuickWebEngineProfile* self, QTimerEvent* event) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_TimerEvent_IsBase(true);
-        vqquickwebengineprofile->timerEvent(event);
-    } else {
-        ((VirtualQQuickWebEngineProfile*)self)->timerEvent(event);
-    }
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self)) {
+        vqquickwebengineprofile->QQuickWebEngineProfile::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnTimerEvent(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_TimerEvent_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_TimerEvent_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_timerevent_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickWebEngineProfile_ChildEvent(QQuickWebEngineProfile* self, QChildEvent* event) {
     auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
+    if (vqquickwebengineprofile) {
         vqquickwebengineprofile->childEvent(event);
     } else {
-        ((VirtualQQuickWebEngineProfile*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickWebEngineProfile_SuperChildEvent(QQuickWebEngineProfile* self, QChildEvent* event) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_ChildEvent_IsBase(true);
-        vqquickwebengineprofile->childEvent(event);
-    } else {
-        ((VirtualQQuickWebEngineProfile*)self)->childEvent(event);
-    }
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self)) {
+        vqquickwebengineprofile->QQuickWebEngineProfile::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnChildEvent(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_ChildEvent_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_ChildEvent_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_childevent_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickWebEngineProfile_CustomEvent(QQuickWebEngineProfile* self, QEvent* event) {
     auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
+    if (vqquickwebengineprofile) {
         vqquickwebengineprofile->customEvent(event);
     } else {
-        ((VirtualQQuickWebEngineProfile*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickWebEngineProfile_SuperCustomEvent(QQuickWebEngineProfile* self, QEvent* event) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_CustomEvent_IsBase(true);
-        vqquickwebengineprofile->customEvent(event);
-    } else {
-        ((VirtualQQuickWebEngineProfile*)self)->customEvent(event);
-    }
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self)) {
+        vqquickwebengineprofile->QQuickWebEngineProfile::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnCustomEvent(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_CustomEvent_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_CustomEvent_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_customevent_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickWebEngineProfile_ConnectNotify(QQuickWebEngineProfile* self, const QMetaMethod* signal) {
     auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
+    if (vqquickwebengineprofile) {
         vqquickwebengineprofile->connectNotify(*signal);
     } else {
-        ((VirtualQQuickWebEngineProfile*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickWebEngineProfile_SuperConnectNotify(QQuickWebEngineProfile* self, const QMetaMethod* signal) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_ConnectNotify_IsBase(true);
-        vqquickwebengineprofile->connectNotify(*signal);
-    } else {
-        ((VirtualQQuickWebEngineProfile*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self)) {
+        vqquickwebengineprofile->QQuickWebEngineProfile::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnConnectNotify(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_ConnectNotify_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_ConnectNotify_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_connectnotify_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuickWebEngineProfile_DisconnectNotify(QQuickWebEngineProfile* self, const QMetaMethod* signal) {
     auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
+    if (vqquickwebengineprofile) {
         vqquickwebengineprofile->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuickWebEngineProfile*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuickWebEngineProfile_SuperDisconnectNotify(QQuickWebEngineProfile* self, const QMetaMethod* signal) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_DisconnectNotify_IsBase(true);
-        vqquickwebengineprofile->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuickWebEngineProfile*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self)) {
+        vqquickwebengineprofile->QQuickWebEngineProfile::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuickWebEngineProfile::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuickWebEngineProfile_OnDisconnectNotify(QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self);
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_DisconnectNotify_Callback>(slot));
+    if (auto* vqquickwebengineprofile = dynamic_cast<VirtualQQuickWebEngineProfile*>(self))
+        vqquickwebengineprofile->qquickwebengineprofile_disconnectnotify_callback = reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuickWebEngineProfile_Sender(const QQuickWebEngineProfile* self) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        return vqquickwebengineprofile->sender();
-    } else {
-        return ((VirtualQQuickWebEngineProfile*)self)->sender();
-    }
+    if (auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self))) {
+        return vqquickwebengineprofile->VirtualQQuickWebEngineProfile::sender();
+    } else
+        qFatal("Error: Protected method QQuickWebEngineProfile::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuickWebEngineProfile_SuperSender(const QQuickWebEngineProfile* self) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Sender_IsBase(true);
-        return vqquickwebengineprofile->sender();
-    } else {
-        return ((VirtualQQuickWebEngineProfile*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickWebEngineProfile_OnSender(const QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Sender_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickWebEngineProfile_SenderSignalIndex(const QQuickWebEngineProfile* self) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        return vqquickwebengineprofile->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickWebEngineProfile*)self)->senderSignalIndex();
-    }
+    if (auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self))) {
+        return vqquickwebengineprofile->VirtualQQuickWebEngineProfile::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuickWebEngineProfile::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickWebEngineProfile_SuperSenderSignalIndex(const QQuickWebEngineProfile* self) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_SenderSignalIndex_IsBase(true);
-        return vqquickwebengineprofile->senderSignalIndex();
-    } else {
-        return ((VirtualQQuickWebEngineProfile*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickWebEngineProfile_OnSenderSignalIndex(const QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuickWebEngineProfile_Receivers(const QQuickWebEngineProfile* self, const char* signal) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        return vqquickwebengineprofile->receivers(signal);
-    } else {
-        return ((VirtualQQuickWebEngineProfile*)self)->receivers(signal);
-    }
+    if (auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self))) {
+        return vqquickwebengineprofile->VirtualQQuickWebEngineProfile::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuickWebEngineProfile::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuickWebEngineProfile_SuperReceivers(const QQuickWebEngineProfile* self, const char* signal) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Receivers_IsBase(true);
-        return vqquickwebengineprofile->receivers(signal);
-    } else {
-        return ((VirtualQQuickWebEngineProfile*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickWebEngineProfile_OnReceivers(const QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_Receivers_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuickWebEngineProfile_IsSignalConnected(const QQuickWebEngineProfile* self, const QMetaMethod* signal) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        return vqquickwebengineprofile->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickWebEngineProfile*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuickWebEngineProfile_SuperIsSignalConnected(const QQuickWebEngineProfile* self, const QMetaMethod* signal) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile) {
-        vqquickwebengineprofile->setQQuickWebEngineProfile_IsSignalConnected_IsBase(true);
-        return vqquickwebengineprofile->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuickWebEngineProfile*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuickWebEngineProfile_OnIsSignalConnected(const QQuickWebEngineProfile* self, intptr_t slot) {
-    auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self));
-    if (vqquickwebengineprofile && vqquickwebengineprofile->isVirtualQQuickWebEngineProfile)
-        vqquickwebengineprofile->setQQuickWebEngineProfile_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuickWebEngineProfile::QQuickWebEngineProfile_IsSignalConnected_Callback>(slot));
+    if (auto* vqquickwebengineprofile = const_cast<VirtualQQuickWebEngineProfile*>(dynamic_cast<const VirtualQQuickWebEngineProfile*>(self))) {
+        return vqquickwebengineprofile->VirtualQQuickWebEngineProfile::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuickWebEngineProfile::isSignalConnected called without a directly constructed type");
 }
 
 void QQuickWebEngineProfile_Delete(QQuickWebEngineProfile* self) {

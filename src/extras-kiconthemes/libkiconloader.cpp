@@ -612,364 +612,219 @@ void KIconLoader_DrawOverlays4(const KIconLoader* self, const libqt_list /* of l
 
 // Base class handler implementation
 QMetaObject* KIconLoader_SuperMetaObject(const KIconLoader* self) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiconloader->metaObject();
-    } else {
-        return (QMetaObject*)self->KIconLoader::metaObject();
-    }
+    return (QMetaObject*)self->KIconLoader::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconLoader_OnMetaObject(const KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_MetaObject_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_MetaObject_Callback>(slot));
+void KIconLoader_OnMetaObject(KIconLoader* self, intptr_t slot) {
+    if (auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self)))
+        vkiconloader->kiconloader_metaobject_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIconLoader_SuperMetacast(KIconLoader* self, const char* param1) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_Metacast_IsBase(true);
-        return vkiconloader->qt_metacast(param1);
-    } else {
-        return self->KIconLoader::qt_metacast(param1);
-    }
+    return self->KIconLoader::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnMetacast(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_Metacast_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Metacast_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_metacast_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIconLoader_SuperMetacall(KIconLoader* self, int param1, int param2, void** param3) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_Metacall_IsBase(true);
-        return vkiconloader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIconLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIconLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnMetacall(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_Metacall_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Metacall_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_metacall_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIconLoader_Event(KIconLoader* self, QEvent* event) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return vkiconloader->event(event);
-    } else {
-        return self->KIconLoader::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIconLoader_SuperEvent(KIconLoader* self, QEvent* event) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_Event_IsBase(true);
-        return vkiconloader->event(event);
-    } else {
-        return self->KIconLoader::event(event);
-    }
+    return self->KIconLoader::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnEvent(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_Event_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Event_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_event_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIconLoader_EventFilter(KIconLoader* self, QObject* watched, QEvent* event) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return vkiconloader->eventFilter(watched, event);
-    } else {
-        return self->KIconLoader::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIconLoader_SuperEventFilter(KIconLoader* self, QObject* watched, QEvent* event) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_EventFilter_IsBase(true);
-        return vkiconloader->eventFilter(watched, event);
-    } else {
-        return self->KIconLoader::eventFilter(watched, event);
-    }
+    return self->KIconLoader::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnEventFilter(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_EventFilter_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_EventFilter_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_eventfilter_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconLoader_TimerEvent(KIconLoader* self, QTimerEvent* event) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader) {
         vkiconloader->timerEvent(event);
     } else {
-        ((VirtualKIconLoader*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIconLoader::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconLoader_SuperTimerEvent(KIconLoader* self, QTimerEvent* event) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_TimerEvent_IsBase(true);
-        vkiconloader->timerEvent(event);
-    } else {
-        ((VirtualKIconLoader*)self)->timerEvent(event);
-    }
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self)) {
+        vkiconloader->KIconLoader::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconLoader::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnTimerEvent(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_TimerEvent_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_TimerEvent_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_timerevent_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconLoader_ChildEvent(KIconLoader* self, QChildEvent* event) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader) {
         vkiconloader->childEvent(event);
     } else {
-        ((VirtualKIconLoader*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIconLoader::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconLoader_SuperChildEvent(KIconLoader* self, QChildEvent* event) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_ChildEvent_IsBase(true);
-        vkiconloader->childEvent(event);
-    } else {
-        ((VirtualKIconLoader*)self)->childEvent(event);
-    }
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self)) {
+        vkiconloader->KIconLoader::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconLoader::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnChildEvent(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_ChildEvent_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_ChildEvent_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_childevent_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconLoader_CustomEvent(KIconLoader* self, QEvent* event) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader) {
         vkiconloader->customEvent(event);
     } else {
-        ((VirtualKIconLoader*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIconLoader::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconLoader_SuperCustomEvent(KIconLoader* self, QEvent* event) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_CustomEvent_IsBase(true);
-        vkiconloader->customEvent(event);
-    } else {
-        ((VirtualKIconLoader*)self)->customEvent(event);
-    }
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self)) {
+        vkiconloader->KIconLoader::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconLoader::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnCustomEvent(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_CustomEvent_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_CustomEvent_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_customevent_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconLoader_ConnectNotify(KIconLoader* self, const QMetaMethod* signal) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader) {
         vkiconloader->connectNotify(*signal);
     } else {
-        ((VirtualKIconLoader*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIconLoader::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconLoader_SuperConnectNotify(KIconLoader* self, const QMetaMethod* signal) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_ConnectNotify_IsBase(true);
-        vkiconloader->connectNotify(*signal);
-    } else {
-        ((VirtualKIconLoader*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self)) {
+        vkiconloader->KIconLoader::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIconLoader::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnConnectNotify(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_ConnectNotify_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_ConnectNotify_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_connectnotify_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconLoader_DisconnectNotify(KIconLoader* self, const QMetaMethod* signal) {
     auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
+    if (vkiconloader) {
         vkiconloader->disconnectNotify(*signal);
     } else {
-        ((VirtualKIconLoader*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIconLoader::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconLoader_SuperDisconnectNotify(KIconLoader* self, const QMetaMethod* signal) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_DisconnectNotify_IsBase(true);
-        vkiconloader->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIconLoader*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self)) {
+        vkiconloader->KIconLoader::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIconLoader::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconLoader_OnDisconnectNotify(KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_DisconnectNotify_Callback>(slot));
+    if (auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self))
+        vkiconloader->kiconloader_disconnectnotify_callback = reinterpret_cast<VirtualKIconLoader::KIconLoader_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIconLoader_Sender(const KIconLoader* self) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return vkiconloader->sender();
-    } else {
-        return ((VirtualKIconLoader*)self)->sender();
-    }
+    if (auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self))) {
+        return vkiconloader->VirtualKIconLoader::sender();
+    } else
+        qFatal("Error: Protected method KIconLoader::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIconLoader_SuperSender(const KIconLoader* self) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_Sender_IsBase(true);
-        return vkiconloader->sender();
-    } else {
-        return ((VirtualKIconLoader*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconLoader_OnSender(const KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_Sender_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIconLoader_SenderSignalIndex(const KIconLoader* self) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return vkiconloader->senderSignalIndex();
-    } else {
-        return ((VirtualKIconLoader*)self)->senderSignalIndex();
-    }
+    if (auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self))) {
+        return vkiconloader->VirtualKIconLoader::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIconLoader::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIconLoader_SuperSenderSignalIndex(const KIconLoader* self) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_SenderSignalIndex_IsBase(true);
-        return vkiconloader->senderSignalIndex();
-    } else {
-        return ((VirtualKIconLoader*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconLoader_OnSenderSignalIndex(const KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIconLoader_Receivers(const KIconLoader* self, const char* signal) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return vkiconloader->receivers(signal);
-    } else {
-        return ((VirtualKIconLoader*)self)->receivers(signal);
-    }
+    if (auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self))) {
+        return vkiconloader->VirtualKIconLoader::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIconLoader::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIconLoader_SuperReceivers(const KIconLoader* self, const char* signal) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_Receivers_IsBase(true);
-        return vkiconloader->receivers(signal);
-    } else {
-        return ((VirtualKIconLoader*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconLoader_OnReceivers(const KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_Receivers_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIconLoader_IsSignalConnected(const KIconLoader* self, const QMetaMethod* signal) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return vkiconloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIconLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIconLoader_SuperIsSignalConnected(const KIconLoader* self, const QMetaMethod* signal) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        vkiconloader->setKIconLoader_IsSignalConnected_IsBase(true);
-        return vkiconloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIconLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconLoader_OnIsSignalConnected(const KIconLoader* self, intptr_t slot) {
-    auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self));
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader)
-        vkiconloader->setKIconLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualKIconLoader::KIconLoader_IsSignalConnected_Callback>(slot));
+    if (auto* vkiconloader = const_cast<VirtualKIconLoader*>(dynamic_cast<const VirtualKIconLoader*>(self))) {
+        return vkiconloader->VirtualKIconLoader::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIconLoader::isSignalConnected called without a directly constructed type");
 }
 
 void KIconLoader_Delete(KIconLoader* self) {

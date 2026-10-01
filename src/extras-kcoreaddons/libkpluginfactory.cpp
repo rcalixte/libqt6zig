@@ -58,10 +58,10 @@ QObject* KPluginFactory_Create(KPluginFactory* self, const char* iface, QWidget*
         args_QList.push_back(*(args_arr[i]));
     }
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory) {
         return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
     }
-    return {};
+    qFatal("Error: Protected method KPluginFactory::create called without a directly constructed type");
 }
 
 libqt_string KPluginFactory_Tr2(const char* s, const char* c) {
@@ -90,388 +90,239 @@ libqt_string KPluginFactory_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KPluginFactory_SuperMetaObject(const KPluginFactory* self) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpluginfactory->metaObject();
-    } else {
-        return (QMetaObject*)self->KPluginFactory::metaObject();
-    }
+    return (QMetaObject*)self->KPluginFactory::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPluginFactory_OnMetaObject(const KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_MetaObject_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_MetaObject_Callback>(slot));
+void KPluginFactory_OnMetaObject(KPluginFactory* self, intptr_t slot) {
+    if (auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self)))
+        vkpluginfactory->kpluginfactory_metaobject_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPluginFactory_SuperMetacast(KPluginFactory* self, const char* param1) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Metacast_IsBase(true);
-        return vkpluginfactory->qt_metacast(param1);
-    } else {
-        return self->KPluginFactory::qt_metacast(param1);
-    }
+    return self->KPluginFactory::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnMetacast(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_Metacast_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacast_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_metacast_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPluginFactory_SuperMetacall(KPluginFactory* self, int param1, int param2, void** param3) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Metacall_IsBase(true);
-        return vkpluginfactory->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPluginFactory::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPluginFactory::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnMetacall(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_Metacall_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacall_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_metacall_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QObject* KPluginFactory_SuperCreate(KPluginFactory* self, const char* iface, QWidget* parentWidget, QObject* parent, const libqt_list /* of QVariant* */ args) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
     QList<QVariant> args_QList;
     args_QList.reserve(args.len);
     QVariant** args_arr = static_cast<QVariant**>(args.data);
     for (size_t i = 0; i < args.len; ++i) {
         args_QList.push_back(*(args_arr[i]));
     }
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Create_IsBase(true);
-        return vkpluginfactory->create(iface, parentWidget, parent, args_QList);
-    } else {
-        return ((VirtualKPluginFactory*)self)->create(iface, parentWidget, parent, args_QList);
-    }
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self)) {
+        return vkpluginfactory->KPluginFactory::create(iface, parentWidget, parent, args_QList);
+    } else
+        qFatal("Error: Protected virtual method KPluginFactory::create called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnCreate(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_Create_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Create_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_create_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Create_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPluginFactory_Event(KPluginFactory* self, QEvent* event) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return vkpluginfactory->event(event);
-    } else {
-        return self->KPluginFactory::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KPluginFactory_SuperEvent(KPluginFactory* self, QEvent* event) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Event_IsBase(true);
-        return vkpluginfactory->event(event);
-    } else {
-        return self->KPluginFactory::event(event);
-    }
+    return self->KPluginFactory::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnEvent(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_Event_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Event_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_event_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPluginFactory_EventFilter(KPluginFactory* self, QObject* watched, QEvent* event) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return vkpluginfactory->eventFilter(watched, event);
-    } else {
-        return self->KPluginFactory::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KPluginFactory_SuperEventFilter(KPluginFactory* self, QObject* watched, QEvent* event) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_EventFilter_IsBase(true);
-        return vkpluginfactory->eventFilter(watched, event);
-    } else {
-        return self->KPluginFactory::eventFilter(watched, event);
-    }
+    return self->KPluginFactory::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnEventFilter(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_EventFilter_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_EventFilter_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_eventfilter_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPluginFactory_TimerEvent(KPluginFactory* self, QTimerEvent* event) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory) {
         vkpluginfactory->timerEvent(event);
     } else {
-        ((VirtualKPluginFactory*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPluginFactory::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPluginFactory_SuperTimerEvent(KPluginFactory* self, QTimerEvent* event) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_TimerEvent_IsBase(true);
-        vkpluginfactory->timerEvent(event);
-    } else {
-        ((VirtualKPluginFactory*)self)->timerEvent(event);
-    }
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self)) {
+        vkpluginfactory->KPluginFactory::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPluginFactory::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnTimerEvent(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_TimerEvent_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_TimerEvent_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_timerevent_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPluginFactory_ChildEvent(KPluginFactory* self, QChildEvent* event) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory) {
         vkpluginfactory->childEvent(event);
     } else {
-        ((VirtualKPluginFactory*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPluginFactory::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPluginFactory_SuperChildEvent(KPluginFactory* self, QChildEvent* event) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_ChildEvent_IsBase(true);
-        vkpluginfactory->childEvent(event);
-    } else {
-        ((VirtualKPluginFactory*)self)->childEvent(event);
-    }
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self)) {
+        vkpluginfactory->KPluginFactory::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPluginFactory::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnChildEvent(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_ChildEvent_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_ChildEvent_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_childevent_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPluginFactory_CustomEvent(KPluginFactory* self, QEvent* event) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory) {
         vkpluginfactory->customEvent(event);
     } else {
-        ((VirtualKPluginFactory*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPluginFactory::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPluginFactory_SuperCustomEvent(KPluginFactory* self, QEvent* event) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_CustomEvent_IsBase(true);
-        vkpluginfactory->customEvent(event);
-    } else {
-        ((VirtualKPluginFactory*)self)->customEvent(event);
-    }
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self)) {
+        vkpluginfactory->KPluginFactory::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPluginFactory::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnCustomEvent(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_CustomEvent_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_CustomEvent_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_customevent_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPluginFactory_ConnectNotify(KPluginFactory* self, const QMetaMethod* signal) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory) {
         vkpluginfactory->connectNotify(*signal);
     } else {
-        ((VirtualKPluginFactory*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPluginFactory::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPluginFactory_SuperConnectNotify(KPluginFactory* self, const QMetaMethod* signal) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_ConnectNotify_IsBase(true);
-        vkpluginfactory->connectNotify(*signal);
-    } else {
-        ((VirtualKPluginFactory*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self)) {
+        vkpluginfactory->KPluginFactory::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPluginFactory::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnConnectNotify(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_ConnectNotify_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_ConnectNotify_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_connectnotify_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPluginFactory_DisconnectNotify(KPluginFactory* self, const QMetaMethod* signal) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory) {
         vkpluginfactory->disconnectNotify(*signal);
     } else {
-        ((VirtualKPluginFactory*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPluginFactory::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPluginFactory_SuperDisconnectNotify(KPluginFactory* self, const QMetaMethod* signal) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_DisconnectNotify_IsBase(true);
-        vkpluginfactory->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPluginFactory*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self)) {
+        vkpluginfactory->KPluginFactory::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPluginFactory::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnDisconnectNotify(KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_DisconnectNotify_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_DisconnectNotify_Callback>(slot));
+    if (auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self))
+        vkpluginfactory->kpluginfactory_disconnectnotify_callback = reinterpret_cast<VirtualKPluginFactory::KPluginFactory_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPluginFactory_Sender(const KPluginFactory* self) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return vkpluginfactory->sender();
-    } else {
-        return ((VirtualKPluginFactory*)self)->sender();
-    }
+    if (auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self))) {
+        return vkpluginfactory->VirtualKPluginFactory::sender();
+    } else
+        qFatal("Error: Protected method KPluginFactory::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPluginFactory_SuperSender(const KPluginFactory* self) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Sender_IsBase(true);
-        return vkpluginfactory->sender();
-    } else {
-        return ((VirtualKPluginFactory*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPluginFactory_OnSender(const KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_Sender_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPluginFactory_SenderSignalIndex(const KPluginFactory* self) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return vkpluginfactory->senderSignalIndex();
-    } else {
-        return ((VirtualKPluginFactory*)self)->senderSignalIndex();
-    }
+    if (auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self))) {
+        return vkpluginfactory->VirtualKPluginFactory::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPluginFactory::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPluginFactory_SuperSenderSignalIndex(const KPluginFactory* self) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_SenderSignalIndex_IsBase(true);
-        return vkpluginfactory->senderSignalIndex();
-    } else {
-        return ((VirtualKPluginFactory*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPluginFactory_OnSenderSignalIndex(const KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPluginFactory_Receivers(const KPluginFactory* self, const char* signal) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return vkpluginfactory->receivers(signal);
-    } else {
-        return ((VirtualKPluginFactory*)self)->receivers(signal);
-    }
+    if (auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self))) {
+        return vkpluginfactory->VirtualKPluginFactory::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPluginFactory::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPluginFactory_SuperReceivers(const KPluginFactory* self, const char* signal) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_Receivers_IsBase(true);
-        return vkpluginfactory->receivers(signal);
-    } else {
-        return ((VirtualKPluginFactory*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPluginFactory_OnReceivers(const KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_Receivers_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPluginFactory_IsSignalConnected(const KPluginFactory* self, const QMetaMethod* signal) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return vkpluginfactory->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPluginFactory*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KPluginFactory_SuperIsSignalConnected(const KPluginFactory* self, const QMetaMethod* signal) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        vkpluginfactory->setKPluginFactory_IsSignalConnected_IsBase(true);
-        return vkpluginfactory->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPluginFactory*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPluginFactory_OnIsSignalConnected(const KPluginFactory* self, intptr_t slot) {
-    auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
-        vkpluginfactory->setKPluginFactory_IsSignalConnected_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_IsSignalConnected_Callback>(slot));
+    if (auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self))) {
+        return vkpluginfactory->VirtualKPluginFactory::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPluginFactory::isSignalConnected called without a directly constructed type");
 }
 
 void KPluginFactory_Delete(KPluginFactory* self) {

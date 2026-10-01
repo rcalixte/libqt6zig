@@ -139,9 +139,9 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerObjectInspectorInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -312,9 +312,9 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QDesignerFormEditorInterface `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface) callconv(.c) QDesignerFormEditorInterface `
     ///
-    pub fn onCore(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
+    pub fn onCore(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface) callconv(.c) QDesignerFormEditorInterface) void {
         qtc.QDesignerObjectInspectorInterface_OnCore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -339,6 +339,8 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     pub const SetFormWindow = setFormWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerobjectinspectorinterface.html#setFormWindow)
+    ///
+    /// This method must be implemented with `onSetFormWindow` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -367,25 +369,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     pub fn onSetFormWindow(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface, QDesignerFormWindowInterface) callconv(.c) void) void {
         qtc.QDesignerObjectInspectorInterface_OnSetFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetFormWindow` instead
-    ///
-    pub const SuperSetFormWindow = superSetFormWindow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerobjectinspectorinterface.html#setFormWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    /// ` formWindow: QDesignerFormWindowInterface `
-    ///
-    pub fn superSetFormWindow(self: QDesignerObjectInspectorInterface, formWindow: anytype) void {
-        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
-        qtc.QDesignerObjectInspectorInterface_SuperSetFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -6698,9 +6681,9 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface) callconv(.c) i32) void {
         qtc.QDesignerObjectInspectorInterface_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6814,11 +6797,11 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface) callconv(.c) QSize) void {
         qtc.QDesignerObjectInspectorInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6872,11 +6855,11 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface) callconv(.c) QSize) void {
         qtc.QDesignerObjectInspectorInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6990,9 +6973,9 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface) callconv(.c) bool) void {
         qtc.QDesignerObjectInspectorInterface_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7046,9 +7029,9 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface) callconv(.c) QPaintEngine) void {
         qtc.QDesignerObjectInspectorInterface_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8974,9 +8957,9 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface) callconv(.c) QPainter) void {
         qtc.QDesignerObjectInspectorInterface_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9560,44 +9543,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
         qtc.QDesignerObjectInspectorInterface_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    pub fn superUpdateMicroFocus(self: QDesignerObjectInspectorInterface) void {
-        qtc.QDesignerObjectInspectorInterface_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerObjectInspectorInterface_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9614,44 +9559,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     pub fn create(self: QDesignerObjectInspectorInterface) void {
         qtc.QDesignerObjectInspectorInterface_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    pub fn superCreate(self: QDesignerObjectInspectorInterface) void {
-        qtc.QDesignerObjectInspectorInterface_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerObjectInspectorInterface_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9672,44 +9579,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
         qtc.QDesignerObjectInspectorInterface_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    pub fn superDestroy(self: QDesignerObjectInspectorInterface) void {
-        qtc.QDesignerObjectInspectorInterface_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerObjectInspectorInterface_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9726,44 +9595,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     pub fn focusNextChild(self: QDesignerObjectInspectorInterface) bool {
         return qtc.QDesignerObjectInspectorInterface_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    pub fn superFocusNextChild(self: QDesignerObjectInspectorInterface) bool {
-        return qtc.QDesignerObjectInspectorInterface_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerObjectInspectorInterface_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9784,44 +9615,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
         return qtc.QDesignerObjectInspectorInterface_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    pub fn superFocusPreviousChild(self: QDesignerObjectInspectorInterface) bool {
-        return qtc.QDesignerObjectInspectorInterface_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerObjectInspectorInterface_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9840,44 +9633,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
         return .{ .ptr = qtc.QDesignerObjectInspectorInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    pub fn superSender(self: QDesignerObjectInspectorInterface) QObject {
-        return .{ .ptr = qtc.QDesignerObjectInspectorInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerObjectInspectorInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9894,44 +9649,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerObjectInspectorInterface) i32 {
         return qtc.QDesignerObjectInspectorInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerObjectInspectorInterface) i32 {
-        return qtc.QDesignerObjectInspectorInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerObjectInspectorInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9955,47 +9672,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
         return qtc.QDesignerObjectInspectorInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerObjectInspectorInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerObjectInspectorInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerObjectInspectorInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10015,47 +9691,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerObjectInspectorInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerObjectInspectorInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerObjectInspectorInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerObjectInspectorInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerObjectInspectorInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10078,48 +9713,6 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     pub fn getDecodedMetricF(self: QDesignerObjectInspectorInterface, metricA: i32, metricB: i32) f64 {
         return qtc.QDesignerObjectInspectorInterface_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerObjectInspectorInterface `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QDesignerObjectInspectorInterface, metricA: i32, metricB: i32) f64 {
-        return qtc.QDesignerObjectInspectorInterface_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerObjectInspectorInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface, i32, i32) callconv(.c) f64) void {
-        qtc.QDesignerObjectInspectorInterface_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

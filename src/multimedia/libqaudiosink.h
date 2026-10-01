@@ -58,7 +58,7 @@ void QAudioSink_StateChanged(QAudioSink* self, int state);
 void QAudioSink_Connect_StateChanged(QAudioSink* self, intptr_t slot);
 libqt_string QAudioSink_Tr2(const char* s, const char* c);
 libqt_string QAudioSink_Tr3(const char* s, const char* c, int n);
-void QAudioSink_OnMetaObject(const QAudioSink* self, intptr_t slot);
+void QAudioSink_OnMetaObject(QAudioSink* self, intptr_t slot);
 QMetaObject* QAudioSink_SuperMetaObject(const QAudioSink* self);
 void QAudioSink_OnMetacast(QAudioSink* self, intptr_t slot);
 void* QAudioSink_SuperMetacast(QAudioSink* self, const char* param1);
@@ -86,17 +86,9 @@ void QAudioSink_DisconnectNotify(QAudioSink* self, const QMetaMethod* signal);
 void QAudioSink_OnDisconnectNotify(QAudioSink* self, intptr_t slot);
 void QAudioSink_SuperDisconnectNotify(QAudioSink* self, const QMetaMethod* signal);
 QObject* QAudioSink_Sender(const QAudioSink* self);
-void QAudioSink_OnSender(const QAudioSink* self, intptr_t slot);
-QObject* QAudioSink_SuperSender(const QAudioSink* self);
 int QAudioSink_SenderSignalIndex(const QAudioSink* self);
-void QAudioSink_OnSenderSignalIndex(const QAudioSink* self, intptr_t slot);
-int QAudioSink_SuperSenderSignalIndex(const QAudioSink* self);
 int QAudioSink_Receivers(const QAudioSink* self, const char* signal);
-void QAudioSink_OnReceivers(const QAudioSink* self, intptr_t slot);
-int QAudioSink_SuperReceivers(const QAudioSink* self, const char* signal);
 bool QAudioSink_IsSignalConnected(const QAudioSink* self, const QMetaMethod* signal);
-void QAudioSink_OnIsSignalConnected(const QAudioSink* self, intptr_t slot);
-bool QAudioSink_SuperIsSignalConnected(const QAudioSink* self, const QMetaMethod* signal);
 void QAudioSink_Delete(QAudioSink* self);
 
 #ifdef __cplusplus

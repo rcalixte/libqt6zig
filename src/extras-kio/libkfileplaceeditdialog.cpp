@@ -162,1822 +162,1269 @@ bool KFilePlaceEditDialog_GetInformation8(bool allowGlobal, QUrl* url, libqt_str
 
 // Base class handler implementation
 QMetaObject* KFilePlaceEditDialog_SuperMetaObject(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfileplaceeditdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KFilePlaceEditDialog::metaObject();
-    }
+    return (QMetaObject*)self->KFilePlaceEditDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnMetaObject(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MetaObject_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MetaObject_Callback>(slot));
+void KFilePlaceEditDialog_OnMetaObject(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_metaobject_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFilePlaceEditDialog_SuperMetacast(KFilePlaceEditDialog* self, const char* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacast_IsBase(true);
-        return vkfileplaceeditdialog->qt_metacast(param1);
-    } else {
-        return self->KFilePlaceEditDialog::qt_metacast(param1);
-    }
+    return self->KFilePlaceEditDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMetacast(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacast_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metacast_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_metacast_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFilePlaceEditDialog_SuperMetacall(KFilePlaceEditDialog* self, int param1, int param2, void** param3) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacall_IsBase(true);
-        return vkfileplaceeditdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFilePlaceEditDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFilePlaceEditDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMetacall(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Metacall_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metacall_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_metacall_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_SetVisible(KFilePlaceEditDialog* self, bool visible) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setVisible(visible);
-    } else {
-        self->KFilePlaceEditDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperSetVisible(KFilePlaceEditDialog* self, bool visible) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_SetVisible_IsBase(true);
-        vkfileplaceeditdialog->setVisible(visible);
-    } else {
-        self->KFilePlaceEditDialog::setVisible(visible);
-    }
+    self->KFilePlaceEditDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnSetVisible(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_SetVisible_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SetVisible_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_setvisible_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFilePlaceEditDialog_SizeHint(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return new QSize(vkfileplaceeditdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKFilePlaceEditDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KFilePlaceEditDialog_SuperSizeHint(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_SizeHint_IsBase(true);
-        return new QSize(vkfileplaceeditdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKFilePlaceEditDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KFilePlaceEditDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnSizeHint(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_SizeHint_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SizeHint_Callback>(slot));
+void KFilePlaceEditDialog_OnSizeHint(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_sizehint_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KFilePlaceEditDialog_MinimumSizeHint(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return new QSize(vkfileplaceeditdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFilePlaceEditDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KFilePlaceEditDialog_SuperMinimumSizeHint(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkfileplaceeditdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKFilePlaceEditDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KFilePlaceEditDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnMinimumSizeHint(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MinimumSizeHint_Callback>(slot));
+void KFilePlaceEditDialog_OnMinimumSizeHint(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_minimumsizehint_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_Open(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->open();
-    } else {
-        self->KFilePlaceEditDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperOpen(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Open_IsBase(true);
-        vkfileplaceeditdialog->open();
-    } else {
-        self->KFilePlaceEditDialog::open();
-    }
+    self->KFilePlaceEditDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnOpen(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Open_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Open_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_open_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlaceEditDialog_Exec(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->exec();
-    } else {
-        return self->KFilePlaceEditDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KFilePlaceEditDialog_SuperExec(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Exec_IsBase(true);
-        return vkfileplaceeditdialog->exec();
-    } else {
-        return self->KFilePlaceEditDialog::exec();
-    }
+    return self->KFilePlaceEditDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnExec(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Exec_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Exec_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_exec_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_Done(KFilePlaceEditDialog* self, int param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->done(static_cast<int>(param1));
-    } else {
-        self->KFilePlaceEditDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperDone(KFilePlaceEditDialog* self, int param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Done_IsBase(true);
-        vkfileplaceeditdialog->done(static_cast<int>(param1));
-    } else {
-        self->KFilePlaceEditDialog::done(static_cast<int>(param1));
-    }
+    self->KFilePlaceEditDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDone(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Done_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Done_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_done_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_Accept(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->accept();
-    } else {
-        self->KFilePlaceEditDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperAccept(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Accept_IsBase(true);
-        vkfileplaceeditdialog->accept();
-    } else {
-        self->KFilePlaceEditDialog::accept();
-    }
+    self->KFilePlaceEditDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnAccept(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Accept_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Accept_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_accept_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_Reject(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->reject();
-    } else {
-        self->KFilePlaceEditDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperReject(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Reject_IsBase(true);
-        vkfileplaceeditdialog->reject();
-    } else {
-        self->KFilePlaceEditDialog::reject();
-    }
+    self->KFilePlaceEditDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnReject(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Reject_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Reject_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_reject_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_KeyPressEvent(KFilePlaceEditDialog* self, QKeyEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->keyPressEvent(param1);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperKeyPressEvent(KFilePlaceEditDialog* self, QKeyEvent* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_KeyPressEvent_IsBase(true);
-        vkfileplaceeditdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnKeyPressEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_keypressevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_CloseEvent(KFilePlaceEditDialog* self, QCloseEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->closeEvent(param1);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperCloseEvent(KFilePlaceEditDialog* self, QCloseEvent* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_CloseEvent_IsBase(true);
-        vkfileplaceeditdialog->closeEvent(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnCloseEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_CloseEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_CloseEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_closeevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_ShowEvent(KFilePlaceEditDialog* self, QShowEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->showEvent(param1);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperShowEvent(KFilePlaceEditDialog* self, QShowEvent* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ShowEvent_IsBase(true);
-        vkfileplaceeditdialog->showEvent(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnShowEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ShowEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ShowEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_showevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_ResizeEvent(KFilePlaceEditDialog* self, QResizeEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->resizeEvent(param1);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperResizeEvent(KFilePlaceEditDialog* self, QResizeEvent* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ResizeEvent_IsBase(true);
-        vkfileplaceeditdialog->resizeEvent(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnResizeEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_resizeevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_ContextMenuEvent(KFilePlaceEditDialog* self, QContextMenuEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperContextMenuEvent(KFilePlaceEditDialog* self, QContextMenuEvent* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ContextMenuEvent_IsBase(true);
-        vkfileplaceeditdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnContextMenuEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_contextmenuevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlaceEditDialog_EventFilter(KFilePlaceEditDialog* self, QObject* param1, QEvent* param2) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         return vkfileplaceeditdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlaceEditDialog_SuperEventFilter(KFilePlaceEditDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_EventFilter_IsBase(true);
-        return vkfileplaceeditdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        return vkfileplaceeditdialog->KFilePlaceEditDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnEventFilter(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_EventFilter_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_EventFilter_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_eventfilter_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlaceEditDialog_DevType(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->devType();
-    } else {
-        return self->KFilePlaceEditDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KFilePlaceEditDialog_SuperDevType(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DevType_IsBase(true);
-        return vkfileplaceeditdialog->devType();
-    } else {
-        return self->KFilePlaceEditDialog::devType();
-    }
+    return self->KFilePlaceEditDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnDevType(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DevType_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DevType_Callback>(slot));
+void KFilePlaceEditDialog_OnDevType(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_devtype_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlaceEditDialog_HeightForWidth(const KFilePlaceEditDialog* self, int param1) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFilePlaceEditDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KFilePlaceEditDialog_SuperHeightForWidth(const KFilePlaceEditDialog* self, int param1) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_HeightForWidth_IsBase(true);
-        return vkfileplaceeditdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KFilePlaceEditDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KFilePlaceEditDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnHeightForWidth(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HeightForWidth_Callback>(slot));
+void KFilePlaceEditDialog_OnHeightForWidth(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_heightforwidth_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlaceEditDialog_HasHeightForWidth(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->hasHeightForWidth();
-    } else {
-        return self->KFilePlaceEditDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KFilePlaceEditDialog_SuperHasHeightForWidth(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_HasHeightForWidth_IsBase(true);
-        return vkfileplaceeditdialog->hasHeightForWidth();
-    } else {
-        return self->KFilePlaceEditDialog::hasHeightForWidth();
-    }
+    return self->KFilePlaceEditDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnHasHeightForWidth(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HasHeightForWidth_Callback>(slot));
+void KFilePlaceEditDialog_OnHasHeightForWidth(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_hasheightforwidth_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KFilePlaceEditDialog_PaintEngine(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->paintEngine();
-    } else {
-        return self->KFilePlaceEditDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KFilePlaceEditDialog_SuperPaintEngine(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_PaintEngine_IsBase(true);
-        return vkfileplaceeditdialog->paintEngine();
-    } else {
-        return self->KFilePlaceEditDialog::paintEngine();
-    }
+    return self->KFilePlaceEditDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnPaintEngine(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_PaintEngine_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_PaintEngine_Callback>(slot));
+void KFilePlaceEditDialog_OnPaintEngine(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_paintengine_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlaceEditDialog_Event(KFilePlaceEditDialog* self, QEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         return vkfileplaceeditdialog->event(event);
     } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlaceEditDialog_SuperEvent(KFilePlaceEditDialog* self, QEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Event_IsBase(true);
-        return vkfileplaceeditdialog->event(event);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->event(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        return vkfileplaceeditdialog->KFilePlaceEditDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Event_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Event_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_event_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_MousePressEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->mousePressEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperMousePressEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MousePressEvent_IsBase(true);
-        vkfileplaceeditdialog->mousePressEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMousePressEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_mousepressevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_MouseReleaseEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperMouseReleaseEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseReleaseEvent_IsBase(true);
-        vkfileplaceeditdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMouseReleaseEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_mousereleaseevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_MouseDoubleClickEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperMouseDoubleClickEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseDoubleClickEvent_IsBase(true);
-        vkfileplaceeditdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMouseDoubleClickEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_MouseMoveEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperMouseMoveEvent(KFilePlaceEditDialog* self, QMouseEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseMoveEvent_IsBase(true);
-        vkfileplaceeditdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMouseMoveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_mousemoveevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_WheelEvent(KFilePlaceEditDialog* self, QWheelEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->wheelEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperWheelEvent(KFilePlaceEditDialog* self, QWheelEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_WheelEvent_IsBase(true);
-        vkfileplaceeditdialog->wheelEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnWheelEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_WheelEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_WheelEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_wheelevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_KeyReleaseEvent(KFilePlaceEditDialog* self, QKeyEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperKeyReleaseEvent(KFilePlaceEditDialog* self, QKeyEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_KeyReleaseEvent_IsBase(true);
-        vkfileplaceeditdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnKeyReleaseEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_keyreleaseevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_FocusInEvent(KFilePlaceEditDialog* self, QFocusEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->focusInEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperFocusInEvent(KFilePlaceEditDialog* self, QFocusEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusInEvent_IsBase(true);
-        vkfileplaceeditdialog->focusInEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnFocusInEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_focusinevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_FocusOutEvent(KFilePlaceEditDialog* self, QFocusEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->focusOutEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperFocusOutEvent(KFilePlaceEditDialog* self, QFocusEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusOutEvent_IsBase(true);
-        vkfileplaceeditdialog->focusOutEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnFocusOutEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_focusoutevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_EnterEvent(KFilePlaceEditDialog* self, QEnterEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->enterEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperEnterEvent(KFilePlaceEditDialog* self, QEnterEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_EnterEvent_IsBase(true);
-        vkfileplaceeditdialog->enterEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnEnterEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_EnterEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_EnterEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_enterevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_LeaveEvent(KFilePlaceEditDialog* self, QEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->leaveEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperLeaveEvent(KFilePlaceEditDialog* self, QEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_LeaveEvent_IsBase(true);
-        vkfileplaceeditdialog->leaveEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnLeaveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_leaveevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_PaintEvent(KFilePlaceEditDialog* self, QPaintEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->paintEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperPaintEvent(KFilePlaceEditDialog* self, QPaintEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_PaintEvent_IsBase(true);
-        vkfileplaceeditdialog->paintEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnPaintEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_PaintEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_PaintEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_paintevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_MoveEvent(KFilePlaceEditDialog* self, QMoveEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->moveEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperMoveEvent(KFilePlaceEditDialog* self, QMoveEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MoveEvent_IsBase(true);
-        vkfileplaceeditdialog->moveEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnMoveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_MoveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MoveEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_moveevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_TabletEvent(KFilePlaceEditDialog* self, QTabletEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->tabletEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperTabletEvent(KFilePlaceEditDialog* self, QTabletEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_TabletEvent_IsBase(true);
-        vkfileplaceeditdialog->tabletEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnTabletEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_TabletEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_TabletEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_tabletevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_ActionEvent(KFilePlaceEditDialog* self, QActionEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->actionEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperActionEvent(KFilePlaceEditDialog* self, QActionEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ActionEvent_IsBase(true);
-        vkfileplaceeditdialog->actionEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnActionEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ActionEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ActionEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_actionevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_DragEnterEvent(KFilePlaceEditDialog* self, QDragEnterEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->dragEnterEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperDragEnterEvent(KFilePlaceEditDialog* self, QDragEnterEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DragEnterEvent_IsBase(true);
-        vkfileplaceeditdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDragEnterEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_dragenterevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_DragMoveEvent(KFilePlaceEditDialog* self, QDragMoveEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->dragMoveEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperDragMoveEvent(KFilePlaceEditDialog* self, QDragMoveEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DragMoveEvent_IsBase(true);
-        vkfileplaceeditdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDragMoveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_dragmoveevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_DragLeaveEvent(KFilePlaceEditDialog* self, QDragLeaveEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperDragLeaveEvent(KFilePlaceEditDialog* self, QDragLeaveEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DragLeaveEvent_IsBase(true);
-        vkfileplaceeditdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDragLeaveEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_dragleaveevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_DropEvent(KFilePlaceEditDialog* self, QDropEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->dropEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperDropEvent(KFilePlaceEditDialog* self, QDropEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DropEvent_IsBase(true);
-        vkfileplaceeditdialog->dropEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDropEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DropEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DropEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_dropevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_HideEvent(KFilePlaceEditDialog* self, QHideEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->hideEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperHideEvent(KFilePlaceEditDialog* self, QHideEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_HideEvent_IsBase(true);
-        vkfileplaceeditdialog->hideEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnHideEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_HideEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HideEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_hideevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlaceEditDialog_NativeEvent(KFilePlaceEditDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
+    if (vkfileplaceeditdialog) {
         return vkfileplaceeditdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlaceEditDialog_SuperNativeEvent(KFilePlaceEditDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_NativeEvent_IsBase(true);
-        return vkfileplaceeditdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        return vkfileplaceeditdialog->KFilePlaceEditDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnNativeEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_NativeEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_NativeEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_nativeevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_ChangeEvent(KFilePlaceEditDialog* self, QEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->changeEvent(param1);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperChangeEvent(KFilePlaceEditDialog* self, QEvent* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ChangeEvent_IsBase(true);
-        vkfileplaceeditdialog->changeEvent(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnChangeEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_changeevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KFilePlaceEditDialog_Metric(const KFilePlaceEditDialog* self, int param1) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         return vkfileplaceeditdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KFilePlaceEditDialog_SuperMetric(const KFilePlaceEditDialog* self, int param1) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Metric_IsBase(true);
-        return vkfileplaceeditdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        return vkfileplaceeditdialog->KFilePlaceEditDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnMetric(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Metric_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metric_Callback>(slot));
+void KFilePlaceEditDialog_OnMetric(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_metric_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_InitPainter(const KFilePlaceEditDialog* self, QPainter* painter) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->initPainter(painter);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperInitPainter(const KFilePlaceEditDialog* self, QPainter* painter) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_InitPainter_IsBase(true);
-        vkfileplaceeditdialog->initPainter(painter);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnInitPainter(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_InitPainter_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InitPainter_Callback>(slot));
+void KFilePlaceEditDialog_OnInitPainter(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_initpainter_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KFilePlaceEditDialog_Redirected(const KFilePlaceEditDialog* self, QPoint* offset) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         return vkfileplaceeditdialog->redirected(offset);
     } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KFilePlaceEditDialog_SuperRedirected(const KFilePlaceEditDialog* self, QPoint* offset) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Redirected_IsBase(true);
-        return vkfileplaceeditdialog->redirected(offset);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->redirected(offset);
-    }
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        return vkfileplaceeditdialog->KFilePlaceEditDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnRedirected(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Redirected_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Redirected_Callback>(slot));
+void KFilePlaceEditDialog_OnRedirected(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_redirected_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KFilePlaceEditDialog_SharedPainter(const KFilePlaceEditDialog* self) {
     auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         return vkfileplaceeditdialog->sharedPainter();
     } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KFilePlaceEditDialog_SuperSharedPainter(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_SharedPainter_IsBase(true);
-        return vkfileplaceeditdialog->sharedPainter();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->sharedPainter();
-    }
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        return vkfileplaceeditdialog->KFilePlaceEditDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnSharedPainter(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_SharedPainter_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SharedPainter_Callback>(slot));
+void KFilePlaceEditDialog_OnSharedPainter(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_sharedpainter_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_InputMethodEvent(KFilePlaceEditDialog* self, QInputMethodEvent* param1) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperInputMethodEvent(KFilePlaceEditDialog* self, QInputMethodEvent* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_InputMethodEvent_IsBase(true);
-        vkfileplaceeditdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnInputMethodEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_inputmethodevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KFilePlaceEditDialog_InputMethodQuery(const KFilePlaceEditDialog* self, int param1) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return new QVariant(vkfileplaceeditdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFilePlaceEditDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KFilePlaceEditDialog_SuperInputMethodQuery(const KFilePlaceEditDialog* self, int param1) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkfileplaceeditdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKFilePlaceEditDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KFilePlaceEditDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnInputMethodQuery(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InputMethodQuery_Callback>(slot));
+void KFilePlaceEditDialog_OnInputMethodQuery(KFilePlaceEditDialog* self, intptr_t slot) {
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self)))
+        vkfileplaceeditdialog->kfileplaceeditdialog_inputmethodquery_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFilePlaceEditDialog_FocusNextPrevChild(KFilePlaceEditDialog* self, bool next) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         return vkfileplaceeditdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KFilePlaceEditDialog_SuperFocusNextPrevChild(KFilePlaceEditDialog* self, bool next) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusNextPrevChild_IsBase(true);
-        return vkfileplaceeditdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        return vkfileplaceeditdialog->KFilePlaceEditDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnFocusNextPrevChild(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_focusnextprevchild_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_TimerEvent(KFilePlaceEditDialog* self, QTimerEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->timerEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperTimerEvent(KFilePlaceEditDialog* self, QTimerEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_TimerEvent_IsBase(true);
-        vkfileplaceeditdialog->timerEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnTimerEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_TimerEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_TimerEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_timerevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_ChildEvent(KFilePlaceEditDialog* self, QChildEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->childEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperChildEvent(KFilePlaceEditDialog* self, QChildEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ChildEvent_IsBase(true);
-        vkfileplaceeditdialog->childEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->childEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnChildEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ChildEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ChildEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_childevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_CustomEvent(KFilePlaceEditDialog* self, QEvent* event) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->customEvent(event);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperCustomEvent(KFilePlaceEditDialog* self, QEvent* event) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_CustomEvent_IsBase(true);
-        vkfileplaceeditdialog->customEvent(event);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->customEvent(event);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnCustomEvent(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_CustomEvent_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_CustomEvent_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_customevent_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_ConnectNotify(KFilePlaceEditDialog* self, const QMetaMethod* signal) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->connectNotify(*signal);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperConnectNotify(KFilePlaceEditDialog* self, const QMetaMethod* signal) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ConnectNotify_IsBase(true);
-        vkfileplaceeditdialog->connectNotify(*signal);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnConnectNotify(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_connectnotify_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFilePlaceEditDialog_DisconnectNotify(KFilePlaceEditDialog* self, const QMetaMethod* signal) {
     auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
+    if (vkfileplaceeditdialog) {
         vkfileplaceeditdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKFilePlaceEditDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFilePlaceEditDialog_SuperDisconnectNotify(KFilePlaceEditDialog* self, const QMetaMethod* signal) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DisconnectNotify_IsBase(true);
-        vkfileplaceeditdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->KFilePlaceEditDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFilePlaceEditDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFilePlaceEditDialog_OnDisconnectNotify(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self))
+        vkfileplaceeditdialog->kfileplaceeditdialog_disconnectnotify_callback = reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlaceEditDialog_AdjustPosition(KFilePlaceEditDialog* self, QWidget* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlaceEditDialog_SuperAdjustPosition(KFilePlaceEditDialog* self, QWidget* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_AdjustPosition_IsBase(true);
-        vkfileplaceeditdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnAdjustPosition(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlaceEditDialog_UpdateMicroFocus(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->updateMicroFocus();
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlaceEditDialog_SuperUpdateMicroFocus(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_UpdateMicroFocus_IsBase(true);
-        vkfileplaceeditdialog->updateMicroFocus();
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnUpdateMicroFocus(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlaceEditDialog_Create(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->create();
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->create();
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::create();
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlaceEditDialog_SuperCreate(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Create_IsBase(true);
-        vkfileplaceeditdialog->create();
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnCreate(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Create_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KFilePlaceEditDialog_Destroy(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->destroy();
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->destroy();
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::destroy();
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KFilePlaceEditDialog_SuperDestroy(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Destroy_IsBase(true);
-        vkfileplaceeditdialog->destroy();
-    } else {
-        ((VirtualKFilePlaceEditDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnDestroy(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Destroy_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFilePlaceEditDialog_FocusNextChild(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->focusNextChild();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->focusNextChild();
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        return vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFilePlaceEditDialog_SuperFocusNextChild(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusNextChild_IsBase(true);
-        return vkfileplaceeditdialog->focusNextChild();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnFocusNextChild(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFilePlaceEditDialog_FocusPreviousChild(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self)) {
+        return vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFilePlaceEditDialog_SuperFocusPreviousChild(KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusPreviousChild_IsBase(true);
-        return vkfileplaceeditdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnFocusPreviousChild(KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFilePlaceEditDialog_Sender(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->sender();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->sender();
-    }
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        return vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::sender();
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFilePlaceEditDialog_SuperSender(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Sender_IsBase(true);
-        return vkfileplaceeditdialog->sender();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnSender(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Sender_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFilePlaceEditDialog_SenderSignalIndex(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        return vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFilePlaceEditDialog_SuperSenderSignalIndex(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_SenderSignalIndex_IsBase(true);
-        return vkfileplaceeditdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnSenderSignalIndex(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFilePlaceEditDialog_Receivers(const KFilePlaceEditDialog* self, const char* signal) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->receivers(signal);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->receivers(signal);
-    }
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        return vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFilePlaceEditDialog_SuperReceivers(const KFilePlaceEditDialog* self, const char* signal) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Receivers_IsBase(true);
-        return vkfileplaceeditdialog->receivers(signal);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnReceivers(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_Receivers_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFilePlaceEditDialog_IsSignalConnected(const KFilePlaceEditDialog* self, const QMetaMethod* signal) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        return vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KFilePlaceEditDialog_SuperIsSignalConnected(const KFilePlaceEditDialog* self, const QMetaMethod* signal) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_IsSignalConnected_IsBase(true);
-        return vkfileplaceeditdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnIsSignalConnected(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KFilePlaceEditDialog_GetDecodedMetricF(const KFilePlaceEditDialog* self, int metricA, int metricB) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return vkfileplaceeditdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KFilePlaceEditDialog_SuperGetDecodedMetricF(const KFilePlaceEditDialog* self, int metricA, int metricB) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_GetDecodedMetricF_IsBase(true);
-        return vkfileplaceeditdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFilePlaceEditDialog_OnGetDecodedMetricF(const KFilePlaceEditDialog* self, intptr_t slot) {
-    auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self));
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog)
-        vkfileplaceeditdialog->setKFilePlaceEditDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFilePlaceEditDialog::KFilePlaceEditDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkfileplaceeditdialog = const_cast<VirtualKFilePlaceEditDialog*>(dynamic_cast<const VirtualKFilePlaceEditDialog*>(self))) {
+        return vkfileplaceeditdialog->VirtualKFilePlaceEditDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KFilePlaceEditDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KFilePlaceEditDialog_Delete(KFilePlaceEditDialog* self) {

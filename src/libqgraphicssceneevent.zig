@@ -368,9 +368,9 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneEvent, callback: *const fn (QGraphicsSceneEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1229,9 +1229,9 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneMouseEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneMouseEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneMouseEvent, callback: *const fn (QGraphicsSceneMouseEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneMouseEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1949,9 +1949,9 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneWheelEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneWheelEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneWheelEvent, callback: *const fn (QGraphicsSceneWheelEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneWheelEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2510,9 +2510,9 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneContextMenuEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneContextMenuEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneContextMenuEvent, callback: *const fn (QGraphicsSceneContextMenuEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneContextMenuEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3130,9 +3130,9 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneHoverEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneHoverEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneHoverEvent, callback: *const fn (QGraphicsSceneHoverEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneHoverEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3592,9 +3592,9 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneHelpEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneHelpEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneHelpEvent, callback: *const fn (QGraphicsSceneHelpEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneHelpEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4331,9 +4331,9 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneDragDropEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneDragDropEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneDragDropEvent, callback: *const fn (QGraphicsSceneDragDropEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneDragDropEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4779,9 +4779,9 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneResizeEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneResizeEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneResizeEvent, callback: *const fn (QGraphicsSceneResizeEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneResizeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5227,9 +5227,9 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QGraphicsSceneMoveEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QGraphicsSceneMoveEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneMoveEvent, callback: *const fn (QGraphicsSceneMoveEvent) callconv(.c) QEvent) void {
         qtc.QGraphicsSceneMoveEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

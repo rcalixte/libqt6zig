@@ -75,7 +75,7 @@ libqt_string QKeychain__ReadPasswordJob_BinaryData(const QKeychain__ReadPassword
 libqt_string QKeychain__ReadPasswordJob_TextData(const QKeychain__ReadPasswordJob* self);
 libqt_string QKeychain__ReadPasswordJob_Tr2(const char* s, const char* c);
 libqt_string QKeychain__ReadPasswordJob_Tr3(const char* s, const char* c, int n);
-void QKeychain__ReadPasswordJob_OnMetaObject(const QKeychain__ReadPasswordJob* self, intptr_t slot);
+void QKeychain__ReadPasswordJob_OnMetaObject(QKeychain__ReadPasswordJob* self, intptr_t slot);
 QMetaObject* QKeychain__ReadPasswordJob_SuperMetaObject(const QKeychain__ReadPasswordJob* self);
 void QKeychain__ReadPasswordJob_OnMetacast(QKeychain__ReadPasswordJob* self, intptr_t slot);
 void* QKeychain__ReadPasswordJob_SuperMetacast(QKeychain__ReadPasswordJob* self, const char* param1);
@@ -103,20 +103,10 @@ void QKeychain__ReadPasswordJob_DisconnectNotify(QKeychain__ReadPasswordJob* sel
 void QKeychain__ReadPasswordJob_OnDisconnectNotify(QKeychain__ReadPasswordJob* self, intptr_t slot);
 void QKeychain__ReadPasswordJob_SuperDisconnectNotify(QKeychain__ReadPasswordJob* self, const QMetaMethod* signal);
 void QKeychain__ReadPasswordJob_DoStart(QKeychain__ReadPasswordJob* self);
-void QKeychain__ReadPasswordJob_OnDoStart(QKeychain__ReadPasswordJob* self, intptr_t slot);
-void QKeychain__ReadPasswordJob_SuperDoStart(QKeychain__ReadPasswordJob* self);
 QObject* QKeychain__ReadPasswordJob_Sender(const QKeychain__ReadPasswordJob* self);
-void QKeychain__ReadPasswordJob_OnSender(const QKeychain__ReadPasswordJob* self, intptr_t slot);
-QObject* QKeychain__ReadPasswordJob_SuperSender(const QKeychain__ReadPasswordJob* self);
 int QKeychain__ReadPasswordJob_SenderSignalIndex(const QKeychain__ReadPasswordJob* self);
-void QKeychain__ReadPasswordJob_OnSenderSignalIndex(const QKeychain__ReadPasswordJob* self, intptr_t slot);
-int QKeychain__ReadPasswordJob_SuperSenderSignalIndex(const QKeychain__ReadPasswordJob* self);
 int QKeychain__ReadPasswordJob_Receivers(const QKeychain__ReadPasswordJob* self, const char* signal);
-void QKeychain__ReadPasswordJob_OnReceivers(const QKeychain__ReadPasswordJob* self, intptr_t slot);
-int QKeychain__ReadPasswordJob_SuperReceivers(const QKeychain__ReadPasswordJob* self, const char* signal);
 bool QKeychain__ReadPasswordJob_IsSignalConnected(const QKeychain__ReadPasswordJob* self, const QMetaMethod* signal);
-void QKeychain__ReadPasswordJob_OnIsSignalConnected(const QKeychain__ReadPasswordJob* self, intptr_t slot);
-bool QKeychain__ReadPasswordJob_SuperIsSignalConnected(const QKeychain__ReadPasswordJob* self, const QMetaMethod* signal);
 void QKeychain__ReadPasswordJob_Delete(QKeychain__ReadPasswordJob* self);
 
 QKeychain__WritePasswordJob* QKeychain__WritePasswordJob_new(const libqt_string service);
@@ -129,7 +119,7 @@ void QKeychain__WritePasswordJob_SetBinaryData(QKeychain__WritePasswordJob* self
 void QKeychain__WritePasswordJob_SetTextData(QKeychain__WritePasswordJob* self, const libqt_string data);
 libqt_string QKeychain__WritePasswordJob_Tr2(const char* s, const char* c);
 libqt_string QKeychain__WritePasswordJob_Tr3(const char* s, const char* c, int n);
-void QKeychain__WritePasswordJob_OnMetaObject(const QKeychain__WritePasswordJob* self, intptr_t slot);
+void QKeychain__WritePasswordJob_OnMetaObject(QKeychain__WritePasswordJob* self, intptr_t slot);
 QMetaObject* QKeychain__WritePasswordJob_SuperMetaObject(const QKeychain__WritePasswordJob* self);
 void QKeychain__WritePasswordJob_OnMetacast(QKeychain__WritePasswordJob* self, intptr_t slot);
 void* QKeychain__WritePasswordJob_SuperMetacast(QKeychain__WritePasswordJob* self, const char* param1);
@@ -157,20 +147,10 @@ void QKeychain__WritePasswordJob_DisconnectNotify(QKeychain__WritePasswordJob* s
 void QKeychain__WritePasswordJob_OnDisconnectNotify(QKeychain__WritePasswordJob* self, intptr_t slot);
 void QKeychain__WritePasswordJob_SuperDisconnectNotify(QKeychain__WritePasswordJob* self, const QMetaMethod* signal);
 void QKeychain__WritePasswordJob_DoStart(QKeychain__WritePasswordJob* self);
-void QKeychain__WritePasswordJob_OnDoStart(QKeychain__WritePasswordJob* self, intptr_t slot);
-void QKeychain__WritePasswordJob_SuperDoStart(QKeychain__WritePasswordJob* self);
 QObject* QKeychain__WritePasswordJob_Sender(const QKeychain__WritePasswordJob* self);
-void QKeychain__WritePasswordJob_OnSender(const QKeychain__WritePasswordJob* self, intptr_t slot);
-QObject* QKeychain__WritePasswordJob_SuperSender(const QKeychain__WritePasswordJob* self);
 int QKeychain__WritePasswordJob_SenderSignalIndex(const QKeychain__WritePasswordJob* self);
-void QKeychain__WritePasswordJob_OnSenderSignalIndex(const QKeychain__WritePasswordJob* self, intptr_t slot);
-int QKeychain__WritePasswordJob_SuperSenderSignalIndex(const QKeychain__WritePasswordJob* self);
 int QKeychain__WritePasswordJob_Receivers(const QKeychain__WritePasswordJob* self, const char* signal);
-void QKeychain__WritePasswordJob_OnReceivers(const QKeychain__WritePasswordJob* self, intptr_t slot);
-int QKeychain__WritePasswordJob_SuperReceivers(const QKeychain__WritePasswordJob* self, const char* signal);
 bool QKeychain__WritePasswordJob_IsSignalConnected(const QKeychain__WritePasswordJob* self, const QMetaMethod* signal);
-void QKeychain__WritePasswordJob_OnIsSignalConnected(const QKeychain__WritePasswordJob* self, intptr_t slot);
-bool QKeychain__WritePasswordJob_SuperIsSignalConnected(const QKeychain__WritePasswordJob* self, const QMetaMethod* signal);
 void QKeychain__WritePasswordJob_Delete(QKeychain__WritePasswordJob* self);
 
 QKeychain__DeletePasswordJob* QKeychain__DeletePasswordJob_new(const libqt_string service);
@@ -181,7 +161,7 @@ int QKeychain__DeletePasswordJob_Metacall(QKeychain__DeletePasswordJob* self, in
 libqt_string QKeychain__DeletePasswordJob_Tr(const char* s);
 libqt_string QKeychain__DeletePasswordJob_Tr2(const char* s, const char* c);
 libqt_string QKeychain__DeletePasswordJob_Tr3(const char* s, const char* c, int n);
-void QKeychain__DeletePasswordJob_OnMetaObject(const QKeychain__DeletePasswordJob* self, intptr_t slot);
+void QKeychain__DeletePasswordJob_OnMetaObject(QKeychain__DeletePasswordJob* self, intptr_t slot);
 QMetaObject* QKeychain__DeletePasswordJob_SuperMetaObject(const QKeychain__DeletePasswordJob* self);
 void QKeychain__DeletePasswordJob_OnMetacast(QKeychain__DeletePasswordJob* self, intptr_t slot);
 void* QKeychain__DeletePasswordJob_SuperMetacast(QKeychain__DeletePasswordJob* self, const char* param1);
@@ -209,20 +189,10 @@ void QKeychain__DeletePasswordJob_DisconnectNotify(QKeychain__DeletePasswordJob*
 void QKeychain__DeletePasswordJob_OnDisconnectNotify(QKeychain__DeletePasswordJob* self, intptr_t slot);
 void QKeychain__DeletePasswordJob_SuperDisconnectNotify(QKeychain__DeletePasswordJob* self, const QMetaMethod* signal);
 void QKeychain__DeletePasswordJob_DoStart(QKeychain__DeletePasswordJob* self);
-void QKeychain__DeletePasswordJob_OnDoStart(QKeychain__DeletePasswordJob* self, intptr_t slot);
-void QKeychain__DeletePasswordJob_SuperDoStart(QKeychain__DeletePasswordJob* self);
 QObject* QKeychain__DeletePasswordJob_Sender(const QKeychain__DeletePasswordJob* self);
-void QKeychain__DeletePasswordJob_OnSender(const QKeychain__DeletePasswordJob* self, intptr_t slot);
-QObject* QKeychain__DeletePasswordJob_SuperSender(const QKeychain__DeletePasswordJob* self);
 int QKeychain__DeletePasswordJob_SenderSignalIndex(const QKeychain__DeletePasswordJob* self);
-void QKeychain__DeletePasswordJob_OnSenderSignalIndex(const QKeychain__DeletePasswordJob* self, intptr_t slot);
-int QKeychain__DeletePasswordJob_SuperSenderSignalIndex(const QKeychain__DeletePasswordJob* self);
 int QKeychain__DeletePasswordJob_Receivers(const QKeychain__DeletePasswordJob* self, const char* signal);
-void QKeychain__DeletePasswordJob_OnReceivers(const QKeychain__DeletePasswordJob* self, intptr_t slot);
-int QKeychain__DeletePasswordJob_SuperReceivers(const QKeychain__DeletePasswordJob* self, const char* signal);
 bool QKeychain__DeletePasswordJob_IsSignalConnected(const QKeychain__DeletePasswordJob* self, const QMetaMethod* signal);
-void QKeychain__DeletePasswordJob_OnIsSignalConnected(const QKeychain__DeletePasswordJob* self, intptr_t slot);
-bool QKeychain__DeletePasswordJob_SuperIsSignalConnected(const QKeychain__DeletePasswordJob* self, const QMetaMethod* signal);
 void QKeychain__DeletePasswordJob_Delete(QKeychain__DeletePasswordJob* self);
 
 bool QKeychain_IsAvailable();

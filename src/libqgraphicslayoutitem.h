@@ -66,20 +66,15 @@ void QGraphicsLayoutItem_SetSizePolicy3(QGraphicsLayoutItem* self, int hPolicy, 
 QSizeF* QGraphicsLayoutItem_EffectiveSizeHint2(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint);
 void QGraphicsLayoutItem_OnSetGeometry(QGraphicsLayoutItem* self, intptr_t slot);
 void QGraphicsLayoutItem_SuperSetGeometry(QGraphicsLayoutItem* self, const QRectF* rect);
-void QGraphicsLayoutItem_OnGetContentsMargins(const QGraphicsLayoutItem* self, intptr_t slot);
+void QGraphicsLayoutItem_OnGetContentsMargins(QGraphicsLayoutItem* self, intptr_t slot);
 void QGraphicsLayoutItem_SuperGetContentsMargins(const QGraphicsLayoutItem* self, double* left, double* top, double* right, double* bottom);
 void QGraphicsLayoutItem_OnUpdateGeometry(QGraphicsLayoutItem* self, intptr_t slot);
 void QGraphicsLayoutItem_SuperUpdateGeometry(QGraphicsLayoutItem* self);
-void QGraphicsLayoutItem_OnIsEmpty(const QGraphicsLayoutItem* self, intptr_t slot);
+void QGraphicsLayoutItem_OnIsEmpty(QGraphicsLayoutItem* self, intptr_t slot);
 bool QGraphicsLayoutItem_SuperIsEmpty(const QGraphicsLayoutItem* self);
-void QGraphicsLayoutItem_OnSizeHint(const QGraphicsLayoutItem* self, intptr_t slot);
-QSizeF* QGraphicsLayoutItem_SuperSizeHint(const QGraphicsLayoutItem* self, int which, const QSizeF* constraint);
+void QGraphicsLayoutItem_OnSizeHint(QGraphicsLayoutItem* self, intptr_t slot);
 void QGraphicsLayoutItem_SetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item);
-void QGraphicsLayoutItem_OnSetGraphicsItem(QGraphicsLayoutItem* self, intptr_t slot);
-void QGraphicsLayoutItem_SuperSetGraphicsItem(QGraphicsLayoutItem* self, QGraphicsItem* item);
 void QGraphicsLayoutItem_SetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout);
-void QGraphicsLayoutItem_OnSetOwnedByLayout(QGraphicsLayoutItem* self, intptr_t slot);
-void QGraphicsLayoutItem_SuperSetOwnedByLayout(QGraphicsLayoutItem* self, bool ownedByLayout);
 void QGraphicsLayoutItem_Delete(QGraphicsLayoutItem* self);
 
 #ifdef __cplusplus

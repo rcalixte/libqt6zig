@@ -155,10 +155,10 @@ void QSystemTrayIcon_Connect_MessageClicked(QSystemTrayIcon* self, intptr_t slot
 
 bool QSystemTrayIcon_Event(QSystemTrayIcon* self, QEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon) {
         return vqsystemtrayicon->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QSystemTrayIcon::event called without a directly constructed type");
 }
 
 libqt_string QSystemTrayIcon_Tr2(const char* s, const char* c) {
@@ -205,354 +205,217 @@ void QSystemTrayIcon_ShowMessage42(QSystemTrayIcon* self, const libqt_string tit
 
 // Base class handler implementation
 QMetaObject* QSystemTrayIcon_SuperMetaObject(const QSystemTrayIcon* self) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsystemtrayicon->metaObject();
-    } else {
-        return (QMetaObject*)self->QSystemTrayIcon::metaObject();
-    }
+    return (QMetaObject*)self->QSystemTrayIcon::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSystemTrayIcon_OnMetaObject(const QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_MetaObject_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_MetaObject_Callback>(slot));
+void QSystemTrayIcon_OnMetaObject(QSystemTrayIcon* self, intptr_t slot) {
+    if (auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self)))
+        vqsystemtrayicon->qsystemtrayicon_metaobject_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSystemTrayIcon_SuperMetacast(QSystemTrayIcon* self, const char* param1) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Metacast_IsBase(true);
-        return vqsystemtrayicon->qt_metacast(param1);
-    } else {
-        return self->QSystemTrayIcon::qt_metacast(param1);
-    }
+    return self->QSystemTrayIcon::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnMetacast(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_Metacast_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacast_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_metacast_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSystemTrayIcon_SuperMetacall(QSystemTrayIcon* self, int param1, int param2, void** param3) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Metacall_IsBase(true);
-        return vqsystemtrayicon->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSystemTrayIcon::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSystemTrayIcon::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnMetacall(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_Metacall_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacall_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_metacall_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QSystemTrayIcon_SuperEvent(QSystemTrayIcon* self, QEvent* event) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Event_IsBase(true);
-        return vqsystemtrayicon->event(event);
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->event(event);
-    }
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self)) {
+        return vqsystemtrayicon->QSystemTrayIcon::event(event);
+    } else
+        qFatal("Error: Protected virtual method QSystemTrayIcon::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnEvent(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_Event_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Event_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_event_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSystemTrayIcon_EventFilter(QSystemTrayIcon* self, QObject* watched, QEvent* event) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        return vqsystemtrayicon->eventFilter(watched, event);
-    } else {
-        return self->QSystemTrayIcon::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSystemTrayIcon_SuperEventFilter(QSystemTrayIcon* self, QObject* watched, QEvent* event) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_EventFilter_IsBase(true);
-        return vqsystemtrayicon->eventFilter(watched, event);
-    } else {
-        return self->QSystemTrayIcon::eventFilter(watched, event);
-    }
+    return self->QSystemTrayIcon::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnEventFilter(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_EventFilter_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_EventFilter_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_eventfilter_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSystemTrayIcon_TimerEvent(QSystemTrayIcon* self, QTimerEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon) {
         vqsystemtrayicon->timerEvent(event);
     } else {
-        ((VirtualQSystemTrayIcon*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSystemTrayIcon::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSystemTrayIcon_SuperTimerEvent(QSystemTrayIcon* self, QTimerEvent* event) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_TimerEvent_IsBase(true);
-        vqsystemtrayicon->timerEvent(event);
-    } else {
-        ((VirtualQSystemTrayIcon*)self)->timerEvent(event);
-    }
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self)) {
+        vqsystemtrayicon->QSystemTrayIcon::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSystemTrayIcon::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnTimerEvent(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_TimerEvent_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_TimerEvent_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_timerevent_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSystemTrayIcon_ChildEvent(QSystemTrayIcon* self, QChildEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon) {
         vqsystemtrayicon->childEvent(event);
     } else {
-        ((VirtualQSystemTrayIcon*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSystemTrayIcon::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSystemTrayIcon_SuperChildEvent(QSystemTrayIcon* self, QChildEvent* event) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_ChildEvent_IsBase(true);
-        vqsystemtrayicon->childEvent(event);
-    } else {
-        ((VirtualQSystemTrayIcon*)self)->childEvent(event);
-    }
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self)) {
+        vqsystemtrayicon->QSystemTrayIcon::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSystemTrayIcon::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnChildEvent(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_ChildEvent_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_ChildEvent_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_childevent_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSystemTrayIcon_CustomEvent(QSystemTrayIcon* self, QEvent* event) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon) {
         vqsystemtrayicon->customEvent(event);
     } else {
-        ((VirtualQSystemTrayIcon*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSystemTrayIcon::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSystemTrayIcon_SuperCustomEvent(QSystemTrayIcon* self, QEvent* event) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_CustomEvent_IsBase(true);
-        vqsystemtrayicon->customEvent(event);
-    } else {
-        ((VirtualQSystemTrayIcon*)self)->customEvent(event);
-    }
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self)) {
+        vqsystemtrayicon->QSystemTrayIcon::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSystemTrayIcon::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnCustomEvent(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_CustomEvent_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_CustomEvent_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_customevent_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSystemTrayIcon_ConnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon) {
         vqsystemtrayicon->connectNotify(*signal);
     } else {
-        ((VirtualQSystemTrayIcon*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSystemTrayIcon::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSystemTrayIcon_SuperConnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_ConnectNotify_IsBase(true);
-        vqsystemtrayicon->connectNotify(*signal);
-    } else {
-        ((VirtualQSystemTrayIcon*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self)) {
+        vqsystemtrayicon->QSystemTrayIcon::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSystemTrayIcon::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnConnectNotify(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_ConnectNotify_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_ConnectNotify_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_connectnotify_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSystemTrayIcon_DisconnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal) {
     auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
+    if (vqsystemtrayicon) {
         vqsystemtrayicon->disconnectNotify(*signal);
     } else {
-        ((VirtualQSystemTrayIcon*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSystemTrayIcon::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSystemTrayIcon_SuperDisconnectNotify(QSystemTrayIcon* self, const QMetaMethod* signal) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_DisconnectNotify_IsBase(true);
-        vqsystemtrayicon->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSystemTrayIcon*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self)) {
+        vqsystemtrayicon->QSystemTrayIcon::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSystemTrayIcon::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSystemTrayIcon_OnDisconnectNotify(QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_DisconnectNotify_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_DisconnectNotify_Callback>(slot));
+    if (auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self))
+        vqsystemtrayicon->qsystemtrayicon_disconnectnotify_callback = reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSystemTrayIcon_Sender(const QSystemTrayIcon* self) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        return vqsystemtrayicon->sender();
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->sender();
-    }
+    if (auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self))) {
+        return vqsystemtrayicon->VirtualQSystemTrayIcon::sender();
+    } else
+        qFatal("Error: Protected method QSystemTrayIcon::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSystemTrayIcon_SuperSender(const QSystemTrayIcon* self) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Sender_IsBase(true);
-        return vqsystemtrayicon->sender();
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSystemTrayIcon_OnSender(const QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_Sender_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSystemTrayIcon_SenderSignalIndex(const QSystemTrayIcon* self) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        return vqsystemtrayicon->senderSignalIndex();
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->senderSignalIndex();
-    }
+    if (auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self))) {
+        return vqsystemtrayicon->VirtualQSystemTrayIcon::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSystemTrayIcon::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSystemTrayIcon_SuperSenderSignalIndex(const QSystemTrayIcon* self) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_SenderSignalIndex_IsBase(true);
-        return vqsystemtrayicon->senderSignalIndex();
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSystemTrayIcon_OnSenderSignalIndex(const QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSystemTrayIcon_Receivers(const QSystemTrayIcon* self, const char* signal) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        return vqsystemtrayicon->receivers(signal);
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->receivers(signal);
-    }
+    if (auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self))) {
+        return vqsystemtrayicon->VirtualQSystemTrayIcon::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSystemTrayIcon::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSystemTrayIcon_SuperReceivers(const QSystemTrayIcon* self, const char* signal) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_Receivers_IsBase(true);
-        return vqsystemtrayicon->receivers(signal);
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSystemTrayIcon_OnReceivers(const QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_Receivers_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSystemTrayIcon_IsSignalConnected(const QSystemTrayIcon* self, const QMetaMethod* signal) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        return vqsystemtrayicon->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSystemTrayIcon_SuperIsSignalConnected(const QSystemTrayIcon* self, const QMetaMethod* signal) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        vqsystemtrayicon->setQSystemTrayIcon_IsSignalConnected_IsBase(true);
-        return vqsystemtrayicon->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSystemTrayIcon_OnIsSignalConnected(const QSystemTrayIcon* self, intptr_t slot) {
-    auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self));
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon)
-        vqsystemtrayicon->setQSystemTrayIcon_IsSignalConnected_Callback(reinterpret_cast<VirtualQSystemTrayIcon::QSystemTrayIcon_IsSignalConnected_Callback>(slot));
+    if (auto* vqsystemtrayicon = const_cast<VirtualQSystemTrayIcon*>(dynamic_cast<const VirtualQSystemTrayIcon*>(self))) {
+        return vqsystemtrayicon->VirtualQSystemTrayIcon::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSystemTrayIcon::isSignalConnected called without a directly constructed type");
 }
 
 void QSystemTrayIcon_Delete(QSystemTrayIcon* self) {

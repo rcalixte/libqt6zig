@@ -138,9 +138,9 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator) callconv(.c) QMetaObject) void {
         qtc.kImageAnnotator__KImageAnnotator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -369,11 +369,11 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator) callconv(.c) QSize) void {
         qtc.kImageAnnotator__KImageAnnotator_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7319,9 +7319,9 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` self: kImageAnnotator__KImageAnnotator`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator) callconv(.c) i32) void {
         qtc.kImageAnnotator__KImageAnnotator_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7435,11 +7435,11 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` self: kImageAnnotator__KImageAnnotator`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator) callconv(.c) QSize) void {
         qtc.kImageAnnotator__KImageAnnotator_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7553,9 +7553,9 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` self: kImageAnnotator__KImageAnnotator`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator) callconv(.c) bool) void {
         qtc.kImageAnnotator__KImageAnnotator_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7609,9 +7609,9 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` self: kImageAnnotator__KImageAnnotator`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator) callconv(.c) QPaintEngine) void {
         qtc.kImageAnnotator__KImageAnnotator_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9537,9 +9537,9 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` self: kImageAnnotator__KImageAnnotator`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator) callconv(.c) QPainter) void {
         qtc.kImageAnnotator__KImageAnnotator_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10123,44 +10123,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
         qtc.kImageAnnotator__KImageAnnotator_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    pub fn superUpdateMicroFocus(self: kImageAnnotator__KImageAnnotator) void {
-        qtc.kImageAnnotator__KImageAnnotator_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) void) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10177,44 +10139,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     pub fn create(self: kImageAnnotator__KImageAnnotator) void {
         qtc.kImageAnnotator__KImageAnnotator_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    pub fn superCreate(self: kImageAnnotator__KImageAnnotator) void {
-        qtc.kImageAnnotator__KImageAnnotator_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) void) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10235,44 +10159,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
         qtc.kImageAnnotator__KImageAnnotator_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    pub fn superDestroy(self: kImageAnnotator__KImageAnnotator) void {
-        qtc.kImageAnnotator__KImageAnnotator_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) void) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10289,44 +10175,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     pub fn focusNextChild(self: kImageAnnotator__KImageAnnotator) bool {
         return qtc.kImageAnnotator__KImageAnnotator_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    pub fn superFocusNextChild(self: kImageAnnotator__KImageAnnotator) bool {
-        return qtc.kImageAnnotator__KImageAnnotator_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) bool) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10347,44 +10195,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
         return qtc.kImageAnnotator__KImageAnnotator_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    pub fn superFocusPreviousChild(self: kImageAnnotator__KImageAnnotator) bool {
-        return qtc.kImageAnnotator__KImageAnnotator_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) bool) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10403,44 +10213,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
         return .{ .ptr = qtc.kImageAnnotator__KImageAnnotator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    pub fn superSender(self: kImageAnnotator__KImageAnnotator) QObject {
-        return .{ .ptr = qtc.kImageAnnotator__KImageAnnotator_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) QObject) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10457,44 +10229,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     pub fn senderSignalIndex(self: kImageAnnotator__KImageAnnotator) i32 {
         return qtc.kImageAnnotator__KImageAnnotator_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    pub fn superSenderSignalIndex(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.kImageAnnotator__KImageAnnotator_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) i32) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10518,47 +10252,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
         return qtc.kImageAnnotator__KImageAnnotator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: kImageAnnotator__KImageAnnotator, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.kImageAnnotator__KImageAnnotator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator, [*:0]const u8) callconv(.c) i32) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10578,47 +10271,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     pub fn isSignalConnected(self: kImageAnnotator__KImageAnnotator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.kImageAnnotator__KImageAnnotator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: kImageAnnotator__KImageAnnotator, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.kImageAnnotator__KImageAnnotator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator, QMetaMethod) callconv(.c) bool) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10641,48 +10293,6 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     pub fn getDecodedMetricF(self: kImageAnnotator__KImageAnnotator, metricA: i32, metricB: i32) f64 {
         return qtc.kImageAnnotator__KImageAnnotator_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: kImageAnnotator__KImageAnnotator, metricA: i32, metricB: i32) f64 {
-        return qtc.kImageAnnotator__KImageAnnotator_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: kImageAnnotator__KImageAnnotator`
-    ///
-    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator, i32, i32) callconv(.c) f64) void {
-        qtc.kImageAnnotator__KImageAnnotator_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

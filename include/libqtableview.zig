@@ -147,9 +147,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QTableView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QTableView, callback: *const fn (QTableView) callconv(.c) QMetaObject) void {
         qtc.QTableView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -482,9 +482,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: QTableView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QTableView, callback: *const fn (QTableView) callconv(.c) void) void {
         qtc.QTableView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1356,46 +1356,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_RowMoved(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
-    /// ### DEPRECATED: Use `onRowMoved` instead
-    ///
-    pub const OnRowMoved = onRowMoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` callback: *const fn (self: QTableView, row: i32, oldIndex: i32, newIndex: i32) callconv(.c) void `
-    ///
-    pub fn onRowMoved(self: QTableView, callback: *const fn (QTableView, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableView_OnRowMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRowMoved` instead
-    ///
-    pub const SuperRowMoved = superRowMoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowMoved)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` row: i32 `
-    ///
-    /// ` oldIndex: i32 `
-    ///
-    /// ` newIndex: i32 `
-    ///
-    pub fn superRowMoved(self: QTableView, row: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableView_SuperRowMoved(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldIndex), @bitCast(newIndex));
-    }
-
     /// ### DEPRECATED: Use `columnMoved` instead
     ///
     pub const ColumnMoved = columnMoved;
@@ -1414,46 +1374,6 @@ pub const QTableView = extern struct {
     ///
     pub fn columnMoved(self: QTableView, column: i32, oldIndex: i32, newIndex: i32) void {
         qtc.QTableView_ColumnMoved(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
-    }
-
-    /// ### DEPRECATED: Use `onColumnMoved` instead
-    ///
-    pub const OnColumnMoved = onColumnMoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` callback: *const fn (self: QTableView, column: i32, oldIndex: i32, newIndex: i32) callconv(.c) void `
-    ///
-    pub fn onColumnMoved(self: QTableView, callback: *const fn (QTableView, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableView_OnColumnMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superColumnMoved` instead
-    ///
-    pub const SuperColumnMoved = superColumnMoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnMoved)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` column: i32 `
-    ///
-    /// ` oldIndex: i32 `
-    ///
-    /// ` newIndex: i32 `
-    ///
-    pub fn superColumnMoved(self: QTableView, column: i32, oldIndex: i32, newIndex: i32) void {
-        qtc.QTableView_SuperColumnMoved(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldIndex), @bitCast(newIndex));
     }
 
     /// ### DEPRECATED: Use `rowResized` instead
@@ -1476,46 +1396,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_RowResized(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
     }
 
-    /// ### DEPRECATED: Use `onRowResized` instead
-    ///
-    pub const OnRowResized = onRowResized;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowResized)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` callback: *const fn (self: QTableView, row: i32, oldHeight: i32, newHeight: i32) callconv(.c) void `
-    ///
-    pub fn onRowResized(self: QTableView, callback: *const fn (QTableView, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableView_OnRowResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRowResized` instead
-    ///
-    pub const SuperRowResized = superRowResized;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowResized)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` row: i32 `
-    ///
-    /// ` oldHeight: i32 `
-    ///
-    /// ` newHeight: i32 `
-    ///
-    pub fn superRowResized(self: QTableView, row: i32, oldHeight: i32, newHeight: i32) void {
-        qtc.QTableView_SuperRowResized(@ptrCast(self.ptr), @bitCast(row), @bitCast(oldHeight), @bitCast(newHeight));
-    }
-
     /// ### DEPRECATED: Use `columnResized` instead
     ///
     pub const ColumnResized = columnResized;
@@ -1536,46 +1416,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_ColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
     }
 
-    /// ### DEPRECATED: Use `onColumnResized` instead
-    ///
-    pub const OnColumnResized = onColumnResized;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnResized)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` callback: *const fn (self: QTableView, column: i32, oldWidth: i32, newWidth: i32) callconv(.c) void `
-    ///
-    pub fn onColumnResized(self: QTableView, callback: *const fn (QTableView, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableView_OnColumnResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superColumnResized` instead
-    ///
-    pub const SuperColumnResized = superColumnResized;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnResized)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` column: i32 `
-    ///
-    /// ` oldWidth: i32 `
-    ///
-    /// ` newWidth: i32 `
-    ///
-    pub fn superColumnResized(self: QTableView, column: i32, oldWidth: i32, newWidth: i32) void {
-        qtc.QTableView_SuperColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldWidth), @bitCast(newWidth));
-    }
-
     /// ### DEPRECATED: Use `rowCountChanged` instead
     ///
     pub const RowCountChanged = rowCountChanged;
@@ -1594,44 +1434,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_RowCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
-    /// ### DEPRECATED: Use `onRowCountChanged` instead
-    ///
-    pub const OnRowCountChanged = onRowCountChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` callback: *const fn (self: QTableView, oldCount: i32, newCount: i32) callconv(.c) void `
-    ///
-    pub fn onRowCountChanged(self: QTableView, callback: *const fn (QTableView, i32, i32) callconv(.c) void) void {
-        qtc.QTableView_OnRowCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRowCountChanged` instead
-    ///
-    pub const SuperRowCountChanged = superRowCountChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#rowCountChanged)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` oldCount: i32 `
-    ///
-    /// ` newCount: i32 `
-    ///
-    pub fn superRowCountChanged(self: QTableView, oldCount: i32, newCount: i32) void {
-        qtc.QTableView_SuperRowCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
-    }
-
     /// ### DEPRECATED: Use `columnCountChanged` instead
     ///
     pub const ColumnCountChanged = columnCountChanged;
@@ -1648,44 +1450,6 @@ pub const QTableView = extern struct {
     ///
     pub fn columnCountChanged(self: QTableView, oldCount: i32, newCount: i32) void {
         qtc.QTableView_ColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
-    }
-
-    /// ### DEPRECATED: Use `onColumnCountChanged` instead
-    ///
-    pub const OnColumnCountChanged = onColumnCountChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` callback: *const fn (self: QTableView, oldCount: i32, newCount: i32) callconv(.c) void `
-    ///
-    pub fn onColumnCountChanged(self: QTableView, callback: *const fn (QTableView, i32, i32) callconv(.c) void) void {
-        qtc.QTableView_OnColumnCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superColumnCountChanged` instead
-    ///
-    pub const SuperColumnCountChanged = superColumnCountChanged;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtableview.html#columnCountChanged)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` oldCount: i32 `
-    ///
-    /// ` newCount: i32 `
-    ///
-    pub fn superColumnCountChanged(self: QTableView, oldCount: i32, newCount: i32) void {
-        qtc.QTableView_SuperColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// ### DEPRECATED: Use `scrollContentsBy` instead
@@ -1986,9 +1750,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: QTableView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QTableView, callback: *const fn (QTableView) callconv(.c) i32) void {
         qtc.QTableView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2034,9 +1798,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: QTableView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QTableView, callback: *const fn (QTableView) callconv(.c) i32) void {
         qtc.QTableView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2264,13 +2028,13 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: QTableView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QTableView, callback: *const fn (QTableView) callconv(.c) qtc.libqt_list) void {
         qtc.QTableView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2324,9 +2088,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: QTableView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QTableView, callback: *const fn (QTableView) callconv(.c) void) void {
         qtc.QTableView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2372,11 +2136,11 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QTableView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QTableView, callback: *const fn (QTableView) callconv(.c) QSize) void {
         qtc.QTableView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11093,9 +10857,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) void `
     ///
-    pub fn onReset(self: QTableView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QTableView, callback: *const fn (QTableView) callconv(.c) void) void {
         qtc.QTableView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11149,9 +10913,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: QTableView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QTableView, callback: *const fn (QTableView) callconv(.c) void) void {
         qtc.QTableView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11425,9 +11189,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: QTableView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QTableView, callback: *const fn (QTableView) callconv(.c) void) void {
         qtc.QTableView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11481,9 +11245,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: QTableView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QTableView, callback: *const fn (QTableView) callconv(.c) void) void {
         qtc.QTableView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13051,11 +12815,11 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QTableView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QTableView, callback: *const fn (QTableView) callconv(.c) QSize) void {
         qtc.QTableView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13109,11 +12873,11 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QTableView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QTableView, callback: *const fn (QTableView) callconv(.c) QSize) void {
         qtc.QTableView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13477,9 +13241,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QTableView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QTableView, callback: *const fn (QTableView) callconv(.c) i32) void {
         qtc.QTableView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13653,9 +13417,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QTableView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QTableView, callback: *const fn (QTableView) callconv(.c) bool) void {
         qtc.QTableView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13709,9 +13473,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QTableView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QTableView, callback: *const fn (QTableView) callconv(.c) QPaintEngine) void {
         qtc.QTableView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14583,9 +14347,9 @@ pub const QTableView = extern struct {
     ///
     /// ` self: QTableView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QTableView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QTableView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QTableView, callback: *const fn (QTableView) callconv(.c) QPainter) void {
         qtc.QTableView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14859,48 +14623,6 @@ pub const QTableView = extern struct {
         return qtc.QTableView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: QTableView) i32 {
-        return qtc.QTableView_SuperState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: QTableView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -14921,46 +14643,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: QTableView, _state: i32) void {
-        qtc.QTableView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn (self: QTableView, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: QTableView, callback: *const fn (QTableView, i32) callconv(.c) void) void {
-        qtc.QTableView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -14979,44 +14661,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: QTableView) void {
-        qtc.QTableView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: QTableView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -15033,44 +14677,6 @@ pub const QTableView = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: QTableView) void {
         qtc.QTableView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: QTableView) void {
-        qtc.QTableView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: QTableView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -15092,47 +14698,6 @@ pub const QTableView = extern struct {
     pub fn setDirtyRegion(self: QTableView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QTableView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: QTableView, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QTableView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn (self: QTableView, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: QTableView, callback: *const fn (QTableView, QRegion) callconv(.c) void) void {
-        qtc.QTableView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -15157,48 +14722,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: QTableView, dx: i32, dy: i32) void {
-        qtc.QTableView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn (self: QTableView, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: QTableView, callback: *const fn (QTableView, i32, i32) callconv(.c) void) void {
-        qtc.QTableView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -15215,46 +14738,6 @@ pub const QTableView = extern struct {
     ///
     pub fn dirtyRegionOffset(self: QTableView) QPoint {
         return .{ .ptr = qtc.QTableView_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superDirtyRegionOffset(self: QTableView) QPoint {
-        return .{ .ptr = qtc.QTableView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: QTableView, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.QTableView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -15275,44 +14758,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superStartAutoScroll(self: QTableView) void {
-        qtc.QTableView_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: QTableView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -15331,44 +14776,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superStopAutoScroll(self: QTableView) void {
-        qtc.QTableView_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: QTableView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -15385,44 +14792,6 @@ pub const QTableView = extern struct {
     ///
     pub fn doAutoScroll(self: QTableView) void {
         qtc.QTableView_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superDoAutoScroll(self: QTableView) void {
-        qtc.QTableView_SuperDoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: QTableView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `dropIndicatorPosition` instead
@@ -15445,48 +14814,6 @@ pub const QTableView = extern struct {
     ///
     pub fn dropIndicatorPosition(self: QTableView) i32 {
         return qtc.QTableView_DropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: QTableView) i32 {
-        return qtc.QTableView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: QTableView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -15515,52 +14842,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QTableView, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTableView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn (self: QTableView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QTableView, callback: *const fn (QTableView, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTableView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -15577,46 +14858,6 @@ pub const QTableView = extern struct {
     ///
     pub fn viewportMargins(self: QTableView) QMargins {
         return .{ .ptr = qtc.QTableView_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superViewportMargins(self: QTableView) QMargins {
-        return .{ .ptr = qtc.QTableView_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QTableView, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QTableView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -15640,47 +14881,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QTableView, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QTableView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn (self: QTableView, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QTableView, callback: *const fn (QTableView, QPainter) callconv(.c) void) void {
-        qtc.QTableView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -15697,44 +14897,6 @@ pub const QTableView = extern struct {
     ///
     pub fn updateMicroFocus(self: QTableView) void {
         qtc.QTableView_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superUpdateMicroFocus(self: QTableView) void {
-        qtc.QTableView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QTableView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -15755,44 +14917,6 @@ pub const QTableView = extern struct {
         qtc.QTableView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superCreate(self: QTableView) void {
-        qtc.QTableView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QTableView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -15809,44 +14933,6 @@ pub const QTableView = extern struct {
     ///
     pub fn destroy(self: QTableView) void {
         qtc.QTableView_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superDestroy(self: QTableView) void {
-        qtc.QTableView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QTableView, callback: *const fn () callconv(.c) void) void {
-        qtc.QTableView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -15867,44 +14953,6 @@ pub const QTableView = extern struct {
         return qtc.QTableView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superFocusNextChild(self: QTableView) bool {
-        return qtc.QTableView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QTableView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTableView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -15921,44 +14969,6 @@ pub const QTableView = extern struct {
     ///
     pub fn focusPreviousChild(self: QTableView) bool {
         return qtc.QTableView_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superFocusPreviousChild(self: QTableView) bool {
-        return qtc.QTableView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QTableView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTableView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -15979,44 +14989,6 @@ pub const QTableView = extern struct {
         return .{ .ptr = qtc.QTableView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superSender(self: QTableView) QObject {
-        return .{ .ptr = qtc.QTableView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QTableView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QTableView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -16033,44 +15005,6 @@ pub const QTableView = extern struct {
     ///
     pub fn senderSignalIndex(self: QTableView) i32 {
         return qtc.QTableView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    pub fn superSenderSignalIndex(self: QTableView) i32 {
-        return qtc.QTableView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QTableView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTableView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -16094,47 +15028,6 @@ pub const QTableView = extern struct {
         return qtc.QTableView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QTableView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QTableView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn (self: QTableView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QTableView, callback: *const fn (QTableView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTableView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -16154,47 +15047,6 @@ pub const QTableView = extern struct {
     pub fn isSignalConnected(self: QTableView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QTableView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QTableView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QTableView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn (self: QTableView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QTableView, callback: *const fn (QTableView, QMetaMethod) callconv(.c) bool) void {
-        qtc.QTableView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -16217,48 +15069,6 @@ pub const QTableView = extern struct {
     ///
     pub fn getDecodedMetricF(self: QTableView, metricA: i32, metricB: i32) f64 {
         return qtc.QTableView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QTableView, metricA: i32, metricB: i32) f64 {
-        return qtc.QTableView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTableView`
-    ///
-    /// ` callback: *const fn (self: QTableView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QTableView, callback: *const fn (QTableView, i32, i32) callconv(.c) f64) void {
-        qtc.QTableView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -40,13 +40,13 @@ bool QNetworkCookieJar_DeleteCookie(QNetworkCookieJar* self, const QNetworkCooki
 bool QNetworkCookieJar_ValidateCookie(const QNetworkCookieJar* self, const QNetworkCookie* cookie, const QUrl* url);
 libqt_string QNetworkCookieJar_Tr2(const char* s, const char* c);
 libqt_string QNetworkCookieJar_Tr3(const char* s, const char* c, int n);
-void QNetworkCookieJar_OnMetaObject(const QNetworkCookieJar* self, intptr_t slot);
+void QNetworkCookieJar_OnMetaObject(QNetworkCookieJar* self, intptr_t slot);
 QMetaObject* QNetworkCookieJar_SuperMetaObject(const QNetworkCookieJar* self);
 void QNetworkCookieJar_OnMetacast(QNetworkCookieJar* self, intptr_t slot);
 void* QNetworkCookieJar_SuperMetacast(QNetworkCookieJar* self, const char* param1);
 void QNetworkCookieJar_OnMetacall(QNetworkCookieJar* self, intptr_t slot);
 int QNetworkCookieJar_SuperMetacall(QNetworkCookieJar* self, int param1, int param2, void** param3);
-void QNetworkCookieJar_OnCookiesForUrl(const QNetworkCookieJar* self, intptr_t slot);
+void QNetworkCookieJar_OnCookiesForUrl(QNetworkCookieJar* self, intptr_t slot);
 libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_SuperCookiesForUrl(const QNetworkCookieJar* self, const QUrl* url);
 void QNetworkCookieJar_OnSetCookiesFromUrl(QNetworkCookieJar* self, intptr_t slot);
 bool QNetworkCookieJar_SuperSetCookiesFromUrl(QNetworkCookieJar* self, const libqt_list /* of QNetworkCookie* */ cookieList, const QUrl* url);
@@ -56,7 +56,7 @@ void QNetworkCookieJar_OnUpdateCookie(QNetworkCookieJar* self, intptr_t slot);
 bool QNetworkCookieJar_SuperUpdateCookie(QNetworkCookieJar* self, const QNetworkCookie* cookie);
 void QNetworkCookieJar_OnDeleteCookie(QNetworkCookieJar* self, intptr_t slot);
 bool QNetworkCookieJar_SuperDeleteCookie(QNetworkCookieJar* self, const QNetworkCookie* cookie);
-void QNetworkCookieJar_OnValidateCookie(const QNetworkCookieJar* self, intptr_t slot);
+void QNetworkCookieJar_OnValidateCookie(QNetworkCookieJar* self, intptr_t slot);
 bool QNetworkCookieJar_SuperValidateCookie(const QNetworkCookieJar* self, const QNetworkCookie* cookie, const QUrl* url);
 bool QNetworkCookieJar_Event(QNetworkCookieJar* self, QEvent* event);
 void QNetworkCookieJar_OnEvent(QNetworkCookieJar* self, intptr_t slot);
@@ -80,23 +80,11 @@ void QNetworkCookieJar_DisconnectNotify(QNetworkCookieJar* self, const QMetaMeth
 void QNetworkCookieJar_OnDisconnectNotify(QNetworkCookieJar* self, intptr_t slot);
 void QNetworkCookieJar_SuperDisconnectNotify(QNetworkCookieJar* self, const QMetaMethod* signal);
 libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_AllCookies(const QNetworkCookieJar* self);
-void QNetworkCookieJar_OnAllCookies(const QNetworkCookieJar* self, intptr_t slot);
-libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_SuperAllCookies(const QNetworkCookieJar* self);
 void QNetworkCookieJar_SetAllCookies(QNetworkCookieJar* self, const libqt_list /* of QNetworkCookie* */ cookieList);
-void QNetworkCookieJar_OnSetAllCookies(QNetworkCookieJar* self, intptr_t slot);
-void QNetworkCookieJar_SuperSetAllCookies(QNetworkCookieJar* self, const libqt_list /* of QNetworkCookie* */ cookieList);
 QObject* QNetworkCookieJar_Sender(const QNetworkCookieJar* self);
-void QNetworkCookieJar_OnSender(const QNetworkCookieJar* self, intptr_t slot);
-QObject* QNetworkCookieJar_SuperSender(const QNetworkCookieJar* self);
 int QNetworkCookieJar_SenderSignalIndex(const QNetworkCookieJar* self);
-void QNetworkCookieJar_OnSenderSignalIndex(const QNetworkCookieJar* self, intptr_t slot);
-int QNetworkCookieJar_SuperSenderSignalIndex(const QNetworkCookieJar* self);
 int QNetworkCookieJar_Receivers(const QNetworkCookieJar* self, const char* signal);
-void QNetworkCookieJar_OnReceivers(const QNetworkCookieJar* self, intptr_t slot);
-int QNetworkCookieJar_SuperReceivers(const QNetworkCookieJar* self, const char* signal);
 bool QNetworkCookieJar_IsSignalConnected(const QNetworkCookieJar* self, const QMetaMethod* signal);
-void QNetworkCookieJar_OnIsSignalConnected(const QNetworkCookieJar* self, intptr_t slot);
-bool QNetworkCookieJar_SuperIsSignalConnected(const QNetworkCookieJar* self, const QMetaMethod* signal);
 void QNetworkCookieJar_Delete(QNetworkCookieJar* self);
 
 #ifdef __cplusplus

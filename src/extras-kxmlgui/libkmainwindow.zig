@@ -158,9 +158,9 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KMainWindow, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) QMetaObject) void {
         qtc.KMainWindow_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1043,9 +1043,9 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) bool `
     ///
-    pub fn onQueryClose(self: KMainWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onQueryClose(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) bool) void {
         qtc.KMainWindow_OnQueryClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1300,45 +1300,6 @@ pub const KMainWindow = extern struct {
         qtc.KMainWindow_SavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `onSavePropertiesInternal` instead
-    ///
-    pub const OnSavePropertiesInternal = onSavePropertiesInternal;
-
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` callback: *const fn (self: KMainWindow, param1: KConfig, param2: i32) callconv(.c) void `
-    ///
-    pub fn onSavePropertiesInternal(self: KMainWindow, callback: *const fn (KMainWindow, KConfig, i32) callconv(.c) void) void {
-        qtc.KMainWindow_OnSavePropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSavePropertiesInternal` instead
-    ///
-    pub const SuperSavePropertiesInternal = superSavePropertiesInternal;
-
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#savePropertiesInternal)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` param1: KConfig `
-    ///
-    /// ` param2: i32 `
-    ///
-    pub fn superSavePropertiesInternal(self: KMainWindow, param1: anytype, param2: i32) void {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        qtc.KMainWindow_SuperSavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
-    }
-
     /// ### DEPRECATED: Use `readPropertiesInternal` instead
     ///
     pub const ReadPropertiesInternal = readPropertiesInternal;
@@ -1358,45 +1319,6 @@ pub const KMainWindow = extern struct {
         return qtc.KMainWindow_ReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `onReadPropertiesInternal` instead
-    ///
-    pub const OnReadPropertiesInternal = onReadPropertiesInternal;
-
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` callback: *const fn (self: KMainWindow, param1: KConfig, param2: i32) callconv(.c) bool `
-    ///
-    pub fn onReadPropertiesInternal(self: KMainWindow, callback: *const fn (KMainWindow, KConfig, i32) callconv(.c) bool) void {
-        qtc.KMainWindow_OnReadPropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superReadPropertiesInternal` instead
-    ///
-    pub const SuperReadPropertiesInternal = superReadPropertiesInternal;
-
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#readPropertiesInternal)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` param1: KConfig `
-    ///
-    /// ` param2: i32 `
-    ///
-    pub fn superReadPropertiesInternal(self: KMainWindow, param1: anytype, param2: i32) bool {
-        comptime _ = @TypeOf(param1)._is_KConfig;
-        return qtc.KMainWindow_SuperReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
-    }
-
     /// ### DEPRECATED: Use `settingsDirty` instead
     ///
     pub const SettingsDirty = settingsDirty;
@@ -1411,40 +1333,6 @@ pub const KMainWindow = extern struct {
         return qtc.KMainWindow_SettingsDirty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSettingsDirty` instead
-    ///
-    pub const OnSettingsDirty = onSettingsDirty;
-
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onSettingsDirty(self: KMainWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KMainWindow_OnSettingsDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSettingsDirty` instead
-    ///
-    pub const SuperSettingsDirty = superSettingsDirty;
-
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#settingsDirty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superSettingsDirty(self: KMainWindow) bool {
-        return qtc.KMainWindow_SuperSettingsDirty(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `saveAutoSaveSettings` instead
     ///
     pub const SaveAutoSaveSettings = saveAutoSaveSettings;
@@ -1457,40 +1345,6 @@ pub const KMainWindow = extern struct {
     ///
     pub fn saveAutoSaveSettings(self: KMainWindow) void {
         qtc.KMainWindow_SaveAutoSaveSettings(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSaveAutoSaveSettings` instead
-    ///
-    pub const OnSaveAutoSaveSettings = onSaveAutoSaveSettings;
-
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSaveAutoSaveSettings(self: KMainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KMainWindow_OnSaveAutoSaveSettings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSaveAutoSaveSettings` instead
-    ///
-    pub const SuperSaveAutoSaveSettings = superSaveAutoSaveSettings;
-
-    /// ### [Upstream resources](https://api.kde.org/kmainwindow.html#saveAutoSaveSettings)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superSaveAutoSaveSettings(self: KMainWindow) void {
-        qtc.KMainWindow_SuperSaveAutoSaveSettings(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -9073,9 +8927,9 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QMenu `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) QMenu `
     ///
-    pub fn onCreatePopupMenu(self: KMainWindow, callback: *const fn () callconv(.c) QMenu) void {
+    pub fn onCreatePopupMenu(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) QMenu) void {
         qtc.KMainWindow_OnCreatePopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9191,9 +9045,9 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KMainWindow, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) i32) void {
         qtc.KMainWindow_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9307,11 +9161,11 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KMainWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) QSize) void {
         qtc.KMainWindow_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9365,11 +9219,11 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KMainWindow, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) QSize) void {
         qtc.KMainWindow_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9483,9 +9337,9 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KMainWindow, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) bool) void {
         qtc.KMainWindow_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9539,9 +9393,9 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KMainWindow, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) QPaintEngine) void {
         qtc.KMainWindow_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11219,9 +11073,9 @@ pub const KMainWindow = extern struct {
     ///
     /// ` self: KMainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KMainWindow) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KMainWindow, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KMainWindow, callback: *const fn (KMainWindow) callconv(.c) QPainter) void {
         qtc.KMainWindow_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11805,44 +11659,6 @@ pub const KMainWindow = extern struct {
         qtc.KMainWindow_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superUpdateMicroFocus(self: KMainWindow) void {
-        qtc.KMainWindow_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KMainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KMainWindow_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -11859,44 +11675,6 @@ pub const KMainWindow = extern struct {
     ///
     pub fn create(self: KMainWindow) void {
         qtc.KMainWindow_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superCreate(self: KMainWindow) void {
-        qtc.KMainWindow_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KMainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KMainWindow_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -11917,44 +11695,6 @@ pub const KMainWindow = extern struct {
         qtc.KMainWindow_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superDestroy(self: KMainWindow) void {
-        qtc.KMainWindow_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KMainWindow, callback: *const fn () callconv(.c) void) void {
-        qtc.KMainWindow_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -11971,44 +11711,6 @@ pub const KMainWindow = extern struct {
     ///
     pub fn focusNextChild(self: KMainWindow) bool {
         return qtc.KMainWindow_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superFocusNextChild(self: KMainWindow) bool {
-        return qtc.KMainWindow_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KMainWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KMainWindow_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -12029,44 +11731,6 @@ pub const KMainWindow = extern struct {
         return qtc.KMainWindow_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superFocusPreviousChild(self: KMainWindow) bool {
-        return qtc.KMainWindow_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KMainWindow, callback: *const fn () callconv(.c) bool) void {
-        qtc.KMainWindow_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -12085,44 +11749,6 @@ pub const KMainWindow = extern struct {
         return .{ .ptr = qtc.KMainWindow_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superSender(self: KMainWindow) QObject {
-        return .{ .ptr = qtc.KMainWindow_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KMainWindow, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KMainWindow_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -12139,44 +11765,6 @@ pub const KMainWindow = extern struct {
     ///
     pub fn senderSignalIndex(self: KMainWindow) i32 {
         return qtc.KMainWindow_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    pub fn superSenderSignalIndex(self: KMainWindow) i32 {
-        return qtc.KMainWindow_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KMainWindow, callback: *const fn () callconv(.c) i32) void {
-        qtc.KMainWindow_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -12200,47 +11788,6 @@ pub const KMainWindow = extern struct {
         return qtc.KMainWindow_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KMainWindow, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KMainWindow_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn (self: KMainWindow, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KMainWindow, callback: *const fn (KMainWindow, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KMainWindow_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -12260,47 +11807,6 @@ pub const KMainWindow = extern struct {
     pub fn isSignalConnected(self: KMainWindow, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMainWindow_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KMainWindow, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KMainWindow_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn (self: KMainWindow, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KMainWindow, callback: *const fn (KMainWindow, QMetaMethod) callconv(.c) bool) void {
-        qtc.KMainWindow_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -12323,48 +11829,6 @@ pub const KMainWindow = extern struct {
     ///
     pub fn getDecodedMetricF(self: KMainWindow, metricA: i32, metricB: i32) f64 {
         return qtc.KMainWindow_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMainWindow `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KMainWindow, metricA: i32, metricB: i32) f64 {
-        return qtc.KMainWindow_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KMainWindow`
-    ///
-    /// ` callback: *const fn (self: KMainWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KMainWindow, callback: *const fn (KMainWindow, i32, i32) callconv(.c) f64) void {
-        qtc.KMainWindow_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -1039,10 +1039,10 @@ void QWebEnginePage_Connect_WebAuthUxRequested(QWebEnginePage* self, intptr_t sl
 
 QWebEnginePage* QWebEnginePage_CreateWindow(QWebEnginePage* self, int typeVal) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         return vqwebenginepage->createWindow(static_cast<QWebEnginePage::WebWindowType>(typeVal));
     }
-    return {};
+    qFatal("Error: Protected method QWebEnginePage::createWindow called without a directly constructed type");
 }
 
 libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
@@ -1061,7 +1061,7 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
         acceptedMimeTypes_QList.push_back(acceptedMimeTypes_arr_i_QString);
     }
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         QList<QString> _ret = vqwebenginepage->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
@@ -1081,13 +1081,13 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
-    return {};
+    qFatal("Error: Protected method QWebEnginePage::chooseFiles called without a directly constructed type");
 }
 
 void QWebEnginePage_JavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         vqwebenginepage->javaScriptAlert(*securityOrigin, msg_QString);
     }
 }
@@ -1095,27 +1095,27 @@ void QWebEnginePage_JavaScriptAlert(QWebEnginePage* self, const QUrl* securityOr
 bool QWebEnginePage_JavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         return vqwebenginepage->javaScriptConfirm(*securityOrigin, msg_QString);
     }
-    return {};
+    qFatal("Error: Protected method QWebEnginePage::javaScriptConfirm called without a directly constructed type");
 }
 
 void QWebEnginePage_JavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     QString sourceID_QString = QString::fromUtf8(sourceID.data, sourceID.len);
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         vqwebenginepage->javaScriptConsoleMessage(static_cast<QWebEnginePage::JavaScriptConsoleMessageLevel>(level), message_QString, static_cast<int>(lineNumber), sourceID_QString);
     }
 }
 
 bool QWebEnginePage_AcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         return vqwebenginepage->acceptNavigationRequest(*url, static_cast<QWebEnginePage::NavigationType>(typeVal), isMainFrame);
     }
-    return {};
+    qFatal("Error: Protected method QWebEnginePage::acceptNavigationRequest called without a directly constructed type");
 }
 
 libqt_string QWebEnginePage_Tr2(const char* s, const char* c) {
@@ -1243,115 +1243,75 @@ void QWebEnginePage_PrintToPdf32(QWebEnginePage* self, intptr_t resultCallback, 
 
 // Base class handler implementation
 QMetaObject* QWebEnginePage_SuperMetaObject(const QWebEnginePage* self) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_MetaObject_IsBase(true);
-        return (QMetaObject*)vqwebenginepage->metaObject();
-    } else {
-        return (QMetaObject*)self->QWebEnginePage::metaObject();
-    }
+    return (QMetaObject*)self->QWebEnginePage::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWebEnginePage_OnMetaObject(const QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_MetaObject_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_MetaObject_Callback>(slot));
+void QWebEnginePage_OnMetaObject(QWebEnginePage* self, intptr_t slot) {
+    if (auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self)))
+        vqwebenginepage->qwebenginepage_metaobject_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QWebEnginePage_SuperMetacast(QWebEnginePage* self, const char* param1) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Metacast_IsBase(true);
-        return vqwebenginepage->qt_metacast(param1);
-    } else {
-        return self->QWebEnginePage::qt_metacast(param1);
-    }
+    return self->QWebEnginePage::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnMetacast(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_Metacast_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Metacast_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_metacast_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWebEnginePage_SuperMetacall(QWebEnginePage* self, int param1, int param2, void** param3) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Metacall_IsBase(true);
-        return vqwebenginepage->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QWebEnginePage::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QWebEnginePage::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnMetacall(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_Metacall_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Metacall_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_metacall_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWebEnginePage_SuperTriggerAction(QWebEnginePage* self, int action, bool checked) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_TriggerAction_IsBase(true);
-        vqwebenginepage->triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
-    } else {
-        self->QWebEnginePage::triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
-    }
+    self->QWebEnginePage::triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnTriggerAction(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_TriggerAction_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_TriggerAction_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_triggeraction_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_TriggerAction_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWebEnginePage_SuperEvent(QWebEnginePage* self, QEvent* param1) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Event_IsBase(true);
-        return vqwebenginepage->event(param1);
-    } else {
-        return self->QWebEnginePage::event(param1);
-    }
+    return self->QWebEnginePage::event(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnEvent(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_Event_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Event_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_event_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 QWebEnginePage* QWebEnginePage_SuperCreateWindow(QWebEnginePage* self, int typeVal) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_CreateWindow_IsBase(true);
-        return vqwebenginepage->createWindow(static_cast<QWebEnginePage::WebWindowType>(typeVal));
-    } else {
-        return ((VirtualQWebEnginePage*)self)->createWindow(static_cast<QWebEnginePage::WebWindowType>(typeVal));
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        return vqwebenginepage->QWebEnginePage::createWindow(static_cast<QWebEnginePage::WebWindowType>(typeVal));
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::createWindow called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnCreateWindow(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_CreateWindow_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_CreateWindow_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_createwindow_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_CreateWindow_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QWebEnginePage_SuperChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     QList<QString> oldFiles_QList;
     oldFiles_QList.reserve(oldFiles.len);
     libqt_string* oldFiles_arr = static_cast<libqt_string*>(oldFiles.data);
@@ -1366,9 +1326,8 @@ libqt_list /* of libqt_string */ QWebEnginePage_SuperChooseFiles(QWebEnginePage*
         QString acceptedMimeTypes_arr_i_QString = QString::fromUtf8(acceptedMimeTypes_arr[i].data, acceptedMimeTypes_arr[i].len);
         acceptedMimeTypes_QList.push_back(acceptedMimeTypes_arr_i_QString);
     }
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_ChooseFiles_IsBase(true);
-        QList<QString> _ret = vqwebenginepage->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        QList<QString> _ret = vqwebenginepage->QWebEnginePage::chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1386,389 +1345,242 @@ libqt_list /* of libqt_string */ QWebEnginePage_SuperChooseFiles(QWebEnginePage*
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQWebEnginePage*)self)->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::chooseFiles called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnChooseFiles(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_ChooseFiles_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_ChooseFiles_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_choosefiles_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_ChooseFiles_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWebEnginePage_SuperJavaScriptAlert(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptAlert_IsBase(true);
-        vqwebenginepage->javaScriptAlert(*securityOrigin, msg_QString);
-    } else {
-        ((VirtualQWebEnginePage*)self)->javaScriptAlert(*securityOrigin, msg_QString);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        vqwebenginepage->QWebEnginePage::javaScriptAlert(*securityOrigin, msg_QString);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::javaScriptAlert called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnJavaScriptAlert(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_JavaScriptAlert_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptAlert_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_javascriptalert_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptAlert_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWebEnginePage_SuperJavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptConfirm_IsBase(true);
-        return vqwebenginepage->javaScriptConfirm(*securityOrigin, msg_QString);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->javaScriptConfirm(*securityOrigin, msg_QString);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        return vqwebenginepage->QWebEnginePage::javaScriptConfirm(*securityOrigin, msg_QString);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::javaScriptConfirm called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnJavaScriptConfirm(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_JavaScriptConfirm_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptConfirm_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_javascriptconfirm_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptConfirm_Callback>(slot);
 }
 
 // Base class handler implementation
 void QWebEnginePage_SuperJavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
     QString sourceID_QString = QString::fromUtf8(sourceID.data, sourceID.len);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_JavaScriptConsoleMessage_IsBase(true);
-        vqwebenginepage->javaScriptConsoleMessage(static_cast<QWebEnginePage::JavaScriptConsoleMessageLevel>(level), message_QString, static_cast<int>(lineNumber), sourceID_QString);
-    } else {
-        ((VirtualQWebEnginePage*)self)->javaScriptConsoleMessage(static_cast<QWebEnginePage::JavaScriptConsoleMessageLevel>(level), message_QString, static_cast<int>(lineNumber), sourceID_QString);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        vqwebenginepage->QWebEnginePage::javaScriptConsoleMessage(static_cast<QWebEnginePage::JavaScriptConsoleMessageLevel>(level), message_QString, static_cast<int>(lineNumber), sourceID_QString);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::javaScriptConsoleMessage called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnJavaScriptConsoleMessage(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_JavaScriptConsoleMessage_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptConsoleMessage_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_javascriptconsolemessage_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_JavaScriptConsoleMessage_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QWebEnginePage_SuperAcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_AcceptNavigationRequest_IsBase(true);
-        return vqwebenginepage->acceptNavigationRequest(*url, static_cast<QWebEnginePage::NavigationType>(typeVal), isMainFrame);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->acceptNavigationRequest(*url, static_cast<QWebEnginePage::NavigationType>(typeVal), isMainFrame);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        return vqwebenginepage->QWebEnginePage::acceptNavigationRequest(*url, static_cast<QWebEnginePage::NavigationType>(typeVal), isMainFrame);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::acceptNavigationRequest called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnAcceptNavigationRequest(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_AcceptNavigationRequest_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_AcceptNavigationRequest_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_acceptnavigationrequest_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_AcceptNavigationRequest_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWebEnginePage_EventFilter(QWebEnginePage* self, QObject* watched, QEvent* event) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return vqwebenginepage->eventFilter(watched, event);
-    } else {
-        return self->QWebEnginePage::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QWebEnginePage_SuperEventFilter(QWebEnginePage* self, QObject* watched, QEvent* event) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_EventFilter_IsBase(true);
-        return vqwebenginepage->eventFilter(watched, event);
-    } else {
-        return self->QWebEnginePage::eventFilter(watched, event);
-    }
+    return self->QWebEnginePage::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnEventFilter(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_EventFilter_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_EventFilter_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_eventfilter_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebEnginePage_TimerEvent(QWebEnginePage* self, QTimerEvent* event) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         vqwebenginepage->timerEvent(event);
     } else {
-        ((VirtualQWebEnginePage*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QWebEnginePage::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebEnginePage_SuperTimerEvent(QWebEnginePage* self, QTimerEvent* event) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_TimerEvent_IsBase(true);
-        vqwebenginepage->timerEvent(event);
-    } else {
-        ((VirtualQWebEnginePage*)self)->timerEvent(event);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        vqwebenginepage->QWebEnginePage::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnTimerEvent(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_TimerEvent_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_TimerEvent_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_timerevent_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebEnginePage_ChildEvent(QWebEnginePage* self, QChildEvent* event) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         vqwebenginepage->childEvent(event);
     } else {
-        ((VirtualQWebEnginePage*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QWebEnginePage::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebEnginePage_SuperChildEvent(QWebEnginePage* self, QChildEvent* event) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_ChildEvent_IsBase(true);
-        vqwebenginepage->childEvent(event);
-    } else {
-        ((VirtualQWebEnginePage*)self)->childEvent(event);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        vqwebenginepage->QWebEnginePage::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnChildEvent(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_ChildEvent_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_ChildEvent_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_childevent_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebEnginePage_CustomEvent(QWebEnginePage* self, QEvent* event) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         vqwebenginepage->customEvent(event);
     } else {
-        ((VirtualQWebEnginePage*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QWebEnginePage::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebEnginePage_SuperCustomEvent(QWebEnginePage* self, QEvent* event) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_CustomEvent_IsBase(true);
-        vqwebenginepage->customEvent(event);
-    } else {
-        ((VirtualQWebEnginePage*)self)->customEvent(event);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        vqwebenginepage->QWebEnginePage::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnCustomEvent(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_CustomEvent_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_CustomEvent_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_customevent_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebEnginePage_ConnectNotify(QWebEnginePage* self, const QMetaMethod* signal) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         vqwebenginepage->connectNotify(*signal);
     } else {
-        ((VirtualQWebEnginePage*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QWebEnginePage::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebEnginePage_SuperConnectNotify(QWebEnginePage* self, const QMetaMethod* signal) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_ConnectNotify_IsBase(true);
-        vqwebenginepage->connectNotify(*signal);
-    } else {
-        ((VirtualQWebEnginePage*)self)->connectNotify(*signal);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        vqwebenginepage->QWebEnginePage::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnConnectNotify(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_ConnectNotify_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_ConnectNotify_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_connectnotify_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWebEnginePage_DisconnectNotify(QWebEnginePage* self, const QMetaMethod* signal) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
+    if (vqwebenginepage) {
         vqwebenginepage->disconnectNotify(*signal);
     } else {
-        ((VirtualQWebEnginePage*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QWebEnginePage::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWebEnginePage_SuperDisconnectNotify(QWebEnginePage* self, const QMetaMethod* signal) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_DisconnectNotify_IsBase(true);
-        vqwebenginepage->disconnectNotify(*signal);
-    } else {
-        ((VirtualQWebEnginePage*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self)) {
+        vqwebenginepage->QWebEnginePage::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWebEnginePage::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWebEnginePage_OnDisconnectNotify(QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_DisconnectNotify_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_DisconnectNotify_Callback>(slot));
+    if (auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self))
+        vqwebenginepage->qwebenginepage_disconnectnotify_callback = reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QWebEnginePage_Sender(const QWebEnginePage* self) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return vqwebenginepage->sender();
-    } else {
-        return ((VirtualQWebEnginePage*)self)->sender();
-    }
+    if (auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self))) {
+        return vqwebenginepage->VirtualQWebEnginePage::sender();
+    } else
+        qFatal("Error: Protected method QWebEnginePage::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QWebEnginePage_SuperSender(const QWebEnginePage* self) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Sender_IsBase(true);
-        return vqwebenginepage->sender();
-    } else {
-        return ((VirtualQWebEnginePage*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebEnginePage_OnSender(const QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_Sender_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWebEnginePage_SenderSignalIndex(const QWebEnginePage* self) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return vqwebenginepage->senderSignalIndex();
-    } else {
-        return ((VirtualQWebEnginePage*)self)->senderSignalIndex();
-    }
+    if (auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self))) {
+        return vqwebenginepage->VirtualQWebEnginePage::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QWebEnginePage::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWebEnginePage_SuperSenderSignalIndex(const QWebEnginePage* self) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_SenderSignalIndex_IsBase(true);
-        return vqwebenginepage->senderSignalIndex();
-    } else {
-        return ((VirtualQWebEnginePage*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebEnginePage_OnSenderSignalIndex(const QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWebEnginePage_Receivers(const QWebEnginePage* self, const char* signal) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return vqwebenginepage->receivers(signal);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->receivers(signal);
-    }
+    if (auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self))) {
+        return vqwebenginepage->VirtualQWebEnginePage::receivers(signal);
+    } else
+        qFatal("Error: Protected method QWebEnginePage::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWebEnginePage_SuperReceivers(const QWebEnginePage* self, const char* signal) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_Receivers_IsBase(true);
-        return vqwebenginepage->receivers(signal);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebEnginePage_OnReceivers(const QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_Receivers_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWebEnginePage_IsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return vqwebenginepage->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QWebEnginePage_SuperIsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        vqwebenginepage->setQWebEnginePage_IsSignalConnected_IsBase(true);
-        return vqwebenginepage->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWebEnginePage_OnIsSignalConnected(const QWebEnginePage* self, intptr_t slot) {
-    auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self));
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage)
-        vqwebenginepage->setQWebEnginePage_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebEnginePage::QWebEnginePage_IsSignalConnected_Callback>(slot));
+    if (auto* vqwebenginepage = const_cast<VirtualQWebEnginePage*>(dynamic_cast<const VirtualQWebEnginePage*>(self))) {
+        return vqwebenginepage->VirtualQWebEnginePage::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QWebEnginePage::isSignalConnected called without a directly constructed type");
 }
 
 void QWebEnginePage_Delete(QWebEnginePage* self) {

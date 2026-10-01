@@ -309,9 +309,9 @@ pub const QListWidgetItem = extern struct {
     ///
     /// ` self: QListWidgetItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QListWidgetItem `
+    /// ` callback: *const fn (self: QListWidgetItem) callconv(.c) QListWidgetItem `
     ///
-    pub fn onClone(self: QListWidgetItem, callback: *const fn () callconv(.c) QListWidgetItem) void {
+    pub fn onClone(self: QListWidgetItem, callback: *const fn (QListWidgetItem) callconv(.c) QListWidgetItem) void {
         qtc.QListWidgetItem_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1242,9 +1242,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QListWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) QMetaObject) void {
         qtc.QListWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2586,9 +2586,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onMimeTypes(self: QListWidget, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QListWidget_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2776,9 +2776,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) i32 `
     ///
-    pub fn onSupportedDropActions(self: QListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) i32) void {
         qtc.QListWidget_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11752,9 +11752,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: QListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) void) void {
         qtc.QListWidget_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11808,9 +11808,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) void `
     ///
-    pub fn onReset(self: QListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) void) void {
         qtc.QListWidget_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12828,9 +12828,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: QListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) i32) void {
         qtc.QListWidget_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12884,9 +12884,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: QListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) i32) void {
         qtc.QListWidget_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13154,13 +13154,13 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: QListWidget, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) qtc.libqt_list) void {
         qtc.QListWidget_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13214,9 +13214,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: QListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) void) void {
         qtc.QListWidget_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13468,11 +13468,11 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) QSize) void {
         qtc.QListWidget_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13838,9 +13838,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: QListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) void) void {
         qtc.QListWidget_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13894,9 +13894,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: QListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) void) void {
         qtc.QListWidget_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13950,9 +13950,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: QListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) void) void {
         qtc.QListWidget_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15208,11 +15208,11 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) QSize) void {
         qtc.QListWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15266,11 +15266,11 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) QSize) void {
         qtc.QListWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15572,9 +15572,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) i32) void {
         qtc.QListWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15748,9 +15748,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QListWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) bool) void {
         qtc.QListWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15804,9 +15804,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QListWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) QPaintEngine) void {
         qtc.QListWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -16678,9 +16678,9 @@ pub const QListWidget = extern struct {
     ///
     /// ` self: QListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QListWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QListWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QListWidget, callback: *const fn (QListWidget) callconv(.c) QPainter) void {
         qtc.QListWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -16954,48 +16954,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_ResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
     }
 
-    /// ### DEPRECATED: Use `superResizeContents` instead
-    ///
-    pub const SuperResizeContents = superResizeContents;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` _width: i32 `
-    ///
-    /// ` _height: i32 `
-    ///
-    pub fn superResizeContents(self: QListWidget, _width: i32, _height: i32) void {
-        qtc.QListWidget_SuperResizeContents(@ptrCast(self.ptr), @bitCast(_width), @bitCast(_height));
-    }
-
-    /// ### DEPRECATED: Use `onResizeContents` instead
-    ///
-    pub const OnResizeContents = onResizeContents;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#resizeContents)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, width: i32, height: i32) callconv(.c) void `
-    ///
-    pub fn onResizeContents(self: QListWidget, callback: *const fn (QListWidget, i32, i32) callconv(.c) void) void {
-        qtc.QListWidget_OnResizeContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `contentsSize` instead
     ///
     pub const ContentsSize = contentsSize;
@@ -17012,46 +16970,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn contentsSize(self: QListWidget) QSize {
         return .{ .ptr = qtc.QListWidget_ContentsSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superContentsSize` instead
-    ///
-    pub const SuperContentsSize = superContentsSize;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superContentsSize(self: QListWidget) QSize {
-        return .{ .ptr = qtc.QListWidget_SuperContentsSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onContentsSize` instead
-    ///
-    pub const OnContentsSize = onContentsSize;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#contentsSize)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QSize `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onContentsSize(self: QListWidget, callback: *const fn () callconv(.c) QSize) void {
-        qtc.QListWidget_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `rectForIndex` instead
@@ -17073,49 +16991,6 @@ pub const QListWidget = extern struct {
     pub fn rectForIndex(self: QListWidget, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QListWidget_RectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superRectForIndex` instead
-    ///
-    pub const SuperRectForIndex = superRectForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superRectForIndex(self: QListWidget, index: anytype) QRect {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QListWidget_SuperRectForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onRectForIndex` instead
-    ///
-    pub const OnRectForIndex = onRectForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#rectForIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, index: QModelIndex) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onRectForIndex(self: QListWidget, callback: *const fn (QListWidget, QModelIndex) callconv(.c) QRect) void {
-        qtc.QListWidget_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setPositionForIndex` instead
@@ -17142,50 +17017,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_SetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetPositionForIndex` instead
-    ///
-    pub const SuperSetPositionForIndex = superSetPositionForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` position: QPoint `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superSetPositionForIndex(self: QListWidget, position: anytype, index: anytype) void {
-        comptime _ = @TypeOf(position)._is_QPoint;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.QListWidget_SuperSetPositionForIndex(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(index.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetPositionForIndex` instead
-    ///
-    pub const OnSetPositionForIndex = onSetPositionForIndex;
-
-    /// Inherited from QListView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistview.html#setPositionForIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, position: QPoint, index: QModelIndex) callconv(.c) void `
-    ///
-    pub fn onSetPositionForIndex(self: QListWidget, callback: *const fn (QListWidget, QPoint, QModelIndex) callconv(.c) void) void {
-        qtc.QListWidget_OnSetPositionForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `state` instead
     ///
     pub const State = state;
@@ -17208,48 +17039,6 @@ pub const QListWidget = extern struct {
         return qtc.QListWidget_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: QListWidget) i32 {
-        return qtc.QListWidget_SuperState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: QListWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.QListWidget_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -17270,46 +17059,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: QListWidget, _state: i32) void {
-        qtc.QListWidget_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: QListWidget, callback: *const fn (QListWidget, i32) callconv(.c) void) void {
-        qtc.QListWidget_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -17328,44 +17077,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: QListWidget) void {
-        qtc.QListWidget_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: QListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QListWidget_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -17382,44 +17093,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: QListWidget) void {
         qtc.QListWidget_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: QListWidget) void {
-        qtc.QListWidget_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: QListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QListWidget_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -17441,47 +17114,6 @@ pub const QListWidget = extern struct {
     pub fn setDirtyRegion(self: QListWidget, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QListWidget_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: QListWidget, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QListWidget_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: QListWidget, callback: *const fn (QListWidget, QRegion) callconv(.c) void) void {
-        qtc.QListWidget_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -17506,48 +17138,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: QListWidget, dx: i32, dy: i32) void {
-        qtc.QListWidget_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: QListWidget, callback: *const fn (QListWidget, i32, i32) callconv(.c) void) void {
-        qtc.QListWidget_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -17564,46 +17154,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn dirtyRegionOffset(self: QListWidget) QPoint {
         return .{ .ptr = qtc.QListWidget_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superDirtyRegionOffset(self: QListWidget) QPoint {
-        return .{ .ptr = qtc.QListWidget_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: QListWidget, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.QListWidget_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -17624,44 +17174,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superStartAutoScroll(self: QListWidget) void {
-        qtc.QListWidget_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: QListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QListWidget_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -17680,44 +17192,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superStopAutoScroll(self: QListWidget) void {
-        qtc.QListWidget_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: QListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QListWidget_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -17734,44 +17208,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn doAutoScroll(self: QListWidget) void {
         qtc.QListWidget_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superDoAutoScroll(self: QListWidget) void {
-        qtc.QListWidget_SuperDoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: QListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QListWidget_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `dropIndicatorPosition` instead
@@ -17794,48 +17230,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn dropIndicatorPosition(self: QListWidget) i32 {
         return qtc.QListWidget_DropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: QListWidget) i32 {
-        return qtc.QListWidget_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: QListWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.QListWidget_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -17864,52 +17258,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QListWidget, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QListWidget_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QListWidget, callback: *const fn (QListWidget, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QListWidget_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -17926,46 +17274,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn viewportMargins(self: QListWidget) QMargins {
         return .{ .ptr = qtc.QListWidget_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superViewportMargins(self: QListWidget) QMargins {
-        return .{ .ptr = qtc.QListWidget_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QListWidget, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QListWidget_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -17989,47 +17297,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QListWidget, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QListWidget_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QListWidget, callback: *const fn (QListWidget, QPainter) callconv(.c) void) void {
-        qtc.QListWidget_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -18046,44 +17313,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn updateMicroFocus(self: QListWidget) void {
         qtc.QListWidget_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: QListWidget) void {
-        qtc.QListWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QListWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -18104,44 +17333,6 @@ pub const QListWidget = extern struct {
         qtc.QListWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superCreate(self: QListWidget) void {
-        qtc.QListWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QListWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -18158,44 +17349,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn destroy(self: QListWidget) void {
         qtc.QListWidget_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superDestroy(self: QListWidget) void {
-        qtc.QListWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QListWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -18216,44 +17369,6 @@ pub const QListWidget = extern struct {
         return qtc.QListWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superFocusNextChild(self: QListWidget) bool {
-        return qtc.QListWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QListWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.QListWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -18270,44 +17385,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn focusPreviousChild(self: QListWidget) bool {
         return qtc.QListWidget_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superFocusPreviousChild(self: QListWidget) bool {
-        return qtc.QListWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QListWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.QListWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -18328,44 +17405,6 @@ pub const QListWidget = extern struct {
         return .{ .ptr = qtc.QListWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superSender(self: QListWidget) QObject {
-        return .{ .ptr = qtc.QListWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QListWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QListWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -18382,44 +17421,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: QListWidget) i32 {
         return qtc.QListWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    pub fn superSenderSignalIndex(self: QListWidget) i32 {
-        return qtc.QListWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QListWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.QListWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -18443,47 +17444,6 @@ pub const QListWidget = extern struct {
         return qtc.QListWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QListWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QListWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QListWidget, callback: *const fn (QListWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QListWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -18503,47 +17463,6 @@ pub const QListWidget = extern struct {
     pub fn isSignalConnected(self: QListWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QListWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QListWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QListWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QListWidget, callback: *const fn (QListWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.QListWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -18566,48 +17485,6 @@ pub const QListWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: QListWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QListWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QListWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.QListWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QListWidget`
-    ///
-    /// ` callback: *const fn (self: QListWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QListWidget, callback: *const fn (QListWidget, i32, i32) callconv(.c) f64) void {
-        qtc.QListWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

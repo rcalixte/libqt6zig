@@ -122,9 +122,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QFile) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QFile, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QFile, callback: *const fn (QFile) callconv(.c) QMetaObject) void {
         qtc.QFile_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -301,9 +301,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QFile) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onFileName(self: QFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFileName(self: QFile, callback: *const fn (QFile) callconv(.c) [*:0]const u8) void {
         qtc.QFile_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -804,9 +804,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QFile) callconv(.c) i64 `
     ///
-    pub fn onSize(self: QFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QFile, callback: *const fn (QFile) callconv(.c) i64) void {
         qtc.QFile_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -928,9 +928,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFile) callconv(.c) i32 `
     ///
-    pub fn onPermissions(self: QFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onPermissions(self: QFile, callback: *const fn (QFile) callconv(.c) i32) void {
         qtc.QFile_OnPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3132,9 +3132,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QFile) callconv(.c) void `
     ///
-    pub fn onClose(self: QFile, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: QFile, callback: *const fn (QFile) callconv(.c) void) void {
         qtc.QFile_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3188,9 +3188,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: QFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QFile, callback: *const fn (QFile) callconv(.c) bool) void {
         qtc.QFile_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3244,9 +3244,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QFile) callconv(.c) i64 `
     ///
-    pub fn onPos(self: QFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QFile, callback: *const fn (QFile) callconv(.c) i64) void {
         qtc.QFile_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3360,9 +3360,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: QFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QFile, callback: *const fn (QFile) callconv(.c) bool) void {
         qtc.QFile_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3614,9 +3614,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile) callconv(.c) bool `
     ///
-    pub fn onReset(self: QFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QFile, callback: *const fn (QFile) callconv(.c) bool) void {
         qtc.QFile_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3670,9 +3670,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QFile) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: QFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QFile, callback: *const fn (QFile) callconv(.c) i64) void {
         qtc.QFile_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3726,9 +3726,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QFile) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: QFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QFile, callback: *const fn (QFile) callconv(.c) i64) void {
         qtc.QFile_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3782,9 +3782,9 @@ pub const QFile = extern struct {
     ///
     /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: QFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QFile, callback: *const fn (QFile) callconv(.c) bool) void {
         qtc.QFile_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4428,46 +4428,6 @@ pub const QFile = extern struct {
         qtc.QFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFile `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: QFile, _openMode: i32) void {
-        qtc.QFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFile`
-    ///
-    /// ` callback: *const fn (self: QFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: QFile, callback: *const fn (QFile, i32) callconv(.c) void) void {
-        qtc.QFile_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setErrorString` instead
     ///
     pub const SetErrorString = setErrorString;
@@ -4492,50 +4452,6 @@ pub const QFile = extern struct {
         qtc.QFile_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFile `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: QFile, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QFile_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFile`
-    ///
-    /// ` callback: *const fn (self: QFile, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: QFile, callback: *const fn (QFile, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFile_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4554,44 +4470,6 @@ pub const QFile = extern struct {
         return .{ .ptr = qtc.QFile_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFile `
-    ///
-    pub fn superSender(self: QFile) QObject {
-        return .{ .ptr = qtc.QFile_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFile`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QFile, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QFile_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4608,44 +4486,6 @@ pub const QFile = extern struct {
     ///
     pub fn senderSignalIndex(self: QFile) i32 {
         return qtc.QFile_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFile `
-    ///
-    pub fn superSenderSignalIndex(self: QFile) i32 {
-        return qtc.QFile_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFile`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QFile, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFile_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4669,47 +4509,6 @@ pub const QFile = extern struct {
         return qtc.QFile_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFile `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QFile, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QFile_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFile`
-    ///
-    /// ` callback: *const fn (self: QFile, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QFile, callback: *const fn (QFile, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFile_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4729,47 +4528,6 @@ pub const QFile = extern struct {
     pub fn isSignalConnected(self: QFile, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFile_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFile `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QFile, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QFile_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QFile`
-    ///
-    /// ` callback: *const fn (self: QFile, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QFile, callback: *const fn (QFile, QMetaMethod) callconv(.c) bool) void {
-        qtc.QFile_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

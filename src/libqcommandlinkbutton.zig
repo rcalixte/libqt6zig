@@ -225,9 +225,9 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QCommandLinkButton, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) QMetaObject) void {
         qtc.QCommandLinkButton_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -438,11 +438,11 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QCommandLinkButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) QSize) void {
         qtc.QCommandLinkButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -540,11 +540,11 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QCommandLinkButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) QSize) void {
         qtc.QCommandLinkButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8124,9 +8124,9 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) void `
     ///
-    pub fn onCheckStateSet(self: QCommandLinkButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckStateSet(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) void) void {
         qtc.QCommandLinkButton_OnCheckStateSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8180,9 +8180,9 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) void `
     ///
-    pub fn onNextCheckState(self: QCommandLinkButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onNextCheckState(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) void) void {
         qtc.QCommandLinkButton_OnNextCheckState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8546,9 +8546,9 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QCommandLinkButton, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) i32) void {
         qtc.QCommandLinkButton_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8662,9 +8662,9 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QCommandLinkButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) bool) void {
         qtc.QCommandLinkButton_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8718,9 +8718,9 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QCommandLinkButton, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) QPaintEngine) void {
         qtc.QCommandLinkButton_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10026,9 +10026,9 @@ pub const QCommandLinkButton = extern struct {
     ///
     /// ` self: QCommandLinkButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QCommandLinkButton) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QCommandLinkButton, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton) callconv(.c) QPainter) void {
         qtc.QCommandLinkButton_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10550,44 +10550,6 @@ pub const QCommandLinkButton = extern struct {
         qtc.QCommandLinkButton_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    pub fn superUpdateMicroFocus(self: QCommandLinkButton) void {
-        qtc.QCommandLinkButton_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QCommandLinkButton, callback: *const fn () callconv(.c) void) void {
-        qtc.QCommandLinkButton_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10604,44 +10566,6 @@ pub const QCommandLinkButton = extern struct {
     ///
     pub fn create(self: QCommandLinkButton) void {
         qtc.QCommandLinkButton_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    pub fn superCreate(self: QCommandLinkButton) void {
-        qtc.QCommandLinkButton_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QCommandLinkButton, callback: *const fn () callconv(.c) void) void {
-        qtc.QCommandLinkButton_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10662,44 +10586,6 @@ pub const QCommandLinkButton = extern struct {
         qtc.QCommandLinkButton_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    pub fn superDestroy(self: QCommandLinkButton) void {
-        qtc.QCommandLinkButton_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QCommandLinkButton, callback: *const fn () callconv(.c) void) void {
-        qtc.QCommandLinkButton_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10716,44 +10602,6 @@ pub const QCommandLinkButton = extern struct {
     ///
     pub fn focusNextChild(self: QCommandLinkButton) bool {
         return qtc.QCommandLinkButton_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    pub fn superFocusNextChild(self: QCommandLinkButton) bool {
-        return qtc.QCommandLinkButton_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QCommandLinkButton, callback: *const fn () callconv(.c) bool) void {
-        qtc.QCommandLinkButton_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10774,44 +10622,6 @@ pub const QCommandLinkButton = extern struct {
         return qtc.QCommandLinkButton_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    pub fn superFocusPreviousChild(self: QCommandLinkButton) bool {
-        return qtc.QCommandLinkButton_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QCommandLinkButton, callback: *const fn () callconv(.c) bool) void {
-        qtc.QCommandLinkButton_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10830,44 +10640,6 @@ pub const QCommandLinkButton = extern struct {
         return .{ .ptr = qtc.QCommandLinkButton_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    pub fn superSender(self: QCommandLinkButton) QObject {
-        return .{ .ptr = qtc.QCommandLinkButton_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QCommandLinkButton, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QCommandLinkButton_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10884,44 +10656,6 @@ pub const QCommandLinkButton = extern struct {
     ///
     pub fn senderSignalIndex(self: QCommandLinkButton) i32 {
         return qtc.QCommandLinkButton_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    pub fn superSenderSignalIndex(self: QCommandLinkButton) i32 {
-        return qtc.QCommandLinkButton_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QCommandLinkButton, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCommandLinkButton_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10945,47 +10679,6 @@ pub const QCommandLinkButton = extern struct {
         return qtc.QCommandLinkButton_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QCommandLinkButton, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QCommandLinkButton_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn (self: QCommandLinkButton, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCommandLinkButton_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11005,47 +10698,6 @@ pub const QCommandLinkButton = extern struct {
     pub fn isSignalConnected(self: QCommandLinkButton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCommandLinkButton_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QCommandLinkButton, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QCommandLinkButton_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn (self: QCommandLinkButton, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton, QMetaMethod) callconv(.c) bool) void {
-        qtc.QCommandLinkButton_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11068,48 +10720,6 @@ pub const QCommandLinkButton = extern struct {
     ///
     pub fn getDecodedMetricF(self: QCommandLinkButton, metricA: i32, metricB: i32) f64 {
         return qtc.QCommandLinkButton_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCommandLinkButton `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QCommandLinkButton, metricA: i32, metricB: i32) f64 {
-        return qtc.QCommandLinkButton_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCommandLinkButton`
-    ///
-    /// ` callback: *const fn (self: QCommandLinkButton, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QCommandLinkButton, callback: *const fn (QCommandLinkButton, i32, i32) callconv(.c) f64) void {
-        qtc.QCommandLinkButton_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

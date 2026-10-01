@@ -48,7 +48,7 @@ libqt_string QGeoRouteReply_Tr2(const char* s, const char* c);
 libqt_string QGeoRouteReply_Tr3(const char* s, const char* c, int n);
 void QGeoRouteReply_ErrorOccurred2(QGeoRouteReply* self, int errorVal, const libqt_string errorString);
 void QGeoRouteReply_Connect_ErrorOccurred2(QGeoRouteReply* self, intptr_t slot);
-void QGeoRouteReply_OnMetaObject(const QGeoRouteReply* self, intptr_t slot);
+void QGeoRouteReply_OnMetaObject(QGeoRouteReply* self, intptr_t slot);
 QMetaObject* QGeoRouteReply_SuperMetaObject(const QGeoRouteReply* self);
 void QGeoRouteReply_OnMetacast(QGeoRouteReply* self, intptr_t slot);
 void* QGeoRouteReply_SuperMetacast(QGeoRouteReply* self, const char* param1);
@@ -78,29 +78,13 @@ void QGeoRouteReply_DisconnectNotify(QGeoRouteReply* self, const QMetaMethod* si
 void QGeoRouteReply_OnDisconnectNotify(QGeoRouteReply* self, intptr_t slot);
 void QGeoRouteReply_SuperDisconnectNotify(QGeoRouteReply* self, const QMetaMethod* signal);
 void QGeoRouteReply_SetError(QGeoRouteReply* self, int errorVal, const libqt_string errorString);
-void QGeoRouteReply_OnSetError(QGeoRouteReply* self, intptr_t slot);
-void QGeoRouteReply_SuperSetError(QGeoRouteReply* self, int errorVal, const libqt_string errorString);
 void QGeoRouteReply_SetFinished(QGeoRouteReply* self, bool finished);
-void QGeoRouteReply_OnSetFinished(QGeoRouteReply* self, intptr_t slot);
-void QGeoRouteReply_SuperSetFinished(QGeoRouteReply* self, bool finished);
 void QGeoRouteReply_SetRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
-void QGeoRouteReply_OnSetRoutes(QGeoRouteReply* self, intptr_t slot);
-void QGeoRouteReply_SuperSetRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
 void QGeoRouteReply_AddRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
-void QGeoRouteReply_OnAddRoutes(QGeoRouteReply* self, intptr_t slot);
-void QGeoRouteReply_SuperAddRoutes(QGeoRouteReply* self, const libqt_list /* of QGeoRoute* */ routes);
 QObject* QGeoRouteReply_Sender(const QGeoRouteReply* self);
-void QGeoRouteReply_OnSender(const QGeoRouteReply* self, intptr_t slot);
-QObject* QGeoRouteReply_SuperSender(const QGeoRouteReply* self);
 int QGeoRouteReply_SenderSignalIndex(const QGeoRouteReply* self);
-void QGeoRouteReply_OnSenderSignalIndex(const QGeoRouteReply* self, intptr_t slot);
-int QGeoRouteReply_SuperSenderSignalIndex(const QGeoRouteReply* self);
 int QGeoRouteReply_Receivers(const QGeoRouteReply* self, const char* signal);
-void QGeoRouteReply_OnReceivers(const QGeoRouteReply* self, intptr_t slot);
-int QGeoRouteReply_SuperReceivers(const QGeoRouteReply* self, const char* signal);
 bool QGeoRouteReply_IsSignalConnected(const QGeoRouteReply* self, const QMetaMethod* signal);
-void QGeoRouteReply_OnIsSignalConnected(const QGeoRouteReply* self, intptr_t slot);
-bool QGeoRouteReply_SuperIsSignalConnected(const QGeoRouteReply* self, const QMetaMethod* signal);
 void QGeoRouteReply_Delete(QGeoRouteReply* self);
 
 #ifdef __cplusplus

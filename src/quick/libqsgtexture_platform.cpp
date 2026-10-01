@@ -31,20 +31,8 @@ QSGTexture* QNativeInterface__QSGOpenGLTexture_FromNativeExternalOES4(uint32_t t
     return QNativeInterface::QSGOpenGLTexture::fromNativeExternalOES(static_cast<GLuint>(textureId), window, *size, static_cast<QQuickWindow::CreateTextureOptions>(options));
 }
 
-// Base class handler implementation
-uint32_t QNativeInterface__QSGOpenGLTexture_SuperNativeTexture(const QNativeInterface__QSGOpenGLTexture* self) {
-    auto* vqnativeinterfaceqsgopengltexture = const_cast<VirtualQNativeInterfaceQSGOpenGLTexture*>(dynamic_cast<const VirtualQNativeInterfaceQSGOpenGLTexture*>(self));
-    if (vqnativeinterfaceqsgopengltexture && vqnativeinterfaceqsgopengltexture->isVirtualQNativeInterfaceQSGOpenGLTexture) {
-        vqnativeinterfaceqsgopengltexture->setQNativeInterface__QSGOpenGLTexture_NativeTexture_IsBase(true);
-        return vqnativeinterfaceqsgopengltexture->nativeTexture();
-    } else {
-        return ((VirtualQNativeInterfaceQSGOpenGLTexture*)self)->nativeTexture();
-    }
-}
-
 // Auxiliary method to allow providing re-implementation
-void QNativeInterface__QSGOpenGLTexture_OnNativeTexture(const QNativeInterface__QSGOpenGLTexture* self, intptr_t slot) {
-    auto* vqnativeinterfaceqsgopengltexture = const_cast<VirtualQNativeInterfaceQSGOpenGLTexture*>(dynamic_cast<const VirtualQNativeInterfaceQSGOpenGLTexture*>(self));
-    if (vqnativeinterfaceqsgopengltexture && vqnativeinterfaceqsgopengltexture->isVirtualQNativeInterfaceQSGOpenGLTexture)
-        vqnativeinterfaceqsgopengltexture->setQNativeInterface__QSGOpenGLTexture_NativeTexture_Callback(reinterpret_cast<VirtualQNativeInterfaceQSGOpenGLTexture::QNativeInterface__QSGOpenGLTexture_NativeTexture_Callback>(slot));
+void QNativeInterface__QSGOpenGLTexture_OnNativeTexture(QNativeInterface__QSGOpenGLTexture* self, intptr_t slot) {
+    if (auto* vqnativeinterfaceqsgopengltexture = const_cast<VirtualQNativeInterfaceQSGOpenGLTexture*>(dynamic_cast<const VirtualQNativeInterfaceQSGOpenGLTexture*>(self)))
+        vqnativeinterfaceqsgopengltexture->qnativeinterface__qsgopengltexture_nativetexture_callback = reinterpret_cast<VirtualQNativeInterfaceQSGOpenGLTexture::QNativeInterface__QSGOpenGLTexture_NativeTexture_Callback>(slot);
 }

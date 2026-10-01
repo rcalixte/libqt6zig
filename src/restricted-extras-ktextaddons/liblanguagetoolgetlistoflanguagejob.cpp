@@ -165,364 +165,219 @@ libqt_string TextGrammarCheck__LanguageToolGetListOfLanguageJob_Tr3(const char* 
 
 // Base class handler implementation
 QMetaObject* TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperMetaObject(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextgrammarchecklanguagetoolgetlistoflanguagejob->metaObject();
-    } else {
-        return (QMetaObject*)self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::metaObject();
-    }
+    return (QMetaObject*)self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnMetaObject(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_MetaObject_Callback>(slot));
+void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnMetaObject(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self)))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_metaobject_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperMetacast(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const char* param1) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacast_IsBase(true);
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->qt_metacast(param1);
-    } else {
-        return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::qt_metacast(param1);
-    }
+    return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnMetacast(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacast_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_metacast_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperMetacall(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacall_IsBase(true);
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnMetacall(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacall_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_metacall_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__LanguageToolGetListOfLanguageJob_Event(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->event(event);
-    } else {
-        return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Event_IsBase(true);
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->event(event);
-    } else {
-        return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::event(event);
-    }
+    return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_Event_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_event_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__LanguageToolGetListOfLanguageJob_EventFilter(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperEventFilter(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_EventFilter_IsBase(true);
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::eventFilter(watched, event);
-    }
+    return self->TextGrammarCheck::LanguageToolGetListOfLanguageJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnEventFilter(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_EventFilter_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_eventfilter_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_TimerEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QTimerEvent* event) {
     auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
+    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob) {
         vtextgrammarchecklanguagetoolgetlistoflanguagejob->timerEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperTimerEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QTimerEvent* event) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_TimerEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->timerEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->timerEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self)) {
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->TextGrammarCheck::LanguageToolGetListOfLanguageJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnTimerEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_TimerEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_timerevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_ChildEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QChildEvent* event) {
     auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
+    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob) {
         vtextgrammarchecklanguagetoolgetlistoflanguagejob->childEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperChildEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QChildEvent* event) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_ChildEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->childEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->childEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self)) {
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->TextGrammarCheck::LanguageToolGetListOfLanguageJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnChildEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_ChildEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_childevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_CustomEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QEvent* event) {
     auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
+    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob) {
         vtextgrammarchecklanguagetoolgetlistoflanguagejob->customEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperCustomEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_CustomEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->customEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->customEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self)) {
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->TextGrammarCheck::LanguageToolGetListOfLanguageJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnCustomEvent(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_CustomEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_customevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_ConnectNotify(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const QMetaMethod* signal) {
     auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
+    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob) {
         vtextgrammarchecklanguagetoolgetlistoflanguagejob->connectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperConnectNotify(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_ConnectNotify_IsBase(true);
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->connectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self)) {
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->TextGrammarCheck::LanguageToolGetListOfLanguageJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnConnectNotify(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_ConnectNotify_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_connectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_DisconnectNotify(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const QMetaMethod* signal) {
     auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
+    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob) {
         vtextgrammarchecklanguagetoolgetlistoflanguagejob->disconnectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperDisconnectNotify(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_DisconnectNotify_IsBase(true);
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self)) {
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->TextGrammarCheck::LanguageToolGetListOfLanguageJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolGetListOfLanguageJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnDisconnectNotify(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_DisconnectNotify_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))
+        vtextgrammarchecklanguagetoolgetlistoflanguagejob->textgrammarcheck__languagetoolgetlistoflanguagejob_disconnectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextGrammarCheck__LanguageToolGetListOfLanguageJob_Sender(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->sender();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->sender();
-    }
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))) {
+        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::sender();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolGetListOfLanguageJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperSender(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Sender_IsBase(true);
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->sender();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnSender(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__LanguageToolGetListOfLanguageJob_SenderSignalIndex(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->senderSignalIndex();
-    }
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))) {
+        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolGetListOfLanguageJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperSenderSignalIndex(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_SenderSignalIndex_IsBase(true);
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnSenderSignalIndex(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__LanguageToolGetListOfLanguageJob_Receivers(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const char* signal) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->receivers(signal);
-    }
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))) {
+        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolGetListOfLanguageJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperReceivers(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const char* signal) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Receivers_IsBase(true);
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnReceivers(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__LanguageToolGetListOfLanguageJob_IsSignalConnected(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextGrammarCheck__LanguageToolGetListOfLanguageJob_SuperIsSignalConnected(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const QMetaMethod* signal) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_IsSignalConnected_IsBase(true);
-        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolGetListOfLanguageJob_OnIsSignalConnected(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self));
-    if (vtextgrammarchecklanguagetoolgetlistoflanguagejob && vtextgrammarchecklanguagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob)
-        vtextgrammarchecklanguagetoolgetlistoflanguagejob->setTextGrammarCheck__LanguageToolGetListOfLanguageJob_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::TextGrammarCheck__LanguageToolGetListOfLanguageJob_IsSignalConnected_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolgetlistoflanguagejob = const_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self))) {
+        return vtextgrammarchecklanguagetoolgetlistoflanguagejob->VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolGetListOfLanguageJob::isSignalConnected called without a directly constructed type");
 }
 
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_Delete(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {

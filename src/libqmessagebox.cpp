@@ -458,43 +458,43 @@ void QMessageBox_Connect_ButtonClicked(QMessageBox* self, intptr_t slot) {
 
 bool QMessageBox_Event(QMessageBox* self, QEvent* e) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         return vqmessagebox->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QMessageBox::event called without a directly constructed type");
 }
 
 void QMessageBox_ResizeEvent(QMessageBox* self, QResizeEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->resizeEvent(event);
     }
 }
 
 void QMessageBox_ShowEvent(QMessageBox* self, QShowEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->showEvent(event);
     }
 }
 
 void QMessageBox_CloseEvent(QMessageBox* self, QCloseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->closeEvent(event);
     }
 }
 
 void QMessageBox_KeyPressEvent(QMessageBox* self, QKeyEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->keyPressEvent(event);
     }
 }
 
 void QMessageBox_ChangeEvent(QMessageBox* self, QEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->changeEvent(event);
     }
 }
@@ -764,1762 +764,1209 @@ int QMessageBox_Critical8(QWidget* parent, const libqt_string title, const libqt
 
 // Base class handler implementation
 QMetaObject* QMessageBox_SuperMetaObject(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vqmessagebox->metaObject();
-    } else {
-        return (QMetaObject*)self->QMessageBox::metaObject();
-    }
+    return (QMetaObject*)self->QMessageBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnMetaObject(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_MetaObject_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MetaObject_Callback>(slot));
+void QMessageBox_OnMetaObject(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_metaobject_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QMessageBox_SuperMetacast(QMessageBox* self, const char* param1) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Metacast_IsBase(true);
-        return vqmessagebox->qt_metacast(param1);
-    } else {
-        return self->QMessageBox::qt_metacast(param1);
-    }
+    return self->QMessageBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMetacast(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Metacast_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Metacast_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_metacast_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QMessageBox_SuperMetacall(QMessageBox* self, int param1, int param2, void** param3) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Metacall_IsBase(true);
-        return vqmessagebox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QMessageBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QMessageBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMetacall(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Metacall_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Metacall_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_metacall_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QMessageBox_SuperEvent(QMessageBox* self, QEvent* e) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Event_IsBase(true);
-        return vqmessagebox->event(e);
-    } else {
-        return ((VirtualQMessageBox*)self)->event(e);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        return vqmessagebox->QMessageBox::event(e);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Event_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Event_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_event_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMessageBox_SuperResizeEvent(QMessageBox* self, QResizeEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ResizeEvent_IsBase(true);
-        vqmessagebox->resizeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->resizeEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnResizeEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_ResizeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ResizeEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_resizeevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMessageBox_SuperShowEvent(QMessageBox* self, QShowEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ShowEvent_IsBase(true);
-        vqmessagebox->showEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->showEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnShowEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_ShowEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ShowEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_showevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMessageBox_SuperCloseEvent(QMessageBox* self, QCloseEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_CloseEvent_IsBase(true);
-        vqmessagebox->closeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->closeEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnCloseEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_CloseEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_CloseEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_closeevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_CloseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMessageBox_SuperKeyPressEvent(QMessageBox* self, QKeyEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_KeyPressEvent_IsBase(true);
-        vqmessagebox->keyPressEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->keyPressEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnKeyPressEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_KeyPressEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_keypressevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QMessageBox_SuperChangeEvent(QMessageBox* self, QEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ChangeEvent_IsBase(true);
-        vqmessagebox->changeEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->changeEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnChangeEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_ChangeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ChangeEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_changeevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_SetVisible(QMessageBox* self, bool visible) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setVisible(visible);
-    } else {
-        self->QMessageBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QMessageBox_SuperSetVisible(QMessageBox* self, bool visible) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_SetVisible_IsBase(true);
-        vqmessagebox->setVisible(visible);
-    } else {
-        self->QMessageBox::setVisible(visible);
-    }
+    self->QMessageBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnSetVisible(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_SetVisible_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_SetVisible_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_setvisible_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QMessageBox_SizeHint(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return new QSize(vqmessagebox->sizeHint());
-    } else {
-        return new QSize(((VirtualQMessageBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QMessageBox_SuperSizeHint(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_SizeHint_IsBase(true);
-        return new QSize(vqmessagebox->sizeHint());
-    } else {
-        return new QSize(((VirtualQMessageBox*)self)->sizeHint());
-    }
+    return new QSize(self->QMessageBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnSizeHint(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_SizeHint_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_SizeHint_Callback>(slot));
+void QMessageBox_OnSizeHint(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_sizehint_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QMessageBox_MinimumSizeHint(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return new QSize(vqmessagebox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMessageBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QMessageBox_SuperMinimumSizeHint(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vqmessagebox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMessageBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QMessageBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnMinimumSizeHint(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MinimumSizeHint_Callback>(slot));
+void QMessageBox_OnMinimumSizeHint(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_minimumsizehint_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_Open(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->open();
-    } else {
-        self->QMessageBox::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void QMessageBox_SuperOpen(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Open_IsBase(true);
-        vqmessagebox->open();
-    } else {
-        self->QMessageBox::open();
-    }
+    self->QMessageBox::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnOpen(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Open_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Open_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_open_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMessageBox_Exec(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->exec();
-    } else {
-        return self->QMessageBox::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int QMessageBox_SuperExec(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Exec_IsBase(true);
-        return vqmessagebox->exec();
-    } else {
-        return self->QMessageBox::exec();
-    }
+    return self->QMessageBox::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnExec(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Exec_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Exec_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_exec_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_Done(QMessageBox* self, int param1) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->done(static_cast<int>(param1));
-    } else {
-        self->QMessageBox::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void QMessageBox_SuperDone(QMessageBox* self, int param1) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Done_IsBase(true);
-        vqmessagebox->done(static_cast<int>(param1));
-    } else {
-        self->QMessageBox::done(static_cast<int>(param1));
-    }
+    self->QMessageBox::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDone(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Done_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Done_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_done_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_Accept(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->accept();
-    } else {
-        self->QMessageBox::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void QMessageBox_SuperAccept(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Accept_IsBase(true);
-        vqmessagebox->accept();
-    } else {
-        self->QMessageBox::accept();
-    }
+    self->QMessageBox::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnAccept(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Accept_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Accept_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_accept_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_Reject(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->reject();
-    } else {
-        self->QMessageBox::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void QMessageBox_SuperReject(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Reject_IsBase(true);
-        vqmessagebox->reject();
-    } else {
-        self->QMessageBox::reject();
-    }
+    self->QMessageBox::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnReject(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Reject_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Reject_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_reject_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_ContextMenuEvent(QMessageBox* self, QContextMenuEvent* param1) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->contextMenuEvent(param1);
     } else {
-        ((VirtualQMessageBox*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QMessageBox::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperContextMenuEvent(QMessageBox* self, QContextMenuEvent* param1) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ContextMenuEvent_IsBase(true);
-        vqmessagebox->contextMenuEvent(param1);
-    } else {
-        ((VirtualQMessageBox*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnContextMenuEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_contextmenuevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMessageBox_EventFilter(QMessageBox* self, QObject* param1, QEvent* param2) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         return vqmessagebox->eventFilter(param1, param2);
     } else {
-        return ((VirtualQMessageBox*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QMessageBox::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QMessageBox_SuperEventFilter(QMessageBox* self, QObject* param1, QEvent* param2) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_EventFilter_IsBase(true);
-        return vqmessagebox->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQMessageBox*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        return vqmessagebox->QMessageBox::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnEventFilter(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_EventFilter_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_EventFilter_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_eventfilter_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMessageBox_DevType(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->devType();
-    } else {
-        return self->QMessageBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QMessageBox_SuperDevType(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_DevType_IsBase(true);
-        return vqmessagebox->devType();
-    } else {
-        return self->QMessageBox::devType();
-    }
+    return self->QMessageBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnDevType(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_DevType_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DevType_Callback>(slot));
+void QMessageBox_OnDevType(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_devtype_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMessageBox_HeightForWidth(const QMessageBox* self, int param1) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QMessageBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QMessageBox_SuperHeightForWidth(const QMessageBox* self, int param1) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_HeightForWidth_IsBase(true);
-        return vqmessagebox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QMessageBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QMessageBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnHeightForWidth(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_HeightForWidth_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_HeightForWidth_Callback>(slot));
+void QMessageBox_OnHeightForWidth(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_heightforwidth_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMessageBox_HasHeightForWidth(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->hasHeightForWidth();
-    } else {
-        return self->QMessageBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QMessageBox_SuperHasHeightForWidth(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_HasHeightForWidth_IsBase(true);
-        return vqmessagebox->hasHeightForWidth();
-    } else {
-        return self->QMessageBox::hasHeightForWidth();
-    }
+    return self->QMessageBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnHasHeightForWidth(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_HasHeightForWidth_Callback>(slot));
+void QMessageBox_OnHasHeightForWidth(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_hasheightforwidth_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QMessageBox_PaintEngine(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->paintEngine();
-    } else {
-        return self->QMessageBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QMessageBox_SuperPaintEngine(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_PaintEngine_IsBase(true);
-        return vqmessagebox->paintEngine();
-    } else {
-        return self->QMessageBox::paintEngine();
-    }
+    return self->QMessageBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnPaintEngine(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_PaintEngine_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_PaintEngine_Callback>(slot));
+void QMessageBox_OnPaintEngine(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_paintengine_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_MousePressEvent(QMessageBox* self, QMouseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->mousePressEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperMousePressEvent(QMessageBox* self, QMouseEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_MousePressEvent_IsBase(true);
-        vqmessagebox->mousePressEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->mousePressEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMousePressEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_MousePressEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MousePressEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_mousepressevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_MouseReleaseEvent(QMessageBox* self, QMouseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->mouseReleaseEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperMouseReleaseEvent(QMessageBox* self, QMouseEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_MouseReleaseEvent_IsBase(true);
-        vqmessagebox->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMouseReleaseEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_mousereleaseevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_MouseDoubleClickEvent(QMessageBox* self, QMouseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperMouseDoubleClickEvent(QMessageBox* self, QMouseEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_MouseDoubleClickEvent_IsBase(true);
-        vqmessagebox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMouseDoubleClickEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_mousedoubleclickevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_MouseMoveEvent(QMessageBox* self, QMouseEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->mouseMoveEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperMouseMoveEvent(QMessageBox* self, QMouseEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_MouseMoveEvent_IsBase(true);
-        vqmessagebox->mouseMoveEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMouseMoveEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_mousemoveevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_WheelEvent(QMessageBox* self, QWheelEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->wheelEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperWheelEvent(QMessageBox* self, QWheelEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_WheelEvent_IsBase(true);
-        vqmessagebox->wheelEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->wheelEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnWheelEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_WheelEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_WheelEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_wheelevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_KeyReleaseEvent(QMessageBox* self, QKeyEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->keyReleaseEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperKeyReleaseEvent(QMessageBox* self, QKeyEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_KeyReleaseEvent_IsBase(true);
-        vqmessagebox->keyReleaseEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnKeyReleaseEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_keyreleaseevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_FocusInEvent(QMessageBox* self, QFocusEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->focusInEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperFocusInEvent(QMessageBox* self, QFocusEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_FocusInEvent_IsBase(true);
-        vqmessagebox->focusInEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->focusInEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnFocusInEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_FocusInEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusInEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_focusinevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_FocusOutEvent(QMessageBox* self, QFocusEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->focusOutEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperFocusOutEvent(QMessageBox* self, QFocusEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_FocusOutEvent_IsBase(true);
-        vqmessagebox->focusOutEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->focusOutEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnFocusOutEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusOutEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_focusoutevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_EnterEvent(QMessageBox* self, QEnterEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->enterEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperEnterEvent(QMessageBox* self, QEnterEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_EnterEvent_IsBase(true);
-        vqmessagebox->enterEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->enterEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnEnterEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_EnterEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_EnterEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_enterevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_LeaveEvent(QMessageBox* self, QEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->leaveEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperLeaveEvent(QMessageBox* self, QEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_LeaveEvent_IsBase(true);
-        vqmessagebox->leaveEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->leaveEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnLeaveEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_LeaveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_LeaveEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_leaveevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_PaintEvent(QMessageBox* self, QPaintEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->paintEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperPaintEvent(QMessageBox* self, QPaintEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_PaintEvent_IsBase(true);
-        vqmessagebox->paintEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->paintEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnPaintEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_PaintEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_PaintEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_paintevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_MoveEvent(QMessageBox* self, QMoveEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->moveEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperMoveEvent(QMessageBox* self, QMoveEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_MoveEvent_IsBase(true);
-        vqmessagebox->moveEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->moveEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnMoveEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_MoveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_MoveEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_moveevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_TabletEvent(QMessageBox* self, QTabletEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->tabletEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperTabletEvent(QMessageBox* self, QTabletEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_TabletEvent_IsBase(true);
-        vqmessagebox->tabletEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->tabletEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnTabletEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_TabletEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_TabletEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_tabletevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_ActionEvent(QMessageBox* self, QActionEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->actionEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperActionEvent(QMessageBox* self, QActionEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ActionEvent_IsBase(true);
-        vqmessagebox->actionEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->actionEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnActionEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_ActionEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ActionEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_actionevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_DragEnterEvent(QMessageBox* self, QDragEnterEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->dragEnterEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperDragEnterEvent(QMessageBox* self, QDragEnterEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_DragEnterEvent_IsBase(true);
-        vqmessagebox->dragEnterEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDragEnterEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DragEnterEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_dragenterevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_DragMoveEvent(QMessageBox* self, QDragMoveEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->dragMoveEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperDragMoveEvent(QMessageBox* self, QDragMoveEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_DragMoveEvent_IsBase(true);
-        vqmessagebox->dragMoveEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDragMoveEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DragMoveEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_dragmoveevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_DragLeaveEvent(QMessageBox* self, QDragLeaveEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->dragLeaveEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperDragLeaveEvent(QMessageBox* self, QDragLeaveEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_DragLeaveEvent_IsBase(true);
-        vqmessagebox->dragLeaveEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDragLeaveEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_dragleaveevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_DropEvent(QMessageBox* self, QDropEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->dropEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperDropEvent(QMessageBox* self, QDropEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_DropEvent_IsBase(true);
-        vqmessagebox->dropEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->dropEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDropEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_DropEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DropEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_dropevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_HideEvent(QMessageBox* self, QHideEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->hideEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperHideEvent(QMessageBox* self, QHideEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_HideEvent_IsBase(true);
-        vqmessagebox->hideEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->hideEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnHideEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_HideEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_HideEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_hideevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMessageBox_NativeEvent(QMessageBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
+    if (vqmessagebox) {
         return vqmessagebox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQMessageBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QMessageBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QMessageBox_SuperNativeEvent(QMessageBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_NativeEvent_IsBase(true);
-        return vqmessagebox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQMessageBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        return vqmessagebox->QMessageBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnNativeEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_NativeEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_NativeEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_nativeevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMessageBox_Metric(const QMessageBox* self, int param1) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         return vqmessagebox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQMessageBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QMessageBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QMessageBox_SuperMetric(const QMessageBox* self, int param1) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Metric_IsBase(true);
-        return vqmessagebox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQMessageBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        return vqmessagebox->QMessageBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnMetric(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Metric_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Metric_Callback>(slot));
+void QMessageBox_OnMetric(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_metric_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_InitPainter(const QMessageBox* self, QPainter* painter) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->initPainter(painter);
     } else {
-        ((VirtualQMessageBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QMessageBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperInitPainter(const QMessageBox* self, QPainter* painter) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_InitPainter_IsBase(true);
-        vqmessagebox->initPainter(painter);
-    } else {
-        ((VirtualQMessageBox*)self)->initPainter(painter);
-    }
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        vqmessagebox->QMessageBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnInitPainter(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_InitPainter_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_InitPainter_Callback>(slot));
+void QMessageBox_OnInitPainter(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_initpainter_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QMessageBox_Redirected(const QMessageBox* self, QPoint* offset) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         return vqmessagebox->redirected(offset);
     } else {
-        return ((VirtualQMessageBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QMessageBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QMessageBox_SuperRedirected(const QMessageBox* self, QPoint* offset) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Redirected_IsBase(true);
-        return vqmessagebox->redirected(offset);
-    } else {
-        return ((VirtualQMessageBox*)self)->redirected(offset);
-    }
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        return vqmessagebox->QMessageBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnRedirected(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Redirected_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Redirected_Callback>(slot));
+void QMessageBox_OnRedirected(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_redirected_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QMessageBox_SharedPainter(const QMessageBox* self) {
     auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         return vqmessagebox->sharedPainter();
     } else {
-        return ((VirtualQMessageBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QMessageBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QMessageBox_SuperSharedPainter(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_SharedPainter_IsBase(true);
-        return vqmessagebox->sharedPainter();
-    } else {
-        return ((VirtualQMessageBox*)self)->sharedPainter();
-    }
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        return vqmessagebox->QMessageBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnSharedPainter(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_SharedPainter_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_SharedPainter_Callback>(slot));
+void QMessageBox_OnSharedPainter(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_sharedpainter_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_InputMethodEvent(QMessageBox* self, QInputMethodEvent* param1) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->inputMethodEvent(param1);
     } else {
-        ((VirtualQMessageBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QMessageBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperInputMethodEvent(QMessageBox* self, QInputMethodEvent* param1) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_InputMethodEvent_IsBase(true);
-        vqmessagebox->inputMethodEvent(param1);
-    } else {
-        ((VirtualQMessageBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnInputMethodEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_InputMethodEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_inputmethodevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QMessageBox_InputMethodQuery(const QMessageBox* self, int param1) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return new QVariant(vqmessagebox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQMessageBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QMessageBox_SuperInputMethodQuery(const QMessageBox* self, int param1) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vqmessagebox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQMessageBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QMessageBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMessageBox_OnInputMethodQuery(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_InputMethodQuery_Callback>(slot));
+void QMessageBox_OnInputMethodQuery(QMessageBox* self, intptr_t slot) {
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self)))
+        vqmessagebox->qmessagebox_inputmethodquery_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMessageBox_FocusNextPrevChild(QMessageBox* self, bool next) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         return vqmessagebox->focusNextPrevChild(next);
     } else {
-        return ((VirtualQMessageBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QMessageBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QMessageBox_SuperFocusNextPrevChild(QMessageBox* self, bool next) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_FocusNextPrevChild_IsBase(true);
-        return vqmessagebox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQMessageBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        return vqmessagebox->QMessageBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnFocusNextPrevChild(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_focusnextprevchild_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_TimerEvent(QMessageBox* self, QTimerEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->timerEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperTimerEvent(QMessageBox* self, QTimerEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_TimerEvent_IsBase(true);
-        vqmessagebox->timerEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->timerEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnTimerEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_TimerEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_TimerEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_timerevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_ChildEvent(QMessageBox* self, QChildEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->childEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperChildEvent(QMessageBox* self, QChildEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ChildEvent_IsBase(true);
-        vqmessagebox->childEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->childEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnChildEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_ChildEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ChildEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_childevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_CustomEvent(QMessageBox* self, QEvent* event) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->customEvent(event);
     } else {
-        ((VirtualQMessageBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QMessageBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperCustomEvent(QMessageBox* self, QEvent* event) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_CustomEvent_IsBase(true);
-        vqmessagebox->customEvent(event);
-    } else {
-        ((VirtualQMessageBox*)self)->customEvent(event);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnCustomEvent(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_CustomEvent_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_CustomEvent_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_customevent_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_ConnectNotify(QMessageBox* self, const QMetaMethod* signal) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->connectNotify(*signal);
     } else {
-        ((VirtualQMessageBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QMessageBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperConnectNotify(QMessageBox* self, const QMetaMethod* signal) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_ConnectNotify_IsBase(true);
-        vqmessagebox->connectNotify(*signal);
-    } else {
-        ((VirtualQMessageBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnConnectNotify(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_ConnectNotify_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_ConnectNotify_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_connectnotify_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMessageBox_DisconnectNotify(QMessageBox* self, const QMetaMethod* signal) {
     auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
+    if (vqmessagebox) {
         vqmessagebox->disconnectNotify(*signal);
     } else {
-        ((VirtualQMessageBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QMessageBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMessageBox_SuperDisconnectNotify(QMessageBox* self, const QMetaMethod* signal) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_DisconnectNotify_IsBase(true);
-        vqmessagebox->disconnectNotify(*signal);
-    } else {
-        ((VirtualQMessageBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->QMessageBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMessageBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMessageBox_OnDisconnectNotify(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_DisconnectNotify_Callback>(slot));
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self))
+        vqmessagebox->qmessagebox_disconnectnotify_callback = reinterpret_cast<VirtualQMessageBox::QMessageBox_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMessageBox_AdjustPosition(QMessageBox* self, QWidget* param1) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->adjustPosition(param1);
-    } else {
-        ((VirtualQMessageBox*)self)->adjustPosition(param1);
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->VirtualQMessageBox::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method QMessageBox::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMessageBox_SuperAdjustPosition(QMessageBox* self, QWidget* param1) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_AdjustPosition_IsBase(true);
-        vqmessagebox->adjustPosition(param1);
-    } else {
-        ((VirtualQMessageBox*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnAdjustPosition(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_AdjustPosition_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMessageBox_UpdateMicroFocus(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->updateMicroFocus();
-    } else {
-        ((VirtualQMessageBox*)self)->updateMicroFocus();
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->VirtualQMessageBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QMessageBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMessageBox_SuperUpdateMicroFocus(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_UpdateMicroFocus_IsBase(true);
-        vqmessagebox->updateMicroFocus();
-    } else {
-        ((VirtualQMessageBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnUpdateMicroFocus(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMessageBox_Create(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->create();
-    } else {
-        ((VirtualQMessageBox*)self)->create();
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->VirtualQMessageBox::create();
+    } else
+        qFatal("Error: Protected method QMessageBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMessageBox_SuperCreate(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Create_IsBase(true);
-        vqmessagebox->create();
-    } else {
-        ((VirtualQMessageBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnCreate(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Create_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QMessageBox_Destroy(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->destroy();
-    } else {
-        ((VirtualQMessageBox*)self)->destroy();
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        vqmessagebox->VirtualQMessageBox::destroy();
+    } else
+        qFatal("Error: Protected method QMessageBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QMessageBox_SuperDestroy(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Destroy_IsBase(true);
-        vqmessagebox->destroy();
-    } else {
-        ((VirtualQMessageBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnDestroy(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Destroy_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMessageBox_FocusNextChild(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->focusNextChild();
-    } else {
-        return ((VirtualQMessageBox*)self)->focusNextChild();
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        return vqmessagebox->VirtualQMessageBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method QMessageBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMessageBox_SuperFocusNextChild(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_FocusNextChild_IsBase(true);
-        return vqmessagebox->focusNextChild();
-    } else {
-        return ((VirtualQMessageBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnFocusNextChild(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_FocusNextChild_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMessageBox_FocusPreviousChild(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->focusPreviousChild();
-    } else {
-        return ((VirtualQMessageBox*)self)->focusPreviousChild();
-    }
+    if (auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self)) {
+        return vqmessagebox->VirtualQMessageBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QMessageBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMessageBox_SuperFocusPreviousChild(QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_FocusPreviousChild_IsBase(true);
-        return vqmessagebox->focusPreviousChild();
-    } else {
-        return ((VirtualQMessageBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnFocusPreviousChild(QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QMessageBox_Sender(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->sender();
-    } else {
-        return ((VirtualQMessageBox*)self)->sender();
-    }
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        return vqmessagebox->VirtualQMessageBox::sender();
+    } else
+        qFatal("Error: Protected method QMessageBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QMessageBox_SuperSender(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Sender_IsBase(true);
-        return vqmessagebox->sender();
-    } else {
-        return ((VirtualQMessageBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnSender(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Sender_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMessageBox_SenderSignalIndex(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->senderSignalIndex();
-    } else {
-        return ((VirtualQMessageBox*)self)->senderSignalIndex();
-    }
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        return vqmessagebox->VirtualQMessageBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QMessageBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMessageBox_SuperSenderSignalIndex(const QMessageBox* self) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_SenderSignalIndex_IsBase(true);
-        return vqmessagebox->senderSignalIndex();
-    } else {
-        return ((VirtualQMessageBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnSenderSignalIndex(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMessageBox_Receivers(const QMessageBox* self, const char* signal) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->receivers(signal);
-    } else {
-        return ((VirtualQMessageBox*)self)->receivers(signal);
-    }
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        return vqmessagebox->VirtualQMessageBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method QMessageBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMessageBox_SuperReceivers(const QMessageBox* self, const char* signal) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_Receivers_IsBase(true);
-        return vqmessagebox->receivers(signal);
-    } else {
-        return ((VirtualQMessageBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnReceivers(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_Receivers_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMessageBox_IsSignalConnected(const QMessageBox* self, const QMetaMethod* signal) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMessageBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        return vqmessagebox->VirtualQMessageBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QMessageBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QMessageBox_SuperIsSignalConnected(const QMessageBox* self, const QMetaMethod* signal) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_IsSignalConnected_IsBase(true);
-        return vqmessagebox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMessageBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnIsSignalConnected(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QMessageBox_GetDecodedMetricF(const QMessageBox* self, int metricA, int metricB) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return vqmessagebox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQMessageBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QMessageBox_SuperGetDecodedMetricF(const QMessageBox* self, int metricA, int metricB) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        vqmessagebox->setQMessageBox_GetDecodedMetricF_IsBase(true);
-        return vqmessagebox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQMessageBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMessageBox_OnGetDecodedMetricF(const QMessageBox* self, intptr_t slot) {
-    auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self));
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox)
-        vqmessagebox->setQMessageBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMessageBox::QMessageBox_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqmessagebox = const_cast<VirtualQMessageBox*>(dynamic_cast<const VirtualQMessageBox*>(self))) {
+        return vqmessagebox->VirtualQMessageBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QMessageBox::getDecodedMetricF called without a directly constructed type");
 }
 
 void QMessageBox_Delete(QMessageBox* self) {

@@ -55,7 +55,7 @@ bool QOpenGLShader_HasOpenGLShaders(int typeVal);
 libqt_string QOpenGLShader_Tr2(const char* s, const char* c);
 libqt_string QOpenGLShader_Tr3(const char* s, const char* c, int n);
 bool QOpenGLShader_HasOpenGLShaders2(int typeVal, QOpenGLContext* context);
-void QOpenGLShader_OnMetaObject(const QOpenGLShader* self, intptr_t slot);
+void QOpenGLShader_OnMetaObject(QOpenGLShader* self, intptr_t slot);
 QMetaObject* QOpenGLShader_SuperMetaObject(const QOpenGLShader* self);
 void QOpenGLShader_OnMetacast(QOpenGLShader* self, intptr_t slot);
 void* QOpenGLShader_SuperMetacast(QOpenGLShader* self, const char* param1);
@@ -83,17 +83,9 @@ void QOpenGLShader_DisconnectNotify(QOpenGLShader* self, const QMetaMethod* sign
 void QOpenGLShader_OnDisconnectNotify(QOpenGLShader* self, intptr_t slot);
 void QOpenGLShader_SuperDisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal);
 QObject* QOpenGLShader_Sender(const QOpenGLShader* self);
-void QOpenGLShader_OnSender(const QOpenGLShader* self, intptr_t slot);
-QObject* QOpenGLShader_SuperSender(const QOpenGLShader* self);
 int QOpenGLShader_SenderSignalIndex(const QOpenGLShader* self);
-void QOpenGLShader_OnSenderSignalIndex(const QOpenGLShader* self, intptr_t slot);
-int QOpenGLShader_SuperSenderSignalIndex(const QOpenGLShader* self);
 int QOpenGLShader_Receivers(const QOpenGLShader* self, const char* signal);
-void QOpenGLShader_OnReceivers(const QOpenGLShader* self, intptr_t slot);
-int QOpenGLShader_SuperReceivers(const QOpenGLShader* self, const char* signal);
 bool QOpenGLShader_IsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal);
-void QOpenGLShader_OnIsSignalConnected(const QOpenGLShader* self, intptr_t slot);
-bool QOpenGLShader_SuperIsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal);
 void QOpenGLShader_Delete(QOpenGLShader* self);
 
 QOpenGLShaderProgram* QOpenGLShaderProgram_new();
@@ -233,7 +225,7 @@ void QOpenGLShaderProgram_SetAttributeArray53(QOpenGLShaderProgram* self, const 
 void QOpenGLShaderProgram_SetAttributeBuffer5(QOpenGLShaderProgram* self, int location, uint32_t typeVal, int offset, int tupleSize, int stride);
 void QOpenGLShaderProgram_SetAttributeBuffer52(QOpenGLShaderProgram* self, const char* name, uint32_t typeVal, int offset, int tupleSize, int stride);
 bool QOpenGLShaderProgram_HasOpenGLShaderPrograms1(QOpenGLContext* context);
-void QOpenGLShaderProgram_OnMetaObject(const QOpenGLShaderProgram* self, intptr_t slot);
+void QOpenGLShaderProgram_OnMetaObject(QOpenGLShaderProgram* self, intptr_t slot);
 QMetaObject* QOpenGLShaderProgram_SuperMetaObject(const QOpenGLShaderProgram* self);
 void QOpenGLShaderProgram_OnMetacast(QOpenGLShaderProgram* self, intptr_t slot);
 void* QOpenGLShaderProgram_SuperMetacast(QOpenGLShaderProgram* self, const char* param1);
@@ -263,17 +255,9 @@ void QOpenGLShaderProgram_DisconnectNotify(QOpenGLShaderProgram* self, const QMe
 void QOpenGLShaderProgram_OnDisconnectNotify(QOpenGLShaderProgram* self, intptr_t slot);
 void QOpenGLShaderProgram_SuperDisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal);
 QObject* QOpenGLShaderProgram_Sender(const QOpenGLShaderProgram* self);
-void QOpenGLShaderProgram_OnSender(const QOpenGLShaderProgram* self, intptr_t slot);
-QObject* QOpenGLShaderProgram_SuperSender(const QOpenGLShaderProgram* self);
 int QOpenGLShaderProgram_SenderSignalIndex(const QOpenGLShaderProgram* self);
-void QOpenGLShaderProgram_OnSenderSignalIndex(const QOpenGLShaderProgram* self, intptr_t slot);
-int QOpenGLShaderProgram_SuperSenderSignalIndex(const QOpenGLShaderProgram* self);
 int QOpenGLShaderProgram_Receivers(const QOpenGLShaderProgram* self, const char* signal);
-void QOpenGLShaderProgram_OnReceivers(const QOpenGLShaderProgram* self, intptr_t slot);
-int QOpenGLShaderProgram_SuperReceivers(const QOpenGLShaderProgram* self, const char* signal);
 bool QOpenGLShaderProgram_IsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal);
-void QOpenGLShaderProgram_OnIsSignalConnected(const QOpenGLShaderProgram* self, intptr_t slot);
-bool QOpenGLShaderProgram_SuperIsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal);
 void QOpenGLShaderProgram_Delete(QOpenGLShaderProgram* self);
 
 #ifdef __cplusplus

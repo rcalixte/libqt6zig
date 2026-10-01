@@ -228,7 +228,7 @@ void QSslServer_Connect_StartedEncryptionHandshake(QSslServer* self, intptr_t sl
 
 void QSslServer_IncomingConnection(QSslServer* self, intptr_t socket) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver) {
         vqsslserver->incomingConnection((qintptr)(socket));
     }
 }
@@ -259,466 +259,273 @@ libqt_string QSslServer_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSslServer_SuperMetaObject(const QSslServer* self) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsslserver->metaObject();
-    } else {
-        return (QMetaObject*)self->QSslServer::metaObject();
-    }
+    return (QMetaObject*)self->QSslServer::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSslServer_OnMetaObject(const QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_MetaObject_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_MetaObject_Callback>(slot));
+void QSslServer_OnMetaObject(QSslServer* self, intptr_t slot) {
+    if (auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self)))
+        vqsslserver->qsslserver_metaobject_callback = reinterpret_cast<VirtualQSslServer::QSslServer_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSslServer_SuperMetacast(QSslServer* self, const char* param1) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_Metacast_IsBase(true);
-        return vqsslserver->qt_metacast(param1);
-    } else {
-        return self->QSslServer::qt_metacast(param1);
-    }
+    return self->QSslServer::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnMetacast(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_Metacast_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Metacast_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_metacast_callback = reinterpret_cast<VirtualQSslServer::QSslServer_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSslServer_SuperMetacall(QSslServer* self, int param1, int param2, void** param3) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_Metacall_IsBase(true);
-        return vqsslserver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSslServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSslServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnMetacall(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_Metacall_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Metacall_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_metacall_callback = reinterpret_cast<VirtualQSslServer::QSslServer_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSslServer_SuperIncomingConnection(QSslServer* self, intptr_t socket) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_IncomingConnection_IsBase(true);
-        vqsslserver->incomingConnection((qintptr)(socket));
-    } else {
-        ((VirtualQSslServer*)self)->incomingConnection((qintptr)(socket));
-    }
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self)) {
+        vqsslserver->QSslServer::incomingConnection((qintptr)(socket));
+    } else
+        qFatal("Error: Protected virtual method QSslServer::incomingConnection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnIncomingConnection(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_IncomingConnection_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_IncomingConnection_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_incomingconnection_callback = reinterpret_cast<VirtualQSslServer::QSslServer_IncomingConnection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSslServer_HasPendingConnections(const QSslServer* self) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return vqsslserver->hasPendingConnections();
-    } else {
-        return self->QSslServer::hasPendingConnections();
-    }
+    return self->hasPendingConnections();
 }
 
 // Base class handler implementation
 bool QSslServer_SuperHasPendingConnections(const QSslServer* self) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_HasPendingConnections_IsBase(true);
-        return vqsslserver->hasPendingConnections();
-    } else {
-        return self->QSslServer::hasPendingConnections();
-    }
+    return self->QSslServer::hasPendingConnections();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSslServer_OnHasPendingConnections(const QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_HasPendingConnections_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_HasPendingConnections_Callback>(slot));
+void QSslServer_OnHasPendingConnections(QSslServer* self, intptr_t slot) {
+    if (auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self)))
+        vqsslserver->qsslserver_haspendingconnections_callback = reinterpret_cast<VirtualQSslServer::QSslServer_HasPendingConnections_Callback>(slot);
 }
 
 // Derived class handler implementation
 QTcpSocket* QSslServer_NextPendingConnection(QSslServer* self) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return vqsslserver->nextPendingConnection();
-    } else {
-        return self->QSslServer::nextPendingConnection();
-    }
+    return self->nextPendingConnection();
 }
 
 // Base class handler implementation
 QTcpSocket* QSslServer_SuperNextPendingConnection(QSslServer* self) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_NextPendingConnection_IsBase(true);
-        return vqsslserver->nextPendingConnection();
-    } else {
-        return self->QSslServer::nextPendingConnection();
-    }
+    return self->QSslServer::nextPendingConnection();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnNextPendingConnection(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_NextPendingConnection_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_nextpendingconnection_callback = reinterpret_cast<VirtualQSslServer::QSslServer_NextPendingConnection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSslServer_Event(QSslServer* self, QEvent* event) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return vqsslserver->event(event);
-    } else {
-        return self->QSslServer::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QSslServer_SuperEvent(QSslServer* self, QEvent* event) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_Event_IsBase(true);
-        return vqsslserver->event(event);
-    } else {
-        return self->QSslServer::event(event);
-    }
+    return self->QSslServer::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnEvent(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_Event_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Event_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_event_callback = reinterpret_cast<VirtualQSslServer::QSslServer_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSslServer_EventFilter(QSslServer* self, QObject* watched, QEvent* event) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return vqsslserver->eventFilter(watched, event);
-    } else {
-        return self->QSslServer::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSslServer_SuperEventFilter(QSslServer* self, QObject* watched, QEvent* event) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_EventFilter_IsBase(true);
-        return vqsslserver->eventFilter(watched, event);
-    } else {
-        return self->QSslServer::eventFilter(watched, event);
-    }
+    return self->QSslServer::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnEventFilter(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_EventFilter_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_EventFilter_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_eventfilter_callback = reinterpret_cast<VirtualQSslServer::QSslServer_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSslServer_TimerEvent(QSslServer* self, QTimerEvent* event) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver) {
         vqsslserver->timerEvent(event);
     } else {
-        ((VirtualQSslServer*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSslServer::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSslServer_SuperTimerEvent(QSslServer* self, QTimerEvent* event) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_TimerEvent_IsBase(true);
-        vqsslserver->timerEvent(event);
-    } else {
-        ((VirtualQSslServer*)self)->timerEvent(event);
-    }
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self)) {
+        vqsslserver->QSslServer::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSslServer::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnTimerEvent(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_TimerEvent_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_TimerEvent_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_timerevent_callback = reinterpret_cast<VirtualQSslServer::QSslServer_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSslServer_ChildEvent(QSslServer* self, QChildEvent* event) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver) {
         vqsslserver->childEvent(event);
     } else {
-        ((VirtualQSslServer*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSslServer::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSslServer_SuperChildEvent(QSslServer* self, QChildEvent* event) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_ChildEvent_IsBase(true);
-        vqsslserver->childEvent(event);
-    } else {
-        ((VirtualQSslServer*)self)->childEvent(event);
-    }
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self)) {
+        vqsslserver->QSslServer::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSslServer::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnChildEvent(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_ChildEvent_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_ChildEvent_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_childevent_callback = reinterpret_cast<VirtualQSslServer::QSslServer_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSslServer_CustomEvent(QSslServer* self, QEvent* event) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver) {
         vqsslserver->customEvent(event);
     } else {
-        ((VirtualQSslServer*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSslServer::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSslServer_SuperCustomEvent(QSslServer* self, QEvent* event) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_CustomEvent_IsBase(true);
-        vqsslserver->customEvent(event);
-    } else {
-        ((VirtualQSslServer*)self)->customEvent(event);
-    }
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self)) {
+        vqsslserver->QSslServer::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSslServer::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnCustomEvent(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_CustomEvent_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_CustomEvent_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_customevent_callback = reinterpret_cast<VirtualQSslServer::QSslServer_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSslServer_ConnectNotify(QSslServer* self, const QMetaMethod* signal) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver) {
         vqsslserver->connectNotify(*signal);
     } else {
-        ((VirtualQSslServer*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSslServer::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSslServer_SuperConnectNotify(QSslServer* self, const QMetaMethod* signal) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_ConnectNotify_IsBase(true);
-        vqsslserver->connectNotify(*signal);
-    } else {
-        ((VirtualQSslServer*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self)) {
+        vqsslserver->QSslServer::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSslServer::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnConnectNotify(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_ConnectNotify_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_ConnectNotify_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_connectnotify_callback = reinterpret_cast<VirtualQSslServer::QSslServer_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSslServer_DisconnectNotify(QSslServer* self, const QMetaMethod* signal) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver) {
         vqsslserver->disconnectNotify(*signal);
     } else {
-        ((VirtualQSslServer*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSslServer::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSslServer_SuperDisconnectNotify(QSslServer* self, const QMetaMethod* signal) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_DisconnectNotify_IsBase(true);
-        vqsslserver->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSslServer*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self)) {
+        vqsslserver->QSslServer::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSslServer::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnDisconnectNotify(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_DisconnectNotify_Callback>(slot));
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self))
+        vqsslserver->qsslserver_disconnectnotify_callback = reinterpret_cast<VirtualQSslServer::QSslServer_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSslServer_AddPendingConnection(QSslServer* self, QTcpSocket* socket) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->addPendingConnection(socket);
-    } else {
-        ((VirtualQSslServer*)self)->addPendingConnection(socket);
-    }
+    if (auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self)) {
+        vqsslserver->VirtualQSslServer::addPendingConnection(socket);
+    } else
+        qFatal("Error: Protected method QSslServer::addPendingConnection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSslServer_SuperAddPendingConnection(QSslServer* self, QTcpSocket* socket) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_AddPendingConnection_IsBase(true);
-        vqsslserver->addPendingConnection(socket);
-    } else {
-        ((VirtualQSslServer*)self)->addPendingConnection(socket);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSslServer_OnAddPendingConnection(QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_AddPendingConnection_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_AddPendingConnection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSslServer_Sender(const QSslServer* self) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return vqsslserver->sender();
-    } else {
-        return ((VirtualQSslServer*)self)->sender();
-    }
+    if (auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self))) {
+        return vqsslserver->VirtualQSslServer::sender();
+    } else
+        qFatal("Error: Protected method QSslServer::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSslServer_SuperSender(const QSslServer* self) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_Sender_IsBase(true);
-        return vqsslserver->sender();
-    } else {
-        return ((VirtualQSslServer*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSslServer_OnSender(const QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_Sender_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSslServer_SenderSignalIndex(const QSslServer* self) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return vqsslserver->senderSignalIndex();
-    } else {
-        return ((VirtualQSslServer*)self)->senderSignalIndex();
-    }
+    if (auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self))) {
+        return vqsslserver->VirtualQSslServer::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSslServer::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSslServer_SuperSenderSignalIndex(const QSslServer* self) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_SenderSignalIndex_IsBase(true);
-        return vqsslserver->senderSignalIndex();
-    } else {
-        return ((VirtualQSslServer*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSslServer_OnSenderSignalIndex(const QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSslServer_Receivers(const QSslServer* self, const char* signal) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return vqsslserver->receivers(signal);
-    } else {
-        return ((VirtualQSslServer*)self)->receivers(signal);
-    }
+    if (auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self))) {
+        return vqsslserver->VirtualQSslServer::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSslServer::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSslServer_SuperReceivers(const QSslServer* self, const char* signal) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_Receivers_IsBase(true);
-        return vqsslserver->receivers(signal);
-    } else {
-        return ((VirtualQSslServer*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSslServer_OnReceivers(const QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_Receivers_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSslServer_IsSignalConnected(const QSslServer* self, const QMetaMethod* signal) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return vqsslserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSslServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSslServer_SuperIsSignalConnected(const QSslServer* self, const QMetaMethod* signal) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        vqsslserver->setQSslServer_IsSignalConnected_IsBase(true);
-        return vqsslserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSslServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSslServer_OnIsSignalConnected(const QSslServer* self, intptr_t slot) {
-    auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer)
-        vqsslserver->setQSslServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_IsSignalConnected_Callback>(slot));
+    if (auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self))) {
+        return vqsslserver->VirtualQSslServer::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSslServer::isSignalConnected called without a directly constructed type");
 }
 
 void QSslServer_Delete(QSslServer* self) {

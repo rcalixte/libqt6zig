@@ -9,30 +9,26 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KRichTextWidget so that we can call protected methods
+// This class is a subclass of KRichTextWidget
 class VirtualKRichTextWidget final : public KRichTextWidget {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKRichTextWidget = true;
-
-    // Virtual class public types (including callbacks)
-    using KRichTextWidget_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KRichTextWidget_MetaObject_Callback = QMetaObject* (*)(const KRichTextWidget*);
     using KRichTextWidget_Metacast_Callback = void* (*)(KRichTextWidget*, const char*);
     using KRichTextWidget_Metacall_Callback = int (*)(KRichTextWidget*, int, int, void**);
-    using KRichTextWidget_CreateActions_Callback = libqt_list /* of QAction* */ (*)();
+    using KRichTextWidget_CreateActions_Callback = libqt_list /* of QAction* */ (*)(KRichTextWidget*);
     using KRichTextWidget_MouseReleaseEvent_Callback = void (*)(KRichTextWidget*, QMouseEvent*);
     using KRichTextWidget_KeyPressEvent_Callback = void (*)(KRichTextWidget*, QKeyEvent*);
     using KRichTextWidget_SetReadOnly_Callback = void (*)(KRichTextWidget*, bool);
     using KRichTextWidget_SetCheckSpellingEnabled_Callback = void (*)(KRichTextWidget*, bool);
-    using KRichTextWidget_CheckSpellingEnabled_Callback = bool (*)();
+    using KRichTextWidget_CheckSpellingEnabled_Callback = bool (*)(const KRichTextWidget*);
     using KRichTextWidget_ShouldBlockBeSpellChecked_Callback = bool (*)(const KRichTextWidget*, const char*);
-    using KRichTextWidget_CreateHighlighter_Callback = void (*)();
-    using KRichTextWidget_MousePopupMenu_Callback = QMenu* (*)();
+    using KRichTextWidget_CreateHighlighter_Callback = void (*)(KRichTextWidget*);
+    using KRichTextWidget_MousePopupMenu_Callback = QMenu* (*)(KRichTextWidget*);
     using KRichTextWidget_Event_Callback = bool (*)(KRichTextWidget*, QEvent*);
     using KRichTextWidget_FocusInEvent_Callback = void (*)(KRichTextWidget*, QFocusEvent*);
-    using KRichTextWidget_DeleteWordBack_Callback = void (*)();
-    using KRichTextWidget_DeleteWordForward_Callback = void (*)();
+    using KRichTextWidget_DeleteWordBack_Callback = void (*)(KRichTextWidget*);
+    using KRichTextWidget_DeleteWordForward_Callback = void (*)(KRichTextWidget*);
     using KRichTextWidget_ContextMenuEvent_Callback = void (*)(KRichTextWidget*, QContextMenuEvent*);
     using KRichTextWidget_LoadResource_Callback = QVariant* (*)(KRichTextWidget*, int, QUrl*);
     using KRichTextWidget_InputMethodQuery_Callback = QVariant* (*)(const KRichTextWidget*, int);
@@ -52,24 +48,24 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     using KRichTextWidget_ShowEvent_Callback = void (*)(KRichTextWidget*, QShowEvent*);
     using KRichTextWidget_ChangeEvent_Callback = void (*)(KRichTextWidget*, QEvent*);
     using KRichTextWidget_WheelEvent_Callback = void (*)(KRichTextWidget*, QWheelEvent*);
-    using KRichTextWidget_CreateMimeDataFromSelection_Callback = QMimeData* (*)();
+    using KRichTextWidget_CreateMimeDataFromSelection_Callback = QMimeData* (*)(const KRichTextWidget*);
     using KRichTextWidget_CanInsertFromMimeData_Callback = bool (*)(const KRichTextWidget*, QMimeData*);
     using KRichTextWidget_InsertFromMimeData_Callback = void (*)(KRichTextWidget*, QMimeData*);
     using KRichTextWidget_InputMethodEvent_Callback = void (*)(KRichTextWidget*, QInputMethodEvent*);
     using KRichTextWidget_ScrollContentsBy_Callback = void (*)(KRichTextWidget*, int, int);
     using KRichTextWidget_DoSetTextCursor_Callback = void (*)(KRichTextWidget*, QTextCursor*);
-    using KRichTextWidget_MinimumSizeHint_Callback = QSize* (*)();
-    using KRichTextWidget_SizeHint_Callback = QSize* (*)();
+    using KRichTextWidget_MinimumSizeHint_Callback = QSize* (*)(const KRichTextWidget*);
+    using KRichTextWidget_SizeHint_Callback = QSize* (*)(const KRichTextWidget*);
     using KRichTextWidget_SetupViewport_Callback = void (*)(KRichTextWidget*, QWidget*);
     using KRichTextWidget_EventFilter_Callback = bool (*)(KRichTextWidget*, QObject*, QEvent*);
     using KRichTextWidget_ViewportEvent_Callback = bool (*)(KRichTextWidget*, QEvent*);
-    using KRichTextWidget_ViewportSizeHint_Callback = QSize* (*)();
+    using KRichTextWidget_ViewportSizeHint_Callback = QSize* (*)(const KRichTextWidget*);
     using KRichTextWidget_InitStyleOption_Callback = void (*)(const KRichTextWidget*, QStyleOptionFrame*);
-    using KRichTextWidget_DevType_Callback = int (*)();
+    using KRichTextWidget_DevType_Callback = int (*)(const KRichTextWidget*);
     using KRichTextWidget_SetVisible_Callback = void (*)(KRichTextWidget*, bool);
     using KRichTextWidget_HeightForWidth_Callback = int (*)(const KRichTextWidget*, int);
-    using KRichTextWidget_HasHeightForWidth_Callback = bool (*)();
-    using KRichTextWidget_PaintEngine_Callback = QPaintEngine* (*)();
+    using KRichTextWidget_HasHeightForWidth_Callback = bool (*)(const KRichTextWidget*);
+    using KRichTextWidget_PaintEngine_Callback = QPaintEngine* (*)(const KRichTextWidget*);
     using KRichTextWidget_EnterEvent_Callback = void (*)(KRichTextWidget*, QEnterEvent*);
     using KRichTextWidget_LeaveEvent_Callback = void (*)(KRichTextWidget*, QEvent*);
     using KRichTextWidget_MoveEvent_Callback = void (*)(KRichTextWidget*, QMoveEvent*);
@@ -81,35 +77,34 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     using KRichTextWidget_Metric_Callback = int (*)(const KRichTextWidget*, int);
     using KRichTextWidget_InitPainter_Callback = void (*)(const KRichTextWidget*, QPainter*);
     using KRichTextWidget_Redirected_Callback = QPaintDevice* (*)(const KRichTextWidget*, QPoint*);
-    using KRichTextWidget_SharedPainter_Callback = QPainter* (*)();
+    using KRichTextWidget_SharedPainter_Callback = QPainter* (*)(const KRichTextWidget*);
     using KRichTextWidget_ChildEvent_Callback = void (*)(KRichTextWidget*, QChildEvent*);
     using KRichTextWidget_CustomEvent_Callback = void (*)(KRichTextWidget*, QEvent*);
     using KRichTextWidget_ConnectNotify_Callback = void (*)(KRichTextWidget*, QMetaMethod*);
     using KRichTextWidget_DisconnectNotify_Callback = void (*)(KRichTextWidget*, QMetaMethod*);
-    using KRichTextWidget_SlotDoReplace_Callback = void (*)();
-    using KRichTextWidget_SlotReplaceNext_Callback = void (*)();
-    using KRichTextWidget_SlotDoFind_Callback = void (*)();
-    using KRichTextWidget_SlotFind_Callback = void (*)();
-    using KRichTextWidget_SlotFindNext_Callback = void (*)();
-    using KRichTextWidget_SlotFindPrevious_Callback = void (*)();
-    using KRichTextWidget_SlotReplace_Callback = void (*)();
-    using KRichTextWidget_SlotSpeakText_Callback = void (*)();
-    using KRichTextWidget_ZoomInF_Callback = void (*)(KRichTextWidget*, float);
-    using KRichTextWidget_SetViewportMargins_Callback = void (*)(KRichTextWidget*, int, int, int, int);
-    using KRichTextWidget_ViewportMargins_Callback = QMargins* (*)();
-    using KRichTextWidget_DrawFrame_Callback = void (*)(KRichTextWidget*, QPainter*);
-    using KRichTextWidget_UpdateMicroFocus_Callback = void (*)();
-    using KRichTextWidget_Create_Callback = void (*)();
-    using KRichTextWidget_Destroy_Callback = void (*)();
-    using KRichTextWidget_FocusNextChild_Callback = bool (*)();
-    using KRichTextWidget_FocusPreviousChild_Callback = bool (*)();
-    using KRichTextWidget_Sender_Callback = QObject* (*)();
-    using KRichTextWidget_SenderSignalIndex_Callback = int (*)();
-    using KRichTextWidget_Receivers_Callback = int (*)(const KRichTextWidget*, const char*);
-    using KRichTextWidget_IsSignalConnected_Callback = bool (*)(const KRichTextWidget*, QMetaMethod*);
-    using KRichTextWidget_GetDecodedMetricF_Callback = double (*)(const KRichTextWidget*, int, int);
+    using KRichTextWidget::create;
+    using KRichTextWidget::destroy;
+    using KRichTextWidget::drawFrame;
+    using KRichTextWidget::focusNextChild;
+    using KRichTextWidget::focusPreviousChild;
+    using KRichTextWidget::getDecodedMetricF;
+    using KRichTextWidget::isSignalConnected;
+    using KRichTextWidget::receivers;
+    using KRichTextWidget::sender;
+    using KRichTextWidget::senderSignalIndex;
+    using KRichTextWidget::setViewportMargins;
+    using KRichTextWidget::slotDoFind;
+    using KRichTextWidget::slotDoReplace;
+    using KRichTextWidget::slotFind;
+    using KRichTextWidget::slotFindNext;
+    using KRichTextWidget::slotFindPrevious;
+    using KRichTextWidget::slotReplace;
+    using KRichTextWidget::slotReplaceNext;
+    using KRichTextWidget::slotSpeakText;
+    using KRichTextWidget::updateMicroFocus;
+    using KRichTextWidget::viewportMargins;
+    using KRichTextWidget::zoomInF;
 
-  protected:
     // Instance callback storage
     KRichTextWidget_MetaObject_Callback krichtextwidget_metaobject_callback = nullptr;
     KRichTextWidget_Metacast_Callback krichtextwidget_metacast_callback = nullptr;
@@ -180,322 +175,68 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
     KRichTextWidget_CustomEvent_Callback krichtextwidget_customevent_callback = nullptr;
     KRichTextWidget_ConnectNotify_Callback krichtextwidget_connectnotify_callback = nullptr;
     KRichTextWidget_DisconnectNotify_Callback krichtextwidget_disconnectnotify_callback = nullptr;
-    KRichTextWidget_SlotDoReplace_Callback krichtextwidget_slotdoreplace_callback = nullptr;
-    KRichTextWidget_SlotReplaceNext_Callback krichtextwidget_slotreplacenext_callback = nullptr;
-    KRichTextWidget_SlotDoFind_Callback krichtextwidget_slotdofind_callback = nullptr;
-    KRichTextWidget_SlotFind_Callback krichtextwidget_slotfind_callback = nullptr;
-    KRichTextWidget_SlotFindNext_Callback krichtextwidget_slotfindnext_callback = nullptr;
-    KRichTextWidget_SlotFindPrevious_Callback krichtextwidget_slotfindprevious_callback = nullptr;
-    KRichTextWidget_SlotReplace_Callback krichtextwidget_slotreplace_callback = nullptr;
-    KRichTextWidget_SlotSpeakText_Callback krichtextwidget_slotspeaktext_callback = nullptr;
-    KRichTextWidget_ZoomInF_Callback krichtextwidget_zoominf_callback = nullptr;
-    KRichTextWidget_SetViewportMargins_Callback krichtextwidget_setviewportmargins_callback = nullptr;
-    KRichTextWidget_ViewportMargins_Callback krichtextwidget_viewportmargins_callback = nullptr;
-    KRichTextWidget_DrawFrame_Callback krichtextwidget_drawframe_callback = nullptr;
-    KRichTextWidget_UpdateMicroFocus_Callback krichtextwidget_updatemicrofocus_callback = nullptr;
-    KRichTextWidget_Create_Callback krichtextwidget_create_callback = nullptr;
-    KRichTextWidget_Destroy_Callback krichtextwidget_destroy_callback = nullptr;
-    KRichTextWidget_FocusNextChild_Callback krichtextwidget_focusnextchild_callback = nullptr;
-    KRichTextWidget_FocusPreviousChild_Callback krichtextwidget_focuspreviouschild_callback = nullptr;
-    KRichTextWidget_Sender_Callback krichtextwidget_sender_callback = nullptr;
-    KRichTextWidget_SenderSignalIndex_Callback krichtextwidget_sendersignalindex_callback = nullptr;
-    KRichTextWidget_Receivers_Callback krichtextwidget_receivers_callback = nullptr;
-    KRichTextWidget_IsSignalConnected_Callback krichtextwidget_issignalconnected_callback = nullptr;
-    KRichTextWidget_GetDecodedMetricF_Callback krichtextwidget_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool krichtextwidget_metaobject_isbase = false;
-    mutable bool krichtextwidget_metacast_isbase = false;
-    mutable bool krichtextwidget_metacall_isbase = false;
-    mutable bool krichtextwidget_createactions_isbase = false;
-    mutable bool krichtextwidget_mousereleaseevent_isbase = false;
-    mutable bool krichtextwidget_keypressevent_isbase = false;
-    mutable bool krichtextwidget_setreadonly_isbase = false;
-    mutable bool krichtextwidget_setcheckspellingenabled_isbase = false;
-    mutable bool krichtextwidget_checkspellingenabled_isbase = false;
-    mutable bool krichtextwidget_shouldblockbespellchecked_isbase = false;
-    mutable bool krichtextwidget_createhighlighter_isbase = false;
-    mutable bool krichtextwidget_mousepopupmenu_isbase = false;
-    mutable bool krichtextwidget_event_isbase = false;
-    mutable bool krichtextwidget_focusinevent_isbase = false;
-    mutable bool krichtextwidget_deletewordback_isbase = false;
-    mutable bool krichtextwidget_deletewordforward_isbase = false;
-    mutable bool krichtextwidget_contextmenuevent_isbase = false;
-    mutable bool krichtextwidget_loadresource_isbase = false;
-    mutable bool krichtextwidget_inputmethodquery_isbase = false;
-    mutable bool krichtextwidget_timerevent_isbase = false;
-    mutable bool krichtextwidget_keyreleaseevent_isbase = false;
-    mutable bool krichtextwidget_resizeevent_isbase = false;
-    mutable bool krichtextwidget_paintevent_isbase = false;
-    mutable bool krichtextwidget_mousepressevent_isbase = false;
-    mutable bool krichtextwidget_mousemoveevent_isbase = false;
-    mutable bool krichtextwidget_mousedoubleclickevent_isbase = false;
-    mutable bool krichtextwidget_focusnextprevchild_isbase = false;
-    mutable bool krichtextwidget_dragenterevent_isbase = false;
-    mutable bool krichtextwidget_dragleaveevent_isbase = false;
-    mutable bool krichtextwidget_dragmoveevent_isbase = false;
-    mutable bool krichtextwidget_dropevent_isbase = false;
-    mutable bool krichtextwidget_focusoutevent_isbase = false;
-    mutable bool krichtextwidget_showevent_isbase = false;
-    mutable bool krichtextwidget_changeevent_isbase = false;
-    mutable bool krichtextwidget_wheelevent_isbase = false;
-    mutable bool krichtextwidget_createmimedatafromselection_isbase = false;
-    mutable bool krichtextwidget_caninsertfrommimedata_isbase = false;
-    mutable bool krichtextwidget_insertfrommimedata_isbase = false;
-    mutable bool krichtextwidget_inputmethodevent_isbase = false;
-    mutable bool krichtextwidget_scrollcontentsby_isbase = false;
-    mutable bool krichtextwidget_dosettextcursor_isbase = false;
-    mutable bool krichtextwidget_minimumsizehint_isbase = false;
-    mutable bool krichtextwidget_sizehint_isbase = false;
-    mutable bool krichtextwidget_setupviewport_isbase = false;
-    mutable bool krichtextwidget_eventfilter_isbase = false;
-    mutable bool krichtextwidget_viewportevent_isbase = false;
-    mutable bool krichtextwidget_viewportsizehint_isbase = false;
-    mutable bool krichtextwidget_initstyleoption_isbase = false;
-    mutable bool krichtextwidget_devtype_isbase = false;
-    mutable bool krichtextwidget_setvisible_isbase = false;
-    mutable bool krichtextwidget_heightforwidth_isbase = false;
-    mutable bool krichtextwidget_hasheightforwidth_isbase = false;
-    mutable bool krichtextwidget_paintengine_isbase = false;
-    mutable bool krichtextwidget_enterevent_isbase = false;
-    mutable bool krichtextwidget_leaveevent_isbase = false;
-    mutable bool krichtextwidget_moveevent_isbase = false;
-    mutable bool krichtextwidget_closeevent_isbase = false;
-    mutable bool krichtextwidget_tabletevent_isbase = false;
-    mutable bool krichtextwidget_actionevent_isbase = false;
-    mutable bool krichtextwidget_hideevent_isbase = false;
-    mutable bool krichtextwidget_nativeevent_isbase = false;
-    mutable bool krichtextwidget_metric_isbase = false;
-    mutable bool krichtextwidget_initpainter_isbase = false;
-    mutable bool krichtextwidget_redirected_isbase = false;
-    mutable bool krichtextwidget_sharedpainter_isbase = false;
-    mutable bool krichtextwidget_childevent_isbase = false;
-    mutable bool krichtextwidget_customevent_isbase = false;
-    mutable bool krichtextwidget_connectnotify_isbase = false;
-    mutable bool krichtextwidget_disconnectnotify_isbase = false;
-    mutable bool krichtextwidget_slotdoreplace_isbase = false;
-    mutable bool krichtextwidget_slotreplacenext_isbase = false;
-    mutable bool krichtextwidget_slotdofind_isbase = false;
-    mutable bool krichtextwidget_slotfind_isbase = false;
-    mutable bool krichtextwidget_slotfindnext_isbase = false;
-    mutable bool krichtextwidget_slotfindprevious_isbase = false;
-    mutable bool krichtextwidget_slotreplace_isbase = false;
-    mutable bool krichtextwidget_slotspeaktext_isbase = false;
-    mutable bool krichtextwidget_zoominf_isbase = false;
-    mutable bool krichtextwidget_setviewportmargins_isbase = false;
-    mutable bool krichtextwidget_viewportmargins_isbase = false;
-    mutable bool krichtextwidget_drawframe_isbase = false;
-    mutable bool krichtextwidget_updatemicrofocus_isbase = false;
-    mutable bool krichtextwidget_create_isbase = false;
-    mutable bool krichtextwidget_destroy_isbase = false;
-    mutable bool krichtextwidget_focusnextchild_isbase = false;
-    mutable bool krichtextwidget_focuspreviouschild_isbase = false;
-    mutable bool krichtextwidget_sender_isbase = false;
-    mutable bool krichtextwidget_sendersignalindex_isbase = false;
-    mutable bool krichtextwidget_receivers_isbase = false;
-    mutable bool krichtextwidget_issignalconnected_isbase = false;
-    mutable bool krichtextwidget_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KRichTextWidget {
+        using KRichTextWidget::actionEvent;
+        using KRichTextWidget::canInsertFromMimeData;
+        using KRichTextWidget::changeEvent;
+        using KRichTextWidget::childEvent;
+        using KRichTextWidget::closeEvent;
+        using KRichTextWidget::connectNotify;
+        using KRichTextWidget::contextMenuEvent;
+        using KRichTextWidget::createMimeDataFromSelection;
+        using KRichTextWidget::customEvent;
+        using KRichTextWidget::deleteWordBack;
+        using KRichTextWidget::deleteWordForward;
+        using KRichTextWidget::disconnectNotify;
+        using KRichTextWidget::doSetTextCursor;
+        using KRichTextWidget::dragEnterEvent;
+        using KRichTextWidget::dragLeaveEvent;
+        using KRichTextWidget::dragMoveEvent;
+        using KRichTextWidget::dropEvent;
+        using KRichTextWidget::enterEvent;
+        using KRichTextWidget::event;
+        using KRichTextWidget::eventFilter;
+        using KRichTextWidget::focusInEvent;
+        using KRichTextWidget::focusNextPrevChild;
+        using KRichTextWidget::focusOutEvent;
+        using KRichTextWidget::hideEvent;
+        using KRichTextWidget::initPainter;
+        using KRichTextWidget::initStyleOption;
+        using KRichTextWidget::inputMethodEvent;
+        using KRichTextWidget::insertFromMimeData;
+        using KRichTextWidget::keyPressEvent;
+        using KRichTextWidget::keyReleaseEvent;
+        using KRichTextWidget::leaveEvent;
+        using KRichTextWidget::metric;
+        using KRichTextWidget::mouseDoubleClickEvent;
+        using KRichTextWidget::mouseMoveEvent;
+        using KRichTextWidget::mousePressEvent;
+        using KRichTextWidget::mouseReleaseEvent;
+        using KRichTextWidget::moveEvent;
+        using KRichTextWidget::nativeEvent;
+        using KRichTextWidget::paintEvent;
+        using KRichTextWidget::redirected;
+        using KRichTextWidget::resizeEvent;
+        using KRichTextWidget::scrollContentsBy;
+        using KRichTextWidget::sharedPainter;
+        using KRichTextWidget::showEvent;
+        using KRichTextWidget::tabletEvent;
+        using KRichTextWidget::timerEvent;
+        using KRichTextWidget::viewportEvent;
+        using KRichTextWidget::viewportSizeHint;
+        using KRichTextWidget::wheelEvent;
+    };
 
-  public:
     VirtualKRichTextWidget(QWidget* parent) : KRichTextWidget(parent) {};
     VirtualKRichTextWidget(const QString& text) : KRichTextWidget(text) {};
     VirtualKRichTextWidget(const QString& text, QWidget* parent) : KRichTextWidget(text, parent) {};
 
-    // Callback setters
-    inline void setKRichTextWidget_MetaObject_Callback(KRichTextWidget_MetaObject_Callback cb) { krichtextwidget_metaobject_callback = cb; }
-    inline void setKRichTextWidget_Metacast_Callback(KRichTextWidget_Metacast_Callback cb) { krichtextwidget_metacast_callback = cb; }
-    inline void setKRichTextWidget_Metacall_Callback(KRichTextWidget_Metacall_Callback cb) { krichtextwidget_metacall_callback = cb; }
-    inline void setKRichTextWidget_CreateActions_Callback(KRichTextWidget_CreateActions_Callback cb) { krichtextwidget_createactions_callback = cb; }
-    inline void setKRichTextWidget_MouseReleaseEvent_Callback(KRichTextWidget_MouseReleaseEvent_Callback cb) { krichtextwidget_mousereleaseevent_callback = cb; }
-    inline void setKRichTextWidget_KeyPressEvent_Callback(KRichTextWidget_KeyPressEvent_Callback cb) { krichtextwidget_keypressevent_callback = cb; }
-    inline void setKRichTextWidget_SetReadOnly_Callback(KRichTextWidget_SetReadOnly_Callback cb) { krichtextwidget_setreadonly_callback = cb; }
-    inline void setKRichTextWidget_SetCheckSpellingEnabled_Callback(KRichTextWidget_SetCheckSpellingEnabled_Callback cb) { krichtextwidget_setcheckspellingenabled_callback = cb; }
-    inline void setKRichTextWidget_CheckSpellingEnabled_Callback(KRichTextWidget_CheckSpellingEnabled_Callback cb) { krichtextwidget_checkspellingenabled_callback = cb; }
-    inline void setKRichTextWidget_ShouldBlockBeSpellChecked_Callback(KRichTextWidget_ShouldBlockBeSpellChecked_Callback cb) { krichtextwidget_shouldblockbespellchecked_callback = cb; }
-    inline void setKRichTextWidget_CreateHighlighter_Callback(KRichTextWidget_CreateHighlighter_Callback cb) { krichtextwidget_createhighlighter_callback = cb; }
-    inline void setKRichTextWidget_MousePopupMenu_Callback(KRichTextWidget_MousePopupMenu_Callback cb) { krichtextwidget_mousepopupmenu_callback = cb; }
-    inline void setKRichTextWidget_Event_Callback(KRichTextWidget_Event_Callback cb) { krichtextwidget_event_callback = cb; }
-    inline void setKRichTextWidget_FocusInEvent_Callback(KRichTextWidget_FocusInEvent_Callback cb) { krichtextwidget_focusinevent_callback = cb; }
-    inline void setKRichTextWidget_DeleteWordBack_Callback(KRichTextWidget_DeleteWordBack_Callback cb) { krichtextwidget_deletewordback_callback = cb; }
-    inline void setKRichTextWidget_DeleteWordForward_Callback(KRichTextWidget_DeleteWordForward_Callback cb) { krichtextwidget_deletewordforward_callback = cb; }
-    inline void setKRichTextWidget_ContextMenuEvent_Callback(KRichTextWidget_ContextMenuEvent_Callback cb) { krichtextwidget_contextmenuevent_callback = cb; }
-    inline void setKRichTextWidget_LoadResource_Callback(KRichTextWidget_LoadResource_Callback cb) { krichtextwidget_loadresource_callback = cb; }
-    inline void setKRichTextWidget_InputMethodQuery_Callback(KRichTextWidget_InputMethodQuery_Callback cb) { krichtextwidget_inputmethodquery_callback = cb; }
-    inline void setKRichTextWidget_TimerEvent_Callback(KRichTextWidget_TimerEvent_Callback cb) { krichtextwidget_timerevent_callback = cb; }
-    inline void setKRichTextWidget_KeyReleaseEvent_Callback(KRichTextWidget_KeyReleaseEvent_Callback cb) { krichtextwidget_keyreleaseevent_callback = cb; }
-    inline void setKRichTextWidget_ResizeEvent_Callback(KRichTextWidget_ResizeEvent_Callback cb) { krichtextwidget_resizeevent_callback = cb; }
-    inline void setKRichTextWidget_PaintEvent_Callback(KRichTextWidget_PaintEvent_Callback cb) { krichtextwidget_paintevent_callback = cb; }
-    inline void setKRichTextWidget_MousePressEvent_Callback(KRichTextWidget_MousePressEvent_Callback cb) { krichtextwidget_mousepressevent_callback = cb; }
-    inline void setKRichTextWidget_MouseMoveEvent_Callback(KRichTextWidget_MouseMoveEvent_Callback cb) { krichtextwidget_mousemoveevent_callback = cb; }
-    inline void setKRichTextWidget_MouseDoubleClickEvent_Callback(KRichTextWidget_MouseDoubleClickEvent_Callback cb) { krichtextwidget_mousedoubleclickevent_callback = cb; }
-    inline void setKRichTextWidget_FocusNextPrevChild_Callback(KRichTextWidget_FocusNextPrevChild_Callback cb) { krichtextwidget_focusnextprevchild_callback = cb; }
-    inline void setKRichTextWidget_DragEnterEvent_Callback(KRichTextWidget_DragEnterEvent_Callback cb) { krichtextwidget_dragenterevent_callback = cb; }
-    inline void setKRichTextWidget_DragLeaveEvent_Callback(KRichTextWidget_DragLeaveEvent_Callback cb) { krichtextwidget_dragleaveevent_callback = cb; }
-    inline void setKRichTextWidget_DragMoveEvent_Callback(KRichTextWidget_DragMoveEvent_Callback cb) { krichtextwidget_dragmoveevent_callback = cb; }
-    inline void setKRichTextWidget_DropEvent_Callback(KRichTextWidget_DropEvent_Callback cb) { krichtextwidget_dropevent_callback = cb; }
-    inline void setKRichTextWidget_FocusOutEvent_Callback(KRichTextWidget_FocusOutEvent_Callback cb) { krichtextwidget_focusoutevent_callback = cb; }
-    inline void setKRichTextWidget_ShowEvent_Callback(KRichTextWidget_ShowEvent_Callback cb) { krichtextwidget_showevent_callback = cb; }
-    inline void setKRichTextWidget_ChangeEvent_Callback(KRichTextWidget_ChangeEvent_Callback cb) { krichtextwidget_changeevent_callback = cb; }
-    inline void setKRichTextWidget_WheelEvent_Callback(KRichTextWidget_WheelEvent_Callback cb) { krichtextwidget_wheelevent_callback = cb; }
-    inline void setKRichTextWidget_CreateMimeDataFromSelection_Callback(KRichTextWidget_CreateMimeDataFromSelection_Callback cb) { krichtextwidget_createmimedatafromselection_callback = cb; }
-    inline void setKRichTextWidget_CanInsertFromMimeData_Callback(KRichTextWidget_CanInsertFromMimeData_Callback cb) { krichtextwidget_caninsertfrommimedata_callback = cb; }
-    inline void setKRichTextWidget_InsertFromMimeData_Callback(KRichTextWidget_InsertFromMimeData_Callback cb) { krichtextwidget_insertfrommimedata_callback = cb; }
-    inline void setKRichTextWidget_InputMethodEvent_Callback(KRichTextWidget_InputMethodEvent_Callback cb) { krichtextwidget_inputmethodevent_callback = cb; }
-    inline void setKRichTextWidget_ScrollContentsBy_Callback(KRichTextWidget_ScrollContentsBy_Callback cb) { krichtextwidget_scrollcontentsby_callback = cb; }
-    inline void setKRichTextWidget_DoSetTextCursor_Callback(KRichTextWidget_DoSetTextCursor_Callback cb) { krichtextwidget_dosettextcursor_callback = cb; }
-    inline void setKRichTextWidget_MinimumSizeHint_Callback(KRichTextWidget_MinimumSizeHint_Callback cb) { krichtextwidget_minimumsizehint_callback = cb; }
-    inline void setKRichTextWidget_SizeHint_Callback(KRichTextWidget_SizeHint_Callback cb) { krichtextwidget_sizehint_callback = cb; }
-    inline void setKRichTextWidget_SetupViewport_Callback(KRichTextWidget_SetupViewport_Callback cb) { krichtextwidget_setupviewport_callback = cb; }
-    inline void setKRichTextWidget_EventFilter_Callback(KRichTextWidget_EventFilter_Callback cb) { krichtextwidget_eventfilter_callback = cb; }
-    inline void setKRichTextWidget_ViewportEvent_Callback(KRichTextWidget_ViewportEvent_Callback cb) { krichtextwidget_viewportevent_callback = cb; }
-    inline void setKRichTextWidget_ViewportSizeHint_Callback(KRichTextWidget_ViewportSizeHint_Callback cb) { krichtextwidget_viewportsizehint_callback = cb; }
-    inline void setKRichTextWidget_InitStyleOption_Callback(KRichTextWidget_InitStyleOption_Callback cb) { krichtextwidget_initstyleoption_callback = cb; }
-    inline void setKRichTextWidget_DevType_Callback(KRichTextWidget_DevType_Callback cb) { krichtextwidget_devtype_callback = cb; }
-    inline void setKRichTextWidget_SetVisible_Callback(KRichTextWidget_SetVisible_Callback cb) { krichtextwidget_setvisible_callback = cb; }
-    inline void setKRichTextWidget_HeightForWidth_Callback(KRichTextWidget_HeightForWidth_Callback cb) { krichtextwidget_heightforwidth_callback = cb; }
-    inline void setKRichTextWidget_HasHeightForWidth_Callback(KRichTextWidget_HasHeightForWidth_Callback cb) { krichtextwidget_hasheightforwidth_callback = cb; }
-    inline void setKRichTextWidget_PaintEngine_Callback(KRichTextWidget_PaintEngine_Callback cb) { krichtextwidget_paintengine_callback = cb; }
-    inline void setKRichTextWidget_EnterEvent_Callback(KRichTextWidget_EnterEvent_Callback cb) { krichtextwidget_enterevent_callback = cb; }
-    inline void setKRichTextWidget_LeaveEvent_Callback(KRichTextWidget_LeaveEvent_Callback cb) { krichtextwidget_leaveevent_callback = cb; }
-    inline void setKRichTextWidget_MoveEvent_Callback(KRichTextWidget_MoveEvent_Callback cb) { krichtextwidget_moveevent_callback = cb; }
-    inline void setKRichTextWidget_CloseEvent_Callback(KRichTextWidget_CloseEvent_Callback cb) { krichtextwidget_closeevent_callback = cb; }
-    inline void setKRichTextWidget_TabletEvent_Callback(KRichTextWidget_TabletEvent_Callback cb) { krichtextwidget_tabletevent_callback = cb; }
-    inline void setKRichTextWidget_ActionEvent_Callback(KRichTextWidget_ActionEvent_Callback cb) { krichtextwidget_actionevent_callback = cb; }
-    inline void setKRichTextWidget_HideEvent_Callback(KRichTextWidget_HideEvent_Callback cb) { krichtextwidget_hideevent_callback = cb; }
-    inline void setKRichTextWidget_NativeEvent_Callback(KRichTextWidget_NativeEvent_Callback cb) { krichtextwidget_nativeevent_callback = cb; }
-    inline void setKRichTextWidget_Metric_Callback(KRichTextWidget_Metric_Callback cb) { krichtextwidget_metric_callback = cb; }
-    inline void setKRichTextWidget_InitPainter_Callback(KRichTextWidget_InitPainter_Callback cb) { krichtextwidget_initpainter_callback = cb; }
-    inline void setKRichTextWidget_Redirected_Callback(KRichTextWidget_Redirected_Callback cb) { krichtextwidget_redirected_callback = cb; }
-    inline void setKRichTextWidget_SharedPainter_Callback(KRichTextWidget_SharedPainter_Callback cb) { krichtextwidget_sharedpainter_callback = cb; }
-    inline void setKRichTextWidget_ChildEvent_Callback(KRichTextWidget_ChildEvent_Callback cb) { krichtextwidget_childevent_callback = cb; }
-    inline void setKRichTextWidget_CustomEvent_Callback(KRichTextWidget_CustomEvent_Callback cb) { krichtextwidget_customevent_callback = cb; }
-    inline void setKRichTextWidget_ConnectNotify_Callback(KRichTextWidget_ConnectNotify_Callback cb) { krichtextwidget_connectnotify_callback = cb; }
-    inline void setKRichTextWidget_DisconnectNotify_Callback(KRichTextWidget_DisconnectNotify_Callback cb) { krichtextwidget_disconnectnotify_callback = cb; }
-    inline void setKRichTextWidget_SlotDoReplace_Callback(KRichTextWidget_SlotDoReplace_Callback cb) { krichtextwidget_slotdoreplace_callback = cb; }
-    inline void setKRichTextWidget_SlotReplaceNext_Callback(KRichTextWidget_SlotReplaceNext_Callback cb) { krichtextwidget_slotreplacenext_callback = cb; }
-    inline void setKRichTextWidget_SlotDoFind_Callback(KRichTextWidget_SlotDoFind_Callback cb) { krichtextwidget_slotdofind_callback = cb; }
-    inline void setKRichTextWidget_SlotFind_Callback(KRichTextWidget_SlotFind_Callback cb) { krichtextwidget_slotfind_callback = cb; }
-    inline void setKRichTextWidget_SlotFindNext_Callback(KRichTextWidget_SlotFindNext_Callback cb) { krichtextwidget_slotfindnext_callback = cb; }
-    inline void setKRichTextWidget_SlotFindPrevious_Callback(KRichTextWidget_SlotFindPrevious_Callback cb) { krichtextwidget_slotfindprevious_callback = cb; }
-    inline void setKRichTextWidget_SlotReplace_Callback(KRichTextWidget_SlotReplace_Callback cb) { krichtextwidget_slotreplace_callback = cb; }
-    inline void setKRichTextWidget_SlotSpeakText_Callback(KRichTextWidget_SlotSpeakText_Callback cb) { krichtextwidget_slotspeaktext_callback = cb; }
-    inline void setKRichTextWidget_ZoomInF_Callback(KRichTextWidget_ZoomInF_Callback cb) { krichtextwidget_zoominf_callback = cb; }
-    inline void setKRichTextWidget_SetViewportMargins_Callback(KRichTextWidget_SetViewportMargins_Callback cb) { krichtextwidget_setviewportmargins_callback = cb; }
-    inline void setKRichTextWidget_ViewportMargins_Callback(KRichTextWidget_ViewportMargins_Callback cb) { krichtextwidget_viewportmargins_callback = cb; }
-    inline void setKRichTextWidget_DrawFrame_Callback(KRichTextWidget_DrawFrame_Callback cb) { krichtextwidget_drawframe_callback = cb; }
-    inline void setKRichTextWidget_UpdateMicroFocus_Callback(KRichTextWidget_UpdateMicroFocus_Callback cb) { krichtextwidget_updatemicrofocus_callback = cb; }
-    inline void setKRichTextWidget_Create_Callback(KRichTextWidget_Create_Callback cb) { krichtextwidget_create_callback = cb; }
-    inline void setKRichTextWidget_Destroy_Callback(KRichTextWidget_Destroy_Callback cb) { krichtextwidget_destroy_callback = cb; }
-    inline void setKRichTextWidget_FocusNextChild_Callback(KRichTextWidget_FocusNextChild_Callback cb) { krichtextwidget_focusnextchild_callback = cb; }
-    inline void setKRichTextWidget_FocusPreviousChild_Callback(KRichTextWidget_FocusPreviousChild_Callback cb) { krichtextwidget_focuspreviouschild_callback = cb; }
-    inline void setKRichTextWidget_Sender_Callback(KRichTextWidget_Sender_Callback cb) { krichtextwidget_sender_callback = cb; }
-    inline void setKRichTextWidget_SenderSignalIndex_Callback(KRichTextWidget_SenderSignalIndex_Callback cb) { krichtextwidget_sendersignalindex_callback = cb; }
-    inline void setKRichTextWidget_Receivers_Callback(KRichTextWidget_Receivers_Callback cb) { krichtextwidget_receivers_callback = cb; }
-    inline void setKRichTextWidget_IsSignalConnected_Callback(KRichTextWidget_IsSignalConnected_Callback cb) { krichtextwidget_issignalconnected_callback = cb; }
-    inline void setKRichTextWidget_GetDecodedMetricF_Callback(KRichTextWidget_GetDecodedMetricF_Callback cb) { krichtextwidget_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKRichTextWidget_MetaObject_IsBase(bool value) const { krichtextwidget_metaobject_isbase = value; }
-    inline void setKRichTextWidget_Metacast_IsBase(bool value) const { krichtextwidget_metacast_isbase = value; }
-    inline void setKRichTextWidget_Metacall_IsBase(bool value) const { krichtextwidget_metacall_isbase = value; }
-    inline void setKRichTextWidget_CreateActions_IsBase(bool value) const { krichtextwidget_createactions_isbase = value; }
-    inline void setKRichTextWidget_MouseReleaseEvent_IsBase(bool value) const { krichtextwidget_mousereleaseevent_isbase = value; }
-    inline void setKRichTextWidget_KeyPressEvent_IsBase(bool value) const { krichtextwidget_keypressevent_isbase = value; }
-    inline void setKRichTextWidget_SetReadOnly_IsBase(bool value) const { krichtextwidget_setreadonly_isbase = value; }
-    inline void setKRichTextWidget_SetCheckSpellingEnabled_IsBase(bool value) const { krichtextwidget_setcheckspellingenabled_isbase = value; }
-    inline void setKRichTextWidget_CheckSpellingEnabled_IsBase(bool value) const { krichtextwidget_checkspellingenabled_isbase = value; }
-    inline void setKRichTextWidget_ShouldBlockBeSpellChecked_IsBase(bool value) const { krichtextwidget_shouldblockbespellchecked_isbase = value; }
-    inline void setKRichTextWidget_CreateHighlighter_IsBase(bool value) const { krichtextwidget_createhighlighter_isbase = value; }
-    inline void setKRichTextWidget_MousePopupMenu_IsBase(bool value) const { krichtextwidget_mousepopupmenu_isbase = value; }
-    inline void setKRichTextWidget_Event_IsBase(bool value) const { krichtextwidget_event_isbase = value; }
-    inline void setKRichTextWidget_FocusInEvent_IsBase(bool value) const { krichtextwidget_focusinevent_isbase = value; }
-    inline void setKRichTextWidget_DeleteWordBack_IsBase(bool value) const { krichtextwidget_deletewordback_isbase = value; }
-    inline void setKRichTextWidget_DeleteWordForward_IsBase(bool value) const { krichtextwidget_deletewordforward_isbase = value; }
-    inline void setKRichTextWidget_ContextMenuEvent_IsBase(bool value) const { krichtextwidget_contextmenuevent_isbase = value; }
-    inline void setKRichTextWidget_LoadResource_IsBase(bool value) const { krichtextwidget_loadresource_isbase = value; }
-    inline void setKRichTextWidget_InputMethodQuery_IsBase(bool value) const { krichtextwidget_inputmethodquery_isbase = value; }
-    inline void setKRichTextWidget_TimerEvent_IsBase(bool value) const { krichtextwidget_timerevent_isbase = value; }
-    inline void setKRichTextWidget_KeyReleaseEvent_IsBase(bool value) const { krichtextwidget_keyreleaseevent_isbase = value; }
-    inline void setKRichTextWidget_ResizeEvent_IsBase(bool value) const { krichtextwidget_resizeevent_isbase = value; }
-    inline void setKRichTextWidget_PaintEvent_IsBase(bool value) const { krichtextwidget_paintevent_isbase = value; }
-    inline void setKRichTextWidget_MousePressEvent_IsBase(bool value) const { krichtextwidget_mousepressevent_isbase = value; }
-    inline void setKRichTextWidget_MouseMoveEvent_IsBase(bool value) const { krichtextwidget_mousemoveevent_isbase = value; }
-    inline void setKRichTextWidget_MouseDoubleClickEvent_IsBase(bool value) const { krichtextwidget_mousedoubleclickevent_isbase = value; }
-    inline void setKRichTextWidget_FocusNextPrevChild_IsBase(bool value) const { krichtextwidget_focusnextprevchild_isbase = value; }
-    inline void setKRichTextWidget_DragEnterEvent_IsBase(bool value) const { krichtextwidget_dragenterevent_isbase = value; }
-    inline void setKRichTextWidget_DragLeaveEvent_IsBase(bool value) const { krichtextwidget_dragleaveevent_isbase = value; }
-    inline void setKRichTextWidget_DragMoveEvent_IsBase(bool value) const { krichtextwidget_dragmoveevent_isbase = value; }
-    inline void setKRichTextWidget_DropEvent_IsBase(bool value) const { krichtextwidget_dropevent_isbase = value; }
-    inline void setKRichTextWidget_FocusOutEvent_IsBase(bool value) const { krichtextwidget_focusoutevent_isbase = value; }
-    inline void setKRichTextWidget_ShowEvent_IsBase(bool value) const { krichtextwidget_showevent_isbase = value; }
-    inline void setKRichTextWidget_ChangeEvent_IsBase(bool value) const { krichtextwidget_changeevent_isbase = value; }
-    inline void setKRichTextWidget_WheelEvent_IsBase(bool value) const { krichtextwidget_wheelevent_isbase = value; }
-    inline void setKRichTextWidget_CreateMimeDataFromSelection_IsBase(bool value) const { krichtextwidget_createmimedatafromselection_isbase = value; }
-    inline void setKRichTextWidget_CanInsertFromMimeData_IsBase(bool value) const { krichtextwidget_caninsertfrommimedata_isbase = value; }
-    inline void setKRichTextWidget_InsertFromMimeData_IsBase(bool value) const { krichtextwidget_insertfrommimedata_isbase = value; }
-    inline void setKRichTextWidget_InputMethodEvent_IsBase(bool value) const { krichtextwidget_inputmethodevent_isbase = value; }
-    inline void setKRichTextWidget_ScrollContentsBy_IsBase(bool value) const { krichtextwidget_scrollcontentsby_isbase = value; }
-    inline void setKRichTextWidget_DoSetTextCursor_IsBase(bool value) const { krichtextwidget_dosettextcursor_isbase = value; }
-    inline void setKRichTextWidget_MinimumSizeHint_IsBase(bool value) const { krichtextwidget_minimumsizehint_isbase = value; }
-    inline void setKRichTextWidget_SizeHint_IsBase(bool value) const { krichtextwidget_sizehint_isbase = value; }
-    inline void setKRichTextWidget_SetupViewport_IsBase(bool value) const { krichtextwidget_setupviewport_isbase = value; }
-    inline void setKRichTextWidget_EventFilter_IsBase(bool value) const { krichtextwidget_eventfilter_isbase = value; }
-    inline void setKRichTextWidget_ViewportEvent_IsBase(bool value) const { krichtextwidget_viewportevent_isbase = value; }
-    inline void setKRichTextWidget_ViewportSizeHint_IsBase(bool value) const { krichtextwidget_viewportsizehint_isbase = value; }
-    inline void setKRichTextWidget_InitStyleOption_IsBase(bool value) const { krichtextwidget_initstyleoption_isbase = value; }
-    inline void setKRichTextWidget_DevType_IsBase(bool value) const { krichtextwidget_devtype_isbase = value; }
-    inline void setKRichTextWidget_SetVisible_IsBase(bool value) const { krichtextwidget_setvisible_isbase = value; }
-    inline void setKRichTextWidget_HeightForWidth_IsBase(bool value) const { krichtextwidget_heightforwidth_isbase = value; }
-    inline void setKRichTextWidget_HasHeightForWidth_IsBase(bool value) const { krichtextwidget_hasheightforwidth_isbase = value; }
-    inline void setKRichTextWidget_PaintEngine_IsBase(bool value) const { krichtextwidget_paintengine_isbase = value; }
-    inline void setKRichTextWidget_EnterEvent_IsBase(bool value) const { krichtextwidget_enterevent_isbase = value; }
-    inline void setKRichTextWidget_LeaveEvent_IsBase(bool value) const { krichtextwidget_leaveevent_isbase = value; }
-    inline void setKRichTextWidget_MoveEvent_IsBase(bool value) const { krichtextwidget_moveevent_isbase = value; }
-    inline void setKRichTextWidget_CloseEvent_IsBase(bool value) const { krichtextwidget_closeevent_isbase = value; }
-    inline void setKRichTextWidget_TabletEvent_IsBase(bool value) const { krichtextwidget_tabletevent_isbase = value; }
-    inline void setKRichTextWidget_ActionEvent_IsBase(bool value) const { krichtextwidget_actionevent_isbase = value; }
-    inline void setKRichTextWidget_HideEvent_IsBase(bool value) const { krichtextwidget_hideevent_isbase = value; }
-    inline void setKRichTextWidget_NativeEvent_IsBase(bool value) const { krichtextwidget_nativeevent_isbase = value; }
-    inline void setKRichTextWidget_Metric_IsBase(bool value) const { krichtextwidget_metric_isbase = value; }
-    inline void setKRichTextWidget_InitPainter_IsBase(bool value) const { krichtextwidget_initpainter_isbase = value; }
-    inline void setKRichTextWidget_Redirected_IsBase(bool value) const { krichtextwidget_redirected_isbase = value; }
-    inline void setKRichTextWidget_SharedPainter_IsBase(bool value) const { krichtextwidget_sharedpainter_isbase = value; }
-    inline void setKRichTextWidget_ChildEvent_IsBase(bool value) const { krichtextwidget_childevent_isbase = value; }
-    inline void setKRichTextWidget_CustomEvent_IsBase(bool value) const { krichtextwidget_customevent_isbase = value; }
-    inline void setKRichTextWidget_ConnectNotify_IsBase(bool value) const { krichtextwidget_connectnotify_isbase = value; }
-    inline void setKRichTextWidget_DisconnectNotify_IsBase(bool value) const { krichtextwidget_disconnectnotify_isbase = value; }
-    inline void setKRichTextWidget_SlotDoReplace_IsBase(bool value) const { krichtextwidget_slotdoreplace_isbase = value; }
-    inline void setKRichTextWidget_SlotReplaceNext_IsBase(bool value) const { krichtextwidget_slotreplacenext_isbase = value; }
-    inline void setKRichTextWidget_SlotDoFind_IsBase(bool value) const { krichtextwidget_slotdofind_isbase = value; }
-    inline void setKRichTextWidget_SlotFind_IsBase(bool value) const { krichtextwidget_slotfind_isbase = value; }
-    inline void setKRichTextWidget_SlotFindNext_IsBase(bool value) const { krichtextwidget_slotfindnext_isbase = value; }
-    inline void setKRichTextWidget_SlotFindPrevious_IsBase(bool value) const { krichtextwidget_slotfindprevious_isbase = value; }
-    inline void setKRichTextWidget_SlotReplace_IsBase(bool value) const { krichtextwidget_slotreplace_isbase = value; }
-    inline void setKRichTextWidget_SlotSpeakText_IsBase(bool value) const { krichtextwidget_slotspeaktext_isbase = value; }
-    inline void setKRichTextWidget_ZoomInF_IsBase(bool value) const { krichtextwidget_zoominf_isbase = value; }
-    inline void setKRichTextWidget_SetViewportMargins_IsBase(bool value) const { krichtextwidget_setviewportmargins_isbase = value; }
-    inline void setKRichTextWidget_ViewportMargins_IsBase(bool value) const { krichtextwidget_viewportmargins_isbase = value; }
-    inline void setKRichTextWidget_DrawFrame_IsBase(bool value) const { krichtextwidget_drawframe_isbase = value; }
-    inline void setKRichTextWidget_UpdateMicroFocus_IsBase(bool value) const { krichtextwidget_updatemicrofocus_isbase = value; }
-    inline void setKRichTextWidget_Create_IsBase(bool value) const { krichtextwidget_create_isbase = value; }
-    inline void setKRichTextWidget_Destroy_IsBase(bool value) const { krichtextwidget_destroy_isbase = value; }
-    inline void setKRichTextWidget_FocusNextChild_IsBase(bool value) const { krichtextwidget_focusnextchild_isbase = value; }
-    inline void setKRichTextWidget_FocusPreviousChild_IsBase(bool value) const { krichtextwidget_focuspreviouschild_isbase = value; }
-    inline void setKRichTextWidget_Sender_IsBase(bool value) const { krichtextwidget_sender_isbase = value; }
-    inline void setKRichTextWidget_SenderSignalIndex_IsBase(bool value) const { krichtextwidget_sendersignalindex_isbase = value; }
-    inline void setKRichTextWidget_Receivers_IsBase(bool value) const { krichtextwidget_receivers_isbase = value; }
-    inline void setKRichTextWidget_IsSignalConnected_IsBase(bool value) const { krichtextwidget_issignalconnected_isbase = value; }
-    inline void setKRichTextWidget_GetDecodedMetricF_IsBase(bool value) const { krichtextwidget_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (krichtextwidget_metaobject_isbase) {
-            krichtextwidget_metaobject_isbase = false;
-            return KRichTextWidget::metaObject();
-        }
-        auto metaobject_cb = krichtextwidget_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (krichtextwidget_metaobject_callback) {
+            QMetaObject* callback_ret = krichtextwidget_metaobject_callback(this);
             return callback_ret;
         }
         return KRichTextWidget::metaObject();
@@ -503,14 +244,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (krichtextwidget_metacast_isbase) {
-            krichtextwidget_metacast_isbase = false;
-            return KRichTextWidget::qt_metacast(param1);
-        }
-        auto metacast_cb = krichtextwidget_metacast_callback;
-        if (metacast_cb) {
+        if (krichtextwidget_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = krichtextwidget_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextWidget::qt_metacast(param1);
@@ -518,16 +254,11 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (krichtextwidget_metacall_isbase) {
-            krichtextwidget_metacall_isbase = false;
-            return KRichTextWidget::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = krichtextwidget_metacall_callback;
-        if (metacall_cb) {
+        if (krichtextwidget_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = krichtextwidget_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KRichTextWidget::qt_metacall(param1, param2, param3);
@@ -535,13 +266,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QAction*> createActions() override {
-        if (krichtextwidget_createactions_isbase) {
-            krichtextwidget_createactions_isbase = false;
-            return KRichTextWidget::createActions();
-        }
-        auto createactions_cb = krichtextwidget_createactions_callback;
-        if (createactions_cb) {
-            libqt_list /* of QAction* */ callback_ret = createactions_cb();
+        if (krichtextwidget_createactions_callback) {
+            libqt_list /* of QAction* */ callback_ret = krichtextwidget_createactions_callback(this);
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -556,15 +282,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (krichtextwidget_mousereleaseevent_isbase) {
-            krichtextwidget_mousereleaseevent_isbase = false;
-            KRichTextWidget::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = krichtextwidget_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (krichtextwidget_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            krichtextwidget_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::mouseReleaseEvent(event);
@@ -572,15 +292,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (krichtextwidget_keypressevent_isbase) {
-            krichtextwidget_keypressevent_isbase = false;
-            KRichTextWidget::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = krichtextwidget_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (krichtextwidget_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            krichtextwidget_keypressevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::keyPressEvent(event);
@@ -588,15 +302,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setReadOnly(bool readOnly) override {
-        if (krichtextwidget_setreadonly_isbase) {
-            krichtextwidget_setreadonly_isbase = false;
-            KRichTextWidget::setReadOnly(readOnly);
-            return;
-        }
-        auto setreadonly_cb = krichtextwidget_setreadonly_callback;
-        if (setreadonly_cb) {
+        if (krichtextwidget_setreadonly_callback) {
             bool cbval1 = readOnly;
-            setreadonly_cb(this, cbval1);
+            krichtextwidget_setreadonly_callback(this, cbval1);
             return;
         }
         KRichTextWidget::setReadOnly(readOnly);
@@ -604,15 +312,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setCheckSpellingEnabled(bool check) override {
-        if (krichtextwidget_setcheckspellingenabled_isbase) {
-            krichtextwidget_setcheckspellingenabled_isbase = false;
-            KRichTextWidget::setCheckSpellingEnabled(check);
-            return;
-        }
-        auto setcheckspellingenabled_cb = krichtextwidget_setcheckspellingenabled_callback;
-        if (setcheckspellingenabled_cb) {
+        if (krichtextwidget_setcheckspellingenabled_callback) {
             bool cbval1 = check;
-            setcheckspellingenabled_cb(this, cbval1);
+            krichtextwidget_setcheckspellingenabled_callback(this, cbval1);
             return;
         }
         KRichTextWidget::setCheckSpellingEnabled(check);
@@ -620,13 +322,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool checkSpellingEnabled() const override {
-        if (krichtextwidget_checkspellingenabled_isbase) {
-            krichtextwidget_checkspellingenabled_isbase = false;
-            return KRichTextWidget::checkSpellingEnabled();
-        }
-        auto checkspellingenabled_cb = krichtextwidget_checkspellingenabled_callback;
-        if (checkspellingenabled_cb) {
-            bool callback_ret = checkspellingenabled_cb();
+        if (krichtextwidget_checkspellingenabled_callback) {
+            bool callback_ret = krichtextwidget_checkspellingenabled_callback(this);
             return callback_ret;
         }
         return KRichTextWidget::checkSpellingEnabled();
@@ -634,12 +331,7 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool shouldBlockBeSpellChecked(const QString& block) const override {
-        if (krichtextwidget_shouldblockbespellchecked_isbase) {
-            krichtextwidget_shouldblockbespellchecked_isbase = false;
-            return KRichTextWidget::shouldBlockBeSpellChecked(block);
-        }
-        auto shouldblockbespellchecked_cb = krichtextwidget_shouldblockbespellchecked_callback;
-        if (shouldblockbespellchecked_cb) {
+        if (krichtextwidget_shouldblockbespellchecked_callback) {
             const auto block_ret = block;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray block_b = block_ret.toUtf8();
@@ -648,7 +340,7 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
             memcpy((void*)block_str, block_b.data(), block_str_len);
             ((char*)block_str)[block_str_len] = '\0';
             const char* cbval1 = block_str;
-            bool callback_ret = shouldblockbespellchecked_cb(this, cbval1);
+            bool callback_ret = krichtextwidget_shouldblockbespellchecked_callback(this, cbval1);
             libqt_free(block_str);
             return callback_ret;
         }
@@ -657,14 +349,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void createHighlighter() override {
-        if (krichtextwidget_createhighlighter_isbase) {
-            krichtextwidget_createhighlighter_isbase = false;
-            KRichTextWidget::createHighlighter();
-            return;
-        }
-        auto createhighlighter_cb = krichtextwidget_createhighlighter_callback;
-        if (createhighlighter_cb) {
-            createhighlighter_cb();
+        if (krichtextwidget_createhighlighter_callback) {
+            krichtextwidget_createhighlighter_callback(this);
             return;
         }
         KRichTextWidget::createHighlighter();
@@ -672,13 +358,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QMenu* mousePopupMenu() override {
-        if (krichtextwidget_mousepopupmenu_isbase) {
-            krichtextwidget_mousepopupmenu_isbase = false;
-            return KRichTextWidget::mousePopupMenu();
-        }
-        auto mousepopupmenu_cb = krichtextwidget_mousepopupmenu_callback;
-        if (mousepopupmenu_cb) {
-            QMenu* callback_ret = mousepopupmenu_cb();
+        if (krichtextwidget_mousepopupmenu_callback) {
+            QMenu* callback_ret = krichtextwidget_mousepopupmenu_callback(this);
             return callback_ret;
         }
         return KRichTextWidget::mousePopupMenu();
@@ -686,14 +367,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (krichtextwidget_event_isbase) {
-            krichtextwidget_event_isbase = false;
-            return KRichTextWidget::event(param1);
-        }
-        auto event_cb = krichtextwidget_event_callback;
-        if (event_cb) {
+        if (krichtextwidget_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = krichtextwidget_event_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextWidget::event(param1);
@@ -701,15 +377,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* param1) override {
-        if (krichtextwidget_focusinevent_isbase) {
-            krichtextwidget_focusinevent_isbase = false;
-            KRichTextWidget::focusInEvent(param1);
-            return;
-        }
-        auto focusinevent_cb = krichtextwidget_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (krichtextwidget_focusinevent_callback) {
             QFocusEvent* cbval1 = param1;
-            focusinevent_cb(this, cbval1);
+            krichtextwidget_focusinevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::focusInEvent(param1);
@@ -717,14 +387,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void deleteWordBack() override {
-        if (krichtextwidget_deletewordback_isbase) {
-            krichtextwidget_deletewordback_isbase = false;
-            KRichTextWidget::deleteWordBack();
-            return;
-        }
-        auto deletewordback_cb = krichtextwidget_deletewordback_callback;
-        if (deletewordback_cb) {
-            deletewordback_cb();
+        if (krichtextwidget_deletewordback_callback) {
+            krichtextwidget_deletewordback_callback(this);
             return;
         }
         KRichTextWidget::deleteWordBack();
@@ -732,14 +396,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void deleteWordForward() override {
-        if (krichtextwidget_deletewordforward_isbase) {
-            krichtextwidget_deletewordforward_isbase = false;
-            KRichTextWidget::deleteWordForward();
-            return;
-        }
-        auto deletewordforward_cb = krichtextwidget_deletewordforward_callback;
-        if (deletewordforward_cb) {
-            deletewordforward_cb();
+        if (krichtextwidget_deletewordforward_callback) {
+            krichtextwidget_deletewordforward_callback(this);
             return;
         }
         KRichTextWidget::deleteWordForward();
@@ -747,15 +405,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (krichtextwidget_contextmenuevent_isbase) {
-            krichtextwidget_contextmenuevent_isbase = false;
-            KRichTextWidget::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = krichtextwidget_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (krichtextwidget_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            krichtextwidget_contextmenuevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::contextMenuEvent(param1);
@@ -763,17 +415,12 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant loadResource(int typeVal, const QUrl& name) override {
-        if (krichtextwidget_loadresource_isbase) {
-            krichtextwidget_loadresource_isbase = false;
-            return KRichTextWidget::loadResource(typeVal, name);
-        }
-        auto loadresource_cb = krichtextwidget_loadresource_callback;
-        if (loadresource_cb) {
+        if (krichtextwidget_loadresource_callback) {
             int cbval1 = typeVal;
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
-            QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = krichtextwidget_loadresource_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -783,14 +430,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery property) const override {
-        if (krichtextwidget_inputmethodquery_isbase) {
-            krichtextwidget_inputmethodquery_isbase = false;
-            return KRichTextWidget::inputMethodQuery(property);
-        }
-        auto inputmethodquery_cb = krichtextwidget_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (krichtextwidget_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(property);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = krichtextwidget_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -800,15 +442,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* e) override {
-        if (krichtextwidget_timerevent_isbase) {
-            krichtextwidget_timerevent_isbase = false;
-            KRichTextWidget::timerEvent(e);
-            return;
-        }
-        auto timerevent_cb = krichtextwidget_timerevent_callback;
-        if (timerevent_cb) {
+        if (krichtextwidget_timerevent_callback) {
             QTimerEvent* cbval1 = e;
-            timerevent_cb(this, cbval1);
+            krichtextwidget_timerevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::timerEvent(e);
@@ -816,15 +452,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* e) override {
-        if (krichtextwidget_keyreleaseevent_isbase) {
-            krichtextwidget_keyreleaseevent_isbase = false;
-            KRichTextWidget::keyReleaseEvent(e);
-            return;
-        }
-        auto keyreleaseevent_cb = krichtextwidget_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (krichtextwidget_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = e;
-            keyreleaseevent_cb(this, cbval1);
+            krichtextwidget_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::keyReleaseEvent(e);
@@ -832,15 +462,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* e) override {
-        if (krichtextwidget_resizeevent_isbase) {
-            krichtextwidget_resizeevent_isbase = false;
-            KRichTextWidget::resizeEvent(e);
-            return;
-        }
-        auto resizeevent_cb = krichtextwidget_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (krichtextwidget_resizeevent_callback) {
             QResizeEvent* cbval1 = e;
-            resizeevent_cb(this, cbval1);
+            krichtextwidget_resizeevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::resizeEvent(e);
@@ -848,15 +472,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* e) override {
-        if (krichtextwidget_paintevent_isbase) {
-            krichtextwidget_paintevent_isbase = false;
-            KRichTextWidget::paintEvent(e);
-            return;
-        }
-        auto paintevent_cb = krichtextwidget_paintevent_callback;
-        if (paintevent_cb) {
+        if (krichtextwidget_paintevent_callback) {
             QPaintEvent* cbval1 = e;
-            paintevent_cb(this, cbval1);
+            krichtextwidget_paintevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::paintEvent(e);
@@ -864,15 +482,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* e) override {
-        if (krichtextwidget_mousepressevent_isbase) {
-            krichtextwidget_mousepressevent_isbase = false;
-            KRichTextWidget::mousePressEvent(e);
-            return;
-        }
-        auto mousepressevent_cb = krichtextwidget_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (krichtextwidget_mousepressevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousepressevent_cb(this, cbval1);
+            krichtextwidget_mousepressevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::mousePressEvent(e);
@@ -880,15 +492,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* e) override {
-        if (krichtextwidget_mousemoveevent_isbase) {
-            krichtextwidget_mousemoveevent_isbase = false;
-            KRichTextWidget::mouseMoveEvent(e);
-            return;
-        }
-        auto mousemoveevent_cb = krichtextwidget_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (krichtextwidget_mousemoveevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousemoveevent_cb(this, cbval1);
+            krichtextwidget_mousemoveevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::mouseMoveEvent(e);
@@ -896,15 +502,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* e) override {
-        if (krichtextwidget_mousedoubleclickevent_isbase) {
-            krichtextwidget_mousedoubleclickevent_isbase = false;
-            KRichTextWidget::mouseDoubleClickEvent(e);
-            return;
-        }
-        auto mousedoubleclickevent_cb = krichtextwidget_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (krichtextwidget_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousedoubleclickevent_cb(this, cbval1);
+            krichtextwidget_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::mouseDoubleClickEvent(e);
@@ -912,14 +512,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (krichtextwidget_focusnextprevchild_isbase) {
-            krichtextwidget_focusnextprevchild_isbase = false;
-            return KRichTextWidget::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = krichtextwidget_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (krichtextwidget_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = krichtextwidget_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextWidget::focusNextPrevChild(next);
@@ -927,15 +522,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* e) override {
-        if (krichtextwidget_dragenterevent_isbase) {
-            krichtextwidget_dragenterevent_isbase = false;
-            KRichTextWidget::dragEnterEvent(e);
-            return;
-        }
-        auto dragenterevent_cb = krichtextwidget_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (krichtextwidget_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = e;
-            dragenterevent_cb(this, cbval1);
+            krichtextwidget_dragenterevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::dragEnterEvent(e);
@@ -943,15 +532,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* e) override {
-        if (krichtextwidget_dragleaveevent_isbase) {
-            krichtextwidget_dragleaveevent_isbase = false;
-            KRichTextWidget::dragLeaveEvent(e);
-            return;
-        }
-        auto dragleaveevent_cb = krichtextwidget_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (krichtextwidget_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = e;
-            dragleaveevent_cb(this, cbval1);
+            krichtextwidget_dragleaveevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::dragLeaveEvent(e);
@@ -959,15 +542,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* e) override {
-        if (krichtextwidget_dragmoveevent_isbase) {
-            krichtextwidget_dragmoveevent_isbase = false;
-            KRichTextWidget::dragMoveEvent(e);
-            return;
-        }
-        auto dragmoveevent_cb = krichtextwidget_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (krichtextwidget_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = e;
-            dragmoveevent_cb(this, cbval1);
+            krichtextwidget_dragmoveevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::dragMoveEvent(e);
@@ -975,15 +552,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* e) override {
-        if (krichtextwidget_dropevent_isbase) {
-            krichtextwidget_dropevent_isbase = false;
-            KRichTextWidget::dropEvent(e);
-            return;
-        }
-        auto dropevent_cb = krichtextwidget_dropevent_callback;
-        if (dropevent_cb) {
+        if (krichtextwidget_dropevent_callback) {
             QDropEvent* cbval1 = e;
-            dropevent_cb(this, cbval1);
+            krichtextwidget_dropevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::dropEvent(e);
@@ -991,15 +562,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* e) override {
-        if (krichtextwidget_focusoutevent_isbase) {
-            krichtextwidget_focusoutevent_isbase = false;
-            KRichTextWidget::focusOutEvent(e);
-            return;
-        }
-        auto focusoutevent_cb = krichtextwidget_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (krichtextwidget_focusoutevent_callback) {
             QFocusEvent* cbval1 = e;
-            focusoutevent_cb(this, cbval1);
+            krichtextwidget_focusoutevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::focusOutEvent(e);
@@ -1007,15 +572,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (krichtextwidget_showevent_isbase) {
-            krichtextwidget_showevent_isbase = false;
-            KRichTextWidget::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = krichtextwidget_showevent_callback;
-        if (showevent_cb) {
+        if (krichtextwidget_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            krichtextwidget_showevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::showEvent(param1);
@@ -1023,15 +582,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* e) override {
-        if (krichtextwidget_changeevent_isbase) {
-            krichtextwidget_changeevent_isbase = false;
-            KRichTextWidget::changeEvent(e);
-            return;
-        }
-        auto changeevent_cb = krichtextwidget_changeevent_callback;
-        if (changeevent_cb) {
+        if (krichtextwidget_changeevent_callback) {
             QEvent* cbval1 = e;
-            changeevent_cb(this, cbval1);
+            krichtextwidget_changeevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::changeEvent(e);
@@ -1039,15 +592,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* e) override {
-        if (krichtextwidget_wheelevent_isbase) {
-            krichtextwidget_wheelevent_isbase = false;
-            KRichTextWidget::wheelEvent(e);
-            return;
-        }
-        auto wheelevent_cb = krichtextwidget_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (krichtextwidget_wheelevent_callback) {
             QWheelEvent* cbval1 = e;
-            wheelevent_cb(this, cbval1);
+            krichtextwidget_wheelevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::wheelEvent(e);
@@ -1055,13 +602,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QMimeData* createMimeDataFromSelection() const override {
-        if (krichtextwidget_createmimedatafromselection_isbase) {
-            krichtextwidget_createmimedatafromselection_isbase = false;
-            return KRichTextWidget::createMimeDataFromSelection();
-        }
-        auto createmimedatafromselection_cb = krichtextwidget_createmimedatafromselection_callback;
-        if (createmimedatafromselection_cb) {
-            QMimeData* callback_ret = createmimedatafromselection_cb();
+        if (krichtextwidget_createmimedatafromselection_callback) {
+            QMimeData* callback_ret = krichtextwidget_createmimedatafromselection_callback(this);
             return callback_ret;
         }
         return KRichTextWidget::createMimeDataFromSelection();
@@ -1069,14 +611,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canInsertFromMimeData(const QMimeData* source) const override {
-        if (krichtextwidget_caninsertfrommimedata_isbase) {
-            krichtextwidget_caninsertfrommimedata_isbase = false;
-            return KRichTextWidget::canInsertFromMimeData(source);
-        }
-        auto caninsertfrommimedata_cb = krichtextwidget_caninsertfrommimedata_callback;
-        if (caninsertfrommimedata_cb) {
+        if (krichtextwidget_caninsertfrommimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)source;
-            bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
+            bool callback_ret = krichtextwidget_caninsertfrommimedata_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextWidget::canInsertFromMimeData(source);
@@ -1084,15 +621,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void insertFromMimeData(const QMimeData* source) override {
-        if (krichtextwidget_insertfrommimedata_isbase) {
-            krichtextwidget_insertfrommimedata_isbase = false;
-            KRichTextWidget::insertFromMimeData(source);
-            return;
-        }
-        auto insertfrommimedata_cb = krichtextwidget_insertfrommimedata_callback;
-        if (insertfrommimedata_cb) {
+        if (krichtextwidget_insertfrommimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)source;
-            insertfrommimedata_cb(this, cbval1);
+            krichtextwidget_insertfrommimedata_callback(this, cbval1);
             return;
         }
         KRichTextWidget::insertFromMimeData(source);
@@ -1100,15 +631,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (krichtextwidget_inputmethodevent_isbase) {
-            krichtextwidget_inputmethodevent_isbase = false;
-            KRichTextWidget::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = krichtextwidget_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (krichtextwidget_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            krichtextwidget_inputmethodevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::inputMethodEvent(param1);
@@ -1116,16 +641,10 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollContentsBy(int dx, int dy) override {
-        if (krichtextwidget_scrollcontentsby_isbase) {
-            krichtextwidget_scrollcontentsby_isbase = false;
-            KRichTextWidget::scrollContentsBy(dx, dy);
-            return;
-        }
-        auto scrollcontentsby_cb = krichtextwidget_scrollcontentsby_callback;
-        if (scrollcontentsby_cb) {
+        if (krichtextwidget_scrollcontentsby_callback) {
             int cbval1 = dx;
             int cbval2 = dy;
-            scrollcontentsby_cb(this, cbval1, cbval2);
+            krichtextwidget_scrollcontentsby_callback(this, cbval1, cbval2);
             return;
         }
         KRichTextWidget::scrollContentsBy(dx, dy);
@@ -1133,17 +652,11 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void doSetTextCursor(const QTextCursor& cursor) override {
-        if (krichtextwidget_dosettextcursor_isbase) {
-            krichtextwidget_dosettextcursor_isbase = false;
-            KRichTextWidget::doSetTextCursor(cursor);
-            return;
-        }
-        auto dosettextcursor_cb = krichtextwidget_dosettextcursor_callback;
-        if (dosettextcursor_cb) {
+        if (krichtextwidget_dosettextcursor_callback) {
             const QTextCursor& cursor_ret = cursor;
             // Cast returned reference into pointer
             QTextCursor* cbval1 = const_cast<QTextCursor*>(&cursor_ret);
-            dosettextcursor_cb(this, cbval1);
+            krichtextwidget_dosettextcursor_callback(this, cbval1);
             return;
         }
         KRichTextWidget::doSetTextCursor(cursor);
@@ -1151,13 +664,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (krichtextwidget_minimumsizehint_isbase) {
-            krichtextwidget_minimumsizehint_isbase = false;
-            return KRichTextWidget::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = krichtextwidget_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (krichtextwidget_minimumsizehint_callback) {
+            QSize* callback_ret = krichtextwidget_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1167,13 +675,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (krichtextwidget_sizehint_isbase) {
-            krichtextwidget_sizehint_isbase = false;
-            return KRichTextWidget::sizeHint();
-        }
-        auto sizehint_cb = krichtextwidget_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (krichtextwidget_sizehint_callback) {
+            QSize* callback_ret = krichtextwidget_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1183,15 +686,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setupViewport(QWidget* viewport) override {
-        if (krichtextwidget_setupviewport_isbase) {
-            krichtextwidget_setupviewport_isbase = false;
-            KRichTextWidget::setupViewport(viewport);
-            return;
-        }
-        auto setupviewport_cb = krichtextwidget_setupviewport_callback;
-        if (setupviewport_cb) {
+        if (krichtextwidget_setupviewport_callback) {
             QWidget* cbval1 = viewport;
-            setupviewport_cb(this, cbval1);
+            krichtextwidget_setupviewport_callback(this, cbval1);
             return;
         }
         KRichTextWidget::setupViewport(viewport);
@@ -1199,15 +696,10 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (krichtextwidget_eventfilter_isbase) {
-            krichtextwidget_eventfilter_isbase = false;
-            return KRichTextWidget::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = krichtextwidget_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (krichtextwidget_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = krichtextwidget_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KRichTextWidget::eventFilter(param1, param2);
@@ -1215,14 +707,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool viewportEvent(QEvent* param1) override {
-        if (krichtextwidget_viewportevent_isbase) {
-            krichtextwidget_viewportevent_isbase = false;
-            return KRichTextWidget::viewportEvent(param1);
-        }
-        auto viewportevent_cb = krichtextwidget_viewportevent_callback;
-        if (viewportevent_cb) {
+        if (krichtextwidget_viewportevent_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = viewportevent_cb(this, cbval1);
+            bool callback_ret = krichtextwidget_viewportevent_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextWidget::viewportEvent(param1);
@@ -1230,13 +717,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize viewportSizeHint() const override {
-        if (krichtextwidget_viewportsizehint_isbase) {
-            krichtextwidget_viewportsizehint_isbase = false;
-            return KRichTextWidget::viewportSizeHint();
-        }
-        auto viewportsizehint_cb = krichtextwidget_viewportsizehint_callback;
-        if (viewportsizehint_cb) {
-            QSize* callback_ret = viewportsizehint_cb();
+        if (krichtextwidget_viewportsizehint_callback) {
+            QSize* callback_ret = krichtextwidget_viewportsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1246,15 +728,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (krichtextwidget_initstyleoption_isbase) {
-            krichtextwidget_initstyleoption_isbase = false;
-            KRichTextWidget::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = krichtextwidget_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (krichtextwidget_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            krichtextwidget_initstyleoption_callback(this, cbval1);
             return;
         }
         KRichTextWidget::initStyleOption(option);
@@ -1262,13 +738,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (krichtextwidget_devtype_isbase) {
-            krichtextwidget_devtype_isbase = false;
-            return KRichTextWidget::devType();
-        }
-        auto devtype_cb = krichtextwidget_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (krichtextwidget_devtype_callback) {
+            int callback_ret = krichtextwidget_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KRichTextWidget::devType();
@@ -1276,15 +747,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (krichtextwidget_setvisible_isbase) {
-            krichtextwidget_setvisible_isbase = false;
-            KRichTextWidget::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = krichtextwidget_setvisible_callback;
-        if (setvisible_cb) {
+        if (krichtextwidget_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            krichtextwidget_setvisible_callback(this, cbval1);
             return;
         }
         KRichTextWidget::setVisible(visible);
@@ -1292,14 +757,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (krichtextwidget_heightforwidth_isbase) {
-            krichtextwidget_heightforwidth_isbase = false;
-            return KRichTextWidget::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = krichtextwidget_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (krichtextwidget_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = krichtextwidget_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KRichTextWidget::heightForWidth(param1);
@@ -1307,13 +767,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (krichtextwidget_hasheightforwidth_isbase) {
-            krichtextwidget_hasheightforwidth_isbase = false;
-            return KRichTextWidget::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = krichtextwidget_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (krichtextwidget_hasheightforwidth_callback) {
+            bool callback_ret = krichtextwidget_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KRichTextWidget::hasHeightForWidth();
@@ -1321,13 +776,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (krichtextwidget_paintengine_isbase) {
-            krichtextwidget_paintengine_isbase = false;
-            return KRichTextWidget::paintEngine();
-        }
-        auto paintengine_cb = krichtextwidget_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (krichtextwidget_paintengine_callback) {
+            QPaintEngine* callback_ret = krichtextwidget_paintengine_callback(this);
             return callback_ret;
         }
         return KRichTextWidget::paintEngine();
@@ -1335,15 +785,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (krichtextwidget_enterevent_isbase) {
-            krichtextwidget_enterevent_isbase = false;
-            KRichTextWidget::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = krichtextwidget_enterevent_callback;
-        if (enterevent_cb) {
+        if (krichtextwidget_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            krichtextwidget_enterevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::enterEvent(event);
@@ -1351,15 +795,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (krichtextwidget_leaveevent_isbase) {
-            krichtextwidget_leaveevent_isbase = false;
-            KRichTextWidget::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = krichtextwidget_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (krichtextwidget_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            krichtextwidget_leaveevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::leaveEvent(event);
@@ -1367,15 +805,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (krichtextwidget_moveevent_isbase) {
-            krichtextwidget_moveevent_isbase = false;
-            KRichTextWidget::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = krichtextwidget_moveevent_callback;
-        if (moveevent_cb) {
+        if (krichtextwidget_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            krichtextwidget_moveevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::moveEvent(event);
@@ -1383,15 +815,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (krichtextwidget_closeevent_isbase) {
-            krichtextwidget_closeevent_isbase = false;
-            KRichTextWidget::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = krichtextwidget_closeevent_callback;
-        if (closeevent_cb) {
+        if (krichtextwidget_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            krichtextwidget_closeevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::closeEvent(event);
@@ -1399,15 +825,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (krichtextwidget_tabletevent_isbase) {
-            krichtextwidget_tabletevent_isbase = false;
-            KRichTextWidget::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = krichtextwidget_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (krichtextwidget_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            krichtextwidget_tabletevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::tabletEvent(event);
@@ -1415,15 +835,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (krichtextwidget_actionevent_isbase) {
-            krichtextwidget_actionevent_isbase = false;
-            KRichTextWidget::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = krichtextwidget_actionevent_callback;
-        if (actionevent_cb) {
+        if (krichtextwidget_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            krichtextwidget_actionevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::actionEvent(event);
@@ -1431,15 +845,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (krichtextwidget_hideevent_isbase) {
-            krichtextwidget_hideevent_isbase = false;
-            KRichTextWidget::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = krichtextwidget_hideevent_callback;
-        if (hideevent_cb) {
+        if (krichtextwidget_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            krichtextwidget_hideevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::hideEvent(event);
@@ -1447,12 +855,7 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (krichtextwidget_nativeevent_isbase) {
-            krichtextwidget_nativeevent_isbase = false;
-            return KRichTextWidget::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = krichtextwidget_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (krichtextwidget_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1462,7 +865,7 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = krichtextwidget_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1471,14 +874,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (krichtextwidget_metric_isbase) {
-            krichtextwidget_metric_isbase = false;
-            return KRichTextWidget::metric(param1);
-        }
-        auto metric_cb = krichtextwidget_metric_callback;
-        if (metric_cb) {
+        if (krichtextwidget_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = krichtextwidget_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KRichTextWidget::metric(param1);
@@ -1486,15 +884,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (krichtextwidget_initpainter_isbase) {
-            krichtextwidget_initpainter_isbase = false;
-            KRichTextWidget::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = krichtextwidget_initpainter_callback;
-        if (initpainter_cb) {
+        if (krichtextwidget_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            krichtextwidget_initpainter_callback(this, cbval1);
             return;
         }
         KRichTextWidget::initPainter(painter);
@@ -1502,14 +894,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (krichtextwidget_redirected_isbase) {
-            krichtextwidget_redirected_isbase = false;
-            return KRichTextWidget::redirected(offset);
-        }
-        auto redirected_cb = krichtextwidget_redirected_callback;
-        if (redirected_cb) {
+        if (krichtextwidget_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = krichtextwidget_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KRichTextWidget::redirected(offset);
@@ -1517,13 +904,8 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (krichtextwidget_sharedpainter_isbase) {
-            krichtextwidget_sharedpainter_isbase = false;
-            return KRichTextWidget::sharedPainter();
-        }
-        auto sharedpainter_cb = krichtextwidget_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (krichtextwidget_sharedpainter_callback) {
+            QPainter* callback_ret = krichtextwidget_sharedpainter_callback(this);
             return callback_ret;
         }
         return KRichTextWidget::sharedPainter();
@@ -1531,15 +913,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (krichtextwidget_childevent_isbase) {
-            krichtextwidget_childevent_isbase = false;
-            KRichTextWidget::childEvent(event);
-            return;
-        }
-        auto childevent_cb = krichtextwidget_childevent_callback;
-        if (childevent_cb) {
+        if (krichtextwidget_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            krichtextwidget_childevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::childEvent(event);
@@ -1547,15 +923,9 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (krichtextwidget_customevent_isbase) {
-            krichtextwidget_customevent_isbase = false;
-            KRichTextWidget::customEvent(event);
-            return;
-        }
-        auto customevent_cb = krichtextwidget_customevent_callback;
-        if (customevent_cb) {
+        if (krichtextwidget_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            krichtextwidget_customevent_callback(this, cbval1);
             return;
         }
         KRichTextWidget::customEvent(event);
@@ -1563,17 +933,11 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (krichtextwidget_connectnotify_isbase) {
-            krichtextwidget_connectnotify_isbase = false;
-            KRichTextWidget::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = krichtextwidget_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (krichtextwidget_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            krichtextwidget_connectnotify_callback(this, cbval1);
             return;
         }
         KRichTextWidget::connectNotify(signal);
@@ -1581,501 +945,66 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (krichtextwidget_disconnectnotify_isbase) {
-            krichtextwidget_disconnectnotify_isbase = false;
-            KRichTextWidget::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = krichtextwidget_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (krichtextwidget_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            krichtextwidget_disconnectnotify_callback(this, cbval1);
             return;
         }
         KRichTextWidget::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void slotDoReplace() {
-        if (krichtextwidget_slotdoreplace_isbase) {
-            krichtextwidget_slotdoreplace_isbase = false;
-            KRichTextWidget::slotDoReplace();
-            return;
-        }
-        auto slotdoreplace_cb = krichtextwidget_slotdoreplace_callback;
-        if (slotdoreplace_cb) {
-            slotdoreplace_cb();
-            return;
-        }
-        KRichTextWidget::slotDoReplace();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotReplaceNext() {
-        if (krichtextwidget_slotreplacenext_isbase) {
-            krichtextwidget_slotreplacenext_isbase = false;
-            KRichTextWidget::slotReplaceNext();
-            return;
-        }
-        auto slotreplacenext_cb = krichtextwidget_slotreplacenext_callback;
-        if (slotreplacenext_cb) {
-            slotreplacenext_cb();
-            return;
-        }
-        KRichTextWidget::slotReplaceNext();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotDoFind() {
-        if (krichtextwidget_slotdofind_isbase) {
-            krichtextwidget_slotdofind_isbase = false;
-            KRichTextWidget::slotDoFind();
-            return;
-        }
-        auto slotdofind_cb = krichtextwidget_slotdofind_callback;
-        if (slotdofind_cb) {
-            slotdofind_cb();
-            return;
-        }
-        KRichTextWidget::slotDoFind();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFind() {
-        if (krichtextwidget_slotfind_isbase) {
-            krichtextwidget_slotfind_isbase = false;
-            KRichTextWidget::slotFind();
-            return;
-        }
-        auto slotfind_cb = krichtextwidget_slotfind_callback;
-        if (slotfind_cb) {
-            slotfind_cb();
-            return;
-        }
-        KRichTextWidget::slotFind();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFindNext() {
-        if (krichtextwidget_slotfindnext_isbase) {
-            krichtextwidget_slotfindnext_isbase = false;
-            KRichTextWidget::slotFindNext();
-            return;
-        }
-        auto slotfindnext_cb = krichtextwidget_slotfindnext_callback;
-        if (slotfindnext_cb) {
-            slotfindnext_cb();
-            return;
-        }
-        KRichTextWidget::slotFindNext();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFindPrevious() {
-        if (krichtextwidget_slotfindprevious_isbase) {
-            krichtextwidget_slotfindprevious_isbase = false;
-            KRichTextWidget::slotFindPrevious();
-            return;
-        }
-        auto slotfindprevious_cb = krichtextwidget_slotfindprevious_callback;
-        if (slotfindprevious_cb) {
-            slotfindprevious_cb();
-            return;
-        }
-        KRichTextWidget::slotFindPrevious();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotReplace() {
-        if (krichtextwidget_slotreplace_isbase) {
-            krichtextwidget_slotreplace_isbase = false;
-            KRichTextWidget::slotReplace();
-            return;
-        }
-        auto slotreplace_cb = krichtextwidget_slotreplace_callback;
-        if (slotreplace_cb) {
-            slotreplace_cb();
-            return;
-        }
-        KRichTextWidget::slotReplace();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotSpeakText() {
-        if (krichtextwidget_slotspeaktext_isbase) {
-            krichtextwidget_slotspeaktext_isbase = false;
-            KRichTextWidget::slotSpeakText();
-            return;
-        }
-        auto slotspeaktext_cb = krichtextwidget_slotspeaktext_callback;
-        if (slotspeaktext_cb) {
-            slotspeaktext_cb();
-            return;
-        }
-        KRichTextWidget::slotSpeakText();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void zoomInF(float range) {
-        if (krichtextwidget_zoominf_isbase) {
-            krichtextwidget_zoominf_isbase = false;
-            KRichTextWidget::zoomInF(range);
-            return;
-        }
-        auto zoominf_cb = krichtextwidget_zoominf_callback;
-        if (zoominf_cb) {
-            float cbval1 = range;
-            zoominf_cb(this, cbval1);
-            return;
-        }
-        KRichTextWidget::zoomInF(range);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setViewportMargins(int left, int top, int right, int bottom) {
-        if (krichtextwidget_setviewportmargins_isbase) {
-            krichtextwidget_setviewportmargins_isbase = false;
-            KRichTextWidget::setViewportMargins(left, top, right, bottom);
-            return;
-        }
-        auto setviewportmargins_cb = krichtextwidget_setviewportmargins_callback;
-        if (setviewportmargins_cb) {
-            int cbval1 = left;
-            int cbval2 = top;
-            int cbval3 = right;
-            int cbval4 = bottom;
-            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return;
-        }
-        KRichTextWidget::setViewportMargins(left, top, right, bottom);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QMargins viewportMargins() const {
-        if (krichtextwidget_viewportmargins_isbase) {
-            krichtextwidget_viewportmargins_isbase = false;
-            return KRichTextWidget::viewportMargins();
-        }
-        auto viewportmargins_cb = krichtextwidget_viewportmargins_callback;
-        if (viewportmargins_cb) {
-            QMargins* callback_ret = viewportmargins_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return KRichTextWidget::viewportMargins();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (krichtextwidget_drawframe_isbase) {
-            krichtextwidget_drawframe_isbase = false;
-            KRichTextWidget::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = krichtextwidget_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        KRichTextWidget::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (krichtextwidget_updatemicrofocus_isbase) {
-            krichtextwidget_updatemicrofocus_isbase = false;
-            KRichTextWidget::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = krichtextwidget_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KRichTextWidget::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (krichtextwidget_create_isbase) {
-            krichtextwidget_create_isbase = false;
-            KRichTextWidget::create();
-            return;
-        }
-        auto create_cb = krichtextwidget_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KRichTextWidget::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (krichtextwidget_destroy_isbase) {
-            krichtextwidget_destroy_isbase = false;
-            KRichTextWidget::destroy();
-            return;
-        }
-        auto destroy_cb = krichtextwidget_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KRichTextWidget::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (krichtextwidget_focusnextchild_isbase) {
-            krichtextwidget_focusnextchild_isbase = false;
-            return KRichTextWidget::focusNextChild();
-        }
-        auto focusnextchild_cb = krichtextwidget_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KRichTextWidget::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (krichtextwidget_focuspreviouschild_isbase) {
-            krichtextwidget_focuspreviouschild_isbase = false;
-            return KRichTextWidget::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = krichtextwidget_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KRichTextWidget::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (krichtextwidget_sender_isbase) {
-            krichtextwidget_sender_isbase = false;
-            return KRichTextWidget::sender();
-        }
-        auto sender_cb = krichtextwidget_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KRichTextWidget::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (krichtextwidget_sendersignalindex_isbase) {
-            krichtextwidget_sendersignalindex_isbase = false;
-            return KRichTextWidget::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = krichtextwidget_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KRichTextWidget::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (krichtextwidget_receivers_isbase) {
-            krichtextwidget_receivers_isbase = false;
-            return KRichTextWidget::receivers(signal);
-        }
-        auto receivers_cb = krichtextwidget_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KRichTextWidget::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (krichtextwidget_issignalconnected_isbase) {
-            krichtextwidget_issignalconnected_isbase = false;
-            return KRichTextWidget::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = krichtextwidget_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KRichTextWidget::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (krichtextwidget_getdecodedmetricf_isbase) {
-            krichtextwidget_getdecodedmetricf_isbase = false;
-            return KRichTextWidget::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = krichtextwidget_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KRichTextWidget::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KRichTextWidget_MouseReleaseEvent(KRichTextWidget* self, QMouseEvent* event);
     friend void KRichTextWidget_SuperMouseReleaseEvent(KRichTextWidget* self, QMouseEvent* event);
-    friend void KRichTextWidget_KeyPressEvent(KRichTextWidget* self, QKeyEvent* event);
     friend void KRichTextWidget_SuperKeyPressEvent(KRichTextWidget* self, QKeyEvent* event);
-    friend bool KRichTextWidget_Event(KRichTextWidget* self, QEvent* param1);
     friend bool KRichTextWidget_SuperEvent(KRichTextWidget* self, QEvent* param1);
-    friend void KRichTextWidget_FocusInEvent(KRichTextWidget* self, QFocusEvent* param1);
     friend void KRichTextWidget_SuperFocusInEvent(KRichTextWidget* self, QFocusEvent* param1);
-    friend void KRichTextWidget_DeleteWordBack(KRichTextWidget* self);
     friend void KRichTextWidget_SuperDeleteWordBack(KRichTextWidget* self);
-    friend void KRichTextWidget_DeleteWordForward(KRichTextWidget* self);
     friend void KRichTextWidget_SuperDeleteWordForward(KRichTextWidget* self);
-    friend void KRichTextWidget_ContextMenuEvent(KRichTextWidget* self, QContextMenuEvent* param1);
     friend void KRichTextWidget_SuperContextMenuEvent(KRichTextWidget* self, QContextMenuEvent* param1);
-    friend void KRichTextWidget_TimerEvent(KRichTextWidget* self, QTimerEvent* e);
     friend void KRichTextWidget_SuperTimerEvent(KRichTextWidget* self, QTimerEvent* e);
-    friend void KRichTextWidget_KeyReleaseEvent(KRichTextWidget* self, QKeyEvent* e);
     friend void KRichTextWidget_SuperKeyReleaseEvent(KRichTextWidget* self, QKeyEvent* e);
-    friend void KRichTextWidget_ResizeEvent(KRichTextWidget* self, QResizeEvent* e);
     friend void KRichTextWidget_SuperResizeEvent(KRichTextWidget* self, QResizeEvent* e);
-    friend void KRichTextWidget_PaintEvent(KRichTextWidget* self, QPaintEvent* e);
     friend void KRichTextWidget_SuperPaintEvent(KRichTextWidget* self, QPaintEvent* e);
-    friend void KRichTextWidget_MousePressEvent(KRichTextWidget* self, QMouseEvent* e);
     friend void KRichTextWidget_SuperMousePressEvent(KRichTextWidget* self, QMouseEvent* e);
-    friend void KRichTextWidget_MouseMoveEvent(KRichTextWidget* self, QMouseEvent* e);
     friend void KRichTextWidget_SuperMouseMoveEvent(KRichTextWidget* self, QMouseEvent* e);
-    friend void KRichTextWidget_MouseDoubleClickEvent(KRichTextWidget* self, QMouseEvent* e);
     friend void KRichTextWidget_SuperMouseDoubleClickEvent(KRichTextWidget* self, QMouseEvent* e);
-    friend bool KRichTextWidget_FocusNextPrevChild(KRichTextWidget* self, bool next);
     friend bool KRichTextWidget_SuperFocusNextPrevChild(KRichTextWidget* self, bool next);
-    friend void KRichTextWidget_DragEnterEvent(KRichTextWidget* self, QDragEnterEvent* e);
     friend void KRichTextWidget_SuperDragEnterEvent(KRichTextWidget* self, QDragEnterEvent* e);
-    friend void KRichTextWidget_DragLeaveEvent(KRichTextWidget* self, QDragLeaveEvent* e);
     friend void KRichTextWidget_SuperDragLeaveEvent(KRichTextWidget* self, QDragLeaveEvent* e);
-    friend void KRichTextWidget_DragMoveEvent(KRichTextWidget* self, QDragMoveEvent* e);
     friend void KRichTextWidget_SuperDragMoveEvent(KRichTextWidget* self, QDragMoveEvent* e);
-    friend void KRichTextWidget_DropEvent(KRichTextWidget* self, QDropEvent* e);
     friend void KRichTextWidget_SuperDropEvent(KRichTextWidget* self, QDropEvent* e);
-    friend void KRichTextWidget_FocusOutEvent(KRichTextWidget* self, QFocusEvent* e);
     friend void KRichTextWidget_SuperFocusOutEvent(KRichTextWidget* self, QFocusEvent* e);
-    friend void KRichTextWidget_ShowEvent(KRichTextWidget* self, QShowEvent* param1);
     friend void KRichTextWidget_SuperShowEvent(KRichTextWidget* self, QShowEvent* param1);
-    friend void KRichTextWidget_ChangeEvent(KRichTextWidget* self, QEvent* e);
     friend void KRichTextWidget_SuperChangeEvent(KRichTextWidget* self, QEvent* e);
-    friend void KRichTextWidget_WheelEvent(KRichTextWidget* self, QWheelEvent* e);
     friend void KRichTextWidget_SuperWheelEvent(KRichTextWidget* self, QWheelEvent* e);
-    friend QMimeData* KRichTextWidget_CreateMimeDataFromSelection(const KRichTextWidget* self);
     friend QMimeData* KRichTextWidget_SuperCreateMimeDataFromSelection(const KRichTextWidget* self);
-    friend bool KRichTextWidget_CanInsertFromMimeData(const KRichTextWidget* self, const QMimeData* source);
     friend bool KRichTextWidget_SuperCanInsertFromMimeData(const KRichTextWidget* self, const QMimeData* source);
-    friend void KRichTextWidget_InsertFromMimeData(KRichTextWidget* self, const QMimeData* source);
     friend void KRichTextWidget_SuperInsertFromMimeData(KRichTextWidget* self, const QMimeData* source);
-    friend void KRichTextWidget_InputMethodEvent(KRichTextWidget* self, QInputMethodEvent* param1);
     friend void KRichTextWidget_SuperInputMethodEvent(KRichTextWidget* self, QInputMethodEvent* param1);
-    friend void KRichTextWidget_ScrollContentsBy(KRichTextWidget* self, int dx, int dy);
     friend void KRichTextWidget_SuperScrollContentsBy(KRichTextWidget* self, int dx, int dy);
-    friend void KRichTextWidget_DoSetTextCursor(KRichTextWidget* self, const QTextCursor* cursor);
     friend void KRichTextWidget_SuperDoSetTextCursor(KRichTextWidget* self, const QTextCursor* cursor);
-    friend bool KRichTextWidget_EventFilter(KRichTextWidget* self, QObject* param1, QEvent* param2);
     friend bool KRichTextWidget_SuperEventFilter(KRichTextWidget* self, QObject* param1, QEvent* param2);
-    friend bool KRichTextWidget_ViewportEvent(KRichTextWidget* self, QEvent* param1);
     friend bool KRichTextWidget_SuperViewportEvent(KRichTextWidget* self, QEvent* param1);
-    friend QSize* KRichTextWidget_ViewportSizeHint(const KRichTextWidget* self);
     friend QSize* KRichTextWidget_SuperViewportSizeHint(const KRichTextWidget* self);
-    friend void KRichTextWidget_InitStyleOption(const KRichTextWidget* self, QStyleOptionFrame* option);
     friend void KRichTextWidget_SuperInitStyleOption(const KRichTextWidget* self, QStyleOptionFrame* option);
-    friend void KRichTextWidget_EnterEvent(KRichTextWidget* self, QEnterEvent* event);
     friend void KRichTextWidget_SuperEnterEvent(KRichTextWidget* self, QEnterEvent* event);
-    friend void KRichTextWidget_LeaveEvent(KRichTextWidget* self, QEvent* event);
     friend void KRichTextWidget_SuperLeaveEvent(KRichTextWidget* self, QEvent* event);
-    friend void KRichTextWidget_MoveEvent(KRichTextWidget* self, QMoveEvent* event);
     friend void KRichTextWidget_SuperMoveEvent(KRichTextWidget* self, QMoveEvent* event);
-    friend void KRichTextWidget_CloseEvent(KRichTextWidget* self, QCloseEvent* event);
     friend void KRichTextWidget_SuperCloseEvent(KRichTextWidget* self, QCloseEvent* event);
-    friend void KRichTextWidget_TabletEvent(KRichTextWidget* self, QTabletEvent* event);
     friend void KRichTextWidget_SuperTabletEvent(KRichTextWidget* self, QTabletEvent* event);
-    friend void KRichTextWidget_ActionEvent(KRichTextWidget* self, QActionEvent* event);
     friend void KRichTextWidget_SuperActionEvent(KRichTextWidget* self, QActionEvent* event);
-    friend void KRichTextWidget_HideEvent(KRichTextWidget* self, QHideEvent* event);
     friend void KRichTextWidget_SuperHideEvent(KRichTextWidget* self, QHideEvent* event);
-    friend bool KRichTextWidget_NativeEvent(KRichTextWidget* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KRichTextWidget_SuperNativeEvent(KRichTextWidget* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KRichTextWidget_Metric(const KRichTextWidget* self, int param1);
     friend int KRichTextWidget_SuperMetric(const KRichTextWidget* self, int param1);
-    friend void KRichTextWidget_InitPainter(const KRichTextWidget* self, QPainter* painter);
     friend void KRichTextWidget_SuperInitPainter(const KRichTextWidget* self, QPainter* painter);
-    friend QPaintDevice* KRichTextWidget_Redirected(const KRichTextWidget* self, QPoint* offset);
     friend QPaintDevice* KRichTextWidget_SuperRedirected(const KRichTextWidget* self, QPoint* offset);
-    friend QPainter* KRichTextWidget_SharedPainter(const KRichTextWidget* self);
     friend QPainter* KRichTextWidget_SuperSharedPainter(const KRichTextWidget* self);
-    friend void KRichTextWidget_ChildEvent(KRichTextWidget* self, QChildEvent* event);
     friend void KRichTextWidget_SuperChildEvent(KRichTextWidget* self, QChildEvent* event);
-    friend void KRichTextWidget_CustomEvent(KRichTextWidget* self, QEvent* event);
     friend void KRichTextWidget_SuperCustomEvent(KRichTextWidget* self, QEvent* event);
-    friend void KRichTextWidget_ConnectNotify(KRichTextWidget* self, const QMetaMethod* signal);
     friend void KRichTextWidget_SuperConnectNotify(KRichTextWidget* self, const QMetaMethod* signal);
-    friend void KRichTextWidget_DisconnectNotify(KRichTextWidget* self, const QMetaMethod* signal);
     friend void KRichTextWidget_SuperDisconnectNotify(KRichTextWidget* self, const QMetaMethod* signal);
-    friend void KRichTextWidget_SlotDoReplace(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperSlotDoReplace(KRichTextWidget* self);
-    friend void KRichTextWidget_SlotReplaceNext(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperSlotReplaceNext(KRichTextWidget* self);
-    friend void KRichTextWidget_SlotDoFind(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperSlotDoFind(KRichTextWidget* self);
-    friend void KRichTextWidget_SlotFind(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperSlotFind(KRichTextWidget* self);
-    friend void KRichTextWidget_SlotFindNext(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperSlotFindNext(KRichTextWidget* self);
-    friend void KRichTextWidget_SlotFindPrevious(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperSlotFindPrevious(KRichTextWidget* self);
-    friend void KRichTextWidget_SlotReplace(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperSlotReplace(KRichTextWidget* self);
-    friend void KRichTextWidget_SlotSpeakText(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperSlotSpeakText(KRichTextWidget* self);
-    friend void KRichTextWidget_ZoomInF(KRichTextWidget* self, float range);
-    friend void KRichTextWidget_SuperZoomInF(KRichTextWidget* self, float range);
-    friend void KRichTextWidget_SetViewportMargins(KRichTextWidget* self, int left, int top, int right, int bottom);
-    friend void KRichTextWidget_SuperSetViewportMargins(KRichTextWidget* self, int left, int top, int right, int bottom);
-    friend QMargins* KRichTextWidget_ViewportMargins(const KRichTextWidget* self);
-    friend QMargins* KRichTextWidget_SuperViewportMargins(const KRichTextWidget* self);
-    friend void KRichTextWidget_DrawFrame(KRichTextWidget* self, QPainter* param1);
-    friend void KRichTextWidget_SuperDrawFrame(KRichTextWidget* self, QPainter* param1);
-    friend void KRichTextWidget_UpdateMicroFocus(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperUpdateMicroFocus(KRichTextWidget* self);
-    friend void KRichTextWidget_Create(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperCreate(KRichTextWidget* self);
-    friend void KRichTextWidget_Destroy(KRichTextWidget* self);
-    friend void KRichTextWidget_SuperDestroy(KRichTextWidget* self);
-    friend bool KRichTextWidget_FocusNextChild(KRichTextWidget* self);
-    friend bool KRichTextWidget_SuperFocusNextChild(KRichTextWidget* self);
-    friend bool KRichTextWidget_FocusPreviousChild(KRichTextWidget* self);
-    friend bool KRichTextWidget_SuperFocusPreviousChild(KRichTextWidget* self);
-    friend QObject* KRichTextWidget_Sender(const KRichTextWidget* self);
-    friend QObject* KRichTextWidget_SuperSender(const KRichTextWidget* self);
-    friend int KRichTextWidget_SenderSignalIndex(const KRichTextWidget* self);
-    friend int KRichTextWidget_SuperSenderSignalIndex(const KRichTextWidget* self);
-    friend int KRichTextWidget_Receivers(const KRichTextWidget* self, const char* signal);
-    friend int KRichTextWidget_SuperReceivers(const KRichTextWidget* self, const char* signal);
-    friend bool KRichTextWidget_IsSignalConnected(const KRichTextWidget* self, const QMetaMethod* signal);
-    friend bool KRichTextWidget_SuperIsSignalConnected(const KRichTextWidget* self, const QMetaMethod* signal);
-    friend double KRichTextWidget_GetDecodedMetricF(const KRichTextWidget* self, int metricA, int metricB);
-    friend double KRichTextWidget_SuperGetDecodedMetricF(const KRichTextWidget* self, int metricA, int metricB);
 };
 
 #endif

@@ -39,7 +39,7 @@ void KNSWidgets__Action_DialogFinished(KNSWidgets__Action* self, const libqt_lis
 void KNSWidgets__Action_Connect_DialogFinished(KNSWidgets__Action* self, intptr_t slot);
 libqt_string KNSWidgets__Action_Tr2(const char* s, const char* c);
 libqt_string KNSWidgets__Action_Tr3(const char* s, const char* c, int n);
-void KNSWidgets__Action_OnMetaObject(const KNSWidgets__Action* self, intptr_t slot);
+void KNSWidgets__Action_OnMetaObject(KNSWidgets__Action* self, intptr_t slot);
 QMetaObject* KNSWidgets__Action_SuperMetaObject(const KNSWidgets__Action* self);
 void KNSWidgets__Action_OnMetacast(KNSWidgets__Action* self, intptr_t slot);
 void* KNSWidgets__Action_SuperMetacast(KNSWidgets__Action* self, const char* param1);
@@ -67,17 +67,9 @@ void KNSWidgets__Action_DisconnectNotify(KNSWidgets__Action* self, const QMetaMe
 void KNSWidgets__Action_OnDisconnectNotify(KNSWidgets__Action* self, intptr_t slot);
 void KNSWidgets__Action_SuperDisconnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal);
 QObject* KNSWidgets__Action_Sender(const KNSWidgets__Action* self);
-void KNSWidgets__Action_OnSender(const KNSWidgets__Action* self, intptr_t slot);
-QObject* KNSWidgets__Action_SuperSender(const KNSWidgets__Action* self);
 int KNSWidgets__Action_SenderSignalIndex(const KNSWidgets__Action* self);
-void KNSWidgets__Action_OnSenderSignalIndex(const KNSWidgets__Action* self, intptr_t slot);
-int KNSWidgets__Action_SuperSenderSignalIndex(const KNSWidgets__Action* self);
 int KNSWidgets__Action_Receivers(const KNSWidgets__Action* self, const char* signal);
-void KNSWidgets__Action_OnReceivers(const KNSWidgets__Action* self, intptr_t slot);
-int KNSWidgets__Action_SuperReceivers(const KNSWidgets__Action* self, const char* signal);
 bool KNSWidgets__Action_IsSignalConnected(const KNSWidgets__Action* self, const QMetaMethod* signal);
-void KNSWidgets__Action_OnIsSignalConnected(const KNSWidgets__Action* self, intptr_t slot);
-bool KNSWidgets__Action_SuperIsSignalConnected(const KNSWidgets__Action* self, const QMetaMethod* signal);
 void KNSWidgets__Action_Delete(KNSWidgets__Action* self);
 
 #ifdef __cplusplus

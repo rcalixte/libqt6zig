@@ -166,364 +166,219 @@ libqt_string QActionGroup_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QActionGroup_SuperMetaObject(const QActionGroup* self) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_MetaObject_IsBase(true);
-        return (QMetaObject*)vqactiongroup->metaObject();
-    } else {
-        return (QMetaObject*)self->QActionGroup::metaObject();
-    }
+    return (QMetaObject*)self->QActionGroup::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QActionGroup_OnMetaObject(const QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_MetaObject_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_MetaObject_Callback>(slot));
+void QActionGroup_OnMetaObject(QActionGroup* self, intptr_t slot) {
+    if (auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self)))
+        vqactiongroup->qactiongroup_metaobject_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QActionGroup_SuperMetacast(QActionGroup* self, const char* param1) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_Metacast_IsBase(true);
-        return vqactiongroup->qt_metacast(param1);
-    } else {
-        return self->QActionGroup::qt_metacast(param1);
-    }
+    return self->QActionGroup::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnMetacast(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_Metacast_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacast_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_metacast_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QActionGroup_SuperMetacall(QActionGroup* self, int param1, int param2, void** param3) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_Metacall_IsBase(true);
-        return vqactiongroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QActionGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QActionGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnMetacall(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_Metacall_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacall_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_metacall_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QActionGroup_Event(QActionGroup* self, QEvent* event) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return vqactiongroup->event(event);
-    } else {
-        return self->QActionGroup::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QActionGroup_SuperEvent(QActionGroup* self, QEvent* event) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_Event_IsBase(true);
-        return vqactiongroup->event(event);
-    } else {
-        return self->QActionGroup::event(event);
-    }
+    return self->QActionGroup::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnEvent(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_Event_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Event_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_event_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QActionGroup_EventFilter(QActionGroup* self, QObject* watched, QEvent* event) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return vqactiongroup->eventFilter(watched, event);
-    } else {
-        return self->QActionGroup::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QActionGroup_SuperEventFilter(QActionGroup* self, QObject* watched, QEvent* event) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_EventFilter_IsBase(true);
-        return vqactiongroup->eventFilter(watched, event);
-    } else {
-        return self->QActionGroup::eventFilter(watched, event);
-    }
+    return self->QActionGroup::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnEventFilter(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_EventFilter_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_EventFilter_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_eventfilter_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QActionGroup_TimerEvent(QActionGroup* self, QTimerEvent* event) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup) {
         vqactiongroup->timerEvent(event);
     } else {
-        ((VirtualQActionGroup*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QActionGroup::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QActionGroup_SuperTimerEvent(QActionGroup* self, QTimerEvent* event) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_TimerEvent_IsBase(true);
-        vqactiongroup->timerEvent(event);
-    } else {
-        ((VirtualQActionGroup*)self)->timerEvent(event);
-    }
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self)) {
+        vqactiongroup->QActionGroup::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QActionGroup::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnTimerEvent(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_TimerEvent_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_TimerEvent_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_timerevent_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QActionGroup_ChildEvent(QActionGroup* self, QChildEvent* event) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup) {
         vqactiongroup->childEvent(event);
     } else {
-        ((VirtualQActionGroup*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QActionGroup::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QActionGroup_SuperChildEvent(QActionGroup* self, QChildEvent* event) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_ChildEvent_IsBase(true);
-        vqactiongroup->childEvent(event);
-    } else {
-        ((VirtualQActionGroup*)self)->childEvent(event);
-    }
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self)) {
+        vqactiongroup->QActionGroup::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QActionGroup::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnChildEvent(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_ChildEvent_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_ChildEvent_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_childevent_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QActionGroup_CustomEvent(QActionGroup* self, QEvent* event) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup) {
         vqactiongroup->customEvent(event);
     } else {
-        ((VirtualQActionGroup*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QActionGroup::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QActionGroup_SuperCustomEvent(QActionGroup* self, QEvent* event) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_CustomEvent_IsBase(true);
-        vqactiongroup->customEvent(event);
-    } else {
-        ((VirtualQActionGroup*)self)->customEvent(event);
-    }
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self)) {
+        vqactiongroup->QActionGroup::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QActionGroup::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnCustomEvent(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_CustomEvent_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_CustomEvent_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_customevent_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QActionGroup_ConnectNotify(QActionGroup* self, const QMetaMethod* signal) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup) {
         vqactiongroup->connectNotify(*signal);
     } else {
-        ((VirtualQActionGroup*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QActionGroup::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QActionGroup_SuperConnectNotify(QActionGroup* self, const QMetaMethod* signal) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_ConnectNotify_IsBase(true);
-        vqactiongroup->connectNotify(*signal);
-    } else {
-        ((VirtualQActionGroup*)self)->connectNotify(*signal);
-    }
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self)) {
+        vqactiongroup->QActionGroup::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QActionGroup::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnConnectNotify(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_ConnectNotify_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_ConnectNotify_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_connectnotify_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QActionGroup_DisconnectNotify(QActionGroup* self, const QMetaMethod* signal) {
     auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
+    if (vqactiongroup) {
         vqactiongroup->disconnectNotify(*signal);
     } else {
-        ((VirtualQActionGroup*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QActionGroup::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QActionGroup_SuperDisconnectNotify(QActionGroup* self, const QMetaMethod* signal) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_DisconnectNotify_IsBase(true);
-        vqactiongroup->disconnectNotify(*signal);
-    } else {
-        ((VirtualQActionGroup*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self)) {
+        vqactiongroup->QActionGroup::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QActionGroup::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QActionGroup_OnDisconnectNotify(QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_DisconnectNotify_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_DisconnectNotify_Callback>(slot));
+    if (auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self))
+        vqactiongroup->qactiongroup_disconnectnotify_callback = reinterpret_cast<VirtualQActionGroup::QActionGroup_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QActionGroup_Sender(const QActionGroup* self) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return vqactiongroup->sender();
-    } else {
-        return ((VirtualQActionGroup*)self)->sender();
-    }
+    if (auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self))) {
+        return vqactiongroup->VirtualQActionGroup::sender();
+    } else
+        qFatal("Error: Protected method QActionGroup::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QActionGroup_SuperSender(const QActionGroup* self) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_Sender_IsBase(true);
-        return vqactiongroup->sender();
-    } else {
-        return ((VirtualQActionGroup*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QActionGroup_OnSender(const QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_Sender_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QActionGroup_SenderSignalIndex(const QActionGroup* self) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return vqactiongroup->senderSignalIndex();
-    } else {
-        return ((VirtualQActionGroup*)self)->senderSignalIndex();
-    }
+    if (auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self))) {
+        return vqactiongroup->VirtualQActionGroup::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QActionGroup::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QActionGroup_SuperSenderSignalIndex(const QActionGroup* self) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_SenderSignalIndex_IsBase(true);
-        return vqactiongroup->senderSignalIndex();
-    } else {
-        return ((VirtualQActionGroup*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QActionGroup_OnSenderSignalIndex(const QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QActionGroup_Receivers(const QActionGroup* self, const char* signal) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return vqactiongroup->receivers(signal);
-    } else {
-        return ((VirtualQActionGroup*)self)->receivers(signal);
-    }
+    if (auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self))) {
+        return vqactiongroup->VirtualQActionGroup::receivers(signal);
+    } else
+        qFatal("Error: Protected method QActionGroup::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QActionGroup_SuperReceivers(const QActionGroup* self, const char* signal) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_Receivers_IsBase(true);
-        return vqactiongroup->receivers(signal);
-    } else {
-        return ((VirtualQActionGroup*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QActionGroup_OnReceivers(const QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_Receivers_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QActionGroup_IsSignalConnected(const QActionGroup* self, const QMetaMethod* signal) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return vqactiongroup->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQActionGroup*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QActionGroup_SuperIsSignalConnected(const QActionGroup* self, const QMetaMethod* signal) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        vqactiongroup->setQActionGroup_IsSignalConnected_IsBase(true);
-        return vqactiongroup->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQActionGroup*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QActionGroup_OnIsSignalConnected(const QActionGroup* self, intptr_t slot) {
-    auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self));
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup)
-        vqactiongroup->setQActionGroup_IsSignalConnected_Callback(reinterpret_cast<VirtualQActionGroup::QActionGroup_IsSignalConnected_Callback>(slot));
+    if (auto* vqactiongroup = const_cast<VirtualQActionGroup*>(dynamic_cast<const VirtualQActionGroup*>(self))) {
+        return vqactiongroup->VirtualQActionGroup::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QActionGroup::isSignalConnected called without a directly constructed type");
 }
 
 void QActionGroup_Delete(QActionGroup* self) {

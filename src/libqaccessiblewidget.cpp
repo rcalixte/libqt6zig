@@ -168,762 +168,415 @@ libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QA
 
 // Base class handler implementation
 bool QAccessibleWidget_SuperIsValid(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_IsValid_IsBase(true);
-        return vqaccessiblewidget->isValid();
-    } else {
-        return self->QAccessibleWidget::isValid();
-    }
+    return self->QAccessibleWidget::isValid();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnIsValid(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_IsValid_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_IsValid_Callback>(slot));
+void QAccessibleWidget_OnIsValid(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_isvalid_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_IsValid_Callback>(slot);
 }
 
 // Base class handler implementation
 QWindow* QAccessibleWidget_SuperWindow(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Window_IsBase(true);
-        return vqaccessiblewidget->window();
-    } else {
-        return self->QAccessibleWidget::window();
-    }
+    return self->QAccessibleWidget::window();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnWindow(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Window_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Window_Callback>(slot));
+void QAccessibleWidget_OnWindow(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_window_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Window_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAccessibleWidget_SuperChildCount(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_ChildCount_IsBase(true);
-        return vqaccessiblewidget->childCount();
-    } else {
-        return self->QAccessibleWidget::childCount();
-    }
+    return self->QAccessibleWidget::childCount();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnChildCount(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_ChildCount_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ChildCount_Callback>(slot));
+void QAccessibleWidget_OnChildCount(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_childcount_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ChildCount_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAccessibleWidget_SuperIndexOfChild(const QAccessibleWidget* self, const QAccessibleInterface* child) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_IndexOfChild_IsBase(true);
-        return vqaccessiblewidget->indexOfChild(child);
-    } else {
-        return self->QAccessibleWidget::indexOfChild(child);
-    }
+    return self->QAccessibleWidget::indexOfChild(child);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnIndexOfChild(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_IndexOfChild_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_IndexOfChild_Callback>(slot));
+void QAccessibleWidget_OnIndexOfChild(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_indexofchild_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_IndexOfChild_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of pair_qaccessibleinterface_int tuple of QAccessibleInterface* and int */ QAccessibleWidget_SuperRelations(const QAccessibleWidget* self, int match) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Relations_IsBase(true);
-        QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = vqaccessiblewidget->relations(static_cast<QAccessible::Relation>(match));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */* _arr = static_cast<pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> _lv_ret = _ret[i];
-            // Convert QPair<> from C++ memory to manually-managed C memory
-            pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */ _lv_out;
-            _lv_out.first = _lv_ret.first;
-            _lv_out.second = _lv_ret.second;
-            _arr[i] = _lv_out;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = self->QAccessibleWidget::relations(static_cast<QAccessible::Relation>(match));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */* _arr = static_cast<pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> _lv_ret = _ret[i];
-            // Convert QPair<> from C++ memory to manually-managed C memory
-            pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */ _lv_out;
-            _lv_out.first = _lv_ret.first;
-            _lv_out.second = _lv_ret.second;
-            _arr[i] = _lv_out;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = self->QAccessibleWidget::relations(static_cast<QAccessible::Relation>(match));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */* _arr = static_cast<pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> _lv_ret = _ret[i];
+        // Convert QPair<> from C++ memory to manually-managed C memory
+        pair_qaccessibleinterface_int /* tuple of QAccessibleInterface* and int */ _lv_out;
+        _lv_out.first = _lv_ret.first;
+        _lv_out.second = _lv_ret.second;
+        _arr[i] = _lv_out;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnRelations(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Relations_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Relations_Callback>(slot));
+void QAccessibleWidget_OnRelations(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_relations_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Relations_Callback>(slot);
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleWidget_SuperFocusChild(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_FocusChild_IsBase(true);
-        return vqaccessiblewidget->focusChild();
-    } else {
-        return self->QAccessibleWidget::focusChild();
-    }
+    return self->QAccessibleWidget::focusChild();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnFocusChild(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_FocusChild_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_FocusChild_Callback>(slot));
+void QAccessibleWidget_OnFocusChild(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_focuschild_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_FocusChild_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QAccessibleWidget_SuperRect(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Rect_IsBase(true);
-        return new QRect(vqaccessiblewidget->rect());
-    } else {
-        return new QRect(((VirtualQAccessibleWidget*)self)->rect());
-    }
+    return new QRect(self->QAccessibleWidget::rect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnRect(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Rect_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Rect_Callback>(slot));
+void QAccessibleWidget_OnRect(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_rect_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Rect_Callback>(slot);
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleWidget_SuperParent(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Parent_IsBase(true);
-        return vqaccessiblewidget->parent();
-    } else {
-        return self->QAccessibleWidget::parent();
-    }
+    return self->QAccessibleWidget::parent();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnParent(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Parent_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Parent_Callback>(slot));
+void QAccessibleWidget_OnParent(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_parent_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Parent_Callback>(slot);
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleWidget_SuperChild(const QAccessibleWidget* self, int index) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Child_IsBase(true);
-        return vqaccessiblewidget->child(static_cast<int>(index));
-    } else {
-        return self->QAccessibleWidget::child(static_cast<int>(index));
-    }
+    return self->QAccessibleWidget::child(static_cast<int>(index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnChild(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Child_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Child_Callback>(slot));
+void QAccessibleWidget_OnChild(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_child_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Child_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string QAccessibleWidget_SuperText(const QAccessibleWidget* self, int t) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Text_IsBase(true);
-        auto _ret = vqaccessiblewidget->text(static_cast<QAccessible::Text>(t));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QAccessibleWidget::text(static_cast<QAccessible::Text>(t));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->QAccessibleWidget::text(static_cast<QAccessible::Text>(t));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnText(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Text_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Text_Callback>(slot));
+void QAccessibleWidget_OnText(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_text_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Text_Callback>(slot);
 }
 
 // Base class handler implementation
 int QAccessibleWidget_SuperRole(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Role_IsBase(true);
-        return static_cast<int>(vqaccessiblewidget->role());
-    } else {
-        return static_cast<int>(self->QAccessibleWidget::role());
-    }
+    return static_cast<int>(self->QAccessibleWidget::role());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnRole(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Role_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Role_Callback>(slot));
+void QAccessibleWidget_OnRole(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_role_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Role_Callback>(slot);
 }
 
 // Base class handler implementation
 QAccessible__State* QAccessibleWidget_SuperState(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_State_IsBase(true);
-        return new QAccessible::State(vqaccessiblewidget->state());
-    } else {
-        return new QAccessible::State(((VirtualQAccessibleWidget*)self)->state());
-    }
+    return new QAccessible::State(self->QAccessibleWidget::state());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnState(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_State_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_State_Callback>(slot));
+void QAccessibleWidget_OnState(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_state_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_State_Callback>(slot);
 }
 
 // Base class handler implementation
 QColor* QAccessibleWidget_SuperForegroundColor(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_ForegroundColor_IsBase(true);
-        return new QColor(vqaccessiblewidget->foregroundColor());
-    } else {
-        return new QColor(((VirtualQAccessibleWidget*)self)->foregroundColor());
-    }
+    return new QColor(self->QAccessibleWidget::foregroundColor());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnForegroundColor(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_ForegroundColor_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ForegroundColor_Callback>(slot));
+void QAccessibleWidget_OnForegroundColor(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_foregroundcolor_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ForegroundColor_Callback>(slot);
 }
 
 // Base class handler implementation
 QColor* QAccessibleWidget_SuperBackgroundColor(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_BackgroundColor_IsBase(true);
-        return new QColor(vqaccessiblewidget->backgroundColor());
-    } else {
-        return new QColor(((VirtualQAccessibleWidget*)self)->backgroundColor());
-    }
+    return new QColor(self->QAccessibleWidget::backgroundColor());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnBackgroundColor(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_BackgroundColor_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_BackgroundColor_Callback>(slot));
+void QAccessibleWidget_OnBackgroundColor(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_backgroundcolor_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_BackgroundColor_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QAccessibleWidget_SuperInterfaceCast(QAccessibleWidget* self, int t) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_InterfaceCast_IsBase(true);
-        return vqaccessiblewidget->interface_cast(static_cast<QAccessible::InterfaceType>(t));
-    } else {
-        return self->QAccessibleWidget::interface_cast(static_cast<QAccessible::InterfaceType>(t));
-    }
+    return self->QAccessibleWidget::interface_cast(static_cast<QAccessible::InterfaceType>(t));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleWidget_OnInterfaceCast(QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_InterfaceCast_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_InterfaceCast_Callback>(slot));
+    if (auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self))
+        vqaccessiblewidget->qaccessiblewidget_interfacecast_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_InterfaceCast_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QAccessibleWidget_SuperActionNames(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_ActionNames_IsBase(true);
-        QList<QString> _ret = vqaccessiblewidget->actionNames();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QAccessibleWidget::actionNames();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QAccessibleWidget::actionNames();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnActionNames(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_ActionNames_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ActionNames_Callback>(slot));
+void QAccessibleWidget_OnActionNames(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_actionnames_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ActionNames_Callback>(slot);
 }
 
 // Base class handler implementation
 void QAccessibleWidget_SuperDoAction(QAccessibleWidget* self, const libqt_string actionName) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_DoAction_IsBase(true);
-        vqaccessiblewidget->doAction(actionName_QString);
-    } else {
-        self->QAccessibleWidget::doAction(actionName_QString);
-    }
+    self->QAccessibleWidget::doAction(actionName_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleWidget_OnDoAction(QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_DoAction_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_DoAction_Callback>(slot));
+    if (auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self))
+        vqaccessiblewidget->qaccessiblewidget_doaction_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_DoAction_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of libqt_string */ QAccessibleWidget_SuperKeyBindingsForAction(const QAccessibleWidget* self, const libqt_string actionName) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_KeyBindingsForAction_IsBase(true);
-        QList<QString> _ret = vqaccessiblewidget->keyBindingsForAction(actionName_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = self->QAccessibleWidget::keyBindingsForAction(actionName_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->QAccessibleWidget::keyBindingsForAction(actionName_QString);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnKeyBindingsForAction(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_KeyBindingsForAction_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_KeyBindingsForAction_Callback>(slot));
+void QAccessibleWidget_OnKeyBindingsForAction(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_keybindingsforaction_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_KeyBindingsForAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 QObject* QAccessibleWidget_Object(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        return vqaccessiblewidget->object();
-    } else {
-        return self->QAccessibleWidget::object();
-    }
+    return self->object();
 }
 
 // Base class handler implementation
 QObject* QAccessibleWidget_SuperObject(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Object_IsBase(true);
-        return vqaccessiblewidget->object();
-    } else {
-        return self->QAccessibleWidget::object();
-    }
+    return self->QAccessibleWidget::object();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnObject(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Object_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Object_Callback>(slot));
+void QAccessibleWidget_OnObject(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_object_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Object_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAccessibleWidget_SetText(QAccessibleWidget* self, int t, const libqt_string text) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setText(static_cast<QAccessible::Text>(t), text_QString);
-    } else {
-        self->QAccessibleWidget::setText(static_cast<QAccessible::Text>(t), text_QString);
-    }
+    self->setText(static_cast<QAccessible::Text>(t), text_QString);
 }
 
 // Base class handler implementation
 void QAccessibleWidget_SuperSetText(QAccessibleWidget* self, int t, const libqt_string text) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_SetText_IsBase(true);
-        vqaccessiblewidget->setText(static_cast<QAccessible::Text>(t), text_QString);
-    } else {
-        self->QAccessibleWidget::setText(static_cast<QAccessible::Text>(t), text_QString);
-    }
+    self->QAccessibleWidget::setText(static_cast<QAccessible::Text>(t), text_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleWidget_OnSetText(QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_SetText_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_SetText_Callback>(slot));
+    if (auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self))
+        vqaccessiblewidget->qaccessiblewidget_settext_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_SetText_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleWidget_ChildAt(const QAccessibleWidget* self, int x, int y) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        return vqaccessiblewidget->childAt(static_cast<int>(x), static_cast<int>(y));
-    } else {
-        return self->QAccessibleWidget::childAt(static_cast<int>(x), static_cast<int>(y));
-    }
+    return self->childAt(static_cast<int>(x), static_cast<int>(y));
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleWidget_SuperChildAt(const QAccessibleWidget* self, int x, int y) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_ChildAt_IsBase(true);
-        return vqaccessiblewidget->childAt(static_cast<int>(x), static_cast<int>(y));
-    } else {
-        return self->QAccessibleWidget::childAt(static_cast<int>(x), static_cast<int>(y));
-    }
+    return self->QAccessibleWidget::childAt(static_cast<int>(x), static_cast<int>(y));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnChildAt(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_ChildAt_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ChildAt_Callback>(slot));
+void QAccessibleWidget_OnChildAt(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_childat_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ChildAt_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QAccessibleWidget_VirtualHook(QAccessibleWidget* self, int id, void* data) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->virtual_hook(static_cast<int>(id), data);
-    } else {
-        self->QAccessibleWidget::virtual_hook(static_cast<int>(id), data);
-    }
+    self->virtual_hook(static_cast<int>(id), data);
 }
 
 // Base class handler implementation
 void QAccessibleWidget_SuperVirtualHook(QAccessibleWidget* self, int id, void* data) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_VirtualHook_IsBase(true);
-        vqaccessiblewidget->virtual_hook(static_cast<int>(id), data);
-    } else {
-        self->QAccessibleWidget::virtual_hook(static_cast<int>(id), data);
-    }
+    self->QAccessibleWidget::virtual_hook(static_cast<int>(id), data);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QAccessibleWidget_OnVirtualHook(QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_VirtualHook_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_VirtualHook_Callback>(slot));
+    if (auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self))
+        vqaccessiblewidget->qaccessiblewidget_virtualhook_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_VirtualHook_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string QAccessibleWidget_LocalizedActionName(const QAccessibleWidget* self, const libqt_string name) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        auto _ret = vqaccessiblewidget->localizedActionName(name_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QAccessibleWidget::localizedActionName(name_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->localizedActionName(name_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string QAccessibleWidget_SuperLocalizedActionName(const QAccessibleWidget* self, const libqt_string name) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_LocalizedActionName_IsBase(true);
-        auto _ret = vqaccessiblewidget->localizedActionName(name_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QAccessibleWidget::localizedActionName(name_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->QAccessibleWidget::localizedActionName(name_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnLocalizedActionName(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_LocalizedActionName_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_LocalizedActionName_Callback>(slot));
+void QAccessibleWidget_OnLocalizedActionName(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_localizedactionname_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_LocalizedActionName_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string QAccessibleWidget_LocalizedActionDescription(const QAccessibleWidget* self, const libqt_string name) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        auto _ret = vqaccessiblewidget->localizedActionDescription(name_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QAccessibleWidget::localizedActionDescription(name_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->localizedActionDescription(name_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string QAccessibleWidget_SuperLocalizedActionDescription(const QAccessibleWidget* self, const libqt_string name) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_LocalizedActionDescription_IsBase(true);
-        auto _ret = vqaccessiblewidget->localizedActionDescription(name_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QAccessibleWidget::localizedActionDescription(name_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->QAccessibleWidget::localizedActionDescription(name_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnLocalizedActionDescription(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_LocalizedActionDescription_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_LocalizedActionDescription_Callback>(slot));
+void QAccessibleWidget_OnLocalizedActionDescription(QAccessibleWidget* self, intptr_t slot) {
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self)))
+        vqaccessiblewidget->qaccessiblewidget_localizedactiondescription_callback = reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_LocalizedActionDescription_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QWidget* QAccessibleWidget_Widget(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        return vqaccessiblewidget->widget();
-    } else {
-        return ((VirtualQAccessibleWidget*)self)->widget();
-    }
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self))) {
+        return vqaccessiblewidget->VirtualQAccessibleWidget::widget();
+    } else
+        qFatal("Error: Protected method QAccessibleWidget::widget called without a directly constructed type");
 }
 
-// Base class handler implementation
-QWidget* QAccessibleWidget_SuperWidget(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_Widget_IsBase(true);
-        return vqaccessiblewidget->widget();
-    } else {
-        return ((VirtualQAccessibleWidget*)self)->widget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnWidget(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_Widget_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_Widget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QAccessibleWidget_ParentObject(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        return vqaccessiblewidget->parentObject();
-    } else {
-        return ((VirtualQAccessibleWidget*)self)->parentObject();
-    }
+    if (auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self))) {
+        return vqaccessiblewidget->VirtualQAccessibleWidget::parentObject();
+    } else
+        qFatal("Error: Protected method QAccessibleWidget::parentObject called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QAccessibleWidget_SuperParentObject(const QAccessibleWidget* self) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_ParentObject_IsBase(true);
-        return vqaccessiblewidget->parentObject();
-    } else {
-        return ((VirtualQAccessibleWidget*)self)->parentObject();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnParentObject(const QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_ParentObject_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_ParentObject_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QAccessibleWidget_AddControllingSignal(QAccessibleWidget* self, const libqt_string signal) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    QString signal_QString = QString::fromUtf8(signal.data, signal.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->addControllingSignal(signal_QString);
-    } else {
-        ((VirtualQAccessibleWidget*)self)->addControllingSignal(signal_QString);
-    }
-}
-
-// Base class handler implementation
-void QAccessibleWidget_SuperAddControllingSignal(QAccessibleWidget* self, const libqt_string signal) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    QString signal_QString = QString::fromUtf8(signal.data, signal.len);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        vqaccessiblewidget->setQAccessibleWidget_AddControllingSignal_IsBase(true);
-        vqaccessiblewidget->addControllingSignal(signal_QString);
-    } else {
-        ((VirtualQAccessibleWidget*)self)->addControllingSignal(signal_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QAccessibleWidget_OnAddControllingSignal(QAccessibleWidget* self, intptr_t slot) {
-    auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self);
-    if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget)
-        vqaccessiblewidget->setQAccessibleWidget_AddControllingSignal_Callback(reinterpret_cast<VirtualQAccessibleWidget::QAccessibleWidget_AddControllingSignal_Callback>(slot));
+    if (auto* vqaccessiblewidget = dynamic_cast<VirtualQAccessibleWidget*>(self)) {
+        QString signal_QString = QString::fromUtf8(signal.data, signal.len);
+        vqaccessiblewidget->VirtualQAccessibleWidget::addControllingSignal(signal_QString);
+    } else
+        qFatal("Error: Protected method QAccessibleWidget::addControllingSignal called without a directly constructed type");
 }

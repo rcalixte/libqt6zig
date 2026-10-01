@@ -76,354 +76,222 @@ libqt_string KToggleToolBarAction_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KToggleToolBarAction_SuperMetaObject(const KToggleToolBarAction* self) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_MetaObject_IsBase(true);
-        return (QMetaObject*)vktoggletoolbaraction->metaObject();
-    } else {
-        return (QMetaObject*)self->KToggleToolBarAction::metaObject();
-    }
+    return (QMetaObject*)self->KToggleToolBarAction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KToggleToolBarAction_OnMetaObject(const KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_MetaObject_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_MetaObject_Callback>(slot));
+void KToggleToolBarAction_OnMetaObject(KToggleToolBarAction* self, intptr_t slot) {
+    if (auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self)))
+        vktoggletoolbaraction->ktoggletoolbaraction_metaobject_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KToggleToolBarAction_SuperMetacast(KToggleToolBarAction* self, const char* param1) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_Metacast_IsBase(true);
-        return vktoggletoolbaraction->qt_metacast(param1);
-    } else {
-        return self->KToggleToolBarAction::qt_metacast(param1);
-    }
+    return self->KToggleToolBarAction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnMetacast(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_Metacast_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Metacast_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_metacast_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KToggleToolBarAction_SuperMetacall(KToggleToolBarAction* self, int param1, int param2, void** param3) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_Metacall_IsBase(true);
-        return vktoggletoolbaraction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KToggleToolBarAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KToggleToolBarAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnMetacall(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_Metacall_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Metacall_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_metacall_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KToggleToolBarAction_SuperEventFilter(KToggleToolBarAction* self, QObject* watched, QEvent* event) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_EventFilter_IsBase(true);
-        return vktoggletoolbaraction->eventFilter(watched, event);
-    } else {
-        return self->KToggleToolBarAction::eventFilter(watched, event);
-    }
+    return self->KToggleToolBarAction::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnEventFilter(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_EventFilter_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_EventFilter_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_eventfilter_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KToggleToolBarAction_Event(KToggleToolBarAction* self, QEvent* param1) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction) {
         return vktoggletoolbaraction->event(param1);
     } else {
-        return ((VirtualKToggleToolBarAction*)self)->event(param1);
+        qFatal("Error: Protected virtual method KToggleToolBarAction::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KToggleToolBarAction_SuperEvent(KToggleToolBarAction* self, QEvent* param1) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_Event_IsBase(true);
-        return vktoggletoolbaraction->event(param1);
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->event(param1);
-    }
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self)) {
+        return vktoggletoolbaraction->KToggleToolBarAction::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KToggleToolBarAction::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnEvent(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_Event_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Event_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_event_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleToolBarAction_TimerEvent(KToggleToolBarAction* self, QTimerEvent* event) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction) {
         vktoggletoolbaraction->timerEvent(event);
     } else {
-        ((VirtualKToggleToolBarAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KToggleToolBarAction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleToolBarAction_SuperTimerEvent(KToggleToolBarAction* self, QTimerEvent* event) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_TimerEvent_IsBase(true);
-        vktoggletoolbaraction->timerEvent(event);
-    } else {
-        ((VirtualKToggleToolBarAction*)self)->timerEvent(event);
-    }
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self)) {
+        vktoggletoolbaraction->KToggleToolBarAction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToggleToolBarAction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnTimerEvent(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_TimerEvent_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_TimerEvent_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_timerevent_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleToolBarAction_ChildEvent(KToggleToolBarAction* self, QChildEvent* event) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction) {
         vktoggletoolbaraction->childEvent(event);
     } else {
-        ((VirtualKToggleToolBarAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KToggleToolBarAction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleToolBarAction_SuperChildEvent(KToggleToolBarAction* self, QChildEvent* event) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_ChildEvent_IsBase(true);
-        vktoggletoolbaraction->childEvent(event);
-    } else {
-        ((VirtualKToggleToolBarAction*)self)->childEvent(event);
-    }
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self)) {
+        vktoggletoolbaraction->KToggleToolBarAction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToggleToolBarAction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnChildEvent(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_ChildEvent_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_ChildEvent_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_childevent_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleToolBarAction_CustomEvent(KToggleToolBarAction* self, QEvent* event) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction) {
         vktoggletoolbaraction->customEvent(event);
     } else {
-        ((VirtualKToggleToolBarAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KToggleToolBarAction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleToolBarAction_SuperCustomEvent(KToggleToolBarAction* self, QEvent* event) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_CustomEvent_IsBase(true);
-        vktoggletoolbaraction->customEvent(event);
-    } else {
-        ((VirtualKToggleToolBarAction*)self)->customEvent(event);
-    }
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self)) {
+        vktoggletoolbaraction->KToggleToolBarAction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KToggleToolBarAction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnCustomEvent(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_CustomEvent_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_CustomEvent_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_customevent_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleToolBarAction_ConnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction) {
         vktoggletoolbaraction->connectNotify(*signal);
     } else {
-        ((VirtualKToggleToolBarAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KToggleToolBarAction::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleToolBarAction_SuperConnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_ConnectNotify_IsBase(true);
-        vktoggletoolbaraction->connectNotify(*signal);
-    } else {
-        ((VirtualKToggleToolBarAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self)) {
+        vktoggletoolbaraction->KToggleToolBarAction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KToggleToolBarAction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnConnectNotify(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_ConnectNotify_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_ConnectNotify_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_connectnotify_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KToggleToolBarAction_DisconnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction) {
         vktoggletoolbaraction->disconnectNotify(*signal);
     } else {
-        ((VirtualKToggleToolBarAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KToggleToolBarAction::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KToggleToolBarAction_SuperDisconnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_DisconnectNotify_IsBase(true);
-        vktoggletoolbaraction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKToggleToolBarAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self)) {
+        vktoggletoolbaraction->KToggleToolBarAction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KToggleToolBarAction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnDisconnectNotify(KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_DisconnectNotify_Callback>(slot));
+    if (auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self))
+        vktoggletoolbaraction->ktoggletoolbaraction_disconnectnotify_callback = reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KToggleToolBarAction_Sender(const KToggleToolBarAction* self) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        return vktoggletoolbaraction->sender();
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->sender();
-    }
+    if (auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self))) {
+        return vktoggletoolbaraction->VirtualKToggleToolBarAction::sender();
+    } else
+        qFatal("Error: Protected method KToggleToolBarAction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KToggleToolBarAction_SuperSender(const KToggleToolBarAction* self) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_Sender_IsBase(true);
-        return vktoggletoolbaraction->sender();
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleToolBarAction_OnSender(const KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_Sender_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KToggleToolBarAction_SenderSignalIndex(const KToggleToolBarAction* self) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        return vktoggletoolbaraction->senderSignalIndex();
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->senderSignalIndex();
-    }
+    if (auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self))) {
+        return vktoggletoolbaraction->VirtualKToggleToolBarAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KToggleToolBarAction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KToggleToolBarAction_SuperSenderSignalIndex(const KToggleToolBarAction* self) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_SenderSignalIndex_IsBase(true);
-        return vktoggletoolbaraction->senderSignalIndex();
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleToolBarAction_OnSenderSignalIndex(const KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KToggleToolBarAction_Receivers(const KToggleToolBarAction* self, const char* signal) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        return vktoggletoolbaraction->receivers(signal);
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->receivers(signal);
-    }
+    if (auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self))) {
+        return vktoggletoolbaraction->VirtualKToggleToolBarAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KToggleToolBarAction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KToggleToolBarAction_SuperReceivers(const KToggleToolBarAction* self, const char* signal) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_Receivers_IsBase(true);
-        return vktoggletoolbaraction->receivers(signal);
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleToolBarAction_OnReceivers(const KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_Receivers_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KToggleToolBarAction_IsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        return vktoggletoolbaraction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KToggleToolBarAction_SuperIsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        vktoggletoolbaraction->setKToggleToolBarAction_IsSignalConnected_IsBase(true);
-        return vktoggletoolbaraction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KToggleToolBarAction_OnIsSignalConnected(const KToggleToolBarAction* self, intptr_t slot) {
-    auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
-        vktoggletoolbaraction->setKToggleToolBarAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_IsSignalConnected_Callback>(slot));
+    if (auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self))) {
+        return vktoggletoolbaraction->VirtualKToggleToolBarAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KToggleToolBarAction::isSignalConnected called without a directly constructed type");
 }
 
 void KToggleToolBarAction_Delete(KToggleToolBarAction* self) {

@@ -130,9 +130,9 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QMetaObject) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6645,9 +6645,9 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) i32) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6761,11 +6761,11 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QSize) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6819,11 +6819,11 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QSize) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6937,9 +6937,9 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6993,9 +6993,9 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QPaintEngine) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8921,9 +8921,9 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget) callconv(.c) QPainter) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9507,44 +9507,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: TextGrammarCheck__LanguageToolConfigWidget) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9561,44 +9523,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     pub fn create(self: TextGrammarCheck__LanguageToolConfigWidget) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    pub fn superCreate(self: TextGrammarCheck__LanguageToolConfigWidget) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9619,44 +9543,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    pub fn superDestroy(self: TextGrammarCheck__LanguageToolConfigWidget) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9673,44 +9559,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     pub fn focusNextChild(self: TextGrammarCheck__LanguageToolConfigWidget) bool {
         return qtc.TextGrammarCheck__LanguageToolConfigWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    pub fn superFocusNextChild(self: TextGrammarCheck__LanguageToolConfigWidget) bool {
-        return qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9731,44 +9579,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
         return qtc.TextGrammarCheck__LanguageToolConfigWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    pub fn superFocusPreviousChild(self: TextGrammarCheck__LanguageToolConfigWidget) bool {
-        return qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9787,44 +9597,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
         return .{ .ptr = qtc.TextGrammarCheck__LanguageToolConfigWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    pub fn superSender(self: TextGrammarCheck__LanguageToolConfigWidget) QObject {
-        return .{ .ptr = qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9841,44 +9613,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: TextGrammarCheck__LanguageToolConfigWidget) i32 {
         return qtc.TextGrammarCheck__LanguageToolConfigWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    pub fn superSenderSignalIndex(self: TextGrammarCheck__LanguageToolConfigWidget) i32 {
-        return qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9902,47 +9636,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
         return qtc.TextGrammarCheck__LanguageToolConfigWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextGrammarCheck__LanguageToolConfigWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -9962,47 +9655,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     pub fn isSignalConnected(self: TextGrammarCheck__LanguageToolConfigWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextGrammarCheck__LanguageToolConfigWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextGrammarCheck__LanguageToolConfigWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10025,48 +9677,6 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextGrammarCheck__LanguageToolConfigWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextGrammarCheck__LanguageToolConfigWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextGrammarCheck__LanguageToolConfigWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.TextGrammarCheck__LanguageToolConfigWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
-    ///
-    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget, i32, i32) callconv(.c) f64) void {
-        qtc.TextGrammarCheck__LanguageToolConfigWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

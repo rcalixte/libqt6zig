@@ -241,54 +241,54 @@ void KTreeWidgetSearchLine_SetTreeWidgets(KTreeWidgetSearchLine* self, const lib
 bool KTreeWidgetSearchLine_ItemMatches(const KTreeWidgetSearchLine* self, const QTreeWidgetItem* item, const libqt_string pattern) {
     QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
     auto* vktreewidgetsearchline = dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         return vktreewidgetsearchline->itemMatches(item, pattern_QString);
     }
-    return {};
+    qFatal("Error: Protected method KTreeWidgetSearchLine::itemMatches called without a directly constructed type");
 }
 
 void KTreeWidgetSearchLine_ContextMenuEvent(KTreeWidgetSearchLine* self, QContextMenuEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->contextMenuEvent(param1);
     }
 }
 
 void KTreeWidgetSearchLine_UpdateSearch2(KTreeWidgetSearchLine* self, QTreeWidget* treeWidget) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->updateSearch(treeWidget);
     }
 }
 
 void KTreeWidgetSearchLine_ConnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->connectTreeWidget(param1);
     }
 }
 
 void KTreeWidgetSearchLine_DisconnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->disconnectTreeWidget(param1);
     }
 }
 
 bool KTreeWidgetSearchLine_CanChooseColumnsCheck(KTreeWidgetSearchLine* self) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         return vktreewidgetsearchline->canChooseColumnsCheck();
     }
-    return {};
+    qFatal("Error: Protected method KTreeWidgetSearchLine::canChooseColumnsCheck called without a directly constructed type");
 }
 
 bool KTreeWidgetSearchLine_Event(KTreeWidgetSearchLine* self, QEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         return vktreewidgetsearchline->event(event);
     }
-    return {};
+    qFatal("Error: Protected method KTreeWidgetSearchLine::event called without a directly constructed type");
 }
 
 libqt_string KTreeWidgetSearchLine_Tr2(const char* s, const char* c) {
@@ -317,1798 +317,1259 @@ libqt_string KTreeWidgetSearchLine_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KTreeWidgetSearchLine_SuperMetaObject(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MetaObject_IsBase(true);
-        return (QMetaObject*)vktreewidgetsearchline->metaObject();
-    } else {
-        return (QMetaObject*)self->KTreeWidgetSearchLine::metaObject();
-    }
+    return (QMetaObject*)self->KTreeWidgetSearchLine::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnMetaObject(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MetaObject_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MetaObject_Callback>(slot));
+void KTreeWidgetSearchLine_OnMetaObject(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_metaobject_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KTreeWidgetSearchLine_SuperMetacast(KTreeWidgetSearchLine* self, const char* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Metacast_IsBase(true);
-        return vktreewidgetsearchline->qt_metacast(param1);
-    } else {
-        return self->KTreeWidgetSearchLine::qt_metacast(param1);
-    }
+    return self->KTreeWidgetSearchLine::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnMetacast(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Metacast_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Metacast_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_metacast_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KTreeWidgetSearchLine_SuperMetacall(KTreeWidgetSearchLine* self, int param1, int param2, void** param3) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Metacall_IsBase(true);
-        return vktreewidgetsearchline->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KTreeWidgetSearchLine::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KTreeWidgetSearchLine::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnMetacall(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Metacall_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Metacall_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_metacall_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperUpdateSearch(KTreeWidgetSearchLine* self, const libqt_string pattern) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
     QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_UpdateSearch_IsBase(true);
-        vktreewidgetsearchline->updateSearch(pattern_QString);
-    } else {
-        self->KTreeWidgetSearchLine::updateSearch(pattern_QString);
-    }
+    self->KTreeWidgetSearchLine::updateSearch(pattern_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnUpdateSearch(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_UpdateSearch_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_UpdateSearch_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_updatesearch_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_UpdateSearch_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTreeWidgetSearchLine_SuperItemMatches(const KTreeWidgetSearchLine* self, const QTreeWidgetItem* item, const libqt_string pattern) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
     QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ItemMatches_IsBase(true);
-        return vktreewidgetsearchline->itemMatches(item, pattern_QString);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->itemMatches(item, pattern_QString);
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->KTreeWidgetSearchLine::itemMatches(item, pattern_QString);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::itemMatches called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnItemMatches(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ItemMatches_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ItemMatches_Callback>(slot));
+void KTreeWidgetSearchLine_OnItemMatches(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_itemmatches_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ItemMatches_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperContextMenuEvent(KTreeWidgetSearchLine* self, QContextMenuEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ContextMenuEvent_IsBase(true);
-        vktreewidgetsearchline->contextMenuEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnContextMenuEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ContextMenuEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ContextMenuEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_contextmenuevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperUpdateSearch2(KTreeWidgetSearchLine* self, QTreeWidget* treeWidget) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_UpdateSearch2_IsBase(true);
-        vktreewidgetsearchline->updateSearch(treeWidget);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->updateSearch(treeWidget);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::updateSearch(treeWidget);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::updateSearch2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnUpdateSearch2(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_UpdateSearch2_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_UpdateSearch2_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_updatesearch2_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_UpdateSearch2_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperConnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ConnectTreeWidget_IsBase(true);
-        vktreewidgetsearchline->connectTreeWidget(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->connectTreeWidget(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::connectTreeWidget(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::connectTreeWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnConnectTreeWidget(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ConnectTreeWidget_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ConnectTreeWidget_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_connecttreewidget_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ConnectTreeWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperDisconnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DisconnectTreeWidget_IsBase(true);
-        vktreewidgetsearchline->disconnectTreeWidget(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->disconnectTreeWidget(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::disconnectTreeWidget(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::disconnectTreeWidget called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnDisconnectTreeWidget(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DisconnectTreeWidget_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DisconnectTreeWidget_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_disconnecttreewidget_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DisconnectTreeWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTreeWidgetSearchLine_SuperCanChooseColumnsCheck(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_CanChooseColumnsCheck_IsBase(true);
-        return vktreewidgetsearchline->canChooseColumnsCheck();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->canChooseColumnsCheck();
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        return vktreewidgetsearchline->KTreeWidgetSearchLine::canChooseColumnsCheck();
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::canChooseColumnsCheck called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnCanChooseColumnsCheck(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_CanChooseColumnsCheck_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_CanChooseColumnsCheck_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_canchoosecolumnscheck_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_CanChooseColumnsCheck_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTreeWidgetSearchLine_SuperEvent(KTreeWidgetSearchLine* self, QEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Event_IsBase(true);
-        return vktreewidgetsearchline->event(event);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->event(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        return vktreewidgetsearchline->KTreeWidgetSearchLine::event(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Event_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Event_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_event_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTreeWidgetSearchLine_SizeHint(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return new QSize(vktreewidgetsearchline->sizeHint());
-    } else {
-        return new QSize(((VirtualKTreeWidgetSearchLine*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KTreeWidgetSearchLine_SuperSizeHint(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_SizeHint_IsBase(true);
-        return new QSize(vktreewidgetsearchline->sizeHint());
-    } else {
-        return new QSize(((VirtualKTreeWidgetSearchLine*)self)->sizeHint());
-    }
+    return new QSize(self->KTreeWidgetSearchLine::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnSizeHint(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_SizeHint_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_SizeHint_Callback>(slot));
+void KTreeWidgetSearchLine_OnSizeHint(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_sizehint_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTreeWidgetSearchLine_MinimumSizeHint(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return new QSize(vktreewidgetsearchline->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKTreeWidgetSearchLine*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KTreeWidgetSearchLine_SuperMinimumSizeHint(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MinimumSizeHint_IsBase(true);
-        return new QSize(vktreewidgetsearchline->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKTreeWidgetSearchLine*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KTreeWidgetSearchLine::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnMinimumSizeHint(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MinimumSizeHint_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MinimumSizeHint_Callback>(slot));
+void KTreeWidgetSearchLine_OnMinimumSizeHint(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_minimumsizehint_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_MousePressEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->mousePressEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->mousePressEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperMousePressEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MousePressEvent_IsBase(true);
-        vktreewidgetsearchline->mousePressEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->mousePressEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnMousePressEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MousePressEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MousePressEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_mousepressevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_MouseMoveEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->mouseMoveEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->mouseMoveEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperMouseMoveEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MouseMoveEvent_IsBase(true);
-        vktreewidgetsearchline->mouseMoveEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnMouseMoveEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MouseMoveEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MouseMoveEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_mousemoveevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_MouseReleaseEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->mouseReleaseEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->mouseReleaseEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperMouseReleaseEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MouseReleaseEvent_IsBase(true);
-        vktreewidgetsearchline->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnMouseReleaseEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MouseReleaseEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_mousereleaseevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_MouseDoubleClickEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->mouseDoubleClickEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->mouseDoubleClickEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperMouseDoubleClickEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MouseDoubleClickEvent_IsBase(true);
-        vktreewidgetsearchline->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->mouseDoubleClickEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::mouseDoubleClickEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnMouseDoubleClickEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_mousedoubleclickevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_KeyPressEvent(KTreeWidgetSearchLine* self, QKeyEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->keyPressEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperKeyPressEvent(KTreeWidgetSearchLine* self, QKeyEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_KeyPressEvent_IsBase(true);
-        vktreewidgetsearchline->keyPressEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->keyPressEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnKeyPressEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_KeyPressEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_KeyPressEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_keypressevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_KeyReleaseEvent(KTreeWidgetSearchLine* self, QKeyEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->keyReleaseEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->keyReleaseEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperKeyReleaseEvent(KTreeWidgetSearchLine* self, QKeyEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_KeyReleaseEvent_IsBase(true);
-        vktreewidgetsearchline->keyReleaseEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->keyReleaseEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::keyReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnKeyReleaseEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_KeyReleaseEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_keyreleaseevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_FocusInEvent(KTreeWidgetSearchLine* self, QFocusEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->focusInEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->focusInEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperFocusInEvent(KTreeWidgetSearchLine* self, QFocusEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusInEvent_IsBase(true);
-        vktreewidgetsearchline->focusInEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->focusInEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnFocusInEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusInEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_FocusInEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_focusinevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_FocusOutEvent(KTreeWidgetSearchLine* self, QFocusEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->focusOutEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->focusOutEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperFocusOutEvent(KTreeWidgetSearchLine* self, QFocusEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusOutEvent_IsBase(true);
-        vktreewidgetsearchline->focusOutEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->focusOutEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnFocusOutEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusOutEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_FocusOutEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_focusoutevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_PaintEvent(KTreeWidgetSearchLine* self, QPaintEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->paintEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperPaintEvent(KTreeWidgetSearchLine* self, QPaintEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_PaintEvent_IsBase(true);
-        vktreewidgetsearchline->paintEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->paintEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnPaintEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_PaintEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_PaintEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_paintevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_DragEnterEvent(KTreeWidgetSearchLine* self, QDragEnterEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->dragEnterEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->dragEnterEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperDragEnterEvent(KTreeWidgetSearchLine* self, QDragEnterEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DragEnterEvent_IsBase(true);
-        vktreewidgetsearchline->dragEnterEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->dragEnterEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::dragEnterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnDragEnterEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DragEnterEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DragEnterEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_dragenterevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_DragMoveEvent(KTreeWidgetSearchLine* self, QDragMoveEvent* e) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->dragMoveEvent(e);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->dragMoveEvent(e);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperDragMoveEvent(KTreeWidgetSearchLine* self, QDragMoveEvent* e) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DragMoveEvent_IsBase(true);
-        vktreewidgetsearchline->dragMoveEvent(e);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->dragMoveEvent(e);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnDragMoveEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DragMoveEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DragMoveEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_dragmoveevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_DragLeaveEvent(KTreeWidgetSearchLine* self, QDragLeaveEvent* e) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->dragLeaveEvent(e);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->dragLeaveEvent(e);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperDragLeaveEvent(KTreeWidgetSearchLine* self, QDragLeaveEvent* e) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DragLeaveEvent_IsBase(true);
-        vktreewidgetsearchline->dragLeaveEvent(e);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnDragLeaveEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DragLeaveEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DragLeaveEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_dragleaveevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_DropEvent(KTreeWidgetSearchLine* self, QDropEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->dropEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->dropEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperDropEvent(KTreeWidgetSearchLine* self, QDropEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DropEvent_IsBase(true);
-        vktreewidgetsearchline->dropEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->dropEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnDropEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DropEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DropEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_dropevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_ChangeEvent(KTreeWidgetSearchLine* self, QEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->changeEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperChangeEvent(KTreeWidgetSearchLine* self, QEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ChangeEvent_IsBase(true);
-        vktreewidgetsearchline->changeEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->changeEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnChangeEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ChangeEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ChangeEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_changeevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_InputMethodEvent(KTreeWidgetSearchLine* self, QInputMethodEvent* param1) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->inputMethodEvent(param1);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperInputMethodEvent(KTreeWidgetSearchLine* self, QInputMethodEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_InputMethodEvent_IsBase(true);
-        vktreewidgetsearchline->inputMethodEvent(param1);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnInputMethodEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_InputMethodEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_InputMethodEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_inputmethodevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_InitStyleOption(const KTreeWidgetSearchLine* self, QStyleOptionFrame* option) {
     auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->initStyleOption(option);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperInitStyleOption(const KTreeWidgetSearchLine* self, QStyleOptionFrame* option) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_InitStyleOption_IsBase(true);
-        vktreewidgetsearchline->initStyleOption(option);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->initStyleOption(option);
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnInitStyleOption(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_InitStyleOption_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_InitStyleOption_Callback>(slot));
+void KTreeWidgetSearchLine_OnInitStyleOption(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_initstyleoption_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KTreeWidgetSearchLine_InputMethodQuery(const KTreeWidgetSearchLine* self, int param1) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return new QVariant(vktreewidgetsearchline->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKTreeWidgetSearchLine*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KTreeWidgetSearchLine_SuperInputMethodQuery(const KTreeWidgetSearchLine* self, int param1) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_InputMethodQuery_IsBase(true);
-        return new QVariant(vktreewidgetsearchline->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKTreeWidgetSearchLine*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KTreeWidgetSearchLine::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnInputMethodQuery(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_InputMethodQuery_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_InputMethodQuery_Callback>(slot));
+void KTreeWidgetSearchLine_OnInputMethodQuery(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_inputmethodquery_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_TimerEvent(KTreeWidgetSearchLine* self, QTimerEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->timerEvent(param1);
-    } else {
-        self->KTreeWidgetSearchLine::timerEvent(param1);
-    }
+    self->timerEvent(param1);
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperTimerEvent(KTreeWidgetSearchLine* self, QTimerEvent* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_TimerEvent_IsBase(true);
-        vktreewidgetsearchline->timerEvent(param1);
-    } else {
-        self->KTreeWidgetSearchLine::timerEvent(param1);
-    }
+    self->KTreeWidgetSearchLine::timerEvent(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnTimerEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_TimerEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_TimerEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_timerevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTreeWidgetSearchLine_DevType(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->devType();
-    } else {
-        return self->KTreeWidgetSearchLine::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KTreeWidgetSearchLine_SuperDevType(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DevType_IsBase(true);
-        return vktreewidgetsearchline->devType();
-    } else {
-        return self->KTreeWidgetSearchLine::devType();
-    }
+    return self->KTreeWidgetSearchLine::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnDevType(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DevType_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DevType_Callback>(slot));
+void KTreeWidgetSearchLine_OnDevType(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_devtype_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_SetVisible(KTreeWidgetSearchLine* self, bool visible) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setVisible(visible);
-    } else {
-        self->KTreeWidgetSearchLine::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperSetVisible(KTreeWidgetSearchLine* self, bool visible) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_SetVisible_IsBase(true);
-        vktreewidgetsearchline->setVisible(visible);
-    } else {
-        self->KTreeWidgetSearchLine::setVisible(visible);
-    }
+    self->KTreeWidgetSearchLine::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnSetVisible(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_SetVisible_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_SetVisible_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_setvisible_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTreeWidgetSearchLine_HeightForWidth(const KTreeWidgetSearchLine* self, int param1) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KTreeWidgetSearchLine::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KTreeWidgetSearchLine_SuperHeightForWidth(const KTreeWidgetSearchLine* self, int param1) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_HeightForWidth_IsBase(true);
-        return vktreewidgetsearchline->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KTreeWidgetSearchLine::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KTreeWidgetSearchLine::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnHeightForWidth(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_HeightForWidth_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_HeightForWidth_Callback>(slot));
+void KTreeWidgetSearchLine_OnHeightForWidth(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_heightforwidth_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTreeWidgetSearchLine_HasHeightForWidth(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->hasHeightForWidth();
-    } else {
-        return self->KTreeWidgetSearchLine::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KTreeWidgetSearchLine_SuperHasHeightForWidth(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_HasHeightForWidth_IsBase(true);
-        return vktreewidgetsearchline->hasHeightForWidth();
-    } else {
-        return self->KTreeWidgetSearchLine::hasHeightForWidth();
-    }
+    return self->KTreeWidgetSearchLine::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnHasHeightForWidth(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_HasHeightForWidth_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_HasHeightForWidth_Callback>(slot));
+void KTreeWidgetSearchLine_OnHasHeightForWidth(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_hasheightforwidth_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KTreeWidgetSearchLine_PaintEngine(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->paintEngine();
-    } else {
-        return self->KTreeWidgetSearchLine::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KTreeWidgetSearchLine_SuperPaintEngine(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_PaintEngine_IsBase(true);
-        return vktreewidgetsearchline->paintEngine();
-    } else {
-        return self->KTreeWidgetSearchLine::paintEngine();
-    }
+    return self->KTreeWidgetSearchLine::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnPaintEngine(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_PaintEngine_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_PaintEngine_Callback>(slot));
+void KTreeWidgetSearchLine_OnPaintEngine(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_paintengine_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_WheelEvent(KTreeWidgetSearchLine* self, QWheelEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->wheelEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperWheelEvent(KTreeWidgetSearchLine* self, QWheelEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_WheelEvent_IsBase(true);
-        vktreewidgetsearchline->wheelEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->wheelEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnWheelEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_WheelEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_WheelEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_wheelevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_EnterEvent(KTreeWidgetSearchLine* self, QEnterEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->enterEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperEnterEvent(KTreeWidgetSearchLine* self, QEnterEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_EnterEvent_IsBase(true);
-        vktreewidgetsearchline->enterEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->enterEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnEnterEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_EnterEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_EnterEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_enterevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_LeaveEvent(KTreeWidgetSearchLine* self, QEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->leaveEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperLeaveEvent(KTreeWidgetSearchLine* self, QEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_LeaveEvent_IsBase(true);
-        vktreewidgetsearchline->leaveEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->leaveEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnLeaveEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_LeaveEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_LeaveEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_leaveevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_MoveEvent(KTreeWidgetSearchLine* self, QMoveEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->moveEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperMoveEvent(KTreeWidgetSearchLine* self, QMoveEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MoveEvent_IsBase(true);
-        vktreewidgetsearchline->moveEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->moveEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnMoveEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_MoveEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MoveEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_moveevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_ResizeEvent(KTreeWidgetSearchLine* self, QResizeEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->resizeEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperResizeEvent(KTreeWidgetSearchLine* self, QResizeEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ResizeEvent_IsBase(true);
-        vktreewidgetsearchline->resizeEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->resizeEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnResizeEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ResizeEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ResizeEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_resizeevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_CloseEvent(KTreeWidgetSearchLine* self, QCloseEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->closeEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperCloseEvent(KTreeWidgetSearchLine* self, QCloseEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_CloseEvent_IsBase(true);
-        vktreewidgetsearchline->closeEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->closeEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnCloseEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_CloseEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_CloseEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_closeevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_TabletEvent(KTreeWidgetSearchLine* self, QTabletEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->tabletEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperTabletEvent(KTreeWidgetSearchLine* self, QTabletEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_TabletEvent_IsBase(true);
-        vktreewidgetsearchline->tabletEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->tabletEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnTabletEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_TabletEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_TabletEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_tabletevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_ActionEvent(KTreeWidgetSearchLine* self, QActionEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->actionEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperActionEvent(KTreeWidgetSearchLine* self, QActionEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ActionEvent_IsBase(true);
-        vktreewidgetsearchline->actionEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->actionEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnActionEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ActionEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ActionEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_actionevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_ShowEvent(KTreeWidgetSearchLine* self, QShowEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->showEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperShowEvent(KTreeWidgetSearchLine* self, QShowEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ShowEvent_IsBase(true);
-        vktreewidgetsearchline->showEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->showEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnShowEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ShowEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ShowEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_showevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_HideEvent(KTreeWidgetSearchLine* self, QHideEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->hideEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperHideEvent(KTreeWidgetSearchLine* self, QHideEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_HideEvent_IsBase(true);
-        vktreewidgetsearchline->hideEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->hideEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnHideEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_HideEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_HideEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_hideevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTreeWidgetSearchLine_NativeEvent(KTreeWidgetSearchLine* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
+    if (vktreewidgetsearchline) {
         return vktreewidgetsearchline->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTreeWidgetSearchLine_SuperNativeEvent(KTreeWidgetSearchLine* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_NativeEvent_IsBase(true);
-        return vktreewidgetsearchline->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        return vktreewidgetsearchline->KTreeWidgetSearchLine::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnNativeEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_NativeEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_NativeEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_nativeevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTreeWidgetSearchLine_Metric(const KTreeWidgetSearchLine* self, int param1) {
     auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         return vktreewidgetsearchline->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KTreeWidgetSearchLine_SuperMetric(const KTreeWidgetSearchLine* self, int param1) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Metric_IsBase(true);
-        return vktreewidgetsearchline->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->KTreeWidgetSearchLine::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnMetric(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Metric_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Metric_Callback>(slot));
+void KTreeWidgetSearchLine_OnMetric(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_metric_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_InitPainter(const KTreeWidgetSearchLine* self, QPainter* painter) {
     auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->initPainter(painter);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperInitPainter(const KTreeWidgetSearchLine* self, QPainter* painter) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_InitPainter_IsBase(true);
-        vktreewidgetsearchline->initPainter(painter);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->initPainter(painter);
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnInitPainter(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_InitPainter_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_InitPainter_Callback>(slot));
+void KTreeWidgetSearchLine_OnInitPainter(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_initpainter_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KTreeWidgetSearchLine_Redirected(const KTreeWidgetSearchLine* self, QPoint* offset) {
     auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         return vktreewidgetsearchline->redirected(offset);
     } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KTreeWidgetSearchLine_SuperRedirected(const KTreeWidgetSearchLine* self, QPoint* offset) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Redirected_IsBase(true);
-        return vktreewidgetsearchline->redirected(offset);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->redirected(offset);
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->KTreeWidgetSearchLine::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnRedirected(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Redirected_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Redirected_Callback>(slot));
+void KTreeWidgetSearchLine_OnRedirected(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_redirected_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KTreeWidgetSearchLine_SharedPainter(const KTreeWidgetSearchLine* self) {
     auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         return vktreewidgetsearchline->sharedPainter();
     } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KTreeWidgetSearchLine_SuperSharedPainter(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_SharedPainter_IsBase(true);
-        return vktreewidgetsearchline->sharedPainter();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->sharedPainter();
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->KTreeWidgetSearchLine::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnSharedPainter(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_SharedPainter_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_SharedPainter_Callback>(slot));
+void KTreeWidgetSearchLine_OnSharedPainter(KTreeWidgetSearchLine* self, intptr_t slot) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
+        vktreewidgetsearchline->ktreewidgetsearchline_sharedpainter_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTreeWidgetSearchLine_FocusNextPrevChild(KTreeWidgetSearchLine* self, bool next) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         return vktreewidgetsearchline->focusNextPrevChild(next);
     } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTreeWidgetSearchLine_SuperFocusNextPrevChild(KTreeWidgetSearchLine* self, bool next) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusNextPrevChild_IsBase(true);
-        return vktreewidgetsearchline->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        return vktreewidgetsearchline->KTreeWidgetSearchLine::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnFocusNextPrevChild(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_FocusNextPrevChild_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_focusnextprevchild_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTreeWidgetSearchLine_EventFilter(KTreeWidgetSearchLine* self, QObject* watched, QEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->eventFilter(watched, event);
-    } else {
-        return self->KTreeWidgetSearchLine::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KTreeWidgetSearchLine_SuperEventFilter(KTreeWidgetSearchLine* self, QObject* watched, QEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_EventFilter_IsBase(true);
-        return vktreewidgetsearchline->eventFilter(watched, event);
-    } else {
-        return self->KTreeWidgetSearchLine::eventFilter(watched, event);
-    }
+    return self->KTreeWidgetSearchLine::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnEventFilter(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_EventFilter_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_EventFilter_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_eventfilter_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_ChildEvent(KTreeWidgetSearchLine* self, QChildEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->childEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperChildEvent(KTreeWidgetSearchLine* self, QChildEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ChildEvent_IsBase(true);
-        vktreewidgetsearchline->childEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->childEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnChildEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ChildEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ChildEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_childevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_CustomEvent(KTreeWidgetSearchLine* self, QEvent* event) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->customEvent(event);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperCustomEvent(KTreeWidgetSearchLine* self, QEvent* event) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_CustomEvent_IsBase(true);
-        vktreewidgetsearchline->customEvent(event);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->customEvent(event);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnCustomEvent(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_CustomEvent_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_CustomEvent_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_customevent_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_ConnectNotify(KTreeWidgetSearchLine* self, const QMetaMethod* signal) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->connectNotify(*signal);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperConnectNotify(KTreeWidgetSearchLine* self, const QMetaMethod* signal) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ConnectNotify_IsBase(true);
-        vktreewidgetsearchline->connectNotify(*signal);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->connectNotify(*signal);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnConnectNotify(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_ConnectNotify_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ConnectNotify_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_connectnotify_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTreeWidgetSearchLine_DisconnectNotify(KTreeWidgetSearchLine* self, const QMetaMethod* signal) {
     auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (vktreewidgetsearchline) {
         vktreewidgetsearchline->disconnectNotify(*signal);
     } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTreeWidgetSearchLine_SuperDisconnectNotify(KTreeWidgetSearchLine* self, const QMetaMethod* signal) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DisconnectNotify_IsBase(true);
-        vktreewidgetsearchline->disconnectNotify(*signal);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->KTreeWidgetSearchLine::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTreeWidgetSearchLine::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTreeWidgetSearchLine_OnDisconnectNotify(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_DisconnectNotify_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DisconnectNotify_Callback>(slot));
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self))
+        vktreewidgetsearchline->ktreewidgetsearchline_disconnectnotify_callback = reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRect* KTreeWidgetSearchLine_CursorRect(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self)))
         return new QRect(vktreewidgetsearchline->cursorRect());
-    }
-    return {};
+    qFatal("Error: Protected method KTreeWidgetSearchLine::cursorRect called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* KTreeWidgetSearchLine_SuperCursorRect(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_CursorRect_IsBase(true);
-        return new QRect(vktreewidgetsearchline->cursorRect());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnCursorRect(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_CursorRect_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_CursorRect_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTreeWidgetSearchLine_UpdateMicroFocus(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->updateMicroFocus();
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->updateMicroFocus();
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTreeWidgetSearchLine_SuperUpdateMicroFocus(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_UpdateMicroFocus_IsBase(true);
-        vktreewidgetsearchline->updateMicroFocus();
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnUpdateMicroFocus(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTreeWidgetSearchLine_Create(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->create();
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->create();
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::create();
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTreeWidgetSearchLine_SuperCreate(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Create_IsBase(true);
-        vktreewidgetsearchline->create();
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnCreate(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Create_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTreeWidgetSearchLine_Destroy(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->destroy();
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->destroy();
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::destroy();
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTreeWidgetSearchLine_SuperDestroy(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Destroy_IsBase(true);
-        vktreewidgetsearchline->destroy();
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnDestroy(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Destroy_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTreeWidgetSearchLine_FocusNextChild(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->focusNextChild();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->focusNextChild();
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        return vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::focusNextChild();
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTreeWidgetSearchLine_SuperFocusNextChild(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusNextChild_IsBase(true);
-        return vktreewidgetsearchline->focusNextChild();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnFocusNextChild(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusNextChild_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTreeWidgetSearchLine_FocusPreviousChild(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->focusPreviousChild();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->focusPreviousChild();
-    }
+    if (auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self)) {
+        return vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTreeWidgetSearchLine_SuperFocusPreviousChild(KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusPreviousChild_IsBase(true);
-        return vktreewidgetsearchline->focusPreviousChild();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnFocusPreviousChild(KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_FocusPreviousChild_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KTreeWidgetSearchLine_Sender(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->sender();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->sender();
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::sender();
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KTreeWidgetSearchLine_SuperSender(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Sender_IsBase(true);
-        return vktreewidgetsearchline->sender();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnSender(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Sender_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTreeWidgetSearchLine_SenderSignalIndex(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->senderSignalIndex();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->senderSignalIndex();
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTreeWidgetSearchLine_SuperSenderSignalIndex(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_SenderSignalIndex_IsBase(true);
-        return vktreewidgetsearchline->senderSignalIndex();
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnSenderSignalIndex(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTreeWidgetSearchLine_Receivers(const KTreeWidgetSearchLine* self, const char* signal) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->receivers(signal);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->receivers(signal);
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::receivers(signal);
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTreeWidgetSearchLine_SuperReceivers(const KTreeWidgetSearchLine* self, const char* signal) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Receivers_IsBase(true);
-        return vktreewidgetsearchline->receivers(signal);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnReceivers(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_Receivers_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTreeWidgetSearchLine_IsSignalConnected(const KTreeWidgetSearchLine* self, const QMetaMethod* signal) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTreeWidgetSearchLine_SuperIsSignalConnected(const KTreeWidgetSearchLine* self, const QMetaMethod* signal) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_IsSignalConnected_IsBase(true);
-        return vktreewidgetsearchline->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnIsSignalConnected(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_IsSignalConnected_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KTreeWidgetSearchLine_GetDecodedMetricF(const KTreeWidgetSearchLine* self, int metricA, int metricB) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return vktreewidgetsearchline->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KTreeWidgetSearchLine_SuperGetDecodedMetricF(const KTreeWidgetSearchLine* self, int metricA, int metricB) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_GetDecodedMetricF_IsBase(true);
-        return vktreewidgetsearchline->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTreeWidgetSearchLine_OnGetDecodedMetricF(const KTreeWidgetSearchLine* self, intptr_t slot) {
-    auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self));
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine)
-        vktreewidgetsearchline->setKTreeWidgetSearchLine_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKTreeWidgetSearchLine::KTreeWidgetSearchLine_GetDecodedMetricF_Callback>(slot));
+    if (auto* vktreewidgetsearchline = const_cast<VirtualKTreeWidgetSearchLine*>(dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self))) {
+        return vktreewidgetsearchline->VirtualKTreeWidgetSearchLine::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KTreeWidgetSearchLine::getDecodedMetricF called without a directly constructed type");
 }
 
 void KTreeWidgetSearchLine_Delete(KTreeWidgetSearchLine* self) {

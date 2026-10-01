@@ -38,7 +38,7 @@ void KToggleAction_SetCheckedState(KToggleAction* self, const KGuiItem* checkedI
 void KToggleAction_SlotToggled(KToggleAction* self, bool checked);
 libqt_string KToggleAction_Tr2(const char* s, const char* c);
 libqt_string KToggleAction_Tr3(const char* s, const char* c, int n);
-void KToggleAction_OnMetaObject(const KToggleAction* self, intptr_t slot);
+void KToggleAction_OnMetaObject(KToggleAction* self, intptr_t slot);
 QMetaObject* KToggleAction_SuperMetaObject(const KToggleAction* self);
 void KToggleAction_OnMetacast(KToggleAction* self, intptr_t slot);
 void* KToggleAction_SuperMetacast(KToggleAction* self, const char* param1);
@@ -68,17 +68,9 @@ void KToggleAction_DisconnectNotify(KToggleAction* self, const QMetaMethod* sign
 void KToggleAction_OnDisconnectNotify(KToggleAction* self, intptr_t slot);
 void KToggleAction_SuperDisconnectNotify(KToggleAction* self, const QMetaMethod* signal);
 QObject* KToggleAction_Sender(const KToggleAction* self);
-void KToggleAction_OnSender(const KToggleAction* self, intptr_t slot);
-QObject* KToggleAction_SuperSender(const KToggleAction* self);
 int KToggleAction_SenderSignalIndex(const KToggleAction* self);
-void KToggleAction_OnSenderSignalIndex(const KToggleAction* self, intptr_t slot);
-int KToggleAction_SuperSenderSignalIndex(const KToggleAction* self);
 int KToggleAction_Receivers(const KToggleAction* self, const char* signal);
-void KToggleAction_OnReceivers(const KToggleAction* self, intptr_t slot);
-int KToggleAction_SuperReceivers(const KToggleAction* self, const char* signal);
 bool KToggleAction_IsSignalConnected(const KToggleAction* self, const QMetaMethod* signal);
-void KToggleAction_OnIsSignalConnected(const KToggleAction* self, intptr_t slot);
-bool KToggleAction_SuperIsSignalConnected(const KToggleAction* self, const QMetaMethod* signal);
 void KToggleAction_Delete(KToggleAction* self);
 
 #ifdef __cplusplus

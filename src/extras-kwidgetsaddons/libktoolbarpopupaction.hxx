@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KToolBarPopupAction so that we can call protected methods
+// This class is a subclass of KToolBarPopupAction
 class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKToolBarPopupAction = true;
-
-    // Virtual class public types (including callbacks)
-    using KToolBarPopupAction_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KToolBarPopupAction_MetaObject_Callback = QMetaObject* (*)(const KToolBarPopupAction*);
     using KToolBarPopupAction_Metacast_Callback = void* (*)(KToolBarPopupAction*, const char*);
     using KToolBarPopupAction_Metacall_Callback = int (*)(KToolBarPopupAction*, int, int, void**);
     using KToolBarPopupAction_CreateWidget_Callback = QWidget* (*)(KToolBarPopupAction*, QWidget*);
@@ -29,13 +25,12 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
     using KToolBarPopupAction_CustomEvent_Callback = void (*)(KToolBarPopupAction*, QEvent*);
     using KToolBarPopupAction_ConnectNotify_Callback = void (*)(KToolBarPopupAction*, QMetaMethod*);
     using KToolBarPopupAction_DisconnectNotify_Callback = void (*)(KToolBarPopupAction*, QMetaMethod*);
-    using KToolBarPopupAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
-    using KToolBarPopupAction_Sender_Callback = QObject* (*)();
-    using KToolBarPopupAction_SenderSignalIndex_Callback = int (*)();
-    using KToolBarPopupAction_Receivers_Callback = int (*)(const KToolBarPopupAction*, const char*);
-    using KToolBarPopupAction_IsSignalConnected_Callback = bool (*)(const KToolBarPopupAction*, QMetaMethod*);
+    using KToolBarPopupAction::createdWidgets;
+    using KToolBarPopupAction::isSignalConnected;
+    using KToolBarPopupAction::receivers;
+    using KToolBarPopupAction::sender;
+    using KToolBarPopupAction::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KToolBarPopupAction_MetaObject_Callback ktoolbarpopupaction_metaobject_callback = nullptr;
     KToolBarPopupAction_Metacast_Callback ktoolbarpopupaction_metacast_callback = nullptr;
@@ -49,81 +44,25 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
     KToolBarPopupAction_CustomEvent_Callback ktoolbarpopupaction_customevent_callback = nullptr;
     KToolBarPopupAction_ConnectNotify_Callback ktoolbarpopupaction_connectnotify_callback = nullptr;
     KToolBarPopupAction_DisconnectNotify_Callback ktoolbarpopupaction_disconnectnotify_callback = nullptr;
-    KToolBarPopupAction_CreatedWidgets_Callback ktoolbarpopupaction_createdwidgets_callback = nullptr;
-    KToolBarPopupAction_Sender_Callback ktoolbarpopupaction_sender_callback = nullptr;
-    KToolBarPopupAction_SenderSignalIndex_Callback ktoolbarpopupaction_sendersignalindex_callback = nullptr;
-    KToolBarPopupAction_Receivers_Callback ktoolbarpopupaction_receivers_callback = nullptr;
-    KToolBarPopupAction_IsSignalConnected_Callback ktoolbarpopupaction_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool ktoolbarpopupaction_metaobject_isbase = false;
-    mutable bool ktoolbarpopupaction_metacast_isbase = false;
-    mutable bool ktoolbarpopupaction_metacall_isbase = false;
-    mutable bool ktoolbarpopupaction_createwidget_isbase = false;
-    mutable bool ktoolbarpopupaction_event_isbase = false;
-    mutable bool ktoolbarpopupaction_eventfilter_isbase = false;
-    mutable bool ktoolbarpopupaction_deletewidget_isbase = false;
-    mutable bool ktoolbarpopupaction_timerevent_isbase = false;
-    mutable bool ktoolbarpopupaction_childevent_isbase = false;
-    mutable bool ktoolbarpopupaction_customevent_isbase = false;
-    mutable bool ktoolbarpopupaction_connectnotify_isbase = false;
-    mutable bool ktoolbarpopupaction_disconnectnotify_isbase = false;
-    mutable bool ktoolbarpopupaction_createdwidgets_isbase = false;
-    mutable bool ktoolbarpopupaction_sender_isbase = false;
-    mutable bool ktoolbarpopupaction_sendersignalindex_isbase = false;
-    mutable bool ktoolbarpopupaction_receivers_isbase = false;
-    mutable bool ktoolbarpopupaction_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KToolBarPopupAction {
+        using KToolBarPopupAction::childEvent;
+        using KToolBarPopupAction::connectNotify;
+        using KToolBarPopupAction::customEvent;
+        using KToolBarPopupAction::deleteWidget;
+        using KToolBarPopupAction::disconnectNotify;
+        using KToolBarPopupAction::event;
+        using KToolBarPopupAction::eventFilter;
+        using KToolBarPopupAction::timerEvent;
+    };
 
-  public:
     VirtualKToolBarPopupAction(const QIcon& icon, const QString& text, QObject* parent) : KToolBarPopupAction(icon, text, parent) {};
-
-    // Callback setters
-    inline void setKToolBarPopupAction_MetaObject_Callback(KToolBarPopupAction_MetaObject_Callback cb) { ktoolbarpopupaction_metaobject_callback = cb; }
-    inline void setKToolBarPopupAction_Metacast_Callback(KToolBarPopupAction_Metacast_Callback cb) { ktoolbarpopupaction_metacast_callback = cb; }
-    inline void setKToolBarPopupAction_Metacall_Callback(KToolBarPopupAction_Metacall_Callback cb) { ktoolbarpopupaction_metacall_callback = cb; }
-    inline void setKToolBarPopupAction_CreateWidget_Callback(KToolBarPopupAction_CreateWidget_Callback cb) { ktoolbarpopupaction_createwidget_callback = cb; }
-    inline void setKToolBarPopupAction_Event_Callback(KToolBarPopupAction_Event_Callback cb) { ktoolbarpopupaction_event_callback = cb; }
-    inline void setKToolBarPopupAction_EventFilter_Callback(KToolBarPopupAction_EventFilter_Callback cb) { ktoolbarpopupaction_eventfilter_callback = cb; }
-    inline void setKToolBarPopupAction_DeleteWidget_Callback(KToolBarPopupAction_DeleteWidget_Callback cb) { ktoolbarpopupaction_deletewidget_callback = cb; }
-    inline void setKToolBarPopupAction_TimerEvent_Callback(KToolBarPopupAction_TimerEvent_Callback cb) { ktoolbarpopupaction_timerevent_callback = cb; }
-    inline void setKToolBarPopupAction_ChildEvent_Callback(KToolBarPopupAction_ChildEvent_Callback cb) { ktoolbarpopupaction_childevent_callback = cb; }
-    inline void setKToolBarPopupAction_CustomEvent_Callback(KToolBarPopupAction_CustomEvent_Callback cb) { ktoolbarpopupaction_customevent_callback = cb; }
-    inline void setKToolBarPopupAction_ConnectNotify_Callback(KToolBarPopupAction_ConnectNotify_Callback cb) { ktoolbarpopupaction_connectnotify_callback = cb; }
-    inline void setKToolBarPopupAction_DisconnectNotify_Callback(KToolBarPopupAction_DisconnectNotify_Callback cb) { ktoolbarpopupaction_disconnectnotify_callback = cb; }
-    inline void setKToolBarPopupAction_CreatedWidgets_Callback(KToolBarPopupAction_CreatedWidgets_Callback cb) { ktoolbarpopupaction_createdwidgets_callback = cb; }
-    inline void setKToolBarPopupAction_Sender_Callback(KToolBarPopupAction_Sender_Callback cb) { ktoolbarpopupaction_sender_callback = cb; }
-    inline void setKToolBarPopupAction_SenderSignalIndex_Callback(KToolBarPopupAction_SenderSignalIndex_Callback cb) { ktoolbarpopupaction_sendersignalindex_callback = cb; }
-    inline void setKToolBarPopupAction_Receivers_Callback(KToolBarPopupAction_Receivers_Callback cb) { ktoolbarpopupaction_receivers_callback = cb; }
-    inline void setKToolBarPopupAction_IsSignalConnected_Callback(KToolBarPopupAction_IsSignalConnected_Callback cb) { ktoolbarpopupaction_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKToolBarPopupAction_MetaObject_IsBase(bool value) const { ktoolbarpopupaction_metaobject_isbase = value; }
-    inline void setKToolBarPopupAction_Metacast_IsBase(bool value) const { ktoolbarpopupaction_metacast_isbase = value; }
-    inline void setKToolBarPopupAction_Metacall_IsBase(bool value) const { ktoolbarpopupaction_metacall_isbase = value; }
-    inline void setKToolBarPopupAction_CreateWidget_IsBase(bool value) const { ktoolbarpopupaction_createwidget_isbase = value; }
-    inline void setKToolBarPopupAction_Event_IsBase(bool value) const { ktoolbarpopupaction_event_isbase = value; }
-    inline void setKToolBarPopupAction_EventFilter_IsBase(bool value) const { ktoolbarpopupaction_eventfilter_isbase = value; }
-    inline void setKToolBarPopupAction_DeleteWidget_IsBase(bool value) const { ktoolbarpopupaction_deletewidget_isbase = value; }
-    inline void setKToolBarPopupAction_TimerEvent_IsBase(bool value) const { ktoolbarpopupaction_timerevent_isbase = value; }
-    inline void setKToolBarPopupAction_ChildEvent_IsBase(bool value) const { ktoolbarpopupaction_childevent_isbase = value; }
-    inline void setKToolBarPopupAction_CustomEvent_IsBase(bool value) const { ktoolbarpopupaction_customevent_isbase = value; }
-    inline void setKToolBarPopupAction_ConnectNotify_IsBase(bool value) const { ktoolbarpopupaction_connectnotify_isbase = value; }
-    inline void setKToolBarPopupAction_DisconnectNotify_IsBase(bool value) const { ktoolbarpopupaction_disconnectnotify_isbase = value; }
-    inline void setKToolBarPopupAction_CreatedWidgets_IsBase(bool value) const { ktoolbarpopupaction_createdwidgets_isbase = value; }
-    inline void setKToolBarPopupAction_Sender_IsBase(bool value) const { ktoolbarpopupaction_sender_isbase = value; }
-    inline void setKToolBarPopupAction_SenderSignalIndex_IsBase(bool value) const { ktoolbarpopupaction_sendersignalindex_isbase = value; }
-    inline void setKToolBarPopupAction_Receivers_IsBase(bool value) const { ktoolbarpopupaction_receivers_isbase = value; }
-    inline void setKToolBarPopupAction_IsSignalConnected_IsBase(bool value) const { ktoolbarpopupaction_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (ktoolbarpopupaction_metaobject_isbase) {
-            ktoolbarpopupaction_metaobject_isbase = false;
-            return KToolBarPopupAction::metaObject();
-        }
-        auto metaobject_cb = ktoolbarpopupaction_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (ktoolbarpopupaction_metaobject_callback) {
+            QMetaObject* callback_ret = ktoolbarpopupaction_metaobject_callback(this);
             return callback_ret;
         }
         return KToolBarPopupAction::metaObject();
@@ -131,14 +70,9 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (ktoolbarpopupaction_metacast_isbase) {
-            ktoolbarpopupaction_metacast_isbase = false;
-            return KToolBarPopupAction::qt_metacast(param1);
-        }
-        auto metacast_cb = ktoolbarpopupaction_metacast_callback;
-        if (metacast_cb) {
+        if (ktoolbarpopupaction_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = ktoolbarpopupaction_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KToolBarPopupAction::qt_metacast(param1);
@@ -146,16 +80,11 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (ktoolbarpopupaction_metacall_isbase) {
-            ktoolbarpopupaction_metacall_isbase = false;
-            return KToolBarPopupAction::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = ktoolbarpopupaction_metacall_callback;
-        if (metacall_cb) {
+        if (ktoolbarpopupaction_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = ktoolbarpopupaction_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KToolBarPopupAction::qt_metacall(param1, param2, param3);
@@ -163,14 +92,9 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* createWidget(QWidget* parent) override {
-        if (ktoolbarpopupaction_createwidget_isbase) {
-            ktoolbarpopupaction_createwidget_isbase = false;
-            return KToolBarPopupAction::createWidget(parent);
-        }
-        auto createwidget_cb = ktoolbarpopupaction_createwidget_callback;
-        if (createwidget_cb) {
+        if (ktoolbarpopupaction_createwidget_callback) {
             QWidget* cbval1 = parent;
-            QWidget* callback_ret = createwidget_cb(this, cbval1);
+            QWidget* callback_ret = ktoolbarpopupaction_createwidget_callback(this, cbval1);
             return callback_ret;
         }
         return KToolBarPopupAction::createWidget(parent);
@@ -178,14 +102,9 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (ktoolbarpopupaction_event_isbase) {
-            ktoolbarpopupaction_event_isbase = false;
-            return KToolBarPopupAction::event(param1);
-        }
-        auto event_cb = ktoolbarpopupaction_event_callback;
-        if (event_cb) {
+        if (ktoolbarpopupaction_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = ktoolbarpopupaction_event_callback(this, cbval1);
             return callback_ret;
         }
         return KToolBarPopupAction::event(param1);
@@ -193,15 +112,10 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (ktoolbarpopupaction_eventfilter_isbase) {
-            ktoolbarpopupaction_eventfilter_isbase = false;
-            return KToolBarPopupAction::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = ktoolbarpopupaction_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (ktoolbarpopupaction_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = ktoolbarpopupaction_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KToolBarPopupAction::eventFilter(param1, param2);
@@ -209,15 +123,9 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void deleteWidget(QWidget* widget) override {
-        if (ktoolbarpopupaction_deletewidget_isbase) {
-            ktoolbarpopupaction_deletewidget_isbase = false;
-            KToolBarPopupAction::deleteWidget(widget);
-            return;
-        }
-        auto deletewidget_cb = ktoolbarpopupaction_deletewidget_callback;
-        if (deletewidget_cb) {
+        if (ktoolbarpopupaction_deletewidget_callback) {
             QWidget* cbval1 = widget;
-            deletewidget_cb(this, cbval1);
+            ktoolbarpopupaction_deletewidget_callback(this, cbval1);
             return;
         }
         KToolBarPopupAction::deleteWidget(widget);
@@ -225,15 +133,9 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (ktoolbarpopupaction_timerevent_isbase) {
-            ktoolbarpopupaction_timerevent_isbase = false;
-            KToolBarPopupAction::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = ktoolbarpopupaction_timerevent_callback;
-        if (timerevent_cb) {
+        if (ktoolbarpopupaction_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            ktoolbarpopupaction_timerevent_callback(this, cbval1);
             return;
         }
         KToolBarPopupAction::timerEvent(event);
@@ -241,15 +143,9 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (ktoolbarpopupaction_childevent_isbase) {
-            ktoolbarpopupaction_childevent_isbase = false;
-            KToolBarPopupAction::childEvent(event);
-            return;
-        }
-        auto childevent_cb = ktoolbarpopupaction_childevent_callback;
-        if (childevent_cb) {
+        if (ktoolbarpopupaction_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            ktoolbarpopupaction_childevent_callback(this, cbval1);
             return;
         }
         KToolBarPopupAction::childEvent(event);
@@ -257,15 +153,9 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (ktoolbarpopupaction_customevent_isbase) {
-            ktoolbarpopupaction_customevent_isbase = false;
-            KToolBarPopupAction::customEvent(event);
-            return;
-        }
-        auto customevent_cb = ktoolbarpopupaction_customevent_callback;
-        if (customevent_cb) {
+        if (ktoolbarpopupaction_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            ktoolbarpopupaction_customevent_callback(this, cbval1);
             return;
         }
         KToolBarPopupAction::customEvent(event);
@@ -273,17 +163,11 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (ktoolbarpopupaction_connectnotify_isbase) {
-            ktoolbarpopupaction_connectnotify_isbase = false;
-            KToolBarPopupAction::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = ktoolbarpopupaction_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (ktoolbarpopupaction_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            ktoolbarpopupaction_connectnotify_callback(this, cbval1);
             return;
         }
         KToolBarPopupAction::connectNotify(signal);
@@ -291,130 +175,25 @@ class VirtualKToolBarPopupAction final : public KToolBarPopupAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (ktoolbarpopupaction_disconnectnotify_isbase) {
-            ktoolbarpopupaction_disconnectnotify_isbase = false;
-            KToolBarPopupAction::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = ktoolbarpopupaction_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (ktoolbarpopupaction_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            ktoolbarpopupaction_disconnectnotify_callback(this, cbval1);
             return;
         }
         KToolBarPopupAction::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QList<QWidget*> createdWidgets() const {
-        if (ktoolbarpopupaction_createdwidgets_isbase) {
-            ktoolbarpopupaction_createdwidgets_isbase = false;
-            return KToolBarPopupAction::createdWidgets();
-        }
-        auto createdwidgets_cb = ktoolbarpopupaction_createdwidgets_callback;
-        if (createdwidgets_cb) {
-            libqt_list /* of QWidget* */ callback_ret = createdwidgets_cb();
-            QList<QWidget*> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(callback_ret_arr[i]);
-            }
-            libqt_free(callback_ret.data);
-            return callback_ret_QList;
-        }
-        return KToolBarPopupAction::createdWidgets();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (ktoolbarpopupaction_sender_isbase) {
-            ktoolbarpopupaction_sender_isbase = false;
-            return KToolBarPopupAction::sender();
-        }
-        auto sender_cb = ktoolbarpopupaction_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KToolBarPopupAction::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (ktoolbarpopupaction_sendersignalindex_isbase) {
-            ktoolbarpopupaction_sendersignalindex_isbase = false;
-            return KToolBarPopupAction::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = ktoolbarpopupaction_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KToolBarPopupAction::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (ktoolbarpopupaction_receivers_isbase) {
-            ktoolbarpopupaction_receivers_isbase = false;
-            return KToolBarPopupAction::receivers(signal);
-        }
-        auto receivers_cb = ktoolbarpopupaction_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KToolBarPopupAction::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (ktoolbarpopupaction_issignalconnected_isbase) {
-            ktoolbarpopupaction_issignalconnected_isbase = false;
-            return KToolBarPopupAction::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = ktoolbarpopupaction_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KToolBarPopupAction::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend bool KToolBarPopupAction_Event(KToolBarPopupAction* self, QEvent* param1);
     friend bool KToolBarPopupAction_SuperEvent(KToolBarPopupAction* self, QEvent* param1);
-    friend bool KToolBarPopupAction_EventFilter(KToolBarPopupAction* self, QObject* param1, QEvent* param2);
     friend bool KToolBarPopupAction_SuperEventFilter(KToolBarPopupAction* self, QObject* param1, QEvent* param2);
-    friend void KToolBarPopupAction_DeleteWidget(KToolBarPopupAction* self, QWidget* widget);
     friend void KToolBarPopupAction_SuperDeleteWidget(KToolBarPopupAction* self, QWidget* widget);
-    friend void KToolBarPopupAction_TimerEvent(KToolBarPopupAction* self, QTimerEvent* event);
     friend void KToolBarPopupAction_SuperTimerEvent(KToolBarPopupAction* self, QTimerEvent* event);
-    friend void KToolBarPopupAction_ChildEvent(KToolBarPopupAction* self, QChildEvent* event);
     friend void KToolBarPopupAction_SuperChildEvent(KToolBarPopupAction* self, QChildEvent* event);
-    friend void KToolBarPopupAction_CustomEvent(KToolBarPopupAction* self, QEvent* event);
     friend void KToolBarPopupAction_SuperCustomEvent(KToolBarPopupAction* self, QEvent* event);
-    friend void KToolBarPopupAction_ConnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
     friend void KToolBarPopupAction_SuperConnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
-    friend void KToolBarPopupAction_DisconnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
     friend void KToolBarPopupAction_SuperDisconnectNotify(KToolBarPopupAction* self, const QMetaMethod* signal);
-    friend libqt_list /* of QWidget* */ KToolBarPopupAction_CreatedWidgets(const KToolBarPopupAction* self);
-    friend libqt_list /* of QWidget* */ KToolBarPopupAction_SuperCreatedWidgets(const KToolBarPopupAction* self);
-    friend QObject* KToolBarPopupAction_Sender(const KToolBarPopupAction* self);
-    friend QObject* KToolBarPopupAction_SuperSender(const KToolBarPopupAction* self);
-    friend int KToolBarPopupAction_SenderSignalIndex(const KToolBarPopupAction* self);
-    friend int KToolBarPopupAction_SuperSenderSignalIndex(const KToolBarPopupAction* self);
-    friend int KToolBarPopupAction_Receivers(const KToolBarPopupAction* self, const char* signal);
-    friend int KToolBarPopupAction_SuperReceivers(const KToolBarPopupAction* self, const char* signal);
-    friend bool KToolBarPopupAction_IsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal);
-    friend bool KToolBarPopupAction_SuperIsSignalConnected(const KToolBarPopupAction* self, const QMetaMethod* signal);
 };
 
 #endif

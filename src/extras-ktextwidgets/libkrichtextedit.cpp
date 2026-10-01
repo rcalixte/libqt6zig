@@ -287,7 +287,7 @@ void KRichTextEdit_Connect_TextModeChanged(KRichTextEdit* self, intptr_t slot) {
 
 void KRichTextEdit_KeyPressEvent(KRichTextEdit* self, QKeyEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->keyPressEvent(event);
     }
 }
@@ -318,2482 +318,1630 @@ libqt_string KRichTextEdit_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KRichTextEdit_SuperMetaObject(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vkrichtextedit->metaObject();
-    } else {
-        return (QMetaObject*)self->KRichTextEdit::metaObject();
-    }
+    return (QMetaObject*)self->KRichTextEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnMetaObject(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_MetaObject_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MetaObject_Callback>(slot));
+void KRichTextEdit_OnMetaObject(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_metaobject_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KRichTextEdit_SuperMetacast(KRichTextEdit* self, const char* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Metacast_IsBase(true);
-        return vkrichtextedit->qt_metacast(param1);
-    } else {
-        return self->KRichTextEdit::qt_metacast(param1);
-    }
+    return self->KRichTextEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMetacast(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Metacast_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metacast_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_metacast_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KRichTextEdit_SuperMetacall(KRichTextEdit* self, int param1, int param2, void** param3) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Metacall_IsBase(true);
-        return vkrichtextedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KRichTextEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KRichTextEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMetacall(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Metacall_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metacall_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_metacall_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperKeyPressEvent(KRichTextEdit* self, QKeyEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_KeyPressEvent_IsBase(true);
-        vkrichtextedit->keyPressEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->keyPressEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnKeyPressEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_keypressevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_SetReadOnly(KRichTextEdit* self, bool readOnly) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setReadOnly(readOnly);
-    } else {
-        self->KRichTextEdit::setReadOnly(readOnly);
-    }
+    self->setReadOnly(readOnly);
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperSetReadOnly(KRichTextEdit* self, bool readOnly) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SetReadOnly_IsBase(true);
-        vkrichtextedit->setReadOnly(readOnly);
-    } else {
-        self->KRichTextEdit::setReadOnly(readOnly);
-    }
+    self->KRichTextEdit::setReadOnly(readOnly);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetReadOnly(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SetReadOnly_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetReadOnly_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_setreadonly_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetReadOnly_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_SetCheckSpellingEnabled(KRichTextEdit* self, bool check) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setCheckSpellingEnabled(check);
-    } else {
-        self->KRichTextEdit::setCheckSpellingEnabled(check);
-    }
+    self->setCheckSpellingEnabled(check);
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperSetCheckSpellingEnabled(KRichTextEdit* self, bool check) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SetCheckSpellingEnabled_IsBase(true);
-        vkrichtextedit->setCheckSpellingEnabled(check);
-    } else {
-        self->KRichTextEdit::setCheckSpellingEnabled(check);
-    }
+    self->KRichTextEdit::setCheckSpellingEnabled(check);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetCheckSpellingEnabled(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SetCheckSpellingEnabled_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetCheckSpellingEnabled_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_setcheckspellingenabled_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetCheckSpellingEnabled_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_CheckSpellingEnabled(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->checkSpellingEnabled();
-    } else {
-        return self->KRichTextEdit::checkSpellingEnabled();
-    }
+    return self->checkSpellingEnabled();
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperCheckSpellingEnabled(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_CheckSpellingEnabled_IsBase(true);
-        return vkrichtextedit->checkSpellingEnabled();
-    } else {
-        return self->KRichTextEdit::checkSpellingEnabled();
-    }
+    return self->KRichTextEdit::checkSpellingEnabled();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnCheckSpellingEnabled(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_CheckSpellingEnabled_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CheckSpellingEnabled_Callback>(slot));
+void KRichTextEdit_OnCheckSpellingEnabled(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_checkspellingenabled_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CheckSpellingEnabled_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_ShouldBlockBeSpellChecked(const KRichTextEdit* self, const libqt_string block) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     QString block_QString = QString::fromUtf8(block.data, block.len);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->shouldBlockBeSpellChecked(block_QString);
-    } else {
-        return self->KRichTextEdit::shouldBlockBeSpellChecked(block_QString);
-    }
+    return self->shouldBlockBeSpellChecked(block_QString);
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperShouldBlockBeSpellChecked(const KRichTextEdit* self, const libqt_string block) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
     QString block_QString = QString::fromUtf8(block.data, block.len);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ShouldBlockBeSpellChecked_IsBase(true);
-        return vkrichtextedit->shouldBlockBeSpellChecked(block_QString);
-    } else {
-        return self->KRichTextEdit::shouldBlockBeSpellChecked(block_QString);
-    }
+    return self->KRichTextEdit::shouldBlockBeSpellChecked(block_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnShouldBlockBeSpellChecked(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ShouldBlockBeSpellChecked_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ShouldBlockBeSpellChecked_Callback>(slot));
+void KRichTextEdit_OnShouldBlockBeSpellChecked(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_shouldblockbespellchecked_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ShouldBlockBeSpellChecked_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_CreateHighlighter(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->createHighlighter();
-    } else {
-        self->KRichTextEdit::createHighlighter();
-    }
+    self->createHighlighter();
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperCreateHighlighter(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_CreateHighlighter_IsBase(true);
-        vkrichtextedit->createHighlighter();
-    } else {
-        self->KRichTextEdit::createHighlighter();
-    }
+    self->KRichTextEdit::createHighlighter();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCreateHighlighter(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_CreateHighlighter_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CreateHighlighter_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_createhighlighter_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CreateHighlighter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMenu* KRichTextEdit_MousePopupMenu(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->mousePopupMenu();
-    } else {
-        return self->KRichTextEdit::mousePopupMenu();
-    }
+    return self->mousePopupMenu();
 }
 
 // Base class handler implementation
 QMenu* KRichTextEdit_SuperMousePopupMenu(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_MousePopupMenu_IsBase(true);
-        return vkrichtextedit->mousePopupMenu();
-    } else {
-        return self->KRichTextEdit::mousePopupMenu();
-    }
+    return self->KRichTextEdit::mousePopupMenu();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMousePopupMenu(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_MousePopupMenu_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MousePopupMenu_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_mousepopupmenu_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MousePopupMenu_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_Event(KRichTextEdit* self, QEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->event(param1);
     } else {
-        return ((VirtualKRichTextEdit*)self)->event(param1);
+        qFatal("Error: Protected virtual method KRichTextEdit::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperEvent(KRichTextEdit* self, QEvent* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Event_IsBase(true);
-        return vkrichtextedit->event(param1);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->event(param1);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        return vkrichtextedit->KRichTextEdit::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Event_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Event_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_event_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_FocusInEvent(KRichTextEdit* self, QFocusEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->focusInEvent(param1);
     } else {
-        ((VirtualKRichTextEdit*)self)->focusInEvent(param1);
+        qFatal("Error: Protected virtual method KRichTextEdit::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperFocusInEvent(KRichTextEdit* self, QFocusEvent* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_FocusInEvent_IsBase(true);
-        vkrichtextedit->focusInEvent(param1);
-    } else {
-        ((VirtualKRichTextEdit*)self)->focusInEvent(param1);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnFocusInEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusInEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_focusinevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_DeleteWordBack(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->deleteWordBack();
     } else {
-        ((VirtualKRichTextEdit*)self)->deleteWordBack();
+        qFatal("Error: Protected virtual method KRichTextEdit::deleteWordBack called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperDeleteWordBack(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DeleteWordBack_IsBase(true);
-        vkrichtextedit->deleteWordBack();
-    } else {
-        ((VirtualKRichTextEdit*)self)->deleteWordBack();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::deleteWordBack();
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::deleteWordBack called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDeleteWordBack(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DeleteWordBack_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DeleteWordBack_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_deletewordback_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DeleteWordBack_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_DeleteWordForward(KRichTextEdit* self) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->deleteWordForward();
     } else {
-        ((VirtualKRichTextEdit*)self)->deleteWordForward();
+        qFatal("Error: Protected virtual method KRichTextEdit::deleteWordForward called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperDeleteWordForward(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DeleteWordForward_IsBase(true);
-        vkrichtextedit->deleteWordForward();
-    } else {
-        ((VirtualKRichTextEdit*)self)->deleteWordForward();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::deleteWordForward();
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::deleteWordForward called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDeleteWordForward(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DeleteWordForward_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DeleteWordForward_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_deletewordforward_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DeleteWordForward_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_ContextMenuEvent(KRichTextEdit* self, QContextMenuEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->contextMenuEvent(param1);
     } else {
-        ((VirtualKRichTextEdit*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KRichTextEdit::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperContextMenuEvent(KRichTextEdit* self, QContextMenuEvent* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ContextMenuEvent_IsBase(true);
-        vkrichtextedit->contextMenuEvent(param1);
-    } else {
-        ((VirtualKRichTextEdit*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnContextMenuEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_contextmenuevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KRichTextEdit_LoadResource(KRichTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return new QVariant(vkrichtextedit->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualKRichTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
 }
 
 // Base class handler implementation
 QVariant* KRichTextEdit_SuperLoadResource(KRichTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_LoadResource_IsBase(true);
-        return new QVariant(vkrichtextedit->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualKRichTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->KRichTextEdit::loadResource(static_cast<int>(typeVal), *name));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnLoadResource(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_LoadResource_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_LoadResource_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_loadresource_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_LoadResource_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KRichTextEdit_InputMethodQuery(const KRichTextEdit* self, int property) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return new QVariant(vkrichtextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualKRichTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 // Base class handler implementation
 QVariant* KRichTextEdit_SuperInputMethodQuery(const KRichTextEdit* self, int property) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vkrichtextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualKRichTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->KRichTextEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnInputMethodQuery(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InputMethodQuery_Callback>(slot));
+void KRichTextEdit_OnInputMethodQuery(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_inputmethodquery_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_TimerEvent(KRichTextEdit* self, QTimerEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->timerEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperTimerEvent(KRichTextEdit* self, QTimerEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_TimerEvent_IsBase(true);
-        vkrichtextedit->timerEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->timerEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnTimerEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_TimerEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_timerevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_KeyReleaseEvent(KRichTextEdit* self, QKeyEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->keyReleaseEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperKeyReleaseEvent(KRichTextEdit* self, QKeyEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_KeyReleaseEvent_IsBase(true);
-        vkrichtextedit->keyReleaseEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnKeyReleaseEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_keyreleaseevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_ResizeEvent(KRichTextEdit* self, QResizeEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->resizeEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperResizeEvent(KRichTextEdit* self, QResizeEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ResizeEvent_IsBase(true);
-        vkrichtextedit->resizeEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->resizeEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnResizeEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ResizeEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_resizeevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_PaintEvent(KRichTextEdit* self, QPaintEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->paintEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperPaintEvent(KRichTextEdit* self, QPaintEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_PaintEvent_IsBase(true);
-        vkrichtextedit->paintEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->paintEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnPaintEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_PaintEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_paintevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_MousePressEvent(KRichTextEdit* self, QMouseEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->mousePressEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperMousePressEvent(KRichTextEdit* self, QMouseEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_MousePressEvent_IsBase(true);
-        vkrichtextedit->mousePressEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->mousePressEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMousePressEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MousePressEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_mousepressevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_MouseMoveEvent(KRichTextEdit* self, QMouseEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->mouseMoveEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperMouseMoveEvent(KRichTextEdit* self, QMouseEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_MouseMoveEvent_IsBase(true);
-        vkrichtextedit->mouseMoveEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMouseMoveEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_mousemoveevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_MouseReleaseEvent(KRichTextEdit* self, QMouseEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->mouseReleaseEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperMouseReleaseEvent(KRichTextEdit* self, QMouseEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_MouseReleaseEvent_IsBase(true);
-        vkrichtextedit->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMouseReleaseEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_mousereleaseevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_MouseDoubleClickEvent(KRichTextEdit* self, QMouseEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->mouseDoubleClickEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->mouseDoubleClickEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperMouseDoubleClickEvent(KRichTextEdit* self, QMouseEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_MouseDoubleClickEvent_IsBase(true);
-        vkrichtextedit->mouseDoubleClickEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->mouseDoubleClickEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::mouseDoubleClickEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMouseDoubleClickEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_FocusNextPrevChild(KRichTextEdit* self, bool next) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->focusNextPrevChild(next);
     } else {
-        return ((VirtualKRichTextEdit*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KRichTextEdit::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperFocusNextPrevChild(KRichTextEdit* self, bool next) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_FocusNextPrevChild_IsBase(true);
-        return vkrichtextedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        return vkrichtextedit->KRichTextEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnFocusNextPrevChild(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_focusnextprevchild_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_DragEnterEvent(KRichTextEdit* self, QDragEnterEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->dragEnterEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->dragEnterEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperDragEnterEvent(KRichTextEdit* self, QDragEnterEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DragEnterEvent_IsBase(true);
-        vkrichtextedit->dragEnterEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->dragEnterEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::dragEnterEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDragEnterEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_dragenterevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_DragLeaveEvent(KRichTextEdit* self, QDragLeaveEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->dragLeaveEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->dragLeaveEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperDragLeaveEvent(KRichTextEdit* self, QDragLeaveEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DragLeaveEvent_IsBase(true);
-        vkrichtextedit->dragLeaveEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDragLeaveEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_dragleaveevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_DragMoveEvent(KRichTextEdit* self, QDragMoveEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->dragMoveEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->dragMoveEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperDragMoveEvent(KRichTextEdit* self, QDragMoveEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DragMoveEvent_IsBase(true);
-        vkrichtextedit->dragMoveEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->dragMoveEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDragMoveEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_dragmoveevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_DropEvent(KRichTextEdit* self, QDropEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->dropEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->dropEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperDropEvent(KRichTextEdit* self, QDropEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DropEvent_IsBase(true);
-        vkrichtextedit->dropEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->dropEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::dropEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDropEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DropEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DropEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_dropevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_FocusOutEvent(KRichTextEdit* self, QFocusEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->focusOutEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperFocusOutEvent(KRichTextEdit* self, QFocusEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_FocusOutEvent_IsBase(true);
-        vkrichtextedit->focusOutEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->focusOutEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnFocusOutEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_focusoutevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_ShowEvent(KRichTextEdit* self, QShowEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->showEvent(param1);
     } else {
-        ((VirtualKRichTextEdit*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KRichTextEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperShowEvent(KRichTextEdit* self, QShowEvent* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ShowEvent_IsBase(true);
-        vkrichtextedit->showEvent(param1);
-    } else {
-        ((VirtualKRichTextEdit*)self)->showEvent(param1);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnShowEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ShowEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_showevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_ChangeEvent(KRichTextEdit* self, QEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->changeEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperChangeEvent(KRichTextEdit* self, QEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ChangeEvent_IsBase(true);
-        vkrichtextedit->changeEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->changeEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnChangeEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ChangeEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_changeevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_WheelEvent(KRichTextEdit* self, QWheelEvent* e) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->wheelEvent(e);
     } else {
-        ((VirtualKRichTextEdit*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method KRichTextEdit::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperWheelEvent(KRichTextEdit* self, QWheelEvent* e) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_WheelEvent_IsBase(true);
-        vkrichtextedit->wheelEvent(e);
-    } else {
-        ((VirtualKRichTextEdit*)self)->wheelEvent(e);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnWheelEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_WheelEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_wheelevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMimeData* KRichTextEdit_CreateMimeDataFromSelection(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->createMimeDataFromSelection();
     } else {
-        return ((VirtualKRichTextEdit*)self)->createMimeDataFromSelection();
+        qFatal("Error: Protected virtual method KRichTextEdit::createMimeDataFromSelection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QMimeData* KRichTextEdit_SuperCreateMimeDataFromSelection(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_CreateMimeDataFromSelection_IsBase(true);
-        return vkrichtextedit->createMimeDataFromSelection();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->createMimeDataFromSelection();
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->KRichTextEdit::createMimeDataFromSelection();
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::createMimeDataFromSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnCreateMimeDataFromSelection(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CreateMimeDataFromSelection_Callback>(slot));
+void KRichTextEdit_OnCreateMimeDataFromSelection(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_createmimedatafromselection_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CreateMimeDataFromSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_CanInsertFromMimeData(const KRichTextEdit* self, const QMimeData* source) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->canInsertFromMimeData(source);
     } else {
-        return ((VirtualKRichTextEdit*)self)->canInsertFromMimeData(source);
+        qFatal("Error: Protected virtual method KRichTextEdit::canInsertFromMimeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperCanInsertFromMimeData(const KRichTextEdit* self, const QMimeData* source) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_CanInsertFromMimeData_IsBase(true);
-        return vkrichtextedit->canInsertFromMimeData(source);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->canInsertFromMimeData(source);
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->KRichTextEdit::canInsertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::canInsertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnCanInsertFromMimeData(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CanInsertFromMimeData_Callback>(slot));
+void KRichTextEdit_OnCanInsertFromMimeData(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_caninsertfrommimedata_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CanInsertFromMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_InsertFromMimeData(KRichTextEdit* self, const QMimeData* source) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->insertFromMimeData(source);
     } else {
-        ((VirtualKRichTextEdit*)self)->insertFromMimeData(source);
+        qFatal("Error: Protected virtual method KRichTextEdit::insertFromMimeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperInsertFromMimeData(KRichTextEdit* self, const QMimeData* source) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_InsertFromMimeData_IsBase(true);
-        vkrichtextedit->insertFromMimeData(source);
-    } else {
-        ((VirtualKRichTextEdit*)self)->insertFromMimeData(source);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::insertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::insertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnInsertFromMimeData(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InsertFromMimeData_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_insertfrommimedata_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InsertFromMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_InputMethodEvent(KRichTextEdit* self, QInputMethodEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->inputMethodEvent(param1);
     } else {
-        ((VirtualKRichTextEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KRichTextEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperInputMethodEvent(KRichTextEdit* self, QInputMethodEvent* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_InputMethodEvent_IsBase(true);
-        vkrichtextedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualKRichTextEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnInputMethodEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_inputmethodevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_ScrollContentsBy(KRichTextEdit* self, int dx, int dy) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     } else {
-        ((VirtualKRichTextEdit*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+        qFatal("Error: Protected virtual method KRichTextEdit::scrollContentsBy called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperScrollContentsBy(KRichTextEdit* self, int dx, int dy) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ScrollContentsBy_IsBase(true);
-        vkrichtextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualKRichTextEdit*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnScrollContentsBy(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ScrollContentsBy_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_scrollcontentsby_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_DoSetTextCursor(KRichTextEdit* self, const QTextCursor* cursor) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->doSetTextCursor(*cursor);
     } else {
-        ((VirtualKRichTextEdit*)self)->doSetTextCursor(*cursor);
+        qFatal("Error: Protected virtual method KRichTextEdit::doSetTextCursor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperDoSetTextCursor(KRichTextEdit* self, const QTextCursor* cursor) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DoSetTextCursor_IsBase(true);
-        vkrichtextedit->doSetTextCursor(*cursor);
-    } else {
-        ((VirtualKRichTextEdit*)self)->doSetTextCursor(*cursor);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::doSetTextCursor(*cursor);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::doSetTextCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDoSetTextCursor(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DoSetTextCursor_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_dosettextcursor_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DoSetTextCursor_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRichTextEdit_MinimumSizeHint(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return new QSize(vkrichtextedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKRichTextEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KRichTextEdit_SuperMinimumSizeHint(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vkrichtextedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKRichTextEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KRichTextEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnMinimumSizeHint(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MinimumSizeHint_Callback>(slot));
+void KRichTextEdit_OnMinimumSizeHint(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_minimumsizehint_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRichTextEdit_SizeHint(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return new QSize(vkrichtextedit->sizeHint());
-    } else {
-        return new QSize(((VirtualKRichTextEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KRichTextEdit_SuperSizeHint(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SizeHint_IsBase(true);
-        return new QSize(vkrichtextedit->sizeHint());
-    } else {
-        return new QSize(((VirtualKRichTextEdit*)self)->sizeHint());
-    }
+    return new QSize(self->KRichTextEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSizeHint(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SizeHint_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SizeHint_Callback>(slot));
+void KRichTextEdit_OnSizeHint(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_sizehint_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_SetupViewport(KRichTextEdit* self, QWidget* viewport) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setupViewport(viewport);
-    } else {
-        self->KRichTextEdit::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperSetupViewport(KRichTextEdit* self, QWidget* viewport) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SetupViewport_IsBase(true);
-        vkrichtextedit->setupViewport(viewport);
-    } else {
-        self->KRichTextEdit::setupViewport(viewport);
-    }
+    self->KRichTextEdit::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetupViewport(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SetupViewport_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetupViewport_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_setupviewport_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_EventFilter(KRichTextEdit* self, QObject* param1, QEvent* param2) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->eventFilter(param1, param2);
     } else {
-        return ((VirtualKRichTextEdit*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KRichTextEdit::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperEventFilter(KRichTextEdit* self, QObject* param1, QEvent* param2) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_EventFilter_IsBase(true);
-        return vkrichtextedit->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        return vkrichtextedit->KRichTextEdit::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnEventFilter(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_EventFilter_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_EventFilter_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_eventfilter_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_ViewportEvent(KRichTextEdit* self, QEvent* param1) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->viewportEvent(param1);
     } else {
-        return ((VirtualKRichTextEdit*)self)->viewportEvent(param1);
+        qFatal("Error: Protected virtual method KRichTextEdit::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperViewportEvent(KRichTextEdit* self, QEvent* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ViewportEvent_IsBase(true);
-        return vkrichtextedit->viewportEvent(param1);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->viewportEvent(param1);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        return vkrichtextedit->KRichTextEdit::viewportEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnViewportEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ViewportEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ViewportEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_viewportevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KRichTextEdit_ViewportSizeHint(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return new QSize(vkrichtextedit->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualKRichTextEdit::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* KRichTextEdit_SuperViewportSizeHint(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ViewportSizeHint_IsBase(true);
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
         return new QSize(vkrichtextedit->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method KRichTextEdit::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnViewportSizeHint(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ViewportSizeHint_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ViewportSizeHint_Callback>(slot));
+void KRichTextEdit_OnViewportSizeHint(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_viewportsizehint_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_InitStyleOption(const KRichTextEdit* self, QStyleOptionFrame* option) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->initStyleOption(option);
     } else {
-        ((VirtualKRichTextEdit*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KRichTextEdit::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperInitStyleOption(const KRichTextEdit* self, QStyleOptionFrame* option) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_InitStyleOption_IsBase(true);
-        vkrichtextedit->initStyleOption(option);
-    } else {
-        ((VirtualKRichTextEdit*)self)->initStyleOption(option);
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        vkrichtextedit->KRichTextEdit::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnInitStyleOption(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_InitStyleOption_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InitStyleOption_Callback>(slot));
+void KRichTextEdit_OnInitStyleOption(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_initstyleoption_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRichTextEdit_DevType(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->devType();
-    } else {
-        return self->KRichTextEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KRichTextEdit_SuperDevType(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DevType_IsBase(true);
-        return vkrichtextedit->devType();
-    } else {
-        return self->KRichTextEdit::devType();
-    }
+    return self->KRichTextEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnDevType(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DevType_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DevType_Callback>(slot));
+void KRichTextEdit_OnDevType(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_devtype_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_SetVisible(KRichTextEdit* self, bool visible) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setVisible(visible);
-    } else {
-        self->KRichTextEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperSetVisible(KRichTextEdit* self, bool visible) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SetVisible_IsBase(true);
-        vkrichtextedit->setVisible(visible);
-    } else {
-        self->KRichTextEdit::setVisible(visible);
-    }
+    self->KRichTextEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetVisible(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SetVisible_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetVisible_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_setvisible_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRichTextEdit_HeightForWidth(const KRichTextEdit* self, int param1) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KRichTextEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KRichTextEdit_SuperHeightForWidth(const KRichTextEdit* self, int param1) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_HeightForWidth_IsBase(true);
-        return vkrichtextedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KRichTextEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KRichTextEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnHeightForWidth(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HeightForWidth_Callback>(slot));
+void KRichTextEdit_OnHeightForWidth(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_heightforwidth_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_HasHeightForWidth(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->hasHeightForWidth();
-    } else {
-        return self->KRichTextEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperHasHeightForWidth(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_HasHeightForWidth_IsBase(true);
-        return vkrichtextedit->hasHeightForWidth();
-    } else {
-        return self->KRichTextEdit::hasHeightForWidth();
-    }
+    return self->KRichTextEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnHasHeightForWidth(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HasHeightForWidth_Callback>(slot));
+void KRichTextEdit_OnHasHeightForWidth(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_hasheightforwidth_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KRichTextEdit_PaintEngine(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->paintEngine();
-    } else {
-        return self->KRichTextEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KRichTextEdit_SuperPaintEngine(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_PaintEngine_IsBase(true);
-        return vkrichtextedit->paintEngine();
-    } else {
-        return self->KRichTextEdit::paintEngine();
-    }
+    return self->KRichTextEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnPaintEngine(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_PaintEngine_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_PaintEngine_Callback>(slot));
+void KRichTextEdit_OnPaintEngine(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_paintengine_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_EnterEvent(KRichTextEdit* self, QEnterEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->enterEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperEnterEvent(KRichTextEdit* self, QEnterEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_EnterEvent_IsBase(true);
-        vkrichtextedit->enterEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->enterEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnEnterEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_EnterEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_EnterEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_enterevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_LeaveEvent(KRichTextEdit* self, QEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->leaveEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperLeaveEvent(KRichTextEdit* self, QEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_LeaveEvent_IsBase(true);
-        vkrichtextedit->leaveEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnLeaveEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_LeaveEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_leaveevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_MoveEvent(KRichTextEdit* self, QMoveEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->moveEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperMoveEvent(KRichTextEdit* self, QMoveEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_MoveEvent_IsBase(true);
-        vkrichtextedit->moveEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->moveEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMoveEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_MoveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MoveEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_moveevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_CloseEvent(KRichTextEdit* self, QCloseEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->closeEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperCloseEvent(KRichTextEdit* self, QCloseEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_CloseEvent_IsBase(true);
-        vkrichtextedit->closeEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->closeEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCloseEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_CloseEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CloseEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_closeevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_TabletEvent(KRichTextEdit* self, QTabletEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->tabletEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperTabletEvent(KRichTextEdit* self, QTabletEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_TabletEvent_IsBase(true);
-        vkrichtextedit->tabletEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnTabletEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_TabletEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_TabletEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_tabletevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_ActionEvent(KRichTextEdit* self, QActionEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->actionEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperActionEvent(KRichTextEdit* self, QActionEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ActionEvent_IsBase(true);
-        vkrichtextedit->actionEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->actionEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnActionEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ActionEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ActionEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_actionevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_HideEvent(KRichTextEdit* self, QHideEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->hideEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperHideEvent(KRichTextEdit* self, QHideEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_HideEvent_IsBase(true);
-        vkrichtextedit->hideEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->hideEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnHideEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_HideEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HideEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_hideevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KRichTextEdit_NativeEvent(KRichTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
+    if (vkrichtextedit) {
         return vkrichtextedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKRichTextEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KRichTextEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KRichTextEdit_SuperNativeEvent(KRichTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_NativeEvent_IsBase(true);
-        return vkrichtextedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKRichTextEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        return vkrichtextedit->KRichTextEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnNativeEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_NativeEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_NativeEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_nativeevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KRichTextEdit_Metric(const KRichTextEdit* self, int param1) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKRichTextEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KRichTextEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KRichTextEdit_SuperMetric(const KRichTextEdit* self, int param1) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Metric_IsBase(true);
-        return vkrichtextedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKRichTextEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->KRichTextEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnMetric(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Metric_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metric_Callback>(slot));
+void KRichTextEdit_OnMetric(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_metric_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_InitPainter(const KRichTextEdit* self, QPainter* painter) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->initPainter(painter);
     } else {
-        ((VirtualKRichTextEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KRichTextEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperInitPainter(const KRichTextEdit* self, QPainter* painter) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_InitPainter_IsBase(true);
-        vkrichtextedit->initPainter(painter);
-    } else {
-        ((VirtualKRichTextEdit*)self)->initPainter(painter);
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        vkrichtextedit->KRichTextEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnInitPainter(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_InitPainter_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InitPainter_Callback>(slot));
+void KRichTextEdit_OnInitPainter(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_initpainter_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KRichTextEdit_Redirected(const KRichTextEdit* self, QPoint* offset) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->redirected(offset);
     } else {
-        return ((VirtualKRichTextEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KRichTextEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KRichTextEdit_SuperRedirected(const KRichTextEdit* self, QPoint* offset) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Redirected_IsBase(true);
-        return vkrichtextedit->redirected(offset);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->redirected(offset);
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->KRichTextEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnRedirected(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Redirected_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Redirected_Callback>(slot));
+void KRichTextEdit_OnRedirected(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_redirected_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KRichTextEdit_SharedPainter(const KRichTextEdit* self) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         return vkrichtextedit->sharedPainter();
     } else {
-        return ((VirtualKRichTextEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KRichTextEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KRichTextEdit_SuperSharedPainter(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SharedPainter_IsBase(true);
-        return vkrichtextedit->sharedPainter();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->sharedPainter();
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->KRichTextEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSharedPainter(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SharedPainter_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SharedPainter_Callback>(slot));
+void KRichTextEdit_OnSharedPainter(KRichTextEdit* self, intptr_t slot) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
+        vkrichtextedit->krichtextedit_sharedpainter_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_ChildEvent(KRichTextEdit* self, QChildEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->childEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperChildEvent(KRichTextEdit* self, QChildEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ChildEvent_IsBase(true);
-        vkrichtextedit->childEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->childEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnChildEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ChildEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ChildEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_childevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_CustomEvent(KRichTextEdit* self, QEvent* event) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->customEvent(event);
     } else {
-        ((VirtualKRichTextEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KRichTextEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperCustomEvent(KRichTextEdit* self, QEvent* event) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_CustomEvent_IsBase(true);
-        vkrichtextedit->customEvent(event);
-    } else {
-        ((VirtualKRichTextEdit*)self)->customEvent(event);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCustomEvent(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_CustomEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CustomEvent_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_customevent_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_ConnectNotify(KRichTextEdit* self, const QMetaMethod* signal) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->connectNotify(*signal);
     } else {
-        ((VirtualKRichTextEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KRichTextEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperConnectNotify(KRichTextEdit* self, const QMetaMethod* signal) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ConnectNotify_IsBase(true);
-        vkrichtextedit->connectNotify(*signal);
-    } else {
-        ((VirtualKRichTextEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnConnectNotify(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ConnectNotify_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_connectnotify_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KRichTextEdit_DisconnectNotify(KRichTextEdit* self, const QMetaMethod* signal) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit) {
         vkrichtextedit->disconnectNotify(*signal);
     } else {
-        ((VirtualKRichTextEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KRichTextEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KRichTextEdit_SuperDisconnectNotify(KRichTextEdit* self, const QMetaMethod* signal) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DisconnectNotify_IsBase(true);
-        vkrichtextedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualKRichTextEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->KRichTextEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KRichTextEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDisconnectNotify(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self))
+        vkrichtextedit->krichtextedit_disconnectnotify_callback = reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SlotDoReplace(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->slotDoReplace();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotDoReplace();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::slotDoReplace();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::slotDoReplace called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperSlotDoReplace(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SlotDoReplace_IsBase(true);
-        vkrichtextedit->slotDoReplace();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotDoReplace();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSlotDoReplace(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SlotDoReplace_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotDoReplace_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SlotReplaceNext(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->slotReplaceNext();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotReplaceNext();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::slotReplaceNext();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::slotReplaceNext called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperSlotReplaceNext(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SlotReplaceNext_IsBase(true);
-        vkrichtextedit->slotReplaceNext();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotReplaceNext();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSlotReplaceNext(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SlotReplaceNext_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotReplaceNext_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SlotDoFind(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->slotDoFind();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotDoFind();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::slotDoFind();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::slotDoFind called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperSlotDoFind(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SlotDoFind_IsBase(true);
-        vkrichtextedit->slotDoFind();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotDoFind();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSlotDoFind(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SlotDoFind_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotDoFind_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SlotFind(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->slotFind();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotFind();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::slotFind();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::slotFind called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperSlotFind(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SlotFind_IsBase(true);
-        vkrichtextedit->slotFind();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotFind();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSlotFind(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SlotFind_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotFind_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SlotFindNext(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->slotFindNext();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotFindNext();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::slotFindNext();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::slotFindNext called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperSlotFindNext(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SlotFindNext_IsBase(true);
-        vkrichtextedit->slotFindNext();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotFindNext();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSlotFindNext(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SlotFindNext_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotFindNext_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SlotFindPrevious(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->slotFindPrevious();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotFindPrevious();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::slotFindPrevious();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::slotFindPrevious called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperSlotFindPrevious(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SlotFindPrevious_IsBase(true);
-        vkrichtextedit->slotFindPrevious();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotFindPrevious();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSlotFindPrevious(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SlotFindPrevious_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotFindPrevious_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SlotReplace(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->slotReplace();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotReplace();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::slotReplace();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::slotReplace called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperSlotReplace(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SlotReplace_IsBase(true);
-        vkrichtextedit->slotReplace();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotReplace();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSlotReplace(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SlotReplace_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotReplace_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SlotSpeakText(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->slotSpeakText();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotSpeakText();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::slotSpeakText();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::slotSpeakText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperSlotSpeakText(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SlotSpeakText_IsBase(true);
-        vkrichtextedit->slotSpeakText();
-    } else {
-        ((VirtualKRichTextEdit*)self)->slotSpeakText();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSlotSpeakText(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SlotSpeakText_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotSpeakText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_ZoomInF(KRichTextEdit* self, float range) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->zoomInF(static_cast<float>(range));
-    } else {
-        ((VirtualKRichTextEdit*)self)->zoomInF(static_cast<float>(range));
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::zoomInF(static_cast<float>(range));
+    } else
+        qFatal("Error: Protected method KRichTextEdit::zoomInF called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperZoomInF(KRichTextEdit* self, float range) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ZoomInF_IsBase(true);
-        vkrichtextedit->zoomInF(static_cast<float>(range));
-    } else {
-        ((VirtualKRichTextEdit*)self)->zoomInF(static_cast<float>(range));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnZoomInF(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ZoomInF_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ZoomInF_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_SetViewportMargins(KRichTextEdit* self, int left, int top, int right, int bottom) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualKRichTextEdit*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void KRichTextEdit_SuperSetViewportMargins(KRichTextEdit* self, int left, int top, int right, int bottom) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SetViewportMargins_IsBase(true);
-        vkrichtextedit->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualKRichTextEdit*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSetViewportMargins(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SetViewportMargins_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetViewportMargins_Callback>(slot));
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method KRichTextEdit::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* KRichTextEdit_ViewportMargins(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self)))
         return new QMargins(vkrichtextedit->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method KRichTextEdit::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* KRichTextEdit_SuperViewportMargins(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_ViewportMargins_IsBase(true);
-        return new QMargins(vkrichtextedit->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnViewportMargins(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_ViewportMargins_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_DrawFrame(KRichTextEdit* self, QPainter* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->drawFrame(param1);
-    } else {
-        ((VirtualKRichTextEdit*)self)->drawFrame(param1);
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KRichTextEdit::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperDrawFrame(KRichTextEdit* self, QPainter* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_DrawFrame_IsBase(true);
-        vkrichtextedit->drawFrame(param1);
-    } else {
-        ((VirtualKRichTextEdit*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnDrawFrame(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_DrawFrame_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_UpdateMicroFocus(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->updateMicroFocus();
-    } else {
-        ((VirtualKRichTextEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperUpdateMicroFocus(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_UpdateMicroFocus_IsBase(true);
-        vkrichtextedit->updateMicroFocus();
-    } else {
-        ((VirtualKRichTextEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnUpdateMicroFocus(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_Create(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->create();
-    } else {
-        ((VirtualKRichTextEdit*)self)->create();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::create();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperCreate(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Create_IsBase(true);
-        vkrichtextedit->create();
-    } else {
-        ((VirtualKRichTextEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnCreate(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Create_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KRichTextEdit_Destroy(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->destroy();
-    } else {
-        ((VirtualKRichTextEdit*)self)->destroy();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        vkrichtextedit->VirtualKRichTextEdit::destroy();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KRichTextEdit_SuperDestroy(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Destroy_IsBase(true);
-        vkrichtextedit->destroy();
-    } else {
-        ((VirtualKRichTextEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnDestroy(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Destroy_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRichTextEdit_FocusNextChild(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->focusNextChild();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->focusNextChild();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        return vkrichtextedit->VirtualKRichTextEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRichTextEdit_SuperFocusNextChild(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_FocusNextChild_IsBase(true);
-        return vkrichtextedit->focusNextChild();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnFocusNextChild(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRichTextEdit_FocusPreviousChild(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->focusPreviousChild();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self)) {
+        return vkrichtextedit->VirtualKRichTextEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRichTextEdit_SuperFocusPreviousChild(KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_FocusPreviousChild_IsBase(true);
-        return vkrichtextedit->focusPreviousChild();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnFocusPreviousChild(KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KRichTextEdit_Sender(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->sender();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->sender();
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->VirtualKRichTextEdit::sender();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KRichTextEdit_SuperSender(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Sender_IsBase(true);
-        return vkrichtextedit->sender();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSender(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Sender_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRichTextEdit_SenderSignalIndex(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->senderSignalIndex();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->VirtualKRichTextEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KRichTextEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRichTextEdit_SuperSenderSignalIndex(const KRichTextEdit* self) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_SenderSignalIndex_IsBase(true);
-        return vkrichtextedit->senderSignalIndex();
-    } else {
-        return ((VirtualKRichTextEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnSenderSignalIndex(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KRichTextEdit_Receivers(const KRichTextEdit* self, const char* signal) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->receivers(signal);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->receivers(signal);
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->VirtualKRichTextEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method KRichTextEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KRichTextEdit_SuperReceivers(const KRichTextEdit* self, const char* signal) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_Receivers_IsBase(true);
-        return vkrichtextedit->receivers(signal);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnReceivers(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_Receivers_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KRichTextEdit_IsSignalConnected(const KRichTextEdit* self, const QMetaMethod* signal) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->VirtualKRichTextEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KRichTextEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KRichTextEdit_SuperIsSignalConnected(const KRichTextEdit* self, const QMetaMethod* signal) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_IsSignalConnected_IsBase(true);
-        return vkrichtextedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnIsSignalConnected(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KRichTextEdit_GetDecodedMetricF(const KRichTextEdit* self, int metricA, int metricB) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return vkrichtextedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKRichTextEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KRichTextEdit_SuperGetDecodedMetricF(const KRichTextEdit* self, int metricA, int metricB) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        vkrichtextedit->setKRichTextEdit_GetDecodedMetricF_IsBase(true);
-        return vkrichtextedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKRichTextEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KRichTextEdit_OnGetDecodedMetricF(const KRichTextEdit* self, intptr_t slot) {
-    auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
-        vkrichtextedit->setKRichTextEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self))) {
+        return vkrichtextedit->VirtualKRichTextEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KRichTextEdit::getDecodedMetricF called without a directly constructed type");
 }
 
 void KRichTextEdit_Delete(KRichTextEdit* self) {

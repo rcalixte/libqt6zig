@@ -39,7 +39,7 @@ void Solid__DeviceNotifier_DeviceRemoved(Solid__DeviceNotifier* self, const libq
 void Solid__DeviceNotifier_Connect_DeviceRemoved(Solid__DeviceNotifier* self, intptr_t slot);
 libqt_string Solid__DeviceNotifier_Tr2(const char* s, const char* c);
 libqt_string Solid__DeviceNotifier_Tr3(const char* s, const char* c, int n);
-void Solid__DeviceNotifier_OnMetaObject(const Solid__DeviceNotifier* self, intptr_t slot);
+void Solid__DeviceNotifier_OnMetaObject(Solid__DeviceNotifier* self, intptr_t slot);
 QMetaObject* Solid__DeviceNotifier_SuperMetaObject(const Solid__DeviceNotifier* self);
 void Solid__DeviceNotifier_OnMetacast(Solid__DeviceNotifier* self, intptr_t slot);
 void* Solid__DeviceNotifier_SuperMetacast(Solid__DeviceNotifier* self, const char* param1);
@@ -67,17 +67,9 @@ void Solid__DeviceNotifier_DisconnectNotify(Solid__DeviceNotifier* self, const Q
 void Solid__DeviceNotifier_OnDisconnectNotify(Solid__DeviceNotifier* self, intptr_t slot);
 void Solid__DeviceNotifier_SuperDisconnectNotify(Solid__DeviceNotifier* self, const QMetaMethod* signal);
 QObject* Solid__DeviceNotifier_Sender(const Solid__DeviceNotifier* self);
-void Solid__DeviceNotifier_OnSender(const Solid__DeviceNotifier* self, intptr_t slot);
-QObject* Solid__DeviceNotifier_SuperSender(const Solid__DeviceNotifier* self);
 int Solid__DeviceNotifier_SenderSignalIndex(const Solid__DeviceNotifier* self);
-void Solid__DeviceNotifier_OnSenderSignalIndex(const Solid__DeviceNotifier* self, intptr_t slot);
-int Solid__DeviceNotifier_SuperSenderSignalIndex(const Solid__DeviceNotifier* self);
 int Solid__DeviceNotifier_Receivers(const Solid__DeviceNotifier* self, const char* signal);
-void Solid__DeviceNotifier_OnReceivers(const Solid__DeviceNotifier* self, intptr_t slot);
-int Solid__DeviceNotifier_SuperReceivers(const Solid__DeviceNotifier* self, const char* signal);
 bool Solid__DeviceNotifier_IsSignalConnected(const Solid__DeviceNotifier* self, const QMetaMethod* signal);
-void Solid__DeviceNotifier_OnIsSignalConnected(const Solid__DeviceNotifier* self, intptr_t slot);
-bool Solid__DeviceNotifier_SuperIsSignalConnected(const Solid__DeviceNotifier* self, const QMetaMethod* signal);
 void Solid__DeviceNotifier_Delete(Solid__DeviceNotifier* self);
 
 #ifdef __cplusplus

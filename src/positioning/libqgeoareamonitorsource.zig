@@ -71,9 +71,9 @@ pub const QGeoAreaMonitorSource = extern struct {
     ///
     /// ` self: QGeoAreaMonitorSource `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGeoAreaMonitorSource) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGeoAreaMonitorSource, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource) callconv(.c) QMetaObject) void {
         qtc.QGeoAreaMonitorSource_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -362,9 +362,9 @@ pub const QGeoAreaMonitorSource = extern struct {
     ///
     /// ` self: QGeoAreaMonitorSource `
     ///
-    /// ` callback: *const fn () callconv(.c) QGeoPositionInfoSource `
+    /// ` callback: *const fn (self: QGeoAreaMonitorSource) callconv(.c) QGeoPositionInfoSource `
     ///
-    pub fn onPositionInfoSource(self: QGeoAreaMonitorSource, callback: *const fn () callconv(.c) QGeoPositionInfoSource) void {
+    pub fn onPositionInfoSource(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource) callconv(.c) QGeoPositionInfoSource) void {
         qtc.QGeoAreaMonitorSource_OnPositionInfoSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -412,6 +412,8 @@ pub const QGeoAreaMonitorSource = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#error)
     ///
+    /// This method must be implemented with `onError` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QGeoAreaMonitorSource `
@@ -436,30 +438,10 @@ pub const QGeoAreaMonitorSource = extern struct {
     ///
     /// ` self: QGeoAreaMonitorSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGeoAreaMonitorSource) callconv(.c) i32 `
     ///
-    pub fn onError(self: QGeoAreaMonitorSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onError(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource) callconv(.c) i32) void {
         qtc.QGeoAreaMonitorSource_OnError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superError` instead
-    ///
-    pub const SuperError = superError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#error)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qgeoareamonitorsource_enums.Error `
-    ///
-    pub fn superError(self: QGeoAreaMonitorSource) i32 {
-        return qtc.QGeoAreaMonitorSource_SuperError(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `supportedAreaMonitorFeatures` instead
@@ -467,6 +449,8 @@ pub const QGeoAreaMonitorSource = extern struct {
     pub const SupportedAreaMonitorFeatures = supportedAreaMonitorFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#supportedAreaMonitorFeatures)
+    ///
+    /// This method must be implemented with `onSupportedAreaMonitorFeatures` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -492,30 +476,10 @@ pub const QGeoAreaMonitorSource = extern struct {
     ///
     /// ` self: QGeoAreaMonitorSource `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGeoAreaMonitorSource) callconv(.c) i32 `
     ///
-    pub fn onSupportedAreaMonitorFeatures(self: QGeoAreaMonitorSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedAreaMonitorFeatures(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource) callconv(.c) i32) void {
         qtc.QGeoAreaMonitorSource_OnSupportedAreaMonitorFeatures(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSupportedAreaMonitorFeatures` instead
-    ///
-    pub const SuperSupportedAreaMonitorFeatures = superSupportedAreaMonitorFeatures;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#supportedAreaMonitorFeatures)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ## Returns:
-    ///
-    /// ` flag of qgeoareamonitorsource_enums.AreaMonitorFeature `
-    ///
-    pub fn superSupportedAreaMonitorFeatures(self: QGeoAreaMonitorSource) i32 {
-        return qtc.QGeoAreaMonitorSource_SuperSupportedAreaMonitorFeatures(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `startMonitoring` instead
@@ -523,6 +487,8 @@ pub const QGeoAreaMonitorSource = extern struct {
     pub const StartMonitoring = startMonitoring;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#startMonitoring)
+    ///
+    /// This method must be implemented with `onStartMonitoring` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -553,30 +519,13 @@ pub const QGeoAreaMonitorSource = extern struct {
         qtc.QGeoAreaMonitorSource_OnStartMonitoring(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superStartMonitoring` instead
-    ///
-    pub const SuperStartMonitoring = superStartMonitoring;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#startMonitoring)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ` monitor: QGeoAreaMonitorInfo `
-    ///
-    pub fn superStartMonitoring(self: QGeoAreaMonitorSource, monitor: anytype) bool {
-        comptime _ = @TypeOf(monitor)._is_QGeoAreaMonitorInfo;
-        return qtc.QGeoAreaMonitorSource_SuperStartMonitoring(@ptrCast(self.ptr), @ptrCast(monitor.ptr));
-    }
-
     /// ### DEPRECATED: Use `stopMonitoring` instead
     ///
     pub const StopMonitoring = stopMonitoring;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#stopMonitoring)
+    ///
+    /// This method must be implemented with `onStopMonitoring` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -607,30 +556,13 @@ pub const QGeoAreaMonitorSource = extern struct {
         qtc.QGeoAreaMonitorSource_OnStopMonitoring(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superStopMonitoring` instead
-    ///
-    pub const SuperStopMonitoring = superStopMonitoring;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#stopMonitoring)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ` monitor: QGeoAreaMonitorInfo `
-    ///
-    pub fn superStopMonitoring(self: QGeoAreaMonitorSource, monitor: anytype) bool {
-        comptime _ = @TypeOf(monitor)._is_QGeoAreaMonitorInfo;
-        return qtc.QGeoAreaMonitorSource_SuperStopMonitoring(@ptrCast(self.ptr), @ptrCast(monitor.ptr));
-    }
-
     /// ### DEPRECATED: Use `requestUpdate` instead
     ///
     pub const RequestUpdate = requestUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#requestUpdate)
+    ///
+    /// This method must be implemented with `onRequestUpdate` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -664,33 +596,13 @@ pub const QGeoAreaMonitorSource = extern struct {
         qtc.QGeoAreaMonitorSource_OnRequestUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superRequestUpdate` instead
-    ///
-    pub const SuperRequestUpdate = superRequestUpdate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#requestUpdate)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ` monitor: QGeoAreaMonitorInfo `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superRequestUpdate(self: QGeoAreaMonitorSource, monitor: anytype, signal: [:0]const u8) bool {
-        comptime _ = @TypeOf(monitor)._is_QGeoAreaMonitorInfo;
-        const signal_Cstring = signal.ptr;
-        return qtc.QGeoAreaMonitorSource_SuperRequestUpdate(@ptrCast(self.ptr), @ptrCast(monitor.ptr), signal_Cstring);
-    }
-
     /// ### DEPRECATED: Use `activeMonitors` instead
     ///
     pub const ActiveMonitors = activeMonitors;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#activeMonitors)
+    ///
+    /// This method must be implemented with `onActiveMonitors` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -722,38 +634,14 @@ pub const QGeoAreaMonitorSource = extern struct {
     ///
     /// ` self: QGeoAreaMonitorSource `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QGeoAreaMonitorSource) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QGeoAreaMonitorInfo `
     ///
-    pub fn onActiveMonitors(self: QGeoAreaMonitorSource, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onActiveMonitors(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource) callconv(.c) qtc.libqt_list) void {
         qtc.QGeoAreaMonitorSource_OnActiveMonitors(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superActiveMonitors` instead
-    ///
-    pub const SuperActiveMonitors = superActiveMonitors;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#activeMonitors)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superActiveMonitors(self: QGeoAreaMonitorSource, allocator: std.mem.Allocator) []QGeoAreaMonitorInfo {
-        const _arr: qtc.libqt_list = qtc.QGeoAreaMonitorSource_SuperActiveMonitors(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoAreaMonitorInfo, _arr.len) catch @panic("QGeoAreaMonitorSource.activeMonitors: Memory allocation failed");
-        const _data_val: [*]QtC.QGeoAreaMonitorInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `activeMonitors2` instead
@@ -761,6 +649,8 @@ pub const QGeoAreaMonitorSource = extern struct {
     pub const ActiveMonitors2 = activeMonitors2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#activeMonitors)
+    ///
+    /// This method must be implemented with `onActiveMonitors2` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -803,33 +693,6 @@ pub const QGeoAreaMonitorSource = extern struct {
     ///
     pub fn onActiveMonitors2(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource, QGeoShape) callconv(.c) qtc.libqt_list) void {
         qtc.QGeoAreaMonitorSource_OnActiveMonitors2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superActiveMonitors2` instead
-    ///
-    pub const SuperActiveMonitors2 = superActiveMonitors2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#activeMonitors)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` lookupArea: QGeoShape `
-    ///
-    pub fn superActiveMonitors2(self: QGeoAreaMonitorSource, allocator: std.mem.Allocator, lookupArea: anytype) []QGeoAreaMonitorInfo {
-        comptime _ = @TypeOf(lookupArea)._is_QGeoShape;
-        const _arr: qtc.libqt_list = qtc.QGeoAreaMonitorSource_SuperActiveMonitors2(@ptrCast(self.ptr), @ptrCast(lookupArea.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoAreaMonitorInfo, _arr.len) catch @panic("QGeoAreaMonitorSource.activeMonitors2: Memory allocation failed");
-        const _data_val: [*]QtC.QGeoAreaMonitorInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `setBackendProperty` instead
@@ -2574,44 +2437,6 @@ pub const QGeoAreaMonitorSource = extern struct {
         return .{ .ptr = qtc.QGeoAreaMonitorSource_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    pub fn superSender(self: QGeoAreaMonitorSource) QObject {
-        return .{ .ptr = qtc.QGeoAreaMonitorSource_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoAreaMonitorSource`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGeoAreaMonitorSource, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGeoAreaMonitorSource_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2628,44 +2453,6 @@ pub const QGeoAreaMonitorSource = extern struct {
     ///
     pub fn senderSignalIndex(self: QGeoAreaMonitorSource) i32 {
         return qtc.QGeoAreaMonitorSource_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    pub fn superSenderSignalIndex(self: QGeoAreaMonitorSource) i32 {
-        return qtc.QGeoAreaMonitorSource_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoAreaMonitorSource`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGeoAreaMonitorSource, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoAreaMonitorSource_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2689,47 +2476,6 @@ pub const QGeoAreaMonitorSource = extern struct {
         return qtc.QGeoAreaMonitorSource_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGeoAreaMonitorSource, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGeoAreaMonitorSource_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoAreaMonitorSource`
-    ///
-    /// ` callback: *const fn (self: QGeoAreaMonitorSource, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoAreaMonitorSource_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2749,47 +2495,6 @@ pub const QGeoAreaMonitorSource = extern struct {
     pub fn isSignalConnected(self: QGeoAreaMonitorSource, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGeoAreaMonitorSource_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoAreaMonitorSource `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGeoAreaMonitorSource, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGeoAreaMonitorSource_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoAreaMonitorSource`
-    ///
-    /// ` callback: *const fn (self: QGeoAreaMonitorSource, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGeoAreaMonitorSource_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

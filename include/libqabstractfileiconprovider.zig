@@ -285,9 +285,9 @@ pub const QAbstractFileIconProvider = extern struct {
     ///
     /// ` self: QAbstractFileIconProvider `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractFileIconProvider) callconv(.c) i32 `
     ///
-    pub fn onOptions(self: QAbstractFileIconProvider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onOptions(self: QAbstractFileIconProvider, callback: *const fn (QAbstractFileIconProvider) callconv(.c) i32) void {
         qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

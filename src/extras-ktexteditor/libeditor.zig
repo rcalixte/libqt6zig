@@ -119,6 +119,8 @@ pub const KTextEditor__Editor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#setApplication)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Editor `
@@ -136,6 +138,8 @@ pub const KTextEditor__Editor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#application)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Editor `
@@ -149,6 +153,8 @@ pub const KTextEditor__Editor = extern struct {
     pub const CreateDocument = createDocument;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#createDocument)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -166,6 +172,8 @@ pub const KTextEditor__Editor = extern struct {
     pub const Documents = documents;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#documents)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -225,6 +233,8 @@ pub const KTextEditor__Editor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#aboutData)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Editor `
@@ -259,6 +269,8 @@ pub const KTextEditor__Editor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#configDialog)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Editor `
@@ -276,6 +288,8 @@ pub const KTextEditor__Editor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#configPages)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Editor `
@@ -289,6 +303,8 @@ pub const KTextEditor__Editor = extern struct {
     pub const ConfigPage = configPage;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#configPage)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -417,6 +433,8 @@ pub const KTextEditor__Editor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#queryCommand)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__Editor `
@@ -436,6 +454,8 @@ pub const KTextEditor__Editor = extern struct {
     pub const Commands = commands;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#commands)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -458,6 +478,8 @@ pub const KTextEditor__Editor = extern struct {
     pub const CommandList = commandList;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-editor.html#commandList)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

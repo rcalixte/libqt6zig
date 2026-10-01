@@ -1302,104 +1302,37 @@ void QOpenGLFunctions_4_0_Core_GlMinSampleShading(QOpenGLFunctions_4_0_Core* sel
 
 // Base class handler implementation
 bool QOpenGLFunctions_4_0_Core_SuperInitializeOpenGLFunctions(QOpenGLFunctions_4_0_Core* self) {
-    auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self);
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
-        vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_InitializeOpenGLFunctions_IsBase(true);
-        return vqopenglfunctions_4_0_core->initializeOpenGLFunctions();
-    } else {
-        return self->QOpenGLFunctions_4_0_Core::initializeOpenGLFunctions();
-    }
+    return self->QOpenGLFunctions_4_0_Core::initializeOpenGLFunctions();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLFunctions_4_0_Core_OnInitializeOpenGLFunctions(QOpenGLFunctions_4_0_Core* self, intptr_t slot) {
-    auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self);
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core)
-        vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_InitializeOpenGLFunctions_Callback(reinterpret_cast<VirtualQOpenGLFunctions_4_0_Core::QOpenGLFunctions_4_0_Core_InitializeOpenGLFunctions_Callback>(slot));
+    if (auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self))
+        vqopenglfunctions_4_0_core->qopenglfunctions_4_0_core_initializeopenglfunctions_callback = reinterpret_cast<VirtualQOpenGLFunctions_4_0_Core::QOpenGLFunctions_4_0_Core_InitializeOpenGLFunctions_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLFunctions_4_0_Core_IsInitialized(const QOpenGLFunctions_4_0_Core* self) {
-    auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self));
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
-        return vqopenglfunctions_4_0_core->isInitialized();
-    } else {
-        return ((VirtualQOpenGLFunctions_4_0_Core*)self)->isInitialized();
-    }
+    if (auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self))) {
+        return vqopenglfunctions_4_0_core->VirtualQOpenGLFunctions_4_0_Core::isInitialized();
+    } else
+        qFatal("Error: Protected method QOpenGLFunctions_4_0_Core::isInitialized called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QOpenGLFunctions_4_0_Core_SuperIsInitialized(const QOpenGLFunctions_4_0_Core* self) {
-    auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self));
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
-        vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_IsInitialized_IsBase(true);
-        return vqopenglfunctions_4_0_core->isInitialized();
-    } else {
-        return ((VirtualQOpenGLFunctions_4_0_Core*)self)->isInitialized();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLFunctions_4_0_Core_OnIsInitialized(const QOpenGLFunctions_4_0_Core* self, intptr_t slot) {
-    auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self));
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core)
-        vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_IsInitialized_Callback(reinterpret_cast<VirtualQOpenGLFunctions_4_0_Core::QOpenGLFunctions_4_0_Core_IsInitialized_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QOpenGLFunctions_4_0_Core_SetOwningContext(QOpenGLFunctions_4_0_Core* self, const QOpenGLContext* context) {
-    auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self);
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
-        vqopenglfunctions_4_0_core->setOwningContext(context);
-    } else {
-        ((VirtualQOpenGLFunctions_4_0_Core*)self)->setOwningContext(context);
-    }
+    if (auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self)) {
+        vqopenglfunctions_4_0_core->VirtualQOpenGLFunctions_4_0_Core::setOwningContext(context);
+    } else
+        qFatal("Error: Protected method QOpenGLFunctions_4_0_Core::setOwningContext called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QOpenGLFunctions_4_0_Core_SuperSetOwningContext(QOpenGLFunctions_4_0_Core* self, const QOpenGLContext* context) {
-    auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self);
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
-        vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_SetOwningContext_IsBase(true);
-        vqopenglfunctions_4_0_core->setOwningContext(context);
-    } else {
-        ((VirtualQOpenGLFunctions_4_0_Core*)self)->setOwningContext(context);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLFunctions_4_0_Core_OnSetOwningContext(QOpenGLFunctions_4_0_Core* self, intptr_t slot) {
-    auto* vqopenglfunctions_4_0_core = dynamic_cast<VirtualQOpenGLFunctions_4_0_Core*>(self);
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core)
-        vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_SetOwningContext_Callback(reinterpret_cast<VirtualQOpenGLFunctions_4_0_Core::QOpenGLFunctions_4_0_Core_SetOwningContext_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QOpenGLContext* QOpenGLFunctions_4_0_Core_OwningContext(const QOpenGLFunctions_4_0_Core* self) {
-    auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self));
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
-        return vqopenglfunctions_4_0_core->owningContext();
-    } else {
-        return ((VirtualQOpenGLFunctions_4_0_Core*)self)->owningContext();
-    }
-}
-
-// Base class handler implementation
-QOpenGLContext* QOpenGLFunctions_4_0_Core_SuperOwningContext(const QOpenGLFunctions_4_0_Core* self) {
-    auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self));
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core) {
-        vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_OwningContext_IsBase(true);
-        return vqopenglfunctions_4_0_core->owningContext();
-    } else {
-        return ((VirtualQOpenGLFunctions_4_0_Core*)self)->owningContext();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLFunctions_4_0_Core_OnOwningContext(const QOpenGLFunctions_4_0_Core* self, intptr_t slot) {
-    auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self));
-    if (vqopenglfunctions_4_0_core && vqopenglfunctions_4_0_core->isVirtualQOpenGLFunctions_4_0_Core)
-        vqopenglfunctions_4_0_core->setQOpenGLFunctions_4_0_Core_OwningContext_Callback(reinterpret_cast<VirtualQOpenGLFunctions_4_0_Core::QOpenGLFunctions_4_0_Core_OwningContext_Callback>(slot));
+    if (auto* vqopenglfunctions_4_0_core = const_cast<VirtualQOpenGLFunctions_4_0_Core*>(dynamic_cast<const VirtualQOpenGLFunctions_4_0_Core*>(self))) {
+        return vqopenglfunctions_4_0_core->VirtualQOpenGLFunctions_4_0_Core::owningContext();
+    } else
+        qFatal("Error: Protected method QOpenGLFunctions_4_0_Core::owningContext called without a directly constructed type");
 }
 
 void QOpenGLFunctions_4_0_Core_Delete(QOpenGLFunctions_4_0_Core* self) {

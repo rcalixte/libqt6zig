@@ -50,7 +50,7 @@ bool KWindowShadow_Create(KWindowShadow* self);
 void KWindowShadow_Destroy(KWindowShadow* self);
 libqt_string KWindowShadow_Tr2(const char* s, const char* c);
 libqt_string KWindowShadow_Tr3(const char* s, const char* c, int n);
-void KWindowShadow_OnMetaObject(const KWindowShadow* self, intptr_t slot);
+void KWindowShadow_OnMetaObject(KWindowShadow* self, intptr_t slot);
 QMetaObject* KWindowShadow_SuperMetaObject(const KWindowShadow* self);
 void KWindowShadow_OnMetacast(KWindowShadow* self, intptr_t slot);
 void* KWindowShadow_SuperMetacast(KWindowShadow* self, const char* param1);
@@ -78,17 +78,9 @@ void KWindowShadow_DisconnectNotify(KWindowShadow* self, const QMetaMethod* sign
 void KWindowShadow_OnDisconnectNotify(KWindowShadow* self, intptr_t slot);
 void KWindowShadow_SuperDisconnectNotify(KWindowShadow* self, const QMetaMethod* signal);
 QObject* KWindowShadow_Sender(const KWindowShadow* self);
-void KWindowShadow_OnSender(const KWindowShadow* self, intptr_t slot);
-QObject* KWindowShadow_SuperSender(const KWindowShadow* self);
 int KWindowShadow_SenderSignalIndex(const KWindowShadow* self);
-void KWindowShadow_OnSenderSignalIndex(const KWindowShadow* self, intptr_t slot);
-int KWindowShadow_SuperSenderSignalIndex(const KWindowShadow* self);
 int KWindowShadow_Receivers(const KWindowShadow* self, const char* signal);
-void KWindowShadow_OnReceivers(const KWindowShadow* self, intptr_t slot);
-int KWindowShadow_SuperReceivers(const KWindowShadow* self, const char* signal);
 bool KWindowShadow_IsSignalConnected(const KWindowShadow* self, const QMetaMethod* signal);
-void KWindowShadow_OnIsSignalConnected(const KWindowShadow* self, intptr_t slot);
-bool KWindowShadow_SuperIsSignalConnected(const KWindowShadow* self, const QMetaMethod* signal);
 void KWindowShadow_Delete(KWindowShadow* self);
 
 #ifdef __cplusplus

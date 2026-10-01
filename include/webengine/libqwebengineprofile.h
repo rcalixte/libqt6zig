@@ -97,7 +97,7 @@ void QWebEngineProfile_ClearHttpCacheCompleted(QWebEngineProfile* self);
 void QWebEngineProfile_Connect_ClearHttpCacheCompleted(QWebEngineProfile* self, intptr_t slot);
 libqt_string QWebEngineProfile_Tr2(const char* s, const char* c);
 libqt_string QWebEngineProfile_Tr3(const char* s, const char* c, int n);
-void QWebEngineProfile_OnMetaObject(const QWebEngineProfile* self, intptr_t slot);
+void QWebEngineProfile_OnMetaObject(QWebEngineProfile* self, intptr_t slot);
 QMetaObject* QWebEngineProfile_SuperMetaObject(const QWebEngineProfile* self);
 void QWebEngineProfile_OnMetacast(QWebEngineProfile* self, intptr_t slot);
 void* QWebEngineProfile_SuperMetacast(QWebEngineProfile* self, const char* param1);
@@ -125,17 +125,9 @@ void QWebEngineProfile_DisconnectNotify(QWebEngineProfile* self, const QMetaMeth
 void QWebEngineProfile_OnDisconnectNotify(QWebEngineProfile* self, intptr_t slot);
 void QWebEngineProfile_SuperDisconnectNotify(QWebEngineProfile* self, const QMetaMethod* signal);
 QObject* QWebEngineProfile_Sender(const QWebEngineProfile* self);
-void QWebEngineProfile_OnSender(const QWebEngineProfile* self, intptr_t slot);
-QObject* QWebEngineProfile_SuperSender(const QWebEngineProfile* self);
 int QWebEngineProfile_SenderSignalIndex(const QWebEngineProfile* self);
-void QWebEngineProfile_OnSenderSignalIndex(const QWebEngineProfile* self, intptr_t slot);
-int QWebEngineProfile_SuperSenderSignalIndex(const QWebEngineProfile* self);
 int QWebEngineProfile_Receivers(const QWebEngineProfile* self, const char* signal);
-void QWebEngineProfile_OnReceivers(const QWebEngineProfile* self, intptr_t slot);
-int QWebEngineProfile_SuperReceivers(const QWebEngineProfile* self, const char* signal);
 bool QWebEngineProfile_IsSignalConnected(const QWebEngineProfile* self, const QMetaMethod* signal);
-void QWebEngineProfile_OnIsSignalConnected(const QWebEngineProfile* self, intptr_t slot);
-bool QWebEngineProfile_SuperIsSignalConnected(const QWebEngineProfile* self, const QMetaMethod* signal);
 void QWebEngineProfile_Delete(QWebEngineProfile* self);
 
 #ifdef __cplusplus

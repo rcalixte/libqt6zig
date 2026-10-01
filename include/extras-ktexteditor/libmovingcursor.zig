@@ -21,6 +21,8 @@ pub const KTextEditor__MovingCursor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#setInsertBehavior)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingCursor `
@@ -36,6 +38,8 @@ pub const KTextEditor__MovingCursor = extern struct {
     pub const InsertBehavior = insertBehavior;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#insertBehavior)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -55,6 +59,8 @@ pub const KTextEditor__MovingCursor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#document)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingCursor `
@@ -69,6 +75,8 @@ pub const KTextEditor__MovingCursor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#range)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingCursor `
@@ -82,6 +90,8 @@ pub const KTextEditor__MovingCursor = extern struct {
     pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#setPosition)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -100,6 +110,8 @@ pub const KTextEditor__MovingCursor = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#line)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KTextEditor__MovingCursor `
@@ -113,6 +125,8 @@ pub const KTextEditor__MovingCursor = extern struct {
     pub const Column = column;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#column)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

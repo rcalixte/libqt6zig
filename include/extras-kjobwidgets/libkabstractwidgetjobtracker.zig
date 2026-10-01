@@ -9,7 +9,6 @@ const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
 const QVariant = @import("libqt6").QVariant;
-const QWidget = @import("libqt6").QWidget;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -128,23 +127,6 @@ pub const KAbstractWidgetJobTracker = extern struct {
     pub fn unregisterJob(self: KAbstractWidgetJobTracker, job: anytype) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KAbstractWidgetJobTracker_UnregisterJob(@ptrCast(self.ptr), @ptrCast(job.ptr));
-    }
-
-    /// ### DEPRECATED: Use `widget` instead
-    ///
-    pub const Widget = widget;
-
-    /// ### [Upstream resources](https://api.kde.org/kabstractwidgetjobtracker.html#widget)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAbstractWidgetJobTracker `
-    ///
-    /// ` job: KJob `
-    ///
-    pub fn widget(self: KAbstractWidgetJobTracker, job: anytype) QWidget {
-        comptime _ = @TypeOf(job)._is_KJob;
-        return .{ .ptr = qtc.KAbstractWidgetJobTracker_Widget(@ptrCast(self.ptr), @ptrCast(job.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setStopOnClose` instead

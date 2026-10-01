@@ -223,37 +223,37 @@ void QSplitter_Connect_SplitterMoved(QSplitter* self, intptr_t slot) {
 
 QSplitterHandle* QSplitter_CreateHandle(QSplitter* self) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         return vqsplitter->createHandle();
     }
-    return {};
+    qFatal("Error: Protected method QSplitter::createHandle called without a directly constructed type");
 }
 
 void QSplitter_ChildEvent(QSplitter* self, QChildEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->childEvent(param1);
     }
 }
 
 bool QSplitter_Event(QSplitter* self, QEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         return vqsplitter->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QSplitter::event called without a directly constructed type");
 }
 
 void QSplitter_ResizeEvent(QSplitter* self, QResizeEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->resizeEvent(param1);
     }
 }
 
 void QSplitter_ChangeEvent(QSplitter* self, QEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->changeEvent(param1);
     }
 }
@@ -288,1752 +288,1193 @@ void QSplitter_SetOpaqueResize1(QSplitter* self, bool opaqueVal) {
 
 // Base class handler implementation
 QMetaObject* QSplitter_SuperMetaObject(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsplitter->metaObject();
-    } else {
-        return (QMetaObject*)self->QSplitter::metaObject();
-    }
+    return (QMetaObject*)self->QSplitter::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnMetaObject(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_MetaObject_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MetaObject_Callback>(slot));
+void QSplitter_OnMetaObject(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_metaobject_callback = reinterpret_cast<VirtualQSplitter::QSplitter_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSplitter_SuperMetacast(QSplitter* self, const char* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Metacast_IsBase(true);
-        return vqsplitter->qt_metacast(param1);
-    } else {
-        return self->QSplitter::qt_metacast(param1);
-    }
+    return self->QSplitter::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMetacast(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Metacast_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Metacast_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_metacast_callback = reinterpret_cast<VirtualQSplitter::QSplitter_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSplitter_SuperMetacall(QSplitter* self, int param1, int param2, void** param3) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Metacall_IsBase(true);
-        return vqsplitter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSplitter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSplitter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMetacall(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Metacall_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Metacall_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_metacall_callback = reinterpret_cast<VirtualQSplitter::QSplitter_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QSplitter_SuperSizeHint(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_SizeHint_IsBase(true);
-        return new QSize(vqsplitter->sizeHint());
-    } else {
-        return new QSize(((VirtualQSplitter*)self)->sizeHint());
-    }
+    return new QSize(self->QSplitter::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnSizeHint(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_SizeHint_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SizeHint_Callback>(slot));
+void QSplitter_OnSizeHint(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_sizehint_callback = reinterpret_cast<VirtualQSplitter::QSplitter_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QSplitter_SuperMinimumSizeHint(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_MinimumSizeHint_IsBase(true);
-        return new QSize(vqsplitter->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSplitter*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QSplitter::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnMinimumSizeHint(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MinimumSizeHint_Callback>(slot));
+void QSplitter_OnMinimumSizeHint(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_minimumsizehint_callback = reinterpret_cast<VirtualQSplitter::QSplitter_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSplitterHandle* QSplitter_SuperCreateHandle(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_CreateHandle_IsBase(true);
-        return vqsplitter->createHandle();
-    } else {
-        return ((VirtualQSplitter*)self)->createHandle();
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        return vqsplitter->QSplitter::createHandle();
+    } else
+        qFatal("Error: Protected virtual method QSplitter::createHandle called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnCreateHandle(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_CreateHandle_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_CreateHandle_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_createhandle_callback = reinterpret_cast<VirtualQSplitter::QSplitter_CreateHandle_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplitter_SuperChildEvent(QSplitter* self, QChildEvent* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_ChildEvent_IsBase(true);
-        vqsplitter->childEvent(param1);
-    } else {
-        ((VirtualQSplitter*)self)->childEvent(param1);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::childEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnChildEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_ChildEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ChildEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_childevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_ChildEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QSplitter_SuperEvent(QSplitter* self, QEvent* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Event_IsBase(true);
-        return vqsplitter->event(param1);
-    } else {
-        return ((VirtualQSplitter*)self)->event(param1);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        return vqsplitter->QSplitter::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Event_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Event_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_event_callback = reinterpret_cast<VirtualQSplitter::QSplitter_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplitter_SuperResizeEvent(QSplitter* self, QResizeEvent* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_ResizeEvent_IsBase(true);
-        vqsplitter->resizeEvent(param1);
-    } else {
-        ((VirtualQSplitter*)self)->resizeEvent(param1);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnResizeEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_ResizeEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ResizeEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_resizeevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplitter_SuperChangeEvent(QSplitter* self, QEvent* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_ChangeEvent_IsBase(true);
-        vqsplitter->changeEvent(param1);
-    } else {
-        ((VirtualQSplitter*)self)->changeEvent(param1);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnChangeEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_ChangeEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ChangeEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_changeevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_PaintEvent(QSplitter* self, QPaintEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->paintEvent(param1);
     } else {
-        ((VirtualQSplitter*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method QSplitter::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperPaintEvent(QSplitter* self, QPaintEvent* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_PaintEvent_IsBase(true);
-        vqsplitter->paintEvent(param1);
-    } else {
-        ((VirtualQSplitter*)self)->paintEvent(param1);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnPaintEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_PaintEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_PaintEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_paintevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_InitStyleOption(const QSplitter* self, QStyleOptionFrame* option) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->initStyleOption(option);
     } else {
-        ((VirtualQSplitter*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QSplitter::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperInitStyleOption(const QSplitter* self, QStyleOptionFrame* option) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_InitStyleOption_IsBase(true);
-        vqsplitter->initStyleOption(option);
-    } else {
-        ((VirtualQSplitter*)self)->initStyleOption(option);
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        vqsplitter->QSplitter::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnInitStyleOption(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_InitStyleOption_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_InitStyleOption_Callback>(slot));
+void QSplitter_OnInitStyleOption(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_initstyleoption_callback = reinterpret_cast<VirtualQSplitter::QSplitter_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplitter_DevType(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->devType();
-    } else {
-        return self->QSplitter::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QSplitter_SuperDevType(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_DevType_IsBase(true);
-        return vqsplitter->devType();
-    } else {
-        return self->QSplitter::devType();
-    }
+    return self->QSplitter::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnDevType(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_DevType_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DevType_Callback>(slot));
+void QSplitter_OnDevType(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_devtype_callback = reinterpret_cast<VirtualQSplitter::QSplitter_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_SetVisible(QSplitter* self, bool visible) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setVisible(visible);
-    } else {
-        self->QSplitter::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QSplitter_SuperSetVisible(QSplitter* self, bool visible) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_SetVisible_IsBase(true);
-        vqsplitter->setVisible(visible);
-    } else {
-        self->QSplitter::setVisible(visible);
-    }
+    self->QSplitter::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnSetVisible(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_SetVisible_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SetVisible_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_setvisible_callback = reinterpret_cast<VirtualQSplitter::QSplitter_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplitter_HeightForWidth(const QSplitter* self, int param1) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QSplitter::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QSplitter_SuperHeightForWidth(const QSplitter* self, int param1) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_HeightForWidth_IsBase(true);
-        return vqsplitter->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QSplitter::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QSplitter::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnHeightForWidth(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_HeightForWidth_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_HeightForWidth_Callback>(slot));
+void QSplitter_OnHeightForWidth(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_heightforwidth_callback = reinterpret_cast<VirtualQSplitter::QSplitter_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplitter_HasHeightForWidth(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->hasHeightForWidth();
-    } else {
-        return self->QSplitter::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QSplitter_SuperHasHeightForWidth(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_HasHeightForWidth_IsBase(true);
-        return vqsplitter->hasHeightForWidth();
-    } else {
-        return self->QSplitter::hasHeightForWidth();
-    }
+    return self->QSplitter::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnHasHeightForWidth(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_HasHeightForWidth_Callback>(slot));
+void QSplitter_OnHasHeightForWidth(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_hasheightforwidth_callback = reinterpret_cast<VirtualQSplitter::QSplitter_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QSplitter_PaintEngine(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->paintEngine();
-    } else {
-        return self->QSplitter::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QSplitter_SuperPaintEngine(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_PaintEngine_IsBase(true);
-        return vqsplitter->paintEngine();
-    } else {
-        return self->QSplitter::paintEngine();
-    }
+    return self->QSplitter::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnPaintEngine(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_PaintEngine_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_PaintEngine_Callback>(slot));
+void QSplitter_OnPaintEngine(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_paintengine_callback = reinterpret_cast<VirtualQSplitter::QSplitter_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_MousePressEvent(QSplitter* self, QMouseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->mousePressEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperMousePressEvent(QSplitter* self, QMouseEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_MousePressEvent_IsBase(true);
-        vqsplitter->mousePressEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->mousePressEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMousePressEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_MousePressEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MousePressEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_mousepressevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_MouseReleaseEvent(QSplitter* self, QMouseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->mouseReleaseEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperMouseReleaseEvent(QSplitter* self, QMouseEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_MouseReleaseEvent_IsBase(true);
-        vqsplitter->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMouseReleaseEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_mousereleaseevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_MouseDoubleClickEvent(QSplitter* self, QMouseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperMouseDoubleClickEvent(QSplitter* self, QMouseEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_MouseDoubleClickEvent_IsBase(true);
-        vqsplitter->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMouseDoubleClickEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_mousedoubleclickevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_MouseMoveEvent(QSplitter* self, QMouseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->mouseMoveEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperMouseMoveEvent(QSplitter* self, QMouseEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_MouseMoveEvent_IsBase(true);
-        vqsplitter->mouseMoveEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMouseMoveEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MouseMoveEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_mousemoveevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_WheelEvent(QSplitter* self, QWheelEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->wheelEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperWheelEvent(QSplitter* self, QWheelEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_WheelEvent_IsBase(true);
-        vqsplitter->wheelEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->wheelEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnWheelEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_WheelEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_WheelEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_wheelevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_KeyPressEvent(QSplitter* self, QKeyEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->keyPressEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperKeyPressEvent(QSplitter* self, QKeyEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_KeyPressEvent_IsBase(true);
-        vqsplitter->keyPressEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->keyPressEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnKeyPressEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_KeyPressEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_KeyPressEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_keypressevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_KeyReleaseEvent(QSplitter* self, QKeyEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->keyReleaseEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperKeyReleaseEvent(QSplitter* self, QKeyEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_KeyReleaseEvent_IsBase(true);
-        vqsplitter->keyReleaseEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnKeyReleaseEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_keyreleaseevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_FocusInEvent(QSplitter* self, QFocusEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->focusInEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperFocusInEvent(QSplitter* self, QFocusEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_FocusInEvent_IsBase(true);
-        vqsplitter->focusInEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->focusInEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnFocusInEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_FocusInEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusInEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_focusinevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_FocusOutEvent(QSplitter* self, QFocusEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->focusOutEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperFocusOutEvent(QSplitter* self, QFocusEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_FocusOutEvent_IsBase(true);
-        vqsplitter->focusOutEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->focusOutEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnFocusOutEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_FocusOutEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusOutEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_focusoutevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_EnterEvent(QSplitter* self, QEnterEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->enterEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperEnterEvent(QSplitter* self, QEnterEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_EnterEvent_IsBase(true);
-        vqsplitter->enterEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->enterEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnEnterEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_EnterEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_EnterEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_enterevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_LeaveEvent(QSplitter* self, QEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->leaveEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperLeaveEvent(QSplitter* self, QEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_LeaveEvent_IsBase(true);
-        vqsplitter->leaveEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->leaveEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnLeaveEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_LeaveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_LeaveEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_leaveevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_MoveEvent(QSplitter* self, QMoveEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->moveEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperMoveEvent(QSplitter* self, QMoveEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_MoveEvent_IsBase(true);
-        vqsplitter->moveEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->moveEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMoveEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_MoveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MoveEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_moveevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_CloseEvent(QSplitter* self, QCloseEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->closeEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperCloseEvent(QSplitter* self, QCloseEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_CloseEvent_IsBase(true);
-        vqsplitter->closeEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->closeEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnCloseEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_CloseEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_CloseEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_closeevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_ContextMenuEvent(QSplitter* self, QContextMenuEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->contextMenuEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperContextMenuEvent(QSplitter* self, QContextMenuEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_ContextMenuEvent_IsBase(true);
-        vqsplitter->contextMenuEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnContextMenuEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ContextMenuEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_contextmenuevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_TabletEvent(QSplitter* self, QTabletEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->tabletEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperTabletEvent(QSplitter* self, QTabletEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_TabletEvent_IsBase(true);
-        vqsplitter->tabletEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->tabletEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnTabletEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_TabletEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_TabletEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_tabletevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_ActionEvent(QSplitter* self, QActionEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->actionEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperActionEvent(QSplitter* self, QActionEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_ActionEvent_IsBase(true);
-        vqsplitter->actionEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->actionEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnActionEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_ActionEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ActionEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_actionevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_DragEnterEvent(QSplitter* self, QDragEnterEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->dragEnterEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperDragEnterEvent(QSplitter* self, QDragEnterEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_DragEnterEvent_IsBase(true);
-        vqsplitter->dragEnterEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDragEnterEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_DragEnterEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DragEnterEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_dragenterevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_DragMoveEvent(QSplitter* self, QDragMoveEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->dragMoveEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperDragMoveEvent(QSplitter* self, QDragMoveEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_DragMoveEvent_IsBase(true);
-        vqsplitter->dragMoveEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDragMoveEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_DragMoveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DragMoveEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_dragmoveevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_DragLeaveEvent(QSplitter* self, QDragLeaveEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->dragLeaveEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperDragLeaveEvent(QSplitter* self, QDragLeaveEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_DragLeaveEvent_IsBase(true);
-        vqsplitter->dragLeaveEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDragLeaveEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DragLeaveEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_dragleaveevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_DropEvent(QSplitter* self, QDropEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->dropEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperDropEvent(QSplitter* self, QDropEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_DropEvent_IsBase(true);
-        vqsplitter->dropEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->dropEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDropEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_DropEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DropEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_dropevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_ShowEvent(QSplitter* self, QShowEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->showEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperShowEvent(QSplitter* self, QShowEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_ShowEvent_IsBase(true);
-        vqsplitter->showEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->showEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnShowEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_ShowEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ShowEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_showevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_HideEvent(QSplitter* self, QHideEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->hideEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperHideEvent(QSplitter* self, QHideEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_HideEvent_IsBase(true);
-        vqsplitter->hideEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->hideEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnHideEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_HideEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_HideEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_hideevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplitter_NativeEvent(QSplitter* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
+    if (vqsplitter) {
         return vqsplitter->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQSplitter*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QSplitter::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QSplitter_SuperNativeEvent(QSplitter* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_NativeEvent_IsBase(true);
-        return vqsplitter->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQSplitter*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        return vqsplitter->QSplitter::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QSplitter::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnNativeEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_NativeEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_NativeEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_nativeevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplitter_Metric(const QSplitter* self, int param1) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         return vqsplitter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQSplitter*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QSplitter::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QSplitter_SuperMetric(const QSplitter* self, int param1) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Metric_IsBase(true);
-        return vqsplitter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQSplitter*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        return vqsplitter->QSplitter::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QSplitter::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnMetric(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Metric_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Metric_Callback>(slot));
+void QSplitter_OnMetric(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_metric_callback = reinterpret_cast<VirtualQSplitter::QSplitter_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_InitPainter(const QSplitter* self, QPainter* painter) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->initPainter(painter);
     } else {
-        ((VirtualQSplitter*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QSplitter::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperInitPainter(const QSplitter* self, QPainter* painter) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_InitPainter_IsBase(true);
-        vqsplitter->initPainter(painter);
-    } else {
-        ((VirtualQSplitter*)self)->initPainter(painter);
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        vqsplitter->QSplitter::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnInitPainter(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_InitPainter_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_InitPainter_Callback>(slot));
+void QSplitter_OnInitPainter(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_initpainter_callback = reinterpret_cast<VirtualQSplitter::QSplitter_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QSplitter_Redirected(const QSplitter* self, QPoint* offset) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         return vqsplitter->redirected(offset);
     } else {
-        return ((VirtualQSplitter*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QSplitter::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QSplitter_SuperRedirected(const QSplitter* self, QPoint* offset) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Redirected_IsBase(true);
-        return vqsplitter->redirected(offset);
-    } else {
-        return ((VirtualQSplitter*)self)->redirected(offset);
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        return vqsplitter->QSplitter::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnRedirected(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Redirected_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Redirected_Callback>(slot));
+void QSplitter_OnRedirected(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_redirected_callback = reinterpret_cast<VirtualQSplitter::QSplitter_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QSplitter_SharedPainter(const QSplitter* self) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         return vqsplitter->sharedPainter();
     } else {
-        return ((VirtualQSplitter*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QSplitter::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QSplitter_SuperSharedPainter(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_SharedPainter_IsBase(true);
-        return vqsplitter->sharedPainter();
-    } else {
-        return ((VirtualQSplitter*)self)->sharedPainter();
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        return vqsplitter->QSplitter::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QSplitter::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnSharedPainter(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_SharedPainter_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SharedPainter_Callback>(slot));
+void QSplitter_OnSharedPainter(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_sharedpainter_callback = reinterpret_cast<VirtualQSplitter::QSplitter_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_InputMethodEvent(QSplitter* self, QInputMethodEvent* param1) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->inputMethodEvent(param1);
     } else {
-        ((VirtualQSplitter*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QSplitter::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperInputMethodEvent(QSplitter* self, QInputMethodEvent* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_InputMethodEvent_IsBase(true);
-        vqsplitter->inputMethodEvent(param1);
-    } else {
-        ((VirtualQSplitter*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnInputMethodEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_InputMethodEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_InputMethodEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_inputmethodevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QSplitter_InputMethodQuery(const QSplitter* self, int param1) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return new QVariant(vqsplitter->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQSplitter*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QSplitter_SuperInputMethodQuery(const QSplitter* self, int param1) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_InputMethodQuery_IsBase(true);
-        return new QVariant(vqsplitter->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQSplitter*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QSplitter::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitter_OnInputMethodQuery(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_InputMethodQuery_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_InputMethodQuery_Callback>(slot));
+void QSplitter_OnInputMethodQuery(QSplitter* self, intptr_t slot) {
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self)))
+        vqsplitter->qsplitter_inputmethodquery_callback = reinterpret_cast<VirtualQSplitter::QSplitter_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplitter_FocusNextPrevChild(QSplitter* self, bool next) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         return vqsplitter->focusNextPrevChild(next);
     } else {
-        return ((VirtualQSplitter*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QSplitter::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QSplitter_SuperFocusNextPrevChild(QSplitter* self, bool next) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_FocusNextPrevChild_IsBase(true);
-        return vqsplitter->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQSplitter*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        return vqsplitter->QSplitter::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnFocusNextPrevChild(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_focusnextprevchild_callback = reinterpret_cast<VirtualQSplitter::QSplitter_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplitter_EventFilter(QSplitter* self, QObject* watched, QEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->eventFilter(watched, event);
-    } else {
-        return self->QSplitter::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSplitter_SuperEventFilter(QSplitter* self, QObject* watched, QEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_EventFilter_IsBase(true);
-        return vqsplitter->eventFilter(watched, event);
-    } else {
-        return self->QSplitter::eventFilter(watched, event);
-    }
+    return self->QSplitter::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnEventFilter(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_EventFilter_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_EventFilter_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_eventfilter_callback = reinterpret_cast<VirtualQSplitter::QSplitter_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_TimerEvent(QSplitter* self, QTimerEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->timerEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperTimerEvent(QSplitter* self, QTimerEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_TimerEvent_IsBase(true);
-        vqsplitter->timerEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->timerEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnTimerEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_TimerEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_TimerEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_timerevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_CustomEvent(QSplitter* self, QEvent* event) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->customEvent(event);
     } else {
-        ((VirtualQSplitter*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSplitter::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperCustomEvent(QSplitter* self, QEvent* event) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_CustomEvent_IsBase(true);
-        vqsplitter->customEvent(event);
-    } else {
-        ((VirtualQSplitter*)self)->customEvent(event);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnCustomEvent(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_CustomEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_CustomEvent_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_customevent_callback = reinterpret_cast<VirtualQSplitter::QSplitter_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_ConnectNotify(QSplitter* self, const QMetaMethod* signal) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->connectNotify(*signal);
     } else {
-        ((VirtualQSplitter*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSplitter::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperConnectNotify(QSplitter* self, const QMetaMethod* signal) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_ConnectNotify_IsBase(true);
-        vqsplitter->connectNotify(*signal);
-    } else {
-        ((VirtualQSplitter*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnConnectNotify(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_ConnectNotify_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ConnectNotify_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_connectnotify_callback = reinterpret_cast<VirtualQSplitter::QSplitter_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitter_DisconnectNotify(QSplitter* self, const QMetaMethod* signal) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter) {
         vqsplitter->disconnectNotify(*signal);
     } else {
-        ((VirtualQSplitter*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSplitter::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitter_SuperDisconnectNotify(QSplitter* self, const QMetaMethod* signal) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_DisconnectNotify_IsBase(true);
-        vqsplitter->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSplitter*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->QSplitter::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSplitter::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDisconnectNotify(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_DisconnectNotify_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DisconnectNotify_Callback>(slot));
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self))
+        vqsplitter->qsplitter_disconnectnotify_callback = reinterpret_cast<VirtualQSplitter::QSplitter_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitter_MoveSplitter(QSplitter* self, int pos, int index) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->moveSplitter(static_cast<int>(pos), static_cast<int>(index));
-    } else {
-        ((VirtualQSplitter*)self)->moveSplitter(static_cast<int>(pos), static_cast<int>(index));
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->VirtualQSplitter::moveSplitter(static_cast<int>(pos), static_cast<int>(index));
+    } else
+        qFatal("Error: Protected method QSplitter::moveSplitter called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitter_SuperMoveSplitter(QSplitter* self, int pos, int index) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_MoveSplitter_IsBase(true);
-        vqsplitter->moveSplitter(static_cast<int>(pos), static_cast<int>(index));
-    } else {
-        ((VirtualQSplitter*)self)->moveSplitter(static_cast<int>(pos), static_cast<int>(index));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnMoveSplitter(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_MoveSplitter_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MoveSplitter_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitter_SetRubberBand(QSplitter* self, int position) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setRubberBand(static_cast<int>(position));
-    } else {
-        ((VirtualQSplitter*)self)->setRubberBand(static_cast<int>(position));
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->VirtualQSplitter::setRubberBand(static_cast<int>(position));
+    } else
+        qFatal("Error: Protected method QSplitter::setRubberBand called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitter_SuperSetRubberBand(QSplitter* self, int position) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_SetRubberBand_IsBase(true);
-        vqsplitter->setRubberBand(static_cast<int>(position));
-    } else {
-        ((VirtualQSplitter*)self)->setRubberBand(static_cast<int>(position));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnSetRubberBand(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_SetRubberBand_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SetRubberBand_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplitter_ClosestLegalPosition(QSplitter* self, int param1, int param2) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->closestLegalPosition(static_cast<int>(param1), static_cast<int>(param2));
-    } else {
-        return ((VirtualQSplitter*)self)->closestLegalPosition(static_cast<int>(param1), static_cast<int>(param2));
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        return vqsplitter->VirtualQSplitter::closestLegalPosition(static_cast<int>(param1), static_cast<int>(param2));
+    } else
+        qFatal("Error: Protected method QSplitter::closestLegalPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplitter_SuperClosestLegalPosition(QSplitter* self, int param1, int param2) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_ClosestLegalPosition_IsBase(true);
-        return vqsplitter->closestLegalPosition(static_cast<int>(param1), static_cast<int>(param2));
-    } else {
-        return ((VirtualQSplitter*)self)->closestLegalPosition(static_cast<int>(param1), static_cast<int>(param2));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnClosestLegalPosition(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_ClosestLegalPosition_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ClosestLegalPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitter_DrawFrame(QSplitter* self, QPainter* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->drawFrame(param1);
-    } else {
-        ((VirtualQSplitter*)self)->drawFrame(param1);
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->VirtualQSplitter::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QSplitter::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitter_SuperDrawFrame(QSplitter* self, QPainter* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_DrawFrame_IsBase(true);
-        vqsplitter->drawFrame(param1);
-    } else {
-        ((VirtualQSplitter*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnDrawFrame(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_DrawFrame_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitter_UpdateMicroFocus(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->updateMicroFocus();
-    } else {
-        ((VirtualQSplitter*)self)->updateMicroFocus();
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->VirtualQSplitter::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QSplitter::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitter_SuperUpdateMicroFocus(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_UpdateMicroFocus_IsBase(true);
-        vqsplitter->updateMicroFocus();
-    } else {
-        ((VirtualQSplitter*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnUpdateMicroFocus(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitter_Create(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->create();
-    } else {
-        ((VirtualQSplitter*)self)->create();
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->VirtualQSplitter::create();
+    } else
+        qFatal("Error: Protected method QSplitter::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitter_SuperCreate(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Create_IsBase(true);
-        vqsplitter->create();
-    } else {
-        ((VirtualQSplitter*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnCreate(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Create_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitter_Destroy(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->destroy();
-    } else {
-        ((VirtualQSplitter*)self)->destroy();
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        vqsplitter->VirtualQSplitter::destroy();
+    } else
+        qFatal("Error: Protected method QSplitter::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitter_SuperDestroy(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Destroy_IsBase(true);
-        vqsplitter->destroy();
-    } else {
-        ((VirtualQSplitter*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnDestroy(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Destroy_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplitter_FocusNextChild(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->focusNextChild();
-    } else {
-        return ((VirtualQSplitter*)self)->focusNextChild();
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        return vqsplitter->VirtualQSplitter::focusNextChild();
+    } else
+        qFatal("Error: Protected method QSplitter::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplitter_SuperFocusNextChild(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_FocusNextChild_IsBase(true);
-        return vqsplitter->focusNextChild();
-    } else {
-        return ((VirtualQSplitter*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnFocusNextChild(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_FocusNextChild_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplitter_FocusPreviousChild(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->focusPreviousChild();
-    } else {
-        return ((VirtualQSplitter*)self)->focusPreviousChild();
-    }
+    if (auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self)) {
+        return vqsplitter->VirtualQSplitter::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QSplitter::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplitter_SuperFocusPreviousChild(QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_FocusPreviousChild_IsBase(true);
-        return vqsplitter->focusPreviousChild();
-    } else {
-        return ((VirtualQSplitter*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnFocusPreviousChild(QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSplitter_Sender(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->sender();
-    } else {
-        return ((VirtualQSplitter*)self)->sender();
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        return vqsplitter->VirtualQSplitter::sender();
+    } else
+        qFatal("Error: Protected method QSplitter::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSplitter_SuperSender(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Sender_IsBase(true);
-        return vqsplitter->sender();
-    } else {
-        return ((VirtualQSplitter*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnSender(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Sender_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplitter_SenderSignalIndex(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->senderSignalIndex();
-    } else {
-        return ((VirtualQSplitter*)self)->senderSignalIndex();
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        return vqsplitter->VirtualQSplitter::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSplitter::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplitter_SuperSenderSignalIndex(const QSplitter* self) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_SenderSignalIndex_IsBase(true);
-        return vqsplitter->senderSignalIndex();
-    } else {
-        return ((VirtualQSplitter*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnSenderSignalIndex(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplitter_Receivers(const QSplitter* self, const char* signal) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->receivers(signal);
-    } else {
-        return ((VirtualQSplitter*)self)->receivers(signal);
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        return vqsplitter->VirtualQSplitter::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSplitter::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplitter_SuperReceivers(const QSplitter* self, const char* signal) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_Receivers_IsBase(true);
-        return vqsplitter->receivers(signal);
-    } else {
-        return ((VirtualQSplitter*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnReceivers(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_Receivers_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplitter_IsSignalConnected(const QSplitter* self, const QMetaMethod* signal) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSplitter*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        return vqsplitter->VirtualQSplitter::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSplitter::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplitter_SuperIsSignalConnected(const QSplitter* self, const QMetaMethod* signal) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_IsSignalConnected_IsBase(true);
-        return vqsplitter->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSplitter*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnIsSignalConnected(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QSplitter_GetDecodedMetricF(const QSplitter* self, int metricA, int metricB) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return vqsplitter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSplitter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QSplitter_SuperGetDecodedMetricF(const QSplitter* self, int metricA, int metricB) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        vqsplitter->setQSplitter_GetDecodedMetricF_IsBase(true);
-        return vqsplitter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSplitter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitter_OnGetDecodedMetricF(const QSplitter* self, intptr_t slot) {
-    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter)
-        vqsplitter->setQSplitter_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self))) {
+        return vqsplitter->VirtualQSplitter::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QSplitter::getDecodedMetricF called without a directly constructed type");
 }
 
 void QSplitter_Delete(QSplitter* self) {
@@ -2090,45 +1531,45 @@ QSize* QSplitterHandle_SizeHint(const QSplitterHandle* self) {
 
 void QSplitterHandle_PaintEvent(QSplitterHandle* self, QPaintEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->paintEvent(param1);
     }
 }
 
 void QSplitterHandle_MouseMoveEvent(QSplitterHandle* self, QMouseEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->mouseMoveEvent(param1);
     }
 }
 
 void QSplitterHandle_MousePressEvent(QSplitterHandle* self, QMouseEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->mousePressEvent(param1);
     }
 }
 
 void QSplitterHandle_MouseReleaseEvent(QSplitterHandle* self, QMouseEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->mouseReleaseEvent(param1);
     }
 }
 
 void QSplitterHandle_ResizeEvent(QSplitterHandle* self, QResizeEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->resizeEvent(param1);
     }
 }
 
 bool QSplitterHandle_Event(QSplitterHandle* self, QEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         return vqsplitterhandle->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QSplitterHandle::event called without a directly constructed type");
 }
 
 libqt_string QSplitterHandle_Tr2(const char* s, const char* c) {
@@ -2157,1640 +1598,1124 @@ libqt_string QSplitterHandle_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSplitterHandle_SuperMetaObject(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsplitterhandle->metaObject();
-    } else {
-        return (QMetaObject*)self->QSplitterHandle::metaObject();
-    }
+    return (QMetaObject*)self->QSplitterHandle::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnMetaObject(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_MetaObject_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MetaObject_Callback>(slot));
+void QSplitterHandle_OnMetaObject(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_metaobject_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSplitterHandle_SuperMetacast(QSplitterHandle* self, const char* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Metacast_IsBase(true);
-        return vqsplitterhandle->qt_metacast(param1);
-    } else {
-        return self->QSplitterHandle::qt_metacast(param1);
-    }
+    return self->QSplitterHandle::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMetacast(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Metacast_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metacast_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_metacast_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSplitterHandle_SuperMetacall(QSplitterHandle* self, int param1, int param2, void** param3) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Metacall_IsBase(true);
-        return vqsplitterhandle->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSplitterHandle::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSplitterHandle::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMetacall(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Metacall_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metacall_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_metacall_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QSplitterHandle_SuperSizeHint(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_SizeHint_IsBase(true);
-        return new QSize(vqsplitterhandle->sizeHint());
-    } else {
-        return new QSize(((VirtualQSplitterHandle*)self)->sizeHint());
-    }
+    return new QSize(self->QSplitterHandle::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnSizeHint(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_SizeHint_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SizeHint_Callback>(slot));
+void QSplitterHandle_OnSizeHint(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_sizehint_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperPaintEvent(QSplitterHandle* self, QPaintEvent* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_PaintEvent_IsBase(true);
-        vqsplitterhandle->paintEvent(param1);
-    } else {
-        ((VirtualQSplitterHandle*)self)->paintEvent(param1);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnPaintEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_PaintEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_PaintEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_paintevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperMouseMoveEvent(QSplitterHandle* self, QMouseEvent* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_MouseMoveEvent_IsBase(true);
-        vqsplitterhandle->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQSplitterHandle*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMouseMoveEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseMoveEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_mousemoveevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperMousePressEvent(QSplitterHandle* self, QMouseEvent* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_MousePressEvent_IsBase(true);
-        vqsplitterhandle->mousePressEvent(param1);
-    } else {
-        ((VirtualQSplitterHandle*)self)->mousePressEvent(param1);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMousePressEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_MousePressEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MousePressEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_mousepressevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperMouseReleaseEvent(QSplitterHandle* self, QMouseEvent* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_MouseReleaseEvent_IsBase(true);
-        vqsplitterhandle->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualQSplitterHandle*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMouseReleaseEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_mousereleaseevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperResizeEvent(QSplitterHandle* self, QResizeEvent* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_ResizeEvent_IsBase(true);
-        vqsplitterhandle->resizeEvent(param1);
-    } else {
-        ((VirtualQSplitterHandle*)self)->resizeEvent(param1);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnResizeEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_ResizeEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ResizeEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_resizeevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QSplitterHandle_SuperEvent(QSplitterHandle* self, QEvent* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Event_IsBase(true);
-        return vqsplitterhandle->event(param1);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->event(param1);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        return vqsplitterhandle->QSplitterHandle::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Event_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Event_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_event_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplitterHandle_DevType(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->devType();
-    } else {
-        return self->QSplitterHandle::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QSplitterHandle_SuperDevType(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_DevType_IsBase(true);
-        return vqsplitterhandle->devType();
-    } else {
-        return self->QSplitterHandle::devType();
-    }
+    return self->QSplitterHandle::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnDevType(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_DevType_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DevType_Callback>(slot));
+void QSplitterHandle_OnDevType(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_devtype_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_SetVisible(QSplitterHandle* self, bool visible) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setVisible(visible);
-    } else {
-        self->QSplitterHandle::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperSetVisible(QSplitterHandle* self, bool visible) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_SetVisible_IsBase(true);
-        vqsplitterhandle->setVisible(visible);
-    } else {
-        self->QSplitterHandle::setVisible(visible);
-    }
+    self->QSplitterHandle::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnSetVisible(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_SetVisible_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SetVisible_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_setvisible_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QSplitterHandle_MinimumSizeHint(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return new QSize(vqsplitterhandle->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSplitterHandle*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QSplitterHandle_SuperMinimumSizeHint(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_MinimumSizeHint_IsBase(true);
-        return new QSize(vqsplitterhandle->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSplitterHandle*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QSplitterHandle::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnMinimumSizeHint(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MinimumSizeHint_Callback>(slot));
+void QSplitterHandle_OnMinimumSizeHint(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_minimumsizehint_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplitterHandle_HeightForWidth(const QSplitterHandle* self, int param1) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QSplitterHandle::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QSplitterHandle_SuperHeightForWidth(const QSplitterHandle* self, int param1) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_HeightForWidth_IsBase(true);
-        return vqsplitterhandle->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QSplitterHandle::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QSplitterHandle::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnHeightForWidth(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_HeightForWidth_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HeightForWidth_Callback>(slot));
+void QSplitterHandle_OnHeightForWidth(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_heightforwidth_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplitterHandle_HasHeightForWidth(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->hasHeightForWidth();
-    } else {
-        return self->QSplitterHandle::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QSplitterHandle_SuperHasHeightForWidth(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_HasHeightForWidth_IsBase(true);
-        return vqsplitterhandle->hasHeightForWidth();
-    } else {
-        return self->QSplitterHandle::hasHeightForWidth();
-    }
+    return self->QSplitterHandle::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnHasHeightForWidth(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HasHeightForWidth_Callback>(slot));
+void QSplitterHandle_OnHasHeightForWidth(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_hasheightforwidth_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QSplitterHandle_PaintEngine(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->paintEngine();
-    } else {
-        return self->QSplitterHandle::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QSplitterHandle_SuperPaintEngine(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_PaintEngine_IsBase(true);
-        return vqsplitterhandle->paintEngine();
-    } else {
-        return self->QSplitterHandle::paintEngine();
-    }
+    return self->QSplitterHandle::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnPaintEngine(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_PaintEngine_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_PaintEngine_Callback>(slot));
+void QSplitterHandle_OnPaintEngine(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_paintengine_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_MouseDoubleClickEvent(QSplitterHandle* self, QMouseEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperMouseDoubleClickEvent(QSplitterHandle* self, QMouseEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_MouseDoubleClickEvent_IsBase(true);
-        vqsplitterhandle->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMouseDoubleClickEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_mousedoubleclickevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_WheelEvent(QSplitterHandle* self, QWheelEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->wheelEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperWheelEvent(QSplitterHandle* self, QWheelEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_WheelEvent_IsBase(true);
-        vqsplitterhandle->wheelEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->wheelEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnWheelEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_WheelEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_WheelEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_wheelevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_KeyPressEvent(QSplitterHandle* self, QKeyEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->keyPressEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperKeyPressEvent(QSplitterHandle* self, QKeyEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_KeyPressEvent_IsBase(true);
-        vqsplitterhandle->keyPressEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->keyPressEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnKeyPressEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_KeyPressEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_KeyPressEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_keypressevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_KeyReleaseEvent(QSplitterHandle* self, QKeyEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->keyReleaseEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperKeyReleaseEvent(QSplitterHandle* self, QKeyEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_KeyReleaseEvent_IsBase(true);
-        vqsplitterhandle->keyReleaseEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnKeyReleaseEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_keyreleaseevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_FocusInEvent(QSplitterHandle* self, QFocusEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->focusInEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperFocusInEvent(QSplitterHandle* self, QFocusEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_FocusInEvent_IsBase(true);
-        vqsplitterhandle->focusInEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->focusInEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnFocusInEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_FocusInEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusInEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_focusinevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_FocusOutEvent(QSplitterHandle* self, QFocusEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->focusOutEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperFocusOutEvent(QSplitterHandle* self, QFocusEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_FocusOutEvent_IsBase(true);
-        vqsplitterhandle->focusOutEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->focusOutEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnFocusOutEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_FocusOutEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusOutEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_focusoutevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_EnterEvent(QSplitterHandle* self, QEnterEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->enterEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperEnterEvent(QSplitterHandle* self, QEnterEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_EnterEvent_IsBase(true);
-        vqsplitterhandle->enterEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->enterEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnEnterEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_EnterEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_EnterEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_enterevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_LeaveEvent(QSplitterHandle* self, QEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->leaveEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperLeaveEvent(QSplitterHandle* self, QEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_LeaveEvent_IsBase(true);
-        vqsplitterhandle->leaveEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->leaveEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnLeaveEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_LeaveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_LeaveEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_leaveevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_MoveEvent(QSplitterHandle* self, QMoveEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->moveEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperMoveEvent(QSplitterHandle* self, QMoveEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_MoveEvent_IsBase(true);
-        vqsplitterhandle->moveEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->moveEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMoveEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_MoveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MoveEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_moveevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_CloseEvent(QSplitterHandle* self, QCloseEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->closeEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperCloseEvent(QSplitterHandle* self, QCloseEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_CloseEvent_IsBase(true);
-        vqsplitterhandle->closeEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->closeEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnCloseEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_CloseEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_CloseEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_closeevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_ContextMenuEvent(QSplitterHandle* self, QContextMenuEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->contextMenuEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperContextMenuEvent(QSplitterHandle* self, QContextMenuEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_ContextMenuEvent_IsBase(true);
-        vqsplitterhandle->contextMenuEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnContextMenuEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ContextMenuEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_contextmenuevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_TabletEvent(QSplitterHandle* self, QTabletEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->tabletEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperTabletEvent(QSplitterHandle* self, QTabletEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_TabletEvent_IsBase(true);
-        vqsplitterhandle->tabletEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->tabletEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnTabletEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_TabletEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_TabletEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_tabletevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_ActionEvent(QSplitterHandle* self, QActionEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->actionEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperActionEvent(QSplitterHandle* self, QActionEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_ActionEvent_IsBase(true);
-        vqsplitterhandle->actionEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->actionEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnActionEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_ActionEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ActionEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_actionevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_DragEnterEvent(QSplitterHandle* self, QDragEnterEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->dragEnterEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperDragEnterEvent(QSplitterHandle* self, QDragEnterEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_DragEnterEvent_IsBase(true);
-        vqsplitterhandle->dragEnterEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDragEnterEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_DragEnterEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragEnterEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_dragenterevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_DragMoveEvent(QSplitterHandle* self, QDragMoveEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->dragMoveEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperDragMoveEvent(QSplitterHandle* self, QDragMoveEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_DragMoveEvent_IsBase(true);
-        vqsplitterhandle->dragMoveEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDragMoveEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_DragMoveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragMoveEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_dragmoveevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_DragLeaveEvent(QSplitterHandle* self, QDragLeaveEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->dragLeaveEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperDragLeaveEvent(QSplitterHandle* self, QDragLeaveEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_DragLeaveEvent_IsBase(true);
-        vqsplitterhandle->dragLeaveEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDragLeaveEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragLeaveEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_dragleaveevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_DropEvent(QSplitterHandle* self, QDropEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->dropEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperDropEvent(QSplitterHandle* self, QDropEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_DropEvent_IsBase(true);
-        vqsplitterhandle->dropEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->dropEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDropEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_DropEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DropEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_dropevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_ShowEvent(QSplitterHandle* self, QShowEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->showEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperShowEvent(QSplitterHandle* self, QShowEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_ShowEvent_IsBase(true);
-        vqsplitterhandle->showEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->showEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnShowEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_ShowEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ShowEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_showevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_HideEvent(QSplitterHandle* self, QHideEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->hideEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperHideEvent(QSplitterHandle* self, QHideEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_HideEvent_IsBase(true);
-        vqsplitterhandle->hideEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->hideEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnHideEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_HideEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HideEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_hideevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplitterHandle_NativeEvent(QSplitterHandle* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
+    if (vqsplitterhandle) {
         return vqsplitterhandle->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQSplitterHandle*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QSplitterHandle::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QSplitterHandle_SuperNativeEvent(QSplitterHandle* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_NativeEvent_IsBase(true);
-        return vqsplitterhandle->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQSplitterHandle*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        return vqsplitterhandle->QSplitterHandle::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnNativeEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_NativeEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_NativeEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_nativeevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_ChangeEvent(QSplitterHandle* self, QEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->changeEvent(param1);
     } else {
-        ((VirtualQSplitterHandle*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QSplitterHandle::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperChangeEvent(QSplitterHandle* self, QEvent* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_ChangeEvent_IsBase(true);
-        vqsplitterhandle->changeEvent(param1);
-    } else {
-        ((VirtualQSplitterHandle*)self)->changeEvent(param1);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnChangeEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_ChangeEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ChangeEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_changeevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplitterHandle_Metric(const QSplitterHandle* self, int param1) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         return vqsplitterhandle->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQSplitterHandle*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QSplitterHandle::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QSplitterHandle_SuperMetric(const QSplitterHandle* self, int param1) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Metric_IsBase(true);
-        return vqsplitterhandle->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQSplitterHandle*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        return vqsplitterhandle->QSplitterHandle::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnMetric(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Metric_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metric_Callback>(slot));
+void QSplitterHandle_OnMetric(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_metric_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_InitPainter(const QSplitterHandle* self, QPainter* painter) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->initPainter(painter);
     } else {
-        ((VirtualQSplitterHandle*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QSplitterHandle::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperInitPainter(const QSplitterHandle* self, QPainter* painter) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_InitPainter_IsBase(true);
-        vqsplitterhandle->initPainter(painter);
-    } else {
-        ((VirtualQSplitterHandle*)self)->initPainter(painter);
-    }
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        vqsplitterhandle->QSplitterHandle::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnInitPainter(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_InitPainter_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InitPainter_Callback>(slot));
+void QSplitterHandle_OnInitPainter(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_initpainter_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QSplitterHandle_Redirected(const QSplitterHandle* self, QPoint* offset) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         return vqsplitterhandle->redirected(offset);
     } else {
-        return ((VirtualQSplitterHandle*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QSplitterHandle::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QSplitterHandle_SuperRedirected(const QSplitterHandle* self, QPoint* offset) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Redirected_IsBase(true);
-        return vqsplitterhandle->redirected(offset);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->redirected(offset);
-    }
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        return vqsplitterhandle->QSplitterHandle::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnRedirected(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Redirected_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Redirected_Callback>(slot));
+void QSplitterHandle_OnRedirected(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_redirected_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QSplitterHandle_SharedPainter(const QSplitterHandle* self) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         return vqsplitterhandle->sharedPainter();
     } else {
-        return ((VirtualQSplitterHandle*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QSplitterHandle::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QSplitterHandle_SuperSharedPainter(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_SharedPainter_IsBase(true);
-        return vqsplitterhandle->sharedPainter();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->sharedPainter();
-    }
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        return vqsplitterhandle->QSplitterHandle::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnSharedPainter(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_SharedPainter_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SharedPainter_Callback>(slot));
+void QSplitterHandle_OnSharedPainter(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_sharedpainter_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_InputMethodEvent(QSplitterHandle* self, QInputMethodEvent* param1) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->inputMethodEvent(param1);
     } else {
-        ((VirtualQSplitterHandle*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QSplitterHandle::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperInputMethodEvent(QSplitterHandle* self, QInputMethodEvent* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_InputMethodEvent_IsBase(true);
-        vqsplitterhandle->inputMethodEvent(param1);
-    } else {
-        ((VirtualQSplitterHandle*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnInputMethodEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_InputMethodEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InputMethodEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_inputmethodevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QSplitterHandle_InputMethodQuery(const QSplitterHandle* self, int param1) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return new QVariant(vqsplitterhandle->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQSplitterHandle*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QSplitterHandle_SuperInputMethodQuery(const QSplitterHandle* self, int param1) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_InputMethodQuery_IsBase(true);
-        return new QVariant(vqsplitterhandle->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQSplitterHandle*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QSplitterHandle::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnInputMethodQuery(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_InputMethodQuery_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InputMethodQuery_Callback>(slot));
+void QSplitterHandle_OnInputMethodQuery(QSplitterHandle* self, intptr_t slot) {
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self)))
+        vqsplitterhandle->qsplitterhandle_inputmethodquery_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplitterHandle_FocusNextPrevChild(QSplitterHandle* self, bool next) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         return vqsplitterhandle->focusNextPrevChild(next);
     } else {
-        return ((VirtualQSplitterHandle*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QSplitterHandle::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QSplitterHandle_SuperFocusNextPrevChild(QSplitterHandle* self, bool next) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_FocusNextPrevChild_IsBase(true);
-        return vqsplitterhandle->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        return vqsplitterhandle->QSplitterHandle::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnFocusNextPrevChild(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_focusnextprevchild_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplitterHandle_EventFilter(QSplitterHandle* self, QObject* watched, QEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->eventFilter(watched, event);
-    } else {
-        return self->QSplitterHandle::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSplitterHandle_SuperEventFilter(QSplitterHandle* self, QObject* watched, QEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_EventFilter_IsBase(true);
-        return vqsplitterhandle->eventFilter(watched, event);
-    } else {
-        return self->QSplitterHandle::eventFilter(watched, event);
-    }
+    return self->QSplitterHandle::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnEventFilter(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_EventFilter_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_EventFilter_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_eventfilter_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_TimerEvent(QSplitterHandle* self, QTimerEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->timerEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperTimerEvent(QSplitterHandle* self, QTimerEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_TimerEvent_IsBase(true);
-        vqsplitterhandle->timerEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->timerEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnTimerEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_TimerEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_TimerEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_timerevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_ChildEvent(QSplitterHandle* self, QChildEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->childEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperChildEvent(QSplitterHandle* self, QChildEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_ChildEvent_IsBase(true);
-        vqsplitterhandle->childEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->childEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnChildEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_ChildEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ChildEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_childevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_CustomEvent(QSplitterHandle* self, QEvent* event) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->customEvent(event);
     } else {
-        ((VirtualQSplitterHandle*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSplitterHandle::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperCustomEvent(QSplitterHandle* self, QEvent* event) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_CustomEvent_IsBase(true);
-        vqsplitterhandle->customEvent(event);
-    } else {
-        ((VirtualQSplitterHandle*)self)->customEvent(event);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnCustomEvent(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_CustomEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_CustomEvent_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_customevent_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_ConnectNotify(QSplitterHandle* self, const QMetaMethod* signal) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->connectNotify(*signal);
     } else {
-        ((VirtualQSplitterHandle*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSplitterHandle::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperConnectNotify(QSplitterHandle* self, const QMetaMethod* signal) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_ConnectNotify_IsBase(true);
-        vqsplitterhandle->connectNotify(*signal);
-    } else {
-        ((VirtualQSplitterHandle*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnConnectNotify(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_ConnectNotify_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ConnectNotify_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_connectnotify_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplitterHandle_DisconnectNotify(QSplitterHandle* self, const QMetaMethod* signal) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle) {
         vqsplitterhandle->disconnectNotify(*signal);
     } else {
-        ((VirtualQSplitterHandle*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSplitterHandle::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplitterHandle_SuperDisconnectNotify(QSplitterHandle* self, const QMetaMethod* signal) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_DisconnectNotify_IsBase(true);
-        vqsplitterhandle->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSplitterHandle*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->QSplitterHandle::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSplitterHandle::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDisconnectNotify(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_DisconnectNotify_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DisconnectNotify_Callback>(slot));
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self))
+        vqsplitterhandle->qsplitterhandle_disconnectnotify_callback = reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitterHandle_MoveSplitter(QSplitterHandle* self, int p) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->moveSplitter(static_cast<int>(p));
-    } else {
-        ((VirtualQSplitterHandle*)self)->moveSplitter(static_cast<int>(p));
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->VirtualQSplitterHandle::moveSplitter(static_cast<int>(p));
+    } else
+        qFatal("Error: Protected method QSplitterHandle::moveSplitter called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitterHandle_SuperMoveSplitter(QSplitterHandle* self, int p) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_MoveSplitter_IsBase(true);
-        vqsplitterhandle->moveSplitter(static_cast<int>(p));
-    } else {
-        ((VirtualQSplitterHandle*)self)->moveSplitter(static_cast<int>(p));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnMoveSplitter(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_MoveSplitter_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MoveSplitter_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplitterHandle_ClosestLegalPosition(QSplitterHandle* self, int p) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->closestLegalPosition(static_cast<int>(p));
-    } else {
-        return ((VirtualQSplitterHandle*)self)->closestLegalPosition(static_cast<int>(p));
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        return vqsplitterhandle->VirtualQSplitterHandle::closestLegalPosition(static_cast<int>(p));
+    } else
+        qFatal("Error: Protected method QSplitterHandle::closestLegalPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplitterHandle_SuperClosestLegalPosition(QSplitterHandle* self, int p) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_ClosestLegalPosition_IsBase(true);
-        return vqsplitterhandle->closestLegalPosition(static_cast<int>(p));
-    } else {
-        return ((VirtualQSplitterHandle*)self)->closestLegalPosition(static_cast<int>(p));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnClosestLegalPosition(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_ClosestLegalPosition_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ClosestLegalPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitterHandle_UpdateMicroFocus(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->updateMicroFocus();
-    } else {
-        ((VirtualQSplitterHandle*)self)->updateMicroFocus();
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->VirtualQSplitterHandle::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QSplitterHandle::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitterHandle_SuperUpdateMicroFocus(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_UpdateMicroFocus_IsBase(true);
-        vqsplitterhandle->updateMicroFocus();
-    } else {
-        ((VirtualQSplitterHandle*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnUpdateMicroFocus(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitterHandle_Create(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->create();
-    } else {
-        ((VirtualQSplitterHandle*)self)->create();
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->VirtualQSplitterHandle::create();
+    } else
+        qFatal("Error: Protected method QSplitterHandle::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitterHandle_SuperCreate(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Create_IsBase(true);
-        vqsplitterhandle->create();
-    } else {
-        ((VirtualQSplitterHandle*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnCreate(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Create_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplitterHandle_Destroy(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->destroy();
-    } else {
-        ((VirtualQSplitterHandle*)self)->destroy();
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        vqsplitterhandle->VirtualQSplitterHandle::destroy();
+    } else
+        qFatal("Error: Protected method QSplitterHandle::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplitterHandle_SuperDestroy(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Destroy_IsBase(true);
-        vqsplitterhandle->destroy();
-    } else {
-        ((VirtualQSplitterHandle*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnDestroy(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Destroy_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplitterHandle_FocusNextChild(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->focusNextChild();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->focusNextChild();
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        return vqsplitterhandle->VirtualQSplitterHandle::focusNextChild();
+    } else
+        qFatal("Error: Protected method QSplitterHandle::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplitterHandle_SuperFocusNextChild(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_FocusNextChild_IsBase(true);
-        return vqsplitterhandle->focusNextChild();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnFocusNextChild(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_FocusNextChild_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplitterHandle_FocusPreviousChild(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->focusPreviousChild();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->focusPreviousChild();
-    }
+    if (auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self)) {
+        return vqsplitterhandle->VirtualQSplitterHandle::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QSplitterHandle::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplitterHandle_SuperFocusPreviousChild(QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_FocusPreviousChild_IsBase(true);
-        return vqsplitterhandle->focusPreviousChild();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnFocusPreviousChild(QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSplitterHandle_Sender(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->sender();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->sender();
-    }
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        return vqsplitterhandle->VirtualQSplitterHandle::sender();
+    } else
+        qFatal("Error: Protected method QSplitterHandle::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSplitterHandle_SuperSender(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Sender_IsBase(true);
-        return vqsplitterhandle->sender();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnSender(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Sender_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplitterHandle_SenderSignalIndex(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->senderSignalIndex();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->senderSignalIndex();
-    }
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        return vqsplitterhandle->VirtualQSplitterHandle::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSplitterHandle::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplitterHandle_SuperSenderSignalIndex(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_SenderSignalIndex_IsBase(true);
-        return vqsplitterhandle->senderSignalIndex();
-    } else {
-        return ((VirtualQSplitterHandle*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnSenderSignalIndex(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplitterHandle_Receivers(const QSplitterHandle* self, const char* signal) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->receivers(signal);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->receivers(signal);
-    }
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        return vqsplitterhandle->VirtualQSplitterHandle::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSplitterHandle::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplitterHandle_SuperReceivers(const QSplitterHandle* self, const char* signal) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_Receivers_IsBase(true);
-        return vqsplitterhandle->receivers(signal);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnReceivers(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_Receivers_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplitterHandle_IsSignalConnected(const QSplitterHandle* self, const QMetaMethod* signal) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        return vqsplitterhandle->VirtualQSplitterHandle::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSplitterHandle::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplitterHandle_SuperIsSignalConnected(const QSplitterHandle* self, const QMetaMethod* signal) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_IsSignalConnected_IsBase(true);
-        return vqsplitterhandle->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnIsSignalConnected(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QSplitterHandle_GetDecodedMetricF(const QSplitterHandle* self, int metricA, int metricB) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return vqsplitterhandle->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSplitterHandle*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QSplitterHandle_SuperGetDecodedMetricF(const QSplitterHandle* self, int metricA, int metricB) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        vqsplitterhandle->setQSplitterHandle_GetDecodedMetricF_IsBase(true);
-        return vqsplitterhandle->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSplitterHandle*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplitterHandle_OnGetDecodedMetricF(const QSplitterHandle* self, intptr_t slot) {
-    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
-        vqsplitterhandle->setQSplitterHandle_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self))) {
+        return vqsplitterhandle->VirtualQSplitterHandle::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QSplitterHandle::getDecodedMetricF called without a directly constructed type");
 }
 
 void QSplitterHandle_Delete(QSplitterHandle* self) {

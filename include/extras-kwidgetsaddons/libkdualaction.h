@@ -60,7 +60,7 @@ void KDualAction_ActiveChangedByUser(KDualAction* self, bool param1);
 void KDualAction_Connect_ActiveChangedByUser(KDualAction* self, intptr_t slot);
 libqt_string KDualAction_Tr2(const char* s, const char* c);
 libqt_string KDualAction_Tr3(const char* s, const char* c, int n);
-void KDualAction_OnMetaObject(const KDualAction* self, intptr_t slot);
+void KDualAction_OnMetaObject(KDualAction* self, intptr_t slot);
 QMetaObject* KDualAction_SuperMetaObject(const KDualAction* self);
 void KDualAction_OnMetacast(KDualAction* self, intptr_t slot);
 void* KDualAction_SuperMetacast(KDualAction* self, const char* param1);
@@ -88,17 +88,9 @@ void KDualAction_DisconnectNotify(KDualAction* self, const QMetaMethod* signal);
 void KDualAction_OnDisconnectNotify(KDualAction* self, intptr_t slot);
 void KDualAction_SuperDisconnectNotify(KDualAction* self, const QMetaMethod* signal);
 QObject* KDualAction_Sender(const KDualAction* self);
-void KDualAction_OnSender(const KDualAction* self, intptr_t slot);
-QObject* KDualAction_SuperSender(const KDualAction* self);
 int KDualAction_SenderSignalIndex(const KDualAction* self);
-void KDualAction_OnSenderSignalIndex(const KDualAction* self, intptr_t slot);
-int KDualAction_SuperSenderSignalIndex(const KDualAction* self);
 int KDualAction_Receivers(const KDualAction* self, const char* signal);
-void KDualAction_OnReceivers(const KDualAction* self, intptr_t slot);
-int KDualAction_SuperReceivers(const KDualAction* self, const char* signal);
 bool KDualAction_IsSignalConnected(const KDualAction* self, const QMetaMethod* signal);
-void KDualAction_OnIsSignalConnected(const KDualAction* self, intptr_t slot);
-bool KDualAction_SuperIsSignalConnected(const KDualAction* self, const QMetaMethod* signal);
 void KDualAction_Delete(KDualAction* self);
 
 #ifdef __cplusplus

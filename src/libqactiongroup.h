@@ -52,7 +52,7 @@ void QActionGroup_Hovered(QActionGroup* self, QAction* param1);
 void QActionGroup_Connect_Hovered(QActionGroup* self, intptr_t slot);
 libqt_string QActionGroup_Tr2(const char* s, const char* c);
 libqt_string QActionGroup_Tr3(const char* s, const char* c, int n);
-void QActionGroup_OnMetaObject(const QActionGroup* self, intptr_t slot);
+void QActionGroup_OnMetaObject(QActionGroup* self, intptr_t slot);
 QMetaObject* QActionGroup_SuperMetaObject(const QActionGroup* self);
 void QActionGroup_OnMetacast(QActionGroup* self, intptr_t slot);
 void* QActionGroup_SuperMetacast(QActionGroup* self, const char* param1);
@@ -80,17 +80,9 @@ void QActionGroup_DisconnectNotify(QActionGroup* self, const QMetaMethod* signal
 void QActionGroup_OnDisconnectNotify(QActionGroup* self, intptr_t slot);
 void QActionGroup_SuperDisconnectNotify(QActionGroup* self, const QMetaMethod* signal);
 QObject* QActionGroup_Sender(const QActionGroup* self);
-void QActionGroup_OnSender(const QActionGroup* self, intptr_t slot);
-QObject* QActionGroup_SuperSender(const QActionGroup* self);
 int QActionGroup_SenderSignalIndex(const QActionGroup* self);
-void QActionGroup_OnSenderSignalIndex(const QActionGroup* self, intptr_t slot);
-int QActionGroup_SuperSenderSignalIndex(const QActionGroup* self);
 int QActionGroup_Receivers(const QActionGroup* self, const char* signal);
-void QActionGroup_OnReceivers(const QActionGroup* self, intptr_t slot);
-int QActionGroup_SuperReceivers(const QActionGroup* self, const char* signal);
 bool QActionGroup_IsSignalConnected(const QActionGroup* self, const QMetaMethod* signal);
-void QActionGroup_OnIsSignalConnected(const QActionGroup* self, intptr_t slot);
-bool QActionGroup_SuperIsSignalConnected(const QActionGroup* self, const QMetaMethod* signal);
 void QActionGroup_Delete(QActionGroup* self);
 
 #ifdef __cplusplus

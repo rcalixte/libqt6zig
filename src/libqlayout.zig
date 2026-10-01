@@ -106,9 +106,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QLayout, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QLayout, callback: *const fn (QLayout) callconv(.c) QMetaObject) void {
         qtc.QLayout_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -279,9 +279,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) i32 `
     ///
-    pub fn onSpacing(self: QLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSpacing(self: QLayout, callback: *const fn (QLayout) callconv(.c) i32) void {
         qtc.QLayout_OnSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -599,9 +599,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QLayout, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QLayout, callback: *const fn (QLayout) callconv(.c) void) void {
         qtc.QLayout_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -647,11 +647,11 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onGeometry(self: QLayout, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onGeometry(self: QLayout, callback: *const fn (QLayout) callconv(.c) QRect) void {
         qtc.QLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -722,6 +722,8 @@ pub const QLayout = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addItem)
     ///
+    /// This method must be implemented with `onAddItem` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QLayout `
@@ -750,26 +752,6 @@ pub const QLayout = extern struct {
     ///
     pub fn onAddItem(self: QLayout, callback: *const fn (QLayout, QLayoutItem) callconv(.c) void) void {
         qtc.QLayout_OnAddItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddItem` instead
-    ///
-    pub const SuperAddItem = superAddItem;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addItem)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` param1: QLayoutItem `
-    ///
-    pub fn superAddItem(self: QLayout, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
-        qtc.QLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeWidget` instead
@@ -837,9 +819,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) i32 `
     ///
-    pub fn onExpandingDirections(self: QLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExpandingDirections(self: QLayout, callback: *const fn (QLayout) callconv(.c) i32) void {
         qtc.QLayout_OnExpandingDirections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -889,11 +871,11 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSize(self: QLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSize(self: QLayout, callback: *const fn (QLayout) callconv(.c) QSize) void {
         qtc.QLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -939,11 +921,11 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMaximumSize(self: QLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMaximumSize(self: QLayout, callback: *const fn (QLayout) callconv(.c) QSize) void {
         qtc.QLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1023,6 +1005,8 @@ pub const QLayout = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#itemAt)
     ///
+    /// This method must be implemented with `onItemAt` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QLayout `
@@ -1051,29 +1035,13 @@ pub const QLayout = extern struct {
         qtc.QLayout_OnItemAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superItemAt` instead
-    ///
-    pub const SuperItemAt = superItemAt;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#itemAt)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superItemAt(self: QLayout, index: i32) QLayoutItem {
-        return .{ .ptr = qtc.QLayout_SuperItemAt(@ptrCast(self.ptr), @bitCast(index)) };
-    }
-
     /// ### DEPRECATED: Use `takeAt` instead
     ///
     pub const TakeAt = takeAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#takeAt)
+    ///
+    /// This method must be implemented with `onTakeAt` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1101,24 +1069,6 @@ pub const QLayout = extern struct {
     ///
     pub fn onTakeAt(self: QLayout, callback: *const fn (QLayout, i32) callconv(.c) QLayoutItem) void {
         qtc.QLayout_OnTakeAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTakeAt` instead
-    ///
-    pub const SuperTakeAt = superTakeAt;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#takeAt)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` index: i32 `
-    ///
-    pub fn superTakeAt(self: QLayout, index: i32) QLayoutItem {
-        return .{ .ptr = qtc.QLayout_SuperTakeAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### DEPRECATED: Use `indexOf` instead
@@ -1237,6 +1187,8 @@ pub const QLayout = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#count)
     ///
+    /// This method must be implemented with `onCount` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QLayout `
@@ -1257,26 +1209,10 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) i32 `
     ///
-    pub fn onCount(self: QLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QLayout, callback: *const fn (QLayout) callconv(.c) i32) void {
         qtc.QLayout_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCount` instead
-    ///
-    pub const SuperCount = superCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#count)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    pub fn superCount(self: QLayout) i32 {
-        return qtc.QLayout_SuperCount(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `isEmpty` instead
@@ -1305,9 +1241,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QLayout, callback: *const fn (QLayout) callconv(.c) bool) void {
         qtc.QLayout_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1357,9 +1293,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) i32 `
     ///
-    pub fn onControlTypes(self: QLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onControlTypes(self: QLayout, callback: *const fn (QLayout) callconv(.c) i32) void {
         qtc.QLayout_OnControlTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1547,9 +1483,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) QLayout `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) QLayout `
     ///
-    pub fn onLayout(self: QLayout, callback: *const fn () callconv(.c) QLayout) void {
+    pub fn onLayout(self: QLayout, callback: *const fn (QLayout) callconv(.c) QLayout) void {
         qtc.QLayout_OnLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1634,43 +1570,6 @@ pub const QLayout = extern struct {
         qtc.QLayout_WidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `onWidgetEvent` instead
-    ///
-    pub const OnWidgetEvent = onWidgetEvent;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` callback: *const fn (self: QLayout, param1: QEvent) callconv(.c) void `
-    ///
-    pub fn onWidgetEvent(self: QLayout, callback: *const fn (QLayout, QEvent) callconv(.c) void) void {
-        qtc.QLayout_OnWidgetEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superWidgetEvent` instead
-    ///
-    pub const SuperWidgetEvent = superWidgetEvent;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#widgetEvent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` param1: QEvent `
-    ///
-    pub fn superWidgetEvent(self: QLayout, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QEvent;
-        qtc.QLayout_SuperWidgetEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `childEvent` instead
     ///
     pub const ChildEvent = childEvent;
@@ -1742,43 +1641,6 @@ pub const QLayout = extern struct {
         qtc.QLayout_AddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
     }
 
-    /// ### DEPRECATED: Use `onAddChildLayout` instead
-    ///
-    pub const OnAddChildLayout = onAddChildLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` callback: *const fn (self: QLayout, l: QLayout) callconv(.c) void `
-    ///
-    pub fn onAddChildLayout(self: QLayout, callback: *const fn (QLayout, QLayout) callconv(.c) void) void {
-        qtc.QLayout_OnAddChildLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddChildLayout` instead
-    ///
-    pub const SuperAddChildLayout = superAddChildLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildLayout)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` l: QLayout `
-    ///
-    pub fn superAddChildLayout(self: QLayout, l: anytype) void {
-        comptime _ = @TypeOf(l)._is_QLayout;
-        qtc.QLayout_SuperAddChildLayout(@ptrCast(self.ptr), @ptrCast(l.ptr));
-    }
-
     /// ### DEPRECATED: Use `addChildWidget` instead
     ///
     pub const AddChildWidget = addChildWidget;
@@ -1794,43 +1656,6 @@ pub const QLayout = extern struct {
     pub fn addChildWidget(self: QLayout, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QLayout_AddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddChildWidget` instead
-    ///
-    pub const OnAddChildWidget = onAddChildWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` callback: *const fn (self: QLayout, w: QWidget) callconv(.c) void `
-    ///
-    pub fn onAddChildWidget(self: QLayout, callback: *const fn (QLayout, QWidget) callconv(.c) void) void {
-        qtc.QLayout_OnAddChildWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddChildWidget` instead
-    ///
-    pub const SuperAddChildWidget = superAddChildWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#addChildWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superAddChildWidget(self: QLayout, w: anytype) void {
-        comptime _ = @TypeOf(w)._is_QWidget;
-        qtc.QLayout_SuperAddChildWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
     /// ### DEPRECATED: Use `adoptLayout` instead
@@ -1850,43 +1675,6 @@ pub const QLayout = extern struct {
         return qtc.QLayout_AdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
 
-    /// ### DEPRECATED: Use `onAdoptLayout` instead
-    ///
-    pub const OnAdoptLayout = onAdoptLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` callback: *const fn (self: QLayout, layout: QLayout) callconv(.c) bool `
-    ///
-    pub fn onAdoptLayout(self: QLayout, callback: *const fn (QLayout, QLayout) callconv(.c) bool) void {
-        qtc.QLayout_OnAdoptLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAdoptLayout` instead
-    ///
-    pub const SuperAdoptLayout = superAdoptLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#adoptLayout)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` _layout: QLayout `
-    ///
-    pub fn superAdoptLayout(self: QLayout, _layout: anytype) bool {
-        comptime _ = @TypeOf(_layout)._is_QLayout;
-        return qtc.QLayout_SuperAdoptLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
-    }
-
     /// ### DEPRECATED: Use `alignmentRect` instead
     ///
     pub const AlignmentRect = alignmentRect;
@@ -1902,45 +1690,6 @@ pub const QLayout = extern struct {
     pub fn alignmentRect(self: QLayout, param1: anytype) QRect {
         comptime _ = @TypeOf(param1)._is_QRect;
         return .{ .ptr = qtc.QLayout_AlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onAlignmentRect` instead
-    ///
-    pub const OnAlignmentRect = onAlignmentRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` callback: *const fn (self: QLayout, param1: QRect) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onAlignmentRect(self: QLayout, callback: *const fn (QLayout, QRect) callconv(.c) QRect) void {
-        qtc.QLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAlignmentRect` instead
-    ///
-    pub const SuperAlignmentRect = superAlignmentRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayout.html#alignmentRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` param1: QRect `
-    ///
-    pub fn superAlignmentRect(self: QLayout, param1: anytype) QRect {
-        comptime _ = @TypeOf(param1)._is_QRect;
-        return .{ .ptr = qtc.QLayout_SuperAlignmentRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3390,30 +3139,14 @@ pub const QLayout = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onSizeHint` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QLayout `
     ///
     pub fn sizeHint(self: QLayout) QSize {
         return .{ .ptr = qtc.QLayout_SizeHint(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSizeHint` instead
-    ///
-    pub const SuperSizeHint = superSizeHint;
-
-    /// Inherited from QLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    pub fn superSizeHint(self: QLayout) QSize {
-        return .{ .ptr = qtc.QLayout_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `onSizeHint` instead
@@ -3430,11 +3163,11 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QLayout, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QLayout, callback: *const fn (QLayout) callconv(.c) QSize) void {
         qtc.QLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3488,9 +3221,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QLayout, callback: *const fn (QLayout) callconv(.c) bool) void {
         qtc.QLayout_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3664,9 +3397,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) QWidget `
     ///
-    pub fn onWidget(self: QLayout, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onWidget(self: QLayout, callback: *const fn (QLayout) callconv(.c) QWidget) void {
         qtc.QLayout_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3720,9 +3453,9 @@ pub const QLayout = extern struct {
     ///
     /// ` self: QLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) QSpacerItem `
+    /// ` callback: *const fn (self: QLayout) callconv(.c) QSpacerItem `
     ///
-    pub fn onSpacerItem(self: QLayout, callback: *const fn () callconv(.c) QSpacerItem) void {
+    pub fn onSpacerItem(self: QLayout, callback: *const fn (QLayout) callconv(.c) QSpacerItem) void {
         qtc.QLayout_OnSpacerItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3744,44 +3477,6 @@ pub const QLayout = extern struct {
         return .{ .ptr = qtc.QLayout_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    pub fn superSender(self: QLayout) QObject {
-        return .{ .ptr = qtc.QLayout_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QLayout, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QLayout_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3798,44 +3493,6 @@ pub const QLayout = extern struct {
     ///
     pub fn senderSignalIndex(self: QLayout) i32 {
         return qtc.QLayout_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    pub fn superSenderSignalIndex(self: QLayout) i32 {
-        return qtc.QLayout_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QLayout, callback: *const fn () callconv(.c) i32) void {
-        qtc.QLayout_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3859,47 +3516,6 @@ pub const QLayout = extern struct {
         return qtc.QLayout_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QLayout, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QLayout_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout`
-    ///
-    /// ` callback: *const fn (self: QLayout, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QLayout, callback: *const fn (QLayout, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QLayout_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3919,47 +3535,6 @@ pub const QLayout = extern struct {
     pub fn isSignalConnected(self: QLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QLayout_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayout `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QLayout, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QLayout_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QLayout`
-    ///
-    /// ` callback: *const fn (self: QLayout, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QLayout, callback: *const fn (QLayout, QMetaMethod) callconv(.c) bool) void {
-        qtc.QLayout_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

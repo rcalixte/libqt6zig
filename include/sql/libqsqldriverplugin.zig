@@ -77,9 +77,9 @@ pub const QSqlDriverPlugin = extern struct {
     ///
     /// ` self: QSqlDriverPlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QSqlDriverPlugin) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QSqlDriverPlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSqlDriverPlugin, callback: *const fn (QSqlDriverPlugin) callconv(.c) QMetaObject) void {
         qtc.QSqlDriverPlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -230,6 +230,8 @@ pub const QSqlDriverPlugin = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriverplugin.html#create)
     ///
+    /// This method must be implemented with `onCreate` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSqlDriverPlugin `
@@ -260,28 +262,6 @@ pub const QSqlDriverPlugin = extern struct {
     ///
     pub fn onCreate(self: QSqlDriverPlugin, callback: *const fn (QSqlDriverPlugin, [*:0]const u8) callconv(.c) QSqlDriver) void {
         qtc.QSqlDriverPlugin_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldriverplugin.html#create)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlDriverPlugin `
-    ///
-    /// ` key: []const u8 `
-    ///
-    pub fn superCreate(self: QSqlDriverPlugin, key: []const u8) QSqlDriver {
-        const key_str = qtc.libqt_string{
-            .len = key.len,
-            .data = key.ptr,
-        };
-        return .{ .ptr = qtc.QSqlDriverPlugin_SuperCreate(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1761,44 +1741,6 @@ pub const QSqlDriverPlugin = extern struct {
         return .{ .ptr = qtc.QSqlDriverPlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlDriverPlugin `
-    ///
-    pub fn superSender(self: QSqlDriverPlugin) QObject {
-        return .{ .ptr = qtc.QSqlDriverPlugin_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSqlDriverPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QSqlDriverPlugin, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QSqlDriverPlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1815,44 +1757,6 @@ pub const QSqlDriverPlugin = extern struct {
     ///
     pub fn senderSignalIndex(self: QSqlDriverPlugin) i32 {
         return qtc.QSqlDriverPlugin_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlDriverPlugin `
-    ///
-    pub fn superSenderSignalIndex(self: QSqlDriverPlugin) i32 {
-        return qtc.QSqlDriverPlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSqlDriverPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QSqlDriverPlugin, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSqlDriverPlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1876,47 +1780,6 @@ pub const QSqlDriverPlugin = extern struct {
         return qtc.QSqlDriverPlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlDriverPlugin `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QSqlDriverPlugin, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QSqlDriverPlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSqlDriverPlugin`
-    ///
-    /// ` callback: *const fn (self: QSqlDriverPlugin, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QSqlDriverPlugin, callback: *const fn (QSqlDriverPlugin, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSqlDriverPlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -1936,47 +1799,6 @@ pub const QSqlDriverPlugin = extern struct {
     pub fn isSignalConnected(self: QSqlDriverPlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSqlDriverPlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlDriverPlugin `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QSqlDriverPlugin, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QSqlDriverPlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSqlDriverPlugin`
-    ///
-    /// ` callback: *const fn (self: QSqlDriverPlugin, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QSqlDriverPlugin, callback: *const fn (QSqlDriverPlugin, QMetaMethod) callconv(.c) bool) void {
-        qtc.QSqlDriverPlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

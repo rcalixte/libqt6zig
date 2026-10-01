@@ -387,9 +387,9 @@ pub const KParts__OpenUrlEvent = extern struct {
     ///
     /// ` self: KParts__OpenUrlEvent`
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: KParts__OpenUrlEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: KParts__OpenUrlEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: KParts__OpenUrlEvent, callback: *const fn (KParts__OpenUrlEvent) callconv(.c) QEvent) void {
         qtc.KParts__OpenUrlEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

@@ -192,1802 +192,1259 @@ void KShortcutsDialog_ShowDialog3(KActionCollection* collection, int allowLetter
 
 // Base class handler implementation
 QMetaObject* KShortcutsDialog_SuperMetaObject(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkshortcutsdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KShortcutsDialog::metaObject();
-    }
+    return (QMetaObject*)self->KShortcutsDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnMetaObject(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_MetaObject_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MetaObject_Callback>(slot));
+void KShortcutsDialog_OnMetaObject(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_metaobject_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KShortcutsDialog_SuperMetacast(KShortcutsDialog* self, const char* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Metacast_IsBase(true);
-        return vkshortcutsdialog->qt_metacast(param1);
-    } else {
-        return self->KShortcutsDialog::qt_metacast(param1);
-    }
+    return self->KShortcutsDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMetacast(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Metacast_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metacast_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_metacast_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KShortcutsDialog_SuperMetacall(KShortcutsDialog* self, int param1, int param2, void** param3) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Metacall_IsBase(true);
-        return vkshortcutsdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KShortcutsDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KShortcutsDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMetacall(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Metacall_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metacall_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_metacall_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KShortcutsDialog_SuperSizeHint(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_SizeHint_IsBase(true);
-        return new QSize(vkshortcutsdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKShortcutsDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KShortcutsDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnSizeHint(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_SizeHint_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SizeHint_Callback>(slot));
+void KShortcutsDialog_OnSizeHint(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_sizehint_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperAccept(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Accept_IsBase(true);
-        vkshortcutsdialog->accept();
-    } else {
-        self->KShortcutsDialog::accept();
-    }
+    self->KShortcutsDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnAccept(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Accept_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Accept_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_accept_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_SetVisible(KShortcutsDialog* self, bool visible) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setVisible(visible);
-    } else {
-        self->KShortcutsDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperSetVisible(KShortcutsDialog* self, bool visible) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_SetVisible_IsBase(true);
-        vkshortcutsdialog->setVisible(visible);
-    } else {
-        self->KShortcutsDialog::setVisible(visible);
-    }
+    self->KShortcutsDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnSetVisible(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_SetVisible_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SetVisible_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_setvisible_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KShortcutsDialog_MinimumSizeHint(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return new QSize(vkshortcutsdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKShortcutsDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KShortcutsDialog_SuperMinimumSizeHint(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkshortcutsdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKShortcutsDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KShortcutsDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnMinimumSizeHint(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MinimumSizeHint_Callback>(slot));
+void KShortcutsDialog_OnMinimumSizeHint(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_minimumsizehint_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_Open(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->open();
-    } else {
-        self->KShortcutsDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperOpen(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Open_IsBase(true);
-        vkshortcutsdialog->open();
-    } else {
-        self->KShortcutsDialog::open();
-    }
+    self->KShortcutsDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnOpen(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Open_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Open_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_open_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KShortcutsDialog_Exec(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->exec();
-    } else {
-        return self->KShortcutsDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KShortcutsDialog_SuperExec(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Exec_IsBase(true);
-        return vkshortcutsdialog->exec();
-    } else {
-        return self->KShortcutsDialog::exec();
-    }
+    return self->KShortcutsDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnExec(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Exec_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Exec_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_exec_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_Done(KShortcutsDialog* self, int param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->done(static_cast<int>(param1));
-    } else {
-        self->KShortcutsDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperDone(KShortcutsDialog* self, int param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Done_IsBase(true);
-        vkshortcutsdialog->done(static_cast<int>(param1));
-    } else {
-        self->KShortcutsDialog::done(static_cast<int>(param1));
-    }
+    self->KShortcutsDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDone(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Done_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Done_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_done_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_Reject(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->reject();
-    } else {
-        self->KShortcutsDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperReject(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Reject_IsBase(true);
-        vkshortcutsdialog->reject();
-    } else {
-        self->KShortcutsDialog::reject();
-    }
+    self->KShortcutsDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnReject(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Reject_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Reject_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_reject_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_KeyPressEvent(KShortcutsDialog* self, QKeyEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->keyPressEvent(param1);
     } else {
-        ((VirtualKShortcutsDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutsDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperKeyPressEvent(KShortcutsDialog* self, QKeyEvent* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_KeyPressEvent_IsBase(true);
-        vkshortcutsdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnKeyPressEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_keypressevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_CloseEvent(KShortcutsDialog* self, QCloseEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->closeEvent(param1);
     } else {
-        ((VirtualKShortcutsDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutsDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperCloseEvent(KShortcutsDialog* self, QCloseEvent* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_CloseEvent_IsBase(true);
-        vkshortcutsdialog->closeEvent(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnCloseEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_CloseEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_CloseEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_closeevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_ShowEvent(KShortcutsDialog* self, QShowEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->showEvent(param1);
     } else {
-        ((VirtualKShortcutsDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutsDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperShowEvent(KShortcutsDialog* self, QShowEvent* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_ShowEvent_IsBase(true);
-        vkshortcutsdialog->showEvent(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnShowEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_ShowEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ShowEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_showevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_ResizeEvent(KShortcutsDialog* self, QResizeEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->resizeEvent(param1);
     } else {
-        ((VirtualKShortcutsDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutsDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperResizeEvent(KShortcutsDialog* self, QResizeEvent* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_ResizeEvent_IsBase(true);
-        vkshortcutsdialog->resizeEvent(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnResizeEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_resizeevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_ContextMenuEvent(KShortcutsDialog* self, QContextMenuEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKShortcutsDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutsDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperContextMenuEvent(KShortcutsDialog* self, QContextMenuEvent* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_ContextMenuEvent_IsBase(true);
-        vkshortcutsdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnContextMenuEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_contextmenuevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutsDialog_EventFilter(KShortcutsDialog* self, QObject* param1, QEvent* param2) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         return vkshortcutsdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKShortcutsDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KShortcutsDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KShortcutsDialog_SuperEventFilter(KShortcutsDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_EventFilter_IsBase(true);
-        return vkshortcutsdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        return vkshortcutsdialog->KShortcutsDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnEventFilter(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_EventFilter_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_EventFilter_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_eventfilter_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KShortcutsDialog_DevType(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->devType();
-    } else {
-        return self->KShortcutsDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KShortcutsDialog_SuperDevType(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_DevType_IsBase(true);
-        return vkshortcutsdialog->devType();
-    } else {
-        return self->KShortcutsDialog::devType();
-    }
+    return self->KShortcutsDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnDevType(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_DevType_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DevType_Callback>(slot));
+void KShortcutsDialog_OnDevType(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_devtype_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KShortcutsDialog_HeightForWidth(const KShortcutsDialog* self, int param1) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KShortcutsDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KShortcutsDialog_SuperHeightForWidth(const KShortcutsDialog* self, int param1) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_HeightForWidth_IsBase(true);
-        return vkshortcutsdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KShortcutsDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KShortcutsDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnHeightForWidth(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HeightForWidth_Callback>(slot));
+void KShortcutsDialog_OnHeightForWidth(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_heightforwidth_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutsDialog_HasHeightForWidth(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->hasHeightForWidth();
-    } else {
-        return self->KShortcutsDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KShortcutsDialog_SuperHasHeightForWidth(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_HasHeightForWidth_IsBase(true);
-        return vkshortcutsdialog->hasHeightForWidth();
-    } else {
-        return self->KShortcutsDialog::hasHeightForWidth();
-    }
+    return self->KShortcutsDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnHasHeightForWidth(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HasHeightForWidth_Callback>(slot));
+void KShortcutsDialog_OnHasHeightForWidth(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_hasheightforwidth_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KShortcutsDialog_PaintEngine(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->paintEngine();
-    } else {
-        return self->KShortcutsDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KShortcutsDialog_SuperPaintEngine(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_PaintEngine_IsBase(true);
-        return vkshortcutsdialog->paintEngine();
-    } else {
-        return self->KShortcutsDialog::paintEngine();
-    }
+    return self->KShortcutsDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnPaintEngine(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_PaintEngine_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_PaintEngine_Callback>(slot));
+void KShortcutsDialog_OnPaintEngine(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_paintengine_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutsDialog_Event(KShortcutsDialog* self, QEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         return vkshortcutsdialog->event(event);
     } else {
-        return ((VirtualKShortcutsDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KShortcutsDialog_SuperEvent(KShortcutsDialog* self, QEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Event_IsBase(true);
-        return vkshortcutsdialog->event(event);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->event(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        return vkshortcutsdialog->KShortcutsDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Event_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Event_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_event_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_MousePressEvent(KShortcutsDialog* self, QMouseEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->mousePressEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperMousePressEvent(KShortcutsDialog* self, QMouseEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_MousePressEvent_IsBase(true);
-        vkshortcutsdialog->mousePressEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMousePressEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_mousepressevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_MouseReleaseEvent(KShortcutsDialog* self, QMouseEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperMouseReleaseEvent(KShortcutsDialog* self, QMouseEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_MouseReleaseEvent_IsBase(true);
-        vkshortcutsdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMouseReleaseEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_mousereleaseevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_MouseDoubleClickEvent(KShortcutsDialog* self, QMouseEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperMouseDoubleClickEvent(KShortcutsDialog* self, QMouseEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_MouseDoubleClickEvent_IsBase(true);
-        vkshortcutsdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMouseDoubleClickEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_MouseMoveEvent(KShortcutsDialog* self, QMouseEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperMouseMoveEvent(KShortcutsDialog* self, QMouseEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_MouseMoveEvent_IsBase(true);
-        vkshortcutsdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMouseMoveEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_mousemoveevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_WheelEvent(KShortcutsDialog* self, QWheelEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->wheelEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperWheelEvent(KShortcutsDialog* self, QWheelEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_WheelEvent_IsBase(true);
-        vkshortcutsdialog->wheelEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnWheelEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_WheelEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_WheelEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_wheelevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_KeyReleaseEvent(KShortcutsDialog* self, QKeyEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperKeyReleaseEvent(KShortcutsDialog* self, QKeyEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_KeyReleaseEvent_IsBase(true);
-        vkshortcutsdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnKeyReleaseEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_keyreleaseevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_FocusInEvent(KShortcutsDialog* self, QFocusEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->focusInEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperFocusInEvent(KShortcutsDialog* self, QFocusEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_FocusInEvent_IsBase(true);
-        vkshortcutsdialog->focusInEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnFocusInEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_focusinevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_FocusOutEvent(KShortcutsDialog* self, QFocusEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->focusOutEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperFocusOutEvent(KShortcutsDialog* self, QFocusEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_FocusOutEvent_IsBase(true);
-        vkshortcutsdialog->focusOutEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnFocusOutEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_focusoutevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_EnterEvent(KShortcutsDialog* self, QEnterEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->enterEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperEnterEvent(KShortcutsDialog* self, QEnterEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_EnterEvent_IsBase(true);
-        vkshortcutsdialog->enterEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnEnterEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_EnterEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_EnterEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_enterevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_LeaveEvent(KShortcutsDialog* self, QEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->leaveEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperLeaveEvent(KShortcutsDialog* self, QEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_LeaveEvent_IsBase(true);
-        vkshortcutsdialog->leaveEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnLeaveEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_leaveevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_PaintEvent(KShortcutsDialog* self, QPaintEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->paintEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperPaintEvent(KShortcutsDialog* self, QPaintEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_PaintEvent_IsBase(true);
-        vkshortcutsdialog->paintEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnPaintEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_PaintEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_PaintEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_paintevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_MoveEvent(KShortcutsDialog* self, QMoveEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->moveEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperMoveEvent(KShortcutsDialog* self, QMoveEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_MoveEvent_IsBase(true);
-        vkshortcutsdialog->moveEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMoveEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_MoveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MoveEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_moveevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_TabletEvent(KShortcutsDialog* self, QTabletEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->tabletEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperTabletEvent(KShortcutsDialog* self, QTabletEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_TabletEvent_IsBase(true);
-        vkshortcutsdialog->tabletEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnTabletEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_TabletEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_TabletEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_tabletevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_ActionEvent(KShortcutsDialog* self, QActionEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->actionEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperActionEvent(KShortcutsDialog* self, QActionEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_ActionEvent_IsBase(true);
-        vkshortcutsdialog->actionEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnActionEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_ActionEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ActionEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_actionevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_DragEnterEvent(KShortcutsDialog* self, QDragEnterEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->dragEnterEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperDragEnterEvent(KShortcutsDialog* self, QDragEnterEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_DragEnterEvent_IsBase(true);
-        vkshortcutsdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDragEnterEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_dragenterevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_DragMoveEvent(KShortcutsDialog* self, QDragMoveEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->dragMoveEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperDragMoveEvent(KShortcutsDialog* self, QDragMoveEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_DragMoveEvent_IsBase(true);
-        vkshortcutsdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDragMoveEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_dragmoveevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_DragLeaveEvent(KShortcutsDialog* self, QDragLeaveEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperDragLeaveEvent(KShortcutsDialog* self, QDragLeaveEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_DragLeaveEvent_IsBase(true);
-        vkshortcutsdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDragLeaveEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_dragleaveevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_DropEvent(KShortcutsDialog* self, QDropEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->dropEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperDropEvent(KShortcutsDialog* self, QDropEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_DropEvent_IsBase(true);
-        vkshortcutsdialog->dropEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDropEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_DropEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DropEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_dropevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_HideEvent(KShortcutsDialog* self, QHideEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->hideEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperHideEvent(KShortcutsDialog* self, QHideEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_HideEvent_IsBase(true);
-        vkshortcutsdialog->hideEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnHideEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_HideEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HideEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_hideevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutsDialog_NativeEvent(KShortcutsDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
+    if (vkshortcutsdialog) {
         return vkshortcutsdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKShortcutsDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KShortcutsDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KShortcutsDialog_SuperNativeEvent(KShortcutsDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_NativeEvent_IsBase(true);
-        return vkshortcutsdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        return vkshortcutsdialog->KShortcutsDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnNativeEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_NativeEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_NativeEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_nativeevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_ChangeEvent(KShortcutsDialog* self, QEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->changeEvent(param1);
     } else {
-        ((VirtualKShortcutsDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutsDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperChangeEvent(KShortcutsDialog* self, QEvent* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_ChangeEvent_IsBase(true);
-        vkshortcutsdialog->changeEvent(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnChangeEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_changeevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KShortcutsDialog_Metric(const KShortcutsDialog* self, int param1) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         return vkshortcutsdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKShortcutsDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KShortcutsDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KShortcutsDialog_SuperMetric(const KShortcutsDialog* self, int param1) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Metric_IsBase(true);
-        return vkshortcutsdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        return vkshortcutsdialog->KShortcutsDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnMetric(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Metric_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metric_Callback>(slot));
+void KShortcutsDialog_OnMetric(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_metric_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_InitPainter(const KShortcutsDialog* self, QPainter* painter) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->initPainter(painter);
     } else {
-        ((VirtualKShortcutsDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KShortcutsDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperInitPainter(const KShortcutsDialog* self, QPainter* painter) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_InitPainter_IsBase(true);
-        vkshortcutsdialog->initPainter(painter);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        vkshortcutsdialog->KShortcutsDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnInitPainter(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_InitPainter_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InitPainter_Callback>(slot));
+void KShortcutsDialog_OnInitPainter(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_initpainter_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KShortcutsDialog_Redirected(const KShortcutsDialog* self, QPoint* offset) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         return vkshortcutsdialog->redirected(offset);
     } else {
-        return ((VirtualKShortcutsDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KShortcutsDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KShortcutsDialog_SuperRedirected(const KShortcutsDialog* self, QPoint* offset) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Redirected_IsBase(true);
-        return vkshortcutsdialog->redirected(offset);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->redirected(offset);
-    }
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        return vkshortcutsdialog->KShortcutsDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnRedirected(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Redirected_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Redirected_Callback>(slot));
+void KShortcutsDialog_OnRedirected(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_redirected_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KShortcutsDialog_SharedPainter(const KShortcutsDialog* self) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         return vkshortcutsdialog->sharedPainter();
     } else {
-        return ((VirtualKShortcutsDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KShortcutsDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KShortcutsDialog_SuperSharedPainter(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_SharedPainter_IsBase(true);
-        return vkshortcutsdialog->sharedPainter();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->sharedPainter();
-    }
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        return vkshortcutsdialog->KShortcutsDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnSharedPainter(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_SharedPainter_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SharedPainter_Callback>(slot));
+void KShortcutsDialog_OnSharedPainter(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_sharedpainter_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_InputMethodEvent(KShortcutsDialog* self, QInputMethodEvent* param1) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKShortcutsDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutsDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperInputMethodEvent(KShortcutsDialog* self, QInputMethodEvent* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_InputMethodEvent_IsBase(true);
-        vkshortcutsdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnInputMethodEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_inputmethodevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KShortcutsDialog_InputMethodQuery(const KShortcutsDialog* self, int param1) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return new QVariant(vkshortcutsdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKShortcutsDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KShortcutsDialog_SuperInputMethodQuery(const KShortcutsDialog* self, int param1) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkshortcutsdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKShortcutsDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KShortcutsDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnInputMethodQuery(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InputMethodQuery_Callback>(slot));
+void KShortcutsDialog_OnInputMethodQuery(KShortcutsDialog* self, intptr_t slot) {
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self)))
+        vkshortcutsdialog->kshortcutsdialog_inputmethodquery_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutsDialog_FocusNextPrevChild(KShortcutsDialog* self, bool next) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         return vkshortcutsdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKShortcutsDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KShortcutsDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KShortcutsDialog_SuperFocusNextPrevChild(KShortcutsDialog* self, bool next) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_FocusNextPrevChild_IsBase(true);
-        return vkshortcutsdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        return vkshortcutsdialog->KShortcutsDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnFocusNextPrevChild(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_focusnextprevchild_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_TimerEvent(KShortcutsDialog* self, QTimerEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->timerEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperTimerEvent(KShortcutsDialog* self, QTimerEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_TimerEvent_IsBase(true);
-        vkshortcutsdialog->timerEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnTimerEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_TimerEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_TimerEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_timerevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_ChildEvent(KShortcutsDialog* self, QChildEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->childEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperChildEvent(KShortcutsDialog* self, QChildEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_ChildEvent_IsBase(true);
-        vkshortcutsdialog->childEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->childEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnChildEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_ChildEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ChildEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_childevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_CustomEvent(KShortcutsDialog* self, QEvent* event) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->customEvent(event);
     } else {
-        ((VirtualKShortcutsDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KShortcutsDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperCustomEvent(KShortcutsDialog* self, QEvent* event) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_CustomEvent_IsBase(true);
-        vkshortcutsdialog->customEvent(event);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->customEvent(event);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnCustomEvent(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_CustomEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_CustomEvent_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_customevent_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_ConnectNotify(KShortcutsDialog* self, const QMetaMethod* signal) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->connectNotify(*signal);
     } else {
-        ((VirtualKShortcutsDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KShortcutsDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperConnectNotify(KShortcutsDialog* self, const QMetaMethod* signal) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_ConnectNotify_IsBase(true);
-        vkshortcutsdialog->connectNotify(*signal);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnConnectNotify(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_connectnotify_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutsDialog_DisconnectNotify(KShortcutsDialog* self, const QMetaMethod* signal) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog) {
         vkshortcutsdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKShortcutsDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KShortcutsDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutsDialog_SuperDisconnectNotify(KShortcutsDialog* self, const QMetaMethod* signal) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_DisconnectNotify_IsBase(true);
-        vkshortcutsdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->KShortcutsDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KShortcutsDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDisconnectNotify(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self))
+        vkshortcutsdialog->kshortcutsdialog_disconnectnotify_callback = reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KShortcutsDialog_AdjustPosition(KShortcutsDialog* self, QWidget* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->VirtualKShortcutsDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KShortcutsDialog_SuperAdjustPosition(KShortcutsDialog* self, QWidget* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_AdjustPosition_IsBase(true);
-        vkshortcutsdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKShortcutsDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnAdjustPosition(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KShortcutsDialog_UpdateMicroFocus(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->updateMicroFocus();
-    } else {
-        ((VirtualKShortcutsDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->VirtualKShortcutsDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KShortcutsDialog_SuperUpdateMicroFocus(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_UpdateMicroFocus_IsBase(true);
-        vkshortcutsdialog->updateMicroFocus();
-    } else {
-        ((VirtualKShortcutsDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnUpdateMicroFocus(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KShortcutsDialog_Create(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->create();
-    } else {
-        ((VirtualKShortcutsDialog*)self)->create();
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->VirtualKShortcutsDialog::create();
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KShortcutsDialog_SuperCreate(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Create_IsBase(true);
-        vkshortcutsdialog->create();
-    } else {
-        ((VirtualKShortcutsDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnCreate(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Create_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KShortcutsDialog_Destroy(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->destroy();
-    } else {
-        ((VirtualKShortcutsDialog*)self)->destroy();
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        vkshortcutsdialog->VirtualKShortcutsDialog::destroy();
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KShortcutsDialog_SuperDestroy(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Destroy_IsBase(true);
-        vkshortcutsdialog->destroy();
-    } else {
-        ((VirtualKShortcutsDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnDestroy(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Destroy_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KShortcutsDialog_FocusNextChild(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->focusNextChild();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->focusNextChild();
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        return vkshortcutsdialog->VirtualKShortcutsDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KShortcutsDialog_SuperFocusNextChild(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_FocusNextChild_IsBase(true);
-        return vkshortcutsdialog->focusNextChild();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnFocusNextChild(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KShortcutsDialog_FocusPreviousChild(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self)) {
+        return vkshortcutsdialog->VirtualKShortcutsDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KShortcutsDialog_SuperFocusPreviousChild(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_FocusPreviousChild_IsBase(true);
-        return vkshortcutsdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnFocusPreviousChild(KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KShortcutsDialog_Sender(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->sender();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->sender();
-    }
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        return vkshortcutsdialog->VirtualKShortcutsDialog::sender();
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KShortcutsDialog_SuperSender(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Sender_IsBase(true);
-        return vkshortcutsdialog->sender();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnSender(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Sender_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KShortcutsDialog_SenderSignalIndex(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        return vkshortcutsdialog->VirtualKShortcutsDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KShortcutsDialog_SuperSenderSignalIndex(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_SenderSignalIndex_IsBase(true);
-        return vkshortcutsdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnSenderSignalIndex(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KShortcutsDialog_Receivers(const KShortcutsDialog* self, const char* signal) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->receivers(signal);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->receivers(signal);
-    }
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        return vkshortcutsdialog->VirtualKShortcutsDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KShortcutsDialog_SuperReceivers(const KShortcutsDialog* self, const char* signal) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_Receivers_IsBase(true);
-        return vkshortcutsdialog->receivers(signal);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnReceivers(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_Receivers_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KShortcutsDialog_IsSignalConnected(const KShortcutsDialog* self, const QMetaMethod* signal) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        return vkshortcutsdialog->VirtualKShortcutsDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KShortcutsDialog_SuperIsSignalConnected(const KShortcutsDialog* self, const QMetaMethod* signal) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_IsSignalConnected_IsBase(true);
-        return vkshortcutsdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnIsSignalConnected(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KShortcutsDialog_GetDecodedMetricF(const KShortcutsDialog* self, int metricA, int metricB) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return vkshortcutsdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KShortcutsDialog_SuperGetDecodedMetricF(const KShortcutsDialog* self, int metricA, int metricB) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        vkshortcutsdialog->setKShortcutsDialog_GetDecodedMetricF_IsBase(true);
-        return vkshortcutsdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutsDialog_OnGetDecodedMetricF(const KShortcutsDialog* self, intptr_t slot) {
-    auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
-        vkshortcutsdialog->setKShortcutsDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self))) {
+        return vkshortcutsdialog->VirtualKShortcutsDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KShortcutsDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KShortcutsDialog_Delete(KShortcutsDialog* self) {

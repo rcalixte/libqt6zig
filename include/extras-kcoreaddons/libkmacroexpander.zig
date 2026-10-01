@@ -570,6 +570,8 @@ pub const KWordMacroExpander = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
     ///
+    /// This method must be implemented with `onExpandMacro` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KWordMacroExpander `
@@ -615,43 +617,6 @@ pub const KWordMacroExpander = extern struct {
     ///
     pub fn onExpandMacro(self: KWordMacroExpander, callback: *const fn (KWordMacroExpander, [*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) bool) void {
         qtc.KWordMacroExpander_OnExpandMacro(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superExpandMacro` instead
-    ///
-    pub const SuperExpandMacro = superExpandMacro;
-
-    /// ### [Upstream resources](https://api.kde.org/kwordmacroexpander.html#expandMacro)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWordMacroExpander `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` str: []const u8 `
-    ///
-    /// ` ret: []const []const u8 `
-    ///
-    pub fn superExpandMacro(self: KWordMacroExpander, allocator: std.mem.Allocator, str: []const u8, ret: []const []const u8) bool {
-        const str_str = qtc.libqt_string{
-            .len = str.len,
-            .data = str.ptr,
-        };
-        const ret_arr = allocator.alloc(qtc.libqt_string, ret.len) catch @panic("KWordMacroExpander.expandMacro: Memory allocation failed");
-        defer allocator.free(ret_arr);
-        for (ret, 0..ret.len) |str_item, i|
-            ret_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const ret_list = qtc.libqt_list{
-            .len = ret.len,
-            .data = ret_arr.ptr,
-        };
-        return qtc.KWordMacroExpander_SuperExpandMacro(@ptrCast(self.ptr), str_str, ret_list);
     }
 
     /// ### DEPRECATED: Use `expandMacros` instead
@@ -1004,6 +969,8 @@ pub const KCharMacroExpander = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
     ///
+    /// This method must be implemented with `onExpandMacro` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KCharMacroExpander `
@@ -1046,40 +1013,6 @@ pub const KCharMacroExpander = extern struct {
     ///
     pub fn onExpandMacro(self: KCharMacroExpander, callback: *const fn (KCharMacroExpander, QChar, ?[*:null]?[*:0]const u8) callconv(.c) bool) void {
         qtc.KCharMacroExpander_OnExpandMacro(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superExpandMacro` instead
-    ///
-    pub const SuperExpandMacro = superExpandMacro;
-
-    /// ### [Upstream resources](https://api.kde.org/kcharmacroexpander.html#expandMacro)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCharMacroExpander `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` chr: QChar `
-    ///
-    /// ` ret: []const []const u8 `
-    ///
-    pub fn superExpandMacro(self: KCharMacroExpander, allocator: std.mem.Allocator, chr: anytype, ret: []const []const u8) bool {
-        comptime _ = @TypeOf(chr)._is_QChar;
-        const ret_arr = allocator.alloc(qtc.libqt_string, ret.len) catch @panic("KCharMacroExpander.expandMacro: Memory allocation failed");
-        defer allocator.free(ret_arr);
-        for (ret, 0..ret.len) |str_item, i|
-            ret_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const ret_list = qtc.libqt_list{
-            .len = ret.len,
-            .data = ret_arr.ptr,
-        };
-        return qtc.KCharMacroExpander_SuperExpandMacro(@ptrCast(self.ptr), @ptrCast(chr.ptr), ret_list);
     }
 
     /// ### DEPRECATED: Use `expandMacros` instead

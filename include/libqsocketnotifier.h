@@ -42,7 +42,7 @@ void QSocketNotifier_SetEnabled(QSocketNotifier* self, bool enabled);
 bool QSocketNotifier_Event(QSocketNotifier* self, QEvent* param1);
 libqt_string QSocketNotifier_Tr2(const char* s, const char* c);
 libqt_string QSocketNotifier_Tr3(const char* s, const char* c, int n);
-void QSocketNotifier_OnMetaObject(const QSocketNotifier* self, intptr_t slot);
+void QSocketNotifier_OnMetaObject(QSocketNotifier* self, intptr_t slot);
 QMetaObject* QSocketNotifier_SuperMetaObject(const QSocketNotifier* self);
 void QSocketNotifier_OnMetacast(QSocketNotifier* self, intptr_t slot);
 void* QSocketNotifier_SuperMetacast(QSocketNotifier* self, const char* param1);
@@ -69,17 +69,9 @@ void QSocketNotifier_DisconnectNotify(QSocketNotifier* self, const QMetaMethod* 
 void QSocketNotifier_OnDisconnectNotify(QSocketNotifier* self, intptr_t slot);
 void QSocketNotifier_SuperDisconnectNotify(QSocketNotifier* self, const QMetaMethod* signal);
 QObject* QSocketNotifier_Sender(const QSocketNotifier* self);
-void QSocketNotifier_OnSender(const QSocketNotifier* self, intptr_t slot);
-QObject* QSocketNotifier_SuperSender(const QSocketNotifier* self);
 int QSocketNotifier_SenderSignalIndex(const QSocketNotifier* self);
-void QSocketNotifier_OnSenderSignalIndex(const QSocketNotifier* self, intptr_t slot);
-int QSocketNotifier_SuperSenderSignalIndex(const QSocketNotifier* self);
 int QSocketNotifier_Receivers(const QSocketNotifier* self, const char* signal);
-void QSocketNotifier_OnReceivers(const QSocketNotifier* self, intptr_t slot);
-int QSocketNotifier_SuperReceivers(const QSocketNotifier* self, const char* signal);
 bool QSocketNotifier_IsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal);
-void QSocketNotifier_OnIsSignalConnected(const QSocketNotifier* self, intptr_t slot);
-bool QSocketNotifier_SuperIsSignalConnected(const QSocketNotifier* self, const QMetaMethod* signal);
 void QSocketNotifier_Connect_Activated(QSocketNotifier* self, intptr_t slot);
 void QSocketNotifier_Delete(QSocketNotifier* self);
 

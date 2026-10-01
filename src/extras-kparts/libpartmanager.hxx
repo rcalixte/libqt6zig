@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KParts::PartManager so that we can call protected methods
+// This class is a subclass of KParts::PartManager
 class VirtualKPartsPartManager final : public KParts::PartManager {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKPartsPartManager = true;
-
-    // Virtual class public types (including callbacks)
-    using KParts__PartManager_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KParts__PartManager_MetaObject_Callback = QMetaObject* (*)(const KParts__PartManager*);
     using KParts__PartManager_Metacast_Callback = void* (*)(KParts__PartManager*, const char*);
     using KParts__PartManager_Metacall_Callback = int (*)(KParts__PartManager*, int, int, void**);
     using KParts__PartManager_EventFilter_Callback = bool (*)(KParts__PartManager*, QObject*, QEvent*);
@@ -25,24 +21,23 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     using KParts__PartManager_RemovePart_Callback = void (*)(KParts__PartManager*, KParts__Part*);
     using KParts__PartManager_ReplacePart_Callback = void (*)(KParts__PartManager*, KParts__Part*, KParts__Part*, bool);
     using KParts__PartManager_SetActivePart_Callback = void (*)(KParts__PartManager*, KParts__Part*, QWidget*);
-    using KParts__PartManager_ActivePart_Callback = KParts__Part* (*)();
-    using KParts__PartManager_ActiveWidget_Callback = QWidget* (*)();
+    using KParts__PartManager_ActivePart_Callback = KParts__Part* (*)(const KParts__PartManager*);
+    using KParts__PartManager_ActiveWidget_Callback = QWidget* (*)(const KParts__PartManager*);
     using KParts__PartManager_Event_Callback = bool (*)(KParts__PartManager*, QEvent*);
     using KParts__PartManager_TimerEvent_Callback = void (*)(KParts__PartManager*, QTimerEvent*);
     using KParts__PartManager_ChildEvent_Callback = void (*)(KParts__PartManager*, QChildEvent*);
     using KParts__PartManager_CustomEvent_Callback = void (*)(KParts__PartManager*, QEvent*);
     using KParts__PartManager_ConnectNotify_Callback = void (*)(KParts__PartManager*, QMetaMethod*);
     using KParts__PartManager_DisconnectNotify_Callback = void (*)(KParts__PartManager*, QMetaMethod*);
-    using KParts__PartManager_SetIgnoreExplictFocusRequests_Callback = void (*)(KParts__PartManager*, bool);
-    using KParts__PartManager_SlotObjectDestroyed_Callback = void (*)();
-    using KParts__PartManager_SlotWidgetDestroyed_Callback = void (*)();
-    using KParts__PartManager_SlotManagedTopLevelWidgetDestroyed_Callback = void (*)();
-    using KParts__PartManager_Sender_Callback = QObject* (*)();
-    using KParts__PartManager_SenderSignalIndex_Callback = int (*)();
-    using KParts__PartManager_Receivers_Callback = int (*)(const KParts__PartManager*, const char*);
-    using KParts__PartManager_IsSignalConnected_Callback = bool (*)(const KParts__PartManager*, QMetaMethod*);
+    using KParts::PartManager::isSignalConnected;
+    using KParts::PartManager::receivers;
+    using KParts::PartManager::sender;
+    using KParts::PartManager::senderSignalIndex;
+    using KParts::PartManager::setIgnoreExplictFocusRequests;
+    using KParts::PartManager::slotManagedTopLevelWidgetDestroyed;
+    using KParts::PartManager::slotObjectDestroyed;
+    using KParts::PartManager::slotWidgetDestroyed;
 
-  protected:
     // Instance callback storage
     KParts__PartManager_MetaObject_Callback kparts__partmanager_metaobject_callback = nullptr;
     KParts__PartManager_Metacast_Callback kparts__partmanager_metacast_callback = nullptr;
@@ -60,106 +55,23 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
     KParts__PartManager_CustomEvent_Callback kparts__partmanager_customevent_callback = nullptr;
     KParts__PartManager_ConnectNotify_Callback kparts__partmanager_connectnotify_callback = nullptr;
     KParts__PartManager_DisconnectNotify_Callback kparts__partmanager_disconnectnotify_callback = nullptr;
-    KParts__PartManager_SetIgnoreExplictFocusRequests_Callback kparts__partmanager_setignoreexplictfocusrequests_callback = nullptr;
-    KParts__PartManager_SlotObjectDestroyed_Callback kparts__partmanager_slotobjectdestroyed_callback = nullptr;
-    KParts__PartManager_SlotWidgetDestroyed_Callback kparts__partmanager_slotwidgetdestroyed_callback = nullptr;
-    KParts__PartManager_SlotManagedTopLevelWidgetDestroyed_Callback kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_callback = nullptr;
-    KParts__PartManager_Sender_Callback kparts__partmanager_sender_callback = nullptr;
-    KParts__PartManager_SenderSignalIndex_Callback kparts__partmanager_sendersignalindex_callback = nullptr;
-    KParts__PartManager_Receivers_Callback kparts__partmanager_receivers_callback = nullptr;
-    KParts__PartManager_IsSignalConnected_Callback kparts__partmanager_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kparts__partmanager_metaobject_isbase = false;
-    mutable bool kparts__partmanager_metacast_isbase = false;
-    mutable bool kparts__partmanager_metacall_isbase = false;
-    mutable bool kparts__partmanager_eventfilter_isbase = false;
-    mutable bool kparts__partmanager_addpart_isbase = false;
-    mutable bool kparts__partmanager_removepart_isbase = false;
-    mutable bool kparts__partmanager_replacepart_isbase = false;
-    mutable bool kparts__partmanager_setactivepart_isbase = false;
-    mutable bool kparts__partmanager_activepart_isbase = false;
-    mutable bool kparts__partmanager_activewidget_isbase = false;
-    mutable bool kparts__partmanager_event_isbase = false;
-    mutable bool kparts__partmanager_timerevent_isbase = false;
-    mutable bool kparts__partmanager_childevent_isbase = false;
-    mutable bool kparts__partmanager_customevent_isbase = false;
-    mutable bool kparts__partmanager_connectnotify_isbase = false;
-    mutable bool kparts__partmanager_disconnectnotify_isbase = false;
-    mutable bool kparts__partmanager_setignoreexplictfocusrequests_isbase = false;
-    mutable bool kparts__partmanager_slotobjectdestroyed_isbase = false;
-    mutable bool kparts__partmanager_slotwidgetdestroyed_isbase = false;
-    mutable bool kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_isbase = false;
-    mutable bool kparts__partmanager_sender_isbase = false;
-    mutable bool kparts__partmanager_sendersignalindex_isbase = false;
-    mutable bool kparts__partmanager_receivers_isbase = false;
-    mutable bool kparts__partmanager_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KParts::PartManager {
+        using KParts::PartManager::childEvent;
+        using KParts::PartManager::connectNotify;
+        using KParts::PartManager::customEvent;
+        using KParts::PartManager::disconnectNotify;
+        using KParts::PartManager::timerEvent;
+    };
 
-  public:
     VirtualKPartsPartManager(QWidget* parent) : KParts::PartManager(parent) {};
     VirtualKPartsPartManager(QWidget* topLevel, QObject* parent) : KParts::PartManager(topLevel, parent) {};
 
-    // Callback setters
-    inline void setKParts__PartManager_MetaObject_Callback(KParts__PartManager_MetaObject_Callback cb) { kparts__partmanager_metaobject_callback = cb; }
-    inline void setKParts__PartManager_Metacast_Callback(KParts__PartManager_Metacast_Callback cb) { kparts__partmanager_metacast_callback = cb; }
-    inline void setKParts__PartManager_Metacall_Callback(KParts__PartManager_Metacall_Callback cb) { kparts__partmanager_metacall_callback = cb; }
-    inline void setKParts__PartManager_EventFilter_Callback(KParts__PartManager_EventFilter_Callback cb) { kparts__partmanager_eventfilter_callback = cb; }
-    inline void setKParts__PartManager_AddPart_Callback(KParts__PartManager_AddPart_Callback cb) { kparts__partmanager_addpart_callback = cb; }
-    inline void setKParts__PartManager_RemovePart_Callback(KParts__PartManager_RemovePart_Callback cb) { kparts__partmanager_removepart_callback = cb; }
-    inline void setKParts__PartManager_ReplacePart_Callback(KParts__PartManager_ReplacePart_Callback cb) { kparts__partmanager_replacepart_callback = cb; }
-    inline void setKParts__PartManager_SetActivePart_Callback(KParts__PartManager_SetActivePart_Callback cb) { kparts__partmanager_setactivepart_callback = cb; }
-    inline void setKParts__PartManager_ActivePart_Callback(KParts__PartManager_ActivePart_Callback cb) { kparts__partmanager_activepart_callback = cb; }
-    inline void setKParts__PartManager_ActiveWidget_Callback(KParts__PartManager_ActiveWidget_Callback cb) { kparts__partmanager_activewidget_callback = cb; }
-    inline void setKParts__PartManager_Event_Callback(KParts__PartManager_Event_Callback cb) { kparts__partmanager_event_callback = cb; }
-    inline void setKParts__PartManager_TimerEvent_Callback(KParts__PartManager_TimerEvent_Callback cb) { kparts__partmanager_timerevent_callback = cb; }
-    inline void setKParts__PartManager_ChildEvent_Callback(KParts__PartManager_ChildEvent_Callback cb) { kparts__partmanager_childevent_callback = cb; }
-    inline void setKParts__PartManager_CustomEvent_Callback(KParts__PartManager_CustomEvent_Callback cb) { kparts__partmanager_customevent_callback = cb; }
-    inline void setKParts__PartManager_ConnectNotify_Callback(KParts__PartManager_ConnectNotify_Callback cb) { kparts__partmanager_connectnotify_callback = cb; }
-    inline void setKParts__PartManager_DisconnectNotify_Callback(KParts__PartManager_DisconnectNotify_Callback cb) { kparts__partmanager_disconnectnotify_callback = cb; }
-    inline void setKParts__PartManager_SetIgnoreExplictFocusRequests_Callback(KParts__PartManager_SetIgnoreExplictFocusRequests_Callback cb) { kparts__partmanager_setignoreexplictfocusrequests_callback = cb; }
-    inline void setKParts__PartManager_SlotObjectDestroyed_Callback(KParts__PartManager_SlotObjectDestroyed_Callback cb) { kparts__partmanager_slotobjectdestroyed_callback = cb; }
-    inline void setKParts__PartManager_SlotWidgetDestroyed_Callback(KParts__PartManager_SlotWidgetDestroyed_Callback cb) { kparts__partmanager_slotwidgetdestroyed_callback = cb; }
-    inline void setKParts__PartManager_SlotManagedTopLevelWidgetDestroyed_Callback(KParts__PartManager_SlotManagedTopLevelWidgetDestroyed_Callback cb) { kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_callback = cb; }
-    inline void setKParts__PartManager_Sender_Callback(KParts__PartManager_Sender_Callback cb) { kparts__partmanager_sender_callback = cb; }
-    inline void setKParts__PartManager_SenderSignalIndex_Callback(KParts__PartManager_SenderSignalIndex_Callback cb) { kparts__partmanager_sendersignalindex_callback = cb; }
-    inline void setKParts__PartManager_Receivers_Callback(KParts__PartManager_Receivers_Callback cb) { kparts__partmanager_receivers_callback = cb; }
-    inline void setKParts__PartManager_IsSignalConnected_Callback(KParts__PartManager_IsSignalConnected_Callback cb) { kparts__partmanager_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKParts__PartManager_MetaObject_IsBase(bool value) const { kparts__partmanager_metaobject_isbase = value; }
-    inline void setKParts__PartManager_Metacast_IsBase(bool value) const { kparts__partmanager_metacast_isbase = value; }
-    inline void setKParts__PartManager_Metacall_IsBase(bool value) const { kparts__partmanager_metacall_isbase = value; }
-    inline void setKParts__PartManager_EventFilter_IsBase(bool value) const { kparts__partmanager_eventfilter_isbase = value; }
-    inline void setKParts__PartManager_AddPart_IsBase(bool value) const { kparts__partmanager_addpart_isbase = value; }
-    inline void setKParts__PartManager_RemovePart_IsBase(bool value) const { kparts__partmanager_removepart_isbase = value; }
-    inline void setKParts__PartManager_ReplacePart_IsBase(bool value) const { kparts__partmanager_replacepart_isbase = value; }
-    inline void setKParts__PartManager_SetActivePart_IsBase(bool value) const { kparts__partmanager_setactivepart_isbase = value; }
-    inline void setKParts__PartManager_ActivePart_IsBase(bool value) const { kparts__partmanager_activepart_isbase = value; }
-    inline void setKParts__PartManager_ActiveWidget_IsBase(bool value) const { kparts__partmanager_activewidget_isbase = value; }
-    inline void setKParts__PartManager_Event_IsBase(bool value) const { kparts__partmanager_event_isbase = value; }
-    inline void setKParts__PartManager_TimerEvent_IsBase(bool value) const { kparts__partmanager_timerevent_isbase = value; }
-    inline void setKParts__PartManager_ChildEvent_IsBase(bool value) const { kparts__partmanager_childevent_isbase = value; }
-    inline void setKParts__PartManager_CustomEvent_IsBase(bool value) const { kparts__partmanager_customevent_isbase = value; }
-    inline void setKParts__PartManager_ConnectNotify_IsBase(bool value) const { kparts__partmanager_connectnotify_isbase = value; }
-    inline void setKParts__PartManager_DisconnectNotify_IsBase(bool value) const { kparts__partmanager_disconnectnotify_isbase = value; }
-    inline void setKParts__PartManager_SetIgnoreExplictFocusRequests_IsBase(bool value) const { kparts__partmanager_setignoreexplictfocusrequests_isbase = value; }
-    inline void setKParts__PartManager_SlotObjectDestroyed_IsBase(bool value) const { kparts__partmanager_slotobjectdestroyed_isbase = value; }
-    inline void setKParts__PartManager_SlotWidgetDestroyed_IsBase(bool value) const { kparts__partmanager_slotwidgetdestroyed_isbase = value; }
-    inline void setKParts__PartManager_SlotManagedTopLevelWidgetDestroyed_IsBase(bool value) const { kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_isbase = value; }
-    inline void setKParts__PartManager_Sender_IsBase(bool value) const { kparts__partmanager_sender_isbase = value; }
-    inline void setKParts__PartManager_SenderSignalIndex_IsBase(bool value) const { kparts__partmanager_sendersignalindex_isbase = value; }
-    inline void setKParts__PartManager_Receivers_IsBase(bool value) const { kparts__partmanager_receivers_isbase = value; }
-    inline void setKParts__PartManager_IsSignalConnected_IsBase(bool value) const { kparts__partmanager_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kparts__partmanager_metaobject_isbase) {
-            kparts__partmanager_metaobject_isbase = false;
-            return KParts__PartManager::metaObject();
-        }
-        auto metaobject_cb = kparts__partmanager_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kparts__partmanager_metaobject_callback) {
+            QMetaObject* callback_ret = kparts__partmanager_metaobject_callback(this);
             return callback_ret;
         }
         return KParts__PartManager::metaObject();
@@ -167,14 +79,9 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kparts__partmanager_metacast_isbase) {
-            kparts__partmanager_metacast_isbase = false;
-            return KParts__PartManager::qt_metacast(param1);
-        }
-        auto metacast_cb = kparts__partmanager_metacast_callback;
-        if (metacast_cb) {
+        if (kparts__partmanager_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kparts__partmanager_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KParts__PartManager::qt_metacast(param1);
@@ -182,16 +89,11 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kparts__partmanager_metacall_isbase) {
-            kparts__partmanager_metacall_isbase = false;
-            return KParts__PartManager::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kparts__partmanager_metacall_callback;
-        if (metacall_cb) {
+        if (kparts__partmanager_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kparts__partmanager_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KParts__PartManager::qt_metacall(param1, param2, param3);
@@ -199,15 +101,10 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* obj, QEvent* ev) override {
-        if (kparts__partmanager_eventfilter_isbase) {
-            kparts__partmanager_eventfilter_isbase = false;
-            return KParts__PartManager::eventFilter(obj, ev);
-        }
-        auto eventfilter_cb = kparts__partmanager_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kparts__partmanager_eventfilter_callback) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = ev;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kparts__partmanager_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KParts__PartManager::eventFilter(obj, ev);
@@ -215,16 +112,10 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void addPart(KParts::Part* part, bool setActive) override {
-        if (kparts__partmanager_addpart_isbase) {
-            kparts__partmanager_addpart_isbase = false;
-            KParts__PartManager::addPart(part, setActive);
-            return;
-        }
-        auto addpart_cb = kparts__partmanager_addpart_callback;
-        if (addpart_cb) {
+        if (kparts__partmanager_addpart_callback) {
             KParts__Part* cbval1 = part;
             bool cbval2 = setActive;
-            addpart_cb(this, cbval1, cbval2);
+            kparts__partmanager_addpart_callback(this, cbval1, cbval2);
             return;
         }
         KParts__PartManager::addPart(part, setActive);
@@ -232,15 +123,9 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void removePart(KParts::Part* part) override {
-        if (kparts__partmanager_removepart_isbase) {
-            kparts__partmanager_removepart_isbase = false;
-            KParts__PartManager::removePart(part);
-            return;
-        }
-        auto removepart_cb = kparts__partmanager_removepart_callback;
-        if (removepart_cb) {
+        if (kparts__partmanager_removepart_callback) {
             KParts__Part* cbval1 = part;
-            removepart_cb(this, cbval1);
+            kparts__partmanager_removepart_callback(this, cbval1);
             return;
         }
         KParts__PartManager::removePart(part);
@@ -248,17 +133,11 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void replacePart(KParts::Part* oldPart, KParts::Part* newPart, bool setActive) override {
-        if (kparts__partmanager_replacepart_isbase) {
-            kparts__partmanager_replacepart_isbase = false;
-            KParts__PartManager::replacePart(oldPart, newPart, setActive);
-            return;
-        }
-        auto replacepart_cb = kparts__partmanager_replacepart_callback;
-        if (replacepart_cb) {
+        if (kparts__partmanager_replacepart_callback) {
             KParts__Part* cbval1 = oldPart;
             KParts__Part* cbval2 = newPart;
             bool cbval3 = setActive;
-            replacepart_cb(this, cbval1, cbval2, cbval3);
+            kparts__partmanager_replacepart_callback(this, cbval1, cbval2, cbval3);
             return;
         }
         KParts__PartManager::replacePart(oldPart, newPart, setActive);
@@ -266,16 +145,10 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void setActivePart(KParts::Part* part, QWidget* widget) override {
-        if (kparts__partmanager_setactivepart_isbase) {
-            kparts__partmanager_setactivepart_isbase = false;
-            KParts__PartManager::setActivePart(part, widget);
-            return;
-        }
-        auto setactivepart_cb = kparts__partmanager_setactivepart_callback;
-        if (setactivepart_cb) {
+        if (kparts__partmanager_setactivepart_callback) {
             KParts__Part* cbval1 = part;
             QWidget* cbval2 = widget;
-            setactivepart_cb(this, cbval1, cbval2);
+            kparts__partmanager_setactivepart_callback(this, cbval1, cbval2);
             return;
         }
         KParts__PartManager::setActivePart(part, widget);
@@ -283,13 +156,8 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual KParts::Part* activePart() const override {
-        if (kparts__partmanager_activepart_isbase) {
-            kparts__partmanager_activepart_isbase = false;
-            return KParts__PartManager::activePart();
-        }
-        auto activepart_cb = kparts__partmanager_activepart_callback;
-        if (activepart_cb) {
-            KParts__Part* callback_ret = activepart_cb();
+        if (kparts__partmanager_activepart_callback) {
+            KParts__Part* callback_ret = kparts__partmanager_activepart_callback(this);
             return callback_ret;
         }
         return KParts__PartManager::activePart();
@@ -297,13 +165,8 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* activeWidget() const override {
-        if (kparts__partmanager_activewidget_isbase) {
-            kparts__partmanager_activewidget_isbase = false;
-            return KParts__PartManager::activeWidget();
-        }
-        auto activewidget_cb = kparts__partmanager_activewidget_callback;
-        if (activewidget_cb) {
-            QWidget* callback_ret = activewidget_cb();
+        if (kparts__partmanager_activewidget_callback) {
+            QWidget* callback_ret = kparts__partmanager_activewidget_callback(this);
             return callback_ret;
         }
         return KParts__PartManager::activeWidget();
@@ -311,14 +174,9 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kparts__partmanager_event_isbase) {
-            kparts__partmanager_event_isbase = false;
-            return KParts__PartManager::event(event);
-        }
-        auto event_cb = kparts__partmanager_event_callback;
-        if (event_cb) {
+        if (kparts__partmanager_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kparts__partmanager_event_callback(this, cbval1);
             return callback_ret;
         }
         return KParts__PartManager::event(event);
@@ -326,15 +184,9 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kparts__partmanager_timerevent_isbase) {
-            kparts__partmanager_timerevent_isbase = false;
-            KParts__PartManager::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kparts__partmanager_timerevent_callback;
-        if (timerevent_cb) {
+        if (kparts__partmanager_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kparts__partmanager_timerevent_callback(this, cbval1);
             return;
         }
         KParts__PartManager::timerEvent(event);
@@ -342,15 +194,9 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kparts__partmanager_childevent_isbase) {
-            kparts__partmanager_childevent_isbase = false;
-            KParts__PartManager::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kparts__partmanager_childevent_callback;
-        if (childevent_cb) {
+        if (kparts__partmanager_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kparts__partmanager_childevent_callback(this, cbval1);
             return;
         }
         KParts__PartManager::childEvent(event);
@@ -358,15 +204,9 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kparts__partmanager_customevent_isbase) {
-            kparts__partmanager_customevent_isbase = false;
-            KParts__PartManager::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kparts__partmanager_customevent_callback;
-        if (customevent_cb) {
+        if (kparts__partmanager_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kparts__partmanager_customevent_callback(this, cbval1);
             return;
         }
         KParts__PartManager::customEvent(event);
@@ -374,17 +214,11 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kparts__partmanager_connectnotify_isbase) {
-            kparts__partmanager_connectnotify_isbase = false;
-            KParts__PartManager::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kparts__partmanager_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kparts__partmanager_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kparts__partmanager_connectnotify_callback(this, cbval1);
             return;
         }
         KParts__PartManager::connectNotify(signal);
@@ -392,170 +226,22 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kparts__partmanager_disconnectnotify_isbase) {
-            kparts__partmanager_disconnectnotify_isbase = false;
-            KParts__PartManager::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kparts__partmanager_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kparts__partmanager_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kparts__partmanager_disconnectnotify_callback(this, cbval1);
             return;
         }
         KParts__PartManager::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void setIgnoreExplictFocusRequests(bool ignoreExplictFocusRequests) {
-        if (kparts__partmanager_setignoreexplictfocusrequests_isbase) {
-            kparts__partmanager_setignoreexplictfocusrequests_isbase = false;
-            KParts__PartManager::setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
-            return;
-        }
-        auto setignoreexplictfocusrequests_cb = kparts__partmanager_setignoreexplictfocusrequests_callback;
-        if (setignoreexplictfocusrequests_cb) {
-            bool cbval1 = ignoreExplictFocusRequests;
-            setignoreexplictfocusrequests_cb(this, cbval1);
-            return;
-        }
-        KParts__PartManager::setIgnoreExplictFocusRequests(ignoreExplictFocusRequests);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotObjectDestroyed() {
-        if (kparts__partmanager_slotobjectdestroyed_isbase) {
-            kparts__partmanager_slotobjectdestroyed_isbase = false;
-            KParts__PartManager::slotObjectDestroyed();
-            return;
-        }
-        auto slotobjectdestroyed_cb = kparts__partmanager_slotobjectdestroyed_callback;
-        if (slotobjectdestroyed_cb) {
-            slotobjectdestroyed_cb();
-            return;
-        }
-        KParts__PartManager::slotObjectDestroyed();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotWidgetDestroyed() {
-        if (kparts__partmanager_slotwidgetdestroyed_isbase) {
-            kparts__partmanager_slotwidgetdestroyed_isbase = false;
-            KParts__PartManager::slotWidgetDestroyed();
-            return;
-        }
-        auto slotwidgetdestroyed_cb = kparts__partmanager_slotwidgetdestroyed_callback;
-        if (slotwidgetdestroyed_cb) {
-            slotwidgetdestroyed_cb();
-            return;
-        }
-        KParts__PartManager::slotWidgetDestroyed();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotManagedTopLevelWidgetDestroyed() {
-        if (kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_isbase) {
-            kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_isbase = false;
-            KParts__PartManager::slotManagedTopLevelWidgetDestroyed();
-            return;
-        }
-        auto slotmanagedtoplevelwidgetdestroyed_cb = kparts__partmanager_slotmanagedtoplevelwidgetdestroyed_callback;
-        if (slotmanagedtoplevelwidgetdestroyed_cb) {
-            slotmanagedtoplevelwidgetdestroyed_cb();
-            return;
-        }
-        KParts__PartManager::slotManagedTopLevelWidgetDestroyed();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kparts__partmanager_sender_isbase) {
-            kparts__partmanager_sender_isbase = false;
-            return KParts__PartManager::sender();
-        }
-        auto sender_cb = kparts__partmanager_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KParts__PartManager::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kparts__partmanager_sendersignalindex_isbase) {
-            kparts__partmanager_sendersignalindex_isbase = false;
-            return KParts__PartManager::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kparts__partmanager_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KParts__PartManager::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kparts__partmanager_receivers_isbase) {
-            kparts__partmanager_receivers_isbase = false;
-            return KParts__PartManager::receivers(signal);
-        }
-        auto receivers_cb = kparts__partmanager_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KParts__PartManager::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kparts__partmanager_issignalconnected_isbase) {
-            kparts__partmanager_issignalconnected_isbase = false;
-            return KParts__PartManager::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kparts__partmanager_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KParts__PartManager::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KParts__PartManager_TimerEvent(KParts::PartManager* self, QTimerEvent* event);
     friend void KParts__PartManager_SuperTimerEvent(KParts::PartManager* self, QTimerEvent* event);
-    friend void KParts__PartManager_ChildEvent(KParts::PartManager* self, QChildEvent* event);
     friend void KParts__PartManager_SuperChildEvent(KParts::PartManager* self, QChildEvent* event);
-    friend void KParts__PartManager_CustomEvent(KParts::PartManager* self, QEvent* event);
     friend void KParts__PartManager_SuperCustomEvent(KParts::PartManager* self, QEvent* event);
-    friend void KParts__PartManager_ConnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
     friend void KParts__PartManager_SuperConnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
-    friend void KParts__PartManager_DisconnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
     friend void KParts__PartManager_SuperDisconnectNotify(KParts::PartManager* self, const QMetaMethod* signal);
-    friend void KParts__PartManager_SetIgnoreExplictFocusRequests(KParts::PartManager* self, bool ignoreExplictFocusRequests);
-    friend void KParts__PartManager_SuperSetIgnoreExplictFocusRequests(KParts::PartManager* self, bool ignoreExplictFocusRequests);
-    friend void KParts__PartManager_SlotObjectDestroyed(KParts::PartManager* self);
-    friend void KParts__PartManager_SuperSlotObjectDestroyed(KParts::PartManager* self);
-    friend void KParts__PartManager_SlotWidgetDestroyed(KParts::PartManager* self);
-    friend void KParts__PartManager_SuperSlotWidgetDestroyed(KParts::PartManager* self);
-    friend void KParts__PartManager_SlotManagedTopLevelWidgetDestroyed(KParts::PartManager* self);
-    friend void KParts__PartManager_SuperSlotManagedTopLevelWidgetDestroyed(KParts::PartManager* self);
-    friend QObject* KParts__PartManager_Sender(const KParts::PartManager* self);
-    friend QObject* KParts__PartManager_SuperSender(const KParts::PartManager* self);
-    friend int KParts__PartManager_SenderSignalIndex(const KParts::PartManager* self);
-    friend int KParts__PartManager_SuperSenderSignalIndex(const KParts::PartManager* self);
-    friend int KParts__PartManager_Receivers(const KParts::PartManager* self, const char* signal);
-    friend int KParts__PartManager_SuperReceivers(const KParts::PartManager* self, const char* signal);
-    friend bool KParts__PartManager_IsSignalConnected(const KParts::PartManager* self, const QMetaMethod* signal);
-    friend bool KParts__PartManager_SuperIsSignalConnected(const KParts::PartManager* self, const QMetaMethod* signal);
 };
 
 #endif

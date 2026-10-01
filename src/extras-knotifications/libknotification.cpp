@@ -133,364 +133,219 @@ libqt_string KNotificationAction_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KNotificationAction_SuperMetaObject(const KNotificationAction* self) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_MetaObject_IsBase(true);
-        return (QMetaObject*)vknotificationaction->metaObject();
-    } else {
-        return (QMetaObject*)self->KNotificationAction::metaObject();
-    }
+    return (QMetaObject*)self->KNotificationAction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNotificationAction_OnMetaObject(const KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_MetaObject_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_MetaObject_Callback>(slot));
+void KNotificationAction_OnMetaObject(KNotificationAction* self, intptr_t slot) {
+    if (auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self)))
+        vknotificationaction->knotificationaction_metaobject_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KNotificationAction_SuperMetacast(KNotificationAction* self, const char* param1) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_Metacast_IsBase(true);
-        return vknotificationaction->qt_metacast(param1);
-    } else {
-        return self->KNotificationAction::qt_metacast(param1);
-    }
+    return self->KNotificationAction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnMetacast(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_Metacast_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_Metacast_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_metacast_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KNotificationAction_SuperMetacall(KNotificationAction* self, int param1, int param2, void** param3) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_Metacall_IsBase(true);
-        return vknotificationaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KNotificationAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KNotificationAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnMetacall(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_Metacall_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_Metacall_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_metacall_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNotificationAction_Event(KNotificationAction* self, QEvent* event) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return vknotificationaction->event(event);
-    } else {
-        return self->KNotificationAction::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KNotificationAction_SuperEvent(KNotificationAction* self, QEvent* event) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_Event_IsBase(true);
-        return vknotificationaction->event(event);
-    } else {
-        return self->KNotificationAction::event(event);
-    }
+    return self->KNotificationAction::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnEvent(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_Event_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_Event_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_event_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNotificationAction_EventFilter(KNotificationAction* self, QObject* watched, QEvent* event) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return vknotificationaction->eventFilter(watched, event);
-    } else {
-        return self->KNotificationAction::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KNotificationAction_SuperEventFilter(KNotificationAction* self, QObject* watched, QEvent* event) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_EventFilter_IsBase(true);
-        return vknotificationaction->eventFilter(watched, event);
-    } else {
-        return self->KNotificationAction::eventFilter(watched, event);
-    }
+    return self->KNotificationAction::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnEventFilter(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_EventFilter_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_EventFilter_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_eventfilter_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationAction_TimerEvent(KNotificationAction* self, QTimerEvent* event) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
+    if (vknotificationaction) {
         vknotificationaction->timerEvent(event);
     } else {
-        ((VirtualKNotificationAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KNotificationAction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationAction_SuperTimerEvent(KNotificationAction* self, QTimerEvent* event) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_TimerEvent_IsBase(true);
-        vknotificationaction->timerEvent(event);
-    } else {
-        ((VirtualKNotificationAction*)self)->timerEvent(event);
-    }
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self)) {
+        vknotificationaction->KNotificationAction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotificationAction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnTimerEvent(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_TimerEvent_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_TimerEvent_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_timerevent_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationAction_ChildEvent(KNotificationAction* self, QChildEvent* event) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
+    if (vknotificationaction) {
         vknotificationaction->childEvent(event);
     } else {
-        ((VirtualKNotificationAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KNotificationAction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationAction_SuperChildEvent(KNotificationAction* self, QChildEvent* event) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_ChildEvent_IsBase(true);
-        vknotificationaction->childEvent(event);
-    } else {
-        ((VirtualKNotificationAction*)self)->childEvent(event);
-    }
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self)) {
+        vknotificationaction->KNotificationAction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotificationAction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnChildEvent(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_ChildEvent_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_ChildEvent_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_childevent_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationAction_CustomEvent(KNotificationAction* self, QEvent* event) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
+    if (vknotificationaction) {
         vknotificationaction->customEvent(event);
     } else {
-        ((VirtualKNotificationAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KNotificationAction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationAction_SuperCustomEvent(KNotificationAction* self, QEvent* event) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_CustomEvent_IsBase(true);
-        vknotificationaction->customEvent(event);
-    } else {
-        ((VirtualKNotificationAction*)self)->customEvent(event);
-    }
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self)) {
+        vknotificationaction->KNotificationAction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotificationAction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnCustomEvent(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_CustomEvent_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_CustomEvent_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_customevent_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationAction_ConnectNotify(KNotificationAction* self, const QMetaMethod* signal) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
+    if (vknotificationaction) {
         vknotificationaction->connectNotify(*signal);
     } else {
-        ((VirtualKNotificationAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KNotificationAction::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationAction_SuperConnectNotify(KNotificationAction* self, const QMetaMethod* signal) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_ConnectNotify_IsBase(true);
-        vknotificationaction->connectNotify(*signal);
-    } else {
-        ((VirtualKNotificationAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self)) {
+        vknotificationaction->KNotificationAction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNotificationAction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnConnectNotify(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_ConnectNotify_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_ConnectNotify_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_connectnotify_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotificationAction_DisconnectNotify(KNotificationAction* self, const QMetaMethod* signal) {
     auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
+    if (vknotificationaction) {
         vknotificationaction->disconnectNotify(*signal);
     } else {
-        ((VirtualKNotificationAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KNotificationAction::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotificationAction_SuperDisconnectNotify(KNotificationAction* self, const QMetaMethod* signal) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_DisconnectNotify_IsBase(true);
-        vknotificationaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKNotificationAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self)) {
+        vknotificationaction->KNotificationAction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNotificationAction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotificationAction_OnDisconnectNotify(KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_DisconnectNotify_Callback>(slot));
+    if (auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self))
+        vknotificationaction->knotificationaction_disconnectnotify_callback = reinterpret_cast<VirtualKNotificationAction::KNotificationAction_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KNotificationAction_Sender(const KNotificationAction* self) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return vknotificationaction->sender();
-    } else {
-        return ((VirtualKNotificationAction*)self)->sender();
-    }
+    if (auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self))) {
+        return vknotificationaction->VirtualKNotificationAction::sender();
+    } else
+        qFatal("Error: Protected method KNotificationAction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KNotificationAction_SuperSender(const KNotificationAction* self) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_Sender_IsBase(true);
-        return vknotificationaction->sender();
-    } else {
-        return ((VirtualKNotificationAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotificationAction_OnSender(const KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_Sender_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNotificationAction_SenderSignalIndex(const KNotificationAction* self) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return vknotificationaction->senderSignalIndex();
-    } else {
-        return ((VirtualKNotificationAction*)self)->senderSignalIndex();
-    }
+    if (auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self))) {
+        return vknotificationaction->VirtualKNotificationAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KNotificationAction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNotificationAction_SuperSenderSignalIndex(const KNotificationAction* self) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_SenderSignalIndex_IsBase(true);
-        return vknotificationaction->senderSignalIndex();
-    } else {
-        return ((VirtualKNotificationAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotificationAction_OnSenderSignalIndex(const KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNotificationAction_Receivers(const KNotificationAction* self, const char* signal) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return vknotificationaction->receivers(signal);
-    } else {
-        return ((VirtualKNotificationAction*)self)->receivers(signal);
-    }
+    if (auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self))) {
+        return vknotificationaction->VirtualKNotificationAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KNotificationAction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNotificationAction_SuperReceivers(const KNotificationAction* self, const char* signal) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_Receivers_IsBase(true);
-        return vknotificationaction->receivers(signal);
-    } else {
-        return ((VirtualKNotificationAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotificationAction_OnReceivers(const KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_Receivers_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNotificationAction_IsSignalConnected(const KNotificationAction* self, const QMetaMethod* signal) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return vknotificationaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNotificationAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KNotificationAction_SuperIsSignalConnected(const KNotificationAction* self, const QMetaMethod* signal) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        vknotificationaction->setKNotificationAction_IsSignalConnected_IsBase(true);
-        return vknotificationaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNotificationAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotificationAction_OnIsSignalConnected(const KNotificationAction* self, intptr_t slot) {
-    auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self));
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction)
-        vknotificationaction->setKNotificationAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKNotificationAction::KNotificationAction_IsSignalConnected_Callback>(slot));
+    if (auto* vknotificationaction = const_cast<VirtualKNotificationAction*>(dynamic_cast<const VirtualKNotificationAction*>(self))) {
+        return vknotificationaction->VirtualKNotificationAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KNotificationAction::isSignalConnected called without a directly constructed type");
 }
 
 void KNotificationAction_Delete(KNotificationAction* self) {
@@ -1155,336 +1010,203 @@ void KNotification_Beep1(const libqt_string reason) {
 
 // Base class handler implementation
 QMetaObject* KNotification_SuperMetaObject(const KNotification* self) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_MetaObject_IsBase(true);
-        return (QMetaObject*)vknotification->metaObject();
-    } else {
-        return (QMetaObject*)self->KNotification::metaObject();
-    }
+    return (QMetaObject*)self->KNotification::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNotification_OnMetaObject(const KNotification* self, intptr_t slot) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_MetaObject_Callback(reinterpret_cast<VirtualKNotification::KNotification_MetaObject_Callback>(slot));
+void KNotification_OnMetaObject(KNotification* self, intptr_t slot) {
+    if (auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self)))
+        vknotification->knotification_metaobject_callback = reinterpret_cast<VirtualKNotification::KNotification_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KNotification_SuperMetacast(KNotification* self, const char* param1) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_Metacast_IsBase(true);
-        return vknotification->qt_metacast(param1);
-    } else {
-        return self->KNotification::qt_metacast(param1);
-    }
+    return self->KNotification::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotification_OnMetacast(KNotification* self, intptr_t slot) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_Metacast_Callback(reinterpret_cast<VirtualKNotification::KNotification_Metacast_Callback>(slot));
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self))
+        vknotification->knotification_metacast_callback = reinterpret_cast<VirtualKNotification::KNotification_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KNotification_SuperMetacall(KNotification* self, int param1, int param2, void** param3) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_Metacall_IsBase(true);
-        return vknotification->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KNotification::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KNotification::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotification_OnMetacall(KNotification* self, intptr_t slot) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_Metacall_Callback(reinterpret_cast<VirtualKNotification::KNotification_Metacall_Callback>(slot));
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self))
+        vknotification->knotification_metacall_callback = reinterpret_cast<VirtualKNotification::KNotification_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNotification_EventFilter(KNotification* self, QObject* watched, QEvent* event) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        return vknotification->eventFilter(watched, event);
-    } else {
-        return self->KNotification::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KNotification_SuperEventFilter(KNotification* self, QObject* watched, QEvent* event) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_EventFilter_IsBase(true);
-        return vknotification->eventFilter(watched, event);
-    } else {
-        return self->KNotification::eventFilter(watched, event);
-    }
+    return self->KNotification::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotification_OnEventFilter(KNotification* self, intptr_t slot) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_EventFilter_Callback(reinterpret_cast<VirtualKNotification::KNotification_EventFilter_Callback>(slot));
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self))
+        vknotification->knotification_eventfilter_callback = reinterpret_cast<VirtualKNotification::KNotification_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotification_TimerEvent(KNotification* self, QTimerEvent* event) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
+    if (vknotification) {
         vknotification->timerEvent(event);
     } else {
-        ((VirtualKNotification*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KNotification::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotification_SuperTimerEvent(KNotification* self, QTimerEvent* event) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_TimerEvent_IsBase(true);
-        vknotification->timerEvent(event);
-    } else {
-        ((VirtualKNotification*)self)->timerEvent(event);
-    }
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self)) {
+        vknotification->KNotification::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotification::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotification_OnTimerEvent(KNotification* self, intptr_t slot) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_TimerEvent_Callback(reinterpret_cast<VirtualKNotification::KNotification_TimerEvent_Callback>(slot));
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self))
+        vknotification->knotification_timerevent_callback = reinterpret_cast<VirtualKNotification::KNotification_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotification_ChildEvent(KNotification* self, QChildEvent* event) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
+    if (vknotification) {
         vknotification->childEvent(event);
     } else {
-        ((VirtualKNotification*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KNotification::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotification_SuperChildEvent(KNotification* self, QChildEvent* event) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_ChildEvent_IsBase(true);
-        vknotification->childEvent(event);
-    } else {
-        ((VirtualKNotification*)self)->childEvent(event);
-    }
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self)) {
+        vknotification->KNotification::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotification::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotification_OnChildEvent(KNotification* self, intptr_t slot) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_ChildEvent_Callback(reinterpret_cast<VirtualKNotification::KNotification_ChildEvent_Callback>(slot));
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self))
+        vknotification->knotification_childevent_callback = reinterpret_cast<VirtualKNotification::KNotification_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotification_CustomEvent(KNotification* self, QEvent* event) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
+    if (vknotification) {
         vknotification->customEvent(event);
     } else {
-        ((VirtualKNotification*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KNotification::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotification_SuperCustomEvent(KNotification* self, QEvent* event) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_CustomEvent_IsBase(true);
-        vknotification->customEvent(event);
-    } else {
-        ((VirtualKNotification*)self)->customEvent(event);
-    }
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self)) {
+        vknotification->KNotification::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNotification::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotification_OnCustomEvent(KNotification* self, intptr_t slot) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_CustomEvent_Callback(reinterpret_cast<VirtualKNotification::KNotification_CustomEvent_Callback>(slot));
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self))
+        vknotification->knotification_customevent_callback = reinterpret_cast<VirtualKNotification::KNotification_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotification_ConnectNotify(KNotification* self, const QMetaMethod* signal) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
+    if (vknotification) {
         vknotification->connectNotify(*signal);
     } else {
-        ((VirtualKNotification*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KNotification::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotification_SuperConnectNotify(KNotification* self, const QMetaMethod* signal) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_ConnectNotify_IsBase(true);
-        vknotification->connectNotify(*signal);
-    } else {
-        ((VirtualKNotification*)self)->connectNotify(*signal);
-    }
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self)) {
+        vknotification->KNotification::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNotification::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotification_OnConnectNotify(KNotification* self, intptr_t slot) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_ConnectNotify_Callback(reinterpret_cast<VirtualKNotification::KNotification_ConnectNotify_Callback>(slot));
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self))
+        vknotification->knotification_connectnotify_callback = reinterpret_cast<VirtualKNotification::KNotification_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNotification_DisconnectNotify(KNotification* self, const QMetaMethod* signal) {
     auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
+    if (vknotification) {
         vknotification->disconnectNotify(*signal);
     } else {
-        ((VirtualKNotification*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KNotification::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNotification_SuperDisconnectNotify(KNotification* self, const QMetaMethod* signal) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_DisconnectNotify_IsBase(true);
-        vknotification->disconnectNotify(*signal);
-    } else {
-        ((VirtualKNotification*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self)) {
+        vknotification->KNotification::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNotification::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNotification_OnDisconnectNotify(KNotification* self, intptr_t slot) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_DisconnectNotify_Callback(reinterpret_cast<VirtualKNotification::KNotification_DisconnectNotify_Callback>(slot));
+    if (auto* vknotification = dynamic_cast<VirtualKNotification*>(self))
+        vknotification->knotification_disconnectnotify_callback = reinterpret_cast<VirtualKNotification::KNotification_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KNotification_Sender(const KNotification* self) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        return vknotification->sender();
-    } else {
-        return ((VirtualKNotification*)self)->sender();
-    }
+    if (auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self))) {
+        return vknotification->VirtualKNotification::sender();
+    } else
+        qFatal("Error: Protected method KNotification::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KNotification_SuperSender(const KNotification* self) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_Sender_IsBase(true);
-        return vknotification->sender();
-    } else {
-        return ((VirtualKNotification*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotification_OnSender(const KNotification* self, intptr_t slot) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_Sender_Callback(reinterpret_cast<VirtualKNotification::KNotification_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNotification_SenderSignalIndex(const KNotification* self) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        return vknotification->senderSignalIndex();
-    } else {
-        return ((VirtualKNotification*)self)->senderSignalIndex();
-    }
+    if (auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self))) {
+        return vknotification->VirtualKNotification::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KNotification::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNotification_SuperSenderSignalIndex(const KNotification* self) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_SenderSignalIndex_IsBase(true);
-        return vknotification->senderSignalIndex();
-    } else {
-        return ((VirtualKNotification*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotification_OnSenderSignalIndex(const KNotification* self, intptr_t slot) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNotification::KNotification_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNotification_Receivers(const KNotification* self, const char* signal) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        return vknotification->receivers(signal);
-    } else {
-        return ((VirtualKNotification*)self)->receivers(signal);
-    }
+    if (auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self))) {
+        return vknotification->VirtualKNotification::receivers(signal);
+    } else
+        qFatal("Error: Protected method KNotification::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNotification_SuperReceivers(const KNotification* self, const char* signal) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_Receivers_IsBase(true);
-        return vknotification->receivers(signal);
-    } else {
-        return ((VirtualKNotification*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotification_OnReceivers(const KNotification* self, intptr_t slot) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_Receivers_Callback(reinterpret_cast<VirtualKNotification::KNotification_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNotification_IsSignalConnected(const KNotification* self, const QMetaMethod* signal) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        return vknotification->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNotification*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KNotification_SuperIsSignalConnected(const KNotification* self, const QMetaMethod* signal) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification) {
-        vknotification->setKNotification_IsSignalConnected_IsBase(true);
-        return vknotification->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNotification*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNotification_OnIsSignalConnected(const KNotification* self, intptr_t slot) {
-    auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self));
-    if (vknotification && vknotification->isVirtualKNotification)
-        vknotification->setKNotification_IsSignalConnected_Callback(reinterpret_cast<VirtualKNotification::KNotification_IsSignalConnected_Callback>(slot));
+    if (auto* vknotification = const_cast<VirtualKNotification*>(dynamic_cast<const VirtualKNotification*>(self))) {
+        return vknotification->VirtualKNotification::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KNotification::isSignalConnected called without a directly constructed type");
 }
 
 void KNotification_Delete(KNotification* self) {

@@ -114,1726 +114,1202 @@ libqt_string QDesignerActionEditorInterface_Tr3(const char* s, const char* c, in
 
 // Base class handler implementation
 QMetaObject* QDesignerActionEditorInterface_SuperMetaObject(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdesigneractioneditorinterface->metaObject();
-    } else {
-        return (QMetaObject*)self->QDesignerActionEditorInterface::metaObject();
-    }
+    return (QMetaObject*)self->QDesignerActionEditorInterface::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnMetaObject(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MetaObject_Callback>(slot));
+void QDesignerActionEditorInterface_OnMetaObject(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_metaobject_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDesignerActionEditorInterface_SuperMetacast(QDesignerActionEditorInterface* self, const char* param1) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacast_IsBase(true);
-        return vqdesigneractioneditorinterface->qt_metacast(param1);
-    } else {
-        return self->QDesignerActionEditorInterface::qt_metacast(param1);
-    }
+    return self->QDesignerActionEditorInterface::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMetacast(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metacast_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_metacast_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDesignerActionEditorInterface_SuperMetacall(QDesignerActionEditorInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacall_IsBase(true);
-        return vqdesigneractioneditorinterface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDesignerActionEditorInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDesignerActionEditorInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMetacall(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metacall_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_metacall_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QDesignerFormEditorInterface* QDesignerActionEditorInterface_SuperCore(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Core_IsBase(true);
-        return vqdesigneractioneditorinterface->core();
-    } else {
-        return self->QDesignerActionEditorInterface::core();
-    }
+    return self->QDesignerActionEditorInterface::core();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnCore(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Core_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Core_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerActionEditorInterface_SuperManageAction(QDesignerActionEditorInterface* self, QAction* action) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ManageAction_IsBase(true);
-        vqdesigneractioneditorinterface->manageAction(action);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->manageAction(action);
-    }
+void QDesignerActionEditorInterface_OnCore(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_core_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Core_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnManageAction(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ManageAction_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ManageAction_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerActionEditorInterface_SuperUnmanageAction(QDesignerActionEditorInterface* self, QAction* action) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_UnmanageAction_IsBase(true);
-        vqdesigneractioneditorinterface->unmanageAction(action);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->unmanageAction(action);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_manageaction_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ManageAction_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnUnmanageAction(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_UnmanageAction_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_UnmanageAction_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerActionEditorInterface_SuperSetFormWindow(QDesignerActionEditorInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SetFormWindow_IsBase(true);
-        vqdesigneractioneditorinterface->setFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->setFormWindow(formWindow);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_unmanageaction_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_UnmanageAction_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnSetFormWindow(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SetFormWindow_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SetFormWindow_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_setformwindow_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SetFormWindow_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDesignerActionEditorInterface_DevType(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->devType();
-    } else {
-        return self->QDesignerActionEditorInterface::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QDesignerActionEditorInterface_SuperDevType(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DevType_IsBase(true);
-        return vqdesigneractioneditorinterface->devType();
-    } else {
-        return self->QDesignerActionEditorInterface::devType();
-    }
+    return self->QDesignerActionEditorInterface::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnDevType(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DevType_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DevType_Callback>(slot));
+void QDesignerActionEditorInterface_OnDevType(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_devtype_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_SetVisible(QDesignerActionEditorInterface* self, bool visible) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setVisible(visible);
-    } else {
-        self->QDesignerActionEditorInterface::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperSetVisible(QDesignerActionEditorInterface* self, bool visible) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SetVisible_IsBase(true);
-        vqdesigneractioneditorinterface->setVisible(visible);
-    } else {
-        self->QDesignerActionEditorInterface::setVisible(visible);
-    }
+    self->QDesignerActionEditorInterface::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnSetVisible(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SetVisible_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SetVisible_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_setvisible_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDesignerActionEditorInterface_SizeHint(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return new QSize(vqdesigneractioneditorinterface->sizeHint());
-    } else {
-        return new QSize(((VirtualQDesignerActionEditorInterface*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QDesignerActionEditorInterface_SuperSizeHint(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SizeHint_IsBase(true);
-        return new QSize(vqdesigneractioneditorinterface->sizeHint());
-    } else {
-        return new QSize(((VirtualQDesignerActionEditorInterface*)self)->sizeHint());
-    }
+    return new QSize(self->QDesignerActionEditorInterface::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnSizeHint(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SizeHint_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SizeHint_Callback>(slot));
+void QDesignerActionEditorInterface_OnSizeHint(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_sizehint_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QDesignerActionEditorInterface_MinimumSizeHint(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return new QSize(vqdesigneractioneditorinterface->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDesignerActionEditorInterface*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QDesignerActionEditorInterface_SuperMinimumSizeHint(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MinimumSizeHint_IsBase(true);
-        return new QSize(vqdesigneractioneditorinterface->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDesignerActionEditorInterface*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QDesignerActionEditorInterface::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnMinimumSizeHint(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MinimumSizeHint_Callback>(slot));
+void QDesignerActionEditorInterface_OnMinimumSizeHint(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_minimumsizehint_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDesignerActionEditorInterface_HeightForWidth(const QDesignerActionEditorInterface* self, int param1) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDesignerActionEditorInterface::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QDesignerActionEditorInterface_SuperHeightForWidth(const QDesignerActionEditorInterface* self, int param1) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HeightForWidth_IsBase(true);
-        return vqdesigneractioneditorinterface->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QDesignerActionEditorInterface::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QDesignerActionEditorInterface::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnHeightForWidth(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HeightForWidth_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HeightForWidth_Callback>(slot));
+void QDesignerActionEditorInterface_OnHeightForWidth(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_heightforwidth_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerActionEditorInterface_HasHeightForWidth(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->hasHeightForWidth();
-    } else {
-        return self->QDesignerActionEditorInterface::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QDesignerActionEditorInterface_SuperHasHeightForWidth(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HasHeightForWidth_IsBase(true);
-        return vqdesigneractioneditorinterface->hasHeightForWidth();
-    } else {
-        return self->QDesignerActionEditorInterface::hasHeightForWidth();
-    }
+    return self->QDesignerActionEditorInterface::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnHasHeightForWidth(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HasHeightForWidth_Callback>(slot));
+void QDesignerActionEditorInterface_OnHasHeightForWidth(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_hasheightforwidth_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QDesignerActionEditorInterface_PaintEngine(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->paintEngine();
-    } else {
-        return self->QDesignerActionEditorInterface::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QDesignerActionEditorInterface_SuperPaintEngine(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_PaintEngine_IsBase(true);
-        return vqdesigneractioneditorinterface->paintEngine();
-    } else {
-        return self->QDesignerActionEditorInterface::paintEngine();
-    }
+    return self->QDesignerActionEditorInterface::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnPaintEngine(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_PaintEngine_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_PaintEngine_Callback>(slot));
+void QDesignerActionEditorInterface_OnPaintEngine(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_paintengine_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerActionEditorInterface_Event(QDesignerActionEditorInterface* self, QEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         return vqdesigneractioneditorinterface->event(event);
     } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->event(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDesignerActionEditorInterface_SuperEvent(QDesignerActionEditorInterface* self, QEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Event_IsBase(true);
-        return vqdesigneractioneditorinterface->event(event);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->event(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        return vqdesigneractioneditorinterface->QDesignerActionEditorInterface::event(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Event_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Event_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_event_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_MousePressEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->mousePressEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperMousePressEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MousePressEvent_IsBase(true);
-        vqdesigneractioneditorinterface->mousePressEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->mousePressEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMousePressEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MousePressEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MousePressEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_mousepressevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_MouseReleaseEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->mouseReleaseEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperMouseReleaseEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseReleaseEvent_IsBase(true);
-        vqdesigneractioneditorinterface->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMouseReleaseEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_mousereleaseevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_MouseDoubleClickEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperMouseDoubleClickEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseDoubleClickEvent_IsBase(true);
-        vqdesigneractioneditorinterface->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMouseDoubleClickEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_mousedoubleclickevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_MouseMoveEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->mouseMoveEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperMouseMoveEvent(QDesignerActionEditorInterface* self, QMouseEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseMoveEvent_IsBase(true);
-        vqdesigneractioneditorinterface->mouseMoveEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMouseMoveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseMoveEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_mousemoveevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_WheelEvent(QDesignerActionEditorInterface* self, QWheelEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->wheelEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperWheelEvent(QDesignerActionEditorInterface* self, QWheelEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_WheelEvent_IsBase(true);
-        vqdesigneractioneditorinterface->wheelEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->wheelEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnWheelEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_WheelEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_WheelEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_wheelevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_KeyPressEvent(QDesignerActionEditorInterface* self, QKeyEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->keyPressEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperKeyPressEvent(QDesignerActionEditorInterface* self, QKeyEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_KeyPressEvent_IsBase(true);
-        vqdesigneractioneditorinterface->keyPressEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->keyPressEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnKeyPressEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_KeyPressEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_KeyPressEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_keypressevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_KeyReleaseEvent(QDesignerActionEditorInterface* self, QKeyEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->keyReleaseEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperKeyReleaseEvent(QDesignerActionEditorInterface* self, QKeyEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_KeyReleaseEvent_IsBase(true);
-        vqdesigneractioneditorinterface->keyReleaseEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnKeyReleaseEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_keyreleaseevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_FocusInEvent(QDesignerActionEditorInterface* self, QFocusEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->focusInEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperFocusInEvent(QDesignerActionEditorInterface* self, QFocusEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusInEvent_IsBase(true);
-        vqdesigneractioneditorinterface->focusInEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->focusInEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnFocusInEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusInEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusInEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_focusinevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_FocusOutEvent(QDesignerActionEditorInterface* self, QFocusEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->focusOutEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperFocusOutEvent(QDesignerActionEditorInterface* self, QFocusEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusOutEvent_IsBase(true);
-        vqdesigneractioneditorinterface->focusOutEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->focusOutEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnFocusOutEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusOutEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusOutEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_focusoutevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_EnterEvent(QDesignerActionEditorInterface* self, QEnterEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->enterEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperEnterEvent(QDesignerActionEditorInterface* self, QEnterEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_EnterEvent_IsBase(true);
-        vqdesigneractioneditorinterface->enterEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->enterEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnEnterEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_EnterEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_EnterEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_enterevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_LeaveEvent(QDesignerActionEditorInterface* self, QEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->leaveEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperLeaveEvent(QDesignerActionEditorInterface* self, QEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_LeaveEvent_IsBase(true);
-        vqdesigneractioneditorinterface->leaveEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->leaveEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnLeaveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_LeaveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_LeaveEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_leaveevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_PaintEvent(QDesignerActionEditorInterface* self, QPaintEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->paintEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperPaintEvent(QDesignerActionEditorInterface* self, QPaintEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_PaintEvent_IsBase(true);
-        vqdesigneractioneditorinterface->paintEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->paintEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnPaintEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_PaintEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_PaintEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_paintevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_MoveEvent(QDesignerActionEditorInterface* self, QMoveEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->moveEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperMoveEvent(QDesignerActionEditorInterface* self, QMoveEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MoveEvent_IsBase(true);
-        vqdesigneractioneditorinterface->moveEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->moveEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnMoveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_MoveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MoveEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_moveevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_ResizeEvent(QDesignerActionEditorInterface* self, QResizeEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->resizeEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperResizeEvent(QDesignerActionEditorInterface* self, QResizeEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ResizeEvent_IsBase(true);
-        vqdesigneractioneditorinterface->resizeEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->resizeEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnResizeEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ResizeEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ResizeEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_resizeevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_CloseEvent(QDesignerActionEditorInterface* self, QCloseEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->closeEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperCloseEvent(QDesignerActionEditorInterface* self, QCloseEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_CloseEvent_IsBase(true);
-        vqdesigneractioneditorinterface->closeEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->closeEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnCloseEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_CloseEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_CloseEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_closeevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_ContextMenuEvent(QDesignerActionEditorInterface* self, QContextMenuEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->contextMenuEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperContextMenuEvent(QDesignerActionEditorInterface* self, QContextMenuEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ContextMenuEvent_IsBase(true);
-        vqdesigneractioneditorinterface->contextMenuEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnContextMenuEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ContextMenuEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_contextmenuevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_TabletEvent(QDesignerActionEditorInterface* self, QTabletEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->tabletEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperTabletEvent(QDesignerActionEditorInterface* self, QTabletEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_TabletEvent_IsBase(true);
-        vqdesigneractioneditorinterface->tabletEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->tabletEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnTabletEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_TabletEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_TabletEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_tabletevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_ActionEvent(QDesignerActionEditorInterface* self, QActionEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->actionEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperActionEvent(QDesignerActionEditorInterface* self, QActionEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ActionEvent_IsBase(true);
-        vqdesigneractioneditorinterface->actionEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->actionEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnActionEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ActionEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ActionEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_actionevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_DragEnterEvent(QDesignerActionEditorInterface* self, QDragEnterEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->dragEnterEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperDragEnterEvent(QDesignerActionEditorInterface* self, QDragEnterEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragEnterEvent_IsBase(true);
-        vqdesigneractioneditorinterface->dragEnterEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDragEnterEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragEnterEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragEnterEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_dragenterevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_DragMoveEvent(QDesignerActionEditorInterface* self, QDragMoveEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->dragMoveEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperDragMoveEvent(QDesignerActionEditorInterface* self, QDragMoveEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragMoveEvent_IsBase(true);
-        vqdesigneractioneditorinterface->dragMoveEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDragMoveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragMoveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragMoveEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_dragmoveevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_DragLeaveEvent(QDesignerActionEditorInterface* self, QDragLeaveEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->dragLeaveEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperDragLeaveEvent(QDesignerActionEditorInterface* self, QDragLeaveEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragLeaveEvent_IsBase(true);
-        vqdesigneractioneditorinterface->dragLeaveEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDragLeaveEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragLeaveEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_dragleaveevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_DropEvent(QDesignerActionEditorInterface* self, QDropEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->dropEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperDropEvent(QDesignerActionEditorInterface* self, QDropEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DropEvent_IsBase(true);
-        vqdesigneractioneditorinterface->dropEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->dropEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDropEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DropEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DropEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_dropevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_ShowEvent(QDesignerActionEditorInterface* self, QShowEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->showEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperShowEvent(QDesignerActionEditorInterface* self, QShowEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ShowEvent_IsBase(true);
-        vqdesigneractioneditorinterface->showEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->showEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnShowEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ShowEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ShowEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_showevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_HideEvent(QDesignerActionEditorInterface* self, QHideEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->hideEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperHideEvent(QDesignerActionEditorInterface* self, QHideEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HideEvent_IsBase(true);
-        vqdesigneractioneditorinterface->hideEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->hideEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnHideEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_HideEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HideEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_hideevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerActionEditorInterface_NativeEvent(QDesignerActionEditorInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
+    if (vqdesigneractioneditorinterface) {
         return vqdesigneractioneditorinterface->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDesignerActionEditorInterface_SuperNativeEvent(QDesignerActionEditorInterface* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_NativeEvent_IsBase(true);
-        return vqdesigneractioneditorinterface->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        return vqdesigneractioneditorinterface->QDesignerActionEditorInterface::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnNativeEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_NativeEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_NativeEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_nativeevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_ChangeEvent(QDesignerActionEditorInterface* self, QEvent* param1) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->changeEvent(param1);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperChangeEvent(QDesignerActionEditorInterface* self, QEvent* param1) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ChangeEvent_IsBase(true);
-        vqdesigneractioneditorinterface->changeEvent(param1);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->changeEvent(param1);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnChangeEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ChangeEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ChangeEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_changeevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QDesignerActionEditorInterface_Metric(const QDesignerActionEditorInterface* self, int param1) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         return vqdesigneractioneditorinterface->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QDesignerActionEditorInterface_SuperMetric(const QDesignerActionEditorInterface* self, int param1) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metric_IsBase(true);
-        return vqdesigneractioneditorinterface->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        return vqdesigneractioneditorinterface->QDesignerActionEditorInterface::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnMetric(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Metric_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metric_Callback>(slot));
+void QDesignerActionEditorInterface_OnMetric(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_metric_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_InitPainter(const QDesignerActionEditorInterface* self, QPainter* painter) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->initPainter(painter);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperInitPainter(const QDesignerActionEditorInterface* self, QPainter* painter) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InitPainter_IsBase(true);
-        vqdesigneractioneditorinterface->initPainter(painter);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->initPainter(painter);
-    }
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnInitPainter(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InitPainter_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InitPainter_Callback>(slot));
+void QDesignerActionEditorInterface_OnInitPainter(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_initpainter_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QDesignerActionEditorInterface_Redirected(const QDesignerActionEditorInterface* self, QPoint* offset) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         return vqdesigneractioneditorinterface->redirected(offset);
     } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QDesignerActionEditorInterface_SuperRedirected(const QDesignerActionEditorInterface* self, QPoint* offset) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Redirected_IsBase(true);
-        return vqdesigneractioneditorinterface->redirected(offset);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->redirected(offset);
-    }
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        return vqdesigneractioneditorinterface->QDesignerActionEditorInterface::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnRedirected(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Redirected_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Redirected_Callback>(slot));
+void QDesignerActionEditorInterface_OnRedirected(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_redirected_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QDesignerActionEditorInterface_SharedPainter(const QDesignerActionEditorInterface* self) {
     auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         return vqdesigneractioneditorinterface->sharedPainter();
     } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QDesignerActionEditorInterface_SuperSharedPainter(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SharedPainter_IsBase(true);
-        return vqdesigneractioneditorinterface->sharedPainter();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->sharedPainter();
-    }
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        return vqdesigneractioneditorinterface->QDesignerActionEditorInterface::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnSharedPainter(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SharedPainter_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SharedPainter_Callback>(slot));
+void QDesignerActionEditorInterface_OnSharedPainter(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_sharedpainter_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_InputMethodEvent(QDesignerActionEditorInterface* self, QInputMethodEvent* param1) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->inputMethodEvent(param1);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperInputMethodEvent(QDesignerActionEditorInterface* self, QInputMethodEvent* param1) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InputMethodEvent_IsBase(true);
-        vqdesigneractioneditorinterface->inputMethodEvent(param1);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnInputMethodEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InputMethodEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InputMethodEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_inputmethodevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QDesignerActionEditorInterface_InputMethodQuery(const QDesignerActionEditorInterface* self, int param1) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return new QVariant(vqdesigneractioneditorinterface->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDesignerActionEditorInterface*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QDesignerActionEditorInterface_SuperInputMethodQuery(const QDesignerActionEditorInterface* self, int param1) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InputMethodQuery_IsBase(true);
-        return new QVariant(vqdesigneractioneditorinterface->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQDesignerActionEditorInterface*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QDesignerActionEditorInterface::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnInputMethodQuery(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_InputMethodQuery_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InputMethodQuery_Callback>(slot));
+void QDesignerActionEditorInterface_OnInputMethodQuery(QDesignerActionEditorInterface* self, intptr_t slot) {
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self)))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_inputmethodquery_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerActionEditorInterface_FocusNextPrevChild(QDesignerActionEditorInterface* self, bool next) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         return vqdesigneractioneditorinterface->focusNextPrevChild(next);
     } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QDesignerActionEditorInterface_SuperFocusNextPrevChild(QDesignerActionEditorInterface* self, bool next) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusNextPrevChild_IsBase(true);
-        return vqdesigneractioneditorinterface->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        return vqdesigneractioneditorinterface->QDesignerActionEditorInterface::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnFocusNextPrevChild(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_focusnextprevchild_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerActionEditorInterface_EventFilter(QDesignerActionEditorInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerActionEditorInterface::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDesignerActionEditorInterface_SuperEventFilter(QDesignerActionEditorInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_EventFilter_IsBase(true);
-        return vqdesigneractioneditorinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerActionEditorInterface::eventFilter(watched, event);
-    }
+    return self->QDesignerActionEditorInterface::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnEventFilter(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_EventFilter_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_eventfilter_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_TimerEvent(QDesignerActionEditorInterface* self, QTimerEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->timerEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperTimerEvent(QDesignerActionEditorInterface* self, QTimerEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_TimerEvent_IsBase(true);
-        vqdesigneractioneditorinterface->timerEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->timerEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnTimerEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_TimerEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_timerevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_ChildEvent(QDesignerActionEditorInterface* self, QChildEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->childEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperChildEvent(QDesignerActionEditorInterface* self, QChildEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ChildEvent_IsBase(true);
-        vqdesigneractioneditorinterface->childEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->childEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnChildEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ChildEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_childevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_CustomEvent(QDesignerActionEditorInterface* self, QEvent* event) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->customEvent(event);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperCustomEvent(QDesignerActionEditorInterface* self, QEvent* event) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_CustomEvent_IsBase(true);
-        vqdesigneractioneditorinterface->customEvent(event);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->customEvent(event);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnCustomEvent(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_CustomEvent_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_customevent_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_ConnectNotify(QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->connectNotify(*signal);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperConnectNotify(QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ConnectNotify_IsBase(true);
-        vqdesigneractioneditorinterface->connectNotify(*signal);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnConnectNotify(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ConnectNotify_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_connectnotify_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerActionEditorInterface_DisconnectNotify(QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
     auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
+    if (vqdesigneractioneditorinterface) {
         vqdesigneractioneditorinterface->disconnectNotify(*signal);
     } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerActionEditorInterface_SuperDisconnectNotify(QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DisconnectNotify_IsBase(true);
-        vqdesigneractioneditorinterface->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->QDesignerActionEditorInterface::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerActionEditorInterface::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerActionEditorInterface_OnDisconnectNotify(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DisconnectNotify_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self))
+        vqdesigneractioneditorinterface->qdesigneractioneditorinterface_disconnectnotify_callback = reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerActionEditorInterface_UpdateMicroFocus(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->updateMicroFocus();
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->updateMicroFocus();
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerActionEditorInterface_SuperUpdateMicroFocus(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_UpdateMicroFocus_IsBase(true);
-        vqdesigneractioneditorinterface->updateMicroFocus();
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnUpdateMicroFocus(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerActionEditorInterface_Create(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->create();
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->create();
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::create();
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerActionEditorInterface_SuperCreate(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Create_IsBase(true);
-        vqdesigneractioneditorinterface->create();
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnCreate(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Create_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QDesignerActionEditorInterface_Destroy(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->destroy();
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->destroy();
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::destroy();
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QDesignerActionEditorInterface_SuperDestroy(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Destroy_IsBase(true);
-        vqdesigneractioneditorinterface->destroy();
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnDestroy(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Destroy_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerActionEditorInterface_FocusNextChild(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->focusNextChild();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->focusNextChild();
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        return vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::focusNextChild();
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDesignerActionEditorInterface_SuperFocusNextChild(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusNextChild_IsBase(true);
-        return vqdesigneractioneditorinterface->focusNextChild();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnFocusNextChild(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusNextChild_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerActionEditorInterface_FocusPreviousChild(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->focusPreviousChild();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->focusPreviousChild();
-    }
+    if (auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self)) {
+        return vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDesignerActionEditorInterface_SuperFocusPreviousChild(QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusPreviousChild_IsBase(true);
-        return vqdesigneractioneditorinterface->focusPreviousChild();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnFocusPreviousChild(QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDesignerActionEditorInterface_Sender(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->sender();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->sender();
-    }
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        return vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::sender();
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDesignerActionEditorInterface_SuperSender(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Sender_IsBase(true);
-        return vqdesigneractioneditorinterface->sender();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnSender(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerActionEditorInterface_SenderSignalIndex(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->senderSignalIndex();
-    }
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        return vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerActionEditorInterface_SuperSenderSignalIndex(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SenderSignalIndex_IsBase(true);
-        return vqdesigneractioneditorinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnSenderSignalIndex(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerActionEditorInterface_Receivers(const QDesignerActionEditorInterface* self, const char* signal) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->receivers(signal);
-    }
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        return vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerActionEditorInterface_SuperReceivers(const QDesignerActionEditorInterface* self, const char* signal) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Receivers_IsBase(true);
-        return vqdesigneractioneditorinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnReceivers(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerActionEditorInterface_IsSignalConnected(const QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        return vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QDesignerActionEditorInterface_SuperIsSignalConnected(const QDesignerActionEditorInterface* self, const QMetaMethod* signal) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_IsSignalConnected_IsBase(true);
-        return vqdesigneractioneditorinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnIsSignalConnected(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QDesignerActionEditorInterface_GetDecodedMetricF(const QDesignerActionEditorInterface* self, int metricA, int metricB) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return vqdesigneractioneditorinterface->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QDesignerActionEditorInterface_SuperGetDecodedMetricF(const QDesignerActionEditorInterface* self, int metricA, int metricB) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_GetDecodedMetricF_IsBase(true);
-        return vqdesigneractioneditorinterface->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerActionEditorInterface_OnGetDecodedMetricF(const QDesignerActionEditorInterface* self, intptr_t slot) {
-    auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self));
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface)
-        vqdesigneractioneditorinterface->setQDesignerActionEditorInterface_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDesignerActionEditorInterface::QDesignerActionEditorInterface_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqdesigneractioneditorinterface = const_cast<VirtualQDesignerActionEditorInterface*>(dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self))) {
+        return vqdesigneractioneditorinterface->VirtualQDesignerActionEditorInterface::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QDesignerActionEditorInterface::getDecodedMetricF called without a directly constructed type");
 }
 
 void QDesignerActionEditorInterface_Delete(QDesignerActionEditorInterface* self) {

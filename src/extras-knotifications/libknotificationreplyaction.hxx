@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KNotificationReplyAction so that we can call protected methods
+// This class is a subclass of KNotificationReplyAction
 class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKNotificationReplyAction = true;
-
-    // Virtual class public types (including callbacks)
-    using KNotificationReplyAction_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KNotificationReplyAction_MetaObject_Callback = QMetaObject* (*)(const KNotificationReplyAction*);
     using KNotificationReplyAction_Metacast_Callback = void* (*)(KNotificationReplyAction*, const char*);
     using KNotificationReplyAction_Metacall_Callback = int (*)(KNotificationReplyAction*, int, int, void**);
     using KNotificationReplyAction_Event_Callback = bool (*)(KNotificationReplyAction*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
     using KNotificationReplyAction_CustomEvent_Callback = void (*)(KNotificationReplyAction*, QEvent*);
     using KNotificationReplyAction_ConnectNotify_Callback = void (*)(KNotificationReplyAction*, QMetaMethod*);
     using KNotificationReplyAction_DisconnectNotify_Callback = void (*)(KNotificationReplyAction*, QMetaMethod*);
-    using KNotificationReplyAction_Sender_Callback = QObject* (*)();
-    using KNotificationReplyAction_SenderSignalIndex_Callback = int (*)();
-    using KNotificationReplyAction_Receivers_Callback = int (*)(const KNotificationReplyAction*, const char*);
-    using KNotificationReplyAction_IsSignalConnected_Callback = bool (*)(const KNotificationReplyAction*, QMetaMethod*);
+    using KNotificationReplyAction::isSignalConnected;
+    using KNotificationReplyAction::receivers;
+    using KNotificationReplyAction::sender;
+    using KNotificationReplyAction::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KNotificationReplyAction_MetaObject_Callback knotificationreplyaction_metaobject_callback = nullptr;
     KNotificationReplyAction_Metacast_Callback knotificationreplyaction_metacast_callback = nullptr;
@@ -44,71 +39,22 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
     KNotificationReplyAction_CustomEvent_Callback knotificationreplyaction_customevent_callback = nullptr;
     KNotificationReplyAction_ConnectNotify_Callback knotificationreplyaction_connectnotify_callback = nullptr;
     KNotificationReplyAction_DisconnectNotify_Callback knotificationreplyaction_disconnectnotify_callback = nullptr;
-    KNotificationReplyAction_Sender_Callback knotificationreplyaction_sender_callback = nullptr;
-    KNotificationReplyAction_SenderSignalIndex_Callback knotificationreplyaction_sendersignalindex_callback = nullptr;
-    KNotificationReplyAction_Receivers_Callback knotificationreplyaction_receivers_callback = nullptr;
-    KNotificationReplyAction_IsSignalConnected_Callback knotificationreplyaction_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool knotificationreplyaction_metaobject_isbase = false;
-    mutable bool knotificationreplyaction_metacast_isbase = false;
-    mutable bool knotificationreplyaction_metacall_isbase = false;
-    mutable bool knotificationreplyaction_event_isbase = false;
-    mutable bool knotificationreplyaction_eventfilter_isbase = false;
-    mutable bool knotificationreplyaction_timerevent_isbase = false;
-    mutable bool knotificationreplyaction_childevent_isbase = false;
-    mutable bool knotificationreplyaction_customevent_isbase = false;
-    mutable bool knotificationreplyaction_connectnotify_isbase = false;
-    mutable bool knotificationreplyaction_disconnectnotify_isbase = false;
-    mutable bool knotificationreplyaction_sender_isbase = false;
-    mutable bool knotificationreplyaction_sendersignalindex_isbase = false;
-    mutable bool knotificationreplyaction_receivers_isbase = false;
-    mutable bool knotificationreplyaction_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KNotificationReplyAction {
+        using KNotificationReplyAction::childEvent;
+        using KNotificationReplyAction::connectNotify;
+        using KNotificationReplyAction::customEvent;
+        using KNotificationReplyAction::disconnectNotify;
+        using KNotificationReplyAction::timerEvent;
+    };
 
-  public:
     VirtualKNotificationReplyAction(const QString& label) : KNotificationReplyAction(label) {};
-
-    // Callback setters
-    inline void setKNotificationReplyAction_MetaObject_Callback(KNotificationReplyAction_MetaObject_Callback cb) { knotificationreplyaction_metaobject_callback = cb; }
-    inline void setKNotificationReplyAction_Metacast_Callback(KNotificationReplyAction_Metacast_Callback cb) { knotificationreplyaction_metacast_callback = cb; }
-    inline void setKNotificationReplyAction_Metacall_Callback(KNotificationReplyAction_Metacall_Callback cb) { knotificationreplyaction_metacall_callback = cb; }
-    inline void setKNotificationReplyAction_Event_Callback(KNotificationReplyAction_Event_Callback cb) { knotificationreplyaction_event_callback = cb; }
-    inline void setKNotificationReplyAction_EventFilter_Callback(KNotificationReplyAction_EventFilter_Callback cb) { knotificationreplyaction_eventfilter_callback = cb; }
-    inline void setKNotificationReplyAction_TimerEvent_Callback(KNotificationReplyAction_TimerEvent_Callback cb) { knotificationreplyaction_timerevent_callback = cb; }
-    inline void setKNotificationReplyAction_ChildEvent_Callback(KNotificationReplyAction_ChildEvent_Callback cb) { knotificationreplyaction_childevent_callback = cb; }
-    inline void setKNotificationReplyAction_CustomEvent_Callback(KNotificationReplyAction_CustomEvent_Callback cb) { knotificationreplyaction_customevent_callback = cb; }
-    inline void setKNotificationReplyAction_ConnectNotify_Callback(KNotificationReplyAction_ConnectNotify_Callback cb) { knotificationreplyaction_connectnotify_callback = cb; }
-    inline void setKNotificationReplyAction_DisconnectNotify_Callback(KNotificationReplyAction_DisconnectNotify_Callback cb) { knotificationreplyaction_disconnectnotify_callback = cb; }
-    inline void setKNotificationReplyAction_Sender_Callback(KNotificationReplyAction_Sender_Callback cb) { knotificationreplyaction_sender_callback = cb; }
-    inline void setKNotificationReplyAction_SenderSignalIndex_Callback(KNotificationReplyAction_SenderSignalIndex_Callback cb) { knotificationreplyaction_sendersignalindex_callback = cb; }
-    inline void setKNotificationReplyAction_Receivers_Callback(KNotificationReplyAction_Receivers_Callback cb) { knotificationreplyaction_receivers_callback = cb; }
-    inline void setKNotificationReplyAction_IsSignalConnected_Callback(KNotificationReplyAction_IsSignalConnected_Callback cb) { knotificationreplyaction_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKNotificationReplyAction_MetaObject_IsBase(bool value) const { knotificationreplyaction_metaobject_isbase = value; }
-    inline void setKNotificationReplyAction_Metacast_IsBase(bool value) const { knotificationreplyaction_metacast_isbase = value; }
-    inline void setKNotificationReplyAction_Metacall_IsBase(bool value) const { knotificationreplyaction_metacall_isbase = value; }
-    inline void setKNotificationReplyAction_Event_IsBase(bool value) const { knotificationreplyaction_event_isbase = value; }
-    inline void setKNotificationReplyAction_EventFilter_IsBase(bool value) const { knotificationreplyaction_eventfilter_isbase = value; }
-    inline void setKNotificationReplyAction_TimerEvent_IsBase(bool value) const { knotificationreplyaction_timerevent_isbase = value; }
-    inline void setKNotificationReplyAction_ChildEvent_IsBase(bool value) const { knotificationreplyaction_childevent_isbase = value; }
-    inline void setKNotificationReplyAction_CustomEvent_IsBase(bool value) const { knotificationreplyaction_customevent_isbase = value; }
-    inline void setKNotificationReplyAction_ConnectNotify_IsBase(bool value) const { knotificationreplyaction_connectnotify_isbase = value; }
-    inline void setKNotificationReplyAction_DisconnectNotify_IsBase(bool value) const { knotificationreplyaction_disconnectnotify_isbase = value; }
-    inline void setKNotificationReplyAction_Sender_IsBase(bool value) const { knotificationreplyaction_sender_isbase = value; }
-    inline void setKNotificationReplyAction_SenderSignalIndex_IsBase(bool value) const { knotificationreplyaction_sendersignalindex_isbase = value; }
-    inline void setKNotificationReplyAction_Receivers_IsBase(bool value) const { knotificationreplyaction_receivers_isbase = value; }
-    inline void setKNotificationReplyAction_IsSignalConnected_IsBase(bool value) const { knotificationreplyaction_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (knotificationreplyaction_metaobject_isbase) {
-            knotificationreplyaction_metaobject_isbase = false;
-            return KNotificationReplyAction::metaObject();
-        }
-        auto metaobject_cb = knotificationreplyaction_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (knotificationreplyaction_metaobject_callback) {
+            QMetaObject* callback_ret = knotificationreplyaction_metaobject_callback(this);
             return callback_ret;
         }
         return KNotificationReplyAction::metaObject();
@@ -116,14 +62,9 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (knotificationreplyaction_metacast_isbase) {
-            knotificationreplyaction_metacast_isbase = false;
-            return KNotificationReplyAction::qt_metacast(param1);
-        }
-        auto metacast_cb = knotificationreplyaction_metacast_callback;
-        if (metacast_cb) {
+        if (knotificationreplyaction_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = knotificationreplyaction_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KNotificationReplyAction::qt_metacast(param1);
@@ -131,16 +72,11 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (knotificationreplyaction_metacall_isbase) {
-            knotificationreplyaction_metacall_isbase = false;
-            return KNotificationReplyAction::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = knotificationreplyaction_metacall_callback;
-        if (metacall_cb) {
+        if (knotificationreplyaction_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = knotificationreplyaction_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KNotificationReplyAction::qt_metacall(param1, param2, param3);
@@ -148,14 +84,9 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (knotificationreplyaction_event_isbase) {
-            knotificationreplyaction_event_isbase = false;
-            return KNotificationReplyAction::event(event);
-        }
-        auto event_cb = knotificationreplyaction_event_callback;
-        if (event_cb) {
+        if (knotificationreplyaction_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = knotificationreplyaction_event_callback(this, cbval1);
             return callback_ret;
         }
         return KNotificationReplyAction::event(event);
@@ -163,15 +94,10 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (knotificationreplyaction_eventfilter_isbase) {
-            knotificationreplyaction_eventfilter_isbase = false;
-            return KNotificationReplyAction::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = knotificationreplyaction_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (knotificationreplyaction_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = knotificationreplyaction_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KNotificationReplyAction::eventFilter(watched, event);
@@ -179,15 +105,9 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (knotificationreplyaction_timerevent_isbase) {
-            knotificationreplyaction_timerevent_isbase = false;
-            KNotificationReplyAction::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = knotificationreplyaction_timerevent_callback;
-        if (timerevent_cb) {
+        if (knotificationreplyaction_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            knotificationreplyaction_timerevent_callback(this, cbval1);
             return;
         }
         KNotificationReplyAction::timerEvent(event);
@@ -195,15 +115,9 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (knotificationreplyaction_childevent_isbase) {
-            knotificationreplyaction_childevent_isbase = false;
-            KNotificationReplyAction::childEvent(event);
-            return;
-        }
-        auto childevent_cb = knotificationreplyaction_childevent_callback;
-        if (childevent_cb) {
+        if (knotificationreplyaction_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            knotificationreplyaction_childevent_callback(this, cbval1);
             return;
         }
         KNotificationReplyAction::childEvent(event);
@@ -211,15 +125,9 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (knotificationreplyaction_customevent_isbase) {
-            knotificationreplyaction_customevent_isbase = false;
-            KNotificationReplyAction::customEvent(event);
-            return;
-        }
-        auto customevent_cb = knotificationreplyaction_customevent_callback;
-        if (customevent_cb) {
+        if (knotificationreplyaction_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            knotificationreplyaction_customevent_callback(this, cbval1);
             return;
         }
         KNotificationReplyAction::customEvent(event);
@@ -227,17 +135,11 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (knotificationreplyaction_connectnotify_isbase) {
-            knotificationreplyaction_connectnotify_isbase = false;
-            KNotificationReplyAction::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = knotificationreplyaction_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (knotificationreplyaction_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            knotificationreplyaction_connectnotify_callback(this, cbval1);
             return;
         }
         KNotificationReplyAction::connectNotify(signal);
@@ -245,101 +147,22 @@ class VirtualKNotificationReplyAction final : public KNotificationReplyAction {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (knotificationreplyaction_disconnectnotify_isbase) {
-            knotificationreplyaction_disconnectnotify_isbase = false;
-            KNotificationReplyAction::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = knotificationreplyaction_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (knotificationreplyaction_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            knotificationreplyaction_disconnectnotify_callback(this, cbval1);
             return;
         }
         KNotificationReplyAction::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (knotificationreplyaction_sender_isbase) {
-            knotificationreplyaction_sender_isbase = false;
-            return KNotificationReplyAction::sender();
-        }
-        auto sender_cb = knotificationreplyaction_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KNotificationReplyAction::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (knotificationreplyaction_sendersignalindex_isbase) {
-            knotificationreplyaction_sendersignalindex_isbase = false;
-            return KNotificationReplyAction::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = knotificationreplyaction_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KNotificationReplyAction::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (knotificationreplyaction_receivers_isbase) {
-            knotificationreplyaction_receivers_isbase = false;
-            return KNotificationReplyAction::receivers(signal);
-        }
-        auto receivers_cb = knotificationreplyaction_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KNotificationReplyAction::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (knotificationreplyaction_issignalconnected_isbase) {
-            knotificationreplyaction_issignalconnected_isbase = false;
-            return KNotificationReplyAction::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = knotificationreplyaction_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KNotificationReplyAction::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KNotificationReplyAction_TimerEvent(KNotificationReplyAction* self, QTimerEvent* event);
     friend void KNotificationReplyAction_SuperTimerEvent(KNotificationReplyAction* self, QTimerEvent* event);
-    friend void KNotificationReplyAction_ChildEvent(KNotificationReplyAction* self, QChildEvent* event);
     friend void KNotificationReplyAction_SuperChildEvent(KNotificationReplyAction* self, QChildEvent* event);
-    friend void KNotificationReplyAction_CustomEvent(KNotificationReplyAction* self, QEvent* event);
     friend void KNotificationReplyAction_SuperCustomEvent(KNotificationReplyAction* self, QEvent* event);
-    friend void KNotificationReplyAction_ConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
     friend void KNotificationReplyAction_SuperConnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
-    friend void KNotificationReplyAction_DisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
     friend void KNotificationReplyAction_SuperDisconnectNotify(KNotificationReplyAction* self, const QMetaMethod* signal);
-    friend QObject* KNotificationReplyAction_Sender(const KNotificationReplyAction* self);
-    friend QObject* KNotificationReplyAction_SuperSender(const KNotificationReplyAction* self);
-    friend int KNotificationReplyAction_SenderSignalIndex(const KNotificationReplyAction* self);
-    friend int KNotificationReplyAction_SuperSenderSignalIndex(const KNotificationReplyAction* self);
-    friend int KNotificationReplyAction_Receivers(const KNotificationReplyAction* self, const char* signal);
-    friend int KNotificationReplyAction_SuperReceivers(const KNotificationReplyAction* self, const char* signal);
-    friend bool KNotificationReplyAction_IsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal);
-    friend bool KNotificationReplyAction_SuperIsSignalConnected(const KNotificationReplyAction* self, const QMetaMethod* signal);
 };
 
 #endif

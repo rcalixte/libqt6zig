@@ -234,7 +234,7 @@ QSize* QLayout_ClosestAcceptableSize(const QWidget* w, const QSize* s) {
 
 void QLayout_ChildEvent(QLayout* self, QChildEvent* e) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout) {
         vqlayout->childEvent(e);
     }
 }
@@ -265,984 +265,517 @@ libqt_string QLayout_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QLayout_SuperMetaObject(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_MetaObject_IsBase(true);
-        return (QMetaObject*)vqlayout->metaObject();
-    } else {
-        return (QMetaObject*)self->QLayout::metaObject();
-    }
+    return (QMetaObject*)self->QLayout::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnMetaObject(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_MetaObject_Callback(reinterpret_cast<VirtualQLayout::QLayout_MetaObject_Callback>(slot));
+void QLayout_OnMetaObject(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_metaobject_callback = reinterpret_cast<VirtualQLayout::QLayout_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QLayout_SuperMetacast(QLayout* self, const char* param1) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Metacast_IsBase(true);
-        return vqlayout->qt_metacast(param1);
-    } else {
-        return self->QLayout::qt_metacast(param1);
-    }
+    return self->QLayout::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnMetacast(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Metacast_Callback(reinterpret_cast<VirtualQLayout::QLayout_Metacast_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_metacast_callback = reinterpret_cast<VirtualQLayout::QLayout_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLayout_SuperMetacall(QLayout* self, int param1, int param2, void** param3) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Metacall_IsBase(true);
-        return vqlayout->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QLayout::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QLayout::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnMetacall(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Metacall_Callback(reinterpret_cast<VirtualQLayout::QLayout_Metacall_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_metacall_callback = reinterpret_cast<VirtualQLayout::QLayout_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLayout_SuperSpacing(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Spacing_IsBase(true);
-        return vqlayout->spacing();
-    } else {
-        return self->QLayout::spacing();
-    }
+    return self->QLayout::spacing();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnSpacing(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Spacing_Callback(reinterpret_cast<VirtualQLayout::QLayout_Spacing_Callback>(slot));
+void QLayout_OnSpacing(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_spacing_callback = reinterpret_cast<VirtualQLayout::QLayout_Spacing_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLayout_SuperSetSpacing(QLayout* self, int spacing) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_SetSpacing_IsBase(true);
-        vqlayout->setSpacing(static_cast<int>(spacing));
-    } else {
-        self->QLayout::setSpacing(static_cast<int>(spacing));
-    }
+    self->QLayout::setSpacing(static_cast<int>(spacing));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSetSpacing(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_SetSpacing_Callback(reinterpret_cast<VirtualQLayout::QLayout_SetSpacing_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_setspacing_callback = reinterpret_cast<VirtualQLayout::QLayout_SetSpacing_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLayout_SuperInvalidate(QLayout* self) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Invalidate_IsBase(true);
-        vqlayout->invalidate();
-    } else {
-        self->QLayout::invalidate();
-    }
+    self->QLayout::invalidate();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnInvalidate(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Invalidate_Callback(reinterpret_cast<VirtualQLayout::QLayout_Invalidate_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_invalidate_callback = reinterpret_cast<VirtualQLayout::QLayout_Invalidate_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QLayout_SuperGeometry(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Geometry_IsBase(true);
-        return new QRect(vqlayout->geometry());
-    } else {
-        return new QRect(((VirtualQLayout*)self)->geometry());
-    }
+    return new QRect(self->QLayout::geometry());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnGeometry(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Geometry_Callback(reinterpret_cast<VirtualQLayout::QLayout_Geometry_Callback>(slot));
-}
-
-// Base class handler implementation
-void QLayout_SuperAddItem(QLayout* self, QLayoutItem* param1) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_AddItem_IsBase(true);
-        vqlayout->addItem(param1);
-    } else {
-        ((VirtualQLayout*)self)->addItem(param1);
-    }
+void QLayout_OnGeometry(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_geometry_callback = reinterpret_cast<VirtualQLayout::QLayout_Geometry_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnAddItem(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_AddItem_Callback(reinterpret_cast<VirtualQLayout::QLayout_AddItem_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_additem_callback = reinterpret_cast<VirtualQLayout::QLayout_AddItem_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLayout_SuperExpandingDirections(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_ExpandingDirections_IsBase(true);
-        return static_cast<int>(vqlayout->expandingDirections());
-    } else {
-        return static_cast<int>(self->QLayout::expandingDirections());
-    }
+    return static_cast<int>(self->QLayout::expandingDirections());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnExpandingDirections(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQLayout::QLayout_ExpandingDirections_Callback>(slot));
+void QLayout_OnExpandingDirections(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_expandingdirections_callback = reinterpret_cast<VirtualQLayout::QLayout_ExpandingDirections_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QLayout_SuperMinimumSize(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_MinimumSize_IsBase(true);
-        return new QSize(vqlayout->minimumSize());
-    } else {
-        return new QSize(((VirtualQLayout*)self)->minimumSize());
-    }
+    return new QSize(self->QLayout::minimumSize());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnMinimumSize(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_MinimumSize_Callback(reinterpret_cast<VirtualQLayout::QLayout_MinimumSize_Callback>(slot));
+void QLayout_OnMinimumSize(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_minimumsize_callback = reinterpret_cast<VirtualQLayout::QLayout_MinimumSize_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QLayout_SuperMaximumSize(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_MaximumSize_IsBase(true);
-        return new QSize(vqlayout->maximumSize());
-    } else {
-        return new QSize(((VirtualQLayout*)self)->maximumSize());
-    }
+    return new QSize(self->QLayout::maximumSize());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnMaximumSize(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_MaximumSize_Callback(reinterpret_cast<VirtualQLayout::QLayout_MaximumSize_Callback>(slot));
+void QLayout_OnMaximumSize(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_maximumsize_callback = reinterpret_cast<VirtualQLayout::QLayout_MaximumSize_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLayout_SuperSetGeometry(QLayout* self, const QRect* geometry) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_SetGeometry_IsBase(true);
-        vqlayout->setGeometry(*geometry);
-    } else {
-        self->QLayout::setGeometry(*geometry);
-    }
+    self->QLayout::setGeometry(*geometry);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSetGeometry(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_SetGeometry_Callback(reinterpret_cast<VirtualQLayout::QLayout_SetGeometry_Callback>(slot));
-}
-
-// Base class handler implementation
-QLayoutItem* QLayout_SuperItemAt(const QLayout* self, int index) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_ItemAt_IsBase(true);
-        return vqlayout->itemAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQLayout*)self)->itemAt(static_cast<int>(index));
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_setgeometry_callback = reinterpret_cast<VirtualQLayout::QLayout_SetGeometry_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnItemAt(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_ItemAt_Callback(reinterpret_cast<VirtualQLayout::QLayout_ItemAt_Callback>(slot));
-}
-
-// Base class handler implementation
-QLayoutItem* QLayout_SuperTakeAt(QLayout* self, int index) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_TakeAt_IsBase(true);
-        return vqlayout->takeAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQLayout*)self)->takeAt(static_cast<int>(index));
-    }
+void QLayout_OnItemAt(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_itemat_callback = reinterpret_cast<VirtualQLayout::QLayout_ItemAt_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnTakeAt(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_TakeAt_Callback(reinterpret_cast<VirtualQLayout::QLayout_TakeAt_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_takeat_callback = reinterpret_cast<VirtualQLayout::QLayout_TakeAt_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLayout_SuperIndexOf(const QLayout* self, const QWidget* param1) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_IndexOf_IsBase(true);
-        return vqlayout->indexOf(param1);
-    } else {
-        return self->QLayout::indexOf(param1);
-    }
+    return self->QLayout::indexOf(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnIndexOf(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_IndexOf_Callback(reinterpret_cast<VirtualQLayout::QLayout_IndexOf_Callback>(slot));
+void QLayout_OnIndexOf(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_indexof_callback = reinterpret_cast<VirtualQLayout::QLayout_IndexOf_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLayout_SuperIndexOf2(const QLayout* self, const QLayoutItem* param1) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_IndexOf2_IsBase(true);
-        return vqlayout->indexOf(param1);
-    } else {
-        return self->QLayout::indexOf(param1);
-    }
+    return self->QLayout::indexOf(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnIndexOf2(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_IndexOf2_Callback(reinterpret_cast<VirtualQLayout::QLayout_IndexOf2_Callback>(slot));
-}
-
-// Base class handler implementation
-int QLayout_SuperCount(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Count_IsBase(true);
-        return vqlayout->count();
-    } else {
-        return ((VirtualQLayout*)self)->count();
-    }
+void QLayout_OnIndexOf2(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_indexof2_callback = reinterpret_cast<VirtualQLayout::QLayout_IndexOf2_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnCount(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Count_Callback(reinterpret_cast<VirtualQLayout::QLayout_Count_Callback>(slot));
+void QLayout_OnCount(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_count_callback = reinterpret_cast<VirtualQLayout::QLayout_Count_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QLayout_SuperIsEmpty(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_IsEmpty_IsBase(true);
-        return vqlayout->isEmpty();
-    } else {
-        return self->QLayout::isEmpty();
-    }
+    return self->QLayout::isEmpty();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnIsEmpty(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_IsEmpty_Callback(reinterpret_cast<VirtualQLayout::QLayout_IsEmpty_Callback>(slot));
+void QLayout_OnIsEmpty(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_isempty_callback = reinterpret_cast<VirtualQLayout::QLayout_IsEmpty_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLayout_SuperControlTypes(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_ControlTypes_IsBase(true);
-        return static_cast<int>(vqlayout->controlTypes());
-    } else {
-        return static_cast<int>(self->QLayout::controlTypes());
-    }
+    return static_cast<int>(self->QLayout::controlTypes());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnControlTypes(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_ControlTypes_Callback(reinterpret_cast<VirtualQLayout::QLayout_ControlTypes_Callback>(slot));
+void QLayout_OnControlTypes(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_controltypes_callback = reinterpret_cast<VirtualQLayout::QLayout_ControlTypes_Callback>(slot);
 }
 
 // Base class handler implementation
 QLayoutItem* QLayout_SuperReplaceWidget(QLayout* self, QWidget* from, QWidget* to, int options) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_ReplaceWidget_IsBase(true);
-        return vqlayout->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    } else {
-        return self->QLayout::replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    }
+    return self->QLayout::replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnReplaceWidget(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_ReplaceWidget_Callback(reinterpret_cast<VirtualQLayout::QLayout_ReplaceWidget_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_replacewidget_callback = reinterpret_cast<VirtualQLayout::QLayout_ReplaceWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 QLayout* QLayout_SuperLayout(QLayout* self) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Layout_IsBase(true);
-        return vqlayout->layout();
-    } else {
-        return self->QLayout::layout();
-    }
+    return self->QLayout::layout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnLayout(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Layout_Callback(reinterpret_cast<VirtualQLayout::QLayout_Layout_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_layout_callback = reinterpret_cast<VirtualQLayout::QLayout_Layout_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLayout_SuperChildEvent(QLayout* self, QChildEvent* e) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_ChildEvent_IsBase(true);
-        vqlayout->childEvent(e);
-    } else {
-        ((VirtualQLayout*)self)->childEvent(e);
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        vqlayout->QLayout::childEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QLayout::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnChildEvent(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_ChildEvent_Callback(reinterpret_cast<VirtualQLayout::QLayout_ChildEvent_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_childevent_callback = reinterpret_cast<VirtualQLayout::QLayout_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLayout_Event(QLayout* self, QEvent* event) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->event(event);
-    } else {
-        return self->QLayout::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QLayout_SuperEvent(QLayout* self, QEvent* event) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Event_IsBase(true);
-        return vqlayout->event(event);
-    } else {
-        return self->QLayout::event(event);
-    }
+    return self->QLayout::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnEvent(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Event_Callback(reinterpret_cast<VirtualQLayout::QLayout_Event_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_event_callback = reinterpret_cast<VirtualQLayout::QLayout_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLayout_EventFilter(QLayout* self, QObject* watched, QEvent* event) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->eventFilter(watched, event);
-    } else {
-        return self->QLayout::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QLayout_SuperEventFilter(QLayout* self, QObject* watched, QEvent* event) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_EventFilter_IsBase(true);
-        return vqlayout->eventFilter(watched, event);
-    } else {
-        return self->QLayout::eventFilter(watched, event);
-    }
+    return self->QLayout::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnEventFilter(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_EventFilter_Callback(reinterpret_cast<VirtualQLayout::QLayout_EventFilter_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_eventfilter_callback = reinterpret_cast<VirtualQLayout::QLayout_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLayout_TimerEvent(QLayout* self, QTimerEvent* event) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout) {
         vqlayout->timerEvent(event);
     } else {
-        ((VirtualQLayout*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QLayout::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLayout_SuperTimerEvent(QLayout* self, QTimerEvent* event) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_TimerEvent_IsBase(true);
-        vqlayout->timerEvent(event);
-    } else {
-        ((VirtualQLayout*)self)->timerEvent(event);
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        vqlayout->QLayout::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLayout::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnTimerEvent(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_TimerEvent_Callback(reinterpret_cast<VirtualQLayout::QLayout_TimerEvent_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_timerevent_callback = reinterpret_cast<VirtualQLayout::QLayout_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLayout_CustomEvent(QLayout* self, QEvent* event) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout) {
         vqlayout->customEvent(event);
     } else {
-        ((VirtualQLayout*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QLayout::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLayout_SuperCustomEvent(QLayout* self, QEvent* event) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_CustomEvent_IsBase(true);
-        vqlayout->customEvent(event);
-    } else {
-        ((VirtualQLayout*)self)->customEvent(event);
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        vqlayout->QLayout::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLayout::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnCustomEvent(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_CustomEvent_Callback(reinterpret_cast<VirtualQLayout::QLayout_CustomEvent_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_customevent_callback = reinterpret_cast<VirtualQLayout::QLayout_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLayout_ConnectNotify(QLayout* self, const QMetaMethod* signal) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout) {
         vqlayout->connectNotify(*signal);
     } else {
-        ((VirtualQLayout*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QLayout::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLayout_SuperConnectNotify(QLayout* self, const QMetaMethod* signal) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_ConnectNotify_IsBase(true);
-        vqlayout->connectNotify(*signal);
-    } else {
-        ((VirtualQLayout*)self)->connectNotify(*signal);
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        vqlayout->QLayout::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QLayout::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnConnectNotify(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_ConnectNotify_Callback(reinterpret_cast<VirtualQLayout::QLayout_ConnectNotify_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_connectnotify_callback = reinterpret_cast<VirtualQLayout::QLayout_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLayout_DisconnectNotify(QLayout* self, const QMetaMethod* signal) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout) {
         vqlayout->disconnectNotify(*signal);
     } else {
-        ((VirtualQLayout*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QLayout::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLayout_SuperDisconnectNotify(QLayout* self, const QMetaMethod* signal) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_DisconnectNotify_IsBase(true);
-        vqlayout->disconnectNotify(*signal);
-    } else {
-        ((VirtualQLayout*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        vqlayout->QLayout::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QLayout::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnDisconnectNotify(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_DisconnectNotify_Callback(reinterpret_cast<VirtualQLayout::QLayout_DisconnectNotify_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_disconnectnotify_callback = reinterpret_cast<VirtualQLayout::QLayout_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QLayout_SizeHint(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return new QSize(vqlayout->sizeHint());
-    } else {
-        return new QSize(((VirtualQLayout*)self)->sizeHint());
-    }
-}
-
-// Base class handler implementation
-QSize* QLayout_SuperSizeHint(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_SizeHint_IsBase(true);
-        return new QSize(vqlayout->sizeHint());
-    } else {
-        return new QSize(((VirtualQLayout*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnSizeHint(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_SizeHint_Callback(reinterpret_cast<VirtualQLayout::QLayout_SizeHint_Callback>(slot));
+void QLayout_OnSizeHint(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_sizehint_callback = reinterpret_cast<VirtualQLayout::QLayout_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLayout_HasHeightForWidth(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->hasHeightForWidth();
-    } else {
-        return self->QLayout::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QLayout_SuperHasHeightForWidth(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_HasHeightForWidth_IsBase(true);
-        return vqlayout->hasHeightForWidth();
-    } else {
-        return self->QLayout::hasHeightForWidth();
-    }
+    return self->QLayout::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnHasHeightForWidth(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQLayout::QLayout_HasHeightForWidth_Callback>(slot));
+void QLayout_OnHasHeightForWidth(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_hasheightforwidth_callback = reinterpret_cast<VirtualQLayout::QLayout_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QLayout_HeightForWidth(const QLayout* self, int param1) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QLayout::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QLayout_SuperHeightForWidth(const QLayout* self, int param1) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_HeightForWidth_IsBase(true);
-        return vqlayout->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QLayout::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QLayout::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnHeightForWidth(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQLayout::QLayout_HeightForWidth_Callback>(slot));
+void QLayout_OnHeightForWidth(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_heightforwidth_callback = reinterpret_cast<VirtualQLayout::QLayout_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QLayout_MinimumHeightForWidth(const QLayout* self, int param1) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QLayout::minimumHeightForWidth(static_cast<int>(param1));
-    }
+    return self->minimumHeightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QLayout_SuperMinimumHeightForWidth(const QLayout* self, int param1) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_MinimumHeightForWidth_IsBase(true);
-        return vqlayout->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QLayout::minimumHeightForWidth(static_cast<int>(param1));
-    }
+    return self->QLayout::minimumHeightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnMinimumHeightForWidth(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQLayout::QLayout_MinimumHeightForWidth_Callback>(slot));
+void QLayout_OnMinimumHeightForWidth(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_minimumheightforwidth_callback = reinterpret_cast<VirtualQLayout::QLayout_MinimumHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QWidget* QLayout_Widget(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->widget();
-    } else {
-        return self->QLayout::widget();
-    }
+    return self->widget();
 }
 
 // Base class handler implementation
 QWidget* QLayout_SuperWidget(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Widget_IsBase(true);
-        return vqlayout->widget();
-    } else {
-        return self->QLayout::widget();
-    }
+    return self->QLayout::widget();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnWidget(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Widget_Callback(reinterpret_cast<VirtualQLayout::QLayout_Widget_Callback>(slot));
+void QLayout_OnWidget(QLayout* self, intptr_t slot) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
+        vqlayout->qlayout_widget_callback = reinterpret_cast<VirtualQLayout::QLayout_Widget_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSpacerItem* QLayout_SpacerItem(QLayout* self) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->spacerItem();
-    } else {
-        return self->QLayout::spacerItem();
-    }
+    return self->spacerItem();
 }
 
 // Base class handler implementation
 QSpacerItem* QLayout_SuperSpacerItem(QLayout* self) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_SpacerItem_IsBase(true);
-        return vqlayout->spacerItem();
-    } else {
-        return self->QLayout::spacerItem();
-    }
+    return self->QLayout::spacerItem();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSpacerItem(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_SpacerItem_Callback(reinterpret_cast<VirtualQLayout::QLayout_SpacerItem_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self))
+        vqlayout->qlayout_spaceritem_callback = reinterpret_cast<VirtualQLayout::QLayout_SpacerItem_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QLayout_WidgetEvent(QLayout* self, QEvent* param1) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->widgetEvent(param1);
-    } else {
-        ((VirtualQLayout*)self)->widgetEvent(param1);
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        vqlayout->VirtualQLayout::widgetEvent(param1);
+    } else
+        qFatal("Error: Protected method QLayout::widgetEvent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QLayout_SuperWidgetEvent(QLayout* self, QEvent* param1) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_WidgetEvent_IsBase(true);
-        vqlayout->widgetEvent(param1);
-    } else {
-        ((VirtualQLayout*)self)->widgetEvent(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnWidgetEvent(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQLayout::QLayout_WidgetEvent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QLayout_AddChildLayout(QLayout* self, QLayout* l) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->addChildLayout(l);
-    } else {
-        ((VirtualQLayout*)self)->addChildLayout(l);
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        vqlayout->VirtualQLayout::addChildLayout(l);
+    } else
+        qFatal("Error: Protected method QLayout::addChildLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QLayout_SuperAddChildLayout(QLayout* self, QLayout* l) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_AddChildLayout_IsBase(true);
-        vqlayout->addChildLayout(l);
-    } else {
-        ((VirtualQLayout*)self)->addChildLayout(l);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnAddChildLayout(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_AddChildLayout_Callback(reinterpret_cast<VirtualQLayout::QLayout_AddChildLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QLayout_AddChildWidget(QLayout* self, QWidget* w) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->addChildWidget(w);
-    } else {
-        ((VirtualQLayout*)self)->addChildWidget(w);
-    }
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        vqlayout->VirtualQLayout::addChildWidget(w);
+    } else
+        qFatal("Error: Protected method QLayout::addChildWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QLayout_SuperAddChildWidget(QLayout* self, QWidget* w) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_AddChildWidget_IsBase(true);
-        vqlayout->addChildWidget(w);
-    } else {
-        ((VirtualQLayout*)self)->addChildWidget(w);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnAddChildWidget(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_AddChildWidget_Callback(reinterpret_cast<VirtualQLayout::QLayout_AddChildWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QLayout_AdoptLayout(QLayout* self, QLayout* layout) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->adoptLayout(layout);
-    } else {
-        return ((VirtualQLayout*)self)->adoptLayout(layout);
-    }
-}
-
-// Base class handler implementation
-bool QLayout_SuperAdoptLayout(QLayout* self, QLayout* layout) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_AdoptLayout_IsBase(true);
-        return vqlayout->adoptLayout(layout);
-    } else {
-        return ((VirtualQLayout*)self)->adoptLayout(layout);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnAdoptLayout(QLayout* self, intptr_t slot) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_AdoptLayout_Callback(reinterpret_cast<VirtualQLayout::QLayout_AdoptLayout_Callback>(slot));
+    if (auto* vqlayout = dynamic_cast<VirtualQLayout*>(self)) {
+        return vqlayout->VirtualQLayout::adoptLayout(layout);
+    } else
+        qFatal("Error: Protected method QLayout::adoptLayout called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRect* QLayout_AlignmentRect(const QLayout* self, const QRect* param1) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self)))
         return new QRect(vqlayout->alignmentRect(*param1));
-    }
-    return {};
+    qFatal("Error: Protected method QLayout::alignmentRect called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* QLayout_SuperAlignmentRect(const QLayout* self, const QRect* param1) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_AlignmentRect_IsBase(true);
-        return new QRect(vqlayout->alignmentRect(*param1));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnAlignmentRect(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_AlignmentRect_Callback(reinterpret_cast<VirtualQLayout::QLayout_AlignmentRect_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QLayout_Sender(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->sender();
-    } else {
-        return ((VirtualQLayout*)self)->sender();
-    }
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self))) {
+        return vqlayout->VirtualQLayout::sender();
+    } else
+        qFatal("Error: Protected method QLayout::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QLayout_SuperSender(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Sender_IsBase(true);
-        return vqlayout->sender();
-    } else {
-        return ((VirtualQLayout*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnSender(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Sender_Callback(reinterpret_cast<VirtualQLayout::QLayout_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QLayout_SenderSignalIndex(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->senderSignalIndex();
-    } else {
-        return ((VirtualQLayout*)self)->senderSignalIndex();
-    }
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self))) {
+        return vqlayout->VirtualQLayout::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QLayout::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QLayout_SuperSenderSignalIndex(const QLayout* self) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_SenderSignalIndex_IsBase(true);
-        return vqlayout->senderSignalIndex();
-    } else {
-        return ((VirtualQLayout*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnSenderSignalIndex(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLayout::QLayout_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QLayout_Receivers(const QLayout* self, const char* signal) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->receivers(signal);
-    } else {
-        return ((VirtualQLayout*)self)->receivers(signal);
-    }
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self))) {
+        return vqlayout->VirtualQLayout::receivers(signal);
+    } else
+        qFatal("Error: Protected method QLayout::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QLayout_SuperReceivers(const QLayout* self, const char* signal) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_Receivers_IsBase(true);
-        return vqlayout->receivers(signal);
-    } else {
-        return ((VirtualQLayout*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnReceivers(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_Receivers_Callback(reinterpret_cast<VirtualQLayout::QLayout_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QLayout_IsSignalConnected(const QLayout* self, const QMetaMethod* signal) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQLayout*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QLayout_SuperIsSignalConnected(const QLayout* self, const QMetaMethod* signal) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_IsSignalConnected_IsBase(true);
-        return vqlayout->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQLayout*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLayout_OnIsSignalConnected(const QLayout* self, intptr_t slot) {
-    auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout)
-        vqlayout->setQLayout_IsSignalConnected_Callback(reinterpret_cast<VirtualQLayout::QLayout_IsSignalConnected_Callback>(slot));
+    if (auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self))) {
+        return vqlayout->VirtualQLayout::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QLayout::isSignalConnected called without a directly constructed type");
 }
 
 void QLayout_Delete(QLayout* self) {

@@ -24,453 +24,308 @@ QObject* KParts__PartBase_PartObject(const KParts__PartBase* self) {
 
 // Derived class handler implementation
 QAction* KParts__PartBase_Action2(const KParts__PartBase* self, const QDomElement* element) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        return vkpartspartbase->action(*element);
-    } else {
-        return self->KParts::PartBase::action(*element);
-    }
+    return self->action(*element);
 }
 
 // Base class handler implementation
 QAction* KParts__PartBase_SuperAction2(const KParts__PartBase* self, const QDomElement* element) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_Action2_IsBase(true);
-        return vkpartspartbase->action(*element);
-    } else {
-        return self->KParts::PartBase::action(*element);
-    }
+    return self->KParts::PartBase::action(*element);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartBase_OnAction2(const KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_Action2_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_Action2_Callback>(slot));
+void KParts__PartBase_OnAction2(KParts__PartBase* self, intptr_t slot) {
+    if (auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self)))
+        vkpartspartbase->kparts__partbase_action2_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_Action2_Callback>(slot);
 }
 
 // Derived class handler implementation
 KActionCollection* KParts__PartBase_ActionCollection(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        return vkpartspartbase->actionCollection();
-    } else {
-        return self->KParts::PartBase::actionCollection();
-    }
+    return self->actionCollection();
 }
 
 // Base class handler implementation
 KActionCollection* KParts__PartBase_SuperActionCollection(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_ActionCollection_IsBase(true);
-        return vkpartspartbase->actionCollection();
-    } else {
-        return self->KParts::PartBase::actionCollection();
-    }
+    return self->KParts::PartBase::actionCollection();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartBase_OnActionCollection(const KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_ActionCollection_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_ActionCollection_Callback>(slot));
+void KParts__PartBase_OnActionCollection(KParts__PartBase* self, intptr_t slot) {
+    if (auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self)))
+        vkpartspartbase->kparts__partbase_actioncollection_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_ActionCollection_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KParts__PartBase_ComponentName(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        auto _ret = vkpartspartbase->componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::PartBase::componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->componentName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KParts__PartBase_SuperComponentName(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_ComponentName_IsBase(true);
-        auto _ret = vkpartspartbase->componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::PartBase::componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KParts::PartBase::componentName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartBase_OnComponentName(const KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_ComponentName_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_ComponentName_Callback>(slot));
+void KParts__PartBase_OnComponentName(KParts__PartBase* self, intptr_t slot) {
+    if (auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self)))
+        vkpartspartbase->kparts__partbase_componentname_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_ComponentName_Callback>(slot);
 }
 
 // Derived class handler implementation
 QDomDocument* KParts__PartBase_DomDocument(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        return new QDomDocument(vkpartspartbase->domDocument());
-    } else {
-        return new QDomDocument(((VirtualKPartsPartBase*)self)->domDocument());
-    }
+    return new QDomDocument(self->domDocument());
 }
 
 // Base class handler implementation
 QDomDocument* KParts__PartBase_SuperDomDocument(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_DomDocument_IsBase(true);
-        return new QDomDocument(vkpartspartbase->domDocument());
-    } else {
-        return new QDomDocument(((VirtualKPartsPartBase*)self)->domDocument());
-    }
+    return new QDomDocument(self->KParts::PartBase::domDocument());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartBase_OnDomDocument(const KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_DomDocument_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_DomDocument_Callback>(slot));
+void KParts__PartBase_OnDomDocument(KParts__PartBase* self, intptr_t slot) {
+    if (auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self)))
+        vkpartspartbase->kparts__partbase_domdocument_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_DomDocument_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KParts__PartBase_XmlFile(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        auto _ret = vkpartspartbase->xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::PartBase::xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->xmlFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KParts__PartBase_SuperXmlFile(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_XmlFile_IsBase(true);
-        auto _ret = vkpartspartbase->xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::PartBase::xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KParts::PartBase::xmlFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartBase_OnXmlFile(const KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_XmlFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_XmlFile_Callback>(slot));
+void KParts__PartBase_OnXmlFile(KParts__PartBase* self, intptr_t slot) {
+    if (auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self)))
+        vkpartspartbase->kparts__partbase_xmlfile_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_XmlFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KParts__PartBase_LocalXMLFile(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        auto _ret = vkpartspartbase->localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::PartBase::localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->localXMLFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KParts__PartBase_SuperLocalXMLFile(const KParts__PartBase* self) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_LocalXMLFile_IsBase(true);
-        auto _ret = vkpartspartbase->localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KParts::PartBase::localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KParts::PartBase::localXMLFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__PartBase_OnLocalXMLFile(const KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self));
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_LocalXMLFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_LocalXMLFile_Callback>(slot));
+void KParts__PartBase_OnLocalXMLFile(KParts__PartBase* self, intptr_t slot) {
+    if (auto* vkpartspartbase = const_cast<VirtualKPartsPartBase*>(dynamic_cast<const VirtualKPartsPartBase*>(self)))
+        vkpartspartbase->kparts__partbase_localxmlfile_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_LocalXMLFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartBase_SetComponentName(KParts__PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
+    if (vkpartspartbase) {
         vkpartspartbase->setComponentName(componentName_QString, componentDisplayName_QString);
     } else {
-        ((VirtualKPartsPartBase*)self)->setComponentName(componentName_QString, componentDisplayName_QString);
+        qFatal("Error: Protected virtual method KParts::PartBase::setComponentName called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartBase_SuperSetComponentName(KParts__PartBase* self, const libqt_string componentName, const libqt_string componentDisplayName) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
     QString componentDisplayName_QString = QString::fromUtf8(componentDisplayName.data, componentDisplayName.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_SetComponentName_IsBase(true);
-        vkpartspartbase->setComponentName(componentName_QString, componentDisplayName_QString);
-    } else {
-        ((VirtualKPartsPartBase*)self)->setComponentName(componentName_QString, componentDisplayName_QString);
-    }
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self)) {
+        vkpartspartbase->KParts::PartBase::setComponentName(componentName_QString, componentDisplayName_QString);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartBase::setComponentName called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetComponentName(KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_SetComponentName_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetComponentName_Callback>(slot));
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self))
+        vkpartspartbase->kparts__partbase_setcomponentname_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetComponentName_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartBase_SetXMLFile(KParts__PartBase* self, const libqt_string file, bool merge, bool setXMLDoc) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
+    if (vkpartspartbase) {
         vkpartspartbase->setXMLFile(file_QString, merge, setXMLDoc);
     } else {
-        ((VirtualKPartsPartBase*)self)->setXMLFile(file_QString, merge, setXMLDoc);
+        qFatal("Error: Protected virtual method KParts::PartBase::setXMLFile called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartBase_SuperSetXMLFile(KParts__PartBase* self, const libqt_string file, bool merge, bool setXMLDoc) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_SetXMLFile_IsBase(true);
-        vkpartspartbase->setXMLFile(file_QString, merge, setXMLDoc);
-    } else {
-        ((VirtualKPartsPartBase*)self)->setXMLFile(file_QString, merge, setXMLDoc);
-    }
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self)) {
+        vkpartspartbase->KParts::PartBase::setXMLFile(file_QString, merge, setXMLDoc);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartBase::setXMLFile called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetXMLFile(KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_SetXMLFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetXMLFile_Callback>(slot));
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self))
+        vkpartspartbase->kparts__partbase_setxmlfile_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetXMLFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartBase_SetLocalXMLFile(KParts__PartBase* self, const libqt_string file) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
+    if (vkpartspartbase) {
         vkpartspartbase->setLocalXMLFile(file_QString);
     } else {
-        ((VirtualKPartsPartBase*)self)->setLocalXMLFile(file_QString);
+        qFatal("Error: Protected virtual method KParts::PartBase::setLocalXMLFile called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartBase_SuperSetLocalXMLFile(KParts__PartBase* self, const libqt_string file) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString file_QString = QString::fromUtf8(file.data, file.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_SetLocalXMLFile_IsBase(true);
-        vkpartspartbase->setLocalXMLFile(file_QString);
-    } else {
-        ((VirtualKPartsPartBase*)self)->setLocalXMLFile(file_QString);
-    }
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self)) {
+        vkpartspartbase->KParts::PartBase::setLocalXMLFile(file_QString);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartBase::setLocalXMLFile called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetLocalXMLFile(KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_SetLocalXMLFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetLocalXMLFile_Callback>(slot));
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self))
+        vkpartspartbase->kparts__partbase_setlocalxmlfile_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetLocalXMLFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartBase_SetXML(KParts__PartBase* self, const libqt_string document, bool merge) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
+    if (vkpartspartbase) {
         vkpartspartbase->setXML(document_QString, merge);
     } else {
-        ((VirtualKPartsPartBase*)self)->setXML(document_QString, merge);
+        qFatal("Error: Protected virtual method KParts::PartBase::setXML called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartBase_SuperSetXML(KParts__PartBase* self, const libqt_string document, bool merge) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString document_QString = QString::fromUtf8(document.data, document.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_SetXML_IsBase(true);
-        vkpartspartbase->setXML(document_QString, merge);
-    } else {
-        ((VirtualKPartsPartBase*)self)->setXML(document_QString, merge);
-    }
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self)) {
+        vkpartspartbase->KParts::PartBase::setXML(document_QString, merge);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartBase::setXML called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetXML(KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_SetXML_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetXML_Callback>(slot));
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self))
+        vkpartspartbase->kparts__partbase_setxml_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetXML_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartBase_SetDOMDocument(KParts__PartBase* self, const QDomDocument* document, bool merge) {
     auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    if (vkpartspartbase) {
         vkpartspartbase->setDOMDocument(*document, merge);
     } else {
-        ((VirtualKPartsPartBase*)self)->setDOMDocument(*document, merge);
+        qFatal("Error: Protected virtual method KParts::PartBase::setDOMDocument called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartBase_SuperSetDOMDocument(KParts__PartBase* self, const QDomDocument* document, bool merge) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_SetDOMDocument_IsBase(true);
-        vkpartspartbase->setDOMDocument(*document, merge);
-    } else {
-        ((VirtualKPartsPartBase*)self)->setDOMDocument(*document, merge);
-    }
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self)) {
+        vkpartspartbase->KParts::PartBase::setDOMDocument(*document, merge);
+    } else
+        qFatal("Error: Protected virtual method KParts::PartBase::setDOMDocument called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnSetDOMDocument(KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_SetDOMDocument_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetDOMDocument_Callback>(slot));
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self))
+        vkpartspartbase->kparts__partbase_setdomdocument_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_SetDOMDocument_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__PartBase_StateChanged(KParts__PartBase* self, const libqt_string newstate, int reverse) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
+    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
+    if (vkpartspartbase) {
         vkpartspartbase->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
     } else {
-        ((VirtualKPartsPartBase*)self)->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
+        qFatal("Error: Protected virtual method KParts::PartBase::stateChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__PartBase_SuperStateChanged(KParts__PartBase* self, const libqt_string newstate, int reverse) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_StateChanged_IsBase(true);
-        vkpartspartbase->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
-    } else {
-        ((VirtualKPartsPartBase*)self)->stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
-    }
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self)) {
+        vkpartspartbase->KParts::PartBase::stateChanged(newstate_QString, static_cast<KXMLGUIClient::ReverseStateChange>(reverse));
+    } else
+        qFatal("Error: Protected virtual method KParts::PartBase::stateChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__PartBase_OnStateChanged(KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_StateChanged_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_StateChanged_Callback>(slot));
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self))
+        vkpartspartbase->kparts__partbase_statechanged_callback = reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_StateChanged_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KParts__PartBase_StandardsXmlFileLocation(KParts__PartBase* self) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        auto _ret = vkpartspartbase->standardsXmlFileLocation();
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self)) {
+        auto _ret = vkpartspartbase->VirtualKPartsPartBase::standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -479,79 +334,16 @@ libqt_string KParts__PartBase_StandardsXmlFileLocation(KParts__PartBase* self) {
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualKPartsPartBase*)self)->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KParts::PartBase::standardsXmlFileLocation called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KParts__PartBase_SuperStandardsXmlFileLocation(KParts__PartBase* self) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_StandardsXmlFileLocation_IsBase(true);
-        auto _ret = vkpartspartbase->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKPartsPartBase*)self)->standardsXmlFileLocation();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartBase_OnStandardsXmlFileLocation(KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_StandardsXmlFileLocation_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_StandardsXmlFileLocation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KParts__PartBase_LoadStandardsXmlFile(KParts__PartBase* self) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->loadStandardsXmlFile();
-    } else {
-        ((VirtualKPartsPartBase*)self)->loadStandardsXmlFile();
-    }
-}
-
-// Base class handler implementation
-void KParts__PartBase_SuperLoadStandardsXmlFile(KParts__PartBase* self) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase) {
-        vkpartspartbase->setKParts__PartBase_LoadStandardsXmlFile_IsBase(true);
-        vkpartspartbase->loadStandardsXmlFile();
-    } else {
-        ((VirtualKPartsPartBase*)self)->loadStandardsXmlFile();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__PartBase_OnLoadStandardsXmlFile(KParts__PartBase* self, intptr_t slot) {
-    auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self);
-    if (vkpartspartbase && vkpartspartbase->isVirtualKPartsPartBase)
-        vkpartspartbase->setKParts__PartBase_LoadStandardsXmlFile_Callback(reinterpret_cast<VirtualKPartsPartBase::KParts__PartBase_LoadStandardsXmlFile_Callback>(slot));
+    if (auto* vkpartspartbase = dynamic_cast<VirtualKPartsPartBase*>(self)) {
+        vkpartspartbase->VirtualKPartsPartBase::loadStandardsXmlFile();
+    } else
+        qFatal("Error: Protected method KParts::PartBase::loadStandardsXmlFile called without a directly constructed type");
 }
 
 void KParts__PartBase_Delete(KParts__PartBase* self) {

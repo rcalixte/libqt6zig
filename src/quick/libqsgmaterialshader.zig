@@ -328,48 +328,6 @@ pub const QSGMaterialShader = extern struct {
         qtc.QSGMaterialShader_SetShaderFileName(@ptrCast(self.ptr), @bitCast(stage), filename_str);
     }
 
-    /// ### DEPRECATED: Use `onSetShaderFileName` instead
-    ///
-    pub const OnSetShaderFileName = onSetShaderFileName;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgmaterialshader.html#setShaderFileName)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGMaterialShader `
-    ///
-    /// ` callback: *const fn (self: QSGMaterialShader, stage: qsgmaterialshader_enums.Stage, filename: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetShaderFileName(self: QSGMaterialShader, callback: *const fn (QSGMaterialShader, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSGMaterialShader_OnSetShaderFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetShaderFileName` instead
-    ///
-    pub const SuperSetShaderFileName = superSetShaderFileName;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgmaterialshader.html#setShaderFileName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGMaterialShader `
-    ///
-    /// ` stage: qsgmaterialshader_enums.Stage `
-    ///
-    /// ` filename: []const u8 `
-    ///
-    pub fn superSetShaderFileName(self: QSGMaterialShader, stage: i32, filename: []const u8) void {
-        const filename_str = qtc.libqt_string{
-            .len = filename.len,
-            .data = filename.ptr,
-        };
-        qtc.QSGMaterialShader_SuperSetShaderFileName(@ptrCast(self.ptr), @bitCast(stage), filename_str);
-    }
-
     /// ### DEPRECATED: Use `setShaderFileName2` instead
     ///
     pub const SetShaderFileName2 = setShaderFileName2;
@@ -392,50 +350,6 @@ pub const QSGMaterialShader = extern struct {
             .data = filename.ptr,
         };
         qtc.QSGMaterialShader_SetShaderFileName2(@ptrCast(self.ptr), @bitCast(stage), filename_str, @bitCast(viewCount));
-    }
-
-    /// ### DEPRECATED: Use `onSetShaderFileName2` instead
-    ///
-    pub const OnSetShaderFileName2 = onSetShaderFileName2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgmaterialshader.html#setShaderFileName)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSGMaterialShader `
-    ///
-    /// ` callback: *const fn (self: QSGMaterialShader, stage: qsgmaterialshader_enums.Stage, filename: [*:0]const u8, viewCount: i32) callconv(.c) void `
-    ///
-    pub fn onSetShaderFileName2(self: QSGMaterialShader, callback: *const fn (QSGMaterialShader, i32, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.QSGMaterialShader_OnSetShaderFileName2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetShaderFileName2` instead
-    ///
-    pub const SuperSetShaderFileName2 = superSetShaderFileName2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgmaterialshader.html#setShaderFileName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGMaterialShader `
-    ///
-    /// ` stage: qsgmaterialshader_enums.Stage `
-    ///
-    /// ` filename: []const u8 `
-    ///
-    /// ` viewCount: i32 `
-    ///
-    pub fn superSetShaderFileName2(self: QSGMaterialShader, stage: i32, filename: []const u8, viewCount: i32) void {
-        const filename_str = qtc.libqt_string{
-            .len = filename.len,
-            .data = filename.ptr,
-        };
-        qtc.QSGMaterialShader_SuperSetShaderFileName2(@ptrCast(self.ptr), @bitCast(stage), filename_str, @bitCast(viewCount));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead

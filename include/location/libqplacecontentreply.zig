@@ -81,9 +81,9 @@ pub const QPlaceContentReply = extern struct {
     ///
     /// ` self: QPlaceContentReply `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QPlaceContentReply) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QPlaceContentReply, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply) callconv(.c) QMetaObject) void {
         qtc.QPlaceContentReply_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -260,9 +260,9 @@ pub const QPlaceContentReply = extern struct {
     ///
     /// ` self: QPlaceContentReply `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPlaceContentReply) callconv(.c) i32 `
     ///
-    pub fn onType(self: QPlaceContentReply, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply) callconv(.c) i32) void {
         qtc.QPlaceContentReply_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -408,61 +408,6 @@ pub const QPlaceContentReply = extern struct {
         qtc.QPlaceContentReply_SetContent(@ptrCast(self.ptr), content_map);
     }
 
-    /// ### DEPRECATED: Use `onSetContent` instead
-    ///
-    pub const OnSetContent = onSetContent;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setContent)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, content: qtc.libqt_map (ArrayMap_i32_QPlaceContent)) callconv(.c) void `
-    ///
-    pub fn onSetContent(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, qtc.libqt_map) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetContent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetContent` instead
-    ///
-    pub const SuperSetContent = superSetContent;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setContent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _content: ArrayMap_i32_QPlaceContent `
-    ///
-    pub fn superSetContent(self: QPlaceContentReply, allocator: std.mem.Allocator, _content: ArrayMap_i32_QPlaceContent) void {
-        const content_count = _content.count();
-        const content_keys = allocator.alloc(i32, content_count) catch @panic("QPlaceContentReply.setContent: Memory allocation failed");
-        defer allocator.free(content_keys);
-        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("QPlaceContentReply.setContent: Memory allocation failed");
-        defer allocator.free(content_values);
-        var content_i: usize = 0;
-        var content_it = _content.iterator();
-        while (content_it.next()) |it_entry| : (content_i += 1) {
-            const content_key = it_entry.key_ptr.*;
-            content_keys[content_i] = @bitCast(content_key);
-            content_values[content_i] = @ptrCast(it_entry.value_ptr.*.ptr);
-        }
-        const content_map = qtc.libqt_map{
-            .len = content_count,
-            .keys = @ptrCast(content_keys.ptr),
-            .values = @ptrCast(content_values.ptr),
-        };
-        qtc.QPlaceContentReply_SuperSetContent(@ptrCast(self.ptr), content_map);
-    }
-
     /// ### DEPRECATED: Use `setTotalCount` instead
     ///
     pub const SetTotalCount = setTotalCount;
@@ -477,42 +422,6 @@ pub const QPlaceContentReply = extern struct {
     ///
     pub fn setTotalCount(self: QPlaceContentReply, total: i32) void {
         qtc.QPlaceContentReply_SetTotalCount(@ptrCast(self.ptr), @bitCast(total));
-    }
-
-    /// ### DEPRECATED: Use `onSetTotalCount` instead
-    ///
-    pub const OnSetTotalCount = onSetTotalCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setTotalCount)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, total: i32) callconv(.c) void `
-    ///
-    pub fn onSetTotalCount(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, i32) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetTotalCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetTotalCount` instead
-    ///
-    pub const SuperSetTotalCount = superSetTotalCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setTotalCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` total: i32 `
-    ///
-    pub fn superSetTotalCount(self: QPlaceContentReply, total: i32) void {
-        qtc.QPlaceContentReply_SuperSetTotalCount(@ptrCast(self.ptr), @bitCast(total));
     }
 
     /// ### DEPRECATED: Use `setRequest` instead
@@ -532,43 +441,6 @@ pub const QPlaceContentReply = extern struct {
         qtc.QPlaceContentReply_SetRequest(@ptrCast(self.ptr), @ptrCast(_request.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetRequest` instead
-    ///
-    pub const OnSetRequest = onSetRequest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setRequest)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, request: QPlaceContentRequest) callconv(.c) void `
-    ///
-    pub fn onSetRequest(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, QPlaceContentRequest) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetRequest` instead
-    ///
-    pub const SuperSetRequest = superSetRequest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setRequest)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` _request: QPlaceContentRequest `
-    ///
-    pub fn superSetRequest(self: QPlaceContentReply, _request: anytype) void {
-        comptime _ = @TypeOf(_request)._is_QPlaceContentRequest;
-        qtc.QPlaceContentReply_SuperSetRequest(@ptrCast(self.ptr), @ptrCast(_request.ptr));
-    }
-
     /// ### DEPRECATED: Use `setPreviousPageRequest` instead
     ///
     pub const SetPreviousPageRequest = setPreviousPageRequest;
@@ -586,43 +458,6 @@ pub const QPlaceContentReply = extern struct {
         qtc.QPlaceContentReply_SetPreviousPageRequest(@ptrCast(self.ptr), @ptrCast(previous.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetPreviousPageRequest` instead
-    ///
-    pub const OnSetPreviousPageRequest = onSetPreviousPageRequest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setPreviousPageRequest)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, previous: QPlaceContentRequest) callconv(.c) void `
-    ///
-    pub fn onSetPreviousPageRequest(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, QPlaceContentRequest) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetPreviousPageRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPreviousPageRequest` instead
-    ///
-    pub const SuperSetPreviousPageRequest = superSetPreviousPageRequest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setPreviousPageRequest)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` previous: QPlaceContentRequest `
-    ///
-    pub fn superSetPreviousPageRequest(self: QPlaceContentReply, previous: anytype) void {
-        comptime _ = @TypeOf(previous)._is_QPlaceContentRequest;
-        qtc.QPlaceContentReply_SuperSetPreviousPageRequest(@ptrCast(self.ptr), @ptrCast(previous.ptr));
-    }
-
     /// ### DEPRECATED: Use `setNextPageRequest` instead
     ///
     pub const SetNextPageRequest = setNextPageRequest;
@@ -638,43 +473,6 @@ pub const QPlaceContentReply = extern struct {
     pub fn setNextPageRequest(self: QPlaceContentReply, next: anytype) void {
         comptime _ = @TypeOf(next)._is_QPlaceContentRequest;
         qtc.QPlaceContentReply_SetNextPageRequest(@ptrCast(self.ptr), @ptrCast(next.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetNextPageRequest` instead
-    ///
-    pub const OnSetNextPageRequest = onSetNextPageRequest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setNextPageRequest)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, next: QPlaceContentRequest) callconv(.c) void `
-    ///
-    pub fn onSetNextPageRequest(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, QPlaceContentRequest) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetNextPageRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetNextPageRequest` instead
-    ///
-    pub const SuperSetNextPageRequest = superSetNextPageRequest;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontentreply.html#setNextPageRequest)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` next: QPlaceContentRequest `
-    ///
-    pub fn superSetNextPageRequest(self: QPlaceContentReply, next: anytype) void {
-        comptime _ = @TypeOf(next)._is_QPlaceContentRequest;
-        qtc.QPlaceContentReply_SuperSetNextPageRequest(@ptrCast(self.ptr), @ptrCast(next.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1986,9 +1784,9 @@ pub const QPlaceContentReply = extern struct {
     ///
     /// ` self: QPlaceContentReply`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceContentReply) callconv(.c) void `
     ///
-    pub fn onAbort(self: QPlaceContentReply, callback: *const fn () callconv(.c) void) void {
+    pub fn onAbort(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply) callconv(.c) void) void {
         qtc.QPlaceContentReply_OnAbort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2452,46 +2250,6 @@ pub const QPlaceContentReply = extern struct {
         qtc.QPlaceContentReply_SetFinished(@ptrCast(self.ptr), _finished);
     }
 
-    /// ### DEPRECATED: Use `superSetFinished` instead
-    ///
-    pub const SuperSetFinished = superSetFinished;
-
-    /// Inherited from QPlaceReply
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setFinished)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` _finished: bool `
-    ///
-    pub fn superSetFinished(self: QPlaceContentReply, _finished: bool) void {
-        qtc.QPlaceContentReply_SuperSetFinished(@ptrCast(self.ptr), _finished);
-    }
-
-    /// ### DEPRECATED: Use `onSetFinished` instead
-    ///
-    pub const OnSetFinished = onSetFinished;
-
-    /// Inherited from QPlaceReply
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setFinished)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply`
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, finished: bool) callconv(.c) void `
-    ///
-    pub fn onSetFinished(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, bool) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setError` instead
     ///
     pub const SetError = setError;
@@ -2518,52 +2276,6 @@ pub const QPlaceContentReply = extern struct {
         qtc.QPlaceContentReply_SetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// Inherited from QPlaceReply
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setError)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` errorVal: qplacereply_enums.Error `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetError(self: QPlaceContentReply, errorVal: i32, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QPlaceContentReply_SuperSetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// Inherited from QPlaceReply
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#setError)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply`
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetError(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceContentReply_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2582,44 +2294,6 @@ pub const QPlaceContentReply = extern struct {
         return .{ .ptr = qtc.QPlaceContentReply_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    pub fn superSender(self: QPlaceContentReply) QObject {
-        return .{ .ptr = qtc.QPlaceContentReply_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QPlaceContentReply, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QPlaceContentReply_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2636,44 +2310,6 @@ pub const QPlaceContentReply = extern struct {
     ///
     pub fn senderSignalIndex(self: QPlaceContentReply) i32 {
         return qtc.QPlaceContentReply_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    pub fn superSenderSignalIndex(self: QPlaceContentReply) i32 {
-        return qtc.QPlaceContentReply_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QPlaceContentReply, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPlaceContentReply_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2697,47 +2333,6 @@ pub const QPlaceContentReply = extern struct {
         return qtc.QPlaceContentReply_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QPlaceContentReply, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QPlaceContentReply_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply`
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPlaceContentReply_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2757,47 +2352,6 @@ pub const QPlaceContentReply = extern struct {
     pub fn isSignalConnected(self: QPlaceContentReply, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlaceContentReply_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceContentReply `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QPlaceContentReply, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QPlaceContentReply_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceContentReply`
-    ///
-    /// ` callback: *const fn (self: QPlaceContentReply, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QPlaceContentReply, callback: *const fn (QPlaceContentReply, QMetaMethod) callconv(.c) bool) void {
-        qtc.QPlaceContentReply_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -29,11 +29,9 @@ QMaskGenerator* QMaskGenerator_new2(QObject* parent);
 bool QMaskGenerator_Seed(QMaskGenerator* self);
 unsigned int QMaskGenerator_NextMask(QMaskGenerator* self);
 void QMaskGenerator_OnSeed(QMaskGenerator* self, intptr_t slot);
-bool QMaskGenerator_SuperSeed(QMaskGenerator* self);
 void QMaskGenerator_OnNextMask(QMaskGenerator* self, intptr_t slot);
-unsigned int QMaskGenerator_SuperNextMask(QMaskGenerator* self);
 QMetaObject* QMaskGenerator_MetaObject(const QMaskGenerator* self);
-void QMaskGenerator_OnMetaObject(const QMaskGenerator* self, intptr_t slot);
+void QMaskGenerator_OnMetaObject(QMaskGenerator* self, intptr_t slot);
 QMetaObject* QMaskGenerator_SuperMetaObject(const QMaskGenerator* self);
 void* QMaskGenerator_Metacast(QMaskGenerator* self, const char* param1);
 void QMaskGenerator_OnMetacast(QMaskGenerator* self, intptr_t slot);
@@ -63,17 +61,9 @@ void QMaskGenerator_DisconnectNotify(QMaskGenerator* self, const QMetaMethod* si
 void QMaskGenerator_OnDisconnectNotify(QMaskGenerator* self, intptr_t slot);
 void QMaskGenerator_SuperDisconnectNotify(QMaskGenerator* self, const QMetaMethod* signal);
 QObject* QMaskGenerator_Sender(const QMaskGenerator* self);
-void QMaskGenerator_OnSender(const QMaskGenerator* self, intptr_t slot);
-QObject* QMaskGenerator_SuperSender(const QMaskGenerator* self);
 int QMaskGenerator_SenderSignalIndex(const QMaskGenerator* self);
-void QMaskGenerator_OnSenderSignalIndex(const QMaskGenerator* self, intptr_t slot);
-int QMaskGenerator_SuperSenderSignalIndex(const QMaskGenerator* self);
 int QMaskGenerator_Receivers(const QMaskGenerator* self, const char* signal);
-void QMaskGenerator_OnReceivers(const QMaskGenerator* self, intptr_t slot);
-int QMaskGenerator_SuperReceivers(const QMaskGenerator* self, const char* signal);
 bool QMaskGenerator_IsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal);
-void QMaskGenerator_OnIsSignalConnected(const QMaskGenerator* self, intptr_t slot);
-bool QMaskGenerator_SuperIsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal);
 void QMaskGenerator_Delete(QMaskGenerator* self);
 
 #ifdef __cplusplus

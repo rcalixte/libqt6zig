@@ -86,9 +86,9 @@ pub const QSslServer = extern struct {
     ///
     /// ` self: QSslServer `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QSslServer) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QSslServer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSslServer, callback: *const fn (QSslServer) callconv(.c) QMetaObject) void {
         qtc.QSslServer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2171,9 +2171,9 @@ pub const QSslServer = extern struct {
     ///
     /// ` self: QSslServer`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslServer) callconv(.c) bool `
     ///
-    pub fn onHasPendingConnections(self: QSslServer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasPendingConnections(self: QSslServer, callback: *const fn (QSslServer) callconv(.c) bool) void {
         qtc.QSslServer_OnHasPendingConnections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2227,9 +2227,9 @@ pub const QSslServer = extern struct {
     ///
     /// ` self: QSslServer`
     ///
-    /// ` callback: *const fn () callconv(.c) QTcpSocket `
+    /// ` callback: *const fn (self: QSslServer) callconv(.c) QTcpSocket `
     ///
-    pub fn onNextPendingConnection(self: QSslServer, callback: *const fn () callconv(.c) QTcpSocket) void {
+    pub fn onNextPendingConnection(self: QSslServer, callback: *const fn (QSslServer) callconv(.c) QTcpSocket) void {
         qtc.QSslServer_OnNextPendingConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2694,47 +2694,6 @@ pub const QSslServer = extern struct {
         qtc.QSslServer_AddPendingConnection(@ptrCast(self.ptr), @ptrCast(socket.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAddPendingConnection` instead
-    ///
-    pub const SuperAddPendingConnection = superAddPendingConnection;
-
-    /// Inherited from QTcpServer
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSslServer `
-    ///
-    /// ` socket: QTcpSocket `
-    ///
-    pub fn superAddPendingConnection(self: QSslServer, socket: anytype) void {
-        comptime _ = @TypeOf(socket)._is_QTcpSocket;
-        qtc.QSslServer_SuperAddPendingConnection(@ptrCast(self.ptr), @ptrCast(socket.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddPendingConnection` instead
-    ///
-    pub const OnAddPendingConnection = onAddPendingConnection;
-
-    /// Inherited from QTcpServer
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtcpserver.html#addPendingConnection)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSslServer`
-    ///
-    /// ` callback: *const fn (self: QSslServer, socket: QTcpSocket) callconv(.c) void `
-    ///
-    pub fn onAddPendingConnection(self: QSslServer, callback: *const fn (QSslServer, QTcpSocket) callconv(.c) void) void {
-        qtc.QSslServer_OnAddPendingConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -2753,44 +2712,6 @@ pub const QSslServer = extern struct {
         return .{ .ptr = qtc.QSslServer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSslServer `
-    ///
-    pub fn superSender(self: QSslServer) QObject {
-        return .{ .ptr = qtc.QSslServer_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSslServer`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QSslServer, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QSslServer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2807,44 +2728,6 @@ pub const QSslServer = extern struct {
     ///
     pub fn senderSignalIndex(self: QSslServer) i32 {
         return qtc.QSslServer_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSslServer `
-    ///
-    pub fn superSenderSignalIndex(self: QSslServer) i32 {
-        return qtc.QSslServer_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSslServer`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QSslServer, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSslServer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2868,47 +2751,6 @@ pub const QSslServer = extern struct {
         return qtc.QSslServer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSslServer `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QSslServer, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QSslServer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSslServer`
-    ///
-    /// ` callback: *const fn (self: QSslServer, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QSslServer, callback: *const fn (QSslServer, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSslServer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2928,47 +2770,6 @@ pub const QSslServer = extern struct {
     pub fn isSignalConnected(self: QSslServer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSslServer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSslServer `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QSslServer, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QSslServer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSslServer`
-    ///
-    /// ` callback: *const fn (self: QSslServer, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QSslServer, callback: *const fn (QSslServer, QMetaMethod) callconv(.c) bool) void {
-        qtc.QSslServer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onPendingConnectionAvailable` instead

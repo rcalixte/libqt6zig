@@ -96,9 +96,9 @@ pub const KWidgetItemDelegate = extern struct {
     ///
     /// ` self: KWidgetItemDelegate `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KWidgetItemDelegate) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KWidgetItemDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KWidgetItemDelegate, callback: *const fn (KWidgetItemDelegate) callconv(.c) QMetaObject) void {
         qtc.KWidgetItemDelegate_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -291,6 +291,8 @@ pub const KWidgetItemDelegate = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#createItemWidgets)
     ///
+    /// This method must be implemented with `onCreateItemWidgets` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KWidgetItemDelegate `
@@ -334,38 +336,13 @@ pub const KWidgetItemDelegate = extern struct {
         qtc.KWidgetItemDelegate_OnCreateItemWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCreateItemWidgets` instead
-    ///
-    pub const SuperCreateItemWidgets = superCreateItemWidgets;
-
-    /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#createItemWidgets)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superCreateItemWidgets(self: KWidgetItemDelegate, allocator: std.mem.Allocator, index: anytype) []QWidget {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_SuperCreateItemWidgets(@ptrCast(self.ptr), @ptrCast(index.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KWidgetItemDelegate.createItemWidgets: Memory allocation failed");
-        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `updateItemWidgets` instead
     ///
     pub const UpdateItemWidgets = updateItemWidgets;
 
     /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
+    ///
+    /// This method must be implemented with `onUpdateItemWidgets` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -405,34 +382,6 @@ pub const KWidgetItemDelegate = extern struct {
         qtc.KWidgetItemDelegate_OnUpdateItemWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superUpdateItemWidgets` instead
-    ///
-    pub const SuperUpdateItemWidgets = superUpdateItemWidgets;
-
-    /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` widgets: []QWidget `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` index: QPersistentModelIndex `
-    ///
-    pub fn superUpdateItemWidgets(self: KWidgetItemDelegate, widgets: []QWidget, option: anytype, index: anytype) void {
-        const widgets_list = qtc.libqt_list{
-            .len = widgets.len,
-            .data = @ptrCast(widgets.ptr),
-        };
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(index)._is_QPersistentModelIndex;
-        qtc.KWidgetItemDelegate_SuperUpdateItemWidgets(@ptrCast(self.ptr), widgets_list, @ptrCast(option.ptr), @ptrCast(index.ptr));
-    }
-
     /// ### DEPRECATED: Use `setBlockedEventTypes` instead
     ///
     pub const SetBlockedEventTypes = setBlockedEventTypes;
@@ -456,49 +405,6 @@ pub const KWidgetItemDelegate = extern struct {
         qtc.KWidgetItemDelegate_SetBlockedEventTypes(@ptrCast(self.ptr), @ptrCast(widget.ptr), types_list);
     }
 
-    /// ### DEPRECATED: Use `onSetBlockedEventTypes` instead
-    ///
-    pub const OnSetBlockedEventTypes = onSetBlockedEventTypes;
-
-    /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` callback: *const fn (self: KWidgetItemDelegate, widget: QWidget, types: qtc.libqt_list ([]qcoreevent_enums.Type)) callconv(.c) void `
-    ///
-    pub fn onSetBlockedEventTypes(self: KWidgetItemDelegate, callback: *const fn (KWidgetItemDelegate, QWidget, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnSetBlockedEventTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetBlockedEventTypes` instead
-    ///
-    pub const SuperSetBlockedEventTypes = superSetBlockedEventTypes;
-
-    /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` widget: QWidget `
-    ///
-    /// ` types: []qcoreevent_enums.Type `
-    ///
-    pub fn superSetBlockedEventTypes(self: KWidgetItemDelegate, widget: anytype, types: []i32) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        const types_list = qtc.libqt_list{
-            .len = types.len,
-            .data = types.ptr,
-        };
-        qtc.KWidgetItemDelegate_SuperSetBlockedEventTypes(@ptrCast(self.ptr), @ptrCast(widget.ptr), types_list);
-    }
-
     /// ### DEPRECATED: Use `blockedEventTypes` instead
     ///
     pub const BlockedEventTypes = blockedEventTypes;
@@ -520,60 +426,6 @@ pub const KWidgetItemDelegate = extern struct {
     pub fn blockedEventTypes(self: KWidgetItemDelegate, allocator: std.mem.Allocator, widget: anytype) []i32 {
         comptime _ = @TypeOf(widget)._is_QWidget;
         const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_BlockedEventTypes(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KWidgetItemDelegate.blockedEventTypes: Memory allocation failed");
-        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data_val[0.._arr.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onBlockedEventTypes` instead
-    ///
-    pub const OnBlockedEventTypes = onBlockedEventTypes;
-
-    /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` callback: *const fn (self: KWidgetItemDelegate, widget: QWidget) callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []i32 `
-    ///
-    pub fn onBlockedEventTypes(self: KWidgetItemDelegate, callback: *const fn (KWidgetItemDelegate, QWidget) callconv(.c) qtc.libqt_list) void {
-        qtc.KWidgetItemDelegate_OnBlockedEventTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBlockedEventTypes` instead
-    ///
-    pub const SuperBlockedEventTypes = superBlockedEventTypes;
-
-    /// ### [Upstream resources](https://api.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` widget: QWidget `
-    ///
-    /// ## Returns:
-    ///
-    /// ` []qcoreevent_enums.Type `
-    ///
-    pub fn superBlockedEventTypes(self: KWidgetItemDelegate, allocator: std.mem.Allocator, widget: anytype) []i32 {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        const _arr: qtc.libqt_list = qtc.KWidgetItemDelegate_SuperBlockedEventTypes(@ptrCast(self.ptr), @ptrCast(widget.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("KWidgetItemDelegate.blockedEventTypes: Memory allocation failed");
         const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -1760,6 +1612,8 @@ pub const KWidgetItemDelegate = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onPaint` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KWidgetItemDelegate `
@@ -1775,33 +1629,6 @@ pub const KWidgetItemDelegate = extern struct {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KWidgetItemDelegate_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superPaint` instead
-    ///
-    pub const SuperPaint = superPaint;
-
-    /// Inherited from QAbstractItemDelegate
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#paint)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superPaint(self: KWidgetItemDelegate, painter: anytype, option: anytype, index: anytype) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.KWidgetItemDelegate_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `onPaint` instead
@@ -1834,6 +1661,8 @@ pub const KWidgetItemDelegate = extern struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// This method must be implemented with `onSizeHint` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KWidgetItemDelegate `
@@ -1846,30 +1675,6 @@ pub const KWidgetItemDelegate = extern struct {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.KWidgetItemDelegate_SizeHint(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superSizeHint` instead
-    ///
-    pub const SuperSizeHint = superSizeHint;
-
-    /// Inherited from QAbstractItemDelegate
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHint)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superSizeHint(self: KWidgetItemDelegate, option: anytype, index: anytype) QSize {
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KWidgetItemDelegate_SuperSizeHint(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `onSizeHint` instead
@@ -2478,13 +2283,13 @@ pub const KWidgetItemDelegate = extern struct {
     ///
     /// ` self: KWidgetItemDelegate`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KWidgetItemDelegate) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []i32 `
     ///
-    pub fn onPaintingRoles(self: KWidgetItemDelegate, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPaintingRoles(self: KWidgetItemDelegate, callback: *const fn (KWidgetItemDelegate) callconv(.c) qtc.libqt_list) void {
         qtc.KWidgetItemDelegate_OnPaintingRoles(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2946,44 +2751,6 @@ pub const KWidgetItemDelegate = extern struct {
         return .{ .ptr = qtc.KWidgetItemDelegate_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    pub fn superSender(self: KWidgetItemDelegate) QObject {
-        return .{ .ptr = qtc.KWidgetItemDelegate_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KWidgetItemDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KWidgetItemDelegate, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KWidgetItemDelegate_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3000,44 +2767,6 @@ pub const KWidgetItemDelegate = extern struct {
     ///
     pub fn senderSignalIndex(self: KWidgetItemDelegate) i32 {
         return qtc.KWidgetItemDelegate_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    pub fn superSenderSignalIndex(self: KWidgetItemDelegate) i32 {
-        return qtc.KWidgetItemDelegate_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KWidgetItemDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KWidgetItemDelegate, callback: *const fn () callconv(.c) i32) void {
-        qtc.KWidgetItemDelegate_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3061,47 +2790,6 @@ pub const KWidgetItemDelegate = extern struct {
         return qtc.KWidgetItemDelegate_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KWidgetItemDelegate, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KWidgetItemDelegate_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KWidgetItemDelegate`
-    ///
-    /// ` callback: *const fn (self: KWidgetItemDelegate, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KWidgetItemDelegate, callback: *const fn (KWidgetItemDelegate, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KWidgetItemDelegate_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3121,47 +2809,6 @@ pub const KWidgetItemDelegate = extern struct {
     pub fn isSignalConnected(self: KWidgetItemDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KWidgetItemDelegate_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KWidgetItemDelegate `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KWidgetItemDelegate, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KWidgetItemDelegate_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KWidgetItemDelegate`
-    ///
-    /// ` callback: *const fn (self: KWidgetItemDelegate, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KWidgetItemDelegate, callback: *const fn (KWidgetItemDelegate, QMetaMethod) callconv(.c) bool) void {
-        qtc.KWidgetItemDelegate_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

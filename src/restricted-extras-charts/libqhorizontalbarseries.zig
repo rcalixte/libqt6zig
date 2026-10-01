@@ -83,9 +83,9 @@ pub const QHorizontalBarSeries = extern struct {
     ///
     /// ` self: QHorizontalBarSeries `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QHorizontalBarSeries) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QHorizontalBarSeries, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QHorizontalBarSeries, callback: *const fn (QHorizontalBarSeries) callconv(.c) QMetaObject) void {
         qtc.QHorizontalBarSeries_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -262,9 +262,9 @@ pub const QHorizontalBarSeries = extern struct {
     ///
     /// ` self: QHorizontalBarSeries `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QHorizontalBarSeries) callconv(.c) i32 `
     ///
-    pub fn onType(self: QHorizontalBarSeries, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QHorizontalBarSeries, callback: *const fn (QHorizontalBarSeries) callconv(.c) i32) void {
         qtc.QHorizontalBarSeries_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3072,44 +3072,6 @@ pub const QHorizontalBarSeries = extern struct {
         return .{ .ptr = qtc.QHorizontalBarSeries_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHorizontalBarSeries `
-    ///
-    pub fn superSender(self: QHorizontalBarSeries) QObject {
-        return .{ .ptr = qtc.QHorizontalBarSeries_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHorizontalBarSeries`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QHorizontalBarSeries, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QHorizontalBarSeries_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3126,44 +3088,6 @@ pub const QHorizontalBarSeries = extern struct {
     ///
     pub fn senderSignalIndex(self: QHorizontalBarSeries) i32 {
         return qtc.QHorizontalBarSeries_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHorizontalBarSeries `
-    ///
-    pub fn superSenderSignalIndex(self: QHorizontalBarSeries) i32 {
-        return qtc.QHorizontalBarSeries_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHorizontalBarSeries`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QHorizontalBarSeries, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHorizontalBarSeries_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3187,47 +3111,6 @@ pub const QHorizontalBarSeries = extern struct {
         return qtc.QHorizontalBarSeries_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHorizontalBarSeries `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QHorizontalBarSeries, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QHorizontalBarSeries_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHorizontalBarSeries`
-    ///
-    /// ` callback: *const fn (self: QHorizontalBarSeries, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QHorizontalBarSeries, callback: *const fn (QHorizontalBarSeries, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QHorizontalBarSeries_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3247,47 +3130,6 @@ pub const QHorizontalBarSeries = extern struct {
     pub fn isSignalConnected(self: QHorizontalBarSeries, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHorizontalBarSeries_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHorizontalBarSeries `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QHorizontalBarSeries, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QHorizontalBarSeries_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHorizontalBarSeries`
-    ///
-    /// ` callback: *const fn (self: QHorizontalBarSeries, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QHorizontalBarSeries, callback: *const fn (QHorizontalBarSeries, QMetaMethod) callconv(.c) bool) void {
-        qtc.QHorizontalBarSeries_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

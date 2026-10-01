@@ -140,9 +140,9 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QsciScintillaBase) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QsciScintillaBase, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase) callconv(.c) QMetaObject) void {
         qtc.QsciScintillaBase_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2887,40 +2887,6 @@ pub const QsciScintillaBase = extern struct {
         qtc.QsciScintillaBase_SetScrollBars(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetScrollBars` instead
-    ///
-    pub const OnSetScrollBars = onSetScrollBars;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSetScrollBars(self: QsciScintillaBase, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintillaBase_OnSetScrollBars(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetScrollBars` instead
-    ///
-    pub const SuperSetScrollBars = superSetScrollBars;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superSetScrollBars(self: QsciScintillaBase) void {
-        qtc.QsciScintillaBase_SuperSetScrollBars(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `textAsBytes` instead
     ///
     pub const TextAsBytes = textAsBytes;
@@ -2941,52 +2907,6 @@ pub const QsciScintillaBase = extern struct {
             .data = text.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QsciScintillaBase_TextAsBytes(@ptrCast(self.ptr), text_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintillaBase.textAsBytes: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onTextAsBytes` instead
-    ///
-    pub const OnTextAsBytes = onTextAsBytes;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` callback: *const fn (self: QsciScintillaBase, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
-    ///
-    pub fn onTextAsBytes(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
-        qtc.QsciScintillaBase_OnTextAsBytes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTextAsBytes` instead
-    ///
-    pub const SuperTextAsBytes = superTextAsBytes;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superTextAsBytes(self: QsciScintillaBase, allocator: std.mem.Allocator, text: []const u8) []u8 {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        var _bytearray: qtc.libqt_string = qtc.QsciScintillaBase_SuperTextAsBytes(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintillaBase.textAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3018,51 +2938,6 @@ pub const QsciScintillaBase = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `onBytesAsText` instead
-    ///
-    pub const OnBytesAsText = onBytesAsText;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` callback: *const fn (self: QsciScintillaBase, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onBytesAsText(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciScintillaBase_OnBytesAsText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superBytesAsText` instead
-    ///
-    pub const SuperBytesAsText = superBytesAsText;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` bytes: [:0]const u8 `
-    ///
-    /// ` _size: i32 `
-    ///
-    pub fn superBytesAsText(self: QsciScintillaBase, allocator: std.mem.Allocator, bytes: [:0]const u8, _size: i32) []const u8 {
-        const bytes_Cstring = bytes.ptr;
-        var _str = qtc.QsciScintillaBase_SuperBytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(_size));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintillaBase.bytesAsText: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `contextMenuNeeded` instead
     ///
     pub const ContextMenuNeeded = contextMenuNeeded;
@@ -3079,44 +2954,6 @@ pub const QsciScintillaBase = extern struct {
     ///
     pub fn contextMenuNeeded(self: QsciScintillaBase, _x: i32, _y: i32) bool {
         return qtc.QsciScintillaBase_ContextMenuNeeded(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
-    }
-
-    /// ### DEPRECATED: Use `onContextMenuNeeded` instead
-    ///
-    pub const OnContextMenuNeeded = onContextMenuNeeded;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` callback: *const fn (self: QsciScintillaBase, x: i32, y: i32) callconv(.c) bool `
-    ///
-    pub fn onContextMenuNeeded(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, i32, i32) callconv(.c) bool) void {
-        qtc.QsciScintillaBase_OnContextMenuNeeded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superContextMenuNeeded` instead
-    ///
-    pub const SuperContextMenuNeeded = superContextMenuNeeded;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` _x: i32 `
-    ///
-    /// ` _y: i32 `
-    ///
-    pub fn superContextMenuNeeded(self: QsciScintillaBase, _x: i32, _y: i32) bool {
-        return qtc.QsciScintillaBase_SuperContextMenuNeeded(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -10005,11 +9842,11 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QsciScintillaBase) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QsciScintillaBase, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase) callconv(.c) QSize) void {
         qtc.QsciScintillaBase_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10063,11 +9900,11 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QsciScintillaBase) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QsciScintillaBase, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase) callconv(.c) QSize) void {
         qtc.QsciScintillaBase_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10437,11 +10274,11 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QsciScintillaBase) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QsciScintillaBase, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase) callconv(.c) QSize) void {
         qtc.QsciScintillaBase_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10557,9 +10394,9 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciScintillaBase) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QsciScintillaBase, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase) callconv(.c) i32) void {
         qtc.QsciScintillaBase_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10733,9 +10570,9 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintillaBase) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QsciScintillaBase, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase) callconv(.c) bool) void {
         qtc.QsciScintillaBase_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10789,9 +10626,9 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QsciScintillaBase) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QsciScintillaBase, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase) callconv(.c) QPaintEngine) void {
         qtc.QsciScintillaBase_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11663,9 +11500,9 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QsciScintillaBase) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QsciScintillaBase, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase) callconv(.c) QPainter) void {
         qtc.QsciScintillaBase_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12005,52 +11842,6 @@ pub const QsciScintillaBase = extern struct {
         qtc.QsciScintillaBase_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QsciScintillaBase, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QsciScintillaBase_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn (self: QsciScintillaBase, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintillaBase_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -12067,46 +11858,6 @@ pub const QsciScintillaBase = extern struct {
     ///
     pub fn viewportMargins(self: QsciScintillaBase) QMargins {
         return .{ .ptr = qtc.QsciScintillaBase_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superViewportMargins(self: QsciScintillaBase) QMargins {
-        return .{ .ptr = qtc.QsciScintillaBase_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QsciScintillaBase, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QsciScintillaBase_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -12130,47 +11881,6 @@ pub const QsciScintillaBase = extern struct {
         qtc.QsciScintillaBase_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QsciScintillaBase, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QsciScintillaBase_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn (self: QsciScintillaBase, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, QPainter) callconv(.c) void) void {
-        qtc.QsciScintillaBase_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -12187,44 +11897,6 @@ pub const QsciScintillaBase = extern struct {
     ///
     pub fn updateMicroFocus(self: QsciScintillaBase) void {
         qtc.QsciScintillaBase_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superUpdateMicroFocus(self: QsciScintillaBase) void {
-        qtc.QsciScintillaBase_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QsciScintillaBase, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintillaBase_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -12245,44 +11917,6 @@ pub const QsciScintillaBase = extern struct {
         qtc.QsciScintillaBase_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superCreate(self: QsciScintillaBase) void {
-        qtc.QsciScintillaBase_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QsciScintillaBase, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintillaBase_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -12299,44 +11933,6 @@ pub const QsciScintillaBase = extern struct {
     ///
     pub fn destroy(self: QsciScintillaBase) void {
         qtc.QsciScintillaBase_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superDestroy(self: QsciScintillaBase) void {
-        qtc.QsciScintillaBase_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QsciScintillaBase, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintillaBase_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -12357,44 +11953,6 @@ pub const QsciScintillaBase = extern struct {
         return qtc.QsciScintillaBase_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superFocusNextChild(self: QsciScintillaBase) bool {
-        return qtc.QsciScintillaBase_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QsciScintillaBase, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciScintillaBase_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -12411,44 +11969,6 @@ pub const QsciScintillaBase = extern struct {
     ///
     pub fn focusPreviousChild(self: QsciScintillaBase) bool {
         return qtc.QsciScintillaBase_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superFocusPreviousChild(self: QsciScintillaBase) bool {
-        return qtc.QsciScintillaBase_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QsciScintillaBase, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciScintillaBase_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -12469,44 +11989,6 @@ pub const QsciScintillaBase = extern struct {
         return .{ .ptr = qtc.QsciScintillaBase_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superSender(self: QsciScintillaBase) QObject {
-        return .{ .ptr = qtc.QsciScintillaBase_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QsciScintillaBase, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QsciScintillaBase_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -12523,44 +12005,6 @@ pub const QsciScintillaBase = extern struct {
     ///
     pub fn senderSignalIndex(self: QsciScintillaBase) i32 {
         return qtc.QsciScintillaBase_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    pub fn superSenderSignalIndex(self: QsciScintillaBase) i32 {
-        return qtc.QsciScintillaBase_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QsciScintillaBase, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciScintillaBase_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -12584,47 +12028,6 @@ pub const QsciScintillaBase = extern struct {
         return qtc.QsciScintillaBase_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QsciScintillaBase, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QsciScintillaBase_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn (self: QsciScintillaBase, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciScintillaBase_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -12644,47 +12047,6 @@ pub const QsciScintillaBase = extern struct {
     pub fn isSignalConnected(self: QsciScintillaBase, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QsciScintillaBase_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QsciScintillaBase, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QsciScintillaBase_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn (self: QsciScintillaBase, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, QMetaMethod) callconv(.c) bool) void {
-        qtc.QsciScintillaBase_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -12707,48 +12069,6 @@ pub const QsciScintillaBase = extern struct {
     ///
     pub fn getDecodedMetricF(self: QsciScintillaBase, metricA: i32, metricB: i32) f64 {
         return qtc.QsciScintillaBase_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciScintillaBase `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QsciScintillaBase, metricA: i32, metricB: i32) f64 {
-        return qtc.QsciScintillaBase_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciScintillaBase`
-    ///
-    /// ` callback: *const fn (self: QsciScintillaBase, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, i32, i32) callconv(.c) f64) void {
-        qtc.QsciScintillaBase_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

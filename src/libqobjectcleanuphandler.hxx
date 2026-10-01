@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QObjectCleanupHandler so that we can call protected methods
+// This class is a subclass of QObjectCleanupHandler
 class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQObjectCleanupHandler = true;
-
-    // Virtual class public types (including callbacks)
-    using QObjectCleanupHandler_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QObjectCleanupHandler_MetaObject_Callback = QMetaObject* (*)(const QObjectCleanupHandler*);
     using QObjectCleanupHandler_Metacast_Callback = void* (*)(QObjectCleanupHandler*, const char*);
     using QObjectCleanupHandler_Metacall_Callback = int (*)(QObjectCleanupHandler*, int, int, void**);
     using QObjectCleanupHandler_Event_Callback = bool (*)(QObjectCleanupHandler*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
     using QObjectCleanupHandler_CustomEvent_Callback = void (*)(QObjectCleanupHandler*, QEvent*);
     using QObjectCleanupHandler_ConnectNotify_Callback = void (*)(QObjectCleanupHandler*, QMetaMethod*);
     using QObjectCleanupHandler_DisconnectNotify_Callback = void (*)(QObjectCleanupHandler*, QMetaMethod*);
-    using QObjectCleanupHandler_Sender_Callback = QObject* (*)();
-    using QObjectCleanupHandler_SenderSignalIndex_Callback = int (*)();
-    using QObjectCleanupHandler_Receivers_Callback = int (*)(const QObjectCleanupHandler*, const char*);
-    using QObjectCleanupHandler_IsSignalConnected_Callback = bool (*)(const QObjectCleanupHandler*, QMetaMethod*);
+    using QObjectCleanupHandler::isSignalConnected;
+    using QObjectCleanupHandler::receivers;
+    using QObjectCleanupHandler::sender;
+    using QObjectCleanupHandler::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QObjectCleanupHandler_MetaObject_Callback qobjectcleanuphandler_metaobject_callback = nullptr;
     QObjectCleanupHandler_Metacast_Callback qobjectcleanuphandler_metacast_callback = nullptr;
@@ -44,71 +39,22 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
     QObjectCleanupHandler_CustomEvent_Callback qobjectcleanuphandler_customevent_callback = nullptr;
     QObjectCleanupHandler_ConnectNotify_Callback qobjectcleanuphandler_connectnotify_callback = nullptr;
     QObjectCleanupHandler_DisconnectNotify_Callback qobjectcleanuphandler_disconnectnotify_callback = nullptr;
-    QObjectCleanupHandler_Sender_Callback qobjectcleanuphandler_sender_callback = nullptr;
-    QObjectCleanupHandler_SenderSignalIndex_Callback qobjectcleanuphandler_sendersignalindex_callback = nullptr;
-    QObjectCleanupHandler_Receivers_Callback qobjectcleanuphandler_receivers_callback = nullptr;
-    QObjectCleanupHandler_IsSignalConnected_Callback qobjectcleanuphandler_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qobjectcleanuphandler_metaobject_isbase = false;
-    mutable bool qobjectcleanuphandler_metacast_isbase = false;
-    mutable bool qobjectcleanuphandler_metacall_isbase = false;
-    mutable bool qobjectcleanuphandler_event_isbase = false;
-    mutable bool qobjectcleanuphandler_eventfilter_isbase = false;
-    mutable bool qobjectcleanuphandler_timerevent_isbase = false;
-    mutable bool qobjectcleanuphandler_childevent_isbase = false;
-    mutable bool qobjectcleanuphandler_customevent_isbase = false;
-    mutable bool qobjectcleanuphandler_connectnotify_isbase = false;
-    mutable bool qobjectcleanuphandler_disconnectnotify_isbase = false;
-    mutable bool qobjectcleanuphandler_sender_isbase = false;
-    mutable bool qobjectcleanuphandler_sendersignalindex_isbase = false;
-    mutable bool qobjectcleanuphandler_receivers_isbase = false;
-    mutable bool qobjectcleanuphandler_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QObjectCleanupHandler {
+        using QObjectCleanupHandler::childEvent;
+        using QObjectCleanupHandler::connectNotify;
+        using QObjectCleanupHandler::customEvent;
+        using QObjectCleanupHandler::disconnectNotify;
+        using QObjectCleanupHandler::timerEvent;
+    };
 
-  public:
     VirtualQObjectCleanupHandler() : QObjectCleanupHandler() {};
-
-    // Callback setters
-    inline void setQObjectCleanupHandler_MetaObject_Callback(QObjectCleanupHandler_MetaObject_Callback cb) { qobjectcleanuphandler_metaobject_callback = cb; }
-    inline void setQObjectCleanupHandler_Metacast_Callback(QObjectCleanupHandler_Metacast_Callback cb) { qobjectcleanuphandler_metacast_callback = cb; }
-    inline void setQObjectCleanupHandler_Metacall_Callback(QObjectCleanupHandler_Metacall_Callback cb) { qobjectcleanuphandler_metacall_callback = cb; }
-    inline void setQObjectCleanupHandler_Event_Callback(QObjectCleanupHandler_Event_Callback cb) { qobjectcleanuphandler_event_callback = cb; }
-    inline void setQObjectCleanupHandler_EventFilter_Callback(QObjectCleanupHandler_EventFilter_Callback cb) { qobjectcleanuphandler_eventfilter_callback = cb; }
-    inline void setQObjectCleanupHandler_TimerEvent_Callback(QObjectCleanupHandler_TimerEvent_Callback cb) { qobjectcleanuphandler_timerevent_callback = cb; }
-    inline void setQObjectCleanupHandler_ChildEvent_Callback(QObjectCleanupHandler_ChildEvent_Callback cb) { qobjectcleanuphandler_childevent_callback = cb; }
-    inline void setQObjectCleanupHandler_CustomEvent_Callback(QObjectCleanupHandler_CustomEvent_Callback cb) { qobjectcleanuphandler_customevent_callback = cb; }
-    inline void setQObjectCleanupHandler_ConnectNotify_Callback(QObjectCleanupHandler_ConnectNotify_Callback cb) { qobjectcleanuphandler_connectnotify_callback = cb; }
-    inline void setQObjectCleanupHandler_DisconnectNotify_Callback(QObjectCleanupHandler_DisconnectNotify_Callback cb) { qobjectcleanuphandler_disconnectnotify_callback = cb; }
-    inline void setQObjectCleanupHandler_Sender_Callback(QObjectCleanupHandler_Sender_Callback cb) { qobjectcleanuphandler_sender_callback = cb; }
-    inline void setQObjectCleanupHandler_SenderSignalIndex_Callback(QObjectCleanupHandler_SenderSignalIndex_Callback cb) { qobjectcleanuphandler_sendersignalindex_callback = cb; }
-    inline void setQObjectCleanupHandler_Receivers_Callback(QObjectCleanupHandler_Receivers_Callback cb) { qobjectcleanuphandler_receivers_callback = cb; }
-    inline void setQObjectCleanupHandler_IsSignalConnected_Callback(QObjectCleanupHandler_IsSignalConnected_Callback cb) { qobjectcleanuphandler_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQObjectCleanupHandler_MetaObject_IsBase(bool value) const { qobjectcleanuphandler_metaobject_isbase = value; }
-    inline void setQObjectCleanupHandler_Metacast_IsBase(bool value) const { qobjectcleanuphandler_metacast_isbase = value; }
-    inline void setQObjectCleanupHandler_Metacall_IsBase(bool value) const { qobjectcleanuphandler_metacall_isbase = value; }
-    inline void setQObjectCleanupHandler_Event_IsBase(bool value) const { qobjectcleanuphandler_event_isbase = value; }
-    inline void setQObjectCleanupHandler_EventFilter_IsBase(bool value) const { qobjectcleanuphandler_eventfilter_isbase = value; }
-    inline void setQObjectCleanupHandler_TimerEvent_IsBase(bool value) const { qobjectcleanuphandler_timerevent_isbase = value; }
-    inline void setQObjectCleanupHandler_ChildEvent_IsBase(bool value) const { qobjectcleanuphandler_childevent_isbase = value; }
-    inline void setQObjectCleanupHandler_CustomEvent_IsBase(bool value) const { qobjectcleanuphandler_customevent_isbase = value; }
-    inline void setQObjectCleanupHandler_ConnectNotify_IsBase(bool value) const { qobjectcleanuphandler_connectnotify_isbase = value; }
-    inline void setQObjectCleanupHandler_DisconnectNotify_IsBase(bool value) const { qobjectcleanuphandler_disconnectnotify_isbase = value; }
-    inline void setQObjectCleanupHandler_Sender_IsBase(bool value) const { qobjectcleanuphandler_sender_isbase = value; }
-    inline void setQObjectCleanupHandler_SenderSignalIndex_IsBase(bool value) const { qobjectcleanuphandler_sendersignalindex_isbase = value; }
-    inline void setQObjectCleanupHandler_Receivers_IsBase(bool value) const { qobjectcleanuphandler_receivers_isbase = value; }
-    inline void setQObjectCleanupHandler_IsSignalConnected_IsBase(bool value) const { qobjectcleanuphandler_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qobjectcleanuphandler_metaobject_isbase) {
-            qobjectcleanuphandler_metaobject_isbase = false;
-            return QObjectCleanupHandler::metaObject();
-        }
-        auto metaobject_cb = qobjectcleanuphandler_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qobjectcleanuphandler_metaobject_callback) {
+            QMetaObject* callback_ret = qobjectcleanuphandler_metaobject_callback(this);
             return callback_ret;
         }
         return QObjectCleanupHandler::metaObject();
@@ -116,14 +62,9 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qobjectcleanuphandler_metacast_isbase) {
-            qobjectcleanuphandler_metacast_isbase = false;
-            return QObjectCleanupHandler::qt_metacast(param1);
-        }
-        auto metacast_cb = qobjectcleanuphandler_metacast_callback;
-        if (metacast_cb) {
+        if (qobjectcleanuphandler_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qobjectcleanuphandler_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QObjectCleanupHandler::qt_metacast(param1);
@@ -131,16 +72,11 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qobjectcleanuphandler_metacall_isbase) {
-            qobjectcleanuphandler_metacall_isbase = false;
-            return QObjectCleanupHandler::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qobjectcleanuphandler_metacall_callback;
-        if (metacall_cb) {
+        if (qobjectcleanuphandler_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qobjectcleanuphandler_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QObjectCleanupHandler::qt_metacall(param1, param2, param3);
@@ -148,14 +84,9 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qobjectcleanuphandler_event_isbase) {
-            qobjectcleanuphandler_event_isbase = false;
-            return QObjectCleanupHandler::event(event);
-        }
-        auto event_cb = qobjectcleanuphandler_event_callback;
-        if (event_cb) {
+        if (qobjectcleanuphandler_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qobjectcleanuphandler_event_callback(this, cbval1);
             return callback_ret;
         }
         return QObjectCleanupHandler::event(event);
@@ -163,15 +94,10 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qobjectcleanuphandler_eventfilter_isbase) {
-            qobjectcleanuphandler_eventfilter_isbase = false;
-            return QObjectCleanupHandler::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qobjectcleanuphandler_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qobjectcleanuphandler_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qobjectcleanuphandler_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QObjectCleanupHandler::eventFilter(watched, event);
@@ -179,15 +105,9 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qobjectcleanuphandler_timerevent_isbase) {
-            qobjectcleanuphandler_timerevent_isbase = false;
-            QObjectCleanupHandler::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qobjectcleanuphandler_timerevent_callback;
-        if (timerevent_cb) {
+        if (qobjectcleanuphandler_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qobjectcleanuphandler_timerevent_callback(this, cbval1);
             return;
         }
         QObjectCleanupHandler::timerEvent(event);
@@ -195,15 +115,9 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qobjectcleanuphandler_childevent_isbase) {
-            qobjectcleanuphandler_childevent_isbase = false;
-            QObjectCleanupHandler::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qobjectcleanuphandler_childevent_callback;
-        if (childevent_cb) {
+        if (qobjectcleanuphandler_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qobjectcleanuphandler_childevent_callback(this, cbval1);
             return;
         }
         QObjectCleanupHandler::childEvent(event);
@@ -211,15 +125,9 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qobjectcleanuphandler_customevent_isbase) {
-            qobjectcleanuphandler_customevent_isbase = false;
-            QObjectCleanupHandler::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qobjectcleanuphandler_customevent_callback;
-        if (customevent_cb) {
+        if (qobjectcleanuphandler_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qobjectcleanuphandler_customevent_callback(this, cbval1);
             return;
         }
         QObjectCleanupHandler::customEvent(event);
@@ -227,17 +135,11 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qobjectcleanuphandler_connectnotify_isbase) {
-            qobjectcleanuphandler_connectnotify_isbase = false;
-            QObjectCleanupHandler::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qobjectcleanuphandler_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qobjectcleanuphandler_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qobjectcleanuphandler_connectnotify_callback(this, cbval1);
             return;
         }
         QObjectCleanupHandler::connectNotify(signal);
@@ -245,101 +147,22 @@ class VirtualQObjectCleanupHandler final : public QObjectCleanupHandler {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qobjectcleanuphandler_disconnectnotify_isbase) {
-            qobjectcleanuphandler_disconnectnotify_isbase = false;
-            QObjectCleanupHandler::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qobjectcleanuphandler_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qobjectcleanuphandler_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qobjectcleanuphandler_disconnectnotify_callback(this, cbval1);
             return;
         }
         QObjectCleanupHandler::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qobjectcleanuphandler_sender_isbase) {
-            qobjectcleanuphandler_sender_isbase = false;
-            return QObjectCleanupHandler::sender();
-        }
-        auto sender_cb = qobjectcleanuphandler_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QObjectCleanupHandler::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qobjectcleanuphandler_sendersignalindex_isbase) {
-            qobjectcleanuphandler_sendersignalindex_isbase = false;
-            return QObjectCleanupHandler::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qobjectcleanuphandler_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QObjectCleanupHandler::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qobjectcleanuphandler_receivers_isbase) {
-            qobjectcleanuphandler_receivers_isbase = false;
-            return QObjectCleanupHandler::receivers(signal);
-        }
-        auto receivers_cb = qobjectcleanuphandler_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QObjectCleanupHandler::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qobjectcleanuphandler_issignalconnected_isbase) {
-            qobjectcleanuphandler_issignalconnected_isbase = false;
-            return QObjectCleanupHandler::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qobjectcleanuphandler_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QObjectCleanupHandler::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QObjectCleanupHandler_TimerEvent(QObjectCleanupHandler* self, QTimerEvent* event);
     friend void QObjectCleanupHandler_SuperTimerEvent(QObjectCleanupHandler* self, QTimerEvent* event);
-    friend void QObjectCleanupHandler_ChildEvent(QObjectCleanupHandler* self, QChildEvent* event);
     friend void QObjectCleanupHandler_SuperChildEvent(QObjectCleanupHandler* self, QChildEvent* event);
-    friend void QObjectCleanupHandler_CustomEvent(QObjectCleanupHandler* self, QEvent* event);
     friend void QObjectCleanupHandler_SuperCustomEvent(QObjectCleanupHandler* self, QEvent* event);
-    friend void QObjectCleanupHandler_ConnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
     friend void QObjectCleanupHandler_SuperConnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
-    friend void QObjectCleanupHandler_DisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
     friend void QObjectCleanupHandler_SuperDisconnectNotify(QObjectCleanupHandler* self, const QMetaMethod* signal);
-    friend QObject* QObjectCleanupHandler_Sender(const QObjectCleanupHandler* self);
-    friend QObject* QObjectCleanupHandler_SuperSender(const QObjectCleanupHandler* self);
-    friend int QObjectCleanupHandler_SenderSignalIndex(const QObjectCleanupHandler* self);
-    friend int QObjectCleanupHandler_SuperSenderSignalIndex(const QObjectCleanupHandler* self);
-    friend int QObjectCleanupHandler_Receivers(const QObjectCleanupHandler* self, const char* signal);
-    friend int QObjectCleanupHandler_SuperReceivers(const QObjectCleanupHandler* self, const char* signal);
-    friend bool QObjectCleanupHandler_IsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal);
-    friend bool QObjectCleanupHandler_SuperIsSignalConnected(const QObjectCleanupHandler* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -81,9 +81,9 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     /// ` self: KEMailClientLauncherJob `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KEMailClientLauncherJob) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob) callconv(.c) QMetaObject) void {
         qtc.KEMailClientLauncherJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -421,9 +421,9 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     /// ` self: KEMailClientLauncherJob `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KEMailClientLauncherJob) callconv(.c) void `
     ///
-    pub fn onStart(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onStart(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob) callconv(.c) void) void {
         qtc.KEMailClientLauncherJob_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2080,9 +2080,9 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     /// ` self: KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KEMailClientLauncherJob) callconv(.c) bool `
     ///
-    pub fn onDoKill(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoKill(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob) callconv(.c) bool) void {
         qtc.KEMailClientLauncherJob_OnDoKill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2136,9 +2136,9 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     /// ` self: KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KEMailClientLauncherJob) callconv(.c) bool `
     ///
-    pub fn onDoSuspend(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoSuspend(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob) callconv(.c) bool) void {
         qtc.KEMailClientLauncherJob_OnDoSuspend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2192,9 +2192,9 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     /// ` self: KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KEMailClientLauncherJob) callconv(.c) bool `
     ///
-    pub fn onDoResume(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoResume(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob) callconv(.c) bool) void {
         qtc.KEMailClientLauncherJob_OnDoResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2260,9 +2260,9 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     /// ` self: KEMailClientLauncherJob`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KEMailClientLauncherJob) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onErrorString(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob) callconv(.c) [*:0]const u8) void {
         qtc.KEMailClientLauncherJob_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2726,46 +2726,6 @@ pub const KEMailClientLauncherJob = extern struct {
         qtc.KEMailClientLauncherJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
     }
 
-    /// ### DEPRECATED: Use `superSetCapabilities` instead
-    ///
-    pub const SuperSetCapabilities = superSetCapabilities;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` _capabilities: flag of kjob_enums.Capability `
-    ///
-    pub fn superSetCapabilities(self: KEMailClientLauncherJob, _capabilities: i32) void {
-        qtc.KEMailClientLauncherJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
-    }
-
-    /// ### DEPRECATED: Use `onSetCapabilities` instead
-    ///
-    pub const OnSetCapabilities = onSetCapabilities;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
-    ///
-    pub fn onSetCapabilities(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, i32) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnSetCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isFinished` instead
     ///
     pub const IsFinished = isFinished;
@@ -2782,44 +2742,6 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     pub fn isFinished(self: KEMailClientLauncherJob) bool {
         return qtc.KEMailClientLauncherJob_IsFinished(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsFinished` instead
-    ///
-    pub const SuperIsFinished = superIsFinished;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    pub fn superIsFinished(self: KEMailClientLauncherJob) bool {
-        return qtc.KEMailClientLauncherJob_SuperIsFinished(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsFinished` instead
-    ///
-    pub const OnIsFinished = onIsFinished;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsFinished(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) bool) void {
-        qtc.KEMailClientLauncherJob_OnIsFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setError` instead
@@ -2840,46 +2762,6 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     pub fn setError(self: KEMailClientLauncherJob, errorCode: i32) void {
         qtc.KEMailClientLauncherJob_SetError(@ptrCast(self.ptr), @bitCast(errorCode));
-    }
-
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` errorCode: i32 `
-    ///
-    pub fn superSetError(self: KEMailClientLauncherJob, errorCode: i32) void {
-        qtc.KEMailClientLauncherJob_SuperSetError(@ptrCast(self.ptr), @bitCast(errorCode));
-    }
-
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, errorCode: i32) callconv(.c) void `
-    ///
-    pub fn onSetError(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, i32) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setErrorText` instead
@@ -2906,50 +2788,6 @@ pub const KEMailClientLauncherJob = extern struct {
         qtc.KEMailClientLauncherJob_SetErrorText(@ptrCast(self.ptr), errorText_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorText` instead
-    ///
-    pub const SuperSetErrorText = superSetErrorText;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` _errorText: []const u8 `
-    ///
-    pub fn superSetErrorText(self: KEMailClientLauncherJob, _errorText: []const u8) void {
-        const errorText_str = qtc.libqt_string{
-            .len = _errorText.len,
-            .data = _errorText.ptr,
-        };
-        qtc.KEMailClientLauncherJob_SuperSetErrorText(@ptrCast(self.ptr), errorText_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorText` instead
-    ///
-    pub const OnSetErrorText = onSetErrorText;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, errorText: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorText(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, [*:0]const u8) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnSetErrorText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setProcessedAmount` instead
     ///
     pub const SetProcessedAmount = setProcessedAmount;
@@ -2970,48 +2808,6 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     pub fn setProcessedAmount(self: KEMailClientLauncherJob, unit: i32, amount: usize) void {
         qtc.KEMailClientLauncherJob_SetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `superSetProcessedAmount` instead
-    ///
-    pub const SuperSetProcessedAmount = superSetProcessedAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    /// ` amount: usize `
-    ///
-    pub fn superSetProcessedAmount(self: KEMailClientLauncherJob, unit: i32, amount: usize) void {
-        qtc.KEMailClientLauncherJob_SuperSetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `onSetProcessedAmount` instead
-    ///
-    pub const OnSetProcessedAmount = onSetProcessedAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
-    ///
-    pub fn onSetProcessedAmount(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, i32, usize) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnSetProcessedAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setTotalAmount` instead
@@ -3036,48 +2832,6 @@ pub const KEMailClientLauncherJob = extern struct {
         qtc.KEMailClientLauncherJob_SetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
-    /// ### DEPRECATED: Use `superSetTotalAmount` instead
-    ///
-    pub const SuperSetTotalAmount = superSetTotalAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    /// ` amount: usize `
-    ///
-    pub fn superSetTotalAmount(self: KEMailClientLauncherJob, unit: i32, amount: usize) void {
-        qtc.KEMailClientLauncherJob_SuperSetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `onSetTotalAmount` instead
-    ///
-    pub const OnSetTotalAmount = onSetTotalAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
-    ///
-    pub fn onSetTotalAmount(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, i32, usize) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnSetTotalAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setProgressUnit` instead
     ///
     pub const SetProgressUnit = setProgressUnit;
@@ -3096,46 +2850,6 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     pub fn setProgressUnit(self: KEMailClientLauncherJob, unit: i32) void {
         qtc.KEMailClientLauncherJob_SetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
-    }
-
-    /// ### DEPRECATED: Use `superSetProgressUnit` instead
-    ///
-    pub const SuperSetProgressUnit = superSetProgressUnit;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    pub fn superSetProgressUnit(self: KEMailClientLauncherJob, unit: i32) void {
-        qtc.KEMailClientLauncherJob_SuperSetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
-    }
-
-    /// ### DEPRECATED: Use `onSetProgressUnit` instead
-    ///
-    pub const OnSetProgressUnit = onSetProgressUnit;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, unit: kjob_enums.Unit) callconv(.c) void `
-    ///
-    pub fn onSetProgressUnit(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, i32) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnSetProgressUnit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setPercent` instead
@@ -3158,46 +2872,6 @@ pub const KEMailClientLauncherJob = extern struct {
         qtc.KEMailClientLauncherJob_SetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
 
-    /// ### DEPRECATED: Use `superSetPercent` instead
-    ///
-    pub const SuperSetPercent = superSetPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` percentage: usize `
-    ///
-    pub fn superSetPercent(self: KEMailClientLauncherJob, percentage: usize) void {
-        qtc.KEMailClientLauncherJob_SuperSetPercent(@ptrCast(self.ptr), @bitCast(percentage));
-    }
-
-    /// ### DEPRECATED: Use `onSetPercent` instead
-    ///
-    pub const OnSetPercent = onSetPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, percentage: usize) callconv(.c) void `
-    ///
-    pub fn onSetPercent(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, usize) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnSetPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `emitResult` instead
     ///
     pub const EmitResult = emitResult;
@@ -3214,44 +2888,6 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     pub fn emitResult(self: KEMailClientLauncherJob) void {
         qtc.KEMailClientLauncherJob_EmitResult(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEmitResult` instead
-    ///
-    pub const SuperEmitResult = superEmitResult;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    pub fn superEmitResult(self: KEMailClientLauncherJob) void {
-        qtc.KEMailClientLauncherJob_SuperEmitResult(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEmitResult` instead
-    ///
-    pub const OnEmitResult = onEmitResult;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEmitResult(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnEmitResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `emitPercent` instead
@@ -3276,48 +2912,6 @@ pub const KEMailClientLauncherJob = extern struct {
         qtc.KEMailClientLauncherJob_EmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
     }
 
-    /// ### DEPRECATED: Use `superEmitPercent` instead
-    ///
-    pub const SuperEmitPercent = superEmitPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` _processedAmount: usize `
-    ///
-    /// ` _totalAmount: usize `
-    ///
-    pub fn superEmitPercent(self: KEMailClientLauncherJob, _processedAmount: usize, _totalAmount: usize) void {
-        qtc.KEMailClientLauncherJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
-    }
-
-    /// ### DEPRECATED: Use `onEmitPercent` instead
-    ///
-    pub const OnEmitPercent = onEmitPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
-    ///
-    pub fn onEmitPercent(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, usize, usize) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnEmitPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `emitSpeed` instead
     ///
     pub const EmitSpeed = emitSpeed;
@@ -3338,46 +2932,6 @@ pub const KEMailClientLauncherJob = extern struct {
         qtc.KEMailClientLauncherJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
     }
 
-    /// ### DEPRECATED: Use `superEmitSpeed` instead
-    ///
-    pub const SuperEmitSpeed = superEmitSpeed;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` _speed: usize `
-    ///
-    pub fn superEmitSpeed(self: KEMailClientLauncherJob, _speed: usize) void {
-        qtc.KEMailClientLauncherJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
-    }
-
-    /// ### DEPRECATED: Use `onEmitSpeed` instead
-    ///
-    pub const OnEmitSpeed = onEmitSpeed;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, speed: usize) callconv(.c) void `
-    ///
-    pub fn onEmitSpeed(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, usize) callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnEmitSpeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `startElapsedTimer` instead
     ///
     pub const StartElapsedTimer = startElapsedTimer;
@@ -3394,44 +2948,6 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     pub fn startElapsedTimer(self: KEMailClientLauncherJob) void {
         qtc.KEMailClientLauncherJob_StartElapsedTimer(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superStartElapsedTimer` instead
-    ///
-    pub const SuperStartElapsedTimer = superStartElapsedTimer;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    pub fn superStartElapsedTimer(self: KEMailClientLauncherJob) void {
-        qtc.KEMailClientLauncherJob_SuperStartElapsedTimer(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartElapsedTimer` instead
-    ///
-    pub const OnStartElapsedTimer = onStartElapsedTimer;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartElapsedTimer(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KEMailClientLauncherJob_OnStartElapsedTimer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -3452,44 +2968,6 @@ pub const KEMailClientLauncherJob = extern struct {
         return .{ .ptr = qtc.KEMailClientLauncherJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    pub fn superSender(self: KEMailClientLauncherJob) QObject {
-        return .{ .ptr = qtc.KEMailClientLauncherJob_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KEMailClientLauncherJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3506,44 +2984,6 @@ pub const KEMailClientLauncherJob = extern struct {
     ///
     pub fn senderSignalIndex(self: KEMailClientLauncherJob) i32 {
         return qtc.KEMailClientLauncherJob_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    pub fn superSenderSignalIndex(self: KEMailClientLauncherJob) i32 {
-        return qtc.KEMailClientLauncherJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KEMailClientLauncherJob, callback: *const fn () callconv(.c) i32) void {
-        qtc.KEMailClientLauncherJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3567,47 +3007,6 @@ pub const KEMailClientLauncherJob = extern struct {
         return qtc.KEMailClientLauncherJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KEMailClientLauncherJob, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KEMailClientLauncherJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KEMailClientLauncherJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3627,47 +3026,6 @@ pub const KEMailClientLauncherJob = extern struct {
     pub fn isSignalConnected(self: KEMailClientLauncherJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KEMailClientLauncherJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEMailClientLauncherJob `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KEMailClientLauncherJob, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KEMailClientLauncherJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KEMailClientLauncherJob`
-    ///
-    /// ` callback: *const fn (self: KEMailClientLauncherJob, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KEMailClientLauncherJob, callback: *const fn (KEMailClientLauncherJob, QMetaMethod) callconv(.c) bool) void {
-        qtc.KEMailClientLauncherJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onFinished` instead

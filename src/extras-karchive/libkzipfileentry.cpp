@@ -79,160 +79,93 @@ QIODevice* KZipFileEntry_CreateDevice(const KZipFileEntry* self) {
 
 // Base class handler implementation
 libqt_string KZipFileEntry_SuperData(const KZipFileEntry* self) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        vkzipfileentry->setKZipFileEntry_Data_IsBase(true);
-        QByteArray _qb = vkzipfileentry->data();
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = self->KZipFileEntry::data();
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    QByteArray _qb = self->KZipFileEntry::data();
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KZipFileEntry_OnData(const KZipFileEntry* self, intptr_t slot) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
-        vkzipfileentry->setKZipFileEntry_Data_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_Data_Callback>(slot));
+void KZipFileEntry_OnData(KZipFileEntry* self, intptr_t slot) {
+    if (auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self)))
+        vkzipfileentry->kzipfileentry_data_callback = reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_Data_Callback>(slot);
 }
 
 // Base class handler implementation
 QIODevice* KZipFileEntry_SuperCreateDevice(const KZipFileEntry* self) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        vkzipfileentry->setKZipFileEntry_CreateDevice_IsBase(true);
-        return vkzipfileentry->createDevice();
-    } else {
-        return self->KZipFileEntry::createDevice();
-    }
+    return self->KZipFileEntry::createDevice();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KZipFileEntry_OnCreateDevice(const KZipFileEntry* self, intptr_t slot) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
-        vkzipfileentry->setKZipFileEntry_CreateDevice_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_CreateDevice_Callback>(slot));
+void KZipFileEntry_OnCreateDevice(KZipFileEntry* self, intptr_t slot) {
+    if (auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self)))
+        vkzipfileentry->kzipfileentry_createdevice_callback = reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_CreateDevice_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KZipFileEntry_IsFile(const KZipFileEntry* self) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        return vkzipfileentry->isFile();
-    } else {
-        return self->KZipFileEntry::isFile();
-    }
+    return self->isFile();
 }
 
 // Base class handler implementation
 bool KZipFileEntry_SuperIsFile(const KZipFileEntry* self) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        vkzipfileentry->setKZipFileEntry_IsFile_IsBase(true);
-        return vkzipfileentry->isFile();
-    } else {
-        return self->KZipFileEntry::isFile();
-    }
+    return self->KZipFileEntry::isFile();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KZipFileEntry_OnIsFile(const KZipFileEntry* self, intptr_t slot) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
-        vkzipfileentry->setKZipFileEntry_IsFile_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_IsFile_Callback>(slot));
+void KZipFileEntry_OnIsFile(KZipFileEntry* self, intptr_t slot) {
+    if (auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self)))
+        vkzipfileentry->kzipfileentry_isfile_callback = reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_IsFile_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KZipFileEntry_VirtualHook(KZipFileEntry* self, int id, void* data) {
     auto* vkzipfileentry = dynamic_cast<VirtualKZipFileEntry*>(self);
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
+    if (vkzipfileentry) {
         vkzipfileentry->virtual_hook(static_cast<int>(id), data);
     } else {
-        ((VirtualKZipFileEntry*)self)->virtual_hook(static_cast<int>(id), data);
+        qFatal("Error: Protected virtual method KZipFileEntry::virtual_hook called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KZipFileEntry_SuperVirtualHook(KZipFileEntry* self, int id, void* data) {
-    auto* vkzipfileentry = dynamic_cast<VirtualKZipFileEntry*>(self);
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        vkzipfileentry->setKZipFileEntry_VirtualHook_IsBase(true);
-        vkzipfileentry->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKZipFileEntry*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vkzipfileentry = dynamic_cast<VirtualKZipFileEntry*>(self)) {
+        vkzipfileentry->KZipFileEntry::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KZipFileEntry::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KZipFileEntry_OnVirtualHook(KZipFileEntry* self, intptr_t slot) {
-    auto* vkzipfileentry = dynamic_cast<VirtualKZipFileEntry*>(self);
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
-        vkzipfileentry->setKZipFileEntry_VirtualHook_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_VirtualHook_Callback>(slot));
+    if (auto* vkzipfileentry = dynamic_cast<VirtualKZipFileEntry*>(self))
+        vkzipfileentry->kzipfileentry_virtualhook_callback = reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_VirtualHook_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KZipFileEntry_IsDirectory(const KZipFileEntry* self) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        return vkzipfileentry->isDirectory();
-    } else {
-        return self->KZipFileEntry::isDirectory();
-    }
+    return self->isDirectory();
 }
 
 // Base class handler implementation
 bool KZipFileEntry_SuperIsDirectory(const KZipFileEntry* self) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        vkzipfileentry->setKZipFileEntry_IsDirectory_IsBase(true);
-        return vkzipfileentry->isDirectory();
-    } else {
-        return self->KZipFileEntry::isDirectory();
-    }
+    return self->KZipFileEntry::isDirectory();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KZipFileEntry_OnIsDirectory(const KZipFileEntry* self, intptr_t slot) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
-        vkzipfileentry->setKZipFileEntry_IsDirectory_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_IsDirectory_Callback>(slot));
+void KZipFileEntry_OnIsDirectory(KZipFileEntry* self, intptr_t slot) {
+    if (auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self)))
+        vkzipfileentry->kzipfileentry_isdirectory_callback = reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_IsDirectory_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 KArchive* KZipFileEntry_Archive(const KZipFileEntry* self) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        return vkzipfileentry->archive();
-    } else {
-        return ((VirtualKZipFileEntry*)self)->archive();
-    }
-}
-
-// Base class handler implementation
-KArchive* KZipFileEntry_SuperArchive(const KZipFileEntry* self) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        vkzipfileentry->setKZipFileEntry_Archive_IsBase(true);
-        return vkzipfileentry->archive();
-    } else {
-        return ((VirtualKZipFileEntry*)self)->archive();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KZipFileEntry_OnArchive(const KZipFileEntry* self, intptr_t slot) {
-    auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
-        vkzipfileentry->setKZipFileEntry_Archive_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_Archive_Callback>(slot));
+    if (auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self))) {
+        return vkzipfileentry->VirtualKZipFileEntry::archive();
+    } else
+        qFatal("Error: Protected method KZipFileEntry::archive called without a directly constructed type");
 }
 
 void KZipFileEntry_Delete(KZipFileEntry* self) {

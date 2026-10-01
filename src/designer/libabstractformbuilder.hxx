@@ -9,14 +9,10 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QAbstractFormBuilder so that we can call protected methods
+// This class is a subclass of QAbstractFormBuilder
 class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQAbstractFormBuilder = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using QAbstractFormBuilder_Load_Callback = QWidget* (*)(QAbstractFormBuilder*, QIODevice*, QWidget*);
     using QAbstractFormBuilder_Save_Callback = void (*)(QAbstractFormBuilder*, QIODevice*, QWidget*);
     using QAbstractFormBuilder_AddMenuAction_Callback = void (*)(QAbstractFormBuilder*, QAction*);
@@ -25,11 +21,10 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
     using QAbstractFormBuilder_CreateAction_Callback = QAction* (*)(QAbstractFormBuilder*, QObject*, const char*);
     using QAbstractFormBuilder_CreateActionGroup_Callback = QActionGroup* (*)(QAbstractFormBuilder*, QObject*, const char*);
     using QAbstractFormBuilder_CheckProperty_Callback = bool (*)(const QAbstractFormBuilder*, QObject*, const char*);
-    using QAbstractFormBuilder_ApplyPropertyInternally_Callback = bool (*)(QAbstractFormBuilder*, QObject*, const char*, QVariant*);
-    using QAbstractFormBuilder_Reset_Callback = void (*)();
-    using QAbstractFormBuilder_ToolBarAreaMetaEnum_Callback = QMetaEnum* (*)();
+    using QAbstractFormBuilder::applyPropertyInternally;
+    using QAbstractFormBuilder::reset;
+    using QAbstractFormBuilder::toolBarAreaMetaEnum;
 
-  protected:
     // Instance callback storage
     QAbstractFormBuilder_Load_Callback qabstractformbuilder_load_callback = nullptr;
     QAbstractFormBuilder_Save_Callback qabstractformbuilder_save_callback = nullptr;
@@ -39,63 +34,25 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
     QAbstractFormBuilder_CreateAction_Callback qabstractformbuilder_createaction_callback = nullptr;
     QAbstractFormBuilder_CreateActionGroup_Callback qabstractformbuilder_createactiongroup_callback = nullptr;
     QAbstractFormBuilder_CheckProperty_Callback qabstractformbuilder_checkproperty_callback = nullptr;
-    QAbstractFormBuilder_ApplyPropertyInternally_Callback qabstractformbuilder_applypropertyinternally_callback = nullptr;
-    QAbstractFormBuilder_Reset_Callback qabstractformbuilder_reset_callback = nullptr;
-    QAbstractFormBuilder_ToolBarAreaMetaEnum_Callback qabstractformbuilder_toolbarareametaenum_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qabstractformbuilder_load_isbase = false;
-    mutable bool qabstractformbuilder_save_isbase = false;
-    mutable bool qabstractformbuilder_addmenuaction_isbase = false;
-    mutable bool qabstractformbuilder_createwidget_isbase = false;
-    mutable bool qabstractformbuilder_createlayout_isbase = false;
-    mutable bool qabstractformbuilder_createaction_isbase = false;
-    mutable bool qabstractformbuilder_createactiongroup_isbase = false;
-    mutable bool qabstractformbuilder_checkproperty_isbase = false;
-    mutable bool qabstractformbuilder_applypropertyinternally_isbase = false;
-    mutable bool qabstractformbuilder_reset_isbase = false;
-    mutable bool qabstractformbuilder_toolbarareametaenum_isbase = false;
+    // Access struct
+    struct Base : QAbstractFormBuilder {
+        using QAbstractFormBuilder::addMenuAction;
+        using QAbstractFormBuilder::checkProperty;
+        using QAbstractFormBuilder::createAction;
+        using QAbstractFormBuilder::createActionGroup;
+        using QAbstractFormBuilder::createLayout;
+        using QAbstractFormBuilder::createWidget;
+    };
 
-  public:
     VirtualQAbstractFormBuilder() : QAbstractFormBuilder() {};
-
-    // Callback setters
-    inline void setQAbstractFormBuilder_Load_Callback(QAbstractFormBuilder_Load_Callback cb) { qabstractformbuilder_load_callback = cb; }
-    inline void setQAbstractFormBuilder_Save_Callback(QAbstractFormBuilder_Save_Callback cb) { qabstractformbuilder_save_callback = cb; }
-    inline void setQAbstractFormBuilder_AddMenuAction_Callback(QAbstractFormBuilder_AddMenuAction_Callback cb) { qabstractformbuilder_addmenuaction_callback = cb; }
-    inline void setQAbstractFormBuilder_CreateWidget_Callback(QAbstractFormBuilder_CreateWidget_Callback cb) { qabstractformbuilder_createwidget_callback = cb; }
-    inline void setQAbstractFormBuilder_CreateLayout_Callback(QAbstractFormBuilder_CreateLayout_Callback cb) { qabstractformbuilder_createlayout_callback = cb; }
-    inline void setQAbstractFormBuilder_CreateAction_Callback(QAbstractFormBuilder_CreateAction_Callback cb) { qabstractformbuilder_createaction_callback = cb; }
-    inline void setQAbstractFormBuilder_CreateActionGroup_Callback(QAbstractFormBuilder_CreateActionGroup_Callback cb) { qabstractformbuilder_createactiongroup_callback = cb; }
-    inline void setQAbstractFormBuilder_CheckProperty_Callback(QAbstractFormBuilder_CheckProperty_Callback cb) { qabstractformbuilder_checkproperty_callback = cb; }
-    inline void setQAbstractFormBuilder_ApplyPropertyInternally_Callback(QAbstractFormBuilder_ApplyPropertyInternally_Callback cb) { qabstractformbuilder_applypropertyinternally_callback = cb; }
-    inline void setQAbstractFormBuilder_Reset_Callback(QAbstractFormBuilder_Reset_Callback cb) { qabstractformbuilder_reset_callback = cb; }
-    inline void setQAbstractFormBuilder_ToolBarAreaMetaEnum_Callback(QAbstractFormBuilder_ToolBarAreaMetaEnum_Callback cb) { qabstractformbuilder_toolbarareametaenum_callback = cb; }
-
-    // Base flag setters
-    inline void setQAbstractFormBuilder_Load_IsBase(bool value) const { qabstractformbuilder_load_isbase = value; }
-    inline void setQAbstractFormBuilder_Save_IsBase(bool value) const { qabstractformbuilder_save_isbase = value; }
-    inline void setQAbstractFormBuilder_AddMenuAction_IsBase(bool value) const { qabstractformbuilder_addmenuaction_isbase = value; }
-    inline void setQAbstractFormBuilder_CreateWidget_IsBase(bool value) const { qabstractformbuilder_createwidget_isbase = value; }
-    inline void setQAbstractFormBuilder_CreateLayout_IsBase(bool value) const { qabstractformbuilder_createlayout_isbase = value; }
-    inline void setQAbstractFormBuilder_CreateAction_IsBase(bool value) const { qabstractformbuilder_createaction_isbase = value; }
-    inline void setQAbstractFormBuilder_CreateActionGroup_IsBase(bool value) const { qabstractformbuilder_createactiongroup_isbase = value; }
-    inline void setQAbstractFormBuilder_CheckProperty_IsBase(bool value) const { qabstractformbuilder_checkproperty_isbase = value; }
-    inline void setQAbstractFormBuilder_ApplyPropertyInternally_IsBase(bool value) const { qabstractformbuilder_applypropertyinternally_isbase = value; }
-    inline void setQAbstractFormBuilder_Reset_IsBase(bool value) const { qabstractformbuilder_reset_isbase = value; }
-    inline void setQAbstractFormBuilder_ToolBarAreaMetaEnum_IsBase(bool value) const { qabstractformbuilder_toolbarareametaenum_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* load(QIODevice* dev, QWidget* parentWidget) override {
-        if (qabstractformbuilder_load_isbase) {
-            qabstractformbuilder_load_isbase = false;
-            return QAbstractFormBuilder::load(dev, parentWidget);
-        }
-        auto load_cb = qabstractformbuilder_load_callback;
-        if (load_cb) {
+        if (qabstractformbuilder_load_callback) {
             QIODevice* cbval1 = dev;
             QWidget* cbval2 = parentWidget;
-            QWidget* callback_ret = load_cb(this, cbval1, cbval2);
+            QWidget* callback_ret = qabstractformbuilder_load_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QAbstractFormBuilder::load(dev, parentWidget);
@@ -103,16 +60,10 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
 
     // Virtual method for C ABI access and custom callback
     virtual void save(QIODevice* dev, QWidget* widget) override {
-        if (qabstractformbuilder_save_isbase) {
-            qabstractformbuilder_save_isbase = false;
-            QAbstractFormBuilder::save(dev, widget);
-            return;
-        }
-        auto save_cb = qabstractformbuilder_save_callback;
-        if (save_cb) {
+        if (qabstractformbuilder_save_callback) {
             QIODevice* cbval1 = dev;
             QWidget* cbval2 = widget;
-            save_cb(this, cbval1, cbval2);
+            qabstractformbuilder_save_callback(this, cbval1, cbval2);
             return;
         }
         QAbstractFormBuilder::save(dev, widget);
@@ -120,15 +71,9 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
 
     // Virtual method for C ABI access and custom callback
     virtual void addMenuAction(QAction* action) override {
-        if (qabstractformbuilder_addmenuaction_isbase) {
-            qabstractformbuilder_addmenuaction_isbase = false;
-            QAbstractFormBuilder::addMenuAction(action);
-            return;
-        }
-        auto addmenuaction_cb = qabstractformbuilder_addmenuaction_callback;
-        if (addmenuaction_cb) {
+        if (qabstractformbuilder_addmenuaction_callback) {
             QAction* cbval1 = action;
-            addmenuaction_cb(this, cbval1);
+            qabstractformbuilder_addmenuaction_callback(this, cbval1);
             return;
         }
         QAbstractFormBuilder::addMenuAction(action);
@@ -136,12 +81,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
 
     // Virtual method for C ABI access and custom callback
     virtual QWidget* createWidget(const QString& widgetName, QWidget* parentWidget, const QString& name) override {
-        if (qabstractformbuilder_createwidget_isbase) {
-            qabstractformbuilder_createwidget_isbase = false;
-            return QAbstractFormBuilder::createWidget(widgetName, parentWidget, name);
-        }
-        auto createwidget_cb = qabstractformbuilder_createwidget_callback;
-        if (createwidget_cb) {
+        if (qabstractformbuilder_createwidget_callback) {
             const auto widgetName_ret = widgetName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray widgetName_b = widgetName_ret.toUtf8();
@@ -159,7 +99,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
-            QWidget* callback_ret = createwidget_cb(this, cbval1, cbval2, cbval3);
+            QWidget* callback_ret = qabstractformbuilder_createwidget_callback(this, cbval1, cbval2, cbval3);
             libqt_free(widgetName_str);
             libqt_free(name_str);
             return callback_ret;
@@ -169,12 +109,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
 
     // Virtual method for C ABI access and custom callback
     virtual QLayout* createLayout(const QString& layoutName, QObject* parent, const QString& name) override {
-        if (qabstractformbuilder_createlayout_isbase) {
-            qabstractformbuilder_createlayout_isbase = false;
-            return QAbstractFormBuilder::createLayout(layoutName, parent, name);
-        }
-        auto createlayout_cb = qabstractformbuilder_createlayout_callback;
-        if (createlayout_cb) {
+        if (qabstractformbuilder_createlayout_callback) {
             const auto layoutName_ret = layoutName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray layoutName_b = layoutName_ret.toUtf8();
@@ -192,7 +127,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
-            QLayout* callback_ret = createlayout_cb(this, cbval1, cbval2, cbval3);
+            QLayout* callback_ret = qabstractformbuilder_createlayout_callback(this, cbval1, cbval2, cbval3);
             libqt_free(layoutName_str);
             libqt_free(name_str);
             return callback_ret;
@@ -202,12 +137,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
 
     // Virtual method for C ABI access and custom callback
     virtual QAction* createAction(QObject* parent, const QString& name) override {
-        if (qabstractformbuilder_createaction_isbase) {
-            qabstractformbuilder_createaction_isbase = false;
-            return QAbstractFormBuilder::createAction(parent, name);
-        }
-        auto createaction_cb = qabstractformbuilder_createaction_callback;
-        if (createaction_cb) {
+        if (qabstractformbuilder_createaction_callback) {
             QObject* cbval1 = parent;
             const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -217,7 +147,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-            QAction* callback_ret = createaction_cb(this, cbval1, cbval2);
+            QAction* callback_ret = qabstractformbuilder_createaction_callback(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
         }
@@ -226,12 +156,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
 
     // Virtual method for C ABI access and custom callback
     virtual QActionGroup* createActionGroup(QObject* parent, const QString& name) override {
-        if (qabstractformbuilder_createactiongroup_isbase) {
-            qabstractformbuilder_createactiongroup_isbase = false;
-            return QAbstractFormBuilder::createActionGroup(parent, name);
-        }
-        auto createactiongroup_cb = qabstractformbuilder_createactiongroup_callback;
-        if (createactiongroup_cb) {
+        if (qabstractformbuilder_createactiongroup_callback) {
             QObject* cbval1 = parent;
             const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -241,7 +166,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-            QActionGroup* callback_ret = createactiongroup_cb(this, cbval1, cbval2);
+            QActionGroup* callback_ret = qabstractformbuilder_createactiongroup_callback(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
         }
@@ -250,12 +175,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
 
     // Virtual method for C ABI access and custom callback
     virtual bool checkProperty(QObject* obj, const QString& prop) const override {
-        if (qabstractformbuilder_checkproperty_isbase) {
-            qabstractformbuilder_checkproperty_isbase = false;
-            return QAbstractFormBuilder::checkProperty(obj, prop);
-        }
-        auto checkproperty_cb = qabstractformbuilder_checkproperty_callback;
-        if (checkproperty_cb) {
+        if (qabstractformbuilder_checkproperty_callback) {
             QObject* cbval1 = obj;
             const auto prop_ret = prop;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -265,90 +185,20 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)prop_str, prop_b.data(), prop_str_len);
             ((char*)prop_str)[prop_str_len] = '\0';
             const char* cbval2 = prop_str;
-            bool callback_ret = checkproperty_cb(this, cbval1, cbval2);
+            bool callback_ret = qabstractformbuilder_checkproperty_callback(this, cbval1, cbval2);
             libqt_free(prop_str);
             return callback_ret;
         }
         return QAbstractFormBuilder::checkProperty(obj, prop);
     }
 
-    // Virtual method for C ABI access and custom callback
-    bool applyPropertyInternally(QObject* o, const QString& propertyName, const QVariant& value) {
-        if (qabstractformbuilder_applypropertyinternally_isbase) {
-            qabstractformbuilder_applypropertyinternally_isbase = false;
-            return QAbstractFormBuilder::applyPropertyInternally(o, propertyName, value);
-        }
-        auto applypropertyinternally_cb = qabstractformbuilder_applypropertyinternally_callback;
-        if (applypropertyinternally_cb) {
-            QObject* cbval1 = o;
-            const auto propertyName_ret = propertyName;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-            QByteArray propertyName_b = propertyName_ret.toUtf8();
-            auto propertyName_str_len = propertyName_b.length();
-            const char* propertyName_str = static_cast<const char*>(malloc(propertyName_str_len + 1));
-            memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
-            ((char*)propertyName_str)[propertyName_str_len] = '\0';
-            const char* cbval2 = propertyName_str;
-            const QVariant& value_ret = value;
-            // Cast returned reference into pointer
-            QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
-            bool callback_ret = applypropertyinternally_cb(this, cbval1, cbval2, cbval3);
-            libqt_free(propertyName_str);
-            return callback_ret;
-        }
-        return QAbstractFormBuilder::applyPropertyInternally(o, propertyName, value);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void reset() {
-        if (qabstractformbuilder_reset_isbase) {
-            qabstractformbuilder_reset_isbase = false;
-            QAbstractFormBuilder::reset();
-            return;
-        }
-        auto reset_cb = qabstractformbuilder_reset_callback;
-        if (reset_cb) {
-            reset_cb();
-            return;
-        }
-        QAbstractFormBuilder::reset();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QMetaEnum toolBarAreaMetaEnum() {
-        if (qabstractformbuilder_toolbarareametaenum_isbase) {
-            qabstractformbuilder_toolbarareametaenum_isbase = false;
-            return QAbstractFormBuilder::toolBarAreaMetaEnum();
-        }
-        auto toolbarareametaenum_cb = qabstractformbuilder_toolbarareametaenum_callback;
-        if (toolbarareametaenum_cb) {
-            QMetaEnum* callback_ret = toolbarareametaenum_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return QAbstractFormBuilder::toolBarAreaMetaEnum();
-    }
-
     // Friend functions
-    friend void QAbstractFormBuilder_AddMenuAction(QAbstractFormBuilder* self, QAction* action);
     friend void QAbstractFormBuilder_SuperAddMenuAction(QAbstractFormBuilder* self, QAction* action);
-    friend QWidget* QAbstractFormBuilder_CreateWidget(QAbstractFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name);
     friend QWidget* QAbstractFormBuilder_SuperCreateWidget(QAbstractFormBuilder* self, const libqt_string widgetName, QWidget* parentWidget, const libqt_string name);
-    friend QLayout* QAbstractFormBuilder_CreateLayout(QAbstractFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name);
     friend QLayout* QAbstractFormBuilder_SuperCreateLayout(QAbstractFormBuilder* self, const libqt_string layoutName, QObject* parent, const libqt_string name);
-    friend QAction* QAbstractFormBuilder_CreateAction(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
     friend QAction* QAbstractFormBuilder_SuperCreateAction(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
-    friend QActionGroup* QAbstractFormBuilder_CreateActionGroup(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
     friend QActionGroup* QAbstractFormBuilder_SuperCreateActionGroup(QAbstractFormBuilder* self, QObject* parent, const libqt_string name);
-    friend bool QAbstractFormBuilder_CheckProperty(const QAbstractFormBuilder* self, QObject* obj, const libqt_string prop);
     friend bool QAbstractFormBuilder_SuperCheckProperty(const QAbstractFormBuilder* self, QObject* obj, const libqt_string prop);
-    friend bool QAbstractFormBuilder_ApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
-    friend bool QAbstractFormBuilder_SuperApplyPropertyInternally(QAbstractFormBuilder* self, QObject* o, const libqt_string propertyName, const QVariant* value);
-    friend void QAbstractFormBuilder_Reset(QAbstractFormBuilder* self);
-    friend void QAbstractFormBuilder_SuperReset(QAbstractFormBuilder* self);
-    friend QMetaEnum* QAbstractFormBuilder_ToolBarAreaMetaEnum(QAbstractFormBuilder* self);
-    friend QMetaEnum* QAbstractFormBuilder_SuperToolBarAreaMetaEnum(QAbstractFormBuilder* self);
 };
 
 #endif

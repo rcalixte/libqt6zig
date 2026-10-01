@@ -388,762 +388,339 @@ libqt_string QDesignerIntegrationInterface_Tr3(const char* s, const char* c, int
 
 // Base class handler implementation
 QMetaObject* QDesignerIntegrationInterface_SuperMetaObject(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdesignerintegrationinterface->metaObject();
-    } else {
-        return (QMetaObject*)self->QDesignerIntegrationInterface::metaObject();
-    }
+    return (QMetaObject*)self->QDesignerIntegrationInterface::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnMetaObject(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_MetaObject_Callback>(slot));
+void QDesignerIntegrationInterface_OnMetaObject(QDesignerIntegrationInterface* self, intptr_t slot) {
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self)))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_metaobject_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDesignerIntegrationInterface_SuperMetacast(QDesignerIntegrationInterface* self, const char* param1) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Metacast_IsBase(true);
-        return vqdesignerintegrationinterface->qt_metacast(param1);
-    } else {
-        return self->QDesignerIntegrationInterface::qt_metacast(param1);
-    }
+    return self->QDesignerIntegrationInterface::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnMetacast(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Metacast_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_metacast_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDesignerIntegrationInterface_SuperMetacall(QDesignerIntegrationInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Metacall_IsBase(true);
-        return vqdesignerintegrationinterface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDesignerIntegrationInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDesignerIntegrationInterface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnMetacall(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-QWidget* QDesignerIntegrationInterface_SuperContainerWindow(const QDesignerIntegrationInterface* self, QWidget* widget) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ContainerWindow_IsBase(true);
-        return vqdesignerintegrationinterface->containerWindow(widget);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->containerWindow(widget);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_metacall_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnContainerWindow(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ContainerWindow_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ContainerWindow_Callback>(slot));
-}
-
-// Base class handler implementation
-QDesignerResourceBrowserInterface* QDesignerIntegrationInterface_SuperCreateResourceBrowser(QDesignerIntegrationInterface* self, QWidget* parent) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_CreateResourceBrowser_IsBase(true);
-        return vqdesignerintegrationinterface->createResourceBrowser(parent);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->createResourceBrowser(parent);
-    }
+void QDesignerIntegrationInterface_OnContainerWindow(QDesignerIntegrationInterface* self, intptr_t slot) {
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self)))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_containerwindow_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ContainerWindow_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnCreateResourceBrowser(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_CreateResourceBrowser_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_CreateResourceBrowser_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_string QDesignerIntegrationInterface_SuperHeaderSuffix(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_HeaderSuffix_IsBase(true);
-        auto _ret = vqdesignerintegrationinterface->headerSuffix();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerIntegrationInterface*)self)->headerSuffix();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_createresourcebrowser_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_CreateResourceBrowser_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnHeaderSuffix(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_HeaderSuffix_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_HeaderSuffix_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperSetHeaderSuffix(QDesignerIntegrationInterface* self, const libqt_string headerSuffix) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    QString headerSuffix_QString = QString::fromUtf8(headerSuffix.data, headerSuffix.len);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetHeaderSuffix_IsBase(true);
-        vqdesignerintegrationinterface->setHeaderSuffix(headerSuffix_QString);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setHeaderSuffix(headerSuffix_QString);
-    }
+void QDesignerIntegrationInterface_OnHeaderSuffix(QDesignerIntegrationInterface* self, intptr_t slot) {
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self)))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_headersuffix_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_HeaderSuffix_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnSetHeaderSuffix(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetHeaderSuffix_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetHeaderSuffix_Callback>(slot));
-}
-
-// Base class handler implementation
-bool QDesignerIntegrationInterface_SuperIsHeaderLowercase(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_IsHeaderLowercase_IsBase(true);
-        return vqdesignerintegrationinterface->isHeaderLowercase();
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->isHeaderLowercase();
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_setheadersuffix_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetHeaderSuffix_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnIsHeaderLowercase(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_IsHeaderLowercase_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_IsHeaderLowercase_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperSetHeaderLowercase(QDesignerIntegrationInterface* self, bool headerLowerCase) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetHeaderLowercase_IsBase(true);
-        vqdesignerintegrationinterface->setHeaderLowercase(headerLowerCase);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setHeaderLowercase(headerLowerCase);
-    }
+void QDesignerIntegrationInterface_OnIsHeaderLowercase(QDesignerIntegrationInterface* self, intptr_t slot) {
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self)))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_isheaderlowercase_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_IsHeaderLowercase_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnSetHeaderLowercase(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetHeaderLowercase_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetHeaderLowercase_Callback>(slot));
-}
-
-// Base class handler implementation
-int QDesignerIntegrationInterface_SuperFeatures(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Features_IsBase(true);
-        return static_cast<int>(vqdesignerintegrationinterface->features());
-    } else {
-        return static_cast<int>(((VirtualQDesignerIntegrationInterface*)self)->features());
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_setheaderlowercase_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetHeaderLowercase_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnFeatures(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Features_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Features_Callback>(slot));
-}
-
-// Base class handler implementation
-int QDesignerIntegrationInterface_SuperResourceFileWatcherBehaviour(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ResourceFileWatcherBehaviour_IsBase(true);
-        return static_cast<int>(vqdesignerintegrationinterface->resourceFileWatcherBehaviour());
-    } else {
-        return static_cast<int>(((VirtualQDesignerIntegrationInterface*)self)->resourceFileWatcherBehaviour());
-    }
+void QDesignerIntegrationInterface_OnFeatures(QDesignerIntegrationInterface* self, intptr_t slot) {
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self)))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_features_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Features_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnResourceFileWatcherBehaviour(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ResourceFileWatcherBehaviour_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ResourceFileWatcherBehaviour_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperSetResourceFileWatcherBehaviour(QDesignerIntegrationInterface* self, int behaviour) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetResourceFileWatcherBehaviour_IsBase(true);
-        vqdesignerintegrationinterface->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
-    }
+void QDesignerIntegrationInterface_OnResourceFileWatcherBehaviour(QDesignerIntegrationInterface* self, intptr_t slot) {
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self)))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_resourcefilewatcherbehaviour_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ResourceFileWatcherBehaviour_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnSetResourceFileWatcherBehaviour(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetResourceFileWatcherBehaviour_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour_Callback>(slot));
-}
-
-// Base class handler implementation
-libqt_string QDesignerIntegrationInterface_SuperContextHelpId(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ContextHelpId_IsBase(true);
-        auto _ret = vqdesignerintegrationinterface->contextHelpId();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerIntegrationInterface*)self)->contextHelpId();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_setresourcefilewatcherbehaviour_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnContextHelpId(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ContextHelpId_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ContextHelpId_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperSetFeatures(QDesignerIntegrationInterface* self, int f) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetFeatures_IsBase(true);
-        vqdesignerintegrationinterface->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
-    }
+void QDesignerIntegrationInterface_OnContextHelpId(QDesignerIntegrationInterface* self, intptr_t slot) {
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self)))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_contexthelpid_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ContextHelpId_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnSetFeatures(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetFeatures_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetFeatures_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperUpdateProperty(QDesignerIntegrationInterface* self, const libqt_string name, const QVariant* value, bool enableSubPropertyHandling) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateProperty_IsBase(true);
-        vqdesignerintegrationinterface->updateProperty(name_QString, *value, enableSubPropertyHandling);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateProperty(name_QString, *value, enableSubPropertyHandling);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_setfeatures_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetFeatures_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnUpdateProperty(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateProperty_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateProperty_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperUpdateProperty2(QDesignerIntegrationInterface* self, const libqt_string name, const QVariant* value) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateProperty2_IsBase(true);
-        vqdesignerintegrationinterface->updateProperty(name_QString, *value);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateProperty(name_QString, *value);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_updateproperty_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateProperty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnUpdateProperty2(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateProperty2_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateProperty2_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperResetProperty(QDesignerIntegrationInterface* self, const libqt_string name) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ResetProperty_IsBase(true);
-        vqdesignerintegrationinterface->resetProperty(name_QString);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->resetProperty(name_QString);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_updateproperty2_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateProperty2_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnResetProperty(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ResetProperty_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ResetProperty_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperAddDynamicProperty(QDesignerIntegrationInterface* self, const libqt_string name, const QVariant* value) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_AddDynamicProperty_IsBase(true);
-        vqdesignerintegrationinterface->addDynamicProperty(name_QString, *value);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->addDynamicProperty(name_QString, *value);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_resetproperty_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ResetProperty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnAddDynamicProperty(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_AddDynamicProperty_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_AddDynamicProperty_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperRemoveDynamicProperty(QDesignerIntegrationInterface* self, const libqt_string name) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_RemoveDynamicProperty_IsBase(true);
-        vqdesignerintegrationinterface->removeDynamicProperty(name_QString);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->removeDynamicProperty(name_QString);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_adddynamicproperty_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_AddDynamicProperty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnRemoveDynamicProperty(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_RemoveDynamicProperty_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_RemoveDynamicProperty_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperUpdateActiveFormWindow(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateActiveFormWindow_IsBase(true);
-        vqdesignerintegrationinterface->updateActiveFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateActiveFormWindow(formWindow);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_removedynamicproperty_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_RemoveDynamicProperty_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnUpdateActiveFormWindow(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateActiveFormWindow_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateActiveFormWindow_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperSetupFormWindow(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetupFormWindow_IsBase(true);
-        vqdesignerintegrationinterface->setupFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setupFormWindow(formWindow);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_updateactiveformwindow_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateActiveFormWindow_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnSetupFormWindow(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SetupFormWindow_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetupFormWindow_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperUpdateSelection(QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateSelection_IsBase(true);
-        vqdesignerintegrationinterface->updateSelection();
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateSelection();
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_setupformwindow_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SetupFormWindow_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnUpdateSelection(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateSelection_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateSelection_Callback>(slot));
-}
-
-// Base class handler implementation
-void QDesignerIntegrationInterface_SuperUpdateCustomWidgetPlugins(QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateCustomWidgetPlugins_IsBase(true);
-        vqdesignerintegrationinterface->updateCustomWidgetPlugins();
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateCustomWidgetPlugins();
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_updateselection_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateSelection_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnUpdateCustomWidgetPlugins(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_UpdateCustomWidgetPlugins_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateCustomWidgetPlugins_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_updatecustomwidgetplugins_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_UpdateCustomWidgetPlugins_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerIntegrationInterface_Event(QDesignerIntegrationInterface* self, QEvent* event) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->event(event);
-    } else {
-        return self->QDesignerIntegrationInterface::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDesignerIntegrationInterface_SuperEvent(QDesignerIntegrationInterface* self, QEvent* event) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Event_IsBase(true);
-        return vqdesignerintegrationinterface->event(event);
-    } else {
-        return self->QDesignerIntegrationInterface::event(event);
-    }
+    return self->QDesignerIntegrationInterface::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnEvent(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Event_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Event_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_event_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerIntegrationInterface_EventFilter(QDesignerIntegrationInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerIntegrationInterface::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDesignerIntegrationInterface_SuperEventFilter(QDesignerIntegrationInterface* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_EventFilter_IsBase(true);
-        return vqdesignerintegrationinterface->eventFilter(watched, event);
-    } else {
-        return self->QDesignerIntegrationInterface::eventFilter(watched, event);
-    }
+    return self->QDesignerIntegrationInterface::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnEventFilter(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_EventFilter_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_eventfilter_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegrationInterface_TimerEvent(QDesignerIntegrationInterface* self, QTimerEvent* event) {
     auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+    if (vqdesignerintegrationinterface) {
         vqdesignerintegrationinterface->timerEvent(event);
     } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegrationInterface_SuperTimerEvent(QDesignerIntegrationInterface* self, QTimerEvent* event) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_TimerEvent_IsBase(true);
-        vqdesignerintegrationinterface->timerEvent(event);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->timerEvent(event);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self)) {
+        vqdesignerintegrationinterface->QDesignerIntegrationInterface::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnTimerEvent(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_TimerEvent_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_timerevent_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegrationInterface_ChildEvent(QDesignerIntegrationInterface* self, QChildEvent* event) {
     auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+    if (vqdesignerintegrationinterface) {
         vqdesignerintegrationinterface->childEvent(event);
     } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegrationInterface_SuperChildEvent(QDesignerIntegrationInterface* self, QChildEvent* event) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ChildEvent_IsBase(true);
-        vqdesignerintegrationinterface->childEvent(event);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->childEvent(event);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self)) {
+        vqdesignerintegrationinterface->QDesignerIntegrationInterface::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnChildEvent(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ChildEvent_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_childevent_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegrationInterface_CustomEvent(QDesignerIntegrationInterface* self, QEvent* event) {
     auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+    if (vqdesignerintegrationinterface) {
         vqdesignerintegrationinterface->customEvent(event);
     } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegrationInterface_SuperCustomEvent(QDesignerIntegrationInterface* self, QEvent* event) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_CustomEvent_IsBase(true);
-        vqdesignerintegrationinterface->customEvent(event);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->customEvent(event);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self)) {
+        vqdesignerintegrationinterface->QDesignerIntegrationInterface::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnCustomEvent(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_CustomEvent_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_customevent_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegrationInterface_ConnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+    if (vqdesignerintegrationinterface) {
         vqdesignerintegrationinterface->connectNotify(*signal);
     } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegrationInterface_SuperConnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ConnectNotify_IsBase(true);
-        vqdesignerintegrationinterface->connectNotify(*signal);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self)) {
+        vqdesignerintegrationinterface->QDesignerIntegrationInterface::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnConnectNotify(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ConnectNotify_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_connectnotify_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegrationInterface_DisconnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal) {
     auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
+    if (vqdesignerintegrationinterface) {
         vqdesignerintegrationinterface->disconnectNotify(*signal);
     } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegrationInterface_SuperDisconnectNotify(QDesignerIntegrationInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_DisconnectNotify_IsBase(true);
-        vqdesignerintegrationinterface->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self)) {
+        vqdesignerintegrationinterface->QDesignerIntegrationInterface::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegrationInterface::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegrationInterface_OnDisconnectNotify(QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_DisconnectNotify_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self))
+        vqdesignerintegrationinterface->qdesignerintegrationinterface_disconnectnotify_callback = reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDesignerIntegrationInterface_Sender(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->sender();
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->sender();
-    }
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self))) {
+        return vqdesignerintegrationinterface->VirtualQDesignerIntegrationInterface::sender();
+    } else
+        qFatal("Error: Protected method QDesignerIntegrationInterface::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDesignerIntegrationInterface_SuperSender(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Sender_IsBase(true);
-        return vqdesignerintegrationinterface->sender();
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnSender(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerIntegrationInterface_SenderSignalIndex(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->senderSignalIndex();
-    }
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self))) {
+        return vqdesignerintegrationinterface->VirtualQDesignerIntegrationInterface::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDesignerIntegrationInterface::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerIntegrationInterface_SuperSenderSignalIndex(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SenderSignalIndex_IsBase(true);
-        return vqdesignerintegrationinterface->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnSenderSignalIndex(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerIntegrationInterface_Receivers(const QDesignerIntegrationInterface* self, const char* signal) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->receivers(signal);
-    }
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self))) {
+        return vqdesignerintegrationinterface->VirtualQDesignerIntegrationInterface::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDesignerIntegrationInterface::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerIntegrationInterface_SuperReceivers(const QDesignerIntegrationInterface* self, const char* signal) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Receivers_IsBase(true);
-        return vqdesignerintegrationinterface->receivers(signal);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnReceivers(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerIntegrationInterface_IsSignalConnected(const QDesignerIntegrationInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDesignerIntegrationInterface_SuperIsSignalConnected(const QDesignerIntegrationInterface* self, const QMetaMethod* signal) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_IsSignalConnected_IsBase(true);
-        return vqdesignerintegrationinterface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerIntegrationInterface_OnIsSignalConnected(const QDesignerIntegrationInterface* self, intptr_t slot) {
-    auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface)
-        vqdesignerintegrationinterface->setQDesignerIntegrationInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerIntegrationInterface::QDesignerIntegrationInterface_IsSignalConnected_Callback>(slot));
+    if (auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self))) {
+        return vqdesignerintegrationinterface->VirtualQDesignerIntegrationInterface::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDesignerIntegrationInterface::isSignalConnected called without a directly constructed type");
 }
 
 void QDesignerIntegrationInterface_Delete(QDesignerIntegrationInterface* self) {
@@ -1314,762 +891,461 @@ libqt_string QDesignerIntegration_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QDesignerIntegration_SuperMetaObject(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdesignerintegration->metaObject();
-    } else {
-        return (QMetaObject*)self->QDesignerIntegration::metaObject();
-    }
+    return (QMetaObject*)self->QDesignerIntegration::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnMetaObject(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_MetaObject_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_MetaObject_Callback>(slot));
+void QDesignerIntegration_OnMetaObject(QDesignerIntegration* self, intptr_t slot) {
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self)))
+        vqdesignerintegration->qdesignerintegration_metaobject_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDesignerIntegration_SuperMetacast(QDesignerIntegration* self, const char* param1) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_Metacast_IsBase(true);
-        return vqdesignerintegration->qt_metacast(param1);
-    } else {
-        return self->QDesignerIntegration::qt_metacast(param1);
-    }
+    return self->QDesignerIntegration::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnMetacast(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_Metacast_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Metacast_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_metacast_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDesignerIntegration_SuperMetacall(QDesignerIntegration* self, int param1, int param2, void** param3) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_Metacall_IsBase(true);
-        return vqdesignerintegration->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDesignerIntegration::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDesignerIntegration::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnMetacall(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_Metacall_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Metacall_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_metacall_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string QDesignerIntegration_SuperHeaderSuffix(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_HeaderSuffix_IsBase(true);
-        auto _ret = vqdesignerintegration->headerSuffix();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QDesignerIntegration::headerSuffix();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->QDesignerIntegration::headerSuffix();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnHeaderSuffix(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_HeaderSuffix_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_HeaderSuffix_Callback>(slot));
+void QDesignerIntegration_OnHeaderSuffix(QDesignerIntegration* self, intptr_t slot) {
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self)))
+        vqdesignerintegration->qdesignerintegration_headersuffix_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_HeaderSuffix_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperSetHeaderSuffix(QDesignerIntegration* self, const libqt_string headerSuffix) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
     QString headerSuffix_QString = QString::fromUtf8(headerSuffix.data, headerSuffix.len);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_SetHeaderSuffix_IsBase(true);
-        vqdesignerintegration->setHeaderSuffix(headerSuffix_QString);
-    } else {
-        self->QDesignerIntegration::setHeaderSuffix(headerSuffix_QString);
-    }
+    self->QDesignerIntegration::setHeaderSuffix(headerSuffix_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnSetHeaderSuffix(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_SetHeaderSuffix_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetHeaderSuffix_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_setheadersuffix_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetHeaderSuffix_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QDesignerIntegration_SuperIsHeaderLowercase(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_IsHeaderLowercase_IsBase(true);
-        return vqdesignerintegration->isHeaderLowercase();
-    } else {
-        return self->QDesignerIntegration::isHeaderLowercase();
-    }
+    return self->QDesignerIntegration::isHeaderLowercase();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnIsHeaderLowercase(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_IsHeaderLowercase_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_IsHeaderLowercase_Callback>(slot));
+void QDesignerIntegration_OnIsHeaderLowercase(QDesignerIntegration* self, intptr_t slot) {
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self)))
+        vqdesignerintegration->qdesignerintegration_isheaderlowercase_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_IsHeaderLowercase_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperSetHeaderLowercase(QDesignerIntegration* self, bool headerLowerCase) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_SetHeaderLowercase_IsBase(true);
-        vqdesignerintegration->setHeaderLowercase(headerLowerCase);
-    } else {
-        self->QDesignerIntegration::setHeaderLowercase(headerLowerCase);
-    }
+    self->QDesignerIntegration::setHeaderLowercase(headerLowerCase);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnSetHeaderLowercase(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_SetHeaderLowercase_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetHeaderLowercase_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_setheaderlowercase_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetHeaderLowercase_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDesignerIntegration_SuperFeatures(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_Features_IsBase(true);
-        return static_cast<int>(vqdesignerintegration->features());
-    } else {
-        return static_cast<int>(self->QDesignerIntegration::features());
-    }
+    return static_cast<int>(self->QDesignerIntegration::features());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnFeatures(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_Features_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Features_Callback>(slot));
+void QDesignerIntegration_OnFeatures(QDesignerIntegration* self, intptr_t slot) {
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self)))
+        vqdesignerintegration->qdesignerintegration_features_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Features_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperSetFeatures(QDesignerIntegration* self, int f) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_SetFeatures_IsBase(true);
-        vqdesignerintegration->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
-    } else {
-        self->QDesignerIntegration::setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
-    }
+    self->QDesignerIntegration::setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnSetFeatures(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_SetFeatures_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetFeatures_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_setfeatures_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetFeatures_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDesignerIntegration_SuperResourceFileWatcherBehaviour(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_ResourceFileWatcherBehaviour_IsBase(true);
-        return static_cast<int>(vqdesignerintegration->resourceFileWatcherBehaviour());
-    } else {
-        return static_cast<int>(self->QDesignerIntegration::resourceFileWatcherBehaviour());
-    }
+    return static_cast<int>(self->QDesignerIntegration::resourceFileWatcherBehaviour());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnResourceFileWatcherBehaviour(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_ResourceFileWatcherBehaviour_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ResourceFileWatcherBehaviour_Callback>(slot));
+void QDesignerIntegration_OnResourceFileWatcherBehaviour(QDesignerIntegration* self, intptr_t slot) {
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self)))
+        vqdesignerintegration->qdesignerintegration_resourcefilewatcherbehaviour_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ResourceFileWatcherBehaviour_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperSetResourceFileWatcherBehaviour(QDesignerIntegration* self, int behaviour) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_SetResourceFileWatcherBehaviour_IsBase(true);
-        vqdesignerintegration->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
-    } else {
-        self->QDesignerIntegration::setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
-    }
+    self->QDesignerIntegration::setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnSetResourceFileWatcherBehaviour(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_SetResourceFileWatcherBehaviour_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetResourceFileWatcherBehaviour_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_setresourcefilewatcherbehaviour_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetResourceFileWatcherBehaviour_Callback>(slot);
 }
 
 // Base class handler implementation
 QWidget* QDesignerIntegration_SuperContainerWindow(const QDesignerIntegration* self, QWidget* widget) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_ContainerWindow_IsBase(true);
-        return vqdesignerintegration->containerWindow(widget);
-    } else {
-        return self->QDesignerIntegration::containerWindow(widget);
-    }
+    return self->QDesignerIntegration::containerWindow(widget);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnContainerWindow(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_ContainerWindow_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ContainerWindow_Callback>(slot));
+void QDesignerIntegration_OnContainerWindow(QDesignerIntegration* self, intptr_t slot) {
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self)))
+        vqdesignerintegration->qdesignerintegration_containerwindow_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ContainerWindow_Callback>(slot);
 }
 
 // Base class handler implementation
 QDesignerResourceBrowserInterface* QDesignerIntegration_SuperCreateResourceBrowser(QDesignerIntegration* self, QWidget* parent) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_CreateResourceBrowser_IsBase(true);
-        return vqdesignerintegration->createResourceBrowser(parent);
-    } else {
-        return self->QDesignerIntegration::createResourceBrowser(parent);
-    }
+    return self->QDesignerIntegration::createResourceBrowser(parent);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnCreateResourceBrowser(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_CreateResourceBrowser_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_CreateResourceBrowser_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_createresourcebrowser_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_CreateResourceBrowser_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string QDesignerIntegration_SuperContextHelpId(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_ContextHelpId_IsBase(true);
-        auto _ret = vqdesignerintegration->contextHelpId();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QDesignerIntegration::contextHelpId();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->QDesignerIntegration::contextHelpId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnContextHelpId(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_ContextHelpId_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ContextHelpId_Callback>(slot));
+void QDesignerIntegration_OnContextHelpId(QDesignerIntegration* self, intptr_t slot) {
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self)))
+        vqdesignerintegration->qdesignerintegration_contexthelpid_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ContextHelpId_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperUpdateProperty(QDesignerIntegration* self, const libqt_string name, const QVariant* value, bool enableSubPropertyHandling) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_UpdateProperty_IsBase(true);
-        vqdesignerintegration->updateProperty(name_QString, *value, enableSubPropertyHandling);
-    } else {
-        self->QDesignerIntegration::updateProperty(name_QString, *value, enableSubPropertyHandling);
-    }
+    self->QDesignerIntegration::updateProperty(name_QString, *value, enableSubPropertyHandling);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnUpdateProperty(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_UpdateProperty_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateProperty_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_updateproperty_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateProperty_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperUpdateProperty2(QDesignerIntegration* self, const libqt_string name, const QVariant* value) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_UpdateProperty2_IsBase(true);
-        vqdesignerintegration->updateProperty(name_QString, *value);
-    } else {
-        self->QDesignerIntegration::updateProperty(name_QString, *value);
-    }
+    self->QDesignerIntegration::updateProperty(name_QString, *value);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnUpdateProperty2(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_UpdateProperty2_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateProperty2_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_updateproperty2_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateProperty2_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperResetProperty(QDesignerIntegration* self, const libqt_string name) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_ResetProperty_IsBase(true);
-        vqdesignerintegration->resetProperty(name_QString);
-    } else {
-        self->QDesignerIntegration::resetProperty(name_QString);
-    }
+    self->QDesignerIntegration::resetProperty(name_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnResetProperty(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_ResetProperty_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ResetProperty_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_resetproperty_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ResetProperty_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperAddDynamicProperty(QDesignerIntegration* self, const libqt_string name, const QVariant* value) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_AddDynamicProperty_IsBase(true);
-        vqdesignerintegration->addDynamicProperty(name_QString, *value);
-    } else {
-        self->QDesignerIntegration::addDynamicProperty(name_QString, *value);
-    }
+    self->QDesignerIntegration::addDynamicProperty(name_QString, *value);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnAddDynamicProperty(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_AddDynamicProperty_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_AddDynamicProperty_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_adddynamicproperty_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_AddDynamicProperty_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperRemoveDynamicProperty(QDesignerIntegration* self, const libqt_string name) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_RemoveDynamicProperty_IsBase(true);
-        vqdesignerintegration->removeDynamicProperty(name_QString);
-    } else {
-        self->QDesignerIntegration::removeDynamicProperty(name_QString);
-    }
+    self->QDesignerIntegration::removeDynamicProperty(name_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnRemoveDynamicProperty(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_RemoveDynamicProperty_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_RemoveDynamicProperty_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_removedynamicproperty_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_RemoveDynamicProperty_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperUpdateActiveFormWindow(QDesignerIntegration* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_UpdateActiveFormWindow_IsBase(true);
-        vqdesignerintegration->updateActiveFormWindow(formWindow);
-    } else {
-        self->QDesignerIntegration::updateActiveFormWindow(formWindow);
-    }
+    self->QDesignerIntegration::updateActiveFormWindow(formWindow);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnUpdateActiveFormWindow(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_UpdateActiveFormWindow_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateActiveFormWindow_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_updateactiveformwindow_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateActiveFormWindow_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperSetupFormWindow(QDesignerIntegration* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_SetupFormWindow_IsBase(true);
-        vqdesignerintegration->setupFormWindow(formWindow);
-    } else {
-        self->QDesignerIntegration::setupFormWindow(formWindow);
-    }
+    self->QDesignerIntegration::setupFormWindow(formWindow);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnSetupFormWindow(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_SetupFormWindow_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetupFormWindow_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_setupformwindow_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SetupFormWindow_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperUpdateSelection(QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_UpdateSelection_IsBase(true);
-        vqdesignerintegration->updateSelection();
-    } else {
-        self->QDesignerIntegration::updateSelection();
-    }
+    self->QDesignerIntegration::updateSelection();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnUpdateSelection(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_UpdateSelection_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateSelection_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_updateselection_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateSelection_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperUpdateCustomWidgetPlugins(QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_UpdateCustomWidgetPlugins_IsBase(true);
-        vqdesignerintegration->updateCustomWidgetPlugins();
-    } else {
-        self->QDesignerIntegration::updateCustomWidgetPlugins();
-    }
+    self->QDesignerIntegration::updateCustomWidgetPlugins();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnUpdateCustomWidgetPlugins(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_UpdateCustomWidgetPlugins_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateCustomWidgetPlugins_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_updatecustomwidgetplugins_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_UpdateCustomWidgetPlugins_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerIntegration_Event(QDesignerIntegration* self, QEvent* event) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return vqdesignerintegration->event(event);
-    } else {
-        return self->QDesignerIntegration::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDesignerIntegration_SuperEvent(QDesignerIntegration* self, QEvent* event) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_Event_IsBase(true);
-        return vqdesignerintegration->event(event);
-    } else {
-        return self->QDesignerIntegration::event(event);
-    }
+    return self->QDesignerIntegration::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnEvent(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_Event_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Event_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_event_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDesignerIntegration_EventFilter(QDesignerIntegration* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return vqdesignerintegration->eventFilter(watched, event);
-    } else {
-        return self->QDesignerIntegration::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDesignerIntegration_SuperEventFilter(QDesignerIntegration* self, QObject* watched, QEvent* event) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_EventFilter_IsBase(true);
-        return vqdesignerintegration->eventFilter(watched, event);
-    } else {
-        return self->QDesignerIntegration::eventFilter(watched, event);
-    }
+    return self->QDesignerIntegration::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnEventFilter(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_EventFilter_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_EventFilter_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_eventfilter_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegration_TimerEvent(QDesignerIntegration* self, QTimerEvent* event) {
     auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+    if (vqdesignerintegration) {
         vqdesignerintegration->timerEvent(event);
     } else {
-        ((VirtualQDesignerIntegration*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDesignerIntegration::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperTimerEvent(QDesignerIntegration* self, QTimerEvent* event) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_TimerEvent_IsBase(true);
-        vqdesignerintegration->timerEvent(event);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->timerEvent(event);
-    }
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self)) {
+        vqdesignerintegration->QDesignerIntegration::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegration::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnTimerEvent(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_TimerEvent_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_timerevent_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegration_ChildEvent(QDesignerIntegration* self, QChildEvent* event) {
     auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+    if (vqdesignerintegration) {
         vqdesignerintegration->childEvent(event);
     } else {
-        ((VirtualQDesignerIntegration*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDesignerIntegration::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperChildEvent(QDesignerIntegration* self, QChildEvent* event) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_ChildEvent_IsBase(true);
-        vqdesignerintegration->childEvent(event);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->childEvent(event);
-    }
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self)) {
+        vqdesignerintegration->QDesignerIntegration::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegration::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnChildEvent(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ChildEvent_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_childevent_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegration_CustomEvent(QDesignerIntegration* self, QEvent* event) {
     auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+    if (vqdesignerintegration) {
         vqdesignerintegration->customEvent(event);
     } else {
-        ((VirtualQDesignerIntegration*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDesignerIntegration::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperCustomEvent(QDesignerIntegration* self, QEvent* event) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_CustomEvent_IsBase(true);
-        vqdesignerintegration->customEvent(event);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->customEvent(event);
-    }
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self)) {
+        vqdesignerintegration->QDesignerIntegration::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegration::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnCustomEvent(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_CustomEvent_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_customevent_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegration_ConnectNotify(QDesignerIntegration* self, const QMetaMethod* signal) {
     auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+    if (vqdesignerintegration) {
         vqdesignerintegration->connectNotify(*signal);
     } else {
-        ((VirtualQDesignerIntegration*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerIntegration::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperConnectNotify(QDesignerIntegration* self, const QMetaMethod* signal) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_ConnectNotify_IsBase(true);
-        vqdesignerintegration->connectNotify(*signal);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self)) {
+        vqdesignerintegration->QDesignerIntegration::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegration::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnConnectNotify(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ConnectNotify_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_connectnotify_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDesignerIntegration_DisconnectNotify(QDesignerIntegration* self, const QMetaMethod* signal) {
     auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
+    if (vqdesignerintegration) {
         vqdesignerintegration->disconnectNotify(*signal);
     } else {
-        ((VirtualQDesignerIntegration*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDesignerIntegration::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDesignerIntegration_SuperDisconnectNotify(QDesignerIntegration* self, const QMetaMethod* signal) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_DisconnectNotify_IsBase(true);
-        vqdesignerintegration->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self)) {
+        vqdesignerintegration->QDesignerIntegration::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDesignerIntegration::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDesignerIntegration_OnDisconnectNotify(QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_DisconnectNotify_Callback>(slot));
+    if (auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self))
+        vqdesignerintegration->qdesignerintegration_disconnectnotify_callback = reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDesignerIntegration_Sender(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return vqdesignerintegration->sender();
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->sender();
-    }
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self))) {
+        return vqdesignerintegration->VirtualQDesignerIntegration::sender();
+    } else
+        qFatal("Error: Protected method QDesignerIntegration::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDesignerIntegration_SuperSender(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_Sender_IsBase(true);
-        return vqdesignerintegration->sender();
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnSender(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_Sender_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerIntegration_SenderSignalIndex(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return vqdesignerintegration->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->senderSignalIndex();
-    }
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self))) {
+        return vqdesignerintegration->VirtualQDesignerIntegration::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDesignerIntegration::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerIntegration_SuperSenderSignalIndex(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_SenderSignalIndex_IsBase(true);
-        return vqdesignerintegration->senderSignalIndex();
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnSenderSignalIndex(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDesignerIntegration_Receivers(const QDesignerIntegration* self, const char* signal) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return vqdesignerintegration->receivers(signal);
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->receivers(signal);
-    }
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self))) {
+        return vqdesignerintegration->VirtualQDesignerIntegration::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDesignerIntegration::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDesignerIntegration_SuperReceivers(const QDesignerIntegration* self, const char* signal) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_Receivers_IsBase(true);
-        return vqdesignerintegration->receivers(signal);
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnReceivers(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_Receivers_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDesignerIntegration_IsSignalConnected(const QDesignerIntegration* self, const QMetaMethod* signal) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return vqdesignerintegration->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDesignerIntegration_SuperIsSignalConnected(const QDesignerIntegration* self, const QMetaMethod* signal) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        vqdesignerintegration->setQDesignerIntegration_IsSignalConnected_IsBase(true);
-        return vqdesignerintegration->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDesignerIntegration_OnIsSignalConnected(const QDesignerIntegration* self, intptr_t slot) {
-    auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration)
-        vqdesignerintegration->setQDesignerIntegration_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerIntegration::QDesignerIntegration_IsSignalConnected_Callback>(slot));
+    if (auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self))) {
+        return vqdesignerintegration->VirtualQDesignerIntegration::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDesignerIntegration::isSignalConnected called without a directly constructed type");
 }
 
 void QDesignerIntegration_Delete(QDesignerIntegration* self) {

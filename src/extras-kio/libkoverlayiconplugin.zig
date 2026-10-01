@@ -77,9 +77,9 @@ pub const KOverlayIconPlugin = extern struct {
     ///
     /// ` self: KOverlayIconPlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KOverlayIconPlugin) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KOverlayIconPlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KOverlayIconPlugin, callback: *const fn (KOverlayIconPlugin) callconv(.c) QMetaObject) void {
         qtc.KOverlayIconPlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -230,6 +230,8 @@ pub const KOverlayIconPlugin = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/koverlayiconplugin.html#getOverlays)
     ///
+    /// This method must be implemented with `onGetOverlays` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KOverlayIconPlugin `
@@ -275,41 +277,6 @@ pub const KOverlayIconPlugin = extern struct {
     ///
     pub fn onGetOverlays(self: KOverlayIconPlugin, callback: *const fn (KOverlayIconPlugin, QUrl) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KOverlayIconPlugin_OnGetOverlays(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superGetOverlays` instead
-    ///
-    pub const SuperGetOverlays = superGetOverlays;
-
-    /// ### [Upstream resources](https://api.kde.org/koverlayiconplugin.html#getOverlays)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KOverlayIconPlugin `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` item: QUrl `
-    ///
-    pub fn superGetOverlays(self: KOverlayIconPlugin, allocator: std.mem.Allocator, item: anytype) []const []const u8 {
-        comptime _ = @TypeOf(item)._is_QUrl;
-        const _arr: qtc.libqt_list = qtc.KOverlayIconPlugin_SuperGetOverlays(@ptrCast(self.ptr), @ptrCast(item.ptr));
-        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
-        defer {
-            for (0.._arr.len) |i|
-                qtc.libqt_string_free(@ptrCast(&_str[i]));
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KOverlayIconPlugin.getOverlays: Memory allocation failed");
-        for (0.._arr.len) |i| {
-            const _data_val = _str[i];
-            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KOverlayIconPlugin.getOverlays: Memory allocation failed");
-            @memcpy(_buf, _data_val.data[0.._data_val.len]);
-            _ret[i] = _buf;
-        }
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `overlaysChanged` instead
@@ -1837,44 +1804,6 @@ pub const KOverlayIconPlugin = extern struct {
         return .{ .ptr = qtc.KOverlayIconPlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KOverlayIconPlugin `
-    ///
-    pub fn superSender(self: KOverlayIconPlugin) QObject {
-        return .{ .ptr = qtc.KOverlayIconPlugin_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KOverlayIconPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KOverlayIconPlugin, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KOverlayIconPlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1891,44 +1820,6 @@ pub const KOverlayIconPlugin = extern struct {
     ///
     pub fn senderSignalIndex(self: KOverlayIconPlugin) i32 {
         return qtc.KOverlayIconPlugin_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KOverlayIconPlugin `
-    ///
-    pub fn superSenderSignalIndex(self: KOverlayIconPlugin) i32 {
-        return qtc.KOverlayIconPlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KOverlayIconPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KOverlayIconPlugin, callback: *const fn () callconv(.c) i32) void {
-        qtc.KOverlayIconPlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1952,47 +1843,6 @@ pub const KOverlayIconPlugin = extern struct {
         return qtc.KOverlayIconPlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KOverlayIconPlugin `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KOverlayIconPlugin, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KOverlayIconPlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KOverlayIconPlugin`
-    ///
-    /// ` callback: *const fn (self: KOverlayIconPlugin, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KOverlayIconPlugin, callback: *const fn (KOverlayIconPlugin, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KOverlayIconPlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2012,47 +1862,6 @@ pub const KOverlayIconPlugin = extern struct {
     pub fn isSignalConnected(self: KOverlayIconPlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KOverlayIconPlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KOverlayIconPlugin `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KOverlayIconPlugin, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KOverlayIconPlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KOverlayIconPlugin`
-    ///
-    /// ` callback: *const fn (self: KOverlayIconPlugin, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KOverlayIconPlugin, callback: *const fn (KOverlayIconPlugin, QMetaMethod) callconv(.c) bool) void {
-        qtc.KOverlayIconPlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -130,9 +130,9 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     /// ` self: KCollapsibleGroupBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KCollapsibleGroupBox) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox) callconv(.c) QMetaObject) void {
         qtc.KCollapsibleGroupBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -373,11 +373,11 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     /// ` self: KCollapsibleGroupBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KCollapsibleGroupBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox) callconv(.c) QSize) void {
         qtc.KCollapsibleGroupBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -423,11 +423,11 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     /// ` self: KCollapsibleGroupBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KCollapsibleGroupBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox) callconv(.c) QSize) void {
         qtc.KCollapsibleGroupBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7237,9 +7237,9 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     /// ` self: KCollapsibleGroupBox`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KCollapsibleGroupBox) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox) callconv(.c) i32) void {
         qtc.KCollapsibleGroupBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7413,9 +7413,9 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     /// ` self: KCollapsibleGroupBox`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KCollapsibleGroupBox) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox) callconv(.c) bool) void {
         qtc.KCollapsibleGroupBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7469,9 +7469,9 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     /// ` self: KCollapsibleGroupBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KCollapsibleGroupBox) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox) callconv(.c) QPaintEngine) void {
         qtc.KCollapsibleGroupBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8963,9 +8963,9 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     /// ` self: KCollapsibleGroupBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KCollapsibleGroupBox) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox) callconv(.c) QPainter) void {
         qtc.KCollapsibleGroupBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9549,44 +9549,6 @@ pub const KCollapsibleGroupBox = extern struct {
         qtc.KCollapsibleGroupBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    pub fn superUpdateMicroFocus(self: KCollapsibleGroupBox) void {
-        qtc.KCollapsibleGroupBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KCollapsibleGroupBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9603,44 +9565,6 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     pub fn create(self: KCollapsibleGroupBox) void {
         qtc.KCollapsibleGroupBox_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    pub fn superCreate(self: KCollapsibleGroupBox) void {
-        qtc.KCollapsibleGroupBox_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KCollapsibleGroupBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9661,44 +9585,6 @@ pub const KCollapsibleGroupBox = extern struct {
         qtc.KCollapsibleGroupBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    pub fn superDestroy(self: KCollapsibleGroupBox) void {
-        qtc.KCollapsibleGroupBox_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KCollapsibleGroupBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9715,44 +9601,6 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     pub fn focusNextChild(self: KCollapsibleGroupBox) bool {
         return qtc.KCollapsibleGroupBox_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    pub fn superFocusNextChild(self: KCollapsibleGroupBox) bool {
-        return qtc.KCollapsibleGroupBox_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCollapsibleGroupBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9773,44 +9621,6 @@ pub const KCollapsibleGroupBox = extern struct {
         return qtc.KCollapsibleGroupBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    pub fn superFocusPreviousChild(self: KCollapsibleGroupBox) bool {
-        return qtc.KCollapsibleGroupBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KCollapsibleGroupBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9829,44 +9639,6 @@ pub const KCollapsibleGroupBox = extern struct {
         return .{ .ptr = qtc.KCollapsibleGroupBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    pub fn superSender(self: KCollapsibleGroupBox) QObject {
-        return .{ .ptr = qtc.KCollapsibleGroupBox_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KCollapsibleGroupBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9883,44 +9655,6 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     pub fn senderSignalIndex(self: KCollapsibleGroupBox) i32 {
         return qtc.KCollapsibleGroupBox_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    pub fn superSenderSignalIndex(self: KCollapsibleGroupBox) i32 {
-        return qtc.KCollapsibleGroupBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) i32) void {
-        qtc.KCollapsibleGroupBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9944,47 +9678,6 @@ pub const KCollapsibleGroupBox = extern struct {
         return qtc.KCollapsibleGroupBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KCollapsibleGroupBox, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KCollapsibleGroupBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn (self: KCollapsibleGroupBox, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCollapsibleGroupBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10004,47 +9697,6 @@ pub const KCollapsibleGroupBox = extern struct {
     pub fn isSignalConnected(self: KCollapsibleGroupBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KCollapsibleGroupBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KCollapsibleGroupBox, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KCollapsibleGroupBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn (self: KCollapsibleGroupBox, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox, QMetaMethod) callconv(.c) bool) void {
-        qtc.KCollapsibleGroupBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10067,48 +9719,6 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     pub fn getDecodedMetricF(self: KCollapsibleGroupBox, metricA: i32, metricB: i32) f64 {
         return qtc.KCollapsibleGroupBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCollapsibleGroupBox `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KCollapsibleGroupBox, metricA: i32, metricB: i32) f64 {
-        return qtc.KCollapsibleGroupBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCollapsibleGroupBox`
-    ///
-    /// ` callback: *const fn (self: KCollapsibleGroupBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox, i32, i32) callconv(.c) f64) void {
-        qtc.KCollapsibleGroupBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

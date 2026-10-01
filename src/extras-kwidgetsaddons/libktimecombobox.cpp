@@ -219,71 +219,71 @@ void KTimeComboBox_SetTimeList(KTimeComboBox* self, libqt_list /* of QTime* */ t
 
 bool KTimeComboBox_EventFilter(KTimeComboBox* self, QObject* object, QEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         return vktimecombobox->eventFilter(object, event);
     }
-    return {};
+    qFatal("Error: Protected method KTimeComboBox::eventFilter called without a directly constructed type");
 }
 
 void KTimeComboBox_ShowPopup(KTimeComboBox* self) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->showPopup();
     }
 }
 
 void KTimeComboBox_HidePopup(KTimeComboBox* self) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->hidePopup();
     }
 }
 
 void KTimeComboBox_MousePressEvent(KTimeComboBox* self, QMouseEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->mousePressEvent(event);
     }
 }
 
 void KTimeComboBox_WheelEvent(KTimeComboBox* self, QWheelEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->wheelEvent(event);
     }
 }
 
 void KTimeComboBox_KeyPressEvent(KTimeComboBox* self, QKeyEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->keyPressEvent(event);
     }
 }
 
 void KTimeComboBox_FocusInEvent(KTimeComboBox* self, QFocusEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->focusInEvent(event);
     }
 }
 
 void KTimeComboBox_FocusOutEvent(KTimeComboBox* self, QFocusEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->focusOutEvent(event);
     }
 }
 
 void KTimeComboBox_ResizeEvent(KTimeComboBox* self, QResizeEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->resizeEvent(event);
     }
 }
 
 void KTimeComboBox_AssignTime(KTimeComboBox* self, const QTime* time) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->assignTime(*time);
     }
 }
@@ -358,1694 +358,1185 @@ void KTimeComboBox_SetTimeList3(KTimeComboBox* self, libqt_list /* of QTime* */ 
 
 // Base class handler implementation
 QMetaObject* KTimeComboBox_SuperMetaObject(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vktimecombobox->metaObject();
-    } else {
-        return (QMetaObject*)self->KTimeComboBox::metaObject();
-    }
+    return (QMetaObject*)self->KTimeComboBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnMetaObject(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_MetaObject_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MetaObject_Callback>(slot));
+void KTimeComboBox_OnMetaObject(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_metaobject_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KTimeComboBox_SuperMetacast(KTimeComboBox* self, const char* param1) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Metacast_IsBase(true);
-        return vktimecombobox->qt_metacast(param1);
-    } else {
-        return self->KTimeComboBox::qt_metacast(param1);
-    }
+    return self->KTimeComboBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMetacast(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Metacast_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metacast_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_metacast_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KTimeComboBox_SuperMetacall(KTimeComboBox* self, int param1, int param2, void** param3) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Metacall_IsBase(true);
-        return vktimecombobox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KTimeComboBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KTimeComboBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMetacall(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Metacall_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metacall_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_metacall_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTimeComboBox_SuperEventFilter(KTimeComboBox* self, QObject* object, QEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_EventFilter_IsBase(true);
-        return vktimecombobox->eventFilter(object, event);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->eventFilter(object, event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        return vktimecombobox->KTimeComboBox::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnEventFilter(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_EventFilter_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_EventFilter_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_eventfilter_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperShowPopup(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_ShowPopup_IsBase(true);
-        vktimecombobox->showPopup();
-    } else {
-        ((VirtualKTimeComboBox*)self)->showPopup();
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::showPopup();
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::showPopup called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnShowPopup(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_ShowPopup_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ShowPopup_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_showpopup_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ShowPopup_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperHidePopup(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_HidePopup_IsBase(true);
-        vktimecombobox->hidePopup();
-    } else {
-        ((VirtualKTimeComboBox*)self)->hidePopup();
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::hidePopup();
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::hidePopup called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnHidePopup(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_HidePopup_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HidePopup_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_hidepopup_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HidePopup_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperMousePressEvent(KTimeComboBox* self, QMouseEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_MousePressEvent_IsBase(true);
-        vktimecombobox->mousePressEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->mousePressEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMousePressEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MousePressEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_mousepressevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperWheelEvent(KTimeComboBox* self, QWheelEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_WheelEvent_IsBase(true);
-        vktimecombobox->wheelEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->wheelEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnWheelEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_WheelEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_WheelEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_wheelevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperKeyPressEvent(KTimeComboBox* self, QKeyEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_KeyPressEvent_IsBase(true);
-        vktimecombobox->keyPressEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->keyPressEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnKeyPressEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_KeyPressEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_keypressevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperFocusInEvent(KTimeComboBox* self, QFocusEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_FocusInEvent_IsBase(true);
-        vktimecombobox->focusInEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->focusInEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnFocusInEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusInEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_focusinevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperFocusOutEvent(KTimeComboBox* self, QFocusEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_FocusOutEvent_IsBase(true);
-        vktimecombobox->focusOutEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->focusOutEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnFocusOutEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusOutEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_focusoutevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperResizeEvent(KTimeComboBox* self, QResizeEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_ResizeEvent_IsBase(true);
-        vktimecombobox->resizeEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->resizeEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnResizeEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ResizeEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_resizeevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperAssignTime(KTimeComboBox* self, const QTime* time) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_AssignTime_IsBase(true);
-        vktimecombobox->assignTime(*time);
-    } else {
-        ((VirtualKTimeComboBox*)self)->assignTime(*time);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::assignTime(*time);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::assignTime called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnAssignTime(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_AssignTime_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_AssignTime_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_assigntime_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_AssignTime_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_SetModel(KTimeComboBox* self, QAbstractItemModel* model) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setModel(model);
-    } else {
-        self->KTimeComboBox::setModel(model);
-    }
+    self->setModel(model);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperSetModel(KTimeComboBox* self, QAbstractItemModel* model) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_SetModel_IsBase(true);
-        vktimecombobox->setModel(model);
-    } else {
-        self->KTimeComboBox::setModel(model);
-    }
+    self->KTimeComboBox::setModel(model);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnSetModel(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_SetModel_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SetModel_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_setmodel_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SetModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTimeComboBox_SizeHint(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return new QSize(vktimecombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualKTimeComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KTimeComboBox_SuperSizeHint(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_SizeHint_IsBase(true);
-        return new QSize(vktimecombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualKTimeComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->KTimeComboBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnSizeHint(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_SizeHint_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SizeHint_Callback>(slot));
+void KTimeComboBox_OnSizeHint(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_sizehint_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTimeComboBox_MinimumSizeHint(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return new QSize(vktimecombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKTimeComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KTimeComboBox_SuperMinimumSizeHint(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vktimecombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKTimeComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KTimeComboBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnMinimumSizeHint(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MinimumSizeHint_Callback>(slot));
+void KTimeComboBox_OnMinimumSizeHint(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_minimumsizehint_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTimeComboBox_Event(KTimeComboBox* self, QEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->event(event);
-    } else {
-        return self->KTimeComboBox::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KTimeComboBox_SuperEvent(KTimeComboBox* self, QEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Event_IsBase(true);
-        return vktimecombobox->event(event);
-    } else {
-        return self->KTimeComboBox::event(event);
-    }
+    return self->KTimeComboBox::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Event_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Event_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_event_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KTimeComboBox_InputMethodQuery(const KTimeComboBox* self, int param1) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return new QVariant(vktimecombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKTimeComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KTimeComboBox_SuperInputMethodQuery(const KTimeComboBox* self, int param1) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vktimecombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKTimeComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KTimeComboBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnInputMethodQuery(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InputMethodQuery_Callback>(slot));
+void KTimeComboBox_OnInputMethodQuery(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_inputmethodquery_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_ChangeEvent(KTimeComboBox* self, QEvent* e) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->changeEvent(e);
     } else {
-        ((VirtualKTimeComboBox*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KTimeComboBox::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperChangeEvent(KTimeComboBox* self, QEvent* e) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_ChangeEvent_IsBase(true);
-        vktimecombobox->changeEvent(e);
-    } else {
-        ((VirtualKTimeComboBox*)self)->changeEvent(e);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnChangeEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ChangeEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_changeevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_PaintEvent(KTimeComboBox* self, QPaintEvent* e) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->paintEvent(e);
     } else {
-        ((VirtualKTimeComboBox*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method KTimeComboBox::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperPaintEvent(KTimeComboBox* self, QPaintEvent* e) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_PaintEvent_IsBase(true);
-        vktimecombobox->paintEvent(e);
-    } else {
-        ((VirtualKTimeComboBox*)self)->paintEvent(e);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnPaintEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_PaintEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_PaintEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_paintevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_ShowEvent(KTimeComboBox* self, QShowEvent* e) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->showEvent(e);
     } else {
-        ((VirtualKTimeComboBox*)self)->showEvent(e);
+        qFatal("Error: Protected virtual method KTimeComboBox::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperShowEvent(KTimeComboBox* self, QShowEvent* e) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_ShowEvent_IsBase(true);
-        vktimecombobox->showEvent(e);
-    } else {
-        ((VirtualKTimeComboBox*)self)->showEvent(e);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::showEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnShowEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_ShowEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ShowEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_showevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_HideEvent(KTimeComboBox* self, QHideEvent* e) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->hideEvent(e);
     } else {
-        ((VirtualKTimeComboBox*)self)->hideEvent(e);
+        qFatal("Error: Protected virtual method KTimeComboBox::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperHideEvent(KTimeComboBox* self, QHideEvent* e) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_HideEvent_IsBase(true);
-        vktimecombobox->hideEvent(e);
-    } else {
-        ((VirtualKTimeComboBox*)self)->hideEvent(e);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::hideEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnHideEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_HideEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HideEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_hideevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_MouseReleaseEvent(KTimeComboBox* self, QMouseEvent* e) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->mouseReleaseEvent(e);
     } else {
-        ((VirtualKTimeComboBox*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method KTimeComboBox::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperMouseReleaseEvent(KTimeComboBox* self, QMouseEvent* e) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_MouseReleaseEvent_IsBase(true);
-        vktimecombobox->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKTimeComboBox*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMouseReleaseEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_mousereleaseevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_KeyReleaseEvent(KTimeComboBox* self, QKeyEvent* e) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->keyReleaseEvent(e);
     } else {
-        ((VirtualKTimeComboBox*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method KTimeComboBox::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperKeyReleaseEvent(KTimeComboBox* self, QKeyEvent* e) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_KeyReleaseEvent_IsBase(true);
-        vktimecombobox->keyReleaseEvent(e);
-    } else {
-        ((VirtualKTimeComboBox*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnKeyReleaseEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_keyreleaseevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_ContextMenuEvent(KTimeComboBox* self, QContextMenuEvent* e) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->contextMenuEvent(e);
     } else {
-        ((VirtualKTimeComboBox*)self)->contextMenuEvent(e);
+        qFatal("Error: Protected virtual method KTimeComboBox::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperContextMenuEvent(KTimeComboBox* self, QContextMenuEvent* e) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_ContextMenuEvent_IsBase(true);
-        vktimecombobox->contextMenuEvent(e);
-    } else {
-        ((VirtualKTimeComboBox*)self)->contextMenuEvent(e);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::contextMenuEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnContextMenuEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_contextmenuevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_InputMethodEvent(KTimeComboBox* self, QInputMethodEvent* param1) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->inputMethodEvent(param1);
     } else {
-        ((VirtualKTimeComboBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KTimeComboBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperInputMethodEvent(KTimeComboBox* self, QInputMethodEvent* param1) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_InputMethodEvent_IsBase(true);
-        vktimecombobox->inputMethodEvent(param1);
-    } else {
-        ((VirtualKTimeComboBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnInputMethodEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InputMethodEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_inputmethodevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_InitStyleOption(const KTimeComboBox* self, QStyleOptionComboBox* option) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->initStyleOption(option);
     } else {
-        ((VirtualKTimeComboBox*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KTimeComboBox::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperInitStyleOption(const KTimeComboBox* self, QStyleOptionComboBox* option) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_InitStyleOption_IsBase(true);
-        vktimecombobox->initStyleOption(option);
-    } else {
-        ((VirtualKTimeComboBox*)self)->initStyleOption(option);
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        vktimecombobox->KTimeComboBox::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnInitStyleOption(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InitStyleOption_Callback>(slot));
+void KTimeComboBox_OnInitStyleOption(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_initstyleoption_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTimeComboBox_DevType(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->devType();
-    } else {
-        return self->KTimeComboBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KTimeComboBox_SuperDevType(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_DevType_IsBase(true);
-        return vktimecombobox->devType();
-    } else {
-        return self->KTimeComboBox::devType();
-    }
+    return self->KTimeComboBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnDevType(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_DevType_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DevType_Callback>(slot));
+void KTimeComboBox_OnDevType(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_devtype_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_SetVisible(KTimeComboBox* self, bool visible) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setVisible(visible);
-    } else {
-        self->KTimeComboBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperSetVisible(KTimeComboBox* self, bool visible) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_SetVisible_IsBase(true);
-        vktimecombobox->setVisible(visible);
-    } else {
-        self->KTimeComboBox::setVisible(visible);
-    }
+    self->KTimeComboBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnSetVisible(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_SetVisible_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SetVisible_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_setvisible_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTimeComboBox_HeightForWidth(const KTimeComboBox* self, int param1) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KTimeComboBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KTimeComboBox_SuperHeightForWidth(const KTimeComboBox* self, int param1) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_HeightForWidth_IsBase(true);
-        return vktimecombobox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KTimeComboBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KTimeComboBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnHeightForWidth(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HeightForWidth_Callback>(slot));
+void KTimeComboBox_OnHeightForWidth(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_heightforwidth_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTimeComboBox_HasHeightForWidth(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->hasHeightForWidth();
-    } else {
-        return self->KTimeComboBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KTimeComboBox_SuperHasHeightForWidth(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_HasHeightForWidth_IsBase(true);
-        return vktimecombobox->hasHeightForWidth();
-    } else {
-        return self->KTimeComboBox::hasHeightForWidth();
-    }
+    return self->KTimeComboBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnHasHeightForWidth(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HasHeightForWidth_Callback>(slot));
+void KTimeComboBox_OnHasHeightForWidth(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_hasheightforwidth_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KTimeComboBox_PaintEngine(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->paintEngine();
-    } else {
-        return self->KTimeComboBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KTimeComboBox_SuperPaintEngine(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_PaintEngine_IsBase(true);
-        return vktimecombobox->paintEngine();
-    } else {
-        return self->KTimeComboBox::paintEngine();
-    }
+    return self->KTimeComboBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnPaintEngine(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_PaintEngine_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_PaintEngine_Callback>(slot));
+void KTimeComboBox_OnPaintEngine(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_paintengine_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_MouseDoubleClickEvent(KTimeComboBox* self, QMouseEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperMouseDoubleClickEvent(KTimeComboBox* self, QMouseEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_MouseDoubleClickEvent_IsBase(true);
-        vktimecombobox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMouseDoubleClickEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_mousedoubleclickevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_MouseMoveEvent(KTimeComboBox* self, QMouseEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->mouseMoveEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperMouseMoveEvent(KTimeComboBox* self, QMouseEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_MouseMoveEvent_IsBase(true);
-        vktimecombobox->mouseMoveEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMouseMoveEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_mousemoveevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_EnterEvent(KTimeComboBox* self, QEnterEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->enterEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperEnterEvent(KTimeComboBox* self, QEnterEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_EnterEvent_IsBase(true);
-        vktimecombobox->enterEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->enterEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnEnterEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_EnterEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_EnterEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_enterevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_LeaveEvent(KTimeComboBox* self, QEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->leaveEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperLeaveEvent(KTimeComboBox* self, QEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_LeaveEvent_IsBase(true);
-        vktimecombobox->leaveEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->leaveEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnLeaveEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_LeaveEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_leaveevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_MoveEvent(KTimeComboBox* self, QMoveEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->moveEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperMoveEvent(KTimeComboBox* self, QMoveEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_MoveEvent_IsBase(true);
-        vktimecombobox->moveEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->moveEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnMoveEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_MoveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MoveEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_moveevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_CloseEvent(KTimeComboBox* self, QCloseEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->closeEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperCloseEvent(KTimeComboBox* self, QCloseEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_CloseEvent_IsBase(true);
-        vktimecombobox->closeEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->closeEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnCloseEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_CloseEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_CloseEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_closeevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_TabletEvent(KTimeComboBox* self, QTabletEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->tabletEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperTabletEvent(KTimeComboBox* self, QTabletEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_TabletEvent_IsBase(true);
-        vktimecombobox->tabletEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->tabletEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnTabletEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_TabletEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_TabletEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_tabletevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_ActionEvent(KTimeComboBox* self, QActionEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->actionEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperActionEvent(KTimeComboBox* self, QActionEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_ActionEvent_IsBase(true);
-        vktimecombobox->actionEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->actionEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnActionEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_ActionEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ActionEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_actionevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_DragEnterEvent(KTimeComboBox* self, QDragEnterEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->dragEnterEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperDragEnterEvent(KTimeComboBox* self, QDragEnterEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_DragEnterEvent_IsBase(true);
-        vktimecombobox->dragEnterEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDragEnterEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragEnterEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_dragenterevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_DragMoveEvent(KTimeComboBox* self, QDragMoveEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->dragMoveEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperDragMoveEvent(KTimeComboBox* self, QDragMoveEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_DragMoveEvent_IsBase(true);
-        vktimecombobox->dragMoveEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDragMoveEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragMoveEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_dragmoveevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_DragLeaveEvent(KTimeComboBox* self, QDragLeaveEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->dragLeaveEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperDragLeaveEvent(KTimeComboBox* self, QDragLeaveEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_DragLeaveEvent_IsBase(true);
-        vktimecombobox->dragLeaveEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDragLeaveEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_dragleaveevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_DropEvent(KTimeComboBox* self, QDropEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->dropEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperDropEvent(KTimeComboBox* self, QDropEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_DropEvent_IsBase(true);
-        vktimecombobox->dropEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->dropEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDropEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_DropEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DropEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_dropevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTimeComboBox_NativeEvent(KTimeComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
+    if (vktimecombobox) {
         return vktimecombobox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKTimeComboBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KTimeComboBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTimeComboBox_SuperNativeEvent(KTimeComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_NativeEvent_IsBase(true);
-        return vktimecombobox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKTimeComboBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        return vktimecombobox->KTimeComboBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnNativeEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_NativeEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_NativeEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_nativeevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTimeComboBox_Metric(const KTimeComboBox* self, int param1) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         return vktimecombobox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKTimeComboBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KTimeComboBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KTimeComboBox_SuperMetric(const KTimeComboBox* self, int param1) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Metric_IsBase(true);
-        return vktimecombobox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKTimeComboBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        return vktimecombobox->KTimeComboBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnMetric(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Metric_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metric_Callback>(slot));
+void KTimeComboBox_OnMetric(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_metric_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_InitPainter(const KTimeComboBox* self, QPainter* painter) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->initPainter(painter);
     } else {
-        ((VirtualKTimeComboBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KTimeComboBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperInitPainter(const KTimeComboBox* self, QPainter* painter) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_InitPainter_IsBase(true);
-        vktimecombobox->initPainter(painter);
-    } else {
-        ((VirtualKTimeComboBox*)self)->initPainter(painter);
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        vktimecombobox->KTimeComboBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnInitPainter(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_InitPainter_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InitPainter_Callback>(slot));
+void KTimeComboBox_OnInitPainter(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_initpainter_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KTimeComboBox_Redirected(const KTimeComboBox* self, QPoint* offset) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         return vktimecombobox->redirected(offset);
     } else {
-        return ((VirtualKTimeComboBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KTimeComboBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KTimeComboBox_SuperRedirected(const KTimeComboBox* self, QPoint* offset) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Redirected_IsBase(true);
-        return vktimecombobox->redirected(offset);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->redirected(offset);
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        return vktimecombobox->KTimeComboBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnRedirected(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Redirected_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Redirected_Callback>(slot));
+void KTimeComboBox_OnRedirected(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_redirected_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KTimeComboBox_SharedPainter(const KTimeComboBox* self) {
     auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         return vktimecombobox->sharedPainter();
     } else {
-        return ((VirtualKTimeComboBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KTimeComboBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KTimeComboBox_SuperSharedPainter(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_SharedPainter_IsBase(true);
-        return vktimecombobox->sharedPainter();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->sharedPainter();
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        return vktimecombobox->KTimeComboBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnSharedPainter(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_SharedPainter_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SharedPainter_Callback>(slot));
+void KTimeComboBox_OnSharedPainter(KTimeComboBox* self, intptr_t slot) {
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self)))
+        vktimecombobox->ktimecombobox_sharedpainter_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTimeComboBox_FocusNextPrevChild(KTimeComboBox* self, bool next) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         return vktimecombobox->focusNextPrevChild(next);
     } else {
-        return ((VirtualKTimeComboBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KTimeComboBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTimeComboBox_SuperFocusNextPrevChild(KTimeComboBox* self, bool next) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_FocusNextPrevChild_IsBase(true);
-        return vktimecombobox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        return vktimecombobox->KTimeComboBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnFocusNextPrevChild(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_focusnextprevchild_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_TimerEvent(KTimeComboBox* self, QTimerEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->timerEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperTimerEvent(KTimeComboBox* self, QTimerEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_TimerEvent_IsBase(true);
-        vktimecombobox->timerEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->timerEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnTimerEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_TimerEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_TimerEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_timerevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_ChildEvent(KTimeComboBox* self, QChildEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->childEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperChildEvent(KTimeComboBox* self, QChildEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_ChildEvent_IsBase(true);
-        vktimecombobox->childEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->childEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnChildEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_ChildEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ChildEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_childevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_CustomEvent(KTimeComboBox* self, QEvent* event) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->customEvent(event);
     } else {
-        ((VirtualKTimeComboBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KTimeComboBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperCustomEvent(KTimeComboBox* self, QEvent* event) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_CustomEvent_IsBase(true);
-        vktimecombobox->customEvent(event);
-    } else {
-        ((VirtualKTimeComboBox*)self)->customEvent(event);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnCustomEvent(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_CustomEvent_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_CustomEvent_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_customevent_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_ConnectNotify(KTimeComboBox* self, const QMetaMethod* signal) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->connectNotify(*signal);
     } else {
-        ((VirtualKTimeComboBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KTimeComboBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperConnectNotify(KTimeComboBox* self, const QMetaMethod* signal) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_ConnectNotify_IsBase(true);
-        vktimecombobox->connectNotify(*signal);
-    } else {
-        ((VirtualKTimeComboBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnConnectNotify(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ConnectNotify_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_connectnotify_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTimeComboBox_DisconnectNotify(KTimeComboBox* self, const QMetaMethod* signal) {
     auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
+    if (vktimecombobox) {
         vktimecombobox->disconnectNotify(*signal);
     } else {
-        ((VirtualKTimeComboBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KTimeComboBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTimeComboBox_SuperDisconnectNotify(KTimeComboBox* self, const QMetaMethod* signal) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_DisconnectNotify_IsBase(true);
-        vktimecombobox->disconnectNotify(*signal);
-    } else {
-        ((VirtualKTimeComboBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->KTimeComboBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTimeComboBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTimeComboBox_OnDisconnectNotify(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DisconnectNotify_Callback>(slot));
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self))
+        vktimecombobox->ktimecombobox_disconnectnotify_callback = reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTimeComboBox_UpdateMicroFocus(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->updateMicroFocus();
-    } else {
-        ((VirtualKTimeComboBox*)self)->updateMicroFocus();
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->VirtualKTimeComboBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KTimeComboBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTimeComboBox_SuperUpdateMicroFocus(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_UpdateMicroFocus_IsBase(true);
-        vktimecombobox->updateMicroFocus();
-    } else {
-        ((VirtualKTimeComboBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnUpdateMicroFocus(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTimeComboBox_Create(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->create();
-    } else {
-        ((VirtualKTimeComboBox*)self)->create();
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->VirtualKTimeComboBox::create();
+    } else
+        qFatal("Error: Protected method KTimeComboBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTimeComboBox_SuperCreate(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Create_IsBase(true);
-        vktimecombobox->create();
-    } else {
-        ((VirtualKTimeComboBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnCreate(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Create_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTimeComboBox_Destroy(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->destroy();
-    } else {
-        ((VirtualKTimeComboBox*)self)->destroy();
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        vktimecombobox->VirtualKTimeComboBox::destroy();
+    } else
+        qFatal("Error: Protected method KTimeComboBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTimeComboBox_SuperDestroy(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Destroy_IsBase(true);
-        vktimecombobox->destroy();
-    } else {
-        ((VirtualKTimeComboBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnDestroy(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Destroy_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTimeComboBox_FocusNextChild(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->focusNextChild();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->focusNextChild();
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        return vktimecombobox->VirtualKTimeComboBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method KTimeComboBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTimeComboBox_SuperFocusNextChild(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_FocusNextChild_IsBase(true);
-        return vktimecombobox->focusNextChild();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnFocusNextChild(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTimeComboBox_FocusPreviousChild(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->focusPreviousChild();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->focusPreviousChild();
-    }
+    if (auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self)) {
+        return vktimecombobox->VirtualKTimeComboBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KTimeComboBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTimeComboBox_SuperFocusPreviousChild(KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_FocusPreviousChild_IsBase(true);
-        return vktimecombobox->focusPreviousChild();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnFocusPreviousChild(KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KTimeComboBox_Sender(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->sender();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->sender();
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        return vktimecombobox->VirtualKTimeComboBox::sender();
+    } else
+        qFatal("Error: Protected method KTimeComboBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KTimeComboBox_SuperSender(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Sender_IsBase(true);
-        return vktimecombobox->sender();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnSender(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Sender_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTimeComboBox_SenderSignalIndex(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->senderSignalIndex();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->senderSignalIndex();
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        return vktimecombobox->VirtualKTimeComboBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KTimeComboBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTimeComboBox_SuperSenderSignalIndex(const KTimeComboBox* self) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_SenderSignalIndex_IsBase(true);
-        return vktimecombobox->senderSignalIndex();
-    } else {
-        return ((VirtualKTimeComboBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnSenderSignalIndex(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTimeComboBox_Receivers(const KTimeComboBox* self, const char* signal) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->receivers(signal);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->receivers(signal);
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        return vktimecombobox->VirtualKTimeComboBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method KTimeComboBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTimeComboBox_SuperReceivers(const KTimeComboBox* self, const char* signal) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_Receivers_IsBase(true);
-        return vktimecombobox->receivers(signal);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnReceivers(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_Receivers_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTimeComboBox_IsSignalConnected(const KTimeComboBox* self, const QMetaMethod* signal) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        return vktimecombobox->VirtualKTimeComboBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KTimeComboBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTimeComboBox_SuperIsSignalConnected(const KTimeComboBox* self, const QMetaMethod* signal) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_IsSignalConnected_IsBase(true);
-        return vktimecombobox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnIsSignalConnected(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KTimeComboBox_GetDecodedMetricF(const KTimeComboBox* self, int metricA, int metricB) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return vktimecombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKTimeComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KTimeComboBox_SuperGetDecodedMetricF(const KTimeComboBox* self, int metricA, int metricB) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        vktimecombobox->setKTimeComboBox_GetDecodedMetricF_IsBase(true);
-        return vktimecombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKTimeComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTimeComboBox_OnGetDecodedMetricF(const KTimeComboBox* self, intptr_t slot) {
-    auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self));
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox)
-        vktimecombobox->setKTimeComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKTimeComboBox::KTimeComboBox_GetDecodedMetricF_Callback>(slot));
+    if (auto* vktimecombobox = const_cast<VirtualKTimeComboBox*>(dynamic_cast<const VirtualKTimeComboBox*>(self))) {
+        return vktimecombobox->VirtualKTimeComboBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KTimeComboBox::getDecodedMetricF called without a directly constructed type");
 }
 
 void KTimeComboBox_Delete(KTimeComboBox* self) {

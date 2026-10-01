@@ -120,9 +120,9 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     /// ` self: Sonnet__ConfigWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Sonnet__ConfigWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget) callconv(.c) QMetaObject) void {
         qtc.Sonnet__ConfigWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -379,40 +379,6 @@ pub const Sonnet__ConfigWidget = extern struct {
         qtc.Sonnet__ConfigWidget_SlotIgnoreWordRemoved(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSlotIgnoreWordRemoved` instead
-    ///
-    pub const OnSlotIgnoreWordRemoved = onSlotIgnoreWordRemoved;
-
-    /// ### [Upstream resources](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordRemoved)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotIgnoreWordRemoved(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.Sonnet__ConfigWidget_OnSlotIgnoreWordRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotIgnoreWordRemoved` instead
-    ///
-    pub const SuperSlotIgnoreWordRemoved = superSlotIgnoreWordRemoved;
-
-    /// ### [Upstream resources](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordRemoved)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superSlotIgnoreWordRemoved(self: Sonnet__ConfigWidget) void {
-        qtc.Sonnet__ConfigWidget_SuperSlotIgnoreWordRemoved(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `slotIgnoreWordAdded` instead
     ///
     pub const SlotIgnoreWordAdded = slotIgnoreWordAdded;
@@ -425,40 +391,6 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     pub fn slotIgnoreWordAdded(self: Sonnet__ConfigWidget) void {
         qtc.Sonnet__ConfigWidget_SlotIgnoreWordAdded(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotIgnoreWordAdded` instead
-    ///
-    pub const OnSlotIgnoreWordAdded = onSlotIgnoreWordAdded;
-
-    /// ### [Upstream resources](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordAdded)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotIgnoreWordAdded(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.Sonnet__ConfigWidget_OnSlotIgnoreWordAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotIgnoreWordAdded` instead
-    ///
-    pub const SuperSlotIgnoreWordAdded = superSlotIgnoreWordAdded;
-
-    /// ### [Upstream resources](https://api.kde.org/sonnet-configwidget.html#slotIgnoreWordAdded)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superSlotIgnoreWordAdded(self: Sonnet__ConfigWidget) void {
-        qtc.Sonnet__ConfigWidget_SuperSlotIgnoreWordAdded(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `configChanged` instead
@@ -6801,9 +6733,9 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     /// ` self: Sonnet__ConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: Sonnet__ConfigWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget) callconv(.c) i32) void {
         qtc.Sonnet__ConfigWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6917,11 +6849,11 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     /// ` self: Sonnet__ConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: Sonnet__ConfigWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget) callconv(.c) QSize) void {
         qtc.Sonnet__ConfigWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6975,11 +6907,11 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     /// ` self: Sonnet__ConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: Sonnet__ConfigWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget) callconv(.c) QSize) void {
         qtc.Sonnet__ConfigWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7093,9 +7025,9 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     /// ` self: Sonnet__ConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: Sonnet__ConfigWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget) callconv(.c) bool) void {
         qtc.Sonnet__ConfigWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7149,9 +7081,9 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     /// ` self: Sonnet__ConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: Sonnet__ConfigWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget) callconv(.c) QPaintEngine) void {
         qtc.Sonnet__ConfigWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9077,9 +9009,9 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     /// ` self: Sonnet__ConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: Sonnet__ConfigWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget) callconv(.c) QPainter) void {
         qtc.Sonnet__ConfigWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9663,44 +9595,6 @@ pub const Sonnet__ConfigWidget = extern struct {
         qtc.Sonnet__ConfigWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: Sonnet__ConfigWidget) void {
-        qtc.Sonnet__ConfigWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.Sonnet__ConfigWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9717,44 +9611,6 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     pub fn create(self: Sonnet__ConfigWidget) void {
         qtc.Sonnet__ConfigWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superCreate(self: Sonnet__ConfigWidget) void {
-        qtc.Sonnet__ConfigWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.Sonnet__ConfigWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9775,44 +9631,6 @@ pub const Sonnet__ConfigWidget = extern struct {
         qtc.Sonnet__ConfigWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superDestroy(self: Sonnet__ConfigWidget) void {
-        qtc.Sonnet__ConfigWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.Sonnet__ConfigWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9829,44 +9647,6 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     pub fn focusNextChild(self: Sonnet__ConfigWidget) bool {
         return qtc.Sonnet__ConfigWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superFocusNextChild(self: Sonnet__ConfigWidget) bool {
-        return qtc.Sonnet__ConfigWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.Sonnet__ConfigWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9887,44 +9667,6 @@ pub const Sonnet__ConfigWidget = extern struct {
         return qtc.Sonnet__ConfigWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superFocusPreviousChild(self: Sonnet__ConfigWidget) bool {
-        return qtc.Sonnet__ConfigWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.Sonnet__ConfigWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9943,44 +9685,6 @@ pub const Sonnet__ConfigWidget = extern struct {
         return .{ .ptr = qtc.Sonnet__ConfigWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superSender(self: Sonnet__ConfigWidget) QObject {
-        return .{ .ptr = qtc.Sonnet__ConfigWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Sonnet__ConfigWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9997,44 +9701,6 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: Sonnet__ConfigWidget) i32 {
         return qtc.Sonnet__ConfigWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    pub fn superSenderSignalIndex(self: Sonnet__ConfigWidget) i32 {
-        return qtc.Sonnet__ConfigWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Sonnet__ConfigWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.Sonnet__ConfigWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10058,47 +9724,6 @@ pub const Sonnet__ConfigWidget = extern struct {
         return qtc.Sonnet__ConfigWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Sonnet__ConfigWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Sonnet__ConfigWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn (self: Sonnet__ConfigWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Sonnet__ConfigWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10118,47 +9743,6 @@ pub const Sonnet__ConfigWidget = extern struct {
     pub fn isSignalConnected(self: Sonnet__ConfigWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Sonnet__ConfigWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Sonnet__ConfigWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Sonnet__ConfigWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn (self: Sonnet__ConfigWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.Sonnet__ConfigWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10181,48 +9765,6 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: Sonnet__ConfigWidget, metricA: i32, metricB: i32) f64 {
         return qtc.Sonnet__ConfigWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__ConfigWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: Sonnet__ConfigWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.Sonnet__ConfigWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__ConfigWidget`
-    ///
-    /// ` callback: *const fn (self: Sonnet__ConfigWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget, i32, i32) callconv(.c) f64) void {
-        qtc.Sonnet__ConfigWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

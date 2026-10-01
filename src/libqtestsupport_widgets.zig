@@ -296,48 +296,6 @@ pub const QTest__QTouchEventWidgetSequence = extern struct {
         return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Point(@ptrCast(self.ptr), @bitCast(touchId)) };
     }
 
-    /// ### DEPRECATED: Use `superPoint` instead
-    ///
-    pub const SuperPoint = superPoint;
-
-    /// Inherited from QTest::QTouchEventSequence
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#point)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTest__QTouchEventWidgetSequence `
-    ///
-    /// ` touchId: i32 `
-    ///
-    pub fn superPoint(self: QTest__QTouchEventWidgetSequence, touchId: i32) QEventPoint {
-        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_SuperPoint(@ptrCast(self.ptr), @bitCast(touchId)) };
-    }
-
-    /// ### DEPRECATED: Use `onPoint` instead
-    ///
-    pub const OnPoint = onPoint;
-
-    /// Inherited from QTest::QTouchEventSequence
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#point)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTest__QTouchEventWidgetSequence`
-    ///
-    /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QEventPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onPoint(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, i32) callconv(.c) QEventPoint) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnPoint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `pointOrPreviousPoint` instead
     ///
     pub const PointOrPreviousPoint = pointOrPreviousPoint;
@@ -356,48 +314,6 @@ pub const QTest__QTouchEventWidgetSequence = extern struct {
     ///
     pub fn pointOrPreviousPoint(self: QTest__QTouchEventWidgetSequence, touchId: i32) QEventPoint {
         return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_PointOrPreviousPoint(@ptrCast(self.ptr), @bitCast(touchId)) };
-    }
-
-    /// ### DEPRECATED: Use `superPointOrPreviousPoint` instead
-    ///
-    pub const SuperPointOrPreviousPoint = superPointOrPreviousPoint;
-
-    /// Inherited from QTest::QTouchEventSequence
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#pointOrPreviousPoint)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTest__QTouchEventWidgetSequence `
-    ///
-    /// ` touchId: i32 `
-    ///
-    pub fn superPointOrPreviousPoint(self: QTest__QTouchEventWidgetSequence, touchId: i32) QEventPoint {
-        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_SuperPointOrPreviousPoint(@ptrCast(self.ptr), @bitCast(touchId)) };
-    }
-
-    /// ### DEPRECATED: Use `onPointOrPreviousPoint` instead
-    ///
-    pub const OnPointOrPreviousPoint = onPointOrPreviousPoint;
-
-    /// Inherited from QTest::QTouchEventSequence
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html#pointOrPreviousPoint)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QTest__QTouchEventWidgetSequence`
-    ///
-    /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QEventPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onPointOrPreviousPoint(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, i32) callconv(.c) QEventPoint) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnPointOrPreviousPoint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

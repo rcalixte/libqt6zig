@@ -33,7 +33,7 @@ int KWindowStateSaver_Metacall(KWindowStateSaver* self, int param1, int param2, 
 libqt_string KWindowStateSaver_Tr(const char* s);
 libqt_string KWindowStateSaver_Tr2(const char* s, const char* c);
 libqt_string KWindowStateSaver_Tr3(const char* s, const char* c, int n);
-void KWindowStateSaver_OnMetaObject(const KWindowStateSaver* self, intptr_t slot);
+void KWindowStateSaver_OnMetaObject(KWindowStateSaver* self, intptr_t slot);
 QMetaObject* KWindowStateSaver_SuperMetaObject(const KWindowStateSaver* self);
 void KWindowStateSaver_OnMetacast(KWindowStateSaver* self, intptr_t slot);
 void* KWindowStateSaver_SuperMetacast(KWindowStateSaver* self, const char* param1);
@@ -55,17 +55,9 @@ void KWindowStateSaver_DisconnectNotify(KWindowStateSaver* self, const QMetaMeth
 void KWindowStateSaver_OnDisconnectNotify(KWindowStateSaver* self, intptr_t slot);
 void KWindowStateSaver_SuperDisconnectNotify(KWindowStateSaver* self, const QMetaMethod* signal);
 QObject* KWindowStateSaver_Sender(const KWindowStateSaver* self);
-void KWindowStateSaver_OnSender(const KWindowStateSaver* self, intptr_t slot);
-QObject* KWindowStateSaver_SuperSender(const KWindowStateSaver* self);
 int KWindowStateSaver_SenderSignalIndex(const KWindowStateSaver* self);
-void KWindowStateSaver_OnSenderSignalIndex(const KWindowStateSaver* self, intptr_t slot);
-int KWindowStateSaver_SuperSenderSignalIndex(const KWindowStateSaver* self);
 int KWindowStateSaver_Receivers(const KWindowStateSaver* self, const char* signal);
-void KWindowStateSaver_OnReceivers(const KWindowStateSaver* self, intptr_t slot);
-int KWindowStateSaver_SuperReceivers(const KWindowStateSaver* self, const char* signal);
 bool KWindowStateSaver_IsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal);
-void KWindowStateSaver_OnIsSignalConnected(const KWindowStateSaver* self, intptr_t slot);
-bool KWindowStateSaver_SuperIsSignalConnected(const KWindowStateSaver* self, const QMetaMethod* signal);
 void KWindowStateSaver_Delete(KWindowStateSaver* self);
 
 #ifdef __cplusplus

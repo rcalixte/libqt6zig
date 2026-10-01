@@ -56,7 +56,7 @@ void TextEmoticonsCore__EmojiModelManager_ExcludeEmoticonsChanged(TextEmoticonsC
 void TextEmoticonsCore__EmojiModelManager_Connect_ExcludeEmoticonsChanged(TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
 libqt_string TextEmoticonsCore__EmojiModelManager_Tr2(const char* s, const char* c);
 libqt_string TextEmoticonsCore__EmojiModelManager_Tr3(const char* s, const char* c, int n);
-void TextEmoticonsCore__EmojiModelManager_OnMetaObject(const TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
+void TextEmoticonsCore__EmojiModelManager_OnMetaObject(TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
 QMetaObject* TextEmoticonsCore__EmojiModelManager_SuperMetaObject(const TextEmoticonsCore__EmojiModelManager* self);
 void TextEmoticonsCore__EmojiModelManager_OnMetacast(TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
 void* TextEmoticonsCore__EmojiModelManager_SuperMetacast(TextEmoticonsCore__EmojiModelManager* self, const char* param1);
@@ -84,17 +84,9 @@ void TextEmoticonsCore__EmojiModelManager_DisconnectNotify(TextEmoticonsCore__Em
 void TextEmoticonsCore__EmojiModelManager_OnDisconnectNotify(TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
 void TextEmoticonsCore__EmojiModelManager_SuperDisconnectNotify(TextEmoticonsCore__EmojiModelManager* self, const QMetaMethod* signal);
 QObject* TextEmoticonsCore__EmojiModelManager_Sender(const TextEmoticonsCore__EmojiModelManager* self);
-void TextEmoticonsCore__EmojiModelManager_OnSender(const TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
-QObject* TextEmoticonsCore__EmojiModelManager_SuperSender(const TextEmoticonsCore__EmojiModelManager* self);
 int TextEmoticonsCore__EmojiModelManager_SenderSignalIndex(const TextEmoticonsCore__EmojiModelManager* self);
-void TextEmoticonsCore__EmojiModelManager_OnSenderSignalIndex(const TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
-int TextEmoticonsCore__EmojiModelManager_SuperSenderSignalIndex(const TextEmoticonsCore__EmojiModelManager* self);
 int TextEmoticonsCore__EmojiModelManager_Receivers(const TextEmoticonsCore__EmojiModelManager* self, const char* signal);
-void TextEmoticonsCore__EmojiModelManager_OnReceivers(const TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
-int TextEmoticonsCore__EmojiModelManager_SuperReceivers(const TextEmoticonsCore__EmojiModelManager* self, const char* signal);
 bool TextEmoticonsCore__EmojiModelManager_IsSignalConnected(const TextEmoticonsCore__EmojiModelManager* self, const QMetaMethod* signal);
-void TextEmoticonsCore__EmojiModelManager_OnIsSignalConnected(const TextEmoticonsCore__EmojiModelManager* self, intptr_t slot);
-bool TextEmoticonsCore__EmojiModelManager_SuperIsSignalConnected(const TextEmoticonsCore__EmojiModelManager* self, const QMetaMethod* signal);
 void TextEmoticonsCore__EmojiModelManager_Delete(TextEmoticonsCore__EmojiModelManager* self);
 
 #ifdef __cplusplus

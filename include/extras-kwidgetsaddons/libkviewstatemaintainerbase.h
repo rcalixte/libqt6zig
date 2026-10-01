@@ -40,16 +40,14 @@ void KViewStateMaintainerBase_SaveState(KViewStateMaintainerBase* self);
 void KViewStateMaintainerBase_RestoreState(KViewStateMaintainerBase* self);
 libqt_string KViewStateMaintainerBase_Tr2(const char* s, const char* c);
 libqt_string KViewStateMaintainerBase_Tr3(const char* s, const char* c, int n);
-void KViewStateMaintainerBase_OnMetaObject(const KViewStateMaintainerBase* self, intptr_t slot);
+void KViewStateMaintainerBase_OnMetaObject(KViewStateMaintainerBase* self, intptr_t slot);
 QMetaObject* KViewStateMaintainerBase_SuperMetaObject(const KViewStateMaintainerBase* self);
 void KViewStateMaintainerBase_OnMetacast(KViewStateMaintainerBase* self, intptr_t slot);
 void* KViewStateMaintainerBase_SuperMetacast(KViewStateMaintainerBase* self, const char* param1);
 void KViewStateMaintainerBase_OnMetacall(KViewStateMaintainerBase* self, intptr_t slot);
 int KViewStateMaintainerBase_SuperMetacall(KViewStateMaintainerBase* self, int param1, int param2, void** param3);
 void KViewStateMaintainerBase_OnSaveState(KViewStateMaintainerBase* self, intptr_t slot);
-void KViewStateMaintainerBase_SuperSaveState(KViewStateMaintainerBase* self);
 void KViewStateMaintainerBase_OnRestoreState(KViewStateMaintainerBase* self, intptr_t slot);
-void KViewStateMaintainerBase_SuperRestoreState(KViewStateMaintainerBase* self);
 bool KViewStateMaintainerBase_Event(KViewStateMaintainerBase* self, QEvent* event);
 void KViewStateMaintainerBase_OnEvent(KViewStateMaintainerBase* self, intptr_t slot);
 bool KViewStateMaintainerBase_SuperEvent(KViewStateMaintainerBase* self, QEvent* event);
@@ -72,17 +70,9 @@ void KViewStateMaintainerBase_DisconnectNotify(KViewStateMaintainerBase* self, c
 void KViewStateMaintainerBase_OnDisconnectNotify(KViewStateMaintainerBase* self, intptr_t slot);
 void KViewStateMaintainerBase_SuperDisconnectNotify(KViewStateMaintainerBase* self, const QMetaMethod* signal);
 QObject* KViewStateMaintainerBase_Sender(const KViewStateMaintainerBase* self);
-void KViewStateMaintainerBase_OnSender(const KViewStateMaintainerBase* self, intptr_t slot);
-QObject* KViewStateMaintainerBase_SuperSender(const KViewStateMaintainerBase* self);
 int KViewStateMaintainerBase_SenderSignalIndex(const KViewStateMaintainerBase* self);
-void KViewStateMaintainerBase_OnSenderSignalIndex(const KViewStateMaintainerBase* self, intptr_t slot);
-int KViewStateMaintainerBase_SuperSenderSignalIndex(const KViewStateMaintainerBase* self);
 int KViewStateMaintainerBase_Receivers(const KViewStateMaintainerBase* self, const char* signal);
-void KViewStateMaintainerBase_OnReceivers(const KViewStateMaintainerBase* self, intptr_t slot);
-int KViewStateMaintainerBase_SuperReceivers(const KViewStateMaintainerBase* self, const char* signal);
 bool KViewStateMaintainerBase_IsSignalConnected(const KViewStateMaintainerBase* self, const QMetaMethod* signal);
-void KViewStateMaintainerBase_OnIsSignalConnected(const KViewStateMaintainerBase* self, intptr_t slot);
-bool KViewStateMaintainerBase_SuperIsSignalConnected(const KViewStateMaintainerBase* self, const QMetaMethod* signal);
 void KViewStateMaintainerBase_Delete(KViewStateMaintainerBase* self);
 
 #ifdef __cplusplus

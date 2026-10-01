@@ -66,7 +66,7 @@ void QAudioRoom_ReverbBrightnessChanged(QAudioRoom* self);
 void QAudioRoom_Connect_ReverbBrightnessChanged(QAudioRoom* self, intptr_t slot);
 libqt_string QAudioRoom_Tr2(const char* s, const char* c);
 libqt_string QAudioRoom_Tr3(const char* s, const char* c, int n);
-void QAudioRoom_OnMetaObject(const QAudioRoom* self, intptr_t slot);
+void QAudioRoom_OnMetaObject(QAudioRoom* self, intptr_t slot);
 QMetaObject* QAudioRoom_SuperMetaObject(const QAudioRoom* self);
 void QAudioRoom_OnMetacast(QAudioRoom* self, intptr_t slot);
 void* QAudioRoom_SuperMetacast(QAudioRoom* self, const char* param1);
@@ -94,17 +94,9 @@ void QAudioRoom_DisconnectNotify(QAudioRoom* self, const QMetaMethod* signal);
 void QAudioRoom_OnDisconnectNotify(QAudioRoom* self, intptr_t slot);
 void QAudioRoom_SuperDisconnectNotify(QAudioRoom* self, const QMetaMethod* signal);
 QObject* QAudioRoom_Sender(const QAudioRoom* self);
-void QAudioRoom_OnSender(const QAudioRoom* self, intptr_t slot);
-QObject* QAudioRoom_SuperSender(const QAudioRoom* self);
 int QAudioRoom_SenderSignalIndex(const QAudioRoom* self);
-void QAudioRoom_OnSenderSignalIndex(const QAudioRoom* self, intptr_t slot);
-int QAudioRoom_SuperSenderSignalIndex(const QAudioRoom* self);
 int QAudioRoom_Receivers(const QAudioRoom* self, const char* signal);
-void QAudioRoom_OnReceivers(const QAudioRoom* self, intptr_t slot);
-int QAudioRoom_SuperReceivers(const QAudioRoom* self, const char* signal);
 bool QAudioRoom_IsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal);
-void QAudioRoom_OnIsSignalConnected(const QAudioRoom* self, intptr_t slot);
-bool QAudioRoom_SuperIsSignalConnected(const QAudioRoom* self, const QMetaMethod* signal);
 void QAudioRoom_Delete(QAudioRoom* self);
 
 #ifdef __cplusplus

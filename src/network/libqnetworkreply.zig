@@ -491,6 +491,8 @@ pub const QNetworkReply = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#abort)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QNetworkReply `

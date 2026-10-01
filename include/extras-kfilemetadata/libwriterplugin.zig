@@ -67,9 +67,9 @@ pub const KFileMetaData__WriterPlugin = extern struct {
     ///
     /// ` self: KFileMetaData__WriterPlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KFileMetaData__WriterPlugin) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KFileMetaData__WriterPlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KFileMetaData__WriterPlugin, callback: *const fn (KFileMetaData__WriterPlugin) callconv(.c) QMetaObject) void {
         qtc.KFileMetaData__WriterPlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -220,6 +220,8 @@ pub const KFileMetaData__WriterPlugin = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writerplugin.html#writeMimetypes)
     ///
+    /// This method must be implemented with `onWriteMimetypes` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KFileMetaData__WriterPlugin `
@@ -258,42 +260,10 @@ pub const KFileMetaData__WriterPlugin = extern struct {
     ///
     /// ` self: KFileMetaData__WriterPlugin `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KFileMetaData__WriterPlugin) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onWriteMimetypes(self: KFileMetaData__WriterPlugin, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onWriteMimetypes(self: KFileMetaData__WriterPlugin, callback: *const fn (KFileMetaData__WriterPlugin) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KFileMetaData__WriterPlugin_OnWriteMimetypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superWriteMimetypes` instead
-    ///
-    pub const SuperWriteMimetypes = superWriteMimetypes;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writerplugin.html#writeMimetypes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__WriterPlugin `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superWriteMimetypes(self: KFileMetaData__WriterPlugin, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KFileMetaData__WriterPlugin_SuperWriteMimetypes(@ptrCast(self.ptr));
-        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
-        defer {
-            for (0.._arr.len) |i|
-                qtc.libqt_string_free(@ptrCast(&_str[i]));
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileMetaData__WriterPlugin.writeMimetypes: Memory allocation failed");
-        for (0.._arr.len) |i| {
-            const _data_val = _str[i];
-            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KFileMetaData__WriterPlugin.writeMimetypes: Memory allocation failed");
-            @memcpy(_buf, _data_val.data[0.._data_val.len]);
-            _ret[i] = _buf;
-        }
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `write` instead
@@ -301,6 +271,8 @@ pub const KFileMetaData__WriterPlugin = extern struct {
     pub const Write = write;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writerplugin.html#write)
+    ///
+    /// This method must be implemented with `onWrite` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -329,25 +301,6 @@ pub const KFileMetaData__WriterPlugin = extern struct {
     ///
     pub fn onWrite(self: KFileMetaData__WriterPlugin, callback: *const fn (KFileMetaData__WriterPlugin, KFileMetaData__WriteData) callconv(.c) void) void {
         qtc.KFileMetaData__WriterPlugin_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superWrite` instead
-    ///
-    pub const SuperWrite = superWrite;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writerplugin.html#write)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__WriterPlugin `
-    ///
-    /// ` data: KFileMetaData__WriteData `
-    ///
-    pub fn superWrite(self: KFileMetaData__WriterPlugin, data: anytype) void {
-        comptime _ = @TypeOf(data)._is_KFileMetaData__WriteData;
-        qtc.KFileMetaData__WriterPlugin_SuperWrite(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1827,44 +1780,6 @@ pub const KFileMetaData__WriterPlugin = extern struct {
         return .{ .ptr = qtc.KFileMetaData__WriterPlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__WriterPlugin `
-    ///
-    pub fn superSender(self: KFileMetaData__WriterPlugin) QObject {
-        return .{ .ptr = qtc.KFileMetaData__WriterPlugin_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__WriterPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KFileMetaData__WriterPlugin, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KFileMetaData__WriterPlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1881,44 +1796,6 @@ pub const KFileMetaData__WriterPlugin = extern struct {
     ///
     pub fn senderSignalIndex(self: KFileMetaData__WriterPlugin) i32 {
         return qtc.KFileMetaData__WriterPlugin_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__WriterPlugin `
-    ///
-    pub fn superSenderSignalIndex(self: KFileMetaData__WriterPlugin) i32 {
-        return qtc.KFileMetaData__WriterPlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__WriterPlugin`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KFileMetaData__WriterPlugin, callback: *const fn () callconv(.c) i32) void {
-        qtc.KFileMetaData__WriterPlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1942,47 +1819,6 @@ pub const KFileMetaData__WriterPlugin = extern struct {
         return qtc.KFileMetaData__WriterPlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__WriterPlugin `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KFileMetaData__WriterPlugin, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KFileMetaData__WriterPlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__WriterPlugin`
-    ///
-    /// ` callback: *const fn (self: KFileMetaData__WriterPlugin, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KFileMetaData__WriterPlugin, callback: *const fn (KFileMetaData__WriterPlugin, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFileMetaData__WriterPlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2002,47 +1838,6 @@ pub const KFileMetaData__WriterPlugin = extern struct {
     pub fn isSignalConnected(self: KFileMetaData__WriterPlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KFileMetaData__WriterPlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__WriterPlugin `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KFileMetaData__WriterPlugin, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KFileMetaData__WriterPlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KFileMetaData__WriterPlugin`
-    ///
-    /// ` callback: *const fn (self: KFileMetaData__WriterPlugin, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KFileMetaData__WriterPlugin, callback: *const fn (KFileMetaData__WriterPlugin, QMetaMethod) callconv(.c) bool) void {
-        qtc.KFileMetaData__WriterPlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

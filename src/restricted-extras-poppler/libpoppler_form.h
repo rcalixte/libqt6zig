@@ -179,7 +179,7 @@ void Poppler__AsyncObject_Done(Poppler__AsyncObject* self);
 void Poppler__AsyncObject_Connect_Done(Poppler__AsyncObject* self, intptr_t slot);
 libqt_string Poppler__AsyncObject_Tr2(const char* s, const char* c);
 libqt_string Poppler__AsyncObject_Tr3(const char* s, const char* c, int n);
-void Poppler__AsyncObject_OnMetaObject(const Poppler__AsyncObject* self, intptr_t slot);
+void Poppler__AsyncObject_OnMetaObject(Poppler__AsyncObject* self, intptr_t slot);
 QMetaObject* Poppler__AsyncObject_SuperMetaObject(const Poppler__AsyncObject* self);
 void Poppler__AsyncObject_OnMetacast(Poppler__AsyncObject* self, intptr_t slot);
 void* Poppler__AsyncObject_SuperMetacast(Poppler__AsyncObject* self, const char* param1);
@@ -207,17 +207,9 @@ void Poppler__AsyncObject_DisconnectNotify(Poppler__AsyncObject* self, const QMe
 void Poppler__AsyncObject_OnDisconnectNotify(Poppler__AsyncObject* self, intptr_t slot);
 void Poppler__AsyncObject_SuperDisconnectNotify(Poppler__AsyncObject* self, const QMetaMethod* signal);
 QObject* Poppler__AsyncObject_Sender(const Poppler__AsyncObject* self);
-void Poppler__AsyncObject_OnSender(const Poppler__AsyncObject* self, intptr_t slot);
-QObject* Poppler__AsyncObject_SuperSender(const Poppler__AsyncObject* self);
 int Poppler__AsyncObject_SenderSignalIndex(const Poppler__AsyncObject* self);
-void Poppler__AsyncObject_OnSenderSignalIndex(const Poppler__AsyncObject* self, intptr_t slot);
-int Poppler__AsyncObject_SuperSenderSignalIndex(const Poppler__AsyncObject* self);
 int Poppler__AsyncObject_Receivers(const Poppler__AsyncObject* self, const char* signal);
-void Poppler__AsyncObject_OnReceivers(const Poppler__AsyncObject* self, intptr_t slot);
-int Poppler__AsyncObject_SuperReceivers(const Poppler__AsyncObject* self, const char* signal);
 bool Poppler__AsyncObject_IsSignalConnected(const Poppler__AsyncObject* self, const QMetaMethod* signal);
-void Poppler__AsyncObject_OnIsSignalConnected(const Poppler__AsyncObject* self, intptr_t slot);
-bool Poppler__AsyncObject_SuperIsSignalConnected(const Poppler__AsyncObject* self, const QMetaMethod* signal);
 void Poppler__AsyncObject_Delete(Poppler__AsyncObject* self);
 
 int Poppler__FormFieldSignature_Type(const Poppler__FormFieldSignature* self);

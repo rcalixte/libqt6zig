@@ -162,36 +162,36 @@ void QKeySequenceEdit_Connect_KeySequenceChanged(QKeySequenceEdit* self, intptr_
 
 bool QKeySequenceEdit_Event(QKeySequenceEdit* self, QEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         return vqkeysequenceedit->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QKeySequenceEdit::event called without a directly constructed type");
 }
 
 void QKeySequenceEdit_KeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->keyPressEvent(param1);
     }
 }
 
 void QKeySequenceEdit_KeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->keyReleaseEvent(param1);
     }
 }
 
 void QKeySequenceEdit_TimerEvent(QKeySequenceEdit* self, QTimerEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->timerEvent(param1);
     }
 }
 
 void QKeySequenceEdit_FocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->focusOutEvent(param1);
     }
 }
@@ -222,1604 +222,1123 @@ libqt_string QKeySequenceEdit_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QKeySequenceEdit_SuperMetaObject(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vqkeysequenceedit->metaObject();
-    } else {
-        return (QMetaObject*)self->QKeySequenceEdit::metaObject();
-    }
+    return (QMetaObject*)self->QKeySequenceEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnMetaObject(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_MetaObject_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MetaObject_Callback>(slot));
+void QKeySequenceEdit_OnMetaObject(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_metaobject_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QKeySequenceEdit_SuperMetacast(QKeySequenceEdit* self, const char* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Metacast_IsBase(true);
-        return vqkeysequenceedit->qt_metacast(param1);
-    } else {
-        return self->QKeySequenceEdit::qt_metacast(param1);
-    }
+    return self->QKeySequenceEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMetacast(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Metacast_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metacast_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_metacast_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QKeySequenceEdit_SuperMetacall(QKeySequenceEdit* self, int param1, int param2, void** param3) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Metacall_IsBase(true);
-        return vqkeysequenceedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QKeySequenceEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QKeySequenceEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMetacall(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Metacall_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metacall_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_metacall_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QKeySequenceEdit_SuperEvent(QKeySequenceEdit* self, QEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Event_IsBase(true);
-        return vqkeysequenceedit->event(param1);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->event(param1);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        return vqkeysequenceedit->QKeySequenceEdit::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Event_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Event_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_event_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperKeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_KeyPressEvent_IsBase(true);
-        vqkeysequenceedit->keyPressEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnKeyPressEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_keypressevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperKeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_KeyReleaseEvent_IsBase(true);
-        vqkeysequenceedit->keyReleaseEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->keyReleaseEvent(param1);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::keyReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnKeyReleaseEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_keyreleaseevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperTimerEvent(QKeySequenceEdit* self, QTimerEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_TimerEvent_IsBase(true);
-        vqkeysequenceedit->timerEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->timerEvent(param1);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnTimerEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_TimerEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_TimerEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_timerevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperFocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_FocusOutEvent_IsBase(true);
-        vqkeysequenceedit->focusOutEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->focusOutEvent(param1);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnFocusOutEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_focusoutevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QKeySequenceEdit_DevType(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->devType();
-    } else {
-        return self->QKeySequenceEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QKeySequenceEdit_SuperDevType(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_DevType_IsBase(true);
-        return vqkeysequenceedit->devType();
-    } else {
-        return self->QKeySequenceEdit::devType();
-    }
+    return self->QKeySequenceEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnDevType(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_DevType_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DevType_Callback>(slot));
+void QKeySequenceEdit_OnDevType(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_devtype_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_SetVisible(QKeySequenceEdit* self, bool visible) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setVisible(visible);
-    } else {
-        self->QKeySequenceEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperSetVisible(QKeySequenceEdit* self, bool visible) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_SetVisible_IsBase(true);
-        vqkeysequenceedit->setVisible(visible);
-    } else {
-        self->QKeySequenceEdit::setVisible(visible);
-    }
+    self->QKeySequenceEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnSetVisible(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_SetVisible_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SetVisible_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_setvisible_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QKeySequenceEdit_SizeHint(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return new QSize(vqkeysequenceedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQKeySequenceEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QKeySequenceEdit_SuperSizeHint(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_SizeHint_IsBase(true);
-        return new QSize(vqkeysequenceedit->sizeHint());
-    } else {
-        return new QSize(((VirtualQKeySequenceEdit*)self)->sizeHint());
-    }
+    return new QSize(self->QKeySequenceEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnSizeHint(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_SizeHint_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SizeHint_Callback>(slot));
+void QKeySequenceEdit_OnSizeHint(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_sizehint_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QKeySequenceEdit_MinimumSizeHint(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return new QSize(vqkeysequenceedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQKeySequenceEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QKeySequenceEdit_SuperMinimumSizeHint(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vqkeysequenceedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQKeySequenceEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QKeySequenceEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnMinimumSizeHint(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MinimumSizeHint_Callback>(slot));
+void QKeySequenceEdit_OnMinimumSizeHint(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_minimumsizehint_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QKeySequenceEdit_HeightForWidth(const QKeySequenceEdit* self, int param1) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QKeySequenceEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QKeySequenceEdit_SuperHeightForWidth(const QKeySequenceEdit* self, int param1) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_HeightForWidth_IsBase(true);
-        return vqkeysequenceedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QKeySequenceEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QKeySequenceEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnHeightForWidth(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_HeightForWidth_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HeightForWidth_Callback>(slot));
+void QKeySequenceEdit_OnHeightForWidth(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_heightforwidth_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QKeySequenceEdit_HasHeightForWidth(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->hasHeightForWidth();
-    } else {
-        return self->QKeySequenceEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QKeySequenceEdit_SuperHasHeightForWidth(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_HasHeightForWidth_IsBase(true);
-        return vqkeysequenceedit->hasHeightForWidth();
-    } else {
-        return self->QKeySequenceEdit::hasHeightForWidth();
-    }
+    return self->QKeySequenceEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnHasHeightForWidth(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HasHeightForWidth_Callback>(slot));
+void QKeySequenceEdit_OnHasHeightForWidth(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_hasheightforwidth_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QKeySequenceEdit_PaintEngine(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->paintEngine();
-    } else {
-        return self->QKeySequenceEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QKeySequenceEdit_SuperPaintEngine(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_PaintEngine_IsBase(true);
-        return vqkeysequenceedit->paintEngine();
-    } else {
-        return self->QKeySequenceEdit::paintEngine();
-    }
+    return self->QKeySequenceEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnPaintEngine(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_PaintEngine_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_PaintEngine_Callback>(slot));
+void QKeySequenceEdit_OnPaintEngine(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_paintengine_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_MousePressEvent(QKeySequenceEdit* self, QMouseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->mousePressEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperMousePressEvent(QKeySequenceEdit* self, QMouseEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_MousePressEvent_IsBase(true);
-        vqkeysequenceedit->mousePressEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->mousePressEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMousePressEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_MousePressEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MousePressEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_mousepressevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_MouseReleaseEvent(QKeySequenceEdit* self, QMouseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->mouseReleaseEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperMouseReleaseEvent(QKeySequenceEdit* self, QMouseEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_MouseReleaseEvent_IsBase(true);
-        vqkeysequenceedit->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMouseReleaseEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_mousereleaseevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_MouseDoubleClickEvent(QKeySequenceEdit* self, QMouseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperMouseDoubleClickEvent(QKeySequenceEdit* self, QMouseEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_MouseDoubleClickEvent_IsBase(true);
-        vqkeysequenceedit->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMouseDoubleClickEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_MouseMoveEvent(QKeySequenceEdit* self, QMouseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->mouseMoveEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperMouseMoveEvent(QKeySequenceEdit* self, QMouseEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_MouseMoveEvent_IsBase(true);
-        vqkeysequenceedit->mouseMoveEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMouseMoveEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_mousemoveevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_WheelEvent(QKeySequenceEdit* self, QWheelEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->wheelEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperWheelEvent(QKeySequenceEdit* self, QWheelEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_WheelEvent_IsBase(true);
-        vqkeysequenceedit->wheelEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->wheelEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnWheelEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_WheelEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_WheelEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_wheelevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_FocusInEvent(QKeySequenceEdit* self, QFocusEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->focusInEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperFocusInEvent(QKeySequenceEdit* self, QFocusEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_FocusInEvent_IsBase(true);
-        vqkeysequenceedit->focusInEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->focusInEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnFocusInEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_FocusInEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusInEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_focusinevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_EnterEvent(QKeySequenceEdit* self, QEnterEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->enterEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperEnterEvent(QKeySequenceEdit* self, QEnterEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_EnterEvent_IsBase(true);
-        vqkeysequenceedit->enterEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->enterEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnEnterEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_EnterEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_EnterEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_enterevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_LeaveEvent(QKeySequenceEdit* self, QEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->leaveEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperLeaveEvent(QKeySequenceEdit* self, QEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_LeaveEvent_IsBase(true);
-        vqkeysequenceedit->leaveEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnLeaveEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_LeaveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_LeaveEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_leaveevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_PaintEvent(QKeySequenceEdit* self, QPaintEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->paintEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperPaintEvent(QKeySequenceEdit* self, QPaintEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_PaintEvent_IsBase(true);
-        vqkeysequenceedit->paintEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->paintEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnPaintEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_PaintEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_PaintEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_paintevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_MoveEvent(QKeySequenceEdit* self, QMoveEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->moveEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperMoveEvent(QKeySequenceEdit* self, QMoveEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_MoveEvent_IsBase(true);
-        vqkeysequenceedit->moveEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->moveEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnMoveEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_MoveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MoveEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_moveevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_ResizeEvent(QKeySequenceEdit* self, QResizeEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->resizeEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperResizeEvent(QKeySequenceEdit* self, QResizeEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_ResizeEvent_IsBase(true);
-        vqkeysequenceedit->resizeEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->resizeEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnResizeEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_ResizeEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ResizeEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_resizeevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_CloseEvent(QKeySequenceEdit* self, QCloseEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->closeEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperCloseEvent(QKeySequenceEdit* self, QCloseEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_CloseEvent_IsBase(true);
-        vqkeysequenceedit->closeEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->closeEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnCloseEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_CloseEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_CloseEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_closeevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_ContextMenuEvent(QKeySequenceEdit* self, QContextMenuEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->contextMenuEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperContextMenuEvent(QKeySequenceEdit* self, QContextMenuEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_ContextMenuEvent_IsBase(true);
-        vqkeysequenceedit->contextMenuEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnContextMenuEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_contextmenuevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_TabletEvent(QKeySequenceEdit* self, QTabletEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->tabletEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperTabletEvent(QKeySequenceEdit* self, QTabletEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_TabletEvent_IsBase(true);
-        vqkeysequenceedit->tabletEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnTabletEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_TabletEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_TabletEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_tabletevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_ActionEvent(QKeySequenceEdit* self, QActionEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->actionEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperActionEvent(QKeySequenceEdit* self, QActionEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_ActionEvent_IsBase(true);
-        vqkeysequenceedit->actionEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->actionEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnActionEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_ActionEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ActionEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_actionevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_DragEnterEvent(QKeySequenceEdit* self, QDragEnterEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->dragEnterEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperDragEnterEvent(QKeySequenceEdit* self, QDragEnterEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_DragEnterEvent_IsBase(true);
-        vqkeysequenceedit->dragEnterEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDragEnterEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_dragenterevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_DragMoveEvent(QKeySequenceEdit* self, QDragMoveEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->dragMoveEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperDragMoveEvent(QKeySequenceEdit* self, QDragMoveEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_DragMoveEvent_IsBase(true);
-        vqkeysequenceedit->dragMoveEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDragMoveEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_dragmoveevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_DragLeaveEvent(QKeySequenceEdit* self, QDragLeaveEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->dragLeaveEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperDragLeaveEvent(QKeySequenceEdit* self, QDragLeaveEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_DragLeaveEvent_IsBase(true);
-        vqkeysequenceedit->dragLeaveEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDragLeaveEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_dragleaveevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_DropEvent(QKeySequenceEdit* self, QDropEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->dropEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperDropEvent(QKeySequenceEdit* self, QDropEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_DropEvent_IsBase(true);
-        vqkeysequenceedit->dropEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->dropEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDropEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_DropEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DropEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_dropevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_ShowEvent(QKeySequenceEdit* self, QShowEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->showEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperShowEvent(QKeySequenceEdit* self, QShowEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_ShowEvent_IsBase(true);
-        vqkeysequenceedit->showEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->showEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnShowEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_ShowEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ShowEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_showevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_HideEvent(QKeySequenceEdit* self, QHideEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->hideEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperHideEvent(QKeySequenceEdit* self, QHideEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_HideEvent_IsBase(true);
-        vqkeysequenceedit->hideEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->hideEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnHideEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_HideEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HideEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_hideevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QKeySequenceEdit_NativeEvent(QKeySequenceEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
+    if (vqkeysequenceedit) {
         return vqkeysequenceedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQKeySequenceEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QKeySequenceEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QKeySequenceEdit_SuperNativeEvent(QKeySequenceEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_NativeEvent_IsBase(true);
-        return vqkeysequenceedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        return vqkeysequenceedit->QKeySequenceEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnNativeEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_NativeEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_NativeEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_nativeevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_ChangeEvent(QKeySequenceEdit* self, QEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->changeEvent(param1);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperChangeEvent(QKeySequenceEdit* self, QEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_ChangeEvent_IsBase(true);
-        vqkeysequenceedit->changeEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->changeEvent(param1);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnChangeEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_ChangeEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ChangeEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_changeevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QKeySequenceEdit_Metric(const QKeySequenceEdit* self, int param1) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         return vqkeysequenceedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQKeySequenceEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QKeySequenceEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QKeySequenceEdit_SuperMetric(const QKeySequenceEdit* self, int param1) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Metric_IsBase(true);
-        return vqkeysequenceedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        return vqkeysequenceedit->QKeySequenceEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnMetric(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Metric_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metric_Callback>(slot));
+void QKeySequenceEdit_OnMetric(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_metric_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_InitPainter(const QKeySequenceEdit* self, QPainter* painter) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->initPainter(painter);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperInitPainter(const QKeySequenceEdit* self, QPainter* painter) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_InitPainter_IsBase(true);
-        vqkeysequenceedit->initPainter(painter);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->initPainter(painter);
-    }
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        vqkeysequenceedit->QKeySequenceEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnInitPainter(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_InitPainter_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InitPainter_Callback>(slot));
+void QKeySequenceEdit_OnInitPainter(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_initpainter_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QKeySequenceEdit_Redirected(const QKeySequenceEdit* self, QPoint* offset) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         return vqkeysequenceedit->redirected(offset);
     } else {
-        return ((VirtualQKeySequenceEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QKeySequenceEdit_SuperRedirected(const QKeySequenceEdit* self, QPoint* offset) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Redirected_IsBase(true);
-        return vqkeysequenceedit->redirected(offset);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->redirected(offset);
-    }
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        return vqkeysequenceedit->QKeySequenceEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnRedirected(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Redirected_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Redirected_Callback>(slot));
+void QKeySequenceEdit_OnRedirected(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_redirected_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QKeySequenceEdit_SharedPainter(const QKeySequenceEdit* self) {
     auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         return vqkeysequenceedit->sharedPainter();
     } else {
-        return ((VirtualQKeySequenceEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QKeySequenceEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QKeySequenceEdit_SuperSharedPainter(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_SharedPainter_IsBase(true);
-        return vqkeysequenceedit->sharedPainter();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->sharedPainter();
-    }
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        return vqkeysequenceedit->QKeySequenceEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnSharedPainter(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_SharedPainter_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SharedPainter_Callback>(slot));
+void QKeySequenceEdit_OnSharedPainter(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_sharedpainter_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_InputMethodEvent(QKeySequenceEdit* self, QInputMethodEvent* param1) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->inputMethodEvent(param1);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperInputMethodEvent(QKeySequenceEdit* self, QInputMethodEvent* param1) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_InputMethodEvent_IsBase(true);
-        vqkeysequenceedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnInputMethodEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_inputmethodevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QKeySequenceEdit_InputMethodQuery(const QKeySequenceEdit* self, int param1) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return new QVariant(vqkeysequenceedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQKeySequenceEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QKeySequenceEdit_SuperInputMethodQuery(const QKeySequenceEdit* self, int param1) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vqkeysequenceedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQKeySequenceEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QKeySequenceEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnInputMethodQuery(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InputMethodQuery_Callback>(slot));
+void QKeySequenceEdit_OnInputMethodQuery(QKeySequenceEdit* self, intptr_t slot) {
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self)))
+        vqkeysequenceedit->qkeysequenceedit_inputmethodquery_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QKeySequenceEdit_FocusNextPrevChild(QKeySequenceEdit* self, bool next) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         return vqkeysequenceedit->focusNextPrevChild(next);
     } else {
-        return ((VirtualQKeySequenceEdit*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QKeySequenceEdit_SuperFocusNextPrevChild(QKeySequenceEdit* self, bool next) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_FocusNextPrevChild_IsBase(true);
-        return vqkeysequenceedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        return vqkeysequenceedit->QKeySequenceEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnFocusNextPrevChild(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_focusnextprevchild_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QKeySequenceEdit_EventFilter(QKeySequenceEdit* self, QObject* watched, QEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->eventFilter(watched, event);
-    } else {
-        return self->QKeySequenceEdit::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QKeySequenceEdit_SuperEventFilter(QKeySequenceEdit* self, QObject* watched, QEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_EventFilter_IsBase(true);
-        return vqkeysequenceedit->eventFilter(watched, event);
-    } else {
-        return self->QKeySequenceEdit::eventFilter(watched, event);
-    }
+    return self->QKeySequenceEdit::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnEventFilter(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_EventFilter_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_EventFilter_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_eventfilter_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_ChildEvent(QKeySequenceEdit* self, QChildEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->childEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperChildEvent(QKeySequenceEdit* self, QChildEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_ChildEvent_IsBase(true);
-        vqkeysequenceedit->childEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->childEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnChildEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_ChildEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ChildEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_childevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_CustomEvent(QKeySequenceEdit* self, QEvent* event) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->customEvent(event);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperCustomEvent(QKeySequenceEdit* self, QEvent* event) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_CustomEvent_IsBase(true);
-        vqkeysequenceedit->customEvent(event);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->customEvent(event);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnCustomEvent(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_CustomEvent_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_CustomEvent_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_customevent_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_ConnectNotify(QKeySequenceEdit* self, const QMetaMethod* signal) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->connectNotify(*signal);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperConnectNotify(QKeySequenceEdit* self, const QMetaMethod* signal) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_ConnectNotify_IsBase(true);
-        vqkeysequenceedit->connectNotify(*signal);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnConnectNotify(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_ConnectNotify_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ConnectNotify_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_connectnotify_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QKeySequenceEdit_DisconnectNotify(QKeySequenceEdit* self, const QMetaMethod* signal) {
     auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
+    if (vqkeysequenceedit) {
         vqkeysequenceedit->disconnectNotify(*signal);
     } else {
-        ((VirtualQKeySequenceEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QKeySequenceEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QKeySequenceEdit_SuperDisconnectNotify(QKeySequenceEdit* self, const QMetaMethod* signal) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_DisconnectNotify_IsBase(true);
-        vqkeysequenceedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->QKeySequenceEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QKeySequenceEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QKeySequenceEdit_OnDisconnectNotify(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self))
+        vqkeysequenceedit->qkeysequenceedit_disconnectnotify_callback = reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QKeySequenceEdit_UpdateMicroFocus(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->updateMicroFocus();
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->VirtualQKeySequenceEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QKeySequenceEdit_SuperUpdateMicroFocus(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_UpdateMicroFocus_IsBase(true);
-        vqkeysequenceedit->updateMicroFocus();
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnUpdateMicroFocus(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QKeySequenceEdit_Create(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->create();
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->create();
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->VirtualQKeySequenceEdit::create();
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QKeySequenceEdit_SuperCreate(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Create_IsBase(true);
-        vqkeysequenceedit->create();
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnCreate(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Create_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QKeySequenceEdit_Destroy(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->destroy();
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->destroy();
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        vqkeysequenceedit->VirtualQKeySequenceEdit::destroy();
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QKeySequenceEdit_SuperDestroy(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Destroy_IsBase(true);
-        vqkeysequenceedit->destroy();
-    } else {
-        ((VirtualQKeySequenceEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnDestroy(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Destroy_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QKeySequenceEdit_FocusNextChild(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->focusNextChild();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->focusNextChild();
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        return vqkeysequenceedit->VirtualQKeySequenceEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QKeySequenceEdit_SuperFocusNextChild(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_FocusNextChild_IsBase(true);
-        return vqkeysequenceedit->focusNextChild();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnFocusNextChild(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_FocusNextChild_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QKeySequenceEdit_FocusPreviousChild(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->focusPreviousChild();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self)) {
+        return vqkeysequenceedit->VirtualQKeySequenceEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QKeySequenceEdit_SuperFocusPreviousChild(QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_FocusPreviousChild_IsBase(true);
-        return vqkeysequenceedit->focusPreviousChild();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnFocusPreviousChild(QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = dynamic_cast<VirtualQKeySequenceEdit*>(self);
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QKeySequenceEdit_Sender(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->sender();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->sender();
-    }
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        return vqkeysequenceedit->VirtualQKeySequenceEdit::sender();
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QKeySequenceEdit_SuperSender(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Sender_IsBase(true);
-        return vqkeysequenceedit->sender();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnSender(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Sender_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QKeySequenceEdit_SenderSignalIndex(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->senderSignalIndex();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        return vqkeysequenceedit->VirtualQKeySequenceEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QKeySequenceEdit_SuperSenderSignalIndex(const QKeySequenceEdit* self) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_SenderSignalIndex_IsBase(true);
-        return vqkeysequenceedit->senderSignalIndex();
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnSenderSignalIndex(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QKeySequenceEdit_Receivers(const QKeySequenceEdit* self, const char* signal) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->receivers(signal);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->receivers(signal);
-    }
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        return vqkeysequenceedit->VirtualQKeySequenceEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QKeySequenceEdit_SuperReceivers(const QKeySequenceEdit* self, const char* signal) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_Receivers_IsBase(true);
-        return vqkeysequenceedit->receivers(signal);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnReceivers(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_Receivers_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QKeySequenceEdit_IsSignalConnected(const QKeySequenceEdit* self, const QMetaMethod* signal) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        return vqkeysequenceedit->VirtualQKeySequenceEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QKeySequenceEdit_SuperIsSignalConnected(const QKeySequenceEdit* self, const QMetaMethod* signal) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_IsSignalConnected_IsBase(true);
-        return vqkeysequenceedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnIsSignalConnected(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QKeySequenceEdit_GetDecodedMetricF(const QKeySequenceEdit* self, int metricA, int metricB) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        return vqkeysequenceedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QKeySequenceEdit_SuperGetDecodedMetricF(const QKeySequenceEdit* self, int metricA, int metricB) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit) {
-        vqkeysequenceedit->setQKeySequenceEdit_GetDecodedMetricF_IsBase(true);
-        return vqkeysequenceedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQKeySequenceEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QKeySequenceEdit_OnGetDecodedMetricF(const QKeySequenceEdit* self, intptr_t slot) {
-    auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self));
-    if (vqkeysequenceedit && vqkeysequenceedit->isVirtualQKeySequenceEdit)
-        vqkeysequenceedit->setQKeySequenceEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQKeySequenceEdit::QKeySequenceEdit_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqkeysequenceedit = const_cast<VirtualQKeySequenceEdit*>(dynamic_cast<const VirtualQKeySequenceEdit*>(self))) {
+        return vqkeysequenceedit->VirtualQKeySequenceEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QKeySequenceEdit::getDecodedMetricF called without a directly constructed type");
 }
 
 void QKeySequenceEdit_Delete(QKeySequenceEdit* self) {

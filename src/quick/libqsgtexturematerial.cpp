@@ -73,56 +73,35 @@ int QSGOpaqueTextureMaterial_AnisotropyLevel(const QSGOpaqueTextureMaterial* sel
 
 // Base class handler implementation
 QSGMaterialType* QSGOpaqueTextureMaterial_SuperType(const QSGOpaqueTextureMaterial* self) {
-    auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self));
-    if (vqsgopaquetexturematerial && vqsgopaquetexturematerial->isVirtualQSGOpaqueTextureMaterial) {
-        vqsgopaquetexturematerial->setQSGOpaqueTextureMaterial_Type_IsBase(true);
-        return vqsgopaquetexturematerial->type();
-    } else {
-        return self->QSGOpaqueTextureMaterial::type();
-    }
+    return self->QSGOpaqueTextureMaterial::type();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGOpaqueTextureMaterial_OnType(const QSGOpaqueTextureMaterial* self, intptr_t slot) {
-    auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self));
-    if (vqsgopaquetexturematerial && vqsgopaquetexturematerial->isVirtualQSGOpaqueTextureMaterial)
-        vqsgopaquetexturematerial->setQSGOpaqueTextureMaterial_Type_Callback(reinterpret_cast<VirtualQSGOpaqueTextureMaterial::QSGOpaqueTextureMaterial_Type_Callback>(slot));
+void QSGOpaqueTextureMaterial_OnType(QSGOpaqueTextureMaterial* self, intptr_t slot) {
+    if (auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self)))
+        vqsgopaquetexturematerial->qsgopaquetexturematerial_type_callback = reinterpret_cast<VirtualQSGOpaqueTextureMaterial::QSGOpaqueTextureMaterial_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGMaterialShader* QSGOpaqueTextureMaterial_SuperCreateShader(const QSGOpaqueTextureMaterial* self, int renderMode) {
-    auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self));
-    if (vqsgopaquetexturematerial && vqsgopaquetexturematerial->isVirtualQSGOpaqueTextureMaterial) {
-        vqsgopaquetexturematerial->setQSGOpaqueTextureMaterial_CreateShader_IsBase(true);
-        return vqsgopaquetexturematerial->createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    } else {
-        return self->QSGOpaqueTextureMaterial::createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    }
+    return self->QSGOpaqueTextureMaterial::createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGOpaqueTextureMaterial_OnCreateShader(const QSGOpaqueTextureMaterial* self, intptr_t slot) {
-    auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self));
-    if (vqsgopaquetexturematerial && vqsgopaquetexturematerial->isVirtualQSGOpaqueTextureMaterial)
-        vqsgopaquetexturematerial->setQSGOpaqueTextureMaterial_CreateShader_Callback(reinterpret_cast<VirtualQSGOpaqueTextureMaterial::QSGOpaqueTextureMaterial_CreateShader_Callback>(slot));
+void QSGOpaqueTextureMaterial_OnCreateShader(QSGOpaqueTextureMaterial* self, intptr_t slot) {
+    if (auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self)))
+        vqsgopaquetexturematerial->qsgopaquetexturematerial_createshader_callback = reinterpret_cast<VirtualQSGOpaqueTextureMaterial::QSGOpaqueTextureMaterial_CreateShader_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSGOpaqueTextureMaterial_SuperCompare(const QSGOpaqueTextureMaterial* self, const QSGMaterial* other) {
-    auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self));
-    if (vqsgopaquetexturematerial && vqsgopaquetexturematerial->isVirtualQSGOpaqueTextureMaterial) {
-        vqsgopaquetexturematerial->setQSGOpaqueTextureMaterial_Compare_IsBase(true);
-        return vqsgopaquetexturematerial->compare(other);
-    } else {
-        return self->QSGOpaqueTextureMaterial::compare(other);
-    }
+    return self->QSGOpaqueTextureMaterial::compare(other);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGOpaqueTextureMaterial_OnCompare(const QSGOpaqueTextureMaterial* self, intptr_t slot) {
-    auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self));
-    if (vqsgopaquetexturematerial && vqsgopaquetexturematerial->isVirtualQSGOpaqueTextureMaterial)
-        vqsgopaquetexturematerial->setQSGOpaqueTextureMaterial_Compare_Callback(reinterpret_cast<VirtualQSGOpaqueTextureMaterial::QSGOpaqueTextureMaterial_Compare_Callback>(slot));
+void QSGOpaqueTextureMaterial_OnCompare(QSGOpaqueTextureMaterial* self, intptr_t slot) {
+    if (auto* vqsgopaquetexturematerial = const_cast<VirtualQSGOpaqueTextureMaterial*>(dynamic_cast<const VirtualQSGOpaqueTextureMaterial*>(self)))
+        vqsgopaquetexturematerial->qsgopaquetexturematerial_compare_callback = reinterpret_cast<VirtualQSGOpaqueTextureMaterial::QSGOpaqueTextureMaterial_Compare_Callback>(slot);
 }
 
 void QSGOpaqueTextureMaterial_Delete(QSGOpaqueTextureMaterial* self) {
@@ -143,66 +122,40 @@ QSGMaterialShader* QSGTextureMaterial_CreateShader(const QSGTextureMaterial* sel
 
 // Base class handler implementation
 QSGMaterialType* QSGTextureMaterial_SuperType(const QSGTextureMaterial* self) {
-    auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self));
-    if (vqsgtexturematerial && vqsgtexturematerial->isVirtualQSGTextureMaterial) {
-        vqsgtexturematerial->setQSGTextureMaterial_Type_IsBase(true);
-        return vqsgtexturematerial->type();
-    } else {
-        return self->QSGTextureMaterial::type();
-    }
+    return self->QSGTextureMaterial::type();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGTextureMaterial_OnType(const QSGTextureMaterial* self, intptr_t slot) {
-    auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self));
-    if (vqsgtexturematerial && vqsgtexturematerial->isVirtualQSGTextureMaterial)
-        vqsgtexturematerial->setQSGTextureMaterial_Type_Callback(reinterpret_cast<VirtualQSGTextureMaterial::QSGTextureMaterial_Type_Callback>(slot));
+void QSGTextureMaterial_OnType(QSGTextureMaterial* self, intptr_t slot) {
+    if (auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self)))
+        vqsgtexturematerial->qsgtexturematerial_type_callback = reinterpret_cast<VirtualQSGTextureMaterial::QSGTextureMaterial_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGMaterialShader* QSGTextureMaterial_SuperCreateShader(const QSGTextureMaterial* self, int renderMode) {
-    auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self));
-    if (vqsgtexturematerial && vqsgtexturematerial->isVirtualQSGTextureMaterial) {
-        vqsgtexturematerial->setQSGTextureMaterial_CreateShader_IsBase(true);
-        return vqsgtexturematerial->createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    } else {
-        return self->QSGTextureMaterial::createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    }
+    return self->QSGTextureMaterial::createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGTextureMaterial_OnCreateShader(const QSGTextureMaterial* self, intptr_t slot) {
-    auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self));
-    if (vqsgtexturematerial && vqsgtexturematerial->isVirtualQSGTextureMaterial)
-        vqsgtexturematerial->setQSGTextureMaterial_CreateShader_Callback(reinterpret_cast<VirtualQSGTextureMaterial::QSGTextureMaterial_CreateShader_Callback>(slot));
+void QSGTextureMaterial_OnCreateShader(QSGTextureMaterial* self, intptr_t slot) {
+    if (auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self)))
+        vqsgtexturematerial->qsgtexturematerial_createshader_callback = reinterpret_cast<VirtualQSGTextureMaterial::QSGTextureMaterial_CreateShader_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSGTextureMaterial_Compare(const QSGTextureMaterial* self, const QSGMaterial* other) {
-    auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self));
-    if (vqsgtexturematerial && vqsgtexturematerial->isVirtualQSGTextureMaterial) {
-        return vqsgtexturematerial->compare(other);
-    } else {
-        return self->QSGTextureMaterial::compare(other);
-    }
+    return self->compare(other);
 }
 
 // Base class handler implementation
 int QSGTextureMaterial_SuperCompare(const QSGTextureMaterial* self, const QSGMaterial* other) {
-    auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self));
-    if (vqsgtexturematerial && vqsgtexturematerial->isVirtualQSGTextureMaterial) {
-        vqsgtexturematerial->setQSGTextureMaterial_Compare_IsBase(true);
-        return vqsgtexturematerial->compare(other);
-    } else {
-        return self->QSGTextureMaterial::compare(other);
-    }
+    return self->QSGTextureMaterial::compare(other);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGTextureMaterial_OnCompare(const QSGTextureMaterial* self, intptr_t slot) {
-    auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self));
-    if (vqsgtexturematerial && vqsgtexturematerial->isVirtualQSGTextureMaterial)
-        vqsgtexturematerial->setQSGTextureMaterial_Compare_Callback(reinterpret_cast<VirtualQSGTextureMaterial::QSGTextureMaterial_Compare_Callback>(slot));
+void QSGTextureMaterial_OnCompare(QSGTextureMaterial* self, intptr_t slot) {
+    if (auto* vqsgtexturematerial = const_cast<VirtualQSGTextureMaterial*>(dynamic_cast<const VirtualQSGTextureMaterial*>(self)))
+        vqsgtexturematerial->qsgtexturematerial_compare_callback = reinterpret_cast<VirtualQSGTextureMaterial::QSGTextureMaterial_Compare_Callback>(slot);
 }
 
 void QSGTextureMaterial_Delete(QSGTextureMaterial* self) {

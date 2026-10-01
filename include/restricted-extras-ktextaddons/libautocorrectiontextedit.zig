@@ -152,9 +152,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QMetaObject) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10621,9 +10621,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QMimeData `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QMimeData `
     ///
-    pub fn onCreateMimeDataFromSelection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QMimeData) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10989,11 +10989,11 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11047,11 +11047,11 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11297,11 +11297,11 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11417,9 +11417,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) i32) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11593,9 +11593,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) bool) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11649,9 +11649,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QPaintEngine) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12399,9 +12399,9 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit) callconv(.c) QPainter) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12673,46 +12673,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
 
-    /// ### DEPRECATED: Use `superZoomInF` instead
-    ///
-    pub const SuperZoomInF = superZoomInF;
-
-    /// Inherited from QTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    /// ` range: f32 `
-    ///
-    pub fn superZoomInF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: f32) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `onZoomInF` instead
-    ///
-    pub const OnZoomInF = onZoomInF;
-
-    /// Inherited from QTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, range: f32) callconv(.c) void `
-    ///
-    pub fn onZoomInF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, f32) callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setViewportMargins` instead
     ///
     pub const SetViewportMargins = setViewportMargins;
@@ -12739,52 +12699,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -12801,46 +12715,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     pub fn viewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMargins {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn superViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QMargins {
-        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -12864,47 +12738,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QPainter) callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -12921,44 +12754,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     pub fn updateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn superUpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -12979,44 +12774,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn superCreate(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -13033,44 +12790,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     pub fn destroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn superDestroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -13091,44 +12810,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn superFocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -13145,44 +12826,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     pub fn focusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn superFocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) bool {
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -13203,44 +12846,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn superSender(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) QObject {
-        return .{ .ptr = qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13257,44 +12862,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     pub fn senderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    pub fn superSenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit) i32 {
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13318,47 +12885,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13378,47 +12904,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn isSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -13441,48 +12926,6 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, metricA: i32, metricB: i32) f64 {
-        return qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, i32) callconv(.c) f64) void {
-        qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

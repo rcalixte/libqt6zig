@@ -29,6 +29,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setColor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -46,6 +48,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#color)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -59,6 +63,8 @@ pub const QSGTextNode = extern struct {
     pub const SetTextStyle = setTextStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setTextStyle)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -75,6 +81,8 @@ pub const QSGTextNode = extern struct {
     pub const TextStyle = textStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#textStyle)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -94,6 +102,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setStyleColor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -111,6 +121,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#styleColor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -124,6 +136,8 @@ pub const QSGTextNode = extern struct {
     pub const SetLinkColor = setLinkColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setLinkColor)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -142,6 +156,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#linkColor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -155,6 +171,8 @@ pub const QSGTextNode = extern struct {
     pub const SetSelectionColor = setSelectionColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setSelectionColor)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -173,6 +191,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#selectionColor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -186,6 +206,8 @@ pub const QSGTextNode = extern struct {
     pub const SetSelectionTextColor = setSelectionTextColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setSelectionTextColor)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -204,6 +226,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#selectionTextColor)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -217,6 +241,8 @@ pub const QSGTextNode = extern struct {
     pub const SetRenderType = setRenderType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setRenderType)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -233,6 +259,8 @@ pub const QSGTextNode = extern struct {
     pub const RenderType = renderType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#renderType)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -252,6 +280,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setRenderTypeQuality)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -268,6 +298,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#renderTypeQuality)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -281,6 +313,8 @@ pub const QSGTextNode = extern struct {
     pub const SetFiltering = setFiltering;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setFiltering)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -297,6 +331,8 @@ pub const QSGTextNode = extern struct {
     pub const Filtering = filtering;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#filtering)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -316,6 +352,8 @@ pub const QSGTextNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#clear)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGTextNode `
@@ -329,6 +367,8 @@ pub const QSGTextNode = extern struct {
     pub const SetViewport = setViewport;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#setViewport)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -346,6 +386,8 @@ pub const QSGTextNode = extern struct {
     pub const Viewport = viewport;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgtextnode.html#viewport)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

@@ -12,7 +12,6 @@ const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
 const QVariant = @import("libqt6").QVariant;
 const qabstractbarseries_enums = enums;
-const qabstractseries_enums = @import("libqabstractseries.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -940,28 +939,6 @@ pub const QAbstractBarSeries = extern struct {
     ///
     pub fn setLabelsVisible1(self: QAbstractBarSeries, visible: bool) void {
         qtc.QAbstractBarSeries_SetLabelsVisible1(@ptrCast(self.ptr), visible);
-    }
-
-    /// ### DEPRECATED: Use `type0` instead
-    ///
-    pub const Type = type0;
-
-    pub const @"type" = type0;
-
-    /// Inherited from QAbstractSeries
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#type)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractBarSeries `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractseries_enums.SeriesType `
-    ///
-    pub fn type0(self: QAbstractBarSeries) i32 {
-        return qtc.QAbstractSeries_Type(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setName` instead

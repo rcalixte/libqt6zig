@@ -164,9 +164,9 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditorWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget) callconv(.c) QMetaObject) void {
         qtc.TextCustomEditor__RichTextEditorWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6865,9 +6865,9 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextEditorWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6981,11 +6981,11 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget) callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextEditorWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7039,11 +7039,11 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget) callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextEditorWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7157,9 +7157,9 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditorWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7213,9 +7213,9 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget) callconv(.c) QPaintEngine) void {
         qtc.TextCustomEditor__RichTextEditorWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9141,9 +9141,9 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget) callconv(.c) QPainter) void {
         qtc.TextCustomEditor__RichTextEditorWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9727,44 +9727,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
         qtc.TextCustomEditor__RichTextEditorWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: TextCustomEditor__RichTextEditorWidget) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9781,44 +9743,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     pub fn create(self: TextCustomEditor__RichTextEditorWidget) void {
         qtc.TextCustomEditor__RichTextEditorWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    pub fn superCreate(self: TextCustomEditor__RichTextEditorWidget) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9839,44 +9763,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
         qtc.TextCustomEditor__RichTextEditorWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    pub fn superDestroy(self: TextCustomEditor__RichTextEditorWidget) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9893,44 +9779,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     pub fn focusNextChild(self: TextCustomEditor__RichTextEditorWidget) bool {
         return qtc.TextCustomEditor__RichTextEditorWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    pub fn superFocusNextChild(self: TextCustomEditor__RichTextEditorWidget) bool {
-        return qtc.TextCustomEditor__RichTextEditorWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9951,44 +9799,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
         return qtc.TextCustomEditor__RichTextEditorWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    pub fn superFocusPreviousChild(self: TextCustomEditor__RichTextEditorWidget) bool {
-        return qtc.TextCustomEditor__RichTextEditorWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10007,44 +9817,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditorWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    pub fn superSender(self: TextCustomEditor__RichTextEditorWidget) QObject {
-        return .{ .ptr = qtc.TextCustomEditor__RichTextEditorWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10061,44 +9833,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: TextCustomEditor__RichTextEditorWidget) i32 {
         return qtc.TextCustomEditor__RichTextEditorWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    pub fn superSenderSignalIndex(self: TextCustomEditor__RichTextEditorWidget) i32 {
-        return qtc.TextCustomEditor__RichTextEditorWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10122,47 +9856,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
         return qtc.TextCustomEditor__RichTextEditorWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextCustomEditor__RichTextEditorWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextCustomEditor__RichTextEditorWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10182,47 +9875,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     pub fn isSignalConnected(self: TextCustomEditor__RichTextEditorWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__RichTextEditorWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextCustomEditor__RichTextEditorWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextCustomEditor__RichTextEditorWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10245,48 +9897,6 @@ pub const TextCustomEditor__RichTextEditorWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextCustomEditor__RichTextEditorWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextCustomEditor__RichTextEditorWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextCustomEditor__RichTextEditorWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.TextCustomEditor__RichTextEditorWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__RichTextEditorWidget`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditorWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextCustomEditor__RichTextEditorWidget, callback: *const fn (TextCustomEditor__RichTextEditorWidget, i32, i32) callconv(.c) f64) void {
-        qtc.TextCustomEditor__RichTextEditorWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

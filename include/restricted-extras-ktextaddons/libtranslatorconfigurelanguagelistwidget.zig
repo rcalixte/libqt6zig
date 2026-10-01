@@ -144,9 +144,9 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6700,9 +6700,9 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6816,11 +6816,11 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6874,11 +6874,11 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6992,9 +6992,9 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7048,9 +7048,9 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QPaintEngine) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8976,9 +8976,9 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) QPainter) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9562,44 +9562,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9616,44 +9578,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     pub fn create(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    pub fn superCreate(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9674,44 +9598,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    pub fn superDestroy(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9728,44 +9614,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     pub fn focusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    pub fn superFocusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9786,44 +9634,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    pub fn superFocusPreviousChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9842,44 +9652,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    pub fn superSender(self: TextTranslator__TranslatorConfigureLanguageListWidget) QObject {
-        return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9896,44 +9668,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     pub fn senderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9957,47 +9691,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10017,47 +9710,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn isSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10080,48 +9732,6 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     pub fn getDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32, i32) callconv(.c) f64) void {
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

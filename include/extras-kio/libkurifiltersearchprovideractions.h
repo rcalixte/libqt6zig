@@ -39,7 +39,7 @@ void KIO__KUriFilterSearchProviderActions_SetSelectedText(KIO__KUriFilterSearchP
 void KIO__KUriFilterSearchProviderActions_AddWebShortcutsToMenu(KIO__KUriFilterSearchProviderActions* self, QMenu* menu);
 libqt_string KIO__KUriFilterSearchProviderActions_Tr2(const char* s, const char* c);
 libqt_string KIO__KUriFilterSearchProviderActions_Tr3(const char* s, const char* c, int n);
-void KIO__KUriFilterSearchProviderActions_OnMetaObject(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
+void KIO__KUriFilterSearchProviderActions_OnMetaObject(KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
 QMetaObject* KIO__KUriFilterSearchProviderActions_SuperMetaObject(const KIO__KUriFilterSearchProviderActions* self);
 void KIO__KUriFilterSearchProviderActions_OnMetacast(KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
 void* KIO__KUriFilterSearchProviderActions_SuperMetacast(KIO__KUriFilterSearchProviderActions* self, const char* param1);
@@ -67,17 +67,9 @@ void KIO__KUriFilterSearchProviderActions_DisconnectNotify(KIO__KUriFilterSearch
 void KIO__KUriFilterSearchProviderActions_OnDisconnectNotify(KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
 void KIO__KUriFilterSearchProviderActions_SuperDisconnectNotify(KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
 QObject* KIO__KUriFilterSearchProviderActions_Sender(const KIO__KUriFilterSearchProviderActions* self);
-void KIO__KUriFilterSearchProviderActions_OnSender(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
-QObject* KIO__KUriFilterSearchProviderActions_SuperSender(const KIO__KUriFilterSearchProviderActions* self);
 int KIO__KUriFilterSearchProviderActions_SenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self);
-void KIO__KUriFilterSearchProviderActions_OnSenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
-int KIO__KUriFilterSearchProviderActions_SuperSenderSignalIndex(const KIO__KUriFilterSearchProviderActions* self);
 int KIO__KUriFilterSearchProviderActions_Receivers(const KIO__KUriFilterSearchProviderActions* self, const char* signal);
-void KIO__KUriFilterSearchProviderActions_OnReceivers(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
-int KIO__KUriFilterSearchProviderActions_SuperReceivers(const KIO__KUriFilterSearchProviderActions* self, const char* signal);
 bool KIO__KUriFilterSearchProviderActions_IsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
-void KIO__KUriFilterSearchProviderActions_OnIsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
-bool KIO__KUriFilterSearchProviderActions_SuperIsSignalConnected(const KIO__KUriFilterSearchProviderActions* self, const QMetaMethod* signal);
 void KIO__KUriFilterSearchProviderActions_Delete(KIO__KUriFilterSearchProviderActions* self);
 
 #ifdef __cplusplus

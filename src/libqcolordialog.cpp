@@ -169,14 +169,14 @@ void QColorDialog_Connect_ColorSelected(QColorDialog* self, intptr_t slot) {
 
 void QColorDialog_ChangeEvent(QColorDialog* self, QEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->changeEvent(event);
     }
 }
 
 void QColorDialog_Done(QColorDialog* self, int result) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->done(static_cast<int>(result));
     }
 }
@@ -229,1792 +229,1252 @@ QColor* QColorDialog_GetColor4(const QColor* initial, QWidget* parent, const lib
 
 // Base class handler implementation
 QMetaObject* QColorDialog_SuperMetaObject(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vqcolordialog->metaObject();
-    } else {
-        return (QMetaObject*)self->QColorDialog::metaObject();
-    }
+    return (QMetaObject*)self->QColorDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnMetaObject(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_MetaObject_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MetaObject_Callback>(slot));
+void QColorDialog_OnMetaObject(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_metaobject_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QColorDialog_SuperMetacast(QColorDialog* self, const char* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Metacast_IsBase(true);
-        return vqcolordialog->qt_metacast(param1);
-    } else {
-        return self->QColorDialog::qt_metacast(param1);
-    }
+    return self->QColorDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMetacast(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Metacast_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacast_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_metacast_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QColorDialog_SuperMetacall(QColorDialog* self, int param1, int param2, void** param3) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Metacall_IsBase(true);
-        return vqcolordialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QColorDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QColorDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMetacall(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Metacall_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacall_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_metacall_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QColorDialog_SuperSetVisible(QColorDialog* self, bool visible) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_SetVisible_IsBase(true);
-        vqcolordialog->setVisible(visible);
-    } else {
-        self->QColorDialog::setVisible(visible);
-    }
+    self->QColorDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnSetVisible(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_SetVisible_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SetVisible_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_setvisible_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_SetVisible_Callback>(slot);
 }
 
 // Base class handler implementation
 void QColorDialog_SuperChangeEvent(QColorDialog* self, QEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ChangeEvent_IsBase(true);
-        vqcolordialog->changeEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->changeEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnChangeEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ChangeEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_changeevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QColorDialog_SuperDone(QColorDialog* self, int result) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Done_IsBase(true);
-        vqcolordialog->done(static_cast<int>(result));
-    } else {
-        ((VirtualQColorDialog*)self)->done(static_cast<int>(result));
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::done(static_cast<int>(result));
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::done called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDone(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Done_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Done_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_done_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QColorDialog_SizeHint(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return new QSize(vqcolordialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQColorDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QColorDialog_SuperSizeHint(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_SizeHint_IsBase(true);
-        return new QSize(vqcolordialog->sizeHint());
-    } else {
-        return new QSize(((VirtualQColorDialog*)self)->sizeHint());
-    }
+    return new QSize(self->QColorDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnSizeHint(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_SizeHint_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SizeHint_Callback>(slot));
+void QColorDialog_OnSizeHint(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_sizehint_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QColorDialog_MinimumSizeHint(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return new QSize(vqcolordialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQColorDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QColorDialog_SuperMinimumSizeHint(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vqcolordialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQColorDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QColorDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnMinimumSizeHint(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MinimumSizeHint_Callback>(slot));
+void QColorDialog_OnMinimumSizeHint(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_minimumsizehint_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_Open(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->open();
-    } else {
-        self->QColorDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void QColorDialog_SuperOpen(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Open_IsBase(true);
-        vqcolordialog->open();
-    } else {
-        self->QColorDialog::open();
-    }
+    self->QColorDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnOpen(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Open_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Open_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_open_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QColorDialog_Exec(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->exec();
-    } else {
-        return self->QColorDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int QColorDialog_SuperExec(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Exec_IsBase(true);
-        return vqcolordialog->exec();
-    } else {
-        return self->QColorDialog::exec();
-    }
+    return self->QColorDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnExec(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Exec_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Exec_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_exec_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_Accept(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->accept();
-    } else {
-        self->QColorDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void QColorDialog_SuperAccept(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Accept_IsBase(true);
-        vqcolordialog->accept();
-    } else {
-        self->QColorDialog::accept();
-    }
+    self->QColorDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnAccept(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Accept_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Accept_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_accept_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_Reject(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->reject();
-    } else {
-        self->QColorDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void QColorDialog_SuperReject(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Reject_IsBase(true);
-        vqcolordialog->reject();
-    } else {
-        self->QColorDialog::reject();
-    }
+    self->QColorDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnReject(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Reject_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Reject_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_reject_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_KeyPressEvent(QColorDialog* self, QKeyEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->keyPressEvent(param1);
     } else {
-        ((VirtualQColorDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method QColorDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperKeyPressEvent(QColorDialog* self, QKeyEvent* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_KeyPressEvent_IsBase(true);
-        vqcolordialog->keyPressEvent(param1);
-    } else {
-        ((VirtualQColorDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnKeyPressEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_keypressevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_CloseEvent(QColorDialog* self, QCloseEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->closeEvent(param1);
     } else {
-        ((VirtualQColorDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method QColorDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperCloseEvent(QColorDialog* self, QCloseEvent* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_CloseEvent_IsBase(true);
-        vqcolordialog->closeEvent(param1);
-    } else {
-        ((VirtualQColorDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnCloseEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_CloseEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_CloseEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_closeevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_ShowEvent(QColorDialog* self, QShowEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->showEvent(param1);
     } else {
-        ((VirtualQColorDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method QColorDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperShowEvent(QColorDialog* self, QShowEvent* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ShowEvent_IsBase(true);
-        vqcolordialog->showEvent(param1);
-    } else {
-        ((VirtualQColorDialog*)self)->showEvent(param1);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnShowEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_ShowEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ShowEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_showevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_ResizeEvent(QColorDialog* self, QResizeEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->resizeEvent(param1);
     } else {
-        ((VirtualQColorDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method QColorDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperResizeEvent(QColorDialog* self, QResizeEvent* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ResizeEvent_IsBase(true);
-        vqcolordialog->resizeEvent(param1);
-    } else {
-        ((VirtualQColorDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnResizeEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ResizeEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_resizeevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_ContextMenuEvent(QColorDialog* self, QContextMenuEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->contextMenuEvent(param1);
     } else {
-        ((VirtualQColorDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QColorDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperContextMenuEvent(QColorDialog* self, QContextMenuEvent* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ContextMenuEvent_IsBase(true);
-        vqcolordialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualQColorDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnContextMenuEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_contextmenuevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QColorDialog_EventFilter(QColorDialog* self, QObject* param1, QEvent* param2) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         return vqcolordialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualQColorDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QColorDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QColorDialog_SuperEventFilter(QColorDialog* self, QObject* param1, QEvent* param2) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_EventFilter_IsBase(true);
-        return vqcolordialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQColorDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        return vqcolordialog->QColorDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnEventFilter(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_EventFilter_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_EventFilter_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_eventfilter_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QColorDialog_DevType(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->devType();
-    } else {
-        return self->QColorDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QColorDialog_SuperDevType(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_DevType_IsBase(true);
-        return vqcolordialog->devType();
-    } else {
-        return self->QColorDialog::devType();
-    }
+    return self->QColorDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnDevType(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_DevType_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DevType_Callback>(slot));
+void QColorDialog_OnDevType(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_devtype_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QColorDialog_HeightForWidth(const QColorDialog* self, int param1) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QColorDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QColorDialog_SuperHeightForWidth(const QColorDialog* self, int param1) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_HeightForWidth_IsBase(true);
-        return vqcolordialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QColorDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QColorDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnHeightForWidth(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_HeightForWidth_Callback>(slot));
+void QColorDialog_OnHeightForWidth(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_heightforwidth_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QColorDialog_HasHeightForWidth(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->hasHeightForWidth();
-    } else {
-        return self->QColorDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QColorDialog_SuperHasHeightForWidth(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_HasHeightForWidth_IsBase(true);
-        return vqcolordialog->hasHeightForWidth();
-    } else {
-        return self->QColorDialog::hasHeightForWidth();
-    }
+    return self->QColorDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnHasHeightForWidth(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_HasHeightForWidth_Callback>(slot));
+void QColorDialog_OnHasHeightForWidth(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_hasheightforwidth_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QColorDialog_PaintEngine(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->paintEngine();
-    } else {
-        return self->QColorDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QColorDialog_SuperPaintEngine(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_PaintEngine_IsBase(true);
-        return vqcolordialog->paintEngine();
-    } else {
-        return self->QColorDialog::paintEngine();
-    }
+    return self->QColorDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnPaintEngine(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_PaintEngine_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_PaintEngine_Callback>(slot));
+void QColorDialog_OnPaintEngine(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_paintengine_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QColorDialog_Event(QColorDialog* self, QEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         return vqcolordialog->event(event);
     } else {
-        return ((VirtualQColorDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method QColorDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QColorDialog_SuperEvent(QColorDialog* self, QEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Event_IsBase(true);
-        return vqcolordialog->event(event);
-    } else {
-        return ((VirtualQColorDialog*)self)->event(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        return vqcolordialog->QColorDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Event_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Event_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_event_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_MousePressEvent(QColorDialog* self, QMouseEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->mousePressEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperMousePressEvent(QColorDialog* self, QMouseEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_MousePressEvent_IsBase(true);
-        vqcolordialog->mousePressEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMousePressEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MousePressEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_mousepressevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_MouseReleaseEvent(QColorDialog* self, QMouseEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperMouseReleaseEvent(QColorDialog* self, QMouseEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_MouseReleaseEvent_IsBase(true);
-        vqcolordialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMouseReleaseEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_mousereleaseevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_MouseDoubleClickEvent(QColorDialog* self, QMouseEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperMouseDoubleClickEvent(QColorDialog* self, QMouseEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_MouseDoubleClickEvent_IsBase(true);
-        vqcolordialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMouseDoubleClickEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_MouseMoveEvent(QColorDialog* self, QMouseEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->mouseMoveEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperMouseMoveEvent(QColorDialog* self, QMouseEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_MouseMoveEvent_IsBase(true);
-        vqcolordialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMouseMoveEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_mousemoveevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_WheelEvent(QColorDialog* self, QWheelEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->wheelEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperWheelEvent(QColorDialog* self, QWheelEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_WheelEvent_IsBase(true);
-        vqcolordialog->wheelEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnWheelEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_WheelEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_WheelEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_wheelevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_KeyReleaseEvent(QColorDialog* self, QKeyEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->keyReleaseEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperKeyReleaseEvent(QColorDialog* self, QKeyEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_KeyReleaseEvent_IsBase(true);
-        vqcolordialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnKeyReleaseEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_keyreleaseevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_FocusInEvent(QColorDialog* self, QFocusEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->focusInEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperFocusInEvent(QColorDialog* self, QFocusEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_FocusInEvent_IsBase(true);
-        vqcolordialog->focusInEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnFocusInEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusInEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_focusinevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_FocusOutEvent(QColorDialog* self, QFocusEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->focusOutEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperFocusOutEvent(QColorDialog* self, QFocusEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_FocusOutEvent_IsBase(true);
-        vqcolordialog->focusOutEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnFocusOutEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_focusoutevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_EnterEvent(QColorDialog* self, QEnterEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->enterEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperEnterEvent(QColorDialog* self, QEnterEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_EnterEvent_IsBase(true);
-        vqcolordialog->enterEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->enterEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnEnterEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_EnterEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_EnterEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_enterevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_LeaveEvent(QColorDialog* self, QEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->leaveEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperLeaveEvent(QColorDialog* self, QEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_LeaveEvent_IsBase(true);
-        vqcolordialog->leaveEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnLeaveEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_LeaveEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_leaveevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_PaintEvent(QColorDialog* self, QPaintEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->paintEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperPaintEvent(QColorDialog* self, QPaintEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_PaintEvent_IsBase(true);
-        vqcolordialog->paintEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->paintEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnPaintEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_PaintEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_PaintEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_paintevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_MoveEvent(QColorDialog* self, QMoveEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->moveEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperMoveEvent(QColorDialog* self, QMoveEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_MoveEvent_IsBase(true);
-        vqcolordialog->moveEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->moveEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnMoveEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_MoveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_MoveEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_moveevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_TabletEvent(QColorDialog* self, QTabletEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->tabletEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperTabletEvent(QColorDialog* self, QTabletEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_TabletEvent_IsBase(true);
-        vqcolordialog->tabletEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnTabletEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_TabletEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_TabletEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_tabletevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_ActionEvent(QColorDialog* self, QActionEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->actionEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperActionEvent(QColorDialog* self, QActionEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ActionEvent_IsBase(true);
-        vqcolordialog->actionEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->actionEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnActionEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_ActionEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ActionEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_actionevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_DragEnterEvent(QColorDialog* self, QDragEnterEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->dragEnterEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperDragEnterEvent(QColorDialog* self, QDragEnterEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_DragEnterEvent_IsBase(true);
-        vqcolordialog->dragEnterEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDragEnterEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_dragenterevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_DragMoveEvent(QColorDialog* self, QDragMoveEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->dragMoveEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperDragMoveEvent(QColorDialog* self, QDragMoveEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_DragMoveEvent_IsBase(true);
-        vqcolordialog->dragMoveEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDragMoveEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_dragmoveevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_DragLeaveEvent(QColorDialog* self, QDragLeaveEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->dragLeaveEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperDragLeaveEvent(QColorDialog* self, QDragLeaveEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_DragLeaveEvent_IsBase(true);
-        vqcolordialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDragLeaveEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_dragleaveevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_DropEvent(QColorDialog* self, QDropEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->dropEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperDropEvent(QColorDialog* self, QDropEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_DropEvent_IsBase(true);
-        vqcolordialog->dropEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->dropEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDropEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_DropEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DropEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_dropevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_HideEvent(QColorDialog* self, QHideEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->hideEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperHideEvent(QColorDialog* self, QHideEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_HideEvent_IsBase(true);
-        vqcolordialog->hideEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->hideEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnHideEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_HideEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_HideEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_hideevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QColorDialog_NativeEvent(QColorDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
+    if (vqcolordialog) {
         return vqcolordialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQColorDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QColorDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QColorDialog_SuperNativeEvent(QColorDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_NativeEvent_IsBase(true);
-        return vqcolordialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQColorDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        return vqcolordialog->QColorDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnNativeEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_NativeEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_NativeEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_nativeevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QColorDialog_Metric(const QColorDialog* self, int param1) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         return vqcolordialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQColorDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QColorDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QColorDialog_SuperMetric(const QColorDialog* self, int param1) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Metric_IsBase(true);
-        return vqcolordialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQColorDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        return vqcolordialog->QColorDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnMetric(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Metric_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Metric_Callback>(slot));
+void QColorDialog_OnMetric(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_metric_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_InitPainter(const QColorDialog* self, QPainter* painter) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->initPainter(painter);
     } else {
-        ((VirtualQColorDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QColorDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperInitPainter(const QColorDialog* self, QPainter* painter) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_InitPainter_IsBase(true);
-        vqcolordialog->initPainter(painter);
-    } else {
-        ((VirtualQColorDialog*)self)->initPainter(painter);
-    }
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        vqcolordialog->QColorDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnInitPainter(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_InitPainter_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_InitPainter_Callback>(slot));
+void QColorDialog_OnInitPainter(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_initpainter_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QColorDialog_Redirected(const QColorDialog* self, QPoint* offset) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         return vqcolordialog->redirected(offset);
     } else {
-        return ((VirtualQColorDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QColorDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QColorDialog_SuperRedirected(const QColorDialog* self, QPoint* offset) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Redirected_IsBase(true);
-        return vqcolordialog->redirected(offset);
-    } else {
-        return ((VirtualQColorDialog*)self)->redirected(offset);
-    }
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        return vqcolordialog->QColorDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnRedirected(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Redirected_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Redirected_Callback>(slot));
+void QColorDialog_OnRedirected(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_redirected_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QColorDialog_SharedPainter(const QColorDialog* self) {
     auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         return vqcolordialog->sharedPainter();
     } else {
-        return ((VirtualQColorDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QColorDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QColorDialog_SuperSharedPainter(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_SharedPainter_IsBase(true);
-        return vqcolordialog->sharedPainter();
-    } else {
-        return ((VirtualQColorDialog*)self)->sharedPainter();
-    }
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        return vqcolordialog->QColorDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnSharedPainter(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_SharedPainter_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SharedPainter_Callback>(slot));
+void QColorDialog_OnSharedPainter(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_sharedpainter_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_InputMethodEvent(QColorDialog* self, QInputMethodEvent* param1) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->inputMethodEvent(param1);
     } else {
-        ((VirtualQColorDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QColorDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperInputMethodEvent(QColorDialog* self, QInputMethodEvent* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_InputMethodEvent_IsBase(true);
-        vqcolordialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualQColorDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnInputMethodEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_inputmethodevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QColorDialog_InputMethodQuery(const QColorDialog* self, int param1) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return new QVariant(vqcolordialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQColorDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QColorDialog_SuperInputMethodQuery(const QColorDialog* self, int param1) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vqcolordialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQColorDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QColorDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorDialog_OnInputMethodQuery(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_InputMethodQuery_Callback>(slot));
+void QColorDialog_OnInputMethodQuery(QColorDialog* self, intptr_t slot) {
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self)))
+        vqcolordialog->qcolordialog_inputmethodquery_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QColorDialog_FocusNextPrevChild(QColorDialog* self, bool next) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         return vqcolordialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualQColorDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QColorDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QColorDialog_SuperFocusNextPrevChild(QColorDialog* self, bool next) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_FocusNextPrevChild_IsBase(true);
-        return vqcolordialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQColorDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        return vqcolordialog->QColorDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnFocusNextPrevChild(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_focusnextprevchild_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_TimerEvent(QColorDialog* self, QTimerEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->timerEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperTimerEvent(QColorDialog* self, QTimerEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_TimerEvent_IsBase(true);
-        vqcolordialog->timerEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->timerEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnTimerEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_TimerEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_TimerEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_timerevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_ChildEvent(QColorDialog* self, QChildEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->childEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperChildEvent(QColorDialog* self, QChildEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ChildEvent_IsBase(true);
-        vqcolordialog->childEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->childEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnChildEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_ChildEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ChildEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_childevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_CustomEvent(QColorDialog* self, QEvent* event) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->customEvent(event);
     } else {
-        ((VirtualQColorDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QColorDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperCustomEvent(QColorDialog* self, QEvent* event) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_CustomEvent_IsBase(true);
-        vqcolordialog->customEvent(event);
-    } else {
-        ((VirtualQColorDialog*)self)->customEvent(event);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnCustomEvent(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_CustomEvent_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_CustomEvent_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_customevent_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_ConnectNotify(QColorDialog* self, const QMetaMethod* signal) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->connectNotify(*signal);
     } else {
-        ((VirtualQColorDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QColorDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperConnectNotify(QColorDialog* self, const QMetaMethod* signal) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_ConnectNotify_IsBase(true);
-        vqcolordialog->connectNotify(*signal);
-    } else {
-        ((VirtualQColorDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnConnectNotify(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_ConnectNotify_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_connectnotify_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorDialog_DisconnectNotify(QColorDialog* self, const QMetaMethod* signal) {
     auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+    if (vqcolordialog) {
         vqcolordialog->disconnectNotify(*signal);
     } else {
-        ((VirtualQColorDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QColorDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorDialog_SuperDisconnectNotify(QColorDialog* self, const QMetaMethod* signal) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_DisconnectNotify_IsBase(true);
-        vqcolordialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualQColorDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->QColorDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QColorDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorDialog_OnDisconnectNotify(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self))
+        vqcolordialog->qcolordialog_disconnectnotify_callback = reinterpret_cast<VirtualQColorDialog::QColorDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QColorDialog_AdjustPosition(QColorDialog* self, QWidget* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->adjustPosition(param1);
-    } else {
-        ((VirtualQColorDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->VirtualQColorDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method QColorDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QColorDialog_SuperAdjustPosition(QColorDialog* self, QWidget* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_AdjustPosition_IsBase(true);
-        vqcolordialog->adjustPosition(param1);
-    } else {
-        ((VirtualQColorDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnAdjustPosition(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QColorDialog_UpdateMicroFocus(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->updateMicroFocus();
-    } else {
-        ((VirtualQColorDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->VirtualQColorDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QColorDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QColorDialog_SuperUpdateMicroFocus(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_UpdateMicroFocus_IsBase(true);
-        vqcolordialog->updateMicroFocus();
-    } else {
-        ((VirtualQColorDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnUpdateMicroFocus(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QColorDialog_Create(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->create();
-    } else {
-        ((VirtualQColorDialog*)self)->create();
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->VirtualQColorDialog::create();
+    } else
+        qFatal("Error: Protected method QColorDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QColorDialog_SuperCreate(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Create_IsBase(true);
-        vqcolordialog->create();
-    } else {
-        ((VirtualQColorDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnCreate(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Create_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QColorDialog_Destroy(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->destroy();
-    } else {
-        ((VirtualQColorDialog*)self)->destroy();
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        vqcolordialog->VirtualQColorDialog::destroy();
+    } else
+        qFatal("Error: Protected method QColorDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QColorDialog_SuperDestroy(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Destroy_IsBase(true);
-        vqcolordialog->destroy();
-    } else {
-        ((VirtualQColorDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnDestroy(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Destroy_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QColorDialog_FocusNextChild(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->focusNextChild();
-    } else {
-        return ((VirtualQColorDialog*)self)->focusNextChild();
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        return vqcolordialog->VirtualQColorDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method QColorDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QColorDialog_SuperFocusNextChild(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_FocusNextChild_IsBase(true);
-        return vqcolordialog->focusNextChild();
-    } else {
-        return ((VirtualQColorDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnFocusNextChild(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QColorDialog_FocusPreviousChild(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->focusPreviousChild();
-    } else {
-        return ((VirtualQColorDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self)) {
+        return vqcolordialog->VirtualQColorDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QColorDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QColorDialog_SuperFocusPreviousChild(QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_FocusPreviousChild_IsBase(true);
-        return vqcolordialog->focusPreviousChild();
-    } else {
-        return ((VirtualQColorDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnFocusPreviousChild(QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QColorDialog_Sender(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->sender();
-    } else {
-        return ((VirtualQColorDialog*)self)->sender();
-    }
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        return vqcolordialog->VirtualQColorDialog::sender();
+    } else
+        qFatal("Error: Protected method QColorDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QColorDialog_SuperSender(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Sender_IsBase(true);
-        return vqcolordialog->sender();
-    } else {
-        return ((VirtualQColorDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnSender(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Sender_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QColorDialog_SenderSignalIndex(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->senderSignalIndex();
-    } else {
-        return ((VirtualQColorDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        return vqcolordialog->VirtualQColorDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QColorDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QColorDialog_SuperSenderSignalIndex(const QColorDialog* self) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_SenderSignalIndex_IsBase(true);
-        return vqcolordialog->senderSignalIndex();
-    } else {
-        return ((VirtualQColorDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnSenderSignalIndex(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QColorDialog_Receivers(const QColorDialog* self, const char* signal) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->receivers(signal);
-    } else {
-        return ((VirtualQColorDialog*)self)->receivers(signal);
-    }
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        return vqcolordialog->VirtualQColorDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method QColorDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QColorDialog_SuperReceivers(const QColorDialog* self, const char* signal) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_Receivers_IsBase(true);
-        return vqcolordialog->receivers(signal);
-    } else {
-        return ((VirtualQColorDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnReceivers(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_Receivers_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QColorDialog_IsSignalConnected(const QColorDialog* self, const QMetaMethod* signal) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQColorDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        return vqcolordialog->VirtualQColorDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QColorDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QColorDialog_SuperIsSignalConnected(const QColorDialog* self, const QMetaMethod* signal) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_IsSignalConnected_IsBase(true);
-        return vqcolordialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQColorDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnIsSignalConnected(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QColorDialog_GetDecodedMetricF(const QColorDialog* self, int metricA, int metricB) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return vqcolordialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQColorDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QColorDialog_SuperGetDecodedMetricF(const QColorDialog* self, int metricA, int metricB) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        vqcolordialog->setQColorDialog_GetDecodedMetricF_IsBase(true);
-        return vqcolordialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQColorDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorDialog_OnGetDecodedMetricF(const QColorDialog* self, intptr_t slot) {
-    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog)
-        vqcolordialog->setQColorDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self))) {
+        return vqcolordialog->VirtualQColorDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QColorDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void QColorDialog_Delete(QColorDialog* self) {

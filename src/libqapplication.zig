@@ -124,9 +124,9 @@ pub const QApplication = extern struct {
     ///
     /// ` self: QApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QApplication, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QApplication, callback: *const fn (QApplication) callconv(.c) QMetaObject) void {
         qtc.QApplication_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -865,45 +865,6 @@ pub const QApplication = extern struct {
     pub fn resolveInterface(self: QApplication, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
         return qtc.QApplication_ResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
-    }
-
-    /// ### DEPRECATED: Use `onResolveInterface` instead
-    ///
-    pub const OnResolveInterface = onResolveInterface;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#resolveInterface)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QApplication `
-    ///
-    /// ` callback: *const fn (self: QApplication, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque `
-    ///
-    pub fn onResolveInterface(self: QApplication, callback: *const fn (QApplication, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QApplication_OnResolveInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superResolveInterface` instead
-    ///
-    pub const SuperResolveInterface = superResolveInterface;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#resolveInterface)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QApplication `
-    ///
-    /// ` name: [:0]const u8 `
-    ///
-    /// ` revision: i32 `
-    ///
-    pub fn superResolveInterface(self: QApplication, name: [:0]const u8, revision: i32) ?*anyopaque {
-        const name_Cstring = name.ptr;
-        return qtc.QApplication_SuperResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
     }
 
     /// ### DEPRECATED: Use `focusChanged` instead
@@ -4901,44 +4862,6 @@ pub const QApplication = extern struct {
         return .{ .ptr = qtc.QApplication_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QApplication `
-    ///
-    pub fn superSender(self: QApplication) QObject {
-        return .{ .ptr = qtc.QApplication_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QApplication`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QApplication, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QApplication_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4955,44 +4878,6 @@ pub const QApplication = extern struct {
     ///
     pub fn senderSignalIndex(self: QApplication) i32 {
         return qtc.QApplication_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QApplication `
-    ///
-    pub fn superSenderSignalIndex(self: QApplication) i32 {
-        return qtc.QApplication_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QApplication`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QApplication, callback: *const fn () callconv(.c) i32) void {
-        qtc.QApplication_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -5016,47 +4901,6 @@ pub const QApplication = extern struct {
         return qtc.QApplication_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QApplication `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QApplication, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QApplication_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QApplication`
-    ///
-    /// ` callback: *const fn (self: QApplication, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QApplication, callback: *const fn (QApplication, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QApplication_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -5076,47 +4920,6 @@ pub const QApplication = extern struct {
     pub fn isSignalConnected(self: QApplication, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QApplication_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QApplication `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QApplication, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QApplication_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QApplication`
-    ///
-    /// ` callback: *const fn (self: QApplication, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QApplication, callback: *const fn (QApplication, QMetaMethod) callconv(.c) bool) void {
-        qtc.QApplication_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onAboutToQuit` instead

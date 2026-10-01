@@ -9,29 +9,24 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QGraphicsLinearLayout so that we can call protected methods
+// This class is a subclass of QGraphicsLinearLayout
 class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQGraphicsLinearLayout = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using QGraphicsLinearLayout_RemoveAt_Callback = void (*)(QGraphicsLinearLayout*, int);
     using QGraphicsLinearLayout_SetGeometry_Callback = void (*)(QGraphicsLinearLayout*, QRectF*);
-    using QGraphicsLinearLayout_Count_Callback = int (*)();
+    using QGraphicsLinearLayout_Count_Callback = int (*)(const QGraphicsLinearLayout*);
     using QGraphicsLinearLayout_ItemAt_Callback = QGraphicsLayoutItem* (*)(const QGraphicsLinearLayout*, int);
-    using QGraphicsLinearLayout_Invalidate_Callback = void (*)();
+    using QGraphicsLinearLayout_Invalidate_Callback = void (*)(QGraphicsLinearLayout*);
     using QGraphicsLinearLayout_SizeHint_Callback = QSizeF* (*)(const QGraphicsLinearLayout*, int, QSizeF*);
     using QGraphicsLinearLayout_GetContentsMargins_Callback = void (*)(const QGraphicsLinearLayout*, double*, double*, double*, double*);
-    using QGraphicsLinearLayout_UpdateGeometry_Callback = void (*)();
+    using QGraphicsLinearLayout_UpdateGeometry_Callback = void (*)(QGraphicsLinearLayout*);
     using QGraphicsLinearLayout_WidgetEvent_Callback = void (*)(QGraphicsLinearLayout*, QEvent*);
-    using QGraphicsLinearLayout_IsEmpty_Callback = bool (*)();
-    using QGraphicsLinearLayout_AddChildLayoutItem_Callback = void (*)(QGraphicsLinearLayout*, QGraphicsLayoutItem*);
-    using QGraphicsLinearLayout_SetGraphicsItem_Callback = void (*)(QGraphicsLinearLayout*, QGraphicsItem*);
-    using QGraphicsLinearLayout_SetOwnedByLayout_Callback = void (*)(QGraphicsLinearLayout*, bool);
+    using QGraphicsLinearLayout_IsEmpty_Callback = bool (*)(const QGraphicsLinearLayout*);
+    using QGraphicsLinearLayout::addChildLayoutItem;
+    using QGraphicsLinearLayout::setGraphicsItem;
+    using QGraphicsLinearLayout::setOwnedByLayout;
 
-  protected:
     // Instance callback storage
     QGraphicsLinearLayout_RemoveAt_Callback qgraphicslinearlayout_removeat_callback = nullptr;
     QGraphicsLinearLayout_SetGeometry_Callback qgraphicslinearlayout_setgeometry_callback = nullptr;
@@ -43,72 +38,17 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
     QGraphicsLinearLayout_UpdateGeometry_Callback qgraphicslinearlayout_updategeometry_callback = nullptr;
     QGraphicsLinearLayout_WidgetEvent_Callback qgraphicslinearlayout_widgetevent_callback = nullptr;
     QGraphicsLinearLayout_IsEmpty_Callback qgraphicslinearlayout_isempty_callback = nullptr;
-    QGraphicsLinearLayout_AddChildLayoutItem_Callback qgraphicslinearlayout_addchildlayoutitem_callback = nullptr;
-    QGraphicsLinearLayout_SetGraphicsItem_Callback qgraphicslinearlayout_setgraphicsitem_callback = nullptr;
-    QGraphicsLinearLayout_SetOwnedByLayout_Callback qgraphicslinearlayout_setownedbylayout_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qgraphicslinearlayout_removeat_isbase = false;
-    mutable bool qgraphicslinearlayout_setgeometry_isbase = false;
-    mutable bool qgraphicslinearlayout_count_isbase = false;
-    mutable bool qgraphicslinearlayout_itemat_isbase = false;
-    mutable bool qgraphicslinearlayout_invalidate_isbase = false;
-    mutable bool qgraphicslinearlayout_sizehint_isbase = false;
-    mutable bool qgraphicslinearlayout_getcontentsmargins_isbase = false;
-    mutable bool qgraphicslinearlayout_updategeometry_isbase = false;
-    mutable bool qgraphicslinearlayout_widgetevent_isbase = false;
-    mutable bool qgraphicslinearlayout_isempty_isbase = false;
-    mutable bool qgraphicslinearlayout_addchildlayoutitem_isbase = false;
-    mutable bool qgraphicslinearlayout_setgraphicsitem_isbase = false;
-    mutable bool qgraphicslinearlayout_setownedbylayout_isbase = false;
-
-  public:
     VirtualQGraphicsLinearLayout() : QGraphicsLinearLayout() {};
     VirtualQGraphicsLinearLayout(Qt::Orientation orientation) : QGraphicsLinearLayout(orientation) {};
     VirtualQGraphicsLinearLayout(QGraphicsLayoutItem* parent) : QGraphicsLinearLayout(parent) {};
     VirtualQGraphicsLinearLayout(Qt::Orientation orientation, QGraphicsLayoutItem* parent) : QGraphicsLinearLayout(orientation, parent) {};
 
-    // Callback setters
-    inline void setQGraphicsLinearLayout_RemoveAt_Callback(QGraphicsLinearLayout_RemoveAt_Callback cb) { qgraphicslinearlayout_removeat_callback = cb; }
-    inline void setQGraphicsLinearLayout_SetGeometry_Callback(QGraphicsLinearLayout_SetGeometry_Callback cb) { qgraphicslinearlayout_setgeometry_callback = cb; }
-    inline void setQGraphicsLinearLayout_Count_Callback(QGraphicsLinearLayout_Count_Callback cb) { qgraphicslinearlayout_count_callback = cb; }
-    inline void setQGraphicsLinearLayout_ItemAt_Callback(QGraphicsLinearLayout_ItemAt_Callback cb) { qgraphicslinearlayout_itemat_callback = cb; }
-    inline void setQGraphicsLinearLayout_Invalidate_Callback(QGraphicsLinearLayout_Invalidate_Callback cb) { qgraphicslinearlayout_invalidate_callback = cb; }
-    inline void setQGraphicsLinearLayout_SizeHint_Callback(QGraphicsLinearLayout_SizeHint_Callback cb) { qgraphicslinearlayout_sizehint_callback = cb; }
-    inline void setQGraphicsLinearLayout_GetContentsMargins_Callback(QGraphicsLinearLayout_GetContentsMargins_Callback cb) { qgraphicslinearlayout_getcontentsmargins_callback = cb; }
-    inline void setQGraphicsLinearLayout_UpdateGeometry_Callback(QGraphicsLinearLayout_UpdateGeometry_Callback cb) { qgraphicslinearlayout_updategeometry_callback = cb; }
-    inline void setQGraphicsLinearLayout_WidgetEvent_Callback(QGraphicsLinearLayout_WidgetEvent_Callback cb) { qgraphicslinearlayout_widgetevent_callback = cb; }
-    inline void setQGraphicsLinearLayout_IsEmpty_Callback(QGraphicsLinearLayout_IsEmpty_Callback cb) { qgraphicslinearlayout_isempty_callback = cb; }
-    inline void setQGraphicsLinearLayout_AddChildLayoutItem_Callback(QGraphicsLinearLayout_AddChildLayoutItem_Callback cb) { qgraphicslinearlayout_addchildlayoutitem_callback = cb; }
-    inline void setQGraphicsLinearLayout_SetGraphicsItem_Callback(QGraphicsLinearLayout_SetGraphicsItem_Callback cb) { qgraphicslinearlayout_setgraphicsitem_callback = cb; }
-    inline void setQGraphicsLinearLayout_SetOwnedByLayout_Callback(QGraphicsLinearLayout_SetOwnedByLayout_Callback cb) { qgraphicslinearlayout_setownedbylayout_callback = cb; }
-
-    // Base flag setters
-    inline void setQGraphicsLinearLayout_RemoveAt_IsBase(bool value) const { qgraphicslinearlayout_removeat_isbase = value; }
-    inline void setQGraphicsLinearLayout_SetGeometry_IsBase(bool value) const { qgraphicslinearlayout_setgeometry_isbase = value; }
-    inline void setQGraphicsLinearLayout_Count_IsBase(bool value) const { qgraphicslinearlayout_count_isbase = value; }
-    inline void setQGraphicsLinearLayout_ItemAt_IsBase(bool value) const { qgraphicslinearlayout_itemat_isbase = value; }
-    inline void setQGraphicsLinearLayout_Invalidate_IsBase(bool value) const { qgraphicslinearlayout_invalidate_isbase = value; }
-    inline void setQGraphicsLinearLayout_SizeHint_IsBase(bool value) const { qgraphicslinearlayout_sizehint_isbase = value; }
-    inline void setQGraphicsLinearLayout_GetContentsMargins_IsBase(bool value) const { qgraphicslinearlayout_getcontentsmargins_isbase = value; }
-    inline void setQGraphicsLinearLayout_UpdateGeometry_IsBase(bool value) const { qgraphicslinearlayout_updategeometry_isbase = value; }
-    inline void setQGraphicsLinearLayout_WidgetEvent_IsBase(bool value) const { qgraphicslinearlayout_widgetevent_isbase = value; }
-    inline void setQGraphicsLinearLayout_IsEmpty_IsBase(bool value) const { qgraphicslinearlayout_isempty_isbase = value; }
-    inline void setQGraphicsLinearLayout_AddChildLayoutItem_IsBase(bool value) const { qgraphicslinearlayout_addchildlayoutitem_isbase = value; }
-    inline void setQGraphicsLinearLayout_SetGraphicsItem_IsBase(bool value) const { qgraphicslinearlayout_setgraphicsitem_isbase = value; }
-    inline void setQGraphicsLinearLayout_SetOwnedByLayout_IsBase(bool value) const { qgraphicslinearlayout_setownedbylayout_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual void removeAt(int index) override {
-        if (qgraphicslinearlayout_removeat_isbase) {
-            qgraphicslinearlayout_removeat_isbase = false;
-            QGraphicsLinearLayout::removeAt(index);
-            return;
-        }
-        auto removeat_cb = qgraphicslinearlayout_removeat_callback;
-        if (removeat_cb) {
+        if (qgraphicslinearlayout_removeat_callback) {
             int cbval1 = index;
-            removeat_cb(this, cbval1);
+            qgraphicslinearlayout_removeat_callback(this, cbval1);
             return;
         }
         QGraphicsLinearLayout::removeAt(index);
@@ -116,17 +56,11 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual void setGeometry(const QRectF& rect) override {
-        if (qgraphicslinearlayout_setgeometry_isbase) {
-            qgraphicslinearlayout_setgeometry_isbase = false;
-            QGraphicsLinearLayout::setGeometry(rect);
-            return;
-        }
-        auto setgeometry_cb = qgraphicslinearlayout_setgeometry_callback;
-        if (setgeometry_cb) {
+        if (qgraphicslinearlayout_setgeometry_callback) {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
-            setgeometry_cb(this, cbval1);
+            qgraphicslinearlayout_setgeometry_callback(this, cbval1);
             return;
         }
         QGraphicsLinearLayout::setGeometry(rect);
@@ -134,13 +68,8 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual int count() const override {
-        if (qgraphicslinearlayout_count_isbase) {
-            qgraphicslinearlayout_count_isbase = false;
-            return QGraphicsLinearLayout::count();
-        }
-        auto count_cb = qgraphicslinearlayout_count_callback;
-        if (count_cb) {
-            int callback_ret = count_cb();
+        if (qgraphicslinearlayout_count_callback) {
+            int callback_ret = qgraphicslinearlayout_count_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QGraphicsLinearLayout::count();
@@ -148,14 +77,9 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual QGraphicsLayoutItem* itemAt(int index) const override {
-        if (qgraphicslinearlayout_itemat_isbase) {
-            qgraphicslinearlayout_itemat_isbase = false;
-            return QGraphicsLinearLayout::itemAt(index);
-        }
-        auto itemat_cb = qgraphicslinearlayout_itemat_callback;
-        if (itemat_cb) {
+        if (qgraphicslinearlayout_itemat_callback) {
             int cbval1 = index;
-            QGraphicsLayoutItem* callback_ret = itemat_cb(this, cbval1);
+            QGraphicsLayoutItem* callback_ret = qgraphicslinearlayout_itemat_callback(this, cbval1);
             return callback_ret;
         }
         return QGraphicsLinearLayout::itemAt(index);
@@ -163,14 +87,8 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual void invalidate() override {
-        if (qgraphicslinearlayout_invalidate_isbase) {
-            qgraphicslinearlayout_invalidate_isbase = false;
-            QGraphicsLinearLayout::invalidate();
-            return;
-        }
-        auto invalidate_cb = qgraphicslinearlayout_invalidate_callback;
-        if (invalidate_cb) {
-            invalidate_cb();
+        if (qgraphicslinearlayout_invalidate_callback) {
+            qgraphicslinearlayout_invalidate_callback(this);
             return;
         }
         QGraphicsLinearLayout::invalidate();
@@ -178,17 +96,12 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual QSizeF sizeHint(Qt::SizeHint which, const QSizeF& constraint) const override {
-        if (qgraphicslinearlayout_sizehint_isbase) {
-            qgraphicslinearlayout_sizehint_isbase = false;
-            return QGraphicsLinearLayout::sizeHint(which, constraint);
-        }
-        auto sizehint_cb = qgraphicslinearlayout_sizehint_callback;
-        if (sizehint_cb) {
+        if (qgraphicslinearlayout_sizehint_callback) {
             int cbval1 = static_cast<int>(which);
             const QSizeF& constraint_ret = constraint;
             // Cast returned reference into pointer
             QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
-            QSizeF* callback_ret = sizehint_cb(this, cbval1, cbval2);
+            QSizeF* callback_ret = qgraphicslinearlayout_sizehint_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -198,18 +111,12 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual void getContentsMargins(qreal* left, qreal* top, qreal* right, qreal* bottom) const override {
-        if (qgraphicslinearlayout_getcontentsmargins_isbase) {
-            qgraphicslinearlayout_getcontentsmargins_isbase = false;
-            QGraphicsLinearLayout::getContentsMargins(left, top, right, bottom);
-            return;
-        }
-        auto getcontentsmargins_cb = qgraphicslinearlayout_getcontentsmargins_callback;
-        if (getcontentsmargins_cb) {
+        if (qgraphicslinearlayout_getcontentsmargins_callback) {
             double* cbval1 = static_cast<double*>(left);
             double* cbval2 = static_cast<double*>(top);
             double* cbval3 = static_cast<double*>(right);
             double* cbval4 = static_cast<double*>(bottom);
-            getcontentsmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
+            qgraphicslinearlayout_getcontentsmargins_callback(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
         QGraphicsLinearLayout::getContentsMargins(left, top, right, bottom);
@@ -217,14 +124,8 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateGeometry() override {
-        if (qgraphicslinearlayout_updategeometry_isbase) {
-            qgraphicslinearlayout_updategeometry_isbase = false;
-            QGraphicsLinearLayout::updateGeometry();
-            return;
-        }
-        auto updategeometry_cb = qgraphicslinearlayout_updategeometry_callback;
-        if (updategeometry_cb) {
-            updategeometry_cb();
+        if (qgraphicslinearlayout_updategeometry_callback) {
+            qgraphicslinearlayout_updategeometry_callback(this);
             return;
         }
         QGraphicsLinearLayout::updateGeometry();
@@ -232,15 +133,9 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual void widgetEvent(QEvent* e) override {
-        if (qgraphicslinearlayout_widgetevent_isbase) {
-            qgraphicslinearlayout_widgetevent_isbase = false;
-            QGraphicsLinearLayout::widgetEvent(e);
-            return;
-        }
-        auto widgetevent_cb = qgraphicslinearlayout_widgetevent_callback;
-        if (widgetevent_cb) {
+        if (qgraphicslinearlayout_widgetevent_callback) {
             QEvent* cbval1 = e;
-            widgetevent_cb(this, cbval1);
+            qgraphicslinearlayout_widgetevent_callback(this, cbval1);
             return;
         }
         QGraphicsLinearLayout::widgetEvent(e);
@@ -248,73 +143,12 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual bool isEmpty() const override {
-        if (qgraphicslinearlayout_isempty_isbase) {
-            qgraphicslinearlayout_isempty_isbase = false;
-            return QGraphicsLinearLayout::isEmpty();
-        }
-        auto isempty_cb = qgraphicslinearlayout_isempty_callback;
-        if (isempty_cb) {
-            bool callback_ret = isempty_cb();
+        if (qgraphicslinearlayout_isempty_callback) {
+            bool callback_ret = qgraphicslinearlayout_isempty_callback(this);
             return callback_ret;
         }
         return QGraphicsLinearLayout::isEmpty();
     }
-
-    // Virtual method for C ABI access and custom callback
-    void addChildLayoutItem(QGraphicsLayoutItem* layoutItem) {
-        if (qgraphicslinearlayout_addchildlayoutitem_isbase) {
-            qgraphicslinearlayout_addchildlayoutitem_isbase = false;
-            QGraphicsLinearLayout::addChildLayoutItem(layoutItem);
-            return;
-        }
-        auto addchildlayoutitem_cb = qgraphicslinearlayout_addchildlayoutitem_callback;
-        if (addchildlayoutitem_cb) {
-            QGraphicsLayoutItem* cbval1 = layoutItem;
-            addchildlayoutitem_cb(this, cbval1);
-            return;
-        }
-        QGraphicsLinearLayout::addChildLayoutItem(layoutItem);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setGraphicsItem(QGraphicsItem* item) {
-        if (qgraphicslinearlayout_setgraphicsitem_isbase) {
-            qgraphicslinearlayout_setgraphicsitem_isbase = false;
-            QGraphicsLinearLayout::setGraphicsItem(item);
-            return;
-        }
-        auto setgraphicsitem_cb = qgraphicslinearlayout_setgraphicsitem_callback;
-        if (setgraphicsitem_cb) {
-            QGraphicsItem* cbval1 = item;
-            setgraphicsitem_cb(this, cbval1);
-            return;
-        }
-        QGraphicsLinearLayout::setGraphicsItem(item);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setOwnedByLayout(bool ownedByLayout) {
-        if (qgraphicslinearlayout_setownedbylayout_isbase) {
-            qgraphicslinearlayout_setownedbylayout_isbase = false;
-            QGraphicsLinearLayout::setOwnedByLayout(ownedByLayout);
-            return;
-        }
-        auto setownedbylayout_cb = qgraphicslinearlayout_setownedbylayout_callback;
-        if (setownedbylayout_cb) {
-            bool cbval1 = ownedByLayout;
-            setownedbylayout_cb(this, cbval1);
-            return;
-        }
-        QGraphicsLinearLayout::setOwnedByLayout(ownedByLayout);
-    }
-
-    // Friend functions
-    friend void QGraphicsLinearLayout_AddChildLayoutItem(QGraphicsLinearLayout* self, QGraphicsLayoutItem* layoutItem);
-    friend void QGraphicsLinearLayout_SuperAddChildLayoutItem(QGraphicsLinearLayout* self, QGraphicsLayoutItem* layoutItem);
-    friend void QGraphicsLinearLayout_SetGraphicsItem(QGraphicsLinearLayout* self, QGraphicsItem* item);
-    friend void QGraphicsLinearLayout_SuperSetGraphicsItem(QGraphicsLinearLayout* self, QGraphicsItem* item);
-    friend void QGraphicsLinearLayout_SetOwnedByLayout(QGraphicsLinearLayout* self, bool ownedByLayout);
-    friend void QGraphicsLinearLayout_SuperSetOwnedByLayout(QGraphicsLinearLayout* self, bool ownedByLayout);
 };
 
 #endif

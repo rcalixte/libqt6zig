@@ -738,9 +738,9 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     /// ` self: QGraphicsGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGraphicsGridLayout) callconv(.c) i32 `
     ///
-    pub fn onCount(self: QGraphicsGridLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QGraphicsGridLayout, callback: *const fn (QGraphicsGridLayout) callconv(.c) i32) void {
         qtc.QGraphicsGridLayout_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -908,9 +908,9 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     /// ` self: QGraphicsGridLayout `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsGridLayout) callconv(.c) void `
     ///
-    pub fn onInvalidate(self: QGraphicsGridLayout, callback: *const fn () callconv(.c) void) void {
+    pub fn onInvalidate(self: QGraphicsGridLayout, callback: *const fn (QGraphicsGridLayout) callconv(.c) void) void {
         qtc.QGraphicsGridLayout_OnInvalidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1903,9 +1903,9 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     /// ` self: QGraphicsGridLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsGridLayout) callconv(.c) void `
     ///
-    pub fn onUpdateGeometry(self: QGraphicsGridLayout, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometry(self: QGraphicsGridLayout, callback: *const fn (QGraphicsGridLayout) callconv(.c) void) void {
         qtc.QGraphicsGridLayout_OnUpdateGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2021,9 +2021,9 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     /// ` self: QGraphicsGridLayout`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QGraphicsGridLayout) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QGraphicsGridLayout, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QGraphicsGridLayout, callback: *const fn (QGraphicsGridLayout) callconv(.c) bool) void {
         qtc.QGraphicsGridLayout_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2049,48 +2049,6 @@ pub const QGraphicsGridLayout = extern struct {
         qtc.QGraphicsGridLayout_AddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem_.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAddChildLayoutItem` instead
-    ///
-    pub const SuperAddChildLayoutItem = superAddChildLayoutItem;
-
-    /// Inherited from QGraphicsLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsGridLayout `
-    ///
-    /// ` layoutItem: QGraphicsLayoutItem `
-    ///
-    pub fn superAddChildLayoutItem(self: QGraphicsGridLayout, layoutItem: anytype) void {
-        comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
-        const layoutItem_ = if (@hasDecl(@TypeOf(layoutItem), "asQGraphicsLayoutItem")) layoutItem.asQGraphicsLayoutItem() else layoutItem;
-        qtc.QGraphicsGridLayout_SuperAddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem_.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddChildLayoutItem` instead
-    ///
-    pub const OnAddChildLayoutItem = onAddChildLayoutItem;
-
-    /// Inherited from QGraphicsLayout
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayout.html#addChildLayoutItem)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGraphicsGridLayout, layoutItem: QGraphicsLayoutItem) callconv(.c) void `
-    ///
-    pub fn onAddChildLayoutItem(self: QGraphicsGridLayout, callback: *const fn (QGraphicsGridLayout, QGraphicsLayoutItem) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnAddChildLayoutItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setGraphicsItem` instead
     ///
     pub const SetGraphicsItem = setGraphicsItem;
@@ -2113,48 +2071,6 @@ pub const QGraphicsGridLayout = extern struct {
         qtc.QGraphicsGridLayout_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetGraphicsItem` instead
-    ///
-    pub const SuperSetGraphicsItem = superSetGraphicsItem;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsGridLayout `
-    ///
-    /// ` item: QGraphicsItem `
-    ///
-    pub fn superSetGraphicsItem(self: QGraphicsGridLayout, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
-        qtc.QGraphicsGridLayout_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetGraphicsItem` instead
-    ///
-    pub const OnSetGraphicsItem = onSetGraphicsItem;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGraphicsGridLayout, item: QGraphicsItem) callconv(.c) void `
-    ///
-    pub fn onSetGraphicsItem(self: QGraphicsGridLayout, callback: *const fn (QGraphicsGridLayout, QGraphicsItem) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnSetGraphicsItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOwnedByLayout` instead
     ///
     pub const SetOwnedByLayout = setOwnedByLayout;
@@ -2173,46 +2089,6 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn setOwnedByLayout(self: QGraphicsGridLayout, _ownedByLayout: bool) void {
         qtc.QGraphicsGridLayout_SetOwnedByLayout(@ptrCast(self.ptr), _ownedByLayout);
-    }
-
-    /// ### DEPRECATED: Use `superSetOwnedByLayout` instead
-    ///
-    pub const SuperSetOwnedByLayout = superSetOwnedByLayout;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsGridLayout `
-    ///
-    /// ` _ownedByLayout: bool `
-    ///
-    pub fn superSetOwnedByLayout(self: QGraphicsGridLayout, _ownedByLayout: bool) void {
-        qtc.QGraphicsGridLayout_SuperSetOwnedByLayout(@ptrCast(self.ptr), _ownedByLayout);
-    }
-
-    /// ### DEPRECATED: Use `onSetOwnedByLayout` instead
-    ///
-    pub const OnSetOwnedByLayout = onSetOwnedByLayout;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsGridLayout`
-    ///
-    /// ` callback: *const fn (self: QGraphicsGridLayout, ownedByLayout: bool) callconv(.c) void `
-    ///
-    pub fn onSetOwnedByLayout(self: QGraphicsGridLayout, callback: *const fn (QGraphicsGridLayout, bool) callconv(.c) void) void {
-        qtc.QGraphicsGridLayout_OnSetOwnedByLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

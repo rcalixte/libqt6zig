@@ -104,402 +104,237 @@ libqt_string QValidator_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QValidator_SuperMetaObject(const QValidator* self) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_MetaObject_IsBase(true);
-        return (QMetaObject*)vqvalidator->metaObject();
-    } else {
-        return (QMetaObject*)self->QValidator::metaObject();
-    }
+    return (QMetaObject*)self->QValidator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QValidator_OnMetaObject(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_MetaObject_Callback(reinterpret_cast<VirtualQValidator::QValidator_MetaObject_Callback>(slot));
+void QValidator_OnMetaObject(QValidator* self, intptr_t slot) {
+    if (auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self)))
+        vqvalidator->qvalidator_metaobject_callback = reinterpret_cast<VirtualQValidator::QValidator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QValidator_SuperMetacast(QValidator* self, const char* param1) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Metacast_IsBase(true);
-        return vqvalidator->qt_metacast(param1);
-    } else {
-        return self->QValidator::qt_metacast(param1);
-    }
+    return self->QValidator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnMetacast(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_Metacast_Callback(reinterpret_cast<VirtualQValidator::QValidator_Metacast_Callback>(slot));
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_metacast_callback = reinterpret_cast<VirtualQValidator::QValidator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QValidator_SuperMetacall(QValidator* self, int param1, int param2, void** param3) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Metacall_IsBase(true);
-        return vqvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnMetacall(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_Metacall_Callback(reinterpret_cast<VirtualQValidator::QValidator_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-int QValidator_SuperValidate(const QValidator* self, libqt_string param1, int* param2) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Validate_IsBase(true);
-        return static_cast<int>(vqvalidator->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(((VirtualQValidator*)self)->validate(param1_QString, static_cast<int&>(*param2)));
-    }
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_metacall_callback = reinterpret_cast<VirtualQValidator::QValidator_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QValidator_OnValidate(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_Validate_Callback(reinterpret_cast<VirtualQValidator::QValidator_Validate_Callback>(slot));
+void QValidator_OnValidate(QValidator* self, intptr_t slot) {
+    if (auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self)))
+        vqvalidator->qvalidator_validate_callback = reinterpret_cast<VirtualQValidator::QValidator_Validate_Callback>(slot);
 }
 
 // Base class handler implementation
 void QValidator_SuperFixup(const QValidator* self, libqt_string param1) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Fixup_IsBase(true);
-        vqvalidator->fixup(param1_QString);
-    } else {
-        self->QValidator::fixup(param1_QString);
-    }
+    self->QValidator::fixup(param1_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QValidator_OnFixup(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_Fixup_Callback(reinterpret_cast<VirtualQValidator::QValidator_Fixup_Callback>(slot));
+void QValidator_OnFixup(QValidator* self, intptr_t slot) {
+    if (auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self)))
+        vqvalidator->qvalidator_fixup_callback = reinterpret_cast<VirtualQValidator::QValidator_Fixup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QValidator_Event(QValidator* self, QEvent* event) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return vqvalidator->event(event);
-    } else {
-        return self->QValidator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QValidator_SuperEvent(QValidator* self, QEvent* event) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Event_IsBase(true);
-        return vqvalidator->event(event);
-    } else {
-        return self->QValidator::event(event);
-    }
+    return self->QValidator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnEvent(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_Event_Callback(reinterpret_cast<VirtualQValidator::QValidator_Event_Callback>(slot));
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_event_callback = reinterpret_cast<VirtualQValidator::QValidator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QValidator_EventFilter(QValidator* self, QObject* watched, QEvent* event) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return vqvalidator->eventFilter(watched, event);
-    } else {
-        return self->QValidator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QValidator_SuperEventFilter(QValidator* self, QObject* watched, QEvent* event) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_EventFilter_IsBase(true);
-        return vqvalidator->eventFilter(watched, event);
-    } else {
-        return self->QValidator::eventFilter(watched, event);
-    }
+    return self->QValidator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnEventFilter(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_EventFilter_Callback(reinterpret_cast<VirtualQValidator::QValidator_EventFilter_Callback>(slot));
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_eventfilter_callback = reinterpret_cast<VirtualQValidator::QValidator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QValidator_TimerEvent(QValidator* self, QTimerEvent* event) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+    if (vqvalidator) {
         vqvalidator->timerEvent(event);
     } else {
-        ((VirtualQValidator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QValidator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QValidator_SuperTimerEvent(QValidator* self, QTimerEvent* event) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_TimerEvent_IsBase(true);
-        vqvalidator->timerEvent(event);
-    } else {
-        ((VirtualQValidator*)self)->timerEvent(event);
-    }
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self)) {
+        vqvalidator->QValidator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QValidator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnTimerEvent(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_TimerEvent_Callback(reinterpret_cast<VirtualQValidator::QValidator_TimerEvent_Callback>(slot));
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_timerevent_callback = reinterpret_cast<VirtualQValidator::QValidator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QValidator_ChildEvent(QValidator* self, QChildEvent* event) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+    if (vqvalidator) {
         vqvalidator->childEvent(event);
     } else {
-        ((VirtualQValidator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QValidator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QValidator_SuperChildEvent(QValidator* self, QChildEvent* event) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_ChildEvent_IsBase(true);
-        vqvalidator->childEvent(event);
-    } else {
-        ((VirtualQValidator*)self)->childEvent(event);
-    }
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self)) {
+        vqvalidator->QValidator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QValidator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnChildEvent(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_ChildEvent_Callback(reinterpret_cast<VirtualQValidator::QValidator_ChildEvent_Callback>(slot));
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_childevent_callback = reinterpret_cast<VirtualQValidator::QValidator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QValidator_CustomEvent(QValidator* self, QEvent* event) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+    if (vqvalidator) {
         vqvalidator->customEvent(event);
     } else {
-        ((VirtualQValidator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QValidator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QValidator_SuperCustomEvent(QValidator* self, QEvent* event) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_CustomEvent_IsBase(true);
-        vqvalidator->customEvent(event);
-    } else {
-        ((VirtualQValidator*)self)->customEvent(event);
-    }
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self)) {
+        vqvalidator->QValidator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QValidator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnCustomEvent(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_CustomEvent_Callback(reinterpret_cast<VirtualQValidator::QValidator_CustomEvent_Callback>(slot));
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_customevent_callback = reinterpret_cast<VirtualQValidator::QValidator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QValidator_ConnectNotify(QValidator* self, const QMetaMethod* signal) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+    if (vqvalidator) {
         vqvalidator->connectNotify(*signal);
     } else {
-        ((VirtualQValidator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QValidator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QValidator_SuperConnectNotify(QValidator* self, const QMetaMethod* signal) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_ConnectNotify_IsBase(true);
-        vqvalidator->connectNotify(*signal);
-    } else {
-        ((VirtualQValidator*)self)->connectNotify(*signal);
-    }
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self)) {
+        vqvalidator->QValidator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QValidator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnConnectNotify(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_ConnectNotify_Callback(reinterpret_cast<VirtualQValidator::QValidator_ConnectNotify_Callback>(slot));
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_connectnotify_callback = reinterpret_cast<VirtualQValidator::QValidator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QValidator_DisconnectNotify(QValidator* self, const QMetaMethod* signal) {
     auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
+    if (vqvalidator) {
         vqvalidator->disconnectNotify(*signal);
     } else {
-        ((VirtualQValidator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QValidator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QValidator_SuperDisconnectNotify(QValidator* self, const QMetaMethod* signal) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_DisconnectNotify_IsBase(true);
-        vqvalidator->disconnectNotify(*signal);
-    } else {
-        ((VirtualQValidator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self)) {
+        vqvalidator->QValidator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QValidator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QValidator_OnDisconnectNotify(QValidator* self, intptr_t slot) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_DisconnectNotify_Callback(reinterpret_cast<VirtualQValidator::QValidator_DisconnectNotify_Callback>(slot));
+    if (auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self))
+        vqvalidator->qvalidator_disconnectnotify_callback = reinterpret_cast<VirtualQValidator::QValidator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QValidator_Sender(const QValidator* self) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return vqvalidator->sender();
-    } else {
-        return ((VirtualQValidator*)self)->sender();
-    }
+    if (auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self))) {
+        return vqvalidator->VirtualQValidator::sender();
+    } else
+        qFatal("Error: Protected method QValidator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QValidator_SuperSender(const QValidator* self) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Sender_IsBase(true);
-        return vqvalidator->sender();
-    } else {
-        return ((VirtualQValidator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QValidator_OnSender(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_Sender_Callback(reinterpret_cast<VirtualQValidator::QValidator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QValidator_SenderSignalIndex(const QValidator* self) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return vqvalidator->senderSignalIndex();
-    } else {
-        return ((VirtualQValidator*)self)->senderSignalIndex();
-    }
+    if (auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self))) {
+        return vqvalidator->VirtualQValidator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QValidator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QValidator_SuperSenderSignalIndex(const QValidator* self) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_SenderSignalIndex_IsBase(true);
-        return vqvalidator->senderSignalIndex();
-    } else {
-        return ((VirtualQValidator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QValidator_OnSenderSignalIndex(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_SenderSignalIndex_Callback(reinterpret_cast<VirtualQValidator::QValidator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QValidator_Receivers(const QValidator* self, const char* signal) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return vqvalidator->receivers(signal);
-    } else {
-        return ((VirtualQValidator*)self)->receivers(signal);
-    }
+    if (auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self))) {
+        return vqvalidator->VirtualQValidator::receivers(signal);
+    } else
+        qFatal("Error: Protected method QValidator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QValidator_SuperReceivers(const QValidator* self, const char* signal) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_Receivers_IsBase(true);
-        return vqvalidator->receivers(signal);
-    } else {
-        return ((VirtualQValidator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QValidator_OnReceivers(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_Receivers_Callback(reinterpret_cast<VirtualQValidator::QValidator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QValidator_IsSignalConnected(const QValidator* self, const QMetaMethod* signal) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return vqvalidator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQValidator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QValidator_SuperIsSignalConnected(const QValidator* self, const QMetaMethod* signal) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        vqvalidator->setQValidator_IsSignalConnected_IsBase(true);
-        return vqvalidator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQValidator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QValidator_OnIsSignalConnected(const QValidator* self, intptr_t slot) {
-    auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self));
-    if (vqvalidator && vqvalidator->isVirtualQValidator)
-        vqvalidator->setQValidator_IsSignalConnected_Callback(reinterpret_cast<VirtualQValidator::QValidator_IsSignalConnected_Callback>(slot));
+    if (auto* vqvalidator = const_cast<VirtualQValidator*>(dynamic_cast<const VirtualQValidator*>(self))) {
+        return vqvalidator->VirtualQValidator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QValidator::isSignalConnected called without a directly constructed type");
 }
 
 void QValidator_Delete(QValidator* self) {
@@ -630,402 +465,243 @@ libqt_string QIntValidator_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QIntValidator_SuperMetaObject(const QIntValidator* self) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_MetaObject_IsBase(true);
-        return (QMetaObject*)vqintvalidator->metaObject();
-    } else {
-        return (QMetaObject*)self->QIntValidator::metaObject();
-    }
+    return (QMetaObject*)self->QIntValidator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QIntValidator_OnMetaObject(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_MetaObject_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_MetaObject_Callback>(slot));
+void QIntValidator_OnMetaObject(QIntValidator* self, intptr_t slot) {
+    if (auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self)))
+        vqintvalidator->qintvalidator_metaobject_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QIntValidator_SuperMetacast(QIntValidator* self, const char* param1) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Metacast_IsBase(true);
-        return vqintvalidator->qt_metacast(param1);
-    } else {
-        return self->QIntValidator::qt_metacast(param1);
-    }
+    return self->QIntValidator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnMetacast(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_Metacast_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Metacast_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_metacast_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QIntValidator_SuperMetacall(QIntValidator* self, int param1, int param2, void** param3) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Metacall_IsBase(true);
-        return vqintvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QIntValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QIntValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnMetacall(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_Metacall_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Metacall_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_metacall_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QIntValidator_SuperValidate(const QIntValidator* self, libqt_string param1, int* param2) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Validate_IsBase(true);
-        return static_cast<int>(vqintvalidator->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(self->QIntValidator::validate(param1_QString, static_cast<int&>(*param2)));
-    }
+    return static_cast<int>(self->QIntValidator::validate(param1_QString, static_cast<int&>(*param2)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QIntValidator_OnValidate(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_Validate_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Validate_Callback>(slot));
+void QIntValidator_OnValidate(QIntValidator* self, intptr_t slot) {
+    if (auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self)))
+        vqintvalidator->qintvalidator_validate_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_Validate_Callback>(slot);
 }
 
 // Base class handler implementation
 void QIntValidator_SuperFixup(const QIntValidator* self, libqt_string input) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Fixup_IsBase(true);
-        vqintvalidator->fixup(input_QString);
-    } else {
-        self->QIntValidator::fixup(input_QString);
-    }
+    self->QIntValidator::fixup(input_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QIntValidator_OnFixup(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_Fixup_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Fixup_Callback>(slot));
+void QIntValidator_OnFixup(QIntValidator* self, intptr_t slot) {
+    if (auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self)))
+        vqintvalidator->qintvalidator_fixup_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_Fixup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QIntValidator_Event(QIntValidator* self, QEvent* event) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return vqintvalidator->event(event);
-    } else {
-        return self->QIntValidator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QIntValidator_SuperEvent(QIntValidator* self, QEvent* event) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Event_IsBase(true);
-        return vqintvalidator->event(event);
-    } else {
-        return self->QIntValidator::event(event);
-    }
+    return self->QIntValidator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnEvent(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_Event_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Event_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_event_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QIntValidator_EventFilter(QIntValidator* self, QObject* watched, QEvent* event) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return vqintvalidator->eventFilter(watched, event);
-    } else {
-        return self->QIntValidator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QIntValidator_SuperEventFilter(QIntValidator* self, QObject* watched, QEvent* event) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_EventFilter_IsBase(true);
-        return vqintvalidator->eventFilter(watched, event);
-    } else {
-        return self->QIntValidator::eventFilter(watched, event);
-    }
+    return self->QIntValidator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnEventFilter(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_EventFilter_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_EventFilter_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_eventfilter_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QIntValidator_TimerEvent(QIntValidator* self, QTimerEvent* event) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+    if (vqintvalidator) {
         vqintvalidator->timerEvent(event);
     } else {
-        ((VirtualQIntValidator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QIntValidator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QIntValidator_SuperTimerEvent(QIntValidator* self, QTimerEvent* event) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_TimerEvent_IsBase(true);
-        vqintvalidator->timerEvent(event);
-    } else {
-        ((VirtualQIntValidator*)self)->timerEvent(event);
-    }
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self)) {
+        vqintvalidator->QIntValidator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QIntValidator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnTimerEvent(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_TimerEvent_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_TimerEvent_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_timerevent_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QIntValidator_ChildEvent(QIntValidator* self, QChildEvent* event) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+    if (vqintvalidator) {
         vqintvalidator->childEvent(event);
     } else {
-        ((VirtualQIntValidator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QIntValidator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QIntValidator_SuperChildEvent(QIntValidator* self, QChildEvent* event) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_ChildEvent_IsBase(true);
-        vqintvalidator->childEvent(event);
-    } else {
-        ((VirtualQIntValidator*)self)->childEvent(event);
-    }
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self)) {
+        vqintvalidator->QIntValidator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QIntValidator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnChildEvent(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_ChildEvent_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_ChildEvent_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_childevent_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QIntValidator_CustomEvent(QIntValidator* self, QEvent* event) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+    if (vqintvalidator) {
         vqintvalidator->customEvent(event);
     } else {
-        ((VirtualQIntValidator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QIntValidator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QIntValidator_SuperCustomEvent(QIntValidator* self, QEvent* event) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_CustomEvent_IsBase(true);
-        vqintvalidator->customEvent(event);
-    } else {
-        ((VirtualQIntValidator*)self)->customEvent(event);
-    }
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self)) {
+        vqintvalidator->QIntValidator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QIntValidator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnCustomEvent(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_CustomEvent_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_CustomEvent_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_customevent_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QIntValidator_ConnectNotify(QIntValidator* self, const QMetaMethod* signal) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+    if (vqintvalidator) {
         vqintvalidator->connectNotify(*signal);
     } else {
-        ((VirtualQIntValidator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QIntValidator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QIntValidator_SuperConnectNotify(QIntValidator* self, const QMetaMethod* signal) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_ConnectNotify_IsBase(true);
-        vqintvalidator->connectNotify(*signal);
-    } else {
-        ((VirtualQIntValidator*)self)->connectNotify(*signal);
-    }
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self)) {
+        vqintvalidator->QIntValidator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QIntValidator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnConnectNotify(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_ConnectNotify_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_ConnectNotify_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_connectnotify_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QIntValidator_DisconnectNotify(QIntValidator* self, const QMetaMethod* signal) {
     auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
+    if (vqintvalidator) {
         vqintvalidator->disconnectNotify(*signal);
     } else {
-        ((VirtualQIntValidator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QIntValidator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QIntValidator_SuperDisconnectNotify(QIntValidator* self, const QMetaMethod* signal) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_DisconnectNotify_IsBase(true);
-        vqintvalidator->disconnectNotify(*signal);
-    } else {
-        ((VirtualQIntValidator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self)) {
+        vqintvalidator->QIntValidator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QIntValidator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QIntValidator_OnDisconnectNotify(QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_DisconnectNotify_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_DisconnectNotify_Callback>(slot));
+    if (auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self))
+        vqintvalidator->qintvalidator_disconnectnotify_callback = reinterpret_cast<VirtualQIntValidator::QIntValidator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QIntValidator_Sender(const QIntValidator* self) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return vqintvalidator->sender();
-    } else {
-        return ((VirtualQIntValidator*)self)->sender();
-    }
+    if (auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self))) {
+        return vqintvalidator->VirtualQIntValidator::sender();
+    } else
+        qFatal("Error: Protected method QIntValidator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QIntValidator_SuperSender(const QIntValidator* self) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Sender_IsBase(true);
-        return vqintvalidator->sender();
-    } else {
-        return ((VirtualQIntValidator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QIntValidator_OnSender(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_Sender_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QIntValidator_SenderSignalIndex(const QIntValidator* self) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return vqintvalidator->senderSignalIndex();
-    } else {
-        return ((VirtualQIntValidator*)self)->senderSignalIndex();
-    }
+    if (auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self))) {
+        return vqintvalidator->VirtualQIntValidator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QIntValidator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QIntValidator_SuperSenderSignalIndex(const QIntValidator* self) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_SenderSignalIndex_IsBase(true);
-        return vqintvalidator->senderSignalIndex();
-    } else {
-        return ((VirtualQIntValidator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QIntValidator_OnSenderSignalIndex(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_SenderSignalIndex_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QIntValidator_Receivers(const QIntValidator* self, const char* signal) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return vqintvalidator->receivers(signal);
-    } else {
-        return ((VirtualQIntValidator*)self)->receivers(signal);
-    }
+    if (auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self))) {
+        return vqintvalidator->VirtualQIntValidator::receivers(signal);
+    } else
+        qFatal("Error: Protected method QIntValidator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QIntValidator_SuperReceivers(const QIntValidator* self, const char* signal) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_Receivers_IsBase(true);
-        return vqintvalidator->receivers(signal);
-    } else {
-        return ((VirtualQIntValidator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QIntValidator_OnReceivers(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_Receivers_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QIntValidator_IsSignalConnected(const QIntValidator* self, const QMetaMethod* signal) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return vqintvalidator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQIntValidator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QIntValidator_SuperIsSignalConnected(const QIntValidator* self, const QMetaMethod* signal) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        vqintvalidator->setQIntValidator_IsSignalConnected_IsBase(true);
-        return vqintvalidator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQIntValidator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QIntValidator_OnIsSignalConnected(const QIntValidator* self, intptr_t slot) {
-    auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self));
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator)
-        vqintvalidator->setQIntValidator_IsSignalConnected_Callback(reinterpret_cast<VirtualQIntValidator::QIntValidator_IsSignalConnected_Callback>(slot));
+    if (auto* vqintvalidator = const_cast<VirtualQIntValidator*>(dynamic_cast<const VirtualQIntValidator*>(self))) {
+        return vqintvalidator->VirtualQIntValidator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QIntValidator::isSignalConnected called without a directly constructed type");
 }
 
 void QIntValidator_Delete(QIntValidator* self) {
@@ -1204,402 +880,243 @@ libqt_string QDoubleValidator_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QDoubleValidator_SuperMetaObject(const QDoubleValidator* self) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdoublevalidator->metaObject();
-    } else {
-        return (QMetaObject*)self->QDoubleValidator::metaObject();
-    }
+    return (QMetaObject*)self->QDoubleValidator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDoubleValidator_OnMetaObject(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_MetaObject_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_MetaObject_Callback>(slot));
+void QDoubleValidator_OnMetaObject(QDoubleValidator* self, intptr_t slot) {
+    if (auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self)))
+        vqdoublevalidator->qdoublevalidator_metaobject_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDoubleValidator_SuperMetacast(QDoubleValidator* self, const char* param1) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Metacast_IsBase(true);
-        return vqdoublevalidator->qt_metacast(param1);
-    } else {
-        return self->QDoubleValidator::qt_metacast(param1);
-    }
+    return self->QDoubleValidator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnMetacast(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_Metacast_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Metacast_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_metacast_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDoubleValidator_SuperMetacall(QDoubleValidator* self, int param1, int param2, void** param3) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Metacall_IsBase(true);
-        return vqdoublevalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDoubleValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDoubleValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnMetacall(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_Metacall_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Metacall_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_metacall_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDoubleValidator_SuperValidate(const QDoubleValidator* self, libqt_string param1, int* param2) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Validate_IsBase(true);
-        return static_cast<int>(vqdoublevalidator->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(self->QDoubleValidator::validate(param1_QString, static_cast<int&>(*param2)));
-    }
+    return static_cast<int>(self->QDoubleValidator::validate(param1_QString, static_cast<int&>(*param2)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDoubleValidator_OnValidate(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_Validate_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Validate_Callback>(slot));
+void QDoubleValidator_OnValidate(QDoubleValidator* self, intptr_t slot) {
+    if (auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self)))
+        vqdoublevalidator->qdoublevalidator_validate_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Validate_Callback>(slot);
 }
 
 // Base class handler implementation
 void QDoubleValidator_SuperFixup(const QDoubleValidator* self, libqt_string input) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Fixup_IsBase(true);
-        vqdoublevalidator->fixup(input_QString);
-    } else {
-        self->QDoubleValidator::fixup(input_QString);
-    }
+    self->QDoubleValidator::fixup(input_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDoubleValidator_OnFixup(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_Fixup_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Fixup_Callback>(slot));
+void QDoubleValidator_OnFixup(QDoubleValidator* self, intptr_t slot) {
+    if (auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self)))
+        vqdoublevalidator->qdoublevalidator_fixup_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Fixup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDoubleValidator_Event(QDoubleValidator* self, QEvent* event) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return vqdoublevalidator->event(event);
-    } else {
-        return self->QDoubleValidator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDoubleValidator_SuperEvent(QDoubleValidator* self, QEvent* event) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Event_IsBase(true);
-        return vqdoublevalidator->event(event);
-    } else {
-        return self->QDoubleValidator::event(event);
-    }
+    return self->QDoubleValidator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnEvent(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_Event_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Event_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_event_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDoubleValidator_EventFilter(QDoubleValidator* self, QObject* watched, QEvent* event) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return vqdoublevalidator->eventFilter(watched, event);
-    } else {
-        return self->QDoubleValidator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDoubleValidator_SuperEventFilter(QDoubleValidator* self, QObject* watched, QEvent* event) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_EventFilter_IsBase(true);
-        return vqdoublevalidator->eventFilter(watched, event);
-    } else {
-        return self->QDoubleValidator::eventFilter(watched, event);
-    }
+    return self->QDoubleValidator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnEventFilter(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_EventFilter_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_EventFilter_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_eventfilter_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDoubleValidator_TimerEvent(QDoubleValidator* self, QTimerEvent* event) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+    if (vqdoublevalidator) {
         vqdoublevalidator->timerEvent(event);
     } else {
-        ((VirtualQDoubleValidator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDoubleValidator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDoubleValidator_SuperTimerEvent(QDoubleValidator* self, QTimerEvent* event) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_TimerEvent_IsBase(true);
-        vqdoublevalidator->timerEvent(event);
-    } else {
-        ((VirtualQDoubleValidator*)self)->timerEvent(event);
-    }
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self)) {
+        vqdoublevalidator->QDoubleValidator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDoubleValidator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnTimerEvent(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_TimerEvent_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_TimerEvent_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_timerevent_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDoubleValidator_ChildEvent(QDoubleValidator* self, QChildEvent* event) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+    if (vqdoublevalidator) {
         vqdoublevalidator->childEvent(event);
     } else {
-        ((VirtualQDoubleValidator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDoubleValidator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDoubleValidator_SuperChildEvent(QDoubleValidator* self, QChildEvent* event) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_ChildEvent_IsBase(true);
-        vqdoublevalidator->childEvent(event);
-    } else {
-        ((VirtualQDoubleValidator*)self)->childEvent(event);
-    }
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self)) {
+        vqdoublevalidator->QDoubleValidator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDoubleValidator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnChildEvent(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_ChildEvent_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_ChildEvent_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_childevent_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDoubleValidator_CustomEvent(QDoubleValidator* self, QEvent* event) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+    if (vqdoublevalidator) {
         vqdoublevalidator->customEvent(event);
     } else {
-        ((VirtualQDoubleValidator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDoubleValidator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDoubleValidator_SuperCustomEvent(QDoubleValidator* self, QEvent* event) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_CustomEvent_IsBase(true);
-        vqdoublevalidator->customEvent(event);
-    } else {
-        ((VirtualQDoubleValidator*)self)->customEvent(event);
-    }
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self)) {
+        vqdoublevalidator->QDoubleValidator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDoubleValidator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnCustomEvent(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_CustomEvent_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_CustomEvent_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_customevent_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDoubleValidator_ConnectNotify(QDoubleValidator* self, const QMetaMethod* signal) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+    if (vqdoublevalidator) {
         vqdoublevalidator->connectNotify(*signal);
     } else {
-        ((VirtualQDoubleValidator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDoubleValidator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDoubleValidator_SuperConnectNotify(QDoubleValidator* self, const QMetaMethod* signal) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_ConnectNotify_IsBase(true);
-        vqdoublevalidator->connectNotify(*signal);
-    } else {
-        ((VirtualQDoubleValidator*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self)) {
+        vqdoublevalidator->QDoubleValidator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDoubleValidator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnConnectNotify(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_ConnectNotify_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_ConnectNotify_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_connectnotify_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDoubleValidator_DisconnectNotify(QDoubleValidator* self, const QMetaMethod* signal) {
     auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
+    if (vqdoublevalidator) {
         vqdoublevalidator->disconnectNotify(*signal);
     } else {
-        ((VirtualQDoubleValidator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDoubleValidator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDoubleValidator_SuperDisconnectNotify(QDoubleValidator* self, const QMetaMethod* signal) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_DisconnectNotify_IsBase(true);
-        vqdoublevalidator->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDoubleValidator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self)) {
+        vqdoublevalidator->QDoubleValidator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDoubleValidator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDoubleValidator_OnDisconnectNotify(QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_DisconnectNotify_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_DisconnectNotify_Callback>(slot));
+    if (auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self))
+        vqdoublevalidator->qdoublevalidator_disconnectnotify_callback = reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDoubleValidator_Sender(const QDoubleValidator* self) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return vqdoublevalidator->sender();
-    } else {
-        return ((VirtualQDoubleValidator*)self)->sender();
-    }
+    if (auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self))) {
+        return vqdoublevalidator->VirtualQDoubleValidator::sender();
+    } else
+        qFatal("Error: Protected method QDoubleValidator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDoubleValidator_SuperSender(const QDoubleValidator* self) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Sender_IsBase(true);
-        return vqdoublevalidator->sender();
-    } else {
-        return ((VirtualQDoubleValidator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDoubleValidator_OnSender(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_Sender_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDoubleValidator_SenderSignalIndex(const QDoubleValidator* self) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return vqdoublevalidator->senderSignalIndex();
-    } else {
-        return ((VirtualQDoubleValidator*)self)->senderSignalIndex();
-    }
+    if (auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self))) {
+        return vqdoublevalidator->VirtualQDoubleValidator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDoubleValidator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDoubleValidator_SuperSenderSignalIndex(const QDoubleValidator* self) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_SenderSignalIndex_IsBase(true);
-        return vqdoublevalidator->senderSignalIndex();
-    } else {
-        return ((VirtualQDoubleValidator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDoubleValidator_OnSenderSignalIndex(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDoubleValidator_Receivers(const QDoubleValidator* self, const char* signal) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return vqdoublevalidator->receivers(signal);
-    } else {
-        return ((VirtualQDoubleValidator*)self)->receivers(signal);
-    }
+    if (auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self))) {
+        return vqdoublevalidator->VirtualQDoubleValidator::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDoubleValidator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDoubleValidator_SuperReceivers(const QDoubleValidator* self, const char* signal) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_Receivers_IsBase(true);
-        return vqdoublevalidator->receivers(signal);
-    } else {
-        return ((VirtualQDoubleValidator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDoubleValidator_OnReceivers(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_Receivers_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDoubleValidator_IsSignalConnected(const QDoubleValidator* self, const QMetaMethod* signal) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return vqdoublevalidator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDoubleValidator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDoubleValidator_SuperIsSignalConnected(const QDoubleValidator* self, const QMetaMethod* signal) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        vqdoublevalidator->setQDoubleValidator_IsSignalConnected_IsBase(true);
-        return vqdoublevalidator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDoubleValidator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDoubleValidator_OnIsSignalConnected(const QDoubleValidator* self, intptr_t slot) {
-    auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self));
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator)
-        vqdoublevalidator->setQDoubleValidator_IsSignalConnected_Callback(reinterpret_cast<VirtualQDoubleValidator::QDoubleValidator_IsSignalConnected_Callback>(slot));
+    if (auto* vqdoublevalidator = const_cast<VirtualQDoubleValidator*>(dynamic_cast<const VirtualQDoubleValidator*>(self))) {
+        return vqdoublevalidator->VirtualQDoubleValidator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDoubleValidator::isSignalConnected called without a directly constructed type");
 }
 
 void QDoubleValidator_Delete(QDoubleValidator* self) {
@@ -1701,413 +1218,249 @@ libqt_string QRegularExpressionValidator_Tr3(const char* s, const char* c, int n
 
 // Base class handler implementation
 QMetaObject* QRegularExpressionValidator_SuperMetaObject(const QRegularExpressionValidator* self) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_MetaObject_IsBase(true);
-        return (QMetaObject*)vqregularexpressionvalidator->metaObject();
-    } else {
-        return (QMetaObject*)self->QRegularExpressionValidator::metaObject();
-    }
+    return (QMetaObject*)self->QRegularExpressionValidator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRegularExpressionValidator_OnMetaObject(const QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_MetaObject_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_MetaObject_Callback>(slot));
+void QRegularExpressionValidator_OnMetaObject(QRegularExpressionValidator* self, intptr_t slot) {
+    if (auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self)))
+        vqregularexpressionvalidator->qregularexpressionvalidator_metaobject_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QRegularExpressionValidator_SuperMetacast(QRegularExpressionValidator* self, const char* param1) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacast_IsBase(true);
-        return vqregularexpressionvalidator->qt_metacast(param1);
-    } else {
-        return self->QRegularExpressionValidator::qt_metacast(param1);
-    }
+    return self->QRegularExpressionValidator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnMetacast(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacast_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Metacast_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_metacast_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QRegularExpressionValidator_SuperMetacall(QRegularExpressionValidator* self, int param1, int param2, void** param3) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacall_IsBase(true);
-        return vqregularexpressionvalidator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QRegularExpressionValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QRegularExpressionValidator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnMetacall(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Metacall_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Metacall_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_metacall_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QRegularExpressionValidator_SuperValidate(const QRegularExpressionValidator* self, libqt_string input, int* pos) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Validate_IsBase(true);
-        return static_cast<int>(vqregularexpressionvalidator->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(self->QRegularExpressionValidator::validate(input_QString, static_cast<int&>(*pos)));
-    }
+    return static_cast<int>(self->QRegularExpressionValidator::validate(input_QString, static_cast<int&>(*pos)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRegularExpressionValidator_OnValidate(const QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Validate_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Validate_Callback>(slot));
+void QRegularExpressionValidator_OnValidate(QRegularExpressionValidator* self, intptr_t slot) {
+    if (auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self)))
+        vqregularexpressionvalidator->qregularexpressionvalidator_validate_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Validate_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRegularExpressionValidator_Fixup(const QRegularExpressionValidator* self, libqt_string param1) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->fixup(param1_QString);
-    } else {
-        self->QRegularExpressionValidator::fixup(param1_QString);
-    }
+    self->fixup(param1_QString);
 }
 
 // Base class handler implementation
 void QRegularExpressionValidator_SuperFixup(const QRegularExpressionValidator* self, libqt_string param1) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Fixup_IsBase(true);
-        vqregularexpressionvalidator->fixup(param1_QString);
-    } else {
-        self->QRegularExpressionValidator::fixup(param1_QString);
-    }
+    self->QRegularExpressionValidator::fixup(param1_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QRegularExpressionValidator_OnFixup(const QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Fixup_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Fixup_Callback>(slot));
+void QRegularExpressionValidator_OnFixup(QRegularExpressionValidator* self, intptr_t slot) {
+    if (auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self)))
+        vqregularexpressionvalidator->qregularexpressionvalidator_fixup_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Fixup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QRegularExpressionValidator_Event(QRegularExpressionValidator* self, QEvent* event) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return vqregularexpressionvalidator->event(event);
-    } else {
-        return self->QRegularExpressionValidator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QRegularExpressionValidator_SuperEvent(QRegularExpressionValidator* self, QEvent* event) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Event_IsBase(true);
-        return vqregularexpressionvalidator->event(event);
-    } else {
-        return self->QRegularExpressionValidator::event(event);
-    }
+    return self->QRegularExpressionValidator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnEvent(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Event_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Event_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_event_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QRegularExpressionValidator_EventFilter(QRegularExpressionValidator* self, QObject* watched, QEvent* event) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return vqregularexpressionvalidator->eventFilter(watched, event);
-    } else {
-        return self->QRegularExpressionValidator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QRegularExpressionValidator_SuperEventFilter(QRegularExpressionValidator* self, QObject* watched, QEvent* event) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_EventFilter_IsBase(true);
-        return vqregularexpressionvalidator->eventFilter(watched, event);
-    } else {
-        return self->QRegularExpressionValidator::eventFilter(watched, event);
-    }
+    return self->QRegularExpressionValidator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnEventFilter(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_EventFilter_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_EventFilter_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_eventfilter_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRegularExpressionValidator_TimerEvent(QRegularExpressionValidator* self, QTimerEvent* event) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+    if (vqregularexpressionvalidator) {
         vqregularexpressionvalidator->timerEvent(event);
     } else {
-        ((VirtualQRegularExpressionValidator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRegularExpressionValidator_SuperTimerEvent(QRegularExpressionValidator* self, QTimerEvent* event) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_TimerEvent_IsBase(true);
-        vqregularexpressionvalidator->timerEvent(event);
-    } else {
-        ((VirtualQRegularExpressionValidator*)self)->timerEvent(event);
-    }
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self)) {
+        vqregularexpressionvalidator->QRegularExpressionValidator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnTimerEvent(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_TimerEvent_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_TimerEvent_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_timerevent_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRegularExpressionValidator_ChildEvent(QRegularExpressionValidator* self, QChildEvent* event) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+    if (vqregularexpressionvalidator) {
         vqregularexpressionvalidator->childEvent(event);
     } else {
-        ((VirtualQRegularExpressionValidator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRegularExpressionValidator_SuperChildEvent(QRegularExpressionValidator* self, QChildEvent* event) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_ChildEvent_IsBase(true);
-        vqregularexpressionvalidator->childEvent(event);
-    } else {
-        ((VirtualQRegularExpressionValidator*)self)->childEvent(event);
-    }
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self)) {
+        vqregularexpressionvalidator->QRegularExpressionValidator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnChildEvent(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_ChildEvent_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_ChildEvent_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_childevent_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRegularExpressionValidator_CustomEvent(QRegularExpressionValidator* self, QEvent* event) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+    if (vqregularexpressionvalidator) {
         vqregularexpressionvalidator->customEvent(event);
     } else {
-        ((VirtualQRegularExpressionValidator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRegularExpressionValidator_SuperCustomEvent(QRegularExpressionValidator* self, QEvent* event) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_CustomEvent_IsBase(true);
-        vqregularexpressionvalidator->customEvent(event);
-    } else {
-        ((VirtualQRegularExpressionValidator*)self)->customEvent(event);
-    }
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self)) {
+        vqregularexpressionvalidator->QRegularExpressionValidator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnCustomEvent(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_CustomEvent_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_CustomEvent_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_customevent_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRegularExpressionValidator_ConnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+    if (vqregularexpressionvalidator) {
         vqregularexpressionvalidator->connectNotify(*signal);
     } else {
-        ((VirtualQRegularExpressionValidator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRegularExpressionValidator_SuperConnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_ConnectNotify_IsBase(true);
-        vqregularexpressionvalidator->connectNotify(*signal);
-    } else {
-        ((VirtualQRegularExpressionValidator*)self)->connectNotify(*signal);
-    }
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self)) {
+        vqregularexpressionvalidator->QRegularExpressionValidator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnConnectNotify(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_ConnectNotify_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_ConnectNotify_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_connectnotify_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QRegularExpressionValidator_DisconnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal) {
     auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
+    if (vqregularexpressionvalidator) {
         vqregularexpressionvalidator->disconnectNotify(*signal);
     } else {
-        ((VirtualQRegularExpressionValidator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QRegularExpressionValidator_SuperDisconnectNotify(QRegularExpressionValidator* self, const QMetaMethod* signal) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_DisconnectNotify_IsBase(true);
-        vqregularexpressionvalidator->disconnectNotify(*signal);
-    } else {
-        ((VirtualQRegularExpressionValidator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self)) {
+        vqregularexpressionvalidator->QRegularExpressionValidator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QRegularExpressionValidator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QRegularExpressionValidator_OnDisconnectNotify(QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_DisconnectNotify_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_DisconnectNotify_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self))
+        vqregularexpressionvalidator->qregularexpressionvalidator_disconnectnotify_callback = reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QRegularExpressionValidator_Sender(const QRegularExpressionValidator* self) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return vqregularexpressionvalidator->sender();
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->sender();
-    }
+    if (auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self))) {
+        return vqregularexpressionvalidator->VirtualQRegularExpressionValidator::sender();
+    } else
+        qFatal("Error: Protected method QRegularExpressionValidator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QRegularExpressionValidator_SuperSender(const QRegularExpressionValidator* self) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Sender_IsBase(true);
-        return vqregularexpressionvalidator->sender();
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRegularExpressionValidator_OnSender(const QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Sender_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QRegularExpressionValidator_SenderSignalIndex(const QRegularExpressionValidator* self) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return vqregularexpressionvalidator->senderSignalIndex();
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->senderSignalIndex();
-    }
+    if (auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self))) {
+        return vqregularexpressionvalidator->VirtualQRegularExpressionValidator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QRegularExpressionValidator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QRegularExpressionValidator_SuperSenderSignalIndex(const QRegularExpressionValidator* self) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_SenderSignalIndex_IsBase(true);
-        return vqregularexpressionvalidator->senderSignalIndex();
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRegularExpressionValidator_OnSenderSignalIndex(const QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_SenderSignalIndex_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QRegularExpressionValidator_Receivers(const QRegularExpressionValidator* self, const char* signal) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return vqregularexpressionvalidator->receivers(signal);
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->receivers(signal);
-    }
+    if (auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self))) {
+        return vqregularexpressionvalidator->VirtualQRegularExpressionValidator::receivers(signal);
+    } else
+        qFatal("Error: Protected method QRegularExpressionValidator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QRegularExpressionValidator_SuperReceivers(const QRegularExpressionValidator* self, const char* signal) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Receivers_IsBase(true);
-        return vqregularexpressionvalidator->receivers(signal);
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRegularExpressionValidator_OnReceivers(const QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_Receivers_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QRegularExpressionValidator_IsSignalConnected(const QRegularExpressionValidator* self, const QMetaMethod* signal) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return vqregularexpressionvalidator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QRegularExpressionValidator_SuperIsSignalConnected(const QRegularExpressionValidator* self, const QMetaMethod* signal) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        vqregularexpressionvalidator->setQRegularExpressionValidator_IsSignalConnected_IsBase(true);
-        return vqregularexpressionvalidator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QRegularExpressionValidator_OnIsSignalConnected(const QRegularExpressionValidator* self, intptr_t slot) {
-    auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self));
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator)
-        vqregularexpressionvalidator->setQRegularExpressionValidator_IsSignalConnected_Callback(reinterpret_cast<VirtualQRegularExpressionValidator::QRegularExpressionValidator_IsSignalConnected_Callback>(slot));
+    if (auto* vqregularexpressionvalidator = const_cast<VirtualQRegularExpressionValidator*>(dynamic_cast<const VirtualQRegularExpressionValidator*>(self))) {
+        return vqregularexpressionvalidator->VirtualQRegularExpressionValidator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QRegularExpressionValidator::isSignalConnected called without a directly constructed type");
 }
 
 void QRegularExpressionValidator_Delete(QRegularExpressionValidator* self) {

@@ -78,9 +78,9 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     /// ` self: QCandlestickModelMapper `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QCandlestickModelMapper) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper) callconv(.c) QMetaObject) void {
         qtc.QCandlestickModelMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -293,6 +293,8 @@ pub const QCandlestickModelMapper = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#orientation)
     ///
+    /// This method must be implemented with `onOrientation` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QCandlestickModelMapper `
@@ -317,30 +319,10 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     /// ` self: QCandlestickModelMapper `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QCandlestickModelMapper) callconv(.c) i32 `
     ///
-    pub fn onOrientation(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onOrientation(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper) callconv(.c) i32) void {
         qtc.QCandlestickModelMapper_OnOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOrientation` instead
-    ///
-    pub const SuperOrientation = superOrientation;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#orientation)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qnamespace_enums.Orientation `
-    ///
-    pub fn superOrientation(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperOrientation(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `modelReplaced` instead
@@ -419,42 +401,6 @@ pub const QCandlestickModelMapper = extern struct {
         qtc.QCandlestickModelMapper_SetTimestamp(@ptrCast(self.ptr), @bitCast(_timestamp));
     }
 
-    /// ### DEPRECATED: Use `onSetTimestamp` instead
-    ///
-    pub const OnSetTimestamp = onSetTimestamp;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setTimestamp)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, timestamp: i32) callconv(.c) void `
-    ///
-    pub fn onSetTimestamp(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, i32) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_OnSetTimestamp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetTimestamp` instead
-    ///
-    pub const SuperSetTimestamp = superSetTimestamp;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setTimestamp)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` _timestamp: i32 `
-    ///
-    pub fn superSetTimestamp(self: QCandlestickModelMapper, _timestamp: i32) void {
-        qtc.QCandlestickModelMapper_SuperSetTimestamp(@ptrCast(self.ptr), @bitCast(_timestamp));
-    }
-
     /// ### DEPRECATED: Use `timestamp` instead
     ///
     pub const Timestamp = timestamp;
@@ -467,40 +413,6 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     pub fn timestamp(self: QCandlestickModelMapper) i32 {
         return qtc.QCandlestickModelMapper_Timestamp(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onTimestamp` instead
-    ///
-    pub const OnTimestamp = onTimestamp;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#timestamp)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onTimestamp(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnTimestamp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTimestamp` instead
-    ///
-    pub const SuperTimestamp = superTimestamp;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#timestamp)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superTimestamp(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperTimestamp(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setOpen` instead
@@ -519,42 +431,6 @@ pub const QCandlestickModelMapper = extern struct {
         qtc.QCandlestickModelMapper_SetOpen(@ptrCast(self.ptr), @bitCast(_open));
     }
 
-    /// ### DEPRECATED: Use `onSetOpen` instead
-    ///
-    pub const OnSetOpen = onSetOpen;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setOpen)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, open: i32) callconv(.c) void `
-    ///
-    pub fn onSetOpen(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, i32) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_OnSetOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetOpen` instead
-    ///
-    pub const SuperSetOpen = superSetOpen;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setOpen)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` _open: i32 `
-    ///
-    pub fn superSetOpen(self: QCandlestickModelMapper, _open: i32) void {
-        qtc.QCandlestickModelMapper_SuperSetOpen(@ptrCast(self.ptr), @bitCast(_open));
-    }
-
     /// ### DEPRECATED: Use `open` instead
     ///
     pub const Open = open;
@@ -567,40 +443,6 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     pub fn open(self: QCandlestickModelMapper) i32 {
         return qtc.QCandlestickModelMapper_Open(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onOpen` instead
-    ///
-    pub const OnOpen = onOpen;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#open)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onOpen(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOpen` instead
-    ///
-    pub const SuperOpen = superOpen;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#open)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superOpen(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperOpen(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setHigh` instead
@@ -619,42 +461,6 @@ pub const QCandlestickModelMapper = extern struct {
         qtc.QCandlestickModelMapper_SetHigh(@ptrCast(self.ptr), @bitCast(_high));
     }
 
-    /// ### DEPRECATED: Use `onSetHigh` instead
-    ///
-    pub const OnSetHigh = onSetHigh;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setHigh)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, high: i32) callconv(.c) void `
-    ///
-    pub fn onSetHigh(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, i32) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_OnSetHigh(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetHigh` instead
-    ///
-    pub const SuperSetHigh = superSetHigh;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setHigh)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` _high: i32 `
-    ///
-    pub fn superSetHigh(self: QCandlestickModelMapper, _high: i32) void {
-        qtc.QCandlestickModelMapper_SuperSetHigh(@ptrCast(self.ptr), @bitCast(_high));
-    }
-
     /// ### DEPRECATED: Use `high` instead
     ///
     pub const High = high;
@@ -667,40 +473,6 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     pub fn high(self: QCandlestickModelMapper) i32 {
         return qtc.QCandlestickModelMapper_High(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onHigh` instead
-    ///
-    pub const OnHigh = onHigh;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#high)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onHigh(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnHigh(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHigh` instead
-    ///
-    pub const SuperHigh = superHigh;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#high)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superHigh(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperHigh(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setLow` instead
@@ -719,42 +491,6 @@ pub const QCandlestickModelMapper = extern struct {
         qtc.QCandlestickModelMapper_SetLow(@ptrCast(self.ptr), @bitCast(_low));
     }
 
-    /// ### DEPRECATED: Use `onSetLow` instead
-    ///
-    pub const OnSetLow = onSetLow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setLow)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, low: i32) callconv(.c) void `
-    ///
-    pub fn onSetLow(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, i32) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_OnSetLow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLow` instead
-    ///
-    pub const SuperSetLow = superSetLow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setLow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` _low: i32 `
-    ///
-    pub fn superSetLow(self: QCandlestickModelMapper, _low: i32) void {
-        qtc.QCandlestickModelMapper_SuperSetLow(@ptrCast(self.ptr), @bitCast(_low));
-    }
-
     /// ### DEPRECATED: Use `low` instead
     ///
     pub const Low = low;
@@ -767,40 +503,6 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     pub fn low(self: QCandlestickModelMapper) i32 {
         return qtc.QCandlestickModelMapper_Low(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLow` instead
-    ///
-    pub const OnLow = onLow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#low)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onLow(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnLow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLow` instead
-    ///
-    pub const SuperLow = superLow;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#low)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superLow(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperLow(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setClose` instead
@@ -819,42 +521,6 @@ pub const QCandlestickModelMapper = extern struct {
         qtc.QCandlestickModelMapper_SetClose(@ptrCast(self.ptr), @bitCast(_close));
     }
 
-    /// ### DEPRECATED: Use `onSetClose` instead
-    ///
-    pub const OnSetClose = onSetClose;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setClose)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, close: i32) callconv(.c) void `
-    ///
-    pub fn onSetClose(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, i32) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_OnSetClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetClose` instead
-    ///
-    pub const SuperSetClose = superSetClose;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setClose)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` _close: i32 `
-    ///
-    pub fn superSetClose(self: QCandlestickModelMapper, _close: i32) void {
-        qtc.QCandlestickModelMapper_SuperSetClose(@ptrCast(self.ptr), @bitCast(_close));
-    }
-
     /// ### DEPRECATED: Use `close` instead
     ///
     pub const Close = close;
@@ -867,40 +533,6 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     pub fn close(self: QCandlestickModelMapper) i32 {
         return qtc.QCandlestickModelMapper_Close(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onClose` instead
-    ///
-    pub const OnClose = onClose;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#close)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onClose(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superClose` instead
-    ///
-    pub const SuperClose = superClose;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#close)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superClose(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperClose(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setFirstSetSection` instead
@@ -919,42 +551,6 @@ pub const QCandlestickModelMapper = extern struct {
         qtc.QCandlestickModelMapper_SetFirstSetSection(@ptrCast(self.ptr), @bitCast(_firstSetSection));
     }
 
-    /// ### DEPRECATED: Use `onSetFirstSetSection` instead
-    ///
-    pub const OnSetFirstSetSection = onSetFirstSetSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setFirstSetSection)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, firstSetSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetFirstSetSection(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, i32) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_OnSetFirstSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetFirstSetSection` instead
-    ///
-    pub const SuperSetFirstSetSection = superSetFirstSetSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setFirstSetSection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` _firstSetSection: i32 `
-    ///
-    pub fn superSetFirstSetSection(self: QCandlestickModelMapper, _firstSetSection: i32) void {
-        qtc.QCandlestickModelMapper_SuperSetFirstSetSection(@ptrCast(self.ptr), @bitCast(_firstSetSection));
-    }
-
     /// ### DEPRECATED: Use `firstSetSection` instead
     ///
     pub const FirstSetSection = firstSetSection;
@@ -967,40 +563,6 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     pub fn firstSetSection(self: QCandlestickModelMapper) i32 {
         return qtc.QCandlestickModelMapper_FirstSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFirstSetSection` instead
-    ///
-    pub const OnFirstSetSection = onFirstSetSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#firstSetSection)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onFirstSetSection(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnFirstSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFirstSetSection` instead
-    ///
-    pub const SuperFirstSetSection = superFirstSetSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#firstSetSection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superFirstSetSection(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperFirstSetSection(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setLastSetSection` instead
@@ -1019,42 +581,6 @@ pub const QCandlestickModelMapper = extern struct {
         qtc.QCandlestickModelMapper_SetLastSetSection(@ptrCast(self.ptr), @bitCast(_lastSetSection));
     }
 
-    /// ### DEPRECATED: Use `onSetLastSetSection` instead
-    ///
-    pub const OnSetLastSetSection = onSetLastSetSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setLastSetSection)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, lastSetSection: i32) callconv(.c) void `
-    ///
-    pub fn onSetLastSetSection(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, i32) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_OnSetLastSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLastSetSection` instead
-    ///
-    pub const SuperSetLastSetSection = superSetLastSetSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#setLastSetSection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` _lastSetSection: i32 `
-    ///
-    pub fn superSetLastSetSection(self: QCandlestickModelMapper, _lastSetSection: i32) void {
-        qtc.QCandlestickModelMapper_SuperSetLastSetSection(@ptrCast(self.ptr), @bitCast(_lastSetSection));
-    }
-
     /// ### DEPRECATED: Use `lastSetSection` instead
     ///
     pub const LastSetSection = lastSetSection;
@@ -1067,40 +593,6 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     pub fn lastSetSection(self: QCandlestickModelMapper) i32 {
         return qtc.QCandlestickModelMapper_LastSetSection(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onLastSetSection` instead
-    ///
-    pub const OnLastSetSection = onLastSetSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#lastSetSection)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onLastSetSection(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnLastSetSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLastSetSection` instead
-    ///
-    pub const SuperLastSetSection = superLastSetSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcandlestickmodelmapper-qtcharts.html#lastSetSection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superLastSetSection(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperLastSetSection(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2580,44 +2072,6 @@ pub const QCandlestickModelMapper = extern struct {
         return .{ .ptr = qtc.QCandlestickModelMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superSender(self: QCandlestickModelMapper) QObject {
-        return .{ .ptr = qtc.QCandlestickModelMapper_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QCandlestickModelMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2634,44 +2088,6 @@ pub const QCandlestickModelMapper = extern struct {
     ///
     pub fn senderSignalIndex(self: QCandlestickModelMapper) i32 {
         return qtc.QCandlestickModelMapper_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    pub fn superSenderSignalIndex(self: QCandlestickModelMapper) i32 {
-        return qtc.QCandlestickModelMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QCandlestickModelMapper, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2695,47 +2111,6 @@ pub const QCandlestickModelMapper = extern struct {
         return qtc.QCandlestickModelMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QCandlestickModelMapper, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QCandlestickModelMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper`
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCandlestickModelMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2755,47 +2130,6 @@ pub const QCandlestickModelMapper = extern struct {
     pub fn isSignalConnected(self: QCandlestickModelMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCandlestickModelMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCandlestickModelMapper `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QCandlestickModelMapper, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QCandlestickModelMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCandlestickModelMapper`
-    ///
-    /// ` callback: *const fn (self: QCandlestickModelMapper, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QCandlestickModelMapper, callback: *const fn (QCandlestickModelMapper, QMetaMethod) callconv(.c) bool) void {
-        qtc.QCandlestickModelMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

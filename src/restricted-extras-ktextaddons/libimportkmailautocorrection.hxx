@@ -9,41 +9,21 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of TextAutoCorrectionCore::ImportKMailAutocorrection so that we can call protected methods
+// This class is a subclass of TextAutoCorrectionCore::ImportKMailAutocorrection
 class VirtualTextAutoCorrectionCoreImportKMailAutocorrection final : public TextAutoCorrectionCore::ImportKMailAutocorrection {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualTextAutoCorrectionCoreImportKMailAutocorrection = true;
-
-    // Virtual class public types (including callbacks)
+    // Virtual class public types (including callbacks and access types)
     using TextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback = bool (*)(TextAutoCorrectionCore__ImportKMailAutocorrection*, const char*, const char*, int);
 
-  protected:
     // Instance callback storage
     TextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback textautocorrectioncore__importkmailautocorrection_import_callback = nullptr;
 
-    // Instance base flags
-    mutable bool textautocorrectioncore__importkmailautocorrection_import_isbase = false;
-
-  public:
     VirtualTextAutoCorrectionCoreImportKMailAutocorrection() : TextAutoCorrectionCore::ImportKMailAutocorrection() {};
     VirtualTextAutoCorrectionCoreImportKMailAutocorrection(const TextAutoCorrectionCore::ImportKMailAutocorrection& param1) : TextAutoCorrectionCore::ImportKMailAutocorrection(param1) {};
 
-    // Callback setters
-    inline void setTextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback(TextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback cb) { textautocorrectioncore__importkmailautocorrection_import_callback = cb; }
-
-    // Base flag setters
-    inline void setTextAutoCorrectionCore__ImportKMailAutocorrection_Import_IsBase(bool value) const { textautocorrectioncore__importkmailautocorrection_import_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual bool import(const QString& fileName, QString& errorMessage, TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute loadAttribute) override {
-        if (textautocorrectioncore__importkmailautocorrection_import_isbase) {
-            textautocorrectioncore__importkmailautocorrection_import_isbase = false;
-            return TextAutoCorrectionCore__ImportKMailAutocorrection::import(fileName, errorMessage, loadAttribute);
-        }
-        auto import_cb = textautocorrectioncore__importkmailautocorrection_import_callback;
-        if (import_cb) {
+        if (textautocorrectioncore__importkmailautocorrection_import_callback) {
             const auto fileName_ret = fileName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray fileName_b = fileName_ret.toUtf8();
@@ -61,7 +41,7 @@ class VirtualTextAutoCorrectionCoreImportKMailAutocorrection final : public Text
             ((char*)errorMessage_str)[errorMessage_str_len] = '\0';
             const char* cbval2 = errorMessage_str;
             int cbval3 = static_cast<int>(loadAttribute);
-            bool callback_ret = import_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = textautocorrectioncore__importkmailautocorrection_import_callback(this, cbval1, cbval2, cbval3);
             libqt_free(fileName_str);
             libqt_free(errorMessage_str);
             return callback_ret;

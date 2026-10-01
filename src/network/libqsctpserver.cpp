@@ -59,7 +59,7 @@ QSctpSocket* QSctpServer_NextPendingDatagramConnection(QSctpServer* self) {
 
 void QSctpServer_IncomingConnection(QSctpServer* self, intptr_t handle) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver) {
         vqsctpserver->incomingConnection((qintptr)(handle));
     }
 }
@@ -90,466 +90,273 @@ libqt_string QSctpServer_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSctpServer_SuperMetaObject(const QSctpServer* self) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsctpserver->metaObject();
-    } else {
-        return (QMetaObject*)self->QSctpServer::metaObject();
-    }
+    return (QMetaObject*)self->QSctpServer::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSctpServer_OnMetaObject(const QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_MetaObject_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_MetaObject_Callback>(slot));
+void QSctpServer_OnMetaObject(QSctpServer* self, intptr_t slot) {
+    if (auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self)))
+        vqsctpserver->qsctpserver_metaobject_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSctpServer_SuperMetacast(QSctpServer* self, const char* param1) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_Metacast_IsBase(true);
-        return vqsctpserver->qt_metacast(param1);
-    } else {
-        return self->QSctpServer::qt_metacast(param1);
-    }
+    return self->QSctpServer::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnMetacast(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_Metacast_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Metacast_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_metacast_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSctpServer_SuperMetacall(QSctpServer* self, int param1, int param2, void** param3) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_Metacall_IsBase(true);
-        return vqsctpserver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSctpServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSctpServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnMetacall(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_Metacall_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Metacall_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_metacall_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSctpServer_SuperIncomingConnection(QSctpServer* self, intptr_t handle) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_IncomingConnection_IsBase(true);
-        vqsctpserver->incomingConnection((qintptr)(handle));
-    } else {
-        ((VirtualQSctpServer*)self)->incomingConnection((qintptr)(handle));
-    }
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self)) {
+        vqsctpserver->QSctpServer::incomingConnection((qintptr)(handle));
+    } else
+        qFatal("Error: Protected virtual method QSctpServer::incomingConnection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnIncomingConnection(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_IncomingConnection_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_IncomingConnection_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_incomingconnection_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_IncomingConnection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSctpServer_HasPendingConnections(const QSctpServer* self) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return vqsctpserver->hasPendingConnections();
-    } else {
-        return self->QSctpServer::hasPendingConnections();
-    }
+    return self->hasPendingConnections();
 }
 
 // Base class handler implementation
 bool QSctpServer_SuperHasPendingConnections(const QSctpServer* self) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_HasPendingConnections_IsBase(true);
-        return vqsctpserver->hasPendingConnections();
-    } else {
-        return self->QSctpServer::hasPendingConnections();
-    }
+    return self->QSctpServer::hasPendingConnections();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSctpServer_OnHasPendingConnections(const QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_HasPendingConnections_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_HasPendingConnections_Callback>(slot));
+void QSctpServer_OnHasPendingConnections(QSctpServer* self, intptr_t slot) {
+    if (auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self)))
+        vqsctpserver->qsctpserver_haspendingconnections_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_HasPendingConnections_Callback>(slot);
 }
 
 // Derived class handler implementation
 QTcpSocket* QSctpServer_NextPendingConnection(QSctpServer* self) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return vqsctpserver->nextPendingConnection();
-    } else {
-        return self->QSctpServer::nextPendingConnection();
-    }
+    return self->nextPendingConnection();
 }
 
 // Base class handler implementation
 QTcpSocket* QSctpServer_SuperNextPendingConnection(QSctpServer* self) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_NextPendingConnection_IsBase(true);
-        return vqsctpserver->nextPendingConnection();
-    } else {
-        return self->QSctpServer::nextPendingConnection();
-    }
+    return self->QSctpServer::nextPendingConnection();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnNextPendingConnection(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_NextPendingConnection_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_nextpendingconnection_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_NextPendingConnection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSctpServer_Event(QSctpServer* self, QEvent* event) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return vqsctpserver->event(event);
-    } else {
-        return self->QSctpServer::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QSctpServer_SuperEvent(QSctpServer* self, QEvent* event) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_Event_IsBase(true);
-        return vqsctpserver->event(event);
-    } else {
-        return self->QSctpServer::event(event);
-    }
+    return self->QSctpServer::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnEvent(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_Event_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Event_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_event_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSctpServer_EventFilter(QSctpServer* self, QObject* watched, QEvent* event) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return vqsctpserver->eventFilter(watched, event);
-    } else {
-        return self->QSctpServer::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSctpServer_SuperEventFilter(QSctpServer* self, QObject* watched, QEvent* event) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_EventFilter_IsBase(true);
-        return vqsctpserver->eventFilter(watched, event);
-    } else {
-        return self->QSctpServer::eventFilter(watched, event);
-    }
+    return self->QSctpServer::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnEventFilter(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_EventFilter_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_EventFilter_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_eventfilter_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSctpServer_TimerEvent(QSctpServer* self, QTimerEvent* event) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver) {
         vqsctpserver->timerEvent(event);
     } else {
-        ((VirtualQSctpServer*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSctpServer::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSctpServer_SuperTimerEvent(QSctpServer* self, QTimerEvent* event) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_TimerEvent_IsBase(true);
-        vqsctpserver->timerEvent(event);
-    } else {
-        ((VirtualQSctpServer*)self)->timerEvent(event);
-    }
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self)) {
+        vqsctpserver->QSctpServer::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSctpServer::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnTimerEvent(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_TimerEvent_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_TimerEvent_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_timerevent_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSctpServer_ChildEvent(QSctpServer* self, QChildEvent* event) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver) {
         vqsctpserver->childEvent(event);
     } else {
-        ((VirtualQSctpServer*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSctpServer::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSctpServer_SuperChildEvent(QSctpServer* self, QChildEvent* event) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_ChildEvent_IsBase(true);
-        vqsctpserver->childEvent(event);
-    } else {
-        ((VirtualQSctpServer*)self)->childEvent(event);
-    }
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self)) {
+        vqsctpserver->QSctpServer::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSctpServer::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnChildEvent(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_ChildEvent_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_ChildEvent_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_childevent_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSctpServer_CustomEvent(QSctpServer* self, QEvent* event) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver) {
         vqsctpserver->customEvent(event);
     } else {
-        ((VirtualQSctpServer*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSctpServer::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSctpServer_SuperCustomEvent(QSctpServer* self, QEvent* event) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_CustomEvent_IsBase(true);
-        vqsctpserver->customEvent(event);
-    } else {
-        ((VirtualQSctpServer*)self)->customEvent(event);
-    }
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self)) {
+        vqsctpserver->QSctpServer::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSctpServer::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnCustomEvent(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_CustomEvent_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_CustomEvent_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_customevent_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSctpServer_ConnectNotify(QSctpServer* self, const QMetaMethod* signal) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver) {
         vqsctpserver->connectNotify(*signal);
     } else {
-        ((VirtualQSctpServer*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSctpServer::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSctpServer_SuperConnectNotify(QSctpServer* self, const QMetaMethod* signal) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_ConnectNotify_IsBase(true);
-        vqsctpserver->connectNotify(*signal);
-    } else {
-        ((VirtualQSctpServer*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self)) {
+        vqsctpserver->QSctpServer::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSctpServer::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnConnectNotify(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_ConnectNotify_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_ConnectNotify_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_connectnotify_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSctpServer_DisconnectNotify(QSctpServer* self, const QMetaMethod* signal) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver) {
         vqsctpserver->disconnectNotify(*signal);
     } else {
-        ((VirtualQSctpServer*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSctpServer::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSctpServer_SuperDisconnectNotify(QSctpServer* self, const QMetaMethod* signal) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_DisconnectNotify_IsBase(true);
-        vqsctpserver->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSctpServer*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self)) {
+        vqsctpserver->QSctpServer::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSctpServer::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnDisconnectNotify(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_DisconnectNotify_Callback>(slot));
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self))
+        vqsctpserver->qsctpserver_disconnectnotify_callback = reinterpret_cast<VirtualQSctpServer::QSctpServer_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSctpServer_AddPendingConnection(QSctpServer* self, QTcpSocket* socket) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->addPendingConnection(socket);
-    } else {
-        ((VirtualQSctpServer*)self)->addPendingConnection(socket);
-    }
+    if (auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self)) {
+        vqsctpserver->VirtualQSctpServer::addPendingConnection(socket);
+    } else
+        qFatal("Error: Protected method QSctpServer::addPendingConnection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSctpServer_SuperAddPendingConnection(QSctpServer* self, QTcpSocket* socket) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_AddPendingConnection_IsBase(true);
-        vqsctpserver->addPendingConnection(socket);
-    } else {
-        ((VirtualQSctpServer*)self)->addPendingConnection(socket);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSctpServer_OnAddPendingConnection(QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_AddPendingConnection_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_AddPendingConnection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSctpServer_Sender(const QSctpServer* self) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return vqsctpserver->sender();
-    } else {
-        return ((VirtualQSctpServer*)self)->sender();
-    }
+    if (auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self))) {
+        return vqsctpserver->VirtualQSctpServer::sender();
+    } else
+        qFatal("Error: Protected method QSctpServer::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSctpServer_SuperSender(const QSctpServer* self) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_Sender_IsBase(true);
-        return vqsctpserver->sender();
-    } else {
-        return ((VirtualQSctpServer*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSctpServer_OnSender(const QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_Sender_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSctpServer_SenderSignalIndex(const QSctpServer* self) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return vqsctpserver->senderSignalIndex();
-    } else {
-        return ((VirtualQSctpServer*)self)->senderSignalIndex();
-    }
+    if (auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self))) {
+        return vqsctpserver->VirtualQSctpServer::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSctpServer::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSctpServer_SuperSenderSignalIndex(const QSctpServer* self) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_SenderSignalIndex_IsBase(true);
-        return vqsctpserver->senderSignalIndex();
-    } else {
-        return ((VirtualQSctpServer*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSctpServer_OnSenderSignalIndex(const QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSctpServer_Receivers(const QSctpServer* self, const char* signal) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return vqsctpserver->receivers(signal);
-    } else {
-        return ((VirtualQSctpServer*)self)->receivers(signal);
-    }
+    if (auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self))) {
+        return vqsctpserver->VirtualQSctpServer::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSctpServer::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSctpServer_SuperReceivers(const QSctpServer* self, const char* signal) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_Receivers_IsBase(true);
-        return vqsctpserver->receivers(signal);
-    } else {
-        return ((VirtualQSctpServer*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSctpServer_OnReceivers(const QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_Receivers_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSctpServer_IsSignalConnected(const QSctpServer* self, const QMetaMethod* signal) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return vqsctpserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSctpServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSctpServer_SuperIsSignalConnected(const QSctpServer* self, const QMetaMethod* signal) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        vqsctpserver->setQSctpServer_IsSignalConnected_IsBase(true);
-        return vqsctpserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSctpServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSctpServer_OnIsSignalConnected(const QSctpServer* self, intptr_t slot) {
-    auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
-        vqsctpserver->setQSctpServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_IsSignalConnected_Callback>(slot));
+    if (auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self))) {
+        return vqsctpserver->VirtualQSctpServer::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSctpServer::isSignalConnected called without a directly constructed type");
 }
 
 void QSctpServer_Delete(QSctpServer* self) {

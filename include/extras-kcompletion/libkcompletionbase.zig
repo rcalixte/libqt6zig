@@ -377,6 +377,8 @@ pub const KCompletionBase = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedText)
     ///
+    /// This method must be implemented with `onSetCompletedText` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KCompletionBase `
@@ -409,33 +411,13 @@ pub const KCompletionBase = extern struct {
         qtc.KCompletionBase_OnSetCompletedText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetCompletedText` instead
-    ///
-    pub const SuperSetCompletedText = superSetCompletedText;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedText)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn superSetCompletedText(self: KCompletionBase, text: []const u8) void {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        qtc.KCompletionBase_SuperSetCompletedText(@ptrCast(self.ptr), text_str);
-    }
-
     /// ### DEPRECATED: Use `setCompletedItems` instead
     ///
     pub const SetCompletedItems = setCompletedItems;
 
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedItems)
+    ///
+    /// This method must be implemented with `onSetCompletedItems` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -480,39 +462,6 @@ pub const KCompletionBase = extern struct {
         qtc.KCompletionBase_OnSetCompletedItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetCompletedItems` instead
-    ///
-    pub const SuperSetCompletedItems = superSetCompletedItems;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setCompletedItems)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` items: []const []const u8 `
-    ///
-    /// ` autoSuggest: bool `
-    ///
-    pub fn superSetCompletedItems(self: KCompletionBase, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KCompletionBase.setCompletedItems: Memory allocation failed");
-        defer allocator.free(items_arr);
-        for (items, 0..items.len) |str_item, i|
-            items_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const items_list = qtc.libqt_list{
-            .len = items.len,
-            .data = items_arr.ptr,
-        };
-        qtc.KCompletionBase_SuperSetCompletedItems(@ptrCast(self.ptr), items_list, autoSuggest);
-    }
-
     /// ### DEPRECATED: Use `compObj` instead
     ///
     pub const CompObj = compObj;
@@ -545,73 +494,6 @@ pub const KCompletionBase = extern struct {
     ///
     pub fn keyBindingMap(self: KCompletionBase, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KCompletionBase_KeyBindingMap(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCompletionBase.keyBindingMap: Total capacity allocation failed");
-        defer {
-            const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-            for (0.._map.len) |i| {
-                qtc.libqt_free(_values[i].data);
-            }
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KCompletionBase.keyBindingMap: Memory allocation failed");
-            const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |j|
-                _value_slice[j] = .{ .ptr = _value_data[j] };
-            _ret.putAssumeCapacity(_key, _value_slice);
-        }
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onKeyBindingMap` instead
-    ///
-    pub const OnKeyBindingMap = onKeyBindingMap;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of ArrayMap_i32_SliceQKeySequence `
-    ///
-    pub fn onKeyBindingMap(self: KCompletionBase, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KCompletionBase_OnKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superKeyBindingMap` instead
-    ///
-    pub const SuperKeyBindingMap = superKeyBindingMap;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ## Returns:
-    ///
-    /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superKeyBindingMap(self: KCompletionBase, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
-        const _map: qtc.libqt_map = qtc.KCompletionBase_SuperKeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KCompletionBase.keyBindingMap: Total capacity allocation failed");
         defer {
@@ -676,65 +558,6 @@ pub const KCompletionBase = extern struct {
         qtc.KCompletionBase_SetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
-    /// ### DEPRECATED: Use `onSetKeyBindingMap` instead
-    ///
-    pub const OnSetKeyBindingMap = onSetKeyBindingMap;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` callback: *const fn (self: KCompletionBase, keyBindingMap: qtc.libqt_map (ArrayMap_i32_SliceQKeySequence)) callconv(.c) void `
-    ///
-    pub fn onSetKeyBindingMap(self: KCompletionBase, callback: *const fn (KCompletionBase, qtc.libqt_map) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetKeyBindingMap` instead
-    ///
-    pub const SuperSetKeyBindingMap = superSetKeyBindingMap;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
-    ///
-    pub fn superSetKeyBindingMap(self: KCompletionBase, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = _keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KCompletionBase.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KCompletionBase.setKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_values);
-        var keyBindingMap_i: usize = 0;
-        var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
-            const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
-            const value = it_entry.value_ptr.*;
-            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
-                .len = value.len,
-                .data = @ptrCast(value.ptr),
-            };
-        }
-        const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap_count,
-            .keys = @ptrCast(keyBindingMap_keys.ptr),
-            .values = @ptrCast(keyBindingMap_values.ptr),
-        };
-        qtc.KCompletionBase_SuperSetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
-    }
-
     /// ### DEPRECATED: Use `setDelegate` instead
     ///
     pub const SetDelegate = setDelegate;
@@ -753,44 +576,6 @@ pub const KCompletionBase = extern struct {
         qtc.KCompletionBase_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetDelegate` instead
-    ///
-    pub const OnSetDelegate = onSetDelegate;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` callback: *const fn (self: KCompletionBase, delegate: KCompletionBase) callconv(.c) void `
-    ///
-    pub fn onSetDelegate(self: KCompletionBase, callback: *const fn (KCompletionBase, KCompletionBase) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetDelegate` instead
-    ///
-    pub const SuperSetDelegate = superSetDelegate;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setDelegate)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` _delegate: KCompletionBase `
-    ///
-    pub fn superSetDelegate(self: KCompletionBase, _delegate: anytype) void {
-        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
-        const _delegate_ = if (@hasDecl(@TypeOf(_delegate), "asKCompletionBase")) _delegate.asKCompletionBase() else _delegate;
-        qtc.KCompletionBase_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
-    }
-
     /// ### DEPRECATED: Use `delegate` instead
     ///
     pub const Delegate = delegate;
@@ -803,40 +588,6 @@ pub const KCompletionBase = extern struct {
     ///
     pub fn delegate(self: KCompletionBase) KCompletionBase {
         return .{ .ptr = qtc.KCompletionBase_Delegate(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDelegate` instead
-    ///
-    pub const OnDelegate = onDelegate;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    /// ` callback: *const fn () callconv(.c) KCompletionBase `
-    ///
-    pub fn onDelegate(self: KCompletionBase, callback: *const fn () callconv(.c) KCompletionBase) void {
-        qtc.KCompletionBase_OnDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDelegate` instead
-    ///
-    pub const SuperDelegate = superDelegate;
-
-    /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#delegate)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KCompletionBase `
-    ///
-    pub fn superDelegate(self: KCompletionBase) KCompletionBase {
-        return .{ .ptr = qtc.KCompletionBase_SuperDelegate(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `virtualHook` instead

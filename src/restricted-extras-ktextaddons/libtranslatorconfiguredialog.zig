@@ -6551,9 +6551,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6797,11 +6797,11 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6855,11 +6855,11 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6913,9 +6913,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6969,9 +6969,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7085,9 +7085,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7141,9 +7141,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7575,9 +7575,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7691,9 +7691,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7747,9 +7747,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) QPaintEngine) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9365,9 +9365,9 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog) callconv(.c) QPainter) void {
         qtc.TextTranslator__TranslatorConfigureDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9886,47 +9886,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
         qtc.TextTranslator__TranslatorConfigureDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: TextTranslator__TranslatorConfigureDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.TextTranslator__TranslatorConfigureDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog, QWidget) callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -9943,44 +9902,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: TextTranslator__TranslatorConfigureDialog) void {
         qtc.TextTranslator__TranslatorConfigureDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: TextTranslator__TranslatorConfigureDialog) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10001,44 +9922,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
         qtc.TextTranslator__TranslatorConfigureDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    pub fn superCreate(self: TextTranslator__TranslatorConfigureDialog) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10055,44 +9938,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     pub fn destroy(self: TextTranslator__TranslatorConfigureDialog) void {
         qtc.TextTranslator__TranslatorConfigureDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    pub fn superDestroy(self: TextTranslator__TranslatorConfigureDialog) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10113,44 +9958,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
         return qtc.TextTranslator__TranslatorConfigureDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    pub fn superFocusNextChild(self: TextTranslator__TranslatorConfigureDialog) bool {
-        return qtc.TextTranslator__TranslatorConfigureDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10167,44 +9974,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: TextTranslator__TranslatorConfigureDialog) bool {
         return qtc.TextTranslator__TranslatorConfigureDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    pub fn superFocusPreviousChild(self: TextTranslator__TranslatorConfigureDialog) bool {
-        return qtc.TextTranslator__TranslatorConfigureDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10225,44 +9994,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    pub fn superSender(self: TextTranslator__TranslatorConfigureDialog) QObject {
-        return .{ .ptr = qtc.TextTranslator__TranslatorConfigureDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10279,44 +10010,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: TextTranslator__TranslatorConfigureDialog) i32 {
         return qtc.TextTranslator__TranslatorConfigureDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorConfigureDialog) i32 {
-        return qtc.TextTranslator__TranslatorConfigureDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10340,47 +10033,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
         return qtc.TextTranslator__TranslatorConfigureDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextTranslator__TranslatorConfigureDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextTranslator__TranslatorConfigureDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10400,47 +10052,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     pub fn isSignalConnected(self: TextTranslator__TranslatorConfigureDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorConfigureDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextTranslator__TranslatorConfigureDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextTranslator__TranslatorConfigureDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10463,48 +10074,6 @@ pub const TextTranslator__TranslatorConfigureDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextTranslator__TranslatorConfigureDialog, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorConfigureDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextTranslator__TranslatorConfigureDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.TextTranslator__TranslatorConfigureDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureDialog`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextTranslator__TranslatorConfigureDialog, callback: *const fn (TextTranslator__TranslatorConfigureDialog, i32, i32) callconv(.c) f64) void {
-        qtc.TextTranslator__TranslatorConfigureDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

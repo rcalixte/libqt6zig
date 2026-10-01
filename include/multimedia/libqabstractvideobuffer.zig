@@ -1,7 +1,5 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const QVideoFrameFormat = @import("libqt6").QVideoFrameFormat;
-const qvideoframe_enums = @import("libqvideoframe.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html)
 pub const QAbstractVideoBuffer = extern struct {
@@ -12,22 +10,6 @@ pub const QAbstractVideoBuffer = extern struct {
     ptr: QtC.QAbstractVideoBuffer,
 
     pub const _is_QAbstractVideoBuffer = {};
-
-    /// ### DEPRECATED: Use `map` instead
-    ///
-    pub const Map = map;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#map)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractVideoBuffer `
-    ///
-    /// ` mode: qvideoframe_enums.MapMode `
-    ///
-    pub fn map(self: QAbstractVideoBuffer, mode: i32) QAbstractVideoBuffer__MapData {
-        return .{ .ptr = qtc.QAbstractVideoBuffer_Map(@ptrCast(self.ptr), @bitCast(mode)) };
-    }
 
     /// ### DEPRECATED: Use `unmap` instead
     ///
@@ -41,20 +23,6 @@ pub const QAbstractVideoBuffer = extern struct {
     ///
     pub fn unmap(self: QAbstractVideoBuffer) void {
         qtc.QAbstractVideoBuffer_Unmap(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `format` instead
-    ///
-    pub const Format = format;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#format)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractVideoBuffer `
-    ///
-    pub fn format(self: QAbstractVideoBuffer) QVideoFrameFormat {
-        return .{ .ptr = qtc.QAbstractVideoBuffer_Format(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead

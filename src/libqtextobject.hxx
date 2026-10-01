@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QTextFrame so that we can call protected methods
+// This class is a subclass of QTextFrame
 class VirtualQTextFrame final : public QTextFrame {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQTextFrame = true;
-
-    // Virtual class public types (including callbacks)
-    using QTextFrame_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QTextFrame_MetaObject_Callback = QMetaObject* (*)(const QTextFrame*);
     using QTextFrame_Metacast_Callback = void* (*)(QTextFrame*, const char*);
     using QTextFrame_Metacall_Callback = int (*)(QTextFrame*, int, int, void**);
     using QTextFrame_Event_Callback = bool (*)(QTextFrame*, QEvent*);
@@ -27,13 +23,12 @@ class VirtualQTextFrame final : public QTextFrame {
     using QTextFrame_CustomEvent_Callback = void (*)(QTextFrame*, QEvent*);
     using QTextFrame_ConnectNotify_Callback = void (*)(QTextFrame*, QMetaMethod*);
     using QTextFrame_DisconnectNotify_Callback = void (*)(QTextFrame*, QMetaMethod*);
-    using QTextFrame_SetFormat_Callback = void (*)(QTextFrame*, QTextFormat*);
-    using QTextFrame_Sender_Callback = QObject* (*)();
-    using QTextFrame_SenderSignalIndex_Callback = int (*)();
-    using QTextFrame_Receivers_Callback = int (*)(const QTextFrame*, const char*);
-    using QTextFrame_IsSignalConnected_Callback = bool (*)(const QTextFrame*, QMetaMethod*);
+    using QTextFrame::isSignalConnected;
+    using QTextFrame::receivers;
+    using QTextFrame::sender;
+    using QTextFrame::senderSignalIndex;
+    using QTextFrame::setFormat;
 
-  protected:
     // Instance callback storage
     QTextFrame_MetaObject_Callback qtextframe_metaobject_callback = nullptr;
     QTextFrame_Metacast_Callback qtextframe_metacast_callback = nullptr;
@@ -45,75 +40,22 @@ class VirtualQTextFrame final : public QTextFrame {
     QTextFrame_CustomEvent_Callback qtextframe_customevent_callback = nullptr;
     QTextFrame_ConnectNotify_Callback qtextframe_connectnotify_callback = nullptr;
     QTextFrame_DisconnectNotify_Callback qtextframe_disconnectnotify_callback = nullptr;
-    QTextFrame_SetFormat_Callback qtextframe_setformat_callback = nullptr;
-    QTextFrame_Sender_Callback qtextframe_sender_callback = nullptr;
-    QTextFrame_SenderSignalIndex_Callback qtextframe_sendersignalindex_callback = nullptr;
-    QTextFrame_Receivers_Callback qtextframe_receivers_callback = nullptr;
-    QTextFrame_IsSignalConnected_Callback qtextframe_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qtextframe_metaobject_isbase = false;
-    mutable bool qtextframe_metacast_isbase = false;
-    mutable bool qtextframe_metacall_isbase = false;
-    mutable bool qtextframe_event_isbase = false;
-    mutable bool qtextframe_eventfilter_isbase = false;
-    mutable bool qtextframe_timerevent_isbase = false;
-    mutable bool qtextframe_childevent_isbase = false;
-    mutable bool qtextframe_customevent_isbase = false;
-    mutable bool qtextframe_connectnotify_isbase = false;
-    mutable bool qtextframe_disconnectnotify_isbase = false;
-    mutable bool qtextframe_setformat_isbase = false;
-    mutable bool qtextframe_sender_isbase = false;
-    mutable bool qtextframe_sendersignalindex_isbase = false;
-    mutable bool qtextframe_receivers_isbase = false;
-    mutable bool qtextframe_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QTextFrame {
+        using QTextFrame::childEvent;
+        using QTextFrame::connectNotify;
+        using QTextFrame::customEvent;
+        using QTextFrame::disconnectNotify;
+        using QTextFrame::timerEvent;
+    };
 
-  public:
     VirtualQTextFrame(QTextDocument* doc) : QTextFrame(doc) {};
-
-    // Callback setters
-    inline void setQTextFrame_MetaObject_Callback(QTextFrame_MetaObject_Callback cb) { qtextframe_metaobject_callback = cb; }
-    inline void setQTextFrame_Metacast_Callback(QTextFrame_Metacast_Callback cb) { qtextframe_metacast_callback = cb; }
-    inline void setQTextFrame_Metacall_Callback(QTextFrame_Metacall_Callback cb) { qtextframe_metacall_callback = cb; }
-    inline void setQTextFrame_Event_Callback(QTextFrame_Event_Callback cb) { qtextframe_event_callback = cb; }
-    inline void setQTextFrame_EventFilter_Callback(QTextFrame_EventFilter_Callback cb) { qtextframe_eventfilter_callback = cb; }
-    inline void setQTextFrame_TimerEvent_Callback(QTextFrame_TimerEvent_Callback cb) { qtextframe_timerevent_callback = cb; }
-    inline void setQTextFrame_ChildEvent_Callback(QTextFrame_ChildEvent_Callback cb) { qtextframe_childevent_callback = cb; }
-    inline void setQTextFrame_CustomEvent_Callback(QTextFrame_CustomEvent_Callback cb) { qtextframe_customevent_callback = cb; }
-    inline void setQTextFrame_ConnectNotify_Callback(QTextFrame_ConnectNotify_Callback cb) { qtextframe_connectnotify_callback = cb; }
-    inline void setQTextFrame_DisconnectNotify_Callback(QTextFrame_DisconnectNotify_Callback cb) { qtextframe_disconnectnotify_callback = cb; }
-    inline void setQTextFrame_SetFormat_Callback(QTextFrame_SetFormat_Callback cb) { qtextframe_setformat_callback = cb; }
-    inline void setQTextFrame_Sender_Callback(QTextFrame_Sender_Callback cb) { qtextframe_sender_callback = cb; }
-    inline void setQTextFrame_SenderSignalIndex_Callback(QTextFrame_SenderSignalIndex_Callback cb) { qtextframe_sendersignalindex_callback = cb; }
-    inline void setQTextFrame_Receivers_Callback(QTextFrame_Receivers_Callback cb) { qtextframe_receivers_callback = cb; }
-    inline void setQTextFrame_IsSignalConnected_Callback(QTextFrame_IsSignalConnected_Callback cb) { qtextframe_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQTextFrame_MetaObject_IsBase(bool value) const { qtextframe_metaobject_isbase = value; }
-    inline void setQTextFrame_Metacast_IsBase(bool value) const { qtextframe_metacast_isbase = value; }
-    inline void setQTextFrame_Metacall_IsBase(bool value) const { qtextframe_metacall_isbase = value; }
-    inline void setQTextFrame_Event_IsBase(bool value) const { qtextframe_event_isbase = value; }
-    inline void setQTextFrame_EventFilter_IsBase(bool value) const { qtextframe_eventfilter_isbase = value; }
-    inline void setQTextFrame_TimerEvent_IsBase(bool value) const { qtextframe_timerevent_isbase = value; }
-    inline void setQTextFrame_ChildEvent_IsBase(bool value) const { qtextframe_childevent_isbase = value; }
-    inline void setQTextFrame_CustomEvent_IsBase(bool value) const { qtextframe_customevent_isbase = value; }
-    inline void setQTextFrame_ConnectNotify_IsBase(bool value) const { qtextframe_connectnotify_isbase = value; }
-    inline void setQTextFrame_DisconnectNotify_IsBase(bool value) const { qtextframe_disconnectnotify_isbase = value; }
-    inline void setQTextFrame_SetFormat_IsBase(bool value) const { qtextframe_setformat_isbase = value; }
-    inline void setQTextFrame_Sender_IsBase(bool value) const { qtextframe_sender_isbase = value; }
-    inline void setQTextFrame_SenderSignalIndex_IsBase(bool value) const { qtextframe_sendersignalindex_isbase = value; }
-    inline void setQTextFrame_Receivers_IsBase(bool value) const { qtextframe_receivers_isbase = value; }
-    inline void setQTextFrame_IsSignalConnected_IsBase(bool value) const { qtextframe_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qtextframe_metaobject_isbase) {
-            qtextframe_metaobject_isbase = false;
-            return QTextFrame::metaObject();
-        }
-        auto metaobject_cb = qtextframe_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qtextframe_metaobject_callback) {
+            QMetaObject* callback_ret = qtextframe_metaobject_callback(this);
             return callback_ret;
         }
         return QTextFrame::metaObject();
@@ -121,14 +63,9 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qtextframe_metacast_isbase) {
-            qtextframe_metacast_isbase = false;
-            return QTextFrame::qt_metacast(param1);
-        }
-        auto metacast_cb = qtextframe_metacast_callback;
-        if (metacast_cb) {
+        if (qtextframe_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qtextframe_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QTextFrame::qt_metacast(param1);
@@ -136,16 +73,11 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qtextframe_metacall_isbase) {
-            qtextframe_metacall_isbase = false;
-            return QTextFrame::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qtextframe_metacall_callback;
-        if (metacall_cb) {
+        if (qtextframe_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qtextframe_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QTextFrame::qt_metacall(param1, param2, param3);
@@ -153,14 +85,9 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qtextframe_event_isbase) {
-            qtextframe_event_isbase = false;
-            return QTextFrame::event(event);
-        }
-        auto event_cb = qtextframe_event_callback;
-        if (event_cb) {
+        if (qtextframe_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qtextframe_event_callback(this, cbval1);
             return callback_ret;
         }
         return QTextFrame::event(event);
@@ -168,15 +95,10 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qtextframe_eventfilter_isbase) {
-            qtextframe_eventfilter_isbase = false;
-            return QTextFrame::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qtextframe_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qtextframe_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qtextframe_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QTextFrame::eventFilter(watched, event);
@@ -184,15 +106,9 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qtextframe_timerevent_isbase) {
-            qtextframe_timerevent_isbase = false;
-            QTextFrame::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qtextframe_timerevent_callback;
-        if (timerevent_cb) {
+        if (qtextframe_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qtextframe_timerevent_callback(this, cbval1);
             return;
         }
         QTextFrame::timerEvent(event);
@@ -200,15 +116,9 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qtextframe_childevent_isbase) {
-            qtextframe_childevent_isbase = false;
-            QTextFrame::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qtextframe_childevent_callback;
-        if (childevent_cb) {
+        if (qtextframe_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qtextframe_childevent_callback(this, cbval1);
             return;
         }
         QTextFrame::childEvent(event);
@@ -216,15 +126,9 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qtextframe_customevent_isbase) {
-            qtextframe_customevent_isbase = false;
-            QTextFrame::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qtextframe_customevent_callback;
-        if (customevent_cb) {
+        if (qtextframe_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qtextframe_customevent_callback(this, cbval1);
             return;
         }
         QTextFrame::customEvent(event);
@@ -232,17 +136,11 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qtextframe_connectnotify_isbase) {
-            qtextframe_connectnotify_isbase = false;
-            QTextFrame::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qtextframe_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qtextframe_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qtextframe_connectnotify_callback(this, cbval1);
             return;
         }
         QTextFrame::connectNotify(signal);
@@ -250,121 +148,22 @@ class VirtualQTextFrame final : public QTextFrame {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qtextframe_disconnectnotify_isbase) {
-            qtextframe_disconnectnotify_isbase = false;
-            QTextFrame::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qtextframe_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qtextframe_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qtextframe_disconnectnotify_callback(this, cbval1);
             return;
         }
         QTextFrame::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void setFormat(const QTextFormat& format) {
-        if (qtextframe_setformat_isbase) {
-            qtextframe_setformat_isbase = false;
-            QTextFrame::setFormat(format);
-            return;
-        }
-        auto setformat_cb = qtextframe_setformat_callback;
-        if (setformat_cb) {
-            const QTextFormat& format_ret = format;
-            // Cast returned reference into pointer
-            QTextFormat* cbval1 = const_cast<QTextFormat*>(&format_ret);
-            setformat_cb(this, cbval1);
-            return;
-        }
-        QTextFrame::setFormat(format);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qtextframe_sender_isbase) {
-            qtextframe_sender_isbase = false;
-            return QTextFrame::sender();
-        }
-        auto sender_cb = qtextframe_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QTextFrame::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qtextframe_sendersignalindex_isbase) {
-            qtextframe_sendersignalindex_isbase = false;
-            return QTextFrame::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qtextframe_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QTextFrame::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qtextframe_receivers_isbase) {
-            qtextframe_receivers_isbase = false;
-            return QTextFrame::receivers(signal);
-        }
-        auto receivers_cb = qtextframe_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QTextFrame::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qtextframe_issignalconnected_isbase) {
-            qtextframe_issignalconnected_isbase = false;
-            return QTextFrame::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qtextframe_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QTextFrame::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QTextFrame_TimerEvent(QTextFrame* self, QTimerEvent* event);
     friend void QTextFrame_SuperTimerEvent(QTextFrame* self, QTimerEvent* event);
-    friend void QTextFrame_ChildEvent(QTextFrame* self, QChildEvent* event);
     friend void QTextFrame_SuperChildEvent(QTextFrame* self, QChildEvent* event);
-    friend void QTextFrame_CustomEvent(QTextFrame* self, QEvent* event);
     friend void QTextFrame_SuperCustomEvent(QTextFrame* self, QEvent* event);
-    friend void QTextFrame_ConnectNotify(QTextFrame* self, const QMetaMethod* signal);
     friend void QTextFrame_SuperConnectNotify(QTextFrame* self, const QMetaMethod* signal);
-    friend void QTextFrame_DisconnectNotify(QTextFrame* self, const QMetaMethod* signal);
     friend void QTextFrame_SuperDisconnectNotify(QTextFrame* self, const QMetaMethod* signal);
-    friend void QTextFrame_SetFormat(QTextFrame* self, const QTextFormat* format);
-    friend void QTextFrame_SuperSetFormat(QTextFrame* self, const QTextFormat* format);
-    friend QObject* QTextFrame_Sender(const QTextFrame* self);
-    friend QObject* QTextFrame_SuperSender(const QTextFrame* self);
-    friend int QTextFrame_SenderSignalIndex(const QTextFrame* self);
-    friend int QTextFrame_SuperSenderSignalIndex(const QTextFrame* self);
-    friend int QTextFrame_Receivers(const QTextFrame* self, const char* signal);
-    friend int QTextFrame_SuperReceivers(const QTextFrame* self, const char* signal);
-    friend bool QTextFrame_IsSignalConnected(const QTextFrame* self, const QMetaMethod* signal);
-    friend bool QTextFrame_SuperIsSignalConnected(const QTextFrame* self, const QMetaMethod* signal);
 };
 
 #endif

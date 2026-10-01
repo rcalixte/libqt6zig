@@ -47,56 +47,20 @@ QOpenGLContext* QNativeInterface__QEGLContext_FromNative3(void* context, void* d
 }
 #endif
 
-// Base class handler implementation
-void* QNativeInterface__QEGLContext_SuperNativeContext(const QNativeInterface__QEGLContext* self) {
-    auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self));
-    if (vqnativeinterfaceqeglcontext && vqnativeinterfaceqeglcontext->isVirtualQNativeInterfaceQEGLContext) {
-        vqnativeinterfaceqeglcontext->setQNativeInterface__QEGLContext_NativeContext_IsBase(true);
-        return static_cast<void*>(vqnativeinterfaceqeglcontext->nativeContext());
-    } else {
-        return static_cast<void*>(((VirtualQNativeInterfaceQEGLContext*)self)->nativeContext());
-    }
+// Auxiliary method to allow providing re-implementation
+void QNativeInterface__QEGLContext_OnNativeContext(QNativeInterface__QEGLContext* self, intptr_t slot) {
+    if (auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self)))
+        vqnativeinterfaceqeglcontext->qnativeinterface__qeglcontext_nativecontext_callback = reinterpret_cast<VirtualQNativeInterfaceQEGLContext::QNativeInterface__QEGLContext_NativeContext_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QNativeInterface__QEGLContext_OnNativeContext(const QNativeInterface__QEGLContext* self, intptr_t slot) {
-    auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self));
-    if (vqnativeinterfaceqeglcontext && vqnativeinterfaceqeglcontext->isVirtualQNativeInterfaceQEGLContext)
-        vqnativeinterfaceqeglcontext->setQNativeInterface__QEGLContext_NativeContext_Callback(reinterpret_cast<VirtualQNativeInterfaceQEGLContext::QNativeInterface__QEGLContext_NativeContext_Callback>(slot));
-}
-
-// Base class handler implementation
-void* QNativeInterface__QEGLContext_SuperConfig(const QNativeInterface__QEGLContext* self) {
-    auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self));
-    if (vqnativeinterfaceqeglcontext && vqnativeinterfaceqeglcontext->isVirtualQNativeInterfaceQEGLContext) {
-        vqnativeinterfaceqeglcontext->setQNativeInterface__QEGLContext_Config_IsBase(true);
-        return static_cast<void*>(vqnativeinterfaceqeglcontext->config());
-    } else {
-        return static_cast<void*>(((VirtualQNativeInterfaceQEGLContext*)self)->config());
-    }
+void QNativeInterface__QEGLContext_OnConfig(QNativeInterface__QEGLContext* self, intptr_t slot) {
+    if (auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self)))
+        vqnativeinterfaceqeglcontext->qnativeinterface__qeglcontext_config_callback = reinterpret_cast<VirtualQNativeInterfaceQEGLContext::QNativeInterface__QEGLContext_Config_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QNativeInterface__QEGLContext_OnConfig(const QNativeInterface__QEGLContext* self, intptr_t slot) {
-    auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self));
-    if (vqnativeinterfaceqeglcontext && vqnativeinterfaceqeglcontext->isVirtualQNativeInterfaceQEGLContext)
-        vqnativeinterfaceqeglcontext->setQNativeInterface__QEGLContext_Config_Callback(reinterpret_cast<VirtualQNativeInterfaceQEGLContext::QNativeInterface__QEGLContext_Config_Callback>(slot));
-}
-
-// Base class handler implementation
-void* QNativeInterface__QEGLContext_SuperDisplay(const QNativeInterface__QEGLContext* self) {
-    auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self));
-    if (vqnativeinterfaceqeglcontext && vqnativeinterfaceqeglcontext->isVirtualQNativeInterfaceQEGLContext) {
-        vqnativeinterfaceqeglcontext->setQNativeInterface__QEGLContext_Display_IsBase(true);
-        return static_cast<void*>(vqnativeinterfaceqeglcontext->display());
-    } else {
-        return static_cast<void*>(((VirtualQNativeInterfaceQEGLContext*)self)->display());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QNativeInterface__QEGLContext_OnDisplay(const QNativeInterface__QEGLContext* self, intptr_t slot) {
-    auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self));
-    if (vqnativeinterfaceqeglcontext && vqnativeinterfaceqeglcontext->isVirtualQNativeInterfaceQEGLContext)
-        vqnativeinterfaceqeglcontext->setQNativeInterface__QEGLContext_Display_Callback(reinterpret_cast<VirtualQNativeInterfaceQEGLContext::QNativeInterface__QEGLContext_Display_Callback>(slot));
+void QNativeInterface__QEGLContext_OnDisplay(QNativeInterface__QEGLContext* self, intptr_t slot) {
+    if (auto* vqnativeinterfaceqeglcontext = const_cast<VirtualQNativeInterfaceQEGLContext*>(dynamic_cast<const VirtualQNativeInterfaceQEGLContext*>(self)))
+        vqnativeinterfaceqeglcontext->qnativeinterface__qeglcontext_display_callback = reinterpret_cast<VirtualQNativeInterfaceQEGLContext::QNativeInterface__QEGLContext_Display_Callback>(slot);
 }

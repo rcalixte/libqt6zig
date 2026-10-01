@@ -69,17 +69,9 @@ bool KZip_CreateDevice(KZip* self, int mode);
 void KZip_OnCreateDevice(KZip* self, intptr_t slot);
 bool KZip_SuperCreateDevice(KZip* self, int mode);
 void KZip_SetErrorString(KZip* self, const libqt_string errorStr);
-void KZip_OnSetErrorString(KZip* self, intptr_t slot);
-void KZip_SuperSetErrorString(KZip* self, const libqt_string errorStr);
 KArchiveDirectory* KZip_FindOrCreate(KZip* self, const libqt_string path);
-void KZip_OnFindOrCreate(KZip* self, intptr_t slot);
-KArchiveDirectory* KZip_SuperFindOrCreate(KZip* self, const libqt_string path);
 void KZip_SetDevice(KZip* self, QIODevice* dev);
-void KZip_OnSetDevice(KZip* self, intptr_t slot);
-void KZip_SuperSetDevice(KZip* self, QIODevice* dev);
 void KZip_SetRootDir(KZip* self, KArchiveDirectory* rootDir);
-void KZip_OnSetRootDir(KZip* self, intptr_t slot);
-void KZip_SuperSetRootDir(KZip* self, KArchiveDirectory* rootDir);
 void KZip_Delete(KZip* self);
 
 #ifdef __cplusplus

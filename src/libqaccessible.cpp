@@ -970,20 +970,13 @@ QAccessibleInterface* QAccessibleEvent_AccessibleInterface(const QAccessibleEven
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleEvent_SuperAccessibleInterface(const QAccessibleEvent* self) {
-    auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self));
-    if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent) {
-        vqaccessibleevent->setQAccessibleEvent_AccessibleInterface_IsBase(true);
-        return vqaccessibleevent->accessibleInterface();
-    } else {
-        return self->QAccessibleEvent::accessibleInterface();
-    }
+    return self->QAccessibleEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleEvent_OnAccessibleInterface(const QAccessibleEvent* self, intptr_t slot) {
-    auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self));
-    if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent)
-        vqaccessibleevent->setQAccessibleEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleEvent::QAccessibleEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleEvent_OnAccessibleInterface(QAccessibleEvent* self, intptr_t slot) {
+    if (auto* vqaccessibleevent = const_cast<VirtualQAccessibleEvent*>(dynamic_cast<const VirtualQAccessibleEvent*>(self)))
+        vqaccessibleevent->qaccessibleevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleEvent::QAccessibleEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleEvent_Delete(QAccessibleEvent* self) {
@@ -1004,30 +997,18 @@ QAccessible__State* QAccessibleStateChangeEvent_ChangedStates(const QAccessibleS
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleStateChangeEvent_AccessibleInterface(const QAccessibleStateChangeEvent* self) {
-    auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self));
-    if (vqaccessiblestatechangeevent && vqaccessiblestatechangeevent->isVirtualQAccessibleStateChangeEvent) {
-        return vqaccessiblestatechangeevent->accessibleInterface();
-    } else {
-        return self->QAccessibleStateChangeEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleStateChangeEvent_SuperAccessibleInterface(const QAccessibleStateChangeEvent* self) {
-    auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self));
-    if (vqaccessiblestatechangeevent && vqaccessiblestatechangeevent->isVirtualQAccessibleStateChangeEvent) {
-        vqaccessiblestatechangeevent->setQAccessibleStateChangeEvent_AccessibleInterface_IsBase(true);
-        return vqaccessiblestatechangeevent->accessibleInterface();
-    } else {
-        return self->QAccessibleStateChangeEvent::accessibleInterface();
-    }
+    return self->QAccessibleStateChangeEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleStateChangeEvent_OnAccessibleInterface(const QAccessibleStateChangeEvent* self, intptr_t slot) {
-    auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self));
-    if (vqaccessiblestatechangeevent && vqaccessiblestatechangeevent->isVirtualQAccessibleStateChangeEvent)
-        vqaccessiblestatechangeevent->setQAccessibleStateChangeEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleStateChangeEvent::QAccessibleStateChangeEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleStateChangeEvent_OnAccessibleInterface(QAccessibleStateChangeEvent* self, intptr_t slot) {
+    if (auto* vqaccessiblestatechangeevent = const_cast<VirtualQAccessibleStateChangeEvent*>(dynamic_cast<const VirtualQAccessibleStateChangeEvent*>(self)))
+        vqaccessiblestatechangeevent->qaccessiblestatechangeevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleStateChangeEvent::QAccessibleStateChangeEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleStateChangeEvent_Delete(QAccessibleStateChangeEvent* self) {
@@ -1052,30 +1033,18 @@ int QAccessibleTextCursorEvent_CursorPosition(const QAccessibleTextCursorEvent* 
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextCursorEvent_AccessibleInterface(const QAccessibleTextCursorEvent* self) {
-    auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self));
-    if (vqaccessibletextcursorevent && vqaccessibletextcursorevent->isVirtualQAccessibleTextCursorEvent) {
-        return vqaccessibletextcursorevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextCursorEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextCursorEvent_SuperAccessibleInterface(const QAccessibleTextCursorEvent* self) {
-    auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self));
-    if (vqaccessibletextcursorevent && vqaccessibletextcursorevent->isVirtualQAccessibleTextCursorEvent) {
-        vqaccessibletextcursorevent->setQAccessibleTextCursorEvent_AccessibleInterface_IsBase(true);
-        return vqaccessibletextcursorevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextCursorEvent::accessibleInterface();
-    }
+    return self->QAccessibleTextCursorEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleTextCursorEvent_OnAccessibleInterface(const QAccessibleTextCursorEvent* self, intptr_t slot) {
-    auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self));
-    if (vqaccessibletextcursorevent && vqaccessibletextcursorevent->isVirtualQAccessibleTextCursorEvent)
-        vqaccessibletextcursorevent->setQAccessibleTextCursorEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextCursorEvent::QAccessibleTextCursorEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleTextCursorEvent_OnAccessibleInterface(QAccessibleTextCursorEvent* self, intptr_t slot) {
+    if (auto* vqaccessibletextcursorevent = const_cast<VirtualQAccessibleTextCursorEvent*>(dynamic_cast<const VirtualQAccessibleTextCursorEvent*>(self)))
+        vqaccessibletextcursorevent->qaccessibletextcursorevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleTextCursorEvent::QAccessibleTextCursorEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleTextCursorEvent_Delete(QAccessibleTextCursorEvent* self) {
@@ -1104,30 +1073,18 @@ int QAccessibleTextSelectionEvent_SelectionEnd(const QAccessibleTextSelectionEve
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextSelectionEvent_AccessibleInterface(const QAccessibleTextSelectionEvent* self) {
-    auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self));
-    if (vqaccessibletextselectionevent && vqaccessibletextselectionevent->isVirtualQAccessibleTextSelectionEvent) {
-        return vqaccessibletextselectionevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextSelectionEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextSelectionEvent_SuperAccessibleInterface(const QAccessibleTextSelectionEvent* self) {
-    auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self));
-    if (vqaccessibletextselectionevent && vqaccessibletextselectionevent->isVirtualQAccessibleTextSelectionEvent) {
-        vqaccessibletextselectionevent->setQAccessibleTextSelectionEvent_AccessibleInterface_IsBase(true);
-        return vqaccessibletextselectionevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextSelectionEvent::accessibleInterface();
-    }
+    return self->QAccessibleTextSelectionEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleTextSelectionEvent_OnAccessibleInterface(const QAccessibleTextSelectionEvent* self, intptr_t slot) {
-    auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self));
-    if (vqaccessibletextselectionevent && vqaccessibletextselectionevent->isVirtualQAccessibleTextSelectionEvent)
-        vqaccessibletextselectionevent->setQAccessibleTextSelectionEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextSelectionEvent::QAccessibleTextSelectionEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleTextSelectionEvent_OnAccessibleInterface(QAccessibleTextSelectionEvent* self, intptr_t slot) {
+    if (auto* vqaccessibletextselectionevent = const_cast<VirtualQAccessibleTextSelectionEvent*>(dynamic_cast<const VirtualQAccessibleTextSelectionEvent*>(self)))
+        vqaccessibletextselectionevent->qaccessibletextselectionevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleTextSelectionEvent::QAccessibleTextSelectionEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleTextSelectionEvent_Delete(QAccessibleTextSelectionEvent* self) {
@@ -1162,30 +1119,18 @@ int QAccessibleTextInsertEvent_ChangePosition(const QAccessibleTextInsertEvent* 
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextInsertEvent_AccessibleInterface(const QAccessibleTextInsertEvent* self) {
-    auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self));
-    if (vqaccessibletextinsertevent && vqaccessibletextinsertevent->isVirtualQAccessibleTextInsertEvent) {
-        return vqaccessibletextinsertevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextInsertEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextInsertEvent_SuperAccessibleInterface(const QAccessibleTextInsertEvent* self) {
-    auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self));
-    if (vqaccessibletextinsertevent && vqaccessibletextinsertevent->isVirtualQAccessibleTextInsertEvent) {
-        vqaccessibletextinsertevent->setQAccessibleTextInsertEvent_AccessibleInterface_IsBase(true);
-        return vqaccessibletextinsertevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextInsertEvent::accessibleInterface();
-    }
+    return self->QAccessibleTextInsertEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleTextInsertEvent_OnAccessibleInterface(const QAccessibleTextInsertEvent* self, intptr_t slot) {
-    auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self));
-    if (vqaccessibletextinsertevent && vqaccessibletextinsertevent->isVirtualQAccessibleTextInsertEvent)
-        vqaccessibletextinsertevent->setQAccessibleTextInsertEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextInsertEvent::QAccessibleTextInsertEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleTextInsertEvent_OnAccessibleInterface(QAccessibleTextInsertEvent* self, intptr_t slot) {
+    if (auto* vqaccessibletextinsertevent = const_cast<VirtualQAccessibleTextInsertEvent*>(dynamic_cast<const VirtualQAccessibleTextInsertEvent*>(self)))
+        vqaccessibletextinsertevent->qaccessibletextinsertevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleTextInsertEvent::QAccessibleTextInsertEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleTextInsertEvent_Delete(QAccessibleTextInsertEvent* self) {
@@ -1220,30 +1165,18 @@ int QAccessibleTextRemoveEvent_ChangePosition(const QAccessibleTextRemoveEvent* 
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextRemoveEvent_AccessibleInterface(const QAccessibleTextRemoveEvent* self) {
-    auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self));
-    if (vqaccessibletextremoveevent && vqaccessibletextremoveevent->isVirtualQAccessibleTextRemoveEvent) {
-        return vqaccessibletextremoveevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextRemoveEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextRemoveEvent_SuperAccessibleInterface(const QAccessibleTextRemoveEvent* self) {
-    auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self));
-    if (vqaccessibletextremoveevent && vqaccessibletextremoveevent->isVirtualQAccessibleTextRemoveEvent) {
-        vqaccessibletextremoveevent->setQAccessibleTextRemoveEvent_AccessibleInterface_IsBase(true);
-        return vqaccessibletextremoveevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextRemoveEvent::accessibleInterface();
-    }
+    return self->QAccessibleTextRemoveEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleTextRemoveEvent_OnAccessibleInterface(const QAccessibleTextRemoveEvent* self, intptr_t slot) {
-    auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self));
-    if (vqaccessibletextremoveevent && vqaccessibletextremoveevent->isVirtualQAccessibleTextRemoveEvent)
-        vqaccessibletextremoveevent->setQAccessibleTextRemoveEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextRemoveEvent::QAccessibleTextRemoveEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleTextRemoveEvent_OnAccessibleInterface(QAccessibleTextRemoveEvent* self, intptr_t slot) {
+    if (auto* vqaccessibletextremoveevent = const_cast<VirtualQAccessibleTextRemoveEvent*>(dynamic_cast<const VirtualQAccessibleTextRemoveEvent*>(self)))
+        vqaccessibletextremoveevent->qaccessibletextremoveevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleTextRemoveEvent::QAccessibleTextRemoveEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleTextRemoveEvent_Delete(QAccessibleTextRemoveEvent* self) {
@@ -1292,30 +1225,18 @@ int QAccessibleTextUpdateEvent_ChangePosition(const QAccessibleTextUpdateEvent* 
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTextUpdateEvent_AccessibleInterface(const QAccessibleTextUpdateEvent* self) {
-    auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self));
-    if (vqaccessibletextupdateevent && vqaccessibletextupdateevent->isVirtualQAccessibleTextUpdateEvent) {
-        return vqaccessibletextupdateevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextUpdateEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTextUpdateEvent_SuperAccessibleInterface(const QAccessibleTextUpdateEvent* self) {
-    auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self));
-    if (vqaccessibletextupdateevent && vqaccessibletextupdateevent->isVirtualQAccessibleTextUpdateEvent) {
-        vqaccessibletextupdateevent->setQAccessibleTextUpdateEvent_AccessibleInterface_IsBase(true);
-        return vqaccessibletextupdateevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTextUpdateEvent::accessibleInterface();
-    }
+    return self->QAccessibleTextUpdateEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleTextUpdateEvent_OnAccessibleInterface(const QAccessibleTextUpdateEvent* self, intptr_t slot) {
-    auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self));
-    if (vqaccessibletextupdateevent && vqaccessibletextupdateevent->isVirtualQAccessibleTextUpdateEvent)
-        vqaccessibletextupdateevent->setQAccessibleTextUpdateEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTextUpdateEvent::QAccessibleTextUpdateEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleTextUpdateEvent_OnAccessibleInterface(QAccessibleTextUpdateEvent* self, intptr_t slot) {
+    if (auto* vqaccessibletextupdateevent = const_cast<VirtualQAccessibleTextUpdateEvent*>(dynamic_cast<const VirtualQAccessibleTextUpdateEvent*>(self)))
+        vqaccessibletextupdateevent->qaccessibletextupdateevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleTextUpdateEvent::QAccessibleTextUpdateEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleTextUpdateEvent_Delete(QAccessibleTextUpdateEvent* self) {
@@ -1340,30 +1261,18 @@ QVariant* QAccessibleValueChangeEvent_Value(const QAccessibleValueChangeEvent* s
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleValueChangeEvent_AccessibleInterface(const QAccessibleValueChangeEvent* self) {
-    auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self));
-    if (vqaccessiblevaluechangeevent && vqaccessiblevaluechangeevent->isVirtualQAccessibleValueChangeEvent) {
-        return vqaccessiblevaluechangeevent->accessibleInterface();
-    } else {
-        return self->QAccessibleValueChangeEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleValueChangeEvent_SuperAccessibleInterface(const QAccessibleValueChangeEvent* self) {
-    auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self));
-    if (vqaccessiblevaluechangeevent && vqaccessiblevaluechangeevent->isVirtualQAccessibleValueChangeEvent) {
-        vqaccessiblevaluechangeevent->setQAccessibleValueChangeEvent_AccessibleInterface_IsBase(true);
-        return vqaccessiblevaluechangeevent->accessibleInterface();
-    } else {
-        return self->QAccessibleValueChangeEvent::accessibleInterface();
-    }
+    return self->QAccessibleValueChangeEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleValueChangeEvent_OnAccessibleInterface(const QAccessibleValueChangeEvent* self, intptr_t slot) {
-    auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self));
-    if (vqaccessiblevaluechangeevent && vqaccessiblevaluechangeevent->isVirtualQAccessibleValueChangeEvent)
-        vqaccessiblevaluechangeevent->setQAccessibleValueChangeEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleValueChangeEvent::QAccessibleValueChangeEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleValueChangeEvent_OnAccessibleInterface(QAccessibleValueChangeEvent* self, intptr_t slot) {
+    if (auto* vqaccessiblevaluechangeevent = const_cast<VirtualQAccessibleValueChangeEvent*>(dynamic_cast<const VirtualQAccessibleValueChangeEvent*>(self)))
+        vqaccessiblevaluechangeevent->qaccessiblevaluechangeevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleValueChangeEvent::QAccessibleValueChangeEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleValueChangeEvent_Delete(QAccessibleValueChangeEvent* self) {
@@ -1420,30 +1329,18 @@ int QAccessibleTableModelChangeEvent_LastColumn(const QAccessibleTableModelChang
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleTableModelChangeEvent_AccessibleInterface(const QAccessibleTableModelChangeEvent* self) {
-    auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self));
-    if (vqaccessibletablemodelchangeevent && vqaccessibletablemodelchangeevent->isVirtualQAccessibleTableModelChangeEvent) {
-        return vqaccessibletablemodelchangeevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTableModelChangeEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleTableModelChangeEvent_SuperAccessibleInterface(const QAccessibleTableModelChangeEvent* self) {
-    auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self));
-    if (vqaccessibletablemodelchangeevent && vqaccessibletablemodelchangeevent->isVirtualQAccessibleTableModelChangeEvent) {
-        vqaccessibletablemodelchangeevent->setQAccessibleTableModelChangeEvent_AccessibleInterface_IsBase(true);
-        return vqaccessibletablemodelchangeevent->accessibleInterface();
-    } else {
-        return self->QAccessibleTableModelChangeEvent::accessibleInterface();
-    }
+    return self->QAccessibleTableModelChangeEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleTableModelChangeEvent_OnAccessibleInterface(const QAccessibleTableModelChangeEvent* self, intptr_t slot) {
-    auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self));
-    if (vqaccessibletablemodelchangeevent && vqaccessibletablemodelchangeevent->isVirtualQAccessibleTableModelChangeEvent)
-        vqaccessibletablemodelchangeevent->setQAccessibleTableModelChangeEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleTableModelChangeEvent::QAccessibleTableModelChangeEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleTableModelChangeEvent_OnAccessibleInterface(QAccessibleTableModelChangeEvent* self, intptr_t slot) {
+    if (auto* vqaccessibletablemodelchangeevent = const_cast<VirtualQAccessibleTableModelChangeEvent*>(dynamic_cast<const VirtualQAccessibleTableModelChangeEvent*>(self)))
+        vqaccessibletablemodelchangeevent->qaccessibletablemodelchangeevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleTableModelChangeEvent::QAccessibleTableModelChangeEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleTableModelChangeEvent_Delete(QAccessibleTableModelChangeEvent* self) {
@@ -1482,30 +1379,18 @@ void QAccessibleAnnouncementEvent_SetPoliteness(QAccessibleAnnouncementEvent* se
 
 // Derived class handler implementation
 QAccessibleInterface* QAccessibleAnnouncementEvent_AccessibleInterface(const QAccessibleAnnouncementEvent* self) {
-    auto* vqaccessibleannouncementevent = const_cast<VirtualQAccessibleAnnouncementEvent*>(dynamic_cast<const VirtualQAccessibleAnnouncementEvent*>(self));
-    if (vqaccessibleannouncementevent && vqaccessibleannouncementevent->isVirtualQAccessibleAnnouncementEvent) {
-        return vqaccessibleannouncementevent->accessibleInterface();
-    } else {
-        return self->QAccessibleAnnouncementEvent::accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation
 QAccessibleInterface* QAccessibleAnnouncementEvent_SuperAccessibleInterface(const QAccessibleAnnouncementEvent* self) {
-    auto* vqaccessibleannouncementevent = const_cast<VirtualQAccessibleAnnouncementEvent*>(dynamic_cast<const VirtualQAccessibleAnnouncementEvent*>(self));
-    if (vqaccessibleannouncementevent && vqaccessibleannouncementevent->isVirtualQAccessibleAnnouncementEvent) {
-        vqaccessibleannouncementevent->setQAccessibleAnnouncementEvent_AccessibleInterface_IsBase(true);
-        return vqaccessibleannouncementevent->accessibleInterface();
-    } else {
-        return self->QAccessibleAnnouncementEvent::accessibleInterface();
-    }
+    return self->QAccessibleAnnouncementEvent::accessibleInterface();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAccessibleAnnouncementEvent_OnAccessibleInterface(const QAccessibleAnnouncementEvent* self, intptr_t slot) {
-    auto* vqaccessibleannouncementevent = const_cast<VirtualQAccessibleAnnouncementEvent*>(dynamic_cast<const VirtualQAccessibleAnnouncementEvent*>(self));
-    if (vqaccessibleannouncementevent && vqaccessibleannouncementevent->isVirtualQAccessibleAnnouncementEvent)
-        vqaccessibleannouncementevent->setQAccessibleAnnouncementEvent_AccessibleInterface_Callback(reinterpret_cast<VirtualQAccessibleAnnouncementEvent::QAccessibleAnnouncementEvent_AccessibleInterface_Callback>(slot));
+void QAccessibleAnnouncementEvent_OnAccessibleInterface(QAccessibleAnnouncementEvent* self, intptr_t slot) {
+    if (auto* vqaccessibleannouncementevent = const_cast<VirtualQAccessibleAnnouncementEvent*>(dynamic_cast<const VirtualQAccessibleAnnouncementEvent*>(self)))
+        vqaccessibleannouncementevent->qaccessibleannouncementevent_accessibleinterface_callback = reinterpret_cast<VirtualQAccessibleAnnouncementEvent::QAccessibleAnnouncementEvent_AccessibleInterface_Callback>(slot);
 }
 
 void QAccessibleAnnouncementEvent_Delete(QAccessibleAnnouncementEvent* self) {

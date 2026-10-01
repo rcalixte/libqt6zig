@@ -227,382 +227,230 @@ libqt_string QColorAxis_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QColorAxis_SuperMetaObject(const QColorAxis* self) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_MetaObject_IsBase(true);
-        return (QMetaObject*)vqcoloraxis->metaObject();
-    } else {
-        return (QMetaObject*)self->QColorAxis::metaObject();
-    }
+    return (QMetaObject*)self->QColorAxis::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorAxis_OnMetaObject(const QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_MetaObject_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_MetaObject_Callback>(slot));
+void QColorAxis_OnMetaObject(QColorAxis* self, intptr_t slot) {
+    if (auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self)))
+        vqcoloraxis->qcoloraxis_metaobject_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QColorAxis_SuperMetacast(QColorAxis* self, const char* param1) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_Metacast_IsBase(true);
-        return vqcoloraxis->qt_metacast(param1);
-    } else {
-        return self->QColorAxis::qt_metacast(param1);
-    }
+    return self->QColorAxis::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnMetacast(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_Metacast_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Metacast_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_metacast_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QColorAxis_SuperMetacall(QColorAxis* self, int param1, int param2, void** param3) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_Metacall_IsBase(true);
-        return vqcoloraxis->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QColorAxis::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QColorAxis::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnMetacall(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_Metacall_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Metacall_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_metacall_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QColorAxis_SuperType(const QColorAxis* self) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_Type_IsBase(true);
-        return static_cast<int>(vqcoloraxis->type());
-    } else {
-        return static_cast<int>(self->QColorAxis::type());
-    }
+    return static_cast<int>(self->QColorAxis::type());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QColorAxis_OnType(const QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_Type_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Type_Callback>(slot));
+void QColorAxis_OnType(QColorAxis* self, intptr_t slot) {
+    if (auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self)))
+        vqcoloraxis->qcoloraxis_type_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_Type_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QColorAxis_Event(QColorAxis* self, QEvent* event) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return vqcoloraxis->event(event);
-    } else {
-        return self->QColorAxis::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QColorAxis_SuperEvent(QColorAxis* self, QEvent* event) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_Event_IsBase(true);
-        return vqcoloraxis->event(event);
-    } else {
-        return self->QColorAxis::event(event);
-    }
+    return self->QColorAxis::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnEvent(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_Event_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Event_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_event_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QColorAxis_EventFilter(QColorAxis* self, QObject* watched, QEvent* event) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return vqcoloraxis->eventFilter(watched, event);
-    } else {
-        return self->QColorAxis::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QColorAxis_SuperEventFilter(QColorAxis* self, QObject* watched, QEvent* event) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_EventFilter_IsBase(true);
-        return vqcoloraxis->eventFilter(watched, event);
-    } else {
-        return self->QColorAxis::eventFilter(watched, event);
-    }
+    return self->QColorAxis::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnEventFilter(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_EventFilter_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_EventFilter_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_eventfilter_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorAxis_TimerEvent(QColorAxis* self, QTimerEvent* event) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis) {
         vqcoloraxis->timerEvent(event);
     } else {
-        ((VirtualQColorAxis*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QColorAxis::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorAxis_SuperTimerEvent(QColorAxis* self, QTimerEvent* event) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_TimerEvent_IsBase(true);
-        vqcoloraxis->timerEvent(event);
-    } else {
-        ((VirtualQColorAxis*)self)->timerEvent(event);
-    }
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self)) {
+        vqcoloraxis->QColorAxis::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorAxis::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnTimerEvent(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_TimerEvent_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_TimerEvent_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_timerevent_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorAxis_ChildEvent(QColorAxis* self, QChildEvent* event) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis) {
         vqcoloraxis->childEvent(event);
     } else {
-        ((VirtualQColorAxis*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QColorAxis::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorAxis_SuperChildEvent(QColorAxis* self, QChildEvent* event) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_ChildEvent_IsBase(true);
-        vqcoloraxis->childEvent(event);
-    } else {
-        ((VirtualQColorAxis*)self)->childEvent(event);
-    }
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self)) {
+        vqcoloraxis->QColorAxis::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorAxis::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnChildEvent(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_ChildEvent_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_ChildEvent_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_childevent_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorAxis_CustomEvent(QColorAxis* self, QEvent* event) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis) {
         vqcoloraxis->customEvent(event);
     } else {
-        ((VirtualQColorAxis*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QColorAxis::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorAxis_SuperCustomEvent(QColorAxis* self, QEvent* event) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_CustomEvent_IsBase(true);
-        vqcoloraxis->customEvent(event);
-    } else {
-        ((VirtualQColorAxis*)self)->customEvent(event);
-    }
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self)) {
+        vqcoloraxis->QColorAxis::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QColorAxis::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnCustomEvent(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_CustomEvent_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_CustomEvent_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_customevent_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorAxis_ConnectNotify(QColorAxis* self, const QMetaMethod* signal) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis) {
         vqcoloraxis->connectNotify(*signal);
     } else {
-        ((VirtualQColorAxis*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QColorAxis::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorAxis_SuperConnectNotify(QColorAxis* self, const QMetaMethod* signal) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_ConnectNotify_IsBase(true);
-        vqcoloraxis->connectNotify(*signal);
-    } else {
-        ((VirtualQColorAxis*)self)->connectNotify(*signal);
-    }
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self)) {
+        vqcoloraxis->QColorAxis::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QColorAxis::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnConnectNotify(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_ConnectNotify_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_ConnectNotify_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_connectnotify_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QColorAxis_DisconnectNotify(QColorAxis* self, const QMetaMethod* signal) {
     auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
+    if (vqcoloraxis) {
         vqcoloraxis->disconnectNotify(*signal);
     } else {
-        ((VirtualQColorAxis*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QColorAxis::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QColorAxis_SuperDisconnectNotify(QColorAxis* self, const QMetaMethod* signal) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_DisconnectNotify_IsBase(true);
-        vqcoloraxis->disconnectNotify(*signal);
-    } else {
-        ((VirtualQColorAxis*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self)) {
+        vqcoloraxis->QColorAxis::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QColorAxis::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QColorAxis_OnDisconnectNotify(QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_DisconnectNotify_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_DisconnectNotify_Callback>(slot));
+    if (auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self))
+        vqcoloraxis->qcoloraxis_disconnectnotify_callback = reinterpret_cast<VirtualQColorAxis::QColorAxis_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QColorAxis_Sender(const QColorAxis* self) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return vqcoloraxis->sender();
-    } else {
-        return ((VirtualQColorAxis*)self)->sender();
-    }
+    if (auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self))) {
+        return vqcoloraxis->VirtualQColorAxis::sender();
+    } else
+        qFatal("Error: Protected method QColorAxis::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QColorAxis_SuperSender(const QColorAxis* self) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_Sender_IsBase(true);
-        return vqcoloraxis->sender();
-    } else {
-        return ((VirtualQColorAxis*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorAxis_OnSender(const QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_Sender_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QColorAxis_SenderSignalIndex(const QColorAxis* self) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return vqcoloraxis->senderSignalIndex();
-    } else {
-        return ((VirtualQColorAxis*)self)->senderSignalIndex();
-    }
+    if (auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self))) {
+        return vqcoloraxis->VirtualQColorAxis::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QColorAxis::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QColorAxis_SuperSenderSignalIndex(const QColorAxis* self) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_SenderSignalIndex_IsBase(true);
-        return vqcoloraxis->senderSignalIndex();
-    } else {
-        return ((VirtualQColorAxis*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorAxis_OnSenderSignalIndex(const QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_SenderSignalIndex_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QColorAxis_Receivers(const QColorAxis* self, const char* signal) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return vqcoloraxis->receivers(signal);
-    } else {
-        return ((VirtualQColorAxis*)self)->receivers(signal);
-    }
+    if (auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self))) {
+        return vqcoloraxis->VirtualQColorAxis::receivers(signal);
+    } else
+        qFatal("Error: Protected method QColorAxis::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QColorAxis_SuperReceivers(const QColorAxis* self, const char* signal) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_Receivers_IsBase(true);
-        return vqcoloraxis->receivers(signal);
-    } else {
-        return ((VirtualQColorAxis*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorAxis_OnReceivers(const QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_Receivers_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QColorAxis_IsSignalConnected(const QColorAxis* self, const QMetaMethod* signal) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return vqcoloraxis->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQColorAxis*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QColorAxis_SuperIsSignalConnected(const QColorAxis* self, const QMetaMethod* signal) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        vqcoloraxis->setQColorAxis_IsSignalConnected_IsBase(true);
-        return vqcoloraxis->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQColorAxis*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QColorAxis_OnIsSignalConnected(const QColorAxis* self, intptr_t slot) {
-    auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self));
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis)
-        vqcoloraxis->setQColorAxis_IsSignalConnected_Callback(reinterpret_cast<VirtualQColorAxis::QColorAxis_IsSignalConnected_Callback>(slot));
+    if (auto* vqcoloraxis = const_cast<VirtualQColorAxis*>(dynamic_cast<const VirtualQColorAxis*>(self))) {
+        return vqcoloraxis->VirtualQColorAxis::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QColorAxis::isSignalConnected called without a directly constructed type");
 }
 
 void QColorAxis_Delete(QColorAxis* self) {

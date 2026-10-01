@@ -120,7 +120,7 @@ void KNSCore__EngineBase_Connect_ProviderAdded(KNSCore__EngineBase* self, intptr
 void KNSCore__EngineBase_UpdateStatus(KNSCore__EngineBase* self);
 libqt_string KNSCore__EngineBase_Tr2(const char* s, const char* c);
 libqt_string KNSCore__EngineBase_Tr3(const char* s, const char* c, int n);
-void KNSCore__EngineBase_OnMetaObject(const KNSCore__EngineBase* self, intptr_t slot);
+void KNSCore__EngineBase_OnMetaObject(KNSCore__EngineBase* self, intptr_t slot);
 QMetaObject* KNSCore__EngineBase_SuperMetaObject(const KNSCore__EngineBase* self);
 void KNSCore__EngineBase_OnMetacast(KNSCore__EngineBase* self, intptr_t slot);
 void* KNSCore__EngineBase_SuperMetacast(KNSCore__EngineBase* self, const char* param1);
@@ -152,17 +152,9 @@ void KNSCore__EngineBase_DisconnectNotify(KNSCore__EngineBase* self, const QMeta
 void KNSCore__EngineBase_OnDisconnectNotify(KNSCore__EngineBase* self, intptr_t slot);
 void KNSCore__EngineBase_SuperDisconnectNotify(KNSCore__EngineBase* self, const QMetaMethod* signal);
 QObject* KNSCore__EngineBase_Sender(const KNSCore__EngineBase* self);
-void KNSCore__EngineBase_OnSender(const KNSCore__EngineBase* self, intptr_t slot);
-QObject* KNSCore__EngineBase_SuperSender(const KNSCore__EngineBase* self);
 int KNSCore__EngineBase_SenderSignalIndex(const KNSCore__EngineBase* self);
-void KNSCore__EngineBase_OnSenderSignalIndex(const KNSCore__EngineBase* self, intptr_t slot);
-int KNSCore__EngineBase_SuperSenderSignalIndex(const KNSCore__EngineBase* self);
 int KNSCore__EngineBase_Receivers(const KNSCore__EngineBase* self, const char* signal);
-void KNSCore__EngineBase_OnReceivers(const KNSCore__EngineBase* self, intptr_t slot);
-int KNSCore__EngineBase_SuperReceivers(const KNSCore__EngineBase* self, const char* signal);
 bool KNSCore__EngineBase_IsSignalConnected(const KNSCore__EngineBase* self, const QMetaMethod* signal);
-void KNSCore__EngineBase_OnIsSignalConnected(const KNSCore__EngineBase* self, intptr_t slot);
-bool KNSCore__EngineBase_SuperIsSignalConnected(const KNSCore__EngineBase* self, const QMetaMethod* signal);
 void KNSCore__EngineBase_Delete(KNSCore__EngineBase* self);
 
 #ifdef __cplusplus

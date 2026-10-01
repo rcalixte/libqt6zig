@@ -91,9 +91,9 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerFormEditorInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerFormEditorInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -658,43 +658,6 @@ pub const QDesignerFormEditorInterface = extern struct {
         qtc.QDesignerFormEditorInterface_SetFormManager(@ptrCast(self.ptr), @ptrCast(_formWindowManager.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetFormManager` instead
-    ///
-    pub const OnSetFormManager = onSetFormManager;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setFormManager)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` callback: *const fn (self: QDesignerFormEditorInterface, formWindowManager: QDesignerFormWindowManagerInterface) callconv(.c) void `
-    ///
-    pub fn onSetFormManager(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerFormWindowManagerInterface) callconv(.c) void) void {
-        qtc.QDesignerFormEditorInterface_OnSetFormManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetFormManager` instead
-    ///
-    pub const SuperSetFormManager = superSetFormManager;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setFormManager)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` _formWindowManager: QDesignerFormWindowManagerInterface `
-    ///
-    pub fn superSetFormManager(self: QDesignerFormEditorInterface, _formWindowManager: anytype) void {
-        comptime _ = @TypeOf(_formWindowManager)._is_QDesignerFormWindowManagerInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetFormManager(@ptrCast(self.ptr), @ptrCast(_formWindowManager.ptr));
-    }
-
     /// ### DEPRECATED: Use `setMetaDataBase` instead
     ///
     pub const SetMetaDataBase = setMetaDataBase;
@@ -710,43 +673,6 @@ pub const QDesignerFormEditorInterface = extern struct {
     pub fn setMetaDataBase(self: QDesignerFormEditorInterface, _metaDataBase: anytype) void {
         comptime _ = @TypeOf(_metaDataBase)._is_QDesignerMetaDataBaseInterface;
         qtc.QDesignerFormEditorInterface_SetMetaDataBase(@ptrCast(self.ptr), @ptrCast(_metaDataBase.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetMetaDataBase` instead
-    ///
-    pub const OnSetMetaDataBase = onSetMetaDataBase;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setMetaDataBase)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` callback: *const fn (self: QDesignerFormEditorInterface, metaDataBase: QDesignerMetaDataBaseInterface) callconv(.c) void `
-    ///
-    pub fn onSetMetaDataBase(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerMetaDataBaseInterface) callconv(.c) void) void {
-        qtc.QDesignerFormEditorInterface_OnSetMetaDataBase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetMetaDataBase` instead
-    ///
-    pub const SuperSetMetaDataBase = superSetMetaDataBase;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setMetaDataBase)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` _metaDataBase: QDesignerMetaDataBaseInterface `
-    ///
-    pub fn superSetMetaDataBase(self: QDesignerFormEditorInterface, _metaDataBase: anytype) void {
-        comptime _ = @TypeOf(_metaDataBase)._is_QDesignerMetaDataBaseInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetMetaDataBase(@ptrCast(self.ptr), @ptrCast(_metaDataBase.ptr));
     }
 
     /// ### DEPRECATED: Use `setWidgetDataBase` instead
@@ -766,43 +692,6 @@ pub const QDesignerFormEditorInterface = extern struct {
         qtc.QDesignerFormEditorInterface_SetWidgetDataBase(@ptrCast(self.ptr), @ptrCast(_widgetDataBase.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetWidgetDataBase` instead
-    ///
-    pub const OnSetWidgetDataBase = onSetWidgetDataBase;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetDataBase)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` callback: *const fn (self: QDesignerFormEditorInterface, widgetDataBase: QDesignerWidgetDataBaseInterface) callconv(.c) void `
-    ///
-    pub fn onSetWidgetDataBase(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerWidgetDataBaseInterface) callconv(.c) void) void {
-        qtc.QDesignerFormEditorInterface_OnSetWidgetDataBase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetWidgetDataBase` instead
-    ///
-    pub const SuperSetWidgetDataBase = superSetWidgetDataBase;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetDataBase)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` _widgetDataBase: QDesignerWidgetDataBaseInterface `
-    ///
-    pub fn superSetWidgetDataBase(self: QDesignerFormEditorInterface, _widgetDataBase: anytype) void {
-        comptime _ = @TypeOf(_widgetDataBase)._is_QDesignerWidgetDataBaseInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetWidgetDataBase(@ptrCast(self.ptr), @ptrCast(_widgetDataBase.ptr));
-    }
-
     /// ### DEPRECATED: Use `setPromotion` instead
     ///
     pub const SetPromotion = setPromotion;
@@ -818,43 +707,6 @@ pub const QDesignerFormEditorInterface = extern struct {
     pub fn setPromotion(self: QDesignerFormEditorInterface, _promotion: anytype) void {
         comptime _ = @TypeOf(_promotion)._is_QDesignerPromotionInterface;
         qtc.QDesignerFormEditorInterface_SetPromotion(@ptrCast(self.ptr), @ptrCast(_promotion.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetPromotion` instead
-    ///
-    pub const OnSetPromotion = onSetPromotion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setPromotion)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` callback: *const fn (self: QDesignerFormEditorInterface, promotion: QDesignerPromotionInterface) callconv(.c) void `
-    ///
-    pub fn onSetPromotion(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerPromotionInterface) callconv(.c) void) void {
-        qtc.QDesignerFormEditorInterface_OnSetPromotion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPromotion` instead
-    ///
-    pub const SuperSetPromotion = superSetPromotion;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setPromotion)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` _promotion: QDesignerPromotionInterface `
-    ///
-    pub fn superSetPromotion(self: QDesignerFormEditorInterface, _promotion: anytype) void {
-        comptime _ = @TypeOf(_promotion)._is_QDesignerPromotionInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetPromotion(@ptrCast(self.ptr), @ptrCast(_promotion.ptr));
     }
 
     /// ### DEPRECATED: Use `setWidgetFactory` instead
@@ -874,43 +726,6 @@ pub const QDesignerFormEditorInterface = extern struct {
         qtc.QDesignerFormEditorInterface_SetWidgetFactory(@ptrCast(self.ptr), @ptrCast(_widgetFactory.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetWidgetFactory` instead
-    ///
-    pub const OnSetWidgetFactory = onSetWidgetFactory;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetFactory)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` callback: *const fn (self: QDesignerFormEditorInterface, widgetFactory: QDesignerWidgetFactoryInterface) callconv(.c) void `
-    ///
-    pub fn onSetWidgetFactory(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerWidgetFactoryInterface) callconv(.c) void) void {
-        qtc.QDesignerFormEditorInterface_OnSetWidgetFactory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetWidgetFactory` instead
-    ///
-    pub const SuperSetWidgetFactory = superSetWidgetFactory;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetFactory)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` _widgetFactory: QDesignerWidgetFactoryInterface `
-    ///
-    pub fn superSetWidgetFactory(self: QDesignerFormEditorInterface, _widgetFactory: anytype) void {
-        comptime _ = @TypeOf(_widgetFactory)._is_QDesignerWidgetFactoryInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetWidgetFactory(@ptrCast(self.ptr), @ptrCast(_widgetFactory.ptr));
-    }
-
     /// ### DEPRECATED: Use `setExtensionManager` instead
     ///
     pub const SetExtensionManager = setExtensionManager;
@@ -926,43 +741,6 @@ pub const QDesignerFormEditorInterface = extern struct {
     pub fn setExtensionManager(self: QDesignerFormEditorInterface, _extensionManager: anytype) void {
         comptime _ = @TypeOf(_extensionManager)._is_QExtensionManager;
         qtc.QDesignerFormEditorInterface_SetExtensionManager(@ptrCast(self.ptr), @ptrCast(_extensionManager.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetExtensionManager` instead
-    ///
-    pub const OnSetExtensionManager = onSetExtensionManager;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setExtensionManager)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` callback: *const fn (self: QDesignerFormEditorInterface, extensionManager: QExtensionManager) callconv(.c) void `
-    ///
-    pub fn onSetExtensionManager(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QExtensionManager) callconv(.c) void) void {
-        qtc.QDesignerFormEditorInterface_OnSetExtensionManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetExtensionManager` instead
-    ///
-    pub const SuperSetExtensionManager = superSetExtensionManager;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setExtensionManager)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` _extensionManager: QExtensionManager `
-    ///
-    pub fn superSetExtensionManager(self: QDesignerFormEditorInterface, _extensionManager: anytype) void {
-        comptime _ = @TypeOf(_extensionManager)._is_QExtensionManager;
-        qtc.QDesignerFormEditorInterface_SuperSetExtensionManager(@ptrCast(self.ptr), @ptrCast(_extensionManager.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2442,44 +2220,6 @@ pub const QDesignerFormEditorInterface = extern struct {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    pub fn superSender(self: QDesignerFormEditorInterface) QObject {
-        return .{ .ptr = qtc.QDesignerFormEditorInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerFormEditorInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2496,44 +2236,6 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerFormEditorInterface) i32 {
         return qtc.QDesignerFormEditorInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerFormEditorInterface) i32 {
-        return qtc.QDesignerFormEditorInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerFormEditorInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2557,47 +2259,6 @@ pub const QDesignerFormEditorInterface = extern struct {
         return qtc.QDesignerFormEditorInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerFormEditorInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerFormEditorInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerFormEditorInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerFormEditorInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2617,47 +2278,6 @@ pub const QDesignerFormEditorInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerFormEditorInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerFormEditorInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerFormEditorInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerFormEditorInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerFormEditorInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerFormEditorInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerFormEditorInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

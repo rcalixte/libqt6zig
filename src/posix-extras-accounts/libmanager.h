@@ -89,7 +89,7 @@ libqt_string Accounts__Manager_Tr3(const char* s, const char* c, int n);
 libqt_list /* of unsigned int */ Accounts__Manager_AccountList1(const Accounts__Manager* self, const libqt_string serviceType);
 libqt_list /* of unsigned int */ Accounts__Manager_AccountListEnabled1(const Accounts__Manager* self, const libqt_string serviceType);
 libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList1(const Accounts__Manager* self, const libqt_string serviceType);
-void Accounts__Manager_OnMetaObject(const Accounts__Manager* self, intptr_t slot);
+void Accounts__Manager_OnMetaObject(Accounts__Manager* self, intptr_t slot);
 QMetaObject* Accounts__Manager_SuperMetaObject(const Accounts__Manager* self);
 void Accounts__Manager_OnMetacast(Accounts__Manager* self, intptr_t slot);
 void* Accounts__Manager_SuperMetacast(Accounts__Manager* self, const char* param1);
@@ -117,17 +117,9 @@ void Accounts__Manager_DisconnectNotify(Accounts__Manager* self, const QMetaMeth
 void Accounts__Manager_OnDisconnectNotify(Accounts__Manager* self, intptr_t slot);
 void Accounts__Manager_SuperDisconnectNotify(Accounts__Manager* self, const QMetaMethod* signal);
 QObject* Accounts__Manager_Sender(const Accounts__Manager* self);
-void Accounts__Manager_OnSender(const Accounts__Manager* self, intptr_t slot);
-QObject* Accounts__Manager_SuperSender(const Accounts__Manager* self);
 int Accounts__Manager_SenderSignalIndex(const Accounts__Manager* self);
-void Accounts__Manager_OnSenderSignalIndex(const Accounts__Manager* self, intptr_t slot);
-int Accounts__Manager_SuperSenderSignalIndex(const Accounts__Manager* self);
 int Accounts__Manager_Receivers(const Accounts__Manager* self, const char* signal);
-void Accounts__Manager_OnReceivers(const Accounts__Manager* self, intptr_t slot);
-int Accounts__Manager_SuperReceivers(const Accounts__Manager* self, const char* signal);
 bool Accounts__Manager_IsSignalConnected(const Accounts__Manager* self, const QMetaMethod* signal);
-void Accounts__Manager_OnIsSignalConnected(const Accounts__Manager* self, intptr_t slot);
-bool Accounts__Manager_SuperIsSignalConnected(const Accounts__Manager* self, const QMetaMethod* signal);
 void Accounts__Manager_Delete(Accounts__Manager* self);
 
 #ifdef __cplusplus

@@ -240,9 +240,9 @@ pub const KSelectionOwner = extern struct {
     ///
     /// ` self: KSelectionOwner `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KSelectionOwner) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KSelectionOwner, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KSelectionOwner, callback: *const fn (KSelectionOwner) callconv(.c) QMetaObject) void {
         qtc.KSelectionOwner_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -744,9 +744,9 @@ pub const KSelectionOwner = extern struct {
     ///
     /// ` self: KSelectionOwner `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KSelectionOwner) callconv(.c) void `
     ///
-    pub fn onGetAtoms(self: KSelectionOwner, callback: *const fn () callconv(.c) void) void {
+    pub fn onGetAtoms(self: KSelectionOwner, callback: *const fn (KSelectionOwner) callconv(.c) void) void {
         qtc.KSelectionOwner_OnGetAtoms(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -782,44 +782,6 @@ pub const KSelectionOwner = extern struct {
     ///
     pub fn setData(self: KSelectionOwner, extra1: u32, extra2: u32) void {
         qtc.KSelectionOwner_SetData(@ptrCast(self.ptr), @bitCast(extra1), @bitCast(extra2));
-    }
-
-    /// ### DEPRECATED: Use `onSetData` instead
-    ///
-    pub const OnSetData = onSetData;
-
-    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#setData)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionOwner `
-    ///
-    /// ` callback: *const fn (self: KSelectionOwner, extra1: u32, extra2: u32) callconv(.c) void `
-    ///
-    pub fn onSetData(self: KSelectionOwner, callback: *const fn (KSelectionOwner, u32, u32) callconv(.c) void) void {
-        qtc.KSelectionOwner_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetData` instead
-    ///
-    pub const SuperSetData = superSetData;
-
-    /// ### [Upstream resources](https://api.kde.org/kselectionowner.html#setData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionOwner `
-    ///
-    /// ` extra1: u32 `
-    ///
-    /// ` extra2: u32 `
-    ///
-    pub fn superSetData(self: KSelectionOwner, extra1: u32, extra2: u32) void {
-        qtc.KSelectionOwner_SuperSetData(@ptrCast(self.ptr), @bitCast(extra1), @bitCast(extra2));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2255,44 +2217,6 @@ pub const KSelectionOwner = extern struct {
         return .{ .ptr = qtc.KSelectionOwner_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionOwner `
-    ///
-    pub fn superSender(self: KSelectionOwner) QObject {
-        return .{ .ptr = qtc.KSelectionOwner_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionOwner`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KSelectionOwner, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KSelectionOwner_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2309,44 +2233,6 @@ pub const KSelectionOwner = extern struct {
     ///
     pub fn senderSignalIndex(self: KSelectionOwner) i32 {
         return qtc.KSelectionOwner_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionOwner `
-    ///
-    pub fn superSenderSignalIndex(self: KSelectionOwner) i32 {
-        return qtc.KSelectionOwner_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionOwner`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KSelectionOwner, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSelectionOwner_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2370,47 +2256,6 @@ pub const KSelectionOwner = extern struct {
         return qtc.KSelectionOwner_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionOwner `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KSelectionOwner, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KSelectionOwner_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionOwner`
-    ///
-    /// ` callback: *const fn (self: KSelectionOwner, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KSelectionOwner, callback: *const fn (KSelectionOwner, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KSelectionOwner_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2430,47 +2275,6 @@ pub const KSelectionOwner = extern struct {
     pub fn isSignalConnected(self: KSelectionOwner, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSelectionOwner_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSelectionOwner `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KSelectionOwner, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KSelectionOwner_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KSelectionOwner`
-    ///
-    /// ` callback: *const fn (self: KSelectionOwner, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KSelectionOwner, callback: *const fn (KSelectionOwner, QMetaMethod) callconv(.c) bool) void {
-        qtc.KSelectionOwner_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -446,14 +446,8 @@ void QOpenGLFunctions_1_3_GlClientActiveTexture(QOpenGLFunctions_1_3* self, uint
 void QOpenGLFunctions_1_3_OnInitializeOpenGLFunctions(QOpenGLFunctions_1_3* self, intptr_t slot);
 bool QOpenGLFunctions_1_3_SuperInitializeOpenGLFunctions(QOpenGLFunctions_1_3* self);
 bool QOpenGLFunctions_1_3_IsInitialized(const QOpenGLFunctions_1_3* self);
-void QOpenGLFunctions_1_3_OnIsInitialized(const QOpenGLFunctions_1_3* self, intptr_t slot);
-bool QOpenGLFunctions_1_3_SuperIsInitialized(const QOpenGLFunctions_1_3* self);
 void QOpenGLFunctions_1_3_SetOwningContext(QOpenGLFunctions_1_3* self, const QOpenGLContext* context);
-void QOpenGLFunctions_1_3_OnSetOwningContext(QOpenGLFunctions_1_3* self, intptr_t slot);
-void QOpenGLFunctions_1_3_SuperSetOwningContext(QOpenGLFunctions_1_3* self, const QOpenGLContext* context);
 QOpenGLContext* QOpenGLFunctions_1_3_OwningContext(const QOpenGLFunctions_1_3* self);
-void QOpenGLFunctions_1_3_OnOwningContext(const QOpenGLFunctions_1_3* self, intptr_t slot);
-QOpenGLContext* QOpenGLFunctions_1_3_SuperOwningContext(const QOpenGLFunctions_1_3* self);
 void QOpenGLFunctions_1_3_Delete(QOpenGLFunctions_1_3* self);
 
 #ifdef __cplusplus

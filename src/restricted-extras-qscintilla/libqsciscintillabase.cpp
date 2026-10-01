@@ -693,15 +693,15 @@ void QsciScintillaBase_Connect_SCN_ZOOM(QsciScintillaBase* self, intptr_t slot) 
 
 bool QsciScintillaBase_CanInsertFromMimeData(const QsciScintillaBase* self, const QMimeData* source) {
     auto* vqsciscintillabase = dynamic_cast<const VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->canInsertFromMimeData(source);
     }
-    return {};
+    qFatal("Error: Protected method QsciScintillaBase::canInsertFromMimeData called without a directly constructed type");
 }
 
 libqt_string QsciScintillaBase_FromMimeData(const QsciScintillaBase* self, const QMimeData* source, bool* rectangular) {
     auto* vqsciscintillabase = dynamic_cast<const VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         QByteArray _qb = vqsciscintillabase->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
@@ -709,149 +709,149 @@ libqt_string QsciScintillaBase_FromMimeData(const QsciScintillaBase* self, const
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
     }
-    return {};
+    qFatal("Error: Protected method QsciScintillaBase::fromMimeData called without a directly constructed type");
 }
 
 QMimeData* QsciScintillaBase_ToMimeData(const QsciScintillaBase* self, const libqt_string text, bool rectangular) {
     QByteArray text_QByteArray(text.data, text.len);
     auto* vqsciscintillabase = dynamic_cast<const VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->toMimeData(text_QByteArray, rectangular);
     }
-    return {};
+    qFatal("Error: Protected method QsciScintillaBase::toMimeData called without a directly constructed type");
 }
 
 void QsciScintillaBase_ChangeEvent(QsciScintillaBase* self, QEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->changeEvent(e);
     }
 }
 
 void QsciScintillaBase_ContextMenuEvent(QsciScintillaBase* self, QContextMenuEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->contextMenuEvent(e);
     }
 }
 
 void QsciScintillaBase_DragEnterEvent(QsciScintillaBase* self, QDragEnterEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->dragEnterEvent(e);
     }
 }
 
 void QsciScintillaBase_DragLeaveEvent(QsciScintillaBase* self, QDragLeaveEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->dragLeaveEvent(e);
     }
 }
 
 void QsciScintillaBase_DragMoveEvent(QsciScintillaBase* self, QDragMoveEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->dragMoveEvent(e);
     }
 }
 
 void QsciScintillaBase_DropEvent(QsciScintillaBase* self, QDropEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->dropEvent(e);
     }
 }
 
 void QsciScintillaBase_FocusInEvent(QsciScintillaBase* self, QFocusEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->focusInEvent(e);
     }
 }
 
 void QsciScintillaBase_FocusOutEvent(QsciScintillaBase* self, QFocusEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->focusOutEvent(e);
     }
 }
 
 bool QsciScintillaBase_FocusNextPrevChild(QsciScintillaBase* self, bool next) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->focusNextPrevChild(next);
     }
-    return {};
+    qFatal("Error: Protected method QsciScintillaBase::focusNextPrevChild called without a directly constructed type");
 }
 
 void QsciScintillaBase_KeyPressEvent(QsciScintillaBase* self, QKeyEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->keyPressEvent(e);
     }
 }
 
 void QsciScintillaBase_InputMethodEvent(QsciScintillaBase* self, QInputMethodEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->inputMethodEvent(event);
     }
 }
 
 QVariant* QsciScintillaBase_InputMethodQuery(const QsciScintillaBase* self, int query) {
     auto* vqsciscintillabase = dynamic_cast<const VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return new QVariant(vqsciscintillabase->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
     }
-    return {};
+    qFatal("Error: Protected method QsciScintillaBase::inputMethodQuery called without a directly constructed type");
 }
 
 void QsciScintillaBase_MouseDoubleClickEvent(QsciScintillaBase* self, QMouseEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->mouseDoubleClickEvent(e);
     }
 }
 
 void QsciScintillaBase_MouseMoveEvent(QsciScintillaBase* self, QMouseEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->mouseMoveEvent(e);
     }
 }
 
 void QsciScintillaBase_MousePressEvent(QsciScintillaBase* self, QMouseEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->mousePressEvent(e);
     }
 }
 
 void QsciScintillaBase_MouseReleaseEvent(QsciScintillaBase* self, QMouseEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->mouseReleaseEvent(e);
     }
 }
 
 void QsciScintillaBase_PaintEvent(QsciScintillaBase* self, QPaintEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->paintEvent(e);
     }
 }
 
 void QsciScintillaBase_ResizeEvent(QsciScintillaBase* self, QResizeEvent* e) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->resizeEvent(e);
     }
 }
 
 void QsciScintillaBase_ScrollContentsBy(QsciScintillaBase* self, int dx, int dy) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     }
 }
@@ -890,1471 +890,1100 @@ long QsciScintillaBase_SendScintilla32(const QsciScintillaBase* self, unsigned i
 
 // Base class handler implementation
 QMetaObject* QsciScintillaBase_SuperMetaObject(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsciscintillabase->metaObject();
-    } else {
-        return (QMetaObject*)self->QsciScintillaBase::metaObject();
-    }
+    return (QMetaObject*)self->QsciScintillaBase::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnMetaObject(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_MetaObject_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MetaObject_Callback>(slot));
+void QsciScintillaBase_OnMetaObject(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_metaobject_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QsciScintillaBase_SuperMetacast(QsciScintillaBase* self, const char* param1) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Metacast_IsBase(true);
-        return vqsciscintillabase->qt_metacast(param1);
-    } else {
-        return self->QsciScintillaBase::qt_metacast(param1);
-    }
+    return self->QsciScintillaBase::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnMetacast(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Metacast_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Metacast_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_metacast_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QsciScintillaBase_SuperMetacall(QsciScintillaBase* self, int param1, int param2, void** param3) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Metacall_IsBase(true);
-        return vqsciscintillabase->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QsciScintillaBase::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QsciScintillaBase::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnMetacall(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Metacall_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Metacall_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_metacall_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QsciScintillaBase_SuperCanInsertFromMimeData(const QsciScintillaBase* self, const QMimeData* source) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_CanInsertFromMimeData_IsBase(true);
-        return vqsciscintillabase->canInsertFromMimeData(source);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->canInsertFromMimeData(source);
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->QsciScintillaBase::canInsertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::canInsertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnCanInsertFromMimeData(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_CanInsertFromMimeData_Callback>(slot));
+void QsciScintillaBase_OnCanInsertFromMimeData(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_caninsertfrommimedata_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_CanInsertFromMimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string QsciScintillaBase_SuperFromMimeData(const QsciScintillaBase* self, const QMimeData* source, bool* rectangular) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_FromMimeData_IsBase(true);
-        QByteArray _qb = vqsciscintillabase->fromMimeData(source, *rectangular);
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        QByteArray _qb = vqsciscintillabase->QsciScintillaBase::fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciScintillaBase*)self)->fromMimeData(source, *rectangular);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::fromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnFromMimeData(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_FromMimeData_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FromMimeData_Callback>(slot));
+void QsciScintillaBase_OnFromMimeData(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_frommimedata_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FromMimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 QMimeData* QsciScintillaBase_SuperToMimeData(const QsciScintillaBase* self, const libqt_string text, bool rectangular) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
     QByteArray text_QByteArray(text.data, text.len);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ToMimeData_IsBase(true);
-        return vqsciscintillabase->toMimeData(text_QByteArray, rectangular);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->toMimeData(text_QByteArray, rectangular);
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->QsciScintillaBase::toMimeData(text_QByteArray, rectangular);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::toMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnToMimeData(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ToMimeData_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ToMimeData_Callback>(slot));
+void QsciScintillaBase_OnToMimeData(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_tomimedata_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ToMimeData_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperChangeEvent(QsciScintillaBase* self, QEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ChangeEvent_IsBase(true);
-        vqsciscintillabase->changeEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->changeEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnChangeEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ChangeEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ChangeEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_changeevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperContextMenuEvent(QsciScintillaBase* self, QContextMenuEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ContextMenuEvent_IsBase(true);
-        vqsciscintillabase->contextMenuEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->contextMenuEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::contextMenuEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnContextMenuEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ContextMenuEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ContextMenuEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_contextmenuevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperDragEnterEvent(QsciScintillaBase* self, QDragEnterEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_DragEnterEvent_IsBase(true);
-        vqsciscintillabase->dragEnterEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->dragEnterEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::dragEnterEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnDragEnterEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_DragEnterEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DragEnterEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_dragenterevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DragEnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperDragLeaveEvent(QsciScintillaBase* self, QDragLeaveEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_DragLeaveEvent_IsBase(true);
-        vqsciscintillabase->dragLeaveEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnDragLeaveEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_DragLeaveEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DragLeaveEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_dragleaveevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DragLeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperDragMoveEvent(QsciScintillaBase* self, QDragMoveEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_DragMoveEvent_IsBase(true);
-        vqsciscintillabase->dragMoveEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->dragMoveEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnDragMoveEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_DragMoveEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DragMoveEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_dragmoveevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DragMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperDropEvent(QsciScintillaBase* self, QDropEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_DropEvent_IsBase(true);
-        vqsciscintillabase->dropEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->dropEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::dropEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnDropEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_DropEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DropEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_dropevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DropEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperFocusInEvent(QsciScintillaBase* self, QFocusEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_FocusInEvent_IsBase(true);
-        vqsciscintillabase->focusInEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->focusInEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnFocusInEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_FocusInEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FocusInEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_focusinevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperFocusOutEvent(QsciScintillaBase* self, QFocusEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_FocusOutEvent_IsBase(true);
-        vqsciscintillabase->focusOutEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->focusOutEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnFocusOutEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_FocusOutEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FocusOutEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_focusoutevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QsciScintillaBase_SuperFocusNextPrevChild(QsciScintillaBase* self, bool next) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_FocusNextPrevChild_IsBase(true);
-        return vqsciscintillabase->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        return vqsciscintillabase->QsciScintillaBase::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnFocusNextPrevChild(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_focusnextprevchild_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FocusNextPrevChild_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperKeyPressEvent(QsciScintillaBase* self, QKeyEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_KeyPressEvent_IsBase(true);
-        vqsciscintillabase->keyPressEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->keyPressEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnKeyPressEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_KeyPressEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_KeyPressEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_keypressevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperInputMethodEvent(QsciScintillaBase* self, QInputMethodEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_InputMethodEvent_IsBase(true);
-        vqsciscintillabase->inputMethodEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnInputMethodEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_InputMethodEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_InputMethodEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_inputmethodevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_InputMethodEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QsciScintillaBase_SuperInputMethodQuery(const QsciScintillaBase* self, int query) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_InputMethodQuery_IsBase(true);
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
         return new QVariant(vqsciscintillabase->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QsciScintillaBase::inputMethodQuery called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnInputMethodQuery(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_InputMethodQuery_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_InputMethodQuery_Callback>(slot));
+void QsciScintillaBase_OnInputMethodQuery(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_inputmethodquery_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_InputMethodQuery_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperMouseDoubleClickEvent(QsciScintillaBase* self, QMouseEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_MouseDoubleClickEvent_IsBase(true);
-        vqsciscintillabase->mouseDoubleClickEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->mouseDoubleClickEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::mouseDoubleClickEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnMouseDoubleClickEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_mousedoubleclickevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperMouseMoveEvent(QsciScintillaBase* self, QMouseEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_MouseMoveEvent_IsBase(true);
-        vqsciscintillabase->mouseMoveEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnMouseMoveEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_MouseMoveEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MouseMoveEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_mousemoveevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperMousePressEvent(QsciScintillaBase* self, QMouseEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_MousePressEvent_IsBase(true);
-        vqsciscintillabase->mousePressEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->mousePressEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnMousePressEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_MousePressEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MousePressEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_mousepressevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperMouseReleaseEvent(QsciScintillaBase* self, QMouseEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_MouseReleaseEvent_IsBase(true);
-        vqsciscintillabase->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnMouseReleaseEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_mousereleaseevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperPaintEvent(QsciScintillaBase* self, QPaintEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_PaintEvent_IsBase(true);
-        vqsciscintillabase->paintEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->paintEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnPaintEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_PaintEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_PaintEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_paintevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperResizeEvent(QsciScintillaBase* self, QResizeEvent* e) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ResizeEvent_IsBase(true);
-        vqsciscintillabase->resizeEvent(e);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->resizeEvent(e);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnResizeEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ResizeEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ResizeEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_resizeevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperScrollContentsBy(QsciScintillaBase* self, int dx, int dy) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ScrollContentsBy_IsBase(true);
-        vqsciscintillabase->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQsciScintillaBase*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnScrollContentsBy(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ScrollContentsBy_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ScrollContentsBy_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_scrollcontentsby_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QsciScintillaBase_MinimumSizeHint(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return new QSize(vqsciscintillabase->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQsciScintillaBase*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QsciScintillaBase_SuperMinimumSizeHint(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_MinimumSizeHint_IsBase(true);
-        return new QSize(vqsciscintillabase->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQsciScintillaBase*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QsciScintillaBase::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnMinimumSizeHint(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_MinimumSizeHint_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MinimumSizeHint_Callback>(slot));
+void QsciScintillaBase_OnMinimumSizeHint(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_minimumsizehint_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QsciScintillaBase_SizeHint(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return new QSize(vqsciscintillabase->sizeHint());
-    } else {
-        return new QSize(((VirtualQsciScintillaBase*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QsciScintillaBase_SuperSizeHint(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_SizeHint_IsBase(true);
-        return new QSize(vqsciscintillabase->sizeHint());
-    } else {
-        return new QSize(((VirtualQsciScintillaBase*)self)->sizeHint());
-    }
+    return new QSize(self->QsciScintillaBase::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnSizeHint(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_SizeHint_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SizeHint_Callback>(slot));
+void QsciScintillaBase_OnSizeHint(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_sizehint_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_SetupViewport(QsciScintillaBase* self, QWidget* viewport) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setupViewport(viewport);
-    } else {
-        self->QsciScintillaBase::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperSetupViewport(QsciScintillaBase* self, QWidget* viewport) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_SetupViewport_IsBase(true);
-        vqsciscintillabase->setupViewport(viewport);
-    } else {
-        self->QsciScintillaBase::setupViewport(viewport);
-    }
+    self->QsciScintillaBase::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnSetupViewport(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_SetupViewport_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SetupViewport_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_setupviewport_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciScintillaBase_EventFilter(QsciScintillaBase* self, QObject* param1, QEvent* param2) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->eventFilter(param1, param2);
     } else {
-        return ((VirtualQsciScintillaBase*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QsciScintillaBase::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciScintillaBase_SuperEventFilter(QsciScintillaBase* self, QObject* param1, QEvent* param2) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_EventFilter_IsBase(true);
-        return vqsciscintillabase->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        return vqsciscintillabase->QsciScintillaBase::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnEventFilter(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_EventFilter_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_EventFilter_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_eventfilter_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciScintillaBase_Event(QsciScintillaBase* self, QEvent* param1) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->event(param1);
     } else {
-        return ((VirtualQsciScintillaBase*)self)->event(param1);
+        qFatal("Error: Protected virtual method QsciScintillaBase::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciScintillaBase_SuperEvent(QsciScintillaBase* self, QEvent* param1) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Event_IsBase(true);
-        return vqsciscintillabase->event(param1);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->event(param1);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        return vqsciscintillabase->QsciScintillaBase::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Event_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Event_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_event_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciScintillaBase_ViewportEvent(QsciScintillaBase* self, QEvent* param1) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->viewportEvent(param1);
     } else {
-        return ((VirtualQsciScintillaBase*)self)->viewportEvent(param1);
+        qFatal("Error: Protected virtual method QsciScintillaBase::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciScintillaBase_SuperViewportEvent(QsciScintillaBase* self, QEvent* param1) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ViewportEvent_IsBase(true);
-        return vqsciscintillabase->viewportEvent(param1);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->viewportEvent(param1);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        return vqsciscintillabase->QsciScintillaBase::viewportEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnViewportEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ViewportEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ViewportEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_viewportevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_WheelEvent(QsciScintillaBase* self, QWheelEvent* param1) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->wheelEvent(param1);
     } else {
-        ((VirtualQsciScintillaBase*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method QsciScintillaBase::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperWheelEvent(QsciScintillaBase* self, QWheelEvent* param1) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_WheelEvent_IsBase(true);
-        vqsciscintillabase->wheelEvent(param1);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->wheelEvent(param1);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnWheelEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_WheelEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_WheelEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_wheelevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QsciScintillaBase_ViewportSizeHint(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return new QSize(vqsciscintillabase->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualQsciScintillaBase::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* QsciScintillaBase_SuperViewportSizeHint(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ViewportSizeHint_IsBase(true);
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
         return new QSize(vqsciscintillabase->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method QsciScintillaBase::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnViewportSizeHint(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ViewportSizeHint_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ViewportSizeHint_Callback>(slot));
+void QsciScintillaBase_OnViewportSizeHint(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_viewportsizehint_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_InitStyleOption(const QsciScintillaBase* self, QStyleOptionFrame* option) {
     auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->initStyleOption(option);
     } else {
-        ((VirtualQsciScintillaBase*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QsciScintillaBase::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperInitStyleOption(const QsciScintillaBase* self, QStyleOptionFrame* option) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_InitStyleOption_IsBase(true);
-        vqsciscintillabase->initStyleOption(option);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->initStyleOption(option);
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        vqsciscintillabase->QsciScintillaBase::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnInitStyleOption(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_InitStyleOption_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_InitStyleOption_Callback>(slot));
+void QsciScintillaBase_OnInitStyleOption(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_initstyleoption_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciScintillaBase_DevType(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->devType();
-    } else {
-        return self->QsciScintillaBase::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QsciScintillaBase_SuperDevType(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_DevType_IsBase(true);
-        return vqsciscintillabase->devType();
-    } else {
-        return self->QsciScintillaBase::devType();
-    }
+    return self->QsciScintillaBase::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnDevType(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_DevType_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DevType_Callback>(slot));
+void QsciScintillaBase_OnDevType(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_devtype_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_SetVisible(QsciScintillaBase* self, bool visible) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setVisible(visible);
-    } else {
-        self->QsciScintillaBase::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperSetVisible(QsciScintillaBase* self, bool visible) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_SetVisible_IsBase(true);
-        vqsciscintillabase->setVisible(visible);
-    } else {
-        self->QsciScintillaBase::setVisible(visible);
-    }
+    self->QsciScintillaBase::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnSetVisible(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_SetVisible_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SetVisible_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_setvisible_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciScintillaBase_HeightForWidth(const QsciScintillaBase* self, int param1) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QsciScintillaBase::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QsciScintillaBase_SuperHeightForWidth(const QsciScintillaBase* self, int param1) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_HeightForWidth_IsBase(true);
-        return vqsciscintillabase->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QsciScintillaBase::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QsciScintillaBase::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnHeightForWidth(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_HeightForWidth_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_HeightForWidth_Callback>(slot));
+void QsciScintillaBase_OnHeightForWidth(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_heightforwidth_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciScintillaBase_HasHeightForWidth(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->hasHeightForWidth();
-    } else {
-        return self->QsciScintillaBase::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QsciScintillaBase_SuperHasHeightForWidth(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_HasHeightForWidth_IsBase(true);
-        return vqsciscintillabase->hasHeightForWidth();
-    } else {
-        return self->QsciScintillaBase::hasHeightForWidth();
-    }
+    return self->QsciScintillaBase::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnHasHeightForWidth(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_HasHeightForWidth_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_HasHeightForWidth_Callback>(slot));
+void QsciScintillaBase_OnHasHeightForWidth(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_hasheightforwidth_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QsciScintillaBase_PaintEngine(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->paintEngine();
-    } else {
-        return self->QsciScintillaBase::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QsciScintillaBase_SuperPaintEngine(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_PaintEngine_IsBase(true);
-        return vqsciscintillabase->paintEngine();
-    } else {
-        return self->QsciScintillaBase::paintEngine();
-    }
+    return self->QsciScintillaBase::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnPaintEngine(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_PaintEngine_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_PaintEngine_Callback>(slot));
+void QsciScintillaBase_OnPaintEngine(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_paintengine_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_KeyReleaseEvent(QsciScintillaBase* self, QKeyEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->keyReleaseEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperKeyReleaseEvent(QsciScintillaBase* self, QKeyEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_KeyReleaseEvent_IsBase(true);
-        vqsciscintillabase->keyReleaseEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnKeyReleaseEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_keyreleaseevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_EnterEvent(QsciScintillaBase* self, QEnterEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->enterEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperEnterEvent(QsciScintillaBase* self, QEnterEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_EnterEvent_IsBase(true);
-        vqsciscintillabase->enterEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->enterEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnEnterEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_EnterEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_EnterEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_enterevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_LeaveEvent(QsciScintillaBase* self, QEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->leaveEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperLeaveEvent(QsciScintillaBase* self, QEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_LeaveEvent_IsBase(true);
-        vqsciscintillabase->leaveEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->leaveEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnLeaveEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_LeaveEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_LeaveEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_leaveevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_MoveEvent(QsciScintillaBase* self, QMoveEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->moveEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperMoveEvent(QsciScintillaBase* self, QMoveEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_MoveEvent_IsBase(true);
-        vqsciscintillabase->moveEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->moveEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnMoveEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_MoveEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MoveEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_moveevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_CloseEvent(QsciScintillaBase* self, QCloseEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->closeEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperCloseEvent(QsciScintillaBase* self, QCloseEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_CloseEvent_IsBase(true);
-        vqsciscintillabase->closeEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->closeEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnCloseEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_CloseEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_CloseEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_closeevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_TabletEvent(QsciScintillaBase* self, QTabletEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->tabletEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperTabletEvent(QsciScintillaBase* self, QTabletEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_TabletEvent_IsBase(true);
-        vqsciscintillabase->tabletEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->tabletEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnTabletEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_TabletEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_TabletEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_tabletevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_ActionEvent(QsciScintillaBase* self, QActionEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->actionEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperActionEvent(QsciScintillaBase* self, QActionEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ActionEvent_IsBase(true);
-        vqsciscintillabase->actionEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->actionEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnActionEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ActionEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ActionEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_actionevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_ShowEvent(QsciScintillaBase* self, QShowEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->showEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperShowEvent(QsciScintillaBase* self, QShowEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ShowEvent_IsBase(true);
-        vqsciscintillabase->showEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->showEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnShowEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ShowEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ShowEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_showevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_HideEvent(QsciScintillaBase* self, QHideEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->hideEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperHideEvent(QsciScintillaBase* self, QHideEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_HideEvent_IsBase(true);
-        vqsciscintillabase->hideEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->hideEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnHideEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_HideEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_HideEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_hideevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QsciScintillaBase_NativeEvent(QsciScintillaBase* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
+    if (vqsciscintillabase) {
         return vqsciscintillabase->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQsciScintillaBase*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QsciScintillaBase::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QsciScintillaBase_SuperNativeEvent(QsciScintillaBase* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_NativeEvent_IsBase(true);
-        return vqsciscintillabase->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        return vqsciscintillabase->QsciScintillaBase::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnNativeEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_NativeEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_NativeEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_nativeevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QsciScintillaBase_Metric(const QsciScintillaBase* self, int param1) {
     auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQsciScintillaBase*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QsciScintillaBase::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QsciScintillaBase_SuperMetric(const QsciScintillaBase* self, int param1) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Metric_IsBase(true);
-        return vqsciscintillabase->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->QsciScintillaBase::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnMetric(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Metric_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Metric_Callback>(slot));
+void QsciScintillaBase_OnMetric(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_metric_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_InitPainter(const QsciScintillaBase* self, QPainter* painter) {
     auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->initPainter(painter);
     } else {
-        ((VirtualQsciScintillaBase*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QsciScintillaBase::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperInitPainter(const QsciScintillaBase* self, QPainter* painter) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_InitPainter_IsBase(true);
-        vqsciscintillabase->initPainter(painter);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->initPainter(painter);
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        vqsciscintillabase->QsciScintillaBase::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnInitPainter(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_InitPainter_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_InitPainter_Callback>(slot));
+void QsciScintillaBase_OnInitPainter(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_initpainter_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QsciScintillaBase_Redirected(const QsciScintillaBase* self, QPoint* offset) {
     auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->redirected(offset);
     } else {
-        return ((VirtualQsciScintillaBase*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QsciScintillaBase::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QsciScintillaBase_SuperRedirected(const QsciScintillaBase* self, QPoint* offset) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Redirected_IsBase(true);
-        return vqsciscintillabase->redirected(offset);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->redirected(offset);
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->QsciScintillaBase::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnRedirected(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Redirected_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Redirected_Callback>(slot));
+void QsciScintillaBase_OnRedirected(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_redirected_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QsciScintillaBase_SharedPainter(const QsciScintillaBase* self) {
     auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         return vqsciscintillabase->sharedPainter();
     } else {
-        return ((VirtualQsciScintillaBase*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QsciScintillaBase::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QsciScintillaBase_SuperSharedPainter(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_SharedPainter_IsBase(true);
-        return vqsciscintillabase->sharedPainter();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->sharedPainter();
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->QsciScintillaBase::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnSharedPainter(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_SharedPainter_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SharedPainter_Callback>(slot));
+void QsciScintillaBase_OnSharedPainter(QsciScintillaBase* self, intptr_t slot) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
+        vqsciscintillabase->qsciscintillabase_sharedpainter_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_TimerEvent(QsciScintillaBase* self, QTimerEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->timerEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperTimerEvent(QsciScintillaBase* self, QTimerEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_TimerEvent_IsBase(true);
-        vqsciscintillabase->timerEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->timerEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnTimerEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_TimerEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_TimerEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_timerevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_ChildEvent(QsciScintillaBase* self, QChildEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->childEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperChildEvent(QsciScintillaBase* self, QChildEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ChildEvent_IsBase(true);
-        vqsciscintillabase->childEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->childEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnChildEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ChildEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ChildEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_childevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_CustomEvent(QsciScintillaBase* self, QEvent* event) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->customEvent(event);
     } else {
-        ((VirtualQsciScintillaBase*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QsciScintillaBase::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperCustomEvent(QsciScintillaBase* self, QEvent* event) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_CustomEvent_IsBase(true);
-        vqsciscintillabase->customEvent(event);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->customEvent(event);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnCustomEvent(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_CustomEvent_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_CustomEvent_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_customevent_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_ConnectNotify(QsciScintillaBase* self, const QMetaMethod* signal) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->connectNotify(*signal);
     } else {
-        ((VirtualQsciScintillaBase*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciScintillaBase::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperConnectNotify(QsciScintillaBase* self, const QMetaMethod* signal) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ConnectNotify_IsBase(true);
-        vqsciscintillabase->connectNotify(*signal);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnConnectNotify(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ConnectNotify_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ConnectNotify_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_connectnotify_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QsciScintillaBase_DisconnectNotify(QsciScintillaBase* self, const QMetaMethod* signal) {
     auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (vqsciscintillabase) {
         vqsciscintillabase->disconnectNotify(*signal);
     } else {
-        ((VirtualQsciScintillaBase*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QsciScintillaBase::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QsciScintillaBase_SuperDisconnectNotify(QsciScintillaBase* self, const QMetaMethod* signal) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_DisconnectNotify_IsBase(true);
-        vqsciscintillabase->disconnectNotify(*signal);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->QsciScintillaBase::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QsciScintillaBase::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QsciScintillaBase_OnDisconnectNotify(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DisconnectNotify_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self))
+        vqsciscintillabase->qsciscintillabase_disconnectnotify_callback = reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QsciScintillaBase_SetScrollBars(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setScrollBars();
-    } else {
-        ((VirtualQsciScintillaBase*)self)->setScrollBars();
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->VirtualQsciScintillaBase::setScrollBars();
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::setScrollBars called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QsciScintillaBase_SuperSetScrollBars(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_SetScrollBars_IsBase(true);
-        vqsciscintillabase->setScrollBars();
-    } else {
-        ((VirtualQsciScintillaBase*)self)->setScrollBars();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnSetScrollBars(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_SetScrollBars_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SetScrollBars_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciScintillaBase_TextAsBytes(const QsciScintillaBase* self, const libqt_string text) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        QByteArray _qb = vqsciscintillabase->textAsBytes(text_QString);
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        QString text_QString = QString::fromUtf8(text.data, text.len);
+        QByteArray _qb = vqsciscintillabase->VirtualQsciScintillaBase::textAsBytes(text_QString);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciScintillaBase*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::textAsBytes called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciScintillaBase_SuperTextAsBytes(const QsciScintillaBase* self, const libqt_string text) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_TextAsBytes_IsBase(true);
-        QByteArray _qb = vqsciscintillabase->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualQsciScintillaBase*)self)->textAsBytes(text_QString);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnTextAsBytes(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_TextAsBytes_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_TextAsBytes_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string QsciScintillaBase_BytesAsText(const QsciScintillaBase* self, const char* bytes, int size) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        auto _ret = vqsciscintillabase->bytesAsText(bytes, static_cast<int>(size));
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        auto _ret = vqsciscintillabase->VirtualQsciScintillaBase::bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2363,441 +1992,119 @@ libqt_string QsciScintillaBase_BytesAsText(const QsciScintillaBase* self, const 
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualQsciScintillaBase*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::bytesAsText called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string QsciScintillaBase_SuperBytesAsText(const QsciScintillaBase* self, const char* bytes, int size) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_BytesAsText_IsBase(true);
-        auto _ret = vqsciscintillabase->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQsciScintillaBase*)self)->bytesAsText(bytes, static_cast<int>(size));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnBytesAsText(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_BytesAsText_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_BytesAsText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciScintillaBase_ContextMenuNeeded(const QsciScintillaBase* self, int x, int y) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->contextMenuNeeded(static_cast<int>(x), static_cast<int>(y));
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->contextMenuNeeded(static_cast<int>(x), static_cast<int>(y));
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->VirtualQsciScintillaBase::contextMenuNeeded(static_cast<int>(x), static_cast<int>(y));
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::contextMenuNeeded called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QsciScintillaBase_SuperContextMenuNeeded(const QsciScintillaBase* self, int x, int y) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ContextMenuNeeded_IsBase(true);
-        return vqsciscintillabase->contextMenuNeeded(static_cast<int>(x), static_cast<int>(y));
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->contextMenuNeeded(static_cast<int>(x), static_cast<int>(y));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnContextMenuNeeded(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ContextMenuNeeded_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ContextMenuNeeded_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QsciScintillaBase_SetViewportMargins(QsciScintillaBase* self, int left, int top, int right, int bottom) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQsciScintillaBase*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QsciScintillaBase_SuperSetViewportMargins(QsciScintillaBase* self, int left, int top, int right, int bottom) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_SetViewportMargins_IsBase(true);
-        vqsciscintillabase->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQsciScintillaBase*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnSetViewportMargins(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_SetViewportMargins_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SetViewportMargins_Callback>(slot));
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->VirtualQsciScintillaBase::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QsciScintillaBase_ViewportMargins(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self)))
         return new QMargins(vqsciscintillabase->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QsciScintillaBase::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QsciScintillaBase_SuperViewportMargins(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_ViewportMargins_IsBase(true);
-        return new QMargins(vqsciscintillabase->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnViewportMargins(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_ViewportMargins_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QsciScintillaBase_DrawFrame(QsciScintillaBase* self, QPainter* param1) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->drawFrame(param1);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->drawFrame(param1);
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->VirtualQsciScintillaBase::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QsciScintillaBase_SuperDrawFrame(QsciScintillaBase* self, QPainter* param1) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_DrawFrame_IsBase(true);
-        vqsciscintillabase->drawFrame(param1);
-    } else {
-        ((VirtualQsciScintillaBase*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnDrawFrame(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_DrawFrame_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QsciScintillaBase_UpdateMicroFocus(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->updateMicroFocus();
-    } else {
-        ((VirtualQsciScintillaBase*)self)->updateMicroFocus();
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->VirtualQsciScintillaBase::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QsciScintillaBase_SuperUpdateMicroFocus(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_UpdateMicroFocus_IsBase(true);
-        vqsciscintillabase->updateMicroFocus();
-    } else {
-        ((VirtualQsciScintillaBase*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnUpdateMicroFocus(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QsciScintillaBase_Create(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->create();
-    } else {
-        ((VirtualQsciScintillaBase*)self)->create();
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->VirtualQsciScintillaBase::create();
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QsciScintillaBase_SuperCreate(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Create_IsBase(true);
-        vqsciscintillabase->create();
-    } else {
-        ((VirtualQsciScintillaBase*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnCreate(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Create_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QsciScintillaBase_Destroy(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->destroy();
-    } else {
-        ((VirtualQsciScintillaBase*)self)->destroy();
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        vqsciscintillabase->VirtualQsciScintillaBase::destroy();
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QsciScintillaBase_SuperDestroy(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Destroy_IsBase(true);
-        vqsciscintillabase->destroy();
-    } else {
-        ((VirtualQsciScintillaBase*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnDestroy(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Destroy_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciScintillaBase_FocusNextChild(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->focusNextChild();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->focusNextChild();
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        return vqsciscintillabase->VirtualQsciScintillaBase::focusNextChild();
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QsciScintillaBase_SuperFocusNextChild(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_FocusNextChild_IsBase(true);
-        return vqsciscintillabase->focusNextChild();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnFocusNextChild(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_FocusNextChild_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciScintillaBase_FocusPreviousChild(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->focusPreviousChild();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->focusPreviousChild();
-    }
+    if (auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self)) {
+        return vqsciscintillabase->VirtualQsciScintillaBase::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QsciScintillaBase_SuperFocusPreviousChild(QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_FocusPreviousChild_IsBase(true);
-        return vqsciscintillabase->focusPreviousChild();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnFocusPreviousChild(QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_FocusPreviousChild_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QsciScintillaBase_Sender(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->sender();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->sender();
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->VirtualQsciScintillaBase::sender();
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QsciScintillaBase_SuperSender(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Sender_IsBase(true);
-        return vqsciscintillabase->sender();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnSender(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Sender_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciScintillaBase_SenderSignalIndex(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->senderSignalIndex();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->senderSignalIndex();
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->VirtualQsciScintillaBase::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciScintillaBase_SuperSenderSignalIndex(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_SenderSignalIndex_IsBase(true);
-        return vqsciscintillabase->senderSignalIndex();
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnSenderSignalIndex(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QsciScintillaBase_Receivers(const QsciScintillaBase* self, const char* signal) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->receivers(signal);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->receivers(signal);
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->VirtualQsciScintillaBase::receivers(signal);
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QsciScintillaBase_SuperReceivers(const QsciScintillaBase* self, const char* signal) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_Receivers_IsBase(true);
-        return vqsciscintillabase->receivers(signal);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnReceivers(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_Receivers_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QsciScintillaBase_IsSignalConnected(const QsciScintillaBase* self, const QMetaMethod* signal) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->VirtualQsciScintillaBase::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QsciScintillaBase_SuperIsSignalConnected(const QsciScintillaBase* self, const QMetaMethod* signal) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_IsSignalConnected_IsBase(true);
-        return vqsciscintillabase->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnIsSignalConnected(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QsciScintillaBase_GetDecodedMetricF(const QsciScintillaBase* self, int metricA, int metricB) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return vqsciscintillabase->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QsciScintillaBase_SuperGetDecodedMetricF(const QsciScintillaBase* self, int metricA, int metricB) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        vqsciscintillabase->setQsciScintillaBase_GetDecodedMetricF_IsBase(true);
-        return vqsciscintillabase->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintillaBase_OnGetDecodedMetricF(const QsciScintillaBase* self, intptr_t slot) {
-    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase)
-        vqsciscintillabase->setQsciScintillaBase_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self))) {
+        return vqsciscintillabase->VirtualQsciScintillaBase::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QsciScintillaBase::getDecodedMetricF called without a directly constructed type");
 }
 
 void QsciScintillaBase_Delete(QsciScintillaBase* self) {

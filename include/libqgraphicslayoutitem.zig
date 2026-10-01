@@ -627,9 +627,9 @@ pub const QGraphicsLayoutItem = extern struct {
     ///
     /// ` self: QGraphicsLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsLayoutItem) callconv(.c) void `
     ///
-    pub fn onUpdateGeometry(self: QGraphicsLayoutItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometry(self: QGraphicsLayoutItem, callback: *const fn (QGraphicsLayoutItem) callconv(.c) void) void {
         qtc.QGraphicsLayoutItem_OnUpdateGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -675,9 +675,9 @@ pub const QGraphicsLayoutItem = extern struct {
     ///
     /// ` self: QGraphicsLayoutItem `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QGraphicsLayoutItem) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QGraphicsLayoutItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QGraphicsLayoutItem, callback: *const fn (QGraphicsLayoutItem) callconv(.c) bool) void {
         qtc.QGraphicsLayoutItem_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -789,44 +789,6 @@ pub const QGraphicsLayoutItem = extern struct {
         qtc.QGraphicsLayoutItem_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetGraphicsItem` instead
-    ///
-    pub const OnSetGraphicsItem = onSetGraphicsItem;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsLayoutItem `
-    ///
-    /// ` callback: *const fn (self: QGraphicsLayoutItem, item: QGraphicsItem) callconv(.c) void `
-    ///
-    pub fn onSetGraphicsItem(self: QGraphicsLayoutItem, callback: *const fn (QGraphicsLayoutItem, QGraphicsItem) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnSetGraphicsItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetGraphicsItem` instead
-    ///
-    pub const SuperSetGraphicsItem = superSetGraphicsItem;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsLayoutItem `
-    ///
-    /// ` item: QGraphicsItem `
-    ///
-    pub fn superSetGraphicsItem(self: QGraphicsLayoutItem, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
-        qtc.QGraphicsLayoutItem_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
-    }
-
     /// ### DEPRECATED: Use `setOwnedByLayout` instead
     ///
     pub const SetOwnedByLayout = setOwnedByLayout;
@@ -843,47 +805,13 @@ pub const QGraphicsLayoutItem = extern struct {
         qtc.QGraphicsLayoutItem_SetOwnedByLayout(@ptrCast(self.ptr), _ownedByLayout);
     }
 
-    /// ### DEPRECATED: Use `onSetOwnedByLayout` instead
-    ///
-    pub const OnSetOwnedByLayout = onSetOwnedByLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsLayoutItem `
-    ///
-    /// ` callback: *const fn (self: QGraphicsLayoutItem, ownedByLayout: bool) callconv(.c) void `
-    ///
-    pub fn onSetOwnedByLayout(self: QGraphicsLayoutItem, callback: *const fn (QGraphicsLayoutItem, bool) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnSetOwnedByLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetOwnedByLayout` instead
-    ///
-    pub const SuperSetOwnedByLayout = superSetOwnedByLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsLayoutItem `
-    ///
-    /// ` _ownedByLayout: bool `
-    ///
-    pub fn superSetOwnedByLayout(self: QGraphicsLayoutItem, _ownedByLayout: bool) void {
-        qtc.QGraphicsLayoutItem_SuperSetOwnedByLayout(@ptrCast(self.ptr), _ownedByLayout);
-    }
-
     /// ### DEPRECATED: Use `sizeHint` instead
     ///
     pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizeHint)
+    ///
+    /// This method must be implemented with `onSizeHint` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -916,27 +844,6 @@ pub const QGraphicsLayoutItem = extern struct {
     ///
     pub fn onSizeHint(self: QGraphicsLayoutItem, callback: *const fn (QGraphicsLayoutItem, i32, QSizeF) callconv(.c) QSizeF) void {
         qtc.QGraphicsLayoutItem_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSizeHint` instead
-    ///
-    pub const SuperSizeHint = superSizeHint;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizeHint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsLayoutItem `
-    ///
-    /// ` which: qnamespace_enums.SizeHint `
-    ///
-    /// ` constraint: QSizeF `
-    ///
-    pub fn superSizeHint(self: QGraphicsLayoutItem, which: i32, constraint: anytype) QSizeF {
-        comptime _ = @TypeOf(constraint)._is_QSizeF;
-        return .{ .ptr = qtc.QGraphicsLayoutItem_SuperSizeHint(@ptrCast(self.ptr), @bitCast(which), @ptrCast(constraint.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setSizePolicy3` instead

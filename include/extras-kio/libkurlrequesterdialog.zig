@@ -165,9 +165,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) QMetaObject) void {
         qtc.KUrlRequesterDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6967,11 +6967,11 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) QSize) void {
         qtc.KUrlRequesterDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7025,11 +7025,11 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) QSize) void {
         qtc.KUrlRequesterDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7083,9 +7083,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) void) void {
         qtc.KUrlRequesterDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7139,9 +7139,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) i32) void {
         qtc.KUrlRequesterDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7255,9 +7255,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) void) void {
         qtc.KUrlRequesterDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7311,9 +7311,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) void) void {
         qtc.KUrlRequesterDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7745,9 +7745,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) i32) void {
         qtc.KUrlRequesterDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7861,9 +7861,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) bool) void {
         qtc.KUrlRequesterDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7917,9 +7917,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) QPaintEngine) void {
         qtc.KUrlRequesterDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9535,9 +9535,9 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` self: KUrlRequesterDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KUrlRequesterDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog) callconv(.c) QPainter) void {
         qtc.KUrlRequesterDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10056,47 +10056,6 @@ pub const KUrlRequesterDialog = extern struct {
         qtc.KUrlRequesterDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: KUrlRequesterDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KUrlRequesterDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn (self: KUrlRequesterDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog, QWidget) callconv(.c) void) void {
-        qtc.KUrlRequesterDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10113,44 +10072,6 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: KUrlRequesterDialog) void {
         qtc.KUrlRequesterDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: KUrlRequesterDialog) void {
-        qtc.KUrlRequesterDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlRequesterDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10171,44 +10092,6 @@ pub const KUrlRequesterDialog = extern struct {
         qtc.KUrlRequesterDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    pub fn superCreate(self: KUrlRequesterDialog) void {
-        qtc.KUrlRequesterDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlRequesterDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10225,44 +10108,6 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     pub fn destroy(self: KUrlRequesterDialog) void {
         qtc.KUrlRequesterDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    pub fn superDestroy(self: KUrlRequesterDialog) void {
-        qtc.KUrlRequesterDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlRequesterDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10283,44 +10128,6 @@ pub const KUrlRequesterDialog = extern struct {
         return qtc.KUrlRequesterDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    pub fn superFocusNextChild(self: KUrlRequesterDialog) bool {
-        return qtc.KUrlRequesterDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlRequesterDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10337,44 +10144,6 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: KUrlRequesterDialog) bool {
         return qtc.KUrlRequesterDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    pub fn superFocusPreviousChild(self: KUrlRequesterDialog) bool {
-        return qtc.KUrlRequesterDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlRequesterDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10395,44 +10164,6 @@ pub const KUrlRequesterDialog = extern struct {
         return .{ .ptr = qtc.KUrlRequesterDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    pub fn superSender(self: KUrlRequesterDialog) QObject {
-        return .{ .ptr = qtc.KUrlRequesterDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KUrlRequesterDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10449,44 +10180,6 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: KUrlRequesterDialog) i32 {
         return qtc.KUrlRequesterDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    pub fn superSenderSignalIndex(self: KUrlRequesterDialog) i32 {
-        return qtc.KUrlRequesterDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.KUrlRequesterDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10510,47 +10203,6 @@ pub const KUrlRequesterDialog = extern struct {
         return qtc.KUrlRequesterDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KUrlRequesterDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KUrlRequesterDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn (self: KUrlRequesterDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KUrlRequesterDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10570,47 +10222,6 @@ pub const KUrlRequesterDialog = extern struct {
     pub fn isSignalConnected(self: KUrlRequesterDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KUrlRequesterDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KUrlRequesterDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KUrlRequesterDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn (self: KUrlRequesterDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.KUrlRequesterDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10633,48 +10244,6 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: KUrlRequesterDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KUrlRequesterDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUrlRequesterDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KUrlRequesterDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.KUrlRequesterDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUrlRequesterDialog`
-    ///
-    /// ` callback: *const fn (self: KUrlRequesterDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog, i32, i32) callconv(.c) f64) void {
-        qtc.KUrlRequesterDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

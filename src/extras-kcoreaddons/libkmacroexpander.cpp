@@ -48,10 +48,10 @@ int KMacroExpanderBase_ExpandPlainMacro(KMacroExpanderBase* self, const libqt_st
         ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
-    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
+    if (vkmacroexpanderbase) {
         return vkmacroexpanderbase->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
-    return {};
+    qFatal("Error: Protected method KMacroExpanderBase::expandPlainMacro called without a directly constructed type");
 }
 
 int KMacroExpanderBase_ExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
@@ -64,15 +64,14 @@ int KMacroExpanderBase_ExpandEscapedMacro(KMacroExpanderBase* self, const libqt_
         ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
-    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
+    if (vkmacroexpanderbase) {
         return vkmacroexpanderbase->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
-    return {};
+    qFatal("Error: Protected method KMacroExpanderBase::expandEscapedMacro called without a directly constructed type");
 }
 
 // Base class handler implementation
 int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
-    auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> ret_QList;
     ret_QList.reserve(ret.len);
@@ -81,24 +80,20 @@ int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const lib
         QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
         ret_QList.push_back(ret_arr_i_QString);
     }
-    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
-        vkmacroexpanderbase->setKMacroExpanderBase_ExpandPlainMacro_IsBase(true);
-        return vkmacroexpanderbase->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
-    } else {
-        return ((VirtualKMacroExpanderBase*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
-    }
+    if (auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self)) {
+        return vkmacroexpanderbase->KMacroExpanderBase::expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
+    } else
+        qFatal("Error: Protected virtual method KMacroExpanderBase::expandPlainMacro called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMacroExpanderBase_OnExpandPlainMacro(KMacroExpanderBase* self, intptr_t slot) {
-    auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
-    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase)
-        vkmacroexpanderbase->setKMacroExpanderBase_ExpandPlainMacro_Callback(reinterpret_cast<VirtualKMacroExpanderBase::KMacroExpanderBase_ExpandPlainMacro_Callback>(slot));
+    if (auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self))
+        vkmacroexpanderbase->kmacroexpanderbase_expandplainmacro_callback = reinterpret_cast<VirtualKMacroExpanderBase::KMacroExpanderBase_ExpandPlainMacro_Callback>(slot);
 }
 
 // Base class handler implementation
 int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
-    auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> ret_QList;
     ret_QList.reserve(ret.len);
@@ -107,19 +102,16 @@ int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const l
         QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
         ret_QList.push_back(ret_arr_i_QString);
     }
-    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
-        vkmacroexpanderbase->setKMacroExpanderBase_ExpandEscapedMacro_IsBase(true);
-        return vkmacroexpanderbase->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
-    } else {
-        return ((VirtualKMacroExpanderBase*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
-    }
+    if (auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self)) {
+        return vkmacroexpanderbase->KMacroExpanderBase::expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
+    } else
+        qFatal("Error: Protected virtual method KMacroExpanderBase::expandEscapedMacro called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMacroExpanderBase_OnExpandEscapedMacro(KMacroExpanderBase* self, intptr_t slot) {
-    auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
-    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase)
-        vkmacroexpanderbase->setKMacroExpanderBase_ExpandEscapedMacro_Callback(reinterpret_cast<VirtualKMacroExpanderBase::KMacroExpanderBase_ExpandEscapedMacro_Callback>(slot));
+    if (auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self))
+        vkmacroexpanderbase->kmacroexpanderbase_expandescapedmacro_callback = reinterpret_cast<VirtualKMacroExpanderBase::KMacroExpanderBase_ExpandEscapedMacro_Callback>(slot);
 }
 
 void KMacroExpanderBase_Delete(KMacroExpanderBase* self) {
@@ -144,10 +136,10 @@ int KWordMacroExpander_ExpandPlainMacro(KWordMacroExpander* self, const libqt_st
         ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
+    if (vkwordmacroexpander) {
         return vkwordmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
-    return {};
+    qFatal("Error: Protected method KWordMacroExpander::expandPlainMacro called without a directly constructed type");
 }
 
 int KWordMacroExpander_ExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
@@ -160,10 +152,10 @@ int KWordMacroExpander_ExpandEscapedMacro(KWordMacroExpander* self, const libqt_
         ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
+    if (vkwordmacroexpander) {
         return vkwordmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
-    return {};
+    qFatal("Error: Protected method KWordMacroExpander::expandEscapedMacro called without a directly constructed type");
 }
 
 bool KWordMacroExpander_ExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ ret) {
@@ -176,15 +168,14 @@ bool KWordMacroExpander_ExpandMacro(KWordMacroExpander* self, const libqt_string
         ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
+    if (vkwordmacroexpander) {
         return vkwordmacroexpander->expandMacro(str_QString, ret_QList);
     }
-    return {};
+    qFatal("Error: Protected method KWordMacroExpander::expandMacro called without a directly constructed type");
 }
 
 // Base class handler implementation
 int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
-    auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> ret_QList;
     ret_QList.reserve(ret.len);
@@ -193,24 +184,20 @@ int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const lib
         QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
         ret_QList.push_back(ret_arr_i_QString);
     }
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
-        vkwordmacroexpander->setKWordMacroExpander_ExpandPlainMacro_IsBase(true);
-        return vkwordmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
-    } else {
-        return ((VirtualKWordMacroExpander*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
-    }
+    if (auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self)) {
+        return vkwordmacroexpander->KWordMacroExpander::expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
+    } else
+        qFatal("Error: Protected virtual method KWordMacroExpander::expandPlainMacro called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWordMacroExpander_OnExpandPlainMacro(KWordMacroExpander* self, intptr_t slot) {
-    auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander)
-        vkwordmacroexpander->setKWordMacroExpander_ExpandPlainMacro_Callback(reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandPlainMacro_Callback>(slot));
+    if (auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self))
+        vkwordmacroexpander->kwordmacroexpander_expandplainmacro_callback = reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandPlainMacro_Callback>(slot);
 }
 
 // Base class handler implementation
 int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
-    auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> ret_QList;
     ret_QList.reserve(ret.len);
@@ -219,45 +206,22 @@ int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const l
         QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
         ret_QList.push_back(ret_arr_i_QString);
     }
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
-        vkwordmacroexpander->setKWordMacroExpander_ExpandEscapedMacro_IsBase(true);
-        return vkwordmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
-    } else {
-        return ((VirtualKWordMacroExpander*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
-    }
+    if (auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self)) {
+        return vkwordmacroexpander->KWordMacroExpander::expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
+    } else
+        qFatal("Error: Protected virtual method KWordMacroExpander::expandEscapedMacro called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWordMacroExpander_OnExpandEscapedMacro(KWordMacroExpander* self, intptr_t slot) {
-    auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander)
-        vkwordmacroexpander->setKWordMacroExpander_ExpandEscapedMacro_Callback(reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandEscapedMacro_Callback>(slot));
-}
-
-// Base class handler implementation
-bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_string str, libqt_list /* of libqt_string */ ret) {
-    auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    QString str_QString = QString::fromUtf8(str.data, str.len);
-    QList<QString> ret_QList;
-    ret_QList.reserve(ret.len);
-    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
-    for (size_t i = 0; i < ret.len; ++i) {
-        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
-        ret_QList.push_back(ret_arr_i_QString);
-    }
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
-        vkwordmacroexpander->setKWordMacroExpander_ExpandMacro_IsBase(true);
-        return vkwordmacroexpander->expandMacro(str_QString, ret_QList);
-    } else {
-        return ((VirtualKWordMacroExpander*)self)->expandMacro(str_QString, ret_QList);
-    }
+    if (auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self))
+        vkwordmacroexpander->kwordmacroexpander_expandescapedmacro_callback = reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandEscapedMacro_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KWordMacroExpander_OnExpandMacro(KWordMacroExpander* self, intptr_t slot) {
-    auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander)
-        vkwordmacroexpander->setKWordMacroExpander_ExpandMacro_Callback(reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandMacro_Callback>(slot));
+    if (auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self))
+        vkwordmacroexpander->kwordmacroexpander_expandmacro_callback = reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandMacro_Callback>(slot);
 }
 
 void KWordMacroExpander_Delete(KWordMacroExpander* self) {
@@ -282,10 +246,10 @@ int KCharMacroExpander_ExpandPlainMacro(KCharMacroExpander* self, const libqt_st
         ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
+    if (vkcharmacroexpander) {
         return vkcharmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
-    return {};
+    qFatal("Error: Protected method KCharMacroExpander::expandPlainMacro called without a directly constructed type");
 }
 
 int KCharMacroExpander_ExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
@@ -298,10 +262,10 @@ int KCharMacroExpander_ExpandEscapedMacro(KCharMacroExpander* self, const libqt_
         ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
+    if (vkcharmacroexpander) {
         return vkcharmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
     }
-    return {};
+    qFatal("Error: Protected method KCharMacroExpander::expandEscapedMacro called without a directly constructed type");
 }
 
 bool KCharMacroExpander_ExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ ret) {
@@ -313,15 +277,14 @@ bool KCharMacroExpander_ExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_
         ret_QList.push_back(ret_arr_i_QString);
     }
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
+    if (vkcharmacroexpander) {
         return vkcharmacroexpander->expandMacro(*chr, ret_QList);
     }
-    return {};
+    qFatal("Error: Protected method KCharMacroExpander::expandMacro called without a directly constructed type");
 }
 
 // Base class handler implementation
 int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
-    auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> ret_QList;
     ret_QList.reserve(ret.len);
@@ -330,24 +293,20 @@ int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const lib
         QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
         ret_QList.push_back(ret_arr_i_QString);
     }
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
-        vkcharmacroexpander->setKCharMacroExpander_ExpandPlainMacro_IsBase(true);
-        return vkcharmacroexpander->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
-    } else {
-        return ((VirtualKCharMacroExpander*)self)->expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
-    }
+    if (auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self)) {
+        return vkcharmacroexpander->KCharMacroExpander::expandPlainMacro(str_QString, static_cast<int>(pos), ret_QList);
+    } else
+        qFatal("Error: Protected virtual method KCharMacroExpander::expandPlainMacro called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharMacroExpander_OnExpandPlainMacro(KCharMacroExpander* self, intptr_t slot) {
-    auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander)
-        vkcharmacroexpander->setKCharMacroExpander_ExpandPlainMacro_Callback(reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandPlainMacro_Callback>(slot));
+    if (auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self))
+        vkcharmacroexpander->kcharmacroexpander_expandplainmacro_callback = reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandPlainMacro_Callback>(slot);
 }
 
 // Base class handler implementation
 int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const libqt_string str, int pos, libqt_list /* of libqt_string */ ret) {
-    auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QString> ret_QList;
     ret_QList.reserve(ret.len);
@@ -356,44 +315,22 @@ int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const l
         QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
         ret_QList.push_back(ret_arr_i_QString);
     }
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
-        vkcharmacroexpander->setKCharMacroExpander_ExpandEscapedMacro_IsBase(true);
-        return vkcharmacroexpander->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
-    } else {
-        return ((VirtualKCharMacroExpander*)self)->expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
-    }
+    if (auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self)) {
+        return vkcharmacroexpander->KCharMacroExpander::expandEscapedMacro(str_QString, static_cast<int>(pos), ret_QList);
+    } else
+        qFatal("Error: Protected virtual method KCharMacroExpander::expandEscapedMacro called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharMacroExpander_OnExpandEscapedMacro(KCharMacroExpander* self, intptr_t slot) {
-    auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander)
-        vkcharmacroexpander->setKCharMacroExpander_ExpandEscapedMacro_Callback(reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandEscapedMacro_Callback>(slot));
-}
-
-// Base class handler implementation
-bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ ret) {
-    auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    QList<QString> ret_QList;
-    ret_QList.reserve(ret.len);
-    libqt_string* ret_arr = static_cast<libqt_string*>(ret.data);
-    for (size_t i = 0; i < ret.len; ++i) {
-        QString ret_arr_i_QString = QString::fromUtf8(ret_arr[i].data, ret_arr[i].len);
-        ret_QList.push_back(ret_arr_i_QString);
-    }
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
-        vkcharmacroexpander->setKCharMacroExpander_ExpandMacro_IsBase(true);
-        return vkcharmacroexpander->expandMacro(*chr, ret_QList);
-    } else {
-        return ((VirtualKCharMacroExpander*)self)->expandMacro(*chr, ret_QList);
-    }
+    if (auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self))
+        vkcharmacroexpander->kcharmacroexpander_expandescapedmacro_callback = reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandEscapedMacro_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharMacroExpander_OnExpandMacro(KCharMacroExpander* self, intptr_t slot) {
-    auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander)
-        vkcharmacroexpander->setKCharMacroExpander_ExpandMacro_Callback(reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandMacro_Callback>(slot));
+    if (auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self))
+        vkcharmacroexpander->kcharmacroexpander_expandmacro_callback = reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandMacro_Callback>(slot);
 }
 
 void KCharMacroExpander_Delete(KCharMacroExpander* self) {

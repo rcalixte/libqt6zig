@@ -221,364 +221,227 @@ libqt_string KDualAction_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KDualAction_SuperMetaObject(const KDualAction* self) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_MetaObject_IsBase(true);
-        return (QMetaObject*)vkdualaction->metaObject();
-    } else {
-        return (QMetaObject*)self->KDualAction::metaObject();
-    }
+    return (QMetaObject*)self->KDualAction::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDualAction_OnMetaObject(const KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_MetaObject_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_MetaObject_Callback>(slot));
+void KDualAction_OnMetaObject(KDualAction* self, intptr_t slot) {
+    if (auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self)))
+        vkdualaction->kdualaction_metaobject_callback = reinterpret_cast<VirtualKDualAction::KDualAction_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KDualAction_SuperMetacast(KDualAction* self, const char* param1) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_Metacast_IsBase(true);
-        return vkdualaction->qt_metacast(param1);
-    } else {
-        return self->KDualAction::qt_metacast(param1);
-    }
+    return self->KDualAction::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnMetacast(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_Metacast_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Metacast_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_metacast_callback = reinterpret_cast<VirtualKDualAction::KDualAction_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDualAction_SuperMetacall(KDualAction* self, int param1, int param2, void** param3) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_Metacall_IsBase(true);
-        return vkdualaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KDualAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KDualAction::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnMetacall(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_Metacall_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Metacall_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_metacall_callback = reinterpret_cast<VirtualKDualAction::KDualAction_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDualAction_Event(KDualAction* self, QEvent* param1) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction) {
         return vkdualaction->event(param1);
     } else {
-        return ((VirtualKDualAction*)self)->event(param1);
+        qFatal("Error: Protected virtual method KDualAction::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KDualAction_SuperEvent(KDualAction* self, QEvent* param1) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_Event_IsBase(true);
-        return vkdualaction->event(param1);
-    } else {
-        return ((VirtualKDualAction*)self)->event(param1);
-    }
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self)) {
+        return vkdualaction->KDualAction::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KDualAction::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnEvent(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_Event_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Event_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_event_callback = reinterpret_cast<VirtualKDualAction::KDualAction_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDualAction_EventFilter(KDualAction* self, QObject* watched, QEvent* event) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        return vkdualaction->eventFilter(watched, event);
-    } else {
-        return self->KDualAction::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KDualAction_SuperEventFilter(KDualAction* self, QObject* watched, QEvent* event) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_EventFilter_IsBase(true);
-        return vkdualaction->eventFilter(watched, event);
-    } else {
-        return self->KDualAction::eventFilter(watched, event);
-    }
+    return self->KDualAction::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnEventFilter(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_EventFilter_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_EventFilter_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_eventfilter_callback = reinterpret_cast<VirtualKDualAction::KDualAction_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDualAction_TimerEvent(KDualAction* self, QTimerEvent* event) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction) {
         vkdualaction->timerEvent(event);
     } else {
-        ((VirtualKDualAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KDualAction::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDualAction_SuperTimerEvent(KDualAction* self, QTimerEvent* event) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_TimerEvent_IsBase(true);
-        vkdualaction->timerEvent(event);
-    } else {
-        ((VirtualKDualAction*)self)->timerEvent(event);
-    }
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self)) {
+        vkdualaction->KDualAction::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDualAction::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnTimerEvent(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_TimerEvent_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_TimerEvent_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_timerevent_callback = reinterpret_cast<VirtualKDualAction::KDualAction_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDualAction_ChildEvent(KDualAction* self, QChildEvent* event) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction) {
         vkdualaction->childEvent(event);
     } else {
-        ((VirtualKDualAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KDualAction::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDualAction_SuperChildEvent(KDualAction* self, QChildEvent* event) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_ChildEvent_IsBase(true);
-        vkdualaction->childEvent(event);
-    } else {
-        ((VirtualKDualAction*)self)->childEvent(event);
-    }
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self)) {
+        vkdualaction->KDualAction::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDualAction::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnChildEvent(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_ChildEvent_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_ChildEvent_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_childevent_callback = reinterpret_cast<VirtualKDualAction::KDualAction_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDualAction_CustomEvent(KDualAction* self, QEvent* event) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction) {
         vkdualaction->customEvent(event);
     } else {
-        ((VirtualKDualAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KDualAction::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDualAction_SuperCustomEvent(KDualAction* self, QEvent* event) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_CustomEvent_IsBase(true);
-        vkdualaction->customEvent(event);
-    } else {
-        ((VirtualKDualAction*)self)->customEvent(event);
-    }
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self)) {
+        vkdualaction->KDualAction::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDualAction::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnCustomEvent(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_CustomEvent_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_CustomEvent_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_customevent_callback = reinterpret_cast<VirtualKDualAction::KDualAction_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDualAction_ConnectNotify(KDualAction* self, const QMetaMethod* signal) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction) {
         vkdualaction->connectNotify(*signal);
     } else {
-        ((VirtualKDualAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KDualAction::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDualAction_SuperConnectNotify(KDualAction* self, const QMetaMethod* signal) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_ConnectNotify_IsBase(true);
-        vkdualaction->connectNotify(*signal);
-    } else {
-        ((VirtualKDualAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self)) {
+        vkdualaction->KDualAction::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDualAction::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnConnectNotify(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_ConnectNotify_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_ConnectNotify_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_connectnotify_callback = reinterpret_cast<VirtualKDualAction::KDualAction_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDualAction_DisconnectNotify(KDualAction* self, const QMetaMethod* signal) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction) {
         vkdualaction->disconnectNotify(*signal);
     } else {
-        ((VirtualKDualAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KDualAction::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDualAction_SuperDisconnectNotify(KDualAction* self, const QMetaMethod* signal) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_DisconnectNotify_IsBase(true);
-        vkdualaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKDualAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self)) {
+        vkdualaction->KDualAction::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDualAction::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnDisconnectNotify(KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_DisconnectNotify_Callback>(slot));
+    if (auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self))
+        vkdualaction->kdualaction_disconnectnotify_callback = reinterpret_cast<VirtualKDualAction::KDualAction_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KDualAction_Sender(const KDualAction* self) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        return vkdualaction->sender();
-    } else {
-        return ((VirtualKDualAction*)self)->sender();
-    }
+    if (auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self))) {
+        return vkdualaction->VirtualKDualAction::sender();
+    } else
+        qFatal("Error: Protected method KDualAction::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KDualAction_SuperSender(const KDualAction* self) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_Sender_IsBase(true);
-        return vkdualaction->sender();
-    } else {
-        return ((VirtualKDualAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDualAction_OnSender(const KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_Sender_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDualAction_SenderSignalIndex(const KDualAction* self) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        return vkdualaction->senderSignalIndex();
-    } else {
-        return ((VirtualKDualAction*)self)->senderSignalIndex();
-    }
+    if (auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self))) {
+        return vkdualaction->VirtualKDualAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KDualAction::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDualAction_SuperSenderSignalIndex(const KDualAction* self) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_SenderSignalIndex_IsBase(true);
-        return vkdualaction->senderSignalIndex();
-    } else {
-        return ((VirtualKDualAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDualAction_OnSenderSignalIndex(const KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDualAction_Receivers(const KDualAction* self, const char* signal) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        return vkdualaction->receivers(signal);
-    } else {
-        return ((VirtualKDualAction*)self)->receivers(signal);
-    }
+    if (auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self))) {
+        return vkdualaction->VirtualKDualAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KDualAction::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDualAction_SuperReceivers(const KDualAction* self, const char* signal) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_Receivers_IsBase(true);
-        return vkdualaction->receivers(signal);
-    } else {
-        return ((VirtualKDualAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDualAction_OnReceivers(const KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_Receivers_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDualAction_IsSignalConnected(const KDualAction* self, const QMetaMethod* signal) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        return vkdualaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDualAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KDualAction_SuperIsSignalConnected(const KDualAction* self, const QMetaMethod* signal) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        vkdualaction->setKDualAction_IsSignalConnected_IsBase(true);
-        return vkdualaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDualAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDualAction_OnIsSignalConnected(const KDualAction* self, intptr_t slot) {
-    auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction)
-        vkdualaction->setKDualAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_IsSignalConnected_Callback>(slot));
+    if (auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self))) {
+        return vkdualaction->VirtualKDualAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KDualAction::isSignalConnected called without a directly constructed type");
 }
 
 void KDualAction_Delete(KDualAction* self) {

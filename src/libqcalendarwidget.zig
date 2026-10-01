@@ -135,9 +135,9 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QCalendarWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) QMetaObject) void {
         qtc.QCalendarWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -308,11 +308,11 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QCalendarWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) QSize) void {
         qtc.QCalendarWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -358,11 +358,11 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QCalendarWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) QSize) void {
         qtc.QCalendarWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1262,43 +1262,6 @@ pub const QCalendarWidget = extern struct {
         qtc.QCalendarWidget_UpdateCell(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
 
-    /// ### DEPRECATED: Use `onUpdateCell` instead
-    ///
-    pub const OnUpdateCell = onUpdateCell;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCell)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    /// ` callback: *const fn (self: QCalendarWidget, date: QDate) callconv(.c) void `
-    ///
-    pub fn onUpdateCell(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QDate) callconv(.c) void) void {
-        qtc.QCalendarWidget_OnUpdateCell(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateCell` instead
-    ///
-    pub const SuperUpdateCell = superUpdateCell;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCell)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    /// ` date: QDate `
-    ///
-    pub fn superUpdateCell(self: QCalendarWidget, date: anytype) void {
-        comptime _ = @TypeOf(date)._is_QDate;
-        qtc.QCalendarWidget_SuperUpdateCell(@ptrCast(self.ptr), @ptrCast(date.ptr));
-    }
-
     /// ### DEPRECATED: Use `updateCells` instead
     ///
     pub const UpdateCells = updateCells;
@@ -1311,40 +1274,6 @@ pub const QCalendarWidget = extern struct {
     ///
     pub fn updateCells(self: QCalendarWidget) void {
         qtc.QCalendarWidget_UpdateCells(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateCells` instead
-    ///
-    pub const OnUpdateCells = onUpdateCells;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCells)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateCells(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QCalendarWidget_OnUpdateCells(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateCells` instead
-    ///
-    pub const SuperUpdateCells = superUpdateCells;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#updateCells)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn superUpdateCells(self: QCalendarWidget) void {
-        qtc.QCalendarWidget_SuperUpdateCells(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setSelectedDate` instead
@@ -7958,9 +7887,9 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QCalendarWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) i32) void {
         qtc.QCalendarWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8134,9 +8063,9 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) bool) void {
         qtc.QCalendarWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8190,9 +8119,9 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QCalendarWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) QPaintEngine) void {
         qtc.QCalendarWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9870,9 +9799,9 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QCalendarWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QCalendarWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QCalendarWidget, callback: *const fn (QCalendarWidget) callconv(.c) QPainter) void {
         qtc.QCalendarWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10388,44 +10317,6 @@ pub const QCalendarWidget = extern struct {
         qtc.QCalendarWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: QCalendarWidget) void {
-        qtc.QCalendarWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QCalendarWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10442,44 +10333,6 @@ pub const QCalendarWidget = extern struct {
     ///
     pub fn create(self: QCalendarWidget) void {
         qtc.QCalendarWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn superCreate(self: QCalendarWidget) void {
-        qtc.QCalendarWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QCalendarWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10500,44 +10353,6 @@ pub const QCalendarWidget = extern struct {
         qtc.QCalendarWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn superDestroy(self: QCalendarWidget) void {
-        qtc.QCalendarWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QCalendarWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.QCalendarWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10554,44 +10369,6 @@ pub const QCalendarWidget = extern struct {
     ///
     pub fn focusNextChild(self: QCalendarWidget) bool {
         return qtc.QCalendarWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn superFocusNextChild(self: QCalendarWidget) bool {
-        return qtc.QCalendarWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.QCalendarWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10612,44 +10389,6 @@ pub const QCalendarWidget = extern struct {
         return qtc.QCalendarWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn superFocusPreviousChild(self: QCalendarWidget) bool {
-        return qtc.QCalendarWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QCalendarWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.QCalendarWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10668,44 +10407,6 @@ pub const QCalendarWidget = extern struct {
         return .{ .ptr = qtc.QCalendarWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn superSender(self: QCalendarWidget) QObject {
-        return .{ .ptr = qtc.QCalendarWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QCalendarWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QCalendarWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10722,44 +10423,6 @@ pub const QCalendarWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: QCalendarWidget) i32 {
         return qtc.QCalendarWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    pub fn superSenderSignalIndex(self: QCalendarWidget) i32 {
-        return qtc.QCalendarWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QCalendarWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCalendarWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10783,47 +10446,6 @@ pub const QCalendarWidget = extern struct {
         return qtc.QCalendarWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QCalendarWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QCalendarWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn (self: QCalendarWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCalendarWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10843,47 +10465,6 @@ pub const QCalendarWidget = extern struct {
     pub fn isSignalConnected(self: QCalendarWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QCalendarWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QCalendarWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QCalendarWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn (self: QCalendarWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QCalendarWidget, callback: *const fn (QCalendarWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.QCalendarWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10906,48 +10487,6 @@ pub const QCalendarWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: QCalendarWidget, metricA: i32, metricB: i32) f64 {
         return qtc.QCalendarWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCalendarWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QCalendarWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.QCalendarWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QCalendarWidget`
-    ///
-    /// ` callback: *const fn (self: QCalendarWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QCalendarWidget, callback: *const fn (QCalendarWidget, i32, i32) callconv(.c) f64) void {
-        qtc.QCalendarWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

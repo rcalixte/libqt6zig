@@ -78,9 +78,9 @@ pub const QNetworkCookieJar = extern struct {
     ///
     /// ` self: QNetworkCookieJar `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QNetworkCookieJar) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QNetworkCookieJar, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QNetworkCookieJar, callback: *const fn (QNetworkCookieJar) callconv(.c) QMetaObject) void {
         qtc.QNetworkCookieJar_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -551,54 +551,6 @@ pub const QNetworkCookieJar = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `onAllCookies` instead
-    ///
-    pub const OnAllCookies = onAllCookies;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#allCookies)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkCookieJar `
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QNetworkCookie `
-    ///
-    pub fn onAllCookies(self: QNetworkCookieJar, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QNetworkCookieJar_OnAllCookies(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAllCookies` instead
-    ///
-    pub const SuperAllCookies = superAllCookies;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#allCookies)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkCookieJar `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superAllCookies(self: QNetworkCookieJar, allocator: std.mem.Allocator) []QNetworkCookie {
-        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_SuperAllCookies(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QNetworkCookie, _arr.len) catch @panic("QNetworkCookieJar.allCookies: Memory allocation failed");
-        const _data_val: [*]QtC.QNetworkCookie = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `setAllCookies` instead
     ///
     pub const SetAllCookies = setAllCookies;
@@ -617,46 +569,6 @@ pub const QNetworkCookieJar = extern struct {
             .data = @ptrCast(cookieList.ptr),
         };
         qtc.QNetworkCookieJar_SetAllCookies(@ptrCast(self.ptr), cookieList_list);
-    }
-
-    /// ### DEPRECATED: Use `onSetAllCookies` instead
-    ///
-    pub const OnSetAllCookies = onSetAllCookies;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#setAllCookies)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkCookieJar `
-    ///
-    /// ` callback: *const fn (self: QNetworkCookieJar, cookieList: qtc.libqt_list ([]QNetworkCookie)) callconv(.c) void `
-    ///
-    pub fn onSetAllCookies(self: QNetworkCookieJar, callback: *const fn (QNetworkCookieJar, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QNetworkCookieJar_OnSetAllCookies(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetAllCookies` instead
-    ///
-    pub const SuperSetAllCookies = superSetAllCookies;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcookiejar.html#setAllCookies)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkCookieJar `
-    ///
-    /// ` cookieList: []QNetworkCookie `
-    ///
-    pub fn superSetAllCookies(self: QNetworkCookieJar, cookieList: []QNetworkCookie) void {
-        const cookieList_list = qtc.libqt_list{
-            .len = cookieList.len,
-            .data = @ptrCast(cookieList.ptr),
-        };
-        qtc.QNetworkCookieJar_SuperSetAllCookies(@ptrCast(self.ptr), cookieList_list);
     }
 
     /// ### DEPRECATED: Use `validateCookie` instead
@@ -2196,44 +2108,6 @@ pub const QNetworkCookieJar = extern struct {
         return .{ .ptr = qtc.QNetworkCookieJar_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkCookieJar `
-    ///
-    pub fn superSender(self: QNetworkCookieJar) QObject {
-        return .{ .ptr = qtc.QNetworkCookieJar_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkCookieJar`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QNetworkCookieJar, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QNetworkCookieJar_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2250,44 +2124,6 @@ pub const QNetworkCookieJar = extern struct {
     ///
     pub fn senderSignalIndex(self: QNetworkCookieJar) i32 {
         return qtc.QNetworkCookieJar_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkCookieJar `
-    ///
-    pub fn superSenderSignalIndex(self: QNetworkCookieJar) i32 {
-        return qtc.QNetworkCookieJar_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkCookieJar`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QNetworkCookieJar, callback: *const fn () callconv(.c) i32) void {
-        qtc.QNetworkCookieJar_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2311,47 +2147,6 @@ pub const QNetworkCookieJar = extern struct {
         return qtc.QNetworkCookieJar_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkCookieJar `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QNetworkCookieJar, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QNetworkCookieJar_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkCookieJar`
-    ///
-    /// ` callback: *const fn (self: QNetworkCookieJar, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QNetworkCookieJar, callback: *const fn (QNetworkCookieJar, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QNetworkCookieJar_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2371,47 +2166,6 @@ pub const QNetworkCookieJar = extern struct {
     pub fn isSignalConnected(self: QNetworkCookieJar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNetworkCookieJar_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkCookieJar `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QNetworkCookieJar, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QNetworkCookieJar_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QNetworkCookieJar`
-    ///
-    /// ` callback: *const fn (self: QNetworkCookieJar, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QNetworkCookieJar, callback: *const fn (QNetworkCookieJar, QMetaMethod) callconv(.c) bool) void {
-        qtc.QNetworkCookieJar_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

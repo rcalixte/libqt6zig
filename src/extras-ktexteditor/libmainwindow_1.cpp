@@ -333,364 +333,219 @@ KTextEditor__View* KTextEditor__MainWindow_OpenUrl2(KTextEditor__MainWindow* sel
 
 // Base class handler implementation
 QMetaObject* KTextEditor__MainWindow_SuperMetaObject(const KTextEditor__MainWindow* self) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_MetaObject_IsBase(true);
-        return (QMetaObject*)vktexteditormainwindow->metaObject();
-    } else {
-        return (QMetaObject*)self->KTextEditor::MainWindow::metaObject();
-    }
+    return (QMetaObject*)self->KTextEditor::MainWindow::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEditor__MainWindow_OnMetaObject(const KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_MetaObject_Callback>(slot));
+void KTextEditor__MainWindow_OnMetaObject(KTextEditor__MainWindow* self, intptr_t slot) {
+    if (auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self)))
+        vktexteditormainwindow->ktexteditor__mainwindow_metaobject_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KTextEditor__MainWindow_SuperMetacast(KTextEditor__MainWindow* self, const char* param1) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_Metacast_IsBase(true);
-        return vktexteditormainwindow->qt_metacast(param1);
-    } else {
-        return self->KTextEditor::MainWindow::qt_metacast(param1);
-    }
+    return self->KTextEditor::MainWindow::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnMetacast(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_Metacast_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Metacast_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_metacast_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KTextEditor__MainWindow_SuperMetacall(KTextEditor__MainWindow* self, int param1, int param2, void** param3) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_Metacall_IsBase(true);
-        return vktexteditormainwindow->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KTextEditor::MainWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KTextEditor::MainWindow::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnMetacall(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_Metacall_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Metacall_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_metacall_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTextEditor__MainWindow_Event(KTextEditor__MainWindow* self, QEvent* event) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        return vktexteditormainwindow->event(event);
-    } else {
-        return self->KTextEditor::MainWindow::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KTextEditor__MainWindow_SuperEvent(KTextEditor__MainWindow* self, QEvent* event) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_Event_IsBase(true);
-        return vktexteditormainwindow->event(event);
-    } else {
-        return self->KTextEditor::MainWindow::event(event);
-    }
+    return self->KTextEditor::MainWindow::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnEvent(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_Event_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Event_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_event_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTextEditor__MainWindow_EventFilter(KTextEditor__MainWindow* self, QObject* watched, QEvent* event) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        return vktexteditormainwindow->eventFilter(watched, event);
-    } else {
-        return self->KTextEditor::MainWindow::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KTextEditor__MainWindow_SuperEventFilter(KTextEditor__MainWindow* self, QObject* watched, QEvent* event) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_EventFilter_IsBase(true);
-        return vktexteditormainwindow->eventFilter(watched, event);
-    } else {
-        return self->KTextEditor::MainWindow::eventFilter(watched, event);
-    }
+    return self->KTextEditor::MainWindow::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnEventFilter(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_EventFilter_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_EventFilter_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_eventfilter_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEditor__MainWindow_TimerEvent(KTextEditor__MainWindow* self, QTimerEvent* event) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+    if (vktexteditormainwindow) {
         vktexteditormainwindow->timerEvent(event);
     } else {
-        ((VirtualKTextEditorMainWindow*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEditor__MainWindow_SuperTimerEvent(KTextEditor__MainWindow* self, QTimerEvent* event) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_TimerEvent_IsBase(true);
-        vktexteditormainwindow->timerEvent(event);
-    } else {
-        ((VirtualKTextEditorMainWindow*)self)->timerEvent(event);
-    }
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self)) {
+        vktexteditormainwindow->KTextEditor::MainWindow::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnTimerEvent(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_TimerEvent_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_TimerEvent_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_timerevent_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEditor__MainWindow_ChildEvent(KTextEditor__MainWindow* self, QChildEvent* event) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+    if (vktexteditormainwindow) {
         vktexteditormainwindow->childEvent(event);
     } else {
-        ((VirtualKTextEditorMainWindow*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEditor__MainWindow_SuperChildEvent(KTextEditor__MainWindow* self, QChildEvent* event) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_ChildEvent_IsBase(true);
-        vktexteditormainwindow->childEvent(event);
-    } else {
-        ((VirtualKTextEditorMainWindow*)self)->childEvent(event);
-    }
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self)) {
+        vktexteditormainwindow->KTextEditor::MainWindow::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnChildEvent(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_ChildEvent_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_ChildEvent_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_childevent_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEditor__MainWindow_CustomEvent(KTextEditor__MainWindow* self, QEvent* event) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+    if (vktexteditormainwindow) {
         vktexteditormainwindow->customEvent(event);
     } else {
-        ((VirtualKTextEditorMainWindow*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEditor__MainWindow_SuperCustomEvent(KTextEditor__MainWindow* self, QEvent* event) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_CustomEvent_IsBase(true);
-        vktexteditormainwindow->customEvent(event);
-    } else {
-        ((VirtualKTextEditorMainWindow*)self)->customEvent(event);
-    }
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self)) {
+        vktexteditormainwindow->KTextEditor::MainWindow::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnCustomEvent(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_CustomEvent_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_CustomEvent_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_customevent_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEditor__MainWindow_ConnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+    if (vktexteditormainwindow) {
         vktexteditormainwindow->connectNotify(*signal);
     } else {
-        ((VirtualKTextEditorMainWindow*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEditor__MainWindow_SuperConnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_ConnectNotify_IsBase(true);
-        vktexteditormainwindow->connectNotify(*signal);
-    } else {
-        ((VirtualKTextEditorMainWindow*)self)->connectNotify(*signal);
-    }
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self)) {
+        vktexteditormainwindow->KTextEditor::MainWindow::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnConnectNotify(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_ConnectNotify_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_connectnotify_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEditor__MainWindow_DisconnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal) {
     auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
+    if (vktexteditormainwindow) {
         vktexteditormainwindow->disconnectNotify(*signal);
     } else {
-        ((VirtualKTextEditorMainWindow*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEditor__MainWindow_SuperDisconnectNotify(KTextEditor__MainWindow* self, const QMetaMethod* signal) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_DisconnectNotify_IsBase(true);
-        vktexteditormainwindow->disconnectNotify(*signal);
-    } else {
-        ((VirtualKTextEditorMainWindow*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self)) {
+        vktexteditormainwindow->KTextEditor::MainWindow::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTextEditor::MainWindow::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__MainWindow_OnDisconnectNotify(KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_DisconnectNotify_Callback>(slot));
+    if (auto* vktexteditormainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self))
+        vktexteditormainwindow->ktexteditor__mainwindow_disconnectnotify_callback = reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KTextEditor__MainWindow_Sender(const KTextEditor__MainWindow* self) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        return vktexteditormainwindow->sender();
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->sender();
-    }
+    if (auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self))) {
+        return vktexteditormainwindow->VirtualKTextEditorMainWindow::sender();
+    } else
+        qFatal("Error: Protected method KTextEditor::MainWindow::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KTextEditor__MainWindow_SuperSender(const KTextEditor__MainWindow* self) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_Sender_IsBase(true);
-        return vktexteditormainwindow->sender();
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEditor__MainWindow_OnSender(const KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_Sender_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTextEditor__MainWindow_SenderSignalIndex(const KTextEditor__MainWindow* self) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        return vktexteditormainwindow->senderSignalIndex();
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->senderSignalIndex();
-    }
+    if (auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self))) {
+        return vktexteditormainwindow->VirtualKTextEditorMainWindow::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KTextEditor::MainWindow::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTextEditor__MainWindow_SuperSenderSignalIndex(const KTextEditor__MainWindow* self) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_SenderSignalIndex_IsBase(true);
-        return vktexteditormainwindow->senderSignalIndex();
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEditor__MainWindow_OnSenderSignalIndex(const KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTextEditor__MainWindow_Receivers(const KTextEditor__MainWindow* self, const char* signal) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        return vktexteditormainwindow->receivers(signal);
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->receivers(signal);
-    }
+    if (auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self))) {
+        return vktexteditormainwindow->VirtualKTextEditorMainWindow::receivers(signal);
+    } else
+        qFatal("Error: Protected method KTextEditor::MainWindow::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTextEditor__MainWindow_SuperReceivers(const KTextEditor__MainWindow* self, const char* signal) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_Receivers_IsBase(true);
-        return vktexteditormainwindow->receivers(signal);
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEditor__MainWindow_OnReceivers(const KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_Receivers_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTextEditor__MainWindow_IsSignalConnected(const KTextEditor__MainWindow* self, const QMetaMethod* signal) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        return vktexteditormainwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KTextEditor__MainWindow_SuperIsSignalConnected(const KTextEditor__MainWindow* self, const QMetaMethod* signal) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow) {
-        vktexteditormainwindow->setKTextEditor__MainWindow_IsSignalConnected_IsBase(true);
-        return vktexteditormainwindow->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEditor__MainWindow_OnIsSignalConnected(const KTextEditor__MainWindow* self, intptr_t slot) {
-    auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self));
-    if (vktexteditormainwindow && vktexteditormainwindow->isVirtualKTextEditorMainWindow)
-        vktexteditormainwindow->setKTextEditor__MainWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEditorMainWindow::KTextEditor__MainWindow_IsSignalConnected_Callback>(slot));
+    if (auto* vktexteditormainwindow = const_cast<VirtualKTextEditorMainWindow*>(dynamic_cast<const VirtualKTextEditorMainWindow*>(self))) {
+        return vktexteditormainwindow->VirtualKTextEditorMainWindow::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KTextEditor::MainWindow::isSignalConnected called without a directly constructed type");
 }
 
 void KTextEditor__MainWindow_Delete(KTextEditor__MainWindow* self) {

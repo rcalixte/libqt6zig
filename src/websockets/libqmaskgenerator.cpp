@@ -25,432 +25,248 @@ unsigned int QMaskGenerator_NextMask(QMaskGenerator* self) {
     return static_cast<unsigned int>(self->nextMask());
 }
 
-// Base class handler implementation
-bool QMaskGenerator_SuperSeed(QMaskGenerator* self) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_Seed_IsBase(true);
-        return vqmaskgenerator->seed();
-    } else {
-        return ((VirtualQMaskGenerator*)self)->seed();
-    }
-}
-
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnSeed(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_Seed_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Seed_Callback>(slot));
-}
-
-// Base class handler implementation
-unsigned int QMaskGenerator_SuperNextMask(QMaskGenerator* self) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_NextMask_IsBase(true);
-        return static_cast<unsigned int>(vqmaskgenerator->nextMask());
-    } else {
-        return static_cast<unsigned int>(((VirtualQMaskGenerator*)self)->nextMask());
-    }
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_seed_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Seed_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnNextMask(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_NextMask_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_NextMask_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_nextmask_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_NextMask_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMetaObject* QMaskGenerator_MetaObject(const QMaskGenerator* self) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return (QMetaObject*)vqmaskgenerator->metaObject();
-    } else {
-        return (QMetaObject*)self->QMaskGenerator::metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 // Base class handler implementation
 QMetaObject* QMaskGenerator_SuperMetaObject(const QMaskGenerator* self) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_MetaObject_IsBase(true);
-        return (QMetaObject*)vqmaskgenerator->metaObject();
-    } else {
-        return (QMetaObject*)self->QMaskGenerator::metaObject();
-    }
+    return (QMetaObject*)self->QMaskGenerator::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QMaskGenerator_OnMetaObject(const QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_MetaObject_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_MetaObject_Callback>(slot));
+void QMaskGenerator_OnMetaObject(QMaskGenerator* self, intptr_t slot) {
+    if (auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self)))
+        vqmaskgenerator->qmaskgenerator_metaobject_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_MetaObject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void* QMaskGenerator_Metacast(QMaskGenerator* self, const char* param1) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->qt_metacast(param1);
-    } else {
-        return self->QMaskGenerator::qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 // Base class handler implementation
 void* QMaskGenerator_SuperMetacast(QMaskGenerator* self, const char* param1) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_Metacast_IsBase(true);
-        return vqmaskgenerator->qt_metacast(param1);
-    } else {
-        return self->QMaskGenerator::qt_metacast(param1);
-    }
+    return self->QMaskGenerator::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnMetacast(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_Metacast_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Metacast_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_metacast_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Metacast_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QMaskGenerator_Metacall(QMaskGenerator* self, int param1, int param2, void** param3) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QMaskGenerator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation
 int QMaskGenerator_SuperMetacall(QMaskGenerator* self, int param1, int param2, void** param3) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_Metacall_IsBase(true);
-        return vqmaskgenerator->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QMaskGenerator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QMaskGenerator::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnMetacall(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_Metacall_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Metacall_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_metacall_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMaskGenerator_Event(QMaskGenerator* self, QEvent* event) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->event(event);
-    } else {
-        return self->QMaskGenerator::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QMaskGenerator_SuperEvent(QMaskGenerator* self, QEvent* event) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_Event_IsBase(true);
-        return vqmaskgenerator->event(event);
-    } else {
-        return self->QMaskGenerator::event(event);
-    }
+    return self->QMaskGenerator::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnEvent(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_Event_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Event_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_event_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QMaskGenerator_EventFilter(QMaskGenerator* self, QObject* watched, QEvent* event) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->eventFilter(watched, event);
-    } else {
-        return self->QMaskGenerator::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QMaskGenerator_SuperEventFilter(QMaskGenerator* self, QObject* watched, QEvent* event) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_EventFilter_IsBase(true);
-        return vqmaskgenerator->eventFilter(watched, event);
-    } else {
-        return self->QMaskGenerator::eventFilter(watched, event);
-    }
+    return self->QMaskGenerator::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnEventFilter(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_EventFilter_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_EventFilter_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_eventfilter_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMaskGenerator_TimerEvent(QMaskGenerator* self, QTimerEvent* event) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
+    if (vqmaskgenerator) {
         vqmaskgenerator->timerEvent(event);
     } else {
-        ((VirtualQMaskGenerator*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QMaskGenerator::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMaskGenerator_SuperTimerEvent(QMaskGenerator* self, QTimerEvent* event) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_TimerEvent_IsBase(true);
-        vqmaskgenerator->timerEvent(event);
-    } else {
-        ((VirtualQMaskGenerator*)self)->timerEvent(event);
-    }
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self)) {
+        vqmaskgenerator->QMaskGenerator::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMaskGenerator::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnTimerEvent(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_TimerEvent_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_TimerEvent_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_timerevent_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMaskGenerator_ChildEvent(QMaskGenerator* self, QChildEvent* event) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
+    if (vqmaskgenerator) {
         vqmaskgenerator->childEvent(event);
     } else {
-        ((VirtualQMaskGenerator*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QMaskGenerator::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMaskGenerator_SuperChildEvent(QMaskGenerator* self, QChildEvent* event) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_ChildEvent_IsBase(true);
-        vqmaskgenerator->childEvent(event);
-    } else {
-        ((VirtualQMaskGenerator*)self)->childEvent(event);
-    }
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self)) {
+        vqmaskgenerator->QMaskGenerator::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMaskGenerator::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnChildEvent(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_ChildEvent_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_ChildEvent_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_childevent_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMaskGenerator_CustomEvent(QMaskGenerator* self, QEvent* event) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
+    if (vqmaskgenerator) {
         vqmaskgenerator->customEvent(event);
     } else {
-        ((VirtualQMaskGenerator*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QMaskGenerator::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMaskGenerator_SuperCustomEvent(QMaskGenerator* self, QEvent* event) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_CustomEvent_IsBase(true);
-        vqmaskgenerator->customEvent(event);
-    } else {
-        ((VirtualQMaskGenerator*)self)->customEvent(event);
-    }
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self)) {
+        vqmaskgenerator->QMaskGenerator::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QMaskGenerator::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnCustomEvent(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_CustomEvent_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_CustomEvent_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_customevent_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMaskGenerator_ConnectNotify(QMaskGenerator* self, const QMetaMethod* signal) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
+    if (vqmaskgenerator) {
         vqmaskgenerator->connectNotify(*signal);
     } else {
-        ((VirtualQMaskGenerator*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QMaskGenerator::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMaskGenerator_SuperConnectNotify(QMaskGenerator* self, const QMetaMethod* signal) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_ConnectNotify_IsBase(true);
-        vqmaskgenerator->connectNotify(*signal);
-    } else {
-        ((VirtualQMaskGenerator*)self)->connectNotify(*signal);
-    }
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self)) {
+        vqmaskgenerator->QMaskGenerator::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMaskGenerator::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnConnectNotify(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_ConnectNotify_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_ConnectNotify_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_connectnotify_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QMaskGenerator_DisconnectNotify(QMaskGenerator* self, const QMetaMethod* signal) {
     auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
+    if (vqmaskgenerator) {
         vqmaskgenerator->disconnectNotify(*signal);
     } else {
-        ((VirtualQMaskGenerator*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QMaskGenerator::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QMaskGenerator_SuperDisconnectNotify(QMaskGenerator* self, const QMetaMethod* signal) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_DisconnectNotify_IsBase(true);
-        vqmaskgenerator->disconnectNotify(*signal);
-    } else {
-        ((VirtualQMaskGenerator*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self)) {
+        vqmaskgenerator->QMaskGenerator::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QMaskGenerator::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QMaskGenerator_OnDisconnectNotify(QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_DisconnectNotify_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_DisconnectNotify_Callback>(slot));
+    if (auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self))
+        vqmaskgenerator->qmaskgenerator_disconnectnotify_callback = reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QMaskGenerator_Sender(const QMaskGenerator* self) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->sender();
-    } else {
-        return ((VirtualQMaskGenerator*)self)->sender();
-    }
+    if (auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self))) {
+        return vqmaskgenerator->VirtualQMaskGenerator::sender();
+    } else
+        qFatal("Error: Protected method QMaskGenerator::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QMaskGenerator_SuperSender(const QMaskGenerator* self) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_Sender_IsBase(true);
-        return vqmaskgenerator->sender();
-    } else {
-        return ((VirtualQMaskGenerator*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMaskGenerator_OnSender(const QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_Sender_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMaskGenerator_SenderSignalIndex(const QMaskGenerator* self) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->senderSignalIndex();
-    } else {
-        return ((VirtualQMaskGenerator*)self)->senderSignalIndex();
-    }
+    if (auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self))) {
+        return vqmaskgenerator->VirtualQMaskGenerator::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QMaskGenerator::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMaskGenerator_SuperSenderSignalIndex(const QMaskGenerator* self) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_SenderSignalIndex_IsBase(true);
-        return vqmaskgenerator->senderSignalIndex();
-    } else {
-        return ((VirtualQMaskGenerator*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMaskGenerator_OnSenderSignalIndex(const QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QMaskGenerator_Receivers(const QMaskGenerator* self, const char* signal) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->receivers(signal);
-    } else {
-        return ((VirtualQMaskGenerator*)self)->receivers(signal);
-    }
+    if (auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self))) {
+        return vqmaskgenerator->VirtualQMaskGenerator::receivers(signal);
+    } else
+        qFatal("Error: Protected method QMaskGenerator::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QMaskGenerator_SuperReceivers(const QMaskGenerator* self, const char* signal) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_Receivers_IsBase(true);
-        return vqmaskgenerator->receivers(signal);
-    } else {
-        return ((VirtualQMaskGenerator*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMaskGenerator_OnReceivers(const QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_Receivers_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QMaskGenerator_IsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMaskGenerator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QMaskGenerator_SuperIsSignalConnected(const QMaskGenerator* self, const QMetaMethod* signal) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        vqmaskgenerator->setQMaskGenerator_IsSignalConnected_IsBase(true);
-        return vqmaskgenerator->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQMaskGenerator*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMaskGenerator_OnIsSignalConnected(const QMaskGenerator* self, intptr_t slot) {
-    auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self));
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator)
-        vqmaskgenerator->setQMaskGenerator_IsSignalConnected_Callback(reinterpret_cast<VirtualQMaskGenerator::QMaskGenerator_IsSignalConnected_Callback>(slot));
+    if (auto* vqmaskgenerator = const_cast<VirtualQMaskGenerator*>(dynamic_cast<const VirtualQMaskGenerator*>(self))) {
+        return vqmaskgenerator->VirtualQMaskGenerator::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QMaskGenerator::isSignalConnected called without a directly constructed type");
 }
 
 void QMaskGenerator_Delete(QMaskGenerator* self) {

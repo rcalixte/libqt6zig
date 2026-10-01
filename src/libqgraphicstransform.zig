@@ -78,9 +78,9 @@ pub const QGraphicsTransform = extern struct {
     ///
     /// ` self: QGraphicsTransform `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsTransform) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsTransform, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform) callconv(.c) QMetaObject) void {
         qtc.QGraphicsTransform_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -231,6 +231,8 @@ pub const QGraphicsTransform = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#applyTo)
     ///
+    /// This method must be implemented with `onApplyTo` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QGraphicsTransform `
@@ -260,25 +262,6 @@ pub const QGraphicsTransform = extern struct {
         qtc.QGraphicsTransform_OnApplyTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superApplyTo` instead
-    ///
-    pub const SuperApplyTo = superApplyTo;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#applyTo)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsTransform `
-    ///
-    /// ` matrix: QMatrix4x4 `
-    ///
-    pub fn superApplyTo(self: QGraphicsTransform, matrix: anytype) void {
-        comptime _ = @TypeOf(matrix)._is_QMatrix4x4;
-        qtc.QGraphicsTransform_SuperApplyTo(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
-    }
-
     /// ### DEPRECATED: Use `update` instead
     ///
     pub const Update = update;
@@ -291,40 +274,6 @@ pub const QGraphicsTransform = extern struct {
     ///
     pub fn update(self: QGraphicsTransform) void {
         qtc.QGraphicsTransform_Update(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdate` instead
-    ///
-    pub const OnUpdate = onUpdate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsTransform `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdate(self: QGraphicsTransform, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsTransform_OnUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdate` instead
-    ///
-    pub const SuperUpdate = superUpdate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsTransform `
-    ///
-    pub fn superUpdate(self: QGraphicsTransform) void {
-        qtc.QGraphicsTransform_SuperUpdate(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1804,44 +1753,6 @@ pub const QGraphicsTransform = extern struct {
         return .{ .ptr = qtc.QGraphicsTransform_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsTransform `
-    ///
-    pub fn superSender(self: QGraphicsTransform) QObject {
-        return .{ .ptr = qtc.QGraphicsTransform_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsTransform`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsTransform, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsTransform_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1858,44 +1769,6 @@ pub const QGraphicsTransform = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsTransform) i32 {
         return qtc.QGraphicsTransform_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsTransform `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsTransform) i32 {
-        return qtc.QGraphicsTransform_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsTransform`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsTransform, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsTransform_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1919,47 +1792,6 @@ pub const QGraphicsTransform = extern struct {
         return qtc.QGraphicsTransform_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsTransform `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsTransform, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsTransform_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsTransform`
-    ///
-    /// ` callback: *const fn (self: QGraphicsTransform, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsTransform_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -1979,47 +1811,6 @@ pub const QGraphicsTransform = extern struct {
     pub fn isSignalConnected(self: QGraphicsTransform, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsTransform_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsTransform `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsTransform, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsTransform_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsTransform`
-    ///
-    /// ` callback: *const fn (self: QGraphicsTransform, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsTransform, callback: *const fn (QGraphicsTransform, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsTransform_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2122,9 +1913,9 @@ pub const QGraphicsScale = extern struct {
     ///
     /// ` self: QGraphicsScale `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsScale) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsScale, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsScale, callback: *const fn (QGraphicsScale) callconv(.c) QMetaObject) void {
         qtc.QGraphicsScale_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4071,44 +3862,6 @@ pub const QGraphicsScale = extern struct {
         qtc.QGraphicsScale_Update(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdate` instead
-    ///
-    pub const SuperUpdate = superUpdate;
-
-    /// Inherited from QGraphicsTransform
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsScale `
-    ///
-    pub fn superUpdate(self: QGraphicsScale) void {
-        qtc.QGraphicsScale_SuperUpdate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdate` instead
-    ///
-    pub const OnUpdate = onUpdate;
-
-    /// Inherited from QGraphicsTransform
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsScale`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdate(self: QGraphicsScale, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsScale_OnUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4127,44 +3880,6 @@ pub const QGraphicsScale = extern struct {
         return .{ .ptr = qtc.QGraphicsScale_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsScale `
-    ///
-    pub fn superSender(self: QGraphicsScale) QObject {
-        return .{ .ptr = qtc.QGraphicsScale_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsScale`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsScale, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsScale_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4181,44 +3896,6 @@ pub const QGraphicsScale = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsScale) i32 {
         return qtc.QGraphicsScale_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsScale `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsScale) i32 {
-        return qtc.QGraphicsScale_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsScale`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsScale, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsScale_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4242,47 +3919,6 @@ pub const QGraphicsScale = extern struct {
         return qtc.QGraphicsScale_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsScale `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsScale, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsScale_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsScale`
-    ///
-    /// ` callback: *const fn (self: QGraphicsScale, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsScale, callback: *const fn (QGraphicsScale, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsScale_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4302,47 +3938,6 @@ pub const QGraphicsScale = extern struct {
     pub fn isSignalConnected(self: QGraphicsScale, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsScale_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsScale `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsScale, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsScale_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsScale`
-    ///
-    /// ` callback: *const fn (self: QGraphicsScale, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsScale, callback: *const fn (QGraphicsScale, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsScale_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -4445,9 +4040,9 @@ pub const QGraphicsRotation = extern struct {
     ///
     /// ` self: QGraphicsRotation `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsRotation) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsRotation, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation) callconv(.c) QMetaObject) void {
         qtc.QGraphicsRotation_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6321,44 +5916,6 @@ pub const QGraphicsRotation = extern struct {
         qtc.QGraphicsRotation_Update(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdate` instead
-    ///
-    pub const SuperUpdate = superUpdate;
-
-    /// Inherited from QGraphicsTransform
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsRotation `
-    ///
-    pub fn superUpdate(self: QGraphicsRotation) void {
-        qtc.QGraphicsRotation_SuperUpdate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdate` instead
-    ///
-    pub const OnUpdate = onUpdate;
-
-    /// Inherited from QGraphicsTransform
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicstransform.html#update)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsRotation`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdate(self: QGraphicsRotation, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsRotation_OnUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -6377,44 +5934,6 @@ pub const QGraphicsRotation = extern struct {
         return .{ .ptr = qtc.QGraphicsRotation_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsRotation `
-    ///
-    pub fn superSender(self: QGraphicsRotation) QObject {
-        return .{ .ptr = qtc.QGraphicsRotation_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsRotation`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsRotation, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsRotation_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -6431,44 +5950,6 @@ pub const QGraphicsRotation = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsRotation) i32 {
         return qtc.QGraphicsRotation_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsRotation `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsRotation) i32 {
-        return qtc.QGraphicsRotation_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsRotation`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsRotation, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsRotation_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -6492,47 +5973,6 @@ pub const QGraphicsRotation = extern struct {
         return qtc.QGraphicsRotation_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsRotation `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsRotation, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsRotation_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsRotation`
-    ///
-    /// ` callback: *const fn (self: QGraphicsRotation, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsRotation_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -6552,47 +5992,6 @@ pub const QGraphicsRotation = extern struct {
     pub fn isSignalConnected(self: QGraphicsRotation, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGraphicsRotation_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsRotation `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsRotation, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsRotation_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsRotation`
-    ///
-    /// ` callback: *const fn (self: QGraphicsRotation, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsRotation, callback: *const fn (QGraphicsRotation, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsRotation_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

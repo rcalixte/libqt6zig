@@ -257,1644 +257,1168 @@ libqt_string KCharSelect_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KCharSelect_SuperMetaObject(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_MetaObject_IsBase(true);
-        return (QMetaObject*)vkcharselect->metaObject();
-    } else {
-        return (QMetaObject*)self->KCharSelect::metaObject();
-    }
+    return (QMetaObject*)self->KCharSelect::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnMetaObject(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_MetaObject_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MetaObject_Callback>(slot));
+void KCharSelect_OnMetaObject(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_metaobject_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KCharSelect_SuperMetacast(KCharSelect* self, const char* param1) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Metacast_IsBase(true);
-        return vkcharselect->qt_metacast(param1);
-    } else {
-        return self->KCharSelect::qt_metacast(param1);
-    }
+    return self->KCharSelect::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMetacast(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Metacast_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Metacast_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_metacast_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KCharSelect_SuperMetacall(KCharSelect* self, int param1, int param2, void** param3) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Metacall_IsBase(true);
-        return vkcharselect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KCharSelect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KCharSelect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMetacall(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Metacall_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Metacall_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_metacall_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KCharSelect_SuperSizeHint(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_SizeHint_IsBase(true);
-        return new QSize(vkcharselect->sizeHint());
-    } else {
-        return new QSize(((VirtualKCharSelect*)self)->sizeHint());
-    }
+    return new QSize(self->KCharSelect::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnSizeHint(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_SizeHint_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SizeHint_Callback>(slot));
+void KCharSelect_OnSizeHint(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_sizehint_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCharSelect_DevType(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->devType();
-    } else {
-        return self->KCharSelect::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KCharSelect_SuperDevType(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_DevType_IsBase(true);
-        return vkcharselect->devType();
-    } else {
-        return self->KCharSelect::devType();
-    }
+    return self->KCharSelect::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnDevType(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_DevType_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DevType_Callback>(slot));
+void KCharSelect_OnDevType(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_devtype_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_SetVisible(KCharSelect* self, bool visible) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setVisible(visible);
-    } else {
-        self->KCharSelect::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KCharSelect_SuperSetVisible(KCharSelect* self, bool visible) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_SetVisible_IsBase(true);
-        vkcharselect->setVisible(visible);
-    } else {
-        self->KCharSelect::setVisible(visible);
-    }
+    self->KCharSelect::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnSetVisible(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_SetVisible_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SetVisible_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_setvisible_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KCharSelect_MinimumSizeHint(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return new QSize(vkcharselect->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCharSelect*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KCharSelect_SuperMinimumSizeHint(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_MinimumSizeHint_IsBase(true);
-        return new QSize(vkcharselect->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCharSelect*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KCharSelect::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnMinimumSizeHint(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MinimumSizeHint_Callback>(slot));
+void KCharSelect_OnMinimumSizeHint(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_minimumsizehint_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCharSelect_HeightForWidth(const KCharSelect* self, int param1) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KCharSelect::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KCharSelect_SuperHeightForWidth(const KCharSelect* self, int param1) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_HeightForWidth_IsBase(true);
-        return vkcharselect->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KCharSelect::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KCharSelect::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnHeightForWidth(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_HeightForWidth_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_HeightForWidth_Callback>(slot));
+void KCharSelect_OnHeightForWidth(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_heightforwidth_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCharSelect_HasHeightForWidth(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->hasHeightForWidth();
-    } else {
-        return self->KCharSelect::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KCharSelect_SuperHasHeightForWidth(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_HasHeightForWidth_IsBase(true);
-        return vkcharselect->hasHeightForWidth();
-    } else {
-        return self->KCharSelect::hasHeightForWidth();
-    }
+    return self->KCharSelect::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnHasHeightForWidth(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_HasHeightForWidth_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_HasHeightForWidth_Callback>(slot));
+void KCharSelect_OnHasHeightForWidth(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_hasheightforwidth_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KCharSelect_PaintEngine(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->paintEngine();
-    } else {
-        return self->KCharSelect::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KCharSelect_SuperPaintEngine(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_PaintEngine_IsBase(true);
-        return vkcharselect->paintEngine();
-    } else {
-        return self->KCharSelect::paintEngine();
-    }
+    return self->KCharSelect::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnPaintEngine(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_PaintEngine_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_PaintEngine_Callback>(slot));
+void KCharSelect_OnPaintEngine(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_paintengine_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCharSelect_Event(KCharSelect* self, QEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         return vkcharselect->event(event);
     } else {
-        return ((VirtualKCharSelect*)self)->event(event);
+        qFatal("Error: Protected virtual method KCharSelect::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCharSelect_SuperEvent(KCharSelect* self, QEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Event_IsBase(true);
-        return vkcharselect->event(event);
-    } else {
-        return ((VirtualKCharSelect*)self)->event(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        return vkcharselect->KCharSelect::event(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Event_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Event_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_event_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_MousePressEvent(KCharSelect* self, QMouseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->mousePressEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperMousePressEvent(KCharSelect* self, QMouseEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_MousePressEvent_IsBase(true);
-        vkcharselect->mousePressEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->mousePressEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMousePressEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_MousePressEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MousePressEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_mousepressevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_MouseReleaseEvent(KCharSelect* self, QMouseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->mouseReleaseEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperMouseReleaseEvent(KCharSelect* self, QMouseEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_MouseReleaseEvent_IsBase(true);
-        vkcharselect->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMouseReleaseEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_mousereleaseevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_MouseDoubleClickEvent(KCharSelect* self, QMouseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperMouseDoubleClickEvent(KCharSelect* self, QMouseEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_MouseDoubleClickEvent_IsBase(true);
-        vkcharselect->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMouseDoubleClickEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_mousedoubleclickevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_MouseMoveEvent(KCharSelect* self, QMouseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->mouseMoveEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperMouseMoveEvent(KCharSelect* self, QMouseEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_MouseMoveEvent_IsBase(true);
-        vkcharselect->mouseMoveEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMouseMoveEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseMoveEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_mousemoveevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_WheelEvent(KCharSelect* self, QWheelEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->wheelEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperWheelEvent(KCharSelect* self, QWheelEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_WheelEvent_IsBase(true);
-        vkcharselect->wheelEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->wheelEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnWheelEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_WheelEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_WheelEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_wheelevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_KeyPressEvent(KCharSelect* self, QKeyEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->keyPressEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperKeyPressEvent(KCharSelect* self, QKeyEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_KeyPressEvent_IsBase(true);
-        vkcharselect->keyPressEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->keyPressEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnKeyPressEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_KeyPressEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_KeyPressEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_keypressevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_KeyReleaseEvent(KCharSelect* self, QKeyEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->keyReleaseEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperKeyReleaseEvent(KCharSelect* self, QKeyEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_KeyReleaseEvent_IsBase(true);
-        vkcharselect->keyReleaseEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnKeyReleaseEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_keyreleaseevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_FocusInEvent(KCharSelect* self, QFocusEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->focusInEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperFocusInEvent(KCharSelect* self, QFocusEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_FocusInEvent_IsBase(true);
-        vkcharselect->focusInEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->focusInEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnFocusInEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_FocusInEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusInEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_focusinevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_FocusOutEvent(KCharSelect* self, QFocusEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->focusOutEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperFocusOutEvent(KCharSelect* self, QFocusEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_FocusOutEvent_IsBase(true);
-        vkcharselect->focusOutEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->focusOutEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnFocusOutEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_FocusOutEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusOutEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_focusoutevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_EnterEvent(KCharSelect* self, QEnterEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->enterEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperEnterEvent(KCharSelect* self, QEnterEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_EnterEvent_IsBase(true);
-        vkcharselect->enterEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->enterEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnEnterEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_EnterEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_EnterEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_enterevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_LeaveEvent(KCharSelect* self, QEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->leaveEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperLeaveEvent(KCharSelect* self, QEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_LeaveEvent_IsBase(true);
-        vkcharselect->leaveEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->leaveEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnLeaveEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_LeaveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_LeaveEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_leaveevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_PaintEvent(KCharSelect* self, QPaintEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->paintEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperPaintEvent(KCharSelect* self, QPaintEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_PaintEvent_IsBase(true);
-        vkcharselect->paintEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->paintEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnPaintEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_PaintEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_PaintEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_paintevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_MoveEvent(KCharSelect* self, QMoveEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->moveEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperMoveEvent(KCharSelect* self, QMoveEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_MoveEvent_IsBase(true);
-        vkcharselect->moveEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->moveEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMoveEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_MoveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MoveEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_moveevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_ResizeEvent(KCharSelect* self, QResizeEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->resizeEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperResizeEvent(KCharSelect* self, QResizeEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_ResizeEvent_IsBase(true);
-        vkcharselect->resizeEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->resizeEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnResizeEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_ResizeEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ResizeEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_resizeevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_CloseEvent(KCharSelect* self, QCloseEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->closeEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperCloseEvent(KCharSelect* self, QCloseEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_CloseEvent_IsBase(true);
-        vkcharselect->closeEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->closeEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnCloseEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_CloseEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_CloseEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_closeevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_ContextMenuEvent(KCharSelect* self, QContextMenuEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->contextMenuEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperContextMenuEvent(KCharSelect* self, QContextMenuEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_ContextMenuEvent_IsBase(true);
-        vkcharselect->contextMenuEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnContextMenuEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_ContextMenuEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ContextMenuEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_contextmenuevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_TabletEvent(KCharSelect* self, QTabletEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->tabletEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperTabletEvent(KCharSelect* self, QTabletEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_TabletEvent_IsBase(true);
-        vkcharselect->tabletEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->tabletEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnTabletEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_TabletEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_TabletEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_tabletevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_ActionEvent(KCharSelect* self, QActionEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->actionEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperActionEvent(KCharSelect* self, QActionEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_ActionEvent_IsBase(true);
-        vkcharselect->actionEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->actionEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnActionEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_ActionEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ActionEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_actionevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_DragEnterEvent(KCharSelect* self, QDragEnterEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->dragEnterEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperDragEnterEvent(KCharSelect* self, QDragEnterEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_DragEnterEvent_IsBase(true);
-        vkcharselect->dragEnterEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDragEnterEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_DragEnterEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DragEnterEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_dragenterevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_DragMoveEvent(KCharSelect* self, QDragMoveEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->dragMoveEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperDragMoveEvent(KCharSelect* self, QDragMoveEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_DragMoveEvent_IsBase(true);
-        vkcharselect->dragMoveEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDragMoveEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_DragMoveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DragMoveEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_dragmoveevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_DragLeaveEvent(KCharSelect* self, QDragLeaveEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->dragLeaveEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperDragLeaveEvent(KCharSelect* self, QDragLeaveEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_DragLeaveEvent_IsBase(true);
-        vkcharselect->dragLeaveEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDragLeaveEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DragLeaveEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_dragleaveevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_DropEvent(KCharSelect* self, QDropEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->dropEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperDropEvent(KCharSelect* self, QDropEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_DropEvent_IsBase(true);
-        vkcharselect->dropEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->dropEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDropEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_DropEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DropEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_dropevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_ShowEvent(KCharSelect* self, QShowEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->showEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperShowEvent(KCharSelect* self, QShowEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_ShowEvent_IsBase(true);
-        vkcharselect->showEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->showEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnShowEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_ShowEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ShowEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_showevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_HideEvent(KCharSelect* self, QHideEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->hideEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperHideEvent(KCharSelect* self, QHideEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_HideEvent_IsBase(true);
-        vkcharselect->hideEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->hideEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnHideEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_HideEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_HideEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_hideevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCharSelect_NativeEvent(KCharSelect* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
+    if (vkcharselect) {
         return vkcharselect->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKCharSelect*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KCharSelect::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCharSelect_SuperNativeEvent(KCharSelect* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_NativeEvent_IsBase(true);
-        return vkcharselect->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKCharSelect*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        return vkcharselect->KCharSelect::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnNativeEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_NativeEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_NativeEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_nativeevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_ChangeEvent(KCharSelect* self, QEvent* param1) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->changeEvent(param1);
     } else {
-        ((VirtualKCharSelect*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KCharSelect::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperChangeEvent(KCharSelect* self, QEvent* param1) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_ChangeEvent_IsBase(true);
-        vkcharselect->changeEvent(param1);
-    } else {
-        ((VirtualKCharSelect*)self)->changeEvent(param1);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnChangeEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_ChangeEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ChangeEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_changeevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCharSelect_Metric(const KCharSelect* self, int param1) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         return vkcharselect->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKCharSelect*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KCharSelect::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KCharSelect_SuperMetric(const KCharSelect* self, int param1) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Metric_IsBase(true);
-        return vkcharselect->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKCharSelect*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        return vkcharselect->KCharSelect::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnMetric(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Metric_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Metric_Callback>(slot));
+void KCharSelect_OnMetric(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_metric_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_InitPainter(const KCharSelect* self, QPainter* painter) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->initPainter(painter);
     } else {
-        ((VirtualKCharSelect*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KCharSelect::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperInitPainter(const KCharSelect* self, QPainter* painter) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_InitPainter_IsBase(true);
-        vkcharselect->initPainter(painter);
-    } else {
-        ((VirtualKCharSelect*)self)->initPainter(painter);
-    }
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        vkcharselect->KCharSelect::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnInitPainter(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_InitPainter_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_InitPainter_Callback>(slot));
+void KCharSelect_OnInitPainter(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_initpainter_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KCharSelect_Redirected(const KCharSelect* self, QPoint* offset) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         return vkcharselect->redirected(offset);
     } else {
-        return ((VirtualKCharSelect*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KCharSelect::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KCharSelect_SuperRedirected(const KCharSelect* self, QPoint* offset) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Redirected_IsBase(true);
-        return vkcharselect->redirected(offset);
-    } else {
-        return ((VirtualKCharSelect*)self)->redirected(offset);
-    }
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        return vkcharselect->KCharSelect::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnRedirected(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Redirected_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Redirected_Callback>(slot));
+void KCharSelect_OnRedirected(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_redirected_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KCharSelect_SharedPainter(const KCharSelect* self) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         return vkcharselect->sharedPainter();
     } else {
-        return ((VirtualKCharSelect*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KCharSelect::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KCharSelect_SuperSharedPainter(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_SharedPainter_IsBase(true);
-        return vkcharselect->sharedPainter();
-    } else {
-        return ((VirtualKCharSelect*)self)->sharedPainter();
-    }
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        return vkcharselect->KCharSelect::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnSharedPainter(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_SharedPainter_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SharedPainter_Callback>(slot));
+void KCharSelect_OnSharedPainter(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_sharedpainter_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_InputMethodEvent(KCharSelect* self, QInputMethodEvent* param1) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->inputMethodEvent(param1);
     } else {
-        ((VirtualKCharSelect*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KCharSelect::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperInputMethodEvent(KCharSelect* self, QInputMethodEvent* param1) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_InputMethodEvent_IsBase(true);
-        vkcharselect->inputMethodEvent(param1);
-    } else {
-        ((VirtualKCharSelect*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnInputMethodEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_InputMethodEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_InputMethodEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_inputmethodevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KCharSelect_InputMethodQuery(const KCharSelect* self, int param1) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return new QVariant(vkcharselect->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKCharSelect*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KCharSelect_SuperInputMethodQuery(const KCharSelect* self, int param1) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_InputMethodQuery_IsBase(true);
-        return new QVariant(vkcharselect->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKCharSelect*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KCharSelect::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCharSelect_OnInputMethodQuery(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_InputMethodQuery_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_InputMethodQuery_Callback>(slot));
+void KCharSelect_OnInputMethodQuery(KCharSelect* self, intptr_t slot) {
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self)))
+        vkcharselect->kcharselect_inputmethodquery_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCharSelect_FocusNextPrevChild(KCharSelect* self, bool next) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         return vkcharselect->focusNextPrevChild(next);
     } else {
-        return ((VirtualKCharSelect*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KCharSelect::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCharSelect_SuperFocusNextPrevChild(KCharSelect* self, bool next) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_FocusNextPrevChild_IsBase(true);
-        return vkcharselect->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKCharSelect*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        return vkcharselect->KCharSelect::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnFocusNextPrevChild(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_focusnextprevchild_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCharSelect_EventFilter(KCharSelect* self, QObject* watched, QEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->eventFilter(watched, event);
-    } else {
-        return self->KCharSelect::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KCharSelect_SuperEventFilter(KCharSelect* self, QObject* watched, QEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_EventFilter_IsBase(true);
-        return vkcharselect->eventFilter(watched, event);
-    } else {
-        return self->KCharSelect::eventFilter(watched, event);
-    }
+    return self->KCharSelect::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnEventFilter(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_EventFilter_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_EventFilter_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_eventfilter_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_TimerEvent(KCharSelect* self, QTimerEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->timerEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperTimerEvent(KCharSelect* self, QTimerEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_TimerEvent_IsBase(true);
-        vkcharselect->timerEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->timerEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnTimerEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_TimerEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_TimerEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_timerevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_ChildEvent(KCharSelect* self, QChildEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->childEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperChildEvent(KCharSelect* self, QChildEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_ChildEvent_IsBase(true);
-        vkcharselect->childEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->childEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnChildEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_ChildEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ChildEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_childevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_CustomEvent(KCharSelect* self, QEvent* event) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->customEvent(event);
     } else {
-        ((VirtualKCharSelect*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KCharSelect::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperCustomEvent(KCharSelect* self, QEvent* event) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_CustomEvent_IsBase(true);
-        vkcharselect->customEvent(event);
-    } else {
-        ((VirtualKCharSelect*)self)->customEvent(event);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnCustomEvent(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_CustomEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_CustomEvent_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_customevent_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_ConnectNotify(KCharSelect* self, const QMetaMethod* signal) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->connectNotify(*signal);
     } else {
-        ((VirtualKCharSelect*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KCharSelect::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperConnectNotify(KCharSelect* self, const QMetaMethod* signal) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_ConnectNotify_IsBase(true);
-        vkcharselect->connectNotify(*signal);
-    } else {
-        ((VirtualKCharSelect*)self)->connectNotify(*signal);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnConnectNotify(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_ConnectNotify_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ConnectNotify_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_connectnotify_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCharSelect_DisconnectNotify(KCharSelect* self, const QMetaMethod* signal) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect) {
         vkcharselect->disconnectNotify(*signal);
     } else {
-        ((VirtualKCharSelect*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KCharSelect::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCharSelect_SuperDisconnectNotify(KCharSelect* self, const QMetaMethod* signal) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_DisconnectNotify_IsBase(true);
-        vkcharselect->disconnectNotify(*signal);
-    } else {
-        ((VirtualKCharSelect*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->KCharSelect::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCharSelect::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDisconnectNotify(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_DisconnectNotify_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DisconnectNotify_Callback>(slot));
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self))
+        vkcharselect->kcharselect_disconnectnotify_callback = reinterpret_cast<VirtualKCharSelect::KCharSelect_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCharSelect_UpdateMicroFocus(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->updateMicroFocus();
-    } else {
-        ((VirtualKCharSelect*)self)->updateMicroFocus();
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->VirtualKCharSelect::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KCharSelect::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCharSelect_SuperUpdateMicroFocus(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_UpdateMicroFocus_IsBase(true);
-        vkcharselect->updateMicroFocus();
-    } else {
-        ((VirtualKCharSelect*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnUpdateMicroFocus(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCharSelect_Create(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->create();
-    } else {
-        ((VirtualKCharSelect*)self)->create();
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->VirtualKCharSelect::create();
+    } else
+        qFatal("Error: Protected method KCharSelect::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCharSelect_SuperCreate(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Create_IsBase(true);
-        vkcharselect->create();
-    } else {
-        ((VirtualKCharSelect*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnCreate(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Create_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCharSelect_Destroy(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->destroy();
-    } else {
-        ((VirtualKCharSelect*)self)->destroy();
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        vkcharselect->VirtualKCharSelect::destroy();
+    } else
+        qFatal("Error: Protected method KCharSelect::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCharSelect_SuperDestroy(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Destroy_IsBase(true);
-        vkcharselect->destroy();
-    } else {
-        ((VirtualKCharSelect*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnDestroy(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Destroy_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCharSelect_FocusNextChild(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->focusNextChild();
-    } else {
-        return ((VirtualKCharSelect*)self)->focusNextChild();
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        return vkcharselect->VirtualKCharSelect::focusNextChild();
+    } else
+        qFatal("Error: Protected method KCharSelect::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCharSelect_SuperFocusNextChild(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_FocusNextChild_IsBase(true);
-        return vkcharselect->focusNextChild();
-    } else {
-        return ((VirtualKCharSelect*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnFocusNextChild(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_FocusNextChild_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCharSelect_FocusPreviousChild(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->focusPreviousChild();
-    } else {
-        return ((VirtualKCharSelect*)self)->focusPreviousChild();
-    }
+    if (auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self)) {
+        return vkcharselect->VirtualKCharSelect::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KCharSelect::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCharSelect_SuperFocusPreviousChild(KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_FocusPreviousChild_IsBase(true);
-        return vkcharselect->focusPreviousChild();
-    } else {
-        return ((VirtualKCharSelect*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnFocusPreviousChild(KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_FocusPreviousChild_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KCharSelect_Sender(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->sender();
-    } else {
-        return ((VirtualKCharSelect*)self)->sender();
-    }
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        return vkcharselect->VirtualKCharSelect::sender();
+    } else
+        qFatal("Error: Protected method KCharSelect::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KCharSelect_SuperSender(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Sender_IsBase(true);
-        return vkcharselect->sender();
-    } else {
-        return ((VirtualKCharSelect*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnSender(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Sender_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCharSelect_SenderSignalIndex(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->senderSignalIndex();
-    } else {
-        return ((VirtualKCharSelect*)self)->senderSignalIndex();
-    }
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        return vkcharselect->VirtualKCharSelect::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KCharSelect::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCharSelect_SuperSenderSignalIndex(const KCharSelect* self) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_SenderSignalIndex_IsBase(true);
-        return vkcharselect->senderSignalIndex();
-    } else {
-        return ((VirtualKCharSelect*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnSenderSignalIndex(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCharSelect_Receivers(const KCharSelect* self, const char* signal) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->receivers(signal);
-    } else {
-        return ((VirtualKCharSelect*)self)->receivers(signal);
-    }
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        return vkcharselect->VirtualKCharSelect::receivers(signal);
+    } else
+        qFatal("Error: Protected method KCharSelect::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCharSelect_SuperReceivers(const KCharSelect* self, const char* signal) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_Receivers_IsBase(true);
-        return vkcharselect->receivers(signal);
-    } else {
-        return ((VirtualKCharSelect*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnReceivers(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_Receivers_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCharSelect_IsSignalConnected(const KCharSelect* self, const QMetaMethod* signal) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCharSelect*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        return vkcharselect->VirtualKCharSelect::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KCharSelect::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCharSelect_SuperIsSignalConnected(const KCharSelect* self, const QMetaMethod* signal) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_IsSignalConnected_IsBase(true);
-        return vkcharselect->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCharSelect*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnIsSignalConnected(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_IsSignalConnected_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KCharSelect_GetDecodedMetricF(const KCharSelect* self, int metricA, int metricB) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return vkcharselect->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKCharSelect*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KCharSelect_SuperGetDecodedMetricF(const KCharSelect* self, int metricA, int metricB) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        vkcharselect->setKCharSelect_GetDecodedMetricF_IsBase(true);
-        return vkcharselect->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKCharSelect*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCharSelect_OnGetDecodedMetricF(const KCharSelect* self, intptr_t slot) {
-    auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
-        vkcharselect->setKCharSelect_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self))) {
+        return vkcharselect->VirtualKCharSelect::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KCharSelect::getDecodedMetricF called without a directly constructed type");
 }
 
 void KCharSelect_Delete(KCharSelect* self) {

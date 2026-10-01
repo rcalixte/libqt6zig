@@ -246,364 +246,219 @@ libqt_string KSvg__ImageSet_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KSvg__ImageSet_SuperMetaObject(const KSvg__ImageSet* self) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_MetaObject_IsBase(true);
-        return (QMetaObject*)vksvgimageset->metaObject();
-    } else {
-        return (QMetaObject*)self->KSvg::ImageSet::metaObject();
-    }
+    return (QMetaObject*)self->KSvg::ImageSet::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSvg__ImageSet_OnMetaObject(const KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_MetaObject_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_MetaObject_Callback>(slot));
+void KSvg__ImageSet_OnMetaObject(KSvg__ImageSet* self, intptr_t slot) {
+    if (auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self)))
+        vksvgimageset->ksvg__imageset_metaobject_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSvg__ImageSet_SuperMetacast(KSvg__ImageSet* self, const char* param1) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_Metacast_IsBase(true);
-        return vksvgimageset->qt_metacast(param1);
-    } else {
-        return self->KSvg::ImageSet::qt_metacast(param1);
-    }
+    return self->KSvg::ImageSet::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnMetacast(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_Metacast_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Metacast_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_metacast_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSvg__ImageSet_SuperMetacall(KSvg__ImageSet* self, int param1, int param2, void** param3) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_Metacall_IsBase(true);
-        return vksvgimageset->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSvg::ImageSet::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSvg::ImageSet::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnMetacall(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_Metacall_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Metacall_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_metacall_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSvg__ImageSet_Event(KSvg__ImageSet* self, QEvent* event) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        return vksvgimageset->event(event);
-    } else {
-        return self->KSvg::ImageSet::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KSvg__ImageSet_SuperEvent(KSvg__ImageSet* self, QEvent* event) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_Event_IsBase(true);
-        return vksvgimageset->event(event);
-    } else {
-        return self->KSvg::ImageSet::event(event);
-    }
+    return self->KSvg::ImageSet::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnEvent(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_Event_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Event_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_event_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSvg__ImageSet_EventFilter(KSvg__ImageSet* self, QObject* watched, QEvent* event) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        return vksvgimageset->eventFilter(watched, event);
-    } else {
-        return self->KSvg::ImageSet::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KSvg__ImageSet_SuperEventFilter(KSvg__ImageSet* self, QObject* watched, QEvent* event) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_EventFilter_IsBase(true);
-        return vksvgimageset->eventFilter(watched, event);
-    } else {
-        return self->KSvg::ImageSet::eventFilter(watched, event);
-    }
+    return self->KSvg::ImageSet::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnEventFilter(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_EventFilter_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_EventFilter_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_eventfilter_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__ImageSet_TimerEvent(KSvg__ImageSet* self, QTimerEvent* event) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset) {
         vksvgimageset->timerEvent(event);
     } else {
-        ((VirtualKSvgImageSet*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KSvg::ImageSet::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__ImageSet_SuperTimerEvent(KSvg__ImageSet* self, QTimerEvent* event) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_TimerEvent_IsBase(true);
-        vksvgimageset->timerEvent(event);
-    } else {
-        ((VirtualKSvgImageSet*)self)->timerEvent(event);
-    }
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self)) {
+        vksvgimageset->KSvg::ImageSet::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSvg::ImageSet::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnTimerEvent(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_TimerEvent_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_TimerEvent_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_timerevent_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__ImageSet_ChildEvent(KSvg__ImageSet* self, QChildEvent* event) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset) {
         vksvgimageset->childEvent(event);
     } else {
-        ((VirtualKSvgImageSet*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSvg::ImageSet::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__ImageSet_SuperChildEvent(KSvg__ImageSet* self, QChildEvent* event) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_ChildEvent_IsBase(true);
-        vksvgimageset->childEvent(event);
-    } else {
-        ((VirtualKSvgImageSet*)self)->childEvent(event);
-    }
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self)) {
+        vksvgimageset->KSvg::ImageSet::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSvg::ImageSet::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnChildEvent(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_ChildEvent_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_ChildEvent_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_childevent_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__ImageSet_CustomEvent(KSvg__ImageSet* self, QEvent* event) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset) {
         vksvgimageset->customEvent(event);
     } else {
-        ((VirtualKSvgImageSet*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSvg::ImageSet::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__ImageSet_SuperCustomEvent(KSvg__ImageSet* self, QEvent* event) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_CustomEvent_IsBase(true);
-        vksvgimageset->customEvent(event);
-    } else {
-        ((VirtualKSvgImageSet*)self)->customEvent(event);
-    }
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self)) {
+        vksvgimageset->KSvg::ImageSet::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSvg::ImageSet::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnCustomEvent(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_CustomEvent_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_CustomEvent_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_customevent_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__ImageSet_ConnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset) {
         vksvgimageset->connectNotify(*signal);
     } else {
-        ((VirtualKSvgImageSet*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KSvg::ImageSet::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__ImageSet_SuperConnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_ConnectNotify_IsBase(true);
-        vksvgimageset->connectNotify(*signal);
-    } else {
-        ((VirtualKSvgImageSet*)self)->connectNotify(*signal);
-    }
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self)) {
+        vksvgimageset->KSvg::ImageSet::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSvg::ImageSet::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnConnectNotify(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_ConnectNotify_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_ConnectNotify_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_connectnotify_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSvg__ImageSet_DisconnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset) {
         vksvgimageset->disconnectNotify(*signal);
     } else {
-        ((VirtualKSvgImageSet*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSvg::ImageSet::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSvg__ImageSet_SuperDisconnectNotify(KSvg__ImageSet* self, const QMetaMethod* signal) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_DisconnectNotify_IsBase(true);
-        vksvgimageset->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSvgImageSet*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self)) {
+        vksvgimageset->KSvg::ImageSet::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSvg::ImageSet::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnDisconnectNotify(KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_DisconnectNotify_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_DisconnectNotify_Callback>(slot));
+    if (auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self))
+        vksvgimageset->ksvg__imageset_disconnectnotify_callback = reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSvg__ImageSet_Sender(const KSvg__ImageSet* self) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        return vksvgimageset->sender();
-    } else {
-        return ((VirtualKSvgImageSet*)self)->sender();
-    }
+    if (auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self))) {
+        return vksvgimageset->VirtualKSvgImageSet::sender();
+    } else
+        qFatal("Error: Protected method KSvg::ImageSet::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSvg__ImageSet_SuperSender(const KSvg__ImageSet* self) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_Sender_IsBase(true);
-        return vksvgimageset->sender();
-    } else {
-        return ((VirtualKSvgImageSet*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSvg__ImageSet_OnSender(const KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_Sender_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSvg__ImageSet_SenderSignalIndex(const KSvg__ImageSet* self) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        return vksvgimageset->senderSignalIndex();
-    } else {
-        return ((VirtualKSvgImageSet*)self)->senderSignalIndex();
-    }
+    if (auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self))) {
+        return vksvgimageset->VirtualKSvgImageSet::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSvg::ImageSet::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSvg__ImageSet_SuperSenderSignalIndex(const KSvg__ImageSet* self) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_SenderSignalIndex_IsBase(true);
-        return vksvgimageset->senderSignalIndex();
-    } else {
-        return ((VirtualKSvgImageSet*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSvg__ImageSet_OnSenderSignalIndex(const KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSvg__ImageSet_Receivers(const KSvg__ImageSet* self, const char* signal) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        return vksvgimageset->receivers(signal);
-    } else {
-        return ((VirtualKSvgImageSet*)self)->receivers(signal);
-    }
+    if (auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self))) {
+        return vksvgimageset->VirtualKSvgImageSet::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSvg::ImageSet::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSvg__ImageSet_SuperReceivers(const KSvg__ImageSet* self, const char* signal) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_Receivers_IsBase(true);
-        return vksvgimageset->receivers(signal);
-    } else {
-        return ((VirtualKSvgImageSet*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSvg__ImageSet_OnReceivers(const KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_Receivers_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSvg__ImageSet_IsSignalConnected(const KSvg__ImageSet* self, const QMetaMethod* signal) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        return vksvgimageset->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSvgImageSet*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KSvg__ImageSet_SuperIsSignalConnected(const KSvg__ImageSet* self, const QMetaMethod* signal) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
-        vksvgimageset->setKSvg__ImageSet_IsSignalConnected_IsBase(true);
-        return vksvgimageset->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSvgImageSet*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSvg__ImageSet_OnIsSignalConnected(const KSvg__ImageSet* self, intptr_t slot) {
-    auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
-        vksvgimageset->setKSvg__ImageSet_IsSignalConnected_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_IsSignalConnected_Callback>(slot));
+    if (auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self))) {
+        return vksvgimageset->VirtualKSvgImageSet::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSvg::ImageSet::isSignalConnected called without a directly constructed type");
 }
 
 void KSvg__ImageSet_Delete(KSvg__ImageSet* self) {

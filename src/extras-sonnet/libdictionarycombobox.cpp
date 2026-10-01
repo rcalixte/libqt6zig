@@ -192,1766 +192,1237 @@ libqt_string Sonnet__DictionaryComboBox_Tr3(const char* s, const char* c, int n)
 
 // Base class handler implementation
 QMetaObject* Sonnet__DictionaryComboBox_SuperMetaObject(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vsonnetdictionarycombobox->metaObject();
-    } else {
-        return (QMetaObject*)self->Sonnet::DictionaryComboBox::metaObject();
-    }
+    return (QMetaObject*)self->Sonnet::DictionaryComboBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnMetaObject(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MetaObject_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MetaObject_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnMetaObject(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_metaobject_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Sonnet__DictionaryComboBox_SuperMetacast(Sonnet__DictionaryComboBox* self, const char* param1) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacast_IsBase(true);
-        return vsonnetdictionarycombobox->qt_metacast(param1);
-    } else {
-        return self->Sonnet::DictionaryComboBox::qt_metacast(param1);
-    }
+    return self->Sonnet::DictionaryComboBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMetacast(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacast_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metacast_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_metacast_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Sonnet__DictionaryComboBox_SuperMetacall(Sonnet__DictionaryComboBox* self, int param1, int param2, void** param3) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacall_IsBase(true);
-        return vsonnetdictionarycombobox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Sonnet::DictionaryComboBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Sonnet::DictionaryComboBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMetacall(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacall_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metacall_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_metacall_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_SetModel(Sonnet__DictionaryComboBox* self, QAbstractItemModel* model) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setModel(model);
-    } else {
-        self->Sonnet::DictionaryComboBox::setModel(model);
-    }
+    self->setModel(model);
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperSetModel(Sonnet__DictionaryComboBox* self, QAbstractItemModel* model) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SetModel_IsBase(true);
-        vsonnetdictionarycombobox->setModel(model);
-    } else {
-        self->Sonnet::DictionaryComboBox::setModel(model);
-    }
+    self->Sonnet::DictionaryComboBox::setModel(model);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnSetModel(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SetModel_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SetModel_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_setmodel_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SetModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* Sonnet__DictionaryComboBox_SizeHint(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return new QSize(vsonnetdictionarycombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualSonnetDictionaryComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* Sonnet__DictionaryComboBox_SuperSizeHint(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SizeHint_IsBase(true);
-        return new QSize(vsonnetdictionarycombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualSonnetDictionaryComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->Sonnet::DictionaryComboBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnSizeHint(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SizeHint_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SizeHint_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnSizeHint(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_sizehint_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* Sonnet__DictionaryComboBox_MinimumSizeHint(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return new QSize(vsonnetdictionarycombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualSonnetDictionaryComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* Sonnet__DictionaryComboBox_SuperMinimumSizeHint(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vsonnetdictionarycombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualSonnetDictionaryComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->Sonnet::DictionaryComboBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnMinimumSizeHint(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MinimumSizeHint_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnMinimumSizeHint(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_minimumsizehint_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_ShowPopup(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->showPopup();
-    } else {
-        self->Sonnet::DictionaryComboBox::showPopup();
-    }
+    self->showPopup();
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperShowPopup(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ShowPopup_IsBase(true);
-        vsonnetdictionarycombobox->showPopup();
-    } else {
-        self->Sonnet::DictionaryComboBox::showPopup();
-    }
+    self->Sonnet::DictionaryComboBox::showPopup();
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnShowPopup(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ShowPopup_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ShowPopup_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_showpopup_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ShowPopup_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_HidePopup(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->hidePopup();
-    } else {
-        self->Sonnet::DictionaryComboBox::hidePopup();
-    }
+    self->hidePopup();
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperHidePopup(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HidePopup_IsBase(true);
-        vsonnetdictionarycombobox->hidePopup();
-    } else {
-        self->Sonnet::DictionaryComboBox::hidePopup();
-    }
+    self->Sonnet::DictionaryComboBox::hidePopup();
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnHidePopup(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HidePopup_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HidePopup_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_hidepopup_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HidePopup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__DictionaryComboBox_Event(Sonnet__DictionaryComboBox* self, QEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->event(event);
-    } else {
-        return self->Sonnet::DictionaryComboBox::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Sonnet__DictionaryComboBox_SuperEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Event_IsBase(true);
-        return vsonnetdictionarycombobox->event(event);
-    } else {
-        return self->Sonnet::DictionaryComboBox::event(event);
-    }
+    return self->Sonnet::DictionaryComboBox::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Event_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Event_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_event_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* Sonnet__DictionaryComboBox_InputMethodQuery(const Sonnet__DictionaryComboBox* self, int param1) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return new QVariant(vsonnetdictionarycombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualSonnetDictionaryComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* Sonnet__DictionaryComboBox_SuperInputMethodQuery(const Sonnet__DictionaryComboBox* self, int param1) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vsonnetdictionarycombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualSonnetDictionaryComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->Sonnet::DictionaryComboBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnInputMethodQuery(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InputMethodQuery_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnInputMethodQuery(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_inputmethodquery_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_FocusInEvent(Sonnet__DictionaryComboBox* self, QFocusEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->focusInEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperFocusInEvent(Sonnet__DictionaryComboBox* self, QFocusEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusInEvent_IsBase(true);
-        vsonnetdictionarycombobox->focusInEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->focusInEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnFocusInEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusInEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_focusinevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_FocusOutEvent(Sonnet__DictionaryComboBox* self, QFocusEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->focusOutEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperFocusOutEvent(Sonnet__DictionaryComboBox* self, QFocusEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusOutEvent_IsBase(true);
-        vsonnetdictionarycombobox->focusOutEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->focusOutEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnFocusOutEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusOutEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_focusoutevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_ChangeEvent(Sonnet__DictionaryComboBox* self, QEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->changeEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperChangeEvent(Sonnet__DictionaryComboBox* self, QEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ChangeEvent_IsBase(true);
-        vsonnetdictionarycombobox->changeEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->changeEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnChangeEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ChangeEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_changeevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_ResizeEvent(Sonnet__DictionaryComboBox* self, QResizeEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->resizeEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperResizeEvent(Sonnet__DictionaryComboBox* self, QResizeEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ResizeEvent_IsBase(true);
-        vsonnetdictionarycombobox->resizeEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->resizeEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnResizeEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ResizeEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_resizeevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_PaintEvent(Sonnet__DictionaryComboBox* self, QPaintEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->paintEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperPaintEvent(Sonnet__DictionaryComboBox* self, QPaintEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_PaintEvent_IsBase(true);
-        vsonnetdictionarycombobox->paintEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->paintEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnPaintEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_PaintEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_PaintEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_paintevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_ShowEvent(Sonnet__DictionaryComboBox* self, QShowEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->showEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->showEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperShowEvent(Sonnet__DictionaryComboBox* self, QShowEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ShowEvent_IsBase(true);
-        vsonnetdictionarycombobox->showEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->showEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::showEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnShowEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ShowEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ShowEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_showevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_HideEvent(Sonnet__DictionaryComboBox* self, QHideEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->hideEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->hideEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperHideEvent(Sonnet__DictionaryComboBox* self, QHideEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HideEvent_IsBase(true);
-        vsonnetdictionarycombobox->hideEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->hideEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::hideEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnHideEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HideEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HideEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_hideevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_MousePressEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->mousePressEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperMousePressEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MousePressEvent_IsBase(true);
-        vsonnetdictionarycombobox->mousePressEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->mousePressEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMousePressEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MousePressEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_mousepressevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_MouseReleaseEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->mouseReleaseEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperMouseReleaseEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseReleaseEvent_IsBase(true);
-        vsonnetdictionarycombobox->mouseReleaseEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMouseReleaseEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_mousereleaseevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_KeyPressEvent(Sonnet__DictionaryComboBox* self, QKeyEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->keyPressEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->keyPressEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperKeyPressEvent(Sonnet__DictionaryComboBox* self, QKeyEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_KeyPressEvent_IsBase(true);
-        vsonnetdictionarycombobox->keyPressEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->keyPressEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnKeyPressEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_KeyPressEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_keypressevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_KeyReleaseEvent(Sonnet__DictionaryComboBox* self, QKeyEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->keyReleaseEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperKeyReleaseEvent(Sonnet__DictionaryComboBox* self, QKeyEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_KeyReleaseEvent_IsBase(true);
-        vsonnetdictionarycombobox->keyReleaseEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnKeyReleaseEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_keyreleaseevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_WheelEvent(Sonnet__DictionaryComboBox* self, QWheelEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->wheelEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperWheelEvent(Sonnet__DictionaryComboBox* self, QWheelEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_WheelEvent_IsBase(true);
-        vsonnetdictionarycombobox->wheelEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->wheelEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnWheelEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_WheelEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_WheelEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_wheelevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_ContextMenuEvent(Sonnet__DictionaryComboBox* self, QContextMenuEvent* e) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->contextMenuEvent(e);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->contextMenuEvent(e);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperContextMenuEvent(Sonnet__DictionaryComboBox* self, QContextMenuEvent* e) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ContextMenuEvent_IsBase(true);
-        vsonnetdictionarycombobox->contextMenuEvent(e);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->contextMenuEvent(e);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::contextMenuEvent(e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnContextMenuEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_contextmenuevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_InputMethodEvent(Sonnet__DictionaryComboBox* self, QInputMethodEvent* param1) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->inputMethodEvent(param1);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperInputMethodEvent(Sonnet__DictionaryComboBox* self, QInputMethodEvent* param1) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InputMethodEvent_IsBase(true);
-        vsonnetdictionarycombobox->inputMethodEvent(param1);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnInputMethodEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InputMethodEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_inputmethodevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_InitStyleOption(const Sonnet__DictionaryComboBox* self, QStyleOptionComboBox* option) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->initStyleOption(option);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperInitStyleOption(const Sonnet__DictionaryComboBox* self, QStyleOptionComboBox* option) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InitStyleOption_IsBase(true);
-        vsonnetdictionarycombobox->initStyleOption(option);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->initStyleOption(option);
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnInitStyleOption(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InitStyleOption_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnInitStyleOption(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_initstyleoption_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int Sonnet__DictionaryComboBox_DevType(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->devType();
-    } else {
-        return self->Sonnet::DictionaryComboBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int Sonnet__DictionaryComboBox_SuperDevType(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DevType_IsBase(true);
-        return vsonnetdictionarycombobox->devType();
-    } else {
-        return self->Sonnet::DictionaryComboBox::devType();
-    }
+    return self->Sonnet::DictionaryComboBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnDevType(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DevType_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DevType_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnDevType(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_devtype_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_SetVisible(Sonnet__DictionaryComboBox* self, bool visible) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setVisible(visible);
-    } else {
-        self->Sonnet::DictionaryComboBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperSetVisible(Sonnet__DictionaryComboBox* self, bool visible) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SetVisible_IsBase(true);
-        vsonnetdictionarycombobox->setVisible(visible);
-    } else {
-        self->Sonnet::DictionaryComboBox::setVisible(visible);
-    }
+    self->Sonnet::DictionaryComboBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnSetVisible(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SetVisible_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SetVisible_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_setvisible_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int Sonnet__DictionaryComboBox_HeightForWidth(const Sonnet__DictionaryComboBox* self, int param1) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->Sonnet::DictionaryComboBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int Sonnet__DictionaryComboBox_SuperHeightForWidth(const Sonnet__DictionaryComboBox* self, int param1) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HeightForWidth_IsBase(true);
-        return vsonnetdictionarycombobox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->Sonnet::DictionaryComboBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->Sonnet::DictionaryComboBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnHeightForWidth(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HeightForWidth_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnHeightForWidth(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_heightforwidth_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__DictionaryComboBox_HasHeightForWidth(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->hasHeightForWidth();
-    } else {
-        return self->Sonnet::DictionaryComboBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool Sonnet__DictionaryComboBox_SuperHasHeightForWidth(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HasHeightForWidth_IsBase(true);
-        return vsonnetdictionarycombobox->hasHeightForWidth();
-    } else {
-        return self->Sonnet::DictionaryComboBox::hasHeightForWidth();
-    }
+    return self->Sonnet::DictionaryComboBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnHasHeightForWidth(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HasHeightForWidth_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnHasHeightForWidth(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_hasheightforwidth_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* Sonnet__DictionaryComboBox_PaintEngine(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->paintEngine();
-    } else {
-        return self->Sonnet::DictionaryComboBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* Sonnet__DictionaryComboBox_SuperPaintEngine(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_PaintEngine_IsBase(true);
-        return vsonnetdictionarycombobox->paintEngine();
-    } else {
-        return self->Sonnet::DictionaryComboBox::paintEngine();
-    }
+    return self->Sonnet::DictionaryComboBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnPaintEngine(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_PaintEngine_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_PaintEngine_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnPaintEngine(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_paintengine_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_MouseDoubleClickEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperMouseDoubleClickEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseDoubleClickEvent_IsBase(true);
-        vsonnetdictionarycombobox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMouseDoubleClickEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_mousedoubleclickevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_MouseMoveEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->mouseMoveEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperMouseMoveEvent(Sonnet__DictionaryComboBox* self, QMouseEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseMoveEvent_IsBase(true);
-        vsonnetdictionarycombobox->mouseMoveEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMouseMoveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_mousemoveevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_EnterEvent(Sonnet__DictionaryComboBox* self, QEnterEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->enterEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperEnterEvent(Sonnet__DictionaryComboBox* self, QEnterEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_EnterEvent_IsBase(true);
-        vsonnetdictionarycombobox->enterEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->enterEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnEnterEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_EnterEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_EnterEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_enterevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_LeaveEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->leaveEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperLeaveEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_LeaveEvent_IsBase(true);
-        vsonnetdictionarycombobox->leaveEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->leaveEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnLeaveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_LeaveEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_leaveevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_MoveEvent(Sonnet__DictionaryComboBox* self, QMoveEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->moveEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperMoveEvent(Sonnet__DictionaryComboBox* self, QMoveEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MoveEvent_IsBase(true);
-        vsonnetdictionarycombobox->moveEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->moveEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMoveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MoveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MoveEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_moveevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_CloseEvent(Sonnet__DictionaryComboBox* self, QCloseEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->closeEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperCloseEvent(Sonnet__DictionaryComboBox* self, QCloseEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_CloseEvent_IsBase(true);
-        vsonnetdictionarycombobox->closeEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->closeEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnCloseEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_CloseEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_CloseEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_closeevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_TabletEvent(Sonnet__DictionaryComboBox* self, QTabletEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->tabletEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperTabletEvent(Sonnet__DictionaryComboBox* self, QTabletEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_TabletEvent_IsBase(true);
-        vsonnetdictionarycombobox->tabletEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->tabletEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnTabletEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_TabletEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_TabletEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_tabletevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_ActionEvent(Sonnet__DictionaryComboBox* self, QActionEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->actionEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperActionEvent(Sonnet__DictionaryComboBox* self, QActionEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ActionEvent_IsBase(true);
-        vsonnetdictionarycombobox->actionEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->actionEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnActionEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ActionEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ActionEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_actionevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_DragEnterEvent(Sonnet__DictionaryComboBox* self, QDragEnterEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->dragEnterEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperDragEnterEvent(Sonnet__DictionaryComboBox* self, QDragEnterEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragEnterEvent_IsBase(true);
-        vsonnetdictionarycombobox->dragEnterEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDragEnterEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragEnterEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_dragenterevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_DragMoveEvent(Sonnet__DictionaryComboBox* self, QDragMoveEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->dragMoveEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperDragMoveEvent(Sonnet__DictionaryComboBox* self, QDragMoveEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragMoveEvent_IsBase(true);
-        vsonnetdictionarycombobox->dragMoveEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDragMoveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragMoveEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_dragmoveevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_DragLeaveEvent(Sonnet__DictionaryComboBox* self, QDragLeaveEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->dragLeaveEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperDragLeaveEvent(Sonnet__DictionaryComboBox* self, QDragLeaveEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragLeaveEvent_IsBase(true);
-        vsonnetdictionarycombobox->dragLeaveEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDragLeaveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_dragleaveevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_DropEvent(Sonnet__DictionaryComboBox* self, QDropEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->dropEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperDropEvent(Sonnet__DictionaryComboBox* self, QDropEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DropEvent_IsBase(true);
-        vsonnetdictionarycombobox->dropEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->dropEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDropEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DropEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DropEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_dropevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__DictionaryComboBox_NativeEvent(Sonnet__DictionaryComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
+    if (vsonnetdictionarycombobox) {
         return vsonnetdictionarycombobox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool Sonnet__DictionaryComboBox_SuperNativeEvent(Sonnet__DictionaryComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_NativeEvent_IsBase(true);
-        return vsonnetdictionarycombobox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        return vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnNativeEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_NativeEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_NativeEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_nativeevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int Sonnet__DictionaryComboBox_Metric(const Sonnet__DictionaryComboBox* self, int param1) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         return vsonnetdictionarycombobox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int Sonnet__DictionaryComboBox_SuperMetric(const Sonnet__DictionaryComboBox* self, int param1) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metric_IsBase(true);
-        return vsonnetdictionarycombobox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        return vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnMetric(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metric_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metric_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnMetric(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_metric_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_InitPainter(const Sonnet__DictionaryComboBox* self, QPainter* painter) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->initPainter(painter);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperInitPainter(const Sonnet__DictionaryComboBox* self, QPainter* painter) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InitPainter_IsBase(true);
-        vsonnetdictionarycombobox->initPainter(painter);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->initPainter(painter);
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnInitPainter(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InitPainter_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InitPainter_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnInitPainter(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_initpainter_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* Sonnet__DictionaryComboBox_Redirected(const Sonnet__DictionaryComboBox* self, QPoint* offset) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         return vsonnetdictionarycombobox->redirected(offset);
     } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* Sonnet__DictionaryComboBox_SuperRedirected(const Sonnet__DictionaryComboBox* self, QPoint* offset) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Redirected_IsBase(true);
-        return vsonnetdictionarycombobox->redirected(offset);
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->redirected(offset);
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        return vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnRedirected(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Redirected_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Redirected_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnRedirected(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_redirected_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* Sonnet__DictionaryComboBox_SharedPainter(const Sonnet__DictionaryComboBox* self) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         return vsonnetdictionarycombobox->sharedPainter();
     } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* Sonnet__DictionaryComboBox_SuperSharedPainter(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SharedPainter_IsBase(true);
-        return vsonnetdictionarycombobox->sharedPainter();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->sharedPainter();
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        return vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnSharedPainter(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SharedPainter_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SharedPainter_Callback>(slot));
+void Sonnet__DictionaryComboBox_OnSharedPainter(Sonnet__DictionaryComboBox* self, intptr_t slot) {
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self)))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_sharedpainter_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__DictionaryComboBox_FocusNextPrevChild(Sonnet__DictionaryComboBox* self, bool next) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         return vsonnetdictionarycombobox->focusNextPrevChild(next);
     } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool Sonnet__DictionaryComboBox_SuperFocusNextPrevChild(Sonnet__DictionaryComboBox* self, bool next) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusNextPrevChild_IsBase(true);
-        return vsonnetdictionarycombobox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        return vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnFocusNextPrevChild(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_focusnextprevchild_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__DictionaryComboBox_EventFilter(Sonnet__DictionaryComboBox* self, QObject* watched, QEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->eventFilter(watched, event);
-    } else {
-        return self->Sonnet::DictionaryComboBox::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Sonnet__DictionaryComboBox_SuperEventFilter(Sonnet__DictionaryComboBox* self, QObject* watched, QEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_EventFilter_IsBase(true);
-        return vsonnetdictionarycombobox->eventFilter(watched, event);
-    } else {
-        return self->Sonnet::DictionaryComboBox::eventFilter(watched, event);
-    }
+    return self->Sonnet::DictionaryComboBox::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnEventFilter(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_EventFilter_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_EventFilter_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_eventfilter_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_TimerEvent(Sonnet__DictionaryComboBox* self, QTimerEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->timerEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperTimerEvent(Sonnet__DictionaryComboBox* self, QTimerEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_TimerEvent_IsBase(true);
-        vsonnetdictionarycombobox->timerEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->timerEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnTimerEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_TimerEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_TimerEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_timerevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_ChildEvent(Sonnet__DictionaryComboBox* self, QChildEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->childEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperChildEvent(Sonnet__DictionaryComboBox* self, QChildEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ChildEvent_IsBase(true);
-        vsonnetdictionarycombobox->childEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->childEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnChildEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ChildEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ChildEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_childevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_CustomEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->customEvent(event);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperCustomEvent(Sonnet__DictionaryComboBox* self, QEvent* event) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_CustomEvent_IsBase(true);
-        vsonnetdictionarycombobox->customEvent(event);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->customEvent(event);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnCustomEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_CustomEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_CustomEvent_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_customevent_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_ConnectNotify(Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->connectNotify(*signal);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperConnectNotify(Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ConnectNotify_IsBase(true);
-        vsonnetdictionarycombobox->connectNotify(*signal);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnConnectNotify(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ConnectNotify_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_connectnotify_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__DictionaryComboBox_DisconnectNotify(Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox) {
         vsonnetdictionarycombobox->disconnectNotify(*signal);
     } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__DictionaryComboBox_SuperDisconnectNotify(Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DisconnectNotify_IsBase(true);
-        vsonnetdictionarycombobox->disconnectNotify(*signal);
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->Sonnet::DictionaryComboBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::DictionaryComboBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDisconnectNotify(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DisconnectNotify_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self))
+        vsonnetdictionarycombobox->sonnet__dictionarycombobox_disconnectnotify_callback = reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__DictionaryComboBox_UpdateMicroFocus(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->updateMicroFocus();
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->updateMicroFocus();
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__DictionaryComboBox_SuperUpdateMicroFocus(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_UpdateMicroFocus_IsBase(true);
-        vsonnetdictionarycombobox->updateMicroFocus();
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnUpdateMicroFocus(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__DictionaryComboBox_Create(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->create();
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->create();
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::create();
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__DictionaryComboBox_SuperCreate(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Create_IsBase(true);
-        vsonnetdictionarycombobox->create();
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnCreate(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Create_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__DictionaryComboBox_Destroy(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->destroy();
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->destroy();
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::destroy();
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__DictionaryComboBox_SuperDestroy(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Destroy_IsBase(true);
-        vsonnetdictionarycombobox->destroy();
-    } else {
-        ((VirtualSonnetDictionaryComboBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnDestroy(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Destroy_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__DictionaryComboBox_FocusNextChild(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->focusNextChild();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->focusNextChild();
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        return vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool Sonnet__DictionaryComboBox_SuperFocusNextChild(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusNextChild_IsBase(true);
-        return vsonnetdictionarycombobox->focusNextChild();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnFocusNextChild(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__DictionaryComboBox_FocusPreviousChild(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->focusPreviousChild();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->focusPreviousChild();
-    }
+    if (auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self)) {
+        return vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool Sonnet__DictionaryComboBox_SuperFocusPreviousChild(Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusPreviousChild_IsBase(true);
-        return vsonnetdictionarycombobox->focusPreviousChild();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnFocusPreviousChild(Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Sonnet__DictionaryComboBox_Sender(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->sender();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->sender();
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        return vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::sender();
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Sonnet__DictionaryComboBox_SuperSender(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Sender_IsBase(true);
-        return vsonnetdictionarycombobox->sender();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnSender(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Sender_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__DictionaryComboBox_SenderSignalIndex(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->senderSignalIndex();
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        return vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__DictionaryComboBox_SuperSenderSignalIndex(const Sonnet__DictionaryComboBox* self) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SenderSignalIndex_IsBase(true);
-        return vsonnetdictionarycombobox->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnSenderSignalIndex(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__DictionaryComboBox_Receivers(const Sonnet__DictionaryComboBox* self, const char* signal) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->receivers(signal);
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->receivers(signal);
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        return vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__DictionaryComboBox_SuperReceivers(const Sonnet__DictionaryComboBox* self, const char* signal) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Receivers_IsBase(true);
-        return vsonnetdictionarycombobox->receivers(signal);
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnReceivers(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Receivers_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__DictionaryComboBox_IsSignalConnected(const Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        return vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool Sonnet__DictionaryComboBox_SuperIsSignalConnected(const Sonnet__DictionaryComboBox* self, const QMetaMethod* signal) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_IsSignalConnected_IsBase(true);
-        return vsonnetdictionarycombobox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnIsSignalConnected(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double Sonnet__DictionaryComboBox_GetDecodedMetricF(const Sonnet__DictionaryComboBox* self, int metricA, int metricB) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        return vsonnetdictionarycombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double Sonnet__DictionaryComboBox_SuperGetDecodedMetricF(const Sonnet__DictionaryComboBox* self, int metricA, int metricB) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_GetDecodedMetricF_IsBase(true);
-        return vsonnetdictionarycombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualSonnetDictionaryComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__DictionaryComboBox_OnGetDecodedMetricF(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
-    auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
-        vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_GetDecodedMetricF_Callback>(slot));
+    if (auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self))) {
+        return vsonnetdictionarycombobox->VirtualSonnetDictionaryComboBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method Sonnet::DictionaryComboBox::getDecodedMetricF called without a directly constructed type");
 }
 
 void Sonnet__DictionaryComboBox_Delete(Sonnet__DictionaryComboBox* self) {

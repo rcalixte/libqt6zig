@@ -142,9 +142,9 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) QMetaObject) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -315,9 +315,9 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) bool `
     ///
-    pub fn onViewIsReadOnly(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onViewIsReadOnly(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) bool) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnViewIsReadOnly(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -363,9 +363,9 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) bool `
     ///
-    pub fn onDocumentIsEmpty(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDocumentIsEmpty(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) bool) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnDocumentIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -533,9 +533,9 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) void `
     ///
-    pub fn onAutoSearchMoveCursor(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onAutoSearchMoveCursor(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) void) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnAutoSearchMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7237,9 +7237,9 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) i32) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7353,11 +7353,11 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) QSize) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7411,11 +7411,11 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) QSize) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7529,9 +7529,9 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) bool) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7585,9 +7585,9 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) QPaintEngine) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9451,9 +9451,9 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar) callconv(.c) QPainter) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10037,44 +10037,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
         qtc.TextCustomEditor__PlainTextEditFindBar_ClearSelections(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superClearSelections` instead
-    ///
-    pub const SuperClearSelections = superClearSelections;
-
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    pub fn superClearSelections(self: TextCustomEditor__PlainTextEditFindBar) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_SuperClearSelections(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onClearSelections` instead
-    ///
-    pub const OnClearSelections = onClearSelections;
-
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onClearSelections(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnClearSelections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `searchText` instead
     ///
     pub const SearchText = searchText;
@@ -10097,48 +10059,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
         return qtc.TextCustomEditor__PlainTextEditFindBar_SearchText(@ptrCast(self.ptr), backward, isAutoSearch);
     }
 
-    /// ### DEPRECATED: Use `superSearchText` instead
-    ///
-    pub const SuperSearchText = superSearchText;
-
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    /// ` backward: bool `
-    ///
-    /// ` isAutoSearch: bool `
-    ///
-    pub fn superSearchText(self: TextCustomEditor__PlainTextEditFindBar, backward: bool, isAutoSearch: bool) bool {
-        return qtc.TextCustomEditor__PlainTextEditFindBar_SuperSearchText(@ptrCast(self.ptr), backward, isAutoSearch);
-    }
-
-    /// ### DEPRECATED: Use `onSearchText` instead
-    ///
-    pub const OnSearchText = onSearchText;
-
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, backward: bool, isAutoSearch: bool) callconv(.c) bool `
-    ///
-    pub fn onSearchText(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar, bool, bool) callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnSearchText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setFoundMatch` instead
     ///
     pub const SetFoundMatch = setFoundMatch;
@@ -10157,46 +10077,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     pub fn setFoundMatch(self: TextCustomEditor__PlainTextEditFindBar, match: bool) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_SetFoundMatch(@ptrCast(self.ptr), match);
-    }
-
-    /// ### DEPRECATED: Use `superSetFoundMatch` instead
-    ///
-    pub const SuperSetFoundMatch = superSetFoundMatch;
-
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    /// ` match: bool `
-    ///
-    pub fn superSetFoundMatch(self: TextCustomEditor__PlainTextEditFindBar, match: bool) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_SuperSetFoundMatch(@ptrCast(self.ptr), match);
-    }
-
-    /// ### DEPRECATED: Use `onSetFoundMatch` instead
-    ///
-    pub const OnSetFoundMatch = onSetFoundMatch;
-
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, match: bool) callconv(.c) void `
-    ///
-    pub fn onSetFoundMatch(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar, bool) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnSetFoundMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `messageInfo` instead
@@ -10223,50 +10103,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
         qtc.TextCustomEditor__PlainTextEditFindBar_MessageInfo(@ptrCast(self.ptr), backward, isAutoSearch, found);
     }
 
-    /// ### DEPRECATED: Use `superMessageInfo` instead
-    ///
-    pub const SuperMessageInfo = superMessageInfo;
-
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    /// ` backward: bool `
-    ///
-    /// ` isAutoSearch: bool `
-    ///
-    /// ` found: bool `
-    ///
-    pub fn superMessageInfo(self: TextCustomEditor__PlainTextEditFindBar, backward: bool, isAutoSearch: bool, found: bool) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_SuperMessageInfo(@ptrCast(self.ptr), backward, isAutoSearch, found);
-    }
-
-    /// ### DEPRECATED: Use `onMessageInfo` instead
-    ///
-    pub const OnMessageInfo = onMessageInfo;
-
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
-    ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, backward: bool, isAutoSearch: bool, found: bool) callconv(.c) void `
-    ///
-    pub fn onMessageInfo(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar, bool, bool, bool) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnMessageInfo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10283,44 +10119,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     pub fn updateMicroFocus(self: TextCustomEditor__PlainTextEditFindBar) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    pub fn superUpdateMicroFocus(self: TextCustomEditor__PlainTextEditFindBar) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10341,44 +10139,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
         qtc.TextCustomEditor__PlainTextEditFindBar_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    pub fn superCreate(self: TextCustomEditor__PlainTextEditFindBar) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10395,44 +10155,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     pub fn destroy(self: TextCustomEditor__PlainTextEditFindBar) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    pub fn superDestroy(self: TextCustomEditor__PlainTextEditFindBar) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10453,44 +10175,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
         return qtc.TextCustomEditor__PlainTextEditFindBar_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    pub fn superFocusNextChild(self: TextCustomEditor__PlainTextEditFindBar) bool {
-        return qtc.TextCustomEditor__PlainTextEditFindBar_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10507,44 +10191,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     pub fn focusPreviousChild(self: TextCustomEditor__PlainTextEditFindBar) bool {
         return qtc.TextCustomEditor__PlainTextEditFindBar_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    pub fn superFocusPreviousChild(self: TextCustomEditor__PlainTextEditFindBar) bool {
-        return qtc.TextCustomEditor__PlainTextEditFindBar_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10565,44 +10211,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextEditFindBar_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    pub fn superSender(self: TextCustomEditor__PlainTextEditFindBar) QObject {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextEditFindBar_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10619,44 +10227,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     pub fn senderSignalIndex(self: TextCustomEditor__PlainTextEditFindBar) i32 {
         return qtc.TextCustomEditor__PlainTextEditFindBar_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    pub fn superSenderSignalIndex(self: TextCustomEditor__PlainTextEditFindBar) i32 {
-        return qtc.TextCustomEditor__PlainTextEditFindBar_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10680,47 +10250,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
         return qtc.TextCustomEditor__PlainTextEditFindBar_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextCustomEditor__PlainTextEditFindBar, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextCustomEditor__PlainTextEditFindBar_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10740,47 +10269,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     pub fn isSignalConnected(self: TextCustomEditor__PlainTextEditFindBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__PlainTextEditFindBar_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextCustomEditor__PlainTextEditFindBar, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextCustomEditor__PlainTextEditFindBar_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10803,48 +10291,6 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextCustomEditor__PlainTextEditFindBar, metricA: i32, metricB: i32) f64 {
         return qtc.TextCustomEditor__PlainTextEditFindBar_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextCustomEditor__PlainTextEditFindBar, metricA: i32, metricB: i32) f64 {
-        return qtc.TextCustomEditor__PlainTextEditFindBar_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextEditFindBar`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar, i32, i32) callconv(.c) f64) void {
-        qtc.TextCustomEditor__PlainTextEditFindBar_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

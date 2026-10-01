@@ -146,532 +146,302 @@ QDialog* KReplace_ReplaceNextDialog1(KReplace* self, bool create) {
 
 // Base class handler implementation
 QMetaObject* KReplace_SuperMetaObject(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_MetaObject_IsBase(true);
-        return (QMetaObject*)vkreplace->metaObject();
-    } else {
-        return (QMetaObject*)self->KReplace::metaObject();
-    }
+    return (QMetaObject*)self->KReplace::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KReplace_OnMetaObject(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_MetaObject_Callback(reinterpret_cast<VirtualKReplace::KReplace_MetaObject_Callback>(slot));
+void KReplace_OnMetaObject(KReplace* self, intptr_t slot) {
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self)))
+        vkreplace->kreplace_metaobject_callback = reinterpret_cast<VirtualKReplace::KReplace_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KReplace_SuperMetacast(KReplace* self, const char* param1) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_Metacast_IsBase(true);
-        return vkreplace->qt_metacast(param1);
-    } else {
-        return self->KReplace::qt_metacast(param1);
-    }
+    return self->KReplace::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnMetacast(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_Metacast_Callback(reinterpret_cast<VirtualKReplace::KReplace_Metacast_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_metacast_callback = reinterpret_cast<VirtualKReplace::KReplace_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KReplace_SuperMetacall(KReplace* self, int param1, int param2, void** param3) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_Metacall_IsBase(true);
-        return vkreplace->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KReplace::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KReplace::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnMetacall(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_Metacall_Callback(reinterpret_cast<VirtualKReplace::KReplace_Metacall_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_metacall_callback = reinterpret_cast<VirtualKReplace::KReplace_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KReplace_SuperResetCounts(KReplace* self) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_ResetCounts_IsBase(true);
-        vkreplace->resetCounts();
-    } else {
-        self->KReplace::resetCounts();
-    }
+    self->KReplace::resetCounts();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnResetCounts(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_ResetCounts_Callback(reinterpret_cast<VirtualKReplace::KReplace_ResetCounts_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_resetcounts_callback = reinterpret_cast<VirtualKReplace::KReplace_ResetCounts_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KReplace_SuperShouldRestart(const KReplace* self, bool forceAsking, bool showNumMatches) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_ShouldRestart_IsBase(true);
-        return vkreplace->shouldRestart(forceAsking, showNumMatches);
-    } else {
-        return self->KReplace::shouldRestart(forceAsking, showNumMatches);
-    }
+    return self->KReplace::shouldRestart(forceAsking, showNumMatches);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KReplace_OnShouldRestart(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_ShouldRestart_Callback(reinterpret_cast<VirtualKReplace::KReplace_ShouldRestart_Callback>(slot));
+void KReplace_OnShouldRestart(KReplace* self, intptr_t slot) {
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self)))
+        vkreplace->kreplace_shouldrestart_callback = reinterpret_cast<VirtualKReplace::KReplace_ShouldRestart_Callback>(slot);
 }
 
 // Base class handler implementation
 void KReplace_SuperDisplayFinalDialog(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_DisplayFinalDialog_IsBase(true);
-        vkreplace->displayFinalDialog();
-    } else {
-        self->KReplace::displayFinalDialog();
-    }
+    self->KReplace::displayFinalDialog();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KReplace_OnDisplayFinalDialog(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_DisplayFinalDialog_Callback(reinterpret_cast<VirtualKReplace::KReplace_DisplayFinalDialog_Callback>(slot));
+void KReplace_OnDisplayFinalDialog(KReplace* self, intptr_t slot) {
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self)))
+        vkreplace->kreplace_displayfinaldialog_callback = reinterpret_cast<VirtualKReplace::KReplace_DisplayFinalDialog_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KReplace_SetOptions(KReplace* self, long options) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setOptions(static_cast<long>(options));
-    } else {
-        self->KReplace::setOptions(static_cast<long>(options));
-    }
+    self->setOptions(static_cast<long>(options));
 }
 
 // Base class handler implementation
 void KReplace_SuperSetOptions(KReplace* self, long options) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_SetOptions_IsBase(true);
-        vkreplace->setOptions(static_cast<long>(options));
-    } else {
-        self->KReplace::setOptions(static_cast<long>(options));
-    }
+    self->KReplace::setOptions(static_cast<long>(options));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnSetOptions(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_SetOptions_Callback(reinterpret_cast<VirtualKReplace::KReplace_SetOptions_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_setoptions_callback = reinterpret_cast<VirtualKReplace::KReplace_SetOptions_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KReplace_ValidateMatch(KReplace* self, const libqt_string text, int index, int matchedlength) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
-    } else {
-        return self->KReplace::validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
-    }
+    return self->validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
 }
 
 // Base class handler implementation
 bool KReplace_SuperValidateMatch(KReplace* self, const libqt_string text, int index, int matchedlength) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_ValidateMatch_IsBase(true);
-        return vkreplace->validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
-    } else {
-        return self->KReplace::validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
-    }
+    return self->KReplace::validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnValidateMatch(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_ValidateMatch_Callback(reinterpret_cast<VirtualKReplace::KReplace_ValidateMatch_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_validatematch_callback = reinterpret_cast<VirtualKReplace::KReplace_ValidateMatch_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KReplace_Event(KReplace* self, QEvent* event) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->event(event);
-    } else {
-        return self->KReplace::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KReplace_SuperEvent(KReplace* self, QEvent* event) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_Event_IsBase(true);
-        return vkreplace->event(event);
-    } else {
-        return self->KReplace::event(event);
-    }
+    return self->KReplace::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnEvent(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_Event_Callback(reinterpret_cast<VirtualKReplace::KReplace_Event_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_event_callback = reinterpret_cast<VirtualKReplace::KReplace_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KReplace_EventFilter(KReplace* self, QObject* watched, QEvent* event) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->eventFilter(watched, event);
-    } else {
-        return self->KReplace::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KReplace_SuperEventFilter(KReplace* self, QObject* watched, QEvent* event) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_EventFilter_IsBase(true);
-        return vkreplace->eventFilter(watched, event);
-    } else {
-        return self->KReplace::eventFilter(watched, event);
-    }
+    return self->KReplace::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnEventFilter(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_EventFilter_Callback(reinterpret_cast<VirtualKReplace::KReplace_EventFilter_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_eventfilter_callback = reinterpret_cast<VirtualKReplace::KReplace_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KReplace_TimerEvent(KReplace* self, QTimerEvent* event) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace) {
         vkreplace->timerEvent(event);
     } else {
-        ((VirtualKReplace*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KReplace::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KReplace_SuperTimerEvent(KReplace* self, QTimerEvent* event) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_TimerEvent_IsBase(true);
-        vkreplace->timerEvent(event);
-    } else {
-        ((VirtualKReplace*)self)->timerEvent(event);
-    }
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self)) {
+        vkreplace->KReplace::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KReplace::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnTimerEvent(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_TimerEvent_Callback(reinterpret_cast<VirtualKReplace::KReplace_TimerEvent_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_timerevent_callback = reinterpret_cast<VirtualKReplace::KReplace_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KReplace_ChildEvent(KReplace* self, QChildEvent* event) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace) {
         vkreplace->childEvent(event);
     } else {
-        ((VirtualKReplace*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KReplace::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KReplace_SuperChildEvent(KReplace* self, QChildEvent* event) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_ChildEvent_IsBase(true);
-        vkreplace->childEvent(event);
-    } else {
-        ((VirtualKReplace*)self)->childEvent(event);
-    }
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self)) {
+        vkreplace->KReplace::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KReplace::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnChildEvent(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_ChildEvent_Callback(reinterpret_cast<VirtualKReplace::KReplace_ChildEvent_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_childevent_callback = reinterpret_cast<VirtualKReplace::KReplace_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KReplace_CustomEvent(KReplace* self, QEvent* event) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace) {
         vkreplace->customEvent(event);
     } else {
-        ((VirtualKReplace*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KReplace::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KReplace_SuperCustomEvent(KReplace* self, QEvent* event) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_CustomEvent_IsBase(true);
-        vkreplace->customEvent(event);
-    } else {
-        ((VirtualKReplace*)self)->customEvent(event);
-    }
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self)) {
+        vkreplace->KReplace::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KReplace::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnCustomEvent(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_CustomEvent_Callback(reinterpret_cast<VirtualKReplace::KReplace_CustomEvent_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_customevent_callback = reinterpret_cast<VirtualKReplace::KReplace_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KReplace_ConnectNotify(KReplace* self, const QMetaMethod* signal) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace) {
         vkreplace->connectNotify(*signal);
     } else {
-        ((VirtualKReplace*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KReplace::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KReplace_SuperConnectNotify(KReplace* self, const QMetaMethod* signal) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_ConnectNotify_IsBase(true);
-        vkreplace->connectNotify(*signal);
-    } else {
-        ((VirtualKReplace*)self)->connectNotify(*signal);
-    }
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self)) {
+        vkreplace->KReplace::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KReplace::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnConnectNotify(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_ConnectNotify_Callback(reinterpret_cast<VirtualKReplace::KReplace_ConnectNotify_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_connectnotify_callback = reinterpret_cast<VirtualKReplace::KReplace_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KReplace_DisconnectNotify(KReplace* self, const QMetaMethod* signal) {
     auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
+    if (vkreplace) {
         vkreplace->disconnectNotify(*signal);
     } else {
-        ((VirtualKReplace*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KReplace::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KReplace_SuperDisconnectNotify(KReplace* self, const QMetaMethod* signal) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_DisconnectNotify_IsBase(true);
-        vkreplace->disconnectNotify(*signal);
-    } else {
-        ((VirtualKReplace*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self)) {
+        vkreplace->KReplace::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KReplace::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KReplace_OnDisconnectNotify(KReplace* self, intptr_t slot) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_DisconnectNotify_Callback(reinterpret_cast<VirtualKReplace::KReplace_DisconnectNotify_Callback>(slot));
+    if (auto* vkreplace = dynamic_cast<VirtualKReplace*>(self))
+        vkreplace->kreplace_disconnectnotify_callback = reinterpret_cast<VirtualKReplace::KReplace_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QWidget* KReplace_ParentWidget(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->parentWidget();
-    } else {
-        return ((VirtualKReplace*)self)->parentWidget();
-    }
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self))) {
+        return vkreplace->VirtualKReplace::parentWidget();
+    } else
+        qFatal("Error: Protected method KReplace::parentWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-QWidget* KReplace_SuperParentWidget(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_ParentWidget_IsBase(true);
-        return vkreplace->parentWidget();
-    } else {
-        return ((VirtualKReplace*)self)->parentWidget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KReplace_OnParentWidget(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_ParentWidget_Callback(reinterpret_cast<VirtualKReplace::KReplace_ParentWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QWidget* KReplace_DialogsParent(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->dialogsParent();
-    } else {
-        return ((VirtualKReplace*)self)->dialogsParent();
-    }
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self))) {
+        return vkreplace->VirtualKReplace::dialogsParent();
+    } else
+        qFatal("Error: Protected method KReplace::dialogsParent called without a directly constructed type");
 }
 
-// Base class handler implementation
-QWidget* KReplace_SuperDialogsParent(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_DialogsParent_IsBase(true);
-        return vkreplace->dialogsParent();
-    } else {
-        return ((VirtualKReplace*)self)->dialogsParent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KReplace_OnDialogsParent(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_DialogsParent_Callback(reinterpret_cast<VirtualKReplace::KReplace_DialogsParent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KReplace_Sender(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->sender();
-    } else {
-        return ((VirtualKReplace*)self)->sender();
-    }
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self))) {
+        return vkreplace->VirtualKReplace::sender();
+    } else
+        qFatal("Error: Protected method KReplace::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KReplace_SuperSender(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_Sender_IsBase(true);
-        return vkreplace->sender();
-    } else {
-        return ((VirtualKReplace*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KReplace_OnSender(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_Sender_Callback(reinterpret_cast<VirtualKReplace::KReplace_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KReplace_SenderSignalIndex(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->senderSignalIndex();
-    } else {
-        return ((VirtualKReplace*)self)->senderSignalIndex();
-    }
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self))) {
+        return vkreplace->VirtualKReplace::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KReplace::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KReplace_SuperSenderSignalIndex(const KReplace* self) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_SenderSignalIndex_IsBase(true);
-        return vkreplace->senderSignalIndex();
-    } else {
-        return ((VirtualKReplace*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KReplace_OnSenderSignalIndex(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_SenderSignalIndex_Callback(reinterpret_cast<VirtualKReplace::KReplace_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KReplace_Receivers(const KReplace* self, const char* signal) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->receivers(signal);
-    } else {
-        return ((VirtualKReplace*)self)->receivers(signal);
-    }
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self))) {
+        return vkreplace->VirtualKReplace::receivers(signal);
+    } else
+        qFatal("Error: Protected method KReplace::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KReplace_SuperReceivers(const KReplace* self, const char* signal) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_Receivers_IsBase(true);
-        return vkreplace->receivers(signal);
-    } else {
-        return ((VirtualKReplace*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KReplace_OnReceivers(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_Receivers_Callback(reinterpret_cast<VirtualKReplace::KReplace_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KReplace_IsSignalConnected(const KReplace* self, const QMetaMethod* signal) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return vkreplace->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKReplace*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KReplace_SuperIsSignalConnected(const KReplace* self, const QMetaMethod* signal) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        vkreplace->setKReplace_IsSignalConnected_IsBase(true);
-        return vkreplace->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKReplace*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KReplace_OnIsSignalConnected(const KReplace* self, intptr_t slot) {
-    auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self));
-    if (vkreplace && vkreplace->isVirtualKReplace)
-        vkreplace->setKReplace_IsSignalConnected_Callback(reinterpret_cast<VirtualKReplace::KReplace_IsSignalConnected_Callback>(slot));
+    if (auto* vkreplace = const_cast<VirtualKReplace*>(dynamic_cast<const VirtualKReplace*>(self))) {
+        return vkreplace->VirtualKReplace::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KReplace::isSignalConnected called without a directly constructed type");
 }
 
 void KReplace_Delete(KReplace* self) {

@@ -47,7 +47,7 @@ void QMediaDevices_Connect_VideoInputsChanged(QMediaDevices* self, intptr_t slot
 void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
 libqt_string QMediaDevices_Tr2(const char* s, const char* c);
 libqt_string QMediaDevices_Tr3(const char* s, const char* c, int n);
-void QMediaDevices_OnMetaObject(const QMediaDevices* self, intptr_t slot);
+void QMediaDevices_OnMetaObject(QMediaDevices* self, intptr_t slot);
 QMetaObject* QMediaDevices_SuperMetaObject(const QMediaDevices* self);
 void QMediaDevices_OnMetacast(QMediaDevices* self, intptr_t slot);
 void* QMediaDevices_SuperMetacast(QMediaDevices* self, const char* param1);
@@ -74,17 +74,9 @@ void QMediaDevices_DisconnectNotify(QMediaDevices* self, const QMetaMethod* sign
 void QMediaDevices_OnDisconnectNotify(QMediaDevices* self, intptr_t slot);
 void QMediaDevices_SuperDisconnectNotify(QMediaDevices* self, const QMetaMethod* signal);
 QObject* QMediaDevices_Sender(const QMediaDevices* self);
-void QMediaDevices_OnSender(const QMediaDevices* self, intptr_t slot);
-QObject* QMediaDevices_SuperSender(const QMediaDevices* self);
 int QMediaDevices_SenderSignalIndex(const QMediaDevices* self);
-void QMediaDevices_OnSenderSignalIndex(const QMediaDevices* self, intptr_t slot);
-int QMediaDevices_SuperSenderSignalIndex(const QMediaDevices* self);
 int QMediaDevices_Receivers(const QMediaDevices* self, const char* signal);
-void QMediaDevices_OnReceivers(const QMediaDevices* self, intptr_t slot);
-int QMediaDevices_SuperReceivers(const QMediaDevices* self, const char* signal);
 bool QMediaDevices_IsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal);
-void QMediaDevices_OnIsSignalConnected(const QMediaDevices* self, intptr_t slot);
-bool QMediaDevices_SuperIsSignalConnected(const QMediaDevices* self, const QMetaMethod* signal);
 void QMediaDevices_Delete(QMediaDevices* self);
 
 #ifdef __cplusplus

@@ -226,1654 +226,1173 @@ libqt_string KMimeTypeChooser_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KMimeTypeChooser_SuperMetaObject(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_MetaObject_IsBase(true);
-        return (QMetaObject*)vkmimetypechooser->metaObject();
-    } else {
-        return (QMetaObject*)self->KMimeTypeChooser::metaObject();
-    }
+    return (QMetaObject*)self->KMimeTypeChooser::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnMetaObject(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_MetaObject_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MetaObject_Callback>(slot));
+void KMimeTypeChooser_OnMetaObject(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_metaobject_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KMimeTypeChooser_SuperMetacast(KMimeTypeChooser* self, const char* param1) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Metacast_IsBase(true);
-        return vkmimetypechooser->qt_metacast(param1);
-    } else {
-        return self->KMimeTypeChooser::qt_metacast(param1);
-    }
+    return self->KMimeTypeChooser::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnMetacast(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Metacast_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Metacast_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_metacast_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KMimeTypeChooser_SuperMetacall(KMimeTypeChooser* self, int param1, int param2, void** param3) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Metacall_IsBase(true);
-        return vkmimetypechooser->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KMimeTypeChooser::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KMimeTypeChooser::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnMetacall(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Metacall_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Metacall_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_metacall_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMimeTypeChooser_DevType(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->devType();
-    } else {
-        return self->KMimeTypeChooser::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KMimeTypeChooser_SuperDevType(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_DevType_IsBase(true);
-        return vkmimetypechooser->devType();
-    } else {
-        return self->KMimeTypeChooser::devType();
-    }
+    return self->KMimeTypeChooser::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnDevType(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_DevType_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DevType_Callback>(slot));
+void KMimeTypeChooser_OnDevType(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_devtype_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_SetVisible(KMimeTypeChooser* self, bool visible) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setVisible(visible);
-    } else {
-        self->KMimeTypeChooser::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperSetVisible(KMimeTypeChooser* self, bool visible) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_SetVisible_IsBase(true);
-        vkmimetypechooser->setVisible(visible);
-    } else {
-        self->KMimeTypeChooser::setVisible(visible);
-    }
+    self->KMimeTypeChooser::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnSetVisible(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_SetVisible_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_SetVisible_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_setvisible_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KMimeTypeChooser_SizeHint(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return new QSize(vkmimetypechooser->sizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooser*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KMimeTypeChooser_SuperSizeHint(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_SizeHint_IsBase(true);
-        return new QSize(vkmimetypechooser->sizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooser*)self)->sizeHint());
-    }
+    return new QSize(self->KMimeTypeChooser::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnSizeHint(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_SizeHint_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_SizeHint_Callback>(slot));
+void KMimeTypeChooser_OnSizeHint(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_sizehint_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KMimeTypeChooser_MinimumSizeHint(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return new QSize(vkmimetypechooser->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooser*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KMimeTypeChooser_SuperMinimumSizeHint(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_MinimumSizeHint_IsBase(true);
-        return new QSize(vkmimetypechooser->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooser*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KMimeTypeChooser::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnMinimumSizeHint(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MinimumSizeHint_Callback>(slot));
+void KMimeTypeChooser_OnMinimumSizeHint(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_minimumsizehint_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMimeTypeChooser_HeightForWidth(const KMimeTypeChooser* self, int param1) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KMimeTypeChooser::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KMimeTypeChooser_SuperHeightForWidth(const KMimeTypeChooser* self, int param1) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_HeightForWidth_IsBase(true);
-        return vkmimetypechooser->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KMimeTypeChooser::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KMimeTypeChooser::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnHeightForWidth(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_HeightForWidth_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_HeightForWidth_Callback>(slot));
+void KMimeTypeChooser_OnHeightForWidth(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_heightforwidth_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooser_HasHeightForWidth(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->hasHeightForWidth();
-    } else {
-        return self->KMimeTypeChooser::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KMimeTypeChooser_SuperHasHeightForWidth(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_HasHeightForWidth_IsBase(true);
-        return vkmimetypechooser->hasHeightForWidth();
-    } else {
-        return self->KMimeTypeChooser::hasHeightForWidth();
-    }
+    return self->KMimeTypeChooser::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnHasHeightForWidth(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_HasHeightForWidth_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_HasHeightForWidth_Callback>(slot));
+void KMimeTypeChooser_OnHasHeightForWidth(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_hasheightforwidth_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KMimeTypeChooser_PaintEngine(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->paintEngine();
-    } else {
-        return self->KMimeTypeChooser::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KMimeTypeChooser_SuperPaintEngine(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_PaintEngine_IsBase(true);
-        return vkmimetypechooser->paintEngine();
-    } else {
-        return self->KMimeTypeChooser::paintEngine();
-    }
+    return self->KMimeTypeChooser::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnPaintEngine(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_PaintEngine_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_PaintEngine_Callback>(slot));
+void KMimeTypeChooser_OnPaintEngine(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_paintengine_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooser_Event(KMimeTypeChooser* self, QEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         return vkmimetypechooser->event(event);
     } else {
-        return ((VirtualKMimeTypeChooser*)self)->event(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMimeTypeChooser_SuperEvent(KMimeTypeChooser* self, QEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Event_IsBase(true);
-        return vkmimetypechooser->event(event);
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->event(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        return vkmimetypechooser->KMimeTypeChooser::event(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Event_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Event_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_event_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_MousePressEvent(KMimeTypeChooser* self, QMouseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->mousePressEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperMousePressEvent(KMimeTypeChooser* self, QMouseEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_MousePressEvent_IsBase(true);
-        vkmimetypechooser->mousePressEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->mousePressEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnMousePressEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_MousePressEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MousePressEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_mousepressevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_MouseReleaseEvent(KMimeTypeChooser* self, QMouseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->mouseReleaseEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperMouseReleaseEvent(KMimeTypeChooser* self, QMouseEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_MouseReleaseEvent_IsBase(true);
-        vkmimetypechooser->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnMouseReleaseEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_mousereleaseevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_MouseDoubleClickEvent(KMimeTypeChooser* self, QMouseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperMouseDoubleClickEvent(KMimeTypeChooser* self, QMouseEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_MouseDoubleClickEvent_IsBase(true);
-        vkmimetypechooser->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnMouseDoubleClickEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_mousedoubleclickevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_MouseMoveEvent(KMimeTypeChooser* self, QMouseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->mouseMoveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperMouseMoveEvent(KMimeTypeChooser* self, QMouseEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_MouseMoveEvent_IsBase(true);
-        vkmimetypechooser->mouseMoveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnMouseMoveEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_MouseMoveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MouseMoveEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_mousemoveevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_WheelEvent(KMimeTypeChooser* self, QWheelEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->wheelEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperWheelEvent(KMimeTypeChooser* self, QWheelEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_WheelEvent_IsBase(true);
-        vkmimetypechooser->wheelEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->wheelEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnWheelEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_WheelEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_WheelEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_wheelevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_KeyPressEvent(KMimeTypeChooser* self, QKeyEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->keyPressEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperKeyPressEvent(KMimeTypeChooser* self, QKeyEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_KeyPressEvent_IsBase(true);
-        vkmimetypechooser->keyPressEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->keyPressEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnKeyPressEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_KeyPressEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_KeyPressEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_keypressevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_KeyReleaseEvent(KMimeTypeChooser* self, QKeyEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->keyReleaseEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperKeyReleaseEvent(KMimeTypeChooser* self, QKeyEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_KeyReleaseEvent_IsBase(true);
-        vkmimetypechooser->keyReleaseEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnKeyReleaseEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_keyreleaseevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_FocusInEvent(KMimeTypeChooser* self, QFocusEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->focusInEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperFocusInEvent(KMimeTypeChooser* self, QFocusEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_FocusInEvent_IsBase(true);
-        vkmimetypechooser->focusInEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->focusInEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnFocusInEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_FocusInEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_FocusInEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_focusinevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_FocusOutEvent(KMimeTypeChooser* self, QFocusEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->focusOutEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperFocusOutEvent(KMimeTypeChooser* self, QFocusEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_FocusOutEvent_IsBase(true);
-        vkmimetypechooser->focusOutEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->focusOutEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnFocusOutEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_FocusOutEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_FocusOutEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_focusoutevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_EnterEvent(KMimeTypeChooser* self, QEnterEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->enterEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperEnterEvent(KMimeTypeChooser* self, QEnterEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_EnterEvent_IsBase(true);
-        vkmimetypechooser->enterEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->enterEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnEnterEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_EnterEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_EnterEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_enterevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_LeaveEvent(KMimeTypeChooser* self, QEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->leaveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperLeaveEvent(KMimeTypeChooser* self, QEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_LeaveEvent_IsBase(true);
-        vkmimetypechooser->leaveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->leaveEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnLeaveEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_LeaveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_LeaveEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_leaveevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_PaintEvent(KMimeTypeChooser* self, QPaintEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->paintEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperPaintEvent(KMimeTypeChooser* self, QPaintEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_PaintEvent_IsBase(true);
-        vkmimetypechooser->paintEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->paintEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnPaintEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_PaintEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_PaintEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_paintevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_MoveEvent(KMimeTypeChooser* self, QMoveEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->moveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperMoveEvent(KMimeTypeChooser* self, QMoveEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_MoveEvent_IsBase(true);
-        vkmimetypechooser->moveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->moveEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnMoveEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_MoveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MoveEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_moveevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_ResizeEvent(KMimeTypeChooser* self, QResizeEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->resizeEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperResizeEvent(KMimeTypeChooser* self, QResizeEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_ResizeEvent_IsBase(true);
-        vkmimetypechooser->resizeEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->resizeEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnResizeEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_ResizeEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ResizeEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_resizeevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_CloseEvent(KMimeTypeChooser* self, QCloseEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->closeEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperCloseEvent(KMimeTypeChooser* self, QCloseEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_CloseEvent_IsBase(true);
-        vkmimetypechooser->closeEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->closeEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnCloseEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_CloseEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_CloseEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_closeevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_ContextMenuEvent(KMimeTypeChooser* self, QContextMenuEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->contextMenuEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperContextMenuEvent(KMimeTypeChooser* self, QContextMenuEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_ContextMenuEvent_IsBase(true);
-        vkmimetypechooser->contextMenuEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnContextMenuEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_ContextMenuEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ContextMenuEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_contextmenuevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_TabletEvent(KMimeTypeChooser* self, QTabletEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->tabletEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperTabletEvent(KMimeTypeChooser* self, QTabletEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_TabletEvent_IsBase(true);
-        vkmimetypechooser->tabletEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->tabletEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnTabletEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_TabletEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_TabletEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_tabletevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_ActionEvent(KMimeTypeChooser* self, QActionEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->actionEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperActionEvent(KMimeTypeChooser* self, QActionEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_ActionEvent_IsBase(true);
-        vkmimetypechooser->actionEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->actionEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnActionEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_ActionEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ActionEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_actionevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_DragEnterEvent(KMimeTypeChooser* self, QDragEnterEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->dragEnterEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperDragEnterEvent(KMimeTypeChooser* self, QDragEnterEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_DragEnterEvent_IsBase(true);
-        vkmimetypechooser->dragEnterEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnDragEnterEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_DragEnterEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DragEnterEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_dragenterevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_DragMoveEvent(KMimeTypeChooser* self, QDragMoveEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->dragMoveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperDragMoveEvent(KMimeTypeChooser* self, QDragMoveEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_DragMoveEvent_IsBase(true);
-        vkmimetypechooser->dragMoveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnDragMoveEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_DragMoveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DragMoveEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_dragmoveevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_DragLeaveEvent(KMimeTypeChooser* self, QDragLeaveEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->dragLeaveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperDragLeaveEvent(KMimeTypeChooser* self, QDragLeaveEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_DragLeaveEvent_IsBase(true);
-        vkmimetypechooser->dragLeaveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnDragLeaveEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_DragLeaveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DragLeaveEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_dragleaveevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_DropEvent(KMimeTypeChooser* self, QDropEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->dropEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperDropEvent(KMimeTypeChooser* self, QDropEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_DropEvent_IsBase(true);
-        vkmimetypechooser->dropEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->dropEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnDropEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_DropEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DropEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_dropevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_ShowEvent(KMimeTypeChooser* self, QShowEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->showEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperShowEvent(KMimeTypeChooser* self, QShowEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_ShowEvent_IsBase(true);
-        vkmimetypechooser->showEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->showEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnShowEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_ShowEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ShowEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_showevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_HideEvent(KMimeTypeChooser* self, QHideEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->hideEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperHideEvent(KMimeTypeChooser* self, QHideEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_HideEvent_IsBase(true);
-        vkmimetypechooser->hideEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->hideEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnHideEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_HideEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_HideEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_hideevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooser_NativeEvent(KMimeTypeChooser* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
+    if (vkmimetypechooser) {
         return vkmimetypechooser->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKMimeTypeChooser*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KMimeTypeChooser::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMimeTypeChooser_SuperNativeEvent(KMimeTypeChooser* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_NativeEvent_IsBase(true);
-        return vkmimetypechooser->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        return vkmimetypechooser->KMimeTypeChooser::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnNativeEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_NativeEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_NativeEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_nativeevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_ChangeEvent(KMimeTypeChooser* self, QEvent* param1) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->changeEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperChangeEvent(KMimeTypeChooser* self, QEvent* param1) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_ChangeEvent_IsBase(true);
-        vkmimetypechooser->changeEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->changeEvent(param1);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnChangeEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_ChangeEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ChangeEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_changeevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMimeTypeChooser_Metric(const KMimeTypeChooser* self, int param1) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         return vkmimetypechooser->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKMimeTypeChooser*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KMimeTypeChooser::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KMimeTypeChooser_SuperMetric(const KMimeTypeChooser* self, int param1) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Metric_IsBase(true);
-        return vkmimetypechooser->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        return vkmimetypechooser->KMimeTypeChooser::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnMetric(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Metric_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Metric_Callback>(slot));
+void KMimeTypeChooser_OnMetric(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_metric_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_InitPainter(const KMimeTypeChooser* self, QPainter* painter) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->initPainter(painter);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperInitPainter(const KMimeTypeChooser* self, QPainter* painter) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_InitPainter_IsBase(true);
-        vkmimetypechooser->initPainter(painter);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->initPainter(painter);
-    }
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        vkmimetypechooser->KMimeTypeChooser::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnInitPainter(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_InitPainter_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_InitPainter_Callback>(slot));
+void KMimeTypeChooser_OnInitPainter(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_initpainter_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KMimeTypeChooser_Redirected(const KMimeTypeChooser* self, QPoint* offset) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         return vkmimetypechooser->redirected(offset);
     } else {
-        return ((VirtualKMimeTypeChooser*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KMimeTypeChooser_SuperRedirected(const KMimeTypeChooser* self, QPoint* offset) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Redirected_IsBase(true);
-        return vkmimetypechooser->redirected(offset);
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->redirected(offset);
-    }
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        return vkmimetypechooser->KMimeTypeChooser::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnRedirected(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Redirected_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Redirected_Callback>(slot));
+void KMimeTypeChooser_OnRedirected(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_redirected_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KMimeTypeChooser_SharedPainter(const KMimeTypeChooser* self) {
     auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         return vkmimetypechooser->sharedPainter();
     } else {
-        return ((VirtualKMimeTypeChooser*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KMimeTypeChooser::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KMimeTypeChooser_SuperSharedPainter(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_SharedPainter_IsBase(true);
-        return vkmimetypechooser->sharedPainter();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->sharedPainter();
-    }
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        return vkmimetypechooser->KMimeTypeChooser::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnSharedPainter(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_SharedPainter_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_SharedPainter_Callback>(slot));
+void KMimeTypeChooser_OnSharedPainter(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_sharedpainter_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_InputMethodEvent(KMimeTypeChooser* self, QInputMethodEvent* param1) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->inputMethodEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperInputMethodEvent(KMimeTypeChooser* self, QInputMethodEvent* param1) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_InputMethodEvent_IsBase(true);
-        vkmimetypechooser->inputMethodEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnInputMethodEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_InputMethodEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_InputMethodEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_inputmethodevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KMimeTypeChooser_InputMethodQuery(const KMimeTypeChooser* self, int param1) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return new QVariant(vkmimetypechooser->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKMimeTypeChooser*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KMimeTypeChooser_SuperInputMethodQuery(const KMimeTypeChooser* self, int param1) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_InputMethodQuery_IsBase(true);
-        return new QVariant(vkmimetypechooser->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKMimeTypeChooser*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KMimeTypeChooser::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnInputMethodQuery(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_InputMethodQuery_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_InputMethodQuery_Callback>(slot));
+void KMimeTypeChooser_OnInputMethodQuery(KMimeTypeChooser* self, intptr_t slot) {
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self)))
+        vkmimetypechooser->kmimetypechooser_inputmethodquery_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooser_FocusNextPrevChild(KMimeTypeChooser* self, bool next) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         return vkmimetypechooser->focusNextPrevChild(next);
     } else {
-        return ((VirtualKMimeTypeChooser*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMimeTypeChooser_SuperFocusNextPrevChild(KMimeTypeChooser* self, bool next) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_FocusNextPrevChild_IsBase(true);
-        return vkmimetypechooser->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        return vkmimetypechooser->KMimeTypeChooser::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnFocusNextPrevChild(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_focusnextprevchild_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooser_EventFilter(KMimeTypeChooser* self, QObject* watched, QEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->eventFilter(watched, event);
-    } else {
-        return self->KMimeTypeChooser::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KMimeTypeChooser_SuperEventFilter(KMimeTypeChooser* self, QObject* watched, QEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_EventFilter_IsBase(true);
-        return vkmimetypechooser->eventFilter(watched, event);
-    } else {
-        return self->KMimeTypeChooser::eventFilter(watched, event);
-    }
+    return self->KMimeTypeChooser::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnEventFilter(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_EventFilter_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_EventFilter_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_eventfilter_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_TimerEvent(KMimeTypeChooser* self, QTimerEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->timerEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperTimerEvent(KMimeTypeChooser* self, QTimerEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_TimerEvent_IsBase(true);
-        vkmimetypechooser->timerEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->timerEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnTimerEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_TimerEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_TimerEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_timerevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_ChildEvent(KMimeTypeChooser* self, QChildEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->childEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperChildEvent(KMimeTypeChooser* self, QChildEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_ChildEvent_IsBase(true);
-        vkmimetypechooser->childEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->childEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnChildEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_ChildEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ChildEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_childevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_CustomEvent(KMimeTypeChooser* self, QEvent* event) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->customEvent(event);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperCustomEvent(KMimeTypeChooser* self, QEvent* event) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_CustomEvent_IsBase(true);
-        vkmimetypechooser->customEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->customEvent(event);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnCustomEvent(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_CustomEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_CustomEvent_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_customevent_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_ConnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->connectNotify(*signal);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperConnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_ConnectNotify_IsBase(true);
-        vkmimetypechooser->connectNotify(*signal);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->connectNotify(*signal);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnConnectNotify(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_ConnectNotify_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ConnectNotify_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_connectnotify_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooser_DisconnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal) {
     auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
+    if (vkmimetypechooser) {
         vkmimetypechooser->disconnectNotify(*signal);
     } else {
-        ((VirtualKMimeTypeChooser*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KMimeTypeChooser::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooser_SuperDisconnectNotify(KMimeTypeChooser* self, const QMetaMethod* signal) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_DisconnectNotify_IsBase(true);
-        vkmimetypechooser->disconnectNotify(*signal);
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->KMimeTypeChooser::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooser::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooser_OnDisconnectNotify(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_DisconnectNotify_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DisconnectNotify_Callback>(slot));
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self))
+        vkmimetypechooser->kmimetypechooser_disconnectnotify_callback = reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMimeTypeChooser_UpdateMicroFocus(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->updateMicroFocus();
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->updateMicroFocus();
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->VirtualKMimeTypeChooser::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMimeTypeChooser_SuperUpdateMicroFocus(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_UpdateMicroFocus_IsBase(true);
-        vkmimetypechooser->updateMicroFocus();
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnUpdateMicroFocus(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMimeTypeChooser_Create(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->create();
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->create();
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->VirtualKMimeTypeChooser::create();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMimeTypeChooser_SuperCreate(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Create_IsBase(true);
-        vkmimetypechooser->create();
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnCreate(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Create_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMimeTypeChooser_Destroy(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->destroy();
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->destroy();
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        vkmimetypechooser->VirtualKMimeTypeChooser::destroy();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMimeTypeChooser_SuperDestroy(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Destroy_IsBase(true);
-        vkmimetypechooser->destroy();
-    } else {
-        ((VirtualKMimeTypeChooser*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnDestroy(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Destroy_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMimeTypeChooser_FocusNextChild(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->focusNextChild();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->focusNextChild();
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        return vkmimetypechooser->VirtualKMimeTypeChooser::focusNextChild();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMimeTypeChooser_SuperFocusNextChild(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_FocusNextChild_IsBase(true);
-        return vkmimetypechooser->focusNextChild();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnFocusNextChild(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_FocusNextChild_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMimeTypeChooser_FocusPreviousChild(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->focusPreviousChild();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->focusPreviousChild();
-    }
+    if (auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self)) {
+        return vkmimetypechooser->VirtualKMimeTypeChooser::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMimeTypeChooser_SuperFocusPreviousChild(KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_FocusPreviousChild_IsBase(true);
-        return vkmimetypechooser->focusPreviousChild();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnFocusPreviousChild(KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = dynamic_cast<VirtualKMimeTypeChooser*>(self);
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_FocusPreviousChild_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KMimeTypeChooser_Sender(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->sender();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->sender();
-    }
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        return vkmimetypechooser->VirtualKMimeTypeChooser::sender();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KMimeTypeChooser_SuperSender(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Sender_IsBase(true);
-        return vkmimetypechooser->sender();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnSender(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Sender_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KMimeTypeChooser_SenderSignalIndex(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->senderSignalIndex();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->senderSignalIndex();
-    }
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        return vkmimetypechooser->VirtualKMimeTypeChooser::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KMimeTypeChooser_SuperSenderSignalIndex(const KMimeTypeChooser* self) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_SenderSignalIndex_IsBase(true);
-        return vkmimetypechooser->senderSignalIndex();
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnSenderSignalIndex(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_SenderSignalIndex_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KMimeTypeChooser_Receivers(const KMimeTypeChooser* self, const char* signal) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->receivers(signal);
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->receivers(signal);
-    }
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        return vkmimetypechooser->VirtualKMimeTypeChooser::receivers(signal);
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KMimeTypeChooser_SuperReceivers(const KMimeTypeChooser* self, const char* signal) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_Receivers_IsBase(true);
-        return vkmimetypechooser->receivers(signal);
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnReceivers(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_Receivers_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMimeTypeChooser_IsSignalConnected(const KMimeTypeChooser* self, const QMetaMethod* signal) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        return vkmimetypechooser->VirtualKMimeTypeChooser::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMimeTypeChooser_SuperIsSignalConnected(const KMimeTypeChooser* self, const QMetaMethod* signal) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_IsSignalConnected_IsBase(true);
-        return vkmimetypechooser->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnIsSignalConnected(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_IsSignalConnected_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KMimeTypeChooser_GetDecodedMetricF(const KMimeTypeChooser* self, int metricA, int metricB) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        return vkmimetypechooser->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KMimeTypeChooser_SuperGetDecodedMetricF(const KMimeTypeChooser* self, int metricA, int metricB) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser) {
-        vkmimetypechooser->setKMimeTypeChooser_GetDecodedMetricF_IsBase(true);
-        return vkmimetypechooser->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKMimeTypeChooser*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooser_OnGetDecodedMetricF(const KMimeTypeChooser* self, intptr_t slot) {
-    auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self));
-    if (vkmimetypechooser && vkmimetypechooser->isVirtualKMimeTypeChooser)
-        vkmimetypechooser->setKMimeTypeChooser_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKMimeTypeChooser::KMimeTypeChooser_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkmimetypechooser = const_cast<VirtualKMimeTypeChooser*>(dynamic_cast<const VirtualKMimeTypeChooser*>(self))) {
+        return vkmimetypechooser->VirtualKMimeTypeChooser::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KMimeTypeChooser::getDecodedMetricF called without a directly constructed type");
 }
 
 void KMimeTypeChooser_Delete(KMimeTypeChooser* self) {
@@ -2071,1812 +1590,1264 @@ libqt_string KMimeTypeChooserDialog_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KMimeTypeChooserDialog_SuperMetaObject(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkmimetypechooserdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KMimeTypeChooserDialog::metaObject();
-    }
+    return (QMetaObject*)self->KMimeTypeChooserDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnMetaObject(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MetaObject_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MetaObject_Callback>(slot));
+void KMimeTypeChooserDialog_OnMetaObject(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_metaobject_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KMimeTypeChooserDialog_SuperMetacast(KMimeTypeChooserDialog* self, const char* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metacast_IsBase(true);
-        return vkmimetypechooserdialog->qt_metacast(param1);
-    } else {
-        return self->KMimeTypeChooserDialog::qt_metacast(param1);
-    }
+    return self->KMimeTypeChooserDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnMetacast(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metacast_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Metacast_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_metacast_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KMimeTypeChooserDialog_SuperMetacall(KMimeTypeChooserDialog* self, int param1, int param2, void** param3) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metacall_IsBase(true);
-        return vkmimetypechooserdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KMimeTypeChooserDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KMimeTypeChooserDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnMetacall(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metacall_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Metacall_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_metacall_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KMimeTypeChooserDialog_SuperSizeHint(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SizeHint_IsBase(true);
-        return new QSize(vkmimetypechooserdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooserDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KMimeTypeChooserDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnSizeHint(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SizeHint_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SizeHint_Callback>(slot));
+void KMimeTypeChooserDialog_OnSizeHint(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_sizehint_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_SetVisible(KMimeTypeChooserDialog* self, bool visible) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setVisible(visible);
-    } else {
-        self->KMimeTypeChooserDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperSetVisible(KMimeTypeChooserDialog* self, bool visible) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SetVisible_IsBase(true);
-        vkmimetypechooserdialog->setVisible(visible);
-    } else {
-        self->KMimeTypeChooserDialog::setVisible(visible);
-    }
+    self->KMimeTypeChooserDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnSetVisible(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SetVisible_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SetVisible_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_setvisible_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KMimeTypeChooserDialog_MinimumSizeHint(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return new QSize(vkmimetypechooserdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooserDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KMimeTypeChooserDialog_SuperMinimumSizeHint(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkmimetypechooserdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMimeTypeChooserDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KMimeTypeChooserDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnMinimumSizeHint(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MinimumSizeHint_Callback>(slot));
+void KMimeTypeChooserDialog_OnMinimumSizeHint(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_minimumsizehint_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_Open(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->open();
-    } else {
-        self->KMimeTypeChooserDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperOpen(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Open_IsBase(true);
-        vkmimetypechooserdialog->open();
-    } else {
-        self->KMimeTypeChooserDialog::open();
-    }
+    self->KMimeTypeChooserDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnOpen(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Open_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Open_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_open_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMimeTypeChooserDialog_Exec(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->exec();
-    } else {
-        return self->KMimeTypeChooserDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KMimeTypeChooserDialog_SuperExec(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Exec_IsBase(true);
-        return vkmimetypechooserdialog->exec();
-    } else {
-        return self->KMimeTypeChooserDialog::exec();
-    }
+    return self->KMimeTypeChooserDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnExec(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Exec_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Exec_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_exec_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_Done(KMimeTypeChooserDialog* self, int param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->done(static_cast<int>(param1));
-    } else {
-        self->KMimeTypeChooserDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperDone(KMimeTypeChooserDialog* self, int param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Done_IsBase(true);
-        vkmimetypechooserdialog->done(static_cast<int>(param1));
-    } else {
-        self->KMimeTypeChooserDialog::done(static_cast<int>(param1));
-    }
+    self->KMimeTypeChooserDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnDone(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Done_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Done_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_done_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_Accept(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->accept();
-    } else {
-        self->KMimeTypeChooserDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperAccept(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Accept_IsBase(true);
-        vkmimetypechooserdialog->accept();
-    } else {
-        self->KMimeTypeChooserDialog::accept();
-    }
+    self->KMimeTypeChooserDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnAccept(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Accept_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Accept_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_accept_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_Reject(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->reject();
-    } else {
-        self->KMimeTypeChooserDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperReject(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Reject_IsBase(true);
-        vkmimetypechooserdialog->reject();
-    } else {
-        self->KMimeTypeChooserDialog::reject();
-    }
+    self->KMimeTypeChooserDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnReject(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Reject_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Reject_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_reject_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_KeyPressEvent(KMimeTypeChooserDialog* self, QKeyEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->keyPressEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperKeyPressEvent(KMimeTypeChooserDialog* self, QKeyEvent* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_KeyPressEvent_IsBase(true);
-        vkmimetypechooserdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnKeyPressEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_keypressevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_CloseEvent(KMimeTypeChooserDialog* self, QCloseEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->closeEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperCloseEvent(KMimeTypeChooserDialog* self, QCloseEvent* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_CloseEvent_IsBase(true);
-        vkmimetypechooserdialog->closeEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnCloseEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_CloseEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_CloseEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_closeevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_ShowEvent(KMimeTypeChooserDialog* self, QShowEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->showEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperShowEvent(KMimeTypeChooserDialog* self, QShowEvent* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ShowEvent_IsBase(true);
-        vkmimetypechooserdialog->showEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnShowEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ShowEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ShowEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_showevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_ResizeEvent(KMimeTypeChooserDialog* self, QResizeEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->resizeEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperResizeEvent(KMimeTypeChooserDialog* self, QResizeEvent* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ResizeEvent_IsBase(true);
-        vkmimetypechooserdialog->resizeEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnResizeEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_resizeevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_ContextMenuEvent(KMimeTypeChooserDialog* self, QContextMenuEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperContextMenuEvent(KMimeTypeChooserDialog* self, QContextMenuEvent* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ContextMenuEvent_IsBase(true);
-        vkmimetypechooserdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnContextMenuEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_contextmenuevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooserDialog_EventFilter(KMimeTypeChooserDialog* self, QObject* param1, QEvent* param2) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         return vkmimetypechooserdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMimeTypeChooserDialog_SuperEventFilter(KMimeTypeChooserDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_EventFilter_IsBase(true);
-        return vkmimetypechooserdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        return vkmimetypechooserdialog->KMimeTypeChooserDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnEventFilter(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_EventFilter_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_EventFilter_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_eventfilter_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMimeTypeChooserDialog_DevType(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->devType();
-    } else {
-        return self->KMimeTypeChooserDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KMimeTypeChooserDialog_SuperDevType(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DevType_IsBase(true);
-        return vkmimetypechooserdialog->devType();
-    } else {
-        return self->KMimeTypeChooserDialog::devType();
-    }
+    return self->KMimeTypeChooserDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnDevType(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DevType_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DevType_Callback>(slot));
+void KMimeTypeChooserDialog_OnDevType(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_devtype_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMimeTypeChooserDialog_HeightForWidth(const KMimeTypeChooserDialog* self, int param1) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KMimeTypeChooserDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KMimeTypeChooserDialog_SuperHeightForWidth(const KMimeTypeChooserDialog* self, int param1) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_HeightForWidth_IsBase(true);
-        return vkmimetypechooserdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KMimeTypeChooserDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KMimeTypeChooserDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnHeightForWidth(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_HeightForWidth_Callback>(slot));
+void KMimeTypeChooserDialog_OnHeightForWidth(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_heightforwidth_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooserDialog_HasHeightForWidth(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->hasHeightForWidth();
-    } else {
-        return self->KMimeTypeChooserDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KMimeTypeChooserDialog_SuperHasHeightForWidth(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_HasHeightForWidth_IsBase(true);
-        return vkmimetypechooserdialog->hasHeightForWidth();
-    } else {
-        return self->KMimeTypeChooserDialog::hasHeightForWidth();
-    }
+    return self->KMimeTypeChooserDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnHasHeightForWidth(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_HasHeightForWidth_Callback>(slot));
+void KMimeTypeChooserDialog_OnHasHeightForWidth(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_hasheightforwidth_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KMimeTypeChooserDialog_PaintEngine(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->paintEngine();
-    } else {
-        return self->KMimeTypeChooserDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KMimeTypeChooserDialog_SuperPaintEngine(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_PaintEngine_IsBase(true);
-        return vkmimetypechooserdialog->paintEngine();
-    } else {
-        return self->KMimeTypeChooserDialog::paintEngine();
-    }
+    return self->KMimeTypeChooserDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnPaintEngine(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_PaintEngine_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_PaintEngine_Callback>(slot));
+void KMimeTypeChooserDialog_OnPaintEngine(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_paintengine_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooserDialog_Event(KMimeTypeChooserDialog* self, QEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         return vkmimetypechooserdialog->event(event);
     } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMimeTypeChooserDialog_SuperEvent(KMimeTypeChooserDialog* self, QEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Event_IsBase(true);
-        return vkmimetypechooserdialog->event(event);
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->event(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        return vkmimetypechooserdialog->KMimeTypeChooserDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Event_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Event_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_event_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_MousePressEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->mousePressEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperMousePressEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MousePressEvent_IsBase(true);
-        vkmimetypechooserdialog->mousePressEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnMousePressEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_mousepressevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_MouseReleaseEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperMouseReleaseEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseReleaseEvent_IsBase(true);
-        vkmimetypechooserdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnMouseReleaseEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_mousereleaseevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_MouseDoubleClickEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperMouseDoubleClickEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseDoubleClickEvent_IsBase(true);
-        vkmimetypechooserdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnMouseDoubleClickEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_MouseMoveEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperMouseMoveEvent(KMimeTypeChooserDialog* self, QMouseEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseMoveEvent_IsBase(true);
-        vkmimetypechooserdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnMouseMoveEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_mousemoveevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_WheelEvent(KMimeTypeChooserDialog* self, QWheelEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->wheelEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperWheelEvent(KMimeTypeChooserDialog* self, QWheelEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_WheelEvent_IsBase(true);
-        vkmimetypechooserdialog->wheelEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnWheelEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_WheelEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_WheelEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_wheelevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_KeyReleaseEvent(KMimeTypeChooserDialog* self, QKeyEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperKeyReleaseEvent(KMimeTypeChooserDialog* self, QKeyEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_KeyReleaseEvent_IsBase(true);
-        vkmimetypechooserdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnKeyReleaseEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_keyreleaseevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_FocusInEvent(KMimeTypeChooserDialog* self, QFocusEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->focusInEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperFocusInEvent(KMimeTypeChooserDialog* self, QFocusEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusInEvent_IsBase(true);
-        vkmimetypechooserdialog->focusInEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnFocusInEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_focusinevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_FocusOutEvent(KMimeTypeChooserDialog* self, QFocusEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->focusOutEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperFocusOutEvent(KMimeTypeChooserDialog* self, QFocusEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusOutEvent_IsBase(true);
-        vkmimetypechooserdialog->focusOutEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnFocusOutEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_focusoutevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_EnterEvent(KMimeTypeChooserDialog* self, QEnterEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->enterEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperEnterEvent(KMimeTypeChooserDialog* self, QEnterEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_EnterEvent_IsBase(true);
-        vkmimetypechooserdialog->enterEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnEnterEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_EnterEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_EnterEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_enterevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_LeaveEvent(KMimeTypeChooserDialog* self, QEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->leaveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperLeaveEvent(KMimeTypeChooserDialog* self, QEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_LeaveEvent_IsBase(true);
-        vkmimetypechooserdialog->leaveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnLeaveEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_leaveevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_PaintEvent(KMimeTypeChooserDialog* self, QPaintEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->paintEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperPaintEvent(KMimeTypeChooserDialog* self, QPaintEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_PaintEvent_IsBase(true);
-        vkmimetypechooserdialog->paintEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnPaintEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_PaintEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_PaintEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_paintevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_MoveEvent(KMimeTypeChooserDialog* self, QMoveEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->moveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperMoveEvent(KMimeTypeChooserDialog* self, QMoveEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MoveEvent_IsBase(true);
-        vkmimetypechooserdialog->moveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnMoveEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_MoveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MoveEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_moveevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_TabletEvent(KMimeTypeChooserDialog* self, QTabletEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->tabletEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperTabletEvent(KMimeTypeChooserDialog* self, QTabletEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_TabletEvent_IsBase(true);
-        vkmimetypechooserdialog->tabletEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnTabletEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_TabletEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_TabletEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_tabletevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_ActionEvent(KMimeTypeChooserDialog* self, QActionEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->actionEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperActionEvent(KMimeTypeChooserDialog* self, QActionEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ActionEvent_IsBase(true);
-        vkmimetypechooserdialog->actionEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnActionEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ActionEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ActionEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_actionevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_DragEnterEvent(KMimeTypeChooserDialog* self, QDragEnterEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->dragEnterEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperDragEnterEvent(KMimeTypeChooserDialog* self, QDragEnterEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragEnterEvent_IsBase(true);
-        vkmimetypechooserdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnDragEnterEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_dragenterevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_DragMoveEvent(KMimeTypeChooserDialog* self, QDragMoveEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->dragMoveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperDragMoveEvent(KMimeTypeChooserDialog* self, QDragMoveEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragMoveEvent_IsBase(true);
-        vkmimetypechooserdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnDragMoveEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_dragmoveevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_DragLeaveEvent(KMimeTypeChooserDialog* self, QDragLeaveEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperDragLeaveEvent(KMimeTypeChooserDialog* self, QDragLeaveEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragLeaveEvent_IsBase(true);
-        vkmimetypechooserdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnDragLeaveEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_dragleaveevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_DropEvent(KMimeTypeChooserDialog* self, QDropEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->dropEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperDropEvent(KMimeTypeChooserDialog* self, QDropEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DropEvent_IsBase(true);
-        vkmimetypechooserdialog->dropEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnDropEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DropEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DropEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_dropevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_HideEvent(KMimeTypeChooserDialog* self, QHideEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->hideEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperHideEvent(KMimeTypeChooserDialog* self, QHideEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_HideEvent_IsBase(true);
-        vkmimetypechooserdialog->hideEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnHideEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_HideEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_HideEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_hideevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooserDialog_NativeEvent(KMimeTypeChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
+    if (vkmimetypechooserdialog) {
         return vkmimetypechooserdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMimeTypeChooserDialog_SuperNativeEvent(KMimeTypeChooserDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_NativeEvent_IsBase(true);
-        return vkmimetypechooserdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        return vkmimetypechooserdialog->KMimeTypeChooserDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnNativeEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_NativeEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_NativeEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_nativeevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_ChangeEvent(KMimeTypeChooserDialog* self, QEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->changeEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperChangeEvent(KMimeTypeChooserDialog* self, QEvent* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ChangeEvent_IsBase(true);
-        vkmimetypechooserdialog->changeEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnChangeEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_changeevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KMimeTypeChooserDialog_Metric(const KMimeTypeChooserDialog* self, int param1) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         return vkmimetypechooserdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KMimeTypeChooserDialog_SuperMetric(const KMimeTypeChooserDialog* self, int param1) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metric_IsBase(true);
-        return vkmimetypechooserdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        return vkmimetypechooserdialog->KMimeTypeChooserDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnMetric(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Metric_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Metric_Callback>(slot));
+void KMimeTypeChooserDialog_OnMetric(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_metric_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_InitPainter(const KMimeTypeChooserDialog* self, QPainter* painter) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->initPainter(painter);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperInitPainter(const KMimeTypeChooserDialog* self, QPainter* painter) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_InitPainter_IsBase(true);
-        vkmimetypechooserdialog->initPainter(painter);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnInitPainter(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_InitPainter_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_InitPainter_Callback>(slot));
+void KMimeTypeChooserDialog_OnInitPainter(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_initpainter_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KMimeTypeChooserDialog_Redirected(const KMimeTypeChooserDialog* self, QPoint* offset) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         return vkmimetypechooserdialog->redirected(offset);
     } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KMimeTypeChooserDialog_SuperRedirected(const KMimeTypeChooserDialog* self, QPoint* offset) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Redirected_IsBase(true);
-        return vkmimetypechooserdialog->redirected(offset);
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->redirected(offset);
-    }
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        return vkmimetypechooserdialog->KMimeTypeChooserDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnRedirected(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Redirected_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Redirected_Callback>(slot));
+void KMimeTypeChooserDialog_OnRedirected(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_redirected_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KMimeTypeChooserDialog_SharedPainter(const KMimeTypeChooserDialog* self) {
     auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         return vkmimetypechooserdialog->sharedPainter();
     } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KMimeTypeChooserDialog_SuperSharedPainter(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SharedPainter_IsBase(true);
-        return vkmimetypechooserdialog->sharedPainter();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->sharedPainter();
-    }
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        return vkmimetypechooserdialog->KMimeTypeChooserDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnSharedPainter(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SharedPainter_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SharedPainter_Callback>(slot));
+void KMimeTypeChooserDialog_OnSharedPainter(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_sharedpainter_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_InputMethodEvent(KMimeTypeChooserDialog* self, QInputMethodEvent* param1) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperInputMethodEvent(KMimeTypeChooserDialog* self, QInputMethodEvent* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_InputMethodEvent_IsBase(true);
-        vkmimetypechooserdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnInputMethodEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_inputmethodevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KMimeTypeChooserDialog_InputMethodQuery(const KMimeTypeChooserDialog* self, int param1) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return new QVariant(vkmimetypechooserdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKMimeTypeChooserDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KMimeTypeChooserDialog_SuperInputMethodQuery(const KMimeTypeChooserDialog* self, int param1) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkmimetypechooserdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKMimeTypeChooserDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KMimeTypeChooserDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnInputMethodQuery(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_InputMethodQuery_Callback>(slot));
+void KMimeTypeChooserDialog_OnInputMethodQuery(KMimeTypeChooserDialog* self, intptr_t slot) {
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self)))
+        vkmimetypechooserdialog->kmimetypechooserdialog_inputmethodquery_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KMimeTypeChooserDialog_FocusNextPrevChild(KMimeTypeChooserDialog* self, bool next) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         return vkmimetypechooserdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KMimeTypeChooserDialog_SuperFocusNextPrevChild(KMimeTypeChooserDialog* self, bool next) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusNextPrevChild_IsBase(true);
-        return vkmimetypechooserdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        return vkmimetypechooserdialog->KMimeTypeChooserDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnFocusNextPrevChild(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_focusnextprevchild_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_TimerEvent(KMimeTypeChooserDialog* self, QTimerEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->timerEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperTimerEvent(KMimeTypeChooserDialog* self, QTimerEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_TimerEvent_IsBase(true);
-        vkmimetypechooserdialog->timerEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnTimerEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_TimerEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_TimerEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_timerevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_ChildEvent(KMimeTypeChooserDialog* self, QChildEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->childEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperChildEvent(KMimeTypeChooserDialog* self, QChildEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ChildEvent_IsBase(true);
-        vkmimetypechooserdialog->childEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->childEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnChildEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ChildEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ChildEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_childevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_CustomEvent(KMimeTypeChooserDialog* self, QEvent* event) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->customEvent(event);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperCustomEvent(KMimeTypeChooserDialog* self, QEvent* event) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_CustomEvent_IsBase(true);
-        vkmimetypechooserdialog->customEvent(event);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->customEvent(event);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnCustomEvent(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_CustomEvent_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_CustomEvent_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_customevent_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_ConnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->connectNotify(*signal);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperConnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ConnectNotify_IsBase(true);
-        vkmimetypechooserdialog->connectNotify(*signal);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnConnectNotify(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_connectnotify_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KMimeTypeChooserDialog_DisconnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
     auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
+    if (vkmimetypechooserdialog) {
         vkmimetypechooserdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KMimeTypeChooserDialog_SuperDisconnectNotify(KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DisconnectNotify_IsBase(true);
-        vkmimetypechooserdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->KMimeTypeChooserDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KMimeTypeChooserDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KMimeTypeChooserDialog_OnDisconnectNotify(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self))
+        vkmimetypechooserdialog->kmimetypechooserdialog_disconnectnotify_callback = reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMimeTypeChooserDialog_AdjustPosition(KMimeTypeChooserDialog* self, QWidget* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMimeTypeChooserDialog_SuperAdjustPosition(KMimeTypeChooserDialog* self, QWidget* param1) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_AdjustPosition_IsBase(true);
-        vkmimetypechooserdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnAdjustPosition(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMimeTypeChooserDialog_UpdateMicroFocus(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->updateMicroFocus();
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMimeTypeChooserDialog_SuperUpdateMicroFocus(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_UpdateMicroFocus_IsBase(true);
-        vkmimetypechooserdialog->updateMicroFocus();
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnUpdateMicroFocus(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMimeTypeChooserDialog_Create(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->create();
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->create();
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::create();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMimeTypeChooserDialog_SuperCreate(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Create_IsBase(true);
-        vkmimetypechooserdialog->create();
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnCreate(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Create_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KMimeTypeChooserDialog_Destroy(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->destroy();
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->destroy();
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::destroy();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KMimeTypeChooserDialog_SuperDestroy(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Destroy_IsBase(true);
-        vkmimetypechooserdialog->destroy();
-    } else {
-        ((VirtualKMimeTypeChooserDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnDestroy(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Destroy_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMimeTypeChooserDialog_FocusNextChild(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->focusNextChild();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->focusNextChild();
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        return vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMimeTypeChooserDialog_SuperFocusNextChild(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusNextChild_IsBase(true);
-        return vkmimetypechooserdialog->focusNextChild();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnFocusNextChild(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMimeTypeChooserDialog_FocusPreviousChild(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self)) {
+        return vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMimeTypeChooserDialog_SuperFocusPreviousChild(KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusPreviousChild_IsBase(true);
-        return vkmimetypechooserdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnFocusPreviousChild(KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = dynamic_cast<VirtualKMimeTypeChooserDialog*>(self);
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KMimeTypeChooserDialog_Sender(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->sender();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->sender();
-    }
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        return vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::sender();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KMimeTypeChooserDialog_SuperSender(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Sender_IsBase(true);
-        return vkmimetypechooserdialog->sender();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnSender(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Sender_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KMimeTypeChooserDialog_SenderSignalIndex(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        return vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KMimeTypeChooserDialog_SuperSenderSignalIndex(const KMimeTypeChooserDialog* self) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SenderSignalIndex_IsBase(true);
-        return vkmimetypechooserdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnSenderSignalIndex(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KMimeTypeChooserDialog_Receivers(const KMimeTypeChooserDialog* self, const char* signal) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->receivers(signal);
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->receivers(signal);
-    }
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        return vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KMimeTypeChooserDialog_SuperReceivers(const KMimeTypeChooserDialog* self, const char* signal) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Receivers_IsBase(true);
-        return vkmimetypechooserdialog->receivers(signal);
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnReceivers(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_Receivers_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KMimeTypeChooserDialog_IsSignalConnected(const KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        return vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KMimeTypeChooserDialog_SuperIsSignalConnected(const KMimeTypeChooserDialog* self, const QMetaMethod* signal) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_IsSignalConnected_IsBase(true);
-        return vkmimetypechooserdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnIsSignalConnected(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KMimeTypeChooserDialog_GetDecodedMetricF(const KMimeTypeChooserDialog* self, int metricA, int metricB) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        return vkmimetypechooserdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KMimeTypeChooserDialog_SuperGetDecodedMetricF(const KMimeTypeChooserDialog* self, int metricA, int metricB) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog) {
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_GetDecodedMetricF_IsBase(true);
-        return vkmimetypechooserdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKMimeTypeChooserDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KMimeTypeChooserDialog_OnGetDecodedMetricF(const KMimeTypeChooserDialog* self, intptr_t slot) {
-    auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self));
-    if (vkmimetypechooserdialog && vkmimetypechooserdialog->isVirtualKMimeTypeChooserDialog)
-        vkmimetypechooserdialog->setKMimeTypeChooserDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKMimeTypeChooserDialog::KMimeTypeChooserDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkmimetypechooserdialog = const_cast<VirtualKMimeTypeChooserDialog*>(dynamic_cast<const VirtualKMimeTypeChooserDialog*>(self))) {
+        return vkmimetypechooserdialog->VirtualKMimeTypeChooserDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KMimeTypeChooserDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KMimeTypeChooserDialog_Delete(KMimeTypeChooserDialog* self) {

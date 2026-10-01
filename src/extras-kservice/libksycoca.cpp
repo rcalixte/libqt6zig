@@ -119,7 +119,7 @@ void KSycoca_DatabaseChanged(KSycoca* self) {
 
 void KSycoca_ConnectNotify(KSycoca* self, const QMetaMethod* signal) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca) {
         vksycoca->connectNotify(*signal);
     }
 }
@@ -150,372 +150,220 @@ libqt_string KSycoca_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KSycoca_SuperMetaObject(const KSycoca* self) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_MetaObject_IsBase(true);
-        return (QMetaObject*)vksycoca->metaObject();
-    } else {
-        return (QMetaObject*)self->KSycoca::metaObject();
-    }
+    return (QMetaObject*)self->KSycoca::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KSycoca_OnMetaObject(const KSycoca* self, intptr_t slot) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_MetaObject_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_MetaObject_Callback>(slot));
+void KSycoca_OnMetaObject(KSycoca* self, intptr_t slot) {
+    if (auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self)))
+        vksycoca->ksycoca_metaobject_callback = reinterpret_cast<VirtualKSycoca::KSycoca_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KSycoca_SuperMetacast(KSycoca* self, const char* param1) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_Metacast_IsBase(true);
-        return vksycoca->qt_metacast(param1);
-    } else {
-        return self->KSycoca::qt_metacast(param1);
-    }
+    return self->KSycoca::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnMetacast(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_Metacast_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Metacast_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_metacast_callback = reinterpret_cast<VirtualKSycoca::KSycoca_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KSycoca_SuperMetacall(KSycoca* self, int param1, int param2, void** param3) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_Metacall_IsBase(true);
-        return vksycoca->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KSycoca::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KSycoca::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnMetacall(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_Metacall_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Metacall_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_metacall_callback = reinterpret_cast<VirtualKSycoca::KSycoca_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KSycoca_SuperIsBuilding(KSycoca* self) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_IsBuilding_IsBase(true);
-        return vksycoca->isBuilding();
-    } else {
-        return self->KSycoca::isBuilding();
-    }
+    return self->KSycoca::isBuilding();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnIsBuilding(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_IsBuilding_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_IsBuilding_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_isbuilding_callback = reinterpret_cast<VirtualKSycoca::KSycoca_IsBuilding_Callback>(slot);
 }
 
 // Base class handler implementation
 void KSycoca_SuperConnectNotify(KSycoca* self, const QMetaMethod* signal) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_ConnectNotify_IsBase(true);
-        vksycoca->connectNotify(*signal);
-    } else {
-        ((VirtualKSycoca*)self)->connectNotify(*signal);
-    }
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self)) {
+        vksycoca->KSycoca::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSycoca::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnConnectNotify(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_ConnectNotify_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_ConnectNotify_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_connectnotify_callback = reinterpret_cast<VirtualKSycoca::KSycoca_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSycoca_Event(KSycoca* self, QEvent* event) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return vksycoca->event(event);
-    } else {
-        return self->KSycoca::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KSycoca_SuperEvent(KSycoca* self, QEvent* event) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_Event_IsBase(true);
-        return vksycoca->event(event);
-    } else {
-        return self->KSycoca::event(event);
-    }
+    return self->KSycoca::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnEvent(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_Event_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Event_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_event_callback = reinterpret_cast<VirtualKSycoca::KSycoca_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KSycoca_EventFilter(KSycoca* self, QObject* watched, QEvent* event) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return vksycoca->eventFilter(watched, event);
-    } else {
-        return self->KSycoca::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KSycoca_SuperEventFilter(KSycoca* self, QObject* watched, QEvent* event) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_EventFilter_IsBase(true);
-        return vksycoca->eventFilter(watched, event);
-    } else {
-        return self->KSycoca::eventFilter(watched, event);
-    }
+    return self->KSycoca::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnEventFilter(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_EventFilter_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_EventFilter_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_eventfilter_callback = reinterpret_cast<VirtualKSycoca::KSycoca_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSycoca_TimerEvent(KSycoca* self, QTimerEvent* event) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca) {
         vksycoca->timerEvent(event);
     } else {
-        ((VirtualKSycoca*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KSycoca::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSycoca_SuperTimerEvent(KSycoca* self, QTimerEvent* event) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_TimerEvent_IsBase(true);
-        vksycoca->timerEvent(event);
-    } else {
-        ((VirtualKSycoca*)self)->timerEvent(event);
-    }
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self)) {
+        vksycoca->KSycoca::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSycoca::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnTimerEvent(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_TimerEvent_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_TimerEvent_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_timerevent_callback = reinterpret_cast<VirtualKSycoca::KSycoca_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSycoca_ChildEvent(KSycoca* self, QChildEvent* event) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca) {
         vksycoca->childEvent(event);
     } else {
-        ((VirtualKSycoca*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KSycoca::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSycoca_SuperChildEvent(KSycoca* self, QChildEvent* event) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_ChildEvent_IsBase(true);
-        vksycoca->childEvent(event);
-    } else {
-        ((VirtualKSycoca*)self)->childEvent(event);
-    }
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self)) {
+        vksycoca->KSycoca::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSycoca::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnChildEvent(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_ChildEvent_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_ChildEvent_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_childevent_callback = reinterpret_cast<VirtualKSycoca::KSycoca_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSycoca_CustomEvent(KSycoca* self, QEvent* event) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca) {
         vksycoca->customEvent(event);
     } else {
-        ((VirtualKSycoca*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KSycoca::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSycoca_SuperCustomEvent(KSycoca* self, QEvent* event) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_CustomEvent_IsBase(true);
-        vksycoca->customEvent(event);
-    } else {
-        ((VirtualKSycoca*)self)->customEvent(event);
-    }
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self)) {
+        vksycoca->KSycoca::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KSycoca::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnCustomEvent(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_CustomEvent_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_CustomEvent_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_customevent_callback = reinterpret_cast<VirtualKSycoca::KSycoca_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KSycoca_DisconnectNotify(KSycoca* self, const QMetaMethod* signal) {
     auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
+    if (vksycoca) {
         vksycoca->disconnectNotify(*signal);
     } else {
-        ((VirtualKSycoca*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KSycoca::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KSycoca_SuperDisconnectNotify(KSycoca* self, const QMetaMethod* signal) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_DisconnectNotify_IsBase(true);
-        vksycoca->disconnectNotify(*signal);
-    } else {
-        ((VirtualKSycoca*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self)) {
+        vksycoca->KSycoca::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KSycoca::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KSycoca_OnDisconnectNotify(KSycoca* self, intptr_t slot) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_DisconnectNotify_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_DisconnectNotify_Callback>(slot));
+    if (auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self))
+        vksycoca->ksycoca_disconnectnotify_callback = reinterpret_cast<VirtualKSycoca::KSycoca_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KSycoca_Sender(const KSycoca* self) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return vksycoca->sender();
-    } else {
-        return ((VirtualKSycoca*)self)->sender();
-    }
+    if (auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self))) {
+        return vksycoca->VirtualKSycoca::sender();
+    } else
+        qFatal("Error: Protected method KSycoca::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KSycoca_SuperSender(const KSycoca* self) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_Sender_IsBase(true);
-        return vksycoca->sender();
-    } else {
-        return ((VirtualKSycoca*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSycoca_OnSender(const KSycoca* self, intptr_t slot) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_Sender_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSycoca_SenderSignalIndex(const KSycoca* self) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return vksycoca->senderSignalIndex();
-    } else {
-        return ((VirtualKSycoca*)self)->senderSignalIndex();
-    }
+    if (auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self))) {
+        return vksycoca->VirtualKSycoca::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KSycoca::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSycoca_SuperSenderSignalIndex(const KSycoca* self) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_SenderSignalIndex_IsBase(true);
-        return vksycoca->senderSignalIndex();
-    } else {
-        return ((VirtualKSycoca*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSycoca_OnSenderSignalIndex(const KSycoca* self, intptr_t slot) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KSycoca_Receivers(const KSycoca* self, const char* signal) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return vksycoca->receivers(signal);
-    } else {
-        return ((VirtualKSycoca*)self)->receivers(signal);
-    }
+    if (auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self))) {
+        return vksycoca->VirtualKSycoca::receivers(signal);
+    } else
+        qFatal("Error: Protected method KSycoca::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KSycoca_SuperReceivers(const KSycoca* self, const char* signal) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_Receivers_IsBase(true);
-        return vksycoca->receivers(signal);
-    } else {
-        return ((VirtualKSycoca*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSycoca_OnReceivers(const KSycoca* self, intptr_t slot) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_Receivers_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KSycoca_IsSignalConnected(const KSycoca* self, const QMetaMethod* signal) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return vksycoca->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSycoca*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KSycoca_SuperIsSignalConnected(const KSycoca* self, const QMetaMethod* signal) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        vksycoca->setKSycoca_IsSignalConnected_IsBase(true);
-        return vksycoca->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKSycoca*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KSycoca_OnIsSignalConnected(const KSycoca* self, intptr_t slot) {
-    auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self));
-    if (vksycoca && vksycoca->isVirtualKSycoca)
-        vksycoca->setKSycoca_IsSignalConnected_Callback(reinterpret_cast<VirtualKSycoca::KSycoca_IsSignalConnected_Callback>(slot));
+    if (auto* vksycoca = const_cast<VirtualKSycoca*>(dynamic_cast<const VirtualKSycoca*>(self))) {
+        return vksycoca->VirtualKSycoca::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KSycoca::isSignalConnected called without a directly constructed type");
 }
 
 void KSycoca_Delete(KSycoca* self) {

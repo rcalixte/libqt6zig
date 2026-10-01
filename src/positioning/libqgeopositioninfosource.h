@@ -58,7 +58,7 @@ void QGeoPositionInfoSource_SupportedPositioningMethodsChanged(QGeoPositionInfoS
 void QGeoPositionInfoSource_Connect_SupportedPositioningMethodsChanged(QGeoPositionInfoSource* self, intptr_t slot);
 libqt_string QGeoPositionInfoSource_Tr2(const char* s, const char* c);
 libqt_string QGeoPositionInfoSource_Tr3(const char* s, const char* c, int n);
-void QGeoPositionInfoSource_OnMetaObject(const QGeoPositionInfoSource* self, intptr_t slot);
+void QGeoPositionInfoSource_OnMetaObject(QGeoPositionInfoSource* self, intptr_t slot);
 QMetaObject* QGeoPositionInfoSource_SuperMetaObject(const QGeoPositionInfoSource* self);
 void QGeoPositionInfoSource_OnMetacast(QGeoPositionInfoSource* self, intptr_t slot);
 void* QGeoPositionInfoSource_SuperMetacast(QGeoPositionInfoSource* self, const char* param1);
@@ -68,24 +68,17 @@ void QGeoPositionInfoSource_OnSetUpdateInterval(QGeoPositionInfoSource* self, in
 void QGeoPositionInfoSource_SuperSetUpdateInterval(QGeoPositionInfoSource* self, int msec);
 void QGeoPositionInfoSource_OnSetPreferredPositioningMethods(QGeoPositionInfoSource* self, intptr_t slot);
 void QGeoPositionInfoSource_SuperSetPreferredPositioningMethods(QGeoPositionInfoSource* self, int methods);
-void QGeoPositionInfoSource_OnLastKnownPosition(const QGeoPositionInfoSource* self, intptr_t slot);
-QGeoPositionInfo* QGeoPositionInfoSource_SuperLastKnownPosition(const QGeoPositionInfoSource* self, bool fromSatellitePositioningMethodsOnly);
-void QGeoPositionInfoSource_OnSupportedPositioningMethods(const QGeoPositionInfoSource* self, intptr_t slot);
-int QGeoPositionInfoSource_SuperSupportedPositioningMethods(const QGeoPositionInfoSource* self);
-void QGeoPositionInfoSource_OnMinimumUpdateInterval(const QGeoPositionInfoSource* self, intptr_t slot);
-int QGeoPositionInfoSource_SuperMinimumUpdateInterval(const QGeoPositionInfoSource* self);
+void QGeoPositionInfoSource_OnLastKnownPosition(QGeoPositionInfoSource* self, intptr_t slot);
+void QGeoPositionInfoSource_OnSupportedPositioningMethods(QGeoPositionInfoSource* self, intptr_t slot);
+void QGeoPositionInfoSource_OnMinimumUpdateInterval(QGeoPositionInfoSource* self, intptr_t slot);
 void QGeoPositionInfoSource_OnSetBackendProperty(QGeoPositionInfoSource* self, intptr_t slot);
 bool QGeoPositionInfoSource_SuperSetBackendProperty(QGeoPositionInfoSource* self, const libqt_string name, const QVariant* value);
-void QGeoPositionInfoSource_OnBackendProperty(const QGeoPositionInfoSource* self, intptr_t slot);
+void QGeoPositionInfoSource_OnBackendProperty(QGeoPositionInfoSource* self, intptr_t slot);
 QVariant* QGeoPositionInfoSource_SuperBackendProperty(const QGeoPositionInfoSource* self, const libqt_string name);
-void QGeoPositionInfoSource_OnError(const QGeoPositionInfoSource* self, intptr_t slot);
-int QGeoPositionInfoSource_SuperError(const QGeoPositionInfoSource* self);
+void QGeoPositionInfoSource_OnError(QGeoPositionInfoSource* self, intptr_t slot);
 void QGeoPositionInfoSource_OnStartUpdates(QGeoPositionInfoSource* self, intptr_t slot);
-void QGeoPositionInfoSource_SuperStartUpdates(QGeoPositionInfoSource* self);
 void QGeoPositionInfoSource_OnStopUpdates(QGeoPositionInfoSource* self, intptr_t slot);
-void QGeoPositionInfoSource_SuperStopUpdates(QGeoPositionInfoSource* self);
 void QGeoPositionInfoSource_OnRequestUpdate(QGeoPositionInfoSource* self, intptr_t slot);
-void QGeoPositionInfoSource_SuperRequestUpdate(QGeoPositionInfoSource* self, int timeout);
 bool QGeoPositionInfoSource_Event(QGeoPositionInfoSource* self, QEvent* event);
 void QGeoPositionInfoSource_OnEvent(QGeoPositionInfoSource* self, intptr_t slot);
 bool QGeoPositionInfoSource_SuperEvent(QGeoPositionInfoSource* self, QEvent* event);
@@ -108,17 +101,9 @@ void QGeoPositionInfoSource_DisconnectNotify(QGeoPositionInfoSource* self, const
 void QGeoPositionInfoSource_OnDisconnectNotify(QGeoPositionInfoSource* self, intptr_t slot);
 void QGeoPositionInfoSource_SuperDisconnectNotify(QGeoPositionInfoSource* self, const QMetaMethod* signal);
 QObject* QGeoPositionInfoSource_Sender(const QGeoPositionInfoSource* self);
-void QGeoPositionInfoSource_OnSender(const QGeoPositionInfoSource* self, intptr_t slot);
-QObject* QGeoPositionInfoSource_SuperSender(const QGeoPositionInfoSource* self);
 int QGeoPositionInfoSource_SenderSignalIndex(const QGeoPositionInfoSource* self);
-void QGeoPositionInfoSource_OnSenderSignalIndex(const QGeoPositionInfoSource* self, intptr_t slot);
-int QGeoPositionInfoSource_SuperSenderSignalIndex(const QGeoPositionInfoSource* self);
 int QGeoPositionInfoSource_Receivers(const QGeoPositionInfoSource* self, const char* signal);
-void QGeoPositionInfoSource_OnReceivers(const QGeoPositionInfoSource* self, intptr_t slot);
-int QGeoPositionInfoSource_SuperReceivers(const QGeoPositionInfoSource* self, const char* signal);
 bool QGeoPositionInfoSource_IsSignalConnected(const QGeoPositionInfoSource* self, const QMetaMethod* signal);
-void QGeoPositionInfoSource_OnIsSignalConnected(const QGeoPositionInfoSource* self, intptr_t slot);
-bool QGeoPositionInfoSource_SuperIsSignalConnected(const QGeoPositionInfoSource* self, const QMetaMethod* signal);
 void QGeoPositionInfoSource_Delete(QGeoPositionInfoSource* self);
 
 #ifdef __cplusplus

@@ -74,7 +74,7 @@ void KRemoteEncoding_SetEncoding(KRemoteEncoding* self, const char* name) {
 
 void KRemoteEncoding_VirtualHook(KRemoteEncoding* self, int id, void* data) {
     auto* vkremoteencoding = dynamic_cast<VirtualKRemoteEncoding*>(self);
-    if (vkremoteencoding && vkremoteencoding->isVirtualKRemoteEncoding) {
+    if (vkremoteencoding) {
         vkremoteencoding->virtual_hook(static_cast<int>(id), data);
     }
 }
@@ -90,20 +90,16 @@ libqt_string KRemoteEncoding_Directory2(const KRemoteEncoding* self, const QUrl*
 
 // Base class handler implementation
 void KRemoteEncoding_SuperVirtualHook(KRemoteEncoding* self, int id, void* data) {
-    auto* vkremoteencoding = dynamic_cast<VirtualKRemoteEncoding*>(self);
-    if (vkremoteencoding && vkremoteencoding->isVirtualKRemoteEncoding) {
-        vkremoteencoding->setKRemoteEncoding_VirtualHook_IsBase(true);
-        vkremoteencoding->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKRemoteEncoding*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vkremoteencoding = dynamic_cast<VirtualKRemoteEncoding*>(self)) {
+        vkremoteencoding->KRemoteEncoding::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KRemoteEncoding::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KRemoteEncoding_OnVirtualHook(KRemoteEncoding* self, intptr_t slot) {
-    auto* vkremoteencoding = dynamic_cast<VirtualKRemoteEncoding*>(self);
-    if (vkremoteencoding && vkremoteencoding->isVirtualKRemoteEncoding)
-        vkremoteencoding->setKRemoteEncoding_VirtualHook_Callback(reinterpret_cast<VirtualKRemoteEncoding::KRemoteEncoding_VirtualHook_Callback>(slot));
+    if (auto* vkremoteencoding = dynamic_cast<VirtualKRemoteEncoding*>(self))
+        vkremoteencoding->kremoteencoding_virtualhook_callback = reinterpret_cast<VirtualKRemoteEncoding::KRemoteEncoding_VirtualHook_Callback>(slot);
 }
 
 void KRemoteEncoding_Delete(KRemoteEncoding* self) {

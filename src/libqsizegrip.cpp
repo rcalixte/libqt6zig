@@ -75,67 +75,67 @@ void QSizeGrip_SetVisible(QSizeGrip* self, bool visible) {
 
 void QSizeGrip_PaintEvent(QSizeGrip* self, QPaintEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->paintEvent(param1);
     }
 }
 
 void QSizeGrip_MousePressEvent(QSizeGrip* self, QMouseEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->mousePressEvent(param1);
     }
 }
 
 void QSizeGrip_MouseMoveEvent(QSizeGrip* self, QMouseEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->mouseMoveEvent(param1);
     }
 }
 
 void QSizeGrip_MouseReleaseEvent(QSizeGrip* self, QMouseEvent* mouseEvent) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->mouseReleaseEvent(mouseEvent);
     }
 }
 
 void QSizeGrip_MoveEvent(QSizeGrip* self, QMoveEvent* moveEvent) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->moveEvent(moveEvent);
     }
 }
 
 void QSizeGrip_ShowEvent(QSizeGrip* self, QShowEvent* showEvent) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->showEvent(showEvent);
     }
 }
 
 void QSizeGrip_HideEvent(QSizeGrip* self, QHideEvent* hideEvent) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->hideEvent(hideEvent);
     }
 }
 
 bool QSizeGrip_EventFilter(QSizeGrip* self, QObject* param1, QEvent* param2) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         return vqsizegrip->eventFilter(param1, param2);
     }
-    return {};
+    qFatal("Error: Protected method QSizeGrip::eventFilter called without a directly constructed type");
 }
 
 bool QSizeGrip_Event(QSizeGrip* self, QEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         return vqsizegrip->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QSizeGrip::event called without a directly constructed type");
 }
 
 libqt_string QSizeGrip_Tr2(const char* s, const char* c) {
@@ -164,1544 +164,1081 @@ libqt_string QSizeGrip_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSizeGrip_SuperMetaObject(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsizegrip->metaObject();
-    } else {
-        return (QMetaObject*)self->QSizeGrip::metaObject();
-    }
+    return (QMetaObject*)self->QSizeGrip::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnMetaObject(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_MetaObject_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MetaObject_Callback>(slot));
+void QSizeGrip_OnMetaObject(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_metaobject_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSizeGrip_SuperMetacast(QSizeGrip* self, const char* param1) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Metacast_IsBase(true);
-        return vqsizegrip->qt_metacast(param1);
-    } else {
-        return self->QSizeGrip::qt_metacast(param1);
-    }
+    return self->QSizeGrip::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMetacast(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Metacast_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metacast_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_metacast_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSizeGrip_SuperMetacall(QSizeGrip* self, int param1, int param2, void** param3) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Metacall_IsBase(true);
-        return vqsizegrip->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSizeGrip::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSizeGrip::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMetacall(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Metacall_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metacall_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_metacall_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QSizeGrip_SuperSizeHint(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_SizeHint_IsBase(true);
-        return new QSize(vqsizegrip->sizeHint());
-    } else {
-        return new QSize(((VirtualQSizeGrip*)self)->sizeHint());
-    }
+    return new QSize(self->QSizeGrip::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnSizeHint(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_SizeHint_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SizeHint_Callback>(slot));
+void QSizeGrip_OnSizeHint(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_sizehint_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperSetVisible(QSizeGrip* self, bool visible) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_SetVisible_IsBase(true);
-        vqsizegrip->setVisible(visible);
-    } else {
-        self->QSizeGrip::setVisible(visible);
-    }
+    self->QSizeGrip::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnSetVisible(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_SetVisible_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SetVisible_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_setvisible_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SetVisible_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperPaintEvent(QSizeGrip* self, QPaintEvent* param1) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_PaintEvent_IsBase(true);
-        vqsizegrip->paintEvent(param1);
-    } else {
-        ((VirtualQSizeGrip*)self)->paintEvent(param1);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnPaintEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_PaintEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_PaintEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_paintevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperMousePressEvent(QSizeGrip* self, QMouseEvent* param1) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_MousePressEvent_IsBase(true);
-        vqsizegrip->mousePressEvent(param1);
-    } else {
-        ((VirtualQSizeGrip*)self)->mousePressEvent(param1);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMousePressEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_MousePressEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MousePressEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_mousepressevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperMouseMoveEvent(QSizeGrip* self, QMouseEvent* param1) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_MouseMoveEvent_IsBase(true);
-        vqsizegrip->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQSizeGrip*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMouseMoveEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseMoveEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_mousemoveevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperMouseReleaseEvent(QSizeGrip* self, QMouseEvent* mouseEvent) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_MouseReleaseEvent_IsBase(true);
-        vqsizegrip->mouseReleaseEvent(mouseEvent);
-    } else {
-        ((VirtualQSizeGrip*)self)->mouseReleaseEvent(mouseEvent);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::mouseReleaseEvent(mouseEvent);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMouseReleaseEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_mousereleaseevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperMoveEvent(QSizeGrip* self, QMoveEvent* moveEvent) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_MoveEvent_IsBase(true);
-        vqsizegrip->moveEvent(moveEvent);
-    } else {
-        ((VirtualQSizeGrip*)self)->moveEvent(moveEvent);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::moveEvent(moveEvent);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMoveEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_MoveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MoveEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_moveevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperShowEvent(QSizeGrip* self, QShowEvent* showEvent) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_ShowEvent_IsBase(true);
-        vqsizegrip->showEvent(showEvent);
-    } else {
-        ((VirtualQSizeGrip*)self)->showEvent(showEvent);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::showEvent(showEvent);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnShowEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_ShowEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ShowEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_showevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperHideEvent(QSizeGrip* self, QHideEvent* hideEvent) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_HideEvent_IsBase(true);
-        vqsizegrip->hideEvent(hideEvent);
-    } else {
-        ((VirtualQSizeGrip*)self)->hideEvent(hideEvent);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::hideEvent(hideEvent);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnHideEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_HideEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HideEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_hideevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HideEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QSizeGrip_SuperEventFilter(QSizeGrip* self, QObject* param1, QEvent* param2) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_EventFilter_IsBase(true);
-        return vqsizegrip->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQSizeGrip*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        return vqsizegrip->QSizeGrip::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnEventFilter(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_EventFilter_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_EventFilter_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_eventfilter_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QSizeGrip_SuperEvent(QSizeGrip* self, QEvent* param1) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Event_IsBase(true);
-        return vqsizegrip->event(param1);
-    } else {
-        return ((VirtualQSizeGrip*)self)->event(param1);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        return vqsizegrip->QSizeGrip::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Event_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Event_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_event_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSizeGrip_DevType(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->devType();
-    } else {
-        return self->QSizeGrip::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QSizeGrip_SuperDevType(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_DevType_IsBase(true);
-        return vqsizegrip->devType();
-    } else {
-        return self->QSizeGrip::devType();
-    }
+    return self->QSizeGrip::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnDevType(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_DevType_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DevType_Callback>(slot));
+void QSizeGrip_OnDevType(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_devtype_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QSizeGrip_MinimumSizeHint(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return new QSize(vqsizegrip->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSizeGrip*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QSizeGrip_SuperMinimumSizeHint(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_MinimumSizeHint_IsBase(true);
-        return new QSize(vqsizegrip->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSizeGrip*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QSizeGrip::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnMinimumSizeHint(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MinimumSizeHint_Callback>(slot));
+void QSizeGrip_OnMinimumSizeHint(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_minimumsizehint_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSizeGrip_HeightForWidth(const QSizeGrip* self, int param1) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QSizeGrip::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QSizeGrip_SuperHeightForWidth(const QSizeGrip* self, int param1) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_HeightForWidth_IsBase(true);
-        return vqsizegrip->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QSizeGrip::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QSizeGrip::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnHeightForWidth(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_HeightForWidth_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HeightForWidth_Callback>(slot));
+void QSizeGrip_OnHeightForWidth(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_heightforwidth_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSizeGrip_HasHeightForWidth(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->hasHeightForWidth();
-    } else {
-        return self->QSizeGrip::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QSizeGrip_SuperHasHeightForWidth(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_HasHeightForWidth_IsBase(true);
-        return vqsizegrip->hasHeightForWidth();
-    } else {
-        return self->QSizeGrip::hasHeightForWidth();
-    }
+    return self->QSizeGrip::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnHasHeightForWidth(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HasHeightForWidth_Callback>(slot));
+void QSizeGrip_OnHasHeightForWidth(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_hasheightforwidth_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QSizeGrip_PaintEngine(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->paintEngine();
-    } else {
-        return self->QSizeGrip::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QSizeGrip_SuperPaintEngine(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_PaintEngine_IsBase(true);
-        return vqsizegrip->paintEngine();
-    } else {
-        return self->QSizeGrip::paintEngine();
-    }
+    return self->QSizeGrip::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnPaintEngine(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_PaintEngine_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_PaintEngine_Callback>(slot));
+void QSizeGrip_OnPaintEngine(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_paintengine_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_MouseDoubleClickEvent(QSizeGrip* self, QMouseEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperMouseDoubleClickEvent(QSizeGrip* self, QMouseEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_MouseDoubleClickEvent_IsBase(true);
-        vqsizegrip->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMouseDoubleClickEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_mousedoubleclickevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_WheelEvent(QSizeGrip* self, QWheelEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->wheelEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperWheelEvent(QSizeGrip* self, QWheelEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_WheelEvent_IsBase(true);
-        vqsizegrip->wheelEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->wheelEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnWheelEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_WheelEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_WheelEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_wheelevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_KeyPressEvent(QSizeGrip* self, QKeyEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->keyPressEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperKeyPressEvent(QSizeGrip* self, QKeyEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_KeyPressEvent_IsBase(true);
-        vqsizegrip->keyPressEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->keyPressEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnKeyPressEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_KeyPressEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_KeyPressEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_keypressevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_KeyReleaseEvent(QSizeGrip* self, QKeyEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->keyReleaseEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperKeyReleaseEvent(QSizeGrip* self, QKeyEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_KeyReleaseEvent_IsBase(true);
-        vqsizegrip->keyReleaseEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnKeyReleaseEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_keyreleaseevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_FocusInEvent(QSizeGrip* self, QFocusEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->focusInEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperFocusInEvent(QSizeGrip* self, QFocusEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_FocusInEvent_IsBase(true);
-        vqsizegrip->focusInEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->focusInEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnFocusInEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_FocusInEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusInEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_focusinevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_FocusOutEvent(QSizeGrip* self, QFocusEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->focusOutEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperFocusOutEvent(QSizeGrip* self, QFocusEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_FocusOutEvent_IsBase(true);
-        vqsizegrip->focusOutEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->focusOutEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnFocusOutEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_FocusOutEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusOutEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_focusoutevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_EnterEvent(QSizeGrip* self, QEnterEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->enterEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperEnterEvent(QSizeGrip* self, QEnterEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_EnterEvent_IsBase(true);
-        vqsizegrip->enterEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->enterEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnEnterEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_EnterEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_EnterEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_enterevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_LeaveEvent(QSizeGrip* self, QEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->leaveEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperLeaveEvent(QSizeGrip* self, QEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_LeaveEvent_IsBase(true);
-        vqsizegrip->leaveEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->leaveEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnLeaveEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_LeaveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_LeaveEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_leaveevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_ResizeEvent(QSizeGrip* self, QResizeEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->resizeEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperResizeEvent(QSizeGrip* self, QResizeEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_ResizeEvent_IsBase(true);
-        vqsizegrip->resizeEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->resizeEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnResizeEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_ResizeEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ResizeEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_resizeevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_CloseEvent(QSizeGrip* self, QCloseEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->closeEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperCloseEvent(QSizeGrip* self, QCloseEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_CloseEvent_IsBase(true);
-        vqsizegrip->closeEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->closeEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnCloseEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_CloseEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_CloseEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_closeevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_ContextMenuEvent(QSizeGrip* self, QContextMenuEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->contextMenuEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperContextMenuEvent(QSizeGrip* self, QContextMenuEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_ContextMenuEvent_IsBase(true);
-        vqsizegrip->contextMenuEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnContextMenuEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ContextMenuEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_contextmenuevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_TabletEvent(QSizeGrip* self, QTabletEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->tabletEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperTabletEvent(QSizeGrip* self, QTabletEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_TabletEvent_IsBase(true);
-        vqsizegrip->tabletEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->tabletEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnTabletEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_TabletEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_TabletEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_tabletevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_ActionEvent(QSizeGrip* self, QActionEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->actionEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperActionEvent(QSizeGrip* self, QActionEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_ActionEvent_IsBase(true);
-        vqsizegrip->actionEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->actionEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnActionEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_ActionEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ActionEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_actionevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_DragEnterEvent(QSizeGrip* self, QDragEnterEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->dragEnterEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperDragEnterEvent(QSizeGrip* self, QDragEnterEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_DragEnterEvent_IsBase(true);
-        vqsizegrip->dragEnterEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDragEnterEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_DragEnterEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragEnterEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_dragenterevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_DragMoveEvent(QSizeGrip* self, QDragMoveEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->dragMoveEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperDragMoveEvent(QSizeGrip* self, QDragMoveEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_DragMoveEvent_IsBase(true);
-        vqsizegrip->dragMoveEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDragMoveEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_DragMoveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragMoveEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_dragmoveevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_DragLeaveEvent(QSizeGrip* self, QDragLeaveEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->dragLeaveEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperDragLeaveEvent(QSizeGrip* self, QDragLeaveEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_DragLeaveEvent_IsBase(true);
-        vqsizegrip->dragLeaveEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDragLeaveEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragLeaveEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_dragleaveevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_DropEvent(QSizeGrip* self, QDropEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->dropEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperDropEvent(QSizeGrip* self, QDropEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_DropEvent_IsBase(true);
-        vqsizegrip->dropEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->dropEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDropEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_DropEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DropEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_dropevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSizeGrip_NativeEvent(QSizeGrip* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
+    if (vqsizegrip) {
         return vqsizegrip->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQSizeGrip*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QSizeGrip::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QSizeGrip_SuperNativeEvent(QSizeGrip* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_NativeEvent_IsBase(true);
-        return vqsizegrip->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQSizeGrip*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        return vqsizegrip->QSizeGrip::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnNativeEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_NativeEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_NativeEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_nativeevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_ChangeEvent(QSizeGrip* self, QEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->changeEvent(param1);
     } else {
-        ((VirtualQSizeGrip*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QSizeGrip::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperChangeEvent(QSizeGrip* self, QEvent* param1) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_ChangeEvent_IsBase(true);
-        vqsizegrip->changeEvent(param1);
-    } else {
-        ((VirtualQSizeGrip*)self)->changeEvent(param1);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnChangeEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_ChangeEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ChangeEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_changeevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSizeGrip_Metric(const QSizeGrip* self, int param1) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         return vqsizegrip->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQSizeGrip*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QSizeGrip::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QSizeGrip_SuperMetric(const QSizeGrip* self, int param1) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Metric_IsBase(true);
-        return vqsizegrip->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQSizeGrip*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        return vqsizegrip->QSizeGrip::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnMetric(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Metric_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metric_Callback>(slot));
+void QSizeGrip_OnMetric(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_metric_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_InitPainter(const QSizeGrip* self, QPainter* painter) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->initPainter(painter);
     } else {
-        ((VirtualQSizeGrip*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QSizeGrip::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperInitPainter(const QSizeGrip* self, QPainter* painter) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_InitPainter_IsBase(true);
-        vqsizegrip->initPainter(painter);
-    } else {
-        ((VirtualQSizeGrip*)self)->initPainter(painter);
-    }
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        vqsizegrip->QSizeGrip::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnInitPainter(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_InitPainter_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InitPainter_Callback>(slot));
+void QSizeGrip_OnInitPainter(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_initpainter_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QSizeGrip_Redirected(const QSizeGrip* self, QPoint* offset) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         return vqsizegrip->redirected(offset);
     } else {
-        return ((VirtualQSizeGrip*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QSizeGrip::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QSizeGrip_SuperRedirected(const QSizeGrip* self, QPoint* offset) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Redirected_IsBase(true);
-        return vqsizegrip->redirected(offset);
-    } else {
-        return ((VirtualQSizeGrip*)self)->redirected(offset);
-    }
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        return vqsizegrip->QSizeGrip::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnRedirected(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Redirected_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Redirected_Callback>(slot));
+void QSizeGrip_OnRedirected(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_redirected_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QSizeGrip_SharedPainter(const QSizeGrip* self) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         return vqsizegrip->sharedPainter();
     } else {
-        return ((VirtualQSizeGrip*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QSizeGrip::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QSizeGrip_SuperSharedPainter(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_SharedPainter_IsBase(true);
-        return vqsizegrip->sharedPainter();
-    } else {
-        return ((VirtualQSizeGrip*)self)->sharedPainter();
-    }
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        return vqsizegrip->QSizeGrip::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnSharedPainter(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_SharedPainter_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SharedPainter_Callback>(slot));
+void QSizeGrip_OnSharedPainter(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_sharedpainter_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_InputMethodEvent(QSizeGrip* self, QInputMethodEvent* param1) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->inputMethodEvent(param1);
     } else {
-        ((VirtualQSizeGrip*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QSizeGrip::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperInputMethodEvent(QSizeGrip* self, QInputMethodEvent* param1) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_InputMethodEvent_IsBase(true);
-        vqsizegrip->inputMethodEvent(param1);
-    } else {
-        ((VirtualQSizeGrip*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnInputMethodEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_InputMethodEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InputMethodEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_inputmethodevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QSizeGrip_InputMethodQuery(const QSizeGrip* self, int param1) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return new QVariant(vqsizegrip->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQSizeGrip*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QSizeGrip_SuperInputMethodQuery(const QSizeGrip* self, int param1) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_InputMethodQuery_IsBase(true);
-        return new QVariant(vqsizegrip->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQSizeGrip*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QSizeGrip::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnInputMethodQuery(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_InputMethodQuery_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InputMethodQuery_Callback>(slot));
+void QSizeGrip_OnInputMethodQuery(QSizeGrip* self, intptr_t slot) {
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self)))
+        vqsizegrip->qsizegrip_inputmethodquery_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSizeGrip_FocusNextPrevChild(QSizeGrip* self, bool next) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         return vqsizegrip->focusNextPrevChild(next);
     } else {
-        return ((VirtualQSizeGrip*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QSizeGrip::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QSizeGrip_SuperFocusNextPrevChild(QSizeGrip* self, bool next) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_FocusNextPrevChild_IsBase(true);
-        return vqsizegrip->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQSizeGrip*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        return vqsizegrip->QSizeGrip::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnFocusNextPrevChild(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_focusnextprevchild_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_TimerEvent(QSizeGrip* self, QTimerEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->timerEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperTimerEvent(QSizeGrip* self, QTimerEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_TimerEvent_IsBase(true);
-        vqsizegrip->timerEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->timerEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnTimerEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_TimerEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_TimerEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_timerevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_ChildEvent(QSizeGrip* self, QChildEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->childEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperChildEvent(QSizeGrip* self, QChildEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_ChildEvent_IsBase(true);
-        vqsizegrip->childEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->childEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnChildEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_ChildEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ChildEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_childevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_CustomEvent(QSizeGrip* self, QEvent* event) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->customEvent(event);
     } else {
-        ((VirtualQSizeGrip*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSizeGrip::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperCustomEvent(QSizeGrip* self, QEvent* event) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_CustomEvent_IsBase(true);
-        vqsizegrip->customEvent(event);
-    } else {
-        ((VirtualQSizeGrip*)self)->customEvent(event);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnCustomEvent(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_CustomEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_CustomEvent_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_customevent_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_ConnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->connectNotify(*signal);
     } else {
-        ((VirtualQSizeGrip*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSizeGrip::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperConnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_ConnectNotify_IsBase(true);
-        vqsizegrip->connectNotify(*signal);
-    } else {
-        ((VirtualQSizeGrip*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnConnectNotify(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_ConnectNotify_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ConnectNotify_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_connectnotify_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSizeGrip_DisconnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip) {
         vqsizegrip->disconnectNotify(*signal);
     } else {
-        ((VirtualQSizeGrip*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSizeGrip::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSizeGrip_SuperDisconnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_DisconnectNotify_IsBase(true);
-        vqsizegrip->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSizeGrip*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->QSizeGrip::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSizeGrip::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDisconnectNotify(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_DisconnectNotify_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DisconnectNotify_Callback>(slot));
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self))
+        vqsizegrip->qsizegrip_disconnectnotify_callback = reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSizeGrip_UpdateMicroFocus(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->updateMicroFocus();
-    } else {
-        ((VirtualQSizeGrip*)self)->updateMicroFocus();
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->VirtualQSizeGrip::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QSizeGrip::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSizeGrip_SuperUpdateMicroFocus(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_UpdateMicroFocus_IsBase(true);
-        vqsizegrip->updateMicroFocus();
-    } else {
-        ((VirtualQSizeGrip*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnUpdateMicroFocus(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSizeGrip_Create(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->create();
-    } else {
-        ((VirtualQSizeGrip*)self)->create();
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->VirtualQSizeGrip::create();
+    } else
+        qFatal("Error: Protected method QSizeGrip::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSizeGrip_SuperCreate(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Create_IsBase(true);
-        vqsizegrip->create();
-    } else {
-        ((VirtualQSizeGrip*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnCreate(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Create_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSizeGrip_Destroy(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->destroy();
-    } else {
-        ((VirtualQSizeGrip*)self)->destroy();
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        vqsizegrip->VirtualQSizeGrip::destroy();
+    } else
+        qFatal("Error: Protected method QSizeGrip::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSizeGrip_SuperDestroy(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Destroy_IsBase(true);
-        vqsizegrip->destroy();
-    } else {
-        ((VirtualQSizeGrip*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnDestroy(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Destroy_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSizeGrip_FocusNextChild(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->focusNextChild();
-    } else {
-        return ((VirtualQSizeGrip*)self)->focusNextChild();
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        return vqsizegrip->VirtualQSizeGrip::focusNextChild();
+    } else
+        qFatal("Error: Protected method QSizeGrip::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSizeGrip_SuperFocusNextChild(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_FocusNextChild_IsBase(true);
-        return vqsizegrip->focusNextChild();
-    } else {
-        return ((VirtualQSizeGrip*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnFocusNextChild(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_FocusNextChild_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSizeGrip_FocusPreviousChild(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->focusPreviousChild();
-    } else {
-        return ((VirtualQSizeGrip*)self)->focusPreviousChild();
-    }
+    if (auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self)) {
+        return vqsizegrip->VirtualQSizeGrip::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QSizeGrip::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSizeGrip_SuperFocusPreviousChild(QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_FocusPreviousChild_IsBase(true);
-        return vqsizegrip->focusPreviousChild();
-    } else {
-        return ((VirtualQSizeGrip*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnFocusPreviousChild(QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSizeGrip_Sender(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->sender();
-    } else {
-        return ((VirtualQSizeGrip*)self)->sender();
-    }
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        return vqsizegrip->VirtualQSizeGrip::sender();
+    } else
+        qFatal("Error: Protected method QSizeGrip::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSizeGrip_SuperSender(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Sender_IsBase(true);
-        return vqsizegrip->sender();
-    } else {
-        return ((VirtualQSizeGrip*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnSender(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Sender_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSizeGrip_SenderSignalIndex(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->senderSignalIndex();
-    } else {
-        return ((VirtualQSizeGrip*)self)->senderSignalIndex();
-    }
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        return vqsizegrip->VirtualQSizeGrip::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSizeGrip::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSizeGrip_SuperSenderSignalIndex(const QSizeGrip* self) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_SenderSignalIndex_IsBase(true);
-        return vqsizegrip->senderSignalIndex();
-    } else {
-        return ((VirtualQSizeGrip*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnSenderSignalIndex(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSizeGrip_Receivers(const QSizeGrip* self, const char* signal) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->receivers(signal);
-    } else {
-        return ((VirtualQSizeGrip*)self)->receivers(signal);
-    }
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        return vqsizegrip->VirtualQSizeGrip::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSizeGrip::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSizeGrip_SuperReceivers(const QSizeGrip* self, const char* signal) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_Receivers_IsBase(true);
-        return vqsizegrip->receivers(signal);
-    } else {
-        return ((VirtualQSizeGrip*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnReceivers(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_Receivers_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSizeGrip_IsSignalConnected(const QSizeGrip* self, const QMetaMethod* signal) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSizeGrip*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        return vqsizegrip->VirtualQSizeGrip::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSizeGrip::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSizeGrip_SuperIsSignalConnected(const QSizeGrip* self, const QMetaMethod* signal) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_IsSignalConnected_IsBase(true);
-        return vqsizegrip->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSizeGrip*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnIsSignalConnected(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_IsSignalConnected_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QSizeGrip_GetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return vqsizegrip->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSizeGrip*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QSizeGrip_SuperGetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        vqsizegrip->setQSizeGrip_GetDecodedMetricF_IsBase(true);
-        return vqsizegrip->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSizeGrip*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSizeGrip_OnGetDecodedMetricF(const QSizeGrip* self, intptr_t slot) {
-    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
-        vqsizegrip->setQSizeGrip_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self))) {
+        return vqsizegrip->VirtualQSizeGrip::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QSizeGrip::getDecodedMetricF called without a directly constructed type");
 }
 
 void QSizeGrip_Delete(QSizeGrip* self) {

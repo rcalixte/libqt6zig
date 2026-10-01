@@ -234,7 +234,7 @@ void QQuick3DGeometry_Connect_GeometryChanged(QQuick3DGeometry* self, intptr_t s
 
 void QQuick3DGeometry_MarkAllDirty(QQuick3DGeometry* self) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->markAllDirty();
     }
 }
@@ -274,522 +274,337 @@ void QQuick3DGeometry_AddTargetAttribute4(QQuick3DGeometry* self, unsigned int t
 
 // Base class handler implementation
 QMetaObject* QQuick3DGeometry_SuperMetaObject(const QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_MetaObject_IsBase(true);
-        return (QMetaObject*)vqquick3dgeometry->metaObject();
-    } else {
-        return (QMetaObject*)self->QQuick3DGeometry::metaObject();
-    }
+    return (QMetaObject*)self->QQuick3DGeometry::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQuick3DGeometry_OnMetaObject(const QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_MetaObject_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_MetaObject_Callback>(slot));
+void QQuick3DGeometry_OnMetaObject(QQuick3DGeometry* self, intptr_t slot) {
+    if (auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self)))
+        vqquick3dgeometry->qquick3dgeometry_metaobject_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQuick3DGeometry_SuperMetacast(QQuick3DGeometry* self, const char* param1) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_Metacast_IsBase(true);
-        return vqquick3dgeometry->qt_metacast(param1);
-    } else {
-        return self->QQuick3DGeometry::qt_metacast(param1);
-    }
+    return self->QQuick3DGeometry::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnMetacast(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_Metacast_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_Metacast_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_metacast_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQuick3DGeometry_SuperMetacall(QQuick3DGeometry* self, int param1, int param2, void** param3) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_Metacall_IsBase(true);
-        return vqquick3dgeometry->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQuick3DGeometry::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQuick3DGeometry::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnMetacall(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_Metacall_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_Metacall_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_metacall_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperMarkAllDirty(QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_MarkAllDirty_IsBase(true);
-        vqquick3dgeometry->markAllDirty();
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->markAllDirty();
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::markAllDirty();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::markAllDirty called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnMarkAllDirty(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_MarkAllDirty_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_MarkAllDirty_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_markalldirty_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_MarkAllDirty_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_ItemChange(QQuick3DGeometry* self, int param1, const QQuick3DObject__ItemChangeData* param2) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
     } else {
-        ((VirtualQQuick3DGeometry*)self)->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
+        qFatal("Error: Protected virtual method QQuick3DGeometry::itemChange called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperItemChange(QQuick3DGeometry* self, int param1, const QQuick3DObject__ItemChangeData* param2) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_ItemChange_IsBase(true);
-        vqquick3dgeometry->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::itemChange(static_cast<QQuick3DObject::ItemChange>(param1), *param2);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::itemChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnItemChange(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_ItemChange_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ItemChange_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_itemchange_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ItemChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_ClassBegin(QQuick3DGeometry* self) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->classBegin();
     } else {
-        ((VirtualQQuick3DGeometry*)self)->classBegin();
+        qFatal("Error: Protected virtual method QQuick3DGeometry::classBegin called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperClassBegin(QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_ClassBegin_IsBase(true);
-        vqquick3dgeometry->classBegin();
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->classBegin();
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::classBegin();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::classBegin called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnClassBegin(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_ClassBegin_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ClassBegin_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_classbegin_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ClassBegin_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_ComponentComplete(QQuick3DGeometry* self) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->componentComplete();
     } else {
-        ((VirtualQQuick3DGeometry*)self)->componentComplete();
+        qFatal("Error: Protected virtual method QQuick3DGeometry::componentComplete called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperComponentComplete(QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_ComponentComplete_IsBase(true);
-        vqquick3dgeometry->componentComplete();
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->componentComplete();
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::componentComplete();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::componentComplete called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnComponentComplete(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_ComponentComplete_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ComponentComplete_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_componentcomplete_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ComponentComplete_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_PreSync(QQuick3DGeometry* self) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->preSync();
     } else {
-        ((VirtualQQuick3DGeometry*)self)->preSync();
+        qFatal("Error: Protected virtual method QQuick3DGeometry::preSync called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperPreSync(QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_PreSync_IsBase(true);
-        vqquick3dgeometry->preSync();
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->preSync();
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::preSync();
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::preSync called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnPreSync(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_PreSync_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_PreSync_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_presync_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_PreSync_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuick3DGeometry_Event(QQuick3DGeometry* self, QEvent* event) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        return vqquick3dgeometry->event(event);
-    } else {
-        return self->QQuick3DGeometry::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQuick3DGeometry_SuperEvent(QQuick3DGeometry* self, QEvent* event) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_Event_IsBase(true);
-        return vqquick3dgeometry->event(event);
-    } else {
-        return self->QQuick3DGeometry::event(event);
-    }
+    return self->QQuick3DGeometry::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnEvent(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_Event_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_Event_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_event_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQuick3DGeometry_EventFilter(QQuick3DGeometry* self, QObject* watched, QEvent* event) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        return vqquick3dgeometry->eventFilter(watched, event);
-    } else {
-        return self->QQuick3DGeometry::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQuick3DGeometry_SuperEventFilter(QQuick3DGeometry* self, QObject* watched, QEvent* event) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_EventFilter_IsBase(true);
-        return vqquick3dgeometry->eventFilter(watched, event);
-    } else {
-        return self->QQuick3DGeometry::eventFilter(watched, event);
-    }
+    return self->QQuick3DGeometry::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnEventFilter(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_EventFilter_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_EventFilter_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_eventfilter_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_TimerEvent(QQuick3DGeometry* self, QTimerEvent* event) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->timerEvent(event);
     } else {
-        ((VirtualQQuick3DGeometry*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DGeometry::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperTimerEvent(QQuick3DGeometry* self, QTimerEvent* event) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_TimerEvent_IsBase(true);
-        vqquick3dgeometry->timerEvent(event);
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->timerEvent(event);
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnTimerEvent(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_TimerEvent_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_TimerEvent_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_timerevent_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_ChildEvent(QQuick3DGeometry* self, QChildEvent* event) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->childEvent(event);
     } else {
-        ((VirtualQQuick3DGeometry*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DGeometry::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperChildEvent(QQuick3DGeometry* self, QChildEvent* event) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_ChildEvent_IsBase(true);
-        vqquick3dgeometry->childEvent(event);
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->childEvent(event);
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnChildEvent(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_ChildEvent_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ChildEvent_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_childevent_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_CustomEvent(QQuick3DGeometry* self, QEvent* event) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->customEvent(event);
     } else {
-        ((VirtualQQuick3DGeometry*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQuick3DGeometry::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperCustomEvent(QQuick3DGeometry* self, QEvent* event) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_CustomEvent_IsBase(true);
-        vqquick3dgeometry->customEvent(event);
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->customEvent(event);
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnCustomEvent(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_CustomEvent_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_CustomEvent_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_customevent_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_ConnectNotify(QQuick3DGeometry* self, const QMetaMethod* signal) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->connectNotify(*signal);
     } else {
-        ((VirtualQQuick3DGeometry*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuick3DGeometry::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperConnectNotify(QQuick3DGeometry* self, const QMetaMethod* signal) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_ConnectNotify_IsBase(true);
-        vqquick3dgeometry->connectNotify(*signal);
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->connectNotify(*signal);
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnConnectNotify(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_ConnectNotify_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ConnectNotify_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_connectnotify_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQuick3DGeometry_DisconnectNotify(QQuick3DGeometry* self, const QMetaMethod* signal) {
     auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
+    if (vqquick3dgeometry) {
         vqquick3dgeometry->disconnectNotify(*signal);
     } else {
-        ((VirtualQQuick3DGeometry*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQuick3DGeometry::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQuick3DGeometry_SuperDisconnectNotify(QQuick3DGeometry* self, const QMetaMethod* signal) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_DisconnectNotify_IsBase(true);
-        vqquick3dgeometry->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQuick3DGeometry*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self)) {
+        vqquick3dgeometry->QQuick3DGeometry::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQuick3DGeometry::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQuick3DGeometry_OnDisconnectNotify(QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self);
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_DisconnectNotify_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_DisconnectNotify_Callback>(slot));
+    if (auto* vqquick3dgeometry = dynamic_cast<VirtualQQuick3DGeometry*>(self))
+        vqquick3dgeometry->qquick3dgeometry_disconnectnotify_callback = reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuick3DGeometry_IsComponentComplete(const QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        return vqquick3dgeometry->isComponentComplete();
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->isComponentComplete();
-    }
+    if (auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self))) {
+        return vqquick3dgeometry->VirtualQQuick3DGeometry::isComponentComplete();
+    } else
+        qFatal("Error: Protected method QQuick3DGeometry::isComponentComplete called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QQuick3DGeometry_SuperIsComponentComplete(const QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_IsComponentComplete_IsBase(true);
-        return vqquick3dgeometry->isComponentComplete();
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->isComponentComplete();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DGeometry_OnIsComponentComplete(const QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_IsComponentComplete_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_IsComponentComplete_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQuick3DGeometry_Sender(const QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        return vqquick3dgeometry->sender();
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->sender();
-    }
+    if (auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self))) {
+        return vqquick3dgeometry->VirtualQQuick3DGeometry::sender();
+    } else
+        qFatal("Error: Protected method QQuick3DGeometry::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQuick3DGeometry_SuperSender(const QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_Sender_IsBase(true);
-        return vqquick3dgeometry->sender();
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DGeometry_OnSender(const QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_Sender_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuick3DGeometry_SenderSignalIndex(const QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        return vqquick3dgeometry->senderSignalIndex();
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->senderSignalIndex();
-    }
+    if (auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self))) {
+        return vqquick3dgeometry->VirtualQQuick3DGeometry::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQuick3DGeometry::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuick3DGeometry_SuperSenderSignalIndex(const QQuick3DGeometry* self) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_SenderSignalIndex_IsBase(true);
-        return vqquick3dgeometry->senderSignalIndex();
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DGeometry_OnSenderSignalIndex(const QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQuick3DGeometry_Receivers(const QQuick3DGeometry* self, const char* signal) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        return vqquick3dgeometry->receivers(signal);
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->receivers(signal);
-    }
+    if (auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self))) {
+        return vqquick3dgeometry->VirtualQQuick3DGeometry::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQuick3DGeometry::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQuick3DGeometry_SuperReceivers(const QQuick3DGeometry* self, const char* signal) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_Receivers_IsBase(true);
-        return vqquick3dgeometry->receivers(signal);
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DGeometry_OnReceivers(const QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_Receivers_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQuick3DGeometry_IsSignalConnected(const QQuick3DGeometry* self, const QMetaMethod* signal) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        return vqquick3dgeometry->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQuick3DGeometry_SuperIsSignalConnected(const QQuick3DGeometry* self, const QMetaMethod* signal) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry) {
-        vqquick3dgeometry->setQQuick3DGeometry_IsSignalConnected_IsBase(true);
-        return vqquick3dgeometry->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQuick3DGeometry*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQuick3DGeometry_OnIsSignalConnected(const QQuick3DGeometry* self, intptr_t slot) {
-    auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self));
-    if (vqquick3dgeometry && vqquick3dgeometry->isVirtualQQuick3DGeometry)
-        vqquick3dgeometry->setQQuick3DGeometry_IsSignalConnected_Callback(reinterpret_cast<VirtualQQuick3DGeometry::QQuick3DGeometry_IsSignalConnected_Callback>(slot));
+    if (auto* vqquick3dgeometry = const_cast<VirtualQQuick3DGeometry*>(dynamic_cast<const VirtualQQuick3DGeometry*>(self))) {
+        return vqquick3dgeometry->VirtualQQuick3DGeometry::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQuick3DGeometry::isSignalConnected called without a directly constructed type");
 }
 
 void QQuick3DGeometry_Delete(QQuick3DGeometry* self) {

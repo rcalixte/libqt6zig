@@ -111,9 +111,9 @@ pub const QPrinter = extern struct {
     ///
     /// ` self: QPrinter `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPrinter) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QPrinter, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QPrinter, callback: *const fn (QPrinter) callconv(.c) i32) void {
         qtc.QPrinter_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -834,9 +834,9 @@ pub const QPrinter = extern struct {
     ///
     /// ` self: QPrinter `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QPrinter) callconv(.c) bool `
     ///
-    pub fn onNewPage(self: QPrinter, callback: *const fn () callconv(.c) bool) void {
+    pub fn onNewPage(self: QPrinter, callback: *const fn (QPrinter) callconv(.c) bool) void {
         qtc.QPrinter_OnNewPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -914,9 +914,9 @@ pub const QPrinter = extern struct {
     ///
     /// ` self: QPrinter `
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QPrinter) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QPrinter, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QPrinter, callback: *const fn (QPrinter) callconv(.c) QPaintEngine) void {
         qtc.QPrinter_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1100,46 +1100,6 @@ pub const QPrinter = extern struct {
         comptime _ = @TypeOf(_printEngine)._is_QPrintEngine;
         comptime _ = @TypeOf(_paintEngine)._is_QPaintEngine;
         qtc.QPrinter_SetEngines(@ptrCast(self.ptr), @ptrCast(_printEngine.ptr), @ptrCast(_paintEngine.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetEngines` instead
-    ///
-    pub const OnSetEngines = onSetEngines;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrinter `
-    ///
-    /// ` callback: *const fn (self: QPrinter, printEngine: QPrintEngine, paintEngine: QPaintEngine) callconv(.c) void `
-    ///
-    pub fn onSetEngines(self: QPrinter, callback: *const fn (QPrinter, QPrintEngine, QPaintEngine) callconv(.c) void) void {
-        qtc.QPrinter_OnSetEngines(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetEngines` instead
-    ///
-    pub const SuperSetEngines = superSetEngines;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprinter.html#setEngines)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrinter `
-    ///
-    /// ` _printEngine: QPrintEngine `
-    ///
-    /// ` _paintEngine: QPaintEngine `
-    ///
-    pub fn superSetEngines(self: QPrinter, _printEngine: anytype, _paintEngine: anytype) void {
-        comptime _ = @TypeOf(_printEngine)._is_QPrintEngine;
-        comptime _ = @TypeOf(_paintEngine)._is_QPaintEngine;
-        qtc.QPrinter_SuperSetEngines(@ptrCast(self.ptr), @ptrCast(_printEngine.ptr), @ptrCast(_paintEngine.ptr));
     }
 
     /// ### DEPRECATED: Use `pageLayout` instead
@@ -1898,9 +1858,9 @@ pub const QPrinter = extern struct {
     ///
     /// ` self: QPrinter`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QPrinter) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QPrinter, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QPrinter, callback: *const fn (QPrinter) callconv(.c) QPainter) void {
         qtc.QPrinter_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1924,48 +1884,6 @@ pub const QPrinter = extern struct {
     ///
     pub fn getDecodedMetricF(self: QPrinter, metricA: i32, metricB: i32) f64 {
         return qtc.QPrinter_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrinter `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QPrinter, metricA: i32, metricB: i32) f64 {
-        return qtc.QPrinter_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrinter`
-    ///
-    /// ` callback: *const fn (self: QPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QPrinter, callback: *const fn (QPrinter, i32, i32) callconv(.c) f64) void {
-        qtc.QPrinter_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

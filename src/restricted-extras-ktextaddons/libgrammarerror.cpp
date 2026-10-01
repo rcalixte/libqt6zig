@@ -165,20 +165,13 @@ void TextGrammarCheck__GrammarError_OperatorAssign(TextGrammarCheck__GrammarErro
 
 // Base class handler implementation
 void TextGrammarCheck__GrammarError_SuperParse(TextGrammarCheck__GrammarError* self, const QJsonObject* obj, int blockindex) {
-    auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
-    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError) {
-        vtextgrammarcheckgrammarerror->setTextGrammarCheck__GrammarError_Parse_IsBase(true);
-        vtextgrammarcheckgrammarerror->parse(*obj, static_cast<int>(blockindex));
-    } else {
-        self->TextGrammarCheck::GrammarError::parse(*obj, static_cast<int>(blockindex));
-    }
+    self->TextGrammarCheck::GrammarError::parse(*obj, static_cast<int>(blockindex));
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarError_OnParse(TextGrammarCheck__GrammarError* self, intptr_t slot) {
-    auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
-    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError)
-        vtextgrammarcheckgrammarerror->setTextGrammarCheck__GrammarError_Parse_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarError::TextGrammarCheck__GrammarError_Parse_Callback>(slot));
+    if (auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self))
+        vtextgrammarcheckgrammarerror->textgrammarcheck__grammarerror_parse_callback = reinterpret_cast<VirtualTextGrammarCheckGrammarError::TextGrammarCheck__GrammarError_Parse_Callback>(slot);
 }
 
 void TextGrammarCheck__GrammarError_Delete(TextGrammarCheck__GrammarError* self) {

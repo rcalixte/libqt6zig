@@ -15,72 +15,57 @@ int QSGVertexColorMaterial_Compare(const QSGVertexColorMaterial* self, const QSG
 
 QSGMaterialType* QSGVertexColorMaterial_Type(const QSGVertexColorMaterial* self) {
     auto* vqsgvertexcolormaterial = dynamic_cast<const VirtualQSGVertexColorMaterial*>(self);
-    if (vqsgvertexcolormaterial && vqsgvertexcolormaterial->isVirtualQSGVertexColorMaterial) {
+    if (vqsgvertexcolormaterial) {
         return vqsgvertexcolormaterial->type();
     }
-    return {};
+    qFatal("Error: Protected method QSGVertexColorMaterial::type called without a directly constructed type");
 }
 
 QSGMaterialShader* QSGVertexColorMaterial_CreateShader(const QSGVertexColorMaterial* self, int renderMode) {
     auto* vqsgvertexcolormaterial = dynamic_cast<const VirtualQSGVertexColorMaterial*>(self);
-    if (vqsgvertexcolormaterial && vqsgvertexcolormaterial->isVirtualQSGVertexColorMaterial) {
+    if (vqsgvertexcolormaterial) {
         return vqsgvertexcolormaterial->createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
     }
-    return {};
+    qFatal("Error: Protected method QSGVertexColorMaterial::createShader called without a directly constructed type");
 }
 
 // Base class handler implementation
 int QSGVertexColorMaterial_SuperCompare(const QSGVertexColorMaterial* self, const QSGMaterial* other) {
-    auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self));
-    if (vqsgvertexcolormaterial && vqsgvertexcolormaterial->isVirtualQSGVertexColorMaterial) {
-        vqsgvertexcolormaterial->setQSGVertexColorMaterial_Compare_IsBase(true);
-        return vqsgvertexcolormaterial->compare(other);
-    } else {
-        return self->QSGVertexColorMaterial::compare(other);
-    }
+    return self->QSGVertexColorMaterial::compare(other);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGVertexColorMaterial_OnCompare(const QSGVertexColorMaterial* self, intptr_t slot) {
-    auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self));
-    if (vqsgvertexcolormaterial && vqsgvertexcolormaterial->isVirtualQSGVertexColorMaterial)
-        vqsgvertexcolormaterial->setQSGVertexColorMaterial_Compare_Callback(reinterpret_cast<VirtualQSGVertexColorMaterial::QSGVertexColorMaterial_Compare_Callback>(slot));
+void QSGVertexColorMaterial_OnCompare(QSGVertexColorMaterial* self, intptr_t slot) {
+    if (auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self)))
+        vqsgvertexcolormaterial->qsgvertexcolormaterial_compare_callback = reinterpret_cast<VirtualQSGVertexColorMaterial::QSGVertexColorMaterial_Compare_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGMaterialType* QSGVertexColorMaterial_SuperType(const QSGVertexColorMaterial* self) {
-    auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self));
-    if (vqsgvertexcolormaterial && vqsgvertexcolormaterial->isVirtualQSGVertexColorMaterial) {
-        vqsgvertexcolormaterial->setQSGVertexColorMaterial_Type_IsBase(true);
-        return vqsgvertexcolormaterial->type();
-    } else {
-        return ((VirtualQSGVertexColorMaterial*)self)->type();
-    }
+    if (auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self))) {
+        return vqsgvertexcolormaterial->QSGVertexColorMaterial::type();
+    } else
+        qFatal("Error: Protected virtual method QSGVertexColorMaterial::type called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGVertexColorMaterial_OnType(const QSGVertexColorMaterial* self, intptr_t slot) {
-    auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self));
-    if (vqsgvertexcolormaterial && vqsgvertexcolormaterial->isVirtualQSGVertexColorMaterial)
-        vqsgvertexcolormaterial->setQSGVertexColorMaterial_Type_Callback(reinterpret_cast<VirtualQSGVertexColorMaterial::QSGVertexColorMaterial_Type_Callback>(slot));
+void QSGVertexColorMaterial_OnType(QSGVertexColorMaterial* self, intptr_t slot) {
+    if (auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self)))
+        vqsgvertexcolormaterial->qsgvertexcolormaterial_type_callback = reinterpret_cast<VirtualQSGVertexColorMaterial::QSGVertexColorMaterial_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGMaterialShader* QSGVertexColorMaterial_SuperCreateShader(const QSGVertexColorMaterial* self, int renderMode) {
-    auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self));
-    if (vqsgvertexcolormaterial && vqsgvertexcolormaterial->isVirtualQSGVertexColorMaterial) {
-        vqsgvertexcolormaterial->setQSGVertexColorMaterial_CreateShader_IsBase(true);
-        return vqsgvertexcolormaterial->createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    } else {
-        return ((VirtualQSGVertexColorMaterial*)self)->createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    }
+    if (auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self))) {
+        return vqsgvertexcolormaterial->QSGVertexColorMaterial::createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
+    } else
+        qFatal("Error: Protected virtual method QSGVertexColorMaterial::createShader called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGVertexColorMaterial_OnCreateShader(const QSGVertexColorMaterial* self, intptr_t slot) {
-    auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self));
-    if (vqsgvertexcolormaterial && vqsgvertexcolormaterial->isVirtualQSGVertexColorMaterial)
-        vqsgvertexcolormaterial->setQSGVertexColorMaterial_CreateShader_Callback(reinterpret_cast<VirtualQSGVertexColorMaterial::QSGVertexColorMaterial_CreateShader_Callback>(slot));
+void QSGVertexColorMaterial_OnCreateShader(QSGVertexColorMaterial* self, intptr_t slot) {
+    if (auto* vqsgvertexcolormaterial = const_cast<VirtualQSGVertexColorMaterial*>(dynamic_cast<const VirtualQSGVertexColorMaterial*>(self)))
+        vqsgvertexcolormaterial->qsgvertexcolormaterial_createshader_callback = reinterpret_cast<VirtualQSGVertexColorMaterial::QSGVertexColorMaterial_CreateShader_Callback>(slot);
 }
 
 void QSGVertexColorMaterial_Delete(QSGVertexColorMaterial* self) {

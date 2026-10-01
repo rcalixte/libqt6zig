@@ -50,116 +50,53 @@ void QSGMaterialShader_SetFlag2(QSGMaterialShader* self, int flags, bool on) {
 
 // Base class handler implementation
 bool QSGMaterialShader_SuperUpdateUniformData(QSGMaterialShader* self, QSGMaterialShader__RenderState* state, QSGMaterial* newMaterial, QSGMaterial* oldMaterial) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader) {
-        vqsgmaterialshader->setQSGMaterialShader_UpdateUniformData_IsBase(true);
-        return vqsgmaterialshader->updateUniformData(*state, newMaterial, oldMaterial);
-    } else {
-        return self->QSGMaterialShader::updateUniformData(*state, newMaterial, oldMaterial);
-    }
+    return self->QSGMaterialShader::updateUniformData(*state, newMaterial, oldMaterial);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGMaterialShader_OnUpdateUniformData(QSGMaterialShader* self, intptr_t slot) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader)
-        vqsgmaterialshader->setQSGMaterialShader_UpdateUniformData_Callback(reinterpret_cast<VirtualQSGMaterialShader::QSGMaterialShader_UpdateUniformData_Callback>(slot));
+    if (auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self))
+        vqsgmaterialshader->qsgmaterialshader_updateuniformdata_callback = reinterpret_cast<VirtualQSGMaterialShader::QSGMaterialShader_UpdateUniformData_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSGMaterialShader_SuperUpdateSampledImage(QSGMaterialShader* self, QSGMaterialShader__RenderState* state, int binding, QSGTexture** texture, QSGMaterial* newMaterial, QSGMaterial* oldMaterial) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader) {
-        vqsgmaterialshader->setQSGMaterialShader_UpdateSampledImage_IsBase(true);
-        vqsgmaterialshader->updateSampledImage(*state, static_cast<int>(binding), texture, newMaterial, oldMaterial);
-    } else {
-        self->QSGMaterialShader::updateSampledImage(*state, static_cast<int>(binding), texture, newMaterial, oldMaterial);
-    }
+    self->QSGMaterialShader::updateSampledImage(*state, static_cast<int>(binding), texture, newMaterial, oldMaterial);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGMaterialShader_OnUpdateSampledImage(QSGMaterialShader* self, intptr_t slot) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader)
-        vqsgmaterialshader->setQSGMaterialShader_UpdateSampledImage_Callback(reinterpret_cast<VirtualQSGMaterialShader::QSGMaterialShader_UpdateSampledImage_Callback>(slot));
+    if (auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self))
+        vqsgmaterialshader->qsgmaterialshader_updatesampledimage_callback = reinterpret_cast<VirtualQSGMaterialShader::QSGMaterialShader_UpdateSampledImage_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QSGMaterialShader_SuperUpdateGraphicsPipelineState(QSGMaterialShader* self, QSGMaterialShader__RenderState* state, QSGMaterialShader__GraphicsPipelineState* ps, QSGMaterial* newMaterial, QSGMaterial* oldMaterial) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader) {
-        vqsgmaterialshader->setQSGMaterialShader_UpdateGraphicsPipelineState_IsBase(true);
-        return vqsgmaterialshader->updateGraphicsPipelineState(*state, ps, newMaterial, oldMaterial);
-    } else {
-        return self->QSGMaterialShader::updateGraphicsPipelineState(*state, ps, newMaterial, oldMaterial);
-    }
+    return self->QSGMaterialShader::updateGraphicsPipelineState(*state, ps, newMaterial, oldMaterial);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSGMaterialShader_OnUpdateGraphicsPipelineState(QSGMaterialShader* self, intptr_t slot) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader)
-        vqsgmaterialshader->setQSGMaterialShader_UpdateGraphicsPipelineState_Callback(reinterpret_cast<VirtualQSGMaterialShader::QSGMaterialShader_UpdateGraphicsPipelineState_Callback>(slot));
+    if (auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self))
+        vqsgmaterialshader->qsgmaterialshader_updategraphicspipelinestate_callback = reinterpret_cast<VirtualQSGMaterialShader::QSGMaterialShader_UpdateGraphicsPipelineState_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSGMaterialShader_SetShaderFileName(QSGMaterialShader* self, int stage, const libqt_string filename) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader) {
-        vqsgmaterialshader->setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString);
-    } else {
-        ((VirtualQSGMaterialShader*)self)->setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString);
-    }
+    if (auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self)) {
+        QString filename_QString = QString::fromUtf8(filename.data, filename.len);
+        vqsgmaterialshader->VirtualQSGMaterialShader::setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString);
+    } else
+        qFatal("Error: Protected method QSGMaterialShader::setShaderFileName called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSGMaterialShader_SuperSetShaderFileName(QSGMaterialShader* self, int stage, const libqt_string filename) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader) {
-        vqsgmaterialshader->setQSGMaterialShader_SetShaderFileName_IsBase(true);
-        vqsgmaterialshader->setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString);
-    } else {
-        ((VirtualQSGMaterialShader*)self)->setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSGMaterialShader_OnSetShaderFileName(QSGMaterialShader* self, intptr_t slot) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader)
-        vqsgmaterialshader->setQSGMaterialShader_SetShaderFileName_Callback(reinterpret_cast<VirtualQSGMaterialShader::QSGMaterialShader_SetShaderFileName_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSGMaterialShader_SetShaderFileName2(QSGMaterialShader* self, int stage, const libqt_string filename, int viewCount) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader) {
-        vqsgmaterialshader->setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString, static_cast<int>(viewCount));
-    } else {
-        ((VirtualQSGMaterialShader*)self)->setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString, static_cast<int>(viewCount));
-    }
-}
-
-// Base class handler implementation
-void QSGMaterialShader_SuperSetShaderFileName2(QSGMaterialShader* self, int stage, const libqt_string filename, int viewCount) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader) {
-        vqsgmaterialshader->setQSGMaterialShader_SetShaderFileName2_IsBase(true);
-        vqsgmaterialshader->setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString, static_cast<int>(viewCount));
-    } else {
-        ((VirtualQSGMaterialShader*)self)->setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString, static_cast<int>(viewCount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSGMaterialShader_OnSetShaderFileName2(QSGMaterialShader* self, intptr_t slot) {
-    auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self);
-    if (vqsgmaterialshader && vqsgmaterialshader->isVirtualQSGMaterialShader)
-        vqsgmaterialshader->setQSGMaterialShader_SetShaderFileName2_Callback(reinterpret_cast<VirtualQSGMaterialShader::QSGMaterialShader_SetShaderFileName2_Callback>(slot));
+    if (auto* vqsgmaterialshader = dynamic_cast<VirtualQSGMaterialShader*>(self)) {
+        QString filename_QString = QString::fromUtf8(filename.data, filename.len);
+        vqsgmaterialshader->VirtualQSGMaterialShader::setShaderFileName(static_cast<QSGMaterialShader::Stage>(stage), filename_QString, static_cast<int>(viewCount));
+    } else
+        qFatal("Error: Protected method QSGMaterialShader::setShaderFileName2 called without a directly constructed type");
 }
 
 void QSGMaterialShader_Delete(QSGMaterialShader* self) {

@@ -104,9 +104,9 @@ pub const KBookmarkMenu = extern struct {
     ///
     /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KBookmarkMenu) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KBookmarkMenu, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu) callconv(.c) QMetaObject) void {
         qtc.KBookmarkMenu_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -385,40 +385,6 @@ pub const KBookmarkMenu = extern struct {
         qtc.KBookmarkMenu_SlotAboutToShow(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSlotAboutToShow` instead
-    ///
-    pub const OnSlotAboutToShow = onSlotAboutToShow;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotAboutToShow(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAboutToShow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotAboutToShow` instead
-    ///
-    pub const SuperSlotAboutToShow = superSlotAboutToShow;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superSlotAboutToShow(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperSlotAboutToShow(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `slotAddBookmarksList` instead
     ///
     pub const SlotAddBookmarksList = slotAddBookmarksList;
@@ -431,40 +397,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn slotAddBookmarksList(self: KBookmarkMenu) void {
         qtc.KBookmarkMenu_SlotAddBookmarksList(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotAddBookmarksList` instead
-    ///
-    pub const OnSlotAddBookmarksList = onSlotAddBookmarksList;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotAddBookmarksList(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAddBookmarksList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotAddBookmarksList` instead
-    ///
-    pub const SuperSlotAddBookmarksList = superSlotAddBookmarksList;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superSlotAddBookmarksList(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperSlotAddBookmarksList(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `slotAddBookmark` instead
@@ -481,40 +413,6 @@ pub const KBookmarkMenu = extern struct {
         qtc.KBookmarkMenu_SlotAddBookmark(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSlotAddBookmark` instead
-    ///
-    pub const OnSlotAddBookmark = onSlotAddBookmark;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotAddBookmark(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAddBookmark(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotAddBookmark` instead
-    ///
-    pub const SuperSlotAddBookmark = superSlotAddBookmark;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superSlotAddBookmark(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperSlotAddBookmark(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `slotNewFolder` instead
     ///
     pub const SlotNewFolder = slotNewFolder;
@@ -529,40 +427,6 @@ pub const KBookmarkMenu = extern struct {
         qtc.KBookmarkMenu_SlotNewFolder(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSlotNewFolder` instead
-    ///
-    pub const OnSlotNewFolder = onSlotNewFolder;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotNewFolder(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotNewFolder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotNewFolder` instead
-    ///
-    pub const SuperSlotNewFolder = superSlotNewFolder;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superSlotNewFolder(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperSlotNewFolder(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `slotOpenFolderInTabs` instead
     ///
     pub const SlotOpenFolderInTabs = slotOpenFolderInTabs;
@@ -575,40 +439,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn slotOpenFolderInTabs(self: KBookmarkMenu) void {
         qtc.KBookmarkMenu_SlotOpenFolderInTabs(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotOpenFolderInTabs` instead
-    ///
-    pub const OnSlotOpenFolderInTabs = onSlotOpenFolderInTabs;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotOpenFolderInTabs(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotOpenFolderInTabs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotOpenFolderInTabs` instead
-    ///
-    pub const SuperSlotOpenFolderInTabs = superSlotOpenFolderInTabs;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superSlotOpenFolderInTabs(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperSlotOpenFolderInTabs(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `clear` instead
@@ -637,9 +467,9 @@ pub const KBookmarkMenu = extern struct {
     ///
     /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu) callconv(.c) void `
     ///
-    pub fn onClear(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu) callconv(.c) void) void {
         qtc.KBookmarkMenu_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -685,9 +515,9 @@ pub const KBookmarkMenu = extern struct {
     ///
     /// ` self: KBookmarkMenu `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KBookmarkMenu) callconv(.c) void `
     ///
-    pub fn onRefill(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
+    pub fn onRefill(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu) callconv(.c) void) void {
         qtc.KBookmarkMenu_OnRefill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -829,40 +659,6 @@ pub const KBookmarkMenu = extern struct {
         qtc.KBookmarkMenu_AddActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onAddActions` instead
-    ///
-    pub const OnAddActions = onAddActions;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addActions)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddActions(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddActions` instead
-    ///
-    pub const SuperAddActions = superAddActions;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addActions)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superAddActions(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperAddActions(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `fillBookmarks` instead
     ///
     pub const FillBookmarks = fillBookmarks;
@@ -875,40 +671,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn fillBookmarks(self: KBookmarkMenu) void {
         qtc.KBookmarkMenu_FillBookmarks(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFillBookmarks` instead
-    ///
-    pub const OnFillBookmarks = onFillBookmarks;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onFillBookmarks(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnFillBookmarks(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superFillBookmarks` instead
-    ///
-    pub const SuperFillBookmarks = superFillBookmarks;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superFillBookmarks(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperFillBookmarks(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `addAddBookmark` instead
@@ -925,40 +687,6 @@ pub const KBookmarkMenu = extern struct {
         qtc.KBookmarkMenu_AddAddBookmark(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onAddAddBookmark` instead
-    ///
-    pub const OnAddAddBookmark = onAddAddBookmark;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddAddBookmark(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddAddBookmark(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddAddBookmark` instead
-    ///
-    pub const SuperAddAddBookmark = superAddAddBookmark;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superAddAddBookmark(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperAddAddBookmark(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `addAddBookmarksList` instead
     ///
     pub const AddAddBookmarksList = addAddBookmarksList;
@@ -971,40 +699,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn addAddBookmarksList(self: KBookmarkMenu) void {
         qtc.KBookmarkMenu_AddAddBookmarksList(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddAddBookmarksList` instead
-    ///
-    pub const OnAddAddBookmarksList = onAddAddBookmarksList;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddAddBookmarksList(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddAddBookmarksList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddAddBookmarksList` instead
-    ///
-    pub const SuperAddAddBookmarksList = superAddAddBookmarksList;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superAddAddBookmarksList(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperAddAddBookmarksList(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `addEditBookmarks` instead
@@ -1021,40 +715,6 @@ pub const KBookmarkMenu = extern struct {
         qtc.KBookmarkMenu_AddEditBookmarks(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onAddEditBookmarks` instead
-    ///
-    pub const OnAddEditBookmarks = onAddEditBookmarks;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddEditBookmarks(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddEditBookmarks(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddEditBookmarks` instead
-    ///
-    pub const SuperAddEditBookmarks = superAddEditBookmarks;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superAddEditBookmarks(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperAddEditBookmarks(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `addNewFolder` instead
     ///
     pub const AddNewFolder = addNewFolder;
@@ -1067,40 +727,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn addNewFolder(self: KBookmarkMenu) void {
         qtc.KBookmarkMenu_AddNewFolder(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddNewFolder` instead
-    ///
-    pub const OnAddNewFolder = onAddNewFolder;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddNewFolder(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddNewFolder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddNewFolder` instead
-    ///
-    pub const SuperAddNewFolder = superAddNewFolder;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superAddNewFolder(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperAddNewFolder(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `addOpenInTabs` instead
@@ -1117,40 +743,6 @@ pub const KBookmarkMenu = extern struct {
         qtc.KBookmarkMenu_AddOpenInTabs(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onAddOpenInTabs` instead
-    ///
-    pub const OnAddOpenInTabs = onAddOpenInTabs;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddOpenInTabs(self: KBookmarkMenu, callback: *const fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddOpenInTabs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddOpenInTabs` instead
-    ///
-    pub const SuperAddOpenInTabs = superAddOpenInTabs;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superAddOpenInTabs(self: KBookmarkMenu) void {
-        qtc.KBookmarkMenu_SuperAddOpenInTabs(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `isRoot` instead
     ///
     pub const IsRoot = isRoot;
@@ -1165,40 +757,6 @@ pub const KBookmarkMenu = extern struct {
         return qtc.KBookmarkMenu_IsRoot(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onIsRoot` instead
-    ///
-    pub const OnIsRoot = onIsRoot;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isRoot)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsRoot(self: KBookmarkMenu, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsRoot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsRoot` instead
-    ///
-    pub const SuperIsRoot = superIsRoot;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isRoot)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superIsRoot(self: KBookmarkMenu) bool {
-        return qtc.KBookmarkMenu_SuperIsRoot(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `isDirty` instead
     ///
     pub const IsDirty = isDirty;
@@ -1211,40 +769,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn isDirty(self: KBookmarkMenu) bool {
         return qtc.KBookmarkMenu_IsDirty(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsDirty` instead
-    ///
-    pub const OnIsDirty = onIsDirty;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isDirty)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsDirty(self: KBookmarkMenu, callback: *const fn () callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsDirty` instead
-    ///
-    pub const SuperIsDirty = superIsDirty;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#isDirty)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superIsDirty(self: KBookmarkMenu) bool {
-        return qtc.KBookmarkMenu_SuperIsDirty(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `parentAddress` instead
@@ -1267,46 +791,6 @@ pub const KBookmarkMenu = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `onParentAddress` instead
-    ///
-    pub const OnParentAddress = onParentAddress;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentAddress)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
-    ///
-    pub fn onParentAddress(self: KBookmarkMenu, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KBookmarkMenu_OnParentAddress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParentAddress` instead
-    ///
-    pub const SuperParentAddress = superParentAddress;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentAddress)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superParentAddress(self: KBookmarkMenu, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KBookmarkMenu_SuperParentAddress(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBookmarkMenu.parentAddress: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `manager` instead
     ///
     pub const Manager = manager;
@@ -1319,40 +803,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn manager(self: KBookmarkMenu) KBookmarkManager {
         return .{ .ptr = qtc.KBookmarkMenu_Manager(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onManager` instead
-    ///
-    pub const OnManager = onManager;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#manager)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) KBookmarkManager `
-    ///
-    pub fn onManager(self: KBookmarkMenu, callback: *const fn () callconv(.c) KBookmarkManager) void {
-        qtc.KBookmarkMenu_OnManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superManager` instead
-    ///
-    pub const SuperManager = superManager;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#manager)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superManager(self: KBookmarkMenu) KBookmarkManager {
-        return .{ .ptr = qtc.KBookmarkMenu_SuperManager(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `owner` instead
@@ -1369,40 +819,6 @@ pub const KBookmarkMenu = extern struct {
         return .{ .ptr = qtc.KBookmarkMenu_Owner(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onOwner` instead
-    ///
-    pub const OnOwner = onOwner;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#owner)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) KBookmarkOwner `
-    ///
-    pub fn onOwner(self: KBookmarkMenu, callback: *const fn () callconv(.c) KBookmarkOwner) void {
-        qtc.KBookmarkMenu_OnOwner(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superOwner` instead
-    ///
-    pub const SuperOwner = superOwner;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#owner)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superOwner(self: KBookmarkMenu) KBookmarkOwner {
-        return .{ .ptr = qtc.KBookmarkMenu_SuperOwner(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `parentMenu` instead
     ///
     pub const ParentMenu = parentMenu;
@@ -1415,40 +831,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn parentMenu(self: KBookmarkMenu) QMenu {
         return .{ .ptr = qtc.KBookmarkMenu_ParentMenu(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onParentMenu` instead
-    ///
-    pub const OnParentMenu = onParentMenu;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentMenu)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` callback: *const fn () callconv(.c) QMenu `
-    ///
-    pub fn onParentMenu(self: KBookmarkMenu, callback: *const fn () callconv(.c) QMenu) void {
-        qtc.KBookmarkMenu_OnParentMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParentMenu` instead
-    ///
-    pub const SuperParentMenu = superParentMenu;
-
-    /// ### [Upstream resources](https://api.kde.org/kbookmarkmenu.html#parentMenu)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superParentMenu(self: KBookmarkMenu) QMenu {
-        return .{ .ptr = qtc.KBookmarkMenu_SuperParentMenu(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2928,44 +2310,6 @@ pub const KBookmarkMenu = extern struct {
         return .{ .ptr = qtc.KBookmarkMenu_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superSender(self: KBookmarkMenu) QObject {
-        return .{ .ptr = qtc.KBookmarkMenu_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KBookmarkMenu, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KBookmarkMenu_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2982,44 +2326,6 @@ pub const KBookmarkMenu = extern struct {
     ///
     pub fn senderSignalIndex(self: KBookmarkMenu) i32 {
         return qtc.KBookmarkMenu_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    pub fn superSenderSignalIndex(self: KBookmarkMenu) i32 {
-        return qtc.KBookmarkMenu_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KBookmarkMenu, callback: *const fn () callconv(.c) i32) void {
-        qtc.KBookmarkMenu_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3043,47 +2349,6 @@ pub const KBookmarkMenu = extern struct {
         return qtc.KBookmarkMenu_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KBookmarkMenu, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KBookmarkMenu_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu`
-    ///
-    /// ` callback: *const fn (self: KBookmarkMenu, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KBookmarkMenu_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3103,47 +2368,6 @@ pub const KBookmarkMenu = extern struct {
     pub fn isSignalConnected(self: KBookmarkMenu, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KBookmarkMenu_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBookmarkMenu `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KBookmarkMenu, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KBookmarkMenu_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KBookmarkMenu`
-    ///
-    /// ` callback: *const fn (self: KBookmarkMenu, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KBookmarkMenu, callback: *const fn (KBookmarkMenu, QMetaMethod) callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

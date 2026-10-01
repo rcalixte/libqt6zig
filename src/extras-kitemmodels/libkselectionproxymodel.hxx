@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KSelectionProxyModel so that we can call protected methods
+// This class is a subclass of KSelectionProxyModel
 class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKSelectionProxyModel = true;
-
-    // Virtual class public types (including callbacks)
-    using KSelectionProxyModel_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KSelectionProxyModel_MetaObject_Callback = QMetaObject* (*)(const KSelectionProxyModel*);
     using KSelectionProxyModel_Metacast_Callback = void* (*)(KSelectionProxyModel*, const char*);
     using KSelectionProxyModel_Metacall_Callback = int (*)(KSelectionProxyModel*, int, int, void**);
     using KSelectionProxyModel_SetSourceModel_Callback = void (*)(KSelectionProxyModel*, QAbstractItemModel*);
@@ -30,16 +26,16 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     using KSelectionProxyModel_RowCount_Callback = int (*)(const KSelectionProxyModel*, QModelIndex*);
     using KSelectionProxyModel_HeaderData_Callback = QVariant* (*)(const KSelectionProxyModel*, int, int, int);
     using KSelectionProxyModel_MimeData_Callback = QMimeData* (*)(const KSelectionProxyModel*, libqt_list /* of QModelIndex* */);
-    using KSelectionProxyModel_MimeTypes_Callback = const char** (*)();
-    using KSelectionProxyModel_SupportedDropActions_Callback = int (*)();
+    using KSelectionProxyModel_MimeTypes_Callback = const char** (*)(const KSelectionProxyModel*);
+    using KSelectionProxyModel_SupportedDropActions_Callback = int (*)(const KSelectionProxyModel*);
     using KSelectionProxyModel_DropMimeData_Callback = bool (*)(KSelectionProxyModel*, QMimeData*, int, int, int, QModelIndex*);
     using KSelectionProxyModel_HasChildren_Callback = bool (*)(const KSelectionProxyModel*, QModelIndex*);
     using KSelectionProxyModel_Index_Callback = QModelIndex* (*)(const KSelectionProxyModel*, int, int, QModelIndex*);
     using KSelectionProxyModel_Parent_Callback = QModelIndex* (*)(const KSelectionProxyModel*, QModelIndex*);
     using KSelectionProxyModel_ColumnCount_Callback = int (*)(const KSelectionProxyModel*, QModelIndex*);
     using KSelectionProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const KSelectionProxyModel*, QModelIndex*, int, QVariant*, int, int);
-    using KSelectionProxyModel_Submit_Callback = bool (*)();
-    using KSelectionProxyModel_Revert_Callback = void (*)();
+    using KSelectionProxyModel_Submit_Callback = bool (*)(KSelectionProxyModel*);
+    using KSelectionProxyModel_Revert_Callback = void (*)(KSelectionProxyModel*);
     using KSelectionProxyModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const KSelectionProxyModel*, QModelIndex*);
     using KSelectionProxyModel_SetData_Callback = bool (*)(KSelectionProxyModel*, QModelIndex*, QVariant*, int);
     using KSelectionProxyModel_SetItemData_Callback = bool (*)(KSelectionProxyModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
@@ -52,8 +48,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     using KSelectionProxyModel_Span_Callback = QSize* (*)(const KSelectionProxyModel*, QModelIndex*);
     using KSelectionProxyModel_Sibling_Callback = QModelIndex* (*)(const KSelectionProxyModel*, int, int, QModelIndex*);
     using KSelectionProxyModel_CanDropMimeData_Callback = bool (*)(const KSelectionProxyModel*, QMimeData*, int, int, int, QModelIndex*);
-    using KSelectionProxyModel_SupportedDragActions_Callback = int (*)();
-    using KSelectionProxyModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
+    using KSelectionProxyModel_SupportedDragActions_Callback = int (*)(const KSelectionProxyModel*);
+    using KSelectionProxyModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)(const KSelectionProxyModel*);
     using KSelectionProxyModel_InsertRows_Callback = bool (*)(KSelectionProxyModel*, int, int, QModelIndex*);
     using KSelectionProxyModel_InsertColumns_Callback = bool (*)(KSelectionProxyModel*, int, int, QModelIndex*);
     using KSelectionProxyModel_RemoveRows_Callback = bool (*)(KSelectionProxyModel*, int, int, QModelIndex*);
@@ -61,7 +57,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     using KSelectionProxyModel_MoveRows_Callback = bool (*)(KSelectionProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
     using KSelectionProxyModel_MoveColumns_Callback = bool (*)(KSelectionProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
     using KSelectionProxyModel_MultiData_Callback = void (*)(const KSelectionProxyModel*, QModelIndex*, QModelRoleDataSpan*);
-    using KSelectionProxyModel_ResetInternalData_Callback = void (*)();
+    using KSelectionProxyModel_ResetInternalData_Callback = void (*)(KSelectionProxyModel*);
     using KSelectionProxyModel_Event_Callback = bool (*)(KSelectionProxyModel*, QEvent*);
     using KSelectionProxyModel_EventFilter_Callback = bool (*)(KSelectionProxyModel*, QObject*, QEvent*);
     using KSelectionProxyModel_TimerEvent_Callback = void (*)(KSelectionProxyModel*, QTimerEvent*);
@@ -69,34 +65,33 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     using KSelectionProxyModel_CustomEvent_Callback = void (*)(KSelectionProxyModel*, QEvent*);
     using KSelectionProxyModel_ConnectNotify_Callback = void (*)(KSelectionProxyModel*, QMetaMethod*);
     using KSelectionProxyModel_DisconnectNotify_Callback = void (*)(KSelectionProxyModel*, QMetaMethod*);
-    using KSelectionProxyModel_SourceRootIndexes_Callback = libqt_list /* of QPersistentModelIndex* */ (*)();
-    using KSelectionProxyModel_CreateSourceIndex_Callback = QModelIndex* (*)(const KSelectionProxyModel*, int, int, void*);
-    using KSelectionProxyModel_CreateIndex_Callback = QModelIndex* (*)(const KSelectionProxyModel*, int, int);
-    using KSelectionProxyModel_EncodeData_Callback = void (*)(const KSelectionProxyModel*, libqt_list /* of QModelIndex* */, QDataStream*);
-    using KSelectionProxyModel_DecodeData_Callback = bool (*)(KSelectionProxyModel*, int, int, QModelIndex*, QDataStream*);
-    using KSelectionProxyModel_BeginInsertRows_Callback = void (*)(KSelectionProxyModel*, QModelIndex*, int, int);
-    using KSelectionProxyModel_EndInsertRows_Callback = void (*)();
-    using KSelectionProxyModel_BeginRemoveRows_Callback = void (*)(KSelectionProxyModel*, QModelIndex*, int, int);
-    using KSelectionProxyModel_EndRemoveRows_Callback = void (*)();
-    using KSelectionProxyModel_BeginMoveRows_Callback = bool (*)(KSelectionProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
-    using KSelectionProxyModel_EndMoveRows_Callback = void (*)();
-    using KSelectionProxyModel_BeginInsertColumns_Callback = void (*)(KSelectionProxyModel*, QModelIndex*, int, int);
-    using KSelectionProxyModel_EndInsertColumns_Callback = void (*)();
-    using KSelectionProxyModel_BeginRemoveColumns_Callback = void (*)(KSelectionProxyModel*, QModelIndex*, int, int);
-    using KSelectionProxyModel_EndRemoveColumns_Callback = void (*)();
-    using KSelectionProxyModel_BeginMoveColumns_Callback = bool (*)(KSelectionProxyModel*, QModelIndex*, int, int, QModelIndex*, int);
-    using KSelectionProxyModel_EndMoveColumns_Callback = void (*)();
-    using KSelectionProxyModel_BeginResetModel_Callback = void (*)();
-    using KSelectionProxyModel_EndResetModel_Callback = void (*)();
-    using KSelectionProxyModel_ChangePersistentIndex_Callback = void (*)(KSelectionProxyModel*, QModelIndex*, QModelIndex*);
-    using KSelectionProxyModel_ChangePersistentIndexList_Callback = void (*)(KSelectionProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using KSelectionProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
-    using KSelectionProxyModel_Sender_Callback = QObject* (*)();
-    using KSelectionProxyModel_SenderSignalIndex_Callback = int (*)();
-    using KSelectionProxyModel_Receivers_Callback = int (*)(const KSelectionProxyModel*, const char*);
-    using KSelectionProxyModel_IsSignalConnected_Callback = bool (*)(const KSelectionProxyModel*, QMetaMethod*);
+    using KSelectionProxyModel::beginInsertColumns;
+    using KSelectionProxyModel::beginInsertRows;
+    using KSelectionProxyModel::beginMoveColumns;
+    using KSelectionProxyModel::beginMoveRows;
+    using KSelectionProxyModel::beginRemoveColumns;
+    using KSelectionProxyModel::beginRemoveRows;
+    using KSelectionProxyModel::beginResetModel;
+    using KSelectionProxyModel::changePersistentIndex;
+    using KSelectionProxyModel::changePersistentIndexList;
+    using KSelectionProxyModel::createIndex;
+    using KSelectionProxyModel::createSourceIndex;
+    using KSelectionProxyModel::decodeData;
+    using KSelectionProxyModel::encodeData;
+    using KSelectionProxyModel::endInsertColumns;
+    using KSelectionProxyModel::endInsertRows;
+    using KSelectionProxyModel::endMoveColumns;
+    using KSelectionProxyModel::endMoveRows;
+    using KSelectionProxyModel::endRemoveColumns;
+    using KSelectionProxyModel::endRemoveRows;
+    using KSelectionProxyModel::endResetModel;
+    using KSelectionProxyModel::isSignalConnected;
+    using KSelectionProxyModel::persistentIndexList;
+    using KSelectionProxyModel::receivers;
+    using KSelectionProxyModel::sender;
+    using KSelectionProxyModel::senderSignalIndex;
+    using KSelectionProxyModel::sourceRootIndexes;
 
-  protected:
     // Instance callback storage
     KSelectionProxyModel_MetaObject_Callback kselectionproxymodel_metaobject_callback = nullptr;
     KSelectionProxyModel_Metacast_Callback kselectionproxymodel_metacast_callback = nullptr;
@@ -150,287 +145,25 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
     KSelectionProxyModel_CustomEvent_Callback kselectionproxymodel_customevent_callback = nullptr;
     KSelectionProxyModel_ConnectNotify_Callback kselectionproxymodel_connectnotify_callback = nullptr;
     KSelectionProxyModel_DisconnectNotify_Callback kselectionproxymodel_disconnectnotify_callback = nullptr;
-    KSelectionProxyModel_SourceRootIndexes_Callback kselectionproxymodel_sourcerootindexes_callback = nullptr;
-    KSelectionProxyModel_CreateSourceIndex_Callback kselectionproxymodel_createsourceindex_callback = nullptr;
-    KSelectionProxyModel_CreateIndex_Callback kselectionproxymodel_createindex_callback = nullptr;
-    KSelectionProxyModel_EncodeData_Callback kselectionproxymodel_encodedata_callback = nullptr;
-    KSelectionProxyModel_DecodeData_Callback kselectionproxymodel_decodedata_callback = nullptr;
-    KSelectionProxyModel_BeginInsertRows_Callback kselectionproxymodel_begininsertrows_callback = nullptr;
-    KSelectionProxyModel_EndInsertRows_Callback kselectionproxymodel_endinsertrows_callback = nullptr;
-    KSelectionProxyModel_BeginRemoveRows_Callback kselectionproxymodel_beginremoverows_callback = nullptr;
-    KSelectionProxyModel_EndRemoveRows_Callback kselectionproxymodel_endremoverows_callback = nullptr;
-    KSelectionProxyModel_BeginMoveRows_Callback kselectionproxymodel_beginmoverows_callback = nullptr;
-    KSelectionProxyModel_EndMoveRows_Callback kselectionproxymodel_endmoverows_callback = nullptr;
-    KSelectionProxyModel_BeginInsertColumns_Callback kselectionproxymodel_begininsertcolumns_callback = nullptr;
-    KSelectionProxyModel_EndInsertColumns_Callback kselectionproxymodel_endinsertcolumns_callback = nullptr;
-    KSelectionProxyModel_BeginRemoveColumns_Callback kselectionproxymodel_beginremovecolumns_callback = nullptr;
-    KSelectionProxyModel_EndRemoveColumns_Callback kselectionproxymodel_endremovecolumns_callback = nullptr;
-    KSelectionProxyModel_BeginMoveColumns_Callback kselectionproxymodel_beginmovecolumns_callback = nullptr;
-    KSelectionProxyModel_EndMoveColumns_Callback kselectionproxymodel_endmovecolumns_callback = nullptr;
-    KSelectionProxyModel_BeginResetModel_Callback kselectionproxymodel_beginresetmodel_callback = nullptr;
-    KSelectionProxyModel_EndResetModel_Callback kselectionproxymodel_endresetmodel_callback = nullptr;
-    KSelectionProxyModel_ChangePersistentIndex_Callback kselectionproxymodel_changepersistentindex_callback = nullptr;
-    KSelectionProxyModel_ChangePersistentIndexList_Callback kselectionproxymodel_changepersistentindexlist_callback = nullptr;
-    KSelectionProxyModel_PersistentIndexList_Callback kselectionproxymodel_persistentindexlist_callback = nullptr;
-    KSelectionProxyModel_Sender_Callback kselectionproxymodel_sender_callback = nullptr;
-    KSelectionProxyModel_SenderSignalIndex_Callback kselectionproxymodel_sendersignalindex_callback = nullptr;
-    KSelectionProxyModel_Receivers_Callback kselectionproxymodel_receivers_callback = nullptr;
-    KSelectionProxyModel_IsSignalConnected_Callback kselectionproxymodel_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kselectionproxymodel_metaobject_isbase = false;
-    mutable bool kselectionproxymodel_metacast_isbase = false;
-    mutable bool kselectionproxymodel_metacall_isbase = false;
-    mutable bool kselectionproxymodel_setsourcemodel_isbase = false;
-    mutable bool kselectionproxymodel_mapfromsource_isbase = false;
-    mutable bool kselectionproxymodel_maptosource_isbase = false;
-    mutable bool kselectionproxymodel_mapselectionfromsource_isbase = false;
-    mutable bool kselectionproxymodel_mapselectiontosource_isbase = false;
-    mutable bool kselectionproxymodel_flags_isbase = false;
-    mutable bool kselectionproxymodel_data_isbase = false;
-    mutable bool kselectionproxymodel_rowcount_isbase = false;
-    mutable bool kselectionproxymodel_headerdata_isbase = false;
-    mutable bool kselectionproxymodel_mimedata_isbase = false;
-    mutable bool kselectionproxymodel_mimetypes_isbase = false;
-    mutable bool kselectionproxymodel_supporteddropactions_isbase = false;
-    mutable bool kselectionproxymodel_dropmimedata_isbase = false;
-    mutable bool kselectionproxymodel_haschildren_isbase = false;
-    mutable bool kselectionproxymodel_index_isbase = false;
-    mutable bool kselectionproxymodel_parent_isbase = false;
-    mutable bool kselectionproxymodel_columncount_isbase = false;
-    mutable bool kselectionproxymodel_match_isbase = false;
-    mutable bool kselectionproxymodel_submit_isbase = false;
-    mutable bool kselectionproxymodel_revert_isbase = false;
-    mutable bool kselectionproxymodel_itemdata_isbase = false;
-    mutable bool kselectionproxymodel_setdata_isbase = false;
-    mutable bool kselectionproxymodel_setitemdata_isbase = false;
-    mutable bool kselectionproxymodel_setheaderdata_isbase = false;
-    mutable bool kselectionproxymodel_clearitemdata_isbase = false;
-    mutable bool kselectionproxymodel_buddy_isbase = false;
-    mutable bool kselectionproxymodel_canfetchmore_isbase = false;
-    mutable bool kselectionproxymodel_fetchmore_isbase = false;
-    mutable bool kselectionproxymodel_sort_isbase = false;
-    mutable bool kselectionproxymodel_span_isbase = false;
-    mutable bool kselectionproxymodel_sibling_isbase = false;
-    mutable bool kselectionproxymodel_candropmimedata_isbase = false;
-    mutable bool kselectionproxymodel_supporteddragactions_isbase = false;
-    mutable bool kselectionproxymodel_rolenames_isbase = false;
-    mutable bool kselectionproxymodel_insertrows_isbase = false;
-    mutable bool kselectionproxymodel_insertcolumns_isbase = false;
-    mutable bool kselectionproxymodel_removerows_isbase = false;
-    mutable bool kselectionproxymodel_removecolumns_isbase = false;
-    mutable bool kselectionproxymodel_moverows_isbase = false;
-    mutable bool kselectionproxymodel_movecolumns_isbase = false;
-    mutable bool kselectionproxymodel_multidata_isbase = false;
-    mutable bool kselectionproxymodel_resetinternaldata_isbase = false;
-    mutable bool kselectionproxymodel_event_isbase = false;
-    mutable bool kselectionproxymodel_eventfilter_isbase = false;
-    mutable bool kselectionproxymodel_timerevent_isbase = false;
-    mutable bool kselectionproxymodel_childevent_isbase = false;
-    mutable bool kselectionproxymodel_customevent_isbase = false;
-    mutable bool kselectionproxymodel_connectnotify_isbase = false;
-    mutable bool kselectionproxymodel_disconnectnotify_isbase = false;
-    mutable bool kselectionproxymodel_sourcerootindexes_isbase = false;
-    mutable bool kselectionproxymodel_createsourceindex_isbase = false;
-    mutable bool kselectionproxymodel_createindex_isbase = false;
-    mutable bool kselectionproxymodel_encodedata_isbase = false;
-    mutable bool kselectionproxymodel_decodedata_isbase = false;
-    mutable bool kselectionproxymodel_begininsertrows_isbase = false;
-    mutable bool kselectionproxymodel_endinsertrows_isbase = false;
-    mutable bool kselectionproxymodel_beginremoverows_isbase = false;
-    mutable bool kselectionproxymodel_endremoverows_isbase = false;
-    mutable bool kselectionproxymodel_beginmoverows_isbase = false;
-    mutable bool kselectionproxymodel_endmoverows_isbase = false;
-    mutable bool kselectionproxymodel_begininsertcolumns_isbase = false;
-    mutable bool kselectionproxymodel_endinsertcolumns_isbase = false;
-    mutable bool kselectionproxymodel_beginremovecolumns_isbase = false;
-    mutable bool kselectionproxymodel_endremovecolumns_isbase = false;
-    mutable bool kselectionproxymodel_beginmovecolumns_isbase = false;
-    mutable bool kselectionproxymodel_endmovecolumns_isbase = false;
-    mutable bool kselectionproxymodel_beginresetmodel_isbase = false;
-    mutable bool kselectionproxymodel_endresetmodel_isbase = false;
-    mutable bool kselectionproxymodel_changepersistentindex_isbase = false;
-    mutable bool kselectionproxymodel_changepersistentindexlist_isbase = false;
-    mutable bool kselectionproxymodel_persistentindexlist_isbase = false;
-    mutable bool kselectionproxymodel_sender_isbase = false;
-    mutable bool kselectionproxymodel_sendersignalindex_isbase = false;
-    mutable bool kselectionproxymodel_receivers_isbase = false;
-    mutable bool kselectionproxymodel_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KSelectionProxyModel {
+        using KSelectionProxyModel::childEvent;
+        using KSelectionProxyModel::connectNotify;
+        using KSelectionProxyModel::customEvent;
+        using KSelectionProxyModel::disconnectNotify;
+        using KSelectionProxyModel::resetInternalData;
+        using KSelectionProxyModel::timerEvent;
+    };
 
-  public:
     VirtualKSelectionProxyModel(QItemSelectionModel* selectionModel) : KSelectionProxyModel(selectionModel) {};
     VirtualKSelectionProxyModel() : KSelectionProxyModel() {};
     VirtualKSelectionProxyModel(QItemSelectionModel* selectionModel, QObject* parent) : KSelectionProxyModel(selectionModel, parent) {};
 
-    // Callback setters
-    inline void setKSelectionProxyModel_MetaObject_Callback(KSelectionProxyModel_MetaObject_Callback cb) { kselectionproxymodel_metaobject_callback = cb; }
-    inline void setKSelectionProxyModel_Metacast_Callback(KSelectionProxyModel_Metacast_Callback cb) { kselectionproxymodel_metacast_callback = cb; }
-    inline void setKSelectionProxyModel_Metacall_Callback(KSelectionProxyModel_Metacall_Callback cb) { kselectionproxymodel_metacall_callback = cb; }
-    inline void setKSelectionProxyModel_SetSourceModel_Callback(KSelectionProxyModel_SetSourceModel_Callback cb) { kselectionproxymodel_setsourcemodel_callback = cb; }
-    inline void setKSelectionProxyModel_MapFromSource_Callback(KSelectionProxyModel_MapFromSource_Callback cb) { kselectionproxymodel_mapfromsource_callback = cb; }
-    inline void setKSelectionProxyModel_MapToSource_Callback(KSelectionProxyModel_MapToSource_Callback cb) { kselectionproxymodel_maptosource_callback = cb; }
-    inline void setKSelectionProxyModel_MapSelectionFromSource_Callback(KSelectionProxyModel_MapSelectionFromSource_Callback cb) { kselectionproxymodel_mapselectionfromsource_callback = cb; }
-    inline void setKSelectionProxyModel_MapSelectionToSource_Callback(KSelectionProxyModel_MapSelectionToSource_Callback cb) { kselectionproxymodel_mapselectiontosource_callback = cb; }
-    inline void setKSelectionProxyModel_Flags_Callback(KSelectionProxyModel_Flags_Callback cb) { kselectionproxymodel_flags_callback = cb; }
-    inline void setKSelectionProxyModel_Data_Callback(KSelectionProxyModel_Data_Callback cb) { kselectionproxymodel_data_callback = cb; }
-    inline void setKSelectionProxyModel_RowCount_Callback(KSelectionProxyModel_RowCount_Callback cb) { kselectionproxymodel_rowcount_callback = cb; }
-    inline void setKSelectionProxyModel_HeaderData_Callback(KSelectionProxyModel_HeaderData_Callback cb) { kselectionproxymodel_headerdata_callback = cb; }
-    inline void setKSelectionProxyModel_MimeData_Callback(KSelectionProxyModel_MimeData_Callback cb) { kselectionproxymodel_mimedata_callback = cb; }
-    inline void setKSelectionProxyModel_MimeTypes_Callback(KSelectionProxyModel_MimeTypes_Callback cb) { kselectionproxymodel_mimetypes_callback = cb; }
-    inline void setKSelectionProxyModel_SupportedDropActions_Callback(KSelectionProxyModel_SupportedDropActions_Callback cb) { kselectionproxymodel_supporteddropactions_callback = cb; }
-    inline void setKSelectionProxyModel_DropMimeData_Callback(KSelectionProxyModel_DropMimeData_Callback cb) { kselectionproxymodel_dropmimedata_callback = cb; }
-    inline void setKSelectionProxyModel_HasChildren_Callback(KSelectionProxyModel_HasChildren_Callback cb) { kselectionproxymodel_haschildren_callback = cb; }
-    inline void setKSelectionProxyModel_Index_Callback(KSelectionProxyModel_Index_Callback cb) { kselectionproxymodel_index_callback = cb; }
-    inline void setKSelectionProxyModel_Parent_Callback(KSelectionProxyModel_Parent_Callback cb) { kselectionproxymodel_parent_callback = cb; }
-    inline void setKSelectionProxyModel_ColumnCount_Callback(KSelectionProxyModel_ColumnCount_Callback cb) { kselectionproxymodel_columncount_callback = cb; }
-    inline void setKSelectionProxyModel_Match_Callback(KSelectionProxyModel_Match_Callback cb) { kselectionproxymodel_match_callback = cb; }
-    inline void setKSelectionProxyModel_Submit_Callback(KSelectionProxyModel_Submit_Callback cb) { kselectionproxymodel_submit_callback = cb; }
-    inline void setKSelectionProxyModel_Revert_Callback(KSelectionProxyModel_Revert_Callback cb) { kselectionproxymodel_revert_callback = cb; }
-    inline void setKSelectionProxyModel_ItemData_Callback(KSelectionProxyModel_ItemData_Callback cb) { kselectionproxymodel_itemdata_callback = cb; }
-    inline void setKSelectionProxyModel_SetData_Callback(KSelectionProxyModel_SetData_Callback cb) { kselectionproxymodel_setdata_callback = cb; }
-    inline void setKSelectionProxyModel_SetItemData_Callback(KSelectionProxyModel_SetItemData_Callback cb) { kselectionproxymodel_setitemdata_callback = cb; }
-    inline void setKSelectionProxyModel_SetHeaderData_Callback(KSelectionProxyModel_SetHeaderData_Callback cb) { kselectionproxymodel_setheaderdata_callback = cb; }
-    inline void setKSelectionProxyModel_ClearItemData_Callback(KSelectionProxyModel_ClearItemData_Callback cb) { kselectionproxymodel_clearitemdata_callback = cb; }
-    inline void setKSelectionProxyModel_Buddy_Callback(KSelectionProxyModel_Buddy_Callback cb) { kselectionproxymodel_buddy_callback = cb; }
-    inline void setKSelectionProxyModel_CanFetchMore_Callback(KSelectionProxyModel_CanFetchMore_Callback cb) { kselectionproxymodel_canfetchmore_callback = cb; }
-    inline void setKSelectionProxyModel_FetchMore_Callback(KSelectionProxyModel_FetchMore_Callback cb) { kselectionproxymodel_fetchmore_callback = cb; }
-    inline void setKSelectionProxyModel_Sort_Callback(KSelectionProxyModel_Sort_Callback cb) { kselectionproxymodel_sort_callback = cb; }
-    inline void setKSelectionProxyModel_Span_Callback(KSelectionProxyModel_Span_Callback cb) { kselectionproxymodel_span_callback = cb; }
-    inline void setKSelectionProxyModel_Sibling_Callback(KSelectionProxyModel_Sibling_Callback cb) { kselectionproxymodel_sibling_callback = cb; }
-    inline void setKSelectionProxyModel_CanDropMimeData_Callback(KSelectionProxyModel_CanDropMimeData_Callback cb) { kselectionproxymodel_candropmimedata_callback = cb; }
-    inline void setKSelectionProxyModel_SupportedDragActions_Callback(KSelectionProxyModel_SupportedDragActions_Callback cb) { kselectionproxymodel_supporteddragactions_callback = cb; }
-    inline void setKSelectionProxyModel_RoleNames_Callback(KSelectionProxyModel_RoleNames_Callback cb) { kselectionproxymodel_rolenames_callback = cb; }
-    inline void setKSelectionProxyModel_InsertRows_Callback(KSelectionProxyModel_InsertRows_Callback cb) { kselectionproxymodel_insertrows_callback = cb; }
-    inline void setKSelectionProxyModel_InsertColumns_Callback(KSelectionProxyModel_InsertColumns_Callback cb) { kselectionproxymodel_insertcolumns_callback = cb; }
-    inline void setKSelectionProxyModel_RemoveRows_Callback(KSelectionProxyModel_RemoveRows_Callback cb) { kselectionproxymodel_removerows_callback = cb; }
-    inline void setKSelectionProxyModel_RemoveColumns_Callback(KSelectionProxyModel_RemoveColumns_Callback cb) { kselectionproxymodel_removecolumns_callback = cb; }
-    inline void setKSelectionProxyModel_MoveRows_Callback(KSelectionProxyModel_MoveRows_Callback cb) { kselectionproxymodel_moverows_callback = cb; }
-    inline void setKSelectionProxyModel_MoveColumns_Callback(KSelectionProxyModel_MoveColumns_Callback cb) { kselectionproxymodel_movecolumns_callback = cb; }
-    inline void setKSelectionProxyModel_MultiData_Callback(KSelectionProxyModel_MultiData_Callback cb) { kselectionproxymodel_multidata_callback = cb; }
-    inline void setKSelectionProxyModel_ResetInternalData_Callback(KSelectionProxyModel_ResetInternalData_Callback cb) { kselectionproxymodel_resetinternaldata_callback = cb; }
-    inline void setKSelectionProxyModel_Event_Callback(KSelectionProxyModel_Event_Callback cb) { kselectionproxymodel_event_callback = cb; }
-    inline void setKSelectionProxyModel_EventFilter_Callback(KSelectionProxyModel_EventFilter_Callback cb) { kselectionproxymodel_eventfilter_callback = cb; }
-    inline void setKSelectionProxyModel_TimerEvent_Callback(KSelectionProxyModel_TimerEvent_Callback cb) { kselectionproxymodel_timerevent_callback = cb; }
-    inline void setKSelectionProxyModel_ChildEvent_Callback(KSelectionProxyModel_ChildEvent_Callback cb) { kselectionproxymodel_childevent_callback = cb; }
-    inline void setKSelectionProxyModel_CustomEvent_Callback(KSelectionProxyModel_CustomEvent_Callback cb) { kselectionproxymodel_customevent_callback = cb; }
-    inline void setKSelectionProxyModel_ConnectNotify_Callback(KSelectionProxyModel_ConnectNotify_Callback cb) { kselectionproxymodel_connectnotify_callback = cb; }
-    inline void setKSelectionProxyModel_DisconnectNotify_Callback(KSelectionProxyModel_DisconnectNotify_Callback cb) { kselectionproxymodel_disconnectnotify_callback = cb; }
-    inline void setKSelectionProxyModel_SourceRootIndexes_Callback(KSelectionProxyModel_SourceRootIndexes_Callback cb) { kselectionproxymodel_sourcerootindexes_callback = cb; }
-    inline void setKSelectionProxyModel_CreateSourceIndex_Callback(KSelectionProxyModel_CreateSourceIndex_Callback cb) { kselectionproxymodel_createsourceindex_callback = cb; }
-    inline void setKSelectionProxyModel_CreateIndex_Callback(KSelectionProxyModel_CreateIndex_Callback cb) { kselectionproxymodel_createindex_callback = cb; }
-    inline void setKSelectionProxyModel_EncodeData_Callback(KSelectionProxyModel_EncodeData_Callback cb) { kselectionproxymodel_encodedata_callback = cb; }
-    inline void setKSelectionProxyModel_DecodeData_Callback(KSelectionProxyModel_DecodeData_Callback cb) { kselectionproxymodel_decodedata_callback = cb; }
-    inline void setKSelectionProxyModel_BeginInsertRows_Callback(KSelectionProxyModel_BeginInsertRows_Callback cb) { kselectionproxymodel_begininsertrows_callback = cb; }
-    inline void setKSelectionProxyModel_EndInsertRows_Callback(KSelectionProxyModel_EndInsertRows_Callback cb) { kselectionproxymodel_endinsertrows_callback = cb; }
-    inline void setKSelectionProxyModel_BeginRemoveRows_Callback(KSelectionProxyModel_BeginRemoveRows_Callback cb) { kselectionproxymodel_beginremoverows_callback = cb; }
-    inline void setKSelectionProxyModel_EndRemoveRows_Callback(KSelectionProxyModel_EndRemoveRows_Callback cb) { kselectionproxymodel_endremoverows_callback = cb; }
-    inline void setKSelectionProxyModel_BeginMoveRows_Callback(KSelectionProxyModel_BeginMoveRows_Callback cb) { kselectionproxymodel_beginmoverows_callback = cb; }
-    inline void setKSelectionProxyModel_EndMoveRows_Callback(KSelectionProxyModel_EndMoveRows_Callback cb) { kselectionproxymodel_endmoverows_callback = cb; }
-    inline void setKSelectionProxyModel_BeginInsertColumns_Callback(KSelectionProxyModel_BeginInsertColumns_Callback cb) { kselectionproxymodel_begininsertcolumns_callback = cb; }
-    inline void setKSelectionProxyModel_EndInsertColumns_Callback(KSelectionProxyModel_EndInsertColumns_Callback cb) { kselectionproxymodel_endinsertcolumns_callback = cb; }
-    inline void setKSelectionProxyModel_BeginRemoveColumns_Callback(KSelectionProxyModel_BeginRemoveColumns_Callback cb) { kselectionproxymodel_beginremovecolumns_callback = cb; }
-    inline void setKSelectionProxyModel_EndRemoveColumns_Callback(KSelectionProxyModel_EndRemoveColumns_Callback cb) { kselectionproxymodel_endremovecolumns_callback = cb; }
-    inline void setKSelectionProxyModel_BeginMoveColumns_Callback(KSelectionProxyModel_BeginMoveColumns_Callback cb) { kselectionproxymodel_beginmovecolumns_callback = cb; }
-    inline void setKSelectionProxyModel_EndMoveColumns_Callback(KSelectionProxyModel_EndMoveColumns_Callback cb) { kselectionproxymodel_endmovecolumns_callback = cb; }
-    inline void setKSelectionProxyModel_BeginResetModel_Callback(KSelectionProxyModel_BeginResetModel_Callback cb) { kselectionproxymodel_beginresetmodel_callback = cb; }
-    inline void setKSelectionProxyModel_EndResetModel_Callback(KSelectionProxyModel_EndResetModel_Callback cb) { kselectionproxymodel_endresetmodel_callback = cb; }
-    inline void setKSelectionProxyModel_ChangePersistentIndex_Callback(KSelectionProxyModel_ChangePersistentIndex_Callback cb) { kselectionproxymodel_changepersistentindex_callback = cb; }
-    inline void setKSelectionProxyModel_ChangePersistentIndexList_Callback(KSelectionProxyModel_ChangePersistentIndexList_Callback cb) { kselectionproxymodel_changepersistentindexlist_callback = cb; }
-    inline void setKSelectionProxyModel_PersistentIndexList_Callback(KSelectionProxyModel_PersistentIndexList_Callback cb) { kselectionproxymodel_persistentindexlist_callback = cb; }
-    inline void setKSelectionProxyModel_Sender_Callback(KSelectionProxyModel_Sender_Callback cb) { kselectionproxymodel_sender_callback = cb; }
-    inline void setKSelectionProxyModel_SenderSignalIndex_Callback(KSelectionProxyModel_SenderSignalIndex_Callback cb) { kselectionproxymodel_sendersignalindex_callback = cb; }
-    inline void setKSelectionProxyModel_Receivers_Callback(KSelectionProxyModel_Receivers_Callback cb) { kselectionproxymodel_receivers_callback = cb; }
-    inline void setKSelectionProxyModel_IsSignalConnected_Callback(KSelectionProxyModel_IsSignalConnected_Callback cb) { kselectionproxymodel_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKSelectionProxyModel_MetaObject_IsBase(bool value) const { kselectionproxymodel_metaobject_isbase = value; }
-    inline void setKSelectionProxyModel_Metacast_IsBase(bool value) const { kselectionproxymodel_metacast_isbase = value; }
-    inline void setKSelectionProxyModel_Metacall_IsBase(bool value) const { kselectionproxymodel_metacall_isbase = value; }
-    inline void setKSelectionProxyModel_SetSourceModel_IsBase(bool value) const { kselectionproxymodel_setsourcemodel_isbase = value; }
-    inline void setKSelectionProxyModel_MapFromSource_IsBase(bool value) const { kselectionproxymodel_mapfromsource_isbase = value; }
-    inline void setKSelectionProxyModel_MapToSource_IsBase(bool value) const { kselectionproxymodel_maptosource_isbase = value; }
-    inline void setKSelectionProxyModel_MapSelectionFromSource_IsBase(bool value) const { kselectionproxymodel_mapselectionfromsource_isbase = value; }
-    inline void setKSelectionProxyModel_MapSelectionToSource_IsBase(bool value) const { kselectionproxymodel_mapselectiontosource_isbase = value; }
-    inline void setKSelectionProxyModel_Flags_IsBase(bool value) const { kselectionproxymodel_flags_isbase = value; }
-    inline void setKSelectionProxyModel_Data_IsBase(bool value) const { kselectionproxymodel_data_isbase = value; }
-    inline void setKSelectionProxyModel_RowCount_IsBase(bool value) const { kselectionproxymodel_rowcount_isbase = value; }
-    inline void setKSelectionProxyModel_HeaderData_IsBase(bool value) const { kselectionproxymodel_headerdata_isbase = value; }
-    inline void setKSelectionProxyModel_MimeData_IsBase(bool value) const { kselectionproxymodel_mimedata_isbase = value; }
-    inline void setKSelectionProxyModel_MimeTypes_IsBase(bool value) const { kselectionproxymodel_mimetypes_isbase = value; }
-    inline void setKSelectionProxyModel_SupportedDropActions_IsBase(bool value) const { kselectionproxymodel_supporteddropactions_isbase = value; }
-    inline void setKSelectionProxyModel_DropMimeData_IsBase(bool value) const { kselectionproxymodel_dropmimedata_isbase = value; }
-    inline void setKSelectionProxyModel_HasChildren_IsBase(bool value) const { kselectionproxymodel_haschildren_isbase = value; }
-    inline void setKSelectionProxyModel_Index_IsBase(bool value) const { kselectionproxymodel_index_isbase = value; }
-    inline void setKSelectionProxyModel_Parent_IsBase(bool value) const { kselectionproxymodel_parent_isbase = value; }
-    inline void setKSelectionProxyModel_ColumnCount_IsBase(bool value) const { kselectionproxymodel_columncount_isbase = value; }
-    inline void setKSelectionProxyModel_Match_IsBase(bool value) const { kselectionproxymodel_match_isbase = value; }
-    inline void setKSelectionProxyModel_Submit_IsBase(bool value) const { kselectionproxymodel_submit_isbase = value; }
-    inline void setKSelectionProxyModel_Revert_IsBase(bool value) const { kselectionproxymodel_revert_isbase = value; }
-    inline void setKSelectionProxyModel_ItemData_IsBase(bool value) const { kselectionproxymodel_itemdata_isbase = value; }
-    inline void setKSelectionProxyModel_SetData_IsBase(bool value) const { kselectionproxymodel_setdata_isbase = value; }
-    inline void setKSelectionProxyModel_SetItemData_IsBase(bool value) const { kselectionproxymodel_setitemdata_isbase = value; }
-    inline void setKSelectionProxyModel_SetHeaderData_IsBase(bool value) const { kselectionproxymodel_setheaderdata_isbase = value; }
-    inline void setKSelectionProxyModel_ClearItemData_IsBase(bool value) const { kselectionproxymodel_clearitemdata_isbase = value; }
-    inline void setKSelectionProxyModel_Buddy_IsBase(bool value) const { kselectionproxymodel_buddy_isbase = value; }
-    inline void setKSelectionProxyModel_CanFetchMore_IsBase(bool value) const { kselectionproxymodel_canfetchmore_isbase = value; }
-    inline void setKSelectionProxyModel_FetchMore_IsBase(bool value) const { kselectionproxymodel_fetchmore_isbase = value; }
-    inline void setKSelectionProxyModel_Sort_IsBase(bool value) const { kselectionproxymodel_sort_isbase = value; }
-    inline void setKSelectionProxyModel_Span_IsBase(bool value) const { kselectionproxymodel_span_isbase = value; }
-    inline void setKSelectionProxyModel_Sibling_IsBase(bool value) const { kselectionproxymodel_sibling_isbase = value; }
-    inline void setKSelectionProxyModel_CanDropMimeData_IsBase(bool value) const { kselectionproxymodel_candropmimedata_isbase = value; }
-    inline void setKSelectionProxyModel_SupportedDragActions_IsBase(bool value) const { kselectionproxymodel_supporteddragactions_isbase = value; }
-    inline void setKSelectionProxyModel_RoleNames_IsBase(bool value) const { kselectionproxymodel_rolenames_isbase = value; }
-    inline void setKSelectionProxyModel_InsertRows_IsBase(bool value) const { kselectionproxymodel_insertrows_isbase = value; }
-    inline void setKSelectionProxyModel_InsertColumns_IsBase(bool value) const { kselectionproxymodel_insertcolumns_isbase = value; }
-    inline void setKSelectionProxyModel_RemoveRows_IsBase(bool value) const { kselectionproxymodel_removerows_isbase = value; }
-    inline void setKSelectionProxyModel_RemoveColumns_IsBase(bool value) const { kselectionproxymodel_removecolumns_isbase = value; }
-    inline void setKSelectionProxyModel_MoveRows_IsBase(bool value) const { kselectionproxymodel_moverows_isbase = value; }
-    inline void setKSelectionProxyModel_MoveColumns_IsBase(bool value) const { kselectionproxymodel_movecolumns_isbase = value; }
-    inline void setKSelectionProxyModel_MultiData_IsBase(bool value) const { kselectionproxymodel_multidata_isbase = value; }
-    inline void setKSelectionProxyModel_ResetInternalData_IsBase(bool value) const { kselectionproxymodel_resetinternaldata_isbase = value; }
-    inline void setKSelectionProxyModel_Event_IsBase(bool value) const { kselectionproxymodel_event_isbase = value; }
-    inline void setKSelectionProxyModel_EventFilter_IsBase(bool value) const { kselectionproxymodel_eventfilter_isbase = value; }
-    inline void setKSelectionProxyModel_TimerEvent_IsBase(bool value) const { kselectionproxymodel_timerevent_isbase = value; }
-    inline void setKSelectionProxyModel_ChildEvent_IsBase(bool value) const { kselectionproxymodel_childevent_isbase = value; }
-    inline void setKSelectionProxyModel_CustomEvent_IsBase(bool value) const { kselectionproxymodel_customevent_isbase = value; }
-    inline void setKSelectionProxyModel_ConnectNotify_IsBase(bool value) const { kselectionproxymodel_connectnotify_isbase = value; }
-    inline void setKSelectionProxyModel_DisconnectNotify_IsBase(bool value) const { kselectionproxymodel_disconnectnotify_isbase = value; }
-    inline void setKSelectionProxyModel_SourceRootIndexes_IsBase(bool value) const { kselectionproxymodel_sourcerootindexes_isbase = value; }
-    inline void setKSelectionProxyModel_CreateSourceIndex_IsBase(bool value) const { kselectionproxymodel_createsourceindex_isbase = value; }
-    inline void setKSelectionProxyModel_CreateIndex_IsBase(bool value) const { kselectionproxymodel_createindex_isbase = value; }
-    inline void setKSelectionProxyModel_EncodeData_IsBase(bool value) const { kselectionproxymodel_encodedata_isbase = value; }
-    inline void setKSelectionProxyModel_DecodeData_IsBase(bool value) const { kselectionproxymodel_decodedata_isbase = value; }
-    inline void setKSelectionProxyModel_BeginInsertRows_IsBase(bool value) const { kselectionproxymodel_begininsertrows_isbase = value; }
-    inline void setKSelectionProxyModel_EndInsertRows_IsBase(bool value) const { kselectionproxymodel_endinsertrows_isbase = value; }
-    inline void setKSelectionProxyModel_BeginRemoveRows_IsBase(bool value) const { kselectionproxymodel_beginremoverows_isbase = value; }
-    inline void setKSelectionProxyModel_EndRemoveRows_IsBase(bool value) const { kselectionproxymodel_endremoverows_isbase = value; }
-    inline void setKSelectionProxyModel_BeginMoveRows_IsBase(bool value) const { kselectionproxymodel_beginmoverows_isbase = value; }
-    inline void setKSelectionProxyModel_EndMoveRows_IsBase(bool value) const { kselectionproxymodel_endmoverows_isbase = value; }
-    inline void setKSelectionProxyModel_BeginInsertColumns_IsBase(bool value) const { kselectionproxymodel_begininsertcolumns_isbase = value; }
-    inline void setKSelectionProxyModel_EndInsertColumns_IsBase(bool value) const { kselectionproxymodel_endinsertcolumns_isbase = value; }
-    inline void setKSelectionProxyModel_BeginRemoveColumns_IsBase(bool value) const { kselectionproxymodel_beginremovecolumns_isbase = value; }
-    inline void setKSelectionProxyModel_EndRemoveColumns_IsBase(bool value) const { kselectionproxymodel_endremovecolumns_isbase = value; }
-    inline void setKSelectionProxyModel_BeginMoveColumns_IsBase(bool value) const { kselectionproxymodel_beginmovecolumns_isbase = value; }
-    inline void setKSelectionProxyModel_EndMoveColumns_IsBase(bool value) const { kselectionproxymodel_endmovecolumns_isbase = value; }
-    inline void setKSelectionProxyModel_BeginResetModel_IsBase(bool value) const { kselectionproxymodel_beginresetmodel_isbase = value; }
-    inline void setKSelectionProxyModel_EndResetModel_IsBase(bool value) const { kselectionproxymodel_endresetmodel_isbase = value; }
-    inline void setKSelectionProxyModel_ChangePersistentIndex_IsBase(bool value) const { kselectionproxymodel_changepersistentindex_isbase = value; }
-    inline void setKSelectionProxyModel_ChangePersistentIndexList_IsBase(bool value) const { kselectionproxymodel_changepersistentindexlist_isbase = value; }
-    inline void setKSelectionProxyModel_PersistentIndexList_IsBase(bool value) const { kselectionproxymodel_persistentindexlist_isbase = value; }
-    inline void setKSelectionProxyModel_Sender_IsBase(bool value) const { kselectionproxymodel_sender_isbase = value; }
-    inline void setKSelectionProxyModel_SenderSignalIndex_IsBase(bool value) const { kselectionproxymodel_sendersignalindex_isbase = value; }
-    inline void setKSelectionProxyModel_Receivers_IsBase(bool value) const { kselectionproxymodel_receivers_isbase = value; }
-    inline void setKSelectionProxyModel_IsSignalConnected_IsBase(bool value) const { kselectionproxymodel_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kselectionproxymodel_metaobject_isbase) {
-            kselectionproxymodel_metaobject_isbase = false;
-            return KSelectionProxyModel::metaObject();
-        }
-        auto metaobject_cb = kselectionproxymodel_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kselectionproxymodel_metaobject_callback) {
+            QMetaObject* callback_ret = kselectionproxymodel_metaobject_callback(this);
             return callback_ret;
         }
         return KSelectionProxyModel::metaObject();
@@ -438,14 +171,9 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kselectionproxymodel_metacast_isbase) {
-            kselectionproxymodel_metacast_isbase = false;
-            return KSelectionProxyModel::qt_metacast(param1);
-        }
-        auto metacast_cb = kselectionproxymodel_metacast_callback;
-        if (metacast_cb) {
+        if (kselectionproxymodel_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kselectionproxymodel_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KSelectionProxyModel::qt_metacast(param1);
@@ -453,16 +181,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kselectionproxymodel_metacall_isbase) {
-            kselectionproxymodel_metacall_isbase = false;
-            return KSelectionProxyModel::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kselectionproxymodel_metacall_callback;
-        if (metacall_cb) {
+        if (kselectionproxymodel_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kselectionproxymodel_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KSelectionProxyModel::qt_metacall(param1, param2, param3);
@@ -470,15 +193,9 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void setSourceModel(QAbstractItemModel* sourceModel) override {
-        if (kselectionproxymodel_setsourcemodel_isbase) {
-            kselectionproxymodel_setsourcemodel_isbase = false;
-            KSelectionProxyModel::setSourceModel(sourceModel);
-            return;
-        }
-        auto setsourcemodel_cb = kselectionproxymodel_setsourcemodel_callback;
-        if (setsourcemodel_cb) {
+        if (kselectionproxymodel_setsourcemodel_callback) {
             QAbstractItemModel* cbval1 = sourceModel;
-            setsourcemodel_cb(this, cbval1);
+            kselectionproxymodel_setsourcemodel_callback(this, cbval1);
             return;
         }
         KSelectionProxyModel::setSourceModel(sourceModel);
@@ -486,16 +203,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex mapFromSource(const QModelIndex& sourceIndex) const override {
-        if (kselectionproxymodel_mapfromsource_isbase) {
-            kselectionproxymodel_mapfromsource_isbase = false;
-            return KSelectionProxyModel::mapFromSource(sourceIndex);
-        }
-        auto mapfromsource_cb = kselectionproxymodel_mapfromsource_callback;
-        if (mapfromsource_cb) {
+        if (kselectionproxymodel_mapfromsource_callback) {
             const QModelIndex& sourceIndex_ret = sourceIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceIndex_ret);
-            QModelIndex* callback_ret = mapfromsource_cb(this, cbval1);
+            QModelIndex* callback_ret = kselectionproxymodel_mapfromsource_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -505,16 +217,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex mapToSource(const QModelIndex& proxyIndex) const override {
-        if (kselectionproxymodel_maptosource_isbase) {
-            kselectionproxymodel_maptosource_isbase = false;
-            return KSelectionProxyModel::mapToSource(proxyIndex);
-        }
-        auto maptosource_cb = kselectionproxymodel_maptosource_callback;
-        if (maptosource_cb) {
+        if (kselectionproxymodel_maptosource_callback) {
             const QModelIndex& proxyIndex_ret = proxyIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
-            QModelIndex* callback_ret = maptosource_cb(this, cbval1);
+            QModelIndex* callback_ret = kselectionproxymodel_maptosource_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -524,16 +231,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QItemSelection mapSelectionFromSource(const QItemSelection& selection) const override {
-        if (kselectionproxymodel_mapselectionfromsource_isbase) {
-            kselectionproxymodel_mapselectionfromsource_isbase = false;
-            return KSelectionProxyModel::mapSelectionFromSource(selection);
-        }
-        auto mapselectionfromsource_cb = kselectionproxymodel_mapselectionfromsource_callback;
-        if (mapselectionfromsource_cb) {
+        if (kselectionproxymodel_mapselectionfromsource_callback) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-            QItemSelection* callback_ret = mapselectionfromsource_cb(this, cbval1);
+            QItemSelection* callback_ret = kselectionproxymodel_mapselectionfromsource_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -543,16 +245,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QItemSelection mapSelectionToSource(const QItemSelection& selection) const override {
-        if (kselectionproxymodel_mapselectiontosource_isbase) {
-            kselectionproxymodel_mapselectiontosource_isbase = false;
-            return KSelectionProxyModel::mapSelectionToSource(selection);
-        }
-        auto mapselectiontosource_cb = kselectionproxymodel_mapselectiontosource_callback;
-        if (mapselectiontosource_cb) {
+        if (kselectionproxymodel_mapselectiontosource_callback) {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-            QItemSelection* callback_ret = mapselectiontosource_cb(this, cbval1);
+            QItemSelection* callback_ret = kselectionproxymodel_mapselectiontosource_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -562,16 +259,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual Qt::ItemFlags flags(const QModelIndex& index) const override {
-        if (kselectionproxymodel_flags_isbase) {
-            kselectionproxymodel_flags_isbase = false;
-            return KSelectionProxyModel::flags(index);
-        }
-        auto flags_cb = kselectionproxymodel_flags_callback;
-        if (flags_cb) {
+        if (kselectionproxymodel_flags_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            int callback_ret = flags_cb(this, cbval1);
+            int callback_ret = kselectionproxymodel_flags_callback(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
         }
         return KSelectionProxyModel::flags(index);
@@ -579,17 +271,12 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant data(const QModelIndex& index, int role) const override {
-        if (kselectionproxymodel_data_isbase) {
-            kselectionproxymodel_data_isbase = false;
-            return KSelectionProxyModel::data(index, role);
-        }
-        auto data_cb = kselectionproxymodel_data_callback;
-        if (data_cb) {
+        if (kselectionproxymodel_data_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
-            QVariant* callback_ret = data_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = kselectionproxymodel_data_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -599,16 +286,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual int rowCount(const QModelIndex& parent) const override {
-        if (kselectionproxymodel_rowcount_isbase) {
-            kselectionproxymodel_rowcount_isbase = false;
-            return KSelectionProxyModel::rowCount(parent);
-        }
-        auto rowcount_cb = kselectionproxymodel_rowcount_callback;
-        if (rowcount_cb) {
+        if (kselectionproxymodel_rowcount_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int callback_ret = rowcount_cb(this, cbval1);
+            int callback_ret = kselectionproxymodel_rowcount_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KSelectionProxyModel::rowCount(parent);
@@ -616,16 +298,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override {
-        if (kselectionproxymodel_headerdata_isbase) {
-            kselectionproxymodel_headerdata_isbase = false;
-            return KSelectionProxyModel::headerData(section, orientation, role);
-        }
-        auto headerdata_cb = kselectionproxymodel_headerdata_callback;
-        if (headerdata_cb) {
+        if (kselectionproxymodel_headerdata_callback) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
-            QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
+            QVariant* callback_ret = kselectionproxymodel_headerdata_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -635,12 +312,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QMimeData* mimeData(const QList<QModelIndex>& indexes) const override {
-        if (kselectionproxymodel_mimedata_isbase) {
-            kselectionproxymodel_mimedata_isbase = false;
-            return KSelectionProxyModel::mimeData(indexes);
-        }
-        auto mimedata_cb = kselectionproxymodel_mimedata_callback;
-        if (mimedata_cb) {
+        if (kselectionproxymodel_mimedata_callback) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
@@ -651,7 +323,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             indexes_out.len = indexes_ret.size();
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-            QMimeData* callback_ret = mimedata_cb(this, cbval1);
+            QMimeData* callback_ret = kselectionproxymodel_mimedata_callback(this, cbval1);
             free(indexes_arr);
             return callback_ret;
         }
@@ -660,13 +332,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> mimeTypes() const override {
-        if (kselectionproxymodel_mimetypes_isbase) {
-            kselectionproxymodel_mimetypes_isbase = false;
-            return KSelectionProxyModel::mimeTypes();
-        }
-        auto mimetypes_cb = kselectionproxymodel_mimetypes_callback;
-        if (mimetypes_cb) {
-            const char** callback_ret = mimetypes_cb();
+        if (kselectionproxymodel_mimetypes_callback) {
+            const char** callback_ret = kselectionproxymodel_mimetypes_callback(this);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -683,13 +350,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual Qt::DropActions supportedDropActions() const override {
-        if (kselectionproxymodel_supporteddropactions_isbase) {
-            kselectionproxymodel_supporteddropactions_isbase = false;
-            return KSelectionProxyModel::supportedDropActions();
-        }
-        auto supporteddropactions_cb = kselectionproxymodel_supporteddropactions_callback;
-        if (supporteddropactions_cb) {
-            int callback_ret = supporteddropactions_cb();
+        if (kselectionproxymodel_supporteddropactions_callback) {
+            int callback_ret = kselectionproxymodel_supporteddropactions_callback(this);
             return static_cast<Qt::DropActions>(callback_ret);
         }
         return KSelectionProxyModel::supportedDropActions();
@@ -697,12 +359,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool dropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) override {
-        if (kselectionproxymodel_dropmimedata_isbase) {
-            kselectionproxymodel_dropmimedata_isbase = false;
-            return KSelectionProxyModel::dropMimeData(data, action, row, column, parent);
-        }
-        auto dropmimedata_cb = kselectionproxymodel_dropmimedata_callback;
-        if (dropmimedata_cb) {
+        if (kselectionproxymodel_dropmimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -710,7 +367,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = kselectionproxymodel_dropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
         return KSelectionProxyModel::dropMimeData(data, action, row, column, parent);
@@ -718,16 +375,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasChildren(const QModelIndex& parent) const override {
-        if (kselectionproxymodel_haschildren_isbase) {
-            kselectionproxymodel_haschildren_isbase = false;
-            return KSelectionProxyModel::hasChildren(parent);
-        }
-        auto haschildren_cb = kselectionproxymodel_haschildren_callback;
-        if (haschildren_cb) {
+        if (kselectionproxymodel_haschildren_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = haschildren_cb(this, cbval1);
+            bool callback_ret = kselectionproxymodel_haschildren_callback(this, cbval1);
             return callback_ret;
         }
         return KSelectionProxyModel::hasChildren(parent);
@@ -735,18 +387,13 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex index(int param1, int param2, const QModelIndex& param3) const override {
-        if (kselectionproxymodel_index_isbase) {
-            kselectionproxymodel_index_isbase = false;
-            return KSelectionProxyModel::index(param1, param2, param3);
-        }
-        auto index_cb = kselectionproxymodel_index_callback;
-        if (index_cb) {
+        if (kselectionproxymodel_index_callback) {
             int cbval1 = param1;
             int cbval2 = param2;
             const QModelIndex& param3_ret = param3;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&param3_ret);
-            QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = kselectionproxymodel_index_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -756,16 +403,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex parent(const QModelIndex& param1) const override {
-        if (kselectionproxymodel_parent_isbase) {
-            kselectionproxymodel_parent_isbase = false;
-            return KSelectionProxyModel::parent(param1);
-        }
-        auto parent_cb = kselectionproxymodel_parent_callback;
-        if (parent_cb) {
+        if (kselectionproxymodel_parent_callback) {
             const QModelIndex& param1_ret = param1;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&param1_ret);
-            QModelIndex* callback_ret = parent_cb(this, cbval1);
+            QModelIndex* callback_ret = kselectionproxymodel_parent_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -775,16 +417,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual int columnCount(const QModelIndex& param1) const override {
-        if (kselectionproxymodel_columncount_isbase) {
-            kselectionproxymodel_columncount_isbase = false;
-            return KSelectionProxyModel::columnCount(param1);
-        }
-        auto columncount_cb = kselectionproxymodel_columncount_callback;
-        if (columncount_cb) {
+        if (kselectionproxymodel_columncount_callback) {
             const QModelIndex& param1_ret = param1;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&param1_ret);
-            int callback_ret = columncount_cb(this, cbval1);
+            int callback_ret = kselectionproxymodel_columncount_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KSelectionProxyModel::columnCount(param1);
@@ -792,12 +429,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QModelIndex> match(const QModelIndex& start, int role, const QVariant& value, int hits, Qt::MatchFlags flags) const override {
-        if (kselectionproxymodel_match_isbase) {
-            kselectionproxymodel_match_isbase = false;
-            return KSelectionProxyModel::match(start, role, value, hits, flags);
-        }
-        auto match_cb = kselectionproxymodel_match_callback;
-        if (match_cb) {
+        if (kselectionproxymodel_match_callback) {
             const QModelIndex& start_ret = start;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&start_ret);
@@ -807,7 +439,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
-            libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            libqt_list /* of QModelIndex* */ callback_ret = kselectionproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
@@ -822,13 +454,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool submit() override {
-        if (kselectionproxymodel_submit_isbase) {
-            kselectionproxymodel_submit_isbase = false;
-            return KSelectionProxyModel::submit();
-        }
-        auto submit_cb = kselectionproxymodel_submit_callback;
-        if (submit_cb) {
-            bool callback_ret = submit_cb();
+        if (kselectionproxymodel_submit_callback) {
+            bool callback_ret = kselectionproxymodel_submit_callback(this);
             return callback_ret;
         }
         return KSelectionProxyModel::submit();
@@ -836,14 +463,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void revert() override {
-        if (kselectionproxymodel_revert_isbase) {
-            kselectionproxymodel_revert_isbase = false;
-            KSelectionProxyModel::revert();
-            return;
-        }
-        auto revert_cb = kselectionproxymodel_revert_callback;
-        if (revert_cb) {
-            revert_cb();
+        if (kselectionproxymodel_revert_callback) {
+            kselectionproxymodel_revert_callback(this);
             return;
         }
         KSelectionProxyModel::revert();
@@ -851,16 +472,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QMap<int, QVariant> itemData(const QModelIndex& index) const override {
-        if (kselectionproxymodel_itemdata_isbase) {
-            kselectionproxymodel_itemdata_isbase = false;
-            return KSelectionProxyModel::itemData(index);
-        }
-        auto itemdata_cb = kselectionproxymodel_itemdata_callback;
-        if (itemdata_cb) {
+        if (kselectionproxymodel_itemdata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
+            libqt_map /* of int to QVariant* */ callback_ret = kselectionproxymodel_itemdata_callback(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
@@ -874,12 +490,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool setData(const QModelIndex& index, const QVariant& value, int role) override {
-        if (kselectionproxymodel_setdata_isbase) {
-            kselectionproxymodel_setdata_isbase = false;
-            return KSelectionProxyModel::setData(index, value, role);
-        }
-        auto setdata_cb = kselectionproxymodel_setdata_callback;
-        if (setdata_cb) {
+        if (kselectionproxymodel_setdata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -887,7 +498,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
-            bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kselectionproxymodel_setdata_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KSelectionProxyModel::setData(index, value, role);
@@ -895,12 +506,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool setItemData(const QModelIndex& index, const QMap<int, QVariant>& roles) override {
-        if (kselectionproxymodel_setitemdata_isbase) {
-            kselectionproxymodel_setitemdata_isbase = false;
-            return KSelectionProxyModel::setItemData(index, roles);
-        }
-        auto setitemdata_cb = kselectionproxymodel_setitemdata_callback;
-        if (setitemdata_cb) {
+        if (kselectionproxymodel_setitemdata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
@@ -919,7 +525,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             roles_out.keys = static_cast<void*>(roles_karr);
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
-            bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
+            bool callback_ret = kselectionproxymodel_setitemdata_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KSelectionProxyModel::setItemData(index, roles);
@@ -927,19 +533,14 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool setHeaderData(int section, Qt::Orientation orientation, const QVariant& value, int role) override {
-        if (kselectionproxymodel_setheaderdata_isbase) {
-            kselectionproxymodel_setheaderdata_isbase = false;
-            return KSelectionProxyModel::setHeaderData(section, orientation, value, role);
-        }
-        auto setheaderdata_cb = kselectionproxymodel_setheaderdata_callback;
-        if (setheaderdata_cb) {
+        if (kselectionproxymodel_setheaderdata_callback) {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
-            bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
+            bool callback_ret = kselectionproxymodel_setheaderdata_callback(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
         return KSelectionProxyModel::setHeaderData(section, orientation, value, role);
@@ -947,16 +548,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool clearItemData(const QModelIndex& index) override {
-        if (kselectionproxymodel_clearitemdata_isbase) {
-            kselectionproxymodel_clearitemdata_isbase = false;
-            return KSelectionProxyModel::clearItemData(index);
-        }
-        auto clearitemdata_cb = kselectionproxymodel_clearitemdata_callback;
-        if (clearitemdata_cb) {
+        if (kselectionproxymodel_clearitemdata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            bool callback_ret = clearitemdata_cb(this, cbval1);
+            bool callback_ret = kselectionproxymodel_clearitemdata_callback(this, cbval1);
             return callback_ret;
         }
         return KSelectionProxyModel::clearItemData(index);
@@ -964,16 +560,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex buddy(const QModelIndex& index) const override {
-        if (kselectionproxymodel_buddy_isbase) {
-            kselectionproxymodel_buddy_isbase = false;
-            return KSelectionProxyModel::buddy(index);
-        }
-        auto buddy_cb = kselectionproxymodel_buddy_callback;
-        if (buddy_cb) {
+        if (kselectionproxymodel_buddy_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            QModelIndex* callback_ret = buddy_cb(this, cbval1);
+            QModelIndex* callback_ret = kselectionproxymodel_buddy_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -983,16 +574,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canFetchMore(const QModelIndex& parent) const override {
-        if (kselectionproxymodel_canfetchmore_isbase) {
-            kselectionproxymodel_canfetchmore_isbase = false;
-            return KSelectionProxyModel::canFetchMore(parent);
-        }
-        auto canfetchmore_cb = kselectionproxymodel_canfetchmore_callback;
-        if (canfetchmore_cb) {
+        if (kselectionproxymodel_canfetchmore_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = canfetchmore_cb(this, cbval1);
+            bool callback_ret = kselectionproxymodel_canfetchmore_callback(this, cbval1);
             return callback_ret;
         }
         return KSelectionProxyModel::canFetchMore(parent);
@@ -1000,17 +586,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void fetchMore(const QModelIndex& parent) override {
-        if (kselectionproxymodel_fetchmore_isbase) {
-            kselectionproxymodel_fetchmore_isbase = false;
-            KSelectionProxyModel::fetchMore(parent);
-            return;
-        }
-        auto fetchmore_cb = kselectionproxymodel_fetchmore_callback;
-        if (fetchmore_cb) {
+        if (kselectionproxymodel_fetchmore_callback) {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            fetchmore_cb(this, cbval1);
+            kselectionproxymodel_fetchmore_callback(this, cbval1);
             return;
         }
         KSelectionProxyModel::fetchMore(parent);
@@ -1018,16 +598,10 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void sort(int column, Qt::SortOrder order) override {
-        if (kselectionproxymodel_sort_isbase) {
-            kselectionproxymodel_sort_isbase = false;
-            KSelectionProxyModel::sort(column, order);
-            return;
-        }
-        auto sort_cb = kselectionproxymodel_sort_callback;
-        if (sort_cb) {
+        if (kselectionproxymodel_sort_callback) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
-            sort_cb(this, cbval1, cbval2);
+            kselectionproxymodel_sort_callback(this, cbval1, cbval2);
             return;
         }
         KSelectionProxyModel::sort(column, order);
@@ -1035,16 +609,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize span(const QModelIndex& index) const override {
-        if (kselectionproxymodel_span_isbase) {
-            kselectionproxymodel_span_isbase = false;
-            return KSelectionProxyModel::span(index);
-        }
-        auto span_cb = kselectionproxymodel_span_callback;
-        if (span_cb) {
+        if (kselectionproxymodel_span_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-            QSize* callback_ret = span_cb(this, cbval1);
+            QSize* callback_ret = kselectionproxymodel_span_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1054,18 +623,13 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QModelIndex sibling(int row, int column, const QModelIndex& idx) const override {
-        if (kselectionproxymodel_sibling_isbase) {
-            kselectionproxymodel_sibling_isbase = false;
-            return KSelectionProxyModel::sibling(row, column, idx);
-        }
-        auto sibling_cb = kselectionproxymodel_sibling_callback;
-        if (sibling_cb) {
+        if (kselectionproxymodel_sibling_callback) {
             int cbval1 = row;
             int cbval2 = column;
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
-            QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
+            QModelIndex* callback_ret = kselectionproxymodel_sibling_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1075,12 +639,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canDropMimeData(const QMimeData* data, Qt::DropAction action, int row, int column, const QModelIndex& parent) const override {
-        if (kselectionproxymodel_candropmimedata_isbase) {
-            kselectionproxymodel_candropmimedata_isbase = false;
-            return KSelectionProxyModel::canDropMimeData(data, action, row, column, parent);
-        }
-        auto candropmimedata_cb = kselectionproxymodel_candropmimedata_callback;
-        if (candropmimedata_cb) {
+        if (kselectionproxymodel_candropmimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)data;
             int cbval2 = static_cast<int>(action);
             int cbval3 = row;
@@ -1088,7 +647,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = kselectionproxymodel_candropmimedata_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
         return KSelectionProxyModel::canDropMimeData(data, action, row, column, parent);
@@ -1096,13 +655,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual Qt::DropActions supportedDragActions() const override {
-        if (kselectionproxymodel_supporteddragactions_isbase) {
-            kselectionproxymodel_supporteddragactions_isbase = false;
-            return KSelectionProxyModel::supportedDragActions();
-        }
-        auto supporteddragactions_cb = kselectionproxymodel_supporteddragactions_callback;
-        if (supporteddragactions_cb) {
-            int callback_ret = supporteddragactions_cb();
+        if (kselectionproxymodel_supporteddragactions_callback) {
+            int callback_ret = kselectionproxymodel_supporteddragactions_callback(this);
             return static_cast<Qt::DropActions>(callback_ret);
         }
         return KSelectionProxyModel::supportedDragActions();
@@ -1110,13 +664,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual QHash<int, QByteArray> roleNames() const override {
-        if (kselectionproxymodel_rolenames_isbase) {
-            kselectionproxymodel_rolenames_isbase = false;
-            return KSelectionProxyModel::roleNames();
-        }
-        auto rolenames_cb = kselectionproxymodel_rolenames_callback;
-        if (rolenames_cb) {
-            libqt_map /* of int to libqt_string */ callback_ret = rolenames_cb();
+        if (kselectionproxymodel_rolenames_callback) {
+            libqt_map /* of int to libqt_string */ callback_ret = kselectionproxymodel_rolenames_callback(this);
             QHash<int, QByteArray> callback_ret_QHash;
             callback_ret_QHash.reserve(callback_ret.len);
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1132,18 +681,13 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool insertRows(int row, int count, const QModelIndex& parent) override {
-        if (kselectionproxymodel_insertrows_isbase) {
-            kselectionproxymodel_insertrows_isbase = false;
-            return KSelectionProxyModel::insertRows(row, count, parent);
-        }
-        auto insertrows_cb = kselectionproxymodel_insertrows_callback;
-        if (insertrows_cb) {
+        if (kselectionproxymodel_insertrows_callback) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kselectionproxymodel_insertrows_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KSelectionProxyModel::insertRows(row, count, parent);
@@ -1151,18 +695,13 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool insertColumns(int column, int count, const QModelIndex& parent) override {
-        if (kselectionproxymodel_insertcolumns_isbase) {
-            kselectionproxymodel_insertcolumns_isbase = false;
-            return KSelectionProxyModel::insertColumns(column, count, parent);
-        }
-        auto insertcolumns_cb = kselectionproxymodel_insertcolumns_callback;
-        if (insertcolumns_cb) {
+        if (kselectionproxymodel_insertcolumns_callback) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kselectionproxymodel_insertcolumns_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KSelectionProxyModel::insertColumns(column, count, parent);
@@ -1170,18 +709,13 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool removeRows(int row, int count, const QModelIndex& parent) override {
-        if (kselectionproxymodel_removerows_isbase) {
-            kselectionproxymodel_removerows_isbase = false;
-            return KSelectionProxyModel::removeRows(row, count, parent);
-        }
-        auto removerows_cb = kselectionproxymodel_removerows_callback;
-        if (removerows_cb) {
+        if (kselectionproxymodel_removerows_callback) {
             int cbval1 = row;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kselectionproxymodel_removerows_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KSelectionProxyModel::removeRows(row, count, parent);
@@ -1189,18 +723,13 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool removeColumns(int column, int count, const QModelIndex& parent) override {
-        if (kselectionproxymodel_removecolumns_isbase) {
-            kselectionproxymodel_removecolumns_isbase = false;
-            return KSelectionProxyModel::removeColumns(column, count, parent);
-        }
-        auto removecolumns_cb = kselectionproxymodel_removecolumns_callback;
-        if (removecolumns_cb) {
+        if (kselectionproxymodel_removecolumns_callback) {
             int cbval1 = column;
             int cbval2 = count;
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kselectionproxymodel_removecolumns_callback(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
         return KSelectionProxyModel::removeColumns(column, count, parent);
@@ -1208,12 +737,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool moveRows(const QModelIndex& sourceParent, int sourceRow, int count, const QModelIndex& destinationParent, int destinationChild) override {
-        if (kselectionproxymodel_moverows_isbase) {
-            kselectionproxymodel_moverows_isbase = false;
-            return KSelectionProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
-        }
-        auto moverows_cb = kselectionproxymodel_moverows_callback;
-        if (moverows_cb) {
+        if (kselectionproxymodel_moverows_callback) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1223,7 +747,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-            bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = kselectionproxymodel_moverows_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
         return KSelectionProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
@@ -1231,12 +755,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool moveColumns(const QModelIndex& sourceParent, int sourceColumn, int count, const QModelIndex& destinationParent, int destinationChild) override {
-        if (kselectionproxymodel_movecolumns_isbase) {
-            kselectionproxymodel_movecolumns_isbase = false;
-            return KSelectionProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
-        }
-        auto movecolumns_cb = kselectionproxymodel_movecolumns_callback;
-        if (movecolumns_cb) {
+        if (kselectionproxymodel_movecolumns_callback) {
             const QModelIndex& sourceParent_ret = sourceParent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
@@ -1246,7 +765,7 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-            bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            bool callback_ret = kselectionproxymodel_movecolumns_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
         return KSelectionProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
@@ -1254,18 +773,12 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void multiData(const QModelIndex& index, QModelRoleDataSpan roleDataSpan) const override {
-        if (kselectionproxymodel_multidata_isbase) {
-            kselectionproxymodel_multidata_isbase = false;
-            KSelectionProxyModel::multiData(index, roleDataSpan);
-            return;
-        }
-        auto multidata_cb = kselectionproxymodel_multidata_callback;
-        if (multidata_cb) {
+        if (kselectionproxymodel_multidata_callback) {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
-            multidata_cb(this, cbval1, cbval2);
+            kselectionproxymodel_multidata_callback(this, cbval1, cbval2);
             return;
         }
         KSelectionProxyModel::multiData(index, roleDataSpan);
@@ -1273,14 +786,8 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void resetInternalData() override {
-        if (kselectionproxymodel_resetinternaldata_isbase) {
-            kselectionproxymodel_resetinternaldata_isbase = false;
-            KSelectionProxyModel::resetInternalData();
-            return;
-        }
-        auto resetinternaldata_cb = kselectionproxymodel_resetinternaldata_callback;
-        if (resetinternaldata_cb) {
-            resetinternaldata_cb();
+        if (kselectionproxymodel_resetinternaldata_callback) {
+            kselectionproxymodel_resetinternaldata_callback(this);
             return;
         }
         KSelectionProxyModel::resetInternalData();
@@ -1288,14 +795,9 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kselectionproxymodel_event_isbase) {
-            kselectionproxymodel_event_isbase = false;
-            return KSelectionProxyModel::event(event);
-        }
-        auto event_cb = kselectionproxymodel_event_callback;
-        if (event_cb) {
+        if (kselectionproxymodel_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kselectionproxymodel_event_callback(this, cbval1);
             return callback_ret;
         }
         return KSelectionProxyModel::event(event);
@@ -1303,15 +805,10 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kselectionproxymodel_eventfilter_isbase) {
-            kselectionproxymodel_eventfilter_isbase = false;
-            return KSelectionProxyModel::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kselectionproxymodel_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kselectionproxymodel_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kselectionproxymodel_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KSelectionProxyModel::eventFilter(watched, event);
@@ -1319,15 +816,9 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kselectionproxymodel_timerevent_isbase) {
-            kselectionproxymodel_timerevent_isbase = false;
-            KSelectionProxyModel::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kselectionproxymodel_timerevent_callback;
-        if (timerevent_cb) {
+        if (kselectionproxymodel_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kselectionproxymodel_timerevent_callback(this, cbval1);
             return;
         }
         KSelectionProxyModel::timerEvent(event);
@@ -1335,15 +826,9 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kselectionproxymodel_childevent_isbase) {
-            kselectionproxymodel_childevent_isbase = false;
-            KSelectionProxyModel::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kselectionproxymodel_childevent_callback;
-        if (childevent_cb) {
+        if (kselectionproxymodel_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kselectionproxymodel_childevent_callback(this, cbval1);
             return;
         }
         KSelectionProxyModel::childEvent(event);
@@ -1351,15 +836,9 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kselectionproxymodel_customevent_isbase) {
-            kselectionproxymodel_customevent_isbase = false;
-            KSelectionProxyModel::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kselectionproxymodel_customevent_callback;
-        if (customevent_cb) {
+        if (kselectionproxymodel_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kselectionproxymodel_customevent_callback(this, cbval1);
             return;
         }
         KSelectionProxyModel::customEvent(event);
@@ -1367,17 +846,11 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kselectionproxymodel_connectnotify_isbase) {
-            kselectionproxymodel_connectnotify_isbase = false;
-            KSelectionProxyModel::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kselectionproxymodel_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kselectionproxymodel_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kselectionproxymodel_connectnotify_callback(this, cbval1);
             return;
         }
         KSelectionProxyModel::connectNotify(signal);
@@ -1385,581 +858,23 @@ class VirtualKSelectionProxyModel final : public KSelectionProxyModel {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kselectionproxymodel_disconnectnotify_isbase) {
-            kselectionproxymodel_disconnectnotify_isbase = false;
-            KSelectionProxyModel::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kselectionproxymodel_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kselectionproxymodel_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kselectionproxymodel_disconnectnotify_callback(this, cbval1);
             return;
         }
         KSelectionProxyModel::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QList<QPersistentModelIndex> sourceRootIndexes() const {
-        if (kselectionproxymodel_sourcerootindexes_isbase) {
-            kselectionproxymodel_sourcerootindexes_isbase = false;
-            return KSelectionProxyModel::sourceRootIndexes();
-        }
-        auto sourcerootindexes_cb = kselectionproxymodel_sourcerootindexes_callback;
-        if (sourcerootindexes_cb) {
-            libqt_list /* of QPersistentModelIndex* */ callback_ret = sourcerootindexes_cb();
-            QList<QPersistentModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QPersistentModelIndex** callback_ret_arr = static_cast<QPersistentModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
-            }
-            libqt_free(callback_ret.data);
-            return callback_ret_QList;
-        }
-        return KSelectionProxyModel::sourceRootIndexes();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QModelIndex createSourceIndex(int row, int col, void* internalPtr) const {
-        if (kselectionproxymodel_createsourceindex_isbase) {
-            kselectionproxymodel_createsourceindex_isbase = false;
-            return KSelectionProxyModel::createSourceIndex(row, col, internalPtr);
-        }
-        auto createsourceindex_cb = kselectionproxymodel_createsourceindex_callback;
-        if (createsourceindex_cb) {
-            int cbval1 = row;
-            int cbval2 = col;
-            void* cbval3 = internalPtr;
-            QModelIndex* callback_ret = createsourceindex_cb(this, cbval1, cbval2, cbval3);
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return KSelectionProxyModel::createSourceIndex(row, col, internalPtr);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QModelIndex createIndex(int row, int column) const {
-        if (kselectionproxymodel_createindex_isbase) {
-            kselectionproxymodel_createindex_isbase = false;
-            return KSelectionProxyModel::createIndex(row, column);
-        }
-        auto createindex_cb = kselectionproxymodel_createindex_callback;
-        if (createindex_cb) {
-            int cbval1 = row;
-            int cbval2 = column;
-            QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return KSelectionProxyModel::createIndex(row, column);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void encodeData(const QList<QModelIndex>& indexes, QDataStream& stream) const {
-        if (kselectionproxymodel_encodedata_isbase) {
-            kselectionproxymodel_encodedata_isbase = false;
-            KSelectionProxyModel::encodeData(indexes, stream);
-            return;
-        }
-        auto encodedata_cb = kselectionproxymodel_encodedata_callback;
-        if (encodedata_cb) {
-            const QList<QModelIndex>& indexes_ret = indexes;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size())));
-            for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
-                indexes_arr[i] = new QModelIndex(indexes_ret[i]);
-            }
-            libqt_list indexes_out;
-            indexes_out.len = indexes_ret.size();
-            indexes_out.data = static_cast<void*>(indexes_arr);
-            libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-            QDataStream& stream_ret = stream;
-            // Cast returned reference into pointer
-            QDataStream* cbval2 = &stream_ret;
-            encodedata_cb(this, cbval1, cbval2);
-            free(indexes_arr);
-            return;
-        }
-        KSelectionProxyModel::encodeData(indexes, stream);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool decodeData(int row, int column, const QModelIndex& parent, QDataStream& stream) {
-        if (kselectionproxymodel_decodedata_isbase) {
-            kselectionproxymodel_decodedata_isbase = false;
-            return KSelectionProxyModel::decodeData(row, column, parent, stream);
-        }
-        auto decodedata_cb = kselectionproxymodel_decodedata_callback;
-        if (decodedata_cb) {
-            int cbval1 = row;
-            int cbval2 = column;
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-            QDataStream& stream_ret = stream;
-            // Cast returned reference into pointer
-            QDataStream* cbval4 = &stream_ret;
-            bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return callback_ret;
-        }
-        return KSelectionProxyModel::decodeData(row, column, parent, stream);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginInsertRows(const QModelIndex& parent, int first, int last) {
-        if (kselectionproxymodel_begininsertrows_isbase) {
-            kselectionproxymodel_begininsertrows_isbase = false;
-            KSelectionProxyModel::beginInsertRows(parent, first, last);
-            return;
-        }
-        auto begininsertrows_cb = kselectionproxymodel_begininsertrows_callback;
-        if (begininsertrows_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = first;
-            int cbval3 = last;
-            begininsertrows_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        KSelectionProxyModel::beginInsertRows(parent, first, last);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endInsertRows() {
-        if (kselectionproxymodel_endinsertrows_isbase) {
-            kselectionproxymodel_endinsertrows_isbase = false;
-            KSelectionProxyModel::endInsertRows();
-            return;
-        }
-        auto endinsertrows_cb = kselectionproxymodel_endinsertrows_callback;
-        if (endinsertrows_cb) {
-            endinsertrows_cb();
-            return;
-        }
-        KSelectionProxyModel::endInsertRows();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginRemoveRows(const QModelIndex& parent, int first, int last) {
-        if (kselectionproxymodel_beginremoverows_isbase) {
-            kselectionproxymodel_beginremoverows_isbase = false;
-            KSelectionProxyModel::beginRemoveRows(parent, first, last);
-            return;
-        }
-        auto beginremoverows_cb = kselectionproxymodel_beginremoverows_callback;
-        if (beginremoverows_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = first;
-            int cbval3 = last;
-            beginremoverows_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        KSelectionProxyModel::beginRemoveRows(parent, first, last);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endRemoveRows() {
-        if (kselectionproxymodel_endremoverows_isbase) {
-            kselectionproxymodel_endremoverows_isbase = false;
-            KSelectionProxyModel::endRemoveRows();
-            return;
-        }
-        auto endremoverows_cb = kselectionproxymodel_endremoverows_callback;
-        if (endremoverows_cb) {
-            endremoverows_cb();
-            return;
-        }
-        KSelectionProxyModel::endRemoveRows();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool beginMoveRows(const QModelIndex& sourceParent, int sourceFirst, int sourceLast, const QModelIndex& destinationParent, int destinationRow) {
-        if (kselectionproxymodel_beginmoverows_isbase) {
-            kselectionproxymodel_beginmoverows_isbase = false;
-            return KSelectionProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-        }
-        auto beginmoverows_cb = kselectionproxymodel_beginmoverows_callback;
-        if (beginmoverows_cb) {
-            const QModelIndex& sourceParent_ret = sourceParent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
-            int cbval2 = sourceFirst;
-            int cbval3 = sourceLast;
-            const QModelIndex& destinationParent_ret = destinationParent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
-            int cbval5 = destinationRow;
-            bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
-            return callback_ret;
-        }
-        return KSelectionProxyModel::beginMoveRows(sourceParent, sourceFirst, sourceLast, destinationParent, destinationRow);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endMoveRows() {
-        if (kselectionproxymodel_endmoverows_isbase) {
-            kselectionproxymodel_endmoverows_isbase = false;
-            KSelectionProxyModel::endMoveRows();
-            return;
-        }
-        auto endmoverows_cb = kselectionproxymodel_endmoverows_callback;
-        if (endmoverows_cb) {
-            endmoverows_cb();
-            return;
-        }
-        KSelectionProxyModel::endMoveRows();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginInsertColumns(const QModelIndex& parent, int first, int last) {
-        if (kselectionproxymodel_begininsertcolumns_isbase) {
-            kselectionproxymodel_begininsertcolumns_isbase = false;
-            KSelectionProxyModel::beginInsertColumns(parent, first, last);
-            return;
-        }
-        auto begininsertcolumns_cb = kselectionproxymodel_begininsertcolumns_callback;
-        if (begininsertcolumns_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = first;
-            int cbval3 = last;
-            begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        KSelectionProxyModel::beginInsertColumns(parent, first, last);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endInsertColumns() {
-        if (kselectionproxymodel_endinsertcolumns_isbase) {
-            kselectionproxymodel_endinsertcolumns_isbase = false;
-            KSelectionProxyModel::endInsertColumns();
-            return;
-        }
-        auto endinsertcolumns_cb = kselectionproxymodel_endinsertcolumns_callback;
-        if (endinsertcolumns_cb) {
-            endinsertcolumns_cb();
-            return;
-        }
-        KSelectionProxyModel::endInsertColumns();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginRemoveColumns(const QModelIndex& parent, int first, int last) {
-        if (kselectionproxymodel_beginremovecolumns_isbase) {
-            kselectionproxymodel_beginremovecolumns_isbase = false;
-            KSelectionProxyModel::beginRemoveColumns(parent, first, last);
-            return;
-        }
-        auto beginremovecolumns_cb = kselectionproxymodel_beginremovecolumns_callback;
-        if (beginremovecolumns_cb) {
-            const QModelIndex& parent_ret = parent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-            int cbval2 = first;
-            int cbval3 = last;
-            beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        KSelectionProxyModel::beginRemoveColumns(parent, first, last);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endRemoveColumns() {
-        if (kselectionproxymodel_endremovecolumns_isbase) {
-            kselectionproxymodel_endremovecolumns_isbase = false;
-            KSelectionProxyModel::endRemoveColumns();
-            return;
-        }
-        auto endremovecolumns_cb = kselectionproxymodel_endremovecolumns_callback;
-        if (endremovecolumns_cb) {
-            endremovecolumns_cb();
-            return;
-        }
-        KSelectionProxyModel::endRemoveColumns();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool beginMoveColumns(const QModelIndex& sourceParent, int sourceFirst, int sourceLast, const QModelIndex& destinationParent, int destinationColumn) {
-        if (kselectionproxymodel_beginmovecolumns_isbase) {
-            kselectionproxymodel_beginmovecolumns_isbase = false;
-            return KSelectionProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-        }
-        auto beginmovecolumns_cb = kselectionproxymodel_beginmovecolumns_callback;
-        if (beginmovecolumns_cb) {
-            const QModelIndex& sourceParent_ret = sourceParent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceParent_ret);
-            int cbval2 = sourceFirst;
-            int cbval3 = sourceLast;
-            const QModelIndex& destinationParent_ret = destinationParent;
-            // Cast returned reference into pointer
-            QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
-            int cbval5 = destinationColumn;
-            bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
-            return callback_ret;
-        }
-        return KSelectionProxyModel::beginMoveColumns(sourceParent, sourceFirst, sourceLast, destinationParent, destinationColumn);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endMoveColumns() {
-        if (kselectionproxymodel_endmovecolumns_isbase) {
-            kselectionproxymodel_endmovecolumns_isbase = false;
-            KSelectionProxyModel::endMoveColumns();
-            return;
-        }
-        auto endmovecolumns_cb = kselectionproxymodel_endmovecolumns_callback;
-        if (endmovecolumns_cb) {
-            endmovecolumns_cb();
-            return;
-        }
-        KSelectionProxyModel::endMoveColumns();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void beginResetModel() {
-        if (kselectionproxymodel_beginresetmodel_isbase) {
-            kselectionproxymodel_beginresetmodel_isbase = false;
-            KSelectionProxyModel::beginResetModel();
-            return;
-        }
-        auto beginresetmodel_cb = kselectionproxymodel_beginresetmodel_callback;
-        if (beginresetmodel_cb) {
-            beginresetmodel_cb();
-            return;
-        }
-        KSelectionProxyModel::beginResetModel();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void endResetModel() {
-        if (kselectionproxymodel_endresetmodel_isbase) {
-            kselectionproxymodel_endresetmodel_isbase = false;
-            KSelectionProxyModel::endResetModel();
-            return;
-        }
-        auto endresetmodel_cb = kselectionproxymodel_endresetmodel_callback;
-        if (endresetmodel_cb) {
-            endresetmodel_cb();
-            return;
-        }
-        KSelectionProxyModel::endResetModel();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void changePersistentIndex(const QModelIndex& from, const QModelIndex& to) {
-        if (kselectionproxymodel_changepersistentindex_isbase) {
-            kselectionproxymodel_changepersistentindex_isbase = false;
-            KSelectionProxyModel::changePersistentIndex(from, to);
-            return;
-        }
-        auto changepersistentindex_cb = kselectionproxymodel_changepersistentindex_callback;
-        if (changepersistentindex_cb) {
-            const QModelIndex& from_ret = from;
-            // Cast returned reference into pointer
-            QModelIndex* cbval1 = const_cast<QModelIndex*>(&from_ret);
-            const QModelIndex& to_ret = to;
-            // Cast returned reference into pointer
-            QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
-            changepersistentindex_cb(this, cbval1, cbval2);
-            return;
-        }
-        KSelectionProxyModel::changePersistentIndex(from, to);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void changePersistentIndexList(const QList<QModelIndex>& from, const QList<QModelIndex>& to) {
-        if (kselectionproxymodel_changepersistentindexlist_isbase) {
-            kselectionproxymodel_changepersistentindexlist_isbase = false;
-            KSelectionProxyModel::changePersistentIndexList(from, to);
-            return;
-        }
-        auto changepersistentindexlist_cb = kselectionproxymodel_changepersistentindexlist_callback;
-        if (changepersistentindexlist_cb) {
-            const QList<QModelIndex>& from_ret = from;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size())));
-            for (qsizetype i = 0; i < from_ret.size(); ++i) {
-                from_arr[i] = new QModelIndex(from_ret[i]);
-            }
-            libqt_list from_out;
-            from_out.len = from_ret.size();
-            from_out.data = static_cast<void*>(from_arr);
-            libqt_list /* of QModelIndex* */ cbval1 = from_out;
-            const QList<QModelIndex>& to_ret = to;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (to_ret.size())));
-            for (qsizetype i = 0; i < to_ret.size(); ++i) {
-                to_arr[i] = new QModelIndex(to_ret[i]);
-            }
-            libqt_list to_out;
-            to_out.len = to_ret.size();
-            to_out.data = static_cast<void*>(to_arr);
-            libqt_list /* of QModelIndex* */ cbval2 = to_out;
-            changepersistentindexlist_cb(this, cbval1, cbval2);
-            free(from_arr);
-            free(to_arr);
-            return;
-        }
-        KSelectionProxyModel::changePersistentIndexList(from, to);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QList<QModelIndex> persistentIndexList() const {
-        if (kselectionproxymodel_persistentindexlist_isbase) {
-            kselectionproxymodel_persistentindexlist_isbase = false;
-            return KSelectionProxyModel::persistentIndexList();
-        }
-        auto persistentindexlist_cb = kselectionproxymodel_persistentindexlist_callback;
-        if (persistentindexlist_cb) {
-            libqt_list /* of QModelIndex* */ callback_ret = persistentindexlist_cb();
-            QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
-            }
-            libqt_free(callback_ret.data);
-            return callback_ret_QList;
-        }
-        return KSelectionProxyModel::persistentIndexList();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kselectionproxymodel_sender_isbase) {
-            kselectionproxymodel_sender_isbase = false;
-            return KSelectionProxyModel::sender();
-        }
-        auto sender_cb = kselectionproxymodel_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KSelectionProxyModel::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kselectionproxymodel_sendersignalindex_isbase) {
-            kselectionproxymodel_sendersignalindex_isbase = false;
-            return KSelectionProxyModel::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kselectionproxymodel_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KSelectionProxyModel::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kselectionproxymodel_receivers_isbase) {
-            kselectionproxymodel_receivers_isbase = false;
-            return KSelectionProxyModel::receivers(signal);
-        }
-        auto receivers_cb = kselectionproxymodel_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KSelectionProxyModel::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kselectionproxymodel_issignalconnected_isbase) {
-            kselectionproxymodel_issignalconnected_isbase = false;
-            return KSelectionProxyModel::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kselectionproxymodel_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KSelectionProxyModel::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KSelectionProxyModel_ResetInternalData(KSelectionProxyModel* self);
     friend void KSelectionProxyModel_SuperResetInternalData(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_TimerEvent(KSelectionProxyModel* self, QTimerEvent* event);
     friend void KSelectionProxyModel_SuperTimerEvent(KSelectionProxyModel* self, QTimerEvent* event);
-    friend void KSelectionProxyModel_ChildEvent(KSelectionProxyModel* self, QChildEvent* event);
     friend void KSelectionProxyModel_SuperChildEvent(KSelectionProxyModel* self, QChildEvent* event);
-    friend void KSelectionProxyModel_CustomEvent(KSelectionProxyModel* self, QEvent* event);
     friend void KSelectionProxyModel_SuperCustomEvent(KSelectionProxyModel* self, QEvent* event);
-    friend void KSelectionProxyModel_ConnectNotify(KSelectionProxyModel* self, const QMetaMethod* signal);
     friend void KSelectionProxyModel_SuperConnectNotify(KSelectionProxyModel* self, const QMetaMethod* signal);
-    friend void KSelectionProxyModel_DisconnectNotify(KSelectionProxyModel* self, const QMetaMethod* signal);
     friend void KSelectionProxyModel_SuperDisconnectNotify(KSelectionProxyModel* self, const QMetaMethod* signal);
-    friend libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_SourceRootIndexes(const KSelectionProxyModel* self);
-    friend libqt_list /* of QPersistentModelIndex* */ KSelectionProxyModel_SuperSourceRootIndexes(const KSelectionProxyModel* self);
-    friend QModelIndex* KSelectionProxyModel_CreateSourceIndex(const KSelectionProxyModel* self, int row, int col, void* internalPtr);
-    friend QModelIndex* KSelectionProxyModel_SuperCreateSourceIndex(const KSelectionProxyModel* self, int row, int col, void* internalPtr);
-    friend QModelIndex* KSelectionProxyModel_CreateIndex(const KSelectionProxyModel* self, int row, int column);
-    friend QModelIndex* KSelectionProxyModel_SuperCreateIndex(const KSelectionProxyModel* self, int row, int column);
-    friend void KSelectionProxyModel_EncodeData(const KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
-    friend void KSelectionProxyModel_SuperEncodeData(const KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
-    friend bool KSelectionProxyModel_DecodeData(KSelectionProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
-    friend bool KSelectionProxyModel_SuperDecodeData(KSelectionProxyModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
-    friend void KSelectionProxyModel_BeginInsertRows(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last);
-    friend void KSelectionProxyModel_SuperBeginInsertRows(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last);
-    friend void KSelectionProxyModel_EndInsertRows(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_SuperEndInsertRows(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_BeginRemoveRows(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last);
-    friend void KSelectionProxyModel_SuperBeginRemoveRows(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last);
-    friend void KSelectionProxyModel_EndRemoveRows(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_SuperEndRemoveRows(KSelectionProxyModel* self);
-    friend bool KSelectionProxyModel_BeginMoveRows(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
-    friend bool KSelectionProxyModel_SuperBeginMoveRows(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
-    friend void KSelectionProxyModel_EndMoveRows(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_SuperEndMoveRows(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_BeginInsertColumns(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last);
-    friend void KSelectionProxyModel_SuperBeginInsertColumns(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last);
-    friend void KSelectionProxyModel_EndInsertColumns(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_SuperEndInsertColumns(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_BeginRemoveColumns(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last);
-    friend void KSelectionProxyModel_SuperBeginRemoveColumns(KSelectionProxyModel* self, const QModelIndex* parent, int first, int last);
-    friend void KSelectionProxyModel_EndRemoveColumns(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_SuperEndRemoveColumns(KSelectionProxyModel* self);
-    friend bool KSelectionProxyModel_BeginMoveColumns(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
-    friend bool KSelectionProxyModel_SuperBeginMoveColumns(KSelectionProxyModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
-    friend void KSelectionProxyModel_EndMoveColumns(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_SuperEndMoveColumns(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_BeginResetModel(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_SuperBeginResetModel(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_EndResetModel(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_SuperEndResetModel(KSelectionProxyModel* self);
-    friend void KSelectionProxyModel_ChangePersistentIndex(KSelectionProxyModel* self, const QModelIndex* from, const QModelIndex* to);
-    friend void KSelectionProxyModel_SuperChangePersistentIndex(KSelectionProxyModel* self, const QModelIndex* from, const QModelIndex* to);
-    friend void KSelectionProxyModel_ChangePersistentIndexList(KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
-    friend void KSelectionProxyModel_SuperChangePersistentIndexList(KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
-    friend libqt_list /* of QModelIndex* */ KSelectionProxyModel_PersistentIndexList(const KSelectionProxyModel* self);
-    friend libqt_list /* of QModelIndex* */ KSelectionProxyModel_SuperPersistentIndexList(const KSelectionProxyModel* self);
-    friend QObject* KSelectionProxyModel_Sender(const KSelectionProxyModel* self);
-    friend QObject* KSelectionProxyModel_SuperSender(const KSelectionProxyModel* self);
-    friend int KSelectionProxyModel_SenderSignalIndex(const KSelectionProxyModel* self);
-    friend int KSelectionProxyModel_SuperSenderSignalIndex(const KSelectionProxyModel* self);
-    friend int KSelectionProxyModel_Receivers(const KSelectionProxyModel* self, const char* signal);
-    friend int KSelectionProxyModel_SuperReceivers(const KSelectionProxyModel* self, const char* signal);
-    friend bool KSelectionProxyModel_IsSignalConnected(const KSelectionProxyModel* self, const QMetaMethod* signal);
-    friend bool KSelectionProxyModel_SuperIsSignalConnected(const KSelectionProxyModel* self, const QMetaMethod* signal);
 };
 
 #endif

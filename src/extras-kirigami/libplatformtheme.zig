@@ -81,9 +81,9 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     ///
     /// ` self: Kirigami__Platform__PlatformTheme `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Kirigami__Platform__PlatformTheme, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme) callconv(.c) QMetaObject) void {
         qtc.Kirigami__Platform__PlatformTheme_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1356,42 +1356,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetSupportsIconColoring(@ptrCast(self.ptr), support);
     }
 
-    /// ### DEPRECATED: Use `onSetSupportsIconColoring` instead
-    ///
-    pub const OnSetSupportsIconColoring = onSetSupportsIconColoring;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setSupportsIconColoring)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, support: bool) callconv(.c) void `
-    ///
-    pub fn onSetSupportsIconColoring(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, bool) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetSupportsIconColoring(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSupportsIconColoring` instead
-    ///
-    pub const SuperSetSupportsIconColoring = superSetSupportsIconColoring;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setSupportsIconColoring)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` support: bool `
-    ///
-    pub fn superSetSupportsIconColoring(self: Kirigami__Platform__PlatformTheme, support: bool) void {
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetSupportsIconColoring(@ptrCast(self.ptr), support);
-    }
-
     /// ### DEPRECATED: Use `setTextColor` instead
     ///
     pub const SetTextColor = setTextColor;
@@ -1407,43 +1371,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetTextColor` instead
-    ///
-    pub const OnSetTextColor = onSetTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setTextColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetTextColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetTextColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetTextColor` instead
-    ///
-    pub const SuperSetTextColor = superSetTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setTextColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setDisabledTextColor` instead
@@ -1463,43 +1390,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetDisabledTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetDisabledTextColor` instead
-    ///
-    pub const OnSetDisabledTextColor = onSetDisabledTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setDisabledTextColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetDisabledTextColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetDisabledTextColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetDisabledTextColor` instead
-    ///
-    pub const SuperSetDisabledTextColor = superSetDisabledTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setDisabledTextColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetDisabledTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetDisabledTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setHighlightedTextColor` instead
     ///
     pub const SetHighlightedTextColor = setHighlightedTextColor;
@@ -1515,43 +1405,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setHighlightedTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetHighlightedTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetHighlightedTextColor` instead
-    ///
-    pub const OnSetHighlightedTextColor = onSetHighlightedTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setHighlightedTextColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetHighlightedTextColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetHighlightedTextColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetHighlightedTextColor` instead
-    ///
-    pub const SuperSetHighlightedTextColor = superSetHighlightedTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setHighlightedTextColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetHighlightedTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetHighlightedTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setActiveTextColor` instead
@@ -1571,43 +1424,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetActiveTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetActiveTextColor` instead
-    ///
-    pub const OnSetActiveTextColor = onSetActiveTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setActiveTextColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetActiveTextColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetActiveTextColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetActiveTextColor` instead
-    ///
-    pub const SuperSetActiveTextColor = superSetActiveTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setActiveTextColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetActiveTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetActiveTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setLinkColor` instead
     ///
     pub const SetLinkColor = setLinkColor;
@@ -1623,43 +1439,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setLinkColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetLinkColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetLinkColor` instead
-    ///
-    pub const OnSetLinkColor = onSetLinkColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setLinkColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetLinkColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetLinkColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLinkColor` instead
-    ///
-    pub const SuperSetLinkColor = superSetLinkColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setLinkColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetLinkColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetLinkColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisitedLinkColor` instead
@@ -1679,43 +1458,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetVisitedLinkColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetVisitedLinkColor` instead
-    ///
-    pub const OnSetVisitedLinkColor = onSetVisitedLinkColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setVisitedLinkColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetVisitedLinkColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetVisitedLinkColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetVisitedLinkColor` instead
-    ///
-    pub const SuperSetVisitedLinkColor = superSetVisitedLinkColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setVisitedLinkColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetVisitedLinkColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetVisitedLinkColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setNegativeTextColor` instead
     ///
     pub const SetNegativeTextColor = setNegativeTextColor;
@@ -1731,43 +1473,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setNegativeTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetNegativeTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetNegativeTextColor` instead
-    ///
-    pub const OnSetNegativeTextColor = onSetNegativeTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setNegativeTextColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetNegativeTextColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetNegativeTextColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetNegativeTextColor` instead
-    ///
-    pub const SuperSetNegativeTextColor = superSetNegativeTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setNegativeTextColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetNegativeTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetNegativeTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setNeutralTextColor` instead
@@ -1787,43 +1492,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetNeutralTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetNeutralTextColor` instead
-    ///
-    pub const OnSetNeutralTextColor = onSetNeutralTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setNeutralTextColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetNeutralTextColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetNeutralTextColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetNeutralTextColor` instead
-    ///
-    pub const SuperSetNeutralTextColor = superSetNeutralTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setNeutralTextColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetNeutralTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetNeutralTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setPositiveTextColor` instead
     ///
     pub const SetPositiveTextColor = setPositiveTextColor;
@@ -1839,43 +1507,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setPositiveTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetPositiveTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetPositiveTextColor` instead
-    ///
-    pub const OnSetPositiveTextColor = onSetPositiveTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setPositiveTextColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetPositiveTextColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetPositiveTextColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPositiveTextColor` instead
-    ///
-    pub const SuperSetPositiveTextColor = superSetPositiveTextColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setPositiveTextColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetPositiveTextColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetPositiveTextColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setBackgroundColor` instead
@@ -1895,43 +1526,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetBackgroundColor` instead
-    ///
-    pub const OnSetBackgroundColor = onSetBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setBackgroundColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetBackgroundColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetBackgroundColor` instead
-    ///
-    pub const SuperSetBackgroundColor = superSetBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setBackgroundColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setAlternateBackgroundColor` instead
     ///
     pub const SetAlternateBackgroundColor = setAlternateBackgroundColor;
@@ -1947,43 +1541,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setAlternateBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetAlternateBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetAlternateBackgroundColor` instead
-    ///
-    pub const OnSetAlternateBackgroundColor = onSetAlternateBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setAlternateBackgroundColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetAlternateBackgroundColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetAlternateBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetAlternateBackgroundColor` instead
-    ///
-    pub const SuperSetAlternateBackgroundColor = superSetAlternateBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setAlternateBackgroundColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetAlternateBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetAlternateBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setHighlightColor` instead
@@ -2003,43 +1560,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetHighlightColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetHighlightColor` instead
-    ///
-    pub const OnSetHighlightColor = onSetHighlightColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setHighlightColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetHighlightColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetHighlightColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetHighlightColor` instead
-    ///
-    pub const SuperSetHighlightColor = superSetHighlightColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setHighlightColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetHighlightColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetHighlightColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setActiveBackgroundColor` instead
     ///
     pub const SetActiveBackgroundColor = setActiveBackgroundColor;
@@ -2055,43 +1575,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setActiveBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetActiveBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetActiveBackgroundColor` instead
-    ///
-    pub const OnSetActiveBackgroundColor = onSetActiveBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setActiveBackgroundColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetActiveBackgroundColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetActiveBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetActiveBackgroundColor` instead
-    ///
-    pub const SuperSetActiveBackgroundColor = superSetActiveBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setActiveBackgroundColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetActiveBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetActiveBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setLinkBackgroundColor` instead
@@ -2111,43 +1594,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetLinkBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetLinkBackgroundColor` instead
-    ///
-    pub const OnSetLinkBackgroundColor = onSetLinkBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setLinkBackgroundColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetLinkBackgroundColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetLinkBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetLinkBackgroundColor` instead
-    ///
-    pub const SuperSetLinkBackgroundColor = superSetLinkBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setLinkBackgroundColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetLinkBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetLinkBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setVisitedLinkBackgroundColor` instead
     ///
     pub const SetVisitedLinkBackgroundColor = setVisitedLinkBackgroundColor;
@@ -2163,43 +1609,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setVisitedLinkBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetVisitedLinkBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetVisitedLinkBackgroundColor` instead
-    ///
-    pub const OnSetVisitedLinkBackgroundColor = onSetVisitedLinkBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setVisitedLinkBackgroundColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetVisitedLinkBackgroundColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetVisitedLinkBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetVisitedLinkBackgroundColor` instead
-    ///
-    pub const SuperSetVisitedLinkBackgroundColor = superSetVisitedLinkBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setVisitedLinkBackgroundColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetVisitedLinkBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetVisitedLinkBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setNegativeBackgroundColor` instead
@@ -2219,43 +1628,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetNegativeBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetNegativeBackgroundColor` instead
-    ///
-    pub const OnSetNegativeBackgroundColor = onSetNegativeBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setNegativeBackgroundColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetNegativeBackgroundColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetNegativeBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetNegativeBackgroundColor` instead
-    ///
-    pub const SuperSetNegativeBackgroundColor = superSetNegativeBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setNegativeBackgroundColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetNegativeBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetNegativeBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setNeutralBackgroundColor` instead
     ///
     pub const SetNeutralBackgroundColor = setNeutralBackgroundColor;
@@ -2271,43 +1643,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setNeutralBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetNeutralBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetNeutralBackgroundColor` instead
-    ///
-    pub const OnSetNeutralBackgroundColor = onSetNeutralBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setNeutralBackgroundColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetNeutralBackgroundColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetNeutralBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetNeutralBackgroundColor` instead
-    ///
-    pub const SuperSetNeutralBackgroundColor = superSetNeutralBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setNeutralBackgroundColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetNeutralBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetNeutralBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setPositiveBackgroundColor` instead
@@ -2327,43 +1662,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetPositiveBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetPositiveBackgroundColor` instead
-    ///
-    pub const OnSetPositiveBackgroundColor = onSetPositiveBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setPositiveBackgroundColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetPositiveBackgroundColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetPositiveBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPositiveBackgroundColor` instead
-    ///
-    pub const SuperSetPositiveBackgroundColor = superSetPositiveBackgroundColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setPositiveBackgroundColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetPositiveBackgroundColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetPositiveBackgroundColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setFocusColor` instead
     ///
     pub const SetFocusColor = setFocusColor;
@@ -2379,43 +1677,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setFocusColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.Kirigami__Platform__PlatformTheme_SetFocusColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetFocusColor` instead
-    ///
-    pub const OnSetFocusColor = onSetFocusColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setFocusColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetFocusColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetFocusColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetFocusColor` instead
-    ///
-    pub const SuperSetFocusColor = superSetFocusColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setFocusColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetFocusColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetFocusColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### DEPRECATED: Use `setHoverColor` instead
@@ -2435,43 +1696,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetHoverColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetHoverColor` instead
-    ///
-    pub const OnSetHoverColor = onSetHoverColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setHoverColor)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, color: QColor) callconv(.c) void `
-    ///
-    pub fn onSetHoverColor(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QColor) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetHoverColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetHoverColor` instead
-    ///
-    pub const SuperSetHoverColor = superSetHoverColor;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setHoverColor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn superSetHoverColor(self: Kirigami__Platform__PlatformTheme, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetHoverColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
-
     /// ### DEPRECATED: Use `setDefaultFont` instead
     ///
     pub const SetDefaultFont = setDefaultFont;
@@ -2489,43 +1713,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         qtc.Kirigami__Platform__PlatformTheme_SetDefaultFont(@ptrCast(self.ptr), @ptrCast(_defaultFont.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetDefaultFont` instead
-    ///
-    pub const OnSetDefaultFont = onSetDefaultFont;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setDefaultFont)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, defaultFont: QFont) callconv(.c) void `
-    ///
-    pub fn onSetDefaultFont(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QFont) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetDefaultFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetDefaultFont` instead
-    ///
-    pub const SuperSetDefaultFont = superSetDefaultFont;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setDefaultFont)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` _defaultFont: QFont `
-    ///
-    pub fn superSetDefaultFont(self: Kirigami__Platform__PlatformTheme, _defaultFont: anytype) void {
-        comptime _ = @TypeOf(_defaultFont)._is_QFont;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetDefaultFont(@ptrCast(self.ptr), @ptrCast(_defaultFont.ptr));
-    }
-
     /// ### DEPRECATED: Use `setSmallFont` instead
     ///
     pub const SetSmallFont = setSmallFont;
@@ -2541,43 +1728,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn setSmallFont(self: Kirigami__Platform__PlatformTheme, _smallFont: anytype) void {
         comptime _ = @TypeOf(_smallFont)._is_QFont;
         qtc.Kirigami__Platform__PlatformTheme_SetSmallFont(@ptrCast(self.ptr), @ptrCast(_smallFont.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetSmallFont` instead
-    ///
-    pub const OnSetSmallFont = onSetSmallFont;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setSmallFont)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, smallFont: QFont) callconv(.c) void `
-    ///
-    pub fn onSetSmallFont(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QFont) callconv(.c) void) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSetSmallFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSmallFont` instead
-    ///
-    pub const SuperSetSmallFont = superSetSmallFont;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-platformtheme.html#setSmallFont)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` _smallFont: QFont `
-    ///
-    pub fn superSetSmallFont(self: Kirigami__Platform__PlatformTheme, _smallFont: anytype) void {
-        comptime _ = @TypeOf(_smallFont)._is_QFont;
-        qtc.Kirigami__Platform__PlatformTheme_SuperSetSmallFont(@ptrCast(self.ptr), @ptrCast(_smallFont.ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead
@@ -4389,44 +3539,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         return .{ .ptr = qtc.Kirigami__Platform__PlatformTheme_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    pub fn superSender(self: Kirigami__Platform__PlatformTheme) QObject {
-        return .{ .ptr = qtc.Kirigami__Platform__PlatformTheme_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Kirigami__Platform__PlatformTheme, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4443,44 +3555,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     ///
     pub fn senderSignalIndex(self: Kirigami__Platform__PlatformTheme) i32 {
         return qtc.Kirigami__Platform__PlatformTheme_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    pub fn superSenderSignalIndex(self: Kirigami__Platform__PlatformTheme) i32 {
-        return qtc.Kirigami__Platform__PlatformTheme_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Kirigami__Platform__PlatformTheme, callback: *const fn () callconv(.c) i32) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4504,47 +3578,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
         return qtc.Kirigami__Platform__PlatformTheme_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Kirigami__Platform__PlatformTheme, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Kirigami__Platform__PlatformTheme_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme`
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4564,47 +3597,6 @@ pub const Kirigami__Platform__PlatformTheme = extern struct {
     pub fn isSignalConnected(self: Kirigami__Platform__PlatformTheme, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Kirigami__Platform__PlatformTheme_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Kirigami__Platform__PlatformTheme, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Kirigami__Platform__PlatformTheme_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Kirigami__Platform__PlatformTheme`
-    ///
-    /// ` callback: *const fn (self: Kirigami__Platform__PlatformTheme, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Kirigami__Platform__PlatformTheme, callback: *const fn (Kirigami__Platform__PlatformTheme, QMetaMethod) callconv(.c) bool) void {
-        qtc.Kirigami__Platform__PlatformTheme_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

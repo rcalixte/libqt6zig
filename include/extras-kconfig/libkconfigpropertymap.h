@@ -40,7 +40,7 @@ void KConfigPropertyMap_WriteConfig(KConfigPropertyMap* self);
 QVariant* KConfigPropertyMap_UpdateValue(KConfigPropertyMap* self, const libqt_string key, const QVariant* input);
 libqt_string KConfigPropertyMap_Tr2(const char* s, const char* c);
 libqt_string KConfigPropertyMap_Tr3(const char* s, const char* c, int n);
-void KConfigPropertyMap_OnMetaObject(const KConfigPropertyMap* self, intptr_t slot);
+void KConfigPropertyMap_OnMetaObject(KConfigPropertyMap* self, intptr_t slot);
 QMetaObject* KConfigPropertyMap_SuperMetaObject(const KConfigPropertyMap* self);
 void KConfigPropertyMap_OnMetacast(KConfigPropertyMap* self, intptr_t slot);
 void* KConfigPropertyMap_SuperMetacast(KConfigPropertyMap* self, const char* param1);
@@ -70,17 +70,9 @@ void KConfigPropertyMap_DisconnectNotify(KConfigPropertyMap* self, const QMetaMe
 void KConfigPropertyMap_OnDisconnectNotify(KConfigPropertyMap* self, intptr_t slot);
 void KConfigPropertyMap_SuperDisconnectNotify(KConfigPropertyMap* self, const QMetaMethod* signal);
 QObject* KConfigPropertyMap_Sender(const KConfigPropertyMap* self);
-void KConfigPropertyMap_OnSender(const KConfigPropertyMap* self, intptr_t slot);
-QObject* KConfigPropertyMap_SuperSender(const KConfigPropertyMap* self);
 int KConfigPropertyMap_SenderSignalIndex(const KConfigPropertyMap* self);
-void KConfigPropertyMap_OnSenderSignalIndex(const KConfigPropertyMap* self, intptr_t slot);
-int KConfigPropertyMap_SuperSenderSignalIndex(const KConfigPropertyMap* self);
 int KConfigPropertyMap_Receivers(const KConfigPropertyMap* self, const char* signal);
-void KConfigPropertyMap_OnReceivers(const KConfigPropertyMap* self, intptr_t slot);
-int KConfigPropertyMap_SuperReceivers(const KConfigPropertyMap* self, const char* signal);
 bool KConfigPropertyMap_IsSignalConnected(const KConfigPropertyMap* self, const QMetaMethod* signal);
-void KConfigPropertyMap_OnIsSignalConnected(const KConfigPropertyMap* self, intptr_t slot);
-bool KConfigPropertyMap_SuperIsSignalConnected(const KConfigPropertyMap* self, const QMetaMethod* signal);
 void KConfigPropertyMap_Delete(KConfigPropertyMap* self);
 
 #ifdef __cplusplus

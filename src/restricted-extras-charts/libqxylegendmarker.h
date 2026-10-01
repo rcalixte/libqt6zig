@@ -37,7 +37,7 @@ int QXYLegendMarker_Type(QXYLegendMarker* self);
 QXYSeries* QXYLegendMarker_Series(QXYLegendMarker* self);
 libqt_string QXYLegendMarker_Tr2(const char* s, const char* c);
 libqt_string QXYLegendMarker_Tr3(const char* s, const char* c, int n);
-void QXYLegendMarker_OnMetaObject(const QXYLegendMarker* self, intptr_t slot);
+void QXYLegendMarker_OnMetaObject(QXYLegendMarker* self, intptr_t slot);
 QMetaObject* QXYLegendMarker_SuperMetaObject(const QXYLegendMarker* self);
 void QXYLegendMarker_OnMetacast(QXYLegendMarker* self, intptr_t slot);
 void* QXYLegendMarker_SuperMetacast(QXYLegendMarker* self, const char* param1);
@@ -69,17 +69,9 @@ void QXYLegendMarker_DisconnectNotify(QXYLegendMarker* self, const QMetaMethod* 
 void QXYLegendMarker_OnDisconnectNotify(QXYLegendMarker* self, intptr_t slot);
 void QXYLegendMarker_SuperDisconnectNotify(QXYLegendMarker* self, const QMetaMethod* signal);
 QObject* QXYLegendMarker_Sender(const QXYLegendMarker* self);
-void QXYLegendMarker_OnSender(const QXYLegendMarker* self, intptr_t slot);
-QObject* QXYLegendMarker_SuperSender(const QXYLegendMarker* self);
 int QXYLegendMarker_SenderSignalIndex(const QXYLegendMarker* self);
-void QXYLegendMarker_OnSenderSignalIndex(const QXYLegendMarker* self, intptr_t slot);
-int QXYLegendMarker_SuperSenderSignalIndex(const QXYLegendMarker* self);
 int QXYLegendMarker_Receivers(const QXYLegendMarker* self, const char* signal);
-void QXYLegendMarker_OnReceivers(const QXYLegendMarker* self, intptr_t slot);
-int QXYLegendMarker_SuperReceivers(const QXYLegendMarker* self, const char* signal);
 bool QXYLegendMarker_IsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal);
-void QXYLegendMarker_OnIsSignalConnected(const QXYLegendMarker* self, intptr_t slot);
-bool QXYLegendMarker_SuperIsSignalConnected(const QXYLegendMarker* self, const QMetaMethod* signal);
 void QXYLegendMarker_Delete(QXYLegendMarker* self);
 
 #ifdef __cplusplus

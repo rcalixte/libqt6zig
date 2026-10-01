@@ -9,20 +9,16 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KTimeComboBox so that we can call protected methods
+// This class is a subclass of KTimeComboBox
 class VirtualKTimeComboBox final : public KTimeComboBox {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKTimeComboBox = true;
-
-    // Virtual class public types (including callbacks)
-    using KTimeComboBox_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KTimeComboBox_MetaObject_Callback = QMetaObject* (*)(const KTimeComboBox*);
     using KTimeComboBox_Metacast_Callback = void* (*)(KTimeComboBox*, const char*);
     using KTimeComboBox_Metacall_Callback = int (*)(KTimeComboBox*, int, int, void**);
     using KTimeComboBox_EventFilter_Callback = bool (*)(KTimeComboBox*, QObject*, QEvent*);
-    using KTimeComboBox_ShowPopup_Callback = void (*)();
-    using KTimeComboBox_HidePopup_Callback = void (*)();
+    using KTimeComboBox_ShowPopup_Callback = void (*)(KTimeComboBox*);
+    using KTimeComboBox_HidePopup_Callback = void (*)(KTimeComboBox*);
     using KTimeComboBox_MousePressEvent_Callback = void (*)(KTimeComboBox*, QMouseEvent*);
     using KTimeComboBox_WheelEvent_Callback = void (*)(KTimeComboBox*, QWheelEvent*);
     using KTimeComboBox_KeyPressEvent_Callback = void (*)(KTimeComboBox*, QKeyEvent*);
@@ -31,8 +27,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     using KTimeComboBox_ResizeEvent_Callback = void (*)(KTimeComboBox*, QResizeEvent*);
     using KTimeComboBox_AssignTime_Callback = void (*)(KTimeComboBox*, QTime*);
     using KTimeComboBox_SetModel_Callback = void (*)(KTimeComboBox*, QAbstractItemModel*);
-    using KTimeComboBox_SizeHint_Callback = QSize* (*)();
-    using KTimeComboBox_MinimumSizeHint_Callback = QSize* (*)();
+    using KTimeComboBox_SizeHint_Callback = QSize* (*)(const KTimeComboBox*);
+    using KTimeComboBox_MinimumSizeHint_Callback = QSize* (*)(const KTimeComboBox*);
     using KTimeComboBox_Event_Callback = bool (*)(KTimeComboBox*, QEvent*);
     using KTimeComboBox_InputMethodQuery_Callback = QVariant* (*)(const KTimeComboBox*, int);
     using KTimeComboBox_ChangeEvent_Callback = void (*)(KTimeComboBox*, QEvent*);
@@ -44,11 +40,11 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     using KTimeComboBox_ContextMenuEvent_Callback = void (*)(KTimeComboBox*, QContextMenuEvent*);
     using KTimeComboBox_InputMethodEvent_Callback = void (*)(KTimeComboBox*, QInputMethodEvent*);
     using KTimeComboBox_InitStyleOption_Callback = void (*)(const KTimeComboBox*, QStyleOptionComboBox*);
-    using KTimeComboBox_DevType_Callback = int (*)();
+    using KTimeComboBox_DevType_Callback = int (*)(const KTimeComboBox*);
     using KTimeComboBox_SetVisible_Callback = void (*)(KTimeComboBox*, bool);
     using KTimeComboBox_HeightForWidth_Callback = int (*)(const KTimeComboBox*, int);
-    using KTimeComboBox_HasHeightForWidth_Callback = bool (*)();
-    using KTimeComboBox_PaintEngine_Callback = QPaintEngine* (*)();
+    using KTimeComboBox_HasHeightForWidth_Callback = bool (*)(const KTimeComboBox*);
+    using KTimeComboBox_PaintEngine_Callback = QPaintEngine* (*)(const KTimeComboBox*);
     using KTimeComboBox_MouseDoubleClickEvent_Callback = void (*)(KTimeComboBox*, QMouseEvent*);
     using KTimeComboBox_MouseMoveEvent_Callback = void (*)(KTimeComboBox*, QMouseEvent*);
     using KTimeComboBox_EnterEvent_Callback = void (*)(KTimeComboBox*, QEnterEvent*);
@@ -65,25 +61,24 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     using KTimeComboBox_Metric_Callback = int (*)(const KTimeComboBox*, int);
     using KTimeComboBox_InitPainter_Callback = void (*)(const KTimeComboBox*, QPainter*);
     using KTimeComboBox_Redirected_Callback = QPaintDevice* (*)(const KTimeComboBox*, QPoint*);
-    using KTimeComboBox_SharedPainter_Callback = QPainter* (*)();
+    using KTimeComboBox_SharedPainter_Callback = QPainter* (*)(const KTimeComboBox*);
     using KTimeComboBox_FocusNextPrevChild_Callback = bool (*)(KTimeComboBox*, bool);
     using KTimeComboBox_TimerEvent_Callback = void (*)(KTimeComboBox*, QTimerEvent*);
     using KTimeComboBox_ChildEvent_Callback = void (*)(KTimeComboBox*, QChildEvent*);
     using KTimeComboBox_CustomEvent_Callback = void (*)(KTimeComboBox*, QEvent*);
     using KTimeComboBox_ConnectNotify_Callback = void (*)(KTimeComboBox*, QMetaMethod*);
     using KTimeComboBox_DisconnectNotify_Callback = void (*)(KTimeComboBox*, QMetaMethod*);
-    using KTimeComboBox_UpdateMicroFocus_Callback = void (*)();
-    using KTimeComboBox_Create_Callback = void (*)();
-    using KTimeComboBox_Destroy_Callback = void (*)();
-    using KTimeComboBox_FocusNextChild_Callback = bool (*)();
-    using KTimeComboBox_FocusPreviousChild_Callback = bool (*)();
-    using KTimeComboBox_Sender_Callback = QObject* (*)();
-    using KTimeComboBox_SenderSignalIndex_Callback = int (*)();
-    using KTimeComboBox_Receivers_Callback = int (*)(const KTimeComboBox*, const char*);
-    using KTimeComboBox_IsSignalConnected_Callback = bool (*)(const KTimeComboBox*, QMetaMethod*);
-    using KTimeComboBox_GetDecodedMetricF_Callback = double (*)(const KTimeComboBox*, int, int);
+    using KTimeComboBox::create;
+    using KTimeComboBox::destroy;
+    using KTimeComboBox::focusNextChild;
+    using KTimeComboBox::focusPreviousChild;
+    using KTimeComboBox::getDecodedMetricF;
+    using KTimeComboBox::isSignalConnected;
+    using KTimeComboBox::receivers;
+    using KTimeComboBox::sender;
+    using KTimeComboBox::senderSignalIndex;
+    using KTimeComboBox::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KTimeComboBox_MetaObject_Callback ktimecombobox_metaobject_callback = nullptr;
     KTimeComboBox_Metacast_Callback ktimecombobox_metacast_callback = nullptr;
@@ -140,231 +135,60 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
     KTimeComboBox_CustomEvent_Callback ktimecombobox_customevent_callback = nullptr;
     KTimeComboBox_ConnectNotify_Callback ktimecombobox_connectnotify_callback = nullptr;
     KTimeComboBox_DisconnectNotify_Callback ktimecombobox_disconnectnotify_callback = nullptr;
-    KTimeComboBox_UpdateMicroFocus_Callback ktimecombobox_updatemicrofocus_callback = nullptr;
-    KTimeComboBox_Create_Callback ktimecombobox_create_callback = nullptr;
-    KTimeComboBox_Destroy_Callback ktimecombobox_destroy_callback = nullptr;
-    KTimeComboBox_FocusNextChild_Callback ktimecombobox_focusnextchild_callback = nullptr;
-    KTimeComboBox_FocusPreviousChild_Callback ktimecombobox_focuspreviouschild_callback = nullptr;
-    KTimeComboBox_Sender_Callback ktimecombobox_sender_callback = nullptr;
-    KTimeComboBox_SenderSignalIndex_Callback ktimecombobox_sendersignalindex_callback = nullptr;
-    KTimeComboBox_Receivers_Callback ktimecombobox_receivers_callback = nullptr;
-    KTimeComboBox_IsSignalConnected_Callback ktimecombobox_issignalconnected_callback = nullptr;
-    KTimeComboBox_GetDecodedMetricF_Callback ktimecombobox_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool ktimecombobox_metaobject_isbase = false;
-    mutable bool ktimecombobox_metacast_isbase = false;
-    mutable bool ktimecombobox_metacall_isbase = false;
-    mutable bool ktimecombobox_eventfilter_isbase = false;
-    mutable bool ktimecombobox_showpopup_isbase = false;
-    mutable bool ktimecombobox_hidepopup_isbase = false;
-    mutable bool ktimecombobox_mousepressevent_isbase = false;
-    mutable bool ktimecombobox_wheelevent_isbase = false;
-    mutable bool ktimecombobox_keypressevent_isbase = false;
-    mutable bool ktimecombobox_focusinevent_isbase = false;
-    mutable bool ktimecombobox_focusoutevent_isbase = false;
-    mutable bool ktimecombobox_resizeevent_isbase = false;
-    mutable bool ktimecombobox_assigntime_isbase = false;
-    mutable bool ktimecombobox_setmodel_isbase = false;
-    mutable bool ktimecombobox_sizehint_isbase = false;
-    mutable bool ktimecombobox_minimumsizehint_isbase = false;
-    mutable bool ktimecombobox_event_isbase = false;
-    mutable bool ktimecombobox_inputmethodquery_isbase = false;
-    mutable bool ktimecombobox_changeevent_isbase = false;
-    mutable bool ktimecombobox_paintevent_isbase = false;
-    mutable bool ktimecombobox_showevent_isbase = false;
-    mutable bool ktimecombobox_hideevent_isbase = false;
-    mutable bool ktimecombobox_mousereleaseevent_isbase = false;
-    mutable bool ktimecombobox_keyreleaseevent_isbase = false;
-    mutable bool ktimecombobox_contextmenuevent_isbase = false;
-    mutable bool ktimecombobox_inputmethodevent_isbase = false;
-    mutable bool ktimecombobox_initstyleoption_isbase = false;
-    mutable bool ktimecombobox_devtype_isbase = false;
-    mutable bool ktimecombobox_setvisible_isbase = false;
-    mutable bool ktimecombobox_heightforwidth_isbase = false;
-    mutable bool ktimecombobox_hasheightforwidth_isbase = false;
-    mutable bool ktimecombobox_paintengine_isbase = false;
-    mutable bool ktimecombobox_mousedoubleclickevent_isbase = false;
-    mutable bool ktimecombobox_mousemoveevent_isbase = false;
-    mutable bool ktimecombobox_enterevent_isbase = false;
-    mutable bool ktimecombobox_leaveevent_isbase = false;
-    mutable bool ktimecombobox_moveevent_isbase = false;
-    mutable bool ktimecombobox_closeevent_isbase = false;
-    mutable bool ktimecombobox_tabletevent_isbase = false;
-    mutable bool ktimecombobox_actionevent_isbase = false;
-    mutable bool ktimecombobox_dragenterevent_isbase = false;
-    mutable bool ktimecombobox_dragmoveevent_isbase = false;
-    mutable bool ktimecombobox_dragleaveevent_isbase = false;
-    mutable bool ktimecombobox_dropevent_isbase = false;
-    mutable bool ktimecombobox_nativeevent_isbase = false;
-    mutable bool ktimecombobox_metric_isbase = false;
-    mutable bool ktimecombobox_initpainter_isbase = false;
-    mutable bool ktimecombobox_redirected_isbase = false;
-    mutable bool ktimecombobox_sharedpainter_isbase = false;
-    mutable bool ktimecombobox_focusnextprevchild_isbase = false;
-    mutable bool ktimecombobox_timerevent_isbase = false;
-    mutable bool ktimecombobox_childevent_isbase = false;
-    mutable bool ktimecombobox_customevent_isbase = false;
-    mutable bool ktimecombobox_connectnotify_isbase = false;
-    mutable bool ktimecombobox_disconnectnotify_isbase = false;
-    mutable bool ktimecombobox_updatemicrofocus_isbase = false;
-    mutable bool ktimecombobox_create_isbase = false;
-    mutable bool ktimecombobox_destroy_isbase = false;
-    mutable bool ktimecombobox_focusnextchild_isbase = false;
-    mutable bool ktimecombobox_focuspreviouschild_isbase = false;
-    mutable bool ktimecombobox_sender_isbase = false;
-    mutable bool ktimecombobox_sendersignalindex_isbase = false;
-    mutable bool ktimecombobox_receivers_isbase = false;
-    mutable bool ktimecombobox_issignalconnected_isbase = false;
-    mutable bool ktimecombobox_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KTimeComboBox {
+        using KTimeComboBox::actionEvent;
+        using KTimeComboBox::assignTime;
+        using KTimeComboBox::changeEvent;
+        using KTimeComboBox::childEvent;
+        using KTimeComboBox::closeEvent;
+        using KTimeComboBox::connectNotify;
+        using KTimeComboBox::contextMenuEvent;
+        using KTimeComboBox::customEvent;
+        using KTimeComboBox::disconnectNotify;
+        using KTimeComboBox::dragEnterEvent;
+        using KTimeComboBox::dragLeaveEvent;
+        using KTimeComboBox::dragMoveEvent;
+        using KTimeComboBox::dropEvent;
+        using KTimeComboBox::enterEvent;
+        using KTimeComboBox::eventFilter;
+        using KTimeComboBox::focusInEvent;
+        using KTimeComboBox::focusNextPrevChild;
+        using KTimeComboBox::focusOutEvent;
+        using KTimeComboBox::hideEvent;
+        using KTimeComboBox::hidePopup;
+        using KTimeComboBox::initPainter;
+        using KTimeComboBox::initStyleOption;
+        using KTimeComboBox::inputMethodEvent;
+        using KTimeComboBox::keyPressEvent;
+        using KTimeComboBox::keyReleaseEvent;
+        using KTimeComboBox::leaveEvent;
+        using KTimeComboBox::metric;
+        using KTimeComboBox::mouseDoubleClickEvent;
+        using KTimeComboBox::mouseMoveEvent;
+        using KTimeComboBox::mousePressEvent;
+        using KTimeComboBox::mouseReleaseEvent;
+        using KTimeComboBox::moveEvent;
+        using KTimeComboBox::nativeEvent;
+        using KTimeComboBox::paintEvent;
+        using KTimeComboBox::redirected;
+        using KTimeComboBox::resizeEvent;
+        using KTimeComboBox::sharedPainter;
+        using KTimeComboBox::showEvent;
+        using KTimeComboBox::showPopup;
+        using KTimeComboBox::tabletEvent;
+        using KTimeComboBox::timerEvent;
+        using KTimeComboBox::wheelEvent;
+    };
 
-  public:
     VirtualKTimeComboBox(QWidget* parent) : KTimeComboBox(parent) {};
     VirtualKTimeComboBox() : KTimeComboBox() {};
 
-    // Callback setters
-    inline void setKTimeComboBox_MetaObject_Callback(KTimeComboBox_MetaObject_Callback cb) { ktimecombobox_metaobject_callback = cb; }
-    inline void setKTimeComboBox_Metacast_Callback(KTimeComboBox_Metacast_Callback cb) { ktimecombobox_metacast_callback = cb; }
-    inline void setKTimeComboBox_Metacall_Callback(KTimeComboBox_Metacall_Callback cb) { ktimecombobox_metacall_callback = cb; }
-    inline void setKTimeComboBox_EventFilter_Callback(KTimeComboBox_EventFilter_Callback cb) { ktimecombobox_eventfilter_callback = cb; }
-    inline void setKTimeComboBox_ShowPopup_Callback(KTimeComboBox_ShowPopup_Callback cb) { ktimecombobox_showpopup_callback = cb; }
-    inline void setKTimeComboBox_HidePopup_Callback(KTimeComboBox_HidePopup_Callback cb) { ktimecombobox_hidepopup_callback = cb; }
-    inline void setKTimeComboBox_MousePressEvent_Callback(KTimeComboBox_MousePressEvent_Callback cb) { ktimecombobox_mousepressevent_callback = cb; }
-    inline void setKTimeComboBox_WheelEvent_Callback(KTimeComboBox_WheelEvent_Callback cb) { ktimecombobox_wheelevent_callback = cb; }
-    inline void setKTimeComboBox_KeyPressEvent_Callback(KTimeComboBox_KeyPressEvent_Callback cb) { ktimecombobox_keypressevent_callback = cb; }
-    inline void setKTimeComboBox_FocusInEvent_Callback(KTimeComboBox_FocusInEvent_Callback cb) { ktimecombobox_focusinevent_callback = cb; }
-    inline void setKTimeComboBox_FocusOutEvent_Callback(KTimeComboBox_FocusOutEvent_Callback cb) { ktimecombobox_focusoutevent_callback = cb; }
-    inline void setKTimeComboBox_ResizeEvent_Callback(KTimeComboBox_ResizeEvent_Callback cb) { ktimecombobox_resizeevent_callback = cb; }
-    inline void setKTimeComboBox_AssignTime_Callback(KTimeComboBox_AssignTime_Callback cb) { ktimecombobox_assigntime_callback = cb; }
-    inline void setKTimeComboBox_SetModel_Callback(KTimeComboBox_SetModel_Callback cb) { ktimecombobox_setmodel_callback = cb; }
-    inline void setKTimeComboBox_SizeHint_Callback(KTimeComboBox_SizeHint_Callback cb) { ktimecombobox_sizehint_callback = cb; }
-    inline void setKTimeComboBox_MinimumSizeHint_Callback(KTimeComboBox_MinimumSizeHint_Callback cb) { ktimecombobox_minimumsizehint_callback = cb; }
-    inline void setKTimeComboBox_Event_Callback(KTimeComboBox_Event_Callback cb) { ktimecombobox_event_callback = cb; }
-    inline void setKTimeComboBox_InputMethodQuery_Callback(KTimeComboBox_InputMethodQuery_Callback cb) { ktimecombobox_inputmethodquery_callback = cb; }
-    inline void setKTimeComboBox_ChangeEvent_Callback(KTimeComboBox_ChangeEvent_Callback cb) { ktimecombobox_changeevent_callback = cb; }
-    inline void setKTimeComboBox_PaintEvent_Callback(KTimeComboBox_PaintEvent_Callback cb) { ktimecombobox_paintevent_callback = cb; }
-    inline void setKTimeComboBox_ShowEvent_Callback(KTimeComboBox_ShowEvent_Callback cb) { ktimecombobox_showevent_callback = cb; }
-    inline void setKTimeComboBox_HideEvent_Callback(KTimeComboBox_HideEvent_Callback cb) { ktimecombobox_hideevent_callback = cb; }
-    inline void setKTimeComboBox_MouseReleaseEvent_Callback(KTimeComboBox_MouseReleaseEvent_Callback cb) { ktimecombobox_mousereleaseevent_callback = cb; }
-    inline void setKTimeComboBox_KeyReleaseEvent_Callback(KTimeComboBox_KeyReleaseEvent_Callback cb) { ktimecombobox_keyreleaseevent_callback = cb; }
-    inline void setKTimeComboBox_ContextMenuEvent_Callback(KTimeComboBox_ContextMenuEvent_Callback cb) { ktimecombobox_contextmenuevent_callback = cb; }
-    inline void setKTimeComboBox_InputMethodEvent_Callback(KTimeComboBox_InputMethodEvent_Callback cb) { ktimecombobox_inputmethodevent_callback = cb; }
-    inline void setKTimeComboBox_InitStyleOption_Callback(KTimeComboBox_InitStyleOption_Callback cb) { ktimecombobox_initstyleoption_callback = cb; }
-    inline void setKTimeComboBox_DevType_Callback(KTimeComboBox_DevType_Callback cb) { ktimecombobox_devtype_callback = cb; }
-    inline void setKTimeComboBox_SetVisible_Callback(KTimeComboBox_SetVisible_Callback cb) { ktimecombobox_setvisible_callback = cb; }
-    inline void setKTimeComboBox_HeightForWidth_Callback(KTimeComboBox_HeightForWidth_Callback cb) { ktimecombobox_heightforwidth_callback = cb; }
-    inline void setKTimeComboBox_HasHeightForWidth_Callback(KTimeComboBox_HasHeightForWidth_Callback cb) { ktimecombobox_hasheightforwidth_callback = cb; }
-    inline void setKTimeComboBox_PaintEngine_Callback(KTimeComboBox_PaintEngine_Callback cb) { ktimecombobox_paintengine_callback = cb; }
-    inline void setKTimeComboBox_MouseDoubleClickEvent_Callback(KTimeComboBox_MouseDoubleClickEvent_Callback cb) { ktimecombobox_mousedoubleclickevent_callback = cb; }
-    inline void setKTimeComboBox_MouseMoveEvent_Callback(KTimeComboBox_MouseMoveEvent_Callback cb) { ktimecombobox_mousemoveevent_callback = cb; }
-    inline void setKTimeComboBox_EnterEvent_Callback(KTimeComboBox_EnterEvent_Callback cb) { ktimecombobox_enterevent_callback = cb; }
-    inline void setKTimeComboBox_LeaveEvent_Callback(KTimeComboBox_LeaveEvent_Callback cb) { ktimecombobox_leaveevent_callback = cb; }
-    inline void setKTimeComboBox_MoveEvent_Callback(KTimeComboBox_MoveEvent_Callback cb) { ktimecombobox_moveevent_callback = cb; }
-    inline void setKTimeComboBox_CloseEvent_Callback(KTimeComboBox_CloseEvent_Callback cb) { ktimecombobox_closeevent_callback = cb; }
-    inline void setKTimeComboBox_TabletEvent_Callback(KTimeComboBox_TabletEvent_Callback cb) { ktimecombobox_tabletevent_callback = cb; }
-    inline void setKTimeComboBox_ActionEvent_Callback(KTimeComboBox_ActionEvent_Callback cb) { ktimecombobox_actionevent_callback = cb; }
-    inline void setKTimeComboBox_DragEnterEvent_Callback(KTimeComboBox_DragEnterEvent_Callback cb) { ktimecombobox_dragenterevent_callback = cb; }
-    inline void setKTimeComboBox_DragMoveEvent_Callback(KTimeComboBox_DragMoveEvent_Callback cb) { ktimecombobox_dragmoveevent_callback = cb; }
-    inline void setKTimeComboBox_DragLeaveEvent_Callback(KTimeComboBox_DragLeaveEvent_Callback cb) { ktimecombobox_dragleaveevent_callback = cb; }
-    inline void setKTimeComboBox_DropEvent_Callback(KTimeComboBox_DropEvent_Callback cb) { ktimecombobox_dropevent_callback = cb; }
-    inline void setKTimeComboBox_NativeEvent_Callback(KTimeComboBox_NativeEvent_Callback cb) { ktimecombobox_nativeevent_callback = cb; }
-    inline void setKTimeComboBox_Metric_Callback(KTimeComboBox_Metric_Callback cb) { ktimecombobox_metric_callback = cb; }
-    inline void setKTimeComboBox_InitPainter_Callback(KTimeComboBox_InitPainter_Callback cb) { ktimecombobox_initpainter_callback = cb; }
-    inline void setKTimeComboBox_Redirected_Callback(KTimeComboBox_Redirected_Callback cb) { ktimecombobox_redirected_callback = cb; }
-    inline void setKTimeComboBox_SharedPainter_Callback(KTimeComboBox_SharedPainter_Callback cb) { ktimecombobox_sharedpainter_callback = cb; }
-    inline void setKTimeComboBox_FocusNextPrevChild_Callback(KTimeComboBox_FocusNextPrevChild_Callback cb) { ktimecombobox_focusnextprevchild_callback = cb; }
-    inline void setKTimeComboBox_TimerEvent_Callback(KTimeComboBox_TimerEvent_Callback cb) { ktimecombobox_timerevent_callback = cb; }
-    inline void setKTimeComboBox_ChildEvent_Callback(KTimeComboBox_ChildEvent_Callback cb) { ktimecombobox_childevent_callback = cb; }
-    inline void setKTimeComboBox_CustomEvent_Callback(KTimeComboBox_CustomEvent_Callback cb) { ktimecombobox_customevent_callback = cb; }
-    inline void setKTimeComboBox_ConnectNotify_Callback(KTimeComboBox_ConnectNotify_Callback cb) { ktimecombobox_connectnotify_callback = cb; }
-    inline void setKTimeComboBox_DisconnectNotify_Callback(KTimeComboBox_DisconnectNotify_Callback cb) { ktimecombobox_disconnectnotify_callback = cb; }
-    inline void setKTimeComboBox_UpdateMicroFocus_Callback(KTimeComboBox_UpdateMicroFocus_Callback cb) { ktimecombobox_updatemicrofocus_callback = cb; }
-    inline void setKTimeComboBox_Create_Callback(KTimeComboBox_Create_Callback cb) { ktimecombobox_create_callback = cb; }
-    inline void setKTimeComboBox_Destroy_Callback(KTimeComboBox_Destroy_Callback cb) { ktimecombobox_destroy_callback = cb; }
-    inline void setKTimeComboBox_FocusNextChild_Callback(KTimeComboBox_FocusNextChild_Callback cb) { ktimecombobox_focusnextchild_callback = cb; }
-    inline void setKTimeComboBox_FocusPreviousChild_Callback(KTimeComboBox_FocusPreviousChild_Callback cb) { ktimecombobox_focuspreviouschild_callback = cb; }
-    inline void setKTimeComboBox_Sender_Callback(KTimeComboBox_Sender_Callback cb) { ktimecombobox_sender_callback = cb; }
-    inline void setKTimeComboBox_SenderSignalIndex_Callback(KTimeComboBox_SenderSignalIndex_Callback cb) { ktimecombobox_sendersignalindex_callback = cb; }
-    inline void setKTimeComboBox_Receivers_Callback(KTimeComboBox_Receivers_Callback cb) { ktimecombobox_receivers_callback = cb; }
-    inline void setKTimeComboBox_IsSignalConnected_Callback(KTimeComboBox_IsSignalConnected_Callback cb) { ktimecombobox_issignalconnected_callback = cb; }
-    inline void setKTimeComboBox_GetDecodedMetricF_Callback(KTimeComboBox_GetDecodedMetricF_Callback cb) { ktimecombobox_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKTimeComboBox_MetaObject_IsBase(bool value) const { ktimecombobox_metaobject_isbase = value; }
-    inline void setKTimeComboBox_Metacast_IsBase(bool value) const { ktimecombobox_metacast_isbase = value; }
-    inline void setKTimeComboBox_Metacall_IsBase(bool value) const { ktimecombobox_metacall_isbase = value; }
-    inline void setKTimeComboBox_EventFilter_IsBase(bool value) const { ktimecombobox_eventfilter_isbase = value; }
-    inline void setKTimeComboBox_ShowPopup_IsBase(bool value) const { ktimecombobox_showpopup_isbase = value; }
-    inline void setKTimeComboBox_HidePopup_IsBase(bool value) const { ktimecombobox_hidepopup_isbase = value; }
-    inline void setKTimeComboBox_MousePressEvent_IsBase(bool value) const { ktimecombobox_mousepressevent_isbase = value; }
-    inline void setKTimeComboBox_WheelEvent_IsBase(bool value) const { ktimecombobox_wheelevent_isbase = value; }
-    inline void setKTimeComboBox_KeyPressEvent_IsBase(bool value) const { ktimecombobox_keypressevent_isbase = value; }
-    inline void setKTimeComboBox_FocusInEvent_IsBase(bool value) const { ktimecombobox_focusinevent_isbase = value; }
-    inline void setKTimeComboBox_FocusOutEvent_IsBase(bool value) const { ktimecombobox_focusoutevent_isbase = value; }
-    inline void setKTimeComboBox_ResizeEvent_IsBase(bool value) const { ktimecombobox_resizeevent_isbase = value; }
-    inline void setKTimeComboBox_AssignTime_IsBase(bool value) const { ktimecombobox_assigntime_isbase = value; }
-    inline void setKTimeComboBox_SetModel_IsBase(bool value) const { ktimecombobox_setmodel_isbase = value; }
-    inline void setKTimeComboBox_SizeHint_IsBase(bool value) const { ktimecombobox_sizehint_isbase = value; }
-    inline void setKTimeComboBox_MinimumSizeHint_IsBase(bool value) const { ktimecombobox_minimumsizehint_isbase = value; }
-    inline void setKTimeComboBox_Event_IsBase(bool value) const { ktimecombobox_event_isbase = value; }
-    inline void setKTimeComboBox_InputMethodQuery_IsBase(bool value) const { ktimecombobox_inputmethodquery_isbase = value; }
-    inline void setKTimeComboBox_ChangeEvent_IsBase(bool value) const { ktimecombobox_changeevent_isbase = value; }
-    inline void setKTimeComboBox_PaintEvent_IsBase(bool value) const { ktimecombobox_paintevent_isbase = value; }
-    inline void setKTimeComboBox_ShowEvent_IsBase(bool value) const { ktimecombobox_showevent_isbase = value; }
-    inline void setKTimeComboBox_HideEvent_IsBase(bool value) const { ktimecombobox_hideevent_isbase = value; }
-    inline void setKTimeComboBox_MouseReleaseEvent_IsBase(bool value) const { ktimecombobox_mousereleaseevent_isbase = value; }
-    inline void setKTimeComboBox_KeyReleaseEvent_IsBase(bool value) const { ktimecombobox_keyreleaseevent_isbase = value; }
-    inline void setKTimeComboBox_ContextMenuEvent_IsBase(bool value) const { ktimecombobox_contextmenuevent_isbase = value; }
-    inline void setKTimeComboBox_InputMethodEvent_IsBase(bool value) const { ktimecombobox_inputmethodevent_isbase = value; }
-    inline void setKTimeComboBox_InitStyleOption_IsBase(bool value) const { ktimecombobox_initstyleoption_isbase = value; }
-    inline void setKTimeComboBox_DevType_IsBase(bool value) const { ktimecombobox_devtype_isbase = value; }
-    inline void setKTimeComboBox_SetVisible_IsBase(bool value) const { ktimecombobox_setvisible_isbase = value; }
-    inline void setKTimeComboBox_HeightForWidth_IsBase(bool value) const { ktimecombobox_heightforwidth_isbase = value; }
-    inline void setKTimeComboBox_HasHeightForWidth_IsBase(bool value) const { ktimecombobox_hasheightforwidth_isbase = value; }
-    inline void setKTimeComboBox_PaintEngine_IsBase(bool value) const { ktimecombobox_paintengine_isbase = value; }
-    inline void setKTimeComboBox_MouseDoubleClickEvent_IsBase(bool value) const { ktimecombobox_mousedoubleclickevent_isbase = value; }
-    inline void setKTimeComboBox_MouseMoveEvent_IsBase(bool value) const { ktimecombobox_mousemoveevent_isbase = value; }
-    inline void setKTimeComboBox_EnterEvent_IsBase(bool value) const { ktimecombobox_enterevent_isbase = value; }
-    inline void setKTimeComboBox_LeaveEvent_IsBase(bool value) const { ktimecombobox_leaveevent_isbase = value; }
-    inline void setKTimeComboBox_MoveEvent_IsBase(bool value) const { ktimecombobox_moveevent_isbase = value; }
-    inline void setKTimeComboBox_CloseEvent_IsBase(bool value) const { ktimecombobox_closeevent_isbase = value; }
-    inline void setKTimeComboBox_TabletEvent_IsBase(bool value) const { ktimecombobox_tabletevent_isbase = value; }
-    inline void setKTimeComboBox_ActionEvent_IsBase(bool value) const { ktimecombobox_actionevent_isbase = value; }
-    inline void setKTimeComboBox_DragEnterEvent_IsBase(bool value) const { ktimecombobox_dragenterevent_isbase = value; }
-    inline void setKTimeComboBox_DragMoveEvent_IsBase(bool value) const { ktimecombobox_dragmoveevent_isbase = value; }
-    inline void setKTimeComboBox_DragLeaveEvent_IsBase(bool value) const { ktimecombobox_dragleaveevent_isbase = value; }
-    inline void setKTimeComboBox_DropEvent_IsBase(bool value) const { ktimecombobox_dropevent_isbase = value; }
-    inline void setKTimeComboBox_NativeEvent_IsBase(bool value) const { ktimecombobox_nativeevent_isbase = value; }
-    inline void setKTimeComboBox_Metric_IsBase(bool value) const { ktimecombobox_metric_isbase = value; }
-    inline void setKTimeComboBox_InitPainter_IsBase(bool value) const { ktimecombobox_initpainter_isbase = value; }
-    inline void setKTimeComboBox_Redirected_IsBase(bool value) const { ktimecombobox_redirected_isbase = value; }
-    inline void setKTimeComboBox_SharedPainter_IsBase(bool value) const { ktimecombobox_sharedpainter_isbase = value; }
-    inline void setKTimeComboBox_FocusNextPrevChild_IsBase(bool value) const { ktimecombobox_focusnextprevchild_isbase = value; }
-    inline void setKTimeComboBox_TimerEvent_IsBase(bool value) const { ktimecombobox_timerevent_isbase = value; }
-    inline void setKTimeComboBox_ChildEvent_IsBase(bool value) const { ktimecombobox_childevent_isbase = value; }
-    inline void setKTimeComboBox_CustomEvent_IsBase(bool value) const { ktimecombobox_customevent_isbase = value; }
-    inline void setKTimeComboBox_ConnectNotify_IsBase(bool value) const { ktimecombobox_connectnotify_isbase = value; }
-    inline void setKTimeComboBox_DisconnectNotify_IsBase(bool value) const { ktimecombobox_disconnectnotify_isbase = value; }
-    inline void setKTimeComboBox_UpdateMicroFocus_IsBase(bool value) const { ktimecombobox_updatemicrofocus_isbase = value; }
-    inline void setKTimeComboBox_Create_IsBase(bool value) const { ktimecombobox_create_isbase = value; }
-    inline void setKTimeComboBox_Destroy_IsBase(bool value) const { ktimecombobox_destroy_isbase = value; }
-    inline void setKTimeComboBox_FocusNextChild_IsBase(bool value) const { ktimecombobox_focusnextchild_isbase = value; }
-    inline void setKTimeComboBox_FocusPreviousChild_IsBase(bool value) const { ktimecombobox_focuspreviouschild_isbase = value; }
-    inline void setKTimeComboBox_Sender_IsBase(bool value) const { ktimecombobox_sender_isbase = value; }
-    inline void setKTimeComboBox_SenderSignalIndex_IsBase(bool value) const { ktimecombobox_sendersignalindex_isbase = value; }
-    inline void setKTimeComboBox_Receivers_IsBase(bool value) const { ktimecombobox_receivers_isbase = value; }
-    inline void setKTimeComboBox_IsSignalConnected_IsBase(bool value) const { ktimecombobox_issignalconnected_isbase = value; }
-    inline void setKTimeComboBox_GetDecodedMetricF_IsBase(bool value) const { ktimecombobox_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (ktimecombobox_metaobject_isbase) {
-            ktimecombobox_metaobject_isbase = false;
-            return KTimeComboBox::metaObject();
-        }
-        auto metaobject_cb = ktimecombobox_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (ktimecombobox_metaobject_callback) {
+            QMetaObject* callback_ret = ktimecombobox_metaobject_callback(this);
             return callback_ret;
         }
         return KTimeComboBox::metaObject();
@@ -372,14 +196,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (ktimecombobox_metacast_isbase) {
-            ktimecombobox_metacast_isbase = false;
-            return KTimeComboBox::qt_metacast(param1);
-        }
-        auto metacast_cb = ktimecombobox_metacast_callback;
-        if (metacast_cb) {
+        if (ktimecombobox_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = ktimecombobox_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KTimeComboBox::qt_metacast(param1);
@@ -387,16 +206,11 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (ktimecombobox_metacall_isbase) {
-            ktimecombobox_metacall_isbase = false;
-            return KTimeComboBox::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = ktimecombobox_metacall_callback;
-        if (metacall_cb) {
+        if (ktimecombobox_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = ktimecombobox_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KTimeComboBox::qt_metacall(param1, param2, param3);
@@ -404,15 +218,10 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* object, QEvent* event) override {
-        if (ktimecombobox_eventfilter_isbase) {
-            ktimecombobox_eventfilter_isbase = false;
-            return KTimeComboBox::eventFilter(object, event);
-        }
-        auto eventfilter_cb = ktimecombobox_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (ktimecombobox_eventfilter_callback) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = ktimecombobox_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KTimeComboBox::eventFilter(object, event);
@@ -420,14 +229,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void showPopup() override {
-        if (ktimecombobox_showpopup_isbase) {
-            ktimecombobox_showpopup_isbase = false;
-            KTimeComboBox::showPopup();
-            return;
-        }
-        auto showpopup_cb = ktimecombobox_showpopup_callback;
-        if (showpopup_cb) {
-            showpopup_cb();
+        if (ktimecombobox_showpopup_callback) {
+            ktimecombobox_showpopup_callback(this);
             return;
         }
         KTimeComboBox::showPopup();
@@ -435,14 +238,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void hidePopup() override {
-        if (ktimecombobox_hidepopup_isbase) {
-            ktimecombobox_hidepopup_isbase = false;
-            KTimeComboBox::hidePopup();
-            return;
-        }
-        auto hidepopup_cb = ktimecombobox_hidepopup_callback;
-        if (hidepopup_cb) {
-            hidepopup_cb();
+        if (ktimecombobox_hidepopup_callback) {
+            ktimecombobox_hidepopup_callback(this);
             return;
         }
         KTimeComboBox::hidePopup();
@@ -450,15 +247,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (ktimecombobox_mousepressevent_isbase) {
-            ktimecombobox_mousepressevent_isbase = false;
-            KTimeComboBox::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = ktimecombobox_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (ktimecombobox_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            ktimecombobox_mousepressevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::mousePressEvent(event);
@@ -466,15 +257,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (ktimecombobox_wheelevent_isbase) {
-            ktimecombobox_wheelevent_isbase = false;
-            KTimeComboBox::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = ktimecombobox_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (ktimecombobox_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            ktimecombobox_wheelevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::wheelEvent(event);
@@ -482,15 +267,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (ktimecombobox_keypressevent_isbase) {
-            ktimecombobox_keypressevent_isbase = false;
-            KTimeComboBox::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = ktimecombobox_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (ktimecombobox_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            ktimecombobox_keypressevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::keyPressEvent(event);
@@ -498,15 +277,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (ktimecombobox_focusinevent_isbase) {
-            ktimecombobox_focusinevent_isbase = false;
-            KTimeComboBox::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = ktimecombobox_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (ktimecombobox_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            ktimecombobox_focusinevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::focusInEvent(event);
@@ -514,15 +287,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (ktimecombobox_focusoutevent_isbase) {
-            ktimecombobox_focusoutevent_isbase = false;
-            KTimeComboBox::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = ktimecombobox_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (ktimecombobox_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            ktimecombobox_focusoutevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::focusOutEvent(event);
@@ -530,15 +297,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (ktimecombobox_resizeevent_isbase) {
-            ktimecombobox_resizeevent_isbase = false;
-            KTimeComboBox::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = ktimecombobox_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (ktimecombobox_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            ktimecombobox_resizeevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::resizeEvent(event);
@@ -546,17 +307,11 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void assignTime(const QTime& time) override {
-        if (ktimecombobox_assigntime_isbase) {
-            ktimecombobox_assigntime_isbase = false;
-            KTimeComboBox::assignTime(time);
-            return;
-        }
-        auto assigntime_cb = ktimecombobox_assigntime_callback;
-        if (assigntime_cb) {
+        if (ktimecombobox_assigntime_callback) {
             const QTime& time_ret = time;
             // Cast returned reference into pointer
             QTime* cbval1 = const_cast<QTime*>(&time_ret);
-            assigntime_cb(this, cbval1);
+            ktimecombobox_assigntime_callback(this, cbval1);
             return;
         }
         KTimeComboBox::assignTime(time);
@@ -564,15 +319,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setModel(QAbstractItemModel* model) override {
-        if (ktimecombobox_setmodel_isbase) {
-            ktimecombobox_setmodel_isbase = false;
-            KTimeComboBox::setModel(model);
-            return;
-        }
-        auto setmodel_cb = ktimecombobox_setmodel_callback;
-        if (setmodel_cb) {
+        if (ktimecombobox_setmodel_callback) {
             QAbstractItemModel* cbval1 = model;
-            setmodel_cb(this, cbval1);
+            ktimecombobox_setmodel_callback(this, cbval1);
             return;
         }
         KTimeComboBox::setModel(model);
@@ -580,13 +329,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (ktimecombobox_sizehint_isbase) {
-            ktimecombobox_sizehint_isbase = false;
-            return KTimeComboBox::sizeHint();
-        }
-        auto sizehint_cb = ktimecombobox_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (ktimecombobox_sizehint_callback) {
+            QSize* callback_ret = ktimecombobox_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -596,13 +340,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (ktimecombobox_minimumsizehint_isbase) {
-            ktimecombobox_minimumsizehint_isbase = false;
-            return KTimeComboBox::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = ktimecombobox_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (ktimecombobox_minimumsizehint_callback) {
+            QSize* callback_ret = ktimecombobox_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -612,14 +351,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (ktimecombobox_event_isbase) {
-            ktimecombobox_event_isbase = false;
-            return KTimeComboBox::event(event);
-        }
-        auto event_cb = ktimecombobox_event_callback;
-        if (event_cb) {
+        if (ktimecombobox_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = ktimecombobox_event_callback(this, cbval1);
             return callback_ret;
         }
         return KTimeComboBox::event(event);
@@ -627,14 +361,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (ktimecombobox_inputmethodquery_isbase) {
-            ktimecombobox_inputmethodquery_isbase = false;
-            return KTimeComboBox::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = ktimecombobox_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (ktimecombobox_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = ktimecombobox_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -644,15 +373,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* e) override {
-        if (ktimecombobox_changeevent_isbase) {
-            ktimecombobox_changeevent_isbase = false;
-            KTimeComboBox::changeEvent(e);
-            return;
-        }
-        auto changeevent_cb = ktimecombobox_changeevent_callback;
-        if (changeevent_cb) {
+        if (ktimecombobox_changeevent_callback) {
             QEvent* cbval1 = e;
-            changeevent_cb(this, cbval1);
+            ktimecombobox_changeevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::changeEvent(e);
@@ -660,15 +383,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* e) override {
-        if (ktimecombobox_paintevent_isbase) {
-            ktimecombobox_paintevent_isbase = false;
-            KTimeComboBox::paintEvent(e);
-            return;
-        }
-        auto paintevent_cb = ktimecombobox_paintevent_callback;
-        if (paintevent_cb) {
+        if (ktimecombobox_paintevent_callback) {
             QPaintEvent* cbval1 = e;
-            paintevent_cb(this, cbval1);
+            ktimecombobox_paintevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::paintEvent(e);
@@ -676,15 +393,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* e) override {
-        if (ktimecombobox_showevent_isbase) {
-            ktimecombobox_showevent_isbase = false;
-            KTimeComboBox::showEvent(e);
-            return;
-        }
-        auto showevent_cb = ktimecombobox_showevent_callback;
-        if (showevent_cb) {
+        if (ktimecombobox_showevent_callback) {
             QShowEvent* cbval1 = e;
-            showevent_cb(this, cbval1);
+            ktimecombobox_showevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::showEvent(e);
@@ -692,15 +403,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* e) override {
-        if (ktimecombobox_hideevent_isbase) {
-            ktimecombobox_hideevent_isbase = false;
-            KTimeComboBox::hideEvent(e);
-            return;
-        }
-        auto hideevent_cb = ktimecombobox_hideevent_callback;
-        if (hideevent_cb) {
+        if (ktimecombobox_hideevent_callback) {
             QHideEvent* cbval1 = e;
-            hideevent_cb(this, cbval1);
+            ktimecombobox_hideevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::hideEvent(e);
@@ -708,15 +413,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* e) override {
-        if (ktimecombobox_mousereleaseevent_isbase) {
-            ktimecombobox_mousereleaseevent_isbase = false;
-            KTimeComboBox::mouseReleaseEvent(e);
-            return;
-        }
-        auto mousereleaseevent_cb = ktimecombobox_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (ktimecombobox_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousereleaseevent_cb(this, cbval1);
+            ktimecombobox_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::mouseReleaseEvent(e);
@@ -724,15 +423,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* e) override {
-        if (ktimecombobox_keyreleaseevent_isbase) {
-            ktimecombobox_keyreleaseevent_isbase = false;
-            KTimeComboBox::keyReleaseEvent(e);
-            return;
-        }
-        auto keyreleaseevent_cb = ktimecombobox_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (ktimecombobox_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = e;
-            keyreleaseevent_cb(this, cbval1);
+            ktimecombobox_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::keyReleaseEvent(e);
@@ -740,15 +433,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* e) override {
-        if (ktimecombobox_contextmenuevent_isbase) {
-            ktimecombobox_contextmenuevent_isbase = false;
-            KTimeComboBox::contextMenuEvent(e);
-            return;
-        }
-        auto contextmenuevent_cb = ktimecombobox_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (ktimecombobox_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = e;
-            contextmenuevent_cb(this, cbval1);
+            ktimecombobox_contextmenuevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::contextMenuEvent(e);
@@ -756,15 +443,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (ktimecombobox_inputmethodevent_isbase) {
-            ktimecombobox_inputmethodevent_isbase = false;
-            KTimeComboBox::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = ktimecombobox_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (ktimecombobox_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            ktimecombobox_inputmethodevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::inputMethodEvent(param1);
@@ -772,15 +453,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionComboBox* option) const override {
-        if (ktimecombobox_initstyleoption_isbase) {
-            ktimecombobox_initstyleoption_isbase = false;
-            KTimeComboBox::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = ktimecombobox_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (ktimecombobox_initstyleoption_callback) {
             QStyleOptionComboBox* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            ktimecombobox_initstyleoption_callback(this, cbval1);
             return;
         }
         KTimeComboBox::initStyleOption(option);
@@ -788,13 +463,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (ktimecombobox_devtype_isbase) {
-            ktimecombobox_devtype_isbase = false;
-            return KTimeComboBox::devType();
-        }
-        auto devtype_cb = ktimecombobox_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (ktimecombobox_devtype_callback) {
+            int callback_ret = ktimecombobox_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KTimeComboBox::devType();
@@ -802,15 +472,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (ktimecombobox_setvisible_isbase) {
-            ktimecombobox_setvisible_isbase = false;
-            KTimeComboBox::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = ktimecombobox_setvisible_callback;
-        if (setvisible_cb) {
+        if (ktimecombobox_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            ktimecombobox_setvisible_callback(this, cbval1);
             return;
         }
         KTimeComboBox::setVisible(visible);
@@ -818,14 +482,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (ktimecombobox_heightforwidth_isbase) {
-            ktimecombobox_heightforwidth_isbase = false;
-            return KTimeComboBox::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = ktimecombobox_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (ktimecombobox_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = ktimecombobox_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KTimeComboBox::heightForWidth(param1);
@@ -833,13 +492,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (ktimecombobox_hasheightforwidth_isbase) {
-            ktimecombobox_hasheightforwidth_isbase = false;
-            return KTimeComboBox::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = ktimecombobox_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (ktimecombobox_hasheightforwidth_callback) {
+            bool callback_ret = ktimecombobox_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KTimeComboBox::hasHeightForWidth();
@@ -847,13 +501,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (ktimecombobox_paintengine_isbase) {
-            ktimecombobox_paintengine_isbase = false;
-            return KTimeComboBox::paintEngine();
-        }
-        auto paintengine_cb = ktimecombobox_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (ktimecombobox_paintengine_callback) {
+            QPaintEngine* callback_ret = ktimecombobox_paintengine_callback(this);
             return callback_ret;
         }
         return KTimeComboBox::paintEngine();
@@ -861,15 +510,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (ktimecombobox_mousedoubleclickevent_isbase) {
-            ktimecombobox_mousedoubleclickevent_isbase = false;
-            KTimeComboBox::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = ktimecombobox_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (ktimecombobox_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            ktimecombobox_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::mouseDoubleClickEvent(event);
@@ -877,15 +520,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (ktimecombobox_mousemoveevent_isbase) {
-            ktimecombobox_mousemoveevent_isbase = false;
-            KTimeComboBox::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = ktimecombobox_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (ktimecombobox_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            ktimecombobox_mousemoveevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::mouseMoveEvent(event);
@@ -893,15 +530,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (ktimecombobox_enterevent_isbase) {
-            ktimecombobox_enterevent_isbase = false;
-            KTimeComboBox::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = ktimecombobox_enterevent_callback;
-        if (enterevent_cb) {
+        if (ktimecombobox_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            ktimecombobox_enterevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::enterEvent(event);
@@ -909,15 +540,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (ktimecombobox_leaveevent_isbase) {
-            ktimecombobox_leaveevent_isbase = false;
-            KTimeComboBox::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = ktimecombobox_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (ktimecombobox_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            ktimecombobox_leaveevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::leaveEvent(event);
@@ -925,15 +550,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (ktimecombobox_moveevent_isbase) {
-            ktimecombobox_moveevent_isbase = false;
-            KTimeComboBox::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = ktimecombobox_moveevent_callback;
-        if (moveevent_cb) {
+        if (ktimecombobox_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            ktimecombobox_moveevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::moveEvent(event);
@@ -941,15 +560,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (ktimecombobox_closeevent_isbase) {
-            ktimecombobox_closeevent_isbase = false;
-            KTimeComboBox::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = ktimecombobox_closeevent_callback;
-        if (closeevent_cb) {
+        if (ktimecombobox_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            ktimecombobox_closeevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::closeEvent(event);
@@ -957,15 +570,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (ktimecombobox_tabletevent_isbase) {
-            ktimecombobox_tabletevent_isbase = false;
-            KTimeComboBox::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = ktimecombobox_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (ktimecombobox_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            ktimecombobox_tabletevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::tabletEvent(event);
@@ -973,15 +580,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (ktimecombobox_actionevent_isbase) {
-            ktimecombobox_actionevent_isbase = false;
-            KTimeComboBox::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = ktimecombobox_actionevent_callback;
-        if (actionevent_cb) {
+        if (ktimecombobox_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            ktimecombobox_actionevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::actionEvent(event);
@@ -989,15 +590,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (ktimecombobox_dragenterevent_isbase) {
-            ktimecombobox_dragenterevent_isbase = false;
-            KTimeComboBox::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = ktimecombobox_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (ktimecombobox_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            ktimecombobox_dragenterevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::dragEnterEvent(event);
@@ -1005,15 +600,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (ktimecombobox_dragmoveevent_isbase) {
-            ktimecombobox_dragmoveevent_isbase = false;
-            KTimeComboBox::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = ktimecombobox_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (ktimecombobox_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            ktimecombobox_dragmoveevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::dragMoveEvent(event);
@@ -1021,15 +610,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (ktimecombobox_dragleaveevent_isbase) {
-            ktimecombobox_dragleaveevent_isbase = false;
-            KTimeComboBox::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = ktimecombobox_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (ktimecombobox_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            ktimecombobox_dragleaveevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::dragLeaveEvent(event);
@@ -1037,15 +620,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (ktimecombobox_dropevent_isbase) {
-            ktimecombobox_dropevent_isbase = false;
-            KTimeComboBox::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = ktimecombobox_dropevent_callback;
-        if (dropevent_cb) {
+        if (ktimecombobox_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            ktimecombobox_dropevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::dropEvent(event);
@@ -1053,12 +630,7 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (ktimecombobox_nativeevent_isbase) {
-            ktimecombobox_nativeevent_isbase = false;
-            return KTimeComboBox::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = ktimecombobox_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (ktimecombobox_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1068,7 +640,7 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = ktimecombobox_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1077,14 +649,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (ktimecombobox_metric_isbase) {
-            ktimecombobox_metric_isbase = false;
-            return KTimeComboBox::metric(param1);
-        }
-        auto metric_cb = ktimecombobox_metric_callback;
-        if (metric_cb) {
+        if (ktimecombobox_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = ktimecombobox_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KTimeComboBox::metric(param1);
@@ -1092,15 +659,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (ktimecombobox_initpainter_isbase) {
-            ktimecombobox_initpainter_isbase = false;
-            KTimeComboBox::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = ktimecombobox_initpainter_callback;
-        if (initpainter_cb) {
+        if (ktimecombobox_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            ktimecombobox_initpainter_callback(this, cbval1);
             return;
         }
         KTimeComboBox::initPainter(painter);
@@ -1108,14 +669,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (ktimecombobox_redirected_isbase) {
-            ktimecombobox_redirected_isbase = false;
-            return KTimeComboBox::redirected(offset);
-        }
-        auto redirected_cb = ktimecombobox_redirected_callback;
-        if (redirected_cb) {
+        if (ktimecombobox_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = ktimecombobox_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KTimeComboBox::redirected(offset);
@@ -1123,13 +679,8 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (ktimecombobox_sharedpainter_isbase) {
-            ktimecombobox_sharedpainter_isbase = false;
-            return KTimeComboBox::sharedPainter();
-        }
-        auto sharedpainter_cb = ktimecombobox_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (ktimecombobox_sharedpainter_callback) {
+            QPainter* callback_ret = ktimecombobox_sharedpainter_callback(this);
             return callback_ret;
         }
         return KTimeComboBox::sharedPainter();
@@ -1137,14 +688,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (ktimecombobox_focusnextprevchild_isbase) {
-            ktimecombobox_focusnextprevchild_isbase = false;
-            return KTimeComboBox::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = ktimecombobox_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (ktimecombobox_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = ktimecombobox_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KTimeComboBox::focusNextPrevChild(next);
@@ -1152,15 +698,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (ktimecombobox_timerevent_isbase) {
-            ktimecombobox_timerevent_isbase = false;
-            KTimeComboBox::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = ktimecombobox_timerevent_callback;
-        if (timerevent_cb) {
+        if (ktimecombobox_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            ktimecombobox_timerevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::timerEvent(event);
@@ -1168,15 +708,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (ktimecombobox_childevent_isbase) {
-            ktimecombobox_childevent_isbase = false;
-            KTimeComboBox::childEvent(event);
-            return;
-        }
-        auto childevent_cb = ktimecombobox_childevent_callback;
-        if (childevent_cb) {
+        if (ktimecombobox_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            ktimecombobox_childevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::childEvent(event);
@@ -1184,15 +718,9 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (ktimecombobox_customevent_isbase) {
-            ktimecombobox_customevent_isbase = false;
-            KTimeComboBox::customEvent(event);
-            return;
-        }
-        auto customevent_cb = ktimecombobox_customevent_callback;
-        if (customevent_cb) {
+        if (ktimecombobox_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            ktimecombobox_customevent_callback(this, cbval1);
             return;
         }
         KTimeComboBox::customEvent(event);
@@ -1200,17 +728,11 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (ktimecombobox_connectnotify_isbase) {
-            ktimecombobox_connectnotify_isbase = false;
-            KTimeComboBox::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = ktimecombobox_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (ktimecombobox_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            ktimecombobox_connectnotify_callback(this, cbval1);
             return;
         }
         KTimeComboBox::connectNotify(signal);
@@ -1218,276 +740,59 @@ class VirtualKTimeComboBox final : public KTimeComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (ktimecombobox_disconnectnotify_isbase) {
-            ktimecombobox_disconnectnotify_isbase = false;
-            KTimeComboBox::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = ktimecombobox_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (ktimecombobox_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            ktimecombobox_disconnectnotify_callback(this, cbval1);
             return;
         }
         KTimeComboBox::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (ktimecombobox_updatemicrofocus_isbase) {
-            ktimecombobox_updatemicrofocus_isbase = false;
-            KTimeComboBox::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = ktimecombobox_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KTimeComboBox::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (ktimecombobox_create_isbase) {
-            ktimecombobox_create_isbase = false;
-            KTimeComboBox::create();
-            return;
-        }
-        auto create_cb = ktimecombobox_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KTimeComboBox::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (ktimecombobox_destroy_isbase) {
-            ktimecombobox_destroy_isbase = false;
-            KTimeComboBox::destroy();
-            return;
-        }
-        auto destroy_cb = ktimecombobox_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KTimeComboBox::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (ktimecombobox_focusnextchild_isbase) {
-            ktimecombobox_focusnextchild_isbase = false;
-            return KTimeComboBox::focusNextChild();
-        }
-        auto focusnextchild_cb = ktimecombobox_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KTimeComboBox::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (ktimecombobox_focuspreviouschild_isbase) {
-            ktimecombobox_focuspreviouschild_isbase = false;
-            return KTimeComboBox::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = ktimecombobox_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KTimeComboBox::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (ktimecombobox_sender_isbase) {
-            ktimecombobox_sender_isbase = false;
-            return KTimeComboBox::sender();
-        }
-        auto sender_cb = ktimecombobox_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KTimeComboBox::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (ktimecombobox_sendersignalindex_isbase) {
-            ktimecombobox_sendersignalindex_isbase = false;
-            return KTimeComboBox::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = ktimecombobox_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KTimeComboBox::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (ktimecombobox_receivers_isbase) {
-            ktimecombobox_receivers_isbase = false;
-            return KTimeComboBox::receivers(signal);
-        }
-        auto receivers_cb = ktimecombobox_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KTimeComboBox::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (ktimecombobox_issignalconnected_isbase) {
-            ktimecombobox_issignalconnected_isbase = false;
-            return KTimeComboBox::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = ktimecombobox_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KTimeComboBox::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (ktimecombobox_getdecodedmetricf_isbase) {
-            ktimecombobox_getdecodedmetricf_isbase = false;
-            return KTimeComboBox::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = ktimecombobox_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KTimeComboBox::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool KTimeComboBox_EventFilter(KTimeComboBox* self, QObject* object, QEvent* event);
     friend bool KTimeComboBox_SuperEventFilter(KTimeComboBox* self, QObject* object, QEvent* event);
-    friend void KTimeComboBox_ShowPopup(KTimeComboBox* self);
     friend void KTimeComboBox_SuperShowPopup(KTimeComboBox* self);
-    friend void KTimeComboBox_HidePopup(KTimeComboBox* self);
     friend void KTimeComboBox_SuperHidePopup(KTimeComboBox* self);
-    friend void KTimeComboBox_MousePressEvent(KTimeComboBox* self, QMouseEvent* event);
     friend void KTimeComboBox_SuperMousePressEvent(KTimeComboBox* self, QMouseEvent* event);
-    friend void KTimeComboBox_WheelEvent(KTimeComboBox* self, QWheelEvent* event);
     friend void KTimeComboBox_SuperWheelEvent(KTimeComboBox* self, QWheelEvent* event);
-    friend void KTimeComboBox_KeyPressEvent(KTimeComboBox* self, QKeyEvent* event);
     friend void KTimeComboBox_SuperKeyPressEvent(KTimeComboBox* self, QKeyEvent* event);
-    friend void KTimeComboBox_FocusInEvent(KTimeComboBox* self, QFocusEvent* event);
     friend void KTimeComboBox_SuperFocusInEvent(KTimeComboBox* self, QFocusEvent* event);
-    friend void KTimeComboBox_FocusOutEvent(KTimeComboBox* self, QFocusEvent* event);
     friend void KTimeComboBox_SuperFocusOutEvent(KTimeComboBox* self, QFocusEvent* event);
-    friend void KTimeComboBox_ResizeEvent(KTimeComboBox* self, QResizeEvent* event);
     friend void KTimeComboBox_SuperResizeEvent(KTimeComboBox* self, QResizeEvent* event);
-    friend void KTimeComboBox_AssignTime(KTimeComboBox* self, const QTime* time);
     friend void KTimeComboBox_SuperAssignTime(KTimeComboBox* self, const QTime* time);
-    friend void KTimeComboBox_ChangeEvent(KTimeComboBox* self, QEvent* e);
     friend void KTimeComboBox_SuperChangeEvent(KTimeComboBox* self, QEvent* e);
-    friend void KTimeComboBox_PaintEvent(KTimeComboBox* self, QPaintEvent* e);
     friend void KTimeComboBox_SuperPaintEvent(KTimeComboBox* self, QPaintEvent* e);
-    friend void KTimeComboBox_ShowEvent(KTimeComboBox* self, QShowEvent* e);
     friend void KTimeComboBox_SuperShowEvent(KTimeComboBox* self, QShowEvent* e);
-    friend void KTimeComboBox_HideEvent(KTimeComboBox* self, QHideEvent* e);
     friend void KTimeComboBox_SuperHideEvent(KTimeComboBox* self, QHideEvent* e);
-    friend void KTimeComboBox_MouseReleaseEvent(KTimeComboBox* self, QMouseEvent* e);
     friend void KTimeComboBox_SuperMouseReleaseEvent(KTimeComboBox* self, QMouseEvent* e);
-    friend void KTimeComboBox_KeyReleaseEvent(KTimeComboBox* self, QKeyEvent* e);
     friend void KTimeComboBox_SuperKeyReleaseEvent(KTimeComboBox* self, QKeyEvent* e);
-    friend void KTimeComboBox_ContextMenuEvent(KTimeComboBox* self, QContextMenuEvent* e);
     friend void KTimeComboBox_SuperContextMenuEvent(KTimeComboBox* self, QContextMenuEvent* e);
-    friend void KTimeComboBox_InputMethodEvent(KTimeComboBox* self, QInputMethodEvent* param1);
     friend void KTimeComboBox_SuperInputMethodEvent(KTimeComboBox* self, QInputMethodEvent* param1);
-    friend void KTimeComboBox_InitStyleOption(const KTimeComboBox* self, QStyleOptionComboBox* option);
     friend void KTimeComboBox_SuperInitStyleOption(const KTimeComboBox* self, QStyleOptionComboBox* option);
-    friend void KTimeComboBox_MouseDoubleClickEvent(KTimeComboBox* self, QMouseEvent* event);
     friend void KTimeComboBox_SuperMouseDoubleClickEvent(KTimeComboBox* self, QMouseEvent* event);
-    friend void KTimeComboBox_MouseMoveEvent(KTimeComboBox* self, QMouseEvent* event);
     friend void KTimeComboBox_SuperMouseMoveEvent(KTimeComboBox* self, QMouseEvent* event);
-    friend void KTimeComboBox_EnterEvent(KTimeComboBox* self, QEnterEvent* event);
     friend void KTimeComboBox_SuperEnterEvent(KTimeComboBox* self, QEnterEvent* event);
-    friend void KTimeComboBox_LeaveEvent(KTimeComboBox* self, QEvent* event);
     friend void KTimeComboBox_SuperLeaveEvent(KTimeComboBox* self, QEvent* event);
-    friend void KTimeComboBox_MoveEvent(KTimeComboBox* self, QMoveEvent* event);
     friend void KTimeComboBox_SuperMoveEvent(KTimeComboBox* self, QMoveEvent* event);
-    friend void KTimeComboBox_CloseEvent(KTimeComboBox* self, QCloseEvent* event);
     friend void KTimeComboBox_SuperCloseEvent(KTimeComboBox* self, QCloseEvent* event);
-    friend void KTimeComboBox_TabletEvent(KTimeComboBox* self, QTabletEvent* event);
     friend void KTimeComboBox_SuperTabletEvent(KTimeComboBox* self, QTabletEvent* event);
-    friend void KTimeComboBox_ActionEvent(KTimeComboBox* self, QActionEvent* event);
     friend void KTimeComboBox_SuperActionEvent(KTimeComboBox* self, QActionEvent* event);
-    friend void KTimeComboBox_DragEnterEvent(KTimeComboBox* self, QDragEnterEvent* event);
     friend void KTimeComboBox_SuperDragEnterEvent(KTimeComboBox* self, QDragEnterEvent* event);
-    friend void KTimeComboBox_DragMoveEvent(KTimeComboBox* self, QDragMoveEvent* event);
     friend void KTimeComboBox_SuperDragMoveEvent(KTimeComboBox* self, QDragMoveEvent* event);
-    friend void KTimeComboBox_DragLeaveEvent(KTimeComboBox* self, QDragLeaveEvent* event);
     friend void KTimeComboBox_SuperDragLeaveEvent(KTimeComboBox* self, QDragLeaveEvent* event);
-    friend void KTimeComboBox_DropEvent(KTimeComboBox* self, QDropEvent* event);
     friend void KTimeComboBox_SuperDropEvent(KTimeComboBox* self, QDropEvent* event);
-    friend bool KTimeComboBox_NativeEvent(KTimeComboBox* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KTimeComboBox_SuperNativeEvent(KTimeComboBox* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KTimeComboBox_Metric(const KTimeComboBox* self, int param1);
     friend int KTimeComboBox_SuperMetric(const KTimeComboBox* self, int param1);
-    friend void KTimeComboBox_InitPainter(const KTimeComboBox* self, QPainter* painter);
     friend void KTimeComboBox_SuperInitPainter(const KTimeComboBox* self, QPainter* painter);
-    friend QPaintDevice* KTimeComboBox_Redirected(const KTimeComboBox* self, QPoint* offset);
     friend QPaintDevice* KTimeComboBox_SuperRedirected(const KTimeComboBox* self, QPoint* offset);
-    friend QPainter* KTimeComboBox_SharedPainter(const KTimeComboBox* self);
     friend QPainter* KTimeComboBox_SuperSharedPainter(const KTimeComboBox* self);
-    friend bool KTimeComboBox_FocusNextPrevChild(KTimeComboBox* self, bool next);
     friend bool KTimeComboBox_SuperFocusNextPrevChild(KTimeComboBox* self, bool next);
-    friend void KTimeComboBox_TimerEvent(KTimeComboBox* self, QTimerEvent* event);
     friend void KTimeComboBox_SuperTimerEvent(KTimeComboBox* self, QTimerEvent* event);
-    friend void KTimeComboBox_ChildEvent(KTimeComboBox* self, QChildEvent* event);
     friend void KTimeComboBox_SuperChildEvent(KTimeComboBox* self, QChildEvent* event);
-    friend void KTimeComboBox_CustomEvent(KTimeComboBox* self, QEvent* event);
     friend void KTimeComboBox_SuperCustomEvent(KTimeComboBox* self, QEvent* event);
-    friend void KTimeComboBox_ConnectNotify(KTimeComboBox* self, const QMetaMethod* signal);
     friend void KTimeComboBox_SuperConnectNotify(KTimeComboBox* self, const QMetaMethod* signal);
-    friend void KTimeComboBox_DisconnectNotify(KTimeComboBox* self, const QMetaMethod* signal);
     friend void KTimeComboBox_SuperDisconnectNotify(KTimeComboBox* self, const QMetaMethod* signal);
-    friend void KTimeComboBox_UpdateMicroFocus(KTimeComboBox* self);
-    friend void KTimeComboBox_SuperUpdateMicroFocus(KTimeComboBox* self);
-    friend void KTimeComboBox_Create(KTimeComboBox* self);
-    friend void KTimeComboBox_SuperCreate(KTimeComboBox* self);
-    friend void KTimeComboBox_Destroy(KTimeComboBox* self);
-    friend void KTimeComboBox_SuperDestroy(KTimeComboBox* self);
-    friend bool KTimeComboBox_FocusNextChild(KTimeComboBox* self);
-    friend bool KTimeComboBox_SuperFocusNextChild(KTimeComboBox* self);
-    friend bool KTimeComboBox_FocusPreviousChild(KTimeComboBox* self);
-    friend bool KTimeComboBox_SuperFocusPreviousChild(KTimeComboBox* self);
-    friend QObject* KTimeComboBox_Sender(const KTimeComboBox* self);
-    friend QObject* KTimeComboBox_SuperSender(const KTimeComboBox* self);
-    friend int KTimeComboBox_SenderSignalIndex(const KTimeComboBox* self);
-    friend int KTimeComboBox_SuperSenderSignalIndex(const KTimeComboBox* self);
-    friend int KTimeComboBox_Receivers(const KTimeComboBox* self, const char* signal);
-    friend int KTimeComboBox_SuperReceivers(const KTimeComboBox* self, const char* signal);
-    friend bool KTimeComboBox_IsSignalConnected(const KTimeComboBox* self, const QMetaMethod* signal);
-    friend bool KTimeComboBox_SuperIsSignalConnected(const KTimeComboBox* self, const QMetaMethod* signal);
-    friend double KTimeComboBox_GetDecodedMetricF(const KTimeComboBox* self, int metricA, int metricB);
-    friend double KTimeComboBox_SuperGetDecodedMetricF(const KTimeComboBox* self, int metricA, int metricB);
 };
 
 #endif

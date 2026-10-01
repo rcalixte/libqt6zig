@@ -83,7 +83,7 @@ void QOpenGLDebugLogger_DisableMessages3(QOpenGLDebugLogger* self, int sources, 
 void QOpenGLDebugLogger_DisableMessages23(QOpenGLDebugLogger* self, const libqt_list /* of uint32_t */ ids, int sources);
 void QOpenGLDebugLogger_DisableMessages32(QOpenGLDebugLogger* self, const libqt_list /* of uint32_t */ ids, int sources, int types);
 void QOpenGLDebugLogger_StartLogging1(QOpenGLDebugLogger* self, int loggingMode);
-void QOpenGLDebugLogger_OnMetaObject(const QOpenGLDebugLogger* self, intptr_t slot);
+void QOpenGLDebugLogger_OnMetaObject(QOpenGLDebugLogger* self, intptr_t slot);
 QMetaObject* QOpenGLDebugLogger_SuperMetaObject(const QOpenGLDebugLogger* self);
 void QOpenGLDebugLogger_OnMetacast(QOpenGLDebugLogger* self, intptr_t slot);
 void* QOpenGLDebugLogger_SuperMetacast(QOpenGLDebugLogger* self, const char* param1);
@@ -111,17 +111,9 @@ void QOpenGLDebugLogger_DisconnectNotify(QOpenGLDebugLogger* self, const QMetaMe
 void QOpenGLDebugLogger_OnDisconnectNotify(QOpenGLDebugLogger* self, intptr_t slot);
 void QOpenGLDebugLogger_SuperDisconnectNotify(QOpenGLDebugLogger* self, const QMetaMethod* signal);
 QObject* QOpenGLDebugLogger_Sender(const QOpenGLDebugLogger* self);
-void QOpenGLDebugLogger_OnSender(const QOpenGLDebugLogger* self, intptr_t slot);
-QObject* QOpenGLDebugLogger_SuperSender(const QOpenGLDebugLogger* self);
 int QOpenGLDebugLogger_SenderSignalIndex(const QOpenGLDebugLogger* self);
-void QOpenGLDebugLogger_OnSenderSignalIndex(const QOpenGLDebugLogger* self, intptr_t slot);
-int QOpenGLDebugLogger_SuperSenderSignalIndex(const QOpenGLDebugLogger* self);
 int QOpenGLDebugLogger_Receivers(const QOpenGLDebugLogger* self, const char* signal);
-void QOpenGLDebugLogger_OnReceivers(const QOpenGLDebugLogger* self, intptr_t slot);
-int QOpenGLDebugLogger_SuperReceivers(const QOpenGLDebugLogger* self, const char* signal);
 bool QOpenGLDebugLogger_IsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal);
-void QOpenGLDebugLogger_OnIsSignalConnected(const QOpenGLDebugLogger* self, intptr_t slot);
-bool QOpenGLDebugLogger_SuperIsSignalConnected(const QOpenGLDebugLogger* self, const QMetaMethod* signal);
 void QOpenGLDebugLogger_Delete(QOpenGLDebugLogger* self);
 
 #ifdef __cplusplus

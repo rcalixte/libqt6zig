@@ -269,364 +269,219 @@ libqt_string QGeoServiceProvider_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QGeoServiceProvider_SuperMetaObject(const QGeoServiceProvider* self) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_MetaObject_IsBase(true);
-        return (QMetaObject*)vqgeoserviceprovider->metaObject();
-    } else {
-        return (QMetaObject*)self->QGeoServiceProvider::metaObject();
-    }
+    return (QMetaObject*)self->QGeoServiceProvider::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGeoServiceProvider_OnMetaObject(const QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_MetaObject_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_MetaObject_Callback>(slot));
+void QGeoServiceProvider_OnMetaObject(QGeoServiceProvider* self, intptr_t slot) {
+    if (auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self)))
+        vqgeoserviceprovider->qgeoserviceprovider_metaobject_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QGeoServiceProvider_SuperMetacast(QGeoServiceProvider* self, const char* param1) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_Metacast_IsBase(true);
-        return vqgeoserviceprovider->qt_metacast(param1);
-    } else {
-        return self->QGeoServiceProvider::qt_metacast(param1);
-    }
+    return self->QGeoServiceProvider::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnMetacast(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_Metacast_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Metacast_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_metacast_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGeoServiceProvider_SuperMetacall(QGeoServiceProvider* self, int param1, int param2, void** param3) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_Metacall_IsBase(true);
-        return vqgeoserviceprovider->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QGeoServiceProvider::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QGeoServiceProvider::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnMetacall(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_Metacall_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Metacall_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_metacall_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGeoServiceProvider_Event(QGeoServiceProvider* self, QEvent* event) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return vqgeoserviceprovider->event(event);
-    } else {
-        return self->QGeoServiceProvider::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QGeoServiceProvider_SuperEvent(QGeoServiceProvider* self, QEvent* event) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_Event_IsBase(true);
-        return vqgeoserviceprovider->event(event);
-    } else {
-        return self->QGeoServiceProvider::event(event);
-    }
+    return self->QGeoServiceProvider::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnEvent(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_Event_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Event_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_event_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGeoServiceProvider_EventFilter(QGeoServiceProvider* self, QObject* watched, QEvent* event) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return vqgeoserviceprovider->eventFilter(watched, event);
-    } else {
-        return self->QGeoServiceProvider::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QGeoServiceProvider_SuperEventFilter(QGeoServiceProvider* self, QObject* watched, QEvent* event) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_EventFilter_IsBase(true);
-        return vqgeoserviceprovider->eventFilter(watched, event);
-    } else {
-        return self->QGeoServiceProvider::eventFilter(watched, event);
-    }
+    return self->QGeoServiceProvider::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnEventFilter(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_EventFilter_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_EventFilter_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_eventfilter_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoServiceProvider_TimerEvent(QGeoServiceProvider* self, QTimerEvent* event) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider) {
         vqgeoserviceprovider->timerEvent(event);
     } else {
-        ((VirtualQGeoServiceProvider*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QGeoServiceProvider::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoServiceProvider_SuperTimerEvent(QGeoServiceProvider* self, QTimerEvent* event) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_TimerEvent_IsBase(true);
-        vqgeoserviceprovider->timerEvent(event);
-    } else {
-        ((VirtualQGeoServiceProvider*)self)->timerEvent(event);
-    }
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self)) {
+        vqgeoserviceprovider->QGeoServiceProvider::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoServiceProvider::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnTimerEvent(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_TimerEvent_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_TimerEvent_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_timerevent_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoServiceProvider_ChildEvent(QGeoServiceProvider* self, QChildEvent* event) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider) {
         vqgeoserviceprovider->childEvent(event);
     } else {
-        ((VirtualQGeoServiceProvider*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QGeoServiceProvider::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoServiceProvider_SuperChildEvent(QGeoServiceProvider* self, QChildEvent* event) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_ChildEvent_IsBase(true);
-        vqgeoserviceprovider->childEvent(event);
-    } else {
-        ((VirtualQGeoServiceProvider*)self)->childEvent(event);
-    }
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self)) {
+        vqgeoserviceprovider->QGeoServiceProvider::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoServiceProvider::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnChildEvent(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_ChildEvent_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_ChildEvent_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_childevent_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoServiceProvider_CustomEvent(QGeoServiceProvider* self, QEvent* event) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider) {
         vqgeoserviceprovider->customEvent(event);
     } else {
-        ((VirtualQGeoServiceProvider*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QGeoServiceProvider::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoServiceProvider_SuperCustomEvent(QGeoServiceProvider* self, QEvent* event) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_CustomEvent_IsBase(true);
-        vqgeoserviceprovider->customEvent(event);
-    } else {
-        ((VirtualQGeoServiceProvider*)self)->customEvent(event);
-    }
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self)) {
+        vqgeoserviceprovider->QGeoServiceProvider::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGeoServiceProvider::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnCustomEvent(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_CustomEvent_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_CustomEvent_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_customevent_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoServiceProvider_ConnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider) {
         vqgeoserviceprovider->connectNotify(*signal);
     } else {
-        ((VirtualQGeoServiceProvider*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QGeoServiceProvider::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoServiceProvider_SuperConnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_ConnectNotify_IsBase(true);
-        vqgeoserviceprovider->connectNotify(*signal);
-    } else {
-        ((VirtualQGeoServiceProvider*)self)->connectNotify(*signal);
-    }
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self)) {
+        vqgeoserviceprovider->QGeoServiceProvider::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGeoServiceProvider::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnConnectNotify(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_ConnectNotify_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_connectnotify_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGeoServiceProvider_DisconnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal) {
     auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
+    if (vqgeoserviceprovider) {
         vqgeoserviceprovider->disconnectNotify(*signal);
     } else {
-        ((VirtualQGeoServiceProvider*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QGeoServiceProvider::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGeoServiceProvider_SuperDisconnectNotify(QGeoServiceProvider* self, const QMetaMethod* signal) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_DisconnectNotify_IsBase(true);
-        vqgeoserviceprovider->disconnectNotify(*signal);
-    } else {
-        ((VirtualQGeoServiceProvider*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self)) {
+        vqgeoserviceprovider->QGeoServiceProvider::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGeoServiceProvider::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGeoServiceProvider_OnDisconnectNotify(QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_DisconnectNotify_Callback>(slot));
+    if (auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self))
+        vqgeoserviceprovider->qgeoserviceprovider_disconnectnotify_callback = reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QGeoServiceProvider_Sender(const QGeoServiceProvider* self) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return vqgeoserviceprovider->sender();
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->sender();
-    }
+    if (auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self))) {
+        return vqgeoserviceprovider->VirtualQGeoServiceProvider::sender();
+    } else
+        qFatal("Error: Protected method QGeoServiceProvider::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QGeoServiceProvider_SuperSender(const QGeoServiceProvider* self) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_Sender_IsBase(true);
-        return vqgeoserviceprovider->sender();
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoServiceProvider_OnSender(const QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_Sender_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGeoServiceProvider_SenderSignalIndex(const QGeoServiceProvider* self) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return vqgeoserviceprovider->senderSignalIndex();
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->senderSignalIndex();
-    }
+    if (auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self))) {
+        return vqgeoserviceprovider->VirtualQGeoServiceProvider::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QGeoServiceProvider::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGeoServiceProvider_SuperSenderSignalIndex(const QGeoServiceProvider* self) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_SenderSignalIndex_IsBase(true);
-        return vqgeoserviceprovider->senderSignalIndex();
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoServiceProvider_OnSenderSignalIndex(const QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGeoServiceProvider_Receivers(const QGeoServiceProvider* self, const char* signal) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return vqgeoserviceprovider->receivers(signal);
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->receivers(signal);
-    }
+    if (auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self))) {
+        return vqgeoserviceprovider->VirtualQGeoServiceProvider::receivers(signal);
+    } else
+        qFatal("Error: Protected method QGeoServiceProvider::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGeoServiceProvider_SuperReceivers(const QGeoServiceProvider* self, const char* signal) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_Receivers_IsBase(true);
-        return vqgeoserviceprovider->receivers(signal);
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoServiceProvider_OnReceivers(const QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_Receivers_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGeoServiceProvider_IsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return vqgeoserviceprovider->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QGeoServiceProvider_SuperIsSignalConnected(const QGeoServiceProvider* self, const QMetaMethod* signal) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        vqgeoserviceprovider->setQGeoServiceProvider_IsSignalConnected_IsBase(true);
-        return vqgeoserviceprovider->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGeoServiceProvider_OnIsSignalConnected(const QGeoServiceProvider* self, intptr_t slot) {
-    auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self));
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider)
-        vqgeoserviceprovider->setQGeoServiceProvider_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoServiceProvider::QGeoServiceProvider_IsSignalConnected_Callback>(slot));
+    if (auto* vqgeoserviceprovider = const_cast<VirtualQGeoServiceProvider*>(dynamic_cast<const VirtualQGeoServiceProvider*>(self))) {
+        return vqgeoserviceprovider->VirtualQGeoServiceProvider::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QGeoServiceProvider::isSignalConnected called without a directly constructed type");
 }
 
 void QGeoServiceProvider_Delete(QGeoServiceProvider* self) {

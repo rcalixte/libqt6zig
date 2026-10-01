@@ -1545,9 +1545,9 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     ///
     /// ` self: QKeychain__ReadPasswordJob `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QKeychain__ReadPasswordJob) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QKeychain__ReadPasswordJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QKeychain__ReadPasswordJob, callback: *const fn (QKeychain__ReadPasswordJob) callconv(.c) QMetaObject) void {
         qtc.QKeychain__ReadPasswordJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3515,44 +3515,6 @@ pub const QKeychain__ReadPasswordJob = extern struct {
         qtc.QKeychain__ReadPasswordJob_DoStart(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDoStart` instead
-    ///
-    pub const SuperDoStart = superDoStart;
-
-    /// Inherited from QKeychain::Job
-    ///
-    /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__ReadPasswordJob `
-    ///
-    pub fn superDoStart(self: QKeychain__ReadPasswordJob) void {
-        qtc.QKeychain__ReadPasswordJob_SuperDoStart(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoStart` instead
-    ///
-    pub const OnDoStart = onDoStart;
-
-    /// Inherited from QKeychain::Job
-    ///
-    /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__ReadPasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoStart(self: QKeychain__ReadPasswordJob, callback: *const fn () callconv(.c) void) void {
-        qtc.QKeychain__ReadPasswordJob_OnDoStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -3571,44 +3533,6 @@ pub const QKeychain__ReadPasswordJob = extern struct {
         return .{ .ptr = qtc.QKeychain__ReadPasswordJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__ReadPasswordJob `
-    ///
-    pub fn superSender(self: QKeychain__ReadPasswordJob) QObject {
-        return .{ .ptr = qtc.QKeychain__ReadPasswordJob_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__ReadPasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QKeychain__ReadPasswordJob, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QKeychain__ReadPasswordJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3625,44 +3549,6 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     ///
     pub fn senderSignalIndex(self: QKeychain__ReadPasswordJob) i32 {
         return qtc.QKeychain__ReadPasswordJob_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__ReadPasswordJob `
-    ///
-    pub fn superSenderSignalIndex(self: QKeychain__ReadPasswordJob) i32 {
-        return qtc.QKeychain__ReadPasswordJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__ReadPasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QKeychain__ReadPasswordJob, callback: *const fn () callconv(.c) i32) void {
-        qtc.QKeychain__ReadPasswordJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3686,47 +3572,6 @@ pub const QKeychain__ReadPasswordJob = extern struct {
         return qtc.QKeychain__ReadPasswordJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__ReadPasswordJob `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QKeychain__ReadPasswordJob, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QKeychain__ReadPasswordJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__ReadPasswordJob`
-    ///
-    /// ` callback: *const fn (self: QKeychain__ReadPasswordJob, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QKeychain__ReadPasswordJob, callback: *const fn (QKeychain__ReadPasswordJob, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QKeychain__ReadPasswordJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3746,47 +3591,6 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     pub fn isSignalConnected(self: QKeychain__ReadPasswordJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QKeychain__ReadPasswordJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__ReadPasswordJob `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QKeychain__ReadPasswordJob, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QKeychain__ReadPasswordJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__ReadPasswordJob`
-    ///
-    /// ` callback: *const fn (self: QKeychain__ReadPasswordJob, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QKeychain__ReadPasswordJob, callback: *const fn (QKeychain__ReadPasswordJob, QMetaMethod) callconv(.c) bool) void {
-        qtc.QKeychain__ReadPasswordJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -3903,9 +3707,9 @@ pub const QKeychain__WritePasswordJob = extern struct {
     ///
     /// ` self: QKeychain__WritePasswordJob `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QKeychain__WritePasswordJob) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QKeychain__WritePasswordJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QKeychain__WritePasswordJob, callback: *const fn (QKeychain__WritePasswordJob) callconv(.c) QMetaObject) void {
         qtc.QKeychain__WritePasswordJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5873,44 +5677,6 @@ pub const QKeychain__WritePasswordJob = extern struct {
         qtc.QKeychain__WritePasswordJob_DoStart(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDoStart` instead
-    ///
-    pub const SuperDoStart = superDoStart;
-
-    /// Inherited from QKeychain::Job
-    ///
-    /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__WritePasswordJob `
-    ///
-    pub fn superDoStart(self: QKeychain__WritePasswordJob) void {
-        qtc.QKeychain__WritePasswordJob_SuperDoStart(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoStart` instead
-    ///
-    pub const OnDoStart = onDoStart;
-
-    /// Inherited from QKeychain::Job
-    ///
-    /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__WritePasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoStart(self: QKeychain__WritePasswordJob, callback: *const fn () callconv(.c) void) void {
-        qtc.QKeychain__WritePasswordJob_OnDoStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -5929,44 +5695,6 @@ pub const QKeychain__WritePasswordJob = extern struct {
         return .{ .ptr = qtc.QKeychain__WritePasswordJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__WritePasswordJob `
-    ///
-    pub fn superSender(self: QKeychain__WritePasswordJob) QObject {
-        return .{ .ptr = qtc.QKeychain__WritePasswordJob_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__WritePasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QKeychain__WritePasswordJob, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QKeychain__WritePasswordJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -5983,44 +5711,6 @@ pub const QKeychain__WritePasswordJob = extern struct {
     ///
     pub fn senderSignalIndex(self: QKeychain__WritePasswordJob) i32 {
         return qtc.QKeychain__WritePasswordJob_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__WritePasswordJob `
-    ///
-    pub fn superSenderSignalIndex(self: QKeychain__WritePasswordJob) i32 {
-        return qtc.QKeychain__WritePasswordJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__WritePasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QKeychain__WritePasswordJob, callback: *const fn () callconv(.c) i32) void {
-        qtc.QKeychain__WritePasswordJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -6044,47 +5734,6 @@ pub const QKeychain__WritePasswordJob = extern struct {
         return qtc.QKeychain__WritePasswordJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__WritePasswordJob `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QKeychain__WritePasswordJob, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QKeychain__WritePasswordJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__WritePasswordJob`
-    ///
-    /// ` callback: *const fn (self: QKeychain__WritePasswordJob, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QKeychain__WritePasswordJob, callback: *const fn (QKeychain__WritePasswordJob, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QKeychain__WritePasswordJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -6104,47 +5753,6 @@ pub const QKeychain__WritePasswordJob = extern struct {
     pub fn isSignalConnected(self: QKeychain__WritePasswordJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QKeychain__WritePasswordJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__WritePasswordJob `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QKeychain__WritePasswordJob, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QKeychain__WritePasswordJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__WritePasswordJob`
-    ///
-    /// ` callback: *const fn (self: QKeychain__WritePasswordJob, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QKeychain__WritePasswordJob, callback: *const fn (QKeychain__WritePasswordJob, QMetaMethod) callconv(.c) bool) void {
-        qtc.QKeychain__WritePasswordJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -6261,9 +5869,9 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     ///
     /// ` self: QKeychain__DeletePasswordJob `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QKeychain__DeletePasswordJob) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QKeychain__DeletePasswordJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QKeychain__DeletePasswordJob, callback: *const fn (QKeychain__DeletePasswordJob) callconv(.c) QMetaObject) void {
         qtc.QKeychain__DeletePasswordJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8191,44 +7799,6 @@ pub const QKeychain__DeletePasswordJob = extern struct {
         qtc.QKeychain__DeletePasswordJob_DoStart(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDoStart` instead
-    ///
-    pub const SuperDoStart = superDoStart;
-
-    /// Inherited from QKeychain::Job
-    ///
-    /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__DeletePasswordJob `
-    ///
-    pub fn superDoStart(self: QKeychain__DeletePasswordJob) void {
-        qtc.QKeychain__DeletePasswordJob_SuperDoStart(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoStart` instead
-    ///
-    pub const OnDoStart = onDoStart;
-
-    /// Inherited from QKeychain::Job
-    ///
-    /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__DeletePasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoStart(self: QKeychain__DeletePasswordJob, callback: *const fn () callconv(.c) void) void {
-        qtc.QKeychain__DeletePasswordJob_OnDoStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -8247,44 +7817,6 @@ pub const QKeychain__DeletePasswordJob = extern struct {
         return .{ .ptr = qtc.QKeychain__DeletePasswordJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__DeletePasswordJob `
-    ///
-    pub fn superSender(self: QKeychain__DeletePasswordJob) QObject {
-        return .{ .ptr = qtc.QKeychain__DeletePasswordJob_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__DeletePasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QKeychain__DeletePasswordJob, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QKeychain__DeletePasswordJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -8301,44 +7833,6 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     ///
     pub fn senderSignalIndex(self: QKeychain__DeletePasswordJob) i32 {
         return qtc.QKeychain__DeletePasswordJob_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__DeletePasswordJob `
-    ///
-    pub fn superSenderSignalIndex(self: QKeychain__DeletePasswordJob) i32 {
-        return qtc.QKeychain__DeletePasswordJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__DeletePasswordJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QKeychain__DeletePasswordJob, callback: *const fn () callconv(.c) i32) void {
-        qtc.QKeychain__DeletePasswordJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -8362,47 +7856,6 @@ pub const QKeychain__DeletePasswordJob = extern struct {
         return qtc.QKeychain__DeletePasswordJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__DeletePasswordJob `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QKeychain__DeletePasswordJob, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QKeychain__DeletePasswordJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__DeletePasswordJob`
-    ///
-    /// ` callback: *const fn (self: QKeychain__DeletePasswordJob, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QKeychain__DeletePasswordJob, callback: *const fn (QKeychain__DeletePasswordJob, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QKeychain__DeletePasswordJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -8422,47 +7875,6 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     pub fn isSignalConnected(self: QKeychain__DeletePasswordJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QKeychain__DeletePasswordJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QKeychain__DeletePasswordJob `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QKeychain__DeletePasswordJob, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QKeychain__DeletePasswordJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QKeychain__DeletePasswordJob`
-    ///
-    /// ` callback: *const fn (self: QKeychain__DeletePasswordJob, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QKeychain__DeletePasswordJob, callback: *const fn (QKeychain__DeletePasswordJob, QMetaMethod) callconv(.c) bool) void {
-        qtc.QKeychain__DeletePasswordJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

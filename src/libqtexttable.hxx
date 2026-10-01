@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QTextTable so that we can call protected methods
+// This class is a subclass of QTextTable
 class VirtualQTextTable final : public QTextTable {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQTextTable = true;
-
-    // Virtual class public types (including callbacks)
-    using QTextTable_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QTextTable_MetaObject_Callback = QMetaObject* (*)(const QTextTable*);
     using QTextTable_Metacast_Callback = void* (*)(QTextTable*, const char*);
     using QTextTable_Metacall_Callback = int (*)(QTextTable*, int, int, void**);
     using QTextTable_Event_Callback = bool (*)(QTextTable*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQTextTable final : public QTextTable {
     using QTextTable_CustomEvent_Callback = void (*)(QTextTable*, QEvent*);
     using QTextTable_ConnectNotify_Callback = void (*)(QTextTable*, QMetaMethod*);
     using QTextTable_DisconnectNotify_Callback = void (*)(QTextTable*, QMetaMethod*);
-    using QTextTable_Sender_Callback = QObject* (*)();
-    using QTextTable_SenderSignalIndex_Callback = int (*)();
-    using QTextTable_Receivers_Callback = int (*)(const QTextTable*, const char*);
-    using QTextTable_IsSignalConnected_Callback = bool (*)(const QTextTable*, QMetaMethod*);
+    using QTextTable::isSignalConnected;
+    using QTextTable::receivers;
+    using QTextTable::sender;
+    using QTextTable::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QTextTable_MetaObject_Callback qtexttable_metaobject_callback = nullptr;
     QTextTable_Metacast_Callback qtexttable_metacast_callback = nullptr;
@@ -44,71 +39,22 @@ class VirtualQTextTable final : public QTextTable {
     QTextTable_CustomEvent_Callback qtexttable_customevent_callback = nullptr;
     QTextTable_ConnectNotify_Callback qtexttable_connectnotify_callback = nullptr;
     QTextTable_DisconnectNotify_Callback qtexttable_disconnectnotify_callback = nullptr;
-    QTextTable_Sender_Callback qtexttable_sender_callback = nullptr;
-    QTextTable_SenderSignalIndex_Callback qtexttable_sendersignalindex_callback = nullptr;
-    QTextTable_Receivers_Callback qtexttable_receivers_callback = nullptr;
-    QTextTable_IsSignalConnected_Callback qtexttable_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qtexttable_metaobject_isbase = false;
-    mutable bool qtexttable_metacast_isbase = false;
-    mutable bool qtexttable_metacall_isbase = false;
-    mutable bool qtexttable_event_isbase = false;
-    mutable bool qtexttable_eventfilter_isbase = false;
-    mutable bool qtexttable_timerevent_isbase = false;
-    mutable bool qtexttable_childevent_isbase = false;
-    mutable bool qtexttable_customevent_isbase = false;
-    mutable bool qtexttable_connectnotify_isbase = false;
-    mutable bool qtexttable_disconnectnotify_isbase = false;
-    mutable bool qtexttable_sender_isbase = false;
-    mutable bool qtexttable_sendersignalindex_isbase = false;
-    mutable bool qtexttable_receivers_isbase = false;
-    mutable bool qtexttable_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QTextTable {
+        using QTextTable::childEvent;
+        using QTextTable::connectNotify;
+        using QTextTable::customEvent;
+        using QTextTable::disconnectNotify;
+        using QTextTable::timerEvent;
+    };
 
-  public:
     VirtualQTextTable(QTextDocument* doc) : QTextTable(doc) {};
-
-    // Callback setters
-    inline void setQTextTable_MetaObject_Callback(QTextTable_MetaObject_Callback cb) { qtexttable_metaobject_callback = cb; }
-    inline void setQTextTable_Metacast_Callback(QTextTable_Metacast_Callback cb) { qtexttable_metacast_callback = cb; }
-    inline void setQTextTable_Metacall_Callback(QTextTable_Metacall_Callback cb) { qtexttable_metacall_callback = cb; }
-    inline void setQTextTable_Event_Callback(QTextTable_Event_Callback cb) { qtexttable_event_callback = cb; }
-    inline void setQTextTable_EventFilter_Callback(QTextTable_EventFilter_Callback cb) { qtexttable_eventfilter_callback = cb; }
-    inline void setQTextTable_TimerEvent_Callback(QTextTable_TimerEvent_Callback cb) { qtexttable_timerevent_callback = cb; }
-    inline void setQTextTable_ChildEvent_Callback(QTextTable_ChildEvent_Callback cb) { qtexttable_childevent_callback = cb; }
-    inline void setQTextTable_CustomEvent_Callback(QTextTable_CustomEvent_Callback cb) { qtexttable_customevent_callback = cb; }
-    inline void setQTextTable_ConnectNotify_Callback(QTextTable_ConnectNotify_Callback cb) { qtexttable_connectnotify_callback = cb; }
-    inline void setQTextTable_DisconnectNotify_Callback(QTextTable_DisconnectNotify_Callback cb) { qtexttable_disconnectnotify_callback = cb; }
-    inline void setQTextTable_Sender_Callback(QTextTable_Sender_Callback cb) { qtexttable_sender_callback = cb; }
-    inline void setQTextTable_SenderSignalIndex_Callback(QTextTable_SenderSignalIndex_Callback cb) { qtexttable_sendersignalindex_callback = cb; }
-    inline void setQTextTable_Receivers_Callback(QTextTable_Receivers_Callback cb) { qtexttable_receivers_callback = cb; }
-    inline void setQTextTable_IsSignalConnected_Callback(QTextTable_IsSignalConnected_Callback cb) { qtexttable_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQTextTable_MetaObject_IsBase(bool value) const { qtexttable_metaobject_isbase = value; }
-    inline void setQTextTable_Metacast_IsBase(bool value) const { qtexttable_metacast_isbase = value; }
-    inline void setQTextTable_Metacall_IsBase(bool value) const { qtexttable_metacall_isbase = value; }
-    inline void setQTextTable_Event_IsBase(bool value) const { qtexttable_event_isbase = value; }
-    inline void setQTextTable_EventFilter_IsBase(bool value) const { qtexttable_eventfilter_isbase = value; }
-    inline void setQTextTable_TimerEvent_IsBase(bool value) const { qtexttable_timerevent_isbase = value; }
-    inline void setQTextTable_ChildEvent_IsBase(bool value) const { qtexttable_childevent_isbase = value; }
-    inline void setQTextTable_CustomEvent_IsBase(bool value) const { qtexttable_customevent_isbase = value; }
-    inline void setQTextTable_ConnectNotify_IsBase(bool value) const { qtexttable_connectnotify_isbase = value; }
-    inline void setQTextTable_DisconnectNotify_IsBase(bool value) const { qtexttable_disconnectnotify_isbase = value; }
-    inline void setQTextTable_Sender_IsBase(bool value) const { qtexttable_sender_isbase = value; }
-    inline void setQTextTable_SenderSignalIndex_IsBase(bool value) const { qtexttable_sendersignalindex_isbase = value; }
-    inline void setQTextTable_Receivers_IsBase(bool value) const { qtexttable_receivers_isbase = value; }
-    inline void setQTextTable_IsSignalConnected_IsBase(bool value) const { qtexttable_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qtexttable_metaobject_isbase) {
-            qtexttable_metaobject_isbase = false;
-            return QTextTable::metaObject();
-        }
-        auto metaobject_cb = qtexttable_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qtexttable_metaobject_callback) {
+            QMetaObject* callback_ret = qtexttable_metaobject_callback(this);
             return callback_ret;
         }
         return QTextTable::metaObject();
@@ -116,14 +62,9 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qtexttable_metacast_isbase) {
-            qtexttable_metacast_isbase = false;
-            return QTextTable::qt_metacast(param1);
-        }
-        auto metacast_cb = qtexttable_metacast_callback;
-        if (metacast_cb) {
+        if (qtexttable_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qtexttable_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QTextTable::qt_metacast(param1);
@@ -131,16 +72,11 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qtexttable_metacall_isbase) {
-            qtexttable_metacall_isbase = false;
-            return QTextTable::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qtexttable_metacall_callback;
-        if (metacall_cb) {
+        if (qtexttable_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qtexttable_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QTextTable::qt_metacall(param1, param2, param3);
@@ -148,14 +84,9 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qtexttable_event_isbase) {
-            qtexttable_event_isbase = false;
-            return QTextTable::event(event);
-        }
-        auto event_cb = qtexttable_event_callback;
-        if (event_cb) {
+        if (qtexttable_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qtexttable_event_callback(this, cbval1);
             return callback_ret;
         }
         return QTextTable::event(event);
@@ -163,15 +94,10 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qtexttable_eventfilter_isbase) {
-            qtexttable_eventfilter_isbase = false;
-            return QTextTable::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qtexttable_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qtexttable_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qtexttable_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QTextTable::eventFilter(watched, event);
@@ -179,15 +105,9 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qtexttable_timerevent_isbase) {
-            qtexttable_timerevent_isbase = false;
-            QTextTable::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qtexttable_timerevent_callback;
-        if (timerevent_cb) {
+        if (qtexttable_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qtexttable_timerevent_callback(this, cbval1);
             return;
         }
         QTextTable::timerEvent(event);
@@ -195,15 +115,9 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qtexttable_childevent_isbase) {
-            qtexttable_childevent_isbase = false;
-            QTextTable::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qtexttable_childevent_callback;
-        if (childevent_cb) {
+        if (qtexttable_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qtexttable_childevent_callback(this, cbval1);
             return;
         }
         QTextTable::childEvent(event);
@@ -211,15 +125,9 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qtexttable_customevent_isbase) {
-            qtexttable_customevent_isbase = false;
-            QTextTable::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qtexttable_customevent_callback;
-        if (customevent_cb) {
+        if (qtexttable_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qtexttable_customevent_callback(this, cbval1);
             return;
         }
         QTextTable::customEvent(event);
@@ -227,17 +135,11 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qtexttable_connectnotify_isbase) {
-            qtexttable_connectnotify_isbase = false;
-            QTextTable::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qtexttable_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qtexttable_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qtexttable_connectnotify_callback(this, cbval1);
             return;
         }
         QTextTable::connectNotify(signal);
@@ -245,101 +147,22 @@ class VirtualQTextTable final : public QTextTable {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qtexttable_disconnectnotify_isbase) {
-            qtexttable_disconnectnotify_isbase = false;
-            QTextTable::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qtexttable_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qtexttable_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qtexttable_disconnectnotify_callback(this, cbval1);
             return;
         }
         QTextTable::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qtexttable_sender_isbase) {
-            qtexttable_sender_isbase = false;
-            return QTextTable::sender();
-        }
-        auto sender_cb = qtexttable_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QTextTable::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qtexttable_sendersignalindex_isbase) {
-            qtexttable_sendersignalindex_isbase = false;
-            return QTextTable::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qtexttable_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QTextTable::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qtexttable_receivers_isbase) {
-            qtexttable_receivers_isbase = false;
-            return QTextTable::receivers(signal);
-        }
-        auto receivers_cb = qtexttable_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QTextTable::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qtexttable_issignalconnected_isbase) {
-            qtexttable_issignalconnected_isbase = false;
-            return QTextTable::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qtexttable_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QTextTable::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QTextTable_TimerEvent(QTextTable* self, QTimerEvent* event);
     friend void QTextTable_SuperTimerEvent(QTextTable* self, QTimerEvent* event);
-    friend void QTextTable_ChildEvent(QTextTable* self, QChildEvent* event);
     friend void QTextTable_SuperChildEvent(QTextTable* self, QChildEvent* event);
-    friend void QTextTable_CustomEvent(QTextTable* self, QEvent* event);
     friend void QTextTable_SuperCustomEvent(QTextTable* self, QEvent* event);
-    friend void QTextTable_ConnectNotify(QTextTable* self, const QMetaMethod* signal);
     friend void QTextTable_SuperConnectNotify(QTextTable* self, const QMetaMethod* signal);
-    friend void QTextTable_DisconnectNotify(QTextTable* self, const QMetaMethod* signal);
     friend void QTextTable_SuperDisconnectNotify(QTextTable* self, const QMetaMethod* signal);
-    friend QObject* QTextTable_Sender(const QTextTable* self);
-    friend QObject* QTextTable_SuperSender(const QTextTable* self);
-    friend int QTextTable_SenderSignalIndex(const QTextTable* self);
-    friend int QTextTable_SuperSenderSignalIndex(const QTextTable* self);
-    friend int QTextTable_Receivers(const QTextTable* self, const char* signal);
-    friend int QTextTable_SuperReceivers(const QTextTable* self, const char* signal);
-    friend bool QTextTable_IsSignalConnected(const QTextTable* self, const QMetaMethod* signal);
-    friend bool QTextTable_SuperIsSignalConnected(const QTextTable* self, const QMetaMethod* signal);
 };
 
 #endif

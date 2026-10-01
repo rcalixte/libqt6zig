@@ -79,9 +79,9 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetFactoryInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerWidgetFactoryInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerWidgetFactoryInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerWidgetFactoryInterface, callback: *const fn (QDesignerWidgetFactoryInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerWidgetFactoryInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -232,6 +232,8 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#core)
     ///
+    /// This method must be implemented with `onCore` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerWidgetFactoryInterface `
@@ -252,26 +254,10 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetFactoryInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QDesignerFormEditorInterface `
+    /// ` callback: *const fn (self: QDesignerWidgetFactoryInterface) callconv(.c) QDesignerFormEditorInterface `
     ///
-    pub fn onCore(self: QDesignerWidgetFactoryInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
+    pub fn onCore(self: QDesignerWidgetFactoryInterface, callback: *const fn (QDesignerWidgetFactoryInterface) callconv(.c) QDesignerFormEditorInterface) void {
         qtc.QDesignerWidgetFactoryInterface_OnCore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCore` instead
-    ///
-    pub const SuperCore = superCore;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#core)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    pub fn superCore(self: QDesignerWidgetFactoryInterface) QDesignerFormEditorInterface {
-        return .{ .ptr = qtc.QDesignerWidgetFactoryInterface_SuperCore(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `containerOfWidget` instead
@@ -279,6 +265,8 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
     pub const ContainerOfWidget = containerOfWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#containerOfWidget)
+    ///
+    /// This method must be implemented with `onContainerOfWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -309,30 +297,13 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
         qtc.QDesignerWidgetFactoryInterface_OnContainerOfWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superContainerOfWidget` instead
-    ///
-    pub const SuperContainerOfWidget = superContainerOfWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#containerOfWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superContainerOfWidget(self: QDesignerWidgetFactoryInterface, w: anytype) QWidget {
-        comptime _ = @TypeOf(w)._is_QWidget;
-        return .{ .ptr = qtc.QDesignerWidgetFactoryInterface_SuperContainerOfWidget(@ptrCast(self.ptr), @ptrCast(w.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `widgetOfContainer` instead
     ///
     pub const WidgetOfContainer = widgetOfContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#widgetOfContainer)
+    ///
+    /// This method must be implemented with `onWidgetOfContainer` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -363,30 +334,13 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
         qtc.QDesignerWidgetFactoryInterface_OnWidgetOfContainer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superWidgetOfContainer` instead
-    ///
-    pub const SuperWidgetOfContainer = superWidgetOfContainer;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#widgetOfContainer)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superWidgetOfContainer(self: QDesignerWidgetFactoryInterface, w: anytype) QWidget {
-        comptime _ = @TypeOf(w)._is_QWidget;
-        return .{ .ptr = qtc.QDesignerWidgetFactoryInterface_SuperWidgetOfContainer(@ptrCast(self.ptr), @ptrCast(w.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `createWidget` instead
     ///
     pub const CreateWidget = createWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#createWidget)
+    ///
+    /// This method must be implemented with `onCreateWidget` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -423,36 +377,13 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
         qtc.QDesignerWidgetFactoryInterface_OnCreateWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCreateWidget` instead
-    ///
-    pub const SuperCreateWidget = superCreateWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#createWidget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    /// ` name: []const u8 `
-    ///
-    /// ` parentWidget: QWidget `
-    ///
-    pub fn superCreateWidget(self: QDesignerWidgetFactoryInterface, name: []const u8, parentWidget: anytype) QWidget {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        comptime _ = @TypeOf(parentWidget)._is_QWidget;
-        return .{ .ptr = qtc.QDesignerWidgetFactoryInterface_SuperCreateWidget(@ptrCast(self.ptr), name_str, @ptrCast(parentWidget.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `createLayout` instead
     ///
     pub const CreateLayout = createLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#createLayout)
+    ///
+    /// This method must be implemented with `onCreateLayout` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -488,35 +419,13 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
         qtc.QDesignerWidgetFactoryInterface_OnCreateLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCreateLayout` instead
-    ///
-    pub const SuperCreateLayout = superCreateLayout;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#createLayout)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    /// ` widget: QWidget `
-    ///
-    /// ` layout: QLayout `
-    ///
-    /// ` typeVal: i32 `
-    ///
-    pub fn superCreateLayout(self: QDesignerWidgetFactoryInterface, widget: anytype, layout: anytype, typeVal: i32) QLayout {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        return .{ .ptr = qtc.QDesignerWidgetFactoryInterface_SuperCreateLayout(@ptrCast(self.ptr), @ptrCast(widget.ptr), @ptrCast(layout.ptr), @bitCast(typeVal)) };
-    }
-
     /// ### DEPRECATED: Use `isPassiveInteractor` instead
     ///
     pub const IsPassiveInteractor = isPassiveInteractor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#isPassiveInteractor)
+    ///
+    /// This method must be implemented with `onIsPassiveInteractor` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -547,30 +456,13 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
         qtc.QDesignerWidgetFactoryInterface_OnIsPassiveInteractor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superIsPassiveInteractor` instead
-    ///
-    pub const SuperIsPassiveInteractor = superIsPassiveInteractor;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#isPassiveInteractor)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superIsPassiveInteractor(self: QDesignerWidgetFactoryInterface, widget: anytype) bool {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return qtc.QDesignerWidgetFactoryInterface_SuperIsPassiveInteractor(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-    }
-
     /// ### DEPRECATED: Use `initialize` instead
     ///
     pub const Initialize = initialize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#initialize)
+    ///
+    /// This method must be implemented with `onInitialize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -599,25 +491,6 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
     ///
     pub fn onInitialize(self: QDesignerWidgetFactoryInterface, callback: *const fn (QDesignerWidgetFactoryInterface, QObject) callconv(.c) void) void {
         qtc.QDesignerWidgetFactoryInterface_OnInitialize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superInitialize` instead
-    ///
-    pub const SuperInitialize = superInitialize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetfactoryinterface.html#initialize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    /// ` object: QObject `
-    ///
-    pub fn superInitialize(self: QDesignerWidgetFactoryInterface, object: anytype) void {
-        comptime _ = @TypeOf(object)._is_QObject;
-        qtc.QDesignerWidgetFactoryInterface_SuperInitialize(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2097,44 +1970,6 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
         return .{ .ptr = qtc.QDesignerWidgetFactoryInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    pub fn superSender(self: QDesignerWidgetFactoryInterface) QObject {
-        return .{ .ptr = qtc.QDesignerWidgetFactoryInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerWidgetFactoryInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerWidgetFactoryInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2151,44 +1986,6 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerWidgetFactoryInterface) i32 {
         return qtc.QDesignerWidgetFactoryInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerWidgetFactoryInterface) i32 {
-        return qtc.QDesignerWidgetFactoryInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerWidgetFactoryInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerWidgetFactoryInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2212,47 +2009,6 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
         return qtc.QDesignerWidgetFactoryInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerWidgetFactoryInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerWidgetFactoryInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerWidgetFactoryInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerWidgetFactoryInterface, callback: *const fn (QDesignerWidgetFactoryInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerWidgetFactoryInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2272,47 +2028,6 @@ pub const QDesignerWidgetFactoryInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerWidgetFactoryInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerWidgetFactoryInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerWidgetFactoryInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerWidgetFactoryInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerWidgetFactoryInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerWidgetFactoryInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerWidgetFactoryInterface, callback: *const fn (QDesignerWidgetFactoryInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerWidgetFactoryInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

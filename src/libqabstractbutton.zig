@@ -131,9 +131,9 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractButton, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) QMetaObject) void {
         qtc.QAbstractButton_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -805,6 +805,8 @@ pub const QAbstractButton = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#paintEvent)
     ///
+    /// This method must be implemented with `onPaintEvent` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractButton `
@@ -832,25 +834,6 @@ pub const QAbstractButton = extern struct {
     ///
     pub fn onPaintEvent(self: QAbstractButton, callback: *const fn (QAbstractButton, QPaintEvent) callconv(.c) void) void {
         qtc.QAbstractButton_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPaintEvent` instead
-    ///
-    pub const SuperPaintEvent = superPaintEvent;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#paintEvent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    /// ` e: QPaintEvent `
-    ///
-    pub fn superPaintEvent(self: QAbstractButton, e: anytype) void {
-        comptime _ = @TypeOf(e)._is_QPaintEvent;
-        qtc.QAbstractButton_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `hitButton` instead
@@ -933,9 +916,9 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) void `
     ///
-    pub fn onCheckStateSet(self: QAbstractButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckStateSet(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) void) void {
         qtc.QAbstractButton_OnCheckStateSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -981,9 +964,9 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) void `
     ///
-    pub fn onNextCheckState(self: QAbstractButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onNextCheckState(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) void) void {
         qtc.QAbstractButton_OnNextCheckState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7885,9 +7868,9 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QAbstractButton, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) i32) void {
         qtc.QAbstractButton_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8001,11 +7984,11 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QAbstractButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) QSize) void {
         qtc.QAbstractButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8059,11 +8042,11 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QAbstractButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) QSize) void {
         qtc.QAbstractButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8177,9 +8160,9 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QAbstractButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) bool) void {
         qtc.QAbstractButton_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8233,9 +8216,9 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QAbstractButton, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) QPaintEngine) void {
         qtc.QAbstractButton_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9541,9 +9524,9 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` self: QAbstractButton`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QAbstractButton) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QAbstractButton, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QAbstractButton, callback: *const fn (QAbstractButton) callconv(.c) QPainter) void {
         qtc.QAbstractButton_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10065,44 +10048,6 @@ pub const QAbstractButton = extern struct {
         qtc.QAbstractButton_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    pub fn superUpdateMicroFocus(self: QAbstractButton) void {
-        qtc.QAbstractButton_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QAbstractButton, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractButton_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -10119,44 +10064,6 @@ pub const QAbstractButton = extern struct {
     ///
     pub fn create(self: QAbstractButton) void {
         qtc.QAbstractButton_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    pub fn superCreate(self: QAbstractButton) void {
-        qtc.QAbstractButton_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QAbstractButton, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractButton_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -10177,44 +10084,6 @@ pub const QAbstractButton = extern struct {
         qtc.QAbstractButton_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    pub fn superDestroy(self: QAbstractButton) void {
-        qtc.QAbstractButton_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QAbstractButton, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractButton_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10231,44 +10100,6 @@ pub const QAbstractButton = extern struct {
     ///
     pub fn focusNextChild(self: QAbstractButton) bool {
         return qtc.QAbstractButton_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    pub fn superFocusNextChild(self: QAbstractButton) bool {
-        return qtc.QAbstractButton_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QAbstractButton, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractButton_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10289,44 +10120,6 @@ pub const QAbstractButton = extern struct {
         return qtc.QAbstractButton_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    pub fn superFocusPreviousChild(self: QAbstractButton) bool {
-        return qtc.QAbstractButton_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QAbstractButton, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractButton_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10345,44 +10138,6 @@ pub const QAbstractButton = extern struct {
         return .{ .ptr = qtc.QAbstractButton_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    pub fn superSender(self: QAbstractButton) QObject {
-        return .{ .ptr = qtc.QAbstractButton_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractButton, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractButton_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10399,44 +10154,6 @@ pub const QAbstractButton = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractButton) i32 {
         return qtc.QAbstractButton_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractButton) i32 {
-        return qtc.QAbstractButton_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractButton, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractButton_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10460,47 +10177,6 @@ pub const QAbstractButton = extern struct {
         return qtc.QAbstractButton_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractButton, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractButton_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn (self: QAbstractButton, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractButton, callback: *const fn (QAbstractButton, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractButton_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10520,47 +10196,6 @@ pub const QAbstractButton = extern struct {
     pub fn isSignalConnected(self: QAbstractButton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractButton_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractButton, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractButton_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn (self: QAbstractButton, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractButton, callback: *const fn (QAbstractButton, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractButton_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10583,48 +10218,6 @@ pub const QAbstractButton = extern struct {
     ///
     pub fn getDecodedMetricF(self: QAbstractButton, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractButton_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractButton `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QAbstractButton, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractButton_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractButton`
-    ///
-    /// ` callback: *const fn (self: QAbstractButton, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QAbstractButton, callback: *const fn (QAbstractButton, i32, i32) callconv(.c) f64) void {
-        qtc.QAbstractButton_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

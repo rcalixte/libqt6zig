@@ -97,7 +97,7 @@ void TextTranslator__TranslatorTextEdit_Connect_TranslateText(TextTranslator__Tr
 
 void TextTranslator__TranslatorTextEdit_DropEvent(TextTranslator__TranslatorTextEdit* self, QDropEvent* param1) {
     auto* vtexttranslator__translatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslator__translatortextedit && vtexttranslator__translatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslator__translatortextedit) {
         vtexttranslator__translatortextedit->dropEvent(param1);
     }
 }
@@ -128,2162 +128,1455 @@ libqt_string TextTranslator__TranslatorTextEdit_Tr3(const char* s, const char* c
 
 // Base class handler implementation
 QMetaObject* TextTranslator__TranslatorTextEdit_SuperMetaObject(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vtexttranslatortranslatortextedit->metaObject();
-    } else {
-        return (QMetaObject*)self->TextTranslator::TranslatorTextEdit::metaObject();
-    }
+    return (QMetaObject*)self->TextTranslator::TranslatorTextEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnMetaObject(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MetaObject_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnMetaObject(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_metaobject_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextTranslator__TranslatorTextEdit_SuperMetacast(TextTranslator__TranslatorTextEdit* self, const char* param1) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metacast_IsBase(true);
-        return vtexttranslatortranslatortextedit->qt_metacast(param1);
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::qt_metacast(param1);
-    }
+    return self->TextTranslator::TranslatorTextEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMetacast(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metacast_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_metacast_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorTextEdit_SuperMetacall(TextTranslator__TranslatorTextEdit* self, int param1, int param2, void** param3) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metacall_IsBase(true);
-        return vtexttranslatortranslatortextedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextTranslator::TranslatorTextEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMetacall(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metacall_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_metacall_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperDropEvent(TextTranslator__TranslatorTextEdit* self, QDropEvent* param1) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DropEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->dropEvent(param1);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->dropEvent(param1);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDropEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DropEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DropEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_dropevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextTranslator__TranslatorTextEdit_LoadResource(TextTranslator__TranslatorTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return new QVariant(vtexttranslatortranslatortextedit->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualTextTranslatorTranslatorTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
 }
 
 // Base class handler implementation
 QVariant* TextTranslator__TranslatorTextEdit_SuperLoadResource(TextTranslator__TranslatorTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_LoadResource_IsBase(true);
-        return new QVariant(vtexttranslatortranslatortextedit->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualTextTranslatorTranslatorTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->TextTranslator::TranslatorTextEdit::loadResource(static_cast<int>(typeVal), *name));
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnLoadResource(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_LoadResource_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_LoadResource_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_loadresource_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_LoadResource_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextTranslator__TranslatorTextEdit_InputMethodQuery(const TextTranslator__TranslatorTextEdit* self, int property) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return new QVariant(vtexttranslatortranslatortextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualTextTranslatorTranslatorTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 // Base class handler implementation
 QVariant* TextTranslator__TranslatorTextEdit_SuperInputMethodQuery(const TextTranslator__TranslatorTextEdit* self, int property) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vtexttranslatortranslatortextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualTextTranslatorTranslatorTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->TextTranslator::TranslatorTextEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnInputMethodQuery(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InputMethodQuery_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnInputMethodQuery(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_inputmethodquery_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorTextEdit_Event(TextTranslator__TranslatorTextEdit* self, QEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->event(e);
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->event(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorTextEdit_SuperEvent(TextTranslator__TranslatorTextEdit* self, QEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Event_IsBase(true);
-        return vtexttranslatortranslatortextedit->event(e);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->event(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::event(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Event_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_event_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_TimerEvent(TextTranslator__TranslatorTextEdit* self, QTimerEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->timerEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperTimerEvent(TextTranslator__TranslatorTextEdit* self, QTimerEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_TimerEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->timerEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->timerEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnTimerEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_TimerEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_timerevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_KeyPressEvent(TextTranslator__TranslatorTextEdit* self, QKeyEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->keyPressEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->keyPressEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperKeyPressEvent(TextTranslator__TranslatorTextEdit* self, QKeyEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_KeyPressEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->keyPressEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->keyPressEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnKeyPressEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_keypressevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_KeyReleaseEvent(TextTranslator__TranslatorTextEdit* self, QKeyEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->keyReleaseEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperKeyReleaseEvent(TextTranslator__TranslatorTextEdit* self, QKeyEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_KeyReleaseEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->keyReleaseEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnKeyReleaseEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_keyreleaseevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_ResizeEvent(TextTranslator__TranslatorTextEdit* self, QResizeEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->resizeEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperResizeEvent(TextTranslator__TranslatorTextEdit* self, QResizeEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ResizeEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->resizeEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->resizeEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnResizeEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ResizeEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_resizeevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_PaintEvent(TextTranslator__TranslatorTextEdit* self, QPaintEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->paintEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperPaintEvent(TextTranslator__TranslatorTextEdit* self, QPaintEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_PaintEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->paintEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->paintEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnPaintEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_PaintEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_paintevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_MousePressEvent(TextTranslator__TranslatorTextEdit* self, QMouseEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->mousePressEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperMousePressEvent(TextTranslator__TranslatorTextEdit* self, QMouseEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MousePressEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->mousePressEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->mousePressEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMousePressEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MousePressEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_mousepressevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_MouseMoveEvent(TextTranslator__TranslatorTextEdit* self, QMouseEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->mouseMoveEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperMouseMoveEvent(TextTranslator__TranslatorTextEdit* self, QMouseEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseMoveEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->mouseMoveEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMouseMoveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_mousemoveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_MouseReleaseEvent(TextTranslator__TranslatorTextEdit* self, QMouseEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->mouseReleaseEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperMouseReleaseEvent(TextTranslator__TranslatorTextEdit* self, QMouseEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseReleaseEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->mouseReleaseEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMouseReleaseEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_mousereleaseevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_MouseDoubleClickEvent(TextTranslator__TranslatorTextEdit* self, QMouseEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->mouseDoubleClickEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->mouseDoubleClickEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperMouseDoubleClickEvent(TextTranslator__TranslatorTextEdit* self, QMouseEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseDoubleClickEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->mouseDoubleClickEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->mouseDoubleClickEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::mouseDoubleClickEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMouseDoubleClickEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorTextEdit_FocusNextPrevChild(TextTranslator__TranslatorTextEdit* self, bool next) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorTextEdit_SuperFocusNextPrevChild(TextTranslator__TranslatorTextEdit* self, bool next) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusNextPrevChild_IsBase(true);
-        return vtexttranslatortranslatortextedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFocusNextPrevChild(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_focusnextprevchild_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_ContextMenuEvent(TextTranslator__TranslatorTextEdit* self, QContextMenuEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->contextMenuEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->contextMenuEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperContextMenuEvent(TextTranslator__TranslatorTextEdit* self, QContextMenuEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ContextMenuEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->contextMenuEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->contextMenuEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::contextMenuEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnContextMenuEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_contextmenuevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_DragEnterEvent(TextTranslator__TranslatorTextEdit* self, QDragEnterEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->dragEnterEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->dragEnterEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperDragEnterEvent(TextTranslator__TranslatorTextEdit* self, QDragEnterEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragEnterEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->dragEnterEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->dragEnterEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::dragEnterEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDragEnterEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_dragenterevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_DragLeaveEvent(TextTranslator__TranslatorTextEdit* self, QDragLeaveEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->dragLeaveEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->dragLeaveEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperDragLeaveEvent(TextTranslator__TranslatorTextEdit* self, QDragLeaveEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragLeaveEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->dragLeaveEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDragLeaveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_dragleaveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_DragMoveEvent(TextTranslator__TranslatorTextEdit* self, QDragMoveEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->dragMoveEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->dragMoveEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperDragMoveEvent(TextTranslator__TranslatorTextEdit* self, QDragMoveEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragMoveEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->dragMoveEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->dragMoveEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDragMoveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_dragmoveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_FocusInEvent(TextTranslator__TranslatorTextEdit* self, QFocusEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->focusInEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperFocusInEvent(TextTranslator__TranslatorTextEdit* self, QFocusEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusInEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->focusInEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusInEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFocusInEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusInEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_focusinevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_FocusOutEvent(TextTranslator__TranslatorTextEdit* self, QFocusEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->focusOutEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperFocusOutEvent(TextTranslator__TranslatorTextEdit* self, QFocusEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusOutEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->focusOutEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusOutEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnFocusOutEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_focusoutevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_ShowEvent(TextTranslator__TranslatorTextEdit* self, QShowEvent* param1) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->showEvent(param1);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperShowEvent(TextTranslator__TranslatorTextEdit* self, QShowEvent* param1) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ShowEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->showEvent(param1);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->showEvent(param1);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnShowEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ShowEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_showevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_ChangeEvent(TextTranslator__TranslatorTextEdit* self, QEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->changeEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperChangeEvent(TextTranslator__TranslatorTextEdit* self, QEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ChangeEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->changeEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->changeEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnChangeEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ChangeEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_changeevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_WheelEvent(TextTranslator__TranslatorTextEdit* self, QWheelEvent* e) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->wheelEvent(e);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperWheelEvent(TextTranslator__TranslatorTextEdit* self, QWheelEvent* e) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_WheelEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->wheelEvent(e);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->wheelEvent(e);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnWheelEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_WheelEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_wheelevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMimeData* TextTranslator__TranslatorTextEdit_CreateMimeDataFromSelection(const TextTranslator__TranslatorTextEdit* self) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->createMimeDataFromSelection();
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->createMimeDataFromSelection();
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::createMimeDataFromSelection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QMimeData* TextTranslator__TranslatorTextEdit_SuperCreateMimeDataFromSelection(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CreateMimeDataFromSelection_IsBase(true);
-        return vtexttranslatortranslatortextedit->createMimeDataFromSelection();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->createMimeDataFromSelection();
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::createMimeDataFromSelection();
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::createMimeDataFromSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnCreateMimeDataFromSelection(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CreateMimeDataFromSelection_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnCreateMimeDataFromSelection(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_createmimedatafromselection_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CreateMimeDataFromSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorTextEdit_CanInsertFromMimeData(const TextTranslator__TranslatorTextEdit* self, const QMimeData* source) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->canInsertFromMimeData(source);
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->canInsertFromMimeData(source);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::canInsertFromMimeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorTextEdit_SuperCanInsertFromMimeData(const TextTranslator__TranslatorTextEdit* self, const QMimeData* source) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CanInsertFromMimeData_IsBase(true);
-        return vtexttranslatortranslatortextedit->canInsertFromMimeData(source);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->canInsertFromMimeData(source);
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::canInsertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::canInsertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnCanInsertFromMimeData(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CanInsertFromMimeData_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnCanInsertFromMimeData(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_caninsertfrommimedata_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CanInsertFromMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_InsertFromMimeData(TextTranslator__TranslatorTextEdit* self, const QMimeData* source) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->insertFromMimeData(source);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->insertFromMimeData(source);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::insertFromMimeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperInsertFromMimeData(TextTranslator__TranslatorTextEdit* self, const QMimeData* source) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InsertFromMimeData_IsBase(true);
-        vtexttranslatortranslatortextedit->insertFromMimeData(source);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->insertFromMimeData(source);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::insertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::insertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnInsertFromMimeData(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InsertFromMimeData_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_insertfrommimedata_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InsertFromMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_InputMethodEvent(TextTranslator__TranslatorTextEdit* self, QInputMethodEvent* param1) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->inputMethodEvent(param1);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperInputMethodEvent(TextTranslator__TranslatorTextEdit* self, QInputMethodEvent* param1) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InputMethodEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnInputMethodEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_inputmethodevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_ScrollContentsBy(TextTranslator__TranslatorTextEdit* self, int dx, int dy) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::scrollContentsBy called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperScrollContentsBy(TextTranslator__TranslatorTextEdit* self, int dx, int dy) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ScrollContentsBy_IsBase(true);
-        vtexttranslatortranslatortextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnScrollContentsBy(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ScrollContentsBy_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_scrollcontentsby_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_DoSetTextCursor(TextTranslator__TranslatorTextEdit* self, const QTextCursor* cursor) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->doSetTextCursor(*cursor);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->doSetTextCursor(*cursor);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::doSetTextCursor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperDoSetTextCursor(TextTranslator__TranslatorTextEdit* self, const QTextCursor* cursor) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DoSetTextCursor_IsBase(true);
-        vtexttranslatortranslatortextedit->doSetTextCursor(*cursor);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->doSetTextCursor(*cursor);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::doSetTextCursor(*cursor);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::doSetTextCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDoSetTextCursor(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DoSetTextCursor_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_dosettextcursor_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DoSetTextCursor_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextTranslator__TranslatorTextEdit_MinimumSizeHint(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return new QSize(vtexttranslatortranslatortextedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextTranslatorTranslatorTextEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextTranslator__TranslatorTextEdit_SuperMinimumSizeHint(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vtexttranslatortranslatortextedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextTranslatorTranslatorTextEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextTranslator::TranslatorTextEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnMinimumSizeHint(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MinimumSizeHint_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnMinimumSizeHint(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_minimumsizehint_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextTranslator__TranslatorTextEdit_SizeHint(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return new QSize(vtexttranslatortranslatortextedit->sizeHint());
-    } else {
-        return new QSize(((VirtualTextTranslatorTranslatorTextEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextTranslator__TranslatorTextEdit_SuperSizeHint(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SizeHint_IsBase(true);
-        return new QSize(vtexttranslatortranslatortextedit->sizeHint());
-    } else {
-        return new QSize(((VirtualTextTranslatorTranslatorTextEdit*)self)->sizeHint());
-    }
+    return new QSize(self->TextTranslator::TranslatorTextEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnSizeHint(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SizeHint_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnSizeHint(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_sizehint_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_SetupViewport(TextTranslator__TranslatorTextEdit* self, QWidget* viewport) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setupViewport(viewport);
-    } else {
-        self->TextTranslator::TranslatorTextEdit::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperSetupViewport(TextTranslator__TranslatorTextEdit* self, QWidget* viewport) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetupViewport_IsBase(true);
-        vtexttranslatortranslatortextedit->setupViewport(viewport);
-    } else {
-        self->TextTranslator::TranslatorTextEdit::setupViewport(viewport);
-    }
+    self->TextTranslator::TranslatorTextEdit::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSetupViewport(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetupViewport_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SetupViewport_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_setupviewport_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorTextEdit_EventFilter(TextTranslator__TranslatorTextEdit* self, QObject* param1, QEvent* param2) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->eventFilter(param1, param2);
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorTextEdit_SuperEventFilter(TextTranslator__TranslatorTextEdit* self, QObject* param1, QEvent* param2) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_EventFilter_IsBase(true);
-        return vtexttranslatortranslatortextedit->eventFilter(param1, param2);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnEventFilter(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_EventFilter_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_eventfilter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorTextEdit_ViewportEvent(TextTranslator__TranslatorTextEdit* self, QEvent* param1) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->viewportEvent(param1);
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->viewportEvent(param1);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorTextEdit_SuperViewportEvent(TextTranslator__TranslatorTextEdit* self, QEvent* param1) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportEvent_IsBase(true);
-        return vtexttranslatortranslatortextedit->viewportEvent(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->viewportEvent(param1);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::viewportEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnViewportEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ViewportEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_viewportevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextTranslator__TranslatorTextEdit_ViewportSizeHint(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return new QSize(vtexttranslatortranslatortextedit->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualTextTranslatorTranslatorTextEdit::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* TextTranslator__TranslatorTextEdit_SuperViewportSizeHint(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportSizeHint_IsBase(true);
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
         return new QSize(vtexttranslatortranslatortextedit->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnViewportSizeHint(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportSizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ViewportSizeHint_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnViewportSizeHint(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_viewportsizehint_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_InitStyleOption(const TextTranslator__TranslatorTextEdit* self, QStyleOptionFrame* option) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->initStyleOption(option);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperInitStyleOption(const TextTranslator__TranslatorTextEdit* self, QStyleOptionFrame* option) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InitStyleOption_IsBase(true);
-        vtexttranslatortranslatortextedit->initStyleOption(option);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->initStyleOption(option);
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnInitStyleOption(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InitStyleOption_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InitStyleOption_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnInitStyleOption(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_initstyleoption_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextTranslator__TranslatorTextEdit_DevType(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->devType();
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorTextEdit_SuperDevType(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DevType_IsBase(true);
-        return vtexttranslatortranslatortextedit->devType();
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::devType();
-    }
+    return self->TextTranslator::TranslatorTextEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnDevType(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DevType_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DevType_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnDevType(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_devtype_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_SetVisible(TextTranslator__TranslatorTextEdit* self, bool visible) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setVisible(visible);
-    } else {
-        self->TextTranslator::TranslatorTextEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperSetVisible(TextTranslator__TranslatorTextEdit* self, bool visible) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetVisible_IsBase(true);
-        vtexttranslatortranslatortextedit->setVisible(visible);
-    } else {
-        self->TextTranslator::TranslatorTextEdit::setVisible(visible);
-    }
+    self->TextTranslator::TranslatorTextEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnSetVisible(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetVisible_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SetVisible_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_setvisible_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextTranslator__TranslatorTextEdit_HeightForWidth(const TextTranslator__TranslatorTextEdit* self, int param1) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorTextEdit_SuperHeightForWidth(const TextTranslator__TranslatorTextEdit* self, int param1) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HeightForWidth_IsBase(true);
-        return vtexttranslatortranslatortextedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextTranslator::TranslatorTextEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnHeightForWidth(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HeightForWidth_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnHeightForWidth(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_heightforwidth_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorTextEdit_HasHeightForWidth(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->hasHeightForWidth();
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorTextEdit_SuperHasHeightForWidth(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HasHeightForWidth_IsBase(true);
-        return vtexttranslatortranslatortextedit->hasHeightForWidth();
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::hasHeightForWidth();
-    }
+    return self->TextTranslator::TranslatorTextEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnHasHeightForWidth(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HasHeightForWidth_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnHasHeightForWidth(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_hasheightforwidth_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextTranslator__TranslatorTextEdit_PaintEngine(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->paintEngine();
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextTranslator__TranslatorTextEdit_SuperPaintEngine(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_PaintEngine_IsBase(true);
-        return vtexttranslatortranslatortextedit->paintEngine();
-    } else {
-        return self->TextTranslator::TranslatorTextEdit::paintEngine();
-    }
+    return self->TextTranslator::TranslatorTextEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnPaintEngine(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_PaintEngine_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_PaintEngine_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnPaintEngine(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_paintengine_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_EnterEvent(TextTranslator__TranslatorTextEdit* self, QEnterEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->enterEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperEnterEvent(TextTranslator__TranslatorTextEdit* self, QEnterEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_EnterEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->enterEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->enterEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnEnterEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_EnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_EnterEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_enterevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_LeaveEvent(TextTranslator__TranslatorTextEdit* self, QEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->leaveEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperLeaveEvent(TextTranslator__TranslatorTextEdit* self, QEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_LeaveEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->leaveEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnLeaveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_LeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_LeaveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_leaveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_MoveEvent(TextTranslator__TranslatorTextEdit* self, QMoveEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->moveEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperMoveEvent(TextTranslator__TranslatorTextEdit* self, QMoveEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MoveEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->moveEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->moveEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnMoveEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_MoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MoveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_moveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_CloseEvent(TextTranslator__TranslatorTextEdit* self, QCloseEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->closeEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperCloseEvent(TextTranslator__TranslatorTextEdit* self, QCloseEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CloseEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->closeEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->closeEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnCloseEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CloseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CloseEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_closeevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_TabletEvent(TextTranslator__TranslatorTextEdit* self, QTabletEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->tabletEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperTabletEvent(TextTranslator__TranslatorTextEdit* self, QTabletEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_TabletEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->tabletEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnTabletEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_TabletEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_TabletEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_tabletevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_ActionEvent(TextTranslator__TranslatorTextEdit* self, QActionEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->actionEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperActionEvent(TextTranslator__TranslatorTextEdit* self, QActionEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ActionEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->actionEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->actionEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnActionEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ActionEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ActionEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_actionevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_HideEvent(TextTranslator__TranslatorTextEdit* self, QHideEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->hideEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperHideEvent(TextTranslator__TranslatorTextEdit* self, QHideEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HideEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->hideEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->hideEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnHideEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_HideEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HideEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_hideevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorTextEdit_NativeEvent(TextTranslator__TranslatorTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorTextEdit_SuperNativeEvent(TextTranslator__TranslatorTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_NativeEvent_IsBase(true);
-        return vtexttranslatortranslatortextedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnNativeEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_NativeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_NativeEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_nativeevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextTranslator__TranslatorTextEdit_Metric(const TextTranslator__TranslatorTextEdit* self, int param1) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorTextEdit_SuperMetric(const TextTranslator__TranslatorTextEdit* self, int param1) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metric_IsBase(true);
-        return vtexttranslatortranslatortextedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnMetric(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Metric_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metric_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnMetric(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_metric_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_InitPainter(const TextTranslator__TranslatorTextEdit* self, QPainter* painter) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->initPainter(painter);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperInitPainter(const TextTranslator__TranslatorTextEdit* self, QPainter* painter) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InitPainter_IsBase(true);
-        vtexttranslatortranslatortextedit->initPainter(painter);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->initPainter(painter);
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnInitPainter(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_InitPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InitPainter_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnInitPainter(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_initpainter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextTranslator__TranslatorTextEdit_Redirected(const TextTranslator__TranslatorTextEdit* self, QPoint* offset) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->redirected(offset);
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextTranslator__TranslatorTextEdit_SuperRedirected(const TextTranslator__TranslatorTextEdit* self, QPoint* offset) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Redirected_IsBase(true);
-        return vtexttranslatortranslatortextedit->redirected(offset);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->redirected(offset);
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnRedirected(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Redirected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Redirected_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnRedirected(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_redirected_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextTranslator__TranslatorTextEdit_SharedPainter(const TextTranslator__TranslatorTextEdit* self) {
     auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         return vtexttranslatortranslatortextedit->sharedPainter();
     } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextTranslator__TranslatorTextEdit_SuperSharedPainter(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SharedPainter_IsBase(true);
-        return vtexttranslatortranslatortextedit->sharedPainter();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->sharedPainter();
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnSharedPainter(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SharedPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SharedPainter_Callback>(slot));
+void TextTranslator__TranslatorTextEdit_OnSharedPainter(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_sharedpainter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_ChildEvent(TextTranslator__TranslatorTextEdit* self, QChildEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->childEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperChildEvent(TextTranslator__TranslatorTextEdit* self, QChildEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ChildEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->childEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->childEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnChildEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ChildEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_childevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_CustomEvent(TextTranslator__TranslatorTextEdit* self, QEvent* event) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->customEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperCustomEvent(TextTranslator__TranslatorTextEdit* self, QEvent* event) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CustomEvent_IsBase(true);
-        vtexttranslatortranslatortextedit->customEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->customEvent(event);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnCustomEvent(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CustomEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_customevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_ConnectNotify(TextTranslator__TranslatorTextEdit* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->connectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperConnectNotify(TextTranslator__TranslatorTextEdit* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ConnectNotify_IsBase(true);
-        vtexttranslatortranslatortextedit->connectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnConnectNotify(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ConnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_connectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorTextEdit_DisconnectNotify(TextTranslator__TranslatorTextEdit* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (vtexttranslatortranslatortextedit) {
         vtexttranslatortranslatortextedit->disconnectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorTextEdit_SuperDisconnectNotify(TextTranslator__TranslatorTextEdit* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DisconnectNotify_IsBase(true);
-        vtexttranslatortranslatortextedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->TextTranslator::TranslatorTextEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorTextEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorTextEdit_OnDisconnectNotify(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self))
+        vtexttranslatortranslatortextedit->texttranslator__translatortextedit_disconnectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 QTextBlock* TextTranslator__TranslatorTextEdit_FirstVisibleBlock(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
         return new QTextBlock(vtexttranslatortranslatortextedit->firstVisibleBlock());
-    }
-    return {};
-}
-
-// Base class handler implementation
-QTextBlock* TextTranslator__TranslatorTextEdit_SuperFirstVisibleBlock(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FirstVisibleBlock_IsBase(true);
-        return new QTextBlock(vtexttranslatortranslatortextedit->firstVisibleBlock());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnFirstVisibleBlock(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FirstVisibleBlock_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FirstVisibleBlock_Callback>(slot));
+    qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::firstVisibleBlock called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPointF* TextTranslator__TranslatorTextEdit_ContentOffset(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
         return new QPointF(vtexttranslatortranslatortextedit->contentOffset());
-    }
-    return {};
-}
-
-// Base class handler implementation
-QPointF* TextTranslator__TranslatorTextEdit_SuperContentOffset(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ContentOffset_IsBase(true);
-        return new QPointF(vtexttranslatortranslatortextedit->contentOffset());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnContentOffset(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ContentOffset_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ContentOffset_Callback>(slot));
+    qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::contentOffset called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRectF* TextTranslator__TranslatorTextEdit_BlockBoundingRect(const TextTranslator__TranslatorTextEdit* self, const QTextBlock* block) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
         return new QRectF(vtexttranslatortranslatortextedit->blockBoundingRect(*block));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QRectF* TextTranslator__TranslatorTextEdit_SuperBlockBoundingRect(const TextTranslator__TranslatorTextEdit* self, const QTextBlock* block) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_BlockBoundingRect_IsBase(true);
-        return new QRectF(vtexttranslatortranslatortextedit->blockBoundingRect(*block));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnBlockBoundingRect(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_BlockBoundingRect_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_BlockBoundingRect_Callback>(slot));
+    qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::blockBoundingRect called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRectF* TextTranslator__TranslatorTextEdit_BlockBoundingGeometry(const TextTranslator__TranslatorTextEdit* self, const QTextBlock* block) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
         return new QRectF(vtexttranslatortranslatortextedit->blockBoundingGeometry(*block));
-    }
-    return {};
-}
-
-// Base class handler implementation
-QRectF* TextTranslator__TranslatorTextEdit_SuperBlockBoundingGeometry(const TextTranslator__TranslatorTextEdit* self, const QTextBlock* block) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_BlockBoundingGeometry_IsBase(true);
-        return new QRectF(vtexttranslatortranslatortextedit->blockBoundingGeometry(*block));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnBlockBoundingGeometry(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_BlockBoundingGeometry_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_BlockBoundingGeometry_Callback>(slot));
+    qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::blockBoundingGeometry called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QAbstractTextDocumentLayout__PaintContext* TextTranslator__TranslatorTextEdit_GetPaintContext(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
         return new QAbstractTextDocumentLayout::PaintContext(vtexttranslatortranslatortextedit->getPaintContext());
-    }
-    return {};
+    qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::getPaintContext called without a directly constructed type");
 }
 
-// Base class handler implementation
-QAbstractTextDocumentLayout__PaintContext* TextTranslator__TranslatorTextEdit_SuperGetPaintContext(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_GetPaintContext_IsBase(true);
-        return new QAbstractTextDocumentLayout::PaintContext(vtexttranslatortranslatortextedit->getPaintContext());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnGetPaintContext(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_GetPaintContext_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_GetPaintContext_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorTextEdit_ZoomInF(TextTranslator__TranslatorTextEdit* self, float range) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->zoomInF(static_cast<float>(range));
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->zoomInF(static_cast<float>(range));
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::zoomInF(static_cast<float>(range));
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::zoomInF called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorTextEdit_SuperZoomInF(TextTranslator__TranslatorTextEdit* self, float range) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ZoomInF_IsBase(true);
-        vtexttranslatortranslatortextedit->zoomInF(static_cast<float>(range));
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->zoomInF(static_cast<float>(range));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnZoomInF(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ZoomInF_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ZoomInF_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorTextEdit_SetViewportMargins(TextTranslator__TranslatorTextEdit* self, int left, int top, int right, int bottom) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void TextTranslator__TranslatorTextEdit_SuperSetViewportMargins(TextTranslator__TranslatorTextEdit* self, int left, int top, int right, int bottom) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetViewportMargins_IsBase(true);
-        vtexttranslatortranslatortextedit->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnSetViewportMargins(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SetViewportMargins_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SetViewportMargins_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* TextTranslator__TranslatorTextEdit_ViewportMargins(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self)))
         return new QMargins(vtexttranslatortranslatortextedit->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* TextTranslator__TranslatorTextEdit_SuperViewportMargins(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportMargins_IsBase(true);
-        return new QMargins(vtexttranslatortranslatortextedit->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnViewportMargins(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_ViewportMargins_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorTextEdit_DrawFrame(TextTranslator__TranslatorTextEdit* self, QPainter* param1) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->drawFrame(param1);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->drawFrame(param1);
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorTextEdit_SuperDrawFrame(TextTranslator__TranslatorTextEdit* self, QPainter* param1) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DrawFrame_IsBase(true);
-        vtexttranslatortranslatortextedit->drawFrame(param1);
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnDrawFrame(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_DrawFrame_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorTextEdit_UpdateMicroFocus(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->updateMicroFocus();
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorTextEdit_SuperUpdateMicroFocus(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_UpdateMicroFocus_IsBase(true);
-        vtexttranslatortranslatortextedit->updateMicroFocus();
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnUpdateMicroFocus(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorTextEdit_Create(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->create();
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->create();
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::create();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorTextEdit_SuperCreate(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Create_IsBase(true);
-        vtexttranslatortranslatortextedit->create();
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnCreate(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Create_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorTextEdit_Destroy(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->destroy();
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->destroy();
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::destroy();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorTextEdit_SuperDestroy(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Destroy_IsBase(true);
-        vtexttranslatortranslatortextedit->destroy();
-    } else {
-        ((VirtualTextTranslatorTranslatorTextEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnDestroy(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Destroy_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorTextEdit_FocusNextChild(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->focusNextChild();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusNextChild();
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        return vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextTranslator__TranslatorTextEdit_SuperFocusNextChild(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusNextChild_IsBase(true);
-        return vtexttranslatortranslatortextedit->focusNextChild();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnFocusNextChild(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusNextChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorTextEdit_FocusPreviousChild(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->focusPreviousChild();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self)) {
+        return vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextTranslator__TranslatorTextEdit_SuperFocusPreviousChild(TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusPreviousChild_IsBase(true);
-        return vtexttranslatortranslatortextedit->focusPreviousChild();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnFocusPreviousChild(TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextTranslator__TranslatorTextEdit_Sender(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->sender();
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::sender();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextTranslator__TranslatorTextEdit_SuperSender(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Sender_IsBase(true);
-        return vtexttranslatortranslatortextedit->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnSender(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorTextEdit_SenderSignalIndex(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorTextEdit_SuperSenderSignalIndex(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SenderSignalIndex_IsBase(true);
-        return vtexttranslatortranslatortextedit->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnSenderSignalIndex(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorTextEdit_Receivers(const TextTranslator__TranslatorTextEdit* self, const char* signal) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->receivers(signal);
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorTextEdit_SuperReceivers(const TextTranslator__TranslatorTextEdit* self, const char* signal) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Receivers_IsBase(true);
-        return vtexttranslatortranslatortextedit->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnReceivers(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorTextEdit_IsSignalConnected(const TextTranslator__TranslatorTextEdit* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextTranslator__TranslatorTextEdit_SuperIsSignalConnected(const TextTranslator__TranslatorTextEdit* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_IsSignalConnected_IsBase(true);
-        return vtexttranslatortranslatortextedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnIsSignalConnected(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextTranslator__TranslatorTextEdit_GetDecodedMetricF(const TextTranslator__TranslatorTextEdit* self, int metricA, int metricB) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return vtexttranslatortranslatortextedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextTranslator__TranslatorTextEdit_SuperGetDecodedMetricF(const TextTranslator__TranslatorTextEdit* self, int metricA, int metricB) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_GetDecodedMetricF_IsBase(true);
-        return vtexttranslatortranslatortextedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorTextEdit_OnGetDecodedMetricF(const TextTranslator__TranslatorTextEdit* self, intptr_t slot) {
-    auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self));
-    if (vtexttranslatortranslatortextedit && vtexttranslatortranslatortextedit->isVirtualTextTranslatorTranslatorTextEdit)
-        vtexttranslatortranslatortextedit->setTextTranslator__TranslatorTextEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorTextEdit::TextTranslator__TranslatorTextEdit_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtexttranslatortranslatortextedit = const_cast<VirtualTextTranslatorTranslatorTextEdit*>(dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self))) {
+        return vtexttranslatortranslatortextedit->VirtualTextTranslatorTranslatorTextEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorTextEdit::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextTranslator__TranslatorTextEdit_Delete(TextTranslator__TranslatorTextEdit* self) {
@@ -2359,10 +1652,10 @@ void TextTranslator__TranslatorWidget_SlotCloseWidget(TextTranslator__Translator
 
 bool TextTranslator__TranslatorWidget_Event(TextTranslator__TranslatorWidget* self, QEvent* e) {
     auto* vtexttranslator__translatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslator__translatorwidget && vtexttranslator__translatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslator__translatorwidget) {
         return vtexttranslator__translatorwidget->event(e);
     }
-    return {};
+    qFatal("Error: Protected method TextTranslator::TranslatorWidget::event called without a directly constructed type");
 }
 
 void TextTranslator__TranslatorWidget_ToolsWasClosed(TextTranslator__TranslatorWidget* self) {
@@ -2404,1644 +1697,1163 @@ libqt_string TextTranslator__TranslatorWidget_Tr3(const char* s, const char* c, 
 
 // Base class handler implementation
 QMetaObject* TextTranslator__TranslatorWidget_SuperMetaObject(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vtexttranslatortranslatorwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->TextTranslator::TranslatorWidget::metaObject();
-    }
+    return (QMetaObject*)self->TextTranslator::TranslatorWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnMetaObject(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MetaObject_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnMetaObject(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_metaobject_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextTranslator__TranslatorWidget_SuperMetacast(TextTranslator__TranslatorWidget* self, const char* param1) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metacast_IsBase(true);
-        return vtexttranslatortranslatorwidget->qt_metacast(param1);
-    } else {
-        return self->TextTranslator::TranslatorWidget::qt_metacast(param1);
-    }
+    return self->TextTranslator::TranslatorWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMetacast(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metacast_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_metacast_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorWidget_SuperMetacall(TextTranslator__TranslatorWidget* self, int param1, int param2, void** param3) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metacall_IsBase(true);
-        return vtexttranslatortranslatorwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextTranslator::TranslatorWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextTranslator::TranslatorWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMetacall(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metacall_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_metacall_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorWidget_SuperEvent(TextTranslator__TranslatorWidget* self, QEvent* e) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Event_IsBase(true);
-        return vtexttranslatortranslatorwidget->event(e);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->event(e);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        return vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::event(e);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Event_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_event_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextTranslator__TranslatorWidget_DevType(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->devType();
-    } else {
-        return self->TextTranslator::TranslatorWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorWidget_SuperDevType(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DevType_IsBase(true);
-        return vtexttranslatortranslatorwidget->devType();
-    } else {
-        return self->TextTranslator::TranslatorWidget::devType();
-    }
+    return self->TextTranslator::TranslatorWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnDevType(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DevType_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DevType_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnDevType(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_devtype_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_SetVisible(TextTranslator__TranslatorWidget* self, bool visible) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setVisible(visible);
-    } else {
-        self->TextTranslator::TranslatorWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperSetVisible(TextTranslator__TranslatorWidget* self, bool visible) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SetVisible_IsBase(true);
-        vtexttranslatortranslatorwidget->setVisible(visible);
-    } else {
-        self->TextTranslator::TranslatorWidget::setVisible(visible);
-    }
+    self->TextTranslator::TranslatorWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnSetVisible(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SetVisible_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SetVisible_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_setvisible_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextTranslator__TranslatorWidget_SizeHint(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return new QSize(vtexttranslatortranslatorwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualTextTranslatorTranslatorWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextTranslator__TranslatorWidget_SuperSizeHint(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SizeHint_IsBase(true);
-        return new QSize(vtexttranslatortranslatorwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualTextTranslatorTranslatorWidget*)self)->sizeHint());
-    }
+    return new QSize(self->TextTranslator::TranslatorWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnSizeHint(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SizeHint_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnSizeHint(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_sizehint_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextTranslator__TranslatorWidget_MinimumSizeHint(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return new QSize(vtexttranslatortranslatorwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextTranslatorTranslatorWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextTranslator__TranslatorWidget_SuperMinimumSizeHint(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vtexttranslatortranslatorwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextTranslatorTranslatorWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextTranslator::TranslatorWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnMinimumSizeHint(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MinimumSizeHint_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnMinimumSizeHint(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_minimumsizehint_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextTranslator__TranslatorWidget_HeightForWidth(const TextTranslator__TranslatorWidget* self, int param1) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextTranslator::TranslatorWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorWidget_SuperHeightForWidth(const TextTranslator__TranslatorWidget* self, int param1) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HeightForWidth_IsBase(true);
-        return vtexttranslatortranslatorwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextTranslator::TranslatorWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextTranslator::TranslatorWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnHeightForWidth(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HeightForWidth_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnHeightForWidth(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_heightforwidth_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorWidget_HasHeightForWidth(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->hasHeightForWidth();
-    } else {
-        return self->TextTranslator::TranslatorWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorWidget_SuperHasHeightForWidth(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HasHeightForWidth_IsBase(true);
-        return vtexttranslatortranslatorwidget->hasHeightForWidth();
-    } else {
-        return self->TextTranslator::TranslatorWidget::hasHeightForWidth();
-    }
+    return self->TextTranslator::TranslatorWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnHasHeightForWidth(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HasHeightForWidth_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnHasHeightForWidth(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_hasheightforwidth_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextTranslator__TranslatorWidget_PaintEngine(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->paintEngine();
-    } else {
-        return self->TextTranslator::TranslatorWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextTranslator__TranslatorWidget_SuperPaintEngine(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_PaintEngine_IsBase(true);
-        return vtexttranslatortranslatorwidget->paintEngine();
-    } else {
-        return self->TextTranslator::TranslatorWidget::paintEngine();
-    }
+    return self->TextTranslator::TranslatorWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnPaintEngine(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_PaintEngine_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnPaintEngine(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_paintengine_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_MousePressEvent(TextTranslator__TranslatorWidget* self, QMouseEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->mousePressEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperMousePressEvent(TextTranslator__TranslatorWidget* self, QMouseEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MousePressEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->mousePressEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMousePressEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MousePressEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_mousepressevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_MouseReleaseEvent(TextTranslator__TranslatorWidget* self, QMouseEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperMouseReleaseEvent(TextTranslator__TranslatorWidget* self, QMouseEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseReleaseEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMouseReleaseEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_mousereleaseevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_MouseDoubleClickEvent(TextTranslator__TranslatorWidget* self, QMouseEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperMouseDoubleClickEvent(TextTranslator__TranslatorWidget* self, QMouseEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseDoubleClickEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMouseDoubleClickEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_MouseMoveEvent(TextTranslator__TranslatorWidget* self, QMouseEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperMouseMoveEvent(TextTranslator__TranslatorWidget* self, QMouseEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseMoveEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMouseMoveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_mousemoveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_WheelEvent(TextTranslator__TranslatorWidget* self, QWheelEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->wheelEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperWheelEvent(TextTranslator__TranslatorWidget* self, QWheelEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_WheelEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->wheelEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnWheelEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_WheelEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_wheelevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_KeyPressEvent(TextTranslator__TranslatorWidget* self, QKeyEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->keyPressEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperKeyPressEvent(TextTranslator__TranslatorWidget* self, QKeyEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_KeyPressEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->keyPressEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnKeyPressEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_keypressevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_KeyReleaseEvent(TextTranslator__TranslatorWidget* self, QKeyEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperKeyReleaseEvent(TextTranslator__TranslatorWidget* self, QKeyEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_KeyReleaseEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnKeyReleaseEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_keyreleaseevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_FocusInEvent(TextTranslator__TranslatorWidget* self, QFocusEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->focusInEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperFocusInEvent(TextTranslator__TranslatorWidget* self, QFocusEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusInEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->focusInEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnFocusInEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusInEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_focusinevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_FocusOutEvent(TextTranslator__TranslatorWidget* self, QFocusEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->focusOutEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperFocusOutEvent(TextTranslator__TranslatorWidget* self, QFocusEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusOutEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->focusOutEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnFocusOutEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_focusoutevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_EnterEvent(TextTranslator__TranslatorWidget* self, QEnterEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->enterEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperEnterEvent(TextTranslator__TranslatorWidget* self, QEnterEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_EnterEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->enterEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->enterEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnEnterEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_EnterEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_enterevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_LeaveEvent(TextTranslator__TranslatorWidget* self, QEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->leaveEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperLeaveEvent(TextTranslator__TranslatorWidget* self, QEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_LeaveEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->leaveEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnLeaveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_LeaveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_leaveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_PaintEvent(TextTranslator__TranslatorWidget* self, QPaintEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->paintEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperPaintEvent(TextTranslator__TranslatorWidget* self, QPaintEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_PaintEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->paintEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->paintEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnPaintEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_PaintEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_paintevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_MoveEvent(TextTranslator__TranslatorWidget* self, QMoveEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->moveEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperMoveEvent(TextTranslator__TranslatorWidget* self, QMoveEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MoveEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->moveEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->moveEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnMoveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MoveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_moveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_ResizeEvent(TextTranslator__TranslatorWidget* self, QResizeEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->resizeEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperResizeEvent(TextTranslator__TranslatorWidget* self, QResizeEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ResizeEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->resizeEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnResizeEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ResizeEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_resizeevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_CloseEvent(TextTranslator__TranslatorWidget* self, QCloseEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->closeEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperCloseEvent(TextTranslator__TranslatorWidget* self, QCloseEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_CloseEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->closeEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->closeEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnCloseEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_CloseEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_closeevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_ContextMenuEvent(TextTranslator__TranslatorWidget* self, QContextMenuEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->contextMenuEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperContextMenuEvent(TextTranslator__TranslatorWidget* self, QContextMenuEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ContextMenuEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnContextMenuEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_contextmenuevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_TabletEvent(TextTranslator__TranslatorWidget* self, QTabletEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->tabletEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperTabletEvent(TextTranslator__TranslatorWidget* self, QTabletEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_TabletEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->tabletEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnTabletEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_TabletEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_tabletevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_ActionEvent(TextTranslator__TranslatorWidget* self, QActionEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->actionEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperActionEvent(TextTranslator__TranslatorWidget* self, QActionEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ActionEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->actionEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->actionEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnActionEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ActionEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_actionevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_DragEnterEvent(TextTranslator__TranslatorWidget* self, QDragEnterEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->dragEnterEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperDragEnterEvent(TextTranslator__TranslatorWidget* self, QDragEnterEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragEnterEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDragEnterEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_dragenterevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_DragMoveEvent(TextTranslator__TranslatorWidget* self, QDragMoveEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->dragMoveEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperDragMoveEvent(TextTranslator__TranslatorWidget* self, QDragMoveEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragMoveEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDragMoveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_dragmoveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_DragLeaveEvent(TextTranslator__TranslatorWidget* self, QDragLeaveEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperDragLeaveEvent(TextTranslator__TranslatorWidget* self, QDragLeaveEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragLeaveEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDragLeaveEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_dragleaveevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_DropEvent(TextTranslator__TranslatorWidget* self, QDropEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->dropEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperDropEvent(TextTranslator__TranslatorWidget* self, QDropEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DropEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->dropEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->dropEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDropEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DropEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DropEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_dropevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_ShowEvent(TextTranslator__TranslatorWidget* self, QShowEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->showEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperShowEvent(TextTranslator__TranslatorWidget* self, QShowEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ShowEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->showEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->showEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnShowEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ShowEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_showevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_HideEvent(TextTranslator__TranslatorWidget* self, QHideEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->hideEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperHideEvent(TextTranslator__TranslatorWidget* self, QHideEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HideEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->hideEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->hideEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnHideEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_HideEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HideEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_hideevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorWidget_NativeEvent(TextTranslator__TranslatorWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
+    if (vtexttranslatortranslatorwidget) {
         return vtexttranslatortranslatorwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorWidget_SuperNativeEvent(TextTranslator__TranslatorWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_NativeEvent_IsBase(true);
-        return vtexttranslatortranslatorwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        return vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnNativeEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_NativeEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_nativeevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_ChangeEvent(TextTranslator__TranslatorWidget* self, QEvent* param1) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->changeEvent(param1);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperChangeEvent(TextTranslator__TranslatorWidget* self, QEvent* param1) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ChangeEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->changeEvent(param1);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnChangeEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ChangeEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_changeevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextTranslator__TranslatorWidget_Metric(const TextTranslator__TranslatorWidget* self, int param1) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         return vtexttranslatortranslatorwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorWidget_SuperMetric(const TextTranslator__TranslatorWidget* self, int param1) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metric_IsBase(true);
-        return vtexttranslatortranslatorwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        return vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnMetric(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Metric_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metric_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnMetric(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_metric_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_InitPainter(const TextTranslator__TranslatorWidget* self, QPainter* painter) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->initPainter(painter);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperInitPainter(const TextTranslator__TranslatorWidget* self, QPainter* painter) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InitPainter_IsBase(true);
-        vtexttranslatortranslatorwidget->initPainter(painter);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->initPainter(painter);
-    }
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnInitPainter(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InitPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InitPainter_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnInitPainter(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_initpainter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextTranslator__TranslatorWidget_Redirected(const TextTranslator__TranslatorWidget* self, QPoint* offset) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         return vtexttranslatortranslatorwidget->redirected(offset);
     } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextTranslator__TranslatorWidget_SuperRedirected(const TextTranslator__TranslatorWidget* self, QPoint* offset) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Redirected_IsBase(true);
-        return vtexttranslatortranslatorwidget->redirected(offset);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->redirected(offset);
-    }
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        return vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnRedirected(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Redirected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Redirected_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnRedirected(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_redirected_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextTranslator__TranslatorWidget_SharedPainter(const TextTranslator__TranslatorWidget* self) {
     auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         return vtexttranslatortranslatorwidget->sharedPainter();
     } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextTranslator__TranslatorWidget_SuperSharedPainter(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SharedPainter_IsBase(true);
-        return vtexttranslatortranslatorwidget->sharedPainter();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->sharedPainter();
-    }
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        return vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnSharedPainter(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SharedPainter_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnSharedPainter(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_sharedpainter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_InputMethodEvent(TextTranslator__TranslatorWidget* self, QInputMethodEvent* param1) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperInputMethodEvent(TextTranslator__TranslatorWidget* self, QInputMethodEvent* param1) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InputMethodEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnInputMethodEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_inputmethodevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextTranslator__TranslatorWidget_InputMethodQuery(const TextTranslator__TranslatorWidget* self, int param1) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return new QVariant(vtexttranslatortranslatorwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextTranslatorTranslatorWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* TextTranslator__TranslatorWidget_SuperInputMethodQuery(const TextTranslator__TranslatorWidget* self, int param1) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vtexttranslatortranslatorwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextTranslatorTranslatorWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->TextTranslator::TranslatorWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnInputMethodQuery(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InputMethodQuery_Callback>(slot));
+void TextTranslator__TranslatorWidget_OnInputMethodQuery(TextTranslator__TranslatorWidget* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self)))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_inputmethodquery_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorWidget_FocusNextPrevChild(TextTranslator__TranslatorWidget* self, bool next) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         return vtexttranslatortranslatorwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorWidget_SuperFocusNextPrevChild(TextTranslator__TranslatorWidget* self, bool next) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusNextPrevChild_IsBase(true);
-        return vtexttranslatortranslatorwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        return vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnFocusNextPrevChild(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_focusnextprevchild_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorWidget_EventFilter(TextTranslator__TranslatorWidget* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorWidget_SuperEventFilter(TextTranslator__TranslatorWidget* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_EventFilter_IsBase(true);
-        return vtexttranslatortranslatorwidget->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorWidget::eventFilter(watched, event);
-    }
+    return self->TextTranslator::TranslatorWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnEventFilter(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_EventFilter_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_eventfilter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_TimerEvent(TextTranslator__TranslatorWidget* self, QTimerEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->timerEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperTimerEvent(TextTranslator__TranslatorWidget* self, QTimerEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_TimerEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->timerEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->timerEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnTimerEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_TimerEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_timerevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_ChildEvent(TextTranslator__TranslatorWidget* self, QChildEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->childEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperChildEvent(TextTranslator__TranslatorWidget* self, QChildEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ChildEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->childEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->childEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnChildEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ChildEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_childevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_CustomEvent(TextTranslator__TranslatorWidget* self, QEvent* event) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->customEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperCustomEvent(TextTranslator__TranslatorWidget* self, QEvent* event) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_CustomEvent_IsBase(true);
-        vtexttranslatortranslatorwidget->customEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->customEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnCustomEvent(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_CustomEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_customevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_ConnectNotify(TextTranslator__TranslatorWidget* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->connectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperConnectNotify(TextTranslator__TranslatorWidget* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ConnectNotify_IsBase(true);
-        vtexttranslatortranslatorwidget->connectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnConnectNotify(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ConnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_connectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorWidget_DisconnectNotify(TextTranslator__TranslatorWidget* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
+    if (vtexttranslatortranslatorwidget) {
         vtexttranslatortranslatorwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorWidget_SuperDisconnectNotify(TextTranslator__TranslatorWidget* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DisconnectNotify_IsBase(true);
-        vtexttranslatortranslatorwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->TextTranslator::TranslatorWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorWidget_OnDisconnectNotify(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self))
+        vtexttranslatortranslatorwidget->texttranslator__translatorwidget_disconnectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorWidget_UpdateMicroFocus(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->updateMicroFocus();
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorWidget_SuperUpdateMicroFocus(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_UpdateMicroFocus_IsBase(true);
-        vtexttranslatortranslatorwidget->updateMicroFocus();
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnUpdateMicroFocus(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorWidget_Create(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->create();
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->create();
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::create();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorWidget_SuperCreate(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Create_IsBase(true);
-        vtexttranslatortranslatorwidget->create();
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnCreate(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Create_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorWidget_Destroy(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->destroy();
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->destroy();
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::destroy();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorWidget_SuperDestroy(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Destroy_IsBase(true);
-        vtexttranslatortranslatorwidget->destroy();
-    } else {
-        ((VirtualTextTranslatorTranslatorWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnDestroy(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Destroy_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorWidget_FocusNextChild(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->focusNextChild();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->focusNextChild();
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        return vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextTranslator__TranslatorWidget_SuperFocusNextChild(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusNextChild_IsBase(true);
-        return vtexttranslatortranslatorwidget->focusNextChild();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnFocusNextChild(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorWidget_FocusPreviousChild(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->focusPreviousChild();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self)) {
+        return vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextTranslator__TranslatorWidget_SuperFocusPreviousChild(TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusPreviousChild_IsBase(true);
-        return vtexttranslatortranslatorwidget->focusPreviousChild();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnFocusPreviousChild(TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextTranslator__TranslatorWidget_Sender(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->sender();
-    }
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        return vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::sender();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextTranslator__TranslatorWidget_SuperSender(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Sender_IsBase(true);
-        return vtexttranslatortranslatorwidget->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnSender(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorWidget_SenderSignalIndex(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        return vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorWidget_SuperSenderSignalIndex(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SenderSignalIndex_IsBase(true);
-        return vtexttranslatortranslatorwidget->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnSenderSignalIndex(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorWidget_Receivers(const TextTranslator__TranslatorWidget* self, const char* signal) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->receivers(signal);
-    }
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        return vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorWidget_SuperReceivers(const TextTranslator__TranslatorWidget* self, const char* signal) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Receivers_IsBase(true);
-        return vtexttranslatortranslatorwidget->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnReceivers(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorWidget_IsSignalConnected(const TextTranslator__TranslatorWidget* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        return vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextTranslator__TranslatorWidget_SuperIsSignalConnected(const TextTranslator__TranslatorWidget* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_IsSignalConnected_IsBase(true);
-        return vtexttranslatortranslatorwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnIsSignalConnected(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextTranslator__TranslatorWidget_GetDecodedMetricF(const TextTranslator__TranslatorWidget* self, int metricA, int metricB) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return vtexttranslatortranslatorwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextTranslator__TranslatorWidget_SuperGetDecodedMetricF(const TextTranslator__TranslatorWidget* self, int metricA, int metricB) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_GetDecodedMetricF_IsBase(true);
-        return vtexttranslatortranslatorwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorWidget_OnGetDecodedMetricF(const TextTranslator__TranslatorWidget* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self));
-    if (vtexttranslatortranslatorwidget && vtexttranslatortranslatorwidget->isVirtualTextTranslatorTranslatorWidget)
-        vtexttranslatortranslatorwidget->setTextTranslator__TranslatorWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorWidget::TextTranslator__TranslatorWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtexttranslatortranslatorwidget = const_cast<VirtualTextTranslatorTranslatorWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self))) {
+        return vtexttranslatortranslatorwidget->VirtualTextTranslatorTranslatorWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextTranslator__TranslatorWidget_Delete(TextTranslator__TranslatorWidget* self) {

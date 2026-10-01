@@ -93,24 +93,6 @@ pub const KTextEditor__AnnotationModel = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `data` instead
-    ///
-    pub const Data = data;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-annotationmodel.html#data)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__AnnotationModel `
-    ///
-    /// ` line: i32 `
-    ///
-    /// ` role: qnamespace_enums.ItemDataRole `
-    ///
-    pub fn data(self: KTextEditor__AnnotationModel, line: i32, role: i32) QVariant {
-        return .{ .ptr = qtc.KTextEditor__AnnotationModel_Data(@ptrCast(self.ptr), @bitCast(line), @bitCast(role)) };
-    }
-
     /// ### DEPRECATED: Use `reset` instead
     ///
     pub const Reset = reset;

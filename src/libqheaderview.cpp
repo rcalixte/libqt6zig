@@ -530,103 +530,103 @@ void QHeaderView_Connect_SortIndicatorClearableChanged(QHeaderView* self, intptr
 
 void QHeaderView_CurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->currentChanged(*current, *old);
     }
 }
 
 bool QHeaderView_Event(QHeaderView* self, QEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::event called without a directly constructed type");
 }
 
 void QHeaderView_PaintEvent(QHeaderView* self, QPaintEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->paintEvent(e);
     }
 }
 
 void QHeaderView_MousePressEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->mousePressEvent(e);
     }
 }
 
 void QHeaderView_MouseMoveEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->mouseMoveEvent(e);
     }
 }
 
 void QHeaderView_MouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->mouseReleaseEvent(e);
     }
 }
 
 void QHeaderView_MouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->mouseDoubleClickEvent(e);
     }
 }
 
 bool QHeaderView_ViewportEvent(QHeaderView* self, QEvent* e) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->viewportEvent(e);
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::viewportEvent called without a directly constructed type");
 }
 
 void QHeaderView_PaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->paintSection(painter, *rect, static_cast<int>(logicalIndex));
     }
 }
 
 QSize* QHeaderView_SectionSizeFromContents(const QHeaderView* self, int logicalIndex) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return new QSize(vqheaderview->sectionSizeFromContents(static_cast<int>(logicalIndex)));
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::sectionSizeFromContents called without a directly constructed type");
 }
 
 int QHeaderView_HorizontalOffset(const QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->horizontalOffset();
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::horizontalOffset called without a directly constructed type");
 }
 
 int QHeaderView_VerticalOffset(const QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->verticalOffset();
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::verticalOffset called without a directly constructed type");
 }
 
 void QHeaderView_UpdateGeometries(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->updateGeometries();
     }
 }
 
 void QHeaderView_ScrollContentsBy(QHeaderView* self, int dx, int dy) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     }
 }
@@ -639,82 +639,82 @@ void QHeaderView_DataChanged(QHeaderView* self, const QModelIndex* topLeft, cons
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->dataChanged(*topLeft, *bottomRight, roles_QList);
     }
 }
 
 void QHeaderView_RowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
     }
 }
 
 QRect* QHeaderView_VisualRect(const QHeaderView* self, const QModelIndex* index) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return new QRect(vqheaderview->visualRect(*index));
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::visualRect called without a directly constructed type");
 }
 
 void QHeaderView_ScrollTo(QHeaderView* self, const QModelIndex* index, int hint) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
     }
 }
 
 QModelIndex* QHeaderView_IndexAt(const QHeaderView* self, const QPoint* p) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return new QModelIndex(vqheaderview->indexAt(*p));
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::indexAt called without a directly constructed type");
 }
 
 bool QHeaderView_IsIndexHidden(const QHeaderView* self, const QModelIndex* index) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->isIndexHidden(*index);
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::isIndexHidden called without a directly constructed type");
 }
 
 QModelIndex* QHeaderView_MoveCursor(QHeaderView* self, int param1, int param2) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<Qt::KeyboardModifiers>(param2)));
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::moveCursor called without a directly constructed type");
 }
 
 void QHeaderView_SetSelection(QHeaderView* self, const QRect* rect, int flags) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
     }
 }
 
 QRegion* QHeaderView_VisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return new QRegion(vqheaderview->visualRegionForSelection(*selection));
     }
-    return {};
+    qFatal("Error: Protected method QHeaderView::visualRegionForSelection called without a directly constructed type");
 }
 
 void QHeaderView_InitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->initStyleOptionForIndex(option, static_cast<int>(logicalIndex));
     }
 }
 
 void QHeaderView_InitStyleOption(const QHeaderView* self, QStyleOptionHeader* option) {
     auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->initStyleOption(option);
     }
 }
@@ -745,1137 +745,841 @@ libqt_string QHeaderView_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QHeaderView_SuperMetaObject(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MetaObject_IsBase(true);
-        return (QMetaObject*)vqheaderview->metaObject();
-    } else {
-        return (QMetaObject*)self->QHeaderView::metaObject();
-    }
+    return (QMetaObject*)self->QHeaderView::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnMetaObject(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_MetaObject_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MetaObject_Callback>(slot));
+void QHeaderView_OnMetaObject(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_metaobject_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QHeaderView_SuperMetacast(QHeaderView* self, const char* param1) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Metacast_IsBase(true);
-        return vqheaderview->qt_metacast(param1);
-    } else {
-        return self->QHeaderView::qt_metacast(param1);
-    }
+    return self->QHeaderView::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMetacast(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Metacast_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacast_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_metacast_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QHeaderView_SuperMetacall(QHeaderView* self, int param1, int param2, void** param3) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Metacall_IsBase(true);
-        return vqheaderview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QHeaderView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QHeaderView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMetacall(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Metacall_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacall_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_metacall_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperSetModel(QHeaderView* self, QAbstractItemModel* model) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetModel_IsBase(true);
-        vqheaderview->setModel(model);
-    } else {
-        self->QHeaderView::setModel(model);
-    }
+    self->QHeaderView::setModel(model);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetModel(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetModel_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetModel_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_setmodel_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SetModel_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QHeaderView_SuperSizeHint(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SizeHint_IsBase(true);
-        return new QSize(vqheaderview->sizeHint());
-    } else {
-        return new QSize(((VirtualQHeaderView*)self)->sizeHint());
-    }
+    return new QSize(self->QHeaderView::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSizeHint(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SizeHint_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHint_Callback>(slot));
+void QHeaderView_OnSizeHint(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_sizehint_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperSetVisible(QHeaderView* self, bool v) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetVisible_IsBase(true);
-        vqheaderview->setVisible(v);
-    } else {
-        self->QHeaderView::setVisible(v);
-    }
+    self->QHeaderView::setVisible(v);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetVisible(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetVisible_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetVisible_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_setvisible_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SetVisible_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperDoItemsLayout(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DoItemsLayout_IsBase(true);
-        vqheaderview->doItemsLayout();
-    } else {
-        self->QHeaderView::doItemsLayout();
-    }
+    self->QHeaderView::doItemsLayout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDoItemsLayout(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DoItemsLayout_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DoItemsLayout_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_doitemslayout_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_DoItemsLayout_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperReset(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Reset_IsBase(true);
-        vqheaderview->reset();
-    } else {
-        self->QHeaderView::reset();
-    }
+    self->QHeaderView::reset();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnReset(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Reset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Reset_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_reset_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_Reset_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperCurrentChanged(QHeaderView* self, const QModelIndex* current, const QModelIndex* old) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_CurrentChanged_IsBase(true);
-        vqheaderview->currentChanged(*current, *old);
-    } else {
-        ((VirtualQHeaderView*)self)->currentChanged(*current, *old);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::currentChanged(*current, *old);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::currentChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCurrentChanged(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_CurrentChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CurrentChanged_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_currentchanged_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_CurrentChanged_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QHeaderView_SuperEvent(QHeaderView* self, QEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Event_IsBase(true);
-        return vqheaderview->event(e);
-    } else {
-        return ((VirtualQHeaderView*)self)->event(e);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        return vqheaderview->QHeaderView::event(e);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Event_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Event_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_event_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperPaintEvent(QHeaderView* self, QPaintEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_PaintEvent_IsBase(true);
-        vqheaderview->paintEvent(e);
-    } else {
-        ((VirtualQHeaderView*)self)->paintEvent(e);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnPaintEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_PaintEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_paintevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperMousePressEvent(QHeaderView* self, QMouseEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MousePressEvent_IsBase(true);
-        vqheaderview->mousePressEvent(e);
-    } else {
-        ((VirtualQHeaderView*)self)->mousePressEvent(e);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMousePressEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_MousePressEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MousePressEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_mousepressevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperMouseMoveEvent(QHeaderView* self, QMouseEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseMoveEvent_IsBase(true);
-        vqheaderview->mouseMoveEvent(e);
-    } else {
-        ((VirtualQHeaderView*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMouseMoveEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseMoveEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_mousemoveevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperMouseReleaseEvent(QHeaderView* self, QMouseEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseReleaseEvent_IsBase(true);
-        vqheaderview->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQHeaderView*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMouseReleaseEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_mousereleaseevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperMouseDoubleClickEvent(QHeaderView* self, QMouseEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MouseDoubleClickEvent_IsBase(true);
-        vqheaderview->mouseDoubleClickEvent(e);
-    } else {
-        ((VirtualQHeaderView*)self)->mouseDoubleClickEvent(e);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::mouseDoubleClickEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMouseDoubleClickEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_mousedoubleclickevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QHeaderView_SuperViewportEvent(QHeaderView* self, QEvent* e) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ViewportEvent_IsBase(true);
-        return vqheaderview->viewportEvent(e);
-    } else {
-        return ((VirtualQHeaderView*)self)->viewportEvent(e);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        return vqheaderview->QHeaderView::viewportEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnViewportEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ViewportEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_viewportevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperPaintSection(const QHeaderView* self, QPainter* painter, const QRect* rect, int logicalIndex) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_PaintSection_IsBase(true);
-        vqheaderview->paintSection(painter, *rect, static_cast<int>(logicalIndex));
-    } else {
-        ((VirtualQHeaderView*)self)->paintSection(painter, *rect, static_cast<int>(logicalIndex));
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        vqheaderview->QHeaderView::paintSection(painter, *rect, static_cast<int>(logicalIndex));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::paintSection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnPaintSection(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_PaintSection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintSection_Callback>(slot));
+void QHeaderView_OnPaintSection(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_paintsection_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintSection_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QHeaderView_SuperSectionSizeFromContents(const QHeaderView* self, int logicalIndex) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SectionSizeFromContents_IsBase(true);
-        return new QSize(vqheaderview->sectionSizeFromContents(static_cast<int>(logicalIndex)));
-    }
-    return {};
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        return new QSize(vqheaderview->QHeaderView::sectionSizeFromContents(static_cast<int>(logicalIndex)));
+    qFatal("Error: Protected virtual method QHeaderView::sectionSizeFromContents called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSectionSizeFromContents(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SectionSizeFromContents_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionSizeFromContents_Callback>(slot));
+void QHeaderView_OnSectionSizeFromContents(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_sectionsizefromcontents_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionSizeFromContents_Callback>(slot);
 }
 
 // Base class handler implementation
 int QHeaderView_SuperHorizontalOffset(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_HorizontalOffset_IsBase(true);
-        return vqheaderview->horizontalOffset();
-    } else {
-        return ((VirtualQHeaderView*)self)->horizontalOffset();
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->QHeaderView::horizontalOffset();
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::horizontalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnHorizontalOffset(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_HorizontalOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalOffset_Callback>(slot));
+void QHeaderView_OnHorizontalOffset(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_horizontaloffset_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalOffset_Callback>(slot);
 }
 
 // Base class handler implementation
 int QHeaderView_SuperVerticalOffset(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VerticalOffset_IsBase(true);
-        return vqheaderview->verticalOffset();
-    } else {
-        return ((VirtualQHeaderView*)self)->verticalOffset();
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->QHeaderView::verticalOffset();
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::verticalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnVerticalOffset(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_VerticalOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalOffset_Callback>(slot));
+void QHeaderView_OnVerticalOffset(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_verticaloffset_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalOffset_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperUpdateGeometries(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_UpdateGeometries_IsBase(true);
-        vqheaderview->updateGeometries();
-    } else {
-        ((VirtualQHeaderView*)self)->updateGeometries();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::updateGeometries();
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::updateGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnUpdateGeometries(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_UpdateGeometries_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateGeometries_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_updategeometries_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateGeometries_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperScrollContentsBy(QHeaderView* self, int dx, int dy) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ScrollContentsBy_IsBase(true);
-        vqheaderview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQHeaderView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnScrollContentsBy(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollContentsBy_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_scrollcontentsby_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollContentsBy_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperDataChanged(QHeaderView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DataChanged_IsBase(true);
-        vqheaderview->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        ((VirtualQHeaderView*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::dataChanged(*topLeft, *bottomRight, roles_QList);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::dataChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDataChanged(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DataChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DataChanged_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_datachanged_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_DataChanged_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperRowsInserted(QHeaderView* self, const QModelIndex* parent, int start, int end) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_RowsInserted_IsBase(true);
-        vqheaderview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQHeaderView*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::rowsInserted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnRowsInserted(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_RowsInserted_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_RowsInserted_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_rowsinserted_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_RowsInserted_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QHeaderView_SuperVisualRect(const QHeaderView* self, const QModelIndex* index) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VisualRect_IsBase(true);
-        return new QRect(vqheaderview->visualRect(*index));
-    }
-    return {};
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        return new QRect(vqheaderview->QHeaderView::visualRect(*index));
+    qFatal("Error: Protected virtual method QHeaderView::visualRect called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnVisualRect(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_VisualRect_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRect_Callback>(slot));
+void QHeaderView_OnVisualRect(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_visualrect_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRect_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperScrollTo(QHeaderView* self, const QModelIndex* index, int hint) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ScrollTo_IsBase(true);
-        vqheaderview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        ((VirtualQHeaderView*)self)->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::scrollTo called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnScrollTo(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ScrollTo_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollTo_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_scrollto_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollTo_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* QHeaderView_SuperIndexAt(const QHeaderView* self, const QPoint* p) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_IndexAt_IsBase(true);
-        return new QModelIndex(vqheaderview->indexAt(*p));
-    }
-    return {};
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        return new QModelIndex(vqheaderview->QHeaderView::indexAt(*p));
+    qFatal("Error: Protected virtual method QHeaderView::indexAt called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnIndexAt(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_IndexAt_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IndexAt_Callback>(slot));
+void QHeaderView_OnIndexAt(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_indexat_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_IndexAt_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QHeaderView_SuperIsIndexHidden(const QHeaderView* self, const QModelIndex* index) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_IsIndexHidden_IsBase(true);
-        return vqheaderview->isIndexHidden(*index);
-    } else {
-        return ((VirtualQHeaderView*)self)->isIndexHidden(*index);
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->QHeaderView::isIndexHidden(*index);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::isIndexHidden called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnIsIndexHidden(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_IsIndexHidden_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IsIndexHidden_Callback>(slot));
+void QHeaderView_OnIsIndexHidden(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_isindexhidden_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_IsIndexHidden_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* QHeaderView_SuperMoveCursor(QHeaderView* self, int param1, int param2) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MoveCursor_IsBase(true);
-        return new QModelIndex(vqheaderview->moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<Qt::KeyboardModifiers>(param2)));
-    }
-    return {};
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        return new QModelIndex(vqheaderview->QHeaderView::moveCursor(static_cast<VirtualQHeaderView::CursorAction>(param1), static_cast<Qt::KeyboardModifiers>(param2)));
+    qFatal("Error: Protected virtual method QHeaderView::moveCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMoveCursor(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_MoveCursor_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MoveCursor_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_movecursor_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_MoveCursor_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperSetSelection(QHeaderView* self, const QRect* rect, int flags) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetSelection_IsBase(true);
-        vqheaderview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
-    } else {
-        ((VirtualQHeaderView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(flags));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::setSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetSelection(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetSelection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetSelection_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_setselection_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SetSelection_Callback>(slot);
 }
 
 // Base class handler implementation
 QRegion* QHeaderView_SuperVisualRegionForSelection(const QHeaderView* self, const QItemSelection* selection) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VisualRegionForSelection_IsBase(true);
-        return new QRegion(vqheaderview->visualRegionForSelection(*selection));
-    }
-    return {};
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        return new QRegion(vqheaderview->QHeaderView::visualRegionForSelection(*selection));
+    qFatal("Error: Protected virtual method QHeaderView::visualRegionForSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnVisualRegionForSelection(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRegionForSelection_Callback>(slot));
+void QHeaderView_OnVisualRegionForSelection(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_visualregionforselection_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_VisualRegionForSelection_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperInitStyleOptionForIndex(const QHeaderView* self, QStyleOptionHeader* option, int logicalIndex) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitStyleOptionForIndex_IsBase(true);
-        vqheaderview->initStyleOptionForIndex(option, static_cast<int>(logicalIndex));
-    } else {
-        ((VirtualQHeaderView*)self)->initStyleOptionForIndex(option, static_cast<int>(logicalIndex));
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        vqheaderview->QHeaderView::initStyleOptionForIndex(option, static_cast<int>(logicalIndex));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::initStyleOptionForIndex called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnInitStyleOptionForIndex(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_InitStyleOptionForIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOptionForIndex_Callback>(slot));
+void QHeaderView_OnInitStyleOptionForIndex(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_initstyleoptionforindex_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOptionForIndex_Callback>(slot);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperInitStyleOption(const QHeaderView* self, QStyleOptionHeader* option) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitStyleOption_IsBase(true);
-        vqheaderview->initStyleOption(option);
-    } else {
-        ((VirtualQHeaderView*)self)->initStyleOption(option);
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        vqheaderview->QHeaderView::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnInitStyleOption(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_InitStyleOption_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOption_Callback>(slot));
+void QHeaderView_OnInitStyleOption(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_initstyleoption_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_SetSelectionModel(QHeaderView* self, QItemSelectionModel* selectionModel) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setSelectionModel(selectionModel);
-    } else {
-        self->QHeaderView::setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperSetSelectionModel(QHeaderView* self, QItemSelectionModel* selectionModel) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetSelectionModel_IsBase(true);
-        vqheaderview->setSelectionModel(selectionModel);
-    } else {
-        self->QHeaderView::setSelectionModel(selectionModel);
-    }
+    self->QHeaderView::setSelectionModel(selectionModel);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetSelectionModel(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetSelectionModel_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetSelectionModel_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_setselectionmodel_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SetSelectionModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_KeyboardSearch(QHeaderView* self, const libqt_string search) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->keyboardSearch(search_QString);
-    } else {
-        self->QHeaderView::keyboardSearch(search_QString);
-    }
+    self->keyboardSearch(search_QString);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperKeyboardSearch(QHeaderView* self, const libqt_string search) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_KeyboardSearch_IsBase(true);
-        vqheaderview->keyboardSearch(search_QString);
-    } else {
-        self->QHeaderView::keyboardSearch(search_QString);
-    }
+    self->QHeaderView::keyboardSearch(search_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnKeyboardSearch(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_KeyboardSearch_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyboardSearch_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_keyboardsearch_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyboardSearch_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QHeaderView_SizeHintForRow(const QHeaderView* self, int row) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->QHeaderView::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->sizeHintForRow(static_cast<int>(row));
 }
 
 // Base class handler implementation
 int QHeaderView_SuperSizeHintForRow(const QHeaderView* self, int row) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SizeHintForRow_IsBase(true);
-        return vqheaderview->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->QHeaderView::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->QHeaderView::sizeHintForRow(static_cast<int>(row));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSizeHintForRow(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SizeHintForRow_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHintForRow_Callback>(slot));
+void QHeaderView_OnSizeHintForRow(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_sizehintforrow_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHintForRow_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QHeaderView_SizeHintForColumn(const QHeaderView* self, int column) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return self->QHeaderView::sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->sizeHintForColumn(static_cast<int>(column));
 }
 
 // Base class handler implementation
 int QHeaderView_SuperSizeHintForColumn(const QHeaderView* self, int column) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SizeHintForColumn_IsBase(true);
-        return vqheaderview->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return self->QHeaderView::sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->QHeaderView::sizeHintForColumn(static_cast<int>(column));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSizeHintForColumn(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHintForColumn_Callback>(slot));
+void QHeaderView_OnSizeHintForColumn(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_sizehintforcolumn_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SizeHintForColumn_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAbstractItemDelegate* QHeaderView_ItemDelegateForIndex(const QHeaderView* self, const QModelIndex* index) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->itemDelegateForIndex(*index);
-    } else {
-        return self->QHeaderView::itemDelegateForIndex(*index);
-    }
+    return self->itemDelegateForIndex(*index);
 }
 
 // Base class handler implementation
 QAbstractItemDelegate* QHeaderView_SuperItemDelegateForIndex(const QHeaderView* self, const QModelIndex* index) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ItemDelegateForIndex_IsBase(true);
-        return vqheaderview->itemDelegateForIndex(*index);
-    } else {
-        return self->QHeaderView::itemDelegateForIndex(*index);
-    }
+    return self->QHeaderView::itemDelegateForIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnItemDelegateForIndex(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ItemDelegateForIndex_Callback>(slot));
+void QHeaderView_OnItemDelegateForIndex(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_itemdelegateforindex_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ItemDelegateForIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QHeaderView_InputMethodQuery(const QHeaderView* self, int query) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QVariant(vqheaderview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQHeaderView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* QHeaderView_SuperInputMethodQuery(const QHeaderView* self, int query) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InputMethodQuery_IsBase(true);
-        return new QVariant(vqheaderview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQHeaderView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->QHeaderView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnInputMethodQuery(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_InputMethodQuery_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InputMethodQuery_Callback>(slot));
+void QHeaderView_OnInputMethodQuery(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_inputmethodquery_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_SetRootIndex(QHeaderView* self, const QModelIndex* index) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setRootIndex(*index);
-    } else {
-        self->QHeaderView::setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperSetRootIndex(QHeaderView* self, const QModelIndex* index) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetRootIndex_IsBase(true);
-        vqheaderview->setRootIndex(*index);
-    } else {
-        self->QHeaderView::setRootIndex(*index);
-    }
+    self->QHeaderView::setRootIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetRootIndex(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetRootIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetRootIndex_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_setrootindex_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SetRootIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_SelectAll(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->selectAll();
-    } else {
-        self->QHeaderView::selectAll();
-    }
+    self->selectAll();
 }
 
 // Base class handler implementation
 void QHeaderView_SuperSelectAll(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SelectAll_IsBase(true);
-        vqheaderview->selectAll();
-    } else {
-        self->QHeaderView::selectAll();
-    }
+    self->QHeaderView::selectAll();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSelectAll(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SelectAll_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectAll_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_selectall_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectAll_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_RowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int start, int end) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
     } else {
-        ((VirtualQHeaderView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+        qFatal("Error: Protected virtual method QHeaderView::rowsAboutToBeRemoved called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperRowsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int start, int end) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_RowsAboutToBeRemoved_IsBase(true);
-        vqheaderview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQHeaderView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::rowsAboutToBeRemoved called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnRowsAboutToBeRemoved(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_RowsAboutToBeRemoved_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_rowsabouttoberemoved_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_RowsAboutToBeRemoved_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_SelectionChanged(QHeaderView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->selectionChanged(*selected, *deselected);
     } else {
-        ((VirtualQHeaderView*)self)->selectionChanged(*selected, *deselected);
+        qFatal("Error: Protected virtual method QHeaderView::selectionChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperSelectionChanged(QHeaderView* self, const QItemSelection* selected, const QItemSelection* deselected) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SelectionChanged_IsBase(true);
-        vqheaderview->selectionChanged(*selected, *deselected);
-    } else {
-        ((VirtualQHeaderView*)self)->selectionChanged(*selected, *deselected);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::selectionChanged(*selected, *deselected);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::selectionChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSelectionChanged(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SelectionChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectionChanged_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_selectionchanged_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectionChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_UpdateEditorData(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->updateEditorData();
     } else {
-        ((VirtualQHeaderView*)self)->updateEditorData();
+        qFatal("Error: Protected virtual method QHeaderView::updateEditorData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperUpdateEditorData(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_UpdateEditorData_IsBase(true);
-        vqheaderview->updateEditorData();
-    } else {
-        ((VirtualQHeaderView*)self)->updateEditorData();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::updateEditorData();
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::updateEditorData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnUpdateEditorData(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_UpdateEditorData_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateEditorData_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_updateeditordata_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateEditorData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_UpdateEditorGeometries(QHeaderView* self) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->updateEditorGeometries();
     } else {
-        ((VirtualQHeaderView*)self)->updateEditorGeometries();
+        qFatal("Error: Protected virtual method QHeaderView::updateEditorGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperUpdateEditorGeometries(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_UpdateEditorGeometries_IsBase(true);
-        vqheaderview->updateEditorGeometries();
-    } else {
-        ((VirtualQHeaderView*)self)->updateEditorGeometries();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::updateEditorGeometries();
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::updateEditorGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnUpdateEditorGeometries(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateEditorGeometries_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_updateeditorgeometries_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateEditorGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_VerticalScrollbarAction(QHeaderView* self, int action) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->verticalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQHeaderView*)self)->verticalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QHeaderView::verticalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperVerticalScrollbarAction(QHeaderView* self, int action) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VerticalScrollbarAction_IsBase(true);
-        vqheaderview->verticalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQHeaderView*)self)->verticalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::verticalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::verticalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnVerticalScrollbarAction(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalScrollbarAction_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_verticalscrollbaraction_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_HorizontalScrollbarAction(QHeaderView* self, int action) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->horizontalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQHeaderView*)self)->horizontalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QHeaderView::horizontalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperHorizontalScrollbarAction(QHeaderView* self, int action) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_HorizontalScrollbarAction_IsBase(true);
-        vqheaderview->horizontalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQHeaderView*)self)->horizontalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::horizontalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::horizontalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHorizontalScrollbarAction(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalScrollbarAction_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_horizontalscrollbaraction_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_VerticalScrollbarValueChanged(QHeaderView* self, int value) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->verticalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQHeaderView*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QHeaderView::verticalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperVerticalScrollbarValueChanged(QHeaderView* self, int value) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_VerticalScrollbarValueChanged_IsBase(true);
-        vqheaderview->verticalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQHeaderView*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::verticalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::verticalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnVerticalScrollbarValueChanged(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_verticalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_VerticalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_HorizontalScrollbarValueChanged(QHeaderView* self, int value) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->horizontalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQHeaderView*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QHeaderView::horizontalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperHorizontalScrollbarValueChanged(QHeaderView* self, int value) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_HorizontalScrollbarValueChanged_IsBase(true);
-        vqheaderview->horizontalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQHeaderView*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::horizontalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::horizontalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHorizontalScrollbarValueChanged(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_horizontalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_HorizontalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_CloseEditor(QHeaderView* self, QWidget* editor, int hint) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
     } else {
-        ((VirtualQHeaderView*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+        qFatal("Error: Protected virtual method QHeaderView::closeEditor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperCloseEditor(QHeaderView* self, QWidget* editor, int hint) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_CloseEditor_IsBase(true);
-        vqheaderview->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    } else {
-        ((VirtualQHeaderView*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::closeEditor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCloseEditor(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_CloseEditor_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CloseEditor_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_closeeditor_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_CloseEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_CommitData(QHeaderView* self, QWidget* editor) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->commitData(editor);
     } else {
-        ((VirtualQHeaderView*)self)->commitData(editor);
+        qFatal("Error: Protected virtual method QHeaderView::commitData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperCommitData(QHeaderView* self, QWidget* editor) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_CommitData_IsBase(true);
-        vqheaderview->commitData(editor);
-    } else {
-        ((VirtualQHeaderView*)self)->commitData(editor);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::commitData(editor);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::commitData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCommitData(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_CommitData_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CommitData_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_commitdata_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_CommitData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_EditorDestroyed(QHeaderView* self, QObject* editor) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->editorDestroyed(editor);
     } else {
-        ((VirtualQHeaderView*)self)->editorDestroyed(editor);
+        qFatal("Error: Protected virtual method QHeaderView::editorDestroyed called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperEditorDestroyed(QHeaderView* self, QObject* editor) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_EditorDestroyed_IsBase(true);
-        vqheaderview->editorDestroyed(editor);
-    } else {
-        ((VirtualQHeaderView*)self)->editorDestroyed(editor);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::editorDestroyed(editor);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::editorDestroyed called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEditorDestroyed(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_EditorDestroyed_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_EditorDestroyed_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_editordestroyed_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_EditorDestroyed_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ QHeaderView_SelectedIndexes(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         QList<QModelIndex> _ret = vqheaderview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
@@ -1887,25 +1591,14 @@ libqt_list /* of QModelIndex* */ QHeaderView_SelectedIndexes(const QHeaderView* 
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QList<QModelIndex> _ret = ((VirtualQHeaderView*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+        qFatal("Error: Protected virtual method QHeaderView::selectedIndexes called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ QHeaderView_SuperSelectedIndexes(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SelectedIndexes_IsBase(true);
-        QList<QModelIndex> _ret = vqheaderview->selectedIndexes();
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        QList<QModelIndex> _ret = vqheaderview->QHeaderView::selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1915,2121 +1608,1264 @@ libqt_list /* of QModelIndex* */ QHeaderView_SuperSelectedIndexes(const QHeaderV
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQHeaderView*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::selectedIndexes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSelectedIndexes(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SelectedIndexes_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectedIndexes_Callback>(slot));
+void QHeaderView_OnSelectedIndexes(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_selectedindexes_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectedIndexes_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHeaderView_Edit2(QHeaderView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
     } else {
-        return ((VirtualQHeaderView*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+        qFatal("Error: Protected virtual method QHeaderView::edit2 called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QHeaderView_SuperEdit2(QHeaderView* self, const QModelIndex* index, int trigger, QEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Edit2_IsBase(true);
-        return vqheaderview->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    } else {
-        return ((VirtualQHeaderView*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        return vqheaderview->QHeaderView::edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::edit2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEdit2(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Edit2_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Edit2_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_edit2_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_Edit2_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QHeaderView_SelectionCommand(const QHeaderView* self, const QModelIndex* index, const QEvent* event) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return static_cast<int>(vqheaderview->selectionCommand(*index, event));
     } else {
-        return static_cast<int>(((VirtualQHeaderView*)self)->selectionCommand(*index, event));
+        qFatal("Error: Protected virtual method QHeaderView::selectionCommand called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QHeaderView_SuperSelectionCommand(const QHeaderView* self, const QModelIndex* index, const QEvent* event) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SelectionCommand_IsBase(true);
-        return static_cast<int>(vqheaderview->selectionCommand(*index, event));
-    } else {
-        return static_cast<int>(((VirtualQHeaderView*)self)->selectionCommand(*index, event));
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return static_cast<int>(vqheaderview->QHeaderView::selectionCommand(*index, event));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::selectionCommand called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSelectionCommand(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SelectionCommand_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectionCommand_Callback>(slot));
+void QHeaderView_OnSelectionCommand(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_selectioncommand_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SelectionCommand_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_StartDrag(QHeaderView* self, int supportedActions) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->startDrag(static_cast<Qt::DropActions>(supportedActions));
     } else {
-        ((VirtualQHeaderView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
+        qFatal("Error: Protected virtual method QHeaderView::startDrag called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperStartDrag(QHeaderView* self, int supportedActions) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_StartDrag_IsBase(true);
-        vqheaderview->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    } else {
-        ((VirtualQHeaderView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::startDrag(static_cast<Qt::DropActions>(supportedActions));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::startDrag called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnStartDrag(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_StartDrag_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_StartDrag_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_startdrag_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_StartDrag_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_InitViewItemOption(const QHeaderView* self, QStyleOptionViewItem* option) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->initViewItemOption(option);
     } else {
-        ((VirtualQHeaderView*)self)->initViewItemOption(option);
+        qFatal("Error: Protected virtual method QHeaderView::initViewItemOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperInitViewItemOption(const QHeaderView* self, QStyleOptionViewItem* option) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitViewItemOption_IsBase(true);
-        vqheaderview->initViewItemOption(option);
-    } else {
-        ((VirtualQHeaderView*)self)->initViewItemOption(option);
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        vqheaderview->QHeaderView::initViewItemOption(option);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::initViewItemOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnInitViewItemOption(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_InitViewItemOption_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitViewItemOption_Callback>(slot));
+void QHeaderView_OnInitViewItemOption(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_initviewitemoption_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_InitViewItemOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHeaderView_FocusNextPrevChild(QHeaderView* self, bool next) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->focusNextPrevChild(next);
     } else {
-        return ((VirtualQHeaderView*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QHeaderView::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QHeaderView_SuperFocusNextPrevChild(QHeaderView* self, bool next) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_FocusNextPrevChild_IsBase(true);
-        return vqheaderview->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQHeaderView*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        return vqheaderview->QHeaderView::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnFocusNextPrevChild(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_focusnextprevchild_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_DragEnterEvent(QHeaderView* self, QDragEnterEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->dragEnterEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperDragEnterEvent(QHeaderView* self, QDragEnterEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DragEnterEvent_IsBase(true);
-        vqheaderview->dragEnterEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDragEnterEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DragEnterEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DragEnterEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_dragenterevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_DragMoveEvent(QHeaderView* self, QDragMoveEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->dragMoveEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperDragMoveEvent(QHeaderView* self, QDragMoveEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DragMoveEvent_IsBase(true);
-        vqheaderview->dragMoveEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDragMoveEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DragMoveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DragMoveEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_dragmoveevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_DragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->dragLeaveEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperDragLeaveEvent(QHeaderView* self, QDragLeaveEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DragLeaveEvent_IsBase(true);
-        vqheaderview->dragLeaveEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDragLeaveEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DragLeaveEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_dragleaveevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_DropEvent(QHeaderView* self, QDropEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->dropEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperDropEvent(QHeaderView* self, QDropEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DropEvent_IsBase(true);
-        vqheaderview->dropEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->dropEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDropEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DropEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DropEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_dropevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_FocusInEvent(QHeaderView* self, QFocusEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->focusInEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperFocusInEvent(QHeaderView* self, QFocusEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_FocusInEvent_IsBase(true);
-        vqheaderview->focusInEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->focusInEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnFocusInEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_FocusInEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusInEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_focusinevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_FocusOutEvent(QHeaderView* self, QFocusEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->focusOutEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperFocusOutEvent(QHeaderView* self, QFocusEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_FocusOutEvent_IsBase(true);
-        vqheaderview->focusOutEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->focusOutEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnFocusOutEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_FocusOutEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusOutEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_focusoutevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_KeyPressEvent(QHeaderView* self, QKeyEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->keyPressEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperKeyPressEvent(QHeaderView* self, QKeyEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_KeyPressEvent_IsBase(true);
-        vqheaderview->keyPressEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->keyPressEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnKeyPressEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_KeyPressEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyPressEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_keypressevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_ResizeEvent(QHeaderView* self, QResizeEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->resizeEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperResizeEvent(QHeaderView* self, QResizeEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ResizeEvent_IsBase(true);
-        vqheaderview->resizeEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->resizeEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnResizeEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ResizeEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ResizeEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_resizeevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_TimerEvent(QHeaderView* self, QTimerEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->timerEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperTimerEvent(QHeaderView* self, QTimerEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_TimerEvent_IsBase(true);
-        vqheaderview->timerEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->timerEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnTimerEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_TimerEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_TimerEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_timerevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_InputMethodEvent(QHeaderView* self, QInputMethodEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->inputMethodEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->inputMethodEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperInputMethodEvent(QHeaderView* self, QInputMethodEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InputMethodEvent_IsBase(true);
-        vqheaderview->inputMethodEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnInputMethodEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_InputMethodEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InputMethodEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_inputmethodevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHeaderView_EventFilter(QHeaderView* self, QObject* object, QEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->eventFilter(object, event);
     } else {
-        return ((VirtualQHeaderView*)self)->eventFilter(object, event);
+        qFatal("Error: Protected virtual method QHeaderView::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QHeaderView_SuperEventFilter(QHeaderView* self, QObject* object, QEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_EventFilter_IsBase(true);
-        return vqheaderview->eventFilter(object, event);
-    } else {
-        return ((VirtualQHeaderView*)self)->eventFilter(object, event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        return vqheaderview->QHeaderView::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEventFilter(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_EventFilter_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_EventFilter_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_eventfilter_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QHeaderView_ViewportSizeHint(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QSize(vqheaderview->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualQHeaderView::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* QHeaderView_SuperViewportSizeHint(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ViewportSizeHint_IsBase(true);
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
         return new QSize(vqheaderview->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method QHeaderView::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnViewportSizeHint(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportSizeHint_Callback>(slot));
+void QHeaderView_OnViewportSizeHint(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_viewportsizehint_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QHeaderView_MinimumSizeHint(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QSize(vqheaderview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQHeaderView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QHeaderView_SuperMinimumSizeHint(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MinimumSizeHint_IsBase(true);
-        return new QSize(vqheaderview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQHeaderView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QHeaderView::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnMinimumSizeHint(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MinimumSizeHint_Callback>(slot));
+void QHeaderView_OnMinimumSizeHint(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_minimumsizehint_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_SetupViewport(QHeaderView* self, QWidget* viewport) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setupViewport(viewport);
-    } else {
-        self->QHeaderView::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void QHeaderView_SuperSetupViewport(QHeaderView* self, QWidget* viewport) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetupViewport_IsBase(true);
-        vqheaderview->setupViewport(viewport);
-    } else {
-        self->QHeaderView::setupViewport(viewport);
-    }
+    self->QHeaderView::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnSetupViewport(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetupViewport_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetupViewport_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_setupviewport_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_WheelEvent(QHeaderView* self, QWheelEvent* param1) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->wheelEvent(param1);
     } else {
-        ((VirtualQHeaderView*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method QHeaderView::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperWheelEvent(QHeaderView* self, QWheelEvent* param1) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_WheelEvent_IsBase(true);
-        vqheaderview->wheelEvent(param1);
-    } else {
-        ((VirtualQHeaderView*)self)->wheelEvent(param1);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnWheelEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_WheelEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_WheelEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_wheelevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_ContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->contextMenuEvent(param1);
     } else {
-        ((VirtualQHeaderView*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QHeaderView::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperContextMenuEvent(QHeaderView* self, QContextMenuEvent* param1) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ContextMenuEvent_IsBase(true);
-        vqheaderview->contextMenuEvent(param1);
-    } else {
-        ((VirtualQHeaderView*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnContextMenuEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ContextMenuEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_contextmenuevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_ChangeEvent(QHeaderView* self, QEvent* param1) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->changeEvent(param1);
     } else {
-        ((VirtualQHeaderView*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QHeaderView::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperChangeEvent(QHeaderView* self, QEvent* param1) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ChangeEvent_IsBase(true);
-        vqheaderview->changeEvent(param1);
-    } else {
-        ((VirtualQHeaderView*)self)->changeEvent(param1);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnChangeEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ChangeEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ChangeEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_changeevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QHeaderView_DevType(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->devType();
-    } else {
-        return self->QHeaderView::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QHeaderView_SuperDevType(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DevType_IsBase(true);
-        return vqheaderview->devType();
-    } else {
-        return self->QHeaderView::devType();
-    }
+    return self->QHeaderView::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnDevType(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DevType_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DevType_Callback>(slot));
+void QHeaderView_OnDevType(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_devtype_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QHeaderView_HeightForWidth(const QHeaderView* self, int param1) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QHeaderView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QHeaderView_SuperHeightForWidth(const QHeaderView* self, int param1) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_HeightForWidth_IsBase(true);
-        return vqheaderview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QHeaderView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QHeaderView::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnHeightForWidth(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_HeightForWidth_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HeightForWidth_Callback>(slot));
+void QHeaderView_OnHeightForWidth(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_heightforwidth_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHeaderView_HasHeightForWidth(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->hasHeightForWidth();
-    } else {
-        return self->QHeaderView::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QHeaderView_SuperHasHeightForWidth(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_HasHeightForWidth_IsBase(true);
-        return vqheaderview->hasHeightForWidth();
-    } else {
-        return self->QHeaderView::hasHeightForWidth();
-    }
+    return self->QHeaderView::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnHasHeightForWidth(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HasHeightForWidth_Callback>(slot));
+void QHeaderView_OnHasHeightForWidth(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_hasheightforwidth_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QHeaderView_PaintEngine(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->paintEngine();
-    } else {
-        return self->QHeaderView::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QHeaderView_SuperPaintEngine(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_PaintEngine_IsBase(true);
-        return vqheaderview->paintEngine();
-    } else {
-        return self->QHeaderView::paintEngine();
-    }
+    return self->QHeaderView::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnPaintEngine(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_PaintEngine_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintEngine_Callback>(slot));
+void QHeaderView_OnPaintEngine(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_paintengine_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_KeyReleaseEvent(QHeaderView* self, QKeyEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->keyReleaseEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperKeyReleaseEvent(QHeaderView* self, QKeyEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_KeyReleaseEvent_IsBase(true);
-        vqheaderview->keyReleaseEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnKeyReleaseEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_keyreleaseevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_EnterEvent(QHeaderView* self, QEnterEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->enterEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperEnterEvent(QHeaderView* self, QEnterEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_EnterEvent_IsBase(true);
-        vqheaderview->enterEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->enterEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnEnterEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_EnterEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_EnterEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_enterevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_LeaveEvent(QHeaderView* self, QEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->leaveEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperLeaveEvent(QHeaderView* self, QEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_LeaveEvent_IsBase(true);
-        vqheaderview->leaveEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->leaveEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnLeaveEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_LeaveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_LeaveEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_leaveevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_MoveEvent(QHeaderView* self, QMoveEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->moveEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperMoveEvent(QHeaderView* self, QMoveEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_MoveEvent_IsBase(true);
-        vqheaderview->moveEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->moveEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnMoveEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_MoveEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_MoveEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_moveevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_CloseEvent(QHeaderView* self, QCloseEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->closeEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperCloseEvent(QHeaderView* self, QCloseEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_CloseEvent_IsBase(true);
-        vqheaderview->closeEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->closeEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCloseEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_CloseEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CloseEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_closeevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_TabletEvent(QHeaderView* self, QTabletEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->tabletEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperTabletEvent(QHeaderView* self, QTabletEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_TabletEvent_IsBase(true);
-        vqheaderview->tabletEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->tabletEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnTabletEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_TabletEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_TabletEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_tabletevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_ActionEvent(QHeaderView* self, QActionEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->actionEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperActionEvent(QHeaderView* self, QActionEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ActionEvent_IsBase(true);
-        vqheaderview->actionEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->actionEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnActionEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ActionEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ActionEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_actionevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_ShowEvent(QHeaderView* self, QShowEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->showEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperShowEvent(QHeaderView* self, QShowEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ShowEvent_IsBase(true);
-        vqheaderview->showEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->showEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnShowEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ShowEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ShowEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_showevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_HideEvent(QHeaderView* self, QHideEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->hideEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperHideEvent(QHeaderView* self, QHideEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_HideEvent_IsBase(true);
-        vqheaderview->hideEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->hideEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnHideEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_HideEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_HideEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_hideevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHeaderView_NativeEvent(QHeaderView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
+    if (vqheaderview) {
         return vqheaderview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQHeaderView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QHeaderView::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QHeaderView_SuperNativeEvent(QHeaderView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_NativeEvent_IsBase(true);
-        return vqheaderview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQHeaderView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        return vqheaderview->QHeaderView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnNativeEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_NativeEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_NativeEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_nativeevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QHeaderView_Metric(const QHeaderView* self, int param1) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQHeaderView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QHeaderView::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QHeaderView_SuperMetric(const QHeaderView* self, int param1) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Metric_IsBase(true);
-        return vqheaderview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQHeaderView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->QHeaderView::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnMetric(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Metric_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Metric_Callback>(slot));
+void QHeaderView_OnMetric(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_metric_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_InitPainter(const QHeaderView* self, QPainter* painter) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->initPainter(painter);
     } else {
-        ((VirtualQHeaderView*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QHeaderView::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperInitPainter(const QHeaderView* self, QPainter* painter) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitPainter_IsBase(true);
-        vqheaderview->initPainter(painter);
-    } else {
-        ((VirtualQHeaderView*)self)->initPainter(painter);
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        vqheaderview->QHeaderView::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnInitPainter(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_InitPainter_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitPainter_Callback>(slot));
+void QHeaderView_OnInitPainter(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_initpainter_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QHeaderView_Redirected(const QHeaderView* self, QPoint* offset) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->redirected(offset);
     } else {
-        return ((VirtualQHeaderView*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QHeaderView::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QHeaderView_SuperRedirected(const QHeaderView* self, QPoint* offset) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Redirected_IsBase(true);
-        return vqheaderview->redirected(offset);
-    } else {
-        return ((VirtualQHeaderView*)self)->redirected(offset);
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->QHeaderView::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnRedirected(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Redirected_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Redirected_Callback>(slot));
+void QHeaderView_OnRedirected(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_redirected_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QHeaderView_SharedPainter(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         return vqheaderview->sharedPainter();
     } else {
-        return ((VirtualQHeaderView*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QHeaderView::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QHeaderView_SuperSharedPainter(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SharedPainter_IsBase(true);
-        return vqheaderview->sharedPainter();
-    } else {
-        return ((VirtualQHeaderView*)self)->sharedPainter();
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->QHeaderView::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSharedPainter(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SharedPainter_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SharedPainter_Callback>(slot));
+void QHeaderView_OnSharedPainter(QHeaderView* self, intptr_t slot) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
+        vqheaderview->qheaderview_sharedpainter_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_ChildEvent(QHeaderView* self, QChildEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->childEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperChildEvent(QHeaderView* self, QChildEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ChildEvent_IsBase(true);
-        vqheaderview->childEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->childEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnChildEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ChildEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ChildEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_childevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_CustomEvent(QHeaderView* self, QEvent* event) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->customEvent(event);
     } else {
-        ((VirtualQHeaderView*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QHeaderView::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperCustomEvent(QHeaderView* self, QEvent* event) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_CustomEvent_IsBase(true);
-        vqheaderview->customEvent(event);
-    } else {
-        ((VirtualQHeaderView*)self)->customEvent(event);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnCustomEvent(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_CustomEvent_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_CustomEvent_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_customevent_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_ConnectNotify(QHeaderView* self, const QMetaMethod* signal) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->connectNotify(*signal);
     } else {
-        ((VirtualQHeaderView*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QHeaderView::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperConnectNotify(QHeaderView* self, const QMetaMethod* signal) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ConnectNotify_IsBase(true);
-        vqheaderview->connectNotify(*signal);
-    } else {
-        ((VirtualQHeaderView*)self)->connectNotify(*signal);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnConnectNotify(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ConnectNotify_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ConnectNotify_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_connectnotify_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHeaderView_DisconnectNotify(QHeaderView* self, const QMetaMethod* signal) {
     auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (vqheaderview) {
         vqheaderview->disconnectNotify(*signal);
     } else {
-        ((VirtualQHeaderView*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QHeaderView::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHeaderView_SuperDisconnectNotify(QHeaderView* self, const QMetaMethod* signal) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DisconnectNotify_IsBase(true);
-        vqheaderview->disconnectNotify(*signal);
-    } else {
-        ((VirtualQHeaderView*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->QHeaderView::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QHeaderView::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHeaderView_OnDisconnectNotify(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DisconnectNotify_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DisconnectNotify_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self))
+        vqheaderview->qheaderview_disconnectnotify_callback = reinterpret_cast<VirtualQHeaderView::QHeaderView_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_UpdateSection(QHeaderView* self, int logicalIndex) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->updateSection(static_cast<int>(logicalIndex));
-    } else {
-        ((VirtualQHeaderView*)self)->updateSection(static_cast<int>(logicalIndex));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::updateSection(static_cast<int>(logicalIndex));
+    } else
+        qFatal("Error: Protected method QHeaderView::updateSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperUpdateSection(QHeaderView* self, int logicalIndex) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_UpdateSection_IsBase(true);
-        vqheaderview->updateSection(static_cast<int>(logicalIndex));
-    } else {
-        ((VirtualQHeaderView*)self)->updateSection(static_cast<int>(logicalIndex));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnUpdateSection(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_UpdateSection_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_ResizeSections2(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->resizeSections();
-    } else {
-        ((VirtualQHeaderView*)self)->resizeSections();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::resizeSections();
+    } else
+        qFatal("Error: Protected method QHeaderView::resizeSections2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperResizeSections2(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ResizeSections2_IsBase(true);
-        vqheaderview->resizeSections();
-    } else {
-        ((VirtualQHeaderView*)self)->resizeSections();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnResizeSections2(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ResizeSections2_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ResizeSections2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_SectionsInserted(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->sectionsInserted(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
-    } else {
-        ((VirtualQHeaderView*)self)->sectionsInserted(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::sectionsInserted(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
+    } else
+        qFatal("Error: Protected method QHeaderView::sectionsInserted called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperSectionsInserted(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SectionsInserted_IsBase(true);
-        vqheaderview->sectionsInserted(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
-    } else {
-        ((VirtualQHeaderView*)self)->sectionsInserted(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSectionsInserted(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SectionsInserted_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionsInserted_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_SectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->sectionsAboutToBeRemoved(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
-    } else {
-        ((VirtualQHeaderView*)self)->sectionsAboutToBeRemoved(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::sectionsAboutToBeRemoved(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
+    } else
+        qFatal("Error: Protected method QHeaderView::sectionsAboutToBeRemoved called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperSectionsAboutToBeRemoved(QHeaderView* self, const QModelIndex* parent, int logicalFirst, int logicalLast) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SectionsAboutToBeRemoved_IsBase(true);
-        vqheaderview->sectionsAboutToBeRemoved(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
-    } else {
-        ((VirtualQHeaderView*)self)->sectionsAboutToBeRemoved(*parent, static_cast<int>(logicalFirst), static_cast<int>(logicalLast));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSectionsAboutToBeRemoved(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SectionsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SectionsAboutToBeRemoved_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_Initialize(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->initialize();
-    } else {
-        ((VirtualQHeaderView*)self)->initialize();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::initialize();
+    } else
+        qFatal("Error: Protected method QHeaderView::initialize called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperInitialize(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Initialize_IsBase(true);
-        vqheaderview->initialize();
-    } else {
-        ((VirtualQHeaderView*)self)->initialize();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnInitialize(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Initialize_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Initialize_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_InitializeSections(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->initializeSections();
-    } else {
-        ((VirtualQHeaderView*)self)->initializeSections();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::initializeSections();
+    } else
+        qFatal("Error: Protected method QHeaderView::initializeSections called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperInitializeSections(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitializeSections_IsBase(true);
-        vqheaderview->initializeSections();
-    } else {
-        ((VirtualQHeaderView*)self)->initializeSections();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnInitializeSections(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_InitializeSections_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitializeSections_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_InitializeSections2(QHeaderView* self, int start, int end) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->initializeSections(static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQHeaderView*)self)->initializeSections(static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::initializeSections(static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected method QHeaderView::initializeSections2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperInitializeSections2(QHeaderView* self, int start, int end) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_InitializeSections2_IsBase(true);
-        vqheaderview->initializeSections(static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQHeaderView*)self)->initializeSections(static_cast<int>(start), static_cast<int>(end));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnInitializeSections2(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_InitializeSections2_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_InitializeSections2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHeaderView_State(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return static_cast<int>(vqheaderview->state());
-    } else {
-        return static_cast<int>(((VirtualQHeaderView*)self)->state());
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return static_cast<int>(vqheaderview->VirtualQHeaderView::state());
+    } else
+        qFatal("Error: Protected method QHeaderView::state called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHeaderView_SuperState(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_State_IsBase(true);
-        return static_cast<int>(vqheaderview->state());
-    } else {
-        return static_cast<int>(((VirtualQHeaderView*)self)->state());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnState(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_State_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_State_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_SetState(QHeaderView* self, int state) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setState(static_cast<VirtualQHeaderView::State>(state));
-    } else {
-        ((VirtualQHeaderView*)self)->setState(static_cast<VirtualQHeaderView::State>(state));
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::setState(static_cast<VirtualQHeaderView::State>(state));
+    } else
+        qFatal("Error: Protected method QHeaderView::setState called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperSetState(QHeaderView* self, int state) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetState_IsBase(true);
-        vqheaderview->setState(static_cast<VirtualQHeaderView::State>(state));
-    } else {
-        ((VirtualQHeaderView*)self)->setState(static_cast<VirtualQHeaderView::State>(state));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSetState(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetState_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_ScheduleDelayedItemsLayout(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQHeaderView*)self)->scheduleDelayedItemsLayout();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::scheduleDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QHeaderView::scheduleDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperScheduleDelayedItemsLayout(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ScheduleDelayedItemsLayout_IsBase(true);
-        vqheaderview->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQHeaderView*)self)->scheduleDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnScheduleDelayedItemsLayout(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScheduleDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_ExecuteDelayedItemsLayout(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQHeaderView*)self)->executeDelayedItemsLayout();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::executeDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QHeaderView::executeDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperExecuteDelayedItemsLayout(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ExecuteDelayedItemsLayout_IsBase(true);
-        vqheaderview->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQHeaderView*)self)->executeDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnExecuteDelayedItemsLayout(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ExecuteDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_SetDirtyRegion(QHeaderView* self, const QRegion* region) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setDirtyRegion(*region);
-    } else {
-        ((VirtualQHeaderView*)self)->setDirtyRegion(*region);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::setDirtyRegion(*region);
+    } else
+        qFatal("Error: Protected method QHeaderView::setDirtyRegion called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperSetDirtyRegion(QHeaderView* self, const QRegion* region) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetDirtyRegion_IsBase(true);
-        vqheaderview->setDirtyRegion(*region);
-    } else {
-        ((VirtualQHeaderView*)self)->setDirtyRegion(*region);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSetDirtyRegion(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetDirtyRegion_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetDirtyRegion_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_ScrollDirtyRegion(QHeaderView* self, int dx, int dy) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQHeaderView*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Base class handler implementation
-void QHeaderView_SuperScrollDirtyRegion(QHeaderView* self, int dx, int dy) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ScrollDirtyRegion_IsBase(true);
-        vqheaderview->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQHeaderView*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnScrollDirtyRegion(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ScrollDirtyRegion_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected method QHeaderView::scrollDirtyRegion called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPoint* QHeaderView_DirtyRegionOffset(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
         return new QPoint(vqheaderview->dirtyRegionOffset());
-    }
-    return {};
+    qFatal("Error: Protected method QHeaderView::dirtyRegionOffset called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPoint* QHeaderView_SuperDirtyRegionOffset(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DirtyRegionOffset_IsBase(true);
-        return new QPoint(vqheaderview->dirtyRegionOffset());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnDirtyRegionOffset(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DirtyRegionOffset_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_StartAutoScroll(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->startAutoScroll();
-    } else {
-        ((VirtualQHeaderView*)self)->startAutoScroll();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::startAutoScroll();
+    } else
+        qFatal("Error: Protected method QHeaderView::startAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperStartAutoScroll(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_StartAutoScroll_IsBase(true);
-        vqheaderview->startAutoScroll();
-    } else {
-        ((VirtualQHeaderView*)self)->startAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnStartAutoScroll(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_StartAutoScroll_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_StartAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_StopAutoScroll(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->stopAutoScroll();
-    } else {
-        ((VirtualQHeaderView*)self)->stopAutoScroll();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::stopAutoScroll();
+    } else
+        qFatal("Error: Protected method QHeaderView::stopAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperStopAutoScroll(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_StopAutoScroll_IsBase(true);
-        vqheaderview->stopAutoScroll();
-    } else {
-        ((VirtualQHeaderView*)self)->stopAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnStopAutoScroll(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_StopAutoScroll_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_StopAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_DoAutoScroll(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->doAutoScroll();
-    } else {
-        ((VirtualQHeaderView*)self)->doAutoScroll();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::doAutoScroll();
+    } else
+        qFatal("Error: Protected method QHeaderView::doAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperDoAutoScroll(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DoAutoScroll_IsBase(true);
-        vqheaderview->doAutoScroll();
-    } else {
-        ((VirtualQHeaderView*)self)->doAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnDoAutoScroll(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DoAutoScroll_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DoAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHeaderView_DropIndicatorPosition(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return static_cast<int>(vqheaderview->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQHeaderView*)self)->dropIndicatorPosition());
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return static_cast<int>(vqheaderview->VirtualQHeaderView::dropIndicatorPosition());
+    } else
+        qFatal("Error: Protected method QHeaderView::dropIndicatorPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHeaderView_SuperDropIndicatorPosition(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DropIndicatorPosition_IsBase(true);
-        return static_cast<int>(vqheaderview->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQHeaderView*)self)->dropIndicatorPosition());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnDropIndicatorPosition(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DropIndicatorPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_SetViewportMargins(QHeaderView* self, int left, int top, int right, int bottom) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQHeaderView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QHeaderView_SuperSetViewportMargins(QHeaderView* self, int left, int top, int right, int bottom) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SetViewportMargins_IsBase(true);
-        vqheaderview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQHeaderView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSetViewportMargins(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SetViewportMargins_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SetViewportMargins_Callback>(slot));
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QHeaderView::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QHeaderView_ViewportMargins(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self)))
         return new QMargins(vqheaderview->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QHeaderView::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QHeaderView_SuperViewportMargins(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_ViewportMargins_IsBase(true);
-        return new QMargins(vqheaderview->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnViewportMargins(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_ViewportMargins_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_DrawFrame(QHeaderView* self, QPainter* param1) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->drawFrame(param1);
-    } else {
-        ((VirtualQHeaderView*)self)->drawFrame(param1);
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QHeaderView::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperDrawFrame(QHeaderView* self, QPainter* param1) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_DrawFrame_IsBase(true);
-        vqheaderview->drawFrame(param1);
-    } else {
-        ((VirtualQHeaderView*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnDrawFrame(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_DrawFrame_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_UpdateMicroFocus(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->updateMicroFocus();
-    } else {
-        ((VirtualQHeaderView*)self)->updateMicroFocus();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QHeaderView::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperUpdateMicroFocus(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_UpdateMicroFocus_IsBase(true);
-        vqheaderview->updateMicroFocus();
-    } else {
-        ((VirtualQHeaderView*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnUpdateMicroFocus(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_Create(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->create();
-    } else {
-        ((VirtualQHeaderView*)self)->create();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::create();
+    } else
+        qFatal("Error: Protected method QHeaderView::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperCreate(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Create_IsBase(true);
-        vqheaderview->create();
-    } else {
-        ((VirtualQHeaderView*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnCreate(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Create_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHeaderView_Destroy(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->destroy();
-    } else {
-        ((VirtualQHeaderView*)self)->destroy();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        vqheaderview->VirtualQHeaderView::destroy();
+    } else
+        qFatal("Error: Protected method QHeaderView::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHeaderView_SuperDestroy(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Destroy_IsBase(true);
-        vqheaderview->destroy();
-    } else {
-        ((VirtualQHeaderView*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnDestroy(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Destroy_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QHeaderView_FocusNextChild(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->focusNextChild();
-    } else {
-        return ((VirtualQHeaderView*)self)->focusNextChild();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        return vqheaderview->VirtualQHeaderView::focusNextChild();
+    } else
+        qFatal("Error: Protected method QHeaderView::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QHeaderView_SuperFocusNextChild(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_FocusNextChild_IsBase(true);
-        return vqheaderview->focusNextChild();
-    } else {
-        return ((VirtualQHeaderView*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnFocusNextChild(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_FocusNextChild_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QHeaderView_FocusPreviousChild(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->focusPreviousChild();
-    } else {
-        return ((VirtualQHeaderView*)self)->focusPreviousChild();
-    }
+    if (auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self)) {
+        return vqheaderview->VirtualQHeaderView::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QHeaderView::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QHeaderView_SuperFocusPreviousChild(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_FocusPreviousChild_IsBase(true);
-        return vqheaderview->focusPreviousChild();
-    } else {
-        return ((VirtualQHeaderView*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnFocusPreviousChild(QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QHeaderView_Sender(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->sender();
-    } else {
-        return ((VirtualQHeaderView*)self)->sender();
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->VirtualQHeaderView::sender();
+    } else
+        qFatal("Error: Protected method QHeaderView::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QHeaderView_SuperSender(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Sender_IsBase(true);
-        return vqheaderview->sender();
-    } else {
-        return ((VirtualQHeaderView*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSender(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Sender_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHeaderView_SenderSignalIndex(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->senderSignalIndex();
-    } else {
-        return ((VirtualQHeaderView*)self)->senderSignalIndex();
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->VirtualQHeaderView::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QHeaderView::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHeaderView_SuperSenderSignalIndex(const QHeaderView* self) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_SenderSignalIndex_IsBase(true);
-        return vqheaderview->senderSignalIndex();
-    } else {
-        return ((VirtualQHeaderView*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnSenderSignalIndex(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHeaderView_Receivers(const QHeaderView* self, const char* signal) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->receivers(signal);
-    } else {
-        return ((VirtualQHeaderView*)self)->receivers(signal);
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->VirtualQHeaderView::receivers(signal);
+    } else
+        qFatal("Error: Protected method QHeaderView::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHeaderView_SuperReceivers(const QHeaderView* self, const char* signal) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_Receivers_IsBase(true);
-        return vqheaderview->receivers(signal);
-    } else {
-        return ((VirtualQHeaderView*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnReceivers(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_Receivers_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QHeaderView_IsSignalConnected(const QHeaderView* self, const QMetaMethod* signal) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQHeaderView*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->VirtualQHeaderView::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QHeaderView::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QHeaderView_SuperIsSignalConnected(const QHeaderView* self, const QMetaMethod* signal) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_IsSignalConnected_IsBase(true);
-        return vqheaderview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQHeaderView*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnIsSignalConnected(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_IsSignalConnected_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QHeaderView_GetDecodedMetricF(const QHeaderView* self, int metricA, int metricB) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return vqheaderview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQHeaderView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QHeaderView_SuperGetDecodedMetricF(const QHeaderView* self, int metricA, int metricB) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        vqheaderview->setQHeaderView_GetDecodedMetricF_IsBase(true);
-        return vqheaderview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQHeaderView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHeaderView_OnGetDecodedMetricF(const QHeaderView* self, intptr_t slot) {
-    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView)
-        vqheaderview->setQHeaderView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self))) {
+        return vqheaderview->VirtualQHeaderView::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QHeaderView::getDecodedMetricF called without a directly constructed type");
 }
 
 void QHeaderView_Delete(QHeaderView* self) {

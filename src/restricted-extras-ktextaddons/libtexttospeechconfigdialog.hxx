@@ -9,35 +9,31 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of TextEditTextToSpeech::TextToSpeechConfigDialog so that we can call protected methods
+// This class is a subclass of TextEditTextToSpeech::TextToSpeechConfigDialog
 class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEditTextToSpeech::TextToSpeechConfigDialog {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualTextEditTextToSpeechTextToSpeechConfigDialog = true;
-
-    // Virtual class public types (including callbacks)
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject_Callback = QMetaObject* (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_Metacast_Callback = void* (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, const char*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_Metacall_Callback = int (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, int, int, void**);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_SetVisible_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, bool);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_SizeHint_Callback = QSize* (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_MinimumSizeHint_Callback = QSize* (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_Open_Callback = void (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_Exec_Callback = int (*)();
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_SizeHint_Callback = QSize* (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*);
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_MinimumSizeHint_Callback = QSize* (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*);
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_Open_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*);
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_Exec_Callback = int (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_Done_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, int);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_Accept_Callback = void (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_Reject_Callback = void (*)();
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_Accept_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*);
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_Reject_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_KeyPressEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QKeyEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_CloseEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QCloseEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_ShowEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QShowEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_ResizeEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QResizeEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_ContextMenuEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QContextMenuEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_EventFilter_Callback = bool (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QObject*, QEvent*);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_DevType_Callback = int (*)();
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_DevType_Callback = int (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_HeightForWidth_Callback = int (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*, int);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_HasHeightForWidth_Callback = bool (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_PaintEngine_Callback = QPaintEngine* (*)();
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_HasHeightForWidth_Callback = bool (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*);
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_PaintEngine_Callback = QPaintEngine* (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_Event_Callback = bool (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_MousePressEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QMouseEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_MouseReleaseEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QMouseEvent*);
@@ -63,7 +59,7 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
     using TextEditTextToSpeech__TextToSpeechConfigDialog_Metric_Callback = int (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*, int);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_InitPainter_Callback = void (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*, QPainter*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_Redirected_Callback = QPaintDevice* (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*, QPoint*);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_SharedPainter_Callback = QPainter* (*)();
+    using TextEditTextToSpeech__TextToSpeechConfigDialog_SharedPainter_Callback = QPainter* (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QInputMethodEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodQuery_Callback = QVariant* (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*, int);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextPrevChild_Callback = bool (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, bool);
@@ -72,19 +68,18 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
     using TextEditTextToSpeech__TextToSpeechConfigDialog_CustomEvent_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QEvent*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_ConnectNotify_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QMetaMethod*);
     using TextEditTextToSpeech__TextToSpeechConfigDialog_DisconnectNotify_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QMetaMethod*);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_AdjustPosition_Callback = void (*)(TextEditTextToSpeech__TextToSpeechConfigDialog*, QWidget*);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_UpdateMicroFocus_Callback = void (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_Create_Callback = void (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_Destroy_Callback = void (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextChild_Callback = bool (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_FocusPreviousChild_Callback = bool (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_Sender_Callback = QObject* (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_SenderSignalIndex_Callback = int (*)();
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_Receivers_Callback = int (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*, const char*);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_IsSignalConnected_Callback = bool (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*, QMetaMethod*);
-    using TextEditTextToSpeech__TextToSpeechConfigDialog_GetDecodedMetricF_Callback = double (*)(const TextEditTextToSpeech__TextToSpeechConfigDialog*, int, int);
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::adjustPosition;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::create;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::destroy;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::focusNextChild;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::focusPreviousChild;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::getDecodedMetricF;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::isSignalConnected;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::receivers;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::sender;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::senderSignalIndex;
+    using TextEditTextToSpeech::TextToSpeechConfigDialog::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     TextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject_Callback textedittexttospeech__texttospeechconfigdialog_metaobject_callback = nullptr;
     TextEditTextToSpeech__TextToSpeechConfigDialog_Metacast_Callback textedittexttospeech__texttospeechconfigdialog_metacast_callback = nullptr;
@@ -141,235 +136,57 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
     TextEditTextToSpeech__TextToSpeechConfigDialog_CustomEvent_Callback textedittexttospeech__texttospeechconfigdialog_customevent_callback = nullptr;
     TextEditTextToSpeech__TextToSpeechConfigDialog_ConnectNotify_Callback textedittexttospeech__texttospeechconfigdialog_connectnotify_callback = nullptr;
     TextEditTextToSpeech__TextToSpeechConfigDialog_DisconnectNotify_Callback textedittexttospeech__texttospeechconfigdialog_disconnectnotify_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_AdjustPosition_Callback textedittexttospeech__texttospeechconfigdialog_adjustposition_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_UpdateMicroFocus_Callback textedittexttospeech__texttospeechconfigdialog_updatemicrofocus_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_Create_Callback textedittexttospeech__texttospeechconfigdialog_create_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_Destroy_Callback textedittexttospeech__texttospeechconfigdialog_destroy_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextChild_Callback textedittexttospeech__texttospeechconfigdialog_focusnextchild_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_FocusPreviousChild_Callback textedittexttospeech__texttospeechconfigdialog_focuspreviouschild_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_Sender_Callback textedittexttospeech__texttospeechconfigdialog_sender_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_SenderSignalIndex_Callback textedittexttospeech__texttospeechconfigdialog_sendersignalindex_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_Receivers_Callback textedittexttospeech__texttospeechconfigdialog_receivers_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_IsSignalConnected_Callback textedittexttospeech__texttospeechconfigdialog_issignalconnected_callback = nullptr;
-    TextEditTextToSpeech__TextToSpeechConfigDialog_GetDecodedMetricF_Callback textedittexttospeech__texttospeechconfigdialog_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool textedittexttospeech__texttospeechconfigdialog_metaobject_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_metacast_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_metacall_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_setvisible_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_sizehint_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_minimumsizehint_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_open_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_exec_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_done_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_accept_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_reject_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_keypressevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_closeevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_showevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_resizeevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_contextmenuevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_eventfilter_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_devtype_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_heightforwidth_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_hasheightforwidth_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_paintengine_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_event_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_mousepressevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_mousemoveevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_wheelevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_focusinevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_focusoutevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_enterevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_leaveevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_paintevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_moveevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_tabletevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_actionevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_dragenterevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_dragmoveevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_dragleaveevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_dropevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_hideevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_nativeevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_changeevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_metric_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_initpainter_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_redirected_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_sharedpainter_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_inputmethodevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_inputmethodquery_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_timerevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_childevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_customevent_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_connectnotify_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_disconnectnotify_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_adjustposition_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_updatemicrofocus_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_create_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_destroy_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_focusnextchild_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_focuspreviouschild_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_sender_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_sendersignalindex_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_receivers_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_issignalconnected_isbase = false;
-    mutable bool textedittexttospeech__texttospeechconfigdialog_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : TextEditTextToSpeech::TextToSpeechConfigDialog {
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::actionEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::changeEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::childEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::closeEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::connectNotify;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::contextMenuEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::customEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::disconnectNotify;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::dragEnterEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::dragLeaveEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::dragMoveEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::dropEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::enterEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::event;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::eventFilter;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::focusInEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::focusNextPrevChild;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::focusOutEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::hideEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::initPainter;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::inputMethodEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::keyPressEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::keyReleaseEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::leaveEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::metric;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::mouseDoubleClickEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::mouseMoveEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::mousePressEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::mouseReleaseEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::moveEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::nativeEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::paintEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::redirected;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::resizeEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::sharedPainter;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::showEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::tabletEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::timerEvent;
+        using TextEditTextToSpeech::TextToSpeechConfigDialog::wheelEvent;
+    };
 
-  public:
     VirtualTextEditTextToSpeechTextToSpeechConfigDialog(QWidget* parent) : TextEditTextToSpeech::TextToSpeechConfigDialog(parent) {};
     VirtualTextEditTextToSpeechTextToSpeechConfigDialog() : TextEditTextToSpeech::TextToSpeechConfigDialog() {};
 
-    // Callback setters
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject_Callback cb) { textedittexttospeech__texttospeechconfigdialog_metaobject_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Metacast_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Metacast_Callback cb) { textedittexttospeech__texttospeechconfigdialog_metacast_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Metacall_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Metacall_Callback cb) { textedittexttospeech__texttospeechconfigdialog_metacall_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_SetVisible_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_SetVisible_Callback cb) { textedittexttospeech__texttospeechconfigdialog_setvisible_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_SizeHint_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_SizeHint_Callback cb) { textedittexttospeech__texttospeechconfigdialog_sizehint_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MinimumSizeHint_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_MinimumSizeHint_Callback cb) { textedittexttospeech__texttospeechconfigdialog_minimumsizehint_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Open_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Open_Callback cb) { textedittexttospeech__texttospeechconfigdialog_open_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Exec_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Exec_Callback cb) { textedittexttospeech__texttospeechconfigdialog_exec_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Done_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Done_Callback cb) { textedittexttospeech__texttospeechconfigdialog_done_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Accept_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Accept_Callback cb) { textedittexttospeech__texttospeechconfigdialog_accept_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Reject_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Reject_Callback cb) { textedittexttospeech__texttospeechconfigdialog_reject_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_KeyPressEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_KeyPressEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_keypressevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_CloseEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_CloseEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_closeevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ShowEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_ShowEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_showevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ResizeEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_ResizeEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_resizeevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ContextMenuEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_ContextMenuEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_contextmenuevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_EventFilter_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_EventFilter_Callback cb) { textedittexttospeech__texttospeechconfigdialog_eventfilter_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DevType_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_DevType_Callback cb) { textedittexttospeech__texttospeechconfigdialog_devtype_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_HeightForWidth_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_HeightForWidth_Callback cb) { textedittexttospeech__texttospeechconfigdialog_heightforwidth_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_HasHeightForWidth_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_HasHeightForWidth_Callback cb) { textedittexttospeech__texttospeechconfigdialog_hasheightforwidth_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_PaintEngine_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_PaintEngine_Callback cb) { textedittexttospeech__texttospeechconfigdialog_paintengine_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Event_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Event_Callback cb) { textedittexttospeech__texttospeechconfigdialog_event_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MousePressEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_MousePressEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_mousepressevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseReleaseEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_MouseReleaseEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseDoubleClickEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_MouseDoubleClickEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseMoveEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_MouseMoveEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_mousemoveevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_WheelEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_WheelEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_wheelevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_KeyReleaseEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_KeyReleaseEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusInEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_FocusInEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_focusinevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusOutEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_FocusOutEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_focusoutevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_EnterEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_EnterEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_enterevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_LeaveEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_LeaveEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_leaveevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_PaintEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_PaintEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_paintevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MoveEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_MoveEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_moveevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_TabletEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_TabletEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_tabletevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ActionEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_ActionEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_actionevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DragEnterEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_DragEnterEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_dragenterevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DragMoveEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_DragMoveEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_dragmoveevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DragLeaveEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_DragLeaveEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_dragleaveevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DropEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_DropEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_dropevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_HideEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_HideEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_hideevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_NativeEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_NativeEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_nativeevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ChangeEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_ChangeEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_changeevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Metric_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Metric_Callback cb) { textedittexttospeech__texttospeechconfigdialog_metric_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_InitPainter_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_InitPainter_Callback cb) { textedittexttospeech__texttospeechconfigdialog_initpainter_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Redirected_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Redirected_Callback cb) { textedittexttospeech__texttospeechconfigdialog_redirected_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_SharedPainter_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_SharedPainter_Callback cb) { textedittexttospeech__texttospeechconfigdialog_sharedpainter_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_inputmethodevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodQuery_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodQuery_Callback cb) { textedittexttospeech__texttospeechconfigdialog_inputmethodquery_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextPrevChild_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextPrevChild_Callback cb) { textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_TimerEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_TimerEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_timerevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ChildEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_ChildEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_childevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_CustomEvent_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_CustomEvent_Callback cb) { textedittexttospeech__texttospeechconfigdialog_customevent_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ConnectNotify_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_ConnectNotify_Callback cb) { textedittexttospeech__texttospeechconfigdialog_connectnotify_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DisconnectNotify_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_DisconnectNotify_Callback cb) { textedittexttospeech__texttospeechconfigdialog_disconnectnotify_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_AdjustPosition_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_AdjustPosition_Callback cb) { textedittexttospeech__texttospeechconfigdialog_adjustposition_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_UpdateMicroFocus_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_UpdateMicroFocus_Callback cb) { textedittexttospeech__texttospeechconfigdialog_updatemicrofocus_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Create_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Create_Callback cb) { textedittexttospeech__texttospeechconfigdialog_create_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Destroy_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Destroy_Callback cb) { textedittexttospeech__texttospeechconfigdialog_destroy_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextChild_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextChild_Callback cb) { textedittexttospeech__texttospeechconfigdialog_focusnextchild_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusPreviousChild_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_FocusPreviousChild_Callback cb) { textedittexttospeech__texttospeechconfigdialog_focuspreviouschild_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Sender_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Sender_Callback cb) { textedittexttospeech__texttospeechconfigdialog_sender_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_SenderSignalIndex_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_SenderSignalIndex_Callback cb) { textedittexttospeech__texttospeechconfigdialog_sendersignalindex_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Receivers_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_Receivers_Callback cb) { textedittexttospeech__texttospeechconfigdialog_receivers_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_IsSignalConnected_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_IsSignalConnected_Callback cb) { textedittexttospeech__texttospeechconfigdialog_issignalconnected_callback = cb; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_GetDecodedMetricF_Callback(TextEditTextToSpeech__TextToSpeechConfigDialog_GetDecodedMetricF_Callback cb) { textedittexttospeech__texttospeechconfigdialog_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_metaobject_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Metacast_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_metacast_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Metacall_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_metacall_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_SetVisible_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_setvisible_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_SizeHint_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_sizehint_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MinimumSizeHint_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_minimumsizehint_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Open_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_open_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Exec_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_exec_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Done_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_done_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Accept_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_accept_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Reject_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_reject_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_KeyPressEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_keypressevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_CloseEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_closeevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ShowEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_showevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ResizeEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_resizeevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ContextMenuEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_contextmenuevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_EventFilter_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_eventfilter_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DevType_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_devtype_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_HeightForWidth_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_heightforwidth_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_HasHeightForWidth_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_hasheightforwidth_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_PaintEngine_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_paintengine_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Event_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_event_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MousePressEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_mousepressevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseReleaseEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseDoubleClickEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MouseMoveEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_mousemoveevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_WheelEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_wheelevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_KeyReleaseEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusInEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_focusinevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusOutEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_focusoutevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_EnterEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_enterevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_LeaveEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_leaveevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_PaintEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_paintevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_MoveEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_moveevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_TabletEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_tabletevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ActionEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_actionevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DragEnterEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_dragenterevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DragMoveEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_dragmoveevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DragLeaveEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_dragleaveevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DropEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_dropevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_HideEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_hideevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_NativeEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_nativeevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ChangeEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_changeevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Metric_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_metric_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_InitPainter_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_initpainter_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Redirected_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_redirected_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_SharedPainter_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_sharedpainter_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_inputmethodevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodQuery_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_inputmethodquery_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextPrevChild_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_TimerEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_timerevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ChildEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_childevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_CustomEvent_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_customevent_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_ConnectNotify_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_connectnotify_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_DisconnectNotify_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_disconnectnotify_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_AdjustPosition_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_adjustposition_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_UpdateMicroFocus_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_updatemicrofocus_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Create_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_create_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Destroy_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_destroy_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextChild_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_focusnextchild_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_FocusPreviousChild_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_focuspreviouschild_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Sender_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_sender_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_SenderSignalIndex_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_sendersignalindex_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_Receivers_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_receivers_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_IsSignalConnected_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_issignalconnected_isbase = value; }
-    inline void setTextEditTextToSpeech__TextToSpeechConfigDialog_GetDecodedMetricF_IsBase(bool value) const { textedittexttospeech__texttospeechconfigdialog_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (textedittexttospeech__texttospeechconfigdialog_metaobject_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_metaobject_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::metaObject();
-        }
-        auto metaobject_cb = textedittexttospeech__texttospeechconfigdialog_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_metaobject_callback) {
+            QMetaObject* callback_ret = textedittexttospeech__texttospeechconfigdialog_metaobject_callback(this);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::metaObject();
@@ -377,14 +194,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_metacast_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_metacast_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::qt_metacast(param1);
-        }
-        auto metacast_cb = textedittexttospeech__texttospeechconfigdialog_metacast_callback;
-        if (metacast_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = textedittexttospeech__texttospeechconfigdialog_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::qt_metacast(param1);
@@ -392,16 +204,11 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (textedittexttospeech__texttospeechconfigdialog_metacall_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_metacall_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = textedittexttospeech__texttospeechconfigdialog_metacall_callback;
-        if (metacall_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = textedittexttospeech__texttospeechconfigdialog_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::qt_metacall(param1, param2, param3);
@@ -409,15 +216,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (textedittexttospeech__texttospeechconfigdialog_setvisible_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_setvisible_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = textedittexttospeech__texttospeechconfigdialog_setvisible_callback;
-        if (setvisible_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_setvisible_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::setVisible(visible);
@@ -425,13 +226,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (textedittexttospeech__texttospeechconfigdialog_sizehint_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_sizehint_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::sizeHint();
-        }
-        auto sizehint_cb = textedittexttospeech__texttospeechconfigdialog_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_sizehint_callback) {
+            QSize* callback_ret = textedittexttospeech__texttospeechconfigdialog_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -441,13 +237,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (textedittexttospeech__texttospeechconfigdialog_minimumsizehint_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_minimumsizehint_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = textedittexttospeech__texttospeechconfigdialog_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_minimumsizehint_callback) {
+            QSize* callback_ret = textedittexttospeech__texttospeechconfigdialog_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -457,14 +248,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void open() override {
-        if (textedittexttospeech__texttospeechconfigdialog_open_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_open_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::open();
-            return;
-        }
-        auto open_cb = textedittexttospeech__texttospeechconfigdialog_open_callback;
-        if (open_cb) {
-            open_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_open_callback) {
+            textedittexttospeech__texttospeechconfigdialog_open_callback(this);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::open();
@@ -472,13 +257,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual int exec() override {
-        if (textedittexttospeech__texttospeechconfigdialog_exec_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_exec_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::exec();
-        }
-        auto exec_cb = textedittexttospeech__texttospeechconfigdialog_exec_callback;
-        if (exec_cb) {
-            int callback_ret = exec_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_exec_callback) {
+            int callback_ret = textedittexttospeech__texttospeechconfigdialog_exec_callback(this);
             return static_cast<int>(callback_ret);
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::exec();
@@ -486,15 +266,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void done(int param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_done_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_done_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::done(param1);
-            return;
-        }
-        auto done_cb = textedittexttospeech__texttospeechconfigdialog_done_callback;
-        if (done_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_done_callback) {
             int cbval1 = param1;
-            done_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_done_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::done(param1);
@@ -502,14 +276,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void accept() override {
-        if (textedittexttospeech__texttospeechconfigdialog_accept_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_accept_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::accept();
-            return;
-        }
-        auto accept_cb = textedittexttospeech__texttospeechconfigdialog_accept_callback;
-        if (accept_cb) {
-            accept_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_accept_callback) {
+            textedittexttospeech__texttospeechconfigdialog_accept_callback(this);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::accept();
@@ -517,14 +285,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void reject() override {
-        if (textedittexttospeech__texttospeechconfigdialog_reject_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_reject_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::reject();
-            return;
-        }
-        auto reject_cb = textedittexttospeech__texttospeechconfigdialog_reject_callback;
-        if (reject_cb) {
-            reject_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_reject_callback) {
+            textedittexttospeech__texttospeechconfigdialog_reject_callback(this);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::reject();
@@ -532,15 +294,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_keypressevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_keypressevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = textedittexttospeech__texttospeechconfigdialog_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_keypressevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::keyPressEvent(param1);
@@ -548,15 +304,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_closeevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_closeevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::closeEvent(param1);
-            return;
-        }
-        auto closeevent_cb = textedittexttospeech__texttospeechconfigdialog_closeevent_callback;
-        if (closeevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_closeevent_callback) {
             QCloseEvent* cbval1 = param1;
-            closeevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_closeevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::closeEvent(param1);
@@ -564,15 +314,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_showevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_showevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = textedittexttospeech__texttospeechconfigdialog_showevent_callback;
-        if (showevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_showevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::showEvent(param1);
@@ -580,15 +324,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_resizeevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_resizeevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::resizeEvent(param1);
-            return;
-        }
-        auto resizeevent_cb = textedittexttospeech__texttospeechconfigdialog_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_resizeevent_callback) {
             QResizeEvent* cbval1 = param1;
-            resizeevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_resizeevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::resizeEvent(param1);
@@ -596,15 +334,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_contextmenuevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_contextmenuevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = textedittexttospeech__texttospeechconfigdialog_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_contextmenuevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::contextMenuEvent(param1);
@@ -612,15 +344,10 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (textedittexttospeech__texttospeechconfigdialog_eventfilter_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_eventfilter_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = textedittexttospeech__texttospeechconfigdialog_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = textedittexttospeech__texttospeechconfigdialog_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::eventFilter(param1, param2);
@@ -628,13 +355,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (textedittexttospeech__texttospeechconfigdialog_devtype_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_devtype_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::devType();
-        }
-        auto devtype_cb = textedittexttospeech__texttospeechconfigdialog_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_devtype_callback) {
+            int callback_ret = textedittexttospeech__texttospeechconfigdialog_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::devType();
@@ -642,14 +364,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (textedittexttospeech__texttospeechconfigdialog_heightforwidth_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_heightforwidth_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = textedittexttospeech__texttospeechconfigdialog_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = textedittexttospeech__texttospeechconfigdialog_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::heightForWidth(param1);
@@ -657,13 +374,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (textedittexttospeech__texttospeechconfigdialog_hasheightforwidth_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_hasheightforwidth_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = textedittexttospeech__texttospeechconfigdialog_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_hasheightforwidth_callback) {
+            bool callback_ret = textedittexttospeech__texttospeechconfigdialog_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::hasHeightForWidth();
@@ -671,13 +383,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (textedittexttospeech__texttospeechconfigdialog_paintengine_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_paintengine_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::paintEngine();
-        }
-        auto paintengine_cb = textedittexttospeech__texttospeechconfigdialog_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_paintengine_callback) {
+            QPaintEngine* callback_ret = textedittexttospeech__texttospeechconfigdialog_paintengine_callback(this);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::paintEngine();
@@ -685,14 +392,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_event_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_event_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::event(event);
-        }
-        auto event_cb = textedittexttospeech__texttospeechconfigdialog_event_callback;
-        if (event_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = textedittexttospeech__texttospeechconfigdialog_event_callback(this, cbval1);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::event(event);
@@ -700,15 +402,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_mousepressevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_mousepressevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = textedittexttospeech__texttospeechconfigdialog_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_mousepressevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::mousePressEvent(event);
@@ -716,15 +412,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::mouseReleaseEvent(event);
@@ -732,15 +422,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::mouseDoubleClickEvent(event);
@@ -748,15 +432,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_mousemoveevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_mousemoveevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = textedittexttospeech__texttospeechconfigdialog_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_mousemoveevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::mouseMoveEvent(event);
@@ -764,15 +442,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_wheelevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_wheelevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = textedittexttospeech__texttospeechconfigdialog_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_wheelevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::wheelEvent(event);
@@ -780,15 +452,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::keyReleaseEvent(event);
@@ -796,15 +462,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_focusinevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_focusinevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = textedittexttospeech__texttospeechconfigdialog_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_focusinevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::focusInEvent(event);
@@ -812,15 +472,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_focusoutevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_focusoutevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = textedittexttospeech__texttospeechconfigdialog_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_focusoutevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::focusOutEvent(event);
@@ -828,15 +482,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_enterevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_enterevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = textedittexttospeech__texttospeechconfigdialog_enterevent_callback;
-        if (enterevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_enterevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::enterEvent(event);
@@ -844,15 +492,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_leaveevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_leaveevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = textedittexttospeech__texttospeechconfigdialog_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_leaveevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::leaveEvent(event);
@@ -860,15 +502,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_paintevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_paintevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = textedittexttospeech__texttospeechconfigdialog_paintevent_callback;
-        if (paintevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_paintevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::paintEvent(event);
@@ -876,15 +512,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_moveevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_moveevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = textedittexttospeech__texttospeechconfigdialog_moveevent_callback;
-        if (moveevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_moveevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::moveEvent(event);
@@ -892,15 +522,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_tabletevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_tabletevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = textedittexttospeech__texttospeechconfigdialog_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_tabletevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::tabletEvent(event);
@@ -908,15 +532,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_actionevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_actionevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = textedittexttospeech__texttospeechconfigdialog_actionevent_callback;
-        if (actionevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_actionevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::actionEvent(event);
@@ -924,15 +542,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_dragenterevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_dragenterevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = textedittexttospeech__texttospeechconfigdialog_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_dragenterevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::dragEnterEvent(event);
@@ -940,15 +552,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_dragmoveevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_dragmoveevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = textedittexttospeech__texttospeechconfigdialog_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_dragmoveevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::dragMoveEvent(event);
@@ -956,15 +562,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_dragleaveevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_dragleaveevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = textedittexttospeech__texttospeechconfigdialog_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_dragleaveevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::dragLeaveEvent(event);
@@ -972,15 +572,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_dropevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_dropevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = textedittexttospeech__texttospeechconfigdialog_dropevent_callback;
-        if (dropevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_dropevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::dropEvent(event);
@@ -988,15 +582,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_hideevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_hideevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = textedittexttospeech__texttospeechconfigdialog_hideevent_callback;
-        if (hideevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_hideevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::hideEvent(event);
@@ -1004,12 +592,7 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (textedittexttospeech__texttospeechconfigdialog_nativeevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_nativeevent_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = textedittexttospeech__texttospeechconfigdialog_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1019,7 +602,7 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = textedittexttospeech__texttospeechconfigdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1028,15 +611,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_changeevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_changeevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = textedittexttospeech__texttospeechconfigdialog_changeevent_callback;
-        if (changeevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_changeevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::changeEvent(param1);
@@ -1044,14 +621,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (textedittexttospeech__texttospeechconfigdialog_metric_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_metric_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::metric(param1);
-        }
-        auto metric_cb = textedittexttospeech__texttospeechconfigdialog_metric_callback;
-        if (metric_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = textedittexttospeech__texttospeechconfigdialog_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::metric(param1);
@@ -1059,15 +631,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (textedittexttospeech__texttospeechconfigdialog_initpainter_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_initpainter_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = textedittexttospeech__texttospeechconfigdialog_initpainter_callback;
-        if (initpainter_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_initpainter_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::initPainter(painter);
@@ -1075,14 +641,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (textedittexttospeech__texttospeechconfigdialog_redirected_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_redirected_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::redirected(offset);
-        }
-        auto redirected_cb = textedittexttospeech__texttospeechconfigdialog_redirected_callback;
-        if (redirected_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = textedittexttospeech__texttospeechconfigdialog_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::redirected(offset);
@@ -1090,13 +651,8 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (textedittexttospeech__texttospeechconfigdialog_sharedpainter_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_sharedpainter_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::sharedPainter();
-        }
-        auto sharedpainter_cb = textedittexttospeech__texttospeechconfigdialog_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (textedittexttospeech__texttospeechconfigdialog_sharedpainter_callback) {
+            QPainter* callback_ret = textedittexttospeech__texttospeechconfigdialog_sharedpainter_callback(this);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::sharedPainter();
@@ -1104,15 +660,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (textedittexttospeech__texttospeechconfigdialog_inputmethodevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_inputmethodevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = textedittexttospeech__texttospeechconfigdialog_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_inputmethodevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::inputMethodEvent(param1);
@@ -1120,14 +670,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (textedittexttospeech__texttospeechconfigdialog_inputmethodquery_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_inputmethodquery_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = textedittexttospeech__texttospeechconfigdialog_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = textedittexttospeech__texttospeechconfigdialog_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1137,14 +682,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::focusNextPrevChild(next);
@@ -1152,15 +692,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_timerevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_timerevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = textedittexttospeech__texttospeechconfigdialog_timerevent_callback;
-        if (timerevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_timerevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::timerEvent(event);
@@ -1168,15 +702,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_childevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_childevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::childEvent(event);
-            return;
-        }
-        auto childevent_cb = textedittexttospeech__texttospeechconfigdialog_childevent_callback;
-        if (childevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_childevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::childEvent(event);
@@ -1184,15 +712,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (textedittexttospeech__texttospeechconfigdialog_customevent_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_customevent_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::customEvent(event);
-            return;
-        }
-        auto customevent_cb = textedittexttospeech__texttospeechconfigdialog_customevent_callback;
-        if (customevent_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_customevent_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::customEvent(event);
@@ -1200,17 +722,11 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (textedittexttospeech__texttospeechconfigdialog_connectnotify_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_connectnotify_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = textedittexttospeech__texttospeechconfigdialog_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_connectnotify_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::connectNotify(signal);
@@ -1218,288 +734,56 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (textedittexttospeech__texttospeechconfigdialog_disconnectnotify_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_disconnectnotify_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = textedittexttospeech__texttospeechconfigdialog_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (textedittexttospeech__texttospeechconfigdialog_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            textedittexttospeech__texttospeechconfigdialog_disconnectnotify_callback(this, cbval1);
             return;
         }
         TextEditTextToSpeech__TextToSpeechConfigDialog::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void adjustPosition(QWidget* param1) {
-        if (textedittexttospeech__texttospeechconfigdialog_adjustposition_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_adjustposition_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::adjustPosition(param1);
-            return;
-        }
-        auto adjustposition_cb = textedittexttospeech__texttospeechconfigdialog_adjustposition_callback;
-        if (adjustposition_cb) {
-            QWidget* cbval1 = param1;
-            adjustposition_cb(this, cbval1);
-            return;
-        }
-        TextEditTextToSpeech__TextToSpeechConfigDialog::adjustPosition(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (textedittexttospeech__texttospeechconfigdialog_updatemicrofocus_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_updatemicrofocus_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = textedittexttospeech__texttospeechconfigdialog_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        TextEditTextToSpeech__TextToSpeechConfigDialog::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (textedittexttospeech__texttospeechconfigdialog_create_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_create_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::create();
-            return;
-        }
-        auto create_cb = textedittexttospeech__texttospeechconfigdialog_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        TextEditTextToSpeech__TextToSpeechConfigDialog::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (textedittexttospeech__texttospeechconfigdialog_destroy_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_destroy_isbase = false;
-            TextEditTextToSpeech__TextToSpeechConfigDialog::destroy();
-            return;
-        }
-        auto destroy_cb = textedittexttospeech__texttospeechconfigdialog_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        TextEditTextToSpeech__TextToSpeechConfigDialog::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (textedittexttospeech__texttospeechconfigdialog_focusnextchild_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_focusnextchild_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::focusNextChild();
-        }
-        auto focusnextchild_cb = textedittexttospeech__texttospeechconfigdialog_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return TextEditTextToSpeech__TextToSpeechConfigDialog::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (textedittexttospeech__texttospeechconfigdialog_focuspreviouschild_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_focuspreviouschild_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = textedittexttospeech__texttospeechconfigdialog_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return TextEditTextToSpeech__TextToSpeechConfigDialog::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (textedittexttospeech__texttospeechconfigdialog_sender_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_sender_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::sender();
-        }
-        auto sender_cb = textedittexttospeech__texttospeechconfigdialog_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return TextEditTextToSpeech__TextToSpeechConfigDialog::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (textedittexttospeech__texttospeechconfigdialog_sendersignalindex_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_sendersignalindex_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = textedittexttospeech__texttospeechconfigdialog_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return TextEditTextToSpeech__TextToSpeechConfigDialog::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (textedittexttospeech__texttospeechconfigdialog_receivers_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_receivers_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::receivers(signal);
-        }
-        auto receivers_cb = textedittexttospeech__texttospeechconfigdialog_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return TextEditTextToSpeech__TextToSpeechConfigDialog::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (textedittexttospeech__texttospeechconfigdialog_issignalconnected_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_issignalconnected_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = textedittexttospeech__texttospeechconfigdialog_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return TextEditTextToSpeech__TextToSpeechConfigDialog::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (textedittexttospeech__texttospeechconfigdialog_getdecodedmetricf_isbase) {
-            textedittexttospeech__texttospeechconfigdialog_getdecodedmetricf_isbase = false;
-            return TextEditTextToSpeech__TextToSpeechConfigDialog::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = textedittexttospeech__texttospeechconfigdialog_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return TextEditTextToSpeech__TextToSpeechConfigDialog::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_KeyPressEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QKeyEvent* param1);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperKeyPressEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QKeyEvent* param1);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_CloseEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QCloseEvent* param1);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperCloseEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QCloseEvent* param1);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_ShowEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QShowEvent* param1);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperShowEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QShowEvent* param1);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_ResizeEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QResizeEvent* param1);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperResizeEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QResizeEvent* param1);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_ContextMenuEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QContextMenuEvent* param1);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperContextMenuEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QContextMenuEvent* param1);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_EventFilter(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QObject* param1, QEvent* param2);
     friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperEventFilter(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QObject* param1, QEvent* param2);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_Event(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEvent* event);
     friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_MousePressEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMouseEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMousePressEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMouseEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_MouseReleaseEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMouseEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMouseReleaseEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMouseEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_MouseDoubleClickEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMouseEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMouseDoubleClickEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMouseEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_MouseMoveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMouseEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMouseMoveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMouseEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_WheelEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QWheelEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperWheelEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QWheelEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_KeyReleaseEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QKeyEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperKeyReleaseEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QKeyEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_FocusInEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QFocusEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusInEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QFocusEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_FocusOutEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QFocusEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusOutEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QFocusEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_EnterEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEnterEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperEnterEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEnterEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_LeaveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperLeaveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_PaintEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QPaintEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperPaintEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QPaintEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_MoveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMoveEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMoveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QMoveEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_TabletEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QTabletEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperTabletEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QTabletEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_ActionEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QActionEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperActionEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QActionEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_DragEnterEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QDragEnterEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDragEnterEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QDragEnterEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_DragMoveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QDragMoveEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDragMoveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QDragMoveEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_DragLeaveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QDragLeaveEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDragLeaveEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QDragLeaveEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_DropEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QDropEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDropEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QDropEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_HideEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QHideEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperHideEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QHideEvent* event);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_NativeEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperNativeEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_ChangeEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEvent* param1);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperChangeEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEvent* param1);
-    friend int TextEditTextToSpeech__TextToSpeechConfigDialog_Metric(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, int param1);
     friend int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMetric(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, int param1);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_InitPainter(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, QPainter* painter);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperInitPainter(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, QPainter* painter);
-    friend QPaintDevice* TextEditTextToSpeech__TextToSpeechConfigDialog_Redirected(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, QPoint* offset);
     friend QPaintDevice* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperRedirected(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, QPoint* offset);
-    friend QPainter* TextEditTextToSpeech__TextToSpeechConfigDialog_SharedPainter(const TextEditTextToSpeech::TextToSpeechConfigDialog* self);
     friend QPainter* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperSharedPainter(const TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_InputMethodEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QInputMethodEvent* param1);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperInputMethodEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QInputMethodEvent* param1);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextPrevChild(TextEditTextToSpeech::TextToSpeechConfigDialog* self, bool next);
     friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusNextPrevChild(TextEditTextToSpeech::TextToSpeechConfigDialog* self, bool next);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_TimerEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QTimerEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperTimerEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QTimerEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_ChildEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QChildEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperChildEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QChildEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_CustomEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEvent* event);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperCustomEvent(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QEvent* event);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_ConnectNotify(TextEditTextToSpeech::TextToSpeechConfigDialog* self, const QMetaMethod* signal);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperConnectNotify(TextEditTextToSpeech::TextToSpeechConfigDialog* self, const QMetaMethod* signal);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_DisconnectNotify(TextEditTextToSpeech::TextToSpeechConfigDialog* self, const QMetaMethod* signal);
     friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDisconnectNotify(TextEditTextToSpeech::TextToSpeechConfigDialog* self, const QMetaMethod* signal);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_AdjustPosition(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QWidget* param1);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperAdjustPosition(TextEditTextToSpeech::TextToSpeechConfigDialog* self, QWidget* param1);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_UpdateMicroFocus(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperUpdateMicroFocus(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_Create(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperCreate(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_Destroy(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend void TextEditTextToSpeech__TextToSpeechConfigDialog_SuperDestroy(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_FocusNextChild(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusNextChild(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_FocusPreviousChild(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperFocusPreviousChild(TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend QObject* TextEditTextToSpeech__TextToSpeechConfigDialog_Sender(const TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend QObject* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperSender(const TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend int TextEditTextToSpeech__TextToSpeechConfigDialog_SenderSignalIndex(const TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperSenderSignalIndex(const TextEditTextToSpeech::TextToSpeechConfigDialog* self);
-    friend int TextEditTextToSpeech__TextToSpeechConfigDialog_Receivers(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, const char* signal);
-    friend int TextEditTextToSpeech__TextToSpeechConfigDialog_SuperReceivers(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, const char* signal);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_IsSignalConnected(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, const QMetaMethod* signal);
-    friend bool TextEditTextToSpeech__TextToSpeechConfigDialog_SuperIsSignalConnected(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, const QMetaMethod* signal);
-    friend double TextEditTextToSpeech__TextToSpeechConfigDialog_GetDecodedMetricF(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, int metricA, int metricB);
-    friend double TextEditTextToSpeech__TextToSpeechConfigDialog_SuperGetDecodedMetricF(const TextEditTextToSpeech::TextToSpeechConfigDialog* self, int metricA, int metricB);
 };
 
 #endif

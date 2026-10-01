@@ -34,56 +34,35 @@ int QSGFlatColorMaterial_Compare(const QSGFlatColorMaterial* self, const QSGMate
 
 // Base class handler implementation
 QSGMaterialType* QSGFlatColorMaterial_SuperType(const QSGFlatColorMaterial* self) {
-    auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self));
-    if (vqsgflatcolormaterial && vqsgflatcolormaterial->isVirtualQSGFlatColorMaterial) {
-        vqsgflatcolormaterial->setQSGFlatColorMaterial_Type_IsBase(true);
-        return vqsgflatcolormaterial->type();
-    } else {
-        return self->QSGFlatColorMaterial::type();
-    }
+    return self->QSGFlatColorMaterial::type();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGFlatColorMaterial_OnType(const QSGFlatColorMaterial* self, intptr_t slot) {
-    auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self));
-    if (vqsgflatcolormaterial && vqsgflatcolormaterial->isVirtualQSGFlatColorMaterial)
-        vqsgflatcolormaterial->setQSGFlatColorMaterial_Type_Callback(reinterpret_cast<VirtualQSGFlatColorMaterial::QSGFlatColorMaterial_Type_Callback>(slot));
+void QSGFlatColorMaterial_OnType(QSGFlatColorMaterial* self, intptr_t slot) {
+    if (auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self)))
+        vqsgflatcolormaterial->qsgflatcolormaterial_type_callback = reinterpret_cast<VirtualQSGFlatColorMaterial::QSGFlatColorMaterial_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 QSGMaterialShader* QSGFlatColorMaterial_SuperCreateShader(const QSGFlatColorMaterial* self, int renderMode) {
-    auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self));
-    if (vqsgflatcolormaterial && vqsgflatcolormaterial->isVirtualQSGFlatColorMaterial) {
-        vqsgflatcolormaterial->setQSGFlatColorMaterial_CreateShader_IsBase(true);
-        return vqsgflatcolormaterial->createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    } else {
-        return self->QSGFlatColorMaterial::createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    }
+    return self->QSGFlatColorMaterial::createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGFlatColorMaterial_OnCreateShader(const QSGFlatColorMaterial* self, intptr_t slot) {
-    auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self));
-    if (vqsgflatcolormaterial && vqsgflatcolormaterial->isVirtualQSGFlatColorMaterial)
-        vqsgflatcolormaterial->setQSGFlatColorMaterial_CreateShader_Callback(reinterpret_cast<VirtualQSGFlatColorMaterial::QSGFlatColorMaterial_CreateShader_Callback>(slot));
+void QSGFlatColorMaterial_OnCreateShader(QSGFlatColorMaterial* self, intptr_t slot) {
+    if (auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self)))
+        vqsgflatcolormaterial->qsgflatcolormaterial_createshader_callback = reinterpret_cast<VirtualQSGFlatColorMaterial::QSGFlatColorMaterial_CreateShader_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSGFlatColorMaterial_SuperCompare(const QSGFlatColorMaterial* self, const QSGMaterial* other) {
-    auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self));
-    if (vqsgflatcolormaterial && vqsgflatcolormaterial->isVirtualQSGFlatColorMaterial) {
-        vqsgflatcolormaterial->setQSGFlatColorMaterial_Compare_IsBase(true);
-        return vqsgflatcolormaterial->compare(other);
-    } else {
-        return self->QSGFlatColorMaterial::compare(other);
-    }
+    return self->QSGFlatColorMaterial::compare(other);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGFlatColorMaterial_OnCompare(const QSGFlatColorMaterial* self, intptr_t slot) {
-    auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self));
-    if (vqsgflatcolormaterial && vqsgflatcolormaterial->isVirtualQSGFlatColorMaterial)
-        vqsgflatcolormaterial->setQSGFlatColorMaterial_Compare_Callback(reinterpret_cast<VirtualQSGFlatColorMaterial::QSGFlatColorMaterial_Compare_Callback>(slot));
+void QSGFlatColorMaterial_OnCompare(QSGFlatColorMaterial* self, intptr_t slot) {
+    if (auto* vqsgflatcolormaterial = const_cast<VirtualQSGFlatColorMaterial*>(dynamic_cast<const VirtualQSGFlatColorMaterial*>(self)))
+        vqsgflatcolormaterial->qsgflatcolormaterial_compare_callback = reinterpret_cast<VirtualQSGFlatColorMaterial::QSGFlatColorMaterial_Compare_Callback>(slot);
 }
 
 void QSGFlatColorMaterial_Delete(QSGFlatColorMaterial* self) {

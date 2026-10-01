@@ -128,6 +128,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependentv3.html#isReady)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1234,6 +1236,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependentv2.html#deleteResource)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1252,6 +1256,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     /// Inherited from Attica::PlatformDependentV2
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependentv2.html#put)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1274,6 +1280,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     /// Inherited from Attica::PlatformDependentV2
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependentv2.html#put)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1320,6 +1328,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#getDefaultProviderFiles)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1344,6 +1354,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#addDefaultProviderFile)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1363,6 +1375,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#removeDefaultProviderFile)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1381,6 +1395,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     /// Inherited from Attica::PlatformDependent
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#enableProvider)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1403,6 +1419,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#isEnabled)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1422,6 +1440,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#hasCredentials)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1440,6 +1460,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     /// Inherited from Attica::PlatformDependent
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#loadCredentials)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1472,6 +1494,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#askForCredentials)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1502,6 +1526,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     /// Inherited from Attica::PlatformDependent
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#saveCredentials)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1534,6 +1560,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#get)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__PlatformDependentV3 `
@@ -1552,6 +1580,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     /// Inherited from Attica::PlatformDependent
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#post)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1574,6 +1604,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     /// Inherited from Attica::PlatformDependent
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#post)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -1618,6 +1650,8 @@ pub const Attica__PlatformDependentV3 = extern struct {
     /// Inherited from Attica::PlatformDependent
     ///
     /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#nam)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

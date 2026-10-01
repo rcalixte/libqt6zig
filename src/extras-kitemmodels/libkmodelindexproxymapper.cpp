@@ -104,364 +104,219 @@ libqt_string KModelIndexProxyMapper_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KModelIndexProxyMapper_SuperMetaObject(const KModelIndexProxyMapper* self) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_MetaObject_IsBase(true);
-        return (QMetaObject*)vkmodelindexproxymapper->metaObject();
-    } else {
-        return (QMetaObject*)self->KModelIndexProxyMapper::metaObject();
-    }
+    return (QMetaObject*)self->KModelIndexProxyMapper::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KModelIndexProxyMapper_OnMetaObject(const KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_MetaObject_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_MetaObject_Callback>(slot));
+void KModelIndexProxyMapper_OnMetaObject(KModelIndexProxyMapper* self, intptr_t slot) {
+    if (auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self)))
+        vkmodelindexproxymapper->kmodelindexproxymapper_metaobject_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KModelIndexProxyMapper_SuperMetacast(KModelIndexProxyMapper* self, const char* param1) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacast_IsBase(true);
-        return vkmodelindexproxymapper->qt_metacast(param1);
-    } else {
-        return self->KModelIndexProxyMapper::qt_metacast(param1);
-    }
+    return self->KModelIndexProxyMapper::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnMetacast(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacast_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Metacast_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_metacast_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KModelIndexProxyMapper_SuperMetacall(KModelIndexProxyMapper* self, int param1, int param2, void** param3) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacall_IsBase(true);
-        return vkmodelindexproxymapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KModelIndexProxyMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KModelIndexProxyMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnMetacall(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Metacall_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Metacall_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_metacall_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KModelIndexProxyMapper_Event(KModelIndexProxyMapper* self, QEvent* event) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return vkmodelindexproxymapper->event(event);
-    } else {
-        return self->KModelIndexProxyMapper::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KModelIndexProxyMapper_SuperEvent(KModelIndexProxyMapper* self, QEvent* event) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Event_IsBase(true);
-        return vkmodelindexproxymapper->event(event);
-    } else {
-        return self->KModelIndexProxyMapper::event(event);
-    }
+    return self->KModelIndexProxyMapper::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnEvent(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Event_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Event_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_event_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KModelIndexProxyMapper_EventFilter(KModelIndexProxyMapper* self, QObject* watched, QEvent* event) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return vkmodelindexproxymapper->eventFilter(watched, event);
-    } else {
-        return self->KModelIndexProxyMapper::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KModelIndexProxyMapper_SuperEventFilter(KModelIndexProxyMapper* self, QObject* watched, QEvent* event) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_EventFilter_IsBase(true);
-        return vkmodelindexproxymapper->eventFilter(watched, event);
-    } else {
-        return self->KModelIndexProxyMapper::eventFilter(watched, event);
-    }
+    return self->KModelIndexProxyMapper::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnEventFilter(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_EventFilter_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_EventFilter_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_eventfilter_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModelIndexProxyMapper_TimerEvent(KModelIndexProxyMapper* self, QTimerEvent* event) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper) {
         vkmodelindexproxymapper->timerEvent(event);
     } else {
-        ((VirtualKModelIndexProxyMapper*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModelIndexProxyMapper_SuperTimerEvent(KModelIndexProxyMapper* self, QTimerEvent* event) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_TimerEvent_IsBase(true);
-        vkmodelindexproxymapper->timerEvent(event);
-    } else {
-        ((VirtualKModelIndexProxyMapper*)self)->timerEvent(event);
-    }
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self)) {
+        vkmodelindexproxymapper->KModelIndexProxyMapper::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnTimerEvent(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_TimerEvent_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_TimerEvent_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_timerevent_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModelIndexProxyMapper_ChildEvent(KModelIndexProxyMapper* self, QChildEvent* event) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper) {
         vkmodelindexproxymapper->childEvent(event);
     } else {
-        ((VirtualKModelIndexProxyMapper*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModelIndexProxyMapper_SuperChildEvent(KModelIndexProxyMapper* self, QChildEvent* event) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_ChildEvent_IsBase(true);
-        vkmodelindexproxymapper->childEvent(event);
-    } else {
-        ((VirtualKModelIndexProxyMapper*)self)->childEvent(event);
-    }
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self)) {
+        vkmodelindexproxymapper->KModelIndexProxyMapper::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnChildEvent(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_ChildEvent_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_ChildEvent_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_childevent_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModelIndexProxyMapper_CustomEvent(KModelIndexProxyMapper* self, QEvent* event) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper) {
         vkmodelindexproxymapper->customEvent(event);
     } else {
-        ((VirtualKModelIndexProxyMapper*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModelIndexProxyMapper_SuperCustomEvent(KModelIndexProxyMapper* self, QEvent* event) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_CustomEvent_IsBase(true);
-        vkmodelindexproxymapper->customEvent(event);
-    } else {
-        ((VirtualKModelIndexProxyMapper*)self)->customEvent(event);
-    }
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self)) {
+        vkmodelindexproxymapper->KModelIndexProxyMapper::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnCustomEvent(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_CustomEvent_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_CustomEvent_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_customevent_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModelIndexProxyMapper_ConnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper) {
         vkmodelindexproxymapper->connectNotify(*signal);
     } else {
-        ((VirtualKModelIndexProxyMapper*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModelIndexProxyMapper_SuperConnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_ConnectNotify_IsBase(true);
-        vkmodelindexproxymapper->connectNotify(*signal);
-    } else {
-        ((VirtualKModelIndexProxyMapper*)self)->connectNotify(*signal);
-    }
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self)) {
+        vkmodelindexproxymapper->KModelIndexProxyMapper::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnConnectNotify(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_ConnectNotify_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_ConnectNotify_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_connectnotify_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KModelIndexProxyMapper_DisconnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal) {
     auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
+    if (vkmodelindexproxymapper) {
         vkmodelindexproxymapper->disconnectNotify(*signal);
     } else {
-        ((VirtualKModelIndexProxyMapper*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KModelIndexProxyMapper_SuperDisconnectNotify(KModelIndexProxyMapper* self, const QMetaMethod* signal) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_DisconnectNotify_IsBase(true);
-        vkmodelindexproxymapper->disconnectNotify(*signal);
-    } else {
-        ((VirtualKModelIndexProxyMapper*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self)) {
+        vkmodelindexproxymapper->KModelIndexProxyMapper::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KModelIndexProxyMapper::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KModelIndexProxyMapper_OnDisconnectNotify(KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_DisconnectNotify_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self))
+        vkmodelindexproxymapper->kmodelindexproxymapper_disconnectnotify_callback = reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KModelIndexProxyMapper_Sender(const KModelIndexProxyMapper* self) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return vkmodelindexproxymapper->sender();
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->sender();
-    }
+    if (auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self))) {
+        return vkmodelindexproxymapper->VirtualKModelIndexProxyMapper::sender();
+    } else
+        qFatal("Error: Protected method KModelIndexProxyMapper::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KModelIndexProxyMapper_SuperSender(const KModelIndexProxyMapper* self) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Sender_IsBase(true);
-        return vkmodelindexproxymapper->sender();
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModelIndexProxyMapper_OnSender(const KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Sender_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KModelIndexProxyMapper_SenderSignalIndex(const KModelIndexProxyMapper* self) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return vkmodelindexproxymapper->senderSignalIndex();
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->senderSignalIndex();
-    }
+    if (auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self))) {
+        return vkmodelindexproxymapper->VirtualKModelIndexProxyMapper::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KModelIndexProxyMapper::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KModelIndexProxyMapper_SuperSenderSignalIndex(const KModelIndexProxyMapper* self) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_SenderSignalIndex_IsBase(true);
-        return vkmodelindexproxymapper->senderSignalIndex();
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModelIndexProxyMapper_OnSenderSignalIndex(const KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KModelIndexProxyMapper_Receivers(const KModelIndexProxyMapper* self, const char* signal) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return vkmodelindexproxymapper->receivers(signal);
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->receivers(signal);
-    }
+    if (auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self))) {
+        return vkmodelindexproxymapper->VirtualKModelIndexProxyMapper::receivers(signal);
+    } else
+        qFatal("Error: Protected method KModelIndexProxyMapper::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KModelIndexProxyMapper_SuperReceivers(const KModelIndexProxyMapper* self, const char* signal) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Receivers_IsBase(true);
-        return vkmodelindexproxymapper->receivers(signal);
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModelIndexProxyMapper_OnReceivers(const KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_Receivers_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KModelIndexProxyMapper_IsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return vkmodelindexproxymapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KModelIndexProxyMapper_SuperIsSignalConnected(const KModelIndexProxyMapper* self, const QMetaMethod* signal) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_IsSignalConnected_IsBase(true);
-        return vkmodelindexproxymapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KModelIndexProxyMapper_OnIsSignalConnected(const KModelIndexProxyMapper* self, intptr_t slot) {
-    auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self));
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper)
-        vkmodelindexproxymapper->setKModelIndexProxyMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualKModelIndexProxyMapper::KModelIndexProxyMapper_IsSignalConnected_Callback>(slot));
+    if (auto* vkmodelindexproxymapper = const_cast<VirtualKModelIndexProxyMapper*>(dynamic_cast<const VirtualKModelIndexProxyMapper*>(self))) {
+        return vkmodelindexproxymapper->VirtualKModelIndexProxyMapper::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KModelIndexProxyMapper::isSignalConnected called without a directly constructed type");
 }
 
 void KModelIndexProxyMapper_Delete(KModelIndexProxyMapper* self) {

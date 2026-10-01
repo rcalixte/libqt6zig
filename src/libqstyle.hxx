@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QStyle so that we can call protected methods
+// This class is a subclass of QStyle
 class VirtualQStyle : public QStyle {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQStyle = true;
-
-    // Virtual class public types (including callbacks)
-    using QStyle_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QStyle_MetaObject_Callback = QMetaObject* (*)(const QStyle*);
     using QStyle_Metacast_Callback = void* (*)(QStyle*, const char*);
     using QStyle_Metacall_Callback = int (*)(QStyle*, int, int, void**);
     using QStyle_Polish_Callback = void (*)(QStyle*, QWidget*);
@@ -29,7 +25,7 @@ class VirtualQStyle : public QStyle {
     using QStyle_ItemPixmapRect_Callback = QRect* (*)(const QStyle*, QRect*, int, QPixmap*);
     using QStyle_DrawItemText_Callback = void (*)(const QStyle*, QPainter*, QRect*, int, QPalette*, bool, const char*, int);
     using QStyle_DrawItemPixmap_Callback = void (*)(const QStyle*, QPainter*, QRect*, int, QPixmap*);
-    using QStyle_StandardPalette_Callback = QPalette* (*)();
+    using QStyle_StandardPalette_Callback = QPalette* (*)(const QStyle*);
     using QStyle_DrawPrimitive_Callback = void (*)(const QStyle*, int, QStyleOption*, QPainter*, QWidget*);
     using QStyle_DrawControl_Callback = void (*)(const QStyle*, int, QStyleOption*, QPainter*, QWidget*);
     using QStyle_SubElementRect_Callback = QRect* (*)(const QStyle*, int, QStyleOption*, QWidget*);
@@ -50,12 +46,11 @@ class VirtualQStyle : public QStyle {
     using QStyle_CustomEvent_Callback = void (*)(QStyle*, QEvent*);
     using QStyle_ConnectNotify_Callback = void (*)(QStyle*, QMetaMethod*);
     using QStyle_DisconnectNotify_Callback = void (*)(QStyle*, QMetaMethod*);
-    using QStyle_Sender_Callback = QObject* (*)();
-    using QStyle_SenderSignalIndex_Callback = int (*)();
-    using QStyle_Receivers_Callback = int (*)(const QStyle*, const char*);
-    using QStyle_IsSignalConnected_Callback = bool (*)(const QStyle*, QMetaMethod*);
+    using QStyle::isSignalConnected;
+    using QStyle::receivers;
+    using QStyle::sender;
+    using QStyle::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QStyle_MetaObject_Callback qstyle_metaobject_callback = nullptr;
     QStyle_Metacast_Callback qstyle_metacast_callback = nullptr;
@@ -90,140 +85,22 @@ class VirtualQStyle : public QStyle {
     QStyle_CustomEvent_Callback qstyle_customevent_callback = nullptr;
     QStyle_ConnectNotify_Callback qstyle_connectnotify_callback = nullptr;
     QStyle_DisconnectNotify_Callback qstyle_disconnectnotify_callback = nullptr;
-    QStyle_Sender_Callback qstyle_sender_callback = nullptr;
-    QStyle_SenderSignalIndex_Callback qstyle_sendersignalindex_callback = nullptr;
-    QStyle_Receivers_Callback qstyle_receivers_callback = nullptr;
-    QStyle_IsSignalConnected_Callback qstyle_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qstyle_metaobject_isbase = false;
-    mutable bool qstyle_metacast_isbase = false;
-    mutable bool qstyle_metacall_isbase = false;
-    mutable bool qstyle_polish_isbase = false;
-    mutable bool qstyle_unpolish_isbase = false;
-    mutable bool qstyle_polish2_isbase = false;
-    mutable bool qstyle_unpolish2_isbase = false;
-    mutable bool qstyle_polish3_isbase = false;
-    mutable bool qstyle_itemtextrect_isbase = false;
-    mutable bool qstyle_itempixmaprect_isbase = false;
-    mutable bool qstyle_drawitemtext_isbase = false;
-    mutable bool qstyle_drawitempixmap_isbase = false;
-    mutable bool qstyle_standardpalette_isbase = false;
-    mutable bool qstyle_drawprimitive_isbase = false;
-    mutable bool qstyle_drawcontrol_isbase = false;
-    mutable bool qstyle_subelementrect_isbase = false;
-    mutable bool qstyle_drawcomplexcontrol_isbase = false;
-    mutable bool qstyle_hittestcomplexcontrol_isbase = false;
-    mutable bool qstyle_subcontrolrect_isbase = false;
-    mutable bool qstyle_pixelmetric_isbase = false;
-    mutable bool qstyle_sizefromcontents_isbase = false;
-    mutable bool qstyle_stylehint_isbase = false;
-    mutable bool qstyle_standardpixmap_isbase = false;
-    mutable bool qstyle_standardicon_isbase = false;
-    mutable bool qstyle_generatediconpixmap_isbase = false;
-    mutable bool qstyle_layoutspacing_isbase = false;
-    mutable bool qstyle_event_isbase = false;
-    mutable bool qstyle_eventfilter_isbase = false;
-    mutable bool qstyle_timerevent_isbase = false;
-    mutable bool qstyle_childevent_isbase = false;
-    mutable bool qstyle_customevent_isbase = false;
-    mutable bool qstyle_connectnotify_isbase = false;
-    mutable bool qstyle_disconnectnotify_isbase = false;
-    mutable bool qstyle_sender_isbase = false;
-    mutable bool qstyle_sendersignalindex_isbase = false;
-    mutable bool qstyle_receivers_isbase = false;
-    mutable bool qstyle_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QStyle {
+        using QStyle::childEvent;
+        using QStyle::connectNotify;
+        using QStyle::customEvent;
+        using QStyle::disconnectNotify;
+        using QStyle::timerEvent;
+    };
 
-  public:
     VirtualQStyle() : QStyle() {};
-
-    // Callback setters
-    inline void setQStyle_MetaObject_Callback(QStyle_MetaObject_Callback cb) { qstyle_metaobject_callback = cb; }
-    inline void setQStyle_Metacast_Callback(QStyle_Metacast_Callback cb) { qstyle_metacast_callback = cb; }
-    inline void setQStyle_Metacall_Callback(QStyle_Metacall_Callback cb) { qstyle_metacall_callback = cb; }
-    inline void setQStyle_Polish_Callback(QStyle_Polish_Callback cb) { qstyle_polish_callback = cb; }
-    inline void setQStyle_Unpolish_Callback(QStyle_Unpolish_Callback cb) { qstyle_unpolish_callback = cb; }
-    inline void setQStyle_Polish2_Callback(QStyle_Polish2_Callback cb) { qstyle_polish2_callback = cb; }
-    inline void setQStyle_Unpolish2_Callback(QStyle_Unpolish2_Callback cb) { qstyle_unpolish2_callback = cb; }
-    inline void setQStyle_Polish3_Callback(QStyle_Polish3_Callback cb) { qstyle_polish3_callback = cb; }
-    inline void setQStyle_ItemTextRect_Callback(QStyle_ItemTextRect_Callback cb) { qstyle_itemtextrect_callback = cb; }
-    inline void setQStyle_ItemPixmapRect_Callback(QStyle_ItemPixmapRect_Callback cb) { qstyle_itempixmaprect_callback = cb; }
-    inline void setQStyle_DrawItemText_Callback(QStyle_DrawItemText_Callback cb) { qstyle_drawitemtext_callback = cb; }
-    inline void setQStyle_DrawItemPixmap_Callback(QStyle_DrawItemPixmap_Callback cb) { qstyle_drawitempixmap_callback = cb; }
-    inline void setQStyle_StandardPalette_Callback(QStyle_StandardPalette_Callback cb) { qstyle_standardpalette_callback = cb; }
-    inline void setQStyle_DrawPrimitive_Callback(QStyle_DrawPrimitive_Callback cb) { qstyle_drawprimitive_callback = cb; }
-    inline void setQStyle_DrawControl_Callback(QStyle_DrawControl_Callback cb) { qstyle_drawcontrol_callback = cb; }
-    inline void setQStyle_SubElementRect_Callback(QStyle_SubElementRect_Callback cb) { qstyle_subelementrect_callback = cb; }
-    inline void setQStyle_DrawComplexControl_Callback(QStyle_DrawComplexControl_Callback cb) { qstyle_drawcomplexcontrol_callback = cb; }
-    inline void setQStyle_HitTestComplexControl_Callback(QStyle_HitTestComplexControl_Callback cb) { qstyle_hittestcomplexcontrol_callback = cb; }
-    inline void setQStyle_SubControlRect_Callback(QStyle_SubControlRect_Callback cb) { qstyle_subcontrolrect_callback = cb; }
-    inline void setQStyle_PixelMetric_Callback(QStyle_PixelMetric_Callback cb) { qstyle_pixelmetric_callback = cb; }
-    inline void setQStyle_SizeFromContents_Callback(QStyle_SizeFromContents_Callback cb) { qstyle_sizefromcontents_callback = cb; }
-    inline void setQStyle_StyleHint_Callback(QStyle_StyleHint_Callback cb) { qstyle_stylehint_callback = cb; }
-    inline void setQStyle_StandardPixmap_Callback(QStyle_StandardPixmap_Callback cb) { qstyle_standardpixmap_callback = cb; }
-    inline void setQStyle_StandardIcon_Callback(QStyle_StandardIcon_Callback cb) { qstyle_standardicon_callback = cb; }
-    inline void setQStyle_GeneratedIconPixmap_Callback(QStyle_GeneratedIconPixmap_Callback cb) { qstyle_generatediconpixmap_callback = cb; }
-    inline void setQStyle_LayoutSpacing_Callback(QStyle_LayoutSpacing_Callback cb) { qstyle_layoutspacing_callback = cb; }
-    inline void setQStyle_Event_Callback(QStyle_Event_Callback cb) { qstyle_event_callback = cb; }
-    inline void setQStyle_EventFilter_Callback(QStyle_EventFilter_Callback cb) { qstyle_eventfilter_callback = cb; }
-    inline void setQStyle_TimerEvent_Callback(QStyle_TimerEvent_Callback cb) { qstyle_timerevent_callback = cb; }
-    inline void setQStyle_ChildEvent_Callback(QStyle_ChildEvent_Callback cb) { qstyle_childevent_callback = cb; }
-    inline void setQStyle_CustomEvent_Callback(QStyle_CustomEvent_Callback cb) { qstyle_customevent_callback = cb; }
-    inline void setQStyle_ConnectNotify_Callback(QStyle_ConnectNotify_Callback cb) { qstyle_connectnotify_callback = cb; }
-    inline void setQStyle_DisconnectNotify_Callback(QStyle_DisconnectNotify_Callback cb) { qstyle_disconnectnotify_callback = cb; }
-    inline void setQStyle_Sender_Callback(QStyle_Sender_Callback cb) { qstyle_sender_callback = cb; }
-    inline void setQStyle_SenderSignalIndex_Callback(QStyle_SenderSignalIndex_Callback cb) { qstyle_sendersignalindex_callback = cb; }
-    inline void setQStyle_Receivers_Callback(QStyle_Receivers_Callback cb) { qstyle_receivers_callback = cb; }
-    inline void setQStyle_IsSignalConnected_Callback(QStyle_IsSignalConnected_Callback cb) { qstyle_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQStyle_MetaObject_IsBase(bool value) const { qstyle_metaobject_isbase = value; }
-    inline void setQStyle_Metacast_IsBase(bool value) const { qstyle_metacast_isbase = value; }
-    inline void setQStyle_Metacall_IsBase(bool value) const { qstyle_metacall_isbase = value; }
-    inline void setQStyle_Polish_IsBase(bool value) const { qstyle_polish_isbase = value; }
-    inline void setQStyle_Unpolish_IsBase(bool value) const { qstyle_unpolish_isbase = value; }
-    inline void setQStyle_Polish2_IsBase(bool value) const { qstyle_polish2_isbase = value; }
-    inline void setQStyle_Unpolish2_IsBase(bool value) const { qstyle_unpolish2_isbase = value; }
-    inline void setQStyle_Polish3_IsBase(bool value) const { qstyle_polish3_isbase = value; }
-    inline void setQStyle_ItemTextRect_IsBase(bool value) const { qstyle_itemtextrect_isbase = value; }
-    inline void setQStyle_ItemPixmapRect_IsBase(bool value) const { qstyle_itempixmaprect_isbase = value; }
-    inline void setQStyle_DrawItemText_IsBase(bool value) const { qstyle_drawitemtext_isbase = value; }
-    inline void setQStyle_DrawItemPixmap_IsBase(bool value) const { qstyle_drawitempixmap_isbase = value; }
-    inline void setQStyle_StandardPalette_IsBase(bool value) const { qstyle_standardpalette_isbase = value; }
-    inline void setQStyle_DrawPrimitive_IsBase(bool value) const { qstyle_drawprimitive_isbase = value; }
-    inline void setQStyle_DrawControl_IsBase(bool value) const { qstyle_drawcontrol_isbase = value; }
-    inline void setQStyle_SubElementRect_IsBase(bool value) const { qstyle_subelementrect_isbase = value; }
-    inline void setQStyle_DrawComplexControl_IsBase(bool value) const { qstyle_drawcomplexcontrol_isbase = value; }
-    inline void setQStyle_HitTestComplexControl_IsBase(bool value) const { qstyle_hittestcomplexcontrol_isbase = value; }
-    inline void setQStyle_SubControlRect_IsBase(bool value) const { qstyle_subcontrolrect_isbase = value; }
-    inline void setQStyle_PixelMetric_IsBase(bool value) const { qstyle_pixelmetric_isbase = value; }
-    inline void setQStyle_SizeFromContents_IsBase(bool value) const { qstyle_sizefromcontents_isbase = value; }
-    inline void setQStyle_StyleHint_IsBase(bool value) const { qstyle_stylehint_isbase = value; }
-    inline void setQStyle_StandardPixmap_IsBase(bool value) const { qstyle_standardpixmap_isbase = value; }
-    inline void setQStyle_StandardIcon_IsBase(bool value) const { qstyle_standardicon_isbase = value; }
-    inline void setQStyle_GeneratedIconPixmap_IsBase(bool value) const { qstyle_generatediconpixmap_isbase = value; }
-    inline void setQStyle_LayoutSpacing_IsBase(bool value) const { qstyle_layoutspacing_isbase = value; }
-    inline void setQStyle_Event_IsBase(bool value) const { qstyle_event_isbase = value; }
-    inline void setQStyle_EventFilter_IsBase(bool value) const { qstyle_eventfilter_isbase = value; }
-    inline void setQStyle_TimerEvent_IsBase(bool value) const { qstyle_timerevent_isbase = value; }
-    inline void setQStyle_ChildEvent_IsBase(bool value) const { qstyle_childevent_isbase = value; }
-    inline void setQStyle_CustomEvent_IsBase(bool value) const { qstyle_customevent_isbase = value; }
-    inline void setQStyle_ConnectNotify_IsBase(bool value) const { qstyle_connectnotify_isbase = value; }
-    inline void setQStyle_DisconnectNotify_IsBase(bool value) const { qstyle_disconnectnotify_isbase = value; }
-    inline void setQStyle_Sender_IsBase(bool value) const { qstyle_sender_isbase = value; }
-    inline void setQStyle_SenderSignalIndex_IsBase(bool value) const { qstyle_sendersignalindex_isbase = value; }
-    inline void setQStyle_Receivers_IsBase(bool value) const { qstyle_receivers_isbase = value; }
-    inline void setQStyle_IsSignalConnected_IsBase(bool value) const { qstyle_issignalconnected_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qstyle_metaobject_isbase) {
-            qstyle_metaobject_isbase = false;
-            return QStyle::metaObject();
-        }
-        auto metaobject_cb = qstyle_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qstyle_metaobject_callback) {
+            QMetaObject* callback_ret = qstyle_metaobject_callback(this);
             return callback_ret;
         }
         return QStyle::metaObject();
@@ -231,14 +108,9 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qstyle_metacast_isbase) {
-            qstyle_metacast_isbase = false;
-            return QStyle::qt_metacast(param1);
-        }
-        auto metacast_cb = qstyle_metacast_callback;
-        if (metacast_cb) {
+        if (qstyle_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qstyle_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QStyle::qt_metacast(param1);
@@ -246,16 +118,11 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qstyle_metacall_isbase) {
-            qstyle_metacall_isbase = false;
-            return QStyle::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qstyle_metacall_callback;
-        if (metacall_cb) {
+        if (qstyle_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qstyle_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QStyle::qt_metacall(param1, param2, param3);
@@ -263,15 +130,9 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QWidget* widget) override {
-        if (qstyle_polish_isbase) {
-            qstyle_polish_isbase = false;
-            QStyle::polish(widget);
-            return;
-        }
-        auto polish_cb = qstyle_polish_callback;
-        if (polish_cb) {
+        if (qstyle_polish_callback) {
             QWidget* cbval1 = widget;
-            polish_cb(this, cbval1);
+            qstyle_polish_callback(this, cbval1);
             return;
         }
         QStyle::polish(widget);
@@ -279,15 +140,9 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void unpolish(QWidget* widget) override {
-        if (qstyle_unpolish_isbase) {
-            qstyle_unpolish_isbase = false;
-            QStyle::unpolish(widget);
-            return;
-        }
-        auto unpolish_cb = qstyle_unpolish_callback;
-        if (unpolish_cb) {
+        if (qstyle_unpolish_callback) {
             QWidget* cbval1 = widget;
-            unpolish_cb(this, cbval1);
+            qstyle_unpolish_callback(this, cbval1);
             return;
         }
         QStyle::unpolish(widget);
@@ -295,15 +150,9 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QApplication* application) override {
-        if (qstyle_polish2_isbase) {
-            qstyle_polish2_isbase = false;
-            QStyle::polish(application);
-            return;
-        }
-        auto polish2_cb = qstyle_polish2_callback;
-        if (polish2_cb) {
+        if (qstyle_polish2_callback) {
             QApplication* cbval1 = application;
-            polish2_cb(this, cbval1);
+            qstyle_polish2_callback(this, cbval1);
             return;
         }
         QStyle::polish(application);
@@ -311,15 +160,9 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void unpolish(QApplication* application) override {
-        if (qstyle_unpolish2_isbase) {
-            qstyle_unpolish2_isbase = false;
-            QStyle::unpolish(application);
-            return;
-        }
-        auto unpolish2_cb = qstyle_unpolish2_callback;
-        if (unpolish2_cb) {
+        if (qstyle_unpolish2_callback) {
             QApplication* cbval1 = application;
-            unpolish2_cb(this, cbval1);
+            qstyle_unpolish2_callback(this, cbval1);
             return;
         }
         QStyle::unpolish(application);
@@ -327,17 +170,11 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QPalette& palette) override {
-        if (qstyle_polish3_isbase) {
-            qstyle_polish3_isbase = false;
-            QStyle::polish(palette);
-            return;
-        }
-        auto polish3_cb = qstyle_polish3_callback;
-        if (polish3_cb) {
+        if (qstyle_polish3_callback) {
             QPalette& palette_ret = palette;
             // Cast returned reference into pointer
             QPalette* cbval1 = &palette_ret;
-            polish3_cb(this, cbval1);
+            qstyle_polish3_callback(this, cbval1);
             return;
         }
         QStyle::polish(palette);
@@ -345,12 +182,7 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual QRect itemTextRect(const QFontMetrics& fm, const QRect& r, int flags, bool enabled, const QString& text) const override {
-        if (qstyle_itemtextrect_isbase) {
-            qstyle_itemtextrect_isbase = false;
-            return QStyle::itemTextRect(fm, r, flags, enabled, text);
-        }
-        auto itemtextrect_cb = qstyle_itemtextrect_callback;
-        if (itemtextrect_cb) {
+        if (qstyle_itemtextrect_callback) {
             const QFontMetrics& fm_ret = fm;
             // Cast returned reference into pointer
             QFontMetrics* cbval1 = const_cast<QFontMetrics*>(&fm_ret);
@@ -367,7 +199,7 @@ class VirtualQStyle : public QStyle {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval5 = text_str;
-            QRect* callback_ret = itemtextrect_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QRect* callback_ret = qstyle_itemtextrect_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             libqt_free(text_str);
@@ -378,12 +210,7 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual QRect itemPixmapRect(const QRect& r, int flags, const QPixmap& pixmap) const override {
-        if (qstyle_itempixmaprect_isbase) {
-            qstyle_itempixmaprect_isbase = false;
-            return QStyle::itemPixmapRect(r, flags, pixmap);
-        }
-        auto itempixmaprect_cb = qstyle_itempixmaprect_callback;
-        if (itempixmaprect_cb) {
+        if (qstyle_itempixmaprect_callback) {
             const QRect& r_ret = r;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&r_ret);
@@ -391,7 +218,7 @@ class VirtualQStyle : public QStyle {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval3 = const_cast<QPixmap*>(&pixmap_ret);
-            QRect* callback_ret = itempixmaprect_cb(this, cbval1, cbval2, cbval3);
+            QRect* callback_ret = qstyle_itempixmaprect_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -401,13 +228,7 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void drawItemText(QPainter* painter, const QRect& rect, int flags, const QPalette& pal, bool enabled, const QString& text, QPalette::ColorRole textRole) const override {
-        if (qstyle_drawitemtext_isbase) {
-            qstyle_drawitemtext_isbase = false;
-            QStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
-            return;
-        }
-        auto drawitemtext_cb = qstyle_drawitemtext_callback;
-        if (drawitemtext_cb) {
+        if (qstyle_drawitemtext_callback) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
@@ -426,7 +247,7 @@ class VirtualQStyle : public QStyle {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval6 = text_str;
             int cbval7 = static_cast<int>(textRole);
-            drawitemtext_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
+            qstyle_drawitemtext_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             libqt_free(text_str);
             return;
         }
@@ -435,13 +256,7 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void drawItemPixmap(QPainter* painter, const QRect& rect, int alignment, const QPixmap& pixmap) const override {
-        if (qstyle_drawitempixmap_isbase) {
-            qstyle_drawitempixmap_isbase = false;
-            QStyle::drawItemPixmap(painter, rect, alignment, pixmap);
-            return;
-        }
-        auto drawitempixmap_cb = qstyle_drawitempixmap_callback;
-        if (drawitempixmap_cb) {
+        if (qstyle_drawitempixmap_callback) {
             QPainter* cbval1 = painter;
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
@@ -450,7 +265,7 @@ class VirtualQStyle : public QStyle {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval4 = const_cast<QPixmap*>(&pixmap_ret);
-            drawitempixmap_cb(this, cbval1, cbval2, cbval3, cbval4);
+            qstyle_drawitempixmap_callback(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
         QStyle::drawItemPixmap(painter, rect, alignment, pixmap);
@@ -458,13 +273,8 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual QPalette standardPalette() const override {
-        if (qstyle_standardpalette_isbase) {
-            qstyle_standardpalette_isbase = false;
-            return QStyle::standardPalette();
-        }
-        auto standardpalette_cb = qstyle_standardpalette_callback;
-        if (standardpalette_cb) {
-            QPalette* callback_ret = standardpalette_cb();
+        if (qstyle_standardpalette_callback) {
+            QPalette* callback_ret = qstyle_standardpalette_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -474,204 +284,205 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void drawPrimitive(QStyle::PrimitiveElement pe, const QStyleOption* opt, QPainter* p, const QWidget* w) const override {
-        auto drawprimitive_cb = qstyle_drawprimitive_callback;
-        if (drawprimitive_cb) {
+        if (qstyle_drawprimitive_callback) {
             int cbval1 = static_cast<int>(pe);
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QPainter* cbval3 = p;
             QWidget* cbval4 = (QWidget*)w;
-            drawprimitive_cb(this, cbval1, cbval2, cbval3, cbval4);
+            qstyle_drawprimitive_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::drawPrimitive called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void drawControl(QStyle::ControlElement element, const QStyleOption* opt, QPainter* p, const QWidget* w) const override {
-        auto drawcontrol_cb = qstyle_drawcontrol_callback;
-        if (drawcontrol_cb) {
+        if (qstyle_drawcontrol_callback) {
             int cbval1 = static_cast<int>(element);
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QPainter* cbval3 = p;
             QWidget* cbval4 = (QWidget*)w;
-            drawcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
+            qstyle_drawcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::drawControl called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRect subElementRect(QStyle::SubElement subElement, const QStyleOption* option, const QWidget* widget) const override {
-        auto subelementrect_cb = qstyle_subelementrect_callback;
-        if (subelementrect_cb) {
+        if (qstyle_subelementrect_callback) {
             int cbval1 = static_cast<int>(subElement);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-            QRect* callback_ret = subelementrect_cb(this, cbval1, cbval2, cbval3);
+            QRect* callback_ret = qstyle_subelementrect_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::subElementRect called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual void drawComplexControl(QStyle::ComplexControl cc, const QStyleOptionComplex* opt, QPainter* p, const QWidget* widget) const override {
-        auto drawcomplexcontrol_cb = qstyle_drawcomplexcontrol_callback;
-        if (drawcomplexcontrol_cb) {
+        if (qstyle_drawcomplexcontrol_callback) {
             int cbval1 = static_cast<int>(cc);
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
             QPainter* cbval3 = p;
             QWidget* cbval4 = (QWidget*)widget;
-            drawcomplexcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
+            qstyle_drawcomplexcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
+            return;
         }
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::drawComplexControl called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QStyle::SubControl hitTestComplexControl(QStyle::ComplexControl cc, const QStyleOptionComplex* opt, const QPoint& pt, const QWidget* widget) const override {
-        auto hittestcomplexcontrol_cb = qstyle_hittestcomplexcontrol_callback;
-        if (hittestcomplexcontrol_cb) {
+        if (qstyle_hittestcomplexcontrol_callback) {
             int cbval1 = static_cast<int>(cc);
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
             const QPoint& pt_ret = pt;
             // Cast returned reference into pointer
             QPoint* cbval3 = const_cast<QPoint*>(&pt_ret);
             QWidget* cbval4 = (QWidget*)widget;
-            int callback_ret = hittestcomplexcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
+            int callback_ret = qstyle_hittestcomplexcontrol_callback(this, cbval1, cbval2, cbval3, cbval4);
             return static_cast<QStyle::SubControl>(callback_ret);
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::hitTestComplexControl called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QRect subControlRect(QStyle::ComplexControl cc, const QStyleOptionComplex* opt, QStyle::SubControl sc, const QWidget* widget) const override {
-        auto subcontrolrect_cb = qstyle_subcontrolrect_callback;
-        if (subcontrolrect_cb) {
+        if (qstyle_subcontrolrect_callback) {
             int cbval1 = static_cast<int>(cc);
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
             int cbval3 = static_cast<int>(sc);
             QWidget* cbval4 = (QWidget*)widget;
-            QRect* callback_ret = subcontrolrect_cb(this, cbval1, cbval2, cbval3, cbval4);
+            QRect* callback_ret = qstyle_subcontrolrect_callback(this, cbval1, cbval2, cbval3, cbval4);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::subControlRect called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int pixelMetric(QStyle::PixelMetric metric, const QStyleOption* option, const QWidget* widget) const override {
-        auto pixelmetric_cb = qstyle_pixelmetric_callback;
-        if (pixelmetric_cb) {
+        if (qstyle_pixelmetric_callback) {
             int cbval1 = static_cast<int>(metric);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-            int callback_ret = pixelmetric_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qstyle_pixelmetric_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::pixelMetric called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeFromContents(QStyle::ContentsType ct, const QStyleOption* opt, const QSize& contentsSize, const QWidget* w) const override {
-        auto sizefromcontents_cb = qstyle_sizefromcontents_callback;
-        if (sizefromcontents_cb) {
+        if (qstyle_sizefromcontents_callback) {
             int cbval1 = static_cast<int>(ct);
             QStyleOption* cbval2 = (QStyleOption*)opt;
             const QSize& contentsSize_ret = contentsSize;
             // Cast returned reference into pointer
             QSize* cbval3 = const_cast<QSize*>(&contentsSize_ret);
             QWidget* cbval4 = (QWidget*)w;
-            QSize* callback_ret = sizefromcontents_cb(this, cbval1, cbval2, cbval3, cbval4);
+            QSize* callback_ret = qstyle_sizefromcontents_callback(this, cbval1, cbval2, cbval3, cbval4);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::sizeFromContents called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int styleHint(QStyle::StyleHint stylehint, const QStyleOption* opt, const QWidget* widget, QStyleHintReturn* returnData) const override {
-        auto stylehint_cb = qstyle_stylehint_callback;
-        if (stylehint_cb) {
+        if (qstyle_stylehint_callback) {
             int cbval1 = static_cast<int>(stylehint);
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QWidget* cbval3 = (QWidget*)widget;
             QStyleHintReturn* cbval4 = returnData;
-            int callback_ret = stylehint_cb(this, cbval1, cbval2, cbval3, cbval4);
+            int callback_ret = qstyle_stylehint_callback(this, cbval1, cbval2, cbval3, cbval4);
             return static_cast<int>(callback_ret);
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::styleHint called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QPixmap standardPixmap(QStyle::StandardPixmap standardPixmap, const QStyleOption* opt, const QWidget* widget) const override {
-        auto standardpixmap_cb = qstyle_standardpixmap_callback;
-        if (standardpixmap_cb) {
+        if (qstyle_standardpixmap_callback) {
             int cbval1 = static_cast<int>(standardPixmap);
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QWidget* cbval3 = (QWidget*)widget;
-            QPixmap* callback_ret = standardpixmap_cb(this, cbval1, cbval2, cbval3);
+            QPixmap* callback_ret = qstyle_standardpixmap_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::standardPixmap called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QIcon standardIcon(QStyle::StandardPixmap standardIcon, const QStyleOption* option, const QWidget* widget) const override {
-        auto standardicon_cb = qstyle_standardicon_callback;
-        if (standardicon_cb) {
+        if (qstyle_standardicon_callback) {
             int cbval1 = static_cast<int>(standardIcon);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-            QIcon* callback_ret = standardicon_cb(this, cbval1, cbval2, cbval3);
+            QIcon* callback_ret = qstyle_standardicon_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::standardIcon called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual QPixmap generatedIconPixmap(QIcon::Mode iconMode, const QPixmap& pixmap, const QStyleOption* opt) const override {
-        auto generatediconpixmap_cb = qstyle_generatediconpixmap_callback;
-        if (generatediconpixmap_cb) {
+        if (qstyle_generatediconpixmap_callback) {
             int cbval1 = static_cast<int>(iconMode);
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval2 = const_cast<QPixmap*>(&pixmap_ret);
             QStyleOption* cbval3 = (QStyleOption*)opt;
-            QPixmap* callback_ret = generatediconpixmap_cb(this, cbval1, cbval2, cbval3);
+            QPixmap* callback_ret = qstyle_generatediconpixmap_callback(this, cbval1, cbval2, cbval3);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::generatedIconPixmap called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual int layoutSpacing(QSizePolicy::ControlType control1, QSizePolicy::ControlType control2, Qt::Orientation orientation, const QStyleOption* option, const QWidget* widget) const override {
-        auto layoutspacing_cb = qstyle_layoutspacing_callback;
-        if (layoutspacing_cb) {
+        if (qstyle_layoutspacing_callback) {
             int cbval1 = static_cast<int>(control1);
             int cbval2 = static_cast<int>(control2);
             int cbval3 = static_cast<int>(orientation);
             QStyleOption* cbval4 = (QStyleOption*)option;
             QWidget* cbval5 = (QWidget*)widget;
-            int callback_ret = layoutspacing_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            int callback_ret = qstyle_layoutspacing_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return static_cast<int>(callback_ret);
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QStyle::layoutSpacing called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qstyle_event_isbase) {
-            qstyle_event_isbase = false;
-            return QStyle::event(event);
-        }
-        auto event_cb = qstyle_event_callback;
-        if (event_cb) {
+        if (qstyle_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qstyle_event_callback(this, cbval1);
             return callback_ret;
         }
         return QStyle::event(event);
@@ -679,15 +490,10 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qstyle_eventfilter_isbase) {
-            qstyle_eventfilter_isbase = false;
-            return QStyle::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qstyle_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qstyle_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qstyle_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QStyle::eventFilter(watched, event);
@@ -695,15 +501,9 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qstyle_timerevent_isbase) {
-            qstyle_timerevent_isbase = false;
-            QStyle::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qstyle_timerevent_callback;
-        if (timerevent_cb) {
+        if (qstyle_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qstyle_timerevent_callback(this, cbval1);
             return;
         }
         QStyle::timerEvent(event);
@@ -711,15 +511,9 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qstyle_childevent_isbase) {
-            qstyle_childevent_isbase = false;
-            QStyle::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qstyle_childevent_callback;
-        if (childevent_cb) {
+        if (qstyle_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qstyle_childevent_callback(this, cbval1);
             return;
         }
         QStyle::childEvent(event);
@@ -727,15 +521,9 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qstyle_customevent_isbase) {
-            qstyle_customevent_isbase = false;
-            QStyle::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qstyle_customevent_callback;
-        if (customevent_cb) {
+        if (qstyle_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qstyle_customevent_callback(this, cbval1);
             return;
         }
         QStyle::customEvent(event);
@@ -743,17 +531,11 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qstyle_connectnotify_isbase) {
-            qstyle_connectnotify_isbase = false;
-            QStyle::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qstyle_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qstyle_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qstyle_connectnotify_callback(this, cbval1);
             return;
         }
         QStyle::connectNotify(signal);
@@ -761,101 +543,22 @@ class VirtualQStyle : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qstyle_disconnectnotify_isbase) {
-            qstyle_disconnectnotify_isbase = false;
-            QStyle::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qstyle_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qstyle_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qstyle_disconnectnotify_callback(this, cbval1);
             return;
         }
         QStyle::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qstyle_sender_isbase) {
-            qstyle_sender_isbase = false;
-            return QStyle::sender();
-        }
-        auto sender_cb = qstyle_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QStyle::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qstyle_sendersignalindex_isbase) {
-            qstyle_sendersignalindex_isbase = false;
-            return QStyle::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qstyle_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QStyle::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qstyle_receivers_isbase) {
-            qstyle_receivers_isbase = false;
-            return QStyle::receivers(signal);
-        }
-        auto receivers_cb = qstyle_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QStyle::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qstyle_issignalconnected_isbase) {
-            qstyle_issignalconnected_isbase = false;
-            return QStyle::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qstyle_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QStyle::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QStyle_TimerEvent(QStyle* self, QTimerEvent* event);
     friend void QStyle_SuperTimerEvent(QStyle* self, QTimerEvent* event);
-    friend void QStyle_ChildEvent(QStyle* self, QChildEvent* event);
     friend void QStyle_SuperChildEvent(QStyle* self, QChildEvent* event);
-    friend void QStyle_CustomEvent(QStyle* self, QEvent* event);
     friend void QStyle_SuperCustomEvent(QStyle* self, QEvent* event);
-    friend void QStyle_ConnectNotify(QStyle* self, const QMetaMethod* signal);
     friend void QStyle_SuperConnectNotify(QStyle* self, const QMetaMethod* signal);
-    friend void QStyle_DisconnectNotify(QStyle* self, const QMetaMethod* signal);
     friend void QStyle_SuperDisconnectNotify(QStyle* self, const QMetaMethod* signal);
-    friend QObject* QStyle_Sender(const QStyle* self);
-    friend QObject* QStyle_SuperSender(const QStyle* self);
-    friend int QStyle_SenderSignalIndex(const QStyle* self);
-    friend int QStyle_SuperSenderSignalIndex(const QStyle* self);
-    friend int QStyle_Receivers(const QStyle* self, const char* signal);
-    friend int QStyle_SuperReceivers(const QStyle* self, const char* signal);
-    friend bool QStyle_IsSignalConnected(const QStyle* self, const QMetaMethod* signal);
-    friend bool QStyle_SuperIsSignalConnected(const QStyle* self, const QMetaMethod* signal);
 };
 
 #endif

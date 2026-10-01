@@ -123,17 +123,17 @@ void QGraphicsVideoItem_Connect_NativeSizeChanged(QGraphicsVideoItem* self, intp
 
 void QGraphicsVideoItem_TimerEvent(QGraphicsVideoItem* self, QTimerEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->timerEvent(event);
     }
 }
 
 QVariant* QGraphicsVideoItem_ItemChange(QGraphicsVideoItem* self, int change, const QVariant* value) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         return new QVariant(vqgraphicsvideoitem->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
     }
-    return {};
+    qFatal("Error: Protected method QGraphicsVideoItem::itemChange called without a directly constructed type");
 }
 
 libqt_string QGraphicsVideoItem_Tr2(const char* s, const char* c) {
@@ -162,1401 +162,971 @@ libqt_string QGraphicsVideoItem_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QGraphicsVideoItem_SuperMetaObject(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MetaObject_IsBase(true);
-        return (QMetaObject*)vqgraphicsvideoitem->metaObject();
-    } else {
-        return (QMetaObject*)self->QGraphicsVideoItem::metaObject();
-    }
+    return (QMetaObject*)self->QGraphicsVideoItem::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnMetaObject(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MetaObject_Callback>(slot));
+void QGraphicsVideoItem_OnMetaObject(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_metaobject_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QGraphicsVideoItem_SuperMetacast(QGraphicsVideoItem* self, const char* param1) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacast_IsBase(true);
-        return vqgraphicsvideoitem->qt_metacast(param1);
-    } else {
-        return self->QGraphicsVideoItem::qt_metacast(param1);
-    }
+    return self->QGraphicsVideoItem::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMetacast(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacast_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacast_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_metacast_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGraphicsVideoItem_SuperMetacall(QGraphicsVideoItem* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacall_IsBase(true);
-        return vqgraphicsvideoitem->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QGraphicsVideoItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QGraphicsVideoItem::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMetacall(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Metacall_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacall_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_metacall_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QRectF* QGraphicsVideoItem_SuperBoundingRect(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_BoundingRect_IsBase(true);
-        return new QRectF(vqgraphicsvideoitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsVideoItem*)self)->boundingRect());
-    }
+    return new QRectF(self->QGraphicsVideoItem::boundingRect());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnBoundingRect(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_BoundingRect_Callback>(slot));
+void QGraphicsVideoItem_OnBoundingRect(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_boundingrect_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_BoundingRect_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperPaint(QGraphicsVideoItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Paint_IsBase(true);
-        vqgraphicsvideoitem->paint(painter, option, widget);
-    } else {
-        self->QGraphicsVideoItem::paint(painter, option, widget);
-    }
+    self->QGraphicsVideoItem::paint(painter, option, widget);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnPaint(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Paint_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Paint_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_paint_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Paint_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGraphicsVideoItem_SuperType(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Type_IsBase(true);
-        return vqgraphicsvideoitem->type();
-    } else {
-        return self->QGraphicsVideoItem::type();
-    }
+    return self->QGraphicsVideoItem::type();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnType(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Type_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Type_Callback>(slot));
+void QGraphicsVideoItem_OnType(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_type_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Type_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperTimerEvent(QGraphicsVideoItem* self, QTimerEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_TimerEvent_IsBase(true);
-        vqgraphicsvideoitem->timerEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->timerEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnTimerEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_TimerEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_timerevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QGraphicsVideoItem_SuperItemChange(QGraphicsVideoItem* self, int change, const QVariant* value) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ItemChange_IsBase(true);
-        return new QVariant(vqgraphicsvideoitem->itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
-    }
-    return {};
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        return new QVariant(vqgraphicsvideoitem->QGraphicsVideoItem::itemChange(static_cast<QGraphicsItem::GraphicsItemChange>(change), *value));
+    qFatal("Error: Protected virtual method QGraphicsVideoItem::itemChange called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnItemChange(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ItemChange_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ItemChange_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_itemchange_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ItemChange_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_Event(QGraphicsVideoItem* self, QEvent* ev) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         return vqgraphicsvideoitem->event(ev);
     } else {
-        return ((VirtualQGraphicsVideoItem*)self)->event(ev);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperEvent(QGraphicsVideoItem* self, QEvent* ev) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Event_IsBase(true);
-        return vqgraphicsvideoitem->event(ev);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->event(ev);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        return vqgraphicsvideoitem->QGraphicsVideoItem::event(ev);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Event_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Event_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_event_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_EventFilter(QGraphicsVideoItem* self, QObject* watched, QEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->eventFilter(watched, event);
-    } else {
-        return self->QGraphicsVideoItem::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperEventFilter(QGraphicsVideoItem* self, QObject* watched, QEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_EventFilter_IsBase(true);
-        return vqgraphicsvideoitem->eventFilter(watched, event);
-    } else {
-        return self->QGraphicsVideoItem::eventFilter(watched, event);
-    }
+    return self->QGraphicsVideoItem::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnEventFilter(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_EventFilter_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_eventfilter_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_ChildEvent(QGraphicsVideoItem* self, QChildEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->childEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperChildEvent(QGraphicsVideoItem* self, QChildEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ChildEvent_IsBase(true);
-        vqgraphicsvideoitem->childEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->childEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnChildEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ChildEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_childevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_CustomEvent(QGraphicsVideoItem* self, QEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->customEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperCustomEvent(QGraphicsVideoItem* self, QEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_CustomEvent_IsBase(true);
-        vqgraphicsvideoitem->customEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->customEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnCustomEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CustomEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_customevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_ConnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->connectNotify(*signal);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperConnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ConnectNotify_IsBase(true);
-        vqgraphicsvideoitem->connectNotify(*signal);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->connectNotify(*signal);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnConnectNotify(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ConnectNotify_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_connectnotify_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_DisconnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->disconnectNotify(*signal);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperDisconnectNotify(QGraphicsVideoItem* self, const QMetaMethod* signal) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DisconnectNotify_IsBase(true);
-        vqgraphicsvideoitem->disconnectNotify(*signal);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDisconnectNotify(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DisconnectNotify_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_disconnectnotify_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_Advance(QGraphicsVideoItem* self, int phase) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->advance(static_cast<int>(phase));
-    } else {
-        self->QGraphicsVideoItem::advance(static_cast<int>(phase));
-    }
+    self->advance(static_cast<int>(phase));
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperAdvance(QGraphicsVideoItem* self, int phase) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Advance_IsBase(true);
-        vqgraphicsvideoitem->advance(static_cast<int>(phase));
-    } else {
-        self->QGraphicsVideoItem::advance(static_cast<int>(phase));
-    }
+    self->QGraphicsVideoItem::advance(static_cast<int>(phase));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnAdvance(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Advance_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Advance_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_advance_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Advance_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainterPath* QGraphicsVideoItem_Shape(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return new QPainterPath(vqgraphicsvideoitem->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsVideoItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 // Base class handler implementation
 QPainterPath* QGraphicsVideoItem_SuperShape(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Shape_IsBase(true);
-        return new QPainterPath(vqgraphicsvideoitem->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsVideoItem*)self)->shape());
-    }
+    return new QPainterPath(self->QGraphicsVideoItem::shape());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnShape(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Shape_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Shape_Callback>(slot));
+void QGraphicsVideoItem_OnShape(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_shape_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Shape_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_Contains(const QGraphicsVideoItem* self, const QPointF* point) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->contains(*point);
-    } else {
-        return self->QGraphicsVideoItem::contains(*point);
-    }
+    return self->contains(*point);
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperContains(const QGraphicsVideoItem* self, const QPointF* point) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Contains_IsBase(true);
-        return vqgraphicsvideoitem->contains(*point);
-    } else {
-        return self->QGraphicsVideoItem::contains(*point);
-    }
+    return self->QGraphicsVideoItem::contains(*point);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnContains(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Contains_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Contains_Callback>(slot));
+void QGraphicsVideoItem_OnContains(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_contains_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Contains_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_CollidesWithItem(const QGraphicsVideoItem* self, const QGraphicsItem* other, int mode) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return self->QGraphicsVideoItem::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperCollidesWithItem(const QGraphicsVideoItem* self, const QGraphicsItem* other, int mode) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_CollidesWithItem_IsBase(true);
-        return vqgraphicsvideoitem->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return self->QGraphicsVideoItem::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->QGraphicsVideoItem::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnCollidesWithItem(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_CollidesWithItem_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CollidesWithItem_Callback>(slot));
+void QGraphicsVideoItem_OnCollidesWithItem(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_collideswithitem_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CollidesWithItem_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_CollidesWithPath(const QGraphicsVideoItem* self, const QPainterPath* path, int mode) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return self->QGraphicsVideoItem::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperCollidesWithPath(const QGraphicsVideoItem* self, const QPainterPath* path, int mode) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_CollidesWithPath_IsBase(true);
-        return vqgraphicsvideoitem->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return self->QGraphicsVideoItem::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->QGraphicsVideoItem::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnCollidesWithPath(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_CollidesWithPath_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CollidesWithPath_Callback>(slot));
+void QGraphicsVideoItem_OnCollidesWithPath(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_collideswithpath_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_CollidesWithPath_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_IsObscuredBy(const QGraphicsVideoItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->isObscuredBy(item);
-    } else {
-        return self->QGraphicsVideoItem::isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperIsObscuredBy(const QGraphicsVideoItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_IsObscuredBy_IsBase(true);
-        return vqgraphicsvideoitem->isObscuredBy(item);
-    } else {
-        return self->QGraphicsVideoItem::isObscuredBy(item);
-    }
+    return self->QGraphicsVideoItem::isObscuredBy(item);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnIsObscuredBy(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_IsObscuredBy_Callback>(slot));
+void QGraphicsVideoItem_OnIsObscuredBy(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_isobscuredby_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_IsObscuredBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainterPath* QGraphicsVideoItem_OpaqueArea(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return new QPainterPath(vqgraphicsvideoitem->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsVideoItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 // Base class handler implementation
 QPainterPath* QGraphicsVideoItem_SuperOpaqueArea(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_OpaqueArea_IsBase(true);
-        return new QPainterPath(vqgraphicsvideoitem->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsVideoItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->QGraphicsVideoItem::opaqueArea());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnOpaqueArea(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_OpaqueArea_Callback>(slot));
+void QGraphicsVideoItem_OnOpaqueArea(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_opaquearea_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_OpaqueArea_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_SceneEventFilter(QGraphicsVideoItem* self, QGraphicsItem* watched, QEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         return vqgraphicsvideoitem->sceneEventFilter(watched, event);
     } else {
-        return ((VirtualQGraphicsVideoItem*)self)->sceneEventFilter(watched, event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::sceneEventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperSceneEventFilter(QGraphicsVideoItem* self, QGraphicsItem* watched, QEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SceneEventFilter_IsBase(true);
-        return vqgraphicsvideoitem->sceneEventFilter(watched, event);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->sceneEventFilter(watched, event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        return vqgraphicsvideoitem->QGraphicsVideoItem::sceneEventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::sceneEventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSceneEventFilter(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SceneEventFilter_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SceneEventFilter_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_sceneeventfilter_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SceneEventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_SceneEvent(QGraphicsVideoItem* self, QEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         return vqgraphicsvideoitem->sceneEvent(event);
     } else {
-        return ((VirtualQGraphicsVideoItem*)self)->sceneEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::sceneEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperSceneEvent(QGraphicsVideoItem* self, QEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SceneEvent_IsBase(true);
-        return vqgraphicsvideoitem->sceneEvent(event);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->sceneEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        return vqgraphicsvideoitem->QGraphicsVideoItem::sceneEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::sceneEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSceneEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SceneEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SceneEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_sceneevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SceneEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_ContextMenuEvent(QGraphicsVideoItem* self, QGraphicsSceneContextMenuEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->contextMenuEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperContextMenuEvent(QGraphicsVideoItem* self, QGraphicsSceneContextMenuEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ContextMenuEvent_IsBase(true);
-        vqgraphicsvideoitem->contextMenuEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnContextMenuEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ContextMenuEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_contextmenuevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_DragEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->dragEnterEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperDragEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DragEnterEvent_IsBase(true);
-        vqgraphicsvideoitem->dragEnterEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDragEnterEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragEnterEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_dragenterevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_DragLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->dragLeaveEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperDragLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DragLeaveEvent_IsBase(true);
-        vqgraphicsvideoitem->dragLeaveEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDragLeaveEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragLeaveEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_dragleaveevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_DragMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->dragMoveEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperDragMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DragMoveEvent_IsBase(true);
-        vqgraphicsvideoitem->dragMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDragMoveEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragMoveEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_dragmoveevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_DropEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->dropEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperDropEvent(QGraphicsVideoItem* self, QGraphicsSceneDragDropEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DropEvent_IsBase(true);
-        vqgraphicsvideoitem->dropEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->dropEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnDropEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DropEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_dropevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_FocusInEvent(QGraphicsVideoItem* self, QFocusEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->focusInEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperFocusInEvent(QGraphicsVideoItem* self, QFocusEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_FocusInEvent_IsBase(true);
-        vqgraphicsvideoitem->focusInEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->focusInEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnFocusInEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_FocusInEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_focusinevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_FocusOutEvent(QGraphicsVideoItem* self, QFocusEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->focusOutEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperFocusOutEvent(QGraphicsVideoItem* self, QFocusEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_FocusOutEvent_IsBase(true);
-        vqgraphicsvideoitem->focusOutEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->focusOutEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnFocusOutEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_FocusOutEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_focusoutevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_HoverEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->hoverEnterEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->hoverEnterEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::hoverEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperHoverEnterEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_HoverEnterEvent_IsBase(true);
-        vqgraphicsvideoitem->hoverEnterEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->hoverEnterEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::hoverEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::hoverEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnHoverEnterEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_HoverEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverEnterEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_hoverenterevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_HoverMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->hoverMoveEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->hoverMoveEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::hoverMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperHoverMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_HoverMoveEvent_IsBase(true);
-        vqgraphicsvideoitem->hoverMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->hoverMoveEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::hoverMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::hoverMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnHoverMoveEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_HoverMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverMoveEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_hovermoveevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_HoverLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->hoverLeaveEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->hoverLeaveEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::hoverLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperHoverLeaveEvent(QGraphicsVideoItem* self, QGraphicsSceneHoverEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_HoverLeaveEvent_IsBase(true);
-        vqgraphicsvideoitem->hoverLeaveEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->hoverLeaveEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::hoverLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::hoverLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnHoverLeaveEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverLeaveEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_hoverleaveevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_HoverLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_KeyPressEvent(QGraphicsVideoItem* self, QKeyEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->keyPressEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperKeyPressEvent(QGraphicsVideoItem* self, QKeyEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_KeyPressEvent_IsBase(true);
-        vqgraphicsvideoitem->keyPressEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->keyPressEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnKeyPressEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_KeyPressEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_keypressevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_KeyReleaseEvent(QGraphicsVideoItem* self, QKeyEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->keyReleaseEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperKeyReleaseEvent(QGraphicsVideoItem* self, QKeyEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_KeyReleaseEvent_IsBase(true);
-        vqgraphicsvideoitem->keyReleaseEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnKeyReleaseEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_keyreleaseevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_MousePressEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->mousePressEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperMousePressEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MousePressEvent_IsBase(true);
-        vqgraphicsvideoitem->mousePressEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->mousePressEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMousePressEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MousePressEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_mousepressevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_MouseMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->mouseMoveEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperMouseMoveEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MouseMoveEvent_IsBase(true);
-        vqgraphicsvideoitem->mouseMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMouseMoveEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseMoveEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_mousemoveevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_MouseReleaseEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->mouseReleaseEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperMouseReleaseEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MouseReleaseEvent_IsBase(true);
-        vqgraphicsvideoitem->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMouseReleaseEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_mousereleaseevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_MouseDoubleClickEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperMouseDoubleClickEvent(QGraphicsVideoItem* self, QGraphicsSceneMouseEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MouseDoubleClickEvent_IsBase(true);
-        vqgraphicsvideoitem->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnMouseDoubleClickEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_mousedoubleclickevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_WheelEvent(QGraphicsVideoItem* self, QGraphicsSceneWheelEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->wheelEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperWheelEvent(QGraphicsVideoItem* self, QGraphicsSceneWheelEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_WheelEvent_IsBase(true);
-        vqgraphicsvideoitem->wheelEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->wheelEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnWheelEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_WheelEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_wheelevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_InputMethodEvent(QGraphicsVideoItem* self, QInputMethodEvent* event) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->inputMethodEvent(event);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->inputMethodEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperInputMethodEvent(QGraphicsVideoItem* self, QInputMethodEvent* event) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_InputMethodEvent_IsBase(true);
-        vqgraphicsvideoitem->inputMethodEvent(event);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnInputMethodEvent(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_InputMethodEvent_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_inputmethodevent_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QGraphicsVideoItem_InputMethodQuery(const QGraphicsVideoItem* self, int query) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return new QVariant(vqgraphicsvideoitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-    return {};
+    return new QVariant((self->*&VirtualQGraphicsVideoItem::Base::inputMethodQuery)(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* QGraphicsVideoItem_SuperInputMethodQuery(const QGraphicsVideoItem* self, int query) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_InputMethodQuery_IsBase(true);
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
         return new QVariant(vqgraphicsvideoitem->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QGraphicsVideoItem::inputMethodQuery called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnInputMethodQuery(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_InputMethodQuery_Callback>(slot));
+void QGraphicsVideoItem_OnInputMethodQuery(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_inputmethodquery_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsVideoItem_SupportsExtension(const QGraphicsVideoItem* self, int extension) {
     auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         return vqgraphicsvideoitem->supportsExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension));
     } else {
-        return ((VirtualQGraphicsVideoItem*)self)->supportsExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension));
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::supportsExtension called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QGraphicsVideoItem_SuperSupportsExtension(const QGraphicsVideoItem* self, int extension) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SupportsExtension_IsBase(true);
-        return vqgraphicsvideoitem->supportsExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension));
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->supportsExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension));
-    }
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self))) {
+        return vqgraphicsvideoitem->QGraphicsVideoItem::supportsExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension));
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::supportsExtension called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnSupportsExtension(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SupportsExtension_Callback>(slot));
+void QGraphicsVideoItem_OnSupportsExtension(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_supportsextension_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SupportsExtension_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsVideoItem_SetExtension(QGraphicsVideoItem* self, int extension, const QVariant* variant) {
     auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
+    if (vqgraphicsvideoitem) {
         vqgraphicsvideoitem->setExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension), *variant);
     } else {
-        ((VirtualQGraphicsVideoItem*)self)->setExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension), *variant);
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::setExtension called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsVideoItem_SuperSetExtension(QGraphicsVideoItem* self, int extension, const QVariant* variant) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SetExtension_IsBase(true);
-        vqgraphicsvideoitem->setExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension), *variant);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->setExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension), *variant);
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->QGraphicsVideoItem::setExtension(static_cast<VirtualQGraphicsVideoItem::Extension>(extension), *variant);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsVideoItem::setExtension called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsVideoItem_OnSetExtension(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SetExtension_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self))
+        vqgraphicsvideoitem->qgraphicsvideoitem_setextension_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SetExtension_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QGraphicsVideoItem_Extension(const QGraphicsVideoItem* self, const QVariant* variant) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return new QVariant(vqgraphicsvideoitem->extension(*variant));
-    }
-    return {};
+    return new QVariant((self->*&VirtualQGraphicsVideoItem::Base::extension)(*variant));
 }
 
 // Base class handler implementation
 QVariant* QGraphicsVideoItem_SuperExtension(const QGraphicsVideoItem* self, const QVariant* variant) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Extension_IsBase(true);
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
         return new QVariant(vqgraphicsvideoitem->extension(*variant));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QGraphicsVideoItem::extension called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnExtension(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Extension_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Extension_Callback>(slot));
+void QGraphicsVideoItem_OnExtension(QGraphicsVideoItem* self, intptr_t slot) {
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self)))
+        vqgraphicsvideoitem->qgraphicsvideoitem_extension_callback = reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Extension_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsVideoItem_UpdateMicroFocus(QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->updateMicroFocus();
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->updateMicroFocus();
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->VirtualQGraphicsVideoItem::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QGraphicsVideoItem::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsVideoItem_SuperUpdateMicroFocus(QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_UpdateMicroFocus_IsBase(true);
-        vqgraphicsvideoitem->updateMicroFocus();
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnUpdateMicroFocus(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QGraphicsVideoItem_Sender(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->sender();
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->sender();
-    }
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self))) {
+        return vqgraphicsvideoitem->VirtualQGraphicsVideoItem::sender();
+    } else
+        qFatal("Error: Protected method QGraphicsVideoItem::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QGraphicsVideoItem_SuperSender(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Sender_IsBase(true);
-        return vqgraphicsvideoitem->sender();
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnSender(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Sender_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGraphicsVideoItem_SenderSignalIndex(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->senderSignalIndex();
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->senderSignalIndex();
-    }
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self))) {
+        return vqgraphicsvideoitem->VirtualQGraphicsVideoItem::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QGraphicsVideoItem::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGraphicsVideoItem_SuperSenderSignalIndex(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SenderSignalIndex_IsBase(true);
-        return vqgraphicsvideoitem->senderSignalIndex();
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnSenderSignalIndex(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGraphicsVideoItem_Receivers(const QGraphicsVideoItem* self, const char* signal) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->receivers(signal);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->receivers(signal);
-    }
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self))) {
+        return vqgraphicsvideoitem->VirtualQGraphicsVideoItem::receivers(signal);
+    } else
+        qFatal("Error: Protected method QGraphicsVideoItem::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGraphicsVideoItem_SuperReceivers(const QGraphicsVideoItem* self, const char* signal) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Receivers_IsBase(true);
-        return vqgraphicsvideoitem->receivers(signal);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnReceivers(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_Receivers_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGraphicsVideoItem_IsSignalConnected(const QGraphicsVideoItem* self, const QMetaMethod* signal) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return vqgraphicsvideoitem->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self))) {
+        return vqgraphicsvideoitem->VirtualQGraphicsVideoItem::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QGraphicsVideoItem::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QGraphicsVideoItem_SuperIsSignalConnected(const QGraphicsVideoItem* self, const QMetaMethod* signal) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_IsSignalConnected_IsBase(true);
-        return vqgraphicsvideoitem->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnIsSignalConnected(const QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = const_cast<VirtualQGraphicsVideoItem*>(dynamic_cast<const VirtualQGraphicsVideoItem*>(self));
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsVideoItem_AddToIndex(QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->addToIndex();
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->addToIndex();
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->VirtualQGraphicsVideoItem::addToIndex();
+    } else
+        qFatal("Error: Protected method QGraphicsVideoItem::addToIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsVideoItem_SuperAddToIndex(QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_AddToIndex_IsBase(true);
-        vqgraphicsvideoitem->addToIndex();
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->addToIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnAddToIndex(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_AddToIndex_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_AddToIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsVideoItem_RemoveFromIndex(QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->removeFromIndex();
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->removeFromIndex();
-    }
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->VirtualQGraphicsVideoItem::removeFromIndex();
+    } else
+        qFatal("Error: Protected method QGraphicsVideoItem::removeFromIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsVideoItem_SuperRemoveFromIndex(QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_RemoveFromIndex_IsBase(true);
-        vqgraphicsvideoitem->removeFromIndex();
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->removeFromIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnRemoveFromIndex(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_RemoveFromIndex_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_RemoveFromIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsVideoItem_PrepareGeometryChange(QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->prepareGeometryChange();
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->prepareGeometryChange();
-    }
-}
-
-// Base class handler implementation
-void QGraphicsVideoItem_SuperPrepareGeometryChange(QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        vqgraphicsvideoitem->setQGraphicsVideoItem_PrepareGeometryChange_IsBase(true);
-        vqgraphicsvideoitem->prepareGeometryChange();
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->prepareGeometryChange();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsVideoItem_OnPrepareGeometryChange(QGraphicsVideoItem* self, intptr_t slot) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem)
-        vqgraphicsvideoitem->setQGraphicsVideoItem_PrepareGeometryChange_Callback(reinterpret_cast<VirtualQGraphicsVideoItem::QGraphicsVideoItem_PrepareGeometryChange_Callback>(slot));
+    if (auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self)) {
+        vqgraphicsvideoitem->VirtualQGraphicsVideoItem::prepareGeometryChange();
+    } else
+        qFatal("Error: Protected method QGraphicsVideoItem::prepareGeometryChange called without a directly constructed type");
 }
 
 void QGraphicsVideoItem_Delete(QGraphicsVideoItem* self) {

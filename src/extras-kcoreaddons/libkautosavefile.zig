@@ -118,9 +118,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KAutoSaveFile, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) QMetaObject) void {
         qtc.KAutoSaveFile_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -322,9 +322,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) void `
     ///
-    pub fn onReleaseLock(self: KAutoSaveFile, callback: *const fn () callconv(.c) void) void {
+    pub fn onReleaseLock(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnReleaseLock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3097,9 +3097,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onFileName(self: KAutoSaveFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFileName(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) [*:0]const u8) void {
         qtc.KAutoSaveFile_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3153,9 +3153,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) i64 `
     ///
-    pub fn onSize(self: KAutoSaveFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3277,9 +3277,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) i32 `
     ///
-    pub fn onPermissions(self: KAutoSaveFile, callback: *const fn () callconv(.c) i32) void {
+    pub fn onPermissions(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) i32) void {
         qtc.KAutoSaveFile_OnPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3393,9 +3393,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) void `
     ///
-    pub fn onClose(self: KAutoSaveFile, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) void) void {
         qtc.KAutoSaveFile_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3449,9 +3449,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) bool `
     ///
-    pub fn onIsSequential(self: KAutoSaveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3505,9 +3505,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) i64 `
     ///
-    pub fn onPos(self: KAutoSaveFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3621,9 +3621,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) bool `
     ///
-    pub fn onAtEnd(self: KAutoSaveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3875,9 +3875,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) bool `
     ///
-    pub fn onReset(self: KAutoSaveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3931,9 +3931,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) i64 `
     ///
-    pub fn onBytesAvailable(self: KAutoSaveFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3987,9 +3987,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) i64 `
     ///
-    pub fn onBytesToWrite(self: KAutoSaveFile, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) i64) void {
         qtc.KAutoSaveFile_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4043,9 +4043,9 @@ pub const KAutoSaveFile = extern struct {
     ///
     /// ` self: KAutoSaveFile`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KAutoSaveFile) callconv(.c) bool `
     ///
-    pub fn onCanReadLine(self: KAutoSaveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile) callconv(.c) bool) void {
         qtc.KAutoSaveFile_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4689,46 +4689,6 @@ pub const KAutoSaveFile = extern struct {
         qtc.KAutoSaveFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `superSetOpenMode` instead
-    ///
-    pub const SuperSetOpenMode = superSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAutoSaveFile `
-    ///
-    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
-    ///
-    pub fn superSetOpenMode(self: KAutoSaveFile, _openMode: i32) void {
-        qtc.KAutoSaveFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
-    }
-
-    /// ### DEPRECATED: Use `onSetOpenMode` instead
-    ///
-    pub const OnSetOpenMode = onSetOpenMode;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setOpenMode)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAutoSaveFile`
-    ///
-    /// ` callback: *const fn (self: KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
-    ///
-    pub fn onSetOpenMode(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, i32) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setErrorString` instead
     ///
     pub const SetErrorString = setErrorString;
@@ -4753,50 +4713,6 @@ pub const KAutoSaveFile = extern struct {
         qtc.KAutoSaveFile_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorString` instead
-    ///
-    pub const SuperSetErrorString = superSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAutoSaveFile `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetErrorString(self: KAutoSaveFile, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.KAutoSaveFile_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorString` instead
-    ///
-    pub const OnSetErrorString = onSetErrorString;
-
-    /// Inherited from QIODevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#setErrorString)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAutoSaveFile`
-    ///
-    /// ` callback: *const fn (self: KAutoSaveFile, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorString(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, [*:0]const u8) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -4815,44 +4731,6 @@ pub const KAutoSaveFile = extern struct {
         return .{ .ptr = qtc.KAutoSaveFile_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAutoSaveFile `
-    ///
-    pub fn superSender(self: KAutoSaveFile) QObject {
-        return .{ .ptr = qtc.KAutoSaveFile_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAutoSaveFile`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KAutoSaveFile, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KAutoSaveFile_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4869,44 +4747,6 @@ pub const KAutoSaveFile = extern struct {
     ///
     pub fn senderSignalIndex(self: KAutoSaveFile) i32 {
         return qtc.KAutoSaveFile_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAutoSaveFile `
-    ///
-    pub fn superSenderSignalIndex(self: KAutoSaveFile) i32 {
-        return qtc.KAutoSaveFile_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAutoSaveFile`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KAutoSaveFile, callback: *const fn () callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4930,47 +4770,6 @@ pub const KAutoSaveFile = extern struct {
         return qtc.KAutoSaveFile_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAutoSaveFile `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KAutoSaveFile, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KAutoSaveFile_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAutoSaveFile`
-    ///
-    /// ` callback: *const fn (self: KAutoSaveFile, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4990,47 +4789,6 @@ pub const KAutoSaveFile = extern struct {
     pub fn isSignalConnected(self: KAutoSaveFile, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KAutoSaveFile_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAutoSaveFile `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KAutoSaveFile, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KAutoSaveFile_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KAutoSaveFile`
-    ///
-    /// ` callback: *const fn (self: KAutoSaveFile, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KAutoSaveFile, callback: *const fn (KAutoSaveFile, QMetaMethod) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -37,7 +37,7 @@ void QFinalState_OnExit(QFinalState* self, QEvent* event);
 bool QFinalState_Event(QFinalState* self, QEvent* e);
 libqt_string QFinalState_Tr2(const char* s, const char* c);
 libqt_string QFinalState_Tr3(const char* s, const char* c, int n);
-void QFinalState_OnMetaObject(const QFinalState* self, intptr_t slot);
+void QFinalState_OnMetaObject(QFinalState* self, intptr_t slot);
 QMetaObject* QFinalState_SuperMetaObject(const QFinalState* self);
 void QFinalState_OnMetacast(QFinalState* self, intptr_t slot);
 void* QFinalState_SuperMetacast(QFinalState* self, const char* param1);
@@ -68,17 +68,9 @@ void QFinalState_DisconnectNotify(QFinalState* self, const QMetaMethod* signal);
 void QFinalState_OnDisconnectNotify(QFinalState* self, intptr_t slot);
 void QFinalState_SuperDisconnectNotify(QFinalState* self, const QMetaMethod* signal);
 QObject* QFinalState_Sender(const QFinalState* self);
-void QFinalState_OnSender(const QFinalState* self, intptr_t slot);
-QObject* QFinalState_SuperSender(const QFinalState* self);
 int QFinalState_SenderSignalIndex(const QFinalState* self);
-void QFinalState_OnSenderSignalIndex(const QFinalState* self, intptr_t slot);
-int QFinalState_SuperSenderSignalIndex(const QFinalState* self);
 int QFinalState_Receivers(const QFinalState* self, const char* signal);
-void QFinalState_OnReceivers(const QFinalState* self, intptr_t slot);
-int QFinalState_SuperReceivers(const QFinalState* self, const char* signal);
 bool QFinalState_IsSignalConnected(const QFinalState* self, const QMetaMethod* signal);
-void QFinalState_OnIsSignalConnected(const QFinalState* self, intptr_t slot);
-bool QFinalState_SuperIsSignalConnected(const QFinalState* self, const QMetaMethod* signal);
 void QFinalState_Delete(QFinalState* self);
 
 #ifdef __cplusplus

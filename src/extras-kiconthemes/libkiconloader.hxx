@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KIconLoader so that we can call protected methods
+// This class is a subclass of KIconLoader
 class VirtualKIconLoader final : public KIconLoader {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKIconLoader = true;
-
-    // Virtual class public types (including callbacks)
-    using KIconLoader_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KIconLoader_MetaObject_Callback = QMetaObject* (*)(const KIconLoader*);
     using KIconLoader_Metacast_Callback = void* (*)(KIconLoader*, const char*);
     using KIconLoader_Metacall_Callback = int (*)(KIconLoader*, int, int, void**);
     using KIconLoader_Event_Callback = bool (*)(KIconLoader*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualKIconLoader final : public KIconLoader {
     using KIconLoader_CustomEvent_Callback = void (*)(KIconLoader*, QEvent*);
     using KIconLoader_ConnectNotify_Callback = void (*)(KIconLoader*, QMetaMethod*);
     using KIconLoader_DisconnectNotify_Callback = void (*)(KIconLoader*, QMetaMethod*);
-    using KIconLoader_Sender_Callback = QObject* (*)();
-    using KIconLoader_SenderSignalIndex_Callback = int (*)();
-    using KIconLoader_Receivers_Callback = int (*)(const KIconLoader*, const char*);
-    using KIconLoader_IsSignalConnected_Callback = bool (*)(const KIconLoader*, QMetaMethod*);
+    using KIconLoader::isSignalConnected;
+    using KIconLoader::receivers;
+    using KIconLoader::sender;
+    using KIconLoader::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KIconLoader_MetaObject_Callback kiconloader_metaobject_callback = nullptr;
     KIconLoader_Metacast_Callback kiconloader_metacast_callback = nullptr;
@@ -44,74 +39,25 @@ class VirtualKIconLoader final : public KIconLoader {
     KIconLoader_CustomEvent_Callback kiconloader_customevent_callback = nullptr;
     KIconLoader_ConnectNotify_Callback kiconloader_connectnotify_callback = nullptr;
     KIconLoader_DisconnectNotify_Callback kiconloader_disconnectnotify_callback = nullptr;
-    KIconLoader_Sender_Callback kiconloader_sender_callback = nullptr;
-    KIconLoader_SenderSignalIndex_Callback kiconloader_sendersignalindex_callback = nullptr;
-    KIconLoader_Receivers_Callback kiconloader_receivers_callback = nullptr;
-    KIconLoader_IsSignalConnected_Callback kiconloader_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kiconloader_metaobject_isbase = false;
-    mutable bool kiconloader_metacast_isbase = false;
-    mutable bool kiconloader_metacall_isbase = false;
-    mutable bool kiconloader_event_isbase = false;
-    mutable bool kiconloader_eventfilter_isbase = false;
-    mutable bool kiconloader_timerevent_isbase = false;
-    mutable bool kiconloader_childevent_isbase = false;
-    mutable bool kiconloader_customevent_isbase = false;
-    mutable bool kiconloader_connectnotify_isbase = false;
-    mutable bool kiconloader_disconnectnotify_isbase = false;
-    mutable bool kiconloader_sender_isbase = false;
-    mutable bool kiconloader_sendersignalindex_isbase = false;
-    mutable bool kiconloader_receivers_isbase = false;
-    mutable bool kiconloader_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KIconLoader {
+        using KIconLoader::childEvent;
+        using KIconLoader::connectNotify;
+        using KIconLoader::customEvent;
+        using KIconLoader::disconnectNotify;
+        using KIconLoader::timerEvent;
+    };
 
-  public:
     VirtualKIconLoader() : KIconLoader() {};
     VirtualKIconLoader(const QString& appname) : KIconLoader(appname) {};
     VirtualKIconLoader(const QString& appname, const QList<QString>& extraSearchPaths) : KIconLoader(appname, extraSearchPaths) {};
     VirtualKIconLoader(const QString& appname, const QList<QString>& extraSearchPaths, QObject* parent) : KIconLoader(appname, extraSearchPaths, parent) {};
 
-    // Callback setters
-    inline void setKIconLoader_MetaObject_Callback(KIconLoader_MetaObject_Callback cb) { kiconloader_metaobject_callback = cb; }
-    inline void setKIconLoader_Metacast_Callback(KIconLoader_Metacast_Callback cb) { kiconloader_metacast_callback = cb; }
-    inline void setKIconLoader_Metacall_Callback(KIconLoader_Metacall_Callback cb) { kiconloader_metacall_callback = cb; }
-    inline void setKIconLoader_Event_Callback(KIconLoader_Event_Callback cb) { kiconloader_event_callback = cb; }
-    inline void setKIconLoader_EventFilter_Callback(KIconLoader_EventFilter_Callback cb) { kiconloader_eventfilter_callback = cb; }
-    inline void setKIconLoader_TimerEvent_Callback(KIconLoader_TimerEvent_Callback cb) { kiconloader_timerevent_callback = cb; }
-    inline void setKIconLoader_ChildEvent_Callback(KIconLoader_ChildEvent_Callback cb) { kiconloader_childevent_callback = cb; }
-    inline void setKIconLoader_CustomEvent_Callback(KIconLoader_CustomEvent_Callback cb) { kiconloader_customevent_callback = cb; }
-    inline void setKIconLoader_ConnectNotify_Callback(KIconLoader_ConnectNotify_Callback cb) { kiconloader_connectnotify_callback = cb; }
-    inline void setKIconLoader_DisconnectNotify_Callback(KIconLoader_DisconnectNotify_Callback cb) { kiconloader_disconnectnotify_callback = cb; }
-    inline void setKIconLoader_Sender_Callback(KIconLoader_Sender_Callback cb) { kiconloader_sender_callback = cb; }
-    inline void setKIconLoader_SenderSignalIndex_Callback(KIconLoader_SenderSignalIndex_Callback cb) { kiconloader_sendersignalindex_callback = cb; }
-    inline void setKIconLoader_Receivers_Callback(KIconLoader_Receivers_Callback cb) { kiconloader_receivers_callback = cb; }
-    inline void setKIconLoader_IsSignalConnected_Callback(KIconLoader_IsSignalConnected_Callback cb) { kiconloader_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKIconLoader_MetaObject_IsBase(bool value) const { kiconloader_metaobject_isbase = value; }
-    inline void setKIconLoader_Metacast_IsBase(bool value) const { kiconloader_metacast_isbase = value; }
-    inline void setKIconLoader_Metacall_IsBase(bool value) const { kiconloader_metacall_isbase = value; }
-    inline void setKIconLoader_Event_IsBase(bool value) const { kiconloader_event_isbase = value; }
-    inline void setKIconLoader_EventFilter_IsBase(bool value) const { kiconloader_eventfilter_isbase = value; }
-    inline void setKIconLoader_TimerEvent_IsBase(bool value) const { kiconloader_timerevent_isbase = value; }
-    inline void setKIconLoader_ChildEvent_IsBase(bool value) const { kiconloader_childevent_isbase = value; }
-    inline void setKIconLoader_CustomEvent_IsBase(bool value) const { kiconloader_customevent_isbase = value; }
-    inline void setKIconLoader_ConnectNotify_IsBase(bool value) const { kiconloader_connectnotify_isbase = value; }
-    inline void setKIconLoader_DisconnectNotify_IsBase(bool value) const { kiconloader_disconnectnotify_isbase = value; }
-    inline void setKIconLoader_Sender_IsBase(bool value) const { kiconloader_sender_isbase = value; }
-    inline void setKIconLoader_SenderSignalIndex_IsBase(bool value) const { kiconloader_sendersignalindex_isbase = value; }
-    inline void setKIconLoader_Receivers_IsBase(bool value) const { kiconloader_receivers_isbase = value; }
-    inline void setKIconLoader_IsSignalConnected_IsBase(bool value) const { kiconloader_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kiconloader_metaobject_isbase) {
-            kiconloader_metaobject_isbase = false;
-            return KIconLoader::metaObject();
-        }
-        auto metaobject_cb = kiconloader_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kiconloader_metaobject_callback) {
+            QMetaObject* callback_ret = kiconloader_metaobject_callback(this);
             return callback_ret;
         }
         return KIconLoader::metaObject();
@@ -119,14 +65,9 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kiconloader_metacast_isbase) {
-            kiconloader_metacast_isbase = false;
-            return KIconLoader::qt_metacast(param1);
-        }
-        auto metacast_cb = kiconloader_metacast_callback;
-        if (metacast_cb) {
+        if (kiconloader_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kiconloader_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KIconLoader::qt_metacast(param1);
@@ -134,16 +75,11 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kiconloader_metacall_isbase) {
-            kiconloader_metacall_isbase = false;
-            return KIconLoader::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kiconloader_metacall_callback;
-        if (metacall_cb) {
+        if (kiconloader_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kiconloader_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KIconLoader::qt_metacall(param1, param2, param3);
@@ -151,14 +87,9 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kiconloader_event_isbase) {
-            kiconloader_event_isbase = false;
-            return KIconLoader::event(event);
-        }
-        auto event_cb = kiconloader_event_callback;
-        if (event_cb) {
+        if (kiconloader_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kiconloader_event_callback(this, cbval1);
             return callback_ret;
         }
         return KIconLoader::event(event);
@@ -166,15 +97,10 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kiconloader_eventfilter_isbase) {
-            kiconloader_eventfilter_isbase = false;
-            return KIconLoader::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kiconloader_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kiconloader_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kiconloader_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KIconLoader::eventFilter(watched, event);
@@ -182,15 +108,9 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kiconloader_timerevent_isbase) {
-            kiconloader_timerevent_isbase = false;
-            KIconLoader::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kiconloader_timerevent_callback;
-        if (timerevent_cb) {
+        if (kiconloader_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kiconloader_timerevent_callback(this, cbval1);
             return;
         }
         KIconLoader::timerEvent(event);
@@ -198,15 +118,9 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kiconloader_childevent_isbase) {
-            kiconloader_childevent_isbase = false;
-            KIconLoader::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kiconloader_childevent_callback;
-        if (childevent_cb) {
+        if (kiconloader_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kiconloader_childevent_callback(this, cbval1);
             return;
         }
         KIconLoader::childEvent(event);
@@ -214,15 +128,9 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kiconloader_customevent_isbase) {
-            kiconloader_customevent_isbase = false;
-            KIconLoader::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kiconloader_customevent_callback;
-        if (customevent_cb) {
+        if (kiconloader_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kiconloader_customevent_callback(this, cbval1);
             return;
         }
         KIconLoader::customEvent(event);
@@ -230,17 +138,11 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kiconloader_connectnotify_isbase) {
-            kiconloader_connectnotify_isbase = false;
-            KIconLoader::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kiconloader_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kiconloader_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kiconloader_connectnotify_callback(this, cbval1);
             return;
         }
         KIconLoader::connectNotify(signal);
@@ -248,101 +150,22 @@ class VirtualKIconLoader final : public KIconLoader {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kiconloader_disconnectnotify_isbase) {
-            kiconloader_disconnectnotify_isbase = false;
-            KIconLoader::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kiconloader_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kiconloader_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kiconloader_disconnectnotify_callback(this, cbval1);
             return;
         }
         KIconLoader::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kiconloader_sender_isbase) {
-            kiconloader_sender_isbase = false;
-            return KIconLoader::sender();
-        }
-        auto sender_cb = kiconloader_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KIconLoader::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kiconloader_sendersignalindex_isbase) {
-            kiconloader_sendersignalindex_isbase = false;
-            return KIconLoader::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kiconloader_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KIconLoader::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kiconloader_receivers_isbase) {
-            kiconloader_receivers_isbase = false;
-            return KIconLoader::receivers(signal);
-        }
-        auto receivers_cb = kiconloader_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KIconLoader::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kiconloader_issignalconnected_isbase) {
-            kiconloader_issignalconnected_isbase = false;
-            return KIconLoader::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kiconloader_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KIconLoader::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KIconLoader_TimerEvent(KIconLoader* self, QTimerEvent* event);
     friend void KIconLoader_SuperTimerEvent(KIconLoader* self, QTimerEvent* event);
-    friend void KIconLoader_ChildEvent(KIconLoader* self, QChildEvent* event);
     friend void KIconLoader_SuperChildEvent(KIconLoader* self, QChildEvent* event);
-    friend void KIconLoader_CustomEvent(KIconLoader* self, QEvent* event);
     friend void KIconLoader_SuperCustomEvent(KIconLoader* self, QEvent* event);
-    friend void KIconLoader_ConnectNotify(KIconLoader* self, const QMetaMethod* signal);
     friend void KIconLoader_SuperConnectNotify(KIconLoader* self, const QMetaMethod* signal);
-    friend void KIconLoader_DisconnectNotify(KIconLoader* self, const QMetaMethod* signal);
     friend void KIconLoader_SuperDisconnectNotify(KIconLoader* self, const QMetaMethod* signal);
-    friend QObject* KIconLoader_Sender(const KIconLoader* self);
-    friend QObject* KIconLoader_SuperSender(const KIconLoader* self);
-    friend int KIconLoader_SenderSignalIndex(const KIconLoader* self);
-    friend int KIconLoader_SuperSenderSignalIndex(const KIconLoader* self);
-    friend int KIconLoader_Receivers(const KIconLoader* self, const char* signal);
-    friend int KIconLoader_SuperReceivers(const KIconLoader* self, const char* signal);
-    friend bool KIconLoader_IsSignalConnected(const KIconLoader* self, const QMetaMethod* signal);
-    friend bool KIconLoader_SuperIsSignalConnected(const KIconLoader* self, const QMetaMethod* signal);
 };
 
 #endif

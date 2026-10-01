@@ -235,9 +235,9 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QEvent `
+    /// ` callback: *const fn (self: QEvent) callconv(.c) QEvent `
     ///
-    pub fn onClone(self: QEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QEvent, callback: *const fn (QEvent) callconv(.c) QEvent) void {
         qtc.QEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -353,9 +353,9 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QTimerEvent `
+    /// ` callback: *const fn (self: QTimerEvent) callconv(.c) QTimerEvent `
     ///
-    pub fn onClone(self: QTimerEvent, callback: *const fn () callconv(.c) QTimerEvent) void {
+    pub fn onClone(self: QTimerEvent, callback: *const fn (QTimerEvent) callconv(.c) QTimerEvent) void {
         qtc.QTimerEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -700,9 +700,9 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QChildEvent `
+    /// ` callback: *const fn (self: QChildEvent) callconv(.c) QChildEvent `
     ///
-    pub fn onClone(self: QChildEvent, callback: *const fn () callconv(.c) QChildEvent) void {
+    pub fn onClone(self: QChildEvent, callback: *const fn (QChildEvent) callconv(.c) QChildEvent) void {
         qtc.QChildEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1072,9 +1072,9 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    /// ` callback: *const fn () callconv(.c) QDynamicPropertyChangeEvent `
+    /// ` callback: *const fn (self: QDynamicPropertyChangeEvent) callconv(.c) QDynamicPropertyChangeEvent `
     ///
-    pub fn onClone(self: QDynamicPropertyChangeEvent, callback: *const fn () callconv(.c) QDynamicPropertyChangeEvent) void {
+    pub fn onClone(self: QDynamicPropertyChangeEvent, callback: *const fn (QDynamicPropertyChangeEvent) callconv(.c) QDynamicPropertyChangeEvent) void {
         qtc.QDynamicPropertyChangeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

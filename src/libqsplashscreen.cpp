@@ -150,22 +150,22 @@ void QSplashScreen_Connect_MessageChanged(QSplashScreen* self, intptr_t slot) {
 
 bool QSplashScreen_Event(QSplashScreen* self, QEvent* e) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         return vqsplashscreen->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QSplashScreen::event called without a directly constructed type");
 }
 
 void QSplashScreen_DrawContents(QSplashScreen* self, QPainter* painter) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->drawContents(painter);
     }
 }
 
 void QSplashScreen_MousePressEvent(QSplashScreen* self, QMouseEvent* param1) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->mousePressEvent(param1);
     }
 }
@@ -206,1652 +206,1167 @@ void QSplashScreen_ShowMessage3(QSplashScreen* self, const libqt_string message,
 
 // Base class handler implementation
 QMetaObject* QSplashScreen_SuperMetaObject(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsplashscreen->metaObject();
-    } else {
-        return (QMetaObject*)self->QSplashScreen::metaObject();
-    }
+    return (QMetaObject*)self->QSplashScreen::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnMetaObject(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_MetaObject_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MetaObject_Callback>(slot));
+void QSplashScreen_OnMetaObject(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_metaobject_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSplashScreen_SuperMetacast(QSplashScreen* self, const char* param1) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Metacast_IsBase(true);
-        return vqsplashscreen->qt_metacast(param1);
-    } else {
-        return self->QSplashScreen::qt_metacast(param1);
-    }
+    return self->QSplashScreen::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMetacast(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Metacast_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metacast_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_metacast_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSplashScreen_SuperMetacall(QSplashScreen* self, int param1, int param2, void** param3) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Metacall_IsBase(true);
-        return vqsplashscreen->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSplashScreen::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSplashScreen::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMetacall(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Metacall_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metacall_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_metacall_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QSplashScreen_SuperEvent(QSplashScreen* self, QEvent* e) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Event_IsBase(true);
-        return vqsplashscreen->event(e);
-    } else {
-        return ((VirtualQSplashScreen*)self)->event(e);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        return vqsplashscreen->QSplashScreen::event(e);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Event_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Event_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_event_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperDrawContents(QSplashScreen* self, QPainter* painter) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DrawContents_IsBase(true);
-        vqsplashscreen->drawContents(painter);
-    } else {
-        ((VirtualQSplashScreen*)self)->drawContents(painter);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::drawContents(painter);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::drawContents called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDrawContents(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_DrawContents_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DrawContents_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_drawcontents_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DrawContents_Callback>(slot);
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperMousePressEvent(QSplashScreen* self, QMouseEvent* param1) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MousePressEvent_IsBase(true);
-        vqsplashscreen->mousePressEvent(param1);
-    } else {
-        ((VirtualQSplashScreen*)self)->mousePressEvent(param1);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMousePressEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_MousePressEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MousePressEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_mousepressevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplashScreen_DevType(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->devType();
-    } else {
-        return self->QSplashScreen::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QSplashScreen_SuperDevType(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DevType_IsBase(true);
-        return vqsplashscreen->devType();
-    } else {
-        return self->QSplashScreen::devType();
-    }
+    return self->QSplashScreen::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnDevType(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_DevType_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DevType_Callback>(slot));
+void QSplashScreen_OnDevType(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_devtype_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_SetVisible(QSplashScreen* self, bool visible) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setVisible(visible);
-    } else {
-        self->QSplashScreen::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperSetVisible(QSplashScreen* self, bool visible) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_SetVisible_IsBase(true);
-        vqsplashscreen->setVisible(visible);
-    } else {
-        self->QSplashScreen::setVisible(visible);
-    }
+    self->QSplashScreen::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnSetVisible(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_SetVisible_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SetVisible_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_setvisible_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QSplashScreen_SizeHint(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return new QSize(vqsplashscreen->sizeHint());
-    } else {
-        return new QSize(((VirtualQSplashScreen*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QSplashScreen_SuperSizeHint(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_SizeHint_IsBase(true);
-        return new QSize(vqsplashscreen->sizeHint());
-    } else {
-        return new QSize(((VirtualQSplashScreen*)self)->sizeHint());
-    }
+    return new QSize(self->QSplashScreen::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnSizeHint(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_SizeHint_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SizeHint_Callback>(slot));
+void QSplashScreen_OnSizeHint(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_sizehint_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QSplashScreen_MinimumSizeHint(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return new QSize(vqsplashscreen->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSplashScreen*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QSplashScreen_SuperMinimumSizeHint(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MinimumSizeHint_IsBase(true);
-        return new QSize(vqsplashscreen->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSplashScreen*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QSplashScreen::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnMinimumSizeHint(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MinimumSizeHint_Callback>(slot));
+void QSplashScreen_OnMinimumSizeHint(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_minimumsizehint_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplashScreen_HeightForWidth(const QSplashScreen* self, int param1) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QSplashScreen::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QSplashScreen_SuperHeightForWidth(const QSplashScreen* self, int param1) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_HeightForWidth_IsBase(true);
-        return vqsplashscreen->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QSplashScreen::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QSplashScreen::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnHeightForWidth(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_HeightForWidth_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HeightForWidth_Callback>(slot));
+void QSplashScreen_OnHeightForWidth(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_heightforwidth_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplashScreen_HasHeightForWidth(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->hasHeightForWidth();
-    } else {
-        return self->QSplashScreen::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QSplashScreen_SuperHasHeightForWidth(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_HasHeightForWidth_IsBase(true);
-        return vqsplashscreen->hasHeightForWidth();
-    } else {
-        return self->QSplashScreen::hasHeightForWidth();
-    }
+    return self->QSplashScreen::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnHasHeightForWidth(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HasHeightForWidth_Callback>(slot));
+void QSplashScreen_OnHasHeightForWidth(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_hasheightforwidth_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QSplashScreen_PaintEngine(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->paintEngine();
-    } else {
-        return self->QSplashScreen::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QSplashScreen_SuperPaintEngine(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_PaintEngine_IsBase(true);
-        return vqsplashscreen->paintEngine();
-    } else {
-        return self->QSplashScreen::paintEngine();
-    }
+    return self->QSplashScreen::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnPaintEngine(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_PaintEngine_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_PaintEngine_Callback>(slot));
+void QSplashScreen_OnPaintEngine(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_paintengine_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_MouseReleaseEvent(QSplashScreen* self, QMouseEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->mouseReleaseEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperMouseReleaseEvent(QSplashScreen* self, QMouseEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MouseReleaseEvent_IsBase(true);
-        vqsplashscreen->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMouseReleaseEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_mousereleaseevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_MouseDoubleClickEvent(QSplashScreen* self, QMouseEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperMouseDoubleClickEvent(QSplashScreen* self, QMouseEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MouseDoubleClickEvent_IsBase(true);
-        vqsplashscreen->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMouseDoubleClickEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_mousedoubleclickevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_MouseMoveEvent(QSplashScreen* self, QMouseEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->mouseMoveEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperMouseMoveEvent(QSplashScreen* self, QMouseEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MouseMoveEvent_IsBase(true);
-        vqsplashscreen->mouseMoveEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMouseMoveEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseMoveEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_mousemoveevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_WheelEvent(QSplashScreen* self, QWheelEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->wheelEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperWheelEvent(QSplashScreen* self, QWheelEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_WheelEvent_IsBase(true);
-        vqsplashscreen->wheelEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->wheelEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnWheelEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_WheelEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_WheelEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_wheelevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_KeyPressEvent(QSplashScreen* self, QKeyEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->keyPressEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperKeyPressEvent(QSplashScreen* self, QKeyEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_KeyPressEvent_IsBase(true);
-        vqsplashscreen->keyPressEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->keyPressEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnKeyPressEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_KeyPressEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_KeyPressEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_keypressevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_KeyReleaseEvent(QSplashScreen* self, QKeyEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->keyReleaseEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperKeyReleaseEvent(QSplashScreen* self, QKeyEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_KeyReleaseEvent_IsBase(true);
-        vqsplashscreen->keyReleaseEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnKeyReleaseEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_keyreleaseevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_FocusInEvent(QSplashScreen* self, QFocusEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->focusInEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperFocusInEvent(QSplashScreen* self, QFocusEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_FocusInEvent_IsBase(true);
-        vqsplashscreen->focusInEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->focusInEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnFocusInEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_FocusInEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusInEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_focusinevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_FocusOutEvent(QSplashScreen* self, QFocusEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->focusOutEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperFocusOutEvent(QSplashScreen* self, QFocusEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_FocusOutEvent_IsBase(true);
-        vqsplashscreen->focusOutEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->focusOutEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnFocusOutEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_FocusOutEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusOutEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_focusoutevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_EnterEvent(QSplashScreen* self, QEnterEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->enterEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperEnterEvent(QSplashScreen* self, QEnterEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_EnterEvent_IsBase(true);
-        vqsplashscreen->enterEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->enterEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnEnterEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_EnterEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_EnterEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_enterevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_LeaveEvent(QSplashScreen* self, QEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->leaveEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperLeaveEvent(QSplashScreen* self, QEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_LeaveEvent_IsBase(true);
-        vqsplashscreen->leaveEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->leaveEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnLeaveEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_LeaveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_LeaveEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_leaveevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_PaintEvent(QSplashScreen* self, QPaintEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->paintEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperPaintEvent(QSplashScreen* self, QPaintEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_PaintEvent_IsBase(true);
-        vqsplashscreen->paintEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->paintEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnPaintEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_PaintEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_PaintEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_paintevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_MoveEvent(QSplashScreen* self, QMoveEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->moveEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperMoveEvent(QSplashScreen* self, QMoveEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_MoveEvent_IsBase(true);
-        vqsplashscreen->moveEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->moveEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMoveEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_MoveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MoveEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_moveevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_ResizeEvent(QSplashScreen* self, QResizeEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->resizeEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperResizeEvent(QSplashScreen* self, QResizeEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_ResizeEvent_IsBase(true);
-        vqsplashscreen->resizeEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->resizeEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnResizeEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_ResizeEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ResizeEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_resizeevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_CloseEvent(QSplashScreen* self, QCloseEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->closeEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperCloseEvent(QSplashScreen* self, QCloseEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_CloseEvent_IsBase(true);
-        vqsplashscreen->closeEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->closeEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnCloseEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_CloseEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_CloseEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_closeevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_ContextMenuEvent(QSplashScreen* self, QContextMenuEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->contextMenuEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperContextMenuEvent(QSplashScreen* self, QContextMenuEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_ContextMenuEvent_IsBase(true);
-        vqsplashscreen->contextMenuEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnContextMenuEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ContextMenuEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_contextmenuevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_TabletEvent(QSplashScreen* self, QTabletEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->tabletEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperTabletEvent(QSplashScreen* self, QTabletEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_TabletEvent_IsBase(true);
-        vqsplashscreen->tabletEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->tabletEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnTabletEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_TabletEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_TabletEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_tabletevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_ActionEvent(QSplashScreen* self, QActionEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->actionEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperActionEvent(QSplashScreen* self, QActionEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_ActionEvent_IsBase(true);
-        vqsplashscreen->actionEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->actionEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnActionEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_ActionEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ActionEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_actionevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_DragEnterEvent(QSplashScreen* self, QDragEnterEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->dragEnterEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperDragEnterEvent(QSplashScreen* self, QDragEnterEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DragEnterEvent_IsBase(true);
-        vqsplashscreen->dragEnterEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDragEnterEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_DragEnterEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragEnterEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_dragenterevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_DragMoveEvent(QSplashScreen* self, QDragMoveEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->dragMoveEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperDragMoveEvent(QSplashScreen* self, QDragMoveEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DragMoveEvent_IsBase(true);
-        vqsplashscreen->dragMoveEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDragMoveEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_DragMoveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragMoveEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_dragmoveevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_DragLeaveEvent(QSplashScreen* self, QDragLeaveEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->dragLeaveEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperDragLeaveEvent(QSplashScreen* self, QDragLeaveEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DragLeaveEvent_IsBase(true);
-        vqsplashscreen->dragLeaveEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDragLeaveEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragLeaveEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_dragleaveevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_DropEvent(QSplashScreen* self, QDropEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->dropEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperDropEvent(QSplashScreen* self, QDropEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DropEvent_IsBase(true);
-        vqsplashscreen->dropEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->dropEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDropEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_DropEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DropEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_dropevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_ShowEvent(QSplashScreen* self, QShowEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->showEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperShowEvent(QSplashScreen* self, QShowEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_ShowEvent_IsBase(true);
-        vqsplashscreen->showEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->showEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnShowEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_ShowEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ShowEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_showevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_HideEvent(QSplashScreen* self, QHideEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->hideEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperHideEvent(QSplashScreen* self, QHideEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_HideEvent_IsBase(true);
-        vqsplashscreen->hideEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->hideEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnHideEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_HideEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HideEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_hideevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplashScreen_NativeEvent(QSplashScreen* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
+    if (vqsplashscreen) {
         return vqsplashscreen->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQSplashScreen*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QSplashScreen::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QSplashScreen_SuperNativeEvent(QSplashScreen* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_NativeEvent_IsBase(true);
-        return vqsplashscreen->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQSplashScreen*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        return vqsplashscreen->QSplashScreen::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnNativeEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_NativeEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_NativeEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_nativeevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_ChangeEvent(QSplashScreen* self, QEvent* param1) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->changeEvent(param1);
     } else {
-        ((VirtualQSplashScreen*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QSplashScreen::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperChangeEvent(QSplashScreen* self, QEvent* param1) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_ChangeEvent_IsBase(true);
-        vqsplashscreen->changeEvent(param1);
-    } else {
-        ((VirtualQSplashScreen*)self)->changeEvent(param1);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnChangeEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_ChangeEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ChangeEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_changeevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSplashScreen_Metric(const QSplashScreen* self, int param1) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         return vqsplashscreen->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQSplashScreen*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QSplashScreen::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QSplashScreen_SuperMetric(const QSplashScreen* self, int param1) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Metric_IsBase(true);
-        return vqsplashscreen->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQSplashScreen*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        return vqsplashscreen->QSplashScreen::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnMetric(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Metric_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metric_Callback>(slot));
+void QSplashScreen_OnMetric(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_metric_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_InitPainter(const QSplashScreen* self, QPainter* painter) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->initPainter(painter);
     } else {
-        ((VirtualQSplashScreen*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QSplashScreen::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperInitPainter(const QSplashScreen* self, QPainter* painter) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_InitPainter_IsBase(true);
-        vqsplashscreen->initPainter(painter);
-    } else {
-        ((VirtualQSplashScreen*)self)->initPainter(painter);
-    }
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        vqsplashscreen->QSplashScreen::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnInitPainter(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_InitPainter_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InitPainter_Callback>(slot));
+void QSplashScreen_OnInitPainter(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_initpainter_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QSplashScreen_Redirected(const QSplashScreen* self, QPoint* offset) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         return vqsplashscreen->redirected(offset);
     } else {
-        return ((VirtualQSplashScreen*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QSplashScreen::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QSplashScreen_SuperRedirected(const QSplashScreen* self, QPoint* offset) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Redirected_IsBase(true);
-        return vqsplashscreen->redirected(offset);
-    } else {
-        return ((VirtualQSplashScreen*)self)->redirected(offset);
-    }
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        return vqsplashscreen->QSplashScreen::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnRedirected(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Redirected_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Redirected_Callback>(slot));
+void QSplashScreen_OnRedirected(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_redirected_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QSplashScreen_SharedPainter(const QSplashScreen* self) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         return vqsplashscreen->sharedPainter();
     } else {
-        return ((VirtualQSplashScreen*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QSplashScreen::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QSplashScreen_SuperSharedPainter(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_SharedPainter_IsBase(true);
-        return vqsplashscreen->sharedPainter();
-    } else {
-        return ((VirtualQSplashScreen*)self)->sharedPainter();
-    }
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        return vqsplashscreen->QSplashScreen::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnSharedPainter(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_SharedPainter_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SharedPainter_Callback>(slot));
+void QSplashScreen_OnSharedPainter(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_sharedpainter_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_InputMethodEvent(QSplashScreen* self, QInputMethodEvent* param1) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->inputMethodEvent(param1);
     } else {
-        ((VirtualQSplashScreen*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QSplashScreen::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperInputMethodEvent(QSplashScreen* self, QInputMethodEvent* param1) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_InputMethodEvent_IsBase(true);
-        vqsplashscreen->inputMethodEvent(param1);
-    } else {
-        ((VirtualQSplashScreen*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnInputMethodEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_InputMethodEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InputMethodEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_inputmethodevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QSplashScreen_InputMethodQuery(const QSplashScreen* self, int param1) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return new QVariant(vqsplashscreen->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQSplashScreen*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QSplashScreen_SuperInputMethodQuery(const QSplashScreen* self, int param1) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_InputMethodQuery_IsBase(true);
-        return new QVariant(vqsplashscreen->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQSplashScreen*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QSplashScreen::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnInputMethodQuery(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_InputMethodQuery_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InputMethodQuery_Callback>(slot));
+void QSplashScreen_OnInputMethodQuery(QSplashScreen* self, intptr_t slot) {
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self)))
+        vqsplashscreen->qsplashscreen_inputmethodquery_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplashScreen_FocusNextPrevChild(QSplashScreen* self, bool next) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         return vqsplashscreen->focusNextPrevChild(next);
     } else {
-        return ((VirtualQSplashScreen*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QSplashScreen::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QSplashScreen_SuperFocusNextPrevChild(QSplashScreen* self, bool next) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_FocusNextPrevChild_IsBase(true);
-        return vqsplashscreen->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQSplashScreen*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        return vqsplashscreen->QSplashScreen::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnFocusNextPrevChild(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_focusnextprevchild_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSplashScreen_EventFilter(QSplashScreen* self, QObject* watched, QEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->eventFilter(watched, event);
-    } else {
-        return self->QSplashScreen::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSplashScreen_SuperEventFilter(QSplashScreen* self, QObject* watched, QEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_EventFilter_IsBase(true);
-        return vqsplashscreen->eventFilter(watched, event);
-    } else {
-        return self->QSplashScreen::eventFilter(watched, event);
-    }
+    return self->QSplashScreen::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnEventFilter(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_EventFilter_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_EventFilter_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_eventfilter_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_TimerEvent(QSplashScreen* self, QTimerEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->timerEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperTimerEvent(QSplashScreen* self, QTimerEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_TimerEvent_IsBase(true);
-        vqsplashscreen->timerEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->timerEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnTimerEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_TimerEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_TimerEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_timerevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_ChildEvent(QSplashScreen* self, QChildEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->childEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperChildEvent(QSplashScreen* self, QChildEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_ChildEvent_IsBase(true);
-        vqsplashscreen->childEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->childEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnChildEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_ChildEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ChildEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_childevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_CustomEvent(QSplashScreen* self, QEvent* event) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->customEvent(event);
     } else {
-        ((VirtualQSplashScreen*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSplashScreen::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperCustomEvent(QSplashScreen* self, QEvent* event) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_CustomEvent_IsBase(true);
-        vqsplashscreen->customEvent(event);
-    } else {
-        ((VirtualQSplashScreen*)self)->customEvent(event);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnCustomEvent(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_CustomEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_CustomEvent_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_customevent_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_ConnectNotify(QSplashScreen* self, const QMetaMethod* signal) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->connectNotify(*signal);
     } else {
-        ((VirtualQSplashScreen*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSplashScreen::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperConnectNotify(QSplashScreen* self, const QMetaMethod* signal) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_ConnectNotify_IsBase(true);
-        vqsplashscreen->connectNotify(*signal);
-    } else {
-        ((VirtualQSplashScreen*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnConnectNotify(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_ConnectNotify_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ConnectNotify_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_connectnotify_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSplashScreen_DisconnectNotify(QSplashScreen* self, const QMetaMethod* signal) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen) {
         vqsplashscreen->disconnectNotify(*signal);
     } else {
-        ((VirtualQSplashScreen*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSplashScreen::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSplashScreen_SuperDisconnectNotify(QSplashScreen* self, const QMetaMethod* signal) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_DisconnectNotify_IsBase(true);
-        vqsplashscreen->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSplashScreen*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->QSplashScreen::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSplashScreen::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDisconnectNotify(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_DisconnectNotify_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DisconnectNotify_Callback>(slot));
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self))
+        vqsplashscreen->qsplashscreen_disconnectnotify_callback = reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplashScreen_UpdateMicroFocus(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->updateMicroFocus();
-    } else {
-        ((VirtualQSplashScreen*)self)->updateMicroFocus();
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->VirtualQSplashScreen::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QSplashScreen::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplashScreen_SuperUpdateMicroFocus(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_UpdateMicroFocus_IsBase(true);
-        vqsplashscreen->updateMicroFocus();
-    } else {
-        ((VirtualQSplashScreen*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnUpdateMicroFocus(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplashScreen_Create(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->create();
-    } else {
-        ((VirtualQSplashScreen*)self)->create();
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->VirtualQSplashScreen::create();
+    } else
+        qFatal("Error: Protected method QSplashScreen::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplashScreen_SuperCreate(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Create_IsBase(true);
-        vqsplashscreen->create();
-    } else {
-        ((VirtualQSplashScreen*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnCreate(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Create_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QSplashScreen_Destroy(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->destroy();
-    } else {
-        ((VirtualQSplashScreen*)self)->destroy();
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        vqsplashscreen->VirtualQSplashScreen::destroy();
+    } else
+        qFatal("Error: Protected method QSplashScreen::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QSplashScreen_SuperDestroy(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Destroy_IsBase(true);
-        vqsplashscreen->destroy();
-    } else {
-        ((VirtualQSplashScreen*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnDestroy(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Destroy_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplashScreen_FocusNextChild(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->focusNextChild();
-    } else {
-        return ((VirtualQSplashScreen*)self)->focusNextChild();
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        return vqsplashscreen->VirtualQSplashScreen::focusNextChild();
+    } else
+        qFatal("Error: Protected method QSplashScreen::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplashScreen_SuperFocusNextChild(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_FocusNextChild_IsBase(true);
-        return vqsplashscreen->focusNextChild();
-    } else {
-        return ((VirtualQSplashScreen*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnFocusNextChild(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_FocusNextChild_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplashScreen_FocusPreviousChild(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->focusPreviousChild();
-    } else {
-        return ((VirtualQSplashScreen*)self)->focusPreviousChild();
-    }
+    if (auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self)) {
+        return vqsplashscreen->VirtualQSplashScreen::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QSplashScreen::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplashScreen_SuperFocusPreviousChild(QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_FocusPreviousChild_IsBase(true);
-        return vqsplashscreen->focusPreviousChild();
-    } else {
-        return ((VirtualQSplashScreen*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnFocusPreviousChild(QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSplashScreen_Sender(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->sender();
-    } else {
-        return ((VirtualQSplashScreen*)self)->sender();
-    }
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        return vqsplashscreen->VirtualQSplashScreen::sender();
+    } else
+        qFatal("Error: Protected method QSplashScreen::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSplashScreen_SuperSender(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Sender_IsBase(true);
-        return vqsplashscreen->sender();
-    } else {
-        return ((VirtualQSplashScreen*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnSender(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Sender_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplashScreen_SenderSignalIndex(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->senderSignalIndex();
-    } else {
-        return ((VirtualQSplashScreen*)self)->senderSignalIndex();
-    }
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        return vqsplashscreen->VirtualQSplashScreen::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSplashScreen::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplashScreen_SuperSenderSignalIndex(const QSplashScreen* self) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_SenderSignalIndex_IsBase(true);
-        return vqsplashscreen->senderSignalIndex();
-    } else {
-        return ((VirtualQSplashScreen*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnSenderSignalIndex(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSplashScreen_Receivers(const QSplashScreen* self, const char* signal) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->receivers(signal);
-    } else {
-        return ((VirtualQSplashScreen*)self)->receivers(signal);
-    }
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        return vqsplashscreen->VirtualQSplashScreen::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSplashScreen::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSplashScreen_SuperReceivers(const QSplashScreen* self, const char* signal) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_Receivers_IsBase(true);
-        return vqsplashscreen->receivers(signal);
-    } else {
-        return ((VirtualQSplashScreen*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnReceivers(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_Receivers_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSplashScreen_IsSignalConnected(const QSplashScreen* self, const QMetaMethod* signal) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSplashScreen*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        return vqsplashscreen->VirtualQSplashScreen::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSplashScreen::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QSplashScreen_SuperIsSignalConnected(const QSplashScreen* self, const QMetaMethod* signal) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_IsSignalConnected_IsBase(true);
-        return vqsplashscreen->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSplashScreen*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnIsSignalConnected(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QSplashScreen_GetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return vqsplashscreen->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSplashScreen*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QSplashScreen_SuperGetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        vqsplashscreen->setQSplashScreen_GetDecodedMetricF_IsBase(true);
-        return vqsplashscreen->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSplashScreen*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSplashScreen_OnGetDecodedMetricF(const QSplashScreen* self, intptr_t slot) {
-    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
-        vqsplashscreen->setQSplashScreen_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self))) {
+        return vqsplashscreen->VirtualQSplashScreen::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QSplashScreen::getDecodedMetricF called without a directly constructed type");
 }
 
 void QSplashScreen_Delete(QSplashScreen* self) {

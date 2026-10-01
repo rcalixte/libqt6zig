@@ -52,18 +52,15 @@ void KTextEditor__InlineNoteProvider_InlineNotesChanged(KTextEditor__InlineNoteP
 void KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 libqt_string KTextEditor__InlineNoteProvider_Tr2(const char* s, const char* c);
 libqt_string KTextEditor__InlineNoteProvider_Tr3(const char* s, const char* c, int n);
-void KTextEditor__InlineNoteProvider_OnMetaObject(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
+void KTextEditor__InlineNoteProvider_OnMetaObject(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 QMetaObject* KTextEditor__InlineNoteProvider_SuperMetaObject(const KTextEditor__InlineNoteProvider* self);
 void KTextEditor__InlineNoteProvider_OnMetacast(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 void* KTextEditor__InlineNoteProvider_SuperMetacast(KTextEditor__InlineNoteProvider* self, const char* param1);
 void KTextEditor__InlineNoteProvider_OnMetacall(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 int KTextEditor__InlineNoteProvider_SuperMetacall(KTextEditor__InlineNoteProvider* self, int param1, int param2, void** param3);
-void KTextEditor__InlineNoteProvider_OnInlineNotes(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
-libqt_list /* of int */ KTextEditor__InlineNoteProvider_SuperInlineNotes(const KTextEditor__InlineNoteProvider* self, int line);
-void KTextEditor__InlineNoteProvider_OnInlineNoteSize(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
-QSize* KTextEditor__InlineNoteProvider_SuperInlineNoteSize(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note);
-void KTextEditor__InlineNoteProvider_OnPaintInlineNote(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
-void KTextEditor__InlineNoteProvider_SuperPaintInlineNote(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, QPainter* painter, int direction);
+void KTextEditor__InlineNoteProvider_OnInlineNotes(KTextEditor__InlineNoteProvider* self, intptr_t slot);
+void KTextEditor__InlineNoteProvider_OnInlineNoteSize(KTextEditor__InlineNoteProvider* self, intptr_t slot);
+void KTextEditor__InlineNoteProvider_OnPaintInlineNote(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 void KTextEditor__InlineNoteProvider_OnInlineNoteActivated(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 void KTextEditor__InlineNoteProvider_SuperInlineNoteActivated(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, int buttons, const QPoint* globalPos);
 void KTextEditor__InlineNoteProvider_OnInlineNoteFocusInEvent(KTextEditor__InlineNoteProvider* self, intptr_t slot);
@@ -94,17 +91,9 @@ void KTextEditor__InlineNoteProvider_DisconnectNotify(KTextEditor__InlineNotePro
 void KTextEditor__InlineNoteProvider_OnDisconnectNotify(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 void KTextEditor__InlineNoteProvider_SuperDisconnectNotify(KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal);
 QObject* KTextEditor__InlineNoteProvider_Sender(const KTextEditor__InlineNoteProvider* self);
-void KTextEditor__InlineNoteProvider_OnSender(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
-QObject* KTextEditor__InlineNoteProvider_SuperSender(const KTextEditor__InlineNoteProvider* self);
 int KTextEditor__InlineNoteProvider_SenderSignalIndex(const KTextEditor__InlineNoteProvider* self);
-void KTextEditor__InlineNoteProvider_OnSenderSignalIndex(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
-int KTextEditor__InlineNoteProvider_SuperSenderSignalIndex(const KTextEditor__InlineNoteProvider* self);
 int KTextEditor__InlineNoteProvider_Receivers(const KTextEditor__InlineNoteProvider* self, const char* signal);
-void KTextEditor__InlineNoteProvider_OnReceivers(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
-int KTextEditor__InlineNoteProvider_SuperReceivers(const KTextEditor__InlineNoteProvider* self, const char* signal);
 bool KTextEditor__InlineNoteProvider_IsSignalConnected(const KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal);
-void KTextEditor__InlineNoteProvider_OnIsSignalConnected(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
-bool KTextEditor__InlineNoteProvider_SuperIsSignalConnected(const KTextEditor__InlineNoteProvider* self, const QMetaMethod* signal);
 void KTextEditor__InlineNoteProvider_Delete(KTextEditor__InlineNoteProvider* self);
 
 #ifdef __cplusplus

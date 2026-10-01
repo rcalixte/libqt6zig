@@ -36,58 +36,27 @@ void QSGMaterial_SetFlag2(QSGMaterial* self, int flags, bool on) {
     self->setFlag(static_cast<QSGMaterial::Flags>(flags), on);
 }
 
-// Base class handler implementation
-QSGMaterialType* QSGMaterial_SuperType(const QSGMaterial* self) {
-    auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self));
-    if (vqsgmaterial && vqsgmaterial->isVirtualQSGMaterial) {
-        vqsgmaterial->setQSGMaterial_Type_IsBase(true);
-        return vqsgmaterial->type();
-    } else {
-        return ((VirtualQSGMaterial*)self)->type();
-    }
+// Auxiliary method to allow providing re-implementation
+void QSGMaterial_OnType(QSGMaterial* self, intptr_t slot) {
+    if (auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self)))
+        vqsgmaterial->qsgmaterial_type_callback = reinterpret_cast<VirtualQSGMaterial::QSGMaterial_Type_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGMaterial_OnType(const QSGMaterial* self, intptr_t slot) {
-    auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self));
-    if (vqsgmaterial && vqsgmaterial->isVirtualQSGMaterial)
-        vqsgmaterial->setQSGMaterial_Type_Callback(reinterpret_cast<VirtualQSGMaterial::QSGMaterial_Type_Callback>(slot));
-}
-
-// Base class handler implementation
-QSGMaterialShader* QSGMaterial_SuperCreateShader(const QSGMaterial* self, int renderMode) {
-    auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self));
-    if (vqsgmaterial && vqsgmaterial->isVirtualQSGMaterial) {
-        vqsgmaterial->setQSGMaterial_CreateShader_IsBase(true);
-        return vqsgmaterial->createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    } else {
-        return ((VirtualQSGMaterial*)self)->createShader(static_cast<QSGRendererInterface::RenderMode>(renderMode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSGMaterial_OnCreateShader(const QSGMaterial* self, intptr_t slot) {
-    auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self));
-    if (vqsgmaterial && vqsgmaterial->isVirtualQSGMaterial)
-        vqsgmaterial->setQSGMaterial_CreateShader_Callback(reinterpret_cast<VirtualQSGMaterial::QSGMaterial_CreateShader_Callback>(slot));
+void QSGMaterial_OnCreateShader(QSGMaterial* self, intptr_t slot) {
+    if (auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self)))
+        vqsgmaterial->qsgmaterial_createshader_callback = reinterpret_cast<VirtualQSGMaterial::QSGMaterial_CreateShader_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSGMaterial_SuperCompare(const QSGMaterial* self, const QSGMaterial* other) {
-    auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self));
-    if (vqsgmaterial && vqsgmaterial->isVirtualQSGMaterial) {
-        vqsgmaterial->setQSGMaterial_Compare_IsBase(true);
-        return vqsgmaterial->compare(other);
-    } else {
-        return self->QSGMaterial::compare(other);
-    }
+    return self->QSGMaterial::compare(other);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSGMaterial_OnCompare(const QSGMaterial* self, intptr_t slot) {
-    auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self));
-    if (vqsgmaterial && vqsgmaterial->isVirtualQSGMaterial)
-        vqsgmaterial->setQSGMaterial_Compare_Callback(reinterpret_cast<VirtualQSGMaterial::QSGMaterial_Compare_Callback>(slot));
+void QSGMaterial_OnCompare(QSGMaterial* self, intptr_t slot) {
+    if (auto* vqsgmaterial = const_cast<VirtualQSGMaterial*>(dynamic_cast<const VirtualQSGMaterial*>(self)))
+        vqsgmaterial->qsgmaterial_compare_callback = reinterpret_cast<VirtualQSGMaterial::QSGMaterial_Compare_Callback>(slot);
 }
 
 void QSGMaterial_Delete(QSGMaterial* self) {

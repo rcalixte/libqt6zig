@@ -64,7 +64,7 @@ void QDataWidgetMapper_CurrentIndexChanged(QDataWidgetMapper* self, int index);
 void QDataWidgetMapper_Connect_CurrentIndexChanged(QDataWidgetMapper* self, intptr_t slot);
 libqt_string QDataWidgetMapper_Tr2(const char* s, const char* c);
 libqt_string QDataWidgetMapper_Tr3(const char* s, const char* c, int n);
-void QDataWidgetMapper_OnMetaObject(const QDataWidgetMapper* self, intptr_t slot);
+void QDataWidgetMapper_OnMetaObject(QDataWidgetMapper* self, intptr_t slot);
 QMetaObject* QDataWidgetMapper_SuperMetaObject(const QDataWidgetMapper* self);
 void QDataWidgetMapper_OnMetacast(QDataWidgetMapper* self, intptr_t slot);
 void* QDataWidgetMapper_SuperMetacast(QDataWidgetMapper* self, const char* param1);
@@ -94,17 +94,9 @@ void QDataWidgetMapper_DisconnectNotify(QDataWidgetMapper* self, const QMetaMeth
 void QDataWidgetMapper_OnDisconnectNotify(QDataWidgetMapper* self, intptr_t slot);
 void QDataWidgetMapper_SuperDisconnectNotify(QDataWidgetMapper* self, const QMetaMethod* signal);
 QObject* QDataWidgetMapper_Sender(const QDataWidgetMapper* self);
-void QDataWidgetMapper_OnSender(const QDataWidgetMapper* self, intptr_t slot);
-QObject* QDataWidgetMapper_SuperSender(const QDataWidgetMapper* self);
 int QDataWidgetMapper_SenderSignalIndex(const QDataWidgetMapper* self);
-void QDataWidgetMapper_OnSenderSignalIndex(const QDataWidgetMapper* self, intptr_t slot);
-int QDataWidgetMapper_SuperSenderSignalIndex(const QDataWidgetMapper* self);
 int QDataWidgetMapper_Receivers(const QDataWidgetMapper* self, const char* signal);
-void QDataWidgetMapper_OnReceivers(const QDataWidgetMapper* self, intptr_t slot);
-int QDataWidgetMapper_SuperReceivers(const QDataWidgetMapper* self, const char* signal);
 bool QDataWidgetMapper_IsSignalConnected(const QDataWidgetMapper* self, const QMetaMethod* signal);
-void QDataWidgetMapper_OnIsSignalConnected(const QDataWidgetMapper* self, intptr_t slot);
-bool QDataWidgetMapper_SuperIsSignalConnected(const QDataWidgetMapper* self, const QMetaMethod* signal);
 void QDataWidgetMapper_Delete(QDataWidgetMapper* self);
 
 #ifdef __cplusplus

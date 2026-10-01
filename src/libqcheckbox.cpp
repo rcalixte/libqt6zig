@@ -135,51 +135,51 @@ void QCheckBox_Connect_CheckStateChanged(QCheckBox* self, intptr_t slot) {
 
 bool QCheckBox_Event(QCheckBox* self, QEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         return vqcheckbox->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QCheckBox::event called without a directly constructed type");
 }
 
 bool QCheckBox_HitButton(const QCheckBox* self, const QPoint* pos) {
     auto* vqcheckbox = dynamic_cast<const VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         return vqcheckbox->hitButton(*pos);
     }
-    return {};
+    qFatal("Error: Protected method QCheckBox::hitButton called without a directly constructed type");
 }
 
 void QCheckBox_CheckStateSet(QCheckBox* self) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->checkStateSet();
     }
 }
 
 void QCheckBox_NextCheckState(QCheckBox* self) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->nextCheckState();
     }
 }
 
 void QCheckBox_PaintEvent(QCheckBox* self, QPaintEvent* param1) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->paintEvent(param1);
     }
 }
 
 void QCheckBox_MouseMoveEvent(QCheckBox* self, QMouseEvent* param1) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->mouseMoveEvent(param1);
     }
 }
 
 void QCheckBox_InitStyleOption(const QCheckBox* self, QStyleOptionButton* option) {
     auto* vqcheckbox = dynamic_cast<const VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->initStyleOption(option);
     }
 }
@@ -214,1676 +214,1189 @@ void QCheckBox_SetTristate1(QCheckBox* self, bool y) {
 
 // Base class handler implementation
 QMetaObject* QCheckBox_SuperMetaObject(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vqcheckbox->metaObject();
-    } else {
-        return (QMetaObject*)self->QCheckBox::metaObject();
-    }
+    return (QMetaObject*)self->QCheckBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnMetaObject(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_MetaObject_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MetaObject_Callback>(slot));
+void QCheckBox_OnMetaObject(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_metaobject_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QCheckBox_SuperMetacast(QCheckBox* self, const char* param1) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Metacast_IsBase(true);
-        return vqcheckbox->qt_metacast(param1);
-    } else {
-        return self->QCheckBox::qt_metacast(param1);
-    }
+    return self->QCheckBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMetacast(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Metacast_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Metacast_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_metacast_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QCheckBox_SuperMetacall(QCheckBox* self, int param1, int param2, void** param3) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Metacall_IsBase(true);
-        return vqcheckbox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QCheckBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QCheckBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMetacall(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Metacall_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Metacall_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_metacall_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QCheckBox_SuperSizeHint(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_SizeHint_IsBase(true);
-        return new QSize(vqcheckbox->sizeHint());
-    } else {
-        return new QSize(((VirtualQCheckBox*)self)->sizeHint());
-    }
+    return new QSize(self->QCheckBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnSizeHint(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_SizeHint_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_SizeHint_Callback>(slot));
+void QCheckBox_OnSizeHint(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_sizehint_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QCheckBox_SuperMinimumSizeHint(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vqcheckbox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQCheckBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QCheckBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnMinimumSizeHint(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MinimumSizeHint_Callback>(slot));
+void QCheckBox_OnMinimumSizeHint(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_minimumsizehint_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QCheckBox_SuperEvent(QCheckBox* self, QEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Event_IsBase(true);
-        return vqcheckbox->event(e);
-    } else {
-        return ((VirtualQCheckBox*)self)->event(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        return vqcheckbox->QCheckBox::event(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Event_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Event_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_event_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QCheckBox_SuperHitButton(const QCheckBox* self, const QPoint* pos) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_HitButton_IsBase(true);
-        return vqcheckbox->hitButton(*pos);
-    } else {
-        return ((VirtualQCheckBox*)self)->hitButton(*pos);
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->QCheckBox::hitButton(*pos);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::hitButton called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnHitButton(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_HitButton_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_HitButton_Callback>(slot));
+void QCheckBox_OnHitButton(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_hitbutton_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_HitButton_Callback>(slot);
 }
 
 // Base class handler implementation
 void QCheckBox_SuperCheckStateSet(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_CheckStateSet_IsBase(true);
-        vqcheckbox->checkStateSet();
-    } else {
-        ((VirtualQCheckBox*)self)->checkStateSet();
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::checkStateSet();
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::checkStateSet called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnCheckStateSet(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_CheckStateSet_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_CheckStateSet_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_checkstateset_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_CheckStateSet_Callback>(slot);
 }
 
 // Base class handler implementation
 void QCheckBox_SuperNextCheckState(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_NextCheckState_IsBase(true);
-        vqcheckbox->nextCheckState();
-    } else {
-        ((VirtualQCheckBox*)self)->nextCheckState();
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::nextCheckState();
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::nextCheckState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnNextCheckState(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_NextCheckState_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_NextCheckState_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_nextcheckstate_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_NextCheckState_Callback>(slot);
 }
 
 // Base class handler implementation
 void QCheckBox_SuperPaintEvent(QCheckBox* self, QPaintEvent* param1) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_PaintEvent_IsBase(true);
-        vqcheckbox->paintEvent(param1);
-    } else {
-        ((VirtualQCheckBox*)self)->paintEvent(param1);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnPaintEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_PaintEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_PaintEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_paintevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QCheckBox_SuperMouseMoveEvent(QCheckBox* self, QMouseEvent* param1) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_MouseMoveEvent_IsBase(true);
-        vqcheckbox->mouseMoveEvent(param1);
-    } else {
-        ((VirtualQCheckBox*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMouseMoveEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_mousemoveevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QCheckBox_SuperInitStyleOption(const QCheckBox* self, QStyleOptionButton* option) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_InitStyleOption_IsBase(true);
-        vqcheckbox->initStyleOption(option);
-    } else {
-        ((VirtualQCheckBox*)self)->initStyleOption(option);
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        vqcheckbox->QCheckBox::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnInitStyleOption(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_InitStyleOption_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_InitStyleOption_Callback>(slot));
+void QCheckBox_OnInitStyleOption(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_initstyleoption_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_KeyPressEvent(QCheckBox* self, QKeyEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->keyPressEvent(e);
     } else {
-        ((VirtualQCheckBox*)self)->keyPressEvent(e);
+        qFatal("Error: Protected virtual method QCheckBox::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperKeyPressEvent(QCheckBox* self, QKeyEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_KeyPressEvent_IsBase(true);
-        vqcheckbox->keyPressEvent(e);
-    } else {
-        ((VirtualQCheckBox*)self)->keyPressEvent(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnKeyPressEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_KeyPressEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_keypressevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_KeyReleaseEvent(QCheckBox* self, QKeyEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->keyReleaseEvent(e);
     } else {
-        ((VirtualQCheckBox*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method QCheckBox::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperKeyReleaseEvent(QCheckBox* self, QKeyEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_KeyReleaseEvent_IsBase(true);
-        vqcheckbox->keyReleaseEvent(e);
-    } else {
-        ((VirtualQCheckBox*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnKeyReleaseEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_keyreleaseevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_MousePressEvent(QCheckBox* self, QMouseEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->mousePressEvent(e);
     } else {
-        ((VirtualQCheckBox*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method QCheckBox::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperMousePressEvent(QCheckBox* self, QMouseEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_MousePressEvent_IsBase(true);
-        vqcheckbox->mousePressEvent(e);
-    } else {
-        ((VirtualQCheckBox*)self)->mousePressEvent(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMousePressEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_MousePressEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MousePressEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_mousepressevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_MouseReleaseEvent(QCheckBox* self, QMouseEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->mouseReleaseEvent(e);
     } else {
-        ((VirtualQCheckBox*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method QCheckBox::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperMouseReleaseEvent(QCheckBox* self, QMouseEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_MouseReleaseEvent_IsBase(true);
-        vqcheckbox->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQCheckBox*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMouseReleaseEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_mousereleaseevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_FocusInEvent(QCheckBox* self, QFocusEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->focusInEvent(e);
     } else {
-        ((VirtualQCheckBox*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method QCheckBox::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperFocusInEvent(QCheckBox* self, QFocusEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_FocusInEvent_IsBase(true);
-        vqcheckbox->focusInEvent(e);
-    } else {
-        ((VirtualQCheckBox*)self)->focusInEvent(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnFocusInEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_FocusInEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusInEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_focusinevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_FocusOutEvent(QCheckBox* self, QFocusEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->focusOutEvent(e);
     } else {
-        ((VirtualQCheckBox*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method QCheckBox::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperFocusOutEvent(QCheckBox* self, QFocusEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_FocusOutEvent_IsBase(true);
-        vqcheckbox->focusOutEvent(e);
-    } else {
-        ((VirtualQCheckBox*)self)->focusOutEvent(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnFocusOutEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusOutEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_focusoutevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_ChangeEvent(QCheckBox* self, QEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->changeEvent(e);
     } else {
-        ((VirtualQCheckBox*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method QCheckBox::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperChangeEvent(QCheckBox* self, QEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_ChangeEvent_IsBase(true);
-        vqcheckbox->changeEvent(e);
-    } else {
-        ((VirtualQCheckBox*)self)->changeEvent(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnChangeEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_ChangeEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ChangeEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_changeevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_TimerEvent(QCheckBox* self, QTimerEvent* e) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->timerEvent(e);
     } else {
-        ((VirtualQCheckBox*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method QCheckBox::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperTimerEvent(QCheckBox* self, QTimerEvent* e) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_TimerEvent_IsBase(true);
-        vqcheckbox->timerEvent(e);
-    } else {
-        ((VirtualQCheckBox*)self)->timerEvent(e);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnTimerEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_TimerEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_TimerEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_timerevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QCheckBox_DevType(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->devType();
-    } else {
-        return self->QCheckBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QCheckBox_SuperDevType(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_DevType_IsBase(true);
-        return vqcheckbox->devType();
-    } else {
-        return self->QCheckBox::devType();
-    }
+    return self->QCheckBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnDevType(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_DevType_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DevType_Callback>(slot));
+void QCheckBox_OnDevType(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_devtype_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_SetVisible(QCheckBox* self, bool visible) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setVisible(visible);
-    } else {
-        self->QCheckBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QCheckBox_SuperSetVisible(QCheckBox* self, bool visible) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_SetVisible_IsBase(true);
-        vqcheckbox->setVisible(visible);
-    } else {
-        self->QCheckBox::setVisible(visible);
-    }
+    self->QCheckBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnSetVisible(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_SetVisible_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_SetVisible_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_setvisible_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QCheckBox_HeightForWidth(const QCheckBox* self, int param1) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QCheckBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QCheckBox_SuperHeightForWidth(const QCheckBox* self, int param1) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_HeightForWidth_IsBase(true);
-        return vqcheckbox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QCheckBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QCheckBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnHeightForWidth(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_HeightForWidth_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_HeightForWidth_Callback>(slot));
+void QCheckBox_OnHeightForWidth(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_heightforwidth_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QCheckBox_HasHeightForWidth(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->hasHeightForWidth();
-    } else {
-        return self->QCheckBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QCheckBox_SuperHasHeightForWidth(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_HasHeightForWidth_IsBase(true);
-        return vqcheckbox->hasHeightForWidth();
-    } else {
-        return self->QCheckBox::hasHeightForWidth();
-    }
+    return self->QCheckBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnHasHeightForWidth(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_HasHeightForWidth_Callback>(slot));
+void QCheckBox_OnHasHeightForWidth(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_hasheightforwidth_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QCheckBox_PaintEngine(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->paintEngine();
-    } else {
-        return self->QCheckBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QCheckBox_SuperPaintEngine(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_PaintEngine_IsBase(true);
-        return vqcheckbox->paintEngine();
-    } else {
-        return self->QCheckBox::paintEngine();
-    }
+    return self->QCheckBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnPaintEngine(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_PaintEngine_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_PaintEngine_Callback>(slot));
+void QCheckBox_OnPaintEngine(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_paintengine_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_MouseDoubleClickEvent(QCheckBox* self, QMouseEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperMouseDoubleClickEvent(QCheckBox* self, QMouseEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_MouseDoubleClickEvent_IsBase(true);
-        vqcheckbox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMouseDoubleClickEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_mousedoubleclickevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_WheelEvent(QCheckBox* self, QWheelEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->wheelEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperWheelEvent(QCheckBox* self, QWheelEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_WheelEvent_IsBase(true);
-        vqcheckbox->wheelEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->wheelEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnWheelEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_WheelEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_WheelEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_wheelevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_EnterEvent(QCheckBox* self, QEnterEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->enterEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperEnterEvent(QCheckBox* self, QEnterEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_EnterEvent_IsBase(true);
-        vqcheckbox->enterEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->enterEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnEnterEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_EnterEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_EnterEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_enterevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_LeaveEvent(QCheckBox* self, QEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->leaveEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperLeaveEvent(QCheckBox* self, QEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_LeaveEvent_IsBase(true);
-        vqcheckbox->leaveEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->leaveEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnLeaveEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_LeaveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_LeaveEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_leaveevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_MoveEvent(QCheckBox* self, QMoveEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->moveEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperMoveEvent(QCheckBox* self, QMoveEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_MoveEvent_IsBase(true);
-        vqcheckbox->moveEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->moveEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMoveEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_MoveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MoveEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_moveevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_ResizeEvent(QCheckBox* self, QResizeEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->resizeEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperResizeEvent(QCheckBox* self, QResizeEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_ResizeEvent_IsBase(true);
-        vqcheckbox->resizeEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->resizeEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnResizeEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_ResizeEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ResizeEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_resizeevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_CloseEvent(QCheckBox* self, QCloseEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->closeEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperCloseEvent(QCheckBox* self, QCloseEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_CloseEvent_IsBase(true);
-        vqcheckbox->closeEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->closeEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnCloseEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_CloseEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_CloseEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_closeevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_ContextMenuEvent(QCheckBox* self, QContextMenuEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->contextMenuEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperContextMenuEvent(QCheckBox* self, QContextMenuEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_ContextMenuEvent_IsBase(true);
-        vqcheckbox->contextMenuEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnContextMenuEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_contextmenuevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_TabletEvent(QCheckBox* self, QTabletEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->tabletEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperTabletEvent(QCheckBox* self, QTabletEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_TabletEvent_IsBase(true);
-        vqcheckbox->tabletEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->tabletEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnTabletEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_TabletEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_TabletEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_tabletevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_ActionEvent(QCheckBox* self, QActionEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->actionEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperActionEvent(QCheckBox* self, QActionEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_ActionEvent_IsBase(true);
-        vqcheckbox->actionEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->actionEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnActionEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_ActionEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ActionEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_actionevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_DragEnterEvent(QCheckBox* self, QDragEnterEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->dragEnterEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperDragEnterEvent(QCheckBox* self, QDragEnterEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_DragEnterEvent_IsBase(true);
-        vqcheckbox->dragEnterEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDragEnterEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DragEnterEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_dragenterevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_DragMoveEvent(QCheckBox* self, QDragMoveEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->dragMoveEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperDragMoveEvent(QCheckBox* self, QDragMoveEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_DragMoveEvent_IsBase(true);
-        vqcheckbox->dragMoveEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDragMoveEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DragMoveEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_dragmoveevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_DragLeaveEvent(QCheckBox* self, QDragLeaveEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->dragLeaveEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperDragLeaveEvent(QCheckBox* self, QDragLeaveEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_DragLeaveEvent_IsBase(true);
-        vqcheckbox->dragLeaveEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDragLeaveEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_dragleaveevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_DropEvent(QCheckBox* self, QDropEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->dropEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperDropEvent(QCheckBox* self, QDropEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_DropEvent_IsBase(true);
-        vqcheckbox->dropEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->dropEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDropEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_DropEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DropEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_dropevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_ShowEvent(QCheckBox* self, QShowEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->showEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperShowEvent(QCheckBox* self, QShowEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_ShowEvent_IsBase(true);
-        vqcheckbox->showEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->showEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnShowEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_ShowEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ShowEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_showevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_HideEvent(QCheckBox* self, QHideEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->hideEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperHideEvent(QCheckBox* self, QHideEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_HideEvent_IsBase(true);
-        vqcheckbox->hideEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->hideEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnHideEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_HideEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_HideEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_hideevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QCheckBox_NativeEvent(QCheckBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
+    if (vqcheckbox) {
         return vqcheckbox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQCheckBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QCheckBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QCheckBox_SuperNativeEvent(QCheckBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_NativeEvent_IsBase(true);
-        return vqcheckbox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQCheckBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        return vqcheckbox->QCheckBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnNativeEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_NativeEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_NativeEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_nativeevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QCheckBox_Metric(const QCheckBox* self, int param1) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         return vqcheckbox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQCheckBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QCheckBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QCheckBox_SuperMetric(const QCheckBox* self, int param1) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Metric_IsBase(true);
-        return vqcheckbox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQCheckBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->QCheckBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnMetric(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Metric_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Metric_Callback>(slot));
+void QCheckBox_OnMetric(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_metric_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_InitPainter(const QCheckBox* self, QPainter* painter) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->initPainter(painter);
     } else {
-        ((VirtualQCheckBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QCheckBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperInitPainter(const QCheckBox* self, QPainter* painter) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_InitPainter_IsBase(true);
-        vqcheckbox->initPainter(painter);
-    } else {
-        ((VirtualQCheckBox*)self)->initPainter(painter);
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        vqcheckbox->QCheckBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnInitPainter(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_InitPainter_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_InitPainter_Callback>(slot));
+void QCheckBox_OnInitPainter(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_initpainter_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QCheckBox_Redirected(const QCheckBox* self, QPoint* offset) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         return vqcheckbox->redirected(offset);
     } else {
-        return ((VirtualQCheckBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QCheckBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QCheckBox_SuperRedirected(const QCheckBox* self, QPoint* offset) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Redirected_IsBase(true);
-        return vqcheckbox->redirected(offset);
-    } else {
-        return ((VirtualQCheckBox*)self)->redirected(offset);
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->QCheckBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnRedirected(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Redirected_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Redirected_Callback>(slot));
+void QCheckBox_OnRedirected(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_redirected_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QCheckBox_SharedPainter(const QCheckBox* self) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         return vqcheckbox->sharedPainter();
     } else {
-        return ((VirtualQCheckBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QCheckBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QCheckBox_SuperSharedPainter(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_SharedPainter_IsBase(true);
-        return vqcheckbox->sharedPainter();
-    } else {
-        return ((VirtualQCheckBox*)self)->sharedPainter();
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->QCheckBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnSharedPainter(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_SharedPainter_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_SharedPainter_Callback>(slot));
+void QCheckBox_OnSharedPainter(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_sharedpainter_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_InputMethodEvent(QCheckBox* self, QInputMethodEvent* param1) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->inputMethodEvent(param1);
     } else {
-        ((VirtualQCheckBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QCheckBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperInputMethodEvent(QCheckBox* self, QInputMethodEvent* param1) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_InputMethodEvent_IsBase(true);
-        vqcheckbox->inputMethodEvent(param1);
-    } else {
-        ((VirtualQCheckBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnInputMethodEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_InputMethodEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_inputmethodevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QCheckBox_InputMethodQuery(const QCheckBox* self, int param1) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return new QVariant(vqcheckbox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQCheckBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QCheckBox_SuperInputMethodQuery(const QCheckBox* self, int param1) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vqcheckbox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQCheckBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QCheckBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCheckBox_OnInputMethodQuery(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_InputMethodQuery_Callback>(slot));
+void QCheckBox_OnInputMethodQuery(QCheckBox* self, intptr_t slot) {
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self)))
+        vqcheckbox->qcheckbox_inputmethodquery_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QCheckBox_FocusNextPrevChild(QCheckBox* self, bool next) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         return vqcheckbox->focusNextPrevChild(next);
     } else {
-        return ((VirtualQCheckBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QCheckBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QCheckBox_SuperFocusNextPrevChild(QCheckBox* self, bool next) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_FocusNextPrevChild_IsBase(true);
-        return vqcheckbox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQCheckBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        return vqcheckbox->QCheckBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnFocusNextPrevChild(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_focusnextprevchild_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QCheckBox_EventFilter(QCheckBox* self, QObject* watched, QEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->eventFilter(watched, event);
-    } else {
-        return self->QCheckBox::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QCheckBox_SuperEventFilter(QCheckBox* self, QObject* watched, QEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_EventFilter_IsBase(true);
-        return vqcheckbox->eventFilter(watched, event);
-    } else {
-        return self->QCheckBox::eventFilter(watched, event);
-    }
+    return self->QCheckBox::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnEventFilter(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_EventFilter_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_EventFilter_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_eventfilter_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_ChildEvent(QCheckBox* self, QChildEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->childEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperChildEvent(QCheckBox* self, QChildEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_ChildEvent_IsBase(true);
-        vqcheckbox->childEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->childEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnChildEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_ChildEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ChildEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_childevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_CustomEvent(QCheckBox* self, QEvent* event) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->customEvent(event);
     } else {
-        ((VirtualQCheckBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QCheckBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperCustomEvent(QCheckBox* self, QEvent* event) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_CustomEvent_IsBase(true);
-        vqcheckbox->customEvent(event);
-    } else {
-        ((VirtualQCheckBox*)self)->customEvent(event);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnCustomEvent(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_CustomEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_CustomEvent_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_customevent_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_ConnectNotify(QCheckBox* self, const QMetaMethod* signal) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->connectNotify(*signal);
     } else {
-        ((VirtualQCheckBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QCheckBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperConnectNotify(QCheckBox* self, const QMetaMethod* signal) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_ConnectNotify_IsBase(true);
-        vqcheckbox->connectNotify(*signal);
-    } else {
-        ((VirtualQCheckBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnConnectNotify(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_ConnectNotify_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ConnectNotify_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_connectnotify_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QCheckBox_DisconnectNotify(QCheckBox* self, const QMetaMethod* signal) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox) {
         vqcheckbox->disconnectNotify(*signal);
     } else {
-        ((VirtualQCheckBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QCheckBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QCheckBox_SuperDisconnectNotify(QCheckBox* self, const QMetaMethod* signal) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_DisconnectNotify_IsBase(true);
-        vqcheckbox->disconnectNotify(*signal);
-    } else {
-        ((VirtualQCheckBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->QCheckBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QCheckBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDisconnectNotify(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DisconnectNotify_Callback>(slot));
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self))
+        vqcheckbox->qcheckbox_disconnectnotify_callback = reinterpret_cast<VirtualQCheckBox::QCheckBox_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QCheckBox_UpdateMicroFocus(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->updateMicroFocus();
-    } else {
-        ((VirtualQCheckBox*)self)->updateMicroFocus();
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->VirtualQCheckBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QCheckBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QCheckBox_SuperUpdateMicroFocus(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_UpdateMicroFocus_IsBase(true);
-        vqcheckbox->updateMicroFocus();
-    } else {
-        ((VirtualQCheckBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnUpdateMicroFocus(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QCheckBox_Create(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->create();
-    } else {
-        ((VirtualQCheckBox*)self)->create();
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->VirtualQCheckBox::create();
+    } else
+        qFatal("Error: Protected method QCheckBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QCheckBox_SuperCreate(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Create_IsBase(true);
-        vqcheckbox->create();
-    } else {
-        ((VirtualQCheckBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnCreate(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Create_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QCheckBox_Destroy(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->destroy();
-    } else {
-        ((VirtualQCheckBox*)self)->destroy();
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        vqcheckbox->VirtualQCheckBox::destroy();
+    } else
+        qFatal("Error: Protected method QCheckBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QCheckBox_SuperDestroy(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Destroy_IsBase(true);
-        vqcheckbox->destroy();
-    } else {
-        ((VirtualQCheckBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnDestroy(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Destroy_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QCheckBox_FocusNextChild(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->focusNextChild();
-    } else {
-        return ((VirtualQCheckBox*)self)->focusNextChild();
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        return vqcheckbox->VirtualQCheckBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method QCheckBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QCheckBox_SuperFocusNextChild(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_FocusNextChild_IsBase(true);
-        return vqcheckbox->focusNextChild();
-    } else {
-        return ((VirtualQCheckBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnFocusNextChild(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_FocusNextChild_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QCheckBox_FocusPreviousChild(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->focusPreviousChild();
-    } else {
-        return ((VirtualQCheckBox*)self)->focusPreviousChild();
-    }
+    if (auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self)) {
+        return vqcheckbox->VirtualQCheckBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QCheckBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QCheckBox_SuperFocusPreviousChild(QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_FocusPreviousChild_IsBase(true);
-        return vqcheckbox->focusPreviousChild();
-    } else {
-        return ((VirtualQCheckBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnFocusPreviousChild(QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QCheckBox_Sender(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->sender();
-    } else {
-        return ((VirtualQCheckBox*)self)->sender();
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->VirtualQCheckBox::sender();
+    } else
+        qFatal("Error: Protected method QCheckBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QCheckBox_SuperSender(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Sender_IsBase(true);
-        return vqcheckbox->sender();
-    } else {
-        return ((VirtualQCheckBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnSender(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Sender_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QCheckBox_SenderSignalIndex(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->senderSignalIndex();
-    } else {
-        return ((VirtualQCheckBox*)self)->senderSignalIndex();
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->VirtualQCheckBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QCheckBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QCheckBox_SuperSenderSignalIndex(const QCheckBox* self) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_SenderSignalIndex_IsBase(true);
-        return vqcheckbox->senderSignalIndex();
-    } else {
-        return ((VirtualQCheckBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnSenderSignalIndex(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QCheckBox_Receivers(const QCheckBox* self, const char* signal) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->receivers(signal);
-    } else {
-        return ((VirtualQCheckBox*)self)->receivers(signal);
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->VirtualQCheckBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method QCheckBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QCheckBox_SuperReceivers(const QCheckBox* self, const char* signal) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_Receivers_IsBase(true);
-        return vqcheckbox->receivers(signal);
-    } else {
-        return ((VirtualQCheckBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnReceivers(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_Receivers_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QCheckBox_IsSignalConnected(const QCheckBox* self, const QMetaMethod* signal) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQCheckBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->VirtualQCheckBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QCheckBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QCheckBox_SuperIsSignalConnected(const QCheckBox* self, const QMetaMethod* signal) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_IsSignalConnected_IsBase(true);
-        return vqcheckbox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQCheckBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnIsSignalConnected(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QCheckBox_GetDecodedMetricF(const QCheckBox* self, int metricA, int metricB) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return vqcheckbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQCheckBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QCheckBox_SuperGetDecodedMetricF(const QCheckBox* self, int metricA, int metricB) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        vqcheckbox->setQCheckBox_GetDecodedMetricF_IsBase(true);
-        return vqcheckbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQCheckBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QCheckBox_OnGetDecodedMetricF(const QCheckBox* self, intptr_t slot) {
-    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
-        vqcheckbox->setQCheckBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self))) {
+        return vqcheckbox->VirtualQCheckBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QCheckBox::getDecodedMetricF called without a directly constructed type");
 }
 
 void QCheckBox_Delete(QCheckBox* self) {

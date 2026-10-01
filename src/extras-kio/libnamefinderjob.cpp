@@ -93,563 +93,414 @@ libqt_string KIO__NameFinderJob_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KIO__NameFinderJob_SuperMetaObject(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vkionamefinderjob->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::NameFinderJob::metaObject();
-    }
+    return (QMetaObject*)self->KIO::NameFinderJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnMetaObject(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_MetaObject_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_MetaObject_Callback>(slot));
+void KIO__NameFinderJob_OnMetaObject(KIO__NameFinderJob* self, intptr_t slot) {
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self)))
+        vkionamefinderjob->kio__namefinderjob_metaobject_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIO__NameFinderJob_SuperMetacast(KIO__NameFinderJob* self, const char* param1) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_Metacast_IsBase(true);
-        return vkionamefinderjob->qt_metacast(param1);
-    } else {
-        return self->KIO::NameFinderJob::qt_metacast(param1);
-    }
+    return self->KIO::NameFinderJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnMetacast(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_Metacast_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Metacast_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_metacast_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIO__NameFinderJob_SuperMetacall(KIO__NameFinderJob* self, int param1, int param2, void** param3) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_Metacall_IsBase(true);
-        return vkionamefinderjob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::NameFinderJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::NameFinderJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnMetacall(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_Metacall_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Metacall_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_metacall_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KIO__NameFinderJob_SuperStart(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_Start_IsBase(true);
-        vkionamefinderjob->start();
-    } else {
-        self->KIO::NameFinderJob::start();
-    }
+    self->KIO::NameFinderJob::start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnStart(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_Start_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Start_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_start_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Start_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__NameFinderJob_AddSubjob(KIO__NameFinderJob* self, KJob* job) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         return vkionamefinderjob->addSubjob(job);
     } else {
-        return ((VirtualKIONameFinderJob*)self)->addSubjob(job);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::addSubjob called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__NameFinderJob_SuperAddSubjob(KIO__NameFinderJob* self, KJob* job) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_AddSubjob_IsBase(true);
-        return vkionamefinderjob->addSubjob(job);
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->addSubjob(job);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        return vkionamefinderjob->KIO::NameFinderJob::addSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::addSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnAddSubjob(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_AddSubjob_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_AddSubjob_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_addsubjob_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_AddSubjob_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__NameFinderJob_RemoveSubjob(KIO__NameFinderJob* self, KJob* job) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         return vkionamefinderjob->removeSubjob(job);
     } else {
-        return ((VirtualKIONameFinderJob*)self)->removeSubjob(job);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::removeSubjob called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__NameFinderJob_SuperRemoveSubjob(KIO__NameFinderJob* self, KJob* job) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_RemoveSubjob_IsBase(true);
-        return vkionamefinderjob->removeSubjob(job);
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->removeSubjob(job);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        return vkionamefinderjob->KIO::NameFinderJob::removeSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::removeSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnRemoveSubjob(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_RemoveSubjob_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_removesubjob_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_RemoveSubjob_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__NameFinderJob_SlotResult(KIO__NameFinderJob* self, KJob* job) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         vkionamefinderjob->slotResult(job);
     } else {
-        ((VirtualKIONameFinderJob*)self)->slotResult(job);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::slotResult called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__NameFinderJob_SuperSlotResult(KIO__NameFinderJob* self, KJob* job) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SlotResult_IsBase(true);
-        vkionamefinderjob->slotResult(job);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->slotResult(job);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->KIO::NameFinderJob::slotResult(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::slotResult called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSlotResult(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SlotResult_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SlotResult_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_slotresult_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SlotResult_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__NameFinderJob_SlotInfoMessage(KIO__NameFinderJob* self, KJob* job, const libqt_string message) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
+    if (vkionamefinderjob) {
         vkionamefinderjob->slotInfoMessage(job, message_QString);
     } else {
-        ((VirtualKIONameFinderJob*)self)->slotInfoMessage(job, message_QString);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::slotInfoMessage called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__NameFinderJob_SuperSlotInfoMessage(KIO__NameFinderJob* self, KJob* job, const libqt_string message) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SlotInfoMessage_IsBase(true);
-        vkionamefinderjob->slotInfoMessage(job, message_QString);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->slotInfoMessage(job, message_QString);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->KIO::NameFinderJob::slotInfoMessage(job, message_QString);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::slotInfoMessage called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSlotInfoMessage(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SlotInfoMessage_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_slotinfomessage_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SlotInfoMessage_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__NameFinderJob_DoKill(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         return vkionamefinderjob->doKill();
     } else {
-        return ((VirtualKIONameFinderJob*)self)->doKill();
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::doKill called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__NameFinderJob_SuperDoKill(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_DoKill_IsBase(true);
-        return vkionamefinderjob->doKill();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->doKill();
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        return vkionamefinderjob->KIO::NameFinderJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnDoKill(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_DoKill_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoKill_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_dokill_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoKill_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__NameFinderJob_DoSuspend(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         return vkionamefinderjob->doSuspend();
     } else {
-        return ((VirtualKIONameFinderJob*)self)->doSuspend();
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::doSuspend called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__NameFinderJob_SuperDoSuspend(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_DoSuspend_IsBase(true);
-        return vkionamefinderjob->doSuspend();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->doSuspend();
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        return vkionamefinderjob->KIO::NameFinderJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnDoSuspend(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_DoSuspend_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoSuspend_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_dosuspend_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoSuspend_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__NameFinderJob_DoResume(KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         return vkionamefinderjob->doResume();
     } else {
-        return ((VirtualKIONameFinderJob*)self)->doResume();
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::doResume called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__NameFinderJob_SuperDoResume(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_DoResume_IsBase(true);
-        return vkionamefinderjob->doResume();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->doResume();
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        return vkionamefinderjob->KIO::NameFinderJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnDoResume(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_DoResume_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoResume_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_doresume_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoResume_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KIO__NameFinderJob_ErrorString(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        auto _ret = vkionamefinderjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::NameFinderJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KIO__NameFinderJob_SuperErrorString(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_ErrorString_IsBase(true);
-        auto _ret = vkionamefinderjob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::NameFinderJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KIO::NameFinderJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnErrorString(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_ErrorString_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ErrorString_Callback>(slot));
+void KIO__NameFinderJob_OnErrorString(KIO__NameFinderJob* self, intptr_t slot) {
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self)))
+        vkionamefinderjob->kio__namefinderjob_errorstring_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__NameFinderJob_Event(KIO__NameFinderJob* self, QEvent* event) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        return vkionamefinderjob->event(event);
-    } else {
-        return self->KIO::NameFinderJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__NameFinderJob_SuperEvent(KIO__NameFinderJob* self, QEvent* event) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_Event_IsBase(true);
-        return vkionamefinderjob->event(event);
-    } else {
-        return self->KIO::NameFinderJob::event(event);
-    }
+    return self->KIO::NameFinderJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnEvent(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_Event_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Event_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_event_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__NameFinderJob_EventFilter(KIO__NameFinderJob* self, QObject* watched, QEvent* event) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        return vkionamefinderjob->eventFilter(watched, event);
-    } else {
-        return self->KIO::NameFinderJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__NameFinderJob_SuperEventFilter(KIO__NameFinderJob* self, QObject* watched, QEvent* event) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_EventFilter_IsBase(true);
-        return vkionamefinderjob->eventFilter(watched, event);
-    } else {
-        return self->KIO::NameFinderJob::eventFilter(watched, event);
-    }
+    return self->KIO::NameFinderJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnEventFilter(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_EventFilter_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EventFilter_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_eventfilter_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__NameFinderJob_TimerEvent(KIO__NameFinderJob* self, QTimerEvent* event) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         vkionamefinderjob->timerEvent(event);
     } else {
-        ((VirtualKIONameFinderJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__NameFinderJob_SuperTimerEvent(KIO__NameFinderJob* self, QTimerEvent* event) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_TimerEvent_IsBase(true);
-        vkionamefinderjob->timerEvent(event);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->timerEvent(event);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->KIO::NameFinderJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnTimerEvent(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_TimerEvent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_TimerEvent_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_timerevent_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__NameFinderJob_ChildEvent(KIO__NameFinderJob* self, QChildEvent* event) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         vkionamefinderjob->childEvent(event);
     } else {
-        ((VirtualKIONameFinderJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__NameFinderJob_SuperChildEvent(KIO__NameFinderJob* self, QChildEvent* event) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_ChildEvent_IsBase(true);
-        vkionamefinderjob->childEvent(event);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->childEvent(event);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->KIO::NameFinderJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnChildEvent(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_ChildEvent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ChildEvent_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_childevent_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__NameFinderJob_CustomEvent(KIO__NameFinderJob* self, QEvent* event) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         vkionamefinderjob->customEvent(event);
     } else {
-        ((VirtualKIONameFinderJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__NameFinderJob_SuperCustomEvent(KIO__NameFinderJob* self, QEvent* event) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_CustomEvent_IsBase(true);
-        vkionamefinderjob->customEvent(event);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->customEvent(event);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->KIO::NameFinderJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnCustomEvent(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_CustomEvent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_CustomEvent_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_customevent_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__NameFinderJob_ConnectNotify(KIO__NameFinderJob* self, const QMetaMethod* signal) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         vkionamefinderjob->connectNotify(*signal);
     } else {
-        ((VirtualKIONameFinderJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__NameFinderJob_SuperConnectNotify(KIO__NameFinderJob* self, const QMetaMethod* signal) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_ConnectNotify_IsBase(true);
-        vkionamefinderjob->connectNotify(*signal);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->KIO::NameFinderJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnConnectNotify(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ConnectNotify_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_connectnotify_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__NameFinderJob_DisconnectNotify(KIO__NameFinderJob* self, const QMetaMethod* signal) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob) {
         vkionamefinderjob->disconnectNotify(*signal);
     } else {
-        ((VirtualKIONameFinderJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__NameFinderJob_SuperDisconnectNotify(KIO__NameFinderJob* self, const QMetaMethod* signal) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_DisconnectNotify_IsBase(true);
-        vkionamefinderjob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->KIO::NameFinderJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::NameFinderJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnDisconnectNotify(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DisconnectNotify_Callback>(slot));
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self))
+        vkionamefinderjob->kio__namefinderjob_disconnectnotify_callback = reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__NameFinderJob_HasSubjobs(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        return vkionamefinderjob->hasSubjobs();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->hasSubjobs();
-    }
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self))) {
+        return vkionamefinderjob->VirtualKIONameFinderJob::hasSubjobs();
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::hasSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__NameFinderJob_SuperHasSubjobs(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_HasSubjobs_IsBase(true);
-        return vkionamefinderjob->hasSubjobs();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->hasSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnHasSubjobs(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_HasSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of KJob* */ KIO__NameFinderJob_Subjobs(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        const QList<KJob*>& _ret = vkionamefinderjob->subjobs();
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self))) {
+        const QList<KJob*>& _ret = vkionamefinderjob->VirtualKIONameFinderJob::subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
         KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -659,532 +510,145 @@ libqt_list /* of KJob* */ KIO__NameFinderJob_Subjobs(const KIO__NameFinderJob* s
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKIONameFinderJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::subjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of KJob* */ KIO__NameFinderJob_SuperSubjobs(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_Subjobs_IsBase(true);
-        const QList<KJob*>& _ret = vkionamefinderjob->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKIONameFinderJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSubjobs(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_Subjobs_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Subjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_ClearSubjobs(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->clearSubjobs();
-    } else {
-        ((VirtualKIONameFinderJob*)self)->clearSubjobs();
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::clearSubjobs();
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::clearSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperClearSubjobs(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_ClearSubjobs_IsBase(true);
-        vkionamefinderjob->clearSubjobs();
-    } else {
-        ((VirtualKIONameFinderJob*)self)->clearSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnClearSubjobs(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ClearSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_SetCapabilities(KIO__NameFinderJob* self, int capabilities) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperSetCapabilities(KIO__NameFinderJob* self, int capabilities) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SetCapabilities_IsBase(true);
-        vkionamefinderjob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSetCapabilities(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__NameFinderJob_IsFinished(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        return vkionamefinderjob->isFinished();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->isFinished();
-    }
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self))) {
+        return vkionamefinderjob->VirtualKIONameFinderJob::isFinished();
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__NameFinderJob_SuperIsFinished(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_IsFinished_IsBase(true);
-        return vkionamefinderjob->isFinished();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnIsFinished(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_IsFinished_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_SetError(KIO__NameFinderJob* self, int errorCode) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperSetError(KIO__NameFinderJob* self, int errorCode) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SetError_IsBase(true);
-        vkionamefinderjob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSetError(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SetError_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_SetErrorText(KIO__NameFinderJob* self, const libqt_string errorText) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vkionamefinderjob->VirtualKIONameFinderJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperSetErrorText(KIO__NameFinderJob* self, const libqt_string errorText) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SetErrorText_IsBase(true);
-        vkionamefinderjob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSetErrorText(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SetErrorText_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_SetProcessedAmount(KIO__NameFinderJob* self, int unit, unsigned long long amount) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperSetProcessedAmount(KIO__NameFinderJob* self, int unit, unsigned long long amount) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SetProcessedAmount_IsBase(true);
-        vkionamefinderjob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSetProcessedAmount(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_SetTotalAmount(KIO__NameFinderJob* self, int unit, unsigned long long amount) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperSetTotalAmount(KIO__NameFinderJob* self, int unit, unsigned long long amount) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SetTotalAmount_IsBase(true);
-        vkionamefinderjob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSetTotalAmount(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_SetProgressUnit(KIO__NameFinderJob* self, int unit) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperSetProgressUnit(KIO__NameFinderJob* self, int unit) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SetProgressUnit_IsBase(true);
-        vkionamefinderjob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSetProgressUnit(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_SetPercent(KIO__NameFinderJob* self, unsigned long percentage) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperSetPercent(KIO__NameFinderJob* self, unsigned long percentage) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SetPercent_IsBase(true);
-        vkionamefinderjob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSetPercent(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SetPercent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_EmitResult(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->emitResult();
-    } else {
-        ((VirtualKIONameFinderJob*)self)->emitResult();
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::emitResult();
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperEmitResult(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_EmitResult_IsBase(true);
-        vkionamefinderjob->emitResult();
-    } else {
-        ((VirtualKIONameFinderJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnEmitResult(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_EmitResult_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_EmitPercent(KIO__NameFinderJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperEmitPercent(KIO__NameFinderJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_EmitPercent_IsBase(true);
-        vkionamefinderjob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnEmitPercent(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_EmitPercent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_EmitSpeed(KIO__NameFinderJob* self, unsigned long speed) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperEmitSpeed(KIO__NameFinderJob* self, unsigned long speed) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_EmitSpeed_IsBase(true);
-        vkionamefinderjob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIONameFinderJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnEmitSpeed(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__NameFinderJob_StartElapsedTimer(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->startElapsedTimer();
-    } else {
-        ((VirtualKIONameFinderJob*)self)->startElapsedTimer();
-    }
+    if (auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self)) {
+        vkionamefinderjob->VirtualKIONameFinderJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__NameFinderJob_SuperStartElapsedTimer(KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_StartElapsedTimer_IsBase(true);
-        vkionamefinderjob->startElapsedTimer();
-    } else {
-        ((VirtualKIONameFinderJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnStartElapsedTimer(KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__NameFinderJob_Sender(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        return vkionamefinderjob->sender();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->sender();
-    }
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self))) {
+        return vkionamefinderjob->VirtualKIONameFinderJob::sender();
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__NameFinderJob_SuperSender(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_Sender_IsBase(true);
-        return vkionamefinderjob->sender();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSender(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_Sender_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__NameFinderJob_SenderSignalIndex(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        return vkionamefinderjob->senderSignalIndex();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->senderSignalIndex();
-    }
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self))) {
+        return vkionamefinderjob->VirtualKIONameFinderJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__NameFinderJob_SuperSenderSignalIndex(const KIO__NameFinderJob* self) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_SenderSignalIndex_IsBase(true);
-        return vkionamefinderjob->senderSignalIndex();
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnSenderSignalIndex(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__NameFinderJob_Receivers(const KIO__NameFinderJob* self, const char* signal) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        return vkionamefinderjob->receivers(signal);
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->receivers(signal);
-    }
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self))) {
+        return vkionamefinderjob->VirtualKIONameFinderJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__NameFinderJob_SuperReceivers(const KIO__NameFinderJob* self, const char* signal) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_Receivers_IsBase(true);
-        return vkionamefinderjob->receivers(signal);
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnReceivers(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_Receivers_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__NameFinderJob_IsSignalConnected(const KIO__NameFinderJob* self, const QMetaMethod* signal) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        return vkionamefinderjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__NameFinderJob_SuperIsSignalConnected(const KIO__NameFinderJob* self, const QMetaMethod* signal) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        vkionamefinderjob->setKIO__NameFinderJob_IsSignalConnected_IsBase(true);
-        return vkionamefinderjob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__NameFinderJob_OnIsSignalConnected(const KIO__NameFinderJob* self, intptr_t slot) {
-    auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
-        vkionamefinderjob->setKIO__NameFinderJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_IsSignalConnected_Callback>(slot));
+    if (auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self))) {
+        return vkionamefinderjob->VirtualKIONameFinderJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::NameFinderJob::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__NameFinderJob_Delete(KIO__NameFinderJob* self) {

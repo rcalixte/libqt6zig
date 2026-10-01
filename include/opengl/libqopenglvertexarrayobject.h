@@ -42,7 +42,7 @@ void QOpenGLVertexArrayObject_Bind(QOpenGLVertexArrayObject* self);
 void QOpenGLVertexArrayObject_Release(QOpenGLVertexArrayObject* self);
 libqt_string QOpenGLVertexArrayObject_Tr2(const char* s, const char* c);
 libqt_string QOpenGLVertexArrayObject_Tr3(const char* s, const char* c, int n);
-void QOpenGLVertexArrayObject_OnMetaObject(const QOpenGLVertexArrayObject* self, intptr_t slot);
+void QOpenGLVertexArrayObject_OnMetaObject(QOpenGLVertexArrayObject* self, intptr_t slot);
 QMetaObject* QOpenGLVertexArrayObject_SuperMetaObject(const QOpenGLVertexArrayObject* self);
 void QOpenGLVertexArrayObject_OnMetacast(QOpenGLVertexArrayObject* self, intptr_t slot);
 void* QOpenGLVertexArrayObject_SuperMetacast(QOpenGLVertexArrayObject* self, const char* param1);
@@ -70,17 +70,9 @@ void QOpenGLVertexArrayObject_DisconnectNotify(QOpenGLVertexArrayObject* self, c
 void QOpenGLVertexArrayObject_OnDisconnectNotify(QOpenGLVertexArrayObject* self, intptr_t slot);
 void QOpenGLVertexArrayObject_SuperDisconnectNotify(QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
 QObject* QOpenGLVertexArrayObject_Sender(const QOpenGLVertexArrayObject* self);
-void QOpenGLVertexArrayObject_OnSender(const QOpenGLVertexArrayObject* self, intptr_t slot);
-QObject* QOpenGLVertexArrayObject_SuperSender(const QOpenGLVertexArrayObject* self);
 int QOpenGLVertexArrayObject_SenderSignalIndex(const QOpenGLVertexArrayObject* self);
-void QOpenGLVertexArrayObject_OnSenderSignalIndex(const QOpenGLVertexArrayObject* self, intptr_t slot);
-int QOpenGLVertexArrayObject_SuperSenderSignalIndex(const QOpenGLVertexArrayObject* self);
 int QOpenGLVertexArrayObject_Receivers(const QOpenGLVertexArrayObject* self, const char* signal);
-void QOpenGLVertexArrayObject_OnReceivers(const QOpenGLVertexArrayObject* self, intptr_t slot);
-int QOpenGLVertexArrayObject_SuperReceivers(const QOpenGLVertexArrayObject* self, const char* signal);
 bool QOpenGLVertexArrayObject_IsSignalConnected(const QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
-void QOpenGLVertexArrayObject_OnIsSignalConnected(const QOpenGLVertexArrayObject* self, intptr_t slot);
-bool QOpenGLVertexArrayObject_SuperIsSignalConnected(const QOpenGLVertexArrayObject* self, const QMetaMethod* signal);
 void QOpenGLVertexArrayObject_Delete(QOpenGLVertexArrayObject* self);
 
 QOpenGLVertexArrayObject__Binder* QOpenGLVertexArrayObject__Binder_new(QOpenGLVertexArrayObject* v);

@@ -1,6 +1,5 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const KIO__WorkerBase = @import("libqt6").KIO__WorkerBase;
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QEvent = @import("libqt6").QEvent;
 const QMetaMethod = @import("libqt6").QMetaMethod;
@@ -92,32 +91,6 @@ pub const KIO__WorkerFactory = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WorkerFactory.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// ### DEPRECATED: Use `createWorker` instead
-    ///
-    pub const CreateWorker = createWorker;
-
-    /// ### [Upstream resources](https://api.kde.org/kio-workerfactory.html#createWorker)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__WorkerFactory `
-    ///
-    /// ` pool: []u8 `
-    ///
-    /// ` app: []u8 `
-    ///
-    pub fn createWorker(self: KIO__WorkerFactory, pool: []u8, app: []u8) KIO__WorkerBase {
-        const pool_str = qtc.libqt_string{
-            .len = pool.len,
-            .data = pool.ptr,
-        };
-        const app_str = qtc.libqt_string{
-            .len = app.len,
-            .data = app.ptr,
-        };
-        return .{ .ptr = qtc.KIO__WorkerFactory_CreateWorker(@ptrCast(self.ptr), pool_str, app_str) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead

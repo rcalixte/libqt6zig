@@ -39,7 +39,7 @@ QAbstractBarSeries* QBarLegendMarker_Series(QBarLegendMarker* self);
 QBarSet* QBarLegendMarker_Barset(QBarLegendMarker* self);
 libqt_string QBarLegendMarker_Tr2(const char* s, const char* c);
 libqt_string QBarLegendMarker_Tr3(const char* s, const char* c, int n);
-void QBarLegendMarker_OnMetaObject(const QBarLegendMarker* self, intptr_t slot);
+void QBarLegendMarker_OnMetaObject(QBarLegendMarker* self, intptr_t slot);
 QMetaObject* QBarLegendMarker_SuperMetaObject(const QBarLegendMarker* self);
 void QBarLegendMarker_OnMetacast(QBarLegendMarker* self, intptr_t slot);
 void* QBarLegendMarker_SuperMetacast(QBarLegendMarker* self, const char* param1);
@@ -71,17 +71,9 @@ void QBarLegendMarker_DisconnectNotify(QBarLegendMarker* self, const QMetaMethod
 void QBarLegendMarker_OnDisconnectNotify(QBarLegendMarker* self, intptr_t slot);
 void QBarLegendMarker_SuperDisconnectNotify(QBarLegendMarker* self, const QMetaMethod* signal);
 QObject* QBarLegendMarker_Sender(const QBarLegendMarker* self);
-void QBarLegendMarker_OnSender(const QBarLegendMarker* self, intptr_t slot);
-QObject* QBarLegendMarker_SuperSender(const QBarLegendMarker* self);
 int QBarLegendMarker_SenderSignalIndex(const QBarLegendMarker* self);
-void QBarLegendMarker_OnSenderSignalIndex(const QBarLegendMarker* self, intptr_t slot);
-int QBarLegendMarker_SuperSenderSignalIndex(const QBarLegendMarker* self);
 int QBarLegendMarker_Receivers(const QBarLegendMarker* self, const char* signal);
-void QBarLegendMarker_OnReceivers(const QBarLegendMarker* self, intptr_t slot);
-int QBarLegendMarker_SuperReceivers(const QBarLegendMarker* self, const char* signal);
 bool QBarLegendMarker_IsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal);
-void QBarLegendMarker_OnIsSignalConnected(const QBarLegendMarker* self, intptr_t slot);
-bool QBarLegendMarker_SuperIsSignalConnected(const QBarLegendMarker* self, const QMetaMethod* signal);
 void QBarLegendMarker_Delete(QBarLegendMarker* self);
 
 #ifdef __cplusplus

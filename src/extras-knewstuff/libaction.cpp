@@ -99,364 +99,227 @@ libqt_string KNSWidgets__Action_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KNSWidgets__Action_SuperMetaObject(const KNSWidgets__Action* self) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_MetaObject_IsBase(true);
-        return (QMetaObject*)vknswidgetsaction->metaObject();
-    } else {
-        return (QMetaObject*)self->KNSWidgets::Action::metaObject();
-    }
+    return (QMetaObject*)self->KNSWidgets::Action::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KNSWidgets__Action_OnMetaObject(const KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_MetaObject_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_MetaObject_Callback>(slot));
+void KNSWidgets__Action_OnMetaObject(KNSWidgets__Action* self, intptr_t slot) {
+    if (auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self)))
+        vknswidgetsaction->knswidgets__action_metaobject_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KNSWidgets__Action_SuperMetacast(KNSWidgets__Action* self, const char* param1) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_Metacast_IsBase(true);
-        return vknswidgetsaction->qt_metacast(param1);
-    } else {
-        return self->KNSWidgets::Action::qt_metacast(param1);
-    }
+    return self->KNSWidgets::Action::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnMetacast(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_Metacast_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Metacast_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_metacast_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KNSWidgets__Action_SuperMetacall(KNSWidgets__Action* self, int param1, int param2, void** param3) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_Metacall_IsBase(true);
-        return vknswidgetsaction->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KNSWidgets::Action::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KNSWidgets::Action::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnMetacall(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_Metacall_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Metacall_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_metacall_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNSWidgets__Action_Event(KNSWidgets__Action* self, QEvent* param1) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction) {
         return vknswidgetsaction->event(param1);
     } else {
-        return ((VirtualKNSWidgetsAction*)self)->event(param1);
+        qFatal("Error: Protected virtual method KNSWidgets::Action::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KNSWidgets__Action_SuperEvent(KNSWidgets__Action* self, QEvent* param1) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_Event_IsBase(true);
-        return vknswidgetsaction->event(param1);
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->event(param1);
-    }
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self)) {
+        return vknswidgetsaction->KNSWidgets::Action::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KNSWidgets::Action::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnEvent(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_Event_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Event_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_event_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KNSWidgets__Action_EventFilter(KNSWidgets__Action* self, QObject* watched, QEvent* event) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        return vknswidgetsaction->eventFilter(watched, event);
-    } else {
-        return self->KNSWidgets::Action::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KNSWidgets__Action_SuperEventFilter(KNSWidgets__Action* self, QObject* watched, QEvent* event) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_EventFilter_IsBase(true);
-        return vknswidgetsaction->eventFilter(watched, event);
-    } else {
-        return self->KNSWidgets::Action::eventFilter(watched, event);
-    }
+    return self->KNSWidgets::Action::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnEventFilter(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_EventFilter_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_EventFilter_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_eventfilter_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSWidgets__Action_TimerEvent(KNSWidgets__Action* self, QTimerEvent* event) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction) {
         vknswidgetsaction->timerEvent(event);
     } else {
-        ((VirtualKNSWidgetsAction*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KNSWidgets::Action::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSWidgets__Action_SuperTimerEvent(KNSWidgets__Action* self, QTimerEvent* event) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_TimerEvent_IsBase(true);
-        vknswidgetsaction->timerEvent(event);
-    } else {
-        ((VirtualKNSWidgetsAction*)self)->timerEvent(event);
-    }
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self)) {
+        vknswidgetsaction->KNSWidgets::Action::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSWidgets::Action::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnTimerEvent(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_TimerEvent_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_TimerEvent_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_timerevent_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSWidgets__Action_ChildEvent(KNSWidgets__Action* self, QChildEvent* event) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction) {
         vknswidgetsaction->childEvent(event);
     } else {
-        ((VirtualKNSWidgetsAction*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KNSWidgets::Action::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSWidgets__Action_SuperChildEvent(KNSWidgets__Action* self, QChildEvent* event) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_ChildEvent_IsBase(true);
-        vknswidgetsaction->childEvent(event);
-    } else {
-        ((VirtualKNSWidgetsAction*)self)->childEvent(event);
-    }
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self)) {
+        vknswidgetsaction->KNSWidgets::Action::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSWidgets::Action::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnChildEvent(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_ChildEvent_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_ChildEvent_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_childevent_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSWidgets__Action_CustomEvent(KNSWidgets__Action* self, QEvent* event) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction) {
         vknswidgetsaction->customEvent(event);
     } else {
-        ((VirtualKNSWidgetsAction*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KNSWidgets::Action::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSWidgets__Action_SuperCustomEvent(KNSWidgets__Action* self, QEvent* event) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_CustomEvent_IsBase(true);
-        vknswidgetsaction->customEvent(event);
-    } else {
-        ((VirtualKNSWidgetsAction*)self)->customEvent(event);
-    }
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self)) {
+        vknswidgetsaction->KNSWidgets::Action::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KNSWidgets::Action::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnCustomEvent(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_CustomEvent_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_CustomEvent_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_customevent_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSWidgets__Action_ConnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction) {
         vknswidgetsaction->connectNotify(*signal);
     } else {
-        ((VirtualKNSWidgetsAction*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KNSWidgets::Action::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSWidgets__Action_SuperConnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_ConnectNotify_IsBase(true);
-        vknswidgetsaction->connectNotify(*signal);
-    } else {
-        ((VirtualKNSWidgetsAction*)self)->connectNotify(*signal);
-    }
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self)) {
+        vknswidgetsaction->KNSWidgets::Action::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNSWidgets::Action::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnConnectNotify(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_ConnectNotify_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_ConnectNotify_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_connectnotify_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KNSWidgets__Action_DisconnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction) {
         vknswidgetsaction->disconnectNotify(*signal);
     } else {
-        ((VirtualKNSWidgetsAction*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KNSWidgets::Action::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KNSWidgets__Action_SuperDisconnectNotify(KNSWidgets__Action* self, const QMetaMethod* signal) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_DisconnectNotify_IsBase(true);
-        vknswidgetsaction->disconnectNotify(*signal);
-    } else {
-        ((VirtualKNSWidgetsAction*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self)) {
+        vknswidgetsaction->KNSWidgets::Action::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KNSWidgets::Action::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnDisconnectNotify(KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_DisconnectNotify_Callback>(slot));
+    if (auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self))
+        vknswidgetsaction->knswidgets__action_disconnectnotify_callback = reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KNSWidgets__Action_Sender(const KNSWidgets__Action* self) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        return vknswidgetsaction->sender();
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->sender();
-    }
+    if (auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self))) {
+        return vknswidgetsaction->VirtualKNSWidgetsAction::sender();
+    } else
+        qFatal("Error: Protected method KNSWidgets::Action::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KNSWidgets__Action_SuperSender(const KNSWidgets__Action* self) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_Sender_IsBase(true);
-        return vknswidgetsaction->sender();
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSWidgets__Action_OnSender(const KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_Sender_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNSWidgets__Action_SenderSignalIndex(const KNSWidgets__Action* self) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        return vknswidgetsaction->senderSignalIndex();
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->senderSignalIndex();
-    }
+    if (auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self))) {
+        return vknswidgetsaction->VirtualKNSWidgetsAction::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KNSWidgets::Action::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNSWidgets__Action_SuperSenderSignalIndex(const KNSWidgets__Action* self) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_SenderSignalIndex_IsBase(true);
-        return vknswidgetsaction->senderSignalIndex();
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSWidgets__Action_OnSenderSignalIndex(const KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KNSWidgets__Action_Receivers(const KNSWidgets__Action* self, const char* signal) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        return vknswidgetsaction->receivers(signal);
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->receivers(signal);
-    }
+    if (auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self))) {
+        return vknswidgetsaction->VirtualKNSWidgetsAction::receivers(signal);
+    } else
+        qFatal("Error: Protected method KNSWidgets::Action::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KNSWidgets__Action_SuperReceivers(const KNSWidgets__Action* self, const char* signal) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_Receivers_IsBase(true);
-        return vknswidgetsaction->receivers(signal);
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSWidgets__Action_OnReceivers(const KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_Receivers_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KNSWidgets__Action_IsSignalConnected(const KNSWidgets__Action* self, const QMetaMethod* signal) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        return vknswidgetsaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KNSWidgets__Action_SuperIsSignalConnected(const KNSWidgets__Action* self, const QMetaMethod* signal) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
-        vknswidgetsaction->setKNSWidgets__Action_IsSignalConnected_IsBase(true);
-        return vknswidgetsaction->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KNSWidgets__Action_OnIsSignalConnected(const KNSWidgets__Action* self, intptr_t slot) {
-    auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
-        vknswidgetsaction->setKNSWidgets__Action_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_IsSignalConnected_Callback>(slot));
+    if (auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self))) {
+        return vknswidgetsaction->VirtualKNSWidgetsAction::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KNSWidgets::Action::isSignalConnected called without a directly constructed type");
 }
 
 void KNSWidgets__Action_Delete(KNSWidgets__Action* self) {

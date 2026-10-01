@@ -123,1766 +123,1269 @@ libqt_string KAnimatedButton_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KAnimatedButton_SuperMetaObject(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_MetaObject_IsBase(true);
-        return (QMetaObject*)vkanimatedbutton->metaObject();
-    } else {
-        return (QMetaObject*)self->KAnimatedButton::metaObject();
-    }
+    return (QMetaObject*)self->KAnimatedButton::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnMetaObject(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_MetaObject_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MetaObject_Callback>(slot));
+void KAnimatedButton_OnMetaObject(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_metaobject_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KAnimatedButton_SuperMetacast(KAnimatedButton* self, const char* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Metacast_IsBase(true);
-        return vkanimatedbutton->qt_metacast(param1);
-    } else {
-        return self->KAnimatedButton::qt_metacast(param1);
-    }
+    return self->KAnimatedButton::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMetacast(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Metacast_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metacast_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_metacast_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KAnimatedButton_SuperMetacall(KAnimatedButton* self, int param1, int param2, void** param3) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Metacall_IsBase(true);
-        return vkanimatedbutton->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KAnimatedButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KAnimatedButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMetacall(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Metacall_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metacall_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_metacall_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KAnimatedButton_SizeHint(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return new QSize(vkanimatedbutton->sizeHint());
-    } else {
-        return new QSize(((VirtualKAnimatedButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KAnimatedButton_SuperSizeHint(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_SizeHint_IsBase(true);
-        return new QSize(vkanimatedbutton->sizeHint());
-    } else {
-        return new QSize(((VirtualKAnimatedButton*)self)->sizeHint());
-    }
+    return new QSize(self->KAnimatedButton::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnSizeHint(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_SizeHint_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SizeHint_Callback>(slot));
+void KAnimatedButton_OnSizeHint(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_sizehint_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KAnimatedButton_MinimumSizeHint(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return new QSize(vkanimatedbutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKAnimatedButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KAnimatedButton_SuperMinimumSizeHint(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_MinimumSizeHint_IsBase(true);
-        return new QSize(vkanimatedbutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKAnimatedButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KAnimatedButton::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnMinimumSizeHint(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MinimumSizeHint_Callback>(slot));
+void KAnimatedButton_OnMinimumSizeHint(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_minimumsizehint_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAnimatedButton_Event(KAnimatedButton* self, QEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         return vkanimatedbutton->event(e);
     } else {
-        return ((VirtualKAnimatedButton*)self)->event(e);
+        qFatal("Error: Protected virtual method KAnimatedButton::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KAnimatedButton_SuperEvent(KAnimatedButton* self, QEvent* e) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Event_IsBase(true);
-        return vkanimatedbutton->event(e);
-    } else {
-        return ((VirtualKAnimatedButton*)self)->event(e);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        return vkanimatedbutton->KAnimatedButton::event(e);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Event_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Event_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_event_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_MousePressEvent(KAnimatedButton* self, QMouseEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->mousePressEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->mousePressEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperMousePressEvent(KAnimatedButton* self, QMouseEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_MousePressEvent_IsBase(true);
-        vkanimatedbutton->mousePressEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->mousePressEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMousePressEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_MousePressEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MousePressEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_mousepressevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_MouseReleaseEvent(KAnimatedButton* self, QMouseEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->mouseReleaseEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->mouseReleaseEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperMouseReleaseEvent(KAnimatedButton* self, QMouseEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_MouseReleaseEvent_IsBase(true);
-        vkanimatedbutton->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMouseReleaseEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_mousereleaseevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_PaintEvent(KAnimatedButton* self, QPaintEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->paintEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperPaintEvent(KAnimatedButton* self, QPaintEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_PaintEvent_IsBase(true);
-        vkanimatedbutton->paintEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->paintEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnPaintEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_PaintEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_PaintEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_paintevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_ActionEvent(KAnimatedButton* self, QActionEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->actionEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->actionEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperActionEvent(KAnimatedButton* self, QActionEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_ActionEvent_IsBase(true);
-        vkanimatedbutton->actionEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->actionEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::actionEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnActionEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_ActionEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ActionEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_actionevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_EnterEvent(KAnimatedButton* self, QEnterEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->enterEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->enterEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperEnterEvent(KAnimatedButton* self, QEnterEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_EnterEvent_IsBase(true);
-        vkanimatedbutton->enterEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->enterEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::enterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnEnterEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_EnterEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_EnterEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_enterevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_LeaveEvent(KAnimatedButton* self, QEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->leaveEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->leaveEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperLeaveEvent(KAnimatedButton* self, QEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_LeaveEvent_IsBase(true);
-        vkanimatedbutton->leaveEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->leaveEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::leaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnLeaveEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_LeaveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_LeaveEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_leaveevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_TimerEvent(KAnimatedButton* self, QTimerEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->timerEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->timerEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperTimerEvent(KAnimatedButton* self, QTimerEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_TimerEvent_IsBase(true);
-        vkanimatedbutton->timerEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->timerEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::timerEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnTimerEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_TimerEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_TimerEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_timerevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_ChangeEvent(KAnimatedButton* self, QEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->changeEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperChangeEvent(KAnimatedButton* self, QEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_ChangeEvent_IsBase(true);
-        vkanimatedbutton->changeEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->changeEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnChangeEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_ChangeEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ChangeEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_changeevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAnimatedButton_HitButton(const KAnimatedButton* self, const QPoint* pos) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         return vkanimatedbutton->hitButton(*pos);
     } else {
-        return ((VirtualKAnimatedButton*)self)->hitButton(*pos);
+        qFatal("Error: Protected virtual method KAnimatedButton::hitButton called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KAnimatedButton_SuperHitButton(const KAnimatedButton* self, const QPoint* pos) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_HitButton_IsBase(true);
-        return vkanimatedbutton->hitButton(*pos);
-    } else {
-        return ((VirtualKAnimatedButton*)self)->hitButton(*pos);
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->KAnimatedButton::hitButton(*pos);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::hitButton called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnHitButton(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_HitButton_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HitButton_Callback>(slot));
+void KAnimatedButton_OnHitButton(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_hitbutton_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HitButton_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_CheckStateSet(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->checkStateSet();
     } else {
-        ((VirtualKAnimatedButton*)self)->checkStateSet();
+        qFatal("Error: Protected virtual method KAnimatedButton::checkStateSet called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperCheckStateSet(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_CheckStateSet_IsBase(true);
-        vkanimatedbutton->checkStateSet();
-    } else {
-        ((VirtualKAnimatedButton*)self)->checkStateSet();
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::checkStateSet();
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::checkStateSet called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnCheckStateSet(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_CheckStateSet_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CheckStateSet_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_checkstateset_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CheckStateSet_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_NextCheckState(KAnimatedButton* self) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->nextCheckState();
     } else {
-        ((VirtualKAnimatedButton*)self)->nextCheckState();
+        qFatal("Error: Protected virtual method KAnimatedButton::nextCheckState called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperNextCheckState(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_NextCheckState_IsBase(true);
-        vkanimatedbutton->nextCheckState();
-    } else {
-        ((VirtualKAnimatedButton*)self)->nextCheckState();
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::nextCheckState();
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::nextCheckState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnNextCheckState(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_NextCheckState_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_NextCheckState_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_nextcheckstate_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_NextCheckState_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_InitStyleOption(const KAnimatedButton* self, QStyleOptionToolButton* option) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->initStyleOption(option);
     } else {
-        ((VirtualKAnimatedButton*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KAnimatedButton::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperInitStyleOption(const KAnimatedButton* self, QStyleOptionToolButton* option) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_InitStyleOption_IsBase(true);
-        vkanimatedbutton->initStyleOption(option);
-    } else {
-        ((VirtualKAnimatedButton*)self)->initStyleOption(option);
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        vkanimatedbutton->KAnimatedButton::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnInitStyleOption(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_InitStyleOption_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InitStyleOption_Callback>(slot));
+void KAnimatedButton_OnInitStyleOption(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_initstyleoption_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_KeyPressEvent(KAnimatedButton* self, QKeyEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->keyPressEvent(e);
     } else {
-        ((VirtualKAnimatedButton*)self)->keyPressEvent(e);
+        qFatal("Error: Protected virtual method KAnimatedButton::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperKeyPressEvent(KAnimatedButton* self, QKeyEvent* e) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_KeyPressEvent_IsBase(true);
-        vkanimatedbutton->keyPressEvent(e);
-    } else {
-        ((VirtualKAnimatedButton*)self)->keyPressEvent(e);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnKeyPressEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_KeyPressEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_keypressevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_KeyReleaseEvent(KAnimatedButton* self, QKeyEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->keyReleaseEvent(e);
     } else {
-        ((VirtualKAnimatedButton*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method KAnimatedButton::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperKeyReleaseEvent(KAnimatedButton* self, QKeyEvent* e) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_KeyReleaseEvent_IsBase(true);
-        vkanimatedbutton->keyReleaseEvent(e);
-    } else {
-        ((VirtualKAnimatedButton*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnKeyReleaseEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_keyreleaseevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_MouseMoveEvent(KAnimatedButton* self, QMouseEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->mouseMoveEvent(e);
     } else {
-        ((VirtualKAnimatedButton*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method KAnimatedButton::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperMouseMoveEvent(KAnimatedButton* self, QMouseEvent* e) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_MouseMoveEvent_IsBase(true);
-        vkanimatedbutton->mouseMoveEvent(e);
-    } else {
-        ((VirtualKAnimatedButton*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMouseMoveEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseMoveEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_mousemoveevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_FocusInEvent(KAnimatedButton* self, QFocusEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->focusInEvent(e);
     } else {
-        ((VirtualKAnimatedButton*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method KAnimatedButton::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperFocusInEvent(KAnimatedButton* self, QFocusEvent* e) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_FocusInEvent_IsBase(true);
-        vkanimatedbutton->focusInEvent(e);
-    } else {
-        ((VirtualKAnimatedButton*)self)->focusInEvent(e);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnFocusInEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_FocusInEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusInEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_focusinevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_FocusOutEvent(KAnimatedButton* self, QFocusEvent* e) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->focusOutEvent(e);
     } else {
-        ((VirtualKAnimatedButton*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method KAnimatedButton::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperFocusOutEvent(KAnimatedButton* self, QFocusEvent* e) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_FocusOutEvent_IsBase(true);
-        vkanimatedbutton->focusOutEvent(e);
-    } else {
-        ((VirtualKAnimatedButton*)self)->focusOutEvent(e);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnFocusOutEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusOutEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_focusoutevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KAnimatedButton_DevType(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->devType();
-    } else {
-        return self->KAnimatedButton::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KAnimatedButton_SuperDevType(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_DevType_IsBase(true);
-        return vkanimatedbutton->devType();
-    } else {
-        return self->KAnimatedButton::devType();
-    }
+    return self->KAnimatedButton::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnDevType(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_DevType_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DevType_Callback>(slot));
+void KAnimatedButton_OnDevType(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_devtype_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_SetVisible(KAnimatedButton* self, bool visible) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setVisible(visible);
-    } else {
-        self->KAnimatedButton::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperSetVisible(KAnimatedButton* self, bool visible) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_SetVisible_IsBase(true);
-        vkanimatedbutton->setVisible(visible);
-    } else {
-        self->KAnimatedButton::setVisible(visible);
-    }
+    self->KAnimatedButton::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnSetVisible(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_SetVisible_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SetVisible_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_setvisible_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KAnimatedButton_HeightForWidth(const KAnimatedButton* self, int param1) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KAnimatedButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KAnimatedButton_SuperHeightForWidth(const KAnimatedButton* self, int param1) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_HeightForWidth_IsBase(true);
-        return vkanimatedbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KAnimatedButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KAnimatedButton::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnHeightForWidth(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_HeightForWidth_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HeightForWidth_Callback>(slot));
+void KAnimatedButton_OnHeightForWidth(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_heightforwidth_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAnimatedButton_HasHeightForWidth(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->hasHeightForWidth();
-    } else {
-        return self->KAnimatedButton::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KAnimatedButton_SuperHasHeightForWidth(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_HasHeightForWidth_IsBase(true);
-        return vkanimatedbutton->hasHeightForWidth();
-    } else {
-        return self->KAnimatedButton::hasHeightForWidth();
-    }
+    return self->KAnimatedButton::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnHasHeightForWidth(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HasHeightForWidth_Callback>(slot));
+void KAnimatedButton_OnHasHeightForWidth(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_hasheightforwidth_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KAnimatedButton_PaintEngine(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->paintEngine();
-    } else {
-        return self->KAnimatedButton::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KAnimatedButton_SuperPaintEngine(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_PaintEngine_IsBase(true);
-        return vkanimatedbutton->paintEngine();
-    } else {
-        return self->KAnimatedButton::paintEngine();
-    }
+    return self->KAnimatedButton::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnPaintEngine(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_PaintEngine_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_PaintEngine_Callback>(slot));
+void KAnimatedButton_OnPaintEngine(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_paintengine_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_MouseDoubleClickEvent(KAnimatedButton* self, QMouseEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperMouseDoubleClickEvent(KAnimatedButton* self, QMouseEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_MouseDoubleClickEvent_IsBase(true);
-        vkanimatedbutton->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMouseDoubleClickEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_mousedoubleclickevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_WheelEvent(KAnimatedButton* self, QWheelEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->wheelEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperWheelEvent(KAnimatedButton* self, QWheelEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_WheelEvent_IsBase(true);
-        vkanimatedbutton->wheelEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->wheelEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnWheelEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_WheelEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_WheelEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_wheelevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_MoveEvent(KAnimatedButton* self, QMoveEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->moveEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperMoveEvent(KAnimatedButton* self, QMoveEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_MoveEvent_IsBase(true);
-        vkanimatedbutton->moveEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->moveEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnMoveEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_MoveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MoveEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_moveevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_ResizeEvent(KAnimatedButton* self, QResizeEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->resizeEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperResizeEvent(KAnimatedButton* self, QResizeEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_ResizeEvent_IsBase(true);
-        vkanimatedbutton->resizeEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->resizeEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnResizeEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_ResizeEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ResizeEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_resizeevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_CloseEvent(KAnimatedButton* self, QCloseEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->closeEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperCloseEvent(KAnimatedButton* self, QCloseEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_CloseEvent_IsBase(true);
-        vkanimatedbutton->closeEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->closeEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnCloseEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_CloseEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CloseEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_closeevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_ContextMenuEvent(KAnimatedButton* self, QContextMenuEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->contextMenuEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperContextMenuEvent(KAnimatedButton* self, QContextMenuEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_ContextMenuEvent_IsBase(true);
-        vkanimatedbutton->contextMenuEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnContextMenuEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ContextMenuEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_contextmenuevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_TabletEvent(KAnimatedButton* self, QTabletEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->tabletEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperTabletEvent(KAnimatedButton* self, QTabletEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_TabletEvent_IsBase(true);
-        vkanimatedbutton->tabletEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->tabletEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnTabletEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_TabletEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_TabletEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_tabletevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_DragEnterEvent(KAnimatedButton* self, QDragEnterEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->dragEnterEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperDragEnterEvent(KAnimatedButton* self, QDragEnterEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_DragEnterEvent_IsBase(true);
-        vkanimatedbutton->dragEnterEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDragEnterEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragEnterEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_dragenterevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_DragMoveEvent(KAnimatedButton* self, QDragMoveEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->dragMoveEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperDragMoveEvent(KAnimatedButton* self, QDragMoveEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_DragMoveEvent_IsBase(true);
-        vkanimatedbutton->dragMoveEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDragMoveEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragMoveEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_dragmoveevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_DragLeaveEvent(KAnimatedButton* self, QDragLeaveEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->dragLeaveEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperDragLeaveEvent(KAnimatedButton* self, QDragLeaveEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_DragLeaveEvent_IsBase(true);
-        vkanimatedbutton->dragLeaveEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDragLeaveEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragLeaveEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_dragleaveevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_DropEvent(KAnimatedButton* self, QDropEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->dropEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperDropEvent(KAnimatedButton* self, QDropEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_DropEvent_IsBase(true);
-        vkanimatedbutton->dropEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->dropEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDropEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_DropEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DropEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_dropevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_ShowEvent(KAnimatedButton* self, QShowEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->showEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperShowEvent(KAnimatedButton* self, QShowEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_ShowEvent_IsBase(true);
-        vkanimatedbutton->showEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->showEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnShowEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_ShowEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ShowEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_showevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_HideEvent(KAnimatedButton* self, QHideEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->hideEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperHideEvent(KAnimatedButton* self, QHideEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_HideEvent_IsBase(true);
-        vkanimatedbutton->hideEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->hideEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnHideEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_HideEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HideEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_hideevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAnimatedButton_NativeEvent(KAnimatedButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
+    if (vkanimatedbutton) {
         return vkanimatedbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKAnimatedButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KAnimatedButton::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KAnimatedButton_SuperNativeEvent(KAnimatedButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_NativeEvent_IsBase(true);
-        return vkanimatedbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKAnimatedButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        return vkanimatedbutton->KAnimatedButton::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnNativeEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_NativeEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_NativeEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_nativeevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KAnimatedButton_Metric(const KAnimatedButton* self, int param1) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         return vkanimatedbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKAnimatedButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KAnimatedButton::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KAnimatedButton_SuperMetric(const KAnimatedButton* self, int param1) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Metric_IsBase(true);
-        return vkanimatedbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKAnimatedButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->KAnimatedButton::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnMetric(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Metric_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metric_Callback>(slot));
+void KAnimatedButton_OnMetric(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_metric_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_InitPainter(const KAnimatedButton* self, QPainter* painter) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->initPainter(painter);
     } else {
-        ((VirtualKAnimatedButton*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KAnimatedButton::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperInitPainter(const KAnimatedButton* self, QPainter* painter) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_InitPainter_IsBase(true);
-        vkanimatedbutton->initPainter(painter);
-    } else {
-        ((VirtualKAnimatedButton*)self)->initPainter(painter);
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        vkanimatedbutton->KAnimatedButton::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnInitPainter(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_InitPainter_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InitPainter_Callback>(slot));
+void KAnimatedButton_OnInitPainter(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_initpainter_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KAnimatedButton_Redirected(const KAnimatedButton* self, QPoint* offset) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         return vkanimatedbutton->redirected(offset);
     } else {
-        return ((VirtualKAnimatedButton*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KAnimatedButton::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KAnimatedButton_SuperRedirected(const KAnimatedButton* self, QPoint* offset) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Redirected_IsBase(true);
-        return vkanimatedbutton->redirected(offset);
-    } else {
-        return ((VirtualKAnimatedButton*)self)->redirected(offset);
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->KAnimatedButton::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnRedirected(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Redirected_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Redirected_Callback>(slot));
+void KAnimatedButton_OnRedirected(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_redirected_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KAnimatedButton_SharedPainter(const KAnimatedButton* self) {
     auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         return vkanimatedbutton->sharedPainter();
     } else {
-        return ((VirtualKAnimatedButton*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KAnimatedButton::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KAnimatedButton_SuperSharedPainter(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_SharedPainter_IsBase(true);
-        return vkanimatedbutton->sharedPainter();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->sharedPainter();
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->KAnimatedButton::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnSharedPainter(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_SharedPainter_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SharedPainter_Callback>(slot));
+void KAnimatedButton_OnSharedPainter(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_sharedpainter_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_InputMethodEvent(KAnimatedButton* self, QInputMethodEvent* param1) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->inputMethodEvent(param1);
     } else {
-        ((VirtualKAnimatedButton*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KAnimatedButton::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperInputMethodEvent(KAnimatedButton* self, QInputMethodEvent* param1) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_InputMethodEvent_IsBase(true);
-        vkanimatedbutton->inputMethodEvent(param1);
-    } else {
-        ((VirtualKAnimatedButton*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnInputMethodEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InputMethodEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_inputmethodevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KAnimatedButton_InputMethodQuery(const KAnimatedButton* self, int param1) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return new QVariant(vkanimatedbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKAnimatedButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KAnimatedButton_SuperInputMethodQuery(const KAnimatedButton* self, int param1) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_InputMethodQuery_IsBase(true);
-        return new QVariant(vkanimatedbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKAnimatedButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KAnimatedButton::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnInputMethodQuery(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InputMethodQuery_Callback>(slot));
+void KAnimatedButton_OnInputMethodQuery(KAnimatedButton* self, intptr_t slot) {
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self)))
+        vkanimatedbutton->kanimatedbutton_inputmethodquery_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAnimatedButton_FocusNextPrevChild(KAnimatedButton* self, bool next) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         return vkanimatedbutton->focusNextPrevChild(next);
     } else {
-        return ((VirtualKAnimatedButton*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KAnimatedButton::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KAnimatedButton_SuperFocusNextPrevChild(KAnimatedButton* self, bool next) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_FocusNextPrevChild_IsBase(true);
-        return vkanimatedbutton->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKAnimatedButton*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        return vkanimatedbutton->KAnimatedButton::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnFocusNextPrevChild(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_focusnextprevchild_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KAnimatedButton_EventFilter(KAnimatedButton* self, QObject* watched, QEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->eventFilter(watched, event);
-    } else {
-        return self->KAnimatedButton::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KAnimatedButton_SuperEventFilter(KAnimatedButton* self, QObject* watched, QEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_EventFilter_IsBase(true);
-        return vkanimatedbutton->eventFilter(watched, event);
-    } else {
-        return self->KAnimatedButton::eventFilter(watched, event);
-    }
+    return self->KAnimatedButton::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnEventFilter(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_EventFilter_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_EventFilter_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_eventfilter_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_ChildEvent(KAnimatedButton* self, QChildEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->childEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperChildEvent(KAnimatedButton* self, QChildEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_ChildEvent_IsBase(true);
-        vkanimatedbutton->childEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->childEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnChildEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_ChildEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ChildEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_childevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_CustomEvent(KAnimatedButton* self, QEvent* event) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->customEvent(event);
     } else {
-        ((VirtualKAnimatedButton*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KAnimatedButton::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperCustomEvent(KAnimatedButton* self, QEvent* event) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_CustomEvent_IsBase(true);
-        vkanimatedbutton->customEvent(event);
-    } else {
-        ((VirtualKAnimatedButton*)self)->customEvent(event);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnCustomEvent(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_CustomEvent_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CustomEvent_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_customevent_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_ConnectNotify(KAnimatedButton* self, const QMetaMethod* signal) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->connectNotify(*signal);
     } else {
-        ((VirtualKAnimatedButton*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KAnimatedButton::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperConnectNotify(KAnimatedButton* self, const QMetaMethod* signal) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_ConnectNotify_IsBase(true);
-        vkanimatedbutton->connectNotify(*signal);
-    } else {
-        ((VirtualKAnimatedButton*)self)->connectNotify(*signal);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnConnectNotify(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_ConnectNotify_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ConnectNotify_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_connectnotify_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KAnimatedButton_DisconnectNotify(KAnimatedButton* self, const QMetaMethod* signal) {
     auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
+    if (vkanimatedbutton) {
         vkanimatedbutton->disconnectNotify(*signal);
     } else {
-        ((VirtualKAnimatedButton*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KAnimatedButton::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KAnimatedButton_SuperDisconnectNotify(KAnimatedButton* self, const QMetaMethod* signal) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_DisconnectNotify_IsBase(true);
-        vkanimatedbutton->disconnectNotify(*signal);
-    } else {
-        ((VirtualKAnimatedButton*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->KAnimatedButton::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KAnimatedButton::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KAnimatedButton_OnDisconnectNotify(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DisconnectNotify_Callback>(slot));
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self))
+        vkanimatedbutton->kanimatedbutton_disconnectnotify_callback = reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KAnimatedButton_UpdateMicroFocus(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->updateMicroFocus();
-    } else {
-        ((VirtualKAnimatedButton*)self)->updateMicroFocus();
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->VirtualKAnimatedButton::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KAnimatedButton::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KAnimatedButton_SuperUpdateMicroFocus(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_UpdateMicroFocus_IsBase(true);
-        vkanimatedbutton->updateMicroFocus();
-    } else {
-        ((VirtualKAnimatedButton*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnUpdateMicroFocus(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KAnimatedButton_Create(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->create();
-    } else {
-        ((VirtualKAnimatedButton*)self)->create();
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->VirtualKAnimatedButton::create();
+    } else
+        qFatal("Error: Protected method KAnimatedButton::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KAnimatedButton_SuperCreate(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Create_IsBase(true);
-        vkanimatedbutton->create();
-    } else {
-        ((VirtualKAnimatedButton*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnCreate(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Create_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KAnimatedButton_Destroy(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->destroy();
-    } else {
-        ((VirtualKAnimatedButton*)self)->destroy();
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        vkanimatedbutton->VirtualKAnimatedButton::destroy();
+    } else
+        qFatal("Error: Protected method KAnimatedButton::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KAnimatedButton_SuperDestroy(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Destroy_IsBase(true);
-        vkanimatedbutton->destroy();
-    } else {
-        ((VirtualKAnimatedButton*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnDestroy(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Destroy_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KAnimatedButton_FocusNextChild(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->focusNextChild();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->focusNextChild();
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        return vkanimatedbutton->VirtualKAnimatedButton::focusNextChild();
+    } else
+        qFatal("Error: Protected method KAnimatedButton::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KAnimatedButton_SuperFocusNextChild(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_FocusNextChild_IsBase(true);
-        return vkanimatedbutton->focusNextChild();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnFocusNextChild(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_FocusNextChild_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KAnimatedButton_FocusPreviousChild(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->focusPreviousChild();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->focusPreviousChild();
-    }
+    if (auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self)) {
+        return vkanimatedbutton->VirtualKAnimatedButton::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KAnimatedButton::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KAnimatedButton_SuperFocusPreviousChild(KAnimatedButton* self) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_FocusPreviousChild_IsBase(true);
-        return vkanimatedbutton->focusPreviousChild();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnFocusPreviousChild(KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = dynamic_cast<VirtualKAnimatedButton*>(self);
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KAnimatedButton_Sender(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->sender();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->sender();
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->VirtualKAnimatedButton::sender();
+    } else
+        qFatal("Error: Protected method KAnimatedButton::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KAnimatedButton_SuperSender(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Sender_IsBase(true);
-        return vkanimatedbutton->sender();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnSender(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Sender_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KAnimatedButton_SenderSignalIndex(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->senderSignalIndex();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->senderSignalIndex();
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->VirtualKAnimatedButton::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KAnimatedButton::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KAnimatedButton_SuperSenderSignalIndex(const KAnimatedButton* self) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_SenderSignalIndex_IsBase(true);
-        return vkanimatedbutton->senderSignalIndex();
-    } else {
-        return ((VirtualKAnimatedButton*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnSenderSignalIndex(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KAnimatedButton_Receivers(const KAnimatedButton* self, const char* signal) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->receivers(signal);
-    } else {
-        return ((VirtualKAnimatedButton*)self)->receivers(signal);
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->VirtualKAnimatedButton::receivers(signal);
+    } else
+        qFatal("Error: Protected method KAnimatedButton::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KAnimatedButton_SuperReceivers(const KAnimatedButton* self, const char* signal) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_Receivers_IsBase(true);
-        return vkanimatedbutton->receivers(signal);
-    } else {
-        return ((VirtualKAnimatedButton*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnReceivers(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_Receivers_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KAnimatedButton_IsSignalConnected(const KAnimatedButton* self, const QMetaMethod* signal) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKAnimatedButton*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->VirtualKAnimatedButton::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KAnimatedButton::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KAnimatedButton_SuperIsSignalConnected(const KAnimatedButton* self, const QMetaMethod* signal) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_IsSignalConnected_IsBase(true);
-        return vkanimatedbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKAnimatedButton*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnIsSignalConnected(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KAnimatedButton_GetDecodedMetricF(const KAnimatedButton* self, int metricA, int metricB) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        return vkanimatedbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKAnimatedButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KAnimatedButton_SuperGetDecodedMetricF(const KAnimatedButton* self, int metricA, int metricB) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton) {
-        vkanimatedbutton->setKAnimatedButton_GetDecodedMetricF_IsBase(true);
-        return vkanimatedbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKAnimatedButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KAnimatedButton_OnGetDecodedMetricF(const KAnimatedButton* self, intptr_t slot) {
-    auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self));
-    if (vkanimatedbutton && vkanimatedbutton->isVirtualKAnimatedButton)
-        vkanimatedbutton->setKAnimatedButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKAnimatedButton::KAnimatedButton_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkanimatedbutton = const_cast<VirtualKAnimatedButton*>(dynamic_cast<const VirtualKAnimatedButton*>(self))) {
+        return vkanimatedbutton->VirtualKAnimatedButton::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KAnimatedButton::getDecodedMetricF called without a directly constructed type");
 }
 
 void KAnimatedButton_Delete(KAnimatedButton* self) {

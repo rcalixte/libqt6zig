@@ -135,9 +135,9 @@ pub const QGeoRoutingManagerEngine = extern struct {
     ///
     /// ` self: QGeoRoutingManagerEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGeoRoutingManagerEngine) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGeoRoutingManagerEngine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine) callconv(.c) QMetaObject) void {
         qtc.QGeoRoutingManagerEngine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -322,6 +322,8 @@ pub const QGeoRoutingManagerEngine = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#calculateRoute)
     ///
+    /// This method must be implemented with `onCalculateRoute` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QGeoRoutingManagerEngine `
@@ -349,25 +351,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
     ///
     pub fn onCalculateRoute(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, QGeoRouteRequest) callconv(.c) QGeoRouteReply) void {
         qtc.QGeoRoutingManagerEngine_OnCalculateRoute(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCalculateRoute` instead
-    ///
-    pub const SuperCalculateRoute = superCalculateRoute;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#calculateRoute)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` request: QGeoRouteRequest `
-    ///
-    pub fn superCalculateRoute(self: QGeoRoutingManagerEngine, request: anytype) QGeoRouteReply {
-        comptime _ = @TypeOf(request)._is_QGeoRouteRequest;
-        return .{ .ptr = qtc.QGeoRoutingManagerEngine_SuperCalculateRoute(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
 
     /// ### DEPRECATED: Use `updateRoute` instead
@@ -687,42 +670,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
         qtc.QGeoRoutingManagerEngine_SetSupportedTravelModes(@ptrCast(self.ptr), @bitCast(travelModes));
     }
 
-    /// ### DEPRECATED: Use `onSetSupportedTravelModes` instead
-    ///
-    pub const OnSetSupportedTravelModes = onSetSupportedTravelModes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedTravelModes)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` callback: *const fn (self: QGeoRoutingManagerEngine, travelModes: flag of qgeorouterequest_enums.TravelMode) callconv(.c) void `
-    ///
-    pub fn onSetSupportedTravelModes(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedTravelModes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSupportedTravelModes` instead
-    ///
-    pub const SuperSetSupportedTravelModes = superSetSupportedTravelModes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedTravelModes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` travelModes: flag of qgeorouterequest_enums.TravelMode `
-    ///
-    pub fn superSetSupportedTravelModes(self: QGeoRoutingManagerEngine, travelModes: i32) void {
-        qtc.QGeoRoutingManagerEngine_SuperSetSupportedTravelModes(@ptrCast(self.ptr), @bitCast(travelModes));
-    }
-
     /// ### DEPRECATED: Use `setSupportedFeatureTypes` instead
     ///
     pub const SetSupportedFeatureTypes = setSupportedFeatureTypes;
@@ -737,42 +684,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
     ///
     pub fn setSupportedFeatureTypes(self: QGeoRoutingManagerEngine, featureTypes: i32) void {
         qtc.QGeoRoutingManagerEngine_SetSupportedFeatureTypes(@ptrCast(self.ptr), @bitCast(featureTypes));
-    }
-
-    /// ### DEPRECATED: Use `onSetSupportedFeatureTypes` instead
-    ///
-    pub const OnSetSupportedFeatureTypes = onSetSupportedFeatureTypes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureTypes)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` callback: *const fn (self: QGeoRoutingManagerEngine, featureTypes: flag of qgeorouterequest_enums.FeatureType) callconv(.c) void `
-    ///
-    pub fn onSetSupportedFeatureTypes(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedFeatureTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSupportedFeatureTypes` instead
-    ///
-    pub const SuperSetSupportedFeatureTypes = superSetSupportedFeatureTypes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureTypes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` featureTypes: flag of qgeorouterequest_enums.FeatureType `
-    ///
-    pub fn superSetSupportedFeatureTypes(self: QGeoRoutingManagerEngine, featureTypes: i32) void {
-        qtc.QGeoRoutingManagerEngine_SuperSetSupportedFeatureTypes(@ptrCast(self.ptr), @bitCast(featureTypes));
     }
 
     /// ### DEPRECATED: Use `setSupportedFeatureWeights` instead
@@ -791,42 +702,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
         qtc.QGeoRoutingManagerEngine_SetSupportedFeatureWeights(@ptrCast(self.ptr), @bitCast(featureWeights));
     }
 
-    /// ### DEPRECATED: Use `onSetSupportedFeatureWeights` instead
-    ///
-    pub const OnSetSupportedFeatureWeights = onSetSupportedFeatureWeights;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureWeights)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` callback: *const fn (self: QGeoRoutingManagerEngine, featureWeights: flag of qgeorouterequest_enums.FeatureWeight) callconv(.c) void `
-    ///
-    pub fn onSetSupportedFeatureWeights(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedFeatureWeights(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSupportedFeatureWeights` instead
-    ///
-    pub const SuperSetSupportedFeatureWeights = superSetSupportedFeatureWeights;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedFeatureWeights)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` featureWeights: flag of qgeorouterequest_enums.FeatureWeight `
-    ///
-    pub fn superSetSupportedFeatureWeights(self: QGeoRoutingManagerEngine, featureWeights: i32) void {
-        qtc.QGeoRoutingManagerEngine_SuperSetSupportedFeatureWeights(@ptrCast(self.ptr), @bitCast(featureWeights));
-    }
-
     /// ### DEPRECATED: Use `setSupportedRouteOptimizations` instead
     ///
     pub const SetSupportedRouteOptimizations = setSupportedRouteOptimizations;
@@ -841,42 +716,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
     ///
     pub fn setSupportedRouteOptimizations(self: QGeoRoutingManagerEngine, optimizations: i32) void {
         qtc.QGeoRoutingManagerEngine_SetSupportedRouteOptimizations(@ptrCast(self.ptr), @bitCast(optimizations));
-    }
-
-    /// ### DEPRECATED: Use `onSetSupportedRouteOptimizations` instead
-    ///
-    pub const OnSetSupportedRouteOptimizations = onSetSupportedRouteOptimizations;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedRouteOptimizations)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` callback: *const fn (self: QGeoRoutingManagerEngine, optimizations: flag of qgeorouterequest_enums.RouteOptimization) callconv(.c) void `
-    ///
-    pub fn onSetSupportedRouteOptimizations(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedRouteOptimizations(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSupportedRouteOptimizations` instead
-    ///
-    pub const SuperSetSupportedRouteOptimizations = superSetSupportedRouteOptimizations;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedRouteOptimizations)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` optimizations: flag of qgeorouterequest_enums.RouteOptimization `
-    ///
-    pub fn superSetSupportedRouteOptimizations(self: QGeoRoutingManagerEngine, optimizations: i32) void {
-        qtc.QGeoRoutingManagerEngine_SuperSetSupportedRouteOptimizations(@ptrCast(self.ptr), @bitCast(optimizations));
     }
 
     /// ### DEPRECATED: Use `setSupportedSegmentDetails` instead
@@ -895,42 +734,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
         qtc.QGeoRoutingManagerEngine_SetSupportedSegmentDetails(@ptrCast(self.ptr), @bitCast(segmentDetails));
     }
 
-    /// ### DEPRECATED: Use `onSetSupportedSegmentDetails` instead
-    ///
-    pub const OnSetSupportedSegmentDetails = onSetSupportedSegmentDetails;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedSegmentDetails)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` callback: *const fn (self: QGeoRoutingManagerEngine, segmentDetails: flag of qgeorouterequest_enums.SegmentDetail) callconv(.c) void `
-    ///
-    pub fn onSetSupportedSegmentDetails(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedSegmentDetails(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSupportedSegmentDetails` instead
-    ///
-    pub const SuperSetSupportedSegmentDetails = superSetSupportedSegmentDetails;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedSegmentDetails)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` segmentDetails: flag of qgeorouterequest_enums.SegmentDetail `
-    ///
-    pub fn superSetSupportedSegmentDetails(self: QGeoRoutingManagerEngine, segmentDetails: i32) void {
-        qtc.QGeoRoutingManagerEngine_SuperSetSupportedSegmentDetails(@ptrCast(self.ptr), @bitCast(segmentDetails));
-    }
-
     /// ### DEPRECATED: Use `setSupportedManeuverDetails` instead
     ///
     pub const SetSupportedManeuverDetails = setSupportedManeuverDetails;
@@ -945,42 +748,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
     ///
     pub fn setSupportedManeuverDetails(self: QGeoRoutingManagerEngine, maneuverDetails: i32) void {
         qtc.QGeoRoutingManagerEngine_SetSupportedManeuverDetails(@ptrCast(self.ptr), @bitCast(maneuverDetails));
-    }
-
-    /// ### DEPRECATED: Use `onSetSupportedManeuverDetails` instead
-    ///
-    pub const OnSetSupportedManeuverDetails = onSetSupportedManeuverDetails;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedManeuverDetails)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` callback: *const fn (self: QGeoRoutingManagerEngine, maneuverDetails: flag of qgeorouterequest_enums.ManeuverDetail) callconv(.c) void `
-    ///
-    pub fn onSetSupportedManeuverDetails(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, i32) callconv(.c) void) void {
-        qtc.QGeoRoutingManagerEngine_OnSetSupportedManeuverDetails(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetSupportedManeuverDetails` instead
-    ///
-    pub const SuperSetSupportedManeuverDetails = superSetSupportedManeuverDetails;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutingmanagerengine.html#setSupportedManeuverDetails)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` maneuverDetails: flag of qgeorouterequest_enums.ManeuverDetail `
-    ///
-    pub fn superSetSupportedManeuverDetails(self: QGeoRoutingManagerEngine, maneuverDetails: i32) void {
-        qtc.QGeoRoutingManagerEngine_SuperSetSupportedManeuverDetails(@ptrCast(self.ptr), @bitCast(maneuverDetails));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2501,44 +2268,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
         return .{ .ptr = qtc.QGeoRoutingManagerEngine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    pub fn superSender(self: QGeoRoutingManagerEngine) QObject {
-        return .{ .ptr = qtc.QGeoRoutingManagerEngine_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGeoRoutingManagerEngine, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGeoRoutingManagerEngine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2555,44 +2284,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
     ///
     pub fn senderSignalIndex(self: QGeoRoutingManagerEngine) i32 {
         return qtc.QGeoRoutingManagerEngine_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    pub fn superSenderSignalIndex(self: QGeoRoutingManagerEngine) i32 {
-        return qtc.QGeoRoutingManagerEngine_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGeoRoutingManagerEngine, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoRoutingManagerEngine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2616,47 +2307,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
         return qtc.QGeoRoutingManagerEngine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGeoRoutingManagerEngine, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGeoRoutingManagerEngine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine`
-    ///
-    /// ` callback: *const fn (self: QGeoRoutingManagerEngine, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoRoutingManagerEngine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2676,47 +2326,6 @@ pub const QGeoRoutingManagerEngine = extern struct {
     pub fn isSignalConnected(self: QGeoRoutingManagerEngine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGeoRoutingManagerEngine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRoutingManagerEngine `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGeoRoutingManagerEngine, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGeoRoutingManagerEngine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRoutingManagerEngine`
-    ///
-    /// ` callback: *const fn (self: QGeoRoutingManagerEngine, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGeoRoutingManagerEngine, callback: *const fn (QGeoRoutingManagerEngine, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGeoRoutingManagerEngine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

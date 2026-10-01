@@ -101,9 +101,9 @@ pub const QQuickTransform = extern struct {
     ///
     /// ` self: QQuickTransform `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickTransform) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickTransform, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickTransform, callback: *const fn (QQuickTransform) callconv(.c) QMetaObject) void {
         qtc.QQuickTransform_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -288,6 +288,8 @@ pub const QQuickTransform = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktransform.html#applyTo)
     ///
+    /// This method must be implemented with `onApplyTo` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQuickTransform `
@@ -317,25 +319,6 @@ pub const QQuickTransform = extern struct {
         qtc.QQuickTransform_OnApplyTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superApplyTo` instead
-    ///
-    pub const SuperApplyTo = superApplyTo;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktransform.html#applyTo)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTransform `
-    ///
-    /// ` matrix: QMatrix4x4 `
-    ///
-    pub fn superApplyTo(self: QQuickTransform, matrix: anytype) void {
-        comptime _ = @TypeOf(matrix)._is_QMatrix4x4;
-        qtc.QQuickTransform_SuperApplyTo(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
-    }
-
     /// ### DEPRECATED: Use `update` instead
     ///
     pub const Update = update;
@@ -348,40 +331,6 @@ pub const QQuickTransform = extern struct {
     ///
     pub fn update(self: QQuickTransform) void {
         qtc.QQuickTransform_Update(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdate` instead
-    ///
-    pub const OnUpdate = onUpdate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktransform.html#update)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTransform `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdate(self: QQuickTransform, callback: *const fn () callconv(.c) void) void {
-        qtc.QQuickTransform_OnUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdate` instead
-    ///
-    pub const SuperUpdate = superUpdate;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktransform.html#update)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTransform `
-    ///
-    pub fn superUpdate(self: QQuickTransform) void {
-        qtc.QQuickTransform_SuperUpdate(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1861,44 +1810,6 @@ pub const QQuickTransform = extern struct {
         return .{ .ptr = qtc.QQuickTransform_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTransform `
-    ///
-    pub fn superSender(self: QQuickTransform) QObject {
-        return .{ .ptr = qtc.QQuickTransform_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTransform`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickTransform, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickTransform_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1915,44 +1826,6 @@ pub const QQuickTransform = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickTransform) i32 {
         return qtc.QQuickTransform_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTransform `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickTransform) i32 {
-        return qtc.QQuickTransform_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTransform`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickTransform, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickTransform_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1976,47 +1849,6 @@ pub const QQuickTransform = extern struct {
         return qtc.QQuickTransform_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTransform `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickTransform, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickTransform_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTransform`
-    ///
-    /// ` callback: *const fn (self: QQuickTransform, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickTransform, callback: *const fn (QQuickTransform, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickTransform_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2036,47 +1868,6 @@ pub const QQuickTransform = extern struct {
     pub fn isSignalConnected(self: QQuickTransform, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickTransform_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTransform `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickTransform, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickTransform_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTransform`
-    ///
-    /// ` callback: *const fn (self: QQuickTransform, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickTransform, callback: *const fn (QQuickTransform, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickTransform_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2200,9 +1991,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickItem, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) QMetaObject) void {
         qtc.QQuickItem_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3257,11 +3048,11 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBoundingRect(self: QQuickItem, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onBoundingRect(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) QRectF) void {
         qtc.QQuickItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3307,11 +3098,11 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onClipRect(self: QQuickItem, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onClipRect(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) QRectF) void {
         qtc.QQuickItem_OnClipRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4446,9 +4237,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) bool `
     ///
-    pub fn onIsTextureProvider(self: QQuickItem, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsTextureProvider(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) bool) void {
         qtc.QQuickItem_OnIsTextureProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4494,9 +4285,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QSGTextureProvider `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) QSGTextureProvider `
     ///
-    pub fn onTextureProvider(self: QQuickItem, callback: *const fn () callconv(.c) QSGTextureProvider) void {
+    pub fn onTextureProvider(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) QSGTextureProvider) void {
         qtc.QQuickItem_OnTextureProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5531,40 +5322,6 @@ pub const QQuickItem = extern struct {
         return qtc.QQuickItem_IsComponentComplete(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onIsComponentComplete` instead
-    ///
-    pub const OnIsComponentComplete = onIsComponentComplete;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#isComponentComplete)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsComponentComplete(self: QQuickItem, callback: *const fn () callconv(.c) bool) void {
-        qtc.QQuickItem_OnIsComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsComponentComplete` instead
-    ///
-    pub const SuperIsComponentComplete = superIsComponentComplete;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#isComponentComplete)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    pub fn superIsComponentComplete(self: QQuickItem) bool {
-        return qtc.QQuickItem_SuperIsComponentComplete(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `itemChange` instead
     ///
     pub const ItemChange = itemChange;
@@ -5697,40 +5454,6 @@ pub const QQuickItem = extern struct {
         qtc.QQuickItem_UpdateInputMethod(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onUpdateInputMethod` instead
-    ///
-    pub const OnUpdateInputMethod = onUpdateInputMethod;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#updateInputMethod)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateInputMethod(self: QQuickItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QQuickItem_OnUpdateInputMethod(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateInputMethod` instead
-    ///
-    pub const SuperUpdateInputMethod = superUpdateInputMethod;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#updateInputMethod)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    pub fn superUpdateInputMethod(self: QQuickItem) void {
-        qtc.QQuickItem_SuperUpdateInputMethod(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `widthValid` instead
     ///
     pub const WidthValid = widthValid;
@@ -5745,40 +5468,6 @@ pub const QQuickItem = extern struct {
         return qtc.QQuickItem_WidthValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onWidthValid` instead
-    ///
-    pub const OnWidthValid = onWidthValid;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#widthValid)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onWidthValid(self: QQuickItem, callback: *const fn () callconv(.c) bool) void {
-        qtc.QQuickItem_OnWidthValid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superWidthValid` instead
-    ///
-    pub const SuperWidthValid = superWidthValid;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#widthValid)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    pub fn superWidthValid(self: QQuickItem) bool {
-        return qtc.QQuickItem_SuperWidthValid(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `heightValid` instead
     ///
     pub const HeightValid = heightValid;
@@ -5791,40 +5480,6 @@ pub const QQuickItem = extern struct {
     ///
     pub fn heightValid(self: QQuickItem) bool {
         return qtc.QQuickItem_HeightValid(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onHeightValid` instead
-    ///
-    pub const OnHeightValid = onHeightValid;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#heightValid)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onHeightValid(self: QQuickItem, callback: *const fn () callconv(.c) bool) void {
-        qtc.QQuickItem_OnHeightValid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superHeightValid` instead
-    ///
-    pub const SuperHeightValid = superHeightValid;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#heightValid)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    pub fn superHeightValid(self: QQuickItem) bool {
-        return qtc.QQuickItem_SuperHeightValid(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setImplicitSize` instead
@@ -5843,44 +5498,6 @@ pub const QQuickItem = extern struct {
     ///
     pub fn setImplicitSize(self: QQuickItem, param1: f64, param2: f64) void {
         qtc.QQuickItem_SetImplicitSize(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
-    }
-
-    /// ### DEPRECATED: Use `onSetImplicitSize` instead
-    ///
-    pub const OnSetImplicitSize = onSetImplicitSize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#setImplicitSize)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` callback: *const fn (self: QQuickItem, param1: f64, param2: f64) callconv(.c) void `
-    ///
-    pub fn onSetImplicitSize(self: QQuickItem, callback: *const fn (QQuickItem, f64, f64) callconv(.c) void) void {
-        qtc.QQuickItem_OnSetImplicitSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetImplicitSize` instead
-    ///
-    pub const SuperSetImplicitSize = superSetImplicitSize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#setImplicitSize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` param1: f64 `
-    ///
-    /// ` param2: f64 `
-    ///
-    pub fn superSetImplicitSize(self: QQuickItem, param1: f64, param2: f64) void {
-        qtc.QQuickItem_SuperSetImplicitSize(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// ### DEPRECATED: Use `classBegin` instead
@@ -5909,9 +5526,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) void `
     ///
-    pub fn onClassBegin(self: QQuickItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onClassBegin(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) void) void {
         qtc.QQuickItem_OnClassBegin(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5957,9 +5574,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) void `
     ///
-    pub fn onComponentComplete(self: QQuickItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onComponentComplete(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) void) void {
         qtc.QQuickItem_OnComponentComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6491,9 +6108,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) void `
     ///
-    pub fn onMouseUngrabEvent(self: QQuickItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onMouseUngrabEvent(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) void) void {
         qtc.QQuickItem_OnMouseUngrabEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6539,9 +6156,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) void `
     ///
-    pub fn onTouchUngrabEvent(self: QQuickItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onTouchUngrabEvent(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) void) void {
         qtc.QQuickItem_OnTouchUngrabEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7193,9 +6810,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) void `
     ///
-    pub fn onReleaseResources(self: QQuickItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onReleaseResources(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) void) void {
         qtc.QQuickItem_OnReleaseResources(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7241,9 +6858,9 @@ pub const QQuickItem = extern struct {
     ///
     /// ` self: QQuickItem `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickItem) callconv(.c) void `
     ///
-    pub fn onUpdatePolish(self: QQuickItem, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdatePolish(self: QQuickItem, callback: *const fn (QQuickItem) callconv(.c) void) void {
         qtc.QQuickItem_OnUpdatePolish(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7385,42 +7002,6 @@ pub const QQuickItem = extern struct {
     ///
     pub fn updateInputMethod1(self: QQuickItem, queries: i32) void {
         qtc.QQuickItem_UpdateInputMethod1(@ptrCast(self.ptr), @bitCast(queries));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateInputMethod1` instead
-    ///
-    pub const OnUpdateInputMethod1 = onUpdateInputMethod1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#updateInputMethod)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` callback: *const fn (self: QQuickItem, queries: flag of qnamespace_enums.InputMethodQuery) callconv(.c) void `
-    ///
-    pub fn onUpdateInputMethod1(self: QQuickItem, callback: *const fn (QQuickItem, i32) callconv(.c) void) void {
-        qtc.QQuickItem_OnUpdateInputMethod1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateInputMethod1` instead
-    ///
-    pub const SuperUpdateInputMethod1 = superUpdateInputMethod1;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickitem.html#updateInputMethod)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` queries: flag of qnamespace_enums.InputMethodQuery `
-    ///
-    pub fn superUpdateInputMethod1(self: QQuickItem, queries: i32) void {
-        qtc.QQuickItem_SuperUpdateInputMethod1(@ptrCast(self.ptr), @bitCast(queries));
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -8804,44 +8385,6 @@ pub const QQuickItem = extern struct {
         return .{ .ptr = qtc.QQuickItem_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    pub fn superSender(self: QQuickItem) QObject {
-        return .{ .ptr = qtc.QQuickItem_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickItem, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickItem_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -8858,44 +8401,6 @@ pub const QQuickItem = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickItem) i32 {
         return qtc.QQuickItem_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickItem) i32 {
-        return qtc.QQuickItem_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickItem, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickItem_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -8919,47 +8424,6 @@ pub const QQuickItem = extern struct {
         return qtc.QQuickItem_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickItem, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickItem_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem`
-    ///
-    /// ` callback: *const fn (self: QQuickItem, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickItem, callback: *const fn (QQuickItem, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickItem_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -8979,47 +8443,6 @@ pub const QQuickItem = extern struct {
     pub fn isSignalConnected(self: QQuickItem, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickItem_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickItem `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickItem, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickItem_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickItem`
-    ///
-    /// ` callback: *const fn (self: QQuickItem, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickItem, callback: *const fn (QQuickItem, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickItem_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

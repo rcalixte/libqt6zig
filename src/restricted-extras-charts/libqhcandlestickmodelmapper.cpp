@@ -220,774 +220,342 @@ libqt_string QHCandlestickModelMapper_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QHCandlestickModelMapper_SuperMetaObject(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_MetaObject_IsBase(true);
-        return (QMetaObject*)vqhcandlestickmodelmapper->metaObject();
-    } else {
-        return (QMetaObject*)self->QHCandlestickModelMapper::metaObject();
-    }
+    return (QMetaObject*)self->QHCandlestickModelMapper::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnMetaObject(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_MetaObject_Callback>(slot));
+void QHCandlestickModelMapper_OnMetaObject(QHCandlestickModelMapper* self, intptr_t slot) {
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self)))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_metaobject_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QHCandlestickModelMapper_SuperMetacast(QHCandlestickModelMapper* self, const char* param1) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Metacast_IsBase(true);
-        return vqhcandlestickmodelmapper->qt_metacast(param1);
-    } else {
-        return self->QHCandlestickModelMapper::qt_metacast(param1);
-    }
+    return self->QHCandlestickModelMapper::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnMetacast(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Metacast_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Metacast_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_metacast_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QHCandlestickModelMapper_SuperMetacall(QHCandlestickModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Metacall_IsBase(true);
-        return vqhcandlestickmodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QHCandlestickModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QHCandlestickModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnMetacall(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Metacall_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Metacall_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_metacall_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QHCandlestickModelMapper_SuperOrientation(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Orientation_IsBase(true);
-        return static_cast<int>(vqhcandlestickmodelmapper->orientation());
-    } else {
-        return static_cast<int>(self->QHCandlestickModelMapper::orientation());
-    }
+    return static_cast<int>(self->QHCandlestickModelMapper::orientation());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnOrientation(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Orientation_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Orientation_Callback>(slot));
+void QHCandlestickModelMapper_OnOrientation(QHCandlestickModelMapper* self, intptr_t slot) {
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self)))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_orientation_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Orientation_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHCandlestickModelMapper_Event(QHCandlestickModelMapper* self, QEvent* event) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->event(event);
-    } else {
-        return self->QHCandlestickModelMapper::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QHCandlestickModelMapper_SuperEvent(QHCandlestickModelMapper* self, QEvent* event) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Event_IsBase(true);
-        return vqhcandlestickmodelmapper->event(event);
-    } else {
-        return self->QHCandlestickModelMapper::event(event);
-    }
+    return self->QHCandlestickModelMapper::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnEvent(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Event_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Event_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_event_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QHCandlestickModelMapper_EventFilter(QHCandlestickModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QHCandlestickModelMapper::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QHCandlestickModelMapper_SuperEventFilter(QHCandlestickModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_EventFilter_IsBase(true);
-        return vqhcandlestickmodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QHCandlestickModelMapper::eventFilter(watched, event);
-    }
+    return self->QHCandlestickModelMapper::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnEventFilter(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_EventFilter_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_eventfilter_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHCandlestickModelMapper_TimerEvent(QHCandlestickModelMapper* self, QTimerEvent* event) {
     auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
+    if (vqhcandlestickmodelmapper) {
         vqhcandlestickmodelmapper->timerEvent(event);
     } else {
-        ((VirtualQHCandlestickModelMapper*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHCandlestickModelMapper_SuperTimerEvent(QHCandlestickModelMapper* self, QTimerEvent* event) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_TimerEvent_IsBase(true);
-        vqhcandlestickmodelmapper->timerEvent(event);
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->timerEvent(event);
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->QHCandlestickModelMapper::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnTimerEvent(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_TimerEvent_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_timerevent_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHCandlestickModelMapper_ChildEvent(QHCandlestickModelMapper* self, QChildEvent* event) {
     auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
+    if (vqhcandlestickmodelmapper) {
         vqhcandlestickmodelmapper->childEvent(event);
     } else {
-        ((VirtualQHCandlestickModelMapper*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHCandlestickModelMapper_SuperChildEvent(QHCandlestickModelMapper* self, QChildEvent* event) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_ChildEvent_IsBase(true);
-        vqhcandlestickmodelmapper->childEvent(event);
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->childEvent(event);
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->QHCandlestickModelMapper::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnChildEvent(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_ChildEvent_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_childevent_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHCandlestickModelMapper_CustomEvent(QHCandlestickModelMapper* self, QEvent* event) {
     auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
+    if (vqhcandlestickmodelmapper) {
         vqhcandlestickmodelmapper->customEvent(event);
     } else {
-        ((VirtualQHCandlestickModelMapper*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHCandlestickModelMapper_SuperCustomEvent(QHCandlestickModelMapper* self, QEvent* event) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_CustomEvent_IsBase(true);
-        vqhcandlestickmodelmapper->customEvent(event);
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->customEvent(event);
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->QHCandlestickModelMapper::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnCustomEvent(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_CustomEvent_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_customevent_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHCandlestickModelMapper_ConnectNotify(QHCandlestickModelMapper* self, const QMetaMethod* signal) {
     auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
+    if (vqhcandlestickmodelmapper) {
         vqhcandlestickmodelmapper->connectNotify(*signal);
     } else {
-        ((VirtualQHCandlestickModelMapper*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHCandlestickModelMapper_SuperConnectNotify(QHCandlestickModelMapper* self, const QMetaMethod* signal) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_ConnectNotify_IsBase(true);
-        vqhcandlestickmodelmapper->connectNotify(*signal);
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->connectNotify(*signal);
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->QHCandlestickModelMapper::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnConnectNotify(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_ConnectNotify_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_connectnotify_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QHCandlestickModelMapper_DisconnectNotify(QHCandlestickModelMapper* self, const QMetaMethod* signal) {
     auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
+    if (vqhcandlestickmodelmapper) {
         vqhcandlestickmodelmapper->disconnectNotify(*signal);
     } else {
-        ((VirtualQHCandlestickModelMapper*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QHCandlestickModelMapper_SuperDisconnectNotify(QHCandlestickModelMapper* self, const QMetaMethod* signal) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_DisconnectNotify_IsBase(true);
-        vqhcandlestickmodelmapper->disconnectNotify(*signal);
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->QHCandlestickModelMapper::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QHCandlestickModelMapper::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QHCandlestickModelMapper_OnDisconnectNotify(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_DisconnectNotify_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self))
+        vqhcandlestickmodelmapper->qhcandlestickmodelmapper_disconnectnotify_callback = reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHCandlestickModelMapper_SetTimestamp(QHCandlestickModelMapper* self, int timestamp) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setTimestamp(static_cast<int>(timestamp));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setTimestamp(static_cast<int>(timestamp));
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::setTimestamp(static_cast<int>(timestamp));
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::setTimestamp called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHCandlestickModelMapper_SuperSetTimestamp(QHCandlestickModelMapper* self, int timestamp) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetTimestamp_IsBase(true);
-        vqhcandlestickmodelmapper->setTimestamp(static_cast<int>(timestamp));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setTimestamp(static_cast<int>(timestamp));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSetTimestamp(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetTimestamp_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_SetTimestamp_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_Timestamp(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->timestamp();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->timestamp();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::timestamp();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::timestamp called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperTimestamp(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Timestamp_IsBase(true);
-        return vqhcandlestickmodelmapper->timestamp();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->timestamp();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnTimestamp(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Timestamp_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Timestamp_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHCandlestickModelMapper_SetOpen(QHCandlestickModelMapper* self, int open) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setOpen(static_cast<int>(open));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setOpen(static_cast<int>(open));
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::setOpen(static_cast<int>(open));
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::setOpen called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHCandlestickModelMapper_SuperSetOpen(QHCandlestickModelMapper* self, int open) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetOpen_IsBase(true);
-        vqhcandlestickmodelmapper->setOpen(static_cast<int>(open));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setOpen(static_cast<int>(open));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSetOpen(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetOpen_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_SetOpen_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_Open(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->open();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->open();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::open();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::open called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperOpen(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Open_IsBase(true);
-        return vqhcandlestickmodelmapper->open();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->open();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnOpen(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Open_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Open_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHCandlestickModelMapper_SetHigh(QHCandlestickModelMapper* self, int high) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setHigh(static_cast<int>(high));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setHigh(static_cast<int>(high));
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::setHigh(static_cast<int>(high));
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::setHigh called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHCandlestickModelMapper_SuperSetHigh(QHCandlestickModelMapper* self, int high) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetHigh_IsBase(true);
-        vqhcandlestickmodelmapper->setHigh(static_cast<int>(high));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setHigh(static_cast<int>(high));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSetHigh(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetHigh_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_SetHigh_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_High(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->high();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->high();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::high();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::high called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperHigh(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_High_IsBase(true);
-        return vqhcandlestickmodelmapper->high();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->high();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnHigh(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_High_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_High_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHCandlestickModelMapper_SetLow(QHCandlestickModelMapper* self, int low) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setLow(static_cast<int>(low));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setLow(static_cast<int>(low));
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::setLow(static_cast<int>(low));
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::setLow called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHCandlestickModelMapper_SuperSetLow(QHCandlestickModelMapper* self, int low) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetLow_IsBase(true);
-        vqhcandlestickmodelmapper->setLow(static_cast<int>(low));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setLow(static_cast<int>(low));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSetLow(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetLow_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_SetLow_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_Low(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->low();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->low();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::low();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::low called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperLow(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Low_IsBase(true);
-        return vqhcandlestickmodelmapper->low();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->low();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnLow(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Low_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Low_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHCandlestickModelMapper_SetClose(QHCandlestickModelMapper* self, int close) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setClose(static_cast<int>(close));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setClose(static_cast<int>(close));
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::setClose(static_cast<int>(close));
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::setClose called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHCandlestickModelMapper_SuperSetClose(QHCandlestickModelMapper* self, int close) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetClose_IsBase(true);
-        vqhcandlestickmodelmapper->setClose(static_cast<int>(close));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setClose(static_cast<int>(close));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSetClose(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetClose_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_SetClose_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_Close(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->close();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->close();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::close();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::close called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperClose(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Close_IsBase(true);
-        return vqhcandlestickmodelmapper->close();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->close();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnClose(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Close_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Close_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHCandlestickModelMapper_SetFirstSetSection(QHCandlestickModelMapper* self, int firstSetSection) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setFirstSetSection(static_cast<int>(firstSetSection));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setFirstSetSection(static_cast<int>(firstSetSection));
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::setFirstSetSection(static_cast<int>(firstSetSection));
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::setFirstSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHCandlestickModelMapper_SuperSetFirstSetSection(QHCandlestickModelMapper* self, int firstSetSection) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetFirstSetSection_IsBase(true);
-        vqhcandlestickmodelmapper->setFirstSetSection(static_cast<int>(firstSetSection));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setFirstSetSection(static_cast<int>(firstSetSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSetFirstSetSection(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetFirstSetSection_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_SetFirstSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_FirstSetSection(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->firstSetSection();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->firstSetSection();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::firstSetSection();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::firstSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperFirstSetSection(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_FirstSetSection_IsBase(true);
-        return vqhcandlestickmodelmapper->firstSetSection();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->firstSetSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnFirstSetSection(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_FirstSetSection_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_FirstSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QHCandlestickModelMapper_SetLastSetSection(QHCandlestickModelMapper* self, int lastSetSection) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setLastSetSection(static_cast<int>(lastSetSection));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setLastSetSection(static_cast<int>(lastSetSection));
-    }
+    if (auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self)) {
+        vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::setLastSetSection(static_cast<int>(lastSetSection));
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::setLastSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QHCandlestickModelMapper_SuperSetLastSetSection(QHCandlestickModelMapper* self, int lastSetSection) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetLastSetSection_IsBase(true);
-        vqhcandlestickmodelmapper->setLastSetSection(static_cast<int>(lastSetSection));
-    } else {
-        ((VirtualQHCandlestickModelMapper*)self)->setLastSetSection(static_cast<int>(lastSetSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSetLastSetSection(QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SetLastSetSection_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_SetLastSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_LastSetSection(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->lastSetSection();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->lastSetSection();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::lastSetSection();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::lastSetSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperLastSetSection(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_LastSetSection_IsBase(true);
-        return vqhcandlestickmodelmapper->lastSetSection();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->lastSetSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnLastSetSection(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_LastSetSection_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_LastSetSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QHCandlestickModelMapper_Sender(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->sender();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->sender();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::sender();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QHCandlestickModelMapper_SuperSender(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Sender_IsBase(true);
-        return vqhcandlestickmodelmapper->sender();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSender(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Sender_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_SenderSignalIndex(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->senderSignalIndex();
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperSenderSignalIndex(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SenderSignalIndex_IsBase(true);
-        return vqhcandlestickmodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnSenderSignalIndex(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QHCandlestickModelMapper_Receivers(const QHCandlestickModelMapper* self, const char* signal) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->receivers(signal);
-    }
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::receivers(signal);
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QHCandlestickModelMapper_SuperReceivers(const QHCandlestickModelMapper* self, const char* signal) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Receivers_IsBase(true);
-        return vqhcandlestickmodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnReceivers(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_Receivers_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QHCandlestickModelMapper_IsSignalConnected(const QHCandlestickModelMapper* self, const QMetaMethod* signal) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return vqhcandlestickmodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QHCandlestickModelMapper_SuperIsSignalConnected(const QHCandlestickModelMapper* self, const QMetaMethod* signal) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_IsSignalConnected_IsBase(true);
-        return vqhcandlestickmodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QHCandlestickModelMapper_OnIsSignalConnected(const QHCandlestickModelMapper* self, intptr_t slot) {
-    auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self));
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper)
-        vqhcandlestickmodelmapper->setQHCandlestickModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQHCandlestickModelMapper::QHCandlestickModelMapper_IsSignalConnected_Callback>(slot));
+    if (auto* vqhcandlestickmodelmapper = const_cast<VirtualQHCandlestickModelMapper*>(dynamic_cast<const VirtualQHCandlestickModelMapper*>(self))) {
+        return vqhcandlestickmodelmapper->VirtualQHCandlestickModelMapper::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QHCandlestickModelMapper::isSignalConnected called without a directly constructed type");
 }
 
 void QHCandlestickModelMapper_Delete(QHCandlestickModelMapper* self) {

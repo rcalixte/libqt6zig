@@ -53,23 +53,23 @@ bool KDragWidgetDecoratorBase_IsDragEnabled(const KDragWidgetDecoratorBase* self
 
 QDrag* KDragWidgetDecoratorBase_DragObject(KDragWidgetDecoratorBase* self) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase) {
         return vkdragwidgetdecoratorbase->dragObject();
     }
-    return {};
+    qFatal("Error: Protected method KDragWidgetDecoratorBase::dragObject called without a directly constructed type");
 }
 
 bool KDragWidgetDecoratorBase_EventFilter(KDragWidgetDecoratorBase* self, QObject* watched, QEvent* event) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase) {
         return vkdragwidgetdecoratorbase->eventFilter(watched, event);
     }
-    return {};
+    qFatal("Error: Protected method KDragWidgetDecoratorBase::eventFilter called without a directly constructed type");
 }
 
 void KDragWidgetDecoratorBase_StartDrag(KDragWidgetDecoratorBase* self) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase) {
         vkdragwidgetdecoratorbase->startDrag();
     }
 }
@@ -100,418 +100,253 @@ libqt_string KDragWidgetDecoratorBase_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KDragWidgetDecoratorBase_SuperMetaObject(const KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_MetaObject_IsBase(true);
-        return (QMetaObject*)vkdragwidgetdecoratorbase->metaObject();
-    } else {
-        return (QMetaObject*)self->KDragWidgetDecoratorBase::metaObject();
-    }
+    return (QMetaObject*)self->KDragWidgetDecoratorBase::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KDragWidgetDecoratorBase_OnMetaObject(const KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_MetaObject_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_MetaObject_Callback>(slot));
+void KDragWidgetDecoratorBase_OnMetaObject(KDragWidgetDecoratorBase* self, intptr_t slot) {
+    if (auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self)))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_metaobject_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KDragWidgetDecoratorBase_SuperMetacast(KDragWidgetDecoratorBase* self, const char* param1) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Metacast_IsBase(true);
-        return vkdragwidgetdecoratorbase->qt_metacast(param1);
-    } else {
-        return self->KDragWidgetDecoratorBase::qt_metacast(param1);
-    }
+    return self->KDragWidgetDecoratorBase::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnMetacast(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Metacast_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Metacast_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_metacast_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KDragWidgetDecoratorBase_SuperMetacall(KDragWidgetDecoratorBase* self, int param1, int param2, void** param3) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Metacall_IsBase(true);
-        return vkdragwidgetdecoratorbase->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KDragWidgetDecoratorBase::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KDragWidgetDecoratorBase::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnMetacall(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Metacall_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Metacall_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_metacall_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QDrag* KDragWidgetDecoratorBase_SuperDragObject(KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DragObject_IsBase(true);
-        return vkdragwidgetdecoratorbase->dragObject();
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->dragObject();
-    }
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self)) {
+        return vkdragwidgetdecoratorbase->KDragWidgetDecoratorBase::dragObject();
+    } else
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::dragObject called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnDragObject(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DragObject_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_DragObject_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_dragobject_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_DragObject_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KDragWidgetDecoratorBase_SuperEventFilter(KDragWidgetDecoratorBase* self, QObject* watched, QEvent* event) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_EventFilter_IsBase(true);
-        return vkdragwidgetdecoratorbase->eventFilter(watched, event);
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->eventFilter(watched, event);
-    }
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self)) {
+        return vkdragwidgetdecoratorbase->KDragWidgetDecoratorBase::eventFilter(watched, event);
+    } else
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnEventFilter(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_EventFilter_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_EventFilter_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_eventfilter_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 void KDragWidgetDecoratorBase_SuperStartDrag(KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_StartDrag_IsBase(true);
-        vkdragwidgetdecoratorbase->startDrag();
-    } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->startDrag();
-    }
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self)) {
+        vkdragwidgetdecoratorbase->KDragWidgetDecoratorBase::startDrag();
+    } else
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::startDrag called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnStartDrag(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_StartDrag_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_StartDrag_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_startdrag_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_StartDrag_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KDragWidgetDecoratorBase_Event(KDragWidgetDecoratorBase* self, QEvent* event) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        return vkdragwidgetdecoratorbase->event(event);
-    } else {
-        return self->KDragWidgetDecoratorBase::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KDragWidgetDecoratorBase_SuperEvent(KDragWidgetDecoratorBase* self, QEvent* event) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Event_IsBase(true);
-        return vkdragwidgetdecoratorbase->event(event);
-    } else {
-        return self->KDragWidgetDecoratorBase::event(event);
-    }
+    return self->KDragWidgetDecoratorBase::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnEvent(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Event_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Event_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_event_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDragWidgetDecoratorBase_TimerEvent(KDragWidgetDecoratorBase* self, QTimerEvent* event) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase) {
         vkdragwidgetdecoratorbase->timerEvent(event);
     } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDragWidgetDecoratorBase_SuperTimerEvent(KDragWidgetDecoratorBase* self, QTimerEvent* event) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_TimerEvent_IsBase(true);
-        vkdragwidgetdecoratorbase->timerEvent(event);
-    } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->timerEvent(event);
-    }
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self)) {
+        vkdragwidgetdecoratorbase->KDragWidgetDecoratorBase::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnTimerEvent(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_TimerEvent_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_TimerEvent_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_timerevent_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDragWidgetDecoratorBase_ChildEvent(KDragWidgetDecoratorBase* self, QChildEvent* event) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase) {
         vkdragwidgetdecoratorbase->childEvent(event);
     } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDragWidgetDecoratorBase_SuperChildEvent(KDragWidgetDecoratorBase* self, QChildEvent* event) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_ChildEvent_IsBase(true);
-        vkdragwidgetdecoratorbase->childEvent(event);
-    } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->childEvent(event);
-    }
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self)) {
+        vkdragwidgetdecoratorbase->KDragWidgetDecoratorBase::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnChildEvent(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_ChildEvent_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_ChildEvent_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_childevent_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDragWidgetDecoratorBase_CustomEvent(KDragWidgetDecoratorBase* self, QEvent* event) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase) {
         vkdragwidgetdecoratorbase->customEvent(event);
     } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDragWidgetDecoratorBase_SuperCustomEvent(KDragWidgetDecoratorBase* self, QEvent* event) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_CustomEvent_IsBase(true);
-        vkdragwidgetdecoratorbase->customEvent(event);
-    } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->customEvent(event);
-    }
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self)) {
+        vkdragwidgetdecoratorbase->KDragWidgetDecoratorBase::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnCustomEvent(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_CustomEvent_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_CustomEvent_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_customevent_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDragWidgetDecoratorBase_ConnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase) {
         vkdragwidgetdecoratorbase->connectNotify(*signal);
     } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDragWidgetDecoratorBase_SuperConnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_ConnectNotify_IsBase(true);
-        vkdragwidgetdecoratorbase->connectNotify(*signal);
-    } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->connectNotify(*signal);
-    }
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self)) {
+        vkdragwidgetdecoratorbase->KDragWidgetDecoratorBase::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnConnectNotify(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_ConnectNotify_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_ConnectNotify_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_connectnotify_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KDragWidgetDecoratorBase_DisconnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal) {
     auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
+    if (vkdragwidgetdecoratorbase) {
         vkdragwidgetdecoratorbase->disconnectNotify(*signal);
     } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KDragWidgetDecoratorBase_SuperDisconnectNotify(KDragWidgetDecoratorBase* self, const QMetaMethod* signal) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DisconnectNotify_IsBase(true);
-        vkdragwidgetdecoratorbase->disconnectNotify(*signal);
-    } else {
-        ((VirtualKDragWidgetDecoratorBase*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self)) {
+        vkdragwidgetdecoratorbase->KDragWidgetDecoratorBase::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KDragWidgetDecoratorBase::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KDragWidgetDecoratorBase_OnDisconnectNotify(KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self);
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DisconnectNotify_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_DisconnectNotify_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = dynamic_cast<VirtualKDragWidgetDecoratorBase*>(self))
+        vkdragwidgetdecoratorbase->kdragwidgetdecoratorbase_disconnectnotify_callback = reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QWidget* KDragWidgetDecoratorBase_DecoratedWidget(const KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        return vkdragwidgetdecoratorbase->decoratedWidget();
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->decoratedWidget();
-    }
+    if (auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self))) {
+        return vkdragwidgetdecoratorbase->VirtualKDragWidgetDecoratorBase::decoratedWidget();
+    } else
+        qFatal("Error: Protected method KDragWidgetDecoratorBase::decoratedWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-QWidget* KDragWidgetDecoratorBase_SuperDecoratedWidget(const KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DecoratedWidget_IsBase(true);
-        return vkdragwidgetdecoratorbase->decoratedWidget();
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->decoratedWidget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDragWidgetDecoratorBase_OnDecoratedWidget(const KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_DecoratedWidget_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_DecoratedWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KDragWidgetDecoratorBase_Sender(const KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        return vkdragwidgetdecoratorbase->sender();
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->sender();
-    }
+    if (auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self))) {
+        return vkdragwidgetdecoratorbase->VirtualKDragWidgetDecoratorBase::sender();
+    } else
+        qFatal("Error: Protected method KDragWidgetDecoratorBase::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KDragWidgetDecoratorBase_SuperSender(const KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Sender_IsBase(true);
-        return vkdragwidgetdecoratorbase->sender();
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDragWidgetDecoratorBase_OnSender(const KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Sender_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDragWidgetDecoratorBase_SenderSignalIndex(const KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        return vkdragwidgetdecoratorbase->senderSignalIndex();
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->senderSignalIndex();
-    }
+    if (auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self))) {
+        return vkdragwidgetdecoratorbase->VirtualKDragWidgetDecoratorBase::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KDragWidgetDecoratorBase::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDragWidgetDecoratorBase_SuperSenderSignalIndex(const KDragWidgetDecoratorBase* self) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_SenderSignalIndex_IsBase(true);
-        return vkdragwidgetdecoratorbase->senderSignalIndex();
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDragWidgetDecoratorBase_OnSenderSignalIndex(const KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KDragWidgetDecoratorBase_Receivers(const KDragWidgetDecoratorBase* self, const char* signal) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        return vkdragwidgetdecoratorbase->receivers(signal);
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->receivers(signal);
-    }
+    if (auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self))) {
+        return vkdragwidgetdecoratorbase->VirtualKDragWidgetDecoratorBase::receivers(signal);
+    } else
+        qFatal("Error: Protected method KDragWidgetDecoratorBase::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KDragWidgetDecoratorBase_SuperReceivers(const KDragWidgetDecoratorBase* self, const char* signal) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Receivers_IsBase(true);
-        return vkdragwidgetdecoratorbase->receivers(signal);
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDragWidgetDecoratorBase_OnReceivers(const KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_Receivers_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KDragWidgetDecoratorBase_IsSignalConnected(const KDragWidgetDecoratorBase* self, const QMetaMethod* signal) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        return vkdragwidgetdecoratorbase->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KDragWidgetDecoratorBase_SuperIsSignalConnected(const KDragWidgetDecoratorBase* self, const QMetaMethod* signal) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase) {
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_IsSignalConnected_IsBase(true);
-        return vkdragwidgetdecoratorbase->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKDragWidgetDecoratorBase*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KDragWidgetDecoratorBase_OnIsSignalConnected(const KDragWidgetDecoratorBase* self, intptr_t slot) {
-    auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self));
-    if (vkdragwidgetdecoratorbase && vkdragwidgetdecoratorbase->isVirtualKDragWidgetDecoratorBase)
-        vkdragwidgetdecoratorbase->setKDragWidgetDecoratorBase_IsSignalConnected_Callback(reinterpret_cast<VirtualKDragWidgetDecoratorBase::KDragWidgetDecoratorBase_IsSignalConnected_Callback>(slot));
+    if (auto* vkdragwidgetdecoratorbase = const_cast<VirtualKDragWidgetDecoratorBase*>(dynamic_cast<const VirtualKDragWidgetDecoratorBase*>(self))) {
+        return vkdragwidgetdecoratorbase->VirtualKDragWidgetDecoratorBase::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KDragWidgetDecoratorBase::isSignalConnected called without a directly constructed type");
 }
 
 void KDragWidgetDecoratorBase_Delete(KDragWidgetDecoratorBase* self) {

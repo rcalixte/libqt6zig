@@ -9,46 +9,23 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QDesignerTaskMenuExtension so that we can call protected methods
+// This class is a subclass of QDesignerTaskMenuExtension
 class VirtualQDesignerTaskMenuExtension : public QDesignerTaskMenuExtension {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDesignerTaskMenuExtension = true;
+    // Virtual class public types (including callbacks and access types)
+    using QDesignerTaskMenuExtension_PreferredEditAction_Callback = QAction* (*)(const QDesignerTaskMenuExtension*);
+    using QDesignerTaskMenuExtension_TaskActions_Callback = libqt_list /* of QAction* */ (*)(const QDesignerTaskMenuExtension*);
 
-    // Virtual class public types (including callbacks)
-    using QDesignerTaskMenuExtension_PreferredEditAction_Callback = QAction* (*)();
-    using QDesignerTaskMenuExtension_TaskActions_Callback = libqt_list /* of QAction* */ (*)();
-
-  protected:
     // Instance callback storage
     QDesignerTaskMenuExtension_PreferredEditAction_Callback qdesignertaskmenuextension_preferrededitaction_callback = nullptr;
     QDesignerTaskMenuExtension_TaskActions_Callback qdesignertaskmenuextension_taskactions_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdesignertaskmenuextension_preferrededitaction_isbase = false;
-    mutable bool qdesignertaskmenuextension_taskactions_isbase = false;
-
-  public:
     VirtualQDesignerTaskMenuExtension() : QDesignerTaskMenuExtension() {};
-
-    // Callback setters
-    inline void setQDesignerTaskMenuExtension_PreferredEditAction_Callback(QDesignerTaskMenuExtension_PreferredEditAction_Callback cb) { qdesignertaskmenuextension_preferrededitaction_callback = cb; }
-    inline void setQDesignerTaskMenuExtension_TaskActions_Callback(QDesignerTaskMenuExtension_TaskActions_Callback cb) { qdesignertaskmenuextension_taskactions_callback = cb; }
-
-    // Base flag setters
-    inline void setQDesignerTaskMenuExtension_PreferredEditAction_IsBase(bool value) const { qdesignertaskmenuextension_preferrededitaction_isbase = value; }
-    inline void setQDesignerTaskMenuExtension_TaskActions_IsBase(bool value) const { qdesignertaskmenuextension_taskactions_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QAction* preferredEditAction() const override {
-        if (qdesignertaskmenuextension_preferrededitaction_isbase) {
-            qdesignertaskmenuextension_preferrededitaction_isbase = false;
-            return QDesignerTaskMenuExtension::preferredEditAction();
-        }
-        auto preferrededitaction_cb = qdesignertaskmenuextension_preferrededitaction_callback;
-        if (preferrededitaction_cb) {
-            QAction* callback_ret = preferrededitaction_cb();
+        if (qdesignertaskmenuextension_preferrededitaction_callback) {
+            QAction* callback_ret = qdesignertaskmenuextension_preferrededitaction_callback(this);
             return callback_ret;
         }
         return QDesignerTaskMenuExtension::preferredEditAction();
@@ -56,9 +33,8 @@ class VirtualQDesignerTaskMenuExtension : public QDesignerTaskMenuExtension {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QAction*> taskActions() const override {
-        auto taskactions_cb = qdesignertaskmenuextension_taskactions_callback;
-        if (taskactions_cb) {
-            libqt_list /* of QAction* */ callback_ret = taskactions_cb();
+        if (qdesignertaskmenuextension_taskactions_callback) {
+            libqt_list /* of QAction* */ callback_ret = qdesignertaskmenuextension_taskactions_callback(this);
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QAction** callback_ret_arr = static_cast<QAction**>(callback_ret.data);
@@ -68,7 +44,8 @@ class VirtualQDesignerTaskMenuExtension : public QDesignerTaskMenuExtension {
             libqt_free(callback_ret.data);
             return callback_ret_QList;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method QDesignerTaskMenuExtension::taskActions called without being implemented");
     }
 };
 

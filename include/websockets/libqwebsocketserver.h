@@ -98,7 +98,7 @@ libqt_string QWebSocketServer_Tr2(const char* s, const char* c);
 libqt_string QWebSocketServer_Tr3(const char* s, const char* c, int n);
 bool QWebSocketServer_Listen1(QWebSocketServer* self, const QHostAddress* address);
 bool QWebSocketServer_Listen2(QWebSocketServer* self, const QHostAddress* address, uint16_t port);
-void QWebSocketServer_OnMetaObject(const QWebSocketServer* self, intptr_t slot);
+void QWebSocketServer_OnMetaObject(QWebSocketServer* self, intptr_t slot);
 QMetaObject* QWebSocketServer_SuperMetaObject(const QWebSocketServer* self);
 void QWebSocketServer_OnMetacast(QWebSocketServer* self, intptr_t slot);
 void* QWebSocketServer_SuperMetacast(QWebSocketServer* self, const char* param1);
@@ -128,17 +128,9 @@ void QWebSocketServer_DisconnectNotify(QWebSocketServer* self, const QMetaMethod
 void QWebSocketServer_OnDisconnectNotify(QWebSocketServer* self, intptr_t slot);
 void QWebSocketServer_SuperDisconnectNotify(QWebSocketServer* self, const QMetaMethod* signal);
 QObject* QWebSocketServer_Sender(const QWebSocketServer* self);
-void QWebSocketServer_OnSender(const QWebSocketServer* self, intptr_t slot);
-QObject* QWebSocketServer_SuperSender(const QWebSocketServer* self);
 int QWebSocketServer_SenderSignalIndex(const QWebSocketServer* self);
-void QWebSocketServer_OnSenderSignalIndex(const QWebSocketServer* self, intptr_t slot);
-int QWebSocketServer_SuperSenderSignalIndex(const QWebSocketServer* self);
 int QWebSocketServer_Receivers(const QWebSocketServer* self, const char* signal);
-void QWebSocketServer_OnReceivers(const QWebSocketServer* self, intptr_t slot);
-int QWebSocketServer_SuperReceivers(const QWebSocketServer* self, const char* signal);
 bool QWebSocketServer_IsSignalConnected(const QWebSocketServer* self, const QMetaMethod* signal);
-void QWebSocketServer_OnIsSignalConnected(const QWebSocketServer* self, intptr_t slot);
-bool QWebSocketServer_SuperIsSignalConnected(const QWebSocketServer* self, const QMetaMethod* signal);
 void QWebSocketServer_Delete(QWebSocketServer* self);
 
 #ifdef __cplusplus

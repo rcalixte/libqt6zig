@@ -34,14 +34,13 @@ libqt_string QAccessiblePlugin_Tr(const char* s);
 QAccessibleInterface* QAccessiblePlugin_Create(QAccessiblePlugin* self, const libqt_string key, QObject* object);
 libqt_string QAccessiblePlugin_Tr2(const char* s, const char* c);
 libqt_string QAccessiblePlugin_Tr3(const char* s, const char* c, int n);
-void QAccessiblePlugin_OnMetaObject(const QAccessiblePlugin* self, intptr_t slot);
+void QAccessiblePlugin_OnMetaObject(QAccessiblePlugin* self, intptr_t slot);
 QMetaObject* QAccessiblePlugin_SuperMetaObject(const QAccessiblePlugin* self);
 void QAccessiblePlugin_OnMetacast(QAccessiblePlugin* self, intptr_t slot);
 void* QAccessiblePlugin_SuperMetacast(QAccessiblePlugin* self, const char* param1);
 void QAccessiblePlugin_OnMetacall(QAccessiblePlugin* self, intptr_t slot);
 int QAccessiblePlugin_SuperMetacall(QAccessiblePlugin* self, int param1, int param2, void** param3);
 void QAccessiblePlugin_OnCreate(QAccessiblePlugin* self, intptr_t slot);
-QAccessibleInterface* QAccessiblePlugin_SuperCreate(QAccessiblePlugin* self, const libqt_string key, QObject* object);
 bool QAccessiblePlugin_Event(QAccessiblePlugin* self, QEvent* event);
 void QAccessiblePlugin_OnEvent(QAccessiblePlugin* self, intptr_t slot);
 bool QAccessiblePlugin_SuperEvent(QAccessiblePlugin* self, QEvent* event);
@@ -64,17 +63,9 @@ void QAccessiblePlugin_DisconnectNotify(QAccessiblePlugin* self, const QMetaMeth
 void QAccessiblePlugin_OnDisconnectNotify(QAccessiblePlugin* self, intptr_t slot);
 void QAccessiblePlugin_SuperDisconnectNotify(QAccessiblePlugin* self, const QMetaMethod* signal);
 QObject* QAccessiblePlugin_Sender(const QAccessiblePlugin* self);
-void QAccessiblePlugin_OnSender(const QAccessiblePlugin* self, intptr_t slot);
-QObject* QAccessiblePlugin_SuperSender(const QAccessiblePlugin* self);
 int QAccessiblePlugin_SenderSignalIndex(const QAccessiblePlugin* self);
-void QAccessiblePlugin_OnSenderSignalIndex(const QAccessiblePlugin* self, intptr_t slot);
-int QAccessiblePlugin_SuperSenderSignalIndex(const QAccessiblePlugin* self);
 int QAccessiblePlugin_Receivers(const QAccessiblePlugin* self, const char* signal);
-void QAccessiblePlugin_OnReceivers(const QAccessiblePlugin* self, intptr_t slot);
-int QAccessiblePlugin_SuperReceivers(const QAccessiblePlugin* self, const char* signal);
 bool QAccessiblePlugin_IsSignalConnected(const QAccessiblePlugin* self, const QMetaMethod* signal);
-void QAccessiblePlugin_OnIsSignalConnected(const QAccessiblePlugin* self, intptr_t slot);
-bool QAccessiblePlugin_SuperIsSignalConnected(const QAccessiblePlugin* self, const QMetaMethod* signal);
 void QAccessiblePlugin_Delete(QAccessiblePlugin* self);
 
 #ifdef __cplusplus

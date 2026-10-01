@@ -197,644 +197,299 @@ libqt_string QVPieModelMapper_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QVPieModelMapper_SuperMetaObject(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_MetaObject_IsBase(true);
-        return (QMetaObject*)vqvpiemodelmapper->metaObject();
-    } else {
-        return (QMetaObject*)self->QVPieModelMapper::metaObject();
-    }
+    return (QMetaObject*)self->QVPieModelMapper::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnMetaObject(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_MetaObject_Callback>(slot));
+void QVPieModelMapper_OnMetaObject(QVPieModelMapper* self, intptr_t slot) {
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self)))
+        vqvpiemodelmapper->qvpiemodelmapper_metaobject_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QVPieModelMapper_SuperMetacast(QVPieModelMapper* self, const char* param1) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_Metacast_IsBase(true);
-        return vqvpiemodelmapper->qt_metacast(param1);
-    } else {
-        return self->QVPieModelMapper::qt_metacast(param1);
-    }
+    return self->QVPieModelMapper::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnMetacast(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_Metacast_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Metacast_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_metacast_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QVPieModelMapper_SuperMetacall(QVPieModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_Metacall_IsBase(true);
-        return vqvpiemodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QVPieModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QVPieModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnMetacall(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Metacall_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_metacall_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVPieModelMapper_Event(QVPieModelMapper* self, QEvent* event) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->event(event);
-    } else {
-        return self->QVPieModelMapper::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QVPieModelMapper_SuperEvent(QVPieModelMapper* self, QEvent* event) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_Event_IsBase(true);
-        return vqvpiemodelmapper->event(event);
-    } else {
-        return self->QVPieModelMapper::event(event);
-    }
+    return self->QVPieModelMapper::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnEvent(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_Event_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Event_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_event_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVPieModelMapper_EventFilter(QVPieModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QVPieModelMapper::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QVPieModelMapper_SuperEventFilter(QVPieModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_EventFilter_IsBase(true);
-        return vqvpiemodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QVPieModelMapper::eventFilter(watched, event);
-    }
+    return self->QVPieModelMapper::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnEventFilter(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_EventFilter_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_eventfilter_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVPieModelMapper_TimerEvent(QVPieModelMapper* self, QTimerEvent* event) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper) {
         vqvpiemodelmapper->timerEvent(event);
     } else {
-        ((VirtualQVPieModelMapper*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QVPieModelMapper::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVPieModelMapper_SuperTimerEvent(QVPieModelMapper* self, QTimerEvent* event) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_TimerEvent_IsBase(true);
-        vqvpiemodelmapper->timerEvent(event);
-    } else {
-        ((VirtualQVPieModelMapper*)self)->timerEvent(event);
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->QVPieModelMapper::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVPieModelMapper::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnTimerEvent(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_TimerEvent_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_timerevent_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVPieModelMapper_ChildEvent(QVPieModelMapper* self, QChildEvent* event) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper) {
         vqvpiemodelmapper->childEvent(event);
     } else {
-        ((VirtualQVPieModelMapper*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QVPieModelMapper::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVPieModelMapper_SuperChildEvent(QVPieModelMapper* self, QChildEvent* event) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_ChildEvent_IsBase(true);
-        vqvpiemodelmapper->childEvent(event);
-    } else {
-        ((VirtualQVPieModelMapper*)self)->childEvent(event);
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->QVPieModelMapper::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVPieModelMapper::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnChildEvent(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_ChildEvent_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_childevent_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVPieModelMapper_CustomEvent(QVPieModelMapper* self, QEvent* event) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper) {
         vqvpiemodelmapper->customEvent(event);
     } else {
-        ((VirtualQVPieModelMapper*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QVPieModelMapper::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVPieModelMapper_SuperCustomEvent(QVPieModelMapper* self, QEvent* event) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_CustomEvent_IsBase(true);
-        vqvpiemodelmapper->customEvent(event);
-    } else {
-        ((VirtualQVPieModelMapper*)self)->customEvent(event);
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->QVPieModelMapper::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVPieModelMapper::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnCustomEvent(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_CustomEvent_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_customevent_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVPieModelMapper_ConnectNotify(QVPieModelMapper* self, const QMetaMethod* signal) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper) {
         vqvpiemodelmapper->connectNotify(*signal);
     } else {
-        ((VirtualQVPieModelMapper*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QVPieModelMapper::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVPieModelMapper_SuperConnectNotify(QVPieModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_ConnectNotify_IsBase(true);
-        vqvpiemodelmapper->connectNotify(*signal);
-    } else {
-        ((VirtualQVPieModelMapper*)self)->connectNotify(*signal);
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->QVPieModelMapper::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVPieModelMapper::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnConnectNotify(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_ConnectNotify_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_connectnotify_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVPieModelMapper_DisconnectNotify(QVPieModelMapper* self, const QMetaMethod* signal) {
     auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
+    if (vqvpiemodelmapper) {
         vqvpiemodelmapper->disconnectNotify(*signal);
     } else {
-        ((VirtualQVPieModelMapper*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QVPieModelMapper::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVPieModelMapper_SuperDisconnectNotify(QVPieModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_DisconnectNotify_IsBase(true);
-        vqvpiemodelmapper->disconnectNotify(*signal);
-    } else {
-        ((VirtualQVPieModelMapper*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->QVPieModelMapper::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVPieModelMapper::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVPieModelMapper_OnDisconnectNotify(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_DisconnectNotify_Callback>(slot));
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self))
+        vqvpiemodelmapper->qvpiemodelmapper_disconnectnotify_callback = reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVPieModelMapper_First(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->first();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->first();
-    }
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return vqvpiemodelmapper->VirtualQVPieModelMapper::first();
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::first called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVPieModelMapper_SuperFirst(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_First_IsBase(true);
-        return vqvpiemodelmapper->first();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->first();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnFirst(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_First_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_First_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVPieModelMapper_SetFirst(QVPieModelMapper* self, int first) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setFirst(static_cast<int>(first));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setFirst(static_cast<int>(first));
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->VirtualQVPieModelMapper::setFirst(static_cast<int>(first));
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::setFirst called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVPieModelMapper_SuperSetFirst(QVPieModelMapper* self, int first) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_SetFirst_IsBase(true);
-        vqvpiemodelmapper->setFirst(static_cast<int>(first));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setFirst(static_cast<int>(first));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnSetFirst(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetFirst_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVPieModelMapper_Count(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->count();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->count();
-    }
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return vqvpiemodelmapper->VirtualQVPieModelMapper::count();
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::count called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVPieModelMapper_SuperCount(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_Count_IsBase(true);
-        return vqvpiemodelmapper->count();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->count();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnCount(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_Count_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Count_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVPieModelMapper_SetCount(QVPieModelMapper* self, int count) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setCount(static_cast<int>(count));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setCount(static_cast<int>(count));
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->VirtualQVPieModelMapper::setCount(static_cast<int>(count));
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::setCount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVPieModelMapper_SuperSetCount(QVPieModelMapper* self, int count) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_SetCount_IsBase(true);
-        vqvpiemodelmapper->setCount(static_cast<int>(count));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setCount(static_cast<int>(count));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnSetCount(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_SetCount_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetCount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVPieModelMapper_ValuesSection(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->valuesSection();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->valuesSection();
-    }
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return vqvpiemodelmapper->VirtualQVPieModelMapper::valuesSection();
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::valuesSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVPieModelMapper_SuperValuesSection(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_ValuesSection_IsBase(true);
-        return vqvpiemodelmapper->valuesSection();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->valuesSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnValuesSection(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_ValuesSection_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_ValuesSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVPieModelMapper_SetValuesSection(QVPieModelMapper* self, int valuesSection) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setValuesSection(static_cast<int>(valuesSection));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setValuesSection(static_cast<int>(valuesSection));
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->VirtualQVPieModelMapper::setValuesSection(static_cast<int>(valuesSection));
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::setValuesSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVPieModelMapper_SuperSetValuesSection(QVPieModelMapper* self, int valuesSection) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_SetValuesSection_IsBase(true);
-        vqvpiemodelmapper->setValuesSection(static_cast<int>(valuesSection));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setValuesSection(static_cast<int>(valuesSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnSetValuesSection(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_SetValuesSection_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetValuesSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVPieModelMapper_LabelsSection(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->labelsSection();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->labelsSection();
-    }
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return vqvpiemodelmapper->VirtualQVPieModelMapper::labelsSection();
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::labelsSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVPieModelMapper_SuperLabelsSection(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_LabelsSection_IsBase(true);
-        return vqvpiemodelmapper->labelsSection();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->labelsSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnLabelsSection(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_LabelsSection_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_LabelsSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVPieModelMapper_SetLabelsSection(QVPieModelMapper* self, int labelsSection) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setLabelsSection(static_cast<int>(labelsSection));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setLabelsSection(static_cast<int>(labelsSection));
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->VirtualQVPieModelMapper::setLabelsSection(static_cast<int>(labelsSection));
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::setLabelsSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVPieModelMapper_SuperSetLabelsSection(QVPieModelMapper* self, int labelsSection) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_SetLabelsSection_IsBase(true);
-        vqvpiemodelmapper->setLabelsSection(static_cast<int>(labelsSection));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setLabelsSection(static_cast<int>(labelsSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnSetLabelsSection(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_SetLabelsSection_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetLabelsSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVPieModelMapper_Orientation(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return static_cast<int>(vqvpiemodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQVPieModelMapper*)self)->orientation());
-    }
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return static_cast<int>(vqvpiemodelmapper->VirtualQVPieModelMapper::orientation());
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::orientation called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVPieModelMapper_SuperOrientation(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_Orientation_IsBase(true);
-        return static_cast<int>(vqvpiemodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQVPieModelMapper*)self)->orientation());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnOrientation(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Orientation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVPieModelMapper_SetOrientation(QVPieModelMapper* self, int orientation) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setOrientation(static_cast<Qt::Orientation>(orientation));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setOrientation(static_cast<Qt::Orientation>(orientation));
-    }
+    if (auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self)) {
+        vqvpiemodelmapper->VirtualQVPieModelMapper::setOrientation(static_cast<Qt::Orientation>(orientation));
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::setOrientation called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVPieModelMapper_SuperSetOrientation(QVPieModelMapper* self, int orientation) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_SetOrientation_IsBase(true);
-        vqvpiemodelmapper->setOrientation(static_cast<Qt::Orientation>(orientation));
-    } else {
-        ((VirtualQVPieModelMapper*)self)->setOrientation(static_cast<Qt::Orientation>(orientation));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnSetOrientation(QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = dynamic_cast<VirtualQVPieModelMapper*>(self);
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SetOrientation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QVPieModelMapper_Sender(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->sender();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->sender();
-    }
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return vqvpiemodelmapper->VirtualQVPieModelMapper::sender();
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QVPieModelMapper_SuperSender(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_Sender_IsBase(true);
-        return vqvpiemodelmapper->sender();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnSender(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_Sender_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVPieModelMapper_SenderSignalIndex(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->senderSignalIndex();
-    }
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return vqvpiemodelmapper->VirtualQVPieModelMapper::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVPieModelMapper_SuperSenderSignalIndex(const QVPieModelMapper* self) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_SenderSignalIndex_IsBase(true);
-        return vqvpiemodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnSenderSignalIndex(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVPieModelMapper_Receivers(const QVPieModelMapper* self, const char* signal) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->receivers(signal);
-    }
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return vqvpiemodelmapper->VirtualQVPieModelMapper::receivers(signal);
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVPieModelMapper_SuperReceivers(const QVPieModelMapper* self, const char* signal) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_Receivers_IsBase(true);
-        return vqvpiemodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnReceivers(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_Receivers_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVPieModelMapper_IsSignalConnected(const QVPieModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        return vqvpiemodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QVPieModelMapper_SuperIsSignalConnected(const QVPieModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper) {
-        vqvpiemodelmapper->setQVPieModelMapper_IsSignalConnected_IsBase(true);
-        return vqvpiemodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVPieModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVPieModelMapper_OnIsSignalConnected(const QVPieModelMapper* self, intptr_t slot) {
-    auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self));
-    if (vqvpiemodelmapper && vqvpiemodelmapper->isVirtualQVPieModelMapper)
-        vqvpiemodelmapper->setQVPieModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQVPieModelMapper::QVPieModelMapper_IsSignalConnected_Callback>(slot));
+    if (auto* vqvpiemodelmapper = const_cast<VirtualQVPieModelMapper*>(dynamic_cast<const VirtualQVPieModelMapper*>(self))) {
+        return vqvpiemodelmapper->VirtualQVPieModelMapper::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QVPieModelMapper::isSignalConnected called without a directly constructed type");
 }
 
 void QVPieModelMapper_Delete(QVPieModelMapper* self) {

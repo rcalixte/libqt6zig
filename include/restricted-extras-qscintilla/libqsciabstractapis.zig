@@ -68,9 +68,9 @@ pub const QsciAbstractAPIs = extern struct {
     ///
     /// ` self: QsciAbstractAPIs `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QsciAbstractAPIs) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QsciAbstractAPIs, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QsciAbstractAPIs, callback: *const fn (QsciAbstractAPIs) callconv(.c) QMetaObject) void {
         qtc.QsciAbstractAPIs_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -235,6 +235,8 @@ pub const QsciAbstractAPIs = extern struct {
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAbstractAPIs.html)
     ///
+    /// This method must be implemented with `onUpdateAutoCompletionList` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciAbstractAPIs `
@@ -287,50 +289,6 @@ pub const QsciAbstractAPIs = extern struct {
     ///
     pub fn onUpdateAutoCompletionList(self: QsciAbstractAPIs, callback: *const fn (QsciAbstractAPIs, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.QsciAbstractAPIs_OnUpdateAutoCompletionList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateAutoCompletionList` instead
-    ///
-    pub const SuperUpdateAutoCompletionList = superUpdateAutoCompletionList;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAbstractAPIs.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciAbstractAPIs `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` context: []const []const u8 `
-    ///
-    /// ` list: []const []const u8 `
-    ///
-    pub fn superUpdateAutoCompletionList(self: QsciAbstractAPIs, allocator: std.mem.Allocator, context: []const []const u8, list: []const []const u8) void {
-        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("QsciAbstractAPIs.updateAutoCompletionList: Memory allocation failed");
-        defer allocator.free(context_arr);
-        for (context, 0..context.len) |str_item, i|
-            context_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const context_list = qtc.libqt_list{
-            .len = context.len,
-            .data = context_arr.ptr,
-        };
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("QsciAbstractAPIs.updateAutoCompletionList: Memory allocation failed");
-        defer allocator.free(list_arr);
-        for (list, 0..list.len) |str_item, i|
-            list_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const list_list = qtc.libqt_list{
-            .len = list.len,
-            .data = list_arr.ptr,
-        };
-        qtc.QsciAbstractAPIs_SuperUpdateAutoCompletionList(@ptrCast(self.ptr), context_list, list_list);
     }
 
     /// ### DEPRECATED: Use `autoCompletionSelected` instead
@@ -399,6 +357,8 @@ pub const QsciAbstractAPIs = extern struct {
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAbstractAPIs.html)
     ///
+    /// This method must be implemented with `onCallTips` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QsciAbstractAPIs `
@@ -464,61 +424,6 @@ pub const QsciAbstractAPIs = extern struct {
     ///
     pub fn onCallTips(self: QsciAbstractAPIs, callback: *const fn (QsciAbstractAPIs, ?[*:null]?[*:0]const u8, i32, i32, qtc.libqt_list) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QsciAbstractAPIs_OnCallTips(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCallTips` instead
-    ///
-    pub const SuperCallTips = superCallTips;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAbstractAPIs.html)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciAbstractAPIs `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` context: []const []const u8 `
-    ///
-    /// ` commas: i32 `
-    ///
-    /// ` style: qsciscintilla_enums.CallTipsStyle `
-    ///
-    /// ` shifts: []i32 `
-    ///
-    pub fn superCallTips(self: QsciAbstractAPIs, allocator: std.mem.Allocator, context: []const []const u8, commas: i32, style: i32, shifts: []i32) []const []const u8 {
-        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("QsciAbstractAPIs.callTips: Memory allocation failed");
-        defer allocator.free(context_arr);
-        for (context, 0..context.len) |str_item, i|
-            context_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const context_list = qtc.libqt_list{
-            .len = context.len,
-            .data = context_arr.ptr,
-        };
-        const shifts_list = qtc.libqt_list{
-            .len = shifts.len,
-            .data = shifts.ptr,
-        };
-        const _arr: qtc.libqt_list = qtc.QsciAbstractAPIs_SuperCallTips(@ptrCast(self.ptr), context_list, @bitCast(commas), @bitCast(style), shifts_list);
-        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
-        defer {
-            for (0.._arr.len) |i|
-                qtc.libqt_string_free(@ptrCast(&_str[i]));
-            qtc.libqt_free(_arr.data);
-        }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciAbstractAPIs.callTips: Memory allocation failed");
-        for (0.._arr.len) |i| {
-            const _data_val = _str[i];
-            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QsciAbstractAPIs.callTips: Memory allocation failed");
-            @memcpy(_buf, _data_val.data[0.._data_val.len]);
-            _ret[i] = _buf;
-        }
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1998,44 +1903,6 @@ pub const QsciAbstractAPIs = extern struct {
         return .{ .ptr = qtc.QsciAbstractAPIs_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciAbstractAPIs `
-    ///
-    pub fn superSender(self: QsciAbstractAPIs) QObject {
-        return .{ .ptr = qtc.QsciAbstractAPIs_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciAbstractAPIs`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QsciAbstractAPIs, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QsciAbstractAPIs_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2052,44 +1919,6 @@ pub const QsciAbstractAPIs = extern struct {
     ///
     pub fn senderSignalIndex(self: QsciAbstractAPIs) i32 {
         return qtc.QsciAbstractAPIs_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciAbstractAPIs `
-    ///
-    pub fn superSenderSignalIndex(self: QsciAbstractAPIs) i32 {
-        return qtc.QsciAbstractAPIs_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciAbstractAPIs`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QsciAbstractAPIs, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciAbstractAPIs_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2113,47 +1942,6 @@ pub const QsciAbstractAPIs = extern struct {
         return qtc.QsciAbstractAPIs_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciAbstractAPIs `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QsciAbstractAPIs, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QsciAbstractAPIs_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciAbstractAPIs`
-    ///
-    /// ` callback: *const fn (self: QsciAbstractAPIs, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QsciAbstractAPIs, callback: *const fn (QsciAbstractAPIs, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciAbstractAPIs_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2173,47 +1961,6 @@ pub const QsciAbstractAPIs = extern struct {
     pub fn isSignalConnected(self: QsciAbstractAPIs, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QsciAbstractAPIs_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciAbstractAPIs `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QsciAbstractAPIs, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QsciAbstractAPIs_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QsciAbstractAPIs`
-    ///
-    /// ` callback: *const fn (self: QsciAbstractAPIs, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QsciAbstractAPIs, callback: *const fn (QsciAbstractAPIs, QMetaMethod) callconv(.c) bool) void {
-        qtc.QsciAbstractAPIs_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

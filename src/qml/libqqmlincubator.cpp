@@ -81,52 +81,44 @@ void QQmlIncubator_SetInitialProperties(QQmlIncubator* self, const libqt_map /* 
 
 void QQmlIncubator_StatusChanged(QQmlIncubator* self, int param1) {
     auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self);
-    if (vqqmlincubator && vqqmlincubator->isVirtualQQmlIncubator) {
+    if (vqqmlincubator) {
         vqqmlincubator->statusChanged(static_cast<QQmlIncubator::Status>(param1));
     }
 }
 
 void QQmlIncubator_SetInitialState(QQmlIncubator* self, QObject* initialState) {
     auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self);
-    if (vqqmlincubator && vqqmlincubator->isVirtualQQmlIncubator) {
+    if (vqqmlincubator) {
         vqqmlincubator->setInitialState(initialState);
     }
 }
 
 // Base class handler implementation
 void QQmlIncubator_SuperStatusChanged(QQmlIncubator* self, int param1) {
-    auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self);
-    if (vqqmlincubator && vqqmlincubator->isVirtualQQmlIncubator) {
-        vqqmlincubator->setQQmlIncubator_StatusChanged_IsBase(true);
-        vqqmlincubator->statusChanged(static_cast<QQmlIncubator::Status>(param1));
-    } else {
-        ((VirtualQQmlIncubator*)self)->statusChanged(static_cast<QQmlIncubator::Status>(param1));
-    }
+    if (auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self)) {
+        vqqmlincubator->QQmlIncubator::statusChanged(static_cast<QQmlIncubator::Status>(param1));
+    } else
+        qFatal("Error: Protected virtual method QQmlIncubator::statusChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlIncubator_OnStatusChanged(QQmlIncubator* self, intptr_t slot) {
-    auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self);
-    if (vqqmlincubator && vqqmlincubator->isVirtualQQmlIncubator)
-        vqqmlincubator->setQQmlIncubator_StatusChanged_Callback(reinterpret_cast<VirtualQQmlIncubator::QQmlIncubator_StatusChanged_Callback>(slot));
+    if (auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self))
+        vqqmlincubator->qqmlincubator_statuschanged_callback = reinterpret_cast<VirtualQQmlIncubator::QQmlIncubator_StatusChanged_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQmlIncubator_SuperSetInitialState(QQmlIncubator* self, QObject* initialState) {
-    auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self);
-    if (vqqmlincubator && vqqmlincubator->isVirtualQQmlIncubator) {
-        vqqmlincubator->setQQmlIncubator_SetInitialState_IsBase(true);
-        vqqmlincubator->setInitialState(initialState);
-    } else {
-        ((VirtualQQmlIncubator*)self)->setInitialState(initialState);
-    }
+    if (auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self)) {
+        vqqmlincubator->QQmlIncubator::setInitialState(initialState);
+    } else
+        qFatal("Error: Protected virtual method QQmlIncubator::setInitialState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlIncubator_OnSetInitialState(QQmlIncubator* self, intptr_t slot) {
-    auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self);
-    if (vqqmlincubator && vqqmlincubator->isVirtualQQmlIncubator)
-        vqqmlincubator->setQQmlIncubator_SetInitialState_Callback(reinterpret_cast<VirtualQQmlIncubator::QQmlIncubator_SetInitialState_Callback>(slot));
+    if (auto* vqqmlincubator = dynamic_cast<VirtualQQmlIncubator*>(self))
+        vqqmlincubator->qqmlincubator_setinitialstate_callback = reinterpret_cast<VirtualQQmlIncubator::QQmlIncubator_SetInitialState_Callback>(slot);
 }
 
 void QQmlIncubator_Delete(QQmlIncubator* self) {
@@ -151,27 +143,23 @@ void QQmlIncubationController_IncubateFor(QQmlIncubationController* self, int ms
 
 void QQmlIncubationController_IncubatingObjectCountChanged(QQmlIncubationController* self, int param1) {
     auto* vqqmlincubationcontroller = dynamic_cast<VirtualQQmlIncubationController*>(self);
-    if (vqqmlincubationcontroller && vqqmlincubationcontroller->isVirtualQQmlIncubationController) {
+    if (vqqmlincubationcontroller) {
         vqqmlincubationcontroller->incubatingObjectCountChanged(static_cast<int>(param1));
     }
 }
 
 // Base class handler implementation
 void QQmlIncubationController_SuperIncubatingObjectCountChanged(QQmlIncubationController* self, int param1) {
-    auto* vqqmlincubationcontroller = dynamic_cast<VirtualQQmlIncubationController*>(self);
-    if (vqqmlincubationcontroller && vqqmlincubationcontroller->isVirtualQQmlIncubationController) {
-        vqqmlincubationcontroller->setQQmlIncubationController_IncubatingObjectCountChanged_IsBase(true);
-        vqqmlincubationcontroller->incubatingObjectCountChanged(static_cast<int>(param1));
-    } else {
-        ((VirtualQQmlIncubationController*)self)->incubatingObjectCountChanged(static_cast<int>(param1));
-    }
+    if (auto* vqqmlincubationcontroller = dynamic_cast<VirtualQQmlIncubationController*>(self)) {
+        vqqmlincubationcontroller->QQmlIncubationController::incubatingObjectCountChanged(static_cast<int>(param1));
+    } else
+        qFatal("Error: Protected virtual method QQmlIncubationController::incubatingObjectCountChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlIncubationController_OnIncubatingObjectCountChanged(QQmlIncubationController* self, intptr_t slot) {
-    auto* vqqmlincubationcontroller = dynamic_cast<VirtualQQmlIncubationController*>(self);
-    if (vqqmlincubationcontroller && vqqmlincubationcontroller->isVirtualQQmlIncubationController)
-        vqqmlincubationcontroller->setQQmlIncubationController_IncubatingObjectCountChanged_Callback(reinterpret_cast<VirtualQQmlIncubationController::QQmlIncubationController_IncubatingObjectCountChanged_Callback>(slot));
+    if (auto* vqqmlincubationcontroller = dynamic_cast<VirtualQQmlIncubationController*>(self))
+        vqqmlincubationcontroller->qqmlincubationcontroller_incubatingobjectcountchanged_callback = reinterpret_cast<VirtualQQmlIncubationController::QQmlIncubationController_IncubatingObjectCountChanged_Callback>(slot);
 }
 
 void QQmlIncubationController_Delete(QQmlIncubationController* self) {

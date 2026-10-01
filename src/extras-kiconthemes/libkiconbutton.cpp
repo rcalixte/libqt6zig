@@ -179,1766 +179,1269 @@ void KIconButton_SetIconType3(KIconButton* self, int group, int context, bool us
 
 // Base class handler implementation
 QMetaObject* KIconButton_SuperMetaObject(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_MetaObject_IsBase(true);
-        return (QMetaObject*)vkiconbutton->metaObject();
-    } else {
-        return (QMetaObject*)self->KIconButton::metaObject();
-    }
+    return (QMetaObject*)self->KIconButton::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnMetaObject(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_MetaObject_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MetaObject_Callback>(slot));
+void KIconButton_OnMetaObject(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_metaobject_callback = reinterpret_cast<VirtualKIconButton::KIconButton_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIconButton_SuperMetacast(KIconButton* self, const char* param1) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Metacast_IsBase(true);
-        return vkiconbutton->qt_metacast(param1);
-    } else {
-        return self->KIconButton::qt_metacast(param1);
-    }
+    return self->KIconButton::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMetacast(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Metacast_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Metacast_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_metacast_callback = reinterpret_cast<VirtualKIconButton::KIconButton_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIconButton_SuperMetacall(KIconButton* self, int param1, int param2, void** param3) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Metacall_IsBase(true);
-        return vkiconbutton->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIconButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIconButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMetacall(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Metacall_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Metacall_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_metacall_callback = reinterpret_cast<VirtualKIconButton::KIconButton_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KIconButton_SizeHint(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return new QSize(vkiconbutton->sizeHint());
-    } else {
-        return new QSize(((VirtualKIconButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KIconButton_SuperSizeHint(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_SizeHint_IsBase(true);
-        return new QSize(vkiconbutton->sizeHint());
-    } else {
-        return new QSize(((VirtualKIconButton*)self)->sizeHint());
-    }
+    return new QSize(self->KIconButton::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnSizeHint(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_SizeHint_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_SizeHint_Callback>(slot));
+void KIconButton_OnSizeHint(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_sizehint_callback = reinterpret_cast<VirtualKIconButton::KIconButton_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KIconButton_MinimumSizeHint(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return new QSize(vkiconbutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKIconButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KIconButton_SuperMinimumSizeHint(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_MinimumSizeHint_IsBase(true);
-        return new QSize(vkiconbutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKIconButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KIconButton::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnMinimumSizeHint(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MinimumSizeHint_Callback>(slot));
+void KIconButton_OnMinimumSizeHint(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_minimumsizehint_callback = reinterpret_cast<VirtualKIconButton::KIconButton_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIconButton_Event(KIconButton* self, QEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         return vkiconbutton->event(e);
     } else {
-        return ((VirtualKIconButton*)self)->event(e);
+        qFatal("Error: Protected virtual method KIconButton::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIconButton_SuperEvent(KIconButton* self, QEvent* e) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Event_IsBase(true);
-        return vkiconbutton->event(e);
-    } else {
-        return ((VirtualKIconButton*)self)->event(e);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        return vkiconbutton->KIconButton::event(e);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Event_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Event_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_event_callback = reinterpret_cast<VirtualKIconButton::KIconButton_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_PaintEvent(KIconButton* self, QPaintEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->paintEvent(param1);
     } else {
-        ((VirtualKIconButton*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KIconButton::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperPaintEvent(KIconButton* self, QPaintEvent* param1) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_PaintEvent_IsBase(true);
-        vkiconbutton->paintEvent(param1);
-    } else {
-        ((VirtualKIconButton*)self)->paintEvent(param1);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnPaintEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_PaintEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_PaintEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_paintevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_KeyPressEvent(KIconButton* self, QKeyEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->keyPressEvent(param1);
     } else {
-        ((VirtualKIconButton*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KIconButton::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperKeyPressEvent(KIconButton* self, QKeyEvent* param1) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_KeyPressEvent_IsBase(true);
-        vkiconbutton->keyPressEvent(param1);
-    } else {
-        ((VirtualKIconButton*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnKeyPressEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_KeyPressEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_keypressevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_FocusInEvent(KIconButton* self, QFocusEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->focusInEvent(param1);
     } else {
-        ((VirtualKIconButton*)self)->focusInEvent(param1);
+        qFatal("Error: Protected virtual method KIconButton::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperFocusInEvent(KIconButton* self, QFocusEvent* param1) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_FocusInEvent_IsBase(true);
-        vkiconbutton->focusInEvent(param1);
-    } else {
-        ((VirtualKIconButton*)self)->focusInEvent(param1);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnFocusInEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_FocusInEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusInEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_focusinevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_FocusOutEvent(KIconButton* self, QFocusEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->focusOutEvent(param1);
     } else {
-        ((VirtualKIconButton*)self)->focusOutEvent(param1);
+        qFatal("Error: Protected virtual method KIconButton::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperFocusOutEvent(KIconButton* self, QFocusEvent* param1) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_FocusOutEvent_IsBase(true);
-        vkiconbutton->focusOutEvent(param1);
-    } else {
-        ((VirtualKIconButton*)self)->focusOutEvent(param1);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnFocusOutEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusOutEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_focusoutevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_MouseMoveEvent(KIconButton* self, QMouseEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->mouseMoveEvent(param1);
     } else {
-        ((VirtualKIconButton*)self)->mouseMoveEvent(param1);
+        qFatal("Error: Protected virtual method KIconButton::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperMouseMoveEvent(KIconButton* self, QMouseEvent* param1) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_MouseMoveEvent_IsBase(true);
-        vkiconbutton->mouseMoveEvent(param1);
-    } else {
-        ((VirtualKIconButton*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMouseMoveEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MouseMoveEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_mousemoveevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_InitStyleOption(const KIconButton* self, QStyleOptionButton* option) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->initStyleOption(option);
     } else {
-        ((VirtualKIconButton*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KIconButton::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperInitStyleOption(const KIconButton* self, QStyleOptionButton* option) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_InitStyleOption_IsBase(true);
-        vkiconbutton->initStyleOption(option);
-    } else {
-        ((VirtualKIconButton*)self)->initStyleOption(option);
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        vkiconbutton->KIconButton::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnInitStyleOption(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_InitStyleOption_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_InitStyleOption_Callback>(slot));
+void KIconButton_OnInitStyleOption(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_initstyleoption_callback = reinterpret_cast<VirtualKIconButton::KIconButton_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIconButton_HitButton(const KIconButton* self, const QPoint* pos) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         return vkiconbutton->hitButton(*pos);
     } else {
-        return ((VirtualKIconButton*)self)->hitButton(*pos);
+        qFatal("Error: Protected virtual method KIconButton::hitButton called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIconButton_SuperHitButton(const KIconButton* self, const QPoint* pos) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_HitButton_IsBase(true);
-        return vkiconbutton->hitButton(*pos);
-    } else {
-        return ((VirtualKIconButton*)self)->hitButton(*pos);
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->KIconButton::hitButton(*pos);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::hitButton called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnHitButton(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_HitButton_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_HitButton_Callback>(slot));
+void KIconButton_OnHitButton(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_hitbutton_callback = reinterpret_cast<VirtualKIconButton::KIconButton_HitButton_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_CheckStateSet(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->checkStateSet();
     } else {
-        ((VirtualKIconButton*)self)->checkStateSet();
+        qFatal("Error: Protected virtual method KIconButton::checkStateSet called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperCheckStateSet(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_CheckStateSet_IsBase(true);
-        vkiconbutton->checkStateSet();
-    } else {
-        ((VirtualKIconButton*)self)->checkStateSet();
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::checkStateSet();
+    } else
+        qFatal("Error: Protected virtual method KIconButton::checkStateSet called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnCheckStateSet(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_CheckStateSet_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_CheckStateSet_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_checkstateset_callback = reinterpret_cast<VirtualKIconButton::KIconButton_CheckStateSet_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_NextCheckState(KIconButton* self) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->nextCheckState();
     } else {
-        ((VirtualKIconButton*)self)->nextCheckState();
+        qFatal("Error: Protected virtual method KIconButton::nextCheckState called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperNextCheckState(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_NextCheckState_IsBase(true);
-        vkiconbutton->nextCheckState();
-    } else {
-        ((VirtualKIconButton*)self)->nextCheckState();
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::nextCheckState();
+    } else
+        qFatal("Error: Protected virtual method KIconButton::nextCheckState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnNextCheckState(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_NextCheckState_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_NextCheckState_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_nextcheckstate_callback = reinterpret_cast<VirtualKIconButton::KIconButton_NextCheckState_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_KeyReleaseEvent(KIconButton* self, QKeyEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->keyReleaseEvent(e);
     } else {
-        ((VirtualKIconButton*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method KIconButton::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperKeyReleaseEvent(KIconButton* self, QKeyEvent* e) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_KeyReleaseEvent_IsBase(true);
-        vkiconbutton->keyReleaseEvent(e);
-    } else {
-        ((VirtualKIconButton*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnKeyReleaseEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_keyreleaseevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_MousePressEvent(KIconButton* self, QMouseEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->mousePressEvent(e);
     } else {
-        ((VirtualKIconButton*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method KIconButton::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperMousePressEvent(KIconButton* self, QMouseEvent* e) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_MousePressEvent_IsBase(true);
-        vkiconbutton->mousePressEvent(e);
-    } else {
-        ((VirtualKIconButton*)self)->mousePressEvent(e);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMousePressEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_MousePressEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MousePressEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_mousepressevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_MouseReleaseEvent(KIconButton* self, QMouseEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->mouseReleaseEvent(e);
     } else {
-        ((VirtualKIconButton*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method KIconButton::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperMouseReleaseEvent(KIconButton* self, QMouseEvent* e) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_MouseReleaseEvent_IsBase(true);
-        vkiconbutton->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKIconButton*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMouseReleaseEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_mousereleaseevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_ChangeEvent(KIconButton* self, QEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->changeEvent(e);
     } else {
-        ((VirtualKIconButton*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KIconButton::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperChangeEvent(KIconButton* self, QEvent* e) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_ChangeEvent_IsBase(true);
-        vkiconbutton->changeEvent(e);
-    } else {
-        ((VirtualKIconButton*)self)->changeEvent(e);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnChangeEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_ChangeEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ChangeEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_changeevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_TimerEvent(KIconButton* self, QTimerEvent* e) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->timerEvent(e);
     } else {
-        ((VirtualKIconButton*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method KIconButton::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperTimerEvent(KIconButton* self, QTimerEvent* e) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_TimerEvent_IsBase(true);
-        vkiconbutton->timerEvent(e);
-    } else {
-        ((VirtualKIconButton*)self)->timerEvent(e);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnTimerEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_TimerEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_TimerEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_timerevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KIconButton_DevType(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->devType();
-    } else {
-        return self->KIconButton::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KIconButton_SuperDevType(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_DevType_IsBase(true);
-        return vkiconbutton->devType();
-    } else {
-        return self->KIconButton::devType();
-    }
+    return self->KIconButton::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnDevType(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_DevType_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DevType_Callback>(slot));
+void KIconButton_OnDevType(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_devtype_callback = reinterpret_cast<VirtualKIconButton::KIconButton_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_SetVisible(KIconButton* self, bool visible) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setVisible(visible);
-    } else {
-        self->KIconButton::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KIconButton_SuperSetVisible(KIconButton* self, bool visible) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_SetVisible_IsBase(true);
-        vkiconbutton->setVisible(visible);
-    } else {
-        self->KIconButton::setVisible(visible);
-    }
+    self->KIconButton::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnSetVisible(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_SetVisible_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_SetVisible_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_setvisible_callback = reinterpret_cast<VirtualKIconButton::KIconButton_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KIconButton_HeightForWidth(const KIconButton* self, int param1) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KIconButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KIconButton_SuperHeightForWidth(const KIconButton* self, int param1) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_HeightForWidth_IsBase(true);
-        return vkiconbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KIconButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KIconButton::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnHeightForWidth(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_HeightForWidth_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_HeightForWidth_Callback>(slot));
+void KIconButton_OnHeightForWidth(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_heightforwidth_callback = reinterpret_cast<VirtualKIconButton::KIconButton_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIconButton_HasHeightForWidth(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->hasHeightForWidth();
-    } else {
-        return self->KIconButton::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KIconButton_SuperHasHeightForWidth(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_HasHeightForWidth_IsBase(true);
-        return vkiconbutton->hasHeightForWidth();
-    } else {
-        return self->KIconButton::hasHeightForWidth();
-    }
+    return self->KIconButton::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnHasHeightForWidth(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_HasHeightForWidth_Callback>(slot));
+void KIconButton_OnHasHeightForWidth(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_hasheightforwidth_callback = reinterpret_cast<VirtualKIconButton::KIconButton_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KIconButton_PaintEngine(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->paintEngine();
-    } else {
-        return self->KIconButton::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KIconButton_SuperPaintEngine(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_PaintEngine_IsBase(true);
-        return vkiconbutton->paintEngine();
-    } else {
-        return self->KIconButton::paintEngine();
-    }
+    return self->KIconButton::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnPaintEngine(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_PaintEngine_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_PaintEngine_Callback>(slot));
+void KIconButton_OnPaintEngine(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_paintengine_callback = reinterpret_cast<VirtualKIconButton::KIconButton_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_MouseDoubleClickEvent(KIconButton* self, QMouseEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperMouseDoubleClickEvent(KIconButton* self, QMouseEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_MouseDoubleClickEvent_IsBase(true);
-        vkiconbutton->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMouseDoubleClickEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_mousedoubleclickevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_WheelEvent(KIconButton* self, QWheelEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->wheelEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperWheelEvent(KIconButton* self, QWheelEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_WheelEvent_IsBase(true);
-        vkiconbutton->wheelEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->wheelEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnWheelEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_WheelEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_WheelEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_wheelevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_EnterEvent(KIconButton* self, QEnterEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->enterEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperEnterEvent(KIconButton* self, QEnterEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_EnterEvent_IsBase(true);
-        vkiconbutton->enterEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->enterEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnEnterEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_EnterEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_EnterEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_enterevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_LeaveEvent(KIconButton* self, QEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->leaveEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperLeaveEvent(KIconButton* self, QEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_LeaveEvent_IsBase(true);
-        vkiconbutton->leaveEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->leaveEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnLeaveEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_LeaveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_LeaveEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_leaveevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_MoveEvent(KIconButton* self, QMoveEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->moveEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperMoveEvent(KIconButton* self, QMoveEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_MoveEvent_IsBase(true);
-        vkiconbutton->moveEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->moveEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnMoveEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_MoveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_MoveEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_moveevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_ResizeEvent(KIconButton* self, QResizeEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->resizeEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperResizeEvent(KIconButton* self, QResizeEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_ResizeEvent_IsBase(true);
-        vkiconbutton->resizeEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->resizeEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnResizeEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_ResizeEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ResizeEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_resizeevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_CloseEvent(KIconButton* self, QCloseEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->closeEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperCloseEvent(KIconButton* self, QCloseEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_CloseEvent_IsBase(true);
-        vkiconbutton->closeEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->closeEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnCloseEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_CloseEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_CloseEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_closeevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_ContextMenuEvent(KIconButton* self, QContextMenuEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->contextMenuEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperContextMenuEvent(KIconButton* self, QContextMenuEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_ContextMenuEvent_IsBase(true);
-        vkiconbutton->contextMenuEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnContextMenuEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ContextMenuEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_contextmenuevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_TabletEvent(KIconButton* self, QTabletEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->tabletEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperTabletEvent(KIconButton* self, QTabletEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_TabletEvent_IsBase(true);
-        vkiconbutton->tabletEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->tabletEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnTabletEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_TabletEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_TabletEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_tabletevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_ActionEvent(KIconButton* self, QActionEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->actionEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperActionEvent(KIconButton* self, QActionEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_ActionEvent_IsBase(true);
-        vkiconbutton->actionEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->actionEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnActionEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_ActionEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ActionEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_actionevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_DragEnterEvent(KIconButton* self, QDragEnterEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->dragEnterEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperDragEnterEvent(KIconButton* self, QDragEnterEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_DragEnterEvent_IsBase(true);
-        vkiconbutton->dragEnterEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDragEnterEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DragEnterEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_dragenterevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_DragMoveEvent(KIconButton* self, QDragMoveEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->dragMoveEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperDragMoveEvent(KIconButton* self, QDragMoveEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_DragMoveEvent_IsBase(true);
-        vkiconbutton->dragMoveEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDragMoveEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DragMoveEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_dragmoveevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_DragLeaveEvent(KIconButton* self, QDragLeaveEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->dragLeaveEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperDragLeaveEvent(KIconButton* self, QDragLeaveEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_DragLeaveEvent_IsBase(true);
-        vkiconbutton->dragLeaveEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDragLeaveEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DragLeaveEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_dragleaveevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_DropEvent(KIconButton* self, QDropEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->dropEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperDropEvent(KIconButton* self, QDropEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_DropEvent_IsBase(true);
-        vkiconbutton->dropEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->dropEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDropEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_DropEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DropEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_dropevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_ShowEvent(KIconButton* self, QShowEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->showEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperShowEvent(KIconButton* self, QShowEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_ShowEvent_IsBase(true);
-        vkiconbutton->showEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->showEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnShowEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_ShowEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ShowEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_showevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_HideEvent(KIconButton* self, QHideEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->hideEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperHideEvent(KIconButton* self, QHideEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_HideEvent_IsBase(true);
-        vkiconbutton->hideEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->hideEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnHideEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_HideEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_HideEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_hideevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIconButton_NativeEvent(KIconButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
+    if (vkiconbutton) {
         return vkiconbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKIconButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KIconButton::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIconButton_SuperNativeEvent(KIconButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_NativeEvent_IsBase(true);
-        return vkiconbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKIconButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        return vkiconbutton->KIconButton::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KIconButton::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnNativeEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_NativeEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_NativeEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_nativeevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KIconButton_Metric(const KIconButton* self, int param1) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         return vkiconbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKIconButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KIconButton::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KIconButton_SuperMetric(const KIconButton* self, int param1) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Metric_IsBase(true);
-        return vkiconbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKIconButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->KIconButton::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KIconButton::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnMetric(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Metric_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Metric_Callback>(slot));
+void KIconButton_OnMetric(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_metric_callback = reinterpret_cast<VirtualKIconButton::KIconButton_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_InitPainter(const KIconButton* self, QPainter* painter) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->initPainter(painter);
     } else {
-        ((VirtualKIconButton*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KIconButton::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperInitPainter(const KIconButton* self, QPainter* painter) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_InitPainter_IsBase(true);
-        vkiconbutton->initPainter(painter);
-    } else {
-        ((VirtualKIconButton*)self)->initPainter(painter);
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        vkiconbutton->KIconButton::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnInitPainter(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_InitPainter_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_InitPainter_Callback>(slot));
+void KIconButton_OnInitPainter(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_initpainter_callback = reinterpret_cast<VirtualKIconButton::KIconButton_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KIconButton_Redirected(const KIconButton* self, QPoint* offset) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         return vkiconbutton->redirected(offset);
     } else {
-        return ((VirtualKIconButton*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KIconButton::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KIconButton_SuperRedirected(const KIconButton* self, QPoint* offset) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Redirected_IsBase(true);
-        return vkiconbutton->redirected(offset);
-    } else {
-        return ((VirtualKIconButton*)self)->redirected(offset);
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->KIconButton::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnRedirected(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Redirected_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Redirected_Callback>(slot));
+void KIconButton_OnRedirected(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_redirected_callback = reinterpret_cast<VirtualKIconButton::KIconButton_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KIconButton_SharedPainter(const KIconButton* self) {
     auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         return vkiconbutton->sharedPainter();
     } else {
-        return ((VirtualKIconButton*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KIconButton::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KIconButton_SuperSharedPainter(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_SharedPainter_IsBase(true);
-        return vkiconbutton->sharedPainter();
-    } else {
-        return ((VirtualKIconButton*)self)->sharedPainter();
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->KIconButton::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KIconButton::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnSharedPainter(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_SharedPainter_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_SharedPainter_Callback>(slot));
+void KIconButton_OnSharedPainter(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_sharedpainter_callback = reinterpret_cast<VirtualKIconButton::KIconButton_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_InputMethodEvent(KIconButton* self, QInputMethodEvent* param1) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->inputMethodEvent(param1);
     } else {
-        ((VirtualKIconButton*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KIconButton::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperInputMethodEvent(KIconButton* self, QInputMethodEvent* param1) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_InputMethodEvent_IsBase(true);
-        vkiconbutton->inputMethodEvent(param1);
-    } else {
-        ((VirtualKIconButton*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnInputMethodEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_InputMethodEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_inputmethodevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KIconButton_InputMethodQuery(const KIconButton* self, int param1) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return new QVariant(vkiconbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKIconButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KIconButton_SuperInputMethodQuery(const KIconButton* self, int param1) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_InputMethodQuery_IsBase(true);
-        return new QVariant(vkiconbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKIconButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KIconButton::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIconButton_OnInputMethodQuery(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_InputMethodQuery_Callback>(slot));
+void KIconButton_OnInputMethodQuery(KIconButton* self, intptr_t slot) {
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self)))
+        vkiconbutton->kiconbutton_inputmethodquery_callback = reinterpret_cast<VirtualKIconButton::KIconButton_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIconButton_FocusNextPrevChild(KIconButton* self, bool next) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         return vkiconbutton->focusNextPrevChild(next);
     } else {
-        return ((VirtualKIconButton*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KIconButton::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIconButton_SuperFocusNextPrevChild(KIconButton* self, bool next) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_FocusNextPrevChild_IsBase(true);
-        return vkiconbutton->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKIconButton*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        return vkiconbutton->KIconButton::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnFocusNextPrevChild(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_focusnextprevchild_callback = reinterpret_cast<VirtualKIconButton::KIconButton_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIconButton_EventFilter(KIconButton* self, QObject* watched, QEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->eventFilter(watched, event);
-    } else {
-        return self->KIconButton::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIconButton_SuperEventFilter(KIconButton* self, QObject* watched, QEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_EventFilter_IsBase(true);
-        return vkiconbutton->eventFilter(watched, event);
-    } else {
-        return self->KIconButton::eventFilter(watched, event);
-    }
+    return self->KIconButton::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnEventFilter(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_EventFilter_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_EventFilter_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_eventfilter_callback = reinterpret_cast<VirtualKIconButton::KIconButton_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_ChildEvent(KIconButton* self, QChildEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->childEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperChildEvent(KIconButton* self, QChildEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_ChildEvent_IsBase(true);
-        vkiconbutton->childEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->childEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnChildEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_ChildEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ChildEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_childevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_CustomEvent(KIconButton* self, QEvent* event) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->customEvent(event);
     } else {
-        ((VirtualKIconButton*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIconButton::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperCustomEvent(KIconButton* self, QEvent* event) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_CustomEvent_IsBase(true);
-        vkiconbutton->customEvent(event);
-    } else {
-        ((VirtualKIconButton*)self)->customEvent(event);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnCustomEvent(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_CustomEvent_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_CustomEvent_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_customevent_callback = reinterpret_cast<VirtualKIconButton::KIconButton_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_ConnectNotify(KIconButton* self, const QMetaMethod* signal) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->connectNotify(*signal);
     } else {
-        ((VirtualKIconButton*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIconButton::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperConnectNotify(KIconButton* self, const QMetaMethod* signal) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_ConnectNotify_IsBase(true);
-        vkiconbutton->connectNotify(*signal);
-    } else {
-        ((VirtualKIconButton*)self)->connectNotify(*signal);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnConnectNotify(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_ConnectNotify_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_ConnectNotify_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_connectnotify_callback = reinterpret_cast<VirtualKIconButton::KIconButton_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIconButton_DisconnectNotify(KIconButton* self, const QMetaMethod* signal) {
     auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
+    if (vkiconbutton) {
         vkiconbutton->disconnectNotify(*signal);
     } else {
-        ((VirtualKIconButton*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIconButton::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIconButton_SuperDisconnectNotify(KIconButton* self, const QMetaMethod* signal) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_DisconnectNotify_IsBase(true);
-        vkiconbutton->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIconButton*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->KIconButton::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIconButton::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIconButton_OnDisconnectNotify(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_DisconnectNotify_Callback>(slot));
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self))
+        vkiconbutton->kiconbutton_disconnectnotify_callback = reinterpret_cast<VirtualKIconButton::KIconButton_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIconButton_UpdateMicroFocus(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->updateMicroFocus();
-    } else {
-        ((VirtualKIconButton*)self)->updateMicroFocus();
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->VirtualKIconButton::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KIconButton::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIconButton_SuperUpdateMicroFocus(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_UpdateMicroFocus_IsBase(true);
-        vkiconbutton->updateMicroFocus();
-    } else {
-        ((VirtualKIconButton*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnUpdateMicroFocus(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIconButton_Create(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->create();
-    } else {
-        ((VirtualKIconButton*)self)->create();
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->VirtualKIconButton::create();
+    } else
+        qFatal("Error: Protected method KIconButton::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIconButton_SuperCreate(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Create_IsBase(true);
-        vkiconbutton->create();
-    } else {
-        ((VirtualKIconButton*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnCreate(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Create_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIconButton_Destroy(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->destroy();
-    } else {
-        ((VirtualKIconButton*)self)->destroy();
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        vkiconbutton->VirtualKIconButton::destroy();
+    } else
+        qFatal("Error: Protected method KIconButton::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIconButton_SuperDestroy(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Destroy_IsBase(true);
-        vkiconbutton->destroy();
-    } else {
-        ((VirtualKIconButton*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnDestroy(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Destroy_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIconButton_FocusNextChild(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->focusNextChild();
-    } else {
-        return ((VirtualKIconButton*)self)->focusNextChild();
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        return vkiconbutton->VirtualKIconButton::focusNextChild();
+    } else
+        qFatal("Error: Protected method KIconButton::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIconButton_SuperFocusNextChild(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_FocusNextChild_IsBase(true);
-        return vkiconbutton->focusNextChild();
-    } else {
-        return ((VirtualKIconButton*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnFocusNextChild(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_FocusNextChild_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIconButton_FocusPreviousChild(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->focusPreviousChild();
-    } else {
-        return ((VirtualKIconButton*)self)->focusPreviousChild();
-    }
+    if (auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self)) {
+        return vkiconbutton->VirtualKIconButton::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KIconButton::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIconButton_SuperFocusPreviousChild(KIconButton* self) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_FocusPreviousChild_IsBase(true);
-        return vkiconbutton->focusPreviousChild();
-    } else {
-        return ((VirtualKIconButton*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnFocusPreviousChild(KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = dynamic_cast<VirtualKIconButton*>(self);
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIconButton_Sender(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->sender();
-    } else {
-        return ((VirtualKIconButton*)self)->sender();
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->VirtualKIconButton::sender();
+    } else
+        qFatal("Error: Protected method KIconButton::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIconButton_SuperSender(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Sender_IsBase(true);
-        return vkiconbutton->sender();
-    } else {
-        return ((VirtualKIconButton*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnSender(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Sender_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIconButton_SenderSignalIndex(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->senderSignalIndex();
-    } else {
-        return ((VirtualKIconButton*)self)->senderSignalIndex();
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->VirtualKIconButton::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIconButton::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIconButton_SuperSenderSignalIndex(const KIconButton* self) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_SenderSignalIndex_IsBase(true);
-        return vkiconbutton->senderSignalIndex();
-    } else {
-        return ((VirtualKIconButton*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnSenderSignalIndex(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIconButton_Receivers(const KIconButton* self, const char* signal) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->receivers(signal);
-    } else {
-        return ((VirtualKIconButton*)self)->receivers(signal);
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->VirtualKIconButton::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIconButton::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIconButton_SuperReceivers(const KIconButton* self, const char* signal) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_Receivers_IsBase(true);
-        return vkiconbutton->receivers(signal);
-    } else {
-        return ((VirtualKIconButton*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnReceivers(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_Receivers_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIconButton_IsSignalConnected(const KIconButton* self, const QMetaMethod* signal) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIconButton*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->VirtualKIconButton::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIconButton::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIconButton_SuperIsSignalConnected(const KIconButton* self, const QMetaMethod* signal) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_IsSignalConnected_IsBase(true);
-        return vkiconbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIconButton*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnIsSignalConnected(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KIconButton_GetDecodedMetricF(const KIconButton* self, int metricA, int metricB) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        return vkiconbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKIconButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KIconButton_SuperGetDecodedMetricF(const KIconButton* self, int metricA, int metricB) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton) {
-        vkiconbutton->setKIconButton_GetDecodedMetricF_IsBase(true);
-        return vkiconbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKIconButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIconButton_OnGetDecodedMetricF(const KIconButton* self, intptr_t slot) {
-    auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self));
-    if (vkiconbutton && vkiconbutton->isVirtualKIconButton)
-        vkiconbutton->setKIconButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKIconButton::KIconButton_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkiconbutton = const_cast<VirtualKIconButton*>(dynamic_cast<const VirtualKIconButton*>(self))) {
+        return vkiconbutton->VirtualKIconButton::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KIconButton::getDecodedMetricF called without a directly constructed type");
 }
 
 void KIconButton_Delete(KIconButton* self) {

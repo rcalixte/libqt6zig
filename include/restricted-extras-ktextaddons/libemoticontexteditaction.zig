@@ -78,9 +78,9 @@ pub const TextEmoticonsWidgets__EmoticonTextEditAction = extern struct {
     ///
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextEmoticonsWidgets__EmoticonTextEditAction) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextEmoticonsWidgets__EmoticonTextEditAction, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextEmoticonsWidgets__EmoticonTextEditAction, callback: *const fn (TextEmoticonsWidgets__EmoticonTextEditAction) callconv(.c) QMetaObject) void {
         qtc.TextEmoticonsWidgets__EmoticonTextEditAction_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3390,58 +3390,6 @@ pub const TextEmoticonsWidgets__EmoticonTextEditAction = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superCreatedWidgets` instead
-    ///
-    pub const SuperCreatedWidgets = superCreatedWidgets;
-
-    /// Inherited from QWidgetAction
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superCreatedWidgets(self: TextEmoticonsWidgets__EmoticonTextEditAction, allocator: std.mem.Allocator) []QWidget {
-        const _arr: qtc.libqt_list = qtc.TextEmoticonsWidgets__EmoticonTextEditAction_SuperCreatedWidgets(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("TextEmoticonsWidgets__EmoticonTextEditAction.createdWidgets: Memory allocation failed");
-        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onCreatedWidgets` instead
-    ///
-    pub const OnCreatedWidgets = onCreatedWidgets;
-
-    /// Inherited from QWidgetAction
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidgetaction.html#createdWidgets)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []QWidget `
-    ///
-    pub fn onCreatedWidgets(self: TextEmoticonsWidgets__EmoticonTextEditAction, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.TextEmoticonsWidgets__EmoticonTextEditAction_OnCreatedWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -3460,44 +3408,6 @@ pub const TextEmoticonsWidgets__EmoticonTextEditAction = extern struct {
         return .{ .ptr = qtc.TextEmoticonsWidgets__EmoticonTextEditAction_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction `
-    ///
-    pub fn superSender(self: TextEmoticonsWidgets__EmoticonTextEditAction) QObject {
-        return .{ .ptr = qtc.TextEmoticonsWidgets__EmoticonTextEditAction_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextEmoticonsWidgets__EmoticonTextEditAction, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextEmoticonsWidgets__EmoticonTextEditAction_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3514,44 +3424,6 @@ pub const TextEmoticonsWidgets__EmoticonTextEditAction = extern struct {
     ///
     pub fn senderSignalIndex(self: TextEmoticonsWidgets__EmoticonTextEditAction) i32 {
         return qtc.TextEmoticonsWidgets__EmoticonTextEditAction_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction `
-    ///
-    pub fn superSenderSignalIndex(self: TextEmoticonsWidgets__EmoticonTextEditAction) i32 {
-        return qtc.TextEmoticonsWidgets__EmoticonTextEditAction_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextEmoticonsWidgets__EmoticonTextEditAction, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextEmoticonsWidgets__EmoticonTextEditAction_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3575,47 +3447,6 @@ pub const TextEmoticonsWidgets__EmoticonTextEditAction = extern struct {
         return qtc.TextEmoticonsWidgets__EmoticonTextEditAction_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextEmoticonsWidgets__EmoticonTextEditAction, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextEmoticonsWidgets__EmoticonTextEditAction_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction`
-    ///
-    /// ` callback: *const fn (self: TextEmoticonsWidgets__EmoticonTextEditAction, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextEmoticonsWidgets__EmoticonTextEditAction, callback: *const fn (TextEmoticonsWidgets__EmoticonTextEditAction, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextEmoticonsWidgets__EmoticonTextEditAction_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3635,47 +3466,6 @@ pub const TextEmoticonsWidgets__EmoticonTextEditAction = extern struct {
     pub fn isSignalConnected(self: TextEmoticonsWidgets__EmoticonTextEditAction, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextEmoticonsWidgets__EmoticonTextEditAction_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextEmoticonsWidgets__EmoticonTextEditAction, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextEmoticonsWidgets__EmoticonTextEditAction_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEmoticonsWidgets__EmoticonTextEditAction`
-    ///
-    /// ` callback: *const fn (self: TextEmoticonsWidgets__EmoticonTextEditAction, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextEmoticonsWidgets__EmoticonTextEditAction, callback: *const fn (TextEmoticonsWidgets__EmoticonTextEditAction, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextEmoticonsWidgets__EmoticonTextEditAction_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

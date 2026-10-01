@@ -157,364 +157,219 @@ libqt_string QSignalMapper_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSignalMapper_SuperMetaObject(const QSignalMapper* self) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsignalmapper->metaObject();
-    } else {
-        return (QMetaObject*)self->QSignalMapper::metaObject();
-    }
+    return (QMetaObject*)self->QSignalMapper::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSignalMapper_OnMetaObject(const QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_MetaObject_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_MetaObject_Callback>(slot));
+void QSignalMapper_OnMetaObject(QSignalMapper* self, intptr_t slot) {
+    if (auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self)))
+        vqsignalmapper->qsignalmapper_metaobject_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSignalMapper_SuperMetacast(QSignalMapper* self, const char* param1) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_Metacast_IsBase(true);
-        return vqsignalmapper->qt_metacast(param1);
-    } else {
-        return self->QSignalMapper::qt_metacast(param1);
-    }
+    return self->QSignalMapper::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnMetacast(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_Metacast_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Metacast_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_metacast_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSignalMapper_SuperMetacall(QSignalMapper* self, int param1, int param2, void** param3) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_Metacall_IsBase(true);
-        return vqsignalmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSignalMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSignalMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnMetacall(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_Metacall_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Metacall_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_metacall_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSignalMapper_Event(QSignalMapper* self, QEvent* event) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return vqsignalmapper->event(event);
-    } else {
-        return self->QSignalMapper::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QSignalMapper_SuperEvent(QSignalMapper* self, QEvent* event) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_Event_IsBase(true);
-        return vqsignalmapper->event(event);
-    } else {
-        return self->QSignalMapper::event(event);
-    }
+    return self->QSignalMapper::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnEvent(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_Event_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Event_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_event_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSignalMapper_EventFilter(QSignalMapper* self, QObject* watched, QEvent* event) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return vqsignalmapper->eventFilter(watched, event);
-    } else {
-        return self->QSignalMapper::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSignalMapper_SuperEventFilter(QSignalMapper* self, QObject* watched, QEvent* event) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_EventFilter_IsBase(true);
-        return vqsignalmapper->eventFilter(watched, event);
-    } else {
-        return self->QSignalMapper::eventFilter(watched, event);
-    }
+    return self->QSignalMapper::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnEventFilter(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_EventFilter_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_EventFilter_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_eventfilter_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSignalMapper_TimerEvent(QSignalMapper* self, QTimerEvent* event) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper) {
         vqsignalmapper->timerEvent(event);
     } else {
-        ((VirtualQSignalMapper*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSignalMapper::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSignalMapper_SuperTimerEvent(QSignalMapper* self, QTimerEvent* event) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_TimerEvent_IsBase(true);
-        vqsignalmapper->timerEvent(event);
-    } else {
-        ((VirtualQSignalMapper*)self)->timerEvent(event);
-    }
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self)) {
+        vqsignalmapper->QSignalMapper::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSignalMapper::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnTimerEvent(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_TimerEvent_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_TimerEvent_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_timerevent_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSignalMapper_ChildEvent(QSignalMapper* self, QChildEvent* event) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper) {
         vqsignalmapper->childEvent(event);
     } else {
-        ((VirtualQSignalMapper*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSignalMapper::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSignalMapper_SuperChildEvent(QSignalMapper* self, QChildEvent* event) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_ChildEvent_IsBase(true);
-        vqsignalmapper->childEvent(event);
-    } else {
-        ((VirtualQSignalMapper*)self)->childEvent(event);
-    }
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self)) {
+        vqsignalmapper->QSignalMapper::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSignalMapper::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnChildEvent(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_ChildEvent_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_ChildEvent_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_childevent_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSignalMapper_CustomEvent(QSignalMapper* self, QEvent* event) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper) {
         vqsignalmapper->customEvent(event);
     } else {
-        ((VirtualQSignalMapper*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSignalMapper::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSignalMapper_SuperCustomEvent(QSignalMapper* self, QEvent* event) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_CustomEvent_IsBase(true);
-        vqsignalmapper->customEvent(event);
-    } else {
-        ((VirtualQSignalMapper*)self)->customEvent(event);
-    }
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self)) {
+        vqsignalmapper->QSignalMapper::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSignalMapper::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnCustomEvent(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_CustomEvent_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_CustomEvent_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_customevent_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSignalMapper_ConnectNotify(QSignalMapper* self, const QMetaMethod* signal) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper) {
         vqsignalmapper->connectNotify(*signal);
     } else {
-        ((VirtualQSignalMapper*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSignalMapper::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSignalMapper_SuperConnectNotify(QSignalMapper* self, const QMetaMethod* signal) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_ConnectNotify_IsBase(true);
-        vqsignalmapper->connectNotify(*signal);
-    } else {
-        ((VirtualQSignalMapper*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self)) {
+        vqsignalmapper->QSignalMapper::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSignalMapper::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnConnectNotify(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_ConnectNotify_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_connectnotify_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSignalMapper_DisconnectNotify(QSignalMapper* self, const QMetaMethod* signal) {
     auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
+    if (vqsignalmapper) {
         vqsignalmapper->disconnectNotify(*signal);
     } else {
-        ((VirtualQSignalMapper*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSignalMapper::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSignalMapper_SuperDisconnectNotify(QSignalMapper* self, const QMetaMethod* signal) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_DisconnectNotify_IsBase(true);
-        vqsignalmapper->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSignalMapper*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self)) {
+        vqsignalmapper->QSignalMapper::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSignalMapper::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSignalMapper_OnDisconnectNotify(QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_DisconnectNotify_Callback>(slot));
+    if (auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self))
+        vqsignalmapper->qsignalmapper_disconnectnotify_callback = reinterpret_cast<VirtualQSignalMapper::QSignalMapper_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSignalMapper_Sender(const QSignalMapper* self) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return vqsignalmapper->sender();
-    } else {
-        return ((VirtualQSignalMapper*)self)->sender();
-    }
+    if (auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self))) {
+        return vqsignalmapper->VirtualQSignalMapper::sender();
+    } else
+        qFatal("Error: Protected method QSignalMapper::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSignalMapper_SuperSender(const QSignalMapper* self) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_Sender_IsBase(true);
-        return vqsignalmapper->sender();
-    } else {
-        return ((VirtualQSignalMapper*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSignalMapper_OnSender(const QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_Sender_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSignalMapper_SenderSignalIndex(const QSignalMapper* self) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return vqsignalmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQSignalMapper*)self)->senderSignalIndex();
-    }
+    if (auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self))) {
+        return vqsignalmapper->VirtualQSignalMapper::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSignalMapper::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSignalMapper_SuperSenderSignalIndex(const QSignalMapper* self) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_SenderSignalIndex_IsBase(true);
-        return vqsignalmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQSignalMapper*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSignalMapper_OnSenderSignalIndex(const QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSignalMapper_Receivers(const QSignalMapper* self, const char* signal) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return vqsignalmapper->receivers(signal);
-    } else {
-        return ((VirtualQSignalMapper*)self)->receivers(signal);
-    }
+    if (auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self))) {
+        return vqsignalmapper->VirtualQSignalMapper::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSignalMapper::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSignalMapper_SuperReceivers(const QSignalMapper* self, const char* signal) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_Receivers_IsBase(true);
-        return vqsignalmapper->receivers(signal);
-    } else {
-        return ((VirtualQSignalMapper*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSignalMapper_OnReceivers(const QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_Receivers_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSignalMapper_IsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return vqsignalmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSignalMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSignalMapper_SuperIsSignalConnected(const QSignalMapper* self, const QMetaMethod* signal) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        vqsignalmapper->setQSignalMapper_IsSignalConnected_IsBase(true);
-        return vqsignalmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSignalMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSignalMapper_OnIsSignalConnected(const QSignalMapper* self, intptr_t slot) {
-    auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self));
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper)
-        vqsignalmapper->setQSignalMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQSignalMapper::QSignalMapper_IsSignalConnected_Callback>(slot));
+    if (auto* vqsignalmapper = const_cast<VirtualQSignalMapper*>(dynamic_cast<const VirtualQSignalMapper*>(self))) {
+        return vqsignalmapper->VirtualQSignalMapper::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSignalMapper::isSignalConnected called without a directly constructed type");
 }
 
 void QSignalMapper_Delete(QSignalMapper* self) {

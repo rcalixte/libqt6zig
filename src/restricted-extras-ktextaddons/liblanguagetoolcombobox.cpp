@@ -115,1766 +115,1237 @@ libqt_string TextGrammarCheck__LanguageToolComboBox_Tr3(const char* s, const cha
 
 // Base class handler implementation
 QMetaObject* TextGrammarCheck__LanguageToolComboBox_SuperMetaObject(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MetaObject_IsBase(true);
-        return (QMetaObject*)vtextgrammarchecklanguagetoolcombobox->metaObject();
-    } else {
-        return (QMetaObject*)self->TextGrammarCheck::LanguageToolComboBox::metaObject();
-    }
+    return (QMetaObject*)self->TextGrammarCheck::LanguageToolComboBox::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnMetaObject(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MetaObject_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnMetaObject(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_metaobject_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextGrammarCheck__LanguageToolComboBox_SuperMetacast(TextGrammarCheck__LanguageToolComboBox* self, const char* param1) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Metacast_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->qt_metacast(param1);
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::qt_metacast(param1);
-    }
+    return self->TextGrammarCheck::LanguageToolComboBox::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnMetacast(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Metacast_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_metacast_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextGrammarCheck__LanguageToolComboBox_SuperMetacall(TextGrammarCheck__LanguageToolComboBox* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Metacall_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextGrammarCheck::LanguageToolComboBox::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnMetacall(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Metacall_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_metacall_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SetModel(TextGrammarCheck__LanguageToolComboBox* self, QAbstractItemModel* model) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setModel(model);
-    } else {
-        self->TextGrammarCheck::LanguageToolComboBox::setModel(model);
-    }
+    self->setModel(model);
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperSetModel(TextGrammarCheck__LanguageToolComboBox* self, QAbstractItemModel* model) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SetModel_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->setModel(model);
-    } else {
-        self->TextGrammarCheck::LanguageToolComboBox::setModel(model);
-    }
+    self->TextGrammarCheck::LanguageToolComboBox::setModel(model);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnSetModel(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SetModel_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SetModel_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_setmodel_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SetModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextGrammarCheck__LanguageToolComboBox_SizeHint(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return new QSize(vtextgrammarchecklanguagetoolcombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckLanguageToolComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* TextGrammarCheck__LanguageToolComboBox_SuperSizeHint(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SizeHint_IsBase(true);
-        return new QSize(vtextgrammarchecklanguagetoolcombobox->sizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckLanguageToolComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->TextGrammarCheck::LanguageToolComboBox::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnSizeHint(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SizeHint_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnSizeHint(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_sizehint_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* TextGrammarCheck__LanguageToolComboBox_MinimumSizeHint(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return new QSize(vtextgrammarchecklanguagetoolcombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckLanguageToolComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* TextGrammarCheck__LanguageToolComboBox_SuperMinimumSizeHint(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MinimumSizeHint_IsBase(true);
-        return new QSize(vtextgrammarchecklanguagetoolcombobox->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextGrammarCheckLanguageToolComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->TextGrammarCheck::LanguageToolComboBox::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnMinimumSizeHint(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MinimumSizeHint_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnMinimumSizeHint(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_minimumsizehint_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_ShowPopup(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->showPopup();
-    } else {
-        self->TextGrammarCheck::LanguageToolComboBox::showPopup();
-    }
+    self->showPopup();
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperShowPopup(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ShowPopup_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->showPopup();
-    } else {
-        self->TextGrammarCheck::LanguageToolComboBox::showPopup();
-    }
+    self->TextGrammarCheck::LanguageToolComboBox::showPopup();
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnShowPopup(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ShowPopup_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ShowPopup_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_showpopup_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ShowPopup_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_HidePopup(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->hidePopup();
-    } else {
-        self->TextGrammarCheck::LanguageToolComboBox::hidePopup();
-    }
+    self->hidePopup();
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperHidePopup(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_HidePopup_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->hidePopup();
-    } else {
-        self->TextGrammarCheck::LanguageToolComboBox::hidePopup();
-    }
+    self->TextGrammarCheck::LanguageToolComboBox::hidePopup();
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnHidePopup(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_HidePopup_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_HidePopup_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_hidepopup_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_HidePopup_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_Event(TextGrammarCheck__LanguageToolComboBox* self, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->event(event);
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_SuperEvent(TextGrammarCheck__LanguageToolComboBox* self, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Event_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->event(event);
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::event(event);
-    }
+    return self->TextGrammarCheck::LanguageToolComboBox::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Event_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_event_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* TextGrammarCheck__LanguageToolComboBox_InputMethodQuery(const TextGrammarCheck__LanguageToolComboBox* self, int param1) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return new QVariant(vtextgrammarchecklanguagetoolcombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextGrammarCheckLanguageToolComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* TextGrammarCheck__LanguageToolComboBox_SuperInputMethodQuery(const TextGrammarCheck__LanguageToolComboBox* self, int param1) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_InputMethodQuery_IsBase(true);
-        return new QVariant(vtextgrammarchecklanguagetoolcombobox->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualTextGrammarCheckLanguageToolComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->TextGrammarCheck::LanguageToolComboBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnInputMethodQuery(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_InputMethodQuery_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnInputMethodQuery(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_inputmethodquery_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_FocusInEvent(TextGrammarCheck__LanguageToolComboBox* self, QFocusEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->focusInEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusInEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperFocusInEvent(TextGrammarCheck__LanguageToolComboBox* self, QFocusEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusInEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->focusInEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusInEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::focusInEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnFocusInEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_FocusInEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_focusinevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_FocusOutEvent(TextGrammarCheck__LanguageToolComboBox* self, QFocusEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->focusOutEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperFocusOutEvent(TextGrammarCheck__LanguageToolComboBox* self, QFocusEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusOutEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->focusOutEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusOutEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnFocusOutEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_FocusOutEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_focusoutevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_ChangeEvent(TextGrammarCheck__LanguageToolComboBox* self, QEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->changeEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperChangeEvent(TextGrammarCheck__LanguageToolComboBox* self, QEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ChangeEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->changeEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->changeEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnChangeEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ChangeEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_changeevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_ResizeEvent(TextGrammarCheck__LanguageToolComboBox* self, QResizeEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->resizeEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperResizeEvent(TextGrammarCheck__LanguageToolComboBox* self, QResizeEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ResizeEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->resizeEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->resizeEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnResizeEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ResizeEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_resizeevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_PaintEvent(TextGrammarCheck__LanguageToolComboBox* self, QPaintEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->paintEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperPaintEvent(TextGrammarCheck__LanguageToolComboBox* self, QPaintEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_PaintEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->paintEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->paintEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnPaintEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_PaintEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_PaintEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_paintevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_ShowEvent(TextGrammarCheck__LanguageToolComboBox* self, QShowEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->showEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->showEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperShowEvent(TextGrammarCheck__LanguageToolComboBox* self, QShowEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ShowEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->showEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->showEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::showEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnShowEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ShowEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ShowEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_showevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_HideEvent(TextGrammarCheck__LanguageToolComboBox* self, QHideEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->hideEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->hideEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperHideEvent(TextGrammarCheck__LanguageToolComboBox* self, QHideEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_HideEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->hideEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->hideEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::hideEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnHideEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_HideEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_HideEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_hideevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_MousePressEvent(TextGrammarCheck__LanguageToolComboBox* self, QMouseEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->mousePressEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperMousePressEvent(TextGrammarCheck__LanguageToolComboBox* self, QMouseEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MousePressEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->mousePressEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->mousePressEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnMousePressEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MousePressEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_mousepressevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_MouseReleaseEvent(TextGrammarCheck__LanguageToolComboBox* self, QMouseEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->mouseReleaseEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperMouseReleaseEvent(TextGrammarCheck__LanguageToolComboBox* self, QMouseEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MouseReleaseEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->mouseReleaseEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnMouseReleaseEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MouseReleaseEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_mousereleaseevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_KeyPressEvent(TextGrammarCheck__LanguageToolComboBox* self, QKeyEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->keyPressEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->keyPressEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperKeyPressEvent(TextGrammarCheck__LanguageToolComboBox* self, QKeyEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_KeyPressEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->keyPressEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->keyPressEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnKeyPressEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_KeyPressEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_keypressevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_KeyReleaseEvent(TextGrammarCheck__LanguageToolComboBox* self, QKeyEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->keyReleaseEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperKeyReleaseEvent(TextGrammarCheck__LanguageToolComboBox* self, QKeyEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_KeyReleaseEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->keyReleaseEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnKeyReleaseEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_KeyReleaseEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_keyreleaseevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_WheelEvent(TextGrammarCheck__LanguageToolComboBox* self, QWheelEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->wheelEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperWheelEvent(TextGrammarCheck__LanguageToolComboBox* self, QWheelEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_WheelEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->wheelEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->wheelEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnWheelEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_WheelEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_WheelEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_wheelevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_ContextMenuEvent(TextGrammarCheck__LanguageToolComboBox* self, QContextMenuEvent* e) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->contextMenuEvent(e);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->contextMenuEvent(e);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperContextMenuEvent(TextGrammarCheck__LanguageToolComboBox* self, QContextMenuEvent* e) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ContextMenuEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->contextMenuEvent(e);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->contextMenuEvent(e);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::contextMenuEvent(e);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnContextMenuEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ContextMenuEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_contextmenuevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_InputMethodEvent(TextGrammarCheck__LanguageToolComboBox* self, QInputMethodEvent* param1) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->inputMethodEvent(param1);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperInputMethodEvent(TextGrammarCheck__LanguageToolComboBox* self, QInputMethodEvent* param1) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_InputMethodEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->inputMethodEvent(param1);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnInputMethodEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_InputMethodEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_inputmethodevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_InitStyleOption(const TextGrammarCheck__LanguageToolComboBox* self, QStyleOptionComboBox* option) {
     auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->initStyleOption(option);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperInitStyleOption(const TextGrammarCheck__LanguageToolComboBox* self, QStyleOptionComboBox* option) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_InitStyleOption_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->initStyleOption(option);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->initStyleOption(option);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnInitStyleOption(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_InitStyleOption_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnInitStyleOption(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_initstyleoption_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__LanguageToolComboBox_DevType(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->devType();
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int TextGrammarCheck__LanguageToolComboBox_SuperDevType(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DevType_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->devType();
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::devType();
-    }
+    return self->TextGrammarCheck::LanguageToolComboBox::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnDevType(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DevType_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DevType_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnDevType(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_devtype_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SetVisible(TextGrammarCheck__LanguageToolComboBox* self, bool visible) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setVisible(visible);
-    } else {
-        self->TextGrammarCheck::LanguageToolComboBox::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperSetVisible(TextGrammarCheck__LanguageToolComboBox* self, bool visible) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SetVisible_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->setVisible(visible);
-    } else {
-        self->TextGrammarCheck::LanguageToolComboBox::setVisible(visible);
-    }
+    self->TextGrammarCheck::LanguageToolComboBox::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnSetVisible(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SetVisible_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SetVisible_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_setvisible_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__LanguageToolComboBox_HeightForWidth(const TextGrammarCheck__LanguageToolComboBox* self, int param1) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int TextGrammarCheck__LanguageToolComboBox_SuperHeightForWidth(const TextGrammarCheck__LanguageToolComboBox* self, int param1) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_HeightForWidth_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::heightForWidth(static_cast<int>(param1));
-    }
+    return self->TextGrammarCheck::LanguageToolComboBox::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnHeightForWidth(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_HeightForWidth_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnHeightForWidth(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_heightforwidth_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_HasHeightForWidth(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->hasHeightForWidth();
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_SuperHasHeightForWidth(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_HasHeightForWidth_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->hasHeightForWidth();
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::hasHeightForWidth();
-    }
+    return self->TextGrammarCheck::LanguageToolComboBox::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnHasHeightForWidth(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_HasHeightForWidth_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnHasHeightForWidth(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_hasheightforwidth_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* TextGrammarCheck__LanguageToolComboBox_PaintEngine(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->paintEngine();
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* TextGrammarCheck__LanguageToolComboBox_SuperPaintEngine(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_PaintEngine_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->paintEngine();
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::paintEngine();
-    }
+    return self->TextGrammarCheck::LanguageToolComboBox::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnPaintEngine(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_PaintEngine_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_PaintEngine_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnPaintEngine(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_paintengine_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_MouseDoubleClickEvent(TextGrammarCheck__LanguageToolComboBox* self, QMouseEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperMouseDoubleClickEvent(TextGrammarCheck__LanguageToolComboBox* self, QMouseEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MouseDoubleClickEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnMouseDoubleClickEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_mousedoubleclickevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_MouseMoveEvent(TextGrammarCheck__LanguageToolComboBox* self, QMouseEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->mouseMoveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperMouseMoveEvent(TextGrammarCheck__LanguageToolComboBox* self, QMouseEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MouseMoveEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->mouseMoveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnMouseMoveEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MouseMoveEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_mousemoveevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_EnterEvent(TextGrammarCheck__LanguageToolComboBox* self, QEnterEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->enterEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperEnterEvent(TextGrammarCheck__LanguageToolComboBox* self, QEnterEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_EnterEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->enterEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->enterEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnEnterEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_EnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_EnterEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_enterevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_LeaveEvent(TextGrammarCheck__LanguageToolComboBox* self, QEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->leaveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperLeaveEvent(TextGrammarCheck__LanguageToolComboBox* self, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_LeaveEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->leaveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->leaveEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnLeaveEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_LeaveEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_leaveevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_MoveEvent(TextGrammarCheck__LanguageToolComboBox* self, QMoveEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->moveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperMoveEvent(TextGrammarCheck__LanguageToolComboBox* self, QMoveEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MoveEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->moveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->moveEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnMoveEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_MoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MoveEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_moveevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_CloseEvent(TextGrammarCheck__LanguageToolComboBox* self, QCloseEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->closeEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperCloseEvent(TextGrammarCheck__LanguageToolComboBox* self, QCloseEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_CloseEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->closeEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->closeEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnCloseEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_CloseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_CloseEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_closeevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_TabletEvent(TextGrammarCheck__LanguageToolComboBox* self, QTabletEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->tabletEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperTabletEvent(TextGrammarCheck__LanguageToolComboBox* self, QTabletEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_TabletEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->tabletEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->tabletEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnTabletEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_TabletEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_TabletEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_tabletevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_ActionEvent(TextGrammarCheck__LanguageToolComboBox* self, QActionEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->actionEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperActionEvent(TextGrammarCheck__LanguageToolComboBox* self, QActionEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ActionEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->actionEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->actionEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnActionEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ActionEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ActionEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_actionevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_DragEnterEvent(TextGrammarCheck__LanguageToolComboBox* self, QDragEnterEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->dragEnterEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperDragEnterEvent(TextGrammarCheck__LanguageToolComboBox* self, QDragEnterEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DragEnterEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->dragEnterEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->dragEnterEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnDragEnterEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DragEnterEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_dragenterevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_DragMoveEvent(TextGrammarCheck__LanguageToolComboBox* self, QDragMoveEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->dragMoveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperDragMoveEvent(TextGrammarCheck__LanguageToolComboBox* self, QDragMoveEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DragMoveEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->dragMoveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->dragMoveEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnDragMoveEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DragMoveEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_dragmoveevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_DragLeaveEvent(TextGrammarCheck__LanguageToolComboBox* self, QDragLeaveEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->dragLeaveEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperDragLeaveEvent(TextGrammarCheck__LanguageToolComboBox* self, QDragLeaveEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DragLeaveEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->dragLeaveEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnDragLeaveEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DragLeaveEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_dragleaveevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_DropEvent(TextGrammarCheck__LanguageToolComboBox* self, QDropEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->dropEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperDropEvent(TextGrammarCheck__LanguageToolComboBox* self, QDropEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DropEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->dropEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->dropEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnDropEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DropEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DropEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_dropevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_NativeEvent(TextGrammarCheck__LanguageToolComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
+    if (vtextgrammarchecklanguagetoolcombobox) {
         return vtextgrammarchecklanguagetoolcombobox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_SuperNativeEvent(TextGrammarCheck__LanguageToolComboBox* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_NativeEvent_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        return vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnNativeEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_NativeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_NativeEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_nativeevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int TextGrammarCheck__LanguageToolComboBox_Metric(const TextGrammarCheck__LanguageToolComboBox* self, int param1) {
     auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         return vtextgrammarchecklanguagetoolcombobox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int TextGrammarCheck__LanguageToolComboBox_SuperMetric(const TextGrammarCheck__LanguageToolComboBox* self, int param1) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Metric_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        return vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnMetric(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Metric_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Metric_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnMetric(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_metric_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_InitPainter(const TextGrammarCheck__LanguageToolComboBox* self, QPainter* painter) {
     auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->initPainter(painter);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperInitPainter(const TextGrammarCheck__LanguageToolComboBox* self, QPainter* painter) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_InitPainter_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->initPainter(painter);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->initPainter(painter);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnInitPainter(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_InitPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_InitPainter_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnInitPainter(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_initpainter_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* TextGrammarCheck__LanguageToolComboBox_Redirected(const TextGrammarCheck__LanguageToolComboBox* self, QPoint* offset) {
     auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         return vtextgrammarchecklanguagetoolcombobox->redirected(offset);
     } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* TextGrammarCheck__LanguageToolComboBox_SuperRedirected(const TextGrammarCheck__LanguageToolComboBox* self, QPoint* offset) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Redirected_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->redirected(offset);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->redirected(offset);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        return vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnRedirected(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Redirected_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Redirected_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnRedirected(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_redirected_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* TextGrammarCheck__LanguageToolComboBox_SharedPainter(const TextGrammarCheck__LanguageToolComboBox* self) {
     auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         return vtextgrammarchecklanguagetoolcombobox->sharedPainter();
     } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* TextGrammarCheck__LanguageToolComboBox_SuperSharedPainter(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SharedPainter_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->sharedPainter();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->sharedPainter();
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        return vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnSharedPainter(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SharedPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SharedPainter_Callback>(slot));
+void TextGrammarCheck__LanguageToolComboBox_OnSharedPainter(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self)))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_sharedpainter_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_FocusNextPrevChild(TextGrammarCheck__LanguageToolComboBox* self, bool next) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         return vtextgrammarchecklanguagetoolcombobox->focusNextPrevChild(next);
     } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_SuperFocusNextPrevChild(TextGrammarCheck__LanguageToolComboBox* self, bool next) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusNextPrevChild_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->focusNextPrevChild(next);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        return vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnFocusNextPrevChild(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_FocusNextPrevChild_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_focusnextprevchild_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_EventFilter(TextGrammarCheck__LanguageToolComboBox* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_SuperEventFilter(TextGrammarCheck__LanguageToolComboBox* self, QObject* watched, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_EventFilter_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->eventFilter(watched, event);
-    } else {
-        return self->TextGrammarCheck::LanguageToolComboBox::eventFilter(watched, event);
-    }
+    return self->TextGrammarCheck::LanguageToolComboBox::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnEventFilter(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_EventFilter_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_eventfilter_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_TimerEvent(TextGrammarCheck__LanguageToolComboBox* self, QTimerEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->timerEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperTimerEvent(TextGrammarCheck__LanguageToolComboBox* self, QTimerEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_TimerEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->timerEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->timerEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnTimerEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_TimerEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_timerevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_ChildEvent(TextGrammarCheck__LanguageToolComboBox* self, QChildEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->childEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperChildEvent(TextGrammarCheck__LanguageToolComboBox* self, QChildEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ChildEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->childEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->childEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnChildEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ChildEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_childevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_CustomEvent(TextGrammarCheck__LanguageToolComboBox* self, QEvent* event) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->customEvent(event);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperCustomEvent(TextGrammarCheck__LanguageToolComboBox* self, QEvent* event) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_CustomEvent_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->customEvent(event);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->customEvent(event);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnCustomEvent(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_CustomEvent_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_customevent_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_ConnectNotify(TextGrammarCheck__LanguageToolComboBox* self, const QMetaMethod* signal) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->connectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperConnectNotify(TextGrammarCheck__LanguageToolComboBox* self, const QMetaMethod* signal) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ConnectNotify_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->connectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->connectNotify(*signal);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnConnectNotify(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ConnectNotify_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_connectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_DisconnectNotify(TextGrammarCheck__LanguageToolComboBox* self, const QMetaMethod* signal) {
     auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
+    if (vtextgrammarchecklanguagetoolcombobox) {
         vtextgrammarchecklanguagetoolcombobox->disconnectNotify(*signal);
     } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextGrammarCheck__LanguageToolComboBox_SuperDisconnectNotify(TextGrammarCheck__LanguageToolComboBox* self, const QMetaMethod* signal) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DisconnectNotify_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->TextGrammarCheck::LanguageToolComboBox::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextGrammarCheck::LanguageToolComboBox::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__LanguageToolComboBox_OnDisconnectNotify(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DisconnectNotify_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self))
+        vtextgrammarchecklanguagetoolcombobox->textgrammarcheck__languagetoolcombobox_disconnectnotify_callback = reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__LanguageToolComboBox_UpdateMicroFocus(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->updateMicroFocus();
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->updateMicroFocus();
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__LanguageToolComboBox_SuperUpdateMicroFocus(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_UpdateMicroFocus_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->updateMicroFocus();
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnUpdateMicroFocus(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__LanguageToolComboBox_Create(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->create();
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->create();
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::create();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__LanguageToolComboBox_SuperCreate(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Create_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->create();
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnCreate(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Create_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextGrammarCheck__LanguageToolComboBox_Destroy(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->destroy();
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->destroy();
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::destroy();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextGrammarCheck__LanguageToolComboBox_SuperDestroy(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Destroy_IsBase(true);
-        vtextgrammarchecklanguagetoolcombobox->destroy();
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnDestroy(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Destroy_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_FocusNextChild(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->focusNextChild();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusNextChild();
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        return vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::focusNextChild();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__LanguageToolComboBox_SuperFocusNextChild(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusNextChild_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->focusNextChild();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnFocusNextChild(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_FocusPreviousChild(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->focusPreviousChild();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusPreviousChild();
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self)) {
+        return vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__LanguageToolComboBox_SuperFocusPreviousChild(TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusPreviousChild_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->focusPreviousChild();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnFocusPreviousChild(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextGrammarCheck__LanguageToolComboBox_Sender(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->sender();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->sender();
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        return vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::sender();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextGrammarCheck__LanguageToolComboBox_SuperSender(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Sender_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->sender();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnSender(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__LanguageToolComboBox_SenderSignalIndex(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->senderSignalIndex();
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        return vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__LanguageToolComboBox_SuperSenderSignalIndex(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SenderSignalIndex_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->senderSignalIndex();
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnSenderSignalIndex(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextGrammarCheck__LanguageToolComboBox_Receivers(const TextGrammarCheck__LanguageToolComboBox* self, const char* signal) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->receivers(signal);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        return vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextGrammarCheck__LanguageToolComboBox_SuperReceivers(const TextGrammarCheck__LanguageToolComboBox* self, const char* signal) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Receivers_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->receivers(signal);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnReceivers(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextGrammarCheck__LanguageToolComboBox_IsSignalConnected(const TextGrammarCheck__LanguageToolComboBox* self, const QMetaMethod* signal) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        return vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextGrammarCheck__LanguageToolComboBox_SuperIsSignalConnected(const TextGrammarCheck__LanguageToolComboBox* self, const QMetaMethod* signal) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_IsSignalConnected_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnIsSignalConnected(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double TextGrammarCheck__LanguageToolComboBox_GetDecodedMetricF(const TextGrammarCheck__LanguageToolComboBox* self, int metricA, int metricB) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return vtextgrammarchecklanguagetoolcombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double TextGrammarCheck__LanguageToolComboBox_SuperGetDecodedMetricF(const TextGrammarCheck__LanguageToolComboBox* self, int metricA, int metricB) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_GetDecodedMetricF_IsBase(true);
-        return vtextgrammarchecklanguagetoolcombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextGrammarCheck__LanguageToolComboBox_OnGetDecodedMetricF(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot) {
-    auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self));
-    if (vtextgrammarchecklanguagetoolcombobox && vtextgrammarchecklanguagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox)
-        vtextgrammarchecklanguagetoolcombobox->setTextGrammarCheck__LanguageToolComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextGrammarCheckLanguageToolComboBox::TextGrammarCheck__LanguageToolComboBox_GetDecodedMetricF_Callback>(slot));
+    if (auto* vtextgrammarchecklanguagetoolcombobox = const_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self))) {
+        return vtextgrammarchecklanguagetoolcombobox->VirtualTextGrammarCheckLanguageToolComboBox::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method TextGrammarCheck::LanguageToolComboBox::getDecodedMetricF called without a directly constructed type");
 }
 
 void TextGrammarCheck__LanguageToolComboBox_Delete(TextGrammarCheck__LanguageToolComboBox* self) {

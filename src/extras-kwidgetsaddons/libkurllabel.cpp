@@ -260,31 +260,31 @@ void KUrlLabel_Connect_MiddleClickedUrl(KUrlLabel* self, intptr_t slot) {
 
 void KUrlLabel_MouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->mouseReleaseEvent(param1);
     }
 }
 
 void KUrlLabel_EnterEvent(KUrlLabel* self, QEnterEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->enterEvent(event);
     }
 }
 
 void KUrlLabel_LeaveEvent(KUrlLabel* self, QEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->leaveEvent(param1);
     }
 }
 
 bool KUrlLabel_Event(KUrlLabel* self, QEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         return vkurllabel->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method KUrlLabel::event called without a directly constructed type");
 }
 
 libqt_string KUrlLabel_Tr2(const char* s, const char* c) {
@@ -333,1688 +333,1176 @@ void KUrlLabel_SetFloatEnabled1(KUrlLabel* self, bool do_float) {
 
 // Base class handler implementation
 QMetaObject* KUrlLabel_SuperMetaObject(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MetaObject_IsBase(true);
-        return (QMetaObject*)vkurllabel->metaObject();
-    } else {
-        return (QMetaObject*)self->KUrlLabel::metaObject();
-    }
+    return (QMetaObject*)self->KUrlLabel::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnMetaObject(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_MetaObject_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MetaObject_Callback>(slot));
+void KUrlLabel_OnMetaObject(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_metaobject_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KUrlLabel_SuperMetacast(KUrlLabel* self, const char* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Metacast_IsBase(true);
-        return vkurllabel->qt_metacast(param1);
-    } else {
-        return self->KUrlLabel::qt_metacast(param1);
-    }
+    return self->KUrlLabel::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMetacast(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Metacast_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacast_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_metacast_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KUrlLabel_SuperMetacall(KUrlLabel* self, int param1, int param2, void** param3) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Metacall_IsBase(true);
-        return vkurllabel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KUrlLabel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KUrlLabel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMetacall(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Metacall_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacall_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_metacall_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperSetFont(KUrlLabel* self, const QFont* font) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_SetFont_IsBase(true);
-        vkurllabel->setFont(*font);
-    } else {
-        self->KUrlLabel::setFont(*font);
-    }
+    self->KUrlLabel::setFont(*font);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnSetFont(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_SetFont_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SetFont_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_setfont_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SetFont_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperMouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MouseReleaseEvent_IsBase(true);
-        vkurllabel->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualKUrlLabel*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMouseReleaseEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_mousereleaseevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperEnterEvent(KUrlLabel* self, QEnterEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_EnterEvent_IsBase(true);
-        vkurllabel->enterEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->enterEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnEnterEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_EnterEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_EnterEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_enterevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_EnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperLeaveEvent(KUrlLabel* self, QEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_LeaveEvent_IsBase(true);
-        vkurllabel->leaveEvent(param1);
-    } else {
-        ((VirtualKUrlLabel*)self)->leaveEvent(param1);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::leaveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnLeaveEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_LeaveEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_leaveevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_LeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KUrlLabel_SuperEvent(KUrlLabel* self, QEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Event_IsBase(true);
-        return vkurllabel->event(param1);
-    } else {
-        return ((VirtualKUrlLabel*)self)->event(param1);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        return vkurllabel->KUrlLabel::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Event_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Event_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_event_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KUrlLabel_SizeHint(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return new QSize(vkurllabel->sizeHint());
-    } else {
-        return new QSize(((VirtualKUrlLabel*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KUrlLabel_SuperSizeHint(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_SizeHint_IsBase(true);
-        return new QSize(vkurllabel->sizeHint());
-    } else {
-        return new QSize(((VirtualKUrlLabel*)self)->sizeHint());
-    }
+    return new QSize(self->KUrlLabel::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnSizeHint(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_SizeHint_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SizeHint_Callback>(slot));
+void KUrlLabel_OnSizeHint(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_sizehint_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KUrlLabel_MinimumSizeHint(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return new QSize(vkurllabel->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKUrlLabel*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KUrlLabel_SuperMinimumSizeHint(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MinimumSizeHint_IsBase(true);
-        return new QSize(vkurllabel->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKUrlLabel*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KUrlLabel::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnMinimumSizeHint(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MinimumSizeHint_Callback>(slot));
+void KUrlLabel_OnMinimumSizeHint(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_minimumsizehint_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlLabel_HeightForWidth(const KUrlLabel* self, int param1) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KUrlLabel::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KUrlLabel_SuperHeightForWidth(const KUrlLabel* self, int param1) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_HeightForWidth_IsBase(true);
-        return vkurllabel->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KUrlLabel::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KUrlLabel::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnHeightForWidth(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HeightForWidth_Callback>(slot));
+void KUrlLabel_OnHeightForWidth(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_heightforwidth_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_KeyPressEvent(KUrlLabel* self, QKeyEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->keyPressEvent(ev);
     } else {
-        ((VirtualKUrlLabel*)self)->keyPressEvent(ev);
+        qFatal("Error: Protected virtual method KUrlLabel::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperKeyPressEvent(KUrlLabel* self, QKeyEvent* ev) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_KeyPressEvent_IsBase(true);
-        vkurllabel->keyPressEvent(ev);
-    } else {
-        ((VirtualKUrlLabel*)self)->keyPressEvent(ev);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::keyPressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnKeyPressEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_KeyPressEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_keypressevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_PaintEvent(KUrlLabel* self, QPaintEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->paintEvent(param1);
     } else {
-        ((VirtualKUrlLabel*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KUrlLabel::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperPaintEvent(KUrlLabel* self, QPaintEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_PaintEvent_IsBase(true);
-        vkurllabel->paintEvent(param1);
-    } else {
-        ((VirtualKUrlLabel*)self)->paintEvent(param1);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnPaintEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_PaintEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_PaintEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_paintevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_ChangeEvent(KUrlLabel* self, QEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->changeEvent(param1);
     } else {
-        ((VirtualKUrlLabel*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KUrlLabel::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperChangeEvent(KUrlLabel* self, QEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_ChangeEvent_IsBase(true);
-        vkurllabel->changeEvent(param1);
-    } else {
-        ((VirtualKUrlLabel*)self)->changeEvent(param1);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnChangeEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ChangeEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_changeevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_MousePressEvent(KUrlLabel* self, QMouseEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->mousePressEvent(ev);
     } else {
-        ((VirtualKUrlLabel*)self)->mousePressEvent(ev);
+        qFatal("Error: Protected virtual method KUrlLabel::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperMousePressEvent(KUrlLabel* self, QMouseEvent* ev) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MousePressEvent_IsBase(true);
-        vkurllabel->mousePressEvent(ev);
-    } else {
-        ((VirtualKUrlLabel*)self)->mousePressEvent(ev);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::mousePressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMousePressEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MousePressEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_mousepressevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_MouseMoveEvent(KUrlLabel* self, QMouseEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->mouseMoveEvent(ev);
     } else {
-        ((VirtualKUrlLabel*)self)->mouseMoveEvent(ev);
+        qFatal("Error: Protected virtual method KUrlLabel::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperMouseMoveEvent(KUrlLabel* self, QMouseEvent* ev) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MouseMoveEvent_IsBase(true);
-        vkurllabel->mouseMoveEvent(ev);
-    } else {
-        ((VirtualKUrlLabel*)self)->mouseMoveEvent(ev);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::mouseMoveEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMouseMoveEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseMoveEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_mousemoveevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_ContextMenuEvent(KUrlLabel* self, QContextMenuEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->contextMenuEvent(ev);
     } else {
-        ((VirtualKUrlLabel*)self)->contextMenuEvent(ev);
+        qFatal("Error: Protected virtual method KUrlLabel::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperContextMenuEvent(KUrlLabel* self, QContextMenuEvent* ev) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_ContextMenuEvent_IsBase(true);
-        vkurllabel->contextMenuEvent(ev);
-    } else {
-        ((VirtualKUrlLabel*)self)->contextMenuEvent(ev);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::contextMenuEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnContextMenuEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ContextMenuEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_contextmenuevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_FocusInEvent(KUrlLabel* self, QFocusEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->focusInEvent(ev);
     } else {
-        ((VirtualKUrlLabel*)self)->focusInEvent(ev);
+        qFatal("Error: Protected virtual method KUrlLabel::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperFocusInEvent(KUrlLabel* self, QFocusEvent* ev) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_FocusInEvent_IsBase(true);
-        vkurllabel->focusInEvent(ev);
-    } else {
-        ((VirtualKUrlLabel*)self)->focusInEvent(ev);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::focusInEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnFocusInEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusInEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_focusinevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_FocusOutEvent(KUrlLabel* self, QFocusEvent* ev) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->focusOutEvent(ev);
     } else {
-        ((VirtualKUrlLabel*)self)->focusOutEvent(ev);
+        qFatal("Error: Protected virtual method KUrlLabel::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperFocusOutEvent(KUrlLabel* self, QFocusEvent* ev) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_FocusOutEvent_IsBase(true);
-        vkurllabel->focusOutEvent(ev);
-    } else {
-        ((VirtualKUrlLabel*)self)->focusOutEvent(ev);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::focusOutEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnFocusOutEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusOutEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_focusoutevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlLabel_FocusNextPrevChild(KUrlLabel* self, bool next) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         return vkurllabel->focusNextPrevChild(next);
     } else {
-        return ((VirtualKUrlLabel*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KUrlLabel::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlLabel_SuperFocusNextPrevChild(KUrlLabel* self, bool next) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_FocusNextPrevChild_IsBase(true);
-        return vkurllabel->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKUrlLabel*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        return vkurllabel->KUrlLabel::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnFocusNextPrevChild(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_focusnextprevchild_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_InitStyleOption(const KUrlLabel* self, QStyleOptionFrame* option) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->initStyleOption(option);
     } else {
-        ((VirtualKUrlLabel*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KUrlLabel::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperInitStyleOption(const KUrlLabel* self, QStyleOptionFrame* option) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_InitStyleOption_IsBase(true);
-        vkurllabel->initStyleOption(option);
-    } else {
-        ((VirtualKUrlLabel*)self)->initStyleOption(option);
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        vkurllabel->KUrlLabel::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnInitStyleOption(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_InitStyleOption_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InitStyleOption_Callback>(slot));
+void KUrlLabel_OnInitStyleOption(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_initstyleoption_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlLabel_DevType(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->devType();
-    } else {
-        return self->KUrlLabel::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KUrlLabel_SuperDevType(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_DevType_IsBase(true);
-        return vkurllabel->devType();
-    } else {
-        return self->KUrlLabel::devType();
-    }
+    return self->KUrlLabel::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnDevType(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_DevType_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DevType_Callback>(slot));
+void KUrlLabel_OnDevType(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_devtype_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_SetVisible(KUrlLabel* self, bool visible) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setVisible(visible);
-    } else {
-        self->KUrlLabel::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperSetVisible(KUrlLabel* self, bool visible) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_SetVisible_IsBase(true);
-        vkurllabel->setVisible(visible);
-    } else {
-        self->KUrlLabel::setVisible(visible);
-    }
+    self->KUrlLabel::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnSetVisible(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_SetVisible_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SetVisible_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_setvisible_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlLabel_HasHeightForWidth(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->hasHeightForWidth();
-    } else {
-        return self->KUrlLabel::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KUrlLabel_SuperHasHeightForWidth(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_HasHeightForWidth_IsBase(true);
-        return vkurllabel->hasHeightForWidth();
-    } else {
-        return self->KUrlLabel::hasHeightForWidth();
-    }
+    return self->KUrlLabel::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnHasHeightForWidth(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HasHeightForWidth_Callback>(slot));
+void KUrlLabel_OnHasHeightForWidth(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_hasheightforwidth_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KUrlLabel_PaintEngine(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->paintEngine();
-    } else {
-        return self->KUrlLabel::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KUrlLabel_SuperPaintEngine(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_PaintEngine_IsBase(true);
-        return vkurllabel->paintEngine();
-    } else {
-        return self->KUrlLabel::paintEngine();
-    }
+    return self->KUrlLabel::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnPaintEngine(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_PaintEngine_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_PaintEngine_Callback>(slot));
+void KUrlLabel_OnPaintEngine(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_paintengine_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_MouseDoubleClickEvent(KUrlLabel* self, QMouseEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperMouseDoubleClickEvent(KUrlLabel* self, QMouseEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MouseDoubleClickEvent_IsBase(true);
-        vkurllabel->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMouseDoubleClickEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_mousedoubleclickevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_WheelEvent(KUrlLabel* self, QWheelEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->wheelEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperWheelEvent(KUrlLabel* self, QWheelEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_WheelEvent_IsBase(true);
-        vkurllabel->wheelEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->wheelEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnWheelEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_WheelEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_WheelEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_wheelevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_KeyReleaseEvent(KUrlLabel* self, QKeyEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->keyReleaseEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperKeyReleaseEvent(KUrlLabel* self, QKeyEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_KeyReleaseEvent_IsBase(true);
-        vkurllabel->keyReleaseEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnKeyReleaseEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_keyreleaseevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_MoveEvent(KUrlLabel* self, QMoveEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->moveEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperMoveEvent(KUrlLabel* self, QMoveEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_MoveEvent_IsBase(true);
-        vkurllabel->moveEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->moveEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnMoveEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_MoveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MoveEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_moveevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_ResizeEvent(KUrlLabel* self, QResizeEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->resizeEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperResizeEvent(KUrlLabel* self, QResizeEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_ResizeEvent_IsBase(true);
-        vkurllabel->resizeEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->resizeEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnResizeEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ResizeEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_resizeevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_CloseEvent(KUrlLabel* self, QCloseEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->closeEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperCloseEvent(KUrlLabel* self, QCloseEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_CloseEvent_IsBase(true);
-        vkurllabel->closeEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->closeEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnCloseEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_CloseEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_CloseEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_closeevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_TabletEvent(KUrlLabel* self, QTabletEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->tabletEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperTabletEvent(KUrlLabel* self, QTabletEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_TabletEvent_IsBase(true);
-        vkurllabel->tabletEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->tabletEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnTabletEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_TabletEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_TabletEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_tabletevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_ActionEvent(KUrlLabel* self, QActionEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->actionEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperActionEvent(KUrlLabel* self, QActionEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_ActionEvent_IsBase(true);
-        vkurllabel->actionEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->actionEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnActionEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_ActionEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ActionEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_actionevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_DragEnterEvent(KUrlLabel* self, QDragEnterEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->dragEnterEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperDragEnterEvent(KUrlLabel* self, QDragEnterEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_DragEnterEvent_IsBase(true);
-        vkurllabel->dragEnterEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDragEnterEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragEnterEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_dragenterevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_DragMoveEvent(KUrlLabel* self, QDragMoveEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->dragMoveEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperDragMoveEvent(KUrlLabel* self, QDragMoveEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_DragMoveEvent_IsBase(true);
-        vkurllabel->dragMoveEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDragMoveEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragMoveEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_dragmoveevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_DragLeaveEvent(KUrlLabel* self, QDragLeaveEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->dragLeaveEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperDragLeaveEvent(KUrlLabel* self, QDragLeaveEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_DragLeaveEvent_IsBase(true);
-        vkurllabel->dragLeaveEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDragLeaveEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragLeaveEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_dragleaveevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_DropEvent(KUrlLabel* self, QDropEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->dropEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperDropEvent(KUrlLabel* self, QDropEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_DropEvent_IsBase(true);
-        vkurllabel->dropEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->dropEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDropEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_DropEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DropEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_dropevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_ShowEvent(KUrlLabel* self, QShowEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->showEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperShowEvent(KUrlLabel* self, QShowEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_ShowEvent_IsBase(true);
-        vkurllabel->showEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->showEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnShowEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_ShowEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ShowEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_showevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_HideEvent(KUrlLabel* self, QHideEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->hideEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperHideEvent(KUrlLabel* self, QHideEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_HideEvent_IsBase(true);
-        vkurllabel->hideEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->hideEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnHideEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_HideEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HideEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_hideevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlLabel_NativeEvent(KUrlLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
+    if (vkurllabel) {
         return vkurllabel->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKUrlLabel*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KUrlLabel::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlLabel_SuperNativeEvent(KUrlLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_NativeEvent_IsBase(true);
-        return vkurllabel->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKUrlLabel*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        return vkurllabel->KUrlLabel::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnNativeEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_NativeEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_NativeEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_nativeevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlLabel_Metric(const KUrlLabel* self, int param1) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         return vkurllabel->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKUrlLabel*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KUrlLabel::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KUrlLabel_SuperMetric(const KUrlLabel* self, int param1) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Metric_IsBase(true);
-        return vkurllabel->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKUrlLabel*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        return vkurllabel->KUrlLabel::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnMetric(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Metric_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metric_Callback>(slot));
+void KUrlLabel_OnMetric(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_metric_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_InitPainter(const KUrlLabel* self, QPainter* painter) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->initPainter(painter);
     } else {
-        ((VirtualKUrlLabel*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KUrlLabel::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperInitPainter(const KUrlLabel* self, QPainter* painter) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_InitPainter_IsBase(true);
-        vkurllabel->initPainter(painter);
-    } else {
-        ((VirtualKUrlLabel*)self)->initPainter(painter);
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        vkurllabel->KUrlLabel::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnInitPainter(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_InitPainter_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InitPainter_Callback>(slot));
+void KUrlLabel_OnInitPainter(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_initpainter_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KUrlLabel_Redirected(const KUrlLabel* self, QPoint* offset) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         return vkurllabel->redirected(offset);
     } else {
-        return ((VirtualKUrlLabel*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KUrlLabel::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KUrlLabel_SuperRedirected(const KUrlLabel* self, QPoint* offset) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Redirected_IsBase(true);
-        return vkurllabel->redirected(offset);
-    } else {
-        return ((VirtualKUrlLabel*)self)->redirected(offset);
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        return vkurllabel->KUrlLabel::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnRedirected(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Redirected_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Redirected_Callback>(slot));
+void KUrlLabel_OnRedirected(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_redirected_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KUrlLabel_SharedPainter(const KUrlLabel* self) {
     auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         return vkurllabel->sharedPainter();
     } else {
-        return ((VirtualKUrlLabel*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KUrlLabel::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KUrlLabel_SuperSharedPainter(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_SharedPainter_IsBase(true);
-        return vkurllabel->sharedPainter();
-    } else {
-        return ((VirtualKUrlLabel*)self)->sharedPainter();
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        return vkurllabel->KUrlLabel::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnSharedPainter(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_SharedPainter_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SharedPainter_Callback>(slot));
+void KUrlLabel_OnSharedPainter(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_sharedpainter_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_InputMethodEvent(KUrlLabel* self, QInputMethodEvent* param1) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->inputMethodEvent(param1);
     } else {
-        ((VirtualKUrlLabel*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KUrlLabel::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperInputMethodEvent(KUrlLabel* self, QInputMethodEvent* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_InputMethodEvent_IsBase(true);
-        vkurllabel->inputMethodEvent(param1);
-    } else {
-        ((VirtualKUrlLabel*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnInputMethodEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InputMethodEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_inputmethodevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KUrlLabel_InputMethodQuery(const KUrlLabel* self, int param1) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return new QVariant(vkurllabel->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKUrlLabel*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KUrlLabel_SuperInputMethodQuery(const KUrlLabel* self, int param1) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_InputMethodQuery_IsBase(true);
-        return new QVariant(vkurllabel->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKUrlLabel*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KUrlLabel::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnInputMethodQuery(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InputMethodQuery_Callback>(slot));
+void KUrlLabel_OnInputMethodQuery(KUrlLabel* self, intptr_t slot) {
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self)))
+        vkurllabel->kurllabel_inputmethodquery_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlLabel_EventFilter(KUrlLabel* self, QObject* watched, QEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->eventFilter(watched, event);
-    } else {
-        return self->KUrlLabel::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KUrlLabel_SuperEventFilter(KUrlLabel* self, QObject* watched, QEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_EventFilter_IsBase(true);
-        return vkurllabel->eventFilter(watched, event);
-    } else {
-        return self->KUrlLabel::eventFilter(watched, event);
-    }
+    return self->KUrlLabel::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnEventFilter(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_EventFilter_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_EventFilter_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_eventfilter_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_TimerEvent(KUrlLabel* self, QTimerEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->timerEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperTimerEvent(KUrlLabel* self, QTimerEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_TimerEvent_IsBase(true);
-        vkurllabel->timerEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->timerEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnTimerEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_TimerEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_TimerEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_timerevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_ChildEvent(KUrlLabel* self, QChildEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->childEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperChildEvent(KUrlLabel* self, QChildEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_ChildEvent_IsBase(true);
-        vkurllabel->childEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->childEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnChildEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_ChildEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ChildEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_childevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_CustomEvent(KUrlLabel* self, QEvent* event) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->customEvent(event);
     } else {
-        ((VirtualKUrlLabel*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KUrlLabel::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperCustomEvent(KUrlLabel* self, QEvent* event) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_CustomEvent_IsBase(true);
-        vkurllabel->customEvent(event);
-    } else {
-        ((VirtualKUrlLabel*)self)->customEvent(event);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnCustomEvent(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_CustomEvent_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_CustomEvent_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_customevent_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_ConnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->connectNotify(*signal);
     } else {
-        ((VirtualKUrlLabel*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KUrlLabel::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperConnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_ConnectNotify_IsBase(true);
-        vkurllabel->connectNotify(*signal);
-    } else {
-        ((VirtualKUrlLabel*)self)->connectNotify(*signal);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnConnectNotify(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ConnectNotify_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_connectnotify_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlLabel_DisconnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
     auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
+    if (vkurllabel) {
         vkurllabel->disconnectNotify(*signal);
     } else {
-        ((VirtualKUrlLabel*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KUrlLabel::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlLabel_SuperDisconnectNotify(KUrlLabel* self, const QMetaMethod* signal) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_DisconnectNotify_IsBase(true);
-        vkurllabel->disconnectNotify(*signal);
-    } else {
-        ((VirtualKUrlLabel*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->KUrlLabel::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KUrlLabel::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlLabel_OnDisconnectNotify(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DisconnectNotify_Callback>(slot));
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self))
+        vkurllabel->kurllabel_disconnectnotify_callback = reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlLabel_DrawFrame(KUrlLabel* self, QPainter* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->drawFrame(param1);
-    } else {
-        ((VirtualKUrlLabel*)self)->drawFrame(param1);
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->VirtualKUrlLabel::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KUrlLabel::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlLabel_SuperDrawFrame(KUrlLabel* self, QPainter* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_DrawFrame_IsBase(true);
-        vkurllabel->drawFrame(param1);
-    } else {
-        ((VirtualKUrlLabel*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnDrawFrame(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_DrawFrame_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlLabel_UpdateMicroFocus(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->updateMicroFocus();
-    } else {
-        ((VirtualKUrlLabel*)self)->updateMicroFocus();
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->VirtualKUrlLabel::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KUrlLabel::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlLabel_SuperUpdateMicroFocus(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_UpdateMicroFocus_IsBase(true);
-        vkurllabel->updateMicroFocus();
-    } else {
-        ((VirtualKUrlLabel*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnUpdateMicroFocus(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlLabel_Create(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->create();
-    } else {
-        ((VirtualKUrlLabel*)self)->create();
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->VirtualKUrlLabel::create();
+    } else
+        qFatal("Error: Protected method KUrlLabel::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlLabel_SuperCreate(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Create_IsBase(true);
-        vkurllabel->create();
-    } else {
-        ((VirtualKUrlLabel*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnCreate(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Create_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlLabel_Destroy(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->destroy();
-    } else {
-        ((VirtualKUrlLabel*)self)->destroy();
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        vkurllabel->VirtualKUrlLabel::destroy();
+    } else
+        qFatal("Error: Protected method KUrlLabel::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlLabel_SuperDestroy(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Destroy_IsBase(true);
-        vkurllabel->destroy();
-    } else {
-        ((VirtualKUrlLabel*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnDestroy(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Destroy_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlLabel_FocusNextChild(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->focusNextChild();
-    } else {
-        return ((VirtualKUrlLabel*)self)->focusNextChild();
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        return vkurllabel->VirtualKUrlLabel::focusNextChild();
+    } else
+        qFatal("Error: Protected method KUrlLabel::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlLabel_SuperFocusNextChild(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_FocusNextChild_IsBase(true);
-        return vkurllabel->focusNextChild();
-    } else {
-        return ((VirtualKUrlLabel*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnFocusNextChild(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlLabel_FocusPreviousChild(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->focusPreviousChild();
-    } else {
-        return ((VirtualKUrlLabel*)self)->focusPreviousChild();
-    }
+    if (auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self)) {
+        return vkurllabel->VirtualKUrlLabel::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KUrlLabel::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlLabel_SuperFocusPreviousChild(KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_FocusPreviousChild_IsBase(true);
-        return vkurllabel->focusPreviousChild();
-    } else {
-        return ((VirtualKUrlLabel*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnFocusPreviousChild(KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KUrlLabel_Sender(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->sender();
-    } else {
-        return ((VirtualKUrlLabel*)self)->sender();
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        return vkurllabel->VirtualKUrlLabel::sender();
+    } else
+        qFatal("Error: Protected method KUrlLabel::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KUrlLabel_SuperSender(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Sender_IsBase(true);
-        return vkurllabel->sender();
-    } else {
-        return ((VirtualKUrlLabel*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnSender(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Sender_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KUrlLabel_SenderSignalIndex(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->senderSignalIndex();
-    } else {
-        return ((VirtualKUrlLabel*)self)->senderSignalIndex();
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        return vkurllabel->VirtualKUrlLabel::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KUrlLabel::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KUrlLabel_SuperSenderSignalIndex(const KUrlLabel* self) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_SenderSignalIndex_IsBase(true);
-        return vkurllabel->senderSignalIndex();
-    } else {
-        return ((VirtualKUrlLabel*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnSenderSignalIndex(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KUrlLabel_Receivers(const KUrlLabel* self, const char* signal) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->receivers(signal);
-    } else {
-        return ((VirtualKUrlLabel*)self)->receivers(signal);
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        return vkurllabel->VirtualKUrlLabel::receivers(signal);
+    } else
+        qFatal("Error: Protected method KUrlLabel::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KUrlLabel_SuperReceivers(const KUrlLabel* self, const char* signal) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_Receivers_IsBase(true);
-        return vkurllabel->receivers(signal);
-    } else {
-        return ((VirtualKUrlLabel*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnReceivers(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_Receivers_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlLabel_IsSignalConnected(const KUrlLabel* self, const QMetaMethod* signal) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKUrlLabel*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        return vkurllabel->VirtualKUrlLabel::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KUrlLabel::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlLabel_SuperIsSignalConnected(const KUrlLabel* self, const QMetaMethod* signal) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_IsSignalConnected_IsBase(true);
-        return vkurllabel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKUrlLabel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnIsSignalConnected(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KUrlLabel_GetDecodedMetricF(const KUrlLabel* self, int metricA, int metricB) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return vkurllabel->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKUrlLabel*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KUrlLabel_SuperGetDecodedMetricF(const KUrlLabel* self, int metricA, int metricB) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        vkurllabel->setKUrlLabel_GetDecodedMetricF_IsBase(true);
-        return vkurllabel->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKUrlLabel*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlLabel_OnGetDecodedMetricF(const KUrlLabel* self, intptr_t slot) {
-    auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self));
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel)
-        vkurllabel->setKUrlLabel_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlLabel::KUrlLabel_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkurllabel = const_cast<VirtualKUrlLabel*>(dynamic_cast<const VirtualKUrlLabel*>(self))) {
+        return vkurllabel->VirtualKUrlLabel::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KUrlLabel::getDecodedMetricF called without a directly constructed type");
 }
 
 void KUrlLabel_Delete(KUrlLabel* self) {

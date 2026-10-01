@@ -29,6 +29,8 @@ pub const QSGNinePatchNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgninepatchnode.html#setTexture)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGNinePatchNode `
@@ -45,6 +47,8 @@ pub const QSGNinePatchNode = extern struct {
     pub const SetBounds = setBounds;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgninepatchnode.html#setBounds)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -63,6 +67,8 @@ pub const QSGNinePatchNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgninepatchnode.html#setDevicePixelRatio)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGNinePatchNode `
@@ -78,6 +84,8 @@ pub const QSGNinePatchNode = extern struct {
     pub const SetPadding = setPadding;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgninepatchnode.html#setPadding)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -100,6 +108,8 @@ pub const QSGNinePatchNode = extern struct {
     pub const Update = update;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgninepatchnode.html#update)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

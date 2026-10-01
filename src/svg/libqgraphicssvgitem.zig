@@ -149,9 +149,9 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) QMetaObject) void {
         qtc.QGraphicsSvgItem_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -454,11 +454,11 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBoundingRect(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onBoundingRect(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) QRectF) void {
         qtc.QGraphicsSvgItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -572,9 +572,9 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) i32 `
     ///
-    pub fn onType(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) i32) void {
         qtc.QGraphicsSvgItem_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6167,11 +6167,11 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainterPath `
+    /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) QPainterPath `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onShape(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onShape(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) QPainterPath) void {
         qtc.QGraphicsSvgItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6485,11 +6485,11 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     /// ` self: QGraphicsSvgItem`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainterPath `
+    /// ` callback: *const fn (self: QGraphicsSvgItem) callconv(.c) QPainterPath `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onOpaqueArea(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onOpaqueArea(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem) callconv(.c) QPainterPath) void {
         qtc.QGraphicsSvgItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8079,44 +8079,6 @@ pub const QGraphicsSvgItem = extern struct {
         qtc.QGraphicsSvgItem_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QGraphicsObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn superUpdateMicroFocus(self: QGraphicsSvgItem) void {
-        qtc.QGraphicsSvgItem_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QGraphicsObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsSvgItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsSvgItem_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -8135,44 +8097,6 @@ pub const QGraphicsSvgItem = extern struct {
         return .{ .ptr = qtc.QGraphicsSvgItem_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn superSender(self: QGraphicsSvgItem) QObject {
-        return .{ .ptr = qtc.QGraphicsSvgItem_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsSvgItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGraphicsSvgItem_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -8189,44 +8113,6 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     pub fn senderSignalIndex(self: QGraphicsSvgItem) i32 {
         return qtc.QGraphicsSvgItem_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn superSenderSignalIndex(self: QGraphicsSvgItem) i32 {
-        return qtc.QGraphicsSvgItem_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsSvgItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsSvgItem_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -8250,47 +8136,6 @@ pub const QGraphicsSvgItem = extern struct {
         return qtc.QGraphicsSvgItem_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGraphicsSvgItem, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsSvgItem_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsSvgItem`
-    ///
-    /// ` callback: *const fn (self: QGraphicsSvgItem, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsSvgItem_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -8312,47 +8157,6 @@ pub const QGraphicsSvgItem = extern struct {
         return qtc.QGraphicsSvgItem_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGraphicsSvgItem, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGraphicsSvgItem_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsSvgItem`
-    ///
-    /// ` callback: *const fn (self: QGraphicsSvgItem, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGraphicsSvgItem, callback: *const fn (QGraphicsSvgItem, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGraphicsSvgItem_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `addToIndex` instead
     ///
     pub const AddToIndex = addToIndex;
@@ -8369,44 +8173,6 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     pub fn addToIndex(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_AddToIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAddToIndex` instead
-    ///
-    pub const SuperAddToIndex = superAddToIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn superAddToIndex(self: QGraphicsSvgItem) void {
-        qtc.QGraphicsSvgItem_SuperAddToIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddToIndex` instead
-    ///
-    pub const OnAddToIndex = onAddToIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsSvgItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddToIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsSvgItem_OnAddToIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `removeFromIndex` instead
@@ -8427,44 +8193,6 @@ pub const QGraphicsSvgItem = extern struct {
         qtc.QGraphicsSvgItem_RemoveFromIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superRemoveFromIndex` instead
-    ///
-    pub const SuperRemoveFromIndex = superRemoveFromIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn superRemoveFromIndex(self: QGraphicsSvgItem) void {
-        qtc.QGraphicsSvgItem_SuperRemoveFromIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRemoveFromIndex` instead
-    ///
-    pub const OnRemoveFromIndex = onRemoveFromIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsSvgItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onRemoveFromIndex(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsSvgItem_OnRemoveFromIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `prepareGeometryChange` instead
     ///
     pub const PrepareGeometryChange = prepareGeometryChange;
@@ -8481,44 +8209,6 @@ pub const QGraphicsSvgItem = extern struct {
     ///
     pub fn prepareGeometryChange(self: QGraphicsSvgItem) void {
         qtc.QGraphicsSvgItem_PrepareGeometryChange(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superPrepareGeometryChange` instead
-    ///
-    pub const SuperPrepareGeometryChange = superPrepareGeometryChange;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGraphicsSvgItem `
-    ///
-    pub fn superPrepareGeometryChange(self: QGraphicsSvgItem) void {
-        qtc.QGraphicsSvgItem_SuperPrepareGeometryChange(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onPrepareGeometryChange` instead
-    ///
-    pub const OnPrepareGeometryChange = onPrepareGeometryChange;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGraphicsSvgItem`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onPrepareGeometryChange(self: QGraphicsSvgItem, callback: *const fn () callconv(.c) void) void {
-        qtc.QGraphicsSvgItem_OnPrepareGeometryChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

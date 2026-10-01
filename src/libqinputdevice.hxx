@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QInputDevice so that we can call protected methods
+// This class is a subclass of QInputDevice
 class VirtualQInputDevice final : public QInputDevice {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQInputDevice = true;
-
-    // Virtual class public types (including callbacks)
-    using QInputDevice_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QInputDevice_MetaObject_Callback = QMetaObject* (*)(const QInputDevice*);
     using QInputDevice_Metacast_Callback = void* (*)(QInputDevice*, const char*);
     using QInputDevice_Metacall_Callback = int (*)(QInputDevice*, int, int, void**);
     using QInputDevice_Event_Callback = bool (*)(QInputDevice*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQInputDevice final : public QInputDevice {
     using QInputDevice_CustomEvent_Callback = void (*)(QInputDevice*, QEvent*);
     using QInputDevice_ConnectNotify_Callback = void (*)(QInputDevice*, QMetaMethod*);
     using QInputDevice_DisconnectNotify_Callback = void (*)(QInputDevice*, QMetaMethod*);
-    using QInputDevice_Sender_Callback = QObject* (*)();
-    using QInputDevice_SenderSignalIndex_Callback = int (*)();
-    using QInputDevice_Receivers_Callback = int (*)(const QInputDevice*, const char*);
-    using QInputDevice_IsSignalConnected_Callback = bool (*)(const QInputDevice*, QMetaMethod*);
+    using QInputDevice::isSignalConnected;
+    using QInputDevice::receivers;
+    using QInputDevice::sender;
+    using QInputDevice::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QInputDevice_MetaObject_Callback qinputdevice_metaobject_callback = nullptr;
     QInputDevice_Metacast_Callback qinputdevice_metacast_callback = nullptr;
@@ -44,75 +39,26 @@ class VirtualQInputDevice final : public QInputDevice {
     QInputDevice_CustomEvent_Callback qinputdevice_customevent_callback = nullptr;
     QInputDevice_ConnectNotify_Callback qinputdevice_connectnotify_callback = nullptr;
     QInputDevice_DisconnectNotify_Callback qinputdevice_disconnectnotify_callback = nullptr;
-    QInputDevice_Sender_Callback qinputdevice_sender_callback = nullptr;
-    QInputDevice_SenderSignalIndex_Callback qinputdevice_sendersignalindex_callback = nullptr;
-    QInputDevice_Receivers_Callback qinputdevice_receivers_callback = nullptr;
-    QInputDevice_IsSignalConnected_Callback qinputdevice_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qinputdevice_metaobject_isbase = false;
-    mutable bool qinputdevice_metacast_isbase = false;
-    mutable bool qinputdevice_metacall_isbase = false;
-    mutable bool qinputdevice_event_isbase = false;
-    mutable bool qinputdevice_eventfilter_isbase = false;
-    mutable bool qinputdevice_timerevent_isbase = false;
-    mutable bool qinputdevice_childevent_isbase = false;
-    mutable bool qinputdevice_customevent_isbase = false;
-    mutable bool qinputdevice_connectnotify_isbase = false;
-    mutable bool qinputdevice_disconnectnotify_isbase = false;
-    mutable bool qinputdevice_sender_isbase = false;
-    mutable bool qinputdevice_sendersignalindex_isbase = false;
-    mutable bool qinputdevice_receivers_isbase = false;
-    mutable bool qinputdevice_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QInputDevice {
+        using QInputDevice::childEvent;
+        using QInputDevice::connectNotify;
+        using QInputDevice::customEvent;
+        using QInputDevice::disconnectNotify;
+        using QInputDevice::timerEvent;
+    };
 
-  public:
     VirtualQInputDevice() : QInputDevice() {};
     VirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType typeVal) : QInputDevice(name, systemId, typeVal) {};
     VirtualQInputDevice(QObject* parent) : QInputDevice(parent) {};
     VirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType typeVal, const QString& seatName) : QInputDevice(name, systemId, typeVal, seatName) {};
     VirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType typeVal, const QString& seatName, QObject* parent) : QInputDevice(name, systemId, typeVal, seatName, parent) {};
 
-    // Callback setters
-    inline void setQInputDevice_MetaObject_Callback(QInputDevice_MetaObject_Callback cb) { qinputdevice_metaobject_callback = cb; }
-    inline void setQInputDevice_Metacast_Callback(QInputDevice_Metacast_Callback cb) { qinputdevice_metacast_callback = cb; }
-    inline void setQInputDevice_Metacall_Callback(QInputDevice_Metacall_Callback cb) { qinputdevice_metacall_callback = cb; }
-    inline void setQInputDevice_Event_Callback(QInputDevice_Event_Callback cb) { qinputdevice_event_callback = cb; }
-    inline void setQInputDevice_EventFilter_Callback(QInputDevice_EventFilter_Callback cb) { qinputdevice_eventfilter_callback = cb; }
-    inline void setQInputDevice_TimerEvent_Callback(QInputDevice_TimerEvent_Callback cb) { qinputdevice_timerevent_callback = cb; }
-    inline void setQInputDevice_ChildEvent_Callback(QInputDevice_ChildEvent_Callback cb) { qinputdevice_childevent_callback = cb; }
-    inline void setQInputDevice_CustomEvent_Callback(QInputDevice_CustomEvent_Callback cb) { qinputdevice_customevent_callback = cb; }
-    inline void setQInputDevice_ConnectNotify_Callback(QInputDevice_ConnectNotify_Callback cb) { qinputdevice_connectnotify_callback = cb; }
-    inline void setQInputDevice_DisconnectNotify_Callback(QInputDevice_DisconnectNotify_Callback cb) { qinputdevice_disconnectnotify_callback = cb; }
-    inline void setQInputDevice_Sender_Callback(QInputDevice_Sender_Callback cb) { qinputdevice_sender_callback = cb; }
-    inline void setQInputDevice_SenderSignalIndex_Callback(QInputDevice_SenderSignalIndex_Callback cb) { qinputdevice_sendersignalindex_callback = cb; }
-    inline void setQInputDevice_Receivers_Callback(QInputDevice_Receivers_Callback cb) { qinputdevice_receivers_callback = cb; }
-    inline void setQInputDevice_IsSignalConnected_Callback(QInputDevice_IsSignalConnected_Callback cb) { qinputdevice_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQInputDevice_MetaObject_IsBase(bool value) const { qinputdevice_metaobject_isbase = value; }
-    inline void setQInputDevice_Metacast_IsBase(bool value) const { qinputdevice_metacast_isbase = value; }
-    inline void setQInputDevice_Metacall_IsBase(bool value) const { qinputdevice_metacall_isbase = value; }
-    inline void setQInputDevice_Event_IsBase(bool value) const { qinputdevice_event_isbase = value; }
-    inline void setQInputDevice_EventFilter_IsBase(bool value) const { qinputdevice_eventfilter_isbase = value; }
-    inline void setQInputDevice_TimerEvent_IsBase(bool value) const { qinputdevice_timerevent_isbase = value; }
-    inline void setQInputDevice_ChildEvent_IsBase(bool value) const { qinputdevice_childevent_isbase = value; }
-    inline void setQInputDevice_CustomEvent_IsBase(bool value) const { qinputdevice_customevent_isbase = value; }
-    inline void setQInputDevice_ConnectNotify_IsBase(bool value) const { qinputdevice_connectnotify_isbase = value; }
-    inline void setQInputDevice_DisconnectNotify_IsBase(bool value) const { qinputdevice_disconnectnotify_isbase = value; }
-    inline void setQInputDevice_Sender_IsBase(bool value) const { qinputdevice_sender_isbase = value; }
-    inline void setQInputDevice_SenderSignalIndex_IsBase(bool value) const { qinputdevice_sendersignalindex_isbase = value; }
-    inline void setQInputDevice_Receivers_IsBase(bool value) const { qinputdevice_receivers_isbase = value; }
-    inline void setQInputDevice_IsSignalConnected_IsBase(bool value) const { qinputdevice_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qinputdevice_metaobject_isbase) {
-            qinputdevice_metaobject_isbase = false;
-            return QInputDevice::metaObject();
-        }
-        auto metaobject_cb = qinputdevice_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qinputdevice_metaobject_callback) {
+            QMetaObject* callback_ret = qinputdevice_metaobject_callback(this);
             return callback_ret;
         }
         return QInputDevice::metaObject();
@@ -120,14 +66,9 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qinputdevice_metacast_isbase) {
-            qinputdevice_metacast_isbase = false;
-            return QInputDevice::qt_metacast(param1);
-        }
-        auto metacast_cb = qinputdevice_metacast_callback;
-        if (metacast_cb) {
+        if (qinputdevice_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qinputdevice_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QInputDevice::qt_metacast(param1);
@@ -135,16 +76,11 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qinputdevice_metacall_isbase) {
-            qinputdevice_metacall_isbase = false;
-            return QInputDevice::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qinputdevice_metacall_callback;
-        if (metacall_cb) {
+        if (qinputdevice_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qinputdevice_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QInputDevice::qt_metacall(param1, param2, param3);
@@ -152,14 +88,9 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qinputdevice_event_isbase) {
-            qinputdevice_event_isbase = false;
-            return QInputDevice::event(event);
-        }
-        auto event_cb = qinputdevice_event_callback;
-        if (event_cb) {
+        if (qinputdevice_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qinputdevice_event_callback(this, cbval1);
             return callback_ret;
         }
         return QInputDevice::event(event);
@@ -167,15 +98,10 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qinputdevice_eventfilter_isbase) {
-            qinputdevice_eventfilter_isbase = false;
-            return QInputDevice::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qinputdevice_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qinputdevice_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qinputdevice_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QInputDevice::eventFilter(watched, event);
@@ -183,15 +109,9 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qinputdevice_timerevent_isbase) {
-            qinputdevice_timerevent_isbase = false;
-            QInputDevice::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qinputdevice_timerevent_callback;
-        if (timerevent_cb) {
+        if (qinputdevice_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qinputdevice_timerevent_callback(this, cbval1);
             return;
         }
         QInputDevice::timerEvent(event);
@@ -199,15 +119,9 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qinputdevice_childevent_isbase) {
-            qinputdevice_childevent_isbase = false;
-            QInputDevice::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qinputdevice_childevent_callback;
-        if (childevent_cb) {
+        if (qinputdevice_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qinputdevice_childevent_callback(this, cbval1);
             return;
         }
         QInputDevice::childEvent(event);
@@ -215,15 +129,9 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qinputdevice_customevent_isbase) {
-            qinputdevice_customevent_isbase = false;
-            QInputDevice::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qinputdevice_customevent_callback;
-        if (customevent_cb) {
+        if (qinputdevice_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qinputdevice_customevent_callback(this, cbval1);
             return;
         }
         QInputDevice::customEvent(event);
@@ -231,17 +139,11 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qinputdevice_connectnotify_isbase) {
-            qinputdevice_connectnotify_isbase = false;
-            QInputDevice::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qinputdevice_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qinputdevice_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qinputdevice_connectnotify_callback(this, cbval1);
             return;
         }
         QInputDevice::connectNotify(signal);
@@ -249,101 +151,22 @@ class VirtualQInputDevice final : public QInputDevice {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qinputdevice_disconnectnotify_isbase) {
-            qinputdevice_disconnectnotify_isbase = false;
-            QInputDevice::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qinputdevice_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qinputdevice_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qinputdevice_disconnectnotify_callback(this, cbval1);
             return;
         }
         QInputDevice::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qinputdevice_sender_isbase) {
-            qinputdevice_sender_isbase = false;
-            return QInputDevice::sender();
-        }
-        auto sender_cb = qinputdevice_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QInputDevice::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qinputdevice_sendersignalindex_isbase) {
-            qinputdevice_sendersignalindex_isbase = false;
-            return QInputDevice::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qinputdevice_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QInputDevice::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qinputdevice_receivers_isbase) {
-            qinputdevice_receivers_isbase = false;
-            return QInputDevice::receivers(signal);
-        }
-        auto receivers_cb = qinputdevice_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QInputDevice::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qinputdevice_issignalconnected_isbase) {
-            qinputdevice_issignalconnected_isbase = false;
-            return QInputDevice::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qinputdevice_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QInputDevice::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QInputDevice_TimerEvent(QInputDevice* self, QTimerEvent* event);
     friend void QInputDevice_SuperTimerEvent(QInputDevice* self, QTimerEvent* event);
-    friend void QInputDevice_ChildEvent(QInputDevice* self, QChildEvent* event);
     friend void QInputDevice_SuperChildEvent(QInputDevice* self, QChildEvent* event);
-    friend void QInputDevice_CustomEvent(QInputDevice* self, QEvent* event);
     friend void QInputDevice_SuperCustomEvent(QInputDevice* self, QEvent* event);
-    friend void QInputDevice_ConnectNotify(QInputDevice* self, const QMetaMethod* signal);
     friend void QInputDevice_SuperConnectNotify(QInputDevice* self, const QMetaMethod* signal);
-    friend void QInputDevice_DisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
     friend void QInputDevice_SuperDisconnectNotify(QInputDevice* self, const QMetaMethod* signal);
-    friend QObject* QInputDevice_Sender(const QInputDevice* self);
-    friend QObject* QInputDevice_SuperSender(const QInputDevice* self);
-    friend int QInputDevice_SenderSignalIndex(const QInputDevice* self);
-    friend int QInputDevice_SuperSenderSignalIndex(const QInputDevice* self);
-    friend int QInputDevice_Receivers(const QInputDevice* self, const char* signal);
-    friend int QInputDevice_SuperReceivers(const QInputDevice* self, const char* signal);
-    friend bool QInputDevice_IsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
-    friend bool QInputDevice_SuperIsSignalConnected(const QInputDevice* self, const QMetaMethod* signal);
 };
 
 #endif

@@ -197,31 +197,31 @@ void Sonnet__Highlighter_Connect_ActiveChanged(Sonnet__Highlighter* self, intptr
 void Sonnet__Highlighter_HighlightBlock(Sonnet__Highlighter* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     auto* vsonnet__highlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnet__highlighter && vsonnet__highlighter->isVirtualSonnetHighlighter) {
+    if (vsonnet__highlighter) {
         vsonnet__highlighter->highlightBlock(text_QString);
     }
 }
 
 void Sonnet__Highlighter_SetMisspelled(Sonnet__Highlighter* self, int start, int count) {
     auto* vsonnet__highlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnet__highlighter && vsonnet__highlighter->isVirtualSonnetHighlighter) {
+    if (vsonnet__highlighter) {
         vsonnet__highlighter->setMisspelled(static_cast<int>(start), static_cast<int>(count));
     }
 }
 
 void Sonnet__Highlighter_UnsetMisspelled(Sonnet__Highlighter* self, int start, int count) {
     auto* vsonnet__highlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnet__highlighter && vsonnet__highlighter->isVirtualSonnetHighlighter) {
+    if (vsonnet__highlighter) {
         vsonnet__highlighter->unsetMisspelled(static_cast<int>(start), static_cast<int>(count));
     }
 }
 
 bool Sonnet__Highlighter_EventFilter(Sonnet__Highlighter* self, QObject* o, QEvent* e) {
     auto* vsonnet__highlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnet__highlighter && vsonnet__highlighter->isVirtualSonnetHighlighter) {
+    if (vsonnet__highlighter) {
         return vsonnet__highlighter->eventFilter(o, e);
     }
-    return {};
+    qFatal("Error: Protected method Sonnet::Highlighter::eventFilter called without a directly constructed type");
 }
 
 void Sonnet__Highlighter_SetCurrentLanguage(Sonnet__Highlighter* self, const libqt_string language) {
@@ -307,685 +307,338 @@ libqt_list /* of libqt_string */ Sonnet__Highlighter_SuggestionsForWord3(Sonnet_
 
 // Base class handler implementation
 QMetaObject* Sonnet__Highlighter_SuperMetaObject(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_MetaObject_IsBase(true);
-        return (QMetaObject*)vsonnethighlighter->metaObject();
-    } else {
-        return (QMetaObject*)self->Sonnet::Highlighter::metaObject();
-    }
+    return (QMetaObject*)self->Sonnet::Highlighter::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnMetaObject(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_MetaObject_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_MetaObject_Callback>(slot));
+void Sonnet__Highlighter_OnMetaObject(Sonnet__Highlighter* self, intptr_t slot) {
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self)))
+        vsonnethighlighter->sonnet__highlighter_metaobject_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Sonnet__Highlighter_SuperMetacast(Sonnet__Highlighter* self, const char* param1) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_Metacast_IsBase(true);
-        return vsonnethighlighter->qt_metacast(param1);
-    } else {
-        return self->Sonnet::Highlighter::qt_metacast(param1);
-    }
+    return self->Sonnet::Highlighter::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnMetacast(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_Metacast_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Metacast_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_metacast_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Sonnet__Highlighter_SuperMetacall(Sonnet__Highlighter* self, int param1, int param2, void** param3) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_Metacall_IsBase(true);
-        return vsonnethighlighter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Sonnet::Highlighter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Sonnet::Highlighter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnMetacall(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_Metacall_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Metacall_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_metacall_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void Sonnet__Highlighter_SuperHighlightBlock(Sonnet__Highlighter* self, const libqt_string text) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_HighlightBlock_IsBase(true);
-        vsonnethighlighter->highlightBlock(text_QString);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->highlightBlock(text_QString);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->Sonnet::Highlighter::highlightBlock(text_QString);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::highlightBlock called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnHighlightBlock(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_HighlightBlock_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_HighlightBlock_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_highlightblock_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_HighlightBlock_Callback>(slot);
 }
 
 // Base class handler implementation
 void Sonnet__Highlighter_SuperSetMisspelled(Sonnet__Highlighter* self, int start, int count) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_SetMisspelled_IsBase(true);
-        vsonnethighlighter->setMisspelled(static_cast<int>(start), static_cast<int>(count));
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setMisspelled(static_cast<int>(start), static_cast<int>(count));
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->Sonnet::Highlighter::setMisspelled(static_cast<int>(start), static_cast<int>(count));
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::setMisspelled called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnSetMisspelled(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_SetMisspelled_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_SetMisspelled_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_setmisspelled_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_SetMisspelled_Callback>(slot);
 }
 
 // Base class handler implementation
 void Sonnet__Highlighter_SuperUnsetMisspelled(Sonnet__Highlighter* self, int start, int count) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_UnsetMisspelled_IsBase(true);
-        vsonnethighlighter->unsetMisspelled(static_cast<int>(start), static_cast<int>(count));
-    } else {
-        ((VirtualSonnetHighlighter*)self)->unsetMisspelled(static_cast<int>(start), static_cast<int>(count));
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->Sonnet::Highlighter::unsetMisspelled(static_cast<int>(start), static_cast<int>(count));
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::unsetMisspelled called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnUnsetMisspelled(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_UnsetMisspelled_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_UnsetMisspelled_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_unsetmisspelled_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_UnsetMisspelled_Callback>(slot);
 }
 
 // Base class handler implementation
 bool Sonnet__Highlighter_SuperEventFilter(Sonnet__Highlighter* self, QObject* o, QEvent* e) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_EventFilter_IsBase(true);
-        return vsonnethighlighter->eventFilter(o, e);
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->eventFilter(o, e);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        return vsonnethighlighter->Sonnet::Highlighter::eventFilter(o, e);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnEventFilter(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_EventFilter_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_EventFilter_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_eventfilter_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__Highlighter_Event(Sonnet__Highlighter* self, QEvent* event) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->event(event);
-    } else {
-        return self->Sonnet::Highlighter::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Sonnet__Highlighter_SuperEvent(Sonnet__Highlighter* self, QEvent* event) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_Event_IsBase(true);
-        return vsonnethighlighter->event(event);
-    } else {
-        return self->Sonnet::Highlighter::event(event);
-    }
+    return self->Sonnet::Highlighter::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnEvent(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_Event_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Event_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_event_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Highlighter_TimerEvent(Sonnet__Highlighter* self, QTimerEvent* event) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
+    if (vsonnethighlighter) {
         vsonnethighlighter->timerEvent(event);
     } else {
-        ((VirtualSonnetHighlighter*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Highlighter_SuperTimerEvent(Sonnet__Highlighter* self, QTimerEvent* event) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_TimerEvent_IsBase(true);
-        vsonnethighlighter->timerEvent(event);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->timerEvent(event);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->Sonnet::Highlighter::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnTimerEvent(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_TimerEvent_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_TimerEvent_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_timerevent_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Highlighter_ChildEvent(Sonnet__Highlighter* self, QChildEvent* event) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
+    if (vsonnethighlighter) {
         vsonnethighlighter->childEvent(event);
     } else {
-        ((VirtualSonnetHighlighter*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Highlighter_SuperChildEvent(Sonnet__Highlighter* self, QChildEvent* event) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_ChildEvent_IsBase(true);
-        vsonnethighlighter->childEvent(event);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->childEvent(event);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->Sonnet::Highlighter::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnChildEvent(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_ChildEvent_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_ChildEvent_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_childevent_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Highlighter_CustomEvent(Sonnet__Highlighter* self, QEvent* event) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
+    if (vsonnethighlighter) {
         vsonnethighlighter->customEvent(event);
     } else {
-        ((VirtualSonnetHighlighter*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Highlighter_SuperCustomEvent(Sonnet__Highlighter* self, QEvent* event) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_CustomEvent_IsBase(true);
-        vsonnethighlighter->customEvent(event);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->customEvent(event);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->Sonnet::Highlighter::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnCustomEvent(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_CustomEvent_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_CustomEvent_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_customevent_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Highlighter_ConnectNotify(Sonnet__Highlighter* self, const QMetaMethod* signal) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
+    if (vsonnethighlighter) {
         vsonnethighlighter->connectNotify(*signal);
     } else {
-        ((VirtualSonnetHighlighter*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Highlighter_SuperConnectNotify(Sonnet__Highlighter* self, const QMetaMethod* signal) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_ConnectNotify_IsBase(true);
-        vsonnethighlighter->connectNotify(*signal);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->connectNotify(*signal);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->Sonnet::Highlighter::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnConnectNotify(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_ConnectNotify_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_connectnotify_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__Highlighter_DisconnectNotify(Sonnet__Highlighter* self, const QMetaMethod* signal) {
     auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
+    if (vsonnethighlighter) {
         vsonnethighlighter->disconnectNotify(*signal);
     } else {
-        ((VirtualSonnetHighlighter*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__Highlighter_SuperDisconnectNotify(Sonnet__Highlighter* self, const QMetaMethod* signal) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_DisconnectNotify_IsBase(true);
-        vsonnethighlighter->disconnectNotify(*signal);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->Sonnet::Highlighter::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::Highlighter::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Highlighter_OnDisconnectNotify(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_DisconnectNotify_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self))
+        vsonnethighlighter->sonnet__highlighter_disconnectnotify_callback = reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__Highlighter_IntraWordEditing(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->intraWordEditing();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->intraWordEditing();
-    }
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self))) {
+        return vsonnethighlighter->VirtualSonnetHighlighter::intraWordEditing();
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::intraWordEditing called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool Sonnet__Highlighter_SuperIntraWordEditing(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_IntraWordEditing_IsBase(true);
-        return vsonnethighlighter->intraWordEditing();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->intraWordEditing();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnIntraWordEditing(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_IntraWordEditing_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_IntraWordEditing_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__Highlighter_SetIntraWordEditing(Sonnet__Highlighter* self, bool editing) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setIntraWordEditing(editing);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setIntraWordEditing(editing);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->VirtualSonnetHighlighter::setIntraWordEditing(editing);
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::setIntraWordEditing called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__Highlighter_SuperSetIntraWordEditing(Sonnet__Highlighter* self, bool editing) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_SetIntraWordEditing_IsBase(true);
-        vsonnethighlighter->setIntraWordEditing(editing);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setIntraWordEditing(editing);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnSetIntraWordEditing(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_SetIntraWordEditing_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_SetIntraWordEditing_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__Highlighter_SetFormat(Sonnet__Highlighter* self, int start, int count, const QTextCharFormat* format) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setFormat(static_cast<int>(start), static_cast<int>(count), *format);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setFormat(static_cast<int>(start), static_cast<int>(count), *format);
-    }
-}
-
-// Base class handler implementation
-void Sonnet__Highlighter_SuperSetFormat(Sonnet__Highlighter* self, int start, int count, const QTextCharFormat* format) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_SetFormat_IsBase(true);
-        vsonnethighlighter->setFormat(static_cast<int>(start), static_cast<int>(count), *format);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setFormat(static_cast<int>(start), static_cast<int>(count), *format);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnSetFormat(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_SetFormat_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_SetFormat_Callback>(slot));
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->VirtualSonnetHighlighter::setFormat(static_cast<int>(start), static_cast<int>(count), *format);
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::setFormat called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QTextCharFormat* Sonnet__Highlighter_Format(const Sonnet__Highlighter* self, int pos) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self)))
         return new QTextCharFormat(vsonnethighlighter->format(static_cast<int>(pos)));
-    }
-    return {};
+    qFatal("Error: Protected method Sonnet::Highlighter::format called without a directly constructed type");
 }
 
-// Base class handler implementation
-QTextCharFormat* Sonnet__Highlighter_SuperFormat(const Sonnet__Highlighter* self, int pos) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_Format_IsBase(true);
-        return new QTextCharFormat(vsonnethighlighter->format(static_cast<int>(pos)));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnFormat(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_Format_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Format_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__Highlighter_PreviousBlockState(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->previousBlockState();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->previousBlockState();
-    }
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self))) {
+        return vsonnethighlighter->VirtualSonnetHighlighter::previousBlockState();
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::previousBlockState called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__Highlighter_SuperPreviousBlockState(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_PreviousBlockState_IsBase(true);
-        return vsonnethighlighter->previousBlockState();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->previousBlockState();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnPreviousBlockState(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_PreviousBlockState_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_PreviousBlockState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__Highlighter_CurrentBlockState(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->currentBlockState();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->currentBlockState();
-    }
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self))) {
+        return vsonnethighlighter->VirtualSonnetHighlighter::currentBlockState();
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::currentBlockState called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__Highlighter_SuperCurrentBlockState(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_CurrentBlockState_IsBase(true);
-        return vsonnethighlighter->currentBlockState();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->currentBlockState();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnCurrentBlockState(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_CurrentBlockState_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_CurrentBlockState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__Highlighter_SetCurrentBlockState(Sonnet__Highlighter* self, int newState) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setCurrentBlockState(static_cast<int>(newState));
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setCurrentBlockState(static_cast<int>(newState));
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->VirtualSonnetHighlighter::setCurrentBlockState(static_cast<int>(newState));
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::setCurrentBlockState called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__Highlighter_SuperSetCurrentBlockState(Sonnet__Highlighter* self, int newState) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_SetCurrentBlockState_IsBase(true);
-        vsonnethighlighter->setCurrentBlockState(static_cast<int>(newState));
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setCurrentBlockState(static_cast<int>(newState));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnSetCurrentBlockState(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_SetCurrentBlockState_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_SetCurrentBlockState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__Highlighter_SetCurrentBlockUserData(Sonnet__Highlighter* self, QTextBlockUserData* data) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setCurrentBlockUserData(data);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setCurrentBlockUserData(data);
-    }
+    if (auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self)) {
+        vsonnethighlighter->VirtualSonnetHighlighter::setCurrentBlockUserData(data);
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::setCurrentBlockUserData called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__Highlighter_SuperSetCurrentBlockUserData(Sonnet__Highlighter* self, QTextBlockUserData* data) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_SetCurrentBlockUserData_IsBase(true);
-        vsonnethighlighter->setCurrentBlockUserData(data);
-    } else {
-        ((VirtualSonnetHighlighter*)self)->setCurrentBlockUserData(data);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnSetCurrentBlockUserData(Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_SetCurrentBlockUserData_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_SetCurrentBlockUserData_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QTextBlockUserData* Sonnet__Highlighter_CurrentBlockUserData(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->currentBlockUserData();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->currentBlockUserData();
-    }
-}
-
-// Base class handler implementation
-QTextBlockUserData* Sonnet__Highlighter_SuperCurrentBlockUserData(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_CurrentBlockUserData_IsBase(true);
-        return vsonnethighlighter->currentBlockUserData();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->currentBlockUserData();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnCurrentBlockUserData(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_CurrentBlockUserData_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_CurrentBlockUserData_Callback>(slot));
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self))) {
+        return vsonnethighlighter->VirtualSonnetHighlighter::currentBlockUserData();
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::currentBlockUserData called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QTextBlock* Sonnet__Highlighter_CurrentBlock(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self)))
         return new QTextBlock(vsonnethighlighter->currentBlock());
-    }
-    return {};
+    qFatal("Error: Protected method Sonnet::Highlighter::currentBlock called without a directly constructed type");
 }
 
-// Base class handler implementation
-QTextBlock* Sonnet__Highlighter_SuperCurrentBlock(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_CurrentBlock_IsBase(true);
-        return new QTextBlock(vsonnethighlighter->currentBlock());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnCurrentBlock(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_CurrentBlock_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_CurrentBlock_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Sonnet__Highlighter_Sender(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->sender();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->sender();
-    }
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self))) {
+        return vsonnethighlighter->VirtualSonnetHighlighter::sender();
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Sonnet__Highlighter_SuperSender(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_Sender_IsBase(true);
-        return vsonnethighlighter->sender();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnSender(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_Sender_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__Highlighter_SenderSignalIndex(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->senderSignalIndex();
-    }
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self))) {
+        return vsonnethighlighter->VirtualSonnetHighlighter::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__Highlighter_SuperSenderSignalIndex(const Sonnet__Highlighter* self) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_SenderSignalIndex_IsBase(true);
-        return vsonnethighlighter->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnSenderSignalIndex(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__Highlighter_Receivers(const Sonnet__Highlighter* self, const char* signal) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->receivers(signal);
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->receivers(signal);
-    }
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self))) {
+        return vsonnethighlighter->VirtualSonnetHighlighter::receivers(signal);
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__Highlighter_SuperReceivers(const Sonnet__Highlighter* self, const char* signal) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_Receivers_IsBase(true);
-        return vsonnethighlighter->receivers(signal);
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnReceivers(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_Receivers_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__Highlighter_IsSignalConnected(const Sonnet__Highlighter* self, const QMetaMethod* signal) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        return vsonnethighlighter->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Sonnet__Highlighter_SuperIsSignalConnected(const Sonnet__Highlighter* self, const QMetaMethod* signal) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter) {
-        vsonnethighlighter->setSonnet__Highlighter_IsSignalConnected_IsBase(true);
-        return vsonnethighlighter->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__Highlighter_OnIsSignalConnected(const Sonnet__Highlighter* self, intptr_t slot) {
-    auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self));
-    if (vsonnethighlighter && vsonnethighlighter->isVirtualSonnetHighlighter)
-        vsonnethighlighter->setSonnet__Highlighter_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetHighlighter::Sonnet__Highlighter_IsSignalConnected_Callback>(slot));
+    if (auto* vsonnethighlighter = const_cast<VirtualSonnetHighlighter*>(dynamic_cast<const VirtualSonnetHighlighter*>(self))) {
+        return vsonnethighlighter->VirtualSonnetHighlighter::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Sonnet::Highlighter::isSignalConnected called without a directly constructed type");
 }
 
 void Sonnet__Highlighter_Delete(Sonnet__Highlighter* self) {

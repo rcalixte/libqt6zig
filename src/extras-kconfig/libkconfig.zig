@@ -221,9 +221,9 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KConfig) callconv(.c) bool `
     ///
-    pub fn onSync(self: KConfig, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSync(self: KConfig, callback: *const fn (KConfig) callconv(.c) bool) void {
         qtc.KConfig_OnSync(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -283,9 +283,9 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfig) callconv(.c) void `
     ///
-    pub fn onMarkAsClean(self: KConfig, callback: *const fn () callconv(.c) void) void {
+    pub fn onMarkAsClean(self: KConfig, callback: *const fn (KConfig) callconv(.c) void) void {
         qtc.KConfig_OnMarkAsClean(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -335,9 +335,9 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KConfig) callconv(.c) i32 `
     ///
-    pub fn onAccessMode(self: KConfig, callback: *const fn () callconv(.c) i32) void {
+    pub fn onAccessMode(self: KConfig, callback: *const fn (KConfig) callconv(.c) i32) void {
         qtc.KConfig_OnAccessMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -592,9 +592,9 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KConfig) callconv(.c) bool `
     ///
-    pub fn onIsImmutable(self: KConfig, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsImmutable(self: KConfig, callback: *const fn (KConfig) callconv(.c) bool) void {
         qtc.KConfig_OnIsImmutable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -658,9 +658,9 @@ pub const KConfig = extern struct {
     ///
     /// ` self: KConfig `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: KConfig) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onGroupList(self: KConfig, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onGroupList(self: KConfig, callback: *const fn (KConfig) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KConfig_OnGroupList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -831,130 +831,6 @@ pub const KConfig = extern struct {
             .data = groupName.ptr,
         };
         return qtc.KConfig_SuperHasGroupImpl(@ptrCast(self.ptr), groupName_str);
-    }
-
-    /// ### DEPRECATED: Use `groupImpl` instead
-    ///
-    pub const GroupImpl = groupImpl;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfig `
-    ///
-    /// ` groupName: []const u8 `
-    ///
-    pub fn groupImpl(self: KConfig, groupName: []const u8) KConfigGroup {
-        const groupName_str = qtc.libqt_string{
-            .len = groupName.len,
-            .data = groupName.ptr,
-        };
-        return .{ .ptr = qtc.KConfig_GroupImpl(@ptrCast(self.ptr), groupName_str) };
-    }
-
-    /// ### DEPRECATED: Use `onGroupImpl` instead
-    ///
-    pub const OnGroupImpl = onGroupImpl;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfig `
-    ///
-    /// ` callback: *const fn (self: KConfig, groupName: [*:0]const u8) callconv(.c) KConfigGroup `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onGroupImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) KConfigGroup) void {
-        qtc.KConfig_OnGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superGroupImpl` instead
-    ///
-    pub const SuperGroupImpl = superGroupImpl;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfig `
-    ///
-    /// ` groupName: []const u8 `
-    ///
-    pub fn superGroupImpl(self: KConfig, groupName: []const u8) KConfigGroup {
-        const groupName_str = qtc.libqt_string{
-            .len = groupName.len,
-            .data = groupName.ptr,
-        };
-        return .{ .ptr = qtc.KConfig_SuperGroupImpl(@ptrCast(self.ptr), groupName_str) };
-    }
-
-    /// ### DEPRECATED: Use `groupImpl2` instead
-    ///
-    pub const GroupImpl2 = groupImpl2;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfig `
-    ///
-    /// ` groupName: []const u8 `
-    ///
-    pub fn groupImpl2(self: KConfig, groupName: []const u8) KConfigGroup {
-        const groupName_str = qtc.libqt_string{
-            .len = groupName.len,
-            .data = groupName.ptr,
-        };
-        return .{ .ptr = qtc.KConfig_GroupImpl2(@ptrCast(self.ptr), groupName_str) };
-    }
-
-    /// ### DEPRECATED: Use `onGroupImpl2` instead
-    ///
-    pub const OnGroupImpl2 = onGroupImpl2;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfig `
-    ///
-    /// ` callback: *const fn (self: KConfig, groupName: [*:0]const u8) callconv(.c) KConfigGroup `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onGroupImpl2(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) KConfigGroup) void {
-        qtc.KConfig_OnGroupImpl2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superGroupImpl2` instead
-    ///
-    pub const SuperGroupImpl2 = superGroupImpl2;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfig.html#groupImpl)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfig `
-    ///
-    /// ` groupName: []const u8 `
-    ///
-    pub fn superGroupImpl2(self: KConfig, groupName: []const u8) KConfigGroup {
-        const groupName_str = qtc.libqt_string{
-            .len = groupName.len,
-            .data = groupName.ptr,
-        };
-        return .{ .ptr = qtc.KConfig_SuperGroupImpl2(@ptrCast(self.ptr), groupName_str) };
     }
 
     /// ### DEPRECATED: Use `deleteGroupImpl` instead

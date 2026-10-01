@@ -108,10 +108,10 @@ void KPixmapSequenceOverlayPainter_Stop(KPixmapSequenceOverlayPainter* self) {
 
 bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter) {
         return vkpixmapsequenceoverlaypainter->eventFilter(obj, event);
     }
-    return {};
+    qFatal("Error: Protected method KPixmapSequenceOverlayPainter::eventFilter called without a directly constructed type");
 }
 
 libqt_string KPixmapSequenceOverlayPainter_Tr2(const char* s, const char* c) {
@@ -140,354 +140,217 @@ libqt_string KPixmapSequenceOverlayPainter_Tr3(const char* s, const char* c, int
 
 // Base class handler implementation
 QMetaObject* KPixmapSequenceOverlayPainter_SuperMetaObject(const KPixmapSequenceOverlayPainter* self) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpixmapsequenceoverlaypainter->metaObject();
-    } else {
-        return (QMetaObject*)self->KPixmapSequenceOverlayPainter::metaObject();
-    }
+    return (QMetaObject*)self->KPixmapSequenceOverlayPainter::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPixmapSequenceOverlayPainter_OnMetaObject(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_MetaObject_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_MetaObject_Callback>(slot));
+void KPixmapSequenceOverlayPainter_OnMetaObject(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
+    if (auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self)))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_metaobject_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPixmapSequenceOverlayPainter_SuperMetacast(KPixmapSequenceOverlayPainter* self, const char* param1) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacast_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->qt_metacast(param1);
-    } else {
-        return self->KPixmapSequenceOverlayPainter::qt_metacast(param1);
-    }
+    return self->KPixmapSequenceOverlayPainter::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnMetacast(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacast_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacast_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_metacast_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPixmapSequenceOverlayPainter_SuperMetacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacall_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPixmapSequenceOverlayPainter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPixmapSequenceOverlayPainter::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnMetacall(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacall_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacall_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_metacall_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KPixmapSequenceOverlayPainter_SuperEventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_EventFilter_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->eventFilter(obj, event);
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->eventFilter(obj, event);
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self)) {
+        return vkpixmapsequenceoverlaypainter->KPixmapSequenceOverlayPainter::eventFilter(obj, event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnEventFilter(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_EventFilter_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_EventFilter_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_eventfilter_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPixmapSequenceOverlayPainter_Event(KPixmapSequenceOverlayPainter* self, QEvent* event) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        return vkpixmapsequenceoverlaypainter->event(event);
-    } else {
-        return self->KPixmapSequenceOverlayPainter::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KPixmapSequenceOverlayPainter_SuperEvent(KPixmapSequenceOverlayPainter* self, QEvent* event) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Event_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->event(event);
-    } else {
-        return self->KPixmapSequenceOverlayPainter::event(event);
-    }
+    return self->KPixmapSequenceOverlayPainter::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Event_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Event_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_event_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceOverlayPainter_TimerEvent(KPixmapSequenceOverlayPainter* self, QTimerEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter) {
         vkpixmapsequenceoverlaypainter->timerEvent(event);
     } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceOverlayPainter_SuperTimerEvent(KPixmapSequenceOverlayPainter* self, QTimerEvent* event) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_TimerEvent_IsBase(true);
-        vkpixmapsequenceoverlaypainter->timerEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->timerEvent(event);
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self)) {
+        vkpixmapsequenceoverlaypainter->KPixmapSequenceOverlayPainter::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnTimerEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_TimerEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_TimerEvent_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_timerevent_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceOverlayPainter_ChildEvent(KPixmapSequenceOverlayPainter* self, QChildEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter) {
         vkpixmapsequenceoverlaypainter->childEvent(event);
     } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceOverlayPainter_SuperChildEvent(KPixmapSequenceOverlayPainter* self, QChildEvent* event) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_ChildEvent_IsBase(true);
-        vkpixmapsequenceoverlaypainter->childEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->childEvent(event);
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self)) {
+        vkpixmapsequenceoverlaypainter->KPixmapSequenceOverlayPainter::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnChildEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_ChildEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_ChildEvent_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_childevent_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceOverlayPainter_CustomEvent(KPixmapSequenceOverlayPainter* self, QEvent* event) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter) {
         vkpixmapsequenceoverlaypainter->customEvent(event);
     } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceOverlayPainter_SuperCustomEvent(KPixmapSequenceOverlayPainter* self, QEvent* event) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_CustomEvent_IsBase(true);
-        vkpixmapsequenceoverlaypainter->customEvent(event);
-    } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->customEvent(event);
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self)) {
+        vkpixmapsequenceoverlaypainter->KPixmapSequenceOverlayPainter::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnCustomEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_CustomEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_CustomEvent_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_customevent_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceOverlayPainter_ConnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter) {
         vkpixmapsequenceoverlaypainter->connectNotify(*signal);
     } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceOverlayPainter_SuperConnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_ConnectNotify_IsBase(true);
-        vkpixmapsequenceoverlaypainter->connectNotify(*signal);
-    } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self)) {
+        vkpixmapsequenceoverlaypainter->KPixmapSequenceOverlayPainter::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnConnectNotify(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_ConnectNotify_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_ConnectNotify_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_connectnotify_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPixmapSequenceOverlayPainter_DisconnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter) {
         vkpixmapsequenceoverlaypainter->disconnectNotify(*signal);
     } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPixmapSequenceOverlayPainter_SuperDisconnectNotify(KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_DisconnectNotify_IsBase(true);
-        vkpixmapsequenceoverlaypainter->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPixmapSequenceOverlayPainter*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self)) {
+        vkpixmapsequenceoverlaypainter->KPixmapSequenceOverlayPainter::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPixmapSequenceOverlayPainter::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnDisconnectNotify(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_DisconnectNotify_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_DisconnectNotify_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self))
+        vkpixmapsequenceoverlaypainter->kpixmapsequenceoverlaypainter_disconnectnotify_callback = reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPixmapSequenceOverlayPainter_Sender(const KPixmapSequenceOverlayPainter* self) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        return vkpixmapsequenceoverlaypainter->sender();
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->sender();
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self))) {
+        return vkpixmapsequenceoverlaypainter->VirtualKPixmapSequenceOverlayPainter::sender();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceOverlayPainter::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPixmapSequenceOverlayPainter_SuperSender(const KPixmapSequenceOverlayPainter* self) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Sender_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->sender();
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceOverlayPainter_OnSender(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Sender_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPixmapSequenceOverlayPainter_SenderSignalIndex(const KPixmapSequenceOverlayPainter* self) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        return vkpixmapsequenceoverlaypainter->senderSignalIndex();
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->senderSignalIndex();
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self))) {
+        return vkpixmapsequenceoverlaypainter->VirtualKPixmapSequenceOverlayPainter::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPixmapSequenceOverlayPainter::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPixmapSequenceOverlayPainter_SuperSenderSignalIndex(const KPixmapSequenceOverlayPainter* self) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_SenderSignalIndex_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->senderSignalIndex();
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceOverlayPainter_OnSenderSignalIndex(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPixmapSequenceOverlayPainter_Receivers(const KPixmapSequenceOverlayPainter* self, const char* signal) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        return vkpixmapsequenceoverlaypainter->receivers(signal);
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->receivers(signal);
-    }
+    if (auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self))) {
+        return vkpixmapsequenceoverlaypainter->VirtualKPixmapSequenceOverlayPainter::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPixmapSequenceOverlayPainter::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPixmapSequenceOverlayPainter_SuperReceivers(const KPixmapSequenceOverlayPainter* self, const char* signal) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Receivers_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->receivers(signal);
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceOverlayPainter_OnReceivers(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Receivers_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPixmapSequenceOverlayPainter_IsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        return vkpixmapsequenceoverlaypainter->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KPixmapSequenceOverlayPainter_SuperIsSignalConnected(const KPixmapSequenceOverlayPainter* self, const QMetaMethod* signal) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_IsSignalConnected_IsBase(true);
-        return vkpixmapsequenceoverlaypainter->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPixmapSequenceOverlayPainter*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPixmapSequenceOverlayPainter_OnIsSignalConnected(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
-    auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
-        vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_IsSignalConnected_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_IsSignalConnected_Callback>(slot));
+    if (auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self))) {
+        return vkpixmapsequenceoverlaypainter->VirtualKPixmapSequenceOverlayPainter::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPixmapSequenceOverlayPainter::isSignalConnected called without a directly constructed type");
 }
 
 void KPixmapSequenceOverlayPainter_Delete(KPixmapSequenceOverlayPainter* self) {

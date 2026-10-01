@@ -145,9 +145,9 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QPlaceManagerEngine) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine) callconv(.c) QMetaObject) void {
         qtc.QPlaceManagerEngine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -814,9 +814,9 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QPlaceReply `
+    /// ` callback: *const fn (self: QPlaceManagerEngine) callconv(.c) QPlaceReply `
     ///
-    pub fn onInitializeCategories(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QPlaceReply) void {
+    pub fn onInitializeCategories(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine) callconv(.c) QPlaceReply) void {
         qtc.QPlaceManagerEngine_OnInitializeCategories(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1182,13 +1182,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QPlaceManagerEngine) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QLocale `
     ///
-    pub fn onLocales(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onLocales(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine) callconv(.c) qtc.libqt_list) void {
         qtc.QPlaceManagerEngine_OnLocales(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1786,40 +1786,6 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     pub fn manager(self: QPlaceManagerEngine) QPlaceManager {
         return .{ .ptr = qtc.QPlaceManagerEngine_Manager(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onManager` instead
-    ///
-    pub const OnManager = onManager;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#manager)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceManagerEngine `
-    ///
-    /// ` callback: *const fn () callconv(.c) QPlaceManager `
-    ///
-    pub fn onManager(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QPlaceManager) void {
-        qtc.QPlaceManagerEngine_OnManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superManager` instead
-    ///
-    pub const SuperManager = superManager;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#manager)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceManagerEngine `
-    ///
-    pub fn superManager(self: QPlaceManagerEngine) QPlaceManager {
-        return .{ .ptr = qtc.QPlaceManagerEngine_SuperManager(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3340,44 +3306,6 @@ pub const QPlaceManagerEngine = extern struct {
         return .{ .ptr = qtc.QPlaceManagerEngine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceManagerEngine `
-    ///
-    pub fn superSender(self: QPlaceManagerEngine) QObject {
-        return .{ .ptr = qtc.QPlaceManagerEngine_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceManagerEngine`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QPlaceManagerEngine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3394,44 +3322,6 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     pub fn senderSignalIndex(self: QPlaceManagerEngine) i32 {
         return qtc.QPlaceManagerEngine_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceManagerEngine `
-    ///
-    pub fn superSenderSignalIndex(self: QPlaceManagerEngine) i32 {
-        return qtc.QPlaceManagerEngine_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceManagerEngine`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPlaceManagerEngine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3455,47 +3345,6 @@ pub const QPlaceManagerEngine = extern struct {
         return qtc.QPlaceManagerEngine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceManagerEngine `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QPlaceManagerEngine, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QPlaceManagerEngine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceManagerEngine`
-    ///
-    /// ` callback: *const fn (self: QPlaceManagerEngine, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPlaceManagerEngine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3515,47 +3364,6 @@ pub const QPlaceManagerEngine = extern struct {
     pub fn isSignalConnected(self: QPlaceManagerEngine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlaceManagerEngine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceManagerEngine `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QPlaceManagerEngine, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QPlaceManagerEngine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPlaceManagerEngine`
-    ///
-    /// ` callback: *const fn (self: QPlaceManagerEngine, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QMetaMethod) callconv(.c) bool) void {
-        qtc.QPlaceManagerEngine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

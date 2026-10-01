@@ -36,7 +36,7 @@ KToolBar* KToggleToolBarAction_ToolBar(KToggleToolBarAction* self);
 bool KToggleToolBarAction_EventFilter(KToggleToolBarAction* self, QObject* watched, QEvent* event);
 libqt_string KToggleToolBarAction_Tr2(const char* s, const char* c);
 libqt_string KToggleToolBarAction_Tr3(const char* s, const char* c, int n);
-void KToggleToolBarAction_OnMetaObject(const KToggleToolBarAction* self, intptr_t slot);
+void KToggleToolBarAction_OnMetaObject(KToggleToolBarAction* self, intptr_t slot);
 QMetaObject* KToggleToolBarAction_SuperMetaObject(const KToggleToolBarAction* self);
 void KToggleToolBarAction_OnMetacast(KToggleToolBarAction* self, intptr_t slot);
 void* KToggleToolBarAction_SuperMetacast(KToggleToolBarAction* self, const char* param1);
@@ -63,17 +63,9 @@ void KToggleToolBarAction_DisconnectNotify(KToggleToolBarAction* self, const QMe
 void KToggleToolBarAction_OnDisconnectNotify(KToggleToolBarAction* self, intptr_t slot);
 void KToggleToolBarAction_SuperDisconnectNotify(KToggleToolBarAction* self, const QMetaMethod* signal);
 QObject* KToggleToolBarAction_Sender(const KToggleToolBarAction* self);
-void KToggleToolBarAction_OnSender(const KToggleToolBarAction* self, intptr_t slot);
-QObject* KToggleToolBarAction_SuperSender(const KToggleToolBarAction* self);
 int KToggleToolBarAction_SenderSignalIndex(const KToggleToolBarAction* self);
-void KToggleToolBarAction_OnSenderSignalIndex(const KToggleToolBarAction* self, intptr_t slot);
-int KToggleToolBarAction_SuperSenderSignalIndex(const KToggleToolBarAction* self);
 int KToggleToolBarAction_Receivers(const KToggleToolBarAction* self, const char* signal);
-void KToggleToolBarAction_OnReceivers(const KToggleToolBarAction* self, intptr_t slot);
-int KToggleToolBarAction_SuperReceivers(const KToggleToolBarAction* self, const char* signal);
 bool KToggleToolBarAction_IsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal);
-void KToggleToolBarAction_OnIsSignalConnected(const KToggleToolBarAction* self, intptr_t slot);
-bool KToggleToolBarAction_SuperIsSignalConnected(const KToggleToolBarAction* self, const QMetaMethod* signal);
 void KToggleToolBarAction_Delete(KToggleToolBarAction* self);
 
 #ifdef __cplusplus

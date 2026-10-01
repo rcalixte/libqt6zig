@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KTreeWidgetSearchLine so that we can call protected methods
+// This class is a subclass of KTreeWidgetSearchLine
 class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKTreeWidgetSearchLine = true;
-
-    // Virtual class public types (including callbacks)
-    using KTreeWidgetSearchLine_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KTreeWidgetSearchLine_MetaObject_Callback = QMetaObject* (*)(const KTreeWidgetSearchLine*);
     using KTreeWidgetSearchLine_Metacast_Callback = void* (*)(KTreeWidgetSearchLine*, const char*);
     using KTreeWidgetSearchLine_Metacall_Callback = int (*)(KTreeWidgetSearchLine*, int, int, void**);
     using KTreeWidgetSearchLine_UpdateSearch_Callback = void (*)(KTreeWidgetSearchLine*, const char*);
@@ -26,10 +22,10 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     using KTreeWidgetSearchLine_UpdateSearch2_Callback = void (*)(KTreeWidgetSearchLine*, QTreeWidget*);
     using KTreeWidgetSearchLine_ConnectTreeWidget_Callback = void (*)(KTreeWidgetSearchLine*, QTreeWidget*);
     using KTreeWidgetSearchLine_DisconnectTreeWidget_Callback = void (*)(KTreeWidgetSearchLine*, QTreeWidget*);
-    using KTreeWidgetSearchLine_CanChooseColumnsCheck_Callback = bool (*)();
+    using KTreeWidgetSearchLine_CanChooseColumnsCheck_Callback = bool (*)(KTreeWidgetSearchLine*);
     using KTreeWidgetSearchLine_Event_Callback = bool (*)(KTreeWidgetSearchLine*, QEvent*);
-    using KTreeWidgetSearchLine_SizeHint_Callback = QSize* (*)();
-    using KTreeWidgetSearchLine_MinimumSizeHint_Callback = QSize* (*)();
+    using KTreeWidgetSearchLine_SizeHint_Callback = QSize* (*)(const KTreeWidgetSearchLine*);
+    using KTreeWidgetSearchLine_MinimumSizeHint_Callback = QSize* (*)(const KTreeWidgetSearchLine*);
     using KTreeWidgetSearchLine_MousePressEvent_Callback = void (*)(KTreeWidgetSearchLine*, QMouseEvent*);
     using KTreeWidgetSearchLine_MouseMoveEvent_Callback = void (*)(KTreeWidgetSearchLine*, QMouseEvent*);
     using KTreeWidgetSearchLine_MouseReleaseEvent_Callback = void (*)(KTreeWidgetSearchLine*, QMouseEvent*);
@@ -48,11 +44,11 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     using KTreeWidgetSearchLine_InitStyleOption_Callback = void (*)(const KTreeWidgetSearchLine*, QStyleOptionFrame*);
     using KTreeWidgetSearchLine_InputMethodQuery_Callback = QVariant* (*)(const KTreeWidgetSearchLine*, int);
     using KTreeWidgetSearchLine_TimerEvent_Callback = void (*)(KTreeWidgetSearchLine*, QTimerEvent*);
-    using KTreeWidgetSearchLine_DevType_Callback = int (*)();
+    using KTreeWidgetSearchLine_DevType_Callback = int (*)(const KTreeWidgetSearchLine*);
     using KTreeWidgetSearchLine_SetVisible_Callback = void (*)(KTreeWidgetSearchLine*, bool);
     using KTreeWidgetSearchLine_HeightForWidth_Callback = int (*)(const KTreeWidgetSearchLine*, int);
-    using KTreeWidgetSearchLine_HasHeightForWidth_Callback = bool (*)();
-    using KTreeWidgetSearchLine_PaintEngine_Callback = QPaintEngine* (*)();
+    using KTreeWidgetSearchLine_HasHeightForWidth_Callback = bool (*)(const KTreeWidgetSearchLine*);
+    using KTreeWidgetSearchLine_PaintEngine_Callback = QPaintEngine* (*)(const KTreeWidgetSearchLine*);
     using KTreeWidgetSearchLine_WheelEvent_Callback = void (*)(KTreeWidgetSearchLine*, QWheelEvent*);
     using KTreeWidgetSearchLine_EnterEvent_Callback = void (*)(KTreeWidgetSearchLine*, QEnterEvent*);
     using KTreeWidgetSearchLine_LeaveEvent_Callback = void (*)(KTreeWidgetSearchLine*, QEvent*);
@@ -67,26 +63,25 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     using KTreeWidgetSearchLine_Metric_Callback = int (*)(const KTreeWidgetSearchLine*, int);
     using KTreeWidgetSearchLine_InitPainter_Callback = void (*)(const KTreeWidgetSearchLine*, QPainter*);
     using KTreeWidgetSearchLine_Redirected_Callback = QPaintDevice* (*)(const KTreeWidgetSearchLine*, QPoint*);
-    using KTreeWidgetSearchLine_SharedPainter_Callback = QPainter* (*)();
+    using KTreeWidgetSearchLine_SharedPainter_Callback = QPainter* (*)(const KTreeWidgetSearchLine*);
     using KTreeWidgetSearchLine_FocusNextPrevChild_Callback = bool (*)(KTreeWidgetSearchLine*, bool);
     using KTreeWidgetSearchLine_EventFilter_Callback = bool (*)(KTreeWidgetSearchLine*, QObject*, QEvent*);
     using KTreeWidgetSearchLine_ChildEvent_Callback = void (*)(KTreeWidgetSearchLine*, QChildEvent*);
     using KTreeWidgetSearchLine_CustomEvent_Callback = void (*)(KTreeWidgetSearchLine*, QEvent*);
     using KTreeWidgetSearchLine_ConnectNotify_Callback = void (*)(KTreeWidgetSearchLine*, QMetaMethod*);
     using KTreeWidgetSearchLine_DisconnectNotify_Callback = void (*)(KTreeWidgetSearchLine*, QMetaMethod*);
-    using KTreeWidgetSearchLine_CursorRect_Callback = QRect* (*)();
-    using KTreeWidgetSearchLine_UpdateMicroFocus_Callback = void (*)();
-    using KTreeWidgetSearchLine_Create_Callback = void (*)();
-    using KTreeWidgetSearchLine_Destroy_Callback = void (*)();
-    using KTreeWidgetSearchLine_FocusNextChild_Callback = bool (*)();
-    using KTreeWidgetSearchLine_FocusPreviousChild_Callback = bool (*)();
-    using KTreeWidgetSearchLine_Sender_Callback = QObject* (*)();
-    using KTreeWidgetSearchLine_SenderSignalIndex_Callback = int (*)();
-    using KTreeWidgetSearchLine_Receivers_Callback = int (*)(const KTreeWidgetSearchLine*, const char*);
-    using KTreeWidgetSearchLine_IsSignalConnected_Callback = bool (*)(const KTreeWidgetSearchLine*, QMetaMethod*);
-    using KTreeWidgetSearchLine_GetDecodedMetricF_Callback = double (*)(const KTreeWidgetSearchLine*, int, int);
+    using KTreeWidgetSearchLine::create;
+    using KTreeWidgetSearchLine::cursorRect;
+    using KTreeWidgetSearchLine::destroy;
+    using KTreeWidgetSearchLine::focusNextChild;
+    using KTreeWidgetSearchLine::focusPreviousChild;
+    using KTreeWidgetSearchLine::getDecodedMetricF;
+    using KTreeWidgetSearchLine::isSignalConnected;
+    using KTreeWidgetSearchLine::receivers;
+    using KTreeWidgetSearchLine::sender;
+    using KTreeWidgetSearchLine::senderSignalIndex;
+    using KTreeWidgetSearchLine::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KTreeWidgetSearchLine_MetaObject_Callback ktreewidgetsearchline_metaobject_callback = nullptr;
     KTreeWidgetSearchLine_Metacast_Callback ktreewidgetsearchline_metacast_callback = nullptr;
@@ -145,243 +140,63 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
     KTreeWidgetSearchLine_CustomEvent_Callback ktreewidgetsearchline_customevent_callback = nullptr;
     KTreeWidgetSearchLine_ConnectNotify_Callback ktreewidgetsearchline_connectnotify_callback = nullptr;
     KTreeWidgetSearchLine_DisconnectNotify_Callback ktreewidgetsearchline_disconnectnotify_callback = nullptr;
-    KTreeWidgetSearchLine_CursorRect_Callback ktreewidgetsearchline_cursorrect_callback = nullptr;
-    KTreeWidgetSearchLine_UpdateMicroFocus_Callback ktreewidgetsearchline_updatemicrofocus_callback = nullptr;
-    KTreeWidgetSearchLine_Create_Callback ktreewidgetsearchline_create_callback = nullptr;
-    KTreeWidgetSearchLine_Destroy_Callback ktreewidgetsearchline_destroy_callback = nullptr;
-    KTreeWidgetSearchLine_FocusNextChild_Callback ktreewidgetsearchline_focusnextchild_callback = nullptr;
-    KTreeWidgetSearchLine_FocusPreviousChild_Callback ktreewidgetsearchline_focuspreviouschild_callback = nullptr;
-    KTreeWidgetSearchLine_Sender_Callback ktreewidgetsearchline_sender_callback = nullptr;
-    KTreeWidgetSearchLine_SenderSignalIndex_Callback ktreewidgetsearchline_sendersignalindex_callback = nullptr;
-    KTreeWidgetSearchLine_Receivers_Callback ktreewidgetsearchline_receivers_callback = nullptr;
-    KTreeWidgetSearchLine_IsSignalConnected_Callback ktreewidgetsearchline_issignalconnected_callback = nullptr;
-    KTreeWidgetSearchLine_GetDecodedMetricF_Callback ktreewidgetsearchline_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool ktreewidgetsearchline_metaobject_isbase = false;
-    mutable bool ktreewidgetsearchline_metacast_isbase = false;
-    mutable bool ktreewidgetsearchline_metacall_isbase = false;
-    mutable bool ktreewidgetsearchline_updatesearch_isbase = false;
-    mutable bool ktreewidgetsearchline_itemmatches_isbase = false;
-    mutable bool ktreewidgetsearchline_contextmenuevent_isbase = false;
-    mutable bool ktreewidgetsearchline_updatesearch2_isbase = false;
-    mutable bool ktreewidgetsearchline_connecttreewidget_isbase = false;
-    mutable bool ktreewidgetsearchline_disconnecttreewidget_isbase = false;
-    mutable bool ktreewidgetsearchline_canchoosecolumnscheck_isbase = false;
-    mutable bool ktreewidgetsearchline_event_isbase = false;
-    mutable bool ktreewidgetsearchline_sizehint_isbase = false;
-    mutable bool ktreewidgetsearchline_minimumsizehint_isbase = false;
-    mutable bool ktreewidgetsearchline_mousepressevent_isbase = false;
-    mutable bool ktreewidgetsearchline_mousemoveevent_isbase = false;
-    mutable bool ktreewidgetsearchline_mousereleaseevent_isbase = false;
-    mutable bool ktreewidgetsearchline_mousedoubleclickevent_isbase = false;
-    mutable bool ktreewidgetsearchline_keypressevent_isbase = false;
-    mutable bool ktreewidgetsearchline_keyreleaseevent_isbase = false;
-    mutable bool ktreewidgetsearchline_focusinevent_isbase = false;
-    mutable bool ktreewidgetsearchline_focusoutevent_isbase = false;
-    mutable bool ktreewidgetsearchline_paintevent_isbase = false;
-    mutable bool ktreewidgetsearchline_dragenterevent_isbase = false;
-    mutable bool ktreewidgetsearchline_dragmoveevent_isbase = false;
-    mutable bool ktreewidgetsearchline_dragleaveevent_isbase = false;
-    mutable bool ktreewidgetsearchline_dropevent_isbase = false;
-    mutable bool ktreewidgetsearchline_changeevent_isbase = false;
-    mutable bool ktreewidgetsearchline_inputmethodevent_isbase = false;
-    mutable bool ktreewidgetsearchline_initstyleoption_isbase = false;
-    mutable bool ktreewidgetsearchline_inputmethodquery_isbase = false;
-    mutable bool ktreewidgetsearchline_timerevent_isbase = false;
-    mutable bool ktreewidgetsearchline_devtype_isbase = false;
-    mutable bool ktreewidgetsearchline_setvisible_isbase = false;
-    mutable bool ktreewidgetsearchline_heightforwidth_isbase = false;
-    mutable bool ktreewidgetsearchline_hasheightforwidth_isbase = false;
-    mutable bool ktreewidgetsearchline_paintengine_isbase = false;
-    mutable bool ktreewidgetsearchline_wheelevent_isbase = false;
-    mutable bool ktreewidgetsearchline_enterevent_isbase = false;
-    mutable bool ktreewidgetsearchline_leaveevent_isbase = false;
-    mutable bool ktreewidgetsearchline_moveevent_isbase = false;
-    mutable bool ktreewidgetsearchline_resizeevent_isbase = false;
-    mutable bool ktreewidgetsearchline_closeevent_isbase = false;
-    mutable bool ktreewidgetsearchline_tabletevent_isbase = false;
-    mutable bool ktreewidgetsearchline_actionevent_isbase = false;
-    mutable bool ktreewidgetsearchline_showevent_isbase = false;
-    mutable bool ktreewidgetsearchline_hideevent_isbase = false;
-    mutable bool ktreewidgetsearchline_nativeevent_isbase = false;
-    mutable bool ktreewidgetsearchline_metric_isbase = false;
-    mutable bool ktreewidgetsearchline_initpainter_isbase = false;
-    mutable bool ktreewidgetsearchline_redirected_isbase = false;
-    mutable bool ktreewidgetsearchline_sharedpainter_isbase = false;
-    mutable bool ktreewidgetsearchline_focusnextprevchild_isbase = false;
-    mutable bool ktreewidgetsearchline_eventfilter_isbase = false;
-    mutable bool ktreewidgetsearchline_childevent_isbase = false;
-    mutable bool ktreewidgetsearchline_customevent_isbase = false;
-    mutable bool ktreewidgetsearchline_connectnotify_isbase = false;
-    mutable bool ktreewidgetsearchline_disconnectnotify_isbase = false;
-    mutable bool ktreewidgetsearchline_cursorrect_isbase = false;
-    mutable bool ktreewidgetsearchline_updatemicrofocus_isbase = false;
-    mutable bool ktreewidgetsearchline_create_isbase = false;
-    mutable bool ktreewidgetsearchline_destroy_isbase = false;
-    mutable bool ktreewidgetsearchline_focusnextchild_isbase = false;
-    mutable bool ktreewidgetsearchline_focuspreviouschild_isbase = false;
-    mutable bool ktreewidgetsearchline_sender_isbase = false;
-    mutable bool ktreewidgetsearchline_sendersignalindex_isbase = false;
-    mutable bool ktreewidgetsearchline_receivers_isbase = false;
-    mutable bool ktreewidgetsearchline_issignalconnected_isbase = false;
-    mutable bool ktreewidgetsearchline_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KTreeWidgetSearchLine {
+        using KTreeWidgetSearchLine::actionEvent;
+        using KTreeWidgetSearchLine::canChooseColumnsCheck;
+        using KTreeWidgetSearchLine::changeEvent;
+        using KTreeWidgetSearchLine::childEvent;
+        using KTreeWidgetSearchLine::closeEvent;
+        using KTreeWidgetSearchLine::connectNotify;
+        using KTreeWidgetSearchLine::connectTreeWidget;
+        using KTreeWidgetSearchLine::contextMenuEvent;
+        using KTreeWidgetSearchLine::customEvent;
+        using KTreeWidgetSearchLine::disconnectNotify;
+        using KTreeWidgetSearchLine::disconnectTreeWidget;
+        using KTreeWidgetSearchLine::dragEnterEvent;
+        using KTreeWidgetSearchLine::dragLeaveEvent;
+        using KTreeWidgetSearchLine::dragMoveEvent;
+        using KTreeWidgetSearchLine::dropEvent;
+        using KTreeWidgetSearchLine::enterEvent;
+        using KTreeWidgetSearchLine::event;
+        using KTreeWidgetSearchLine::focusInEvent;
+        using KTreeWidgetSearchLine::focusNextPrevChild;
+        using KTreeWidgetSearchLine::focusOutEvent;
+        using KTreeWidgetSearchLine::hideEvent;
+        using KTreeWidgetSearchLine::initPainter;
+        using KTreeWidgetSearchLine::initStyleOption;
+        using KTreeWidgetSearchLine::inputMethodEvent;
+        using KTreeWidgetSearchLine::itemMatches;
+        using KTreeWidgetSearchLine::keyPressEvent;
+        using KTreeWidgetSearchLine::keyReleaseEvent;
+        using KTreeWidgetSearchLine::leaveEvent;
+        using KTreeWidgetSearchLine::metric;
+        using KTreeWidgetSearchLine::mouseDoubleClickEvent;
+        using KTreeWidgetSearchLine::mouseMoveEvent;
+        using KTreeWidgetSearchLine::mousePressEvent;
+        using KTreeWidgetSearchLine::mouseReleaseEvent;
+        using KTreeWidgetSearchLine::moveEvent;
+        using KTreeWidgetSearchLine::nativeEvent;
+        using KTreeWidgetSearchLine::paintEvent;
+        using KTreeWidgetSearchLine::redirected;
+        using KTreeWidgetSearchLine::resizeEvent;
+        using KTreeWidgetSearchLine::sharedPainter;
+        using KTreeWidgetSearchLine::showEvent;
+        using KTreeWidgetSearchLine::tabletEvent;
+        using KTreeWidgetSearchLine::updateSearch;
+        using KTreeWidgetSearchLine::wheelEvent;
+    };
 
-  public:
     VirtualKTreeWidgetSearchLine(QWidget* parent) : KTreeWidgetSearchLine(parent) {};
     VirtualKTreeWidgetSearchLine() : KTreeWidgetSearchLine() {};
     VirtualKTreeWidgetSearchLine(QWidget* parent, const QList<QTreeWidget*>& treeWidgets) : KTreeWidgetSearchLine(parent, treeWidgets) {};
     VirtualKTreeWidgetSearchLine(QWidget* parent, QTreeWidget* treeWidget) : KTreeWidgetSearchLine(parent, treeWidget) {};
 
-    // Callback setters
-    inline void setKTreeWidgetSearchLine_MetaObject_Callback(KTreeWidgetSearchLine_MetaObject_Callback cb) { ktreewidgetsearchline_metaobject_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Metacast_Callback(KTreeWidgetSearchLine_Metacast_Callback cb) { ktreewidgetsearchline_metacast_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Metacall_Callback(KTreeWidgetSearchLine_Metacall_Callback cb) { ktreewidgetsearchline_metacall_callback = cb; }
-    inline void setKTreeWidgetSearchLine_UpdateSearch_Callback(KTreeWidgetSearchLine_UpdateSearch_Callback cb) { ktreewidgetsearchline_updatesearch_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ItemMatches_Callback(KTreeWidgetSearchLine_ItemMatches_Callback cb) { ktreewidgetsearchline_itemmatches_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ContextMenuEvent_Callback(KTreeWidgetSearchLine_ContextMenuEvent_Callback cb) { ktreewidgetsearchline_contextmenuevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_UpdateSearch2_Callback(KTreeWidgetSearchLine_UpdateSearch2_Callback cb) { ktreewidgetsearchline_updatesearch2_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ConnectTreeWidget_Callback(KTreeWidgetSearchLine_ConnectTreeWidget_Callback cb) { ktreewidgetsearchline_connecttreewidget_callback = cb; }
-    inline void setKTreeWidgetSearchLine_DisconnectTreeWidget_Callback(KTreeWidgetSearchLine_DisconnectTreeWidget_Callback cb) { ktreewidgetsearchline_disconnecttreewidget_callback = cb; }
-    inline void setKTreeWidgetSearchLine_CanChooseColumnsCheck_Callback(KTreeWidgetSearchLine_CanChooseColumnsCheck_Callback cb) { ktreewidgetsearchline_canchoosecolumnscheck_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Event_Callback(KTreeWidgetSearchLine_Event_Callback cb) { ktreewidgetsearchline_event_callback = cb; }
-    inline void setKTreeWidgetSearchLine_SizeHint_Callback(KTreeWidgetSearchLine_SizeHint_Callback cb) { ktreewidgetsearchline_sizehint_callback = cb; }
-    inline void setKTreeWidgetSearchLine_MinimumSizeHint_Callback(KTreeWidgetSearchLine_MinimumSizeHint_Callback cb) { ktreewidgetsearchline_minimumsizehint_callback = cb; }
-    inline void setKTreeWidgetSearchLine_MousePressEvent_Callback(KTreeWidgetSearchLine_MousePressEvent_Callback cb) { ktreewidgetsearchline_mousepressevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_MouseMoveEvent_Callback(KTreeWidgetSearchLine_MouseMoveEvent_Callback cb) { ktreewidgetsearchline_mousemoveevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_MouseReleaseEvent_Callback(KTreeWidgetSearchLine_MouseReleaseEvent_Callback cb) { ktreewidgetsearchline_mousereleaseevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_MouseDoubleClickEvent_Callback(KTreeWidgetSearchLine_MouseDoubleClickEvent_Callback cb) { ktreewidgetsearchline_mousedoubleclickevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_KeyPressEvent_Callback(KTreeWidgetSearchLine_KeyPressEvent_Callback cb) { ktreewidgetsearchline_keypressevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_KeyReleaseEvent_Callback(KTreeWidgetSearchLine_KeyReleaseEvent_Callback cb) { ktreewidgetsearchline_keyreleaseevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_FocusInEvent_Callback(KTreeWidgetSearchLine_FocusInEvent_Callback cb) { ktreewidgetsearchline_focusinevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_FocusOutEvent_Callback(KTreeWidgetSearchLine_FocusOutEvent_Callback cb) { ktreewidgetsearchline_focusoutevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_PaintEvent_Callback(KTreeWidgetSearchLine_PaintEvent_Callback cb) { ktreewidgetsearchline_paintevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_DragEnterEvent_Callback(KTreeWidgetSearchLine_DragEnterEvent_Callback cb) { ktreewidgetsearchline_dragenterevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_DragMoveEvent_Callback(KTreeWidgetSearchLine_DragMoveEvent_Callback cb) { ktreewidgetsearchline_dragmoveevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_DragLeaveEvent_Callback(KTreeWidgetSearchLine_DragLeaveEvent_Callback cb) { ktreewidgetsearchline_dragleaveevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_DropEvent_Callback(KTreeWidgetSearchLine_DropEvent_Callback cb) { ktreewidgetsearchline_dropevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ChangeEvent_Callback(KTreeWidgetSearchLine_ChangeEvent_Callback cb) { ktreewidgetsearchline_changeevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_InputMethodEvent_Callback(KTreeWidgetSearchLine_InputMethodEvent_Callback cb) { ktreewidgetsearchline_inputmethodevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_InitStyleOption_Callback(KTreeWidgetSearchLine_InitStyleOption_Callback cb) { ktreewidgetsearchline_initstyleoption_callback = cb; }
-    inline void setKTreeWidgetSearchLine_InputMethodQuery_Callback(KTreeWidgetSearchLine_InputMethodQuery_Callback cb) { ktreewidgetsearchline_inputmethodquery_callback = cb; }
-    inline void setKTreeWidgetSearchLine_TimerEvent_Callback(KTreeWidgetSearchLine_TimerEvent_Callback cb) { ktreewidgetsearchline_timerevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_DevType_Callback(KTreeWidgetSearchLine_DevType_Callback cb) { ktreewidgetsearchline_devtype_callback = cb; }
-    inline void setKTreeWidgetSearchLine_SetVisible_Callback(KTreeWidgetSearchLine_SetVisible_Callback cb) { ktreewidgetsearchline_setvisible_callback = cb; }
-    inline void setKTreeWidgetSearchLine_HeightForWidth_Callback(KTreeWidgetSearchLine_HeightForWidth_Callback cb) { ktreewidgetsearchline_heightforwidth_callback = cb; }
-    inline void setKTreeWidgetSearchLine_HasHeightForWidth_Callback(KTreeWidgetSearchLine_HasHeightForWidth_Callback cb) { ktreewidgetsearchline_hasheightforwidth_callback = cb; }
-    inline void setKTreeWidgetSearchLine_PaintEngine_Callback(KTreeWidgetSearchLine_PaintEngine_Callback cb) { ktreewidgetsearchline_paintengine_callback = cb; }
-    inline void setKTreeWidgetSearchLine_WheelEvent_Callback(KTreeWidgetSearchLine_WheelEvent_Callback cb) { ktreewidgetsearchline_wheelevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_EnterEvent_Callback(KTreeWidgetSearchLine_EnterEvent_Callback cb) { ktreewidgetsearchline_enterevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_LeaveEvent_Callback(KTreeWidgetSearchLine_LeaveEvent_Callback cb) { ktreewidgetsearchline_leaveevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_MoveEvent_Callback(KTreeWidgetSearchLine_MoveEvent_Callback cb) { ktreewidgetsearchline_moveevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ResizeEvent_Callback(KTreeWidgetSearchLine_ResizeEvent_Callback cb) { ktreewidgetsearchline_resizeevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_CloseEvent_Callback(KTreeWidgetSearchLine_CloseEvent_Callback cb) { ktreewidgetsearchline_closeevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_TabletEvent_Callback(KTreeWidgetSearchLine_TabletEvent_Callback cb) { ktreewidgetsearchline_tabletevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ActionEvent_Callback(KTreeWidgetSearchLine_ActionEvent_Callback cb) { ktreewidgetsearchline_actionevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ShowEvent_Callback(KTreeWidgetSearchLine_ShowEvent_Callback cb) { ktreewidgetsearchline_showevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_HideEvent_Callback(KTreeWidgetSearchLine_HideEvent_Callback cb) { ktreewidgetsearchline_hideevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_NativeEvent_Callback(KTreeWidgetSearchLine_NativeEvent_Callback cb) { ktreewidgetsearchline_nativeevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Metric_Callback(KTreeWidgetSearchLine_Metric_Callback cb) { ktreewidgetsearchline_metric_callback = cb; }
-    inline void setKTreeWidgetSearchLine_InitPainter_Callback(KTreeWidgetSearchLine_InitPainter_Callback cb) { ktreewidgetsearchline_initpainter_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Redirected_Callback(KTreeWidgetSearchLine_Redirected_Callback cb) { ktreewidgetsearchline_redirected_callback = cb; }
-    inline void setKTreeWidgetSearchLine_SharedPainter_Callback(KTreeWidgetSearchLine_SharedPainter_Callback cb) { ktreewidgetsearchline_sharedpainter_callback = cb; }
-    inline void setKTreeWidgetSearchLine_FocusNextPrevChild_Callback(KTreeWidgetSearchLine_FocusNextPrevChild_Callback cb) { ktreewidgetsearchline_focusnextprevchild_callback = cb; }
-    inline void setKTreeWidgetSearchLine_EventFilter_Callback(KTreeWidgetSearchLine_EventFilter_Callback cb) { ktreewidgetsearchline_eventfilter_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ChildEvent_Callback(KTreeWidgetSearchLine_ChildEvent_Callback cb) { ktreewidgetsearchline_childevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_CustomEvent_Callback(KTreeWidgetSearchLine_CustomEvent_Callback cb) { ktreewidgetsearchline_customevent_callback = cb; }
-    inline void setKTreeWidgetSearchLine_ConnectNotify_Callback(KTreeWidgetSearchLine_ConnectNotify_Callback cb) { ktreewidgetsearchline_connectnotify_callback = cb; }
-    inline void setKTreeWidgetSearchLine_DisconnectNotify_Callback(KTreeWidgetSearchLine_DisconnectNotify_Callback cb) { ktreewidgetsearchline_disconnectnotify_callback = cb; }
-    inline void setKTreeWidgetSearchLine_CursorRect_Callback(KTreeWidgetSearchLine_CursorRect_Callback cb) { ktreewidgetsearchline_cursorrect_callback = cb; }
-    inline void setKTreeWidgetSearchLine_UpdateMicroFocus_Callback(KTreeWidgetSearchLine_UpdateMicroFocus_Callback cb) { ktreewidgetsearchline_updatemicrofocus_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Create_Callback(KTreeWidgetSearchLine_Create_Callback cb) { ktreewidgetsearchline_create_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Destroy_Callback(KTreeWidgetSearchLine_Destroy_Callback cb) { ktreewidgetsearchline_destroy_callback = cb; }
-    inline void setKTreeWidgetSearchLine_FocusNextChild_Callback(KTreeWidgetSearchLine_FocusNextChild_Callback cb) { ktreewidgetsearchline_focusnextchild_callback = cb; }
-    inline void setKTreeWidgetSearchLine_FocusPreviousChild_Callback(KTreeWidgetSearchLine_FocusPreviousChild_Callback cb) { ktreewidgetsearchline_focuspreviouschild_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Sender_Callback(KTreeWidgetSearchLine_Sender_Callback cb) { ktreewidgetsearchline_sender_callback = cb; }
-    inline void setKTreeWidgetSearchLine_SenderSignalIndex_Callback(KTreeWidgetSearchLine_SenderSignalIndex_Callback cb) { ktreewidgetsearchline_sendersignalindex_callback = cb; }
-    inline void setKTreeWidgetSearchLine_Receivers_Callback(KTreeWidgetSearchLine_Receivers_Callback cb) { ktreewidgetsearchline_receivers_callback = cb; }
-    inline void setKTreeWidgetSearchLine_IsSignalConnected_Callback(KTreeWidgetSearchLine_IsSignalConnected_Callback cb) { ktreewidgetsearchline_issignalconnected_callback = cb; }
-    inline void setKTreeWidgetSearchLine_GetDecodedMetricF_Callback(KTreeWidgetSearchLine_GetDecodedMetricF_Callback cb) { ktreewidgetsearchline_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKTreeWidgetSearchLine_MetaObject_IsBase(bool value) const { ktreewidgetsearchline_metaobject_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Metacast_IsBase(bool value) const { ktreewidgetsearchline_metacast_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Metacall_IsBase(bool value) const { ktreewidgetsearchline_metacall_isbase = value; }
-    inline void setKTreeWidgetSearchLine_UpdateSearch_IsBase(bool value) const { ktreewidgetsearchline_updatesearch_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ItemMatches_IsBase(bool value) const { ktreewidgetsearchline_itemmatches_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ContextMenuEvent_IsBase(bool value) const { ktreewidgetsearchline_contextmenuevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_UpdateSearch2_IsBase(bool value) const { ktreewidgetsearchline_updatesearch2_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ConnectTreeWidget_IsBase(bool value) const { ktreewidgetsearchline_connecttreewidget_isbase = value; }
-    inline void setKTreeWidgetSearchLine_DisconnectTreeWidget_IsBase(bool value) const { ktreewidgetsearchline_disconnecttreewidget_isbase = value; }
-    inline void setKTreeWidgetSearchLine_CanChooseColumnsCheck_IsBase(bool value) const { ktreewidgetsearchline_canchoosecolumnscheck_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Event_IsBase(bool value) const { ktreewidgetsearchline_event_isbase = value; }
-    inline void setKTreeWidgetSearchLine_SizeHint_IsBase(bool value) const { ktreewidgetsearchline_sizehint_isbase = value; }
-    inline void setKTreeWidgetSearchLine_MinimumSizeHint_IsBase(bool value) const { ktreewidgetsearchline_minimumsizehint_isbase = value; }
-    inline void setKTreeWidgetSearchLine_MousePressEvent_IsBase(bool value) const { ktreewidgetsearchline_mousepressevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_MouseMoveEvent_IsBase(bool value) const { ktreewidgetsearchline_mousemoveevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_MouseReleaseEvent_IsBase(bool value) const { ktreewidgetsearchline_mousereleaseevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_MouseDoubleClickEvent_IsBase(bool value) const { ktreewidgetsearchline_mousedoubleclickevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_KeyPressEvent_IsBase(bool value) const { ktreewidgetsearchline_keypressevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_KeyReleaseEvent_IsBase(bool value) const { ktreewidgetsearchline_keyreleaseevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_FocusInEvent_IsBase(bool value) const { ktreewidgetsearchline_focusinevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_FocusOutEvent_IsBase(bool value) const { ktreewidgetsearchline_focusoutevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_PaintEvent_IsBase(bool value) const { ktreewidgetsearchline_paintevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_DragEnterEvent_IsBase(bool value) const { ktreewidgetsearchline_dragenterevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_DragMoveEvent_IsBase(bool value) const { ktreewidgetsearchline_dragmoveevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_DragLeaveEvent_IsBase(bool value) const { ktreewidgetsearchline_dragleaveevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_DropEvent_IsBase(bool value) const { ktreewidgetsearchline_dropevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ChangeEvent_IsBase(bool value) const { ktreewidgetsearchline_changeevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_InputMethodEvent_IsBase(bool value) const { ktreewidgetsearchline_inputmethodevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_InitStyleOption_IsBase(bool value) const { ktreewidgetsearchline_initstyleoption_isbase = value; }
-    inline void setKTreeWidgetSearchLine_InputMethodQuery_IsBase(bool value) const { ktreewidgetsearchline_inputmethodquery_isbase = value; }
-    inline void setKTreeWidgetSearchLine_TimerEvent_IsBase(bool value) const { ktreewidgetsearchline_timerevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_DevType_IsBase(bool value) const { ktreewidgetsearchline_devtype_isbase = value; }
-    inline void setKTreeWidgetSearchLine_SetVisible_IsBase(bool value) const { ktreewidgetsearchline_setvisible_isbase = value; }
-    inline void setKTreeWidgetSearchLine_HeightForWidth_IsBase(bool value) const { ktreewidgetsearchline_heightforwidth_isbase = value; }
-    inline void setKTreeWidgetSearchLine_HasHeightForWidth_IsBase(bool value) const { ktreewidgetsearchline_hasheightforwidth_isbase = value; }
-    inline void setKTreeWidgetSearchLine_PaintEngine_IsBase(bool value) const { ktreewidgetsearchline_paintengine_isbase = value; }
-    inline void setKTreeWidgetSearchLine_WheelEvent_IsBase(bool value) const { ktreewidgetsearchline_wheelevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_EnterEvent_IsBase(bool value) const { ktreewidgetsearchline_enterevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_LeaveEvent_IsBase(bool value) const { ktreewidgetsearchline_leaveevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_MoveEvent_IsBase(bool value) const { ktreewidgetsearchline_moveevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ResizeEvent_IsBase(bool value) const { ktreewidgetsearchline_resizeevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_CloseEvent_IsBase(bool value) const { ktreewidgetsearchline_closeevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_TabletEvent_IsBase(bool value) const { ktreewidgetsearchline_tabletevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ActionEvent_IsBase(bool value) const { ktreewidgetsearchline_actionevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ShowEvent_IsBase(bool value) const { ktreewidgetsearchline_showevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_HideEvent_IsBase(bool value) const { ktreewidgetsearchline_hideevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_NativeEvent_IsBase(bool value) const { ktreewidgetsearchline_nativeevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Metric_IsBase(bool value) const { ktreewidgetsearchline_metric_isbase = value; }
-    inline void setKTreeWidgetSearchLine_InitPainter_IsBase(bool value) const { ktreewidgetsearchline_initpainter_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Redirected_IsBase(bool value) const { ktreewidgetsearchline_redirected_isbase = value; }
-    inline void setKTreeWidgetSearchLine_SharedPainter_IsBase(bool value) const { ktreewidgetsearchline_sharedpainter_isbase = value; }
-    inline void setKTreeWidgetSearchLine_FocusNextPrevChild_IsBase(bool value) const { ktreewidgetsearchline_focusnextprevchild_isbase = value; }
-    inline void setKTreeWidgetSearchLine_EventFilter_IsBase(bool value) const { ktreewidgetsearchline_eventfilter_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ChildEvent_IsBase(bool value) const { ktreewidgetsearchline_childevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_CustomEvent_IsBase(bool value) const { ktreewidgetsearchline_customevent_isbase = value; }
-    inline void setKTreeWidgetSearchLine_ConnectNotify_IsBase(bool value) const { ktreewidgetsearchline_connectnotify_isbase = value; }
-    inline void setKTreeWidgetSearchLine_DisconnectNotify_IsBase(bool value) const { ktreewidgetsearchline_disconnectnotify_isbase = value; }
-    inline void setKTreeWidgetSearchLine_CursorRect_IsBase(bool value) const { ktreewidgetsearchline_cursorrect_isbase = value; }
-    inline void setKTreeWidgetSearchLine_UpdateMicroFocus_IsBase(bool value) const { ktreewidgetsearchline_updatemicrofocus_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Create_IsBase(bool value) const { ktreewidgetsearchline_create_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Destroy_IsBase(bool value) const { ktreewidgetsearchline_destroy_isbase = value; }
-    inline void setKTreeWidgetSearchLine_FocusNextChild_IsBase(bool value) const { ktreewidgetsearchline_focusnextchild_isbase = value; }
-    inline void setKTreeWidgetSearchLine_FocusPreviousChild_IsBase(bool value) const { ktreewidgetsearchline_focuspreviouschild_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Sender_IsBase(bool value) const { ktreewidgetsearchline_sender_isbase = value; }
-    inline void setKTreeWidgetSearchLine_SenderSignalIndex_IsBase(bool value) const { ktreewidgetsearchline_sendersignalindex_isbase = value; }
-    inline void setKTreeWidgetSearchLine_Receivers_IsBase(bool value) const { ktreewidgetsearchline_receivers_isbase = value; }
-    inline void setKTreeWidgetSearchLine_IsSignalConnected_IsBase(bool value) const { ktreewidgetsearchline_issignalconnected_isbase = value; }
-    inline void setKTreeWidgetSearchLine_GetDecodedMetricF_IsBase(bool value) const { ktreewidgetsearchline_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (ktreewidgetsearchline_metaobject_isbase) {
-            ktreewidgetsearchline_metaobject_isbase = false;
-            return KTreeWidgetSearchLine::metaObject();
-        }
-        auto metaobject_cb = ktreewidgetsearchline_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (ktreewidgetsearchline_metaobject_callback) {
+            QMetaObject* callback_ret = ktreewidgetsearchline_metaobject_callback(this);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::metaObject();
@@ -389,14 +204,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (ktreewidgetsearchline_metacast_isbase) {
-            ktreewidgetsearchline_metacast_isbase = false;
-            return KTreeWidgetSearchLine::qt_metacast(param1);
-        }
-        auto metacast_cb = ktreewidgetsearchline_metacast_callback;
-        if (metacast_cb) {
+        if (ktreewidgetsearchline_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = ktreewidgetsearchline_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::qt_metacast(param1);
@@ -404,16 +214,11 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (ktreewidgetsearchline_metacall_isbase) {
-            ktreewidgetsearchline_metacall_isbase = false;
-            return KTreeWidgetSearchLine::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = ktreewidgetsearchline_metacall_callback;
-        if (metacall_cb) {
+        if (ktreewidgetsearchline_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = ktreewidgetsearchline_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KTreeWidgetSearchLine::qt_metacall(param1, param2, param3);
@@ -421,13 +226,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateSearch(const QString& pattern) override {
-        if (ktreewidgetsearchline_updatesearch_isbase) {
-            ktreewidgetsearchline_updatesearch_isbase = false;
-            KTreeWidgetSearchLine::updateSearch(pattern);
-            return;
-        }
-        auto updatesearch_cb = ktreewidgetsearchline_updatesearch_callback;
-        if (updatesearch_cb) {
+        if (ktreewidgetsearchline_updatesearch_callback) {
             const auto pattern_ret = pattern;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray pattern_b = pattern_ret.toUtf8();
@@ -436,7 +235,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
             memcpy((void*)pattern_str, pattern_b.data(), pattern_str_len);
             ((char*)pattern_str)[pattern_str_len] = '\0';
             const char* cbval1 = pattern_str;
-            updatesearch_cb(this, cbval1);
+            ktreewidgetsearchline_updatesearch_callback(this, cbval1);
             libqt_free(pattern_str);
             return;
         }
@@ -445,12 +244,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual bool itemMatches(const QTreeWidgetItem* item, const QString& pattern) const override {
-        if (ktreewidgetsearchline_itemmatches_isbase) {
-            ktreewidgetsearchline_itemmatches_isbase = false;
-            return KTreeWidgetSearchLine::itemMatches(item, pattern);
-        }
-        auto itemmatches_cb = ktreewidgetsearchline_itemmatches_callback;
-        if (itemmatches_cb) {
+        if (ktreewidgetsearchline_itemmatches_callback) {
             QTreeWidgetItem* cbval1 = (QTreeWidgetItem*)item;
             const auto pattern_ret = pattern;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
@@ -460,7 +254,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
             memcpy((void*)pattern_str, pattern_b.data(), pattern_str_len);
             ((char*)pattern_str)[pattern_str_len] = '\0';
             const char* cbval2 = pattern_str;
-            bool callback_ret = itemmatches_cb(this, cbval1, cbval2);
+            bool callback_ret = ktreewidgetsearchline_itemmatches_callback(this, cbval1, cbval2);
             libqt_free(pattern_str);
             return callback_ret;
         }
@@ -469,15 +263,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (ktreewidgetsearchline_contextmenuevent_isbase) {
-            ktreewidgetsearchline_contextmenuevent_isbase = false;
-            KTreeWidgetSearchLine::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = ktreewidgetsearchline_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (ktreewidgetsearchline_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            ktreewidgetsearchline_contextmenuevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::contextMenuEvent(param1);
@@ -485,15 +273,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void updateSearch(QTreeWidget* treeWidget) override {
-        if (ktreewidgetsearchline_updatesearch2_isbase) {
-            ktreewidgetsearchline_updatesearch2_isbase = false;
-            KTreeWidgetSearchLine::updateSearch(treeWidget);
-            return;
-        }
-        auto updatesearch2_cb = ktreewidgetsearchline_updatesearch2_callback;
-        if (updatesearch2_cb) {
+        if (ktreewidgetsearchline_updatesearch2_callback) {
             QTreeWidget* cbval1 = treeWidget;
-            updatesearch2_cb(this, cbval1);
+            ktreewidgetsearchline_updatesearch2_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::updateSearch(treeWidget);
@@ -501,15 +283,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectTreeWidget(QTreeWidget* param1) override {
-        if (ktreewidgetsearchline_connecttreewidget_isbase) {
-            ktreewidgetsearchline_connecttreewidget_isbase = false;
-            KTreeWidgetSearchLine::connectTreeWidget(param1);
-            return;
-        }
-        auto connecttreewidget_cb = ktreewidgetsearchline_connecttreewidget_callback;
-        if (connecttreewidget_cb) {
+        if (ktreewidgetsearchline_connecttreewidget_callback) {
             QTreeWidget* cbval1 = param1;
-            connecttreewidget_cb(this, cbval1);
+            ktreewidgetsearchline_connecttreewidget_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::connectTreeWidget(param1);
@@ -517,15 +293,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectTreeWidget(QTreeWidget* param1) override {
-        if (ktreewidgetsearchline_disconnecttreewidget_isbase) {
-            ktreewidgetsearchline_disconnecttreewidget_isbase = false;
-            KTreeWidgetSearchLine::disconnectTreeWidget(param1);
-            return;
-        }
-        auto disconnecttreewidget_cb = ktreewidgetsearchline_disconnecttreewidget_callback;
-        if (disconnecttreewidget_cb) {
+        if (ktreewidgetsearchline_disconnecttreewidget_callback) {
             QTreeWidget* cbval1 = param1;
-            disconnecttreewidget_cb(this, cbval1);
+            ktreewidgetsearchline_disconnecttreewidget_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::disconnectTreeWidget(param1);
@@ -533,13 +303,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canChooseColumnsCheck() override {
-        if (ktreewidgetsearchline_canchoosecolumnscheck_isbase) {
-            ktreewidgetsearchline_canchoosecolumnscheck_isbase = false;
-            return KTreeWidgetSearchLine::canChooseColumnsCheck();
-        }
-        auto canchoosecolumnscheck_cb = ktreewidgetsearchline_canchoosecolumnscheck_callback;
-        if (canchoosecolumnscheck_cb) {
-            bool callback_ret = canchoosecolumnscheck_cb();
+        if (ktreewidgetsearchline_canchoosecolumnscheck_callback) {
+            bool callback_ret = ktreewidgetsearchline_canchoosecolumnscheck_callback(this);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::canChooseColumnsCheck();
@@ -547,14 +312,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (ktreewidgetsearchline_event_isbase) {
-            ktreewidgetsearchline_event_isbase = false;
-            return KTreeWidgetSearchLine::event(event);
-        }
-        auto event_cb = ktreewidgetsearchline_event_callback;
-        if (event_cb) {
+        if (ktreewidgetsearchline_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = ktreewidgetsearchline_event_callback(this, cbval1);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::event(event);
@@ -562,13 +322,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (ktreewidgetsearchline_sizehint_isbase) {
-            ktreewidgetsearchline_sizehint_isbase = false;
-            return KTreeWidgetSearchLine::sizeHint();
-        }
-        auto sizehint_cb = ktreewidgetsearchline_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (ktreewidgetsearchline_sizehint_callback) {
+            QSize* callback_ret = ktreewidgetsearchline_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -578,13 +333,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (ktreewidgetsearchline_minimumsizehint_isbase) {
-            ktreewidgetsearchline_minimumsizehint_isbase = false;
-            return KTreeWidgetSearchLine::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = ktreewidgetsearchline_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (ktreewidgetsearchline_minimumsizehint_callback) {
+            QSize* callback_ret = ktreewidgetsearchline_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -594,15 +344,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* param1) override {
-        if (ktreewidgetsearchline_mousepressevent_isbase) {
-            ktreewidgetsearchline_mousepressevent_isbase = false;
-            KTreeWidgetSearchLine::mousePressEvent(param1);
-            return;
-        }
-        auto mousepressevent_cb = ktreewidgetsearchline_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (ktreewidgetsearchline_mousepressevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousepressevent_cb(this, cbval1);
+            ktreewidgetsearchline_mousepressevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::mousePressEvent(param1);
@@ -610,15 +354,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* param1) override {
-        if (ktreewidgetsearchline_mousemoveevent_isbase) {
-            ktreewidgetsearchline_mousemoveevent_isbase = false;
-            KTreeWidgetSearchLine::mouseMoveEvent(param1);
-            return;
-        }
-        auto mousemoveevent_cb = ktreewidgetsearchline_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (ktreewidgetsearchline_mousemoveevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousemoveevent_cb(this, cbval1);
+            ktreewidgetsearchline_mousemoveevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::mouseMoveEvent(param1);
@@ -626,15 +364,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* param1) override {
-        if (ktreewidgetsearchline_mousereleaseevent_isbase) {
-            ktreewidgetsearchline_mousereleaseevent_isbase = false;
-            KTreeWidgetSearchLine::mouseReleaseEvent(param1);
-            return;
-        }
-        auto mousereleaseevent_cb = ktreewidgetsearchline_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (ktreewidgetsearchline_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousereleaseevent_cb(this, cbval1);
+            ktreewidgetsearchline_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::mouseReleaseEvent(param1);
@@ -642,15 +374,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* param1) override {
-        if (ktreewidgetsearchline_mousedoubleclickevent_isbase) {
-            ktreewidgetsearchline_mousedoubleclickevent_isbase = false;
-            KTreeWidgetSearchLine::mouseDoubleClickEvent(param1);
-            return;
-        }
-        auto mousedoubleclickevent_cb = ktreewidgetsearchline_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (ktreewidgetsearchline_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousedoubleclickevent_cb(this, cbval1);
+            ktreewidgetsearchline_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::mouseDoubleClickEvent(param1);
@@ -658,15 +384,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (ktreewidgetsearchline_keypressevent_isbase) {
-            ktreewidgetsearchline_keypressevent_isbase = false;
-            KTreeWidgetSearchLine::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = ktreewidgetsearchline_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (ktreewidgetsearchline_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            ktreewidgetsearchline_keypressevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::keyPressEvent(param1);
@@ -674,15 +394,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* param1) override {
-        if (ktreewidgetsearchline_keyreleaseevent_isbase) {
-            ktreewidgetsearchline_keyreleaseevent_isbase = false;
-            KTreeWidgetSearchLine::keyReleaseEvent(param1);
-            return;
-        }
-        auto keyreleaseevent_cb = ktreewidgetsearchline_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (ktreewidgetsearchline_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keyreleaseevent_cb(this, cbval1);
+            ktreewidgetsearchline_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::keyReleaseEvent(param1);
@@ -690,15 +404,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* param1) override {
-        if (ktreewidgetsearchline_focusinevent_isbase) {
-            ktreewidgetsearchline_focusinevent_isbase = false;
-            KTreeWidgetSearchLine::focusInEvent(param1);
-            return;
-        }
-        auto focusinevent_cb = ktreewidgetsearchline_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (ktreewidgetsearchline_focusinevent_callback) {
             QFocusEvent* cbval1 = param1;
-            focusinevent_cb(this, cbval1);
+            ktreewidgetsearchline_focusinevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::focusInEvent(param1);
@@ -706,15 +414,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* param1) override {
-        if (ktreewidgetsearchline_focusoutevent_isbase) {
-            ktreewidgetsearchline_focusoutevent_isbase = false;
-            KTreeWidgetSearchLine::focusOutEvent(param1);
-            return;
-        }
-        auto focusoutevent_cb = ktreewidgetsearchline_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (ktreewidgetsearchline_focusoutevent_callback) {
             QFocusEvent* cbval1 = param1;
-            focusoutevent_cb(this, cbval1);
+            ktreewidgetsearchline_focusoutevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::focusOutEvent(param1);
@@ -722,15 +424,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* param1) override {
-        if (ktreewidgetsearchline_paintevent_isbase) {
-            ktreewidgetsearchline_paintevent_isbase = false;
-            KTreeWidgetSearchLine::paintEvent(param1);
-            return;
-        }
-        auto paintevent_cb = ktreewidgetsearchline_paintevent_callback;
-        if (paintevent_cb) {
+        if (ktreewidgetsearchline_paintevent_callback) {
             QPaintEvent* cbval1 = param1;
-            paintevent_cb(this, cbval1);
+            ktreewidgetsearchline_paintevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::paintEvent(param1);
@@ -738,15 +434,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* param1) override {
-        if (ktreewidgetsearchline_dragenterevent_isbase) {
-            ktreewidgetsearchline_dragenterevent_isbase = false;
-            KTreeWidgetSearchLine::dragEnterEvent(param1);
-            return;
-        }
-        auto dragenterevent_cb = ktreewidgetsearchline_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (ktreewidgetsearchline_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = param1;
-            dragenterevent_cb(this, cbval1);
+            ktreewidgetsearchline_dragenterevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::dragEnterEvent(param1);
@@ -754,15 +444,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* e) override {
-        if (ktreewidgetsearchline_dragmoveevent_isbase) {
-            ktreewidgetsearchline_dragmoveevent_isbase = false;
-            KTreeWidgetSearchLine::dragMoveEvent(e);
-            return;
-        }
-        auto dragmoveevent_cb = ktreewidgetsearchline_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (ktreewidgetsearchline_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = e;
-            dragmoveevent_cb(this, cbval1);
+            ktreewidgetsearchline_dragmoveevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::dragMoveEvent(e);
@@ -770,15 +454,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* e) override {
-        if (ktreewidgetsearchline_dragleaveevent_isbase) {
-            ktreewidgetsearchline_dragleaveevent_isbase = false;
-            KTreeWidgetSearchLine::dragLeaveEvent(e);
-            return;
-        }
-        auto dragleaveevent_cb = ktreewidgetsearchline_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (ktreewidgetsearchline_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = e;
-            dragleaveevent_cb(this, cbval1);
+            ktreewidgetsearchline_dragleaveevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::dragLeaveEvent(e);
@@ -786,15 +464,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* param1) override {
-        if (ktreewidgetsearchline_dropevent_isbase) {
-            ktreewidgetsearchline_dropevent_isbase = false;
-            KTreeWidgetSearchLine::dropEvent(param1);
-            return;
-        }
-        auto dropevent_cb = ktreewidgetsearchline_dropevent_callback;
-        if (dropevent_cb) {
+        if (ktreewidgetsearchline_dropevent_callback) {
             QDropEvent* cbval1 = param1;
-            dropevent_cb(this, cbval1);
+            ktreewidgetsearchline_dropevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::dropEvent(param1);
@@ -802,15 +474,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (ktreewidgetsearchline_changeevent_isbase) {
-            ktreewidgetsearchline_changeevent_isbase = false;
-            KTreeWidgetSearchLine::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = ktreewidgetsearchline_changeevent_callback;
-        if (changeevent_cb) {
+        if (ktreewidgetsearchline_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            ktreewidgetsearchline_changeevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::changeEvent(param1);
@@ -818,15 +484,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (ktreewidgetsearchline_inputmethodevent_isbase) {
-            ktreewidgetsearchline_inputmethodevent_isbase = false;
-            KTreeWidgetSearchLine::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = ktreewidgetsearchline_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (ktreewidgetsearchline_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            ktreewidgetsearchline_inputmethodevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::inputMethodEvent(param1);
@@ -834,15 +494,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (ktreewidgetsearchline_initstyleoption_isbase) {
-            ktreewidgetsearchline_initstyleoption_isbase = false;
-            KTreeWidgetSearchLine::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = ktreewidgetsearchline_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (ktreewidgetsearchline_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            ktreewidgetsearchline_initstyleoption_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::initStyleOption(option);
@@ -850,14 +504,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (ktreewidgetsearchline_inputmethodquery_isbase) {
-            ktreewidgetsearchline_inputmethodquery_isbase = false;
-            return KTreeWidgetSearchLine::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = ktreewidgetsearchline_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (ktreewidgetsearchline_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = ktreewidgetsearchline_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -867,15 +516,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* param1) override {
-        if (ktreewidgetsearchline_timerevent_isbase) {
-            ktreewidgetsearchline_timerevent_isbase = false;
-            KTreeWidgetSearchLine::timerEvent(param1);
-            return;
-        }
-        auto timerevent_cb = ktreewidgetsearchline_timerevent_callback;
-        if (timerevent_cb) {
+        if (ktreewidgetsearchline_timerevent_callback) {
             QTimerEvent* cbval1 = param1;
-            timerevent_cb(this, cbval1);
+            ktreewidgetsearchline_timerevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::timerEvent(param1);
@@ -883,13 +526,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (ktreewidgetsearchline_devtype_isbase) {
-            ktreewidgetsearchline_devtype_isbase = false;
-            return KTreeWidgetSearchLine::devType();
-        }
-        auto devtype_cb = ktreewidgetsearchline_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (ktreewidgetsearchline_devtype_callback) {
+            int callback_ret = ktreewidgetsearchline_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KTreeWidgetSearchLine::devType();
@@ -897,15 +535,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (ktreewidgetsearchline_setvisible_isbase) {
-            ktreewidgetsearchline_setvisible_isbase = false;
-            KTreeWidgetSearchLine::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = ktreewidgetsearchline_setvisible_callback;
-        if (setvisible_cb) {
+        if (ktreewidgetsearchline_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            ktreewidgetsearchline_setvisible_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::setVisible(visible);
@@ -913,14 +545,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (ktreewidgetsearchline_heightforwidth_isbase) {
-            ktreewidgetsearchline_heightforwidth_isbase = false;
-            return KTreeWidgetSearchLine::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = ktreewidgetsearchline_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (ktreewidgetsearchline_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = ktreewidgetsearchline_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KTreeWidgetSearchLine::heightForWidth(param1);
@@ -928,13 +555,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (ktreewidgetsearchline_hasheightforwidth_isbase) {
-            ktreewidgetsearchline_hasheightforwidth_isbase = false;
-            return KTreeWidgetSearchLine::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = ktreewidgetsearchline_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (ktreewidgetsearchline_hasheightforwidth_callback) {
+            bool callback_ret = ktreewidgetsearchline_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::hasHeightForWidth();
@@ -942,13 +564,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (ktreewidgetsearchline_paintengine_isbase) {
-            ktreewidgetsearchline_paintengine_isbase = false;
-            return KTreeWidgetSearchLine::paintEngine();
-        }
-        auto paintengine_cb = ktreewidgetsearchline_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (ktreewidgetsearchline_paintengine_callback) {
+            QPaintEngine* callback_ret = ktreewidgetsearchline_paintengine_callback(this);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::paintEngine();
@@ -956,15 +573,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (ktreewidgetsearchline_wheelevent_isbase) {
-            ktreewidgetsearchline_wheelevent_isbase = false;
-            KTreeWidgetSearchLine::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = ktreewidgetsearchline_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (ktreewidgetsearchline_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            ktreewidgetsearchline_wheelevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::wheelEvent(event);
@@ -972,15 +583,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (ktreewidgetsearchline_enterevent_isbase) {
-            ktreewidgetsearchline_enterevent_isbase = false;
-            KTreeWidgetSearchLine::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = ktreewidgetsearchline_enterevent_callback;
-        if (enterevent_cb) {
+        if (ktreewidgetsearchline_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            ktreewidgetsearchline_enterevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::enterEvent(event);
@@ -988,15 +593,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (ktreewidgetsearchline_leaveevent_isbase) {
-            ktreewidgetsearchline_leaveevent_isbase = false;
-            KTreeWidgetSearchLine::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = ktreewidgetsearchline_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (ktreewidgetsearchline_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            ktreewidgetsearchline_leaveevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::leaveEvent(event);
@@ -1004,15 +603,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (ktreewidgetsearchline_moveevent_isbase) {
-            ktreewidgetsearchline_moveevent_isbase = false;
-            KTreeWidgetSearchLine::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = ktreewidgetsearchline_moveevent_callback;
-        if (moveevent_cb) {
+        if (ktreewidgetsearchline_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            ktreewidgetsearchline_moveevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::moveEvent(event);
@@ -1020,15 +613,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (ktreewidgetsearchline_resizeevent_isbase) {
-            ktreewidgetsearchline_resizeevent_isbase = false;
-            KTreeWidgetSearchLine::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = ktreewidgetsearchline_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (ktreewidgetsearchline_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            ktreewidgetsearchline_resizeevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::resizeEvent(event);
@@ -1036,15 +623,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (ktreewidgetsearchline_closeevent_isbase) {
-            ktreewidgetsearchline_closeevent_isbase = false;
-            KTreeWidgetSearchLine::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = ktreewidgetsearchline_closeevent_callback;
-        if (closeevent_cb) {
+        if (ktreewidgetsearchline_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            ktreewidgetsearchline_closeevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::closeEvent(event);
@@ -1052,15 +633,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (ktreewidgetsearchline_tabletevent_isbase) {
-            ktreewidgetsearchline_tabletevent_isbase = false;
-            KTreeWidgetSearchLine::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = ktreewidgetsearchline_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (ktreewidgetsearchline_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            ktreewidgetsearchline_tabletevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::tabletEvent(event);
@@ -1068,15 +643,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (ktreewidgetsearchline_actionevent_isbase) {
-            ktreewidgetsearchline_actionevent_isbase = false;
-            KTreeWidgetSearchLine::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = ktreewidgetsearchline_actionevent_callback;
-        if (actionevent_cb) {
+        if (ktreewidgetsearchline_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            ktreewidgetsearchline_actionevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::actionEvent(event);
@@ -1084,15 +653,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (ktreewidgetsearchline_showevent_isbase) {
-            ktreewidgetsearchline_showevent_isbase = false;
-            KTreeWidgetSearchLine::showEvent(event);
-            return;
-        }
-        auto showevent_cb = ktreewidgetsearchline_showevent_callback;
-        if (showevent_cb) {
+        if (ktreewidgetsearchline_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            ktreewidgetsearchline_showevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::showEvent(event);
@@ -1100,15 +663,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (ktreewidgetsearchline_hideevent_isbase) {
-            ktreewidgetsearchline_hideevent_isbase = false;
-            KTreeWidgetSearchLine::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = ktreewidgetsearchline_hideevent_callback;
-        if (hideevent_cb) {
+        if (ktreewidgetsearchline_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            ktreewidgetsearchline_hideevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::hideEvent(event);
@@ -1116,12 +673,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (ktreewidgetsearchline_nativeevent_isbase) {
-            ktreewidgetsearchline_nativeevent_isbase = false;
-            return KTreeWidgetSearchLine::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = ktreewidgetsearchline_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (ktreewidgetsearchline_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1131,7 +683,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = ktreewidgetsearchline_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1140,14 +692,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (ktreewidgetsearchline_metric_isbase) {
-            ktreewidgetsearchline_metric_isbase = false;
-            return KTreeWidgetSearchLine::metric(param1);
-        }
-        auto metric_cb = ktreewidgetsearchline_metric_callback;
-        if (metric_cb) {
+        if (ktreewidgetsearchline_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = ktreewidgetsearchline_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KTreeWidgetSearchLine::metric(param1);
@@ -1155,15 +702,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (ktreewidgetsearchline_initpainter_isbase) {
-            ktreewidgetsearchline_initpainter_isbase = false;
-            KTreeWidgetSearchLine::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = ktreewidgetsearchline_initpainter_callback;
-        if (initpainter_cb) {
+        if (ktreewidgetsearchline_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            ktreewidgetsearchline_initpainter_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::initPainter(painter);
@@ -1171,14 +712,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (ktreewidgetsearchline_redirected_isbase) {
-            ktreewidgetsearchline_redirected_isbase = false;
-            return KTreeWidgetSearchLine::redirected(offset);
-        }
-        auto redirected_cb = ktreewidgetsearchline_redirected_callback;
-        if (redirected_cb) {
+        if (ktreewidgetsearchline_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = ktreewidgetsearchline_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::redirected(offset);
@@ -1186,13 +722,8 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (ktreewidgetsearchline_sharedpainter_isbase) {
-            ktreewidgetsearchline_sharedpainter_isbase = false;
-            return KTreeWidgetSearchLine::sharedPainter();
-        }
-        auto sharedpainter_cb = ktreewidgetsearchline_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (ktreewidgetsearchline_sharedpainter_callback) {
+            QPainter* callback_ret = ktreewidgetsearchline_sharedpainter_callback(this);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::sharedPainter();
@@ -1200,14 +731,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (ktreewidgetsearchline_focusnextprevchild_isbase) {
-            ktreewidgetsearchline_focusnextprevchild_isbase = false;
-            return KTreeWidgetSearchLine::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = ktreewidgetsearchline_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (ktreewidgetsearchline_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = ktreewidgetsearchline_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::focusNextPrevChild(next);
@@ -1215,15 +741,10 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (ktreewidgetsearchline_eventfilter_isbase) {
-            ktreewidgetsearchline_eventfilter_isbase = false;
-            return KTreeWidgetSearchLine::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = ktreewidgetsearchline_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (ktreewidgetsearchline_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = ktreewidgetsearchline_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KTreeWidgetSearchLine::eventFilter(watched, event);
@@ -1231,15 +752,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (ktreewidgetsearchline_childevent_isbase) {
-            ktreewidgetsearchline_childevent_isbase = false;
-            KTreeWidgetSearchLine::childEvent(event);
-            return;
-        }
-        auto childevent_cb = ktreewidgetsearchline_childevent_callback;
-        if (childevent_cb) {
+        if (ktreewidgetsearchline_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            ktreewidgetsearchline_childevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::childEvent(event);
@@ -1247,15 +762,9 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (ktreewidgetsearchline_customevent_isbase) {
-            ktreewidgetsearchline_customevent_isbase = false;
-            KTreeWidgetSearchLine::customEvent(event);
-            return;
-        }
-        auto customevent_cb = ktreewidgetsearchline_customevent_callback;
-        if (customevent_cb) {
+        if (ktreewidgetsearchline_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            ktreewidgetsearchline_customevent_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::customEvent(event);
@@ -1263,17 +772,11 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (ktreewidgetsearchline_connectnotify_isbase) {
-            ktreewidgetsearchline_connectnotify_isbase = false;
-            KTreeWidgetSearchLine::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = ktreewidgetsearchline_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (ktreewidgetsearchline_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            ktreewidgetsearchline_connectnotify_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::connectNotify(signal);
@@ -1281,296 +784,60 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (ktreewidgetsearchline_disconnectnotify_isbase) {
-            ktreewidgetsearchline_disconnectnotify_isbase = false;
-            KTreeWidgetSearchLine::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = ktreewidgetsearchline_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (ktreewidgetsearchline_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            ktreewidgetsearchline_disconnectnotify_callback(this, cbval1);
             return;
         }
         KTreeWidgetSearchLine::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QRect cursorRect() const {
-        if (ktreewidgetsearchline_cursorrect_isbase) {
-            ktreewidgetsearchline_cursorrect_isbase = false;
-            return KTreeWidgetSearchLine::cursorRect();
-        }
-        auto cursorrect_cb = ktreewidgetsearchline_cursorrect_callback;
-        if (cursorrect_cb) {
-            QRect* callback_ret = cursorrect_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return KTreeWidgetSearchLine::cursorRect();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (ktreewidgetsearchline_updatemicrofocus_isbase) {
-            ktreewidgetsearchline_updatemicrofocus_isbase = false;
-            KTreeWidgetSearchLine::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = ktreewidgetsearchline_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KTreeWidgetSearchLine::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (ktreewidgetsearchline_create_isbase) {
-            ktreewidgetsearchline_create_isbase = false;
-            KTreeWidgetSearchLine::create();
-            return;
-        }
-        auto create_cb = ktreewidgetsearchline_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KTreeWidgetSearchLine::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (ktreewidgetsearchline_destroy_isbase) {
-            ktreewidgetsearchline_destroy_isbase = false;
-            KTreeWidgetSearchLine::destroy();
-            return;
-        }
-        auto destroy_cb = ktreewidgetsearchline_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KTreeWidgetSearchLine::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (ktreewidgetsearchline_focusnextchild_isbase) {
-            ktreewidgetsearchline_focusnextchild_isbase = false;
-            return KTreeWidgetSearchLine::focusNextChild();
-        }
-        auto focusnextchild_cb = ktreewidgetsearchline_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KTreeWidgetSearchLine::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (ktreewidgetsearchline_focuspreviouschild_isbase) {
-            ktreewidgetsearchline_focuspreviouschild_isbase = false;
-            return KTreeWidgetSearchLine::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = ktreewidgetsearchline_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KTreeWidgetSearchLine::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (ktreewidgetsearchline_sender_isbase) {
-            ktreewidgetsearchline_sender_isbase = false;
-            return KTreeWidgetSearchLine::sender();
-        }
-        auto sender_cb = ktreewidgetsearchline_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KTreeWidgetSearchLine::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (ktreewidgetsearchline_sendersignalindex_isbase) {
-            ktreewidgetsearchline_sendersignalindex_isbase = false;
-            return KTreeWidgetSearchLine::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = ktreewidgetsearchline_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KTreeWidgetSearchLine::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (ktreewidgetsearchline_receivers_isbase) {
-            ktreewidgetsearchline_receivers_isbase = false;
-            return KTreeWidgetSearchLine::receivers(signal);
-        }
-        auto receivers_cb = ktreewidgetsearchline_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KTreeWidgetSearchLine::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (ktreewidgetsearchline_issignalconnected_isbase) {
-            ktreewidgetsearchline_issignalconnected_isbase = false;
-            return KTreeWidgetSearchLine::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = ktreewidgetsearchline_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KTreeWidgetSearchLine::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (ktreewidgetsearchline_getdecodedmetricf_isbase) {
-            ktreewidgetsearchline_getdecodedmetricf_isbase = false;
-            return KTreeWidgetSearchLine::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = ktreewidgetsearchline_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KTreeWidgetSearchLine::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool KTreeWidgetSearchLine_ItemMatches(const KTreeWidgetSearchLine* self, const QTreeWidgetItem* item, const libqt_string pattern);
     friend bool KTreeWidgetSearchLine_SuperItemMatches(const KTreeWidgetSearchLine* self, const QTreeWidgetItem* item, const libqt_string pattern);
-    friend void KTreeWidgetSearchLine_ContextMenuEvent(KTreeWidgetSearchLine* self, QContextMenuEvent* param1);
     friend void KTreeWidgetSearchLine_SuperContextMenuEvent(KTreeWidgetSearchLine* self, QContextMenuEvent* param1);
-    friend void KTreeWidgetSearchLine_UpdateSearch2(KTreeWidgetSearchLine* self, QTreeWidget* treeWidget);
     friend void KTreeWidgetSearchLine_SuperUpdateSearch2(KTreeWidgetSearchLine* self, QTreeWidget* treeWidget);
-    friend void KTreeWidgetSearchLine_ConnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1);
     friend void KTreeWidgetSearchLine_SuperConnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1);
-    friend void KTreeWidgetSearchLine_DisconnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1);
     friend void KTreeWidgetSearchLine_SuperDisconnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1);
-    friend bool KTreeWidgetSearchLine_CanChooseColumnsCheck(KTreeWidgetSearchLine* self);
     friend bool KTreeWidgetSearchLine_SuperCanChooseColumnsCheck(KTreeWidgetSearchLine* self);
-    friend bool KTreeWidgetSearchLine_Event(KTreeWidgetSearchLine* self, QEvent* event);
     friend bool KTreeWidgetSearchLine_SuperEvent(KTreeWidgetSearchLine* self, QEvent* event);
-    friend void KTreeWidgetSearchLine_MousePressEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1);
     friend void KTreeWidgetSearchLine_SuperMousePressEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1);
-    friend void KTreeWidgetSearchLine_MouseMoveEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1);
     friend void KTreeWidgetSearchLine_SuperMouseMoveEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1);
-    friend void KTreeWidgetSearchLine_MouseReleaseEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1);
     friend void KTreeWidgetSearchLine_SuperMouseReleaseEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1);
-    friend void KTreeWidgetSearchLine_MouseDoubleClickEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1);
     friend void KTreeWidgetSearchLine_SuperMouseDoubleClickEvent(KTreeWidgetSearchLine* self, QMouseEvent* param1);
-    friend void KTreeWidgetSearchLine_KeyPressEvent(KTreeWidgetSearchLine* self, QKeyEvent* param1);
     friend void KTreeWidgetSearchLine_SuperKeyPressEvent(KTreeWidgetSearchLine* self, QKeyEvent* param1);
-    friend void KTreeWidgetSearchLine_KeyReleaseEvent(KTreeWidgetSearchLine* self, QKeyEvent* param1);
     friend void KTreeWidgetSearchLine_SuperKeyReleaseEvent(KTreeWidgetSearchLine* self, QKeyEvent* param1);
-    friend void KTreeWidgetSearchLine_FocusInEvent(KTreeWidgetSearchLine* self, QFocusEvent* param1);
     friend void KTreeWidgetSearchLine_SuperFocusInEvent(KTreeWidgetSearchLine* self, QFocusEvent* param1);
-    friend void KTreeWidgetSearchLine_FocusOutEvent(KTreeWidgetSearchLine* self, QFocusEvent* param1);
     friend void KTreeWidgetSearchLine_SuperFocusOutEvent(KTreeWidgetSearchLine* self, QFocusEvent* param1);
-    friend void KTreeWidgetSearchLine_PaintEvent(KTreeWidgetSearchLine* self, QPaintEvent* param1);
     friend void KTreeWidgetSearchLine_SuperPaintEvent(KTreeWidgetSearchLine* self, QPaintEvent* param1);
-    friend void KTreeWidgetSearchLine_DragEnterEvent(KTreeWidgetSearchLine* self, QDragEnterEvent* param1);
     friend void KTreeWidgetSearchLine_SuperDragEnterEvent(KTreeWidgetSearchLine* self, QDragEnterEvent* param1);
-    friend void KTreeWidgetSearchLine_DragMoveEvent(KTreeWidgetSearchLine* self, QDragMoveEvent* e);
     friend void KTreeWidgetSearchLine_SuperDragMoveEvent(KTreeWidgetSearchLine* self, QDragMoveEvent* e);
-    friend void KTreeWidgetSearchLine_DragLeaveEvent(KTreeWidgetSearchLine* self, QDragLeaveEvent* e);
     friend void KTreeWidgetSearchLine_SuperDragLeaveEvent(KTreeWidgetSearchLine* self, QDragLeaveEvent* e);
-    friend void KTreeWidgetSearchLine_DropEvent(KTreeWidgetSearchLine* self, QDropEvent* param1);
     friend void KTreeWidgetSearchLine_SuperDropEvent(KTreeWidgetSearchLine* self, QDropEvent* param1);
-    friend void KTreeWidgetSearchLine_ChangeEvent(KTreeWidgetSearchLine* self, QEvent* param1);
     friend void KTreeWidgetSearchLine_SuperChangeEvent(KTreeWidgetSearchLine* self, QEvent* param1);
-    friend void KTreeWidgetSearchLine_InputMethodEvent(KTreeWidgetSearchLine* self, QInputMethodEvent* param1);
     friend void KTreeWidgetSearchLine_SuperInputMethodEvent(KTreeWidgetSearchLine* self, QInputMethodEvent* param1);
-    friend void KTreeWidgetSearchLine_InitStyleOption(const KTreeWidgetSearchLine* self, QStyleOptionFrame* option);
     friend void KTreeWidgetSearchLine_SuperInitStyleOption(const KTreeWidgetSearchLine* self, QStyleOptionFrame* option);
-    friend void KTreeWidgetSearchLine_WheelEvent(KTreeWidgetSearchLine* self, QWheelEvent* event);
     friend void KTreeWidgetSearchLine_SuperWheelEvent(KTreeWidgetSearchLine* self, QWheelEvent* event);
-    friend void KTreeWidgetSearchLine_EnterEvent(KTreeWidgetSearchLine* self, QEnterEvent* event);
     friend void KTreeWidgetSearchLine_SuperEnterEvent(KTreeWidgetSearchLine* self, QEnterEvent* event);
-    friend void KTreeWidgetSearchLine_LeaveEvent(KTreeWidgetSearchLine* self, QEvent* event);
     friend void KTreeWidgetSearchLine_SuperLeaveEvent(KTreeWidgetSearchLine* self, QEvent* event);
-    friend void KTreeWidgetSearchLine_MoveEvent(KTreeWidgetSearchLine* self, QMoveEvent* event);
     friend void KTreeWidgetSearchLine_SuperMoveEvent(KTreeWidgetSearchLine* self, QMoveEvent* event);
-    friend void KTreeWidgetSearchLine_ResizeEvent(KTreeWidgetSearchLine* self, QResizeEvent* event);
     friend void KTreeWidgetSearchLine_SuperResizeEvent(KTreeWidgetSearchLine* self, QResizeEvent* event);
-    friend void KTreeWidgetSearchLine_CloseEvent(KTreeWidgetSearchLine* self, QCloseEvent* event);
     friend void KTreeWidgetSearchLine_SuperCloseEvent(KTreeWidgetSearchLine* self, QCloseEvent* event);
-    friend void KTreeWidgetSearchLine_TabletEvent(KTreeWidgetSearchLine* self, QTabletEvent* event);
     friend void KTreeWidgetSearchLine_SuperTabletEvent(KTreeWidgetSearchLine* self, QTabletEvent* event);
-    friend void KTreeWidgetSearchLine_ActionEvent(KTreeWidgetSearchLine* self, QActionEvent* event);
     friend void KTreeWidgetSearchLine_SuperActionEvent(KTreeWidgetSearchLine* self, QActionEvent* event);
-    friend void KTreeWidgetSearchLine_ShowEvent(KTreeWidgetSearchLine* self, QShowEvent* event);
     friend void KTreeWidgetSearchLine_SuperShowEvent(KTreeWidgetSearchLine* self, QShowEvent* event);
-    friend void KTreeWidgetSearchLine_HideEvent(KTreeWidgetSearchLine* self, QHideEvent* event);
     friend void KTreeWidgetSearchLine_SuperHideEvent(KTreeWidgetSearchLine* self, QHideEvent* event);
-    friend bool KTreeWidgetSearchLine_NativeEvent(KTreeWidgetSearchLine* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KTreeWidgetSearchLine_SuperNativeEvent(KTreeWidgetSearchLine* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KTreeWidgetSearchLine_Metric(const KTreeWidgetSearchLine* self, int param1);
     friend int KTreeWidgetSearchLine_SuperMetric(const KTreeWidgetSearchLine* self, int param1);
-    friend void KTreeWidgetSearchLine_InitPainter(const KTreeWidgetSearchLine* self, QPainter* painter);
     friend void KTreeWidgetSearchLine_SuperInitPainter(const KTreeWidgetSearchLine* self, QPainter* painter);
-    friend QPaintDevice* KTreeWidgetSearchLine_Redirected(const KTreeWidgetSearchLine* self, QPoint* offset);
     friend QPaintDevice* KTreeWidgetSearchLine_SuperRedirected(const KTreeWidgetSearchLine* self, QPoint* offset);
-    friend QPainter* KTreeWidgetSearchLine_SharedPainter(const KTreeWidgetSearchLine* self);
     friend QPainter* KTreeWidgetSearchLine_SuperSharedPainter(const KTreeWidgetSearchLine* self);
-    friend bool KTreeWidgetSearchLine_FocusNextPrevChild(KTreeWidgetSearchLine* self, bool next);
     friend bool KTreeWidgetSearchLine_SuperFocusNextPrevChild(KTreeWidgetSearchLine* self, bool next);
-    friend void KTreeWidgetSearchLine_ChildEvent(KTreeWidgetSearchLine* self, QChildEvent* event);
     friend void KTreeWidgetSearchLine_SuperChildEvent(KTreeWidgetSearchLine* self, QChildEvent* event);
-    friend void KTreeWidgetSearchLine_CustomEvent(KTreeWidgetSearchLine* self, QEvent* event);
     friend void KTreeWidgetSearchLine_SuperCustomEvent(KTreeWidgetSearchLine* self, QEvent* event);
-    friend void KTreeWidgetSearchLine_ConnectNotify(KTreeWidgetSearchLine* self, const QMetaMethod* signal);
     friend void KTreeWidgetSearchLine_SuperConnectNotify(KTreeWidgetSearchLine* self, const QMetaMethod* signal);
-    friend void KTreeWidgetSearchLine_DisconnectNotify(KTreeWidgetSearchLine* self, const QMetaMethod* signal);
     friend void KTreeWidgetSearchLine_SuperDisconnectNotify(KTreeWidgetSearchLine* self, const QMetaMethod* signal);
-    friend QRect* KTreeWidgetSearchLine_CursorRect(const KTreeWidgetSearchLine* self);
-    friend QRect* KTreeWidgetSearchLine_SuperCursorRect(const KTreeWidgetSearchLine* self);
-    friend void KTreeWidgetSearchLine_UpdateMicroFocus(KTreeWidgetSearchLine* self);
-    friend void KTreeWidgetSearchLine_SuperUpdateMicroFocus(KTreeWidgetSearchLine* self);
-    friend void KTreeWidgetSearchLine_Create(KTreeWidgetSearchLine* self);
-    friend void KTreeWidgetSearchLine_SuperCreate(KTreeWidgetSearchLine* self);
-    friend void KTreeWidgetSearchLine_Destroy(KTreeWidgetSearchLine* self);
-    friend void KTreeWidgetSearchLine_SuperDestroy(KTreeWidgetSearchLine* self);
-    friend bool KTreeWidgetSearchLine_FocusNextChild(KTreeWidgetSearchLine* self);
-    friend bool KTreeWidgetSearchLine_SuperFocusNextChild(KTreeWidgetSearchLine* self);
-    friend bool KTreeWidgetSearchLine_FocusPreviousChild(KTreeWidgetSearchLine* self);
-    friend bool KTreeWidgetSearchLine_SuperFocusPreviousChild(KTreeWidgetSearchLine* self);
-    friend QObject* KTreeWidgetSearchLine_Sender(const KTreeWidgetSearchLine* self);
-    friend QObject* KTreeWidgetSearchLine_SuperSender(const KTreeWidgetSearchLine* self);
-    friend int KTreeWidgetSearchLine_SenderSignalIndex(const KTreeWidgetSearchLine* self);
-    friend int KTreeWidgetSearchLine_SuperSenderSignalIndex(const KTreeWidgetSearchLine* self);
-    friend int KTreeWidgetSearchLine_Receivers(const KTreeWidgetSearchLine* self, const char* signal);
-    friend int KTreeWidgetSearchLine_SuperReceivers(const KTreeWidgetSearchLine* self, const char* signal);
-    friend bool KTreeWidgetSearchLine_IsSignalConnected(const KTreeWidgetSearchLine* self, const QMetaMethod* signal);
-    friend bool KTreeWidgetSearchLine_SuperIsSignalConnected(const KTreeWidgetSearchLine* self, const QMetaMethod* signal);
-    friend double KTreeWidgetSearchLine_GetDecodedMetricF(const KTreeWidgetSearchLine* self, int metricA, int metricB);
-    friend double KTreeWidgetSearchLine_SuperGetDecodedMetricF(const KTreeWidgetSearchLine* self, int metricA, int metricB);
 };
 
 #endif

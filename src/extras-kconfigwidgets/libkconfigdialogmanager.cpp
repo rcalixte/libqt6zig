@@ -154,722 +154,318 @@ libqt_string KConfigDialogManager_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KConfigDialogManager_SuperMetaObject(const KConfigDialogManager* self) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_MetaObject_IsBase(true);
-        return (QMetaObject*)vkconfigdialogmanager->metaObject();
-    } else {
-        return (QMetaObject*)self->KConfigDialogManager::metaObject();
-    }
+    return (QMetaObject*)self->KConfigDialogManager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnMetaObject(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_MetaObject_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_MetaObject_Callback>(slot));
+void KConfigDialogManager_OnMetaObject(KConfigDialogManager* self, intptr_t slot) {
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self)))
+        vkconfigdialogmanager->kconfigdialogmanager_metaobject_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KConfigDialogManager_SuperMetacast(KConfigDialogManager* self, const char* param1) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_Metacast_IsBase(true);
-        return vkconfigdialogmanager->qt_metacast(param1);
-    } else {
-        return self->KConfigDialogManager::qt_metacast(param1);
-    }
+    return self->KConfigDialogManager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnMetacast(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_Metacast_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Metacast_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_metacast_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KConfigDialogManager_SuperMetacall(KConfigDialogManager* self, int param1, int param2, void** param3) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_Metacall_IsBase(true);
-        return vkconfigdialogmanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KConfigDialogManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KConfigDialogManager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnMetacall(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_Metacall_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Metacall_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_metacall_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KConfigDialogManager_Event(KConfigDialogManager* self, QEvent* event) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return vkconfigdialogmanager->event(event);
-    } else {
-        return self->KConfigDialogManager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KConfigDialogManager_SuperEvent(KConfigDialogManager* self, QEvent* event) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_Event_IsBase(true);
-        return vkconfigdialogmanager->event(event);
-    } else {
-        return self->KConfigDialogManager::event(event);
-    }
+    return self->KConfigDialogManager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnEvent(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_Event_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Event_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_event_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KConfigDialogManager_EventFilter(KConfigDialogManager* self, QObject* watched, QEvent* event) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return vkconfigdialogmanager->eventFilter(watched, event);
-    } else {
-        return self->KConfigDialogManager::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KConfigDialogManager_SuperEventFilter(KConfigDialogManager* self, QObject* watched, QEvent* event) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_EventFilter_IsBase(true);
-        return vkconfigdialogmanager->eventFilter(watched, event);
-    } else {
-        return self->KConfigDialogManager::eventFilter(watched, event);
-    }
+    return self->KConfigDialogManager::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnEventFilter(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_EventFilter_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_EventFilter_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_eventfilter_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigDialogManager_TimerEvent(KConfigDialogManager* self, QTimerEvent* event) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+    if (vkconfigdialogmanager) {
         vkconfigdialogmanager->timerEvent(event);
     } else {
-        ((VirtualKConfigDialogManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KConfigDialogManager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigDialogManager_SuperTimerEvent(KConfigDialogManager* self, QTimerEvent* event) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_TimerEvent_IsBase(true);
-        vkconfigdialogmanager->timerEvent(event);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->timerEvent(event);
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->KConfigDialogManager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KConfigDialogManager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnTimerEvent(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_TimerEvent_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_TimerEvent_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_timerevent_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigDialogManager_ChildEvent(KConfigDialogManager* self, QChildEvent* event) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+    if (vkconfigdialogmanager) {
         vkconfigdialogmanager->childEvent(event);
     } else {
-        ((VirtualKConfigDialogManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KConfigDialogManager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigDialogManager_SuperChildEvent(KConfigDialogManager* self, QChildEvent* event) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_ChildEvent_IsBase(true);
-        vkconfigdialogmanager->childEvent(event);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->childEvent(event);
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->KConfigDialogManager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KConfigDialogManager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnChildEvent(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_ChildEvent_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_ChildEvent_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_childevent_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigDialogManager_CustomEvent(KConfigDialogManager* self, QEvent* event) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+    if (vkconfigdialogmanager) {
         vkconfigdialogmanager->customEvent(event);
     } else {
-        ((VirtualKConfigDialogManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KConfigDialogManager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigDialogManager_SuperCustomEvent(KConfigDialogManager* self, QEvent* event) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_CustomEvent_IsBase(true);
-        vkconfigdialogmanager->customEvent(event);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->customEvent(event);
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->KConfigDialogManager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KConfigDialogManager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnCustomEvent(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_CustomEvent_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_CustomEvent_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_customevent_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigDialogManager_ConnectNotify(KConfigDialogManager* self, const QMetaMethod* signal) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+    if (vkconfigdialogmanager) {
         vkconfigdialogmanager->connectNotify(*signal);
     } else {
-        ((VirtualKConfigDialogManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KConfigDialogManager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigDialogManager_SuperConnectNotify(KConfigDialogManager* self, const QMetaMethod* signal) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_ConnectNotify_IsBase(true);
-        vkconfigdialogmanager->connectNotify(*signal);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->KConfigDialogManager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KConfigDialogManager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnConnectNotify(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_ConnectNotify_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_ConnectNotify_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_connectnotify_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KConfigDialogManager_DisconnectNotify(KConfigDialogManager* self, const QMetaMethod* signal) {
     auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+    if (vkconfigdialogmanager) {
         vkconfigdialogmanager->disconnectNotify(*signal);
     } else {
-        ((VirtualKConfigDialogManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KConfigDialogManager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KConfigDialogManager_SuperDisconnectNotify(KConfigDialogManager* self, const QMetaMethod* signal) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_DisconnectNotify_IsBase(true);
-        vkconfigdialogmanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->KConfigDialogManager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KConfigDialogManager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialogManager_OnDisconnectNotify(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_DisconnectNotify_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_DisconnectNotify_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self))
+        vkconfigdialogmanager->kconfigdialogmanager_disconnectnotify_callback = reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KConfigDialogManager_Init(KConfigDialogManager* self, bool trackChanges) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->init(trackChanges);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->init(trackChanges);
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->VirtualKConfigDialogManager::init(trackChanges);
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::init called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KConfigDialogManager_SuperInit(KConfigDialogManager* self, bool trackChanges) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_Init_IsBase(true);
-        vkconfigdialogmanager->init(trackChanges);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->init(trackChanges);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnInit(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_Init_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Init_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KConfigDialogManager_ParseChildren(KConfigDialogManager* self, const QWidget* widget, bool trackChanges) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return vkconfigdialogmanager->parseChildren(widget, trackChanges);
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->parseChildren(widget, trackChanges);
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        return vkconfigdialogmanager->VirtualKConfigDialogManager::parseChildren(widget, trackChanges);
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::parseChildren called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KConfigDialogManager_SuperParseChildren(KConfigDialogManager* self, const QWidget* widget, bool trackChanges) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_ParseChildren_IsBase(true);
-        return vkconfigdialogmanager->parseChildren(widget, trackChanges);
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->parseChildren(widget, trackChanges);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnParseChildren(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_ParseChildren_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_ParseChildren_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KConfigDialogManager_GetUserProperty(const KConfigDialogManager* self, const QWidget* widget) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        QByteArray _qb = vkconfigdialogmanager->getUserProperty(widget);
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self))) {
+        QByteArray _qb = vkconfigdialogmanager->VirtualKConfigDialogManager::getUserProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getUserProperty(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::getUserProperty called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KConfigDialogManager_SuperGetUserProperty(const KConfigDialogManager* self, const QWidget* widget) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_GetUserProperty_IsBase(true);
-        QByteArray _qb = vkconfigdialogmanager->getUserProperty(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getUserProperty(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnGetUserProperty(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_GetUserProperty_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_GetUserProperty_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KConfigDialogManager_GetCustomProperty(const KConfigDialogManager* self, const QWidget* widget) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        QByteArray _qb = vkconfigdialogmanager->getCustomProperty(widget);
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self))) {
+        QByteArray _qb = vkconfigdialogmanager->VirtualKConfigDialogManager::getCustomProperty(widget);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getCustomProperty(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::getCustomProperty called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KConfigDialogManager_SuperGetCustomProperty(const KConfigDialogManager* self, const QWidget* widget) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_GetCustomProperty_IsBase(true);
-        QByteArray _qb = vkconfigdialogmanager->getCustomProperty(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getCustomProperty(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnGetCustomProperty(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_GetCustomProperty_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_GetCustomProperty_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KConfigDialogManager_GetUserPropertyChangedSignal(const KConfigDialogManager* self, const QWidget* widget) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        QByteArray _qb = vkconfigdialogmanager->getUserPropertyChangedSignal(widget);
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self))) {
+        QByteArray _qb = vkconfigdialogmanager->VirtualKConfigDialogManager::getUserPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getUserPropertyChangedSignal(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::getUserPropertyChangedSignal called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KConfigDialogManager_SuperGetUserPropertyChangedSignal(const KConfigDialogManager* self, const QWidget* widget) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_GetUserPropertyChangedSignal_IsBase(true);
-        QByteArray _qb = vkconfigdialogmanager->getUserPropertyChangedSignal(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getUserPropertyChangedSignal(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnGetUserPropertyChangedSignal(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_GetUserPropertyChangedSignal_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_GetUserPropertyChangedSignal_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_string KConfigDialogManager_GetCustomPropertyChangedSignal(const KConfigDialogManager* self, const QWidget* widget) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        QByteArray _qb = vkconfigdialogmanager->getCustomPropertyChangedSignal(widget);
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self))) {
+        QByteArray _qb = vkconfigdialogmanager->VirtualKConfigDialogManager::getCustomPropertyChangedSignal(widget);
         libqt_string _str;
         _str.len = _qb.length();
         _str.data = static_cast<char*>(malloc(_str.len));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         return _str;
-    } else {
-        QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getCustomPropertyChangedSignal(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::getCustomPropertyChangedSignal called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_string KConfigDialogManager_SuperGetCustomPropertyChangedSignal(const KConfigDialogManager* self, const QWidget* widget) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_GetCustomPropertyChangedSignal_IsBase(true);
-        QByteArray _qb = vkconfigdialogmanager->getCustomPropertyChangedSignal(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualKConfigDialogManager*)self)->getCustomPropertyChangedSignal(widget);
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnGetCustomPropertyChangedSignal(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_GetCustomPropertyChangedSignal_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_GetCustomPropertyChangedSignal_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KConfigDialogManager_SetProperty(KConfigDialogManager* self, QWidget* w, const QVariant* v) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setProperty(w, *v);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->setProperty(w, *v);
-    }
-}
-
-// Base class handler implementation
-void KConfigDialogManager_SuperSetProperty(KConfigDialogManager* self, QWidget* w, const QVariant* v) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_SetProperty_IsBase(true);
-        vkconfigdialogmanager->setProperty(w, *v);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->setProperty(w, *v);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnSetProperty(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_SetProperty_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_SetProperty_Callback>(slot));
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->VirtualKConfigDialogManager::setProperty(w, *v);
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::setProperty called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QVariant* KConfigDialogManager_Property(const KConfigDialogManager* self, QWidget* w) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self)))
         return new QVariant(vkconfigdialogmanager->property(w));
-    }
-    return {};
+    qFatal("Error: Protected method KConfigDialogManager::property called without a directly constructed type");
 }
 
-// Base class handler implementation
-QVariant* KConfigDialogManager_SuperProperty(const KConfigDialogManager* self, QWidget* w) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_Property_IsBase(true);
-        return new QVariant(vkconfigdialogmanager->property(w));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnProperty(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_Property_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Property_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KConfigDialogManager_SetupWidget(KConfigDialogManager* self, QWidget* widget, KConfigSkeletonItem* item) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setupWidget(widget, item);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->setupWidget(widget, item);
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->VirtualKConfigDialogManager::setupWidget(widget, item);
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::setupWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KConfigDialogManager_SuperSetupWidget(KConfigDialogManager* self, QWidget* widget, KConfigSkeletonItem* item) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_SetupWidget_IsBase(true);
-        vkconfigdialogmanager->setupWidget(widget, item);
-    } else {
-        ((VirtualKConfigDialogManager*)self)->setupWidget(widget, item);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnSetupWidget(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_SetupWidget_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_SetupWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KConfigDialogManager_InitMaps(KConfigDialogManager* self) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->initMaps();
-    } else {
-        ((VirtualKConfigDialogManager*)self)->initMaps();
-    }
+    if (auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self)) {
+        vkconfigdialogmanager->VirtualKConfigDialogManager::initMaps();
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::initMaps called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KConfigDialogManager_SuperInitMaps(KConfigDialogManager* self) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_InitMaps_IsBase(true);
-        vkconfigdialogmanager->initMaps();
-    } else {
-        ((VirtualKConfigDialogManager*)self)->initMaps();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnInitMaps(KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_InitMaps_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_InitMaps_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KConfigDialogManager_Sender(const KConfigDialogManager* self) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return vkconfigdialogmanager->sender();
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->sender();
-    }
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self))) {
+        return vkconfigdialogmanager->VirtualKConfigDialogManager::sender();
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KConfigDialogManager_SuperSender(const KConfigDialogManager* self) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_Sender_IsBase(true);
-        return vkconfigdialogmanager->sender();
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnSender(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_Sender_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KConfigDialogManager_SenderSignalIndex(const KConfigDialogManager* self) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return vkconfigdialogmanager->senderSignalIndex();
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->senderSignalIndex();
-    }
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self))) {
+        return vkconfigdialogmanager->VirtualKConfigDialogManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KConfigDialogManager_SuperSenderSignalIndex(const KConfigDialogManager* self) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_SenderSignalIndex_IsBase(true);
-        return vkconfigdialogmanager->senderSignalIndex();
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnSenderSignalIndex(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KConfigDialogManager_Receivers(const KConfigDialogManager* self, const char* signal) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return vkconfigdialogmanager->receivers(signal);
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->receivers(signal);
-    }
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self))) {
+        return vkconfigdialogmanager->VirtualKConfigDialogManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KConfigDialogManager_SuperReceivers(const KConfigDialogManager* self, const char* signal) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_Receivers_IsBase(true);
-        return vkconfigdialogmanager->receivers(signal);
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnReceivers(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_Receivers_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KConfigDialogManager_IsSignalConnected(const KConfigDialogManager* self, const QMetaMethod* signal) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return vkconfigdialogmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KConfigDialogManager_SuperIsSignalConnected(const KConfigDialogManager* self, const QMetaMethod* signal) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        vkconfigdialogmanager->setKConfigDialogManager_IsSignalConnected_IsBase(true);
-        return vkconfigdialogmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KConfigDialogManager_OnIsSignalConnected(const KConfigDialogManager* self, intptr_t slot) {
-    auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self));
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager)
-        vkconfigdialogmanager->setKConfigDialogManager_IsSignalConnected_Callback(reinterpret_cast<VirtualKConfigDialogManager::KConfigDialogManager_IsSignalConnected_Callback>(slot));
+    if (auto* vkconfigdialogmanager = const_cast<VirtualKConfigDialogManager*>(dynamic_cast<const VirtualKConfigDialogManager*>(self))) {
+        return vkconfigdialogmanager->VirtualKConfigDialogManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KConfigDialogManager::isSignalConnected called without a directly constructed type");
 }
 
 void KConfigDialogManager_Delete(KConfigDialogManager* self) {

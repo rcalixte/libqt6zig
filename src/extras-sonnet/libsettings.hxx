@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of Sonnet::Settings so that we can call protected methods
+// This class is a subclass of Sonnet::Settings
 class VirtualSonnetSettings final : public Sonnet::Settings {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualSonnetSettings = true;
-
-    // Virtual class public types (including callbacks)
-    using Sonnet__Settings_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using Sonnet__Settings_MetaObject_Callback = QMetaObject* (*)(const Sonnet__Settings*);
     using Sonnet__Settings_Metacast_Callback = void* (*)(Sonnet__Settings*, const char*);
     using Sonnet__Settings_Metacall_Callback = int (*)(Sonnet__Settings*, int, int, void**);
     using Sonnet__Settings_Event_Callback = bool (*)(Sonnet__Settings*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
     using Sonnet__Settings_CustomEvent_Callback = void (*)(Sonnet__Settings*, QEvent*);
     using Sonnet__Settings_ConnectNotify_Callback = void (*)(Sonnet__Settings*, QMetaMethod*);
     using Sonnet__Settings_DisconnectNotify_Callback = void (*)(Sonnet__Settings*, QMetaMethod*);
-    using Sonnet__Settings_Sender_Callback = QObject* (*)();
-    using Sonnet__Settings_SenderSignalIndex_Callback = int (*)();
-    using Sonnet__Settings_Receivers_Callback = int (*)(const Sonnet__Settings*, const char*);
-    using Sonnet__Settings_IsSignalConnected_Callback = bool (*)(const Sonnet__Settings*, QMetaMethod*);
+    using Sonnet::Settings::isSignalConnected;
+    using Sonnet::Settings::receivers;
+    using Sonnet::Settings::sender;
+    using Sonnet::Settings::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     Sonnet__Settings_MetaObject_Callback sonnet__settings_metaobject_callback = nullptr;
     Sonnet__Settings_Metacast_Callback sonnet__settings_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
     Sonnet__Settings_CustomEvent_Callback sonnet__settings_customevent_callback = nullptr;
     Sonnet__Settings_ConnectNotify_Callback sonnet__settings_connectnotify_callback = nullptr;
     Sonnet__Settings_DisconnectNotify_Callback sonnet__settings_disconnectnotify_callback = nullptr;
-    Sonnet__Settings_Sender_Callback sonnet__settings_sender_callback = nullptr;
-    Sonnet__Settings_SenderSignalIndex_Callback sonnet__settings_sendersignalindex_callback = nullptr;
-    Sonnet__Settings_Receivers_Callback sonnet__settings_receivers_callback = nullptr;
-    Sonnet__Settings_IsSignalConnected_Callback sonnet__settings_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool sonnet__settings_metaobject_isbase = false;
-    mutable bool sonnet__settings_metacast_isbase = false;
-    mutable bool sonnet__settings_metacall_isbase = false;
-    mutable bool sonnet__settings_event_isbase = false;
-    mutable bool sonnet__settings_eventfilter_isbase = false;
-    mutable bool sonnet__settings_timerevent_isbase = false;
-    mutable bool sonnet__settings_childevent_isbase = false;
-    mutable bool sonnet__settings_customevent_isbase = false;
-    mutable bool sonnet__settings_connectnotify_isbase = false;
-    mutable bool sonnet__settings_disconnectnotify_isbase = false;
-    mutable bool sonnet__settings_sender_isbase = false;
-    mutable bool sonnet__settings_sendersignalindex_isbase = false;
-    mutable bool sonnet__settings_receivers_isbase = false;
-    mutable bool sonnet__settings_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : Sonnet::Settings {
+        using Sonnet::Settings::childEvent;
+        using Sonnet::Settings::connectNotify;
+        using Sonnet::Settings::customEvent;
+        using Sonnet::Settings::disconnectNotify;
+        using Sonnet::Settings::timerEvent;
+    };
 
-  public:
     VirtualSonnetSettings() : Sonnet::Settings() {};
     VirtualSonnetSettings(QObject* parent) : Sonnet::Settings(parent) {};
 
-    // Callback setters
-    inline void setSonnet__Settings_MetaObject_Callback(Sonnet__Settings_MetaObject_Callback cb) { sonnet__settings_metaobject_callback = cb; }
-    inline void setSonnet__Settings_Metacast_Callback(Sonnet__Settings_Metacast_Callback cb) { sonnet__settings_metacast_callback = cb; }
-    inline void setSonnet__Settings_Metacall_Callback(Sonnet__Settings_Metacall_Callback cb) { sonnet__settings_metacall_callback = cb; }
-    inline void setSonnet__Settings_Event_Callback(Sonnet__Settings_Event_Callback cb) { sonnet__settings_event_callback = cb; }
-    inline void setSonnet__Settings_EventFilter_Callback(Sonnet__Settings_EventFilter_Callback cb) { sonnet__settings_eventfilter_callback = cb; }
-    inline void setSonnet__Settings_TimerEvent_Callback(Sonnet__Settings_TimerEvent_Callback cb) { sonnet__settings_timerevent_callback = cb; }
-    inline void setSonnet__Settings_ChildEvent_Callback(Sonnet__Settings_ChildEvent_Callback cb) { sonnet__settings_childevent_callback = cb; }
-    inline void setSonnet__Settings_CustomEvent_Callback(Sonnet__Settings_CustomEvent_Callback cb) { sonnet__settings_customevent_callback = cb; }
-    inline void setSonnet__Settings_ConnectNotify_Callback(Sonnet__Settings_ConnectNotify_Callback cb) { sonnet__settings_connectnotify_callback = cb; }
-    inline void setSonnet__Settings_DisconnectNotify_Callback(Sonnet__Settings_DisconnectNotify_Callback cb) { sonnet__settings_disconnectnotify_callback = cb; }
-    inline void setSonnet__Settings_Sender_Callback(Sonnet__Settings_Sender_Callback cb) { sonnet__settings_sender_callback = cb; }
-    inline void setSonnet__Settings_SenderSignalIndex_Callback(Sonnet__Settings_SenderSignalIndex_Callback cb) { sonnet__settings_sendersignalindex_callback = cb; }
-    inline void setSonnet__Settings_Receivers_Callback(Sonnet__Settings_Receivers_Callback cb) { sonnet__settings_receivers_callback = cb; }
-    inline void setSonnet__Settings_IsSignalConnected_Callback(Sonnet__Settings_IsSignalConnected_Callback cb) { sonnet__settings_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setSonnet__Settings_MetaObject_IsBase(bool value) const { sonnet__settings_metaobject_isbase = value; }
-    inline void setSonnet__Settings_Metacast_IsBase(bool value) const { sonnet__settings_metacast_isbase = value; }
-    inline void setSonnet__Settings_Metacall_IsBase(bool value) const { sonnet__settings_metacall_isbase = value; }
-    inline void setSonnet__Settings_Event_IsBase(bool value) const { sonnet__settings_event_isbase = value; }
-    inline void setSonnet__Settings_EventFilter_IsBase(bool value) const { sonnet__settings_eventfilter_isbase = value; }
-    inline void setSonnet__Settings_TimerEvent_IsBase(bool value) const { sonnet__settings_timerevent_isbase = value; }
-    inline void setSonnet__Settings_ChildEvent_IsBase(bool value) const { sonnet__settings_childevent_isbase = value; }
-    inline void setSonnet__Settings_CustomEvent_IsBase(bool value) const { sonnet__settings_customevent_isbase = value; }
-    inline void setSonnet__Settings_ConnectNotify_IsBase(bool value) const { sonnet__settings_connectnotify_isbase = value; }
-    inline void setSonnet__Settings_DisconnectNotify_IsBase(bool value) const { sonnet__settings_disconnectnotify_isbase = value; }
-    inline void setSonnet__Settings_Sender_IsBase(bool value) const { sonnet__settings_sender_isbase = value; }
-    inline void setSonnet__Settings_SenderSignalIndex_IsBase(bool value) const { sonnet__settings_sendersignalindex_isbase = value; }
-    inline void setSonnet__Settings_Receivers_IsBase(bool value) const { sonnet__settings_receivers_isbase = value; }
-    inline void setSonnet__Settings_IsSignalConnected_IsBase(bool value) const { sonnet__settings_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (sonnet__settings_metaobject_isbase) {
-            sonnet__settings_metaobject_isbase = false;
-            return Sonnet__Settings::metaObject();
-        }
-        auto metaobject_cb = sonnet__settings_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (sonnet__settings_metaobject_callback) {
+            QMetaObject* callback_ret = sonnet__settings_metaobject_callback(this);
             return callback_ret;
         }
         return Sonnet__Settings::metaObject();
@@ -117,14 +63,9 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (sonnet__settings_metacast_isbase) {
-            sonnet__settings_metacast_isbase = false;
-            return Sonnet__Settings::qt_metacast(param1);
-        }
-        auto metacast_cb = sonnet__settings_metacast_callback;
-        if (metacast_cb) {
+        if (sonnet__settings_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = sonnet__settings_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return Sonnet__Settings::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (sonnet__settings_metacall_isbase) {
-            sonnet__settings_metacall_isbase = false;
-            return Sonnet__Settings::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = sonnet__settings_metacall_callback;
-        if (metacall_cb) {
+        if (sonnet__settings_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = sonnet__settings_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return Sonnet__Settings::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (sonnet__settings_event_isbase) {
-            sonnet__settings_event_isbase = false;
-            return Sonnet__Settings::event(event);
-        }
-        auto event_cb = sonnet__settings_event_callback;
-        if (event_cb) {
+        if (sonnet__settings_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = sonnet__settings_event_callback(this, cbval1);
             return callback_ret;
         }
         return Sonnet__Settings::event(event);
@@ -164,15 +95,10 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (sonnet__settings_eventfilter_isbase) {
-            sonnet__settings_eventfilter_isbase = false;
-            return Sonnet__Settings::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = sonnet__settings_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (sonnet__settings_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = sonnet__settings_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return Sonnet__Settings::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (sonnet__settings_timerevent_isbase) {
-            sonnet__settings_timerevent_isbase = false;
-            Sonnet__Settings::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = sonnet__settings_timerevent_callback;
-        if (timerevent_cb) {
+        if (sonnet__settings_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            sonnet__settings_timerevent_callback(this, cbval1);
             return;
         }
         Sonnet__Settings::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (sonnet__settings_childevent_isbase) {
-            sonnet__settings_childevent_isbase = false;
-            Sonnet__Settings::childEvent(event);
-            return;
-        }
-        auto childevent_cb = sonnet__settings_childevent_callback;
-        if (childevent_cb) {
+        if (sonnet__settings_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            sonnet__settings_childevent_callback(this, cbval1);
             return;
         }
         Sonnet__Settings::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (sonnet__settings_customevent_isbase) {
-            sonnet__settings_customevent_isbase = false;
-            Sonnet__Settings::customEvent(event);
-            return;
-        }
-        auto customevent_cb = sonnet__settings_customevent_callback;
-        if (customevent_cb) {
+        if (sonnet__settings_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            sonnet__settings_customevent_callback(this, cbval1);
             return;
         }
         Sonnet__Settings::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (sonnet__settings_connectnotify_isbase) {
-            sonnet__settings_connectnotify_isbase = false;
-            Sonnet__Settings::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = sonnet__settings_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (sonnet__settings_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            sonnet__settings_connectnotify_callback(this, cbval1);
             return;
         }
         Sonnet__Settings::connectNotify(signal);
@@ -246,101 +148,22 @@ class VirtualSonnetSettings final : public Sonnet::Settings {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (sonnet__settings_disconnectnotify_isbase) {
-            sonnet__settings_disconnectnotify_isbase = false;
-            Sonnet__Settings::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = sonnet__settings_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (sonnet__settings_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            sonnet__settings_disconnectnotify_callback(this, cbval1);
             return;
         }
         Sonnet__Settings::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (sonnet__settings_sender_isbase) {
-            sonnet__settings_sender_isbase = false;
-            return Sonnet__Settings::sender();
-        }
-        auto sender_cb = sonnet__settings_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return Sonnet__Settings::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (sonnet__settings_sendersignalindex_isbase) {
-            sonnet__settings_sendersignalindex_isbase = false;
-            return Sonnet__Settings::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = sonnet__settings_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return Sonnet__Settings::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (sonnet__settings_receivers_isbase) {
-            sonnet__settings_receivers_isbase = false;
-            return Sonnet__Settings::receivers(signal);
-        }
-        auto receivers_cb = sonnet__settings_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return Sonnet__Settings::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (sonnet__settings_issignalconnected_isbase) {
-            sonnet__settings_issignalconnected_isbase = false;
-            return Sonnet__Settings::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = sonnet__settings_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return Sonnet__Settings::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void Sonnet__Settings_TimerEvent(Sonnet::Settings* self, QTimerEvent* event);
     friend void Sonnet__Settings_SuperTimerEvent(Sonnet::Settings* self, QTimerEvent* event);
-    friend void Sonnet__Settings_ChildEvent(Sonnet::Settings* self, QChildEvent* event);
     friend void Sonnet__Settings_SuperChildEvent(Sonnet::Settings* self, QChildEvent* event);
-    friend void Sonnet__Settings_CustomEvent(Sonnet::Settings* self, QEvent* event);
     friend void Sonnet__Settings_SuperCustomEvent(Sonnet::Settings* self, QEvent* event);
-    friend void Sonnet__Settings_ConnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
     friend void Sonnet__Settings_SuperConnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
-    friend void Sonnet__Settings_DisconnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
     friend void Sonnet__Settings_SuperDisconnectNotify(Sonnet::Settings* self, const QMetaMethod* signal);
-    friend QObject* Sonnet__Settings_Sender(const Sonnet::Settings* self);
-    friend QObject* Sonnet__Settings_SuperSender(const Sonnet::Settings* self);
-    friend int Sonnet__Settings_SenderSignalIndex(const Sonnet::Settings* self);
-    friend int Sonnet__Settings_SuperSenderSignalIndex(const Sonnet::Settings* self);
-    friend int Sonnet__Settings_Receivers(const Sonnet::Settings* self, const char* signal);
-    friend int Sonnet__Settings_SuperReceivers(const Sonnet::Settings* self, const char* signal);
-    friend bool Sonnet__Settings_IsSignalConnected(const Sonnet::Settings* self, const QMetaMethod* signal);
-    friend bool Sonnet__Settings_SuperIsSignalConnected(const Sonnet::Settings* self, const QMetaMethod* signal);
 };
 
 #endif

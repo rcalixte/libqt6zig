@@ -19,6 +19,8 @@ pub const QSGRendererInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendererinterface.html#graphicsApi)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGRendererInterface `
@@ -76,6 +78,8 @@ pub const QSGRendererInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendererinterface.html#shaderType)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGRendererInterface `
@@ -94,6 +98,8 @@ pub const QSGRendererInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendererinterface.html#shaderCompilationType)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGRendererInterface `
@@ -111,6 +117,8 @@ pub const QSGRendererInterface = extern struct {
     pub const ShaderSourceType = shaderSourceType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendererinterface.html#shaderSourceType)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

@@ -492,185 +492,185 @@ void QGraphicsView_Connect_RubberBandChanged(QGraphicsView* self, intptr_t slot)
 
 void QGraphicsView_SetupViewport(QGraphicsView* self, QWidget* widget) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->setupViewport(widget);
     }
 }
 
 bool QGraphicsView_Event(QGraphicsView* self, QEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         return vqgraphicsview->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QGraphicsView::event called without a directly constructed type");
 }
 
 bool QGraphicsView_ViewportEvent(QGraphicsView* self, QEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         return vqgraphicsview->viewportEvent(event);
     }
-    return {};
+    qFatal("Error: Protected method QGraphicsView::viewportEvent called without a directly constructed type");
 }
 
 void QGraphicsView_ContextMenuEvent(QGraphicsView* self, QContextMenuEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->contextMenuEvent(event);
     }
 }
 
 void QGraphicsView_DragEnterEvent(QGraphicsView* self, QDragEnterEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->dragEnterEvent(event);
     }
 }
 
 void QGraphicsView_DragLeaveEvent(QGraphicsView* self, QDragLeaveEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->dragLeaveEvent(event);
     }
 }
 
 void QGraphicsView_DragMoveEvent(QGraphicsView* self, QDragMoveEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->dragMoveEvent(event);
     }
 }
 
 void QGraphicsView_DropEvent(QGraphicsView* self, QDropEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->dropEvent(event);
     }
 }
 
 void QGraphicsView_FocusInEvent(QGraphicsView* self, QFocusEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->focusInEvent(event);
     }
 }
 
 bool QGraphicsView_FocusNextPrevChild(QGraphicsView* self, bool next) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         return vqgraphicsview->focusNextPrevChild(next);
     }
-    return {};
+    qFatal("Error: Protected method QGraphicsView::focusNextPrevChild called without a directly constructed type");
 }
 
 void QGraphicsView_FocusOutEvent(QGraphicsView* self, QFocusEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->focusOutEvent(event);
     }
 }
 
 void QGraphicsView_KeyPressEvent(QGraphicsView* self, QKeyEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->keyPressEvent(event);
     }
 }
 
 void QGraphicsView_KeyReleaseEvent(QGraphicsView* self, QKeyEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->keyReleaseEvent(event);
     }
 }
 
 void QGraphicsView_MouseDoubleClickEvent(QGraphicsView* self, QMouseEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->mouseDoubleClickEvent(event);
     }
 }
 
 void QGraphicsView_MousePressEvent(QGraphicsView* self, QMouseEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->mousePressEvent(event);
     }
 }
 
 void QGraphicsView_MouseMoveEvent(QGraphicsView* self, QMouseEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->mouseMoveEvent(event);
     }
 }
 
 void QGraphicsView_MouseReleaseEvent(QGraphicsView* self, QMouseEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->mouseReleaseEvent(event);
     }
 }
 
 void QGraphicsView_WheelEvent(QGraphicsView* self, QWheelEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->wheelEvent(event);
     }
 }
 
 void QGraphicsView_PaintEvent(QGraphicsView* self, QPaintEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->paintEvent(event);
     }
 }
 
 void QGraphicsView_ResizeEvent(QGraphicsView* self, QResizeEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->resizeEvent(event);
     }
 }
 
 void QGraphicsView_ScrollContentsBy(QGraphicsView* self, int dx, int dy) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     }
 }
 
 void QGraphicsView_ShowEvent(QGraphicsView* self, QShowEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->showEvent(event);
     }
 }
 
 void QGraphicsView_InputMethodEvent(QGraphicsView* self, QInputMethodEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->inputMethodEvent(event);
     }
 }
 
 void QGraphicsView_DrawBackground(QGraphicsView* self, QPainter* painter, const QRectF* rect) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->drawBackground(painter, *rect);
     }
 }
 
 void QGraphicsView_DrawForeground(QGraphicsView* self, QPainter* painter, const QRectF* rect) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->drawForeground(painter, *rect);
     }
 }
 
 void QGraphicsView_DrawItems(QGraphicsView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->drawItems(painter, static_cast<int>(numItems), items, options);
     }
 }
@@ -821,1678 +821,1120 @@ void QGraphicsView_InvalidateScene2(QGraphicsView* self, const QRectF* rect, int
 
 // Base class handler implementation
 QMetaObject* QGraphicsView_SuperMetaObject(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_MetaObject_IsBase(true);
-        return (QMetaObject*)vqgraphicsview->metaObject();
-    } else {
-        return (QMetaObject*)self->QGraphicsView::metaObject();
-    }
+    return (QMetaObject*)self->QGraphicsView::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnMetaObject(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MetaObject_Callback>(slot));
+void QGraphicsView_OnMetaObject(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_metaobject_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QGraphicsView_SuperMetacast(QGraphicsView* self, const char* param1) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Metacast_IsBase(true);
-        return vqgraphicsview->qt_metacast(param1);
-    } else {
-        return self->QGraphicsView::qt_metacast(param1);
-    }
+    return self->QGraphicsView::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMetacast(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Metacast_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metacast_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_metacast_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QGraphicsView_SuperMetacall(QGraphicsView* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Metacall_IsBase(true);
-        return vqgraphicsview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QGraphicsView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QGraphicsView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMetacall(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Metacall_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metacall_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_metacall_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QGraphicsView_SuperSizeHint(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_SizeHint_IsBase(true);
-        return new QSize(vqgraphicsview->sizeHint());
-    } else {
-        return new QSize(((VirtualQGraphicsView*)self)->sizeHint());
-    }
+    return new QSize(self->QGraphicsView::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnSizeHint(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_SizeHint_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SizeHint_Callback>(slot));
+void QGraphicsView_OnSizeHint(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_sizehint_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QVariant* QGraphicsView_SuperInputMethodQuery(const QGraphicsView* self, int query) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_InputMethodQuery_IsBase(true);
-        return new QVariant(vqgraphicsview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQGraphicsView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->QGraphicsView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnInputMethodQuery(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InputMethodQuery_Callback>(slot));
+void QGraphicsView_OnInputMethodQuery(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_inputmethodquery_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InputMethodQuery_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperSetupViewport(QGraphicsView* self, QWidget* widget) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_SetupViewport_IsBase(true);
-        vqgraphicsview->setupViewport(widget);
-    } else {
-        ((VirtualQGraphicsView*)self)->setupViewport(widget);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::setupViewport(widget);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::setupViewport called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSetupViewport(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_SetupViewport_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SetupViewport_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_setupviewport_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SetupViewport_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QGraphicsView_SuperEvent(QGraphicsView* self, QEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Event_IsBase(true);
-        return vqgraphicsview->event(event);
-    } else {
-        return ((VirtualQGraphicsView*)self)->event(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        return vqgraphicsview->QGraphicsView::event(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Event_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Event_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_event_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QGraphicsView_SuperViewportEvent(QGraphicsView* self, QEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ViewportEvent_IsBase(true);
-        return vqgraphicsview->viewportEvent(event);
-    } else {
-        return ((VirtualQGraphicsView*)self)->viewportEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        return vqgraphicsview->QGraphicsView::viewportEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnViewportEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ViewportEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ViewportEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_viewportevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ViewportEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperContextMenuEvent(QGraphicsView* self, QContextMenuEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ContextMenuEvent_IsBase(true);
-        vqgraphicsview->contextMenuEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnContextMenuEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ContextMenuEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_contextmenuevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperDragEnterEvent(QGraphicsView* self, QDragEnterEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DragEnterEvent_IsBase(true);
-        vqgraphicsview->dragEnterEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDragEnterEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragEnterEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_dragenterevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragEnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperDragLeaveEvent(QGraphicsView* self, QDragLeaveEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DragLeaveEvent_IsBase(true);
-        vqgraphicsview->dragLeaveEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDragLeaveEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragLeaveEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_dragleaveevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragLeaveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperDragMoveEvent(QGraphicsView* self, QDragMoveEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DragMoveEvent_IsBase(true);
-        vqgraphicsview->dragMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDragMoveEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragMoveEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_dragmoveevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DragMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperDropEvent(QGraphicsView* self, QDropEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DropEvent_IsBase(true);
-        vqgraphicsview->dropEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->dropEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDropEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DropEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_dropevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DropEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperFocusInEvent(QGraphicsView* self, QFocusEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_FocusInEvent_IsBase(true);
-        vqgraphicsview->focusInEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->focusInEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnFocusInEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusInEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_focusinevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QGraphicsView_SuperFocusNextPrevChild(QGraphicsView* self, bool next) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_FocusNextPrevChild_IsBase(true);
-        return vqgraphicsview->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQGraphicsView*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        return vqgraphicsview->QGraphicsView::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnFocusNextPrevChild(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_focusnextprevchild_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusNextPrevChild_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperFocusOutEvent(QGraphicsView* self, QFocusEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_FocusOutEvent_IsBase(true);
-        vqgraphicsview->focusOutEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->focusOutEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnFocusOutEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusOutEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_focusoutevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperKeyPressEvent(QGraphicsView* self, QKeyEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_KeyPressEvent_IsBase(true);
-        vqgraphicsview->keyPressEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->keyPressEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnKeyPressEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_KeyPressEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_keypressevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperKeyReleaseEvent(QGraphicsView* self, QKeyEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_KeyReleaseEvent_IsBase(true);
-        vqgraphicsview->keyReleaseEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnKeyReleaseEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_keyreleaseevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_KeyReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperMouseDoubleClickEvent(QGraphicsView* self, QMouseEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_MouseDoubleClickEvent_IsBase(true);
-        vqgraphicsview->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMouseDoubleClickEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_mousedoubleclickevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperMousePressEvent(QGraphicsView* self, QMouseEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_MousePressEvent_IsBase(true);
-        vqgraphicsview->mousePressEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->mousePressEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMousePressEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MousePressEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_mousepressevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperMouseMoveEvent(QGraphicsView* self, QMouseEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_MouseMoveEvent_IsBase(true);
-        vqgraphicsview->mouseMoveEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMouseMoveEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseMoveEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_mousemoveevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperMouseReleaseEvent(QGraphicsView* self, QMouseEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_MouseReleaseEvent_IsBase(true);
-        vqgraphicsview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMouseReleaseEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_mousereleaseevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperWheelEvent(QGraphicsView* self, QWheelEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_WheelEvent_IsBase(true);
-        vqgraphicsview->wheelEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->wheelEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnWheelEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_WheelEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_wheelevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_WheelEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperPaintEvent(QGraphicsView* self, QPaintEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_PaintEvent_IsBase(true);
-        vqgraphicsview->paintEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->paintEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnPaintEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_PaintEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_PaintEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_paintevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperResizeEvent(QGraphicsView* self, QResizeEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ResizeEvent_IsBase(true);
-        vqgraphicsview->resizeEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->resizeEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnResizeEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ResizeEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ResizeEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_resizeevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperScrollContentsBy(QGraphicsView* self, int dx, int dy) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ScrollContentsBy_IsBase(true);
-        vqgraphicsview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQGraphicsView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnScrollContentsBy(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ScrollContentsBy_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_scrollcontentsby_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ScrollContentsBy_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperShowEvent(QGraphicsView* self, QShowEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ShowEvent_IsBase(true);
-        vqgraphicsview->showEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->showEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnShowEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ShowEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ShowEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_showevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperInputMethodEvent(QGraphicsView* self, QInputMethodEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_InputMethodEvent_IsBase(true);
-        vqgraphicsview->inputMethodEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnInputMethodEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InputMethodEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_inputmethodevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InputMethodEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperDrawBackground(QGraphicsView* self, QPainter* painter, const QRectF* rect) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DrawBackground_IsBase(true);
-        vqgraphicsview->drawBackground(painter, *rect);
-    } else {
-        ((VirtualQGraphicsView*)self)->drawBackground(painter, *rect);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::drawBackground(painter, *rect);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::drawBackground called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDrawBackground(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DrawBackground_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawBackground_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_drawbackground_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawBackground_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperDrawForeground(QGraphicsView* self, QPainter* painter, const QRectF* rect) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DrawForeground_IsBase(true);
-        vqgraphicsview->drawForeground(painter, *rect);
-    } else {
-        ((VirtualQGraphicsView*)self)->drawForeground(painter, *rect);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::drawForeground(painter, *rect);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::drawForeground called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDrawForeground(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DrawForeground_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawForeground_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_drawforeground_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawForeground_Callback>(slot);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperDrawItems(QGraphicsView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DrawItems_IsBase(true);
-        vqgraphicsview->drawItems(painter, static_cast<int>(numItems), items, options);
-    } else {
-        ((VirtualQGraphicsView*)self)->drawItems(painter, static_cast<int>(numItems), items, options);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::drawItems(painter, static_cast<int>(numItems), items, options);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::drawItems called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDrawItems(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DrawItems_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawItems_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_drawitems_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawItems_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QGraphicsView_MinimumSizeHint(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return new QSize(vqgraphicsview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQGraphicsView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QGraphicsView_SuperMinimumSizeHint(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_MinimumSizeHint_IsBase(true);
-        return new QSize(vqgraphicsview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQGraphicsView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QGraphicsView::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnMinimumSizeHint(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MinimumSizeHint_Callback>(slot));
+void QGraphicsView_OnMinimumSizeHint(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_minimumsizehint_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsView_EventFilter(QGraphicsView* self, QObject* param1, QEvent* param2) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         return vqgraphicsview->eventFilter(param1, param2);
     } else {
-        return ((VirtualQGraphicsView*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method QGraphicsView::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QGraphicsView_SuperEventFilter(QGraphicsView* self, QObject* param1, QEvent* param2) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_EventFilter_IsBase(true);
-        return vqgraphicsview->eventFilter(param1, param2);
-    } else {
-        return ((VirtualQGraphicsView*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        return vqgraphicsview->QGraphicsView::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnEventFilter(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_EventFilter_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_eventfilter_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QGraphicsView_ViewportSizeHint(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return new QSize(vqgraphicsview->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualQGraphicsView::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* QGraphicsView_SuperViewportSizeHint(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ViewportSizeHint_IsBase(true);
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
         return new QSize(vqgraphicsview->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method QGraphicsView::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnViewportSizeHint(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ViewportSizeHint_Callback>(slot));
+void QGraphicsView_OnViewportSizeHint(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_viewportsizehint_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_ChangeEvent(QGraphicsView* self, QEvent* param1) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->changeEvent(param1);
     } else {
-        ((VirtualQGraphicsView*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QGraphicsView::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperChangeEvent(QGraphicsView* self, QEvent* param1) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ChangeEvent_IsBase(true);
-        vqgraphicsview->changeEvent(param1);
-    } else {
-        ((VirtualQGraphicsView*)self)->changeEvent(param1);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnChangeEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ChangeEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ChangeEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_changeevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_InitStyleOption(const QGraphicsView* self, QStyleOptionFrame* option) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->initStyleOption(option);
     } else {
-        ((VirtualQGraphicsView*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QGraphicsView::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperInitStyleOption(const QGraphicsView* self, QStyleOptionFrame* option) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_InitStyleOption_IsBase(true);
-        vqgraphicsview->initStyleOption(option);
-    } else {
-        ((VirtualQGraphicsView*)self)->initStyleOption(option);
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        vqgraphicsview->QGraphicsView::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnInitStyleOption(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_InitStyleOption_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InitStyleOption_Callback>(slot));
+void QGraphicsView_OnInitStyleOption(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_initstyleoption_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QGraphicsView_DevType(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->devType();
-    } else {
-        return self->QGraphicsView::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QGraphicsView_SuperDevType(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DevType_IsBase(true);
-        return vqgraphicsview->devType();
-    } else {
-        return self->QGraphicsView::devType();
-    }
+    return self->QGraphicsView::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnDevType(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DevType_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DevType_Callback>(slot));
+void QGraphicsView_OnDevType(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_devtype_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_SetVisible(QGraphicsView* self, bool visible) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setVisible(visible);
-    } else {
-        self->QGraphicsView::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperSetVisible(QGraphicsView* self, bool visible) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_SetVisible_IsBase(true);
-        vqgraphicsview->setVisible(visible);
-    } else {
-        self->QGraphicsView::setVisible(visible);
-    }
+    self->QGraphicsView::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnSetVisible(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_SetVisible_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SetVisible_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_setvisible_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QGraphicsView_HeightForWidth(const QGraphicsView* self, int param1) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QGraphicsView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QGraphicsView_SuperHeightForWidth(const QGraphicsView* self, int param1) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_HeightForWidth_IsBase(true);
-        return vqgraphicsview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QGraphicsView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QGraphicsView::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnHeightForWidth(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_HeightForWidth_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HeightForWidth_Callback>(slot));
+void QGraphicsView_OnHeightForWidth(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_heightforwidth_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsView_HasHeightForWidth(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->hasHeightForWidth();
-    } else {
-        return self->QGraphicsView::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QGraphicsView_SuperHasHeightForWidth(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_HasHeightForWidth_IsBase(true);
-        return vqgraphicsview->hasHeightForWidth();
-    } else {
-        return self->QGraphicsView::hasHeightForWidth();
-    }
+    return self->QGraphicsView::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnHasHeightForWidth(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HasHeightForWidth_Callback>(slot));
+void QGraphicsView_OnHasHeightForWidth(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_hasheightforwidth_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QGraphicsView_PaintEngine(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->paintEngine();
-    } else {
-        return self->QGraphicsView::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QGraphicsView_SuperPaintEngine(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_PaintEngine_IsBase(true);
-        return vqgraphicsview->paintEngine();
-    } else {
-        return self->QGraphicsView::paintEngine();
-    }
+    return self->QGraphicsView::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnPaintEngine(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_PaintEngine_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_PaintEngine_Callback>(slot));
+void QGraphicsView_OnPaintEngine(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_paintengine_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_EnterEvent(QGraphicsView* self, QEnterEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->enterEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperEnterEvent(QGraphicsView* self, QEnterEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_EnterEvent_IsBase(true);
-        vqgraphicsview->enterEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->enterEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnEnterEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_EnterEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_EnterEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_enterevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_LeaveEvent(QGraphicsView* self, QEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->leaveEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperLeaveEvent(QGraphicsView* self, QEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_LeaveEvent_IsBase(true);
-        vqgraphicsview->leaveEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->leaveEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnLeaveEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_LeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_LeaveEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_leaveevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_MoveEvent(QGraphicsView* self, QMoveEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->moveEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperMoveEvent(QGraphicsView* self, QMoveEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_MoveEvent_IsBase(true);
-        vqgraphicsview->moveEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->moveEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnMoveEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_MoveEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MoveEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_moveevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_CloseEvent(QGraphicsView* self, QCloseEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->closeEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperCloseEvent(QGraphicsView* self, QCloseEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_CloseEvent_IsBase(true);
-        vqgraphicsview->closeEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->closeEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnCloseEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_CloseEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_CloseEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_closeevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_TabletEvent(QGraphicsView* self, QTabletEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->tabletEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperTabletEvent(QGraphicsView* self, QTabletEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_TabletEvent_IsBase(true);
-        vqgraphicsview->tabletEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->tabletEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnTabletEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_TabletEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_TabletEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_tabletevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_ActionEvent(QGraphicsView* self, QActionEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->actionEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperActionEvent(QGraphicsView* self, QActionEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ActionEvent_IsBase(true);
-        vqgraphicsview->actionEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->actionEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnActionEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ActionEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ActionEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_actionevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_HideEvent(QGraphicsView* self, QHideEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->hideEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperHideEvent(QGraphicsView* self, QHideEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_HideEvent_IsBase(true);
-        vqgraphicsview->hideEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->hideEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnHideEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_HideEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HideEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_hideevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QGraphicsView_NativeEvent(QGraphicsView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
+    if (vqgraphicsview) {
         return vqgraphicsview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQGraphicsView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QGraphicsView::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QGraphicsView_SuperNativeEvent(QGraphicsView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_NativeEvent_IsBase(true);
-        return vqgraphicsview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQGraphicsView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        return vqgraphicsview->QGraphicsView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnNativeEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_NativeEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_NativeEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_nativeevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QGraphicsView_Metric(const QGraphicsView* self, int param1) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         return vqgraphicsview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQGraphicsView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QGraphicsView::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QGraphicsView_SuperMetric(const QGraphicsView* self, int param1) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Metric_IsBase(true);
-        return vqgraphicsview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQGraphicsView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        return vqgraphicsview->QGraphicsView::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnMetric(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Metric_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metric_Callback>(slot));
+void QGraphicsView_OnMetric(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_metric_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_InitPainter(const QGraphicsView* self, QPainter* painter) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->initPainter(painter);
     } else {
-        ((VirtualQGraphicsView*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QGraphicsView::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperInitPainter(const QGraphicsView* self, QPainter* painter) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_InitPainter_IsBase(true);
-        vqgraphicsview->initPainter(painter);
-    } else {
-        ((VirtualQGraphicsView*)self)->initPainter(painter);
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        vqgraphicsview->QGraphicsView::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnInitPainter(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_InitPainter_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InitPainter_Callback>(slot));
+void QGraphicsView_OnInitPainter(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_initpainter_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QGraphicsView_Redirected(const QGraphicsView* self, QPoint* offset) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         return vqgraphicsview->redirected(offset);
     } else {
-        return ((VirtualQGraphicsView*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QGraphicsView::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QGraphicsView_SuperRedirected(const QGraphicsView* self, QPoint* offset) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Redirected_IsBase(true);
-        return vqgraphicsview->redirected(offset);
-    } else {
-        return ((VirtualQGraphicsView*)self)->redirected(offset);
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        return vqgraphicsview->QGraphicsView::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnRedirected(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Redirected_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Redirected_Callback>(slot));
+void QGraphicsView_OnRedirected(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_redirected_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QGraphicsView_SharedPainter(const QGraphicsView* self) {
     auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         return vqgraphicsview->sharedPainter();
     } else {
-        return ((VirtualQGraphicsView*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QGraphicsView::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QGraphicsView_SuperSharedPainter(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_SharedPainter_IsBase(true);
-        return vqgraphicsview->sharedPainter();
-    } else {
-        return ((VirtualQGraphicsView*)self)->sharedPainter();
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        return vqgraphicsview->QGraphicsView::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnSharedPainter(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_SharedPainter_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SharedPainter_Callback>(slot));
+void QGraphicsView_OnSharedPainter(QGraphicsView* self, intptr_t slot) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
+        vqgraphicsview->qgraphicsview_sharedpainter_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_TimerEvent(QGraphicsView* self, QTimerEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->timerEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperTimerEvent(QGraphicsView* self, QTimerEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_TimerEvent_IsBase(true);
-        vqgraphicsview->timerEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->timerEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnTimerEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_TimerEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_timerevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_ChildEvent(QGraphicsView* self, QChildEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->childEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperChildEvent(QGraphicsView* self, QChildEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ChildEvent_IsBase(true);
-        vqgraphicsview->childEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->childEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnChildEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ChildEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_childevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_CustomEvent(QGraphicsView* self, QEvent* event) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->customEvent(event);
     } else {
-        ((VirtualQGraphicsView*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QGraphicsView::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperCustomEvent(QGraphicsView* self, QEvent* event) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_CustomEvent_IsBase(true);
-        vqgraphicsview->customEvent(event);
-    } else {
-        ((VirtualQGraphicsView*)self)->customEvent(event);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnCustomEvent(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_CustomEvent_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_customevent_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_ConnectNotify(QGraphicsView* self, const QMetaMethod* signal) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->connectNotify(*signal);
     } else {
-        ((VirtualQGraphicsView*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QGraphicsView::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperConnectNotify(QGraphicsView* self, const QMetaMethod* signal) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ConnectNotify_IsBase(true);
-        vqgraphicsview->connectNotify(*signal);
-    } else {
-        ((VirtualQGraphicsView*)self)->connectNotify(*signal);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnConnectNotify(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ConnectNotify_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_connectnotify_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QGraphicsView_DisconnectNotify(QGraphicsView* self, const QMetaMethod* signal) {
     auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (vqgraphicsview) {
         vqgraphicsview->disconnectNotify(*signal);
     } else {
-        ((VirtualQGraphicsView*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QGraphicsView::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QGraphicsView_SuperDisconnectNotify(QGraphicsView* self, const QMetaMethod* signal) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DisconnectNotify_IsBase(true);
-        vqgraphicsview->disconnectNotify(*signal);
-    } else {
-        ((VirtualQGraphicsView*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->QGraphicsView::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QGraphicsView::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsView_OnDisconnectNotify(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DisconnectNotify_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self))
+        vqgraphicsview->qgraphicsview_disconnectnotify_callback = reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsView_SetViewportMargins(QGraphicsView* self, int left, int top, int right, int bottom) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQGraphicsView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QGraphicsView_SuperSetViewportMargins(QGraphicsView* self, int left, int top, int right, int bottom) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_SetViewportMargins_IsBase(true);
-        vqgraphicsview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQGraphicsView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnSetViewportMargins(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_SetViewportMargins_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SetViewportMargins_Callback>(slot));
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->VirtualQGraphicsView::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QGraphicsView::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QGraphicsView_ViewportMargins(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self)))
         return new QMargins(vqgraphicsview->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QGraphicsView::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QGraphicsView_SuperViewportMargins(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_ViewportMargins_IsBase(true);
-        return new QMargins(vqgraphicsview->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnViewportMargins(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_ViewportMargins_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsView_DrawFrame(QGraphicsView* self, QPainter* param1) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->drawFrame(param1);
-    } else {
-        ((VirtualQGraphicsView*)self)->drawFrame(param1);
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->VirtualQGraphicsView::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QGraphicsView::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsView_SuperDrawFrame(QGraphicsView* self, QPainter* param1) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_DrawFrame_IsBase(true);
-        vqgraphicsview->drawFrame(param1);
-    } else {
-        ((VirtualQGraphicsView*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnDrawFrame(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_DrawFrame_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsView_UpdateMicroFocus(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->updateMicroFocus();
-    } else {
-        ((VirtualQGraphicsView*)self)->updateMicroFocus();
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->VirtualQGraphicsView::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QGraphicsView::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsView_SuperUpdateMicroFocus(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_UpdateMicroFocus_IsBase(true);
-        vqgraphicsview->updateMicroFocus();
-    } else {
-        ((VirtualQGraphicsView*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnUpdateMicroFocus(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsView_Create(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->create();
-    } else {
-        ((VirtualQGraphicsView*)self)->create();
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->VirtualQGraphicsView::create();
+    } else
+        qFatal("Error: Protected method QGraphicsView::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsView_SuperCreate(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Create_IsBase(true);
-        vqgraphicsview->create();
-    } else {
-        ((VirtualQGraphicsView*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnCreate(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Create_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QGraphicsView_Destroy(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->destroy();
-    } else {
-        ((VirtualQGraphicsView*)self)->destroy();
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        vqgraphicsview->VirtualQGraphicsView::destroy();
+    } else
+        qFatal("Error: Protected method QGraphicsView::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QGraphicsView_SuperDestroy(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Destroy_IsBase(true);
-        vqgraphicsview->destroy();
-    } else {
-        ((VirtualQGraphicsView*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnDestroy(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Destroy_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGraphicsView_FocusNextChild(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->focusNextChild();
-    } else {
-        return ((VirtualQGraphicsView*)self)->focusNextChild();
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        return vqgraphicsview->VirtualQGraphicsView::focusNextChild();
+    } else
+        qFatal("Error: Protected method QGraphicsView::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QGraphicsView_SuperFocusNextChild(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_FocusNextChild_IsBase(true);
-        return vqgraphicsview->focusNextChild();
-    } else {
-        return ((VirtualQGraphicsView*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnFocusNextChild(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_FocusNextChild_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGraphicsView_FocusPreviousChild(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->focusPreviousChild();
-    } else {
-        return ((VirtualQGraphicsView*)self)->focusPreviousChild();
-    }
+    if (auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self)) {
+        return vqgraphicsview->VirtualQGraphicsView::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QGraphicsView::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QGraphicsView_SuperFocusPreviousChild(QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_FocusPreviousChild_IsBase(true);
-        return vqgraphicsview->focusPreviousChild();
-    } else {
-        return ((VirtualQGraphicsView*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnFocusPreviousChild(QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QGraphicsView_Sender(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->sender();
-    } else {
-        return ((VirtualQGraphicsView*)self)->sender();
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        return vqgraphicsview->VirtualQGraphicsView::sender();
+    } else
+        qFatal("Error: Protected method QGraphicsView::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QGraphicsView_SuperSender(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Sender_IsBase(true);
-        return vqgraphicsview->sender();
-    } else {
-        return ((VirtualQGraphicsView*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnSender(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Sender_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGraphicsView_SenderSignalIndex(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->senderSignalIndex();
-    } else {
-        return ((VirtualQGraphicsView*)self)->senderSignalIndex();
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        return vqgraphicsview->VirtualQGraphicsView::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QGraphicsView::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGraphicsView_SuperSenderSignalIndex(const QGraphicsView* self) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_SenderSignalIndex_IsBase(true);
-        return vqgraphicsview->senderSignalIndex();
-    } else {
-        return ((VirtualQGraphicsView*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnSenderSignalIndex(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QGraphicsView_Receivers(const QGraphicsView* self, const char* signal) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->receivers(signal);
-    } else {
-        return ((VirtualQGraphicsView*)self)->receivers(signal);
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        return vqgraphicsview->VirtualQGraphicsView::receivers(signal);
+    } else
+        qFatal("Error: Protected method QGraphicsView::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QGraphicsView_SuperReceivers(const QGraphicsView* self, const char* signal) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_Receivers_IsBase(true);
-        return vqgraphicsview->receivers(signal);
-    } else {
-        return ((VirtualQGraphicsView*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnReceivers(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_Receivers_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QGraphicsView_IsSignalConnected(const QGraphicsView* self, const QMetaMethod* signal) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGraphicsView*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        return vqgraphicsview->VirtualQGraphicsView::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QGraphicsView::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QGraphicsView_SuperIsSignalConnected(const QGraphicsView* self, const QMetaMethod* signal) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_IsSignalConnected_IsBase(true);
-        return vqgraphicsview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQGraphicsView*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnIsSignalConnected(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QGraphicsView_GetDecodedMetricF(const QGraphicsView* self, int metricA, int metricB) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return vqgraphicsview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQGraphicsView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QGraphicsView_SuperGetDecodedMetricF(const QGraphicsView* self, int metricA, int metricB) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        vqgraphicsview->setQGraphicsView_GetDecodedMetricF_IsBase(true);
-        return vqgraphicsview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQGraphicsView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QGraphicsView_OnGetDecodedMetricF(const QGraphicsView* self, intptr_t slot) {
-    auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self));
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView)
-        vqgraphicsview->setQGraphicsView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQGraphicsView::QGraphicsView_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqgraphicsview = const_cast<VirtualQGraphicsView*>(dynamic_cast<const VirtualQGraphicsView*>(self))) {
+        return vqgraphicsview->VirtualQGraphicsView::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QGraphicsView::getDecodedMetricF called without a directly constructed type");
 }
 
 void QGraphicsView_Delete(QGraphicsView* self) {

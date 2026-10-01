@@ -41,7 +41,7 @@ void KWindowInsetsController_NavigationBarBackgroundColorChanged(KWindowInsetsCo
 void KWindowInsetsController_Connect_NavigationBarBackgroundColorChanged(KWindowInsetsController* self, intptr_t slot);
 libqt_string KWindowInsetsController_Tr2(const char* s, const char* c);
 libqt_string KWindowInsetsController_Tr3(const char* s, const char* c, int n);
-void KWindowInsetsController_OnMetaObject(const KWindowInsetsController* self, intptr_t slot);
+void KWindowInsetsController_OnMetaObject(KWindowInsetsController* self, intptr_t slot);
 QMetaObject* KWindowInsetsController_SuperMetaObject(const KWindowInsetsController* self);
 void KWindowInsetsController_OnMetacast(KWindowInsetsController* self, intptr_t slot);
 void* KWindowInsetsController_SuperMetacast(KWindowInsetsController* self, const char* param1);
@@ -69,17 +69,9 @@ void KWindowInsetsController_DisconnectNotify(KWindowInsetsController* self, con
 void KWindowInsetsController_OnDisconnectNotify(KWindowInsetsController* self, intptr_t slot);
 void KWindowInsetsController_SuperDisconnectNotify(KWindowInsetsController* self, const QMetaMethod* signal);
 QObject* KWindowInsetsController_Sender(const KWindowInsetsController* self);
-void KWindowInsetsController_OnSender(const KWindowInsetsController* self, intptr_t slot);
-QObject* KWindowInsetsController_SuperSender(const KWindowInsetsController* self);
 int KWindowInsetsController_SenderSignalIndex(const KWindowInsetsController* self);
-void KWindowInsetsController_OnSenderSignalIndex(const KWindowInsetsController* self, intptr_t slot);
-int KWindowInsetsController_SuperSenderSignalIndex(const KWindowInsetsController* self);
 int KWindowInsetsController_Receivers(const KWindowInsetsController* self, const char* signal);
-void KWindowInsetsController_OnReceivers(const KWindowInsetsController* self, intptr_t slot);
-int KWindowInsetsController_SuperReceivers(const KWindowInsetsController* self, const char* signal);
 bool KWindowInsetsController_IsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal);
-void KWindowInsetsController_OnIsSignalConnected(const KWindowInsetsController* self, intptr_t slot);
-bool KWindowInsetsController_SuperIsSignalConnected(const KWindowInsetsController* self, const QMetaMethod* signal);
 void KWindowInsetsController_Delete(KWindowInsetsController* self);
 
 #ifdef __cplusplus

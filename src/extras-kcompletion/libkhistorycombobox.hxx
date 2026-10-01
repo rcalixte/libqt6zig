@@ -9,29 +9,25 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KHistoryComboBox so that we can call protected methods
+// This class is a subclass of KHistoryComboBox
 class VirtualKHistoryComboBox final : public KHistoryComboBox {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKHistoryComboBox = true;
-
-    // Virtual class public types (including callbacks)
-    using KHistoryComboBox_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KHistoryComboBox_MetaObject_Callback = QMetaObject* (*)(const KHistoryComboBox*);
     using KHistoryComboBox_Metacast_Callback = void* (*)(KHistoryComboBox*, const char*);
     using KHistoryComboBox_Metacall_Callback = int (*)(KHistoryComboBox*, int, int, void**);
     using KHistoryComboBox_KeyPressEvent_Callback = void (*)(KHistoryComboBox*, QKeyEvent*);
     using KHistoryComboBox_WheelEvent_Callback = void (*)(KHistoryComboBox*, QWheelEvent*);
     using KHistoryComboBox_SetAutoCompletion_Callback = void (*)(KHistoryComboBox*, bool);
     using KHistoryComboBox_SetLineEdit_Callback = void (*)(KHistoryComboBox*, QLineEdit*);
-    using KHistoryComboBox_MinimumSizeHint_Callback = QSize* (*)();
+    using KHistoryComboBox_MinimumSizeHint_Callback = QSize* (*)(const KHistoryComboBox*);
     using KHistoryComboBox_SetCompletedText_Callback = void (*)(KHistoryComboBox*, const char*);
     using KHistoryComboBox_SetCompletedItems_Callback = void (*)(KHistoryComboBox*, const char**, bool);
     using KHistoryComboBox_MakeCompletion_Callback = void (*)(KHistoryComboBox*, const char*);
     using KHistoryComboBox_SetModel_Callback = void (*)(KHistoryComboBox*, QAbstractItemModel*);
-    using KHistoryComboBox_SizeHint_Callback = QSize* (*)();
-    using KHistoryComboBox_ShowPopup_Callback = void (*)();
-    using KHistoryComboBox_HidePopup_Callback = void (*)();
+    using KHistoryComboBox_SizeHint_Callback = QSize* (*)(const KHistoryComboBox*);
+    using KHistoryComboBox_ShowPopup_Callback = void (*)(KHistoryComboBox*);
+    using KHistoryComboBox_HidePopup_Callback = void (*)(KHistoryComboBox*);
     using KHistoryComboBox_Event_Callback = bool (*)(KHistoryComboBox*, QEvent*);
     using KHistoryComboBox_InputMethodQuery_Callback = QVariant* (*)(const KHistoryComboBox*, int);
     using KHistoryComboBox_FocusInEvent_Callback = void (*)(KHistoryComboBox*, QFocusEvent*);
@@ -47,11 +43,11 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     using KHistoryComboBox_ContextMenuEvent_Callback = void (*)(KHistoryComboBox*, QContextMenuEvent*);
     using KHistoryComboBox_InputMethodEvent_Callback = void (*)(KHistoryComboBox*, QInputMethodEvent*);
     using KHistoryComboBox_InitStyleOption_Callback = void (*)(const KHistoryComboBox*, QStyleOptionComboBox*);
-    using KHistoryComboBox_DevType_Callback = int (*)();
+    using KHistoryComboBox_DevType_Callback = int (*)(const KHistoryComboBox*);
     using KHistoryComboBox_SetVisible_Callback = void (*)(KHistoryComboBox*, bool);
     using KHistoryComboBox_HeightForWidth_Callback = int (*)(const KHistoryComboBox*, int);
-    using KHistoryComboBox_HasHeightForWidth_Callback = bool (*)();
-    using KHistoryComboBox_PaintEngine_Callback = QPaintEngine* (*)();
+    using KHistoryComboBox_HasHeightForWidth_Callback = bool (*)(const KHistoryComboBox*);
+    using KHistoryComboBox_PaintEngine_Callback = QPaintEngine* (*)(const KHistoryComboBox*);
     using KHistoryComboBox_MouseDoubleClickEvent_Callback = void (*)(KHistoryComboBox*, QMouseEvent*);
     using KHistoryComboBox_MouseMoveEvent_Callback = void (*)(KHistoryComboBox*, QMouseEvent*);
     using KHistoryComboBox_EnterEvent_Callback = void (*)(KHistoryComboBox*, QEnterEvent*);
@@ -68,7 +64,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     using KHistoryComboBox_Metric_Callback = int (*)(const KHistoryComboBox*, int);
     using KHistoryComboBox_InitPainter_Callback = void (*)(const KHistoryComboBox*, QPainter*);
     using KHistoryComboBox_Redirected_Callback = QPaintDevice* (*)(const KHistoryComboBox*, QPoint*);
-    using KHistoryComboBox_SharedPainter_Callback = QPainter* (*)();
+    using KHistoryComboBox_SharedPainter_Callback = QPainter* (*)(const KHistoryComboBox*);
     using KHistoryComboBox_FocusNextPrevChild_Callback = bool (*)(KHistoryComboBox*, bool);
     using KHistoryComboBox_EventFilter_Callback = bool (*)(KHistoryComboBox*, QObject*, QEvent*);
     using KHistoryComboBox_TimerEvent_Callback = void (*)(KHistoryComboBox*, QTimerEvent*);
@@ -80,24 +76,23 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     using KHistoryComboBox_SetHandleSignals_Callback = void (*)(KHistoryComboBox*, bool);
     using KHistoryComboBox_SetCompletionMode_Callback = void (*)(KHistoryComboBox*, int);
     using KHistoryComboBox_VirtualHook_Callback = void (*)(KHistoryComboBox*, int, void*);
-    using KHistoryComboBox_InsertItems_Callback = void (*)(KHistoryComboBox*, const char**);
-    using KHistoryComboBox_UseCompletion_Callback = bool (*)();
-    using KHistoryComboBox_UpdateMicroFocus_Callback = void (*)();
-    using KHistoryComboBox_Create_Callback = void (*)();
-    using KHistoryComboBox_Destroy_Callback = void (*)();
-    using KHistoryComboBox_FocusNextChild_Callback = bool (*)();
-    using KHistoryComboBox_FocusPreviousChild_Callback = bool (*)();
-    using KHistoryComboBox_Sender_Callback = QObject* (*)();
-    using KHistoryComboBox_SenderSignalIndex_Callback = int (*)();
-    using KHistoryComboBox_Receivers_Callback = int (*)(const KHistoryComboBox*, const char*);
-    using KHistoryComboBox_IsSignalConnected_Callback = bool (*)(const KHistoryComboBox*, QMetaMethod*);
-    using KHistoryComboBox_GetDecodedMetricF_Callback = double (*)(const KHistoryComboBox*, int, int);
-    using KHistoryComboBox_KeyBindingMap_Callback = libqt_map /* of int to libqt_list of QKeySequence* */ (*)();
-    using KHistoryComboBox_SetKeyBindingMap_Callback = void (*)(KHistoryComboBox*, libqt_map /* of int to libqt_list of QKeySequence* */);
-    using KHistoryComboBox_SetDelegate_Callback = void (*)(KHistoryComboBox*, KCompletionBase*);
-    using KHistoryComboBox_Delegate_Callback = KCompletionBase* (*)();
+    using KHistoryComboBox::create;
+    using KHistoryComboBox::delegate;
+    using KHistoryComboBox::destroy;
+    using KHistoryComboBox::focusNextChild;
+    using KHistoryComboBox::focusPreviousChild;
+    using KHistoryComboBox::getDecodedMetricF;
+    using KHistoryComboBox::insertItems;
+    using KHistoryComboBox::isSignalConnected;
+    using KHistoryComboBox::keyBindingMap;
+    using KHistoryComboBox::receivers;
+    using KHistoryComboBox::sender;
+    using KHistoryComboBox::senderSignalIndex;
+    using KHistoryComboBox::setDelegate;
+    using KHistoryComboBox::setKeyBindingMap;
+    using KHistoryComboBox::updateMicroFocus;
+    using KHistoryComboBox::useCompletion;
 
-  protected:
     // Instance callback storage
     KHistoryComboBox_MetaObject_Callback khistorycombobox_metaobject_callback = nullptr;
     KHistoryComboBox_Metacast_Callback khistorycombobox_metacast_callback = nullptr;
@@ -162,281 +157,60 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
     KHistoryComboBox_SetHandleSignals_Callback khistorycombobox_sethandlesignals_callback = nullptr;
     KHistoryComboBox_SetCompletionMode_Callback khistorycombobox_setcompletionmode_callback = nullptr;
     KHistoryComboBox_VirtualHook_Callback khistorycombobox_virtualhook_callback = nullptr;
-    KHistoryComboBox_InsertItems_Callback khistorycombobox_insertitems_callback = nullptr;
-    KHistoryComboBox_UseCompletion_Callback khistorycombobox_usecompletion_callback = nullptr;
-    KHistoryComboBox_UpdateMicroFocus_Callback khistorycombobox_updatemicrofocus_callback = nullptr;
-    KHistoryComboBox_Create_Callback khistorycombobox_create_callback = nullptr;
-    KHistoryComboBox_Destroy_Callback khistorycombobox_destroy_callback = nullptr;
-    KHistoryComboBox_FocusNextChild_Callback khistorycombobox_focusnextchild_callback = nullptr;
-    KHistoryComboBox_FocusPreviousChild_Callback khistorycombobox_focuspreviouschild_callback = nullptr;
-    KHistoryComboBox_Sender_Callback khistorycombobox_sender_callback = nullptr;
-    KHistoryComboBox_SenderSignalIndex_Callback khistorycombobox_sendersignalindex_callback = nullptr;
-    KHistoryComboBox_Receivers_Callback khistorycombobox_receivers_callback = nullptr;
-    KHistoryComboBox_IsSignalConnected_Callback khistorycombobox_issignalconnected_callback = nullptr;
-    KHistoryComboBox_GetDecodedMetricF_Callback khistorycombobox_getdecodedmetricf_callback = nullptr;
-    KHistoryComboBox_KeyBindingMap_Callback khistorycombobox_keybindingmap_callback = nullptr;
-    KHistoryComboBox_SetKeyBindingMap_Callback khistorycombobox_setkeybindingmap_callback = nullptr;
-    KHistoryComboBox_SetDelegate_Callback khistorycombobox_setdelegate_callback = nullptr;
-    KHistoryComboBox_Delegate_Callback khistorycombobox_delegate_callback = nullptr;
 
-    // Instance base flags
-    mutable bool khistorycombobox_metaobject_isbase = false;
-    mutable bool khistorycombobox_metacast_isbase = false;
-    mutable bool khistorycombobox_metacall_isbase = false;
-    mutable bool khistorycombobox_keypressevent_isbase = false;
-    mutable bool khistorycombobox_wheelevent_isbase = false;
-    mutable bool khistorycombobox_setautocompletion_isbase = false;
-    mutable bool khistorycombobox_setlineedit_isbase = false;
-    mutable bool khistorycombobox_minimumsizehint_isbase = false;
-    mutable bool khistorycombobox_setcompletedtext_isbase = false;
-    mutable bool khistorycombobox_setcompleteditems_isbase = false;
-    mutable bool khistorycombobox_makecompletion_isbase = false;
-    mutable bool khistorycombobox_setmodel_isbase = false;
-    mutable bool khistorycombobox_sizehint_isbase = false;
-    mutable bool khistorycombobox_showpopup_isbase = false;
-    mutable bool khistorycombobox_hidepopup_isbase = false;
-    mutable bool khistorycombobox_event_isbase = false;
-    mutable bool khistorycombobox_inputmethodquery_isbase = false;
-    mutable bool khistorycombobox_focusinevent_isbase = false;
-    mutable bool khistorycombobox_focusoutevent_isbase = false;
-    mutable bool khistorycombobox_changeevent_isbase = false;
-    mutable bool khistorycombobox_resizeevent_isbase = false;
-    mutable bool khistorycombobox_paintevent_isbase = false;
-    mutable bool khistorycombobox_showevent_isbase = false;
-    mutable bool khistorycombobox_hideevent_isbase = false;
-    mutable bool khistorycombobox_mousepressevent_isbase = false;
-    mutable bool khistorycombobox_mousereleaseevent_isbase = false;
-    mutable bool khistorycombobox_keyreleaseevent_isbase = false;
-    mutable bool khistorycombobox_contextmenuevent_isbase = false;
-    mutable bool khistorycombobox_inputmethodevent_isbase = false;
-    mutable bool khistorycombobox_initstyleoption_isbase = false;
-    mutable bool khistorycombobox_devtype_isbase = false;
-    mutable bool khistorycombobox_setvisible_isbase = false;
-    mutable bool khistorycombobox_heightforwidth_isbase = false;
-    mutable bool khistorycombobox_hasheightforwidth_isbase = false;
-    mutable bool khistorycombobox_paintengine_isbase = false;
-    mutable bool khistorycombobox_mousedoubleclickevent_isbase = false;
-    mutable bool khistorycombobox_mousemoveevent_isbase = false;
-    mutable bool khistorycombobox_enterevent_isbase = false;
-    mutable bool khistorycombobox_leaveevent_isbase = false;
-    mutable bool khistorycombobox_moveevent_isbase = false;
-    mutable bool khistorycombobox_closeevent_isbase = false;
-    mutable bool khistorycombobox_tabletevent_isbase = false;
-    mutable bool khistorycombobox_actionevent_isbase = false;
-    mutable bool khistorycombobox_dragenterevent_isbase = false;
-    mutable bool khistorycombobox_dragmoveevent_isbase = false;
-    mutable bool khistorycombobox_dragleaveevent_isbase = false;
-    mutable bool khistorycombobox_dropevent_isbase = false;
-    mutable bool khistorycombobox_nativeevent_isbase = false;
-    mutable bool khistorycombobox_metric_isbase = false;
-    mutable bool khistorycombobox_initpainter_isbase = false;
-    mutable bool khistorycombobox_redirected_isbase = false;
-    mutable bool khistorycombobox_sharedpainter_isbase = false;
-    mutable bool khistorycombobox_focusnextprevchild_isbase = false;
-    mutable bool khistorycombobox_eventfilter_isbase = false;
-    mutable bool khistorycombobox_timerevent_isbase = false;
-    mutable bool khistorycombobox_childevent_isbase = false;
-    mutable bool khistorycombobox_customevent_isbase = false;
-    mutable bool khistorycombobox_connectnotify_isbase = false;
-    mutable bool khistorycombobox_disconnectnotify_isbase = false;
-    mutable bool khistorycombobox_setcompletionobject_isbase = false;
-    mutable bool khistorycombobox_sethandlesignals_isbase = false;
-    mutable bool khistorycombobox_setcompletionmode_isbase = false;
-    mutable bool khistorycombobox_virtualhook_isbase = false;
-    mutable bool khistorycombobox_insertitems_isbase = false;
-    mutable bool khistorycombobox_usecompletion_isbase = false;
-    mutable bool khistorycombobox_updatemicrofocus_isbase = false;
-    mutable bool khistorycombobox_create_isbase = false;
-    mutable bool khistorycombobox_destroy_isbase = false;
-    mutable bool khistorycombobox_focusnextchild_isbase = false;
-    mutable bool khistorycombobox_focuspreviouschild_isbase = false;
-    mutable bool khistorycombobox_sender_isbase = false;
-    mutable bool khistorycombobox_sendersignalindex_isbase = false;
-    mutable bool khistorycombobox_receivers_isbase = false;
-    mutable bool khistorycombobox_issignalconnected_isbase = false;
-    mutable bool khistorycombobox_getdecodedmetricf_isbase = false;
-    mutable bool khistorycombobox_keybindingmap_isbase = false;
-    mutable bool khistorycombobox_setkeybindingmap_isbase = false;
-    mutable bool khistorycombobox_setdelegate_isbase = false;
-    mutable bool khistorycombobox_delegate_isbase = false;
+    // Access struct
+    struct Base : KHistoryComboBox {
+        using KHistoryComboBox::actionEvent;
+        using KHistoryComboBox::changeEvent;
+        using KHistoryComboBox::childEvent;
+        using KHistoryComboBox::closeEvent;
+        using KHistoryComboBox::connectNotify;
+        using KHistoryComboBox::contextMenuEvent;
+        using KHistoryComboBox::customEvent;
+        using KHistoryComboBox::disconnectNotify;
+        using KHistoryComboBox::dragEnterEvent;
+        using KHistoryComboBox::dragLeaveEvent;
+        using KHistoryComboBox::dragMoveEvent;
+        using KHistoryComboBox::dropEvent;
+        using KHistoryComboBox::enterEvent;
+        using KHistoryComboBox::focusInEvent;
+        using KHistoryComboBox::focusNextPrevChild;
+        using KHistoryComboBox::focusOutEvent;
+        using KHistoryComboBox::hideEvent;
+        using KHistoryComboBox::initPainter;
+        using KHistoryComboBox::initStyleOption;
+        using KHistoryComboBox::inputMethodEvent;
+        using KHistoryComboBox::keyPressEvent;
+        using KHistoryComboBox::keyReleaseEvent;
+        using KHistoryComboBox::leaveEvent;
+        using KHistoryComboBox::makeCompletion;
+        using KHistoryComboBox::metric;
+        using KHistoryComboBox::mouseDoubleClickEvent;
+        using KHistoryComboBox::mouseMoveEvent;
+        using KHistoryComboBox::mousePressEvent;
+        using KHistoryComboBox::mouseReleaseEvent;
+        using KHistoryComboBox::moveEvent;
+        using KHistoryComboBox::nativeEvent;
+        using KHistoryComboBox::paintEvent;
+        using KHistoryComboBox::redirected;
+        using KHistoryComboBox::resizeEvent;
+        using KHistoryComboBox::sharedPainter;
+        using KHistoryComboBox::showEvent;
+        using KHistoryComboBox::tabletEvent;
+        using KHistoryComboBox::timerEvent;
+        using KHistoryComboBox::virtual_hook;
+        using KHistoryComboBox::wheelEvent;
+    };
 
-  public:
     VirtualKHistoryComboBox(QWidget* parent) : KHistoryComboBox(parent) {};
     VirtualKHistoryComboBox() : KHistoryComboBox() {};
     VirtualKHistoryComboBox(bool useCompletion) : KHistoryComboBox(useCompletion) {};
     VirtualKHistoryComboBox(bool useCompletion, QWidget* parent) : KHistoryComboBox(useCompletion, parent) {};
 
-    // Callback setters
-    inline void setKHistoryComboBox_MetaObject_Callback(KHistoryComboBox_MetaObject_Callback cb) { khistorycombobox_metaobject_callback = cb; }
-    inline void setKHistoryComboBox_Metacast_Callback(KHistoryComboBox_Metacast_Callback cb) { khistorycombobox_metacast_callback = cb; }
-    inline void setKHistoryComboBox_Metacall_Callback(KHistoryComboBox_Metacall_Callback cb) { khistorycombobox_metacall_callback = cb; }
-    inline void setKHistoryComboBox_KeyPressEvent_Callback(KHistoryComboBox_KeyPressEvent_Callback cb) { khistorycombobox_keypressevent_callback = cb; }
-    inline void setKHistoryComboBox_WheelEvent_Callback(KHistoryComboBox_WheelEvent_Callback cb) { khistorycombobox_wheelevent_callback = cb; }
-    inline void setKHistoryComboBox_SetAutoCompletion_Callback(KHistoryComboBox_SetAutoCompletion_Callback cb) { khistorycombobox_setautocompletion_callback = cb; }
-    inline void setKHistoryComboBox_SetLineEdit_Callback(KHistoryComboBox_SetLineEdit_Callback cb) { khistorycombobox_setlineedit_callback = cb; }
-    inline void setKHistoryComboBox_MinimumSizeHint_Callback(KHistoryComboBox_MinimumSizeHint_Callback cb) { khistorycombobox_minimumsizehint_callback = cb; }
-    inline void setKHistoryComboBox_SetCompletedText_Callback(KHistoryComboBox_SetCompletedText_Callback cb) { khistorycombobox_setcompletedtext_callback = cb; }
-    inline void setKHistoryComboBox_SetCompletedItems_Callback(KHistoryComboBox_SetCompletedItems_Callback cb) { khistorycombobox_setcompleteditems_callback = cb; }
-    inline void setKHistoryComboBox_MakeCompletion_Callback(KHistoryComboBox_MakeCompletion_Callback cb) { khistorycombobox_makecompletion_callback = cb; }
-    inline void setKHistoryComboBox_SetModel_Callback(KHistoryComboBox_SetModel_Callback cb) { khistorycombobox_setmodel_callback = cb; }
-    inline void setKHistoryComboBox_SizeHint_Callback(KHistoryComboBox_SizeHint_Callback cb) { khistorycombobox_sizehint_callback = cb; }
-    inline void setKHistoryComboBox_ShowPopup_Callback(KHistoryComboBox_ShowPopup_Callback cb) { khistorycombobox_showpopup_callback = cb; }
-    inline void setKHistoryComboBox_HidePopup_Callback(KHistoryComboBox_HidePopup_Callback cb) { khistorycombobox_hidepopup_callback = cb; }
-    inline void setKHistoryComboBox_Event_Callback(KHistoryComboBox_Event_Callback cb) { khistorycombobox_event_callback = cb; }
-    inline void setKHistoryComboBox_InputMethodQuery_Callback(KHistoryComboBox_InputMethodQuery_Callback cb) { khistorycombobox_inputmethodquery_callback = cb; }
-    inline void setKHistoryComboBox_FocusInEvent_Callback(KHistoryComboBox_FocusInEvent_Callback cb) { khistorycombobox_focusinevent_callback = cb; }
-    inline void setKHistoryComboBox_FocusOutEvent_Callback(KHistoryComboBox_FocusOutEvent_Callback cb) { khistorycombobox_focusoutevent_callback = cb; }
-    inline void setKHistoryComboBox_ChangeEvent_Callback(KHistoryComboBox_ChangeEvent_Callback cb) { khistorycombobox_changeevent_callback = cb; }
-    inline void setKHistoryComboBox_ResizeEvent_Callback(KHistoryComboBox_ResizeEvent_Callback cb) { khistorycombobox_resizeevent_callback = cb; }
-    inline void setKHistoryComboBox_PaintEvent_Callback(KHistoryComboBox_PaintEvent_Callback cb) { khistorycombobox_paintevent_callback = cb; }
-    inline void setKHistoryComboBox_ShowEvent_Callback(KHistoryComboBox_ShowEvent_Callback cb) { khistorycombobox_showevent_callback = cb; }
-    inline void setKHistoryComboBox_HideEvent_Callback(KHistoryComboBox_HideEvent_Callback cb) { khistorycombobox_hideevent_callback = cb; }
-    inline void setKHistoryComboBox_MousePressEvent_Callback(KHistoryComboBox_MousePressEvent_Callback cb) { khistorycombobox_mousepressevent_callback = cb; }
-    inline void setKHistoryComboBox_MouseReleaseEvent_Callback(KHistoryComboBox_MouseReleaseEvent_Callback cb) { khistorycombobox_mousereleaseevent_callback = cb; }
-    inline void setKHistoryComboBox_KeyReleaseEvent_Callback(KHistoryComboBox_KeyReleaseEvent_Callback cb) { khistorycombobox_keyreleaseevent_callback = cb; }
-    inline void setKHistoryComboBox_ContextMenuEvent_Callback(KHistoryComboBox_ContextMenuEvent_Callback cb) { khistorycombobox_contextmenuevent_callback = cb; }
-    inline void setKHistoryComboBox_InputMethodEvent_Callback(KHistoryComboBox_InputMethodEvent_Callback cb) { khistorycombobox_inputmethodevent_callback = cb; }
-    inline void setKHistoryComboBox_InitStyleOption_Callback(KHistoryComboBox_InitStyleOption_Callback cb) { khistorycombobox_initstyleoption_callback = cb; }
-    inline void setKHistoryComboBox_DevType_Callback(KHistoryComboBox_DevType_Callback cb) { khistorycombobox_devtype_callback = cb; }
-    inline void setKHistoryComboBox_SetVisible_Callback(KHistoryComboBox_SetVisible_Callback cb) { khistorycombobox_setvisible_callback = cb; }
-    inline void setKHistoryComboBox_HeightForWidth_Callback(KHistoryComboBox_HeightForWidth_Callback cb) { khistorycombobox_heightforwidth_callback = cb; }
-    inline void setKHistoryComboBox_HasHeightForWidth_Callback(KHistoryComboBox_HasHeightForWidth_Callback cb) { khistorycombobox_hasheightforwidth_callback = cb; }
-    inline void setKHistoryComboBox_PaintEngine_Callback(KHistoryComboBox_PaintEngine_Callback cb) { khistorycombobox_paintengine_callback = cb; }
-    inline void setKHistoryComboBox_MouseDoubleClickEvent_Callback(KHistoryComboBox_MouseDoubleClickEvent_Callback cb) { khistorycombobox_mousedoubleclickevent_callback = cb; }
-    inline void setKHistoryComboBox_MouseMoveEvent_Callback(KHistoryComboBox_MouseMoveEvent_Callback cb) { khistorycombobox_mousemoveevent_callback = cb; }
-    inline void setKHistoryComboBox_EnterEvent_Callback(KHistoryComboBox_EnterEvent_Callback cb) { khistorycombobox_enterevent_callback = cb; }
-    inline void setKHistoryComboBox_LeaveEvent_Callback(KHistoryComboBox_LeaveEvent_Callback cb) { khistorycombobox_leaveevent_callback = cb; }
-    inline void setKHistoryComboBox_MoveEvent_Callback(KHistoryComboBox_MoveEvent_Callback cb) { khistorycombobox_moveevent_callback = cb; }
-    inline void setKHistoryComboBox_CloseEvent_Callback(KHistoryComboBox_CloseEvent_Callback cb) { khistorycombobox_closeevent_callback = cb; }
-    inline void setKHistoryComboBox_TabletEvent_Callback(KHistoryComboBox_TabletEvent_Callback cb) { khistorycombobox_tabletevent_callback = cb; }
-    inline void setKHistoryComboBox_ActionEvent_Callback(KHistoryComboBox_ActionEvent_Callback cb) { khistorycombobox_actionevent_callback = cb; }
-    inline void setKHistoryComboBox_DragEnterEvent_Callback(KHistoryComboBox_DragEnterEvent_Callback cb) { khistorycombobox_dragenterevent_callback = cb; }
-    inline void setKHistoryComboBox_DragMoveEvent_Callback(KHistoryComboBox_DragMoveEvent_Callback cb) { khistorycombobox_dragmoveevent_callback = cb; }
-    inline void setKHistoryComboBox_DragLeaveEvent_Callback(KHistoryComboBox_DragLeaveEvent_Callback cb) { khistorycombobox_dragleaveevent_callback = cb; }
-    inline void setKHistoryComboBox_DropEvent_Callback(KHistoryComboBox_DropEvent_Callback cb) { khistorycombobox_dropevent_callback = cb; }
-    inline void setKHistoryComboBox_NativeEvent_Callback(KHistoryComboBox_NativeEvent_Callback cb) { khistorycombobox_nativeevent_callback = cb; }
-    inline void setKHistoryComboBox_Metric_Callback(KHistoryComboBox_Metric_Callback cb) { khistorycombobox_metric_callback = cb; }
-    inline void setKHistoryComboBox_InitPainter_Callback(KHistoryComboBox_InitPainter_Callback cb) { khistorycombobox_initpainter_callback = cb; }
-    inline void setKHistoryComboBox_Redirected_Callback(KHistoryComboBox_Redirected_Callback cb) { khistorycombobox_redirected_callback = cb; }
-    inline void setKHistoryComboBox_SharedPainter_Callback(KHistoryComboBox_SharedPainter_Callback cb) { khistorycombobox_sharedpainter_callback = cb; }
-    inline void setKHistoryComboBox_FocusNextPrevChild_Callback(KHistoryComboBox_FocusNextPrevChild_Callback cb) { khistorycombobox_focusnextprevchild_callback = cb; }
-    inline void setKHistoryComboBox_EventFilter_Callback(KHistoryComboBox_EventFilter_Callback cb) { khistorycombobox_eventfilter_callback = cb; }
-    inline void setKHistoryComboBox_TimerEvent_Callback(KHistoryComboBox_TimerEvent_Callback cb) { khistorycombobox_timerevent_callback = cb; }
-    inline void setKHistoryComboBox_ChildEvent_Callback(KHistoryComboBox_ChildEvent_Callback cb) { khistorycombobox_childevent_callback = cb; }
-    inline void setKHistoryComboBox_CustomEvent_Callback(KHistoryComboBox_CustomEvent_Callback cb) { khistorycombobox_customevent_callback = cb; }
-    inline void setKHistoryComboBox_ConnectNotify_Callback(KHistoryComboBox_ConnectNotify_Callback cb) { khistorycombobox_connectnotify_callback = cb; }
-    inline void setKHistoryComboBox_DisconnectNotify_Callback(KHistoryComboBox_DisconnectNotify_Callback cb) { khistorycombobox_disconnectnotify_callback = cb; }
-    inline void setKHistoryComboBox_SetCompletionObject_Callback(KHistoryComboBox_SetCompletionObject_Callback cb) { khistorycombobox_setcompletionobject_callback = cb; }
-    inline void setKHistoryComboBox_SetHandleSignals_Callback(KHistoryComboBox_SetHandleSignals_Callback cb) { khistorycombobox_sethandlesignals_callback = cb; }
-    inline void setKHistoryComboBox_SetCompletionMode_Callback(KHistoryComboBox_SetCompletionMode_Callback cb) { khistorycombobox_setcompletionmode_callback = cb; }
-    inline void setKHistoryComboBox_VirtualHook_Callback(KHistoryComboBox_VirtualHook_Callback cb) { khistorycombobox_virtualhook_callback = cb; }
-    inline void setKHistoryComboBox_InsertItems_Callback(KHistoryComboBox_InsertItems_Callback cb) { khistorycombobox_insertitems_callback = cb; }
-    inline void setKHistoryComboBox_UseCompletion_Callback(KHistoryComboBox_UseCompletion_Callback cb) { khistorycombobox_usecompletion_callback = cb; }
-    inline void setKHistoryComboBox_UpdateMicroFocus_Callback(KHistoryComboBox_UpdateMicroFocus_Callback cb) { khistorycombobox_updatemicrofocus_callback = cb; }
-    inline void setKHistoryComboBox_Create_Callback(KHistoryComboBox_Create_Callback cb) { khistorycombobox_create_callback = cb; }
-    inline void setKHistoryComboBox_Destroy_Callback(KHistoryComboBox_Destroy_Callback cb) { khistorycombobox_destroy_callback = cb; }
-    inline void setKHistoryComboBox_FocusNextChild_Callback(KHistoryComboBox_FocusNextChild_Callback cb) { khistorycombobox_focusnextchild_callback = cb; }
-    inline void setKHistoryComboBox_FocusPreviousChild_Callback(KHistoryComboBox_FocusPreviousChild_Callback cb) { khistorycombobox_focuspreviouschild_callback = cb; }
-    inline void setKHistoryComboBox_Sender_Callback(KHistoryComboBox_Sender_Callback cb) { khistorycombobox_sender_callback = cb; }
-    inline void setKHistoryComboBox_SenderSignalIndex_Callback(KHistoryComboBox_SenderSignalIndex_Callback cb) { khistorycombobox_sendersignalindex_callback = cb; }
-    inline void setKHistoryComboBox_Receivers_Callback(KHistoryComboBox_Receivers_Callback cb) { khistorycombobox_receivers_callback = cb; }
-    inline void setKHistoryComboBox_IsSignalConnected_Callback(KHistoryComboBox_IsSignalConnected_Callback cb) { khistorycombobox_issignalconnected_callback = cb; }
-    inline void setKHistoryComboBox_GetDecodedMetricF_Callback(KHistoryComboBox_GetDecodedMetricF_Callback cb) { khistorycombobox_getdecodedmetricf_callback = cb; }
-    inline void setKHistoryComboBox_KeyBindingMap_Callback(KHistoryComboBox_KeyBindingMap_Callback cb) { khistorycombobox_keybindingmap_callback = cb; }
-    inline void setKHistoryComboBox_SetKeyBindingMap_Callback(KHistoryComboBox_SetKeyBindingMap_Callback cb) { khistorycombobox_setkeybindingmap_callback = cb; }
-    inline void setKHistoryComboBox_SetDelegate_Callback(KHistoryComboBox_SetDelegate_Callback cb) { khistorycombobox_setdelegate_callback = cb; }
-    inline void setKHistoryComboBox_Delegate_Callback(KHistoryComboBox_Delegate_Callback cb) { khistorycombobox_delegate_callback = cb; }
-
-    // Base flag setters
-    inline void setKHistoryComboBox_MetaObject_IsBase(bool value) const { khistorycombobox_metaobject_isbase = value; }
-    inline void setKHistoryComboBox_Metacast_IsBase(bool value) const { khistorycombobox_metacast_isbase = value; }
-    inline void setKHistoryComboBox_Metacall_IsBase(bool value) const { khistorycombobox_metacall_isbase = value; }
-    inline void setKHistoryComboBox_KeyPressEvent_IsBase(bool value) const { khistorycombobox_keypressevent_isbase = value; }
-    inline void setKHistoryComboBox_WheelEvent_IsBase(bool value) const { khistorycombobox_wheelevent_isbase = value; }
-    inline void setKHistoryComboBox_SetAutoCompletion_IsBase(bool value) const { khistorycombobox_setautocompletion_isbase = value; }
-    inline void setKHistoryComboBox_SetLineEdit_IsBase(bool value) const { khistorycombobox_setlineedit_isbase = value; }
-    inline void setKHistoryComboBox_MinimumSizeHint_IsBase(bool value) const { khistorycombobox_minimumsizehint_isbase = value; }
-    inline void setKHistoryComboBox_SetCompletedText_IsBase(bool value) const { khistorycombobox_setcompletedtext_isbase = value; }
-    inline void setKHistoryComboBox_SetCompletedItems_IsBase(bool value) const { khistorycombobox_setcompleteditems_isbase = value; }
-    inline void setKHistoryComboBox_MakeCompletion_IsBase(bool value) const { khistorycombobox_makecompletion_isbase = value; }
-    inline void setKHistoryComboBox_SetModel_IsBase(bool value) const { khistorycombobox_setmodel_isbase = value; }
-    inline void setKHistoryComboBox_SizeHint_IsBase(bool value) const { khistorycombobox_sizehint_isbase = value; }
-    inline void setKHistoryComboBox_ShowPopup_IsBase(bool value) const { khistorycombobox_showpopup_isbase = value; }
-    inline void setKHistoryComboBox_HidePopup_IsBase(bool value) const { khistorycombobox_hidepopup_isbase = value; }
-    inline void setKHistoryComboBox_Event_IsBase(bool value) const { khistorycombobox_event_isbase = value; }
-    inline void setKHistoryComboBox_InputMethodQuery_IsBase(bool value) const { khistorycombobox_inputmethodquery_isbase = value; }
-    inline void setKHistoryComboBox_FocusInEvent_IsBase(bool value) const { khistorycombobox_focusinevent_isbase = value; }
-    inline void setKHistoryComboBox_FocusOutEvent_IsBase(bool value) const { khistorycombobox_focusoutevent_isbase = value; }
-    inline void setKHistoryComboBox_ChangeEvent_IsBase(bool value) const { khistorycombobox_changeevent_isbase = value; }
-    inline void setKHistoryComboBox_ResizeEvent_IsBase(bool value) const { khistorycombobox_resizeevent_isbase = value; }
-    inline void setKHistoryComboBox_PaintEvent_IsBase(bool value) const { khistorycombobox_paintevent_isbase = value; }
-    inline void setKHistoryComboBox_ShowEvent_IsBase(bool value) const { khistorycombobox_showevent_isbase = value; }
-    inline void setKHistoryComboBox_HideEvent_IsBase(bool value) const { khistorycombobox_hideevent_isbase = value; }
-    inline void setKHistoryComboBox_MousePressEvent_IsBase(bool value) const { khistorycombobox_mousepressevent_isbase = value; }
-    inline void setKHistoryComboBox_MouseReleaseEvent_IsBase(bool value) const { khistorycombobox_mousereleaseevent_isbase = value; }
-    inline void setKHistoryComboBox_KeyReleaseEvent_IsBase(bool value) const { khistorycombobox_keyreleaseevent_isbase = value; }
-    inline void setKHistoryComboBox_ContextMenuEvent_IsBase(bool value) const { khistorycombobox_contextmenuevent_isbase = value; }
-    inline void setKHistoryComboBox_InputMethodEvent_IsBase(bool value) const { khistorycombobox_inputmethodevent_isbase = value; }
-    inline void setKHistoryComboBox_InitStyleOption_IsBase(bool value) const { khistorycombobox_initstyleoption_isbase = value; }
-    inline void setKHistoryComboBox_DevType_IsBase(bool value) const { khistorycombobox_devtype_isbase = value; }
-    inline void setKHistoryComboBox_SetVisible_IsBase(bool value) const { khistorycombobox_setvisible_isbase = value; }
-    inline void setKHistoryComboBox_HeightForWidth_IsBase(bool value) const { khistorycombobox_heightforwidth_isbase = value; }
-    inline void setKHistoryComboBox_HasHeightForWidth_IsBase(bool value) const { khistorycombobox_hasheightforwidth_isbase = value; }
-    inline void setKHistoryComboBox_PaintEngine_IsBase(bool value) const { khistorycombobox_paintengine_isbase = value; }
-    inline void setKHistoryComboBox_MouseDoubleClickEvent_IsBase(bool value) const { khistorycombobox_mousedoubleclickevent_isbase = value; }
-    inline void setKHistoryComboBox_MouseMoveEvent_IsBase(bool value) const { khistorycombobox_mousemoveevent_isbase = value; }
-    inline void setKHistoryComboBox_EnterEvent_IsBase(bool value) const { khistorycombobox_enterevent_isbase = value; }
-    inline void setKHistoryComboBox_LeaveEvent_IsBase(bool value) const { khistorycombobox_leaveevent_isbase = value; }
-    inline void setKHistoryComboBox_MoveEvent_IsBase(bool value) const { khistorycombobox_moveevent_isbase = value; }
-    inline void setKHistoryComboBox_CloseEvent_IsBase(bool value) const { khistorycombobox_closeevent_isbase = value; }
-    inline void setKHistoryComboBox_TabletEvent_IsBase(bool value) const { khistorycombobox_tabletevent_isbase = value; }
-    inline void setKHistoryComboBox_ActionEvent_IsBase(bool value) const { khistorycombobox_actionevent_isbase = value; }
-    inline void setKHistoryComboBox_DragEnterEvent_IsBase(bool value) const { khistorycombobox_dragenterevent_isbase = value; }
-    inline void setKHistoryComboBox_DragMoveEvent_IsBase(bool value) const { khistorycombobox_dragmoveevent_isbase = value; }
-    inline void setKHistoryComboBox_DragLeaveEvent_IsBase(bool value) const { khistorycombobox_dragleaveevent_isbase = value; }
-    inline void setKHistoryComboBox_DropEvent_IsBase(bool value) const { khistorycombobox_dropevent_isbase = value; }
-    inline void setKHistoryComboBox_NativeEvent_IsBase(bool value) const { khistorycombobox_nativeevent_isbase = value; }
-    inline void setKHistoryComboBox_Metric_IsBase(bool value) const { khistorycombobox_metric_isbase = value; }
-    inline void setKHistoryComboBox_InitPainter_IsBase(bool value) const { khistorycombobox_initpainter_isbase = value; }
-    inline void setKHistoryComboBox_Redirected_IsBase(bool value) const { khistorycombobox_redirected_isbase = value; }
-    inline void setKHistoryComboBox_SharedPainter_IsBase(bool value) const { khistorycombobox_sharedpainter_isbase = value; }
-    inline void setKHistoryComboBox_FocusNextPrevChild_IsBase(bool value) const { khistorycombobox_focusnextprevchild_isbase = value; }
-    inline void setKHistoryComboBox_EventFilter_IsBase(bool value) const { khistorycombobox_eventfilter_isbase = value; }
-    inline void setKHistoryComboBox_TimerEvent_IsBase(bool value) const { khistorycombobox_timerevent_isbase = value; }
-    inline void setKHistoryComboBox_ChildEvent_IsBase(bool value) const { khistorycombobox_childevent_isbase = value; }
-    inline void setKHistoryComboBox_CustomEvent_IsBase(bool value) const { khistorycombobox_customevent_isbase = value; }
-    inline void setKHistoryComboBox_ConnectNotify_IsBase(bool value) const { khistorycombobox_connectnotify_isbase = value; }
-    inline void setKHistoryComboBox_DisconnectNotify_IsBase(bool value) const { khistorycombobox_disconnectnotify_isbase = value; }
-    inline void setKHistoryComboBox_SetCompletionObject_IsBase(bool value) const { khistorycombobox_setcompletionobject_isbase = value; }
-    inline void setKHistoryComboBox_SetHandleSignals_IsBase(bool value) const { khistorycombobox_sethandlesignals_isbase = value; }
-    inline void setKHistoryComboBox_SetCompletionMode_IsBase(bool value) const { khistorycombobox_setcompletionmode_isbase = value; }
-    inline void setKHistoryComboBox_VirtualHook_IsBase(bool value) const { khistorycombobox_virtualhook_isbase = value; }
-    inline void setKHistoryComboBox_InsertItems_IsBase(bool value) const { khistorycombobox_insertitems_isbase = value; }
-    inline void setKHistoryComboBox_UseCompletion_IsBase(bool value) const { khistorycombobox_usecompletion_isbase = value; }
-    inline void setKHistoryComboBox_UpdateMicroFocus_IsBase(bool value) const { khistorycombobox_updatemicrofocus_isbase = value; }
-    inline void setKHistoryComboBox_Create_IsBase(bool value) const { khistorycombobox_create_isbase = value; }
-    inline void setKHistoryComboBox_Destroy_IsBase(bool value) const { khistorycombobox_destroy_isbase = value; }
-    inline void setKHistoryComboBox_FocusNextChild_IsBase(bool value) const { khistorycombobox_focusnextchild_isbase = value; }
-    inline void setKHistoryComboBox_FocusPreviousChild_IsBase(bool value) const { khistorycombobox_focuspreviouschild_isbase = value; }
-    inline void setKHistoryComboBox_Sender_IsBase(bool value) const { khistorycombobox_sender_isbase = value; }
-    inline void setKHistoryComboBox_SenderSignalIndex_IsBase(bool value) const { khistorycombobox_sendersignalindex_isbase = value; }
-    inline void setKHistoryComboBox_Receivers_IsBase(bool value) const { khistorycombobox_receivers_isbase = value; }
-    inline void setKHistoryComboBox_IsSignalConnected_IsBase(bool value) const { khistorycombobox_issignalconnected_isbase = value; }
-    inline void setKHistoryComboBox_GetDecodedMetricF_IsBase(bool value) const { khistorycombobox_getdecodedmetricf_isbase = value; }
-    inline void setKHistoryComboBox_KeyBindingMap_IsBase(bool value) const { khistorycombobox_keybindingmap_isbase = value; }
-    inline void setKHistoryComboBox_SetKeyBindingMap_IsBase(bool value) const { khistorycombobox_setkeybindingmap_isbase = value; }
-    inline void setKHistoryComboBox_SetDelegate_IsBase(bool value) const { khistorycombobox_setdelegate_isbase = value; }
-    inline void setKHistoryComboBox_Delegate_IsBase(bool value) const { khistorycombobox_delegate_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (khistorycombobox_metaobject_isbase) {
-            khistorycombobox_metaobject_isbase = false;
-            return KHistoryComboBox::metaObject();
-        }
-        auto metaobject_cb = khistorycombobox_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (khistorycombobox_metaobject_callback) {
+            QMetaObject* callback_ret = khistorycombobox_metaobject_callback(this);
             return callback_ret;
         }
         return KHistoryComboBox::metaObject();
@@ -444,14 +218,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (khistorycombobox_metacast_isbase) {
-            khistorycombobox_metacast_isbase = false;
-            return KHistoryComboBox::qt_metacast(param1);
-        }
-        auto metacast_cb = khistorycombobox_metacast_callback;
-        if (metacast_cb) {
+        if (khistorycombobox_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = khistorycombobox_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KHistoryComboBox::qt_metacast(param1);
@@ -459,16 +228,11 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (khistorycombobox_metacall_isbase) {
-            khistorycombobox_metacall_isbase = false;
-            return KHistoryComboBox::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = khistorycombobox_metacall_callback;
-        if (metacall_cb) {
+        if (khistorycombobox_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = khistorycombobox_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KHistoryComboBox::qt_metacall(param1, param2, param3);
@@ -476,15 +240,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (khistorycombobox_keypressevent_isbase) {
-            khistorycombobox_keypressevent_isbase = false;
-            KHistoryComboBox::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = khistorycombobox_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (khistorycombobox_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            khistorycombobox_keypressevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::keyPressEvent(param1);
@@ -492,15 +250,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* ev) override {
-        if (khistorycombobox_wheelevent_isbase) {
-            khistorycombobox_wheelevent_isbase = false;
-            KHistoryComboBox::wheelEvent(ev);
-            return;
-        }
-        auto wheelevent_cb = khistorycombobox_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (khistorycombobox_wheelevent_callback) {
             QWheelEvent* cbval1 = ev;
-            wheelevent_cb(this, cbval1);
+            khistorycombobox_wheelevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::wheelEvent(ev);
@@ -508,15 +260,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setAutoCompletion(bool autocomplete) override {
-        if (khistorycombobox_setautocompletion_isbase) {
-            khistorycombobox_setautocompletion_isbase = false;
-            KHistoryComboBox::setAutoCompletion(autocomplete);
-            return;
-        }
-        auto setautocompletion_cb = khistorycombobox_setautocompletion_callback;
-        if (setautocompletion_cb) {
+        if (khistorycombobox_setautocompletion_callback) {
             bool cbval1 = autocomplete;
-            setautocompletion_cb(this, cbval1);
+            khistorycombobox_setautocompletion_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::setAutoCompletion(autocomplete);
@@ -524,15 +270,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setLineEdit(QLineEdit* lineEdit) override {
-        if (khistorycombobox_setlineedit_isbase) {
-            khistorycombobox_setlineedit_isbase = false;
-            KHistoryComboBox::setLineEdit(lineEdit);
-            return;
-        }
-        auto setlineedit_cb = khistorycombobox_setlineedit_callback;
-        if (setlineedit_cb) {
+        if (khistorycombobox_setlineedit_callback) {
             QLineEdit* cbval1 = lineEdit;
-            setlineedit_cb(this, cbval1);
+            khistorycombobox_setlineedit_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::setLineEdit(lineEdit);
@@ -540,13 +280,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (khistorycombobox_minimumsizehint_isbase) {
-            khistorycombobox_minimumsizehint_isbase = false;
-            return KHistoryComboBox::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = khistorycombobox_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (khistorycombobox_minimumsizehint_callback) {
+            QSize* callback_ret = khistorycombobox_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -556,13 +291,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setCompletedText(const QString& completedText) override {
-        if (khistorycombobox_setcompletedtext_isbase) {
-            khistorycombobox_setcompletedtext_isbase = false;
-            KHistoryComboBox::setCompletedText(completedText);
-            return;
-        }
-        auto setcompletedtext_cb = khistorycombobox_setcompletedtext_callback;
-        if (setcompletedtext_cb) {
+        if (khistorycombobox_setcompletedtext_callback) {
             const auto completedText_ret = completedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
@@ -571,7 +300,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             memcpy((void*)completedText_str, completedText_b.data(), completedText_str_len);
             ((char*)completedText_str)[completedText_str_len] = '\0';
             const char* cbval1 = completedText_str;
-            setcompletedtext_cb(this, cbval1);
+            khistorycombobox_setcompletedtext_callback(this, cbval1);
             libqt_free(completedText_str);
             return;
         }
@@ -580,13 +309,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setCompletedItems(const QList<QString>& items, bool autoSuggest) override {
-        if (khistorycombobox_setcompleteditems_isbase) {
-            khistorycombobox_setcompleteditems_isbase = false;
-            KHistoryComboBox::setCompletedItems(items, autoSuggest);
-            return;
-        }
-        auto setcompleteditems_cb = khistorycombobox_setcompleteditems_callback;
-        if (setcompleteditems_cb) {
+        if (khistorycombobox_setcompleteditems_callback) {
             const QList<QString>& items_ret = items;
             // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
             const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
@@ -602,7 +325,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             items_arr[items_ret.size()] = nullptr;
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
-            setcompleteditems_cb(this, cbval1, cbval2);
+            khistorycombobox_setcompleteditems_callback(this, cbval1, cbval2);
             libqt_free(items_arr);
             return;
         }
@@ -611,13 +334,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void makeCompletion(const QString& param1) override {
-        if (khistorycombobox_makecompletion_isbase) {
-            khistorycombobox_makecompletion_isbase = false;
-            KHistoryComboBox::makeCompletion(param1);
-            return;
-        }
-        auto makecompletion_cb = khistorycombobox_makecompletion_callback;
-        if (makecompletion_cb) {
+        if (khistorycombobox_makecompletion_callback) {
             const auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
@@ -626,7 +343,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-            makecompletion_cb(this, cbval1);
+            khistorycombobox_makecompletion_callback(this, cbval1);
             libqt_free(param1_str);
             return;
         }
@@ -635,15 +352,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setModel(QAbstractItemModel* model) override {
-        if (khistorycombobox_setmodel_isbase) {
-            khistorycombobox_setmodel_isbase = false;
-            KHistoryComboBox::setModel(model);
-            return;
-        }
-        auto setmodel_cb = khistorycombobox_setmodel_callback;
-        if (setmodel_cb) {
+        if (khistorycombobox_setmodel_callback) {
             QAbstractItemModel* cbval1 = model;
-            setmodel_cb(this, cbval1);
+            khistorycombobox_setmodel_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::setModel(model);
@@ -651,13 +362,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (khistorycombobox_sizehint_isbase) {
-            khistorycombobox_sizehint_isbase = false;
-            return KHistoryComboBox::sizeHint();
-        }
-        auto sizehint_cb = khistorycombobox_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (khistorycombobox_sizehint_callback) {
+            QSize* callback_ret = khistorycombobox_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -667,14 +373,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void showPopup() override {
-        if (khistorycombobox_showpopup_isbase) {
-            khistorycombobox_showpopup_isbase = false;
-            KHistoryComboBox::showPopup();
-            return;
-        }
-        auto showpopup_cb = khistorycombobox_showpopup_callback;
-        if (showpopup_cb) {
-            showpopup_cb();
+        if (khistorycombobox_showpopup_callback) {
+            khistorycombobox_showpopup_callback(this);
             return;
         }
         KHistoryComboBox::showPopup();
@@ -682,14 +382,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void hidePopup() override {
-        if (khistorycombobox_hidepopup_isbase) {
-            khistorycombobox_hidepopup_isbase = false;
-            KHistoryComboBox::hidePopup();
-            return;
-        }
-        auto hidepopup_cb = khistorycombobox_hidepopup_callback;
-        if (hidepopup_cb) {
-            hidepopup_cb();
+        if (khistorycombobox_hidepopup_callback) {
+            khistorycombobox_hidepopup_callback(this);
             return;
         }
         KHistoryComboBox::hidePopup();
@@ -697,14 +391,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (khistorycombobox_event_isbase) {
-            khistorycombobox_event_isbase = false;
-            return KHistoryComboBox::event(event);
-        }
-        auto event_cb = khistorycombobox_event_callback;
-        if (event_cb) {
+        if (khistorycombobox_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = khistorycombobox_event_callback(this, cbval1);
             return callback_ret;
         }
         return KHistoryComboBox::event(event);
@@ -712,14 +401,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (khistorycombobox_inputmethodquery_isbase) {
-            khistorycombobox_inputmethodquery_isbase = false;
-            return KHistoryComboBox::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = khistorycombobox_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (khistorycombobox_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = khistorycombobox_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -729,15 +413,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* e) override {
-        if (khistorycombobox_focusinevent_isbase) {
-            khistorycombobox_focusinevent_isbase = false;
-            KHistoryComboBox::focusInEvent(e);
-            return;
-        }
-        auto focusinevent_cb = khistorycombobox_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (khistorycombobox_focusinevent_callback) {
             QFocusEvent* cbval1 = e;
-            focusinevent_cb(this, cbval1);
+            khistorycombobox_focusinevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::focusInEvent(e);
@@ -745,15 +423,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* e) override {
-        if (khistorycombobox_focusoutevent_isbase) {
-            khistorycombobox_focusoutevent_isbase = false;
-            KHistoryComboBox::focusOutEvent(e);
-            return;
-        }
-        auto focusoutevent_cb = khistorycombobox_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (khistorycombobox_focusoutevent_callback) {
             QFocusEvent* cbval1 = e;
-            focusoutevent_cb(this, cbval1);
+            khistorycombobox_focusoutevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::focusOutEvent(e);
@@ -761,15 +433,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* e) override {
-        if (khistorycombobox_changeevent_isbase) {
-            khistorycombobox_changeevent_isbase = false;
-            KHistoryComboBox::changeEvent(e);
-            return;
-        }
-        auto changeevent_cb = khistorycombobox_changeevent_callback;
-        if (changeevent_cb) {
+        if (khistorycombobox_changeevent_callback) {
             QEvent* cbval1 = e;
-            changeevent_cb(this, cbval1);
+            khistorycombobox_changeevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::changeEvent(e);
@@ -777,15 +443,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* e) override {
-        if (khistorycombobox_resizeevent_isbase) {
-            khistorycombobox_resizeevent_isbase = false;
-            KHistoryComboBox::resizeEvent(e);
-            return;
-        }
-        auto resizeevent_cb = khistorycombobox_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (khistorycombobox_resizeevent_callback) {
             QResizeEvent* cbval1 = e;
-            resizeevent_cb(this, cbval1);
+            khistorycombobox_resizeevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::resizeEvent(e);
@@ -793,15 +453,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* e) override {
-        if (khistorycombobox_paintevent_isbase) {
-            khistorycombobox_paintevent_isbase = false;
-            KHistoryComboBox::paintEvent(e);
-            return;
-        }
-        auto paintevent_cb = khistorycombobox_paintevent_callback;
-        if (paintevent_cb) {
+        if (khistorycombobox_paintevent_callback) {
             QPaintEvent* cbval1 = e;
-            paintevent_cb(this, cbval1);
+            khistorycombobox_paintevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::paintEvent(e);
@@ -809,15 +463,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* e) override {
-        if (khistorycombobox_showevent_isbase) {
-            khistorycombobox_showevent_isbase = false;
-            KHistoryComboBox::showEvent(e);
-            return;
-        }
-        auto showevent_cb = khistorycombobox_showevent_callback;
-        if (showevent_cb) {
+        if (khistorycombobox_showevent_callback) {
             QShowEvent* cbval1 = e;
-            showevent_cb(this, cbval1);
+            khistorycombobox_showevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::showEvent(e);
@@ -825,15 +473,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* e) override {
-        if (khistorycombobox_hideevent_isbase) {
-            khistorycombobox_hideevent_isbase = false;
-            KHistoryComboBox::hideEvent(e);
-            return;
-        }
-        auto hideevent_cb = khistorycombobox_hideevent_callback;
-        if (hideevent_cb) {
+        if (khistorycombobox_hideevent_callback) {
             QHideEvent* cbval1 = e;
-            hideevent_cb(this, cbval1);
+            khistorycombobox_hideevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::hideEvent(e);
@@ -841,15 +483,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* e) override {
-        if (khistorycombobox_mousepressevent_isbase) {
-            khistorycombobox_mousepressevent_isbase = false;
-            KHistoryComboBox::mousePressEvent(e);
-            return;
-        }
-        auto mousepressevent_cb = khistorycombobox_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (khistorycombobox_mousepressevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousepressevent_cb(this, cbval1);
+            khistorycombobox_mousepressevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::mousePressEvent(e);
@@ -857,15 +493,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* e) override {
-        if (khistorycombobox_mousereleaseevent_isbase) {
-            khistorycombobox_mousereleaseevent_isbase = false;
-            KHistoryComboBox::mouseReleaseEvent(e);
-            return;
-        }
-        auto mousereleaseevent_cb = khistorycombobox_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (khistorycombobox_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousereleaseevent_cb(this, cbval1);
+            khistorycombobox_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::mouseReleaseEvent(e);
@@ -873,15 +503,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* e) override {
-        if (khistorycombobox_keyreleaseevent_isbase) {
-            khistorycombobox_keyreleaseevent_isbase = false;
-            KHistoryComboBox::keyReleaseEvent(e);
-            return;
-        }
-        auto keyreleaseevent_cb = khistorycombobox_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (khistorycombobox_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = e;
-            keyreleaseevent_cb(this, cbval1);
+            khistorycombobox_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::keyReleaseEvent(e);
@@ -889,15 +513,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* e) override {
-        if (khistorycombobox_contextmenuevent_isbase) {
-            khistorycombobox_contextmenuevent_isbase = false;
-            KHistoryComboBox::contextMenuEvent(e);
-            return;
-        }
-        auto contextmenuevent_cb = khistorycombobox_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (khistorycombobox_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = e;
-            contextmenuevent_cb(this, cbval1);
+            khistorycombobox_contextmenuevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::contextMenuEvent(e);
@@ -905,15 +523,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (khistorycombobox_inputmethodevent_isbase) {
-            khistorycombobox_inputmethodevent_isbase = false;
-            KHistoryComboBox::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = khistorycombobox_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (khistorycombobox_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            khistorycombobox_inputmethodevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::inputMethodEvent(param1);
@@ -921,15 +533,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionComboBox* option) const override {
-        if (khistorycombobox_initstyleoption_isbase) {
-            khistorycombobox_initstyleoption_isbase = false;
-            KHistoryComboBox::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = khistorycombobox_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (khistorycombobox_initstyleoption_callback) {
             QStyleOptionComboBox* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            khistorycombobox_initstyleoption_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::initStyleOption(option);
@@ -937,13 +543,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (khistorycombobox_devtype_isbase) {
-            khistorycombobox_devtype_isbase = false;
-            return KHistoryComboBox::devType();
-        }
-        auto devtype_cb = khistorycombobox_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (khistorycombobox_devtype_callback) {
+            int callback_ret = khistorycombobox_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KHistoryComboBox::devType();
@@ -951,15 +552,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (khistorycombobox_setvisible_isbase) {
-            khistorycombobox_setvisible_isbase = false;
-            KHistoryComboBox::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = khistorycombobox_setvisible_callback;
-        if (setvisible_cb) {
+        if (khistorycombobox_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            khistorycombobox_setvisible_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::setVisible(visible);
@@ -967,14 +562,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (khistorycombobox_heightforwidth_isbase) {
-            khistorycombobox_heightforwidth_isbase = false;
-            return KHistoryComboBox::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = khistorycombobox_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (khistorycombobox_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = khistorycombobox_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KHistoryComboBox::heightForWidth(param1);
@@ -982,13 +572,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (khistorycombobox_hasheightforwidth_isbase) {
-            khistorycombobox_hasheightforwidth_isbase = false;
-            return KHistoryComboBox::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = khistorycombobox_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (khistorycombobox_hasheightforwidth_callback) {
+            bool callback_ret = khistorycombobox_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KHistoryComboBox::hasHeightForWidth();
@@ -996,13 +581,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (khistorycombobox_paintengine_isbase) {
-            khistorycombobox_paintengine_isbase = false;
-            return KHistoryComboBox::paintEngine();
-        }
-        auto paintengine_cb = khistorycombobox_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (khistorycombobox_paintengine_callback) {
+            QPaintEngine* callback_ret = khistorycombobox_paintengine_callback(this);
             return callback_ret;
         }
         return KHistoryComboBox::paintEngine();
@@ -1010,15 +590,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (khistorycombobox_mousedoubleclickevent_isbase) {
-            khistorycombobox_mousedoubleclickevent_isbase = false;
-            KHistoryComboBox::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = khistorycombobox_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (khistorycombobox_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            khistorycombobox_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::mouseDoubleClickEvent(event);
@@ -1026,15 +600,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (khistorycombobox_mousemoveevent_isbase) {
-            khistorycombobox_mousemoveevent_isbase = false;
-            KHistoryComboBox::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = khistorycombobox_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (khistorycombobox_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            khistorycombobox_mousemoveevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::mouseMoveEvent(event);
@@ -1042,15 +610,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (khistorycombobox_enterevent_isbase) {
-            khistorycombobox_enterevent_isbase = false;
-            KHistoryComboBox::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = khistorycombobox_enterevent_callback;
-        if (enterevent_cb) {
+        if (khistorycombobox_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            khistorycombobox_enterevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::enterEvent(event);
@@ -1058,15 +620,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (khistorycombobox_leaveevent_isbase) {
-            khistorycombobox_leaveevent_isbase = false;
-            KHistoryComboBox::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = khistorycombobox_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (khistorycombobox_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            khistorycombobox_leaveevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::leaveEvent(event);
@@ -1074,15 +630,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (khistorycombobox_moveevent_isbase) {
-            khistorycombobox_moveevent_isbase = false;
-            KHistoryComboBox::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = khistorycombobox_moveevent_callback;
-        if (moveevent_cb) {
+        if (khistorycombobox_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            khistorycombobox_moveevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::moveEvent(event);
@@ -1090,15 +640,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (khistorycombobox_closeevent_isbase) {
-            khistorycombobox_closeevent_isbase = false;
-            KHistoryComboBox::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = khistorycombobox_closeevent_callback;
-        if (closeevent_cb) {
+        if (khistorycombobox_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            khistorycombobox_closeevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::closeEvent(event);
@@ -1106,15 +650,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (khistorycombobox_tabletevent_isbase) {
-            khistorycombobox_tabletevent_isbase = false;
-            KHistoryComboBox::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = khistorycombobox_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (khistorycombobox_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            khistorycombobox_tabletevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::tabletEvent(event);
@@ -1122,15 +660,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (khistorycombobox_actionevent_isbase) {
-            khistorycombobox_actionevent_isbase = false;
-            KHistoryComboBox::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = khistorycombobox_actionevent_callback;
-        if (actionevent_cb) {
+        if (khistorycombobox_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            khistorycombobox_actionevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::actionEvent(event);
@@ -1138,15 +670,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (khistorycombobox_dragenterevent_isbase) {
-            khistorycombobox_dragenterevent_isbase = false;
-            KHistoryComboBox::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = khistorycombobox_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (khistorycombobox_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            khistorycombobox_dragenterevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::dragEnterEvent(event);
@@ -1154,15 +680,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (khistorycombobox_dragmoveevent_isbase) {
-            khistorycombobox_dragmoveevent_isbase = false;
-            KHistoryComboBox::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = khistorycombobox_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (khistorycombobox_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            khistorycombobox_dragmoveevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::dragMoveEvent(event);
@@ -1170,15 +690,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (khistorycombobox_dragleaveevent_isbase) {
-            khistorycombobox_dragleaveevent_isbase = false;
-            KHistoryComboBox::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = khistorycombobox_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (khistorycombobox_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            khistorycombobox_dragleaveevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::dragLeaveEvent(event);
@@ -1186,15 +700,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (khistorycombobox_dropevent_isbase) {
-            khistorycombobox_dropevent_isbase = false;
-            KHistoryComboBox::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = khistorycombobox_dropevent_callback;
-        if (dropevent_cb) {
+        if (khistorycombobox_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            khistorycombobox_dropevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::dropEvent(event);
@@ -1202,12 +710,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (khistorycombobox_nativeevent_isbase) {
-            khistorycombobox_nativeevent_isbase = false;
-            return KHistoryComboBox::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = khistorycombobox_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (khistorycombobox_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1217,7 +720,7 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = khistorycombobox_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1226,14 +729,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (khistorycombobox_metric_isbase) {
-            khistorycombobox_metric_isbase = false;
-            return KHistoryComboBox::metric(param1);
-        }
-        auto metric_cb = khistorycombobox_metric_callback;
-        if (metric_cb) {
+        if (khistorycombobox_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = khistorycombobox_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KHistoryComboBox::metric(param1);
@@ -1241,15 +739,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (khistorycombobox_initpainter_isbase) {
-            khistorycombobox_initpainter_isbase = false;
-            KHistoryComboBox::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = khistorycombobox_initpainter_callback;
-        if (initpainter_cb) {
+        if (khistorycombobox_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            khistorycombobox_initpainter_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::initPainter(painter);
@@ -1257,14 +749,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (khistorycombobox_redirected_isbase) {
-            khistorycombobox_redirected_isbase = false;
-            return KHistoryComboBox::redirected(offset);
-        }
-        auto redirected_cb = khistorycombobox_redirected_callback;
-        if (redirected_cb) {
+        if (khistorycombobox_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = khistorycombobox_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KHistoryComboBox::redirected(offset);
@@ -1272,13 +759,8 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (khistorycombobox_sharedpainter_isbase) {
-            khistorycombobox_sharedpainter_isbase = false;
-            return KHistoryComboBox::sharedPainter();
-        }
-        auto sharedpainter_cb = khistorycombobox_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (khistorycombobox_sharedpainter_callback) {
+            QPainter* callback_ret = khistorycombobox_sharedpainter_callback(this);
             return callback_ret;
         }
         return KHistoryComboBox::sharedPainter();
@@ -1286,14 +768,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (khistorycombobox_focusnextprevchild_isbase) {
-            khistorycombobox_focusnextprevchild_isbase = false;
-            return KHistoryComboBox::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = khistorycombobox_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (khistorycombobox_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = khistorycombobox_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KHistoryComboBox::focusNextPrevChild(next);
@@ -1301,15 +778,10 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (khistorycombobox_eventfilter_isbase) {
-            khistorycombobox_eventfilter_isbase = false;
-            return KHistoryComboBox::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = khistorycombobox_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (khistorycombobox_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = khistorycombobox_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KHistoryComboBox::eventFilter(watched, event);
@@ -1317,15 +789,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (khistorycombobox_timerevent_isbase) {
-            khistorycombobox_timerevent_isbase = false;
-            KHistoryComboBox::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = khistorycombobox_timerevent_callback;
-        if (timerevent_cb) {
+        if (khistorycombobox_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            khistorycombobox_timerevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::timerEvent(event);
@@ -1333,15 +799,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (khistorycombobox_childevent_isbase) {
-            khistorycombobox_childevent_isbase = false;
-            KHistoryComboBox::childEvent(event);
-            return;
-        }
-        auto childevent_cb = khistorycombobox_childevent_callback;
-        if (childevent_cb) {
+        if (khistorycombobox_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            khistorycombobox_childevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::childEvent(event);
@@ -1349,15 +809,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (khistorycombobox_customevent_isbase) {
-            khistorycombobox_customevent_isbase = false;
-            KHistoryComboBox::customEvent(event);
-            return;
-        }
-        auto customevent_cb = khistorycombobox_customevent_callback;
-        if (customevent_cb) {
+        if (khistorycombobox_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            khistorycombobox_customevent_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::customEvent(event);
@@ -1365,17 +819,11 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (khistorycombobox_connectnotify_isbase) {
-            khistorycombobox_connectnotify_isbase = false;
-            KHistoryComboBox::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = khistorycombobox_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (khistorycombobox_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            khistorycombobox_connectnotify_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::connectNotify(signal);
@@ -1383,17 +831,11 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (khistorycombobox_disconnectnotify_isbase) {
-            khistorycombobox_disconnectnotify_isbase = false;
-            KHistoryComboBox::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = khistorycombobox_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (khistorycombobox_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            khistorycombobox_disconnectnotify_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::disconnectNotify(signal);
@@ -1401,16 +843,10 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setCompletionObject(KCompletion* completionObject, bool handleSignals) override {
-        if (khistorycombobox_setcompletionobject_isbase) {
-            khistorycombobox_setcompletionobject_isbase = false;
-            KHistoryComboBox::setCompletionObject(completionObject, handleSignals);
-            return;
-        }
-        auto setcompletionobject_cb = khistorycombobox_setcompletionobject_callback;
-        if (setcompletionobject_cb) {
+        if (khistorycombobox_setcompletionobject_callback) {
             KCompletion* cbval1 = completionObject;
             bool cbval2 = handleSignals;
-            setcompletionobject_cb(this, cbval1, cbval2);
+            khistorycombobox_setcompletionobject_callback(this, cbval1, cbval2);
             return;
         }
         KHistoryComboBox::setCompletionObject(completionObject, handleSignals);
@@ -1418,15 +854,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setHandleSignals(bool handle) override {
-        if (khistorycombobox_sethandlesignals_isbase) {
-            khistorycombobox_sethandlesignals_isbase = false;
-            KHistoryComboBox::setHandleSignals(handle);
-            return;
-        }
-        auto sethandlesignals_cb = khistorycombobox_sethandlesignals_callback;
-        if (sethandlesignals_cb) {
+        if (khistorycombobox_sethandlesignals_callback) {
             bool cbval1 = handle;
-            sethandlesignals_cb(this, cbval1);
+            khistorycombobox_sethandlesignals_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::setHandleSignals(handle);
@@ -1434,15 +864,9 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setCompletionMode(KCompletion::CompletionMode mode) override {
-        if (khistorycombobox_setcompletionmode_isbase) {
-            khistorycombobox_setcompletionmode_isbase = false;
-            KHistoryComboBox::setCompletionMode(mode);
-            return;
-        }
-        auto setcompletionmode_cb = khistorycombobox_setcompletionmode_callback;
-        if (setcompletionmode_cb) {
+        if (khistorycombobox_setcompletionmode_callback) {
             int cbval1 = static_cast<int>(mode);
-            setcompletionmode_cb(this, cbval1);
+            khistorycombobox_setcompletionmode_callback(this, cbval1);
             return;
         }
         KHistoryComboBox::setCompletionMode(mode);
@@ -1450,422 +874,56 @@ class VirtualKHistoryComboBox final : public KHistoryComboBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void virtual_hook(int id, void* data) override {
-        if (khistorycombobox_virtualhook_isbase) {
-            khistorycombobox_virtualhook_isbase = false;
-            KHistoryComboBox::virtual_hook(id, data);
-            return;
-        }
-        auto virtualhook_cb = khistorycombobox_virtualhook_callback;
-        if (virtualhook_cb) {
+        if (khistorycombobox_virtualhook_callback) {
             int cbval1 = id;
             void* cbval2 = data;
-            virtualhook_cb(this, cbval1, cbval2);
+            khistorycombobox_virtualhook_callback(this, cbval1, cbval2);
             return;
         }
         KHistoryComboBox::virtual_hook(id, data);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void insertItems(const QList<QString>& items) {
-        if (khistorycombobox_insertitems_isbase) {
-            khistorycombobox_insertitems_isbase = false;
-            KHistoryComboBox::insertItems(items);
-            return;
-        }
-        auto insertitems_cb = khistorycombobox_insertitems_callback;
-        if (insertitems_cb) {
-            const QList<QString>& items_ret = items;
-            // Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory
-            const char** items_arr = static_cast<const char**>(malloc(sizeof(const char*) * (items_ret.size() + 1)));
-            for (qsizetype i = 0; i < items_ret.size(); ++i) {
-                QByteArray items_b = items_ret[i].toUtf8();
-                auto items_str_len = items_b.length();
-                char* items_str = static_cast<char*>(malloc(items_str_len + 1));
-                memcpy(items_str, items_b.data(), items_str_len);
-                items_str[items_str_len] = '\0';
-                items_arr[i] = items_str;
-            }
-            // Append sentinel null terminator to the list
-            items_arr[items_ret.size()] = nullptr;
-            const char** cbval1 = items_arr;
-            insertitems_cb(this, cbval1);
-            libqt_free(items_arr);
-            return;
-        }
-        KHistoryComboBox::insertItems(items);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool useCompletion() const {
-        if (khistorycombobox_usecompletion_isbase) {
-            khistorycombobox_usecompletion_isbase = false;
-            return KHistoryComboBox::useCompletion();
-        }
-        auto usecompletion_cb = khistorycombobox_usecompletion_callback;
-        if (usecompletion_cb) {
-            bool callback_ret = usecompletion_cb();
-            return callback_ret;
-        }
-        return KHistoryComboBox::useCompletion();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (khistorycombobox_updatemicrofocus_isbase) {
-            khistorycombobox_updatemicrofocus_isbase = false;
-            KHistoryComboBox::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = khistorycombobox_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KHistoryComboBox::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (khistorycombobox_create_isbase) {
-            khistorycombobox_create_isbase = false;
-            KHistoryComboBox::create();
-            return;
-        }
-        auto create_cb = khistorycombobox_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KHistoryComboBox::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (khistorycombobox_destroy_isbase) {
-            khistorycombobox_destroy_isbase = false;
-            KHistoryComboBox::destroy();
-            return;
-        }
-        auto destroy_cb = khistorycombobox_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KHistoryComboBox::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (khistorycombobox_focusnextchild_isbase) {
-            khistorycombobox_focusnextchild_isbase = false;
-            return KHistoryComboBox::focusNextChild();
-        }
-        auto focusnextchild_cb = khistorycombobox_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KHistoryComboBox::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (khistorycombobox_focuspreviouschild_isbase) {
-            khistorycombobox_focuspreviouschild_isbase = false;
-            return KHistoryComboBox::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = khistorycombobox_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KHistoryComboBox::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (khistorycombobox_sender_isbase) {
-            khistorycombobox_sender_isbase = false;
-            return KHistoryComboBox::sender();
-        }
-        auto sender_cb = khistorycombobox_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KHistoryComboBox::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (khistorycombobox_sendersignalindex_isbase) {
-            khistorycombobox_sendersignalindex_isbase = false;
-            return KHistoryComboBox::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = khistorycombobox_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KHistoryComboBox::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (khistorycombobox_receivers_isbase) {
-            khistorycombobox_receivers_isbase = false;
-            return KHistoryComboBox::receivers(signal);
-        }
-        auto receivers_cb = khistorycombobox_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KHistoryComboBox::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (khistorycombobox_issignalconnected_isbase) {
-            khistorycombobox_issignalconnected_isbase = false;
-            return KHistoryComboBox::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = khistorycombobox_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KHistoryComboBox::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (khistorycombobox_getdecodedmetricf_isbase) {
-            khistorycombobox_getdecodedmetricf_isbase = false;
-            return KHistoryComboBox::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = khistorycombobox_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KHistoryComboBox::getDecodedMetricF(metricA, metricB);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap() const {
-        if (khistorycombobox_keybindingmap_isbase) {
-            khistorycombobox_keybindingmap_isbase = false;
-            return KHistoryComboBox::keyBindingMap();
-        }
-        auto keybindingmap_cb = khistorycombobox_keybindingmap_callback;
-        if (keybindingmap_cb) {
-            libqt_map /* of int to libqt_list of QKeySequence* */ callback_ret = keybindingmap_cb();
-            QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> callback_ret_QMap;
-            int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
-            libqt_list /* of QKeySequence* */* callback_ret_varr = static_cast<libqt_list /* of QKeySequence* */*>(callback_ret.values);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QList<QKeySequence> callback_ret_varr_i_QList;
-                callback_ret_varr_i_QList.reserve(callback_ret_varr[i].len);
-                QKeySequence** callback_ret_varr_i_arr = static_cast<QKeySequence**>(callback_ret_varr[i].data);
-                for (size_t j = 0; j < callback_ret_varr[i].len; ++j) {
-                    callback_ret_varr_i_QList.push_back(*(callback_ret_varr_i_arr[j]));
-                }
-                callback_ret_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(callback_ret_karr[i]), callback_ret_varr_i_QList);
-            }
-            return callback_ret_QMap;
-        }
-        return KHistoryComboBox::keyBindingMap();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setKeyBindingMap(QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap) {
-        if (khistorycombobox_setkeybindingmap_isbase) {
-            khistorycombobox_setkeybindingmap_isbase = false;
-            KHistoryComboBox::setKeyBindingMap(keyBindingMap);
-            return;
-        }
-        auto setkeybindingmap_cb = khistorycombobox_setkeybindingmap_callback;
-        if (setkeybindingmap_cb) {
-            QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_ret = keyBindingMap;
-            // Convert QMap<> from C++ memory to manually-managed C memory
-            int* keyBindingMap_karr = static_cast<int*>(malloc(sizeof(int) * keyBindingMap_ret.size()));
-            libqt_list /* of QKeySequence* */* keyBindingMap_varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * keyBindingMap_ret.size()));
-            int keyBindingMap_ctr = 0;
-            for (auto keyBindingMap_itr = keyBindingMap_ret.keyValueBegin(); keyBindingMap_itr != keyBindingMap_ret.keyValueEnd(); ++keyBindingMap_itr) {
-                keyBindingMap_karr[keyBindingMap_ctr] = static_cast<int>(keyBindingMap_itr->first);
-                QList<QKeySequence> keyBindingMap_mapval_ret = keyBindingMap_itr->second;
-                // Convert QList<> from C++ memory to manually-managed C memory
-                QKeySequence** keyBindingMap_mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (keyBindingMap_mapval_ret.size())));
-                for (qsizetype i = 0; i < keyBindingMap_mapval_ret.size(); ++i) {
-                    keyBindingMap_mapval_arr[i] = new QKeySequence(keyBindingMap_mapval_ret[i]);
-                }
-                libqt_list keyBindingMap_mapval_out;
-                keyBindingMap_mapval_out.len = keyBindingMap_mapval_ret.size();
-                keyBindingMap_mapval_out.data = static_cast<void*>(keyBindingMap_mapval_arr);
-                keyBindingMap_varr[keyBindingMap_ctr] = keyBindingMap_mapval_out;
-                keyBindingMap_ctr++;
-            }
-            libqt_map keyBindingMap_out;
-            keyBindingMap_out.len = keyBindingMap_ret.size();
-            keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
-            keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
-            libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
-            setkeybindingmap_cb(this, cbval1);
-            return;
-        }
-        KHistoryComboBox::setKeyBindingMap(keyBindingMap);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setDelegate(KCompletionBase* delegate) {
-        if (khistorycombobox_setdelegate_isbase) {
-            khistorycombobox_setdelegate_isbase = false;
-            KHistoryComboBox::setDelegate(delegate);
-            return;
-        }
-        auto setdelegate_cb = khistorycombobox_setdelegate_callback;
-        if (setdelegate_cb) {
-            KCompletionBase* cbval1 = delegate;
-            setdelegate_cb(this, cbval1);
-            return;
-        }
-        KHistoryComboBox::setDelegate(delegate);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    KCompletionBase* delegate() const {
-        if (khistorycombobox_delegate_isbase) {
-            khistorycombobox_delegate_isbase = false;
-            return KHistoryComboBox::delegate();
-        }
-        auto delegate_cb = khistorycombobox_delegate_callback;
-        if (delegate_cb) {
-            KCompletionBase* callback_ret = delegate_cb();
-            return callback_ret;
-        }
-        return KHistoryComboBox::delegate();
-    }
-
     // Friend functions
-    friend void KHistoryComboBox_KeyPressEvent(KHistoryComboBox* self, QKeyEvent* param1);
     friend void KHistoryComboBox_SuperKeyPressEvent(KHistoryComboBox* self, QKeyEvent* param1);
-    friend void KHistoryComboBox_WheelEvent(KHistoryComboBox* self, QWheelEvent* ev);
     friend void KHistoryComboBox_SuperWheelEvent(KHistoryComboBox* self, QWheelEvent* ev);
-    friend void KHistoryComboBox_MakeCompletion(KHistoryComboBox* self, const libqt_string param1);
     friend void KHistoryComboBox_SuperMakeCompletion(KHistoryComboBox* self, const libqt_string param1);
-    friend void KHistoryComboBox_FocusInEvent(KHistoryComboBox* self, QFocusEvent* e);
     friend void KHistoryComboBox_SuperFocusInEvent(KHistoryComboBox* self, QFocusEvent* e);
-    friend void KHistoryComboBox_FocusOutEvent(KHistoryComboBox* self, QFocusEvent* e);
     friend void KHistoryComboBox_SuperFocusOutEvent(KHistoryComboBox* self, QFocusEvent* e);
-    friend void KHistoryComboBox_ChangeEvent(KHistoryComboBox* self, QEvent* e);
     friend void KHistoryComboBox_SuperChangeEvent(KHistoryComboBox* self, QEvent* e);
-    friend void KHistoryComboBox_ResizeEvent(KHistoryComboBox* self, QResizeEvent* e);
     friend void KHistoryComboBox_SuperResizeEvent(KHistoryComboBox* self, QResizeEvent* e);
-    friend void KHistoryComboBox_PaintEvent(KHistoryComboBox* self, QPaintEvent* e);
     friend void KHistoryComboBox_SuperPaintEvent(KHistoryComboBox* self, QPaintEvent* e);
-    friend void KHistoryComboBox_ShowEvent(KHistoryComboBox* self, QShowEvent* e);
     friend void KHistoryComboBox_SuperShowEvent(KHistoryComboBox* self, QShowEvent* e);
-    friend void KHistoryComboBox_HideEvent(KHistoryComboBox* self, QHideEvent* e);
     friend void KHistoryComboBox_SuperHideEvent(KHistoryComboBox* self, QHideEvent* e);
-    friend void KHistoryComboBox_MousePressEvent(KHistoryComboBox* self, QMouseEvent* e);
     friend void KHistoryComboBox_SuperMousePressEvent(KHistoryComboBox* self, QMouseEvent* e);
-    friend void KHistoryComboBox_MouseReleaseEvent(KHistoryComboBox* self, QMouseEvent* e);
     friend void KHistoryComboBox_SuperMouseReleaseEvent(KHistoryComboBox* self, QMouseEvent* e);
-    friend void KHistoryComboBox_KeyReleaseEvent(KHistoryComboBox* self, QKeyEvent* e);
     friend void KHistoryComboBox_SuperKeyReleaseEvent(KHistoryComboBox* self, QKeyEvent* e);
-    friend void KHistoryComboBox_ContextMenuEvent(KHistoryComboBox* self, QContextMenuEvent* e);
     friend void KHistoryComboBox_SuperContextMenuEvent(KHistoryComboBox* self, QContextMenuEvent* e);
-    friend void KHistoryComboBox_InputMethodEvent(KHistoryComboBox* self, QInputMethodEvent* param1);
     friend void KHistoryComboBox_SuperInputMethodEvent(KHistoryComboBox* self, QInputMethodEvent* param1);
-    friend void KHistoryComboBox_InitStyleOption(const KHistoryComboBox* self, QStyleOptionComboBox* option);
     friend void KHistoryComboBox_SuperInitStyleOption(const KHistoryComboBox* self, QStyleOptionComboBox* option);
-    friend void KHistoryComboBox_MouseDoubleClickEvent(KHistoryComboBox* self, QMouseEvent* event);
     friend void KHistoryComboBox_SuperMouseDoubleClickEvent(KHistoryComboBox* self, QMouseEvent* event);
-    friend void KHistoryComboBox_MouseMoveEvent(KHistoryComboBox* self, QMouseEvent* event);
     friend void KHistoryComboBox_SuperMouseMoveEvent(KHistoryComboBox* self, QMouseEvent* event);
-    friend void KHistoryComboBox_EnterEvent(KHistoryComboBox* self, QEnterEvent* event);
     friend void KHistoryComboBox_SuperEnterEvent(KHistoryComboBox* self, QEnterEvent* event);
-    friend void KHistoryComboBox_LeaveEvent(KHistoryComboBox* self, QEvent* event);
     friend void KHistoryComboBox_SuperLeaveEvent(KHistoryComboBox* self, QEvent* event);
-    friend void KHistoryComboBox_MoveEvent(KHistoryComboBox* self, QMoveEvent* event);
     friend void KHistoryComboBox_SuperMoveEvent(KHistoryComboBox* self, QMoveEvent* event);
-    friend void KHistoryComboBox_CloseEvent(KHistoryComboBox* self, QCloseEvent* event);
     friend void KHistoryComboBox_SuperCloseEvent(KHistoryComboBox* self, QCloseEvent* event);
-    friend void KHistoryComboBox_TabletEvent(KHistoryComboBox* self, QTabletEvent* event);
     friend void KHistoryComboBox_SuperTabletEvent(KHistoryComboBox* self, QTabletEvent* event);
-    friend void KHistoryComboBox_ActionEvent(KHistoryComboBox* self, QActionEvent* event);
     friend void KHistoryComboBox_SuperActionEvent(KHistoryComboBox* self, QActionEvent* event);
-    friend void KHistoryComboBox_DragEnterEvent(KHistoryComboBox* self, QDragEnterEvent* event);
     friend void KHistoryComboBox_SuperDragEnterEvent(KHistoryComboBox* self, QDragEnterEvent* event);
-    friend void KHistoryComboBox_DragMoveEvent(KHistoryComboBox* self, QDragMoveEvent* event);
     friend void KHistoryComboBox_SuperDragMoveEvent(KHistoryComboBox* self, QDragMoveEvent* event);
-    friend void KHistoryComboBox_DragLeaveEvent(KHistoryComboBox* self, QDragLeaveEvent* event);
     friend void KHistoryComboBox_SuperDragLeaveEvent(KHistoryComboBox* self, QDragLeaveEvent* event);
-    friend void KHistoryComboBox_DropEvent(KHistoryComboBox* self, QDropEvent* event);
     friend void KHistoryComboBox_SuperDropEvent(KHistoryComboBox* self, QDropEvent* event);
-    friend bool KHistoryComboBox_NativeEvent(KHistoryComboBox* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KHistoryComboBox_SuperNativeEvent(KHistoryComboBox* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KHistoryComboBox_Metric(const KHistoryComboBox* self, int param1);
     friend int KHistoryComboBox_SuperMetric(const KHistoryComboBox* self, int param1);
-    friend void KHistoryComboBox_InitPainter(const KHistoryComboBox* self, QPainter* painter);
     friend void KHistoryComboBox_SuperInitPainter(const KHistoryComboBox* self, QPainter* painter);
-    friend QPaintDevice* KHistoryComboBox_Redirected(const KHistoryComboBox* self, QPoint* offset);
     friend QPaintDevice* KHistoryComboBox_SuperRedirected(const KHistoryComboBox* self, QPoint* offset);
-    friend QPainter* KHistoryComboBox_SharedPainter(const KHistoryComboBox* self);
     friend QPainter* KHistoryComboBox_SuperSharedPainter(const KHistoryComboBox* self);
-    friend bool KHistoryComboBox_FocusNextPrevChild(KHistoryComboBox* self, bool next);
     friend bool KHistoryComboBox_SuperFocusNextPrevChild(KHistoryComboBox* self, bool next);
-    friend void KHistoryComboBox_TimerEvent(KHistoryComboBox* self, QTimerEvent* event);
     friend void KHistoryComboBox_SuperTimerEvent(KHistoryComboBox* self, QTimerEvent* event);
-    friend void KHistoryComboBox_ChildEvent(KHistoryComboBox* self, QChildEvent* event);
     friend void KHistoryComboBox_SuperChildEvent(KHistoryComboBox* self, QChildEvent* event);
-    friend void KHistoryComboBox_CustomEvent(KHistoryComboBox* self, QEvent* event);
     friend void KHistoryComboBox_SuperCustomEvent(KHistoryComboBox* self, QEvent* event);
-    friend void KHistoryComboBox_ConnectNotify(KHistoryComboBox* self, const QMetaMethod* signal);
     friend void KHistoryComboBox_SuperConnectNotify(KHistoryComboBox* self, const QMetaMethod* signal);
-    friend void KHistoryComboBox_DisconnectNotify(KHistoryComboBox* self, const QMetaMethod* signal);
     friend void KHistoryComboBox_SuperDisconnectNotify(KHistoryComboBox* self, const QMetaMethod* signal);
-    friend void KHistoryComboBox_VirtualHook(KHistoryComboBox* self, int id, void* data);
     friend void KHistoryComboBox_SuperVirtualHook(KHistoryComboBox* self, int id, void* data);
-    friend void KHistoryComboBox_InsertItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items);
-    friend void KHistoryComboBox_SuperInsertItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items);
-    friend bool KHistoryComboBox_UseCompletion(const KHistoryComboBox* self);
-    friend bool KHistoryComboBox_SuperUseCompletion(const KHistoryComboBox* self);
-    friend void KHistoryComboBox_UpdateMicroFocus(KHistoryComboBox* self);
-    friend void KHistoryComboBox_SuperUpdateMicroFocus(KHistoryComboBox* self);
-    friend void KHistoryComboBox_Create(KHistoryComboBox* self);
-    friend void KHistoryComboBox_SuperCreate(KHistoryComboBox* self);
-    friend void KHistoryComboBox_Destroy(KHistoryComboBox* self);
-    friend void KHistoryComboBox_SuperDestroy(KHistoryComboBox* self);
-    friend bool KHistoryComboBox_FocusNextChild(KHistoryComboBox* self);
-    friend bool KHistoryComboBox_SuperFocusNextChild(KHistoryComboBox* self);
-    friend bool KHistoryComboBox_FocusPreviousChild(KHistoryComboBox* self);
-    friend bool KHistoryComboBox_SuperFocusPreviousChild(KHistoryComboBox* self);
-    friend QObject* KHistoryComboBox_Sender(const KHistoryComboBox* self);
-    friend QObject* KHistoryComboBox_SuperSender(const KHistoryComboBox* self);
-    friend int KHistoryComboBox_SenderSignalIndex(const KHistoryComboBox* self);
-    friend int KHistoryComboBox_SuperSenderSignalIndex(const KHistoryComboBox* self);
-    friend int KHistoryComboBox_Receivers(const KHistoryComboBox* self, const char* signal);
-    friend int KHistoryComboBox_SuperReceivers(const KHistoryComboBox* self, const char* signal);
-    friend bool KHistoryComboBox_IsSignalConnected(const KHistoryComboBox* self, const QMetaMethod* signal);
-    friend bool KHistoryComboBox_SuperIsSignalConnected(const KHistoryComboBox* self, const QMetaMethod* signal);
-    friend double KHistoryComboBox_GetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB);
-    friend double KHistoryComboBox_SuperGetDecodedMetricF(const KHistoryComboBox* self, int metricA, int metricB);
-    friend libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_KeyBindingMap(const KHistoryComboBox* self);
-    friend libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_SuperKeyBindingMap(const KHistoryComboBox* self);
-    friend void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
-    friend void KHistoryComboBox_SuperSetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap);
-    friend void KHistoryComboBox_SetDelegate(KHistoryComboBox* self, KCompletionBase* delegate);
-    friend void KHistoryComboBox_SuperSetDelegate(KHistoryComboBox* self, KCompletionBase* delegate);
-    friend KCompletionBase* KHistoryComboBox_Delegate(const KHistoryComboBox* self);
-    friend KCompletionBase* KHistoryComboBox_SuperDelegate(const KHistoryComboBox* self);
 };
 
 #endif

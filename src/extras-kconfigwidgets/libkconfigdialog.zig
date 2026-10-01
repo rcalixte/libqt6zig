@@ -139,9 +139,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KConfigDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) QMetaObject) void {
         qtc.KConfigDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -463,9 +463,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) void `
     ///
-    pub fn onUpdateSettings(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateSettings(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) void) void {
         qtc.KConfigDialog_OnUpdateSettings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -511,9 +511,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) void `
     ///
-    pub fn onUpdateWidgets(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateWidgets(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) void) void {
         qtc.KConfigDialog_OnUpdateWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -559,9 +559,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) void `
     ///
-    pub fn onUpdateWidgetsDefault(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateWidgetsDefault(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) void) void {
         qtc.KConfigDialog_OnUpdateWidgetsDefault(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -595,40 +595,6 @@ pub const KConfigDialog = extern struct {
         qtc.KConfigDialog_UpdateButtons(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onUpdateButtons` instead
-    ///
-    pub const OnUpdateButtons = onUpdateButtons;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigdialog.html#updateButtons)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateButtons(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KConfigDialog_OnUpdateButtons(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateButtons` instead
-    ///
-    pub const SuperUpdateButtons = superUpdateButtons;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigdialog.html#updateButtons)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superUpdateButtons(self: KConfigDialog) void {
-        qtc.KConfigDialog_SuperUpdateButtons(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `settingsChangedSlot` instead
     ///
     pub const SettingsChangedSlot = settingsChangedSlot;
@@ -641,40 +607,6 @@ pub const KConfigDialog = extern struct {
     ///
     pub fn settingsChangedSlot(self: KConfigDialog) void {
         qtc.KConfigDialog_SettingsChangedSlot(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSettingsChangedSlot` instead
-    ///
-    pub const OnSettingsChangedSlot = onSettingsChangedSlot;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigdialog.html#settingsChangedSlot)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSettingsChangedSlot(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KConfigDialog_OnSettingsChangedSlot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSettingsChangedSlot` instead
-    ///
-    pub const SuperSettingsChangedSlot = superSettingsChangedSlot;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigdialog.html#settingsChangedSlot)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superSettingsChangedSlot(self: KConfigDialog) void {
-        qtc.KConfigDialog_SuperSettingsChangedSlot(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setHelp` instead
@@ -695,46 +627,6 @@ pub const KConfigDialog = extern struct {
             .data = anchor.ptr,
         };
         qtc.KConfigDialog_SetHelp(@ptrCast(self.ptr), anchor_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetHelp` instead
-    ///
-    pub const OnSetHelp = onSetHelp;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigdialog.html#setHelp)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` callback: *const fn (self: KConfigDialog, anchor: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetHelp(self: KConfigDialog, callback: *const fn (KConfigDialog, [*:0]const u8) callconv(.c) void) void {
-        qtc.KConfigDialog_OnSetHelp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetHelp` instead
-    ///
-    pub const SuperSetHelp = superSetHelp;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigdialog.html#setHelp)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` anchor: []const u8 `
-    ///
-    pub fn superSetHelp(self: KConfigDialog, anchor: []const u8) void {
-        const anchor_str = qtc.libqt_string{
-            .len = anchor.len,
-            .data = anchor.ptr,
-        };
-        qtc.KConfigDialog_SuperSetHelp(@ptrCast(self.ptr), anchor_str);
     }
 
     /// ### DEPRECATED: Use `showHelp` instead
@@ -763,9 +655,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) void `
     ///
-    pub fn onShowHelp(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowHelp(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) void) void {
         qtc.KConfigDialog_OnShowHelp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -811,9 +703,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) bool `
     ///
-    pub fn onHasChanged(self: KConfigDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasChanged(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) bool) void {
         qtc.KConfigDialog_OnHasChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -859,9 +751,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) bool `
     ///
-    pub fn onIsDefault(self: KConfigDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsDefault(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) bool) void {
         qtc.KConfigDialog_OnIsDefault(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1184,52 +1076,6 @@ pub const KConfigDialog = extern struct {
             .data = appname.ptr,
         };
         qtc.KConfigDialog_SetHelp2(@ptrCast(self.ptr), anchor_str, appname_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetHelp2` instead
-    ///
-    pub const OnSetHelp2 = onSetHelp2;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigdialog.html#setHelp)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` callback: *const fn (self: KConfigDialog, anchor: [*:0]const u8, appname: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetHelp2(self: KConfigDialog, callback: *const fn (KConfigDialog, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KConfigDialog_OnSetHelp2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetHelp2` instead
-    ///
-    pub const SuperSetHelp2 = superSetHelp2;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfigdialog.html#setHelp)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` anchor: []const u8 `
-    ///
-    /// ` appname: []const u8 `
-    ///
-    pub fn superSetHelp2(self: KConfigDialog, anchor: []const u8, appname: []const u8) void {
-        const anchor_str = qtc.libqt_string{
-            .len = anchor.len,
-            .data = anchor.ptr,
-        };
-        const appname_str = qtc.libqt_string{
-            .len = appname.len,
-            .data = appname.ptr,
-        };
-        qtc.KConfigDialog_SuperSetHelp2(@ptrCast(self.ptr), anchor_str, appname_str);
     }
 
     /// ### DEPRECATED: Use `setFaceType` instead
@@ -8042,11 +7888,11 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KConfigDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) QSize) void {
         qtc.KConfigDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8100,11 +7946,11 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KConfigDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) QSize) void {
         qtc.KConfigDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8158,9 +8004,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) void) void {
         qtc.KConfigDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8214,9 +8060,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: KConfigDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) i32) void {
         qtc.KConfigDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8330,9 +8176,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) void) void {
         qtc.KConfigDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8386,9 +8232,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) void) void {
         qtc.KConfigDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8758,9 +8604,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KConfigDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) i32) void {
         qtc.KConfigDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8874,9 +8720,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KConfigDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) bool) void {
         qtc.KConfigDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8930,9 +8776,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KConfigDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) QPaintEngine) void {
         qtc.KConfigDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10548,9 +10394,9 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KConfigDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KConfigDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KConfigDialog, callback: *const fn (KConfigDialog) callconv(.c) QPainter) void {
         qtc.KConfigDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11066,44 +10912,6 @@ pub const KConfigDialog = extern struct {
         return .{ .ptr = qtc.KConfigDialog_PageWidget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superPageWidget` instead
-    ///
-    pub const SuperPageWidget = superPageWidget;
-
-    /// Inherited from KPageDialog
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#pageWidget)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superPageWidget(self: KConfigDialog) KPageWidget {
-        return .{ .ptr = qtc.KConfigDialog_SuperPageWidget(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onPageWidget` instead
-    ///
-    pub const OnPageWidget = onPageWidget;
-
-    /// Inherited from KPageDialog
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#pageWidget)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) KPageWidget `
-    ///
-    pub fn onPageWidget(self: KConfigDialog, callback: *const fn () callconv(.c) KPageWidget) void {
-        qtc.KConfigDialog_OnPageWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setPageWidget` instead
     ///
     pub const SetPageWidget = setPageWidget;
@@ -11125,47 +10933,6 @@ pub const KConfigDialog = extern struct {
         qtc.KConfigDialog_SetPageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetPageWidget` instead
-    ///
-    pub const SuperSetPageWidget = superSetPageWidget;
-
-    /// Inherited from KPageDialog
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#setPageWidget)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` widget: KPageWidget `
-    ///
-    pub fn superSetPageWidget(self: KConfigDialog, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_KPageWidget;
-        qtc.KConfigDialog_SuperSetPageWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetPageWidget` instead
-    ///
-    pub const OnSetPageWidget = onSetPageWidget;
-
-    /// Inherited from KPageDialog
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#setPageWidget)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn (self: KConfigDialog, widget: KPageWidget) callconv(.c) void `
-    ///
-    pub fn onSetPageWidget(self: KConfigDialog, callback: *const fn (KConfigDialog, KPageWidget) callconv(.c) void) void {
-        qtc.KConfigDialog_OnSetPageWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `buttonBox` instead
     ///
     pub const ButtonBox = buttonBox;
@@ -11182,44 +10949,6 @@ pub const KConfigDialog = extern struct {
     ///
     pub fn buttonBox(self: KConfigDialog) QDialogButtonBox {
         return .{ .ptr = qtc.KConfigDialog_ButtonBox(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superButtonBox` instead
-    ///
-    pub const SuperButtonBox = superButtonBox;
-
-    /// Inherited from KPageDialog
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#buttonBox)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superButtonBox(self: KConfigDialog) QDialogButtonBox {
-        return .{ .ptr = qtc.KConfigDialog_SuperButtonBox(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onButtonBox` instead
-    ///
-    pub const OnButtonBox = onButtonBox;
-
-    /// Inherited from KPageDialog
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#buttonBox)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QDialogButtonBox `
-    ///
-    pub fn onButtonBox(self: KConfigDialog, callback: *const fn () callconv(.c) QDialogButtonBox) void {
-        qtc.KConfigDialog_OnButtonBox(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setButtonBox` instead
@@ -11243,47 +10972,6 @@ pub const KConfigDialog = extern struct {
         qtc.KConfigDialog_SetButtonBox(@ptrCast(self.ptr), @ptrCast(box.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetButtonBox` instead
-    ///
-    pub const SuperSetButtonBox = superSetButtonBox;
-
-    /// Inherited from KPageDialog
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#setButtonBox)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` box: QDialogButtonBox `
-    ///
-    pub fn superSetButtonBox(self: KConfigDialog, box: anytype) void {
-        comptime _ = @TypeOf(box)._is_QDialogButtonBox;
-        qtc.KConfigDialog_SuperSetButtonBox(@ptrCast(self.ptr), @ptrCast(box.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetButtonBox` instead
-    ///
-    pub const OnSetButtonBox = onSetButtonBox;
-
-    /// Inherited from KPageDialog
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kpagedialog.html#setButtonBox)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn (self: KConfigDialog, box: QDialogButtonBox) callconv(.c) void `
-    ///
-    pub fn onSetButtonBox(self: KConfigDialog, callback: *const fn (KConfigDialog, QDialogButtonBox) callconv(.c) void) void {
-        qtc.KConfigDialog_OnSetButtonBox(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `adjustPosition` instead
     ///
     pub const AdjustPosition = adjustPosition;
@@ -11305,47 +10993,6 @@ pub const KConfigDialog = extern struct {
         qtc.KConfigDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: KConfigDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.KConfigDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn (self: KConfigDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: KConfigDialog, callback: *const fn (KConfigDialog, QWidget) callconv(.c) void) void {
-        qtc.KConfigDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -11362,44 +11009,6 @@ pub const KConfigDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: KConfigDialog) void {
         qtc.KConfigDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: KConfigDialog) void {
-        qtc.KConfigDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KConfigDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -11420,44 +11029,6 @@ pub const KConfigDialog = extern struct {
         qtc.KConfigDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superCreate(self: KConfigDialog) void {
-        qtc.KConfigDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KConfigDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -11474,44 +11045,6 @@ pub const KConfigDialog = extern struct {
     ///
     pub fn destroy(self: KConfigDialog) void {
         qtc.KConfigDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superDestroy(self: KConfigDialog) void {
-        qtc.KConfigDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KConfigDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.KConfigDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -11532,44 +11065,6 @@ pub const KConfigDialog = extern struct {
         return qtc.KConfigDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superFocusNextChild(self: KConfigDialog) bool {
-        return qtc.KConfigDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KConfigDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KConfigDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -11586,44 +11081,6 @@ pub const KConfigDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: KConfigDialog) bool {
         return qtc.KConfigDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superFocusPreviousChild(self: KConfigDialog) bool {
-        return qtc.KConfigDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KConfigDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.KConfigDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -11644,44 +11101,6 @@ pub const KConfigDialog = extern struct {
         return .{ .ptr = qtc.KConfigDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superSender(self: KConfigDialog) QObject {
-        return .{ .ptr = qtc.KConfigDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KConfigDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KConfigDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -11698,44 +11117,6 @@ pub const KConfigDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: KConfigDialog) i32 {
         return qtc.KConfigDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    pub fn superSenderSignalIndex(self: KConfigDialog) i32 {
-        return qtc.KConfigDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KConfigDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.KConfigDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11759,47 +11140,6 @@ pub const KConfigDialog = extern struct {
         return qtc.KConfigDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KConfigDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KConfigDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn (self: KConfigDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KConfigDialog, callback: *const fn (KConfigDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KConfigDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11819,47 +11159,6 @@ pub const KConfigDialog = extern struct {
     pub fn isSignalConnected(self: KConfigDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KConfigDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KConfigDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KConfigDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn (self: KConfigDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KConfigDialog, callback: *const fn (KConfigDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.KConfigDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11882,48 +11181,6 @@ pub const KConfigDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: KConfigDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KConfigDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KConfigDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.KConfigDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KConfigDialog`
-    ///
-    /// ` callback: *const fn (self: KConfigDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KConfigDialog, callback: *const fn (KConfigDialog, i32, i32) callconv(.c) f64) void {
-        qtc.KConfigDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

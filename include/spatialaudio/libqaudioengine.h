@@ -62,7 +62,7 @@ void QAudioEngine_Pause(QAudioEngine* self);
 void QAudioEngine_Resume(QAudioEngine* self);
 libqt_string QAudioEngine_Tr2(const char* s, const char* c);
 libqt_string QAudioEngine_Tr3(const char* s, const char* c, int n);
-void QAudioEngine_OnMetaObject(const QAudioEngine* self, intptr_t slot);
+void QAudioEngine_OnMetaObject(QAudioEngine* self, intptr_t slot);
 QMetaObject* QAudioEngine_SuperMetaObject(const QAudioEngine* self);
 void QAudioEngine_OnMetacast(QAudioEngine* self, intptr_t slot);
 void* QAudioEngine_SuperMetacast(QAudioEngine* self, const char* param1);
@@ -90,17 +90,9 @@ void QAudioEngine_DisconnectNotify(QAudioEngine* self, const QMetaMethod* signal
 void QAudioEngine_OnDisconnectNotify(QAudioEngine* self, intptr_t slot);
 void QAudioEngine_SuperDisconnectNotify(QAudioEngine* self, const QMetaMethod* signal);
 QObject* QAudioEngine_Sender(const QAudioEngine* self);
-void QAudioEngine_OnSender(const QAudioEngine* self, intptr_t slot);
-QObject* QAudioEngine_SuperSender(const QAudioEngine* self);
 int QAudioEngine_SenderSignalIndex(const QAudioEngine* self);
-void QAudioEngine_OnSenderSignalIndex(const QAudioEngine* self, intptr_t slot);
-int QAudioEngine_SuperSenderSignalIndex(const QAudioEngine* self);
 int QAudioEngine_Receivers(const QAudioEngine* self, const char* signal);
-void QAudioEngine_OnReceivers(const QAudioEngine* self, intptr_t slot);
-int QAudioEngine_SuperReceivers(const QAudioEngine* self, const char* signal);
 bool QAudioEngine_IsSignalConnected(const QAudioEngine* self, const QMetaMethod* signal);
-void QAudioEngine_OnIsSignalConnected(const QAudioEngine* self, intptr_t slot);
-bool QAudioEngine_SuperIsSignalConnected(const QAudioEngine* self, const QMetaMethod* signal);
 void QAudioEngine_Delete(QAudioEngine* self);
 
 #ifdef __cplusplus

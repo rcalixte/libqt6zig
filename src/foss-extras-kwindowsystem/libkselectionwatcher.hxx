@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KSelectionWatcher so that we can call protected methods
+// This class is a subclass of KSelectionWatcher
 class VirtualKSelectionWatcher final : public KSelectionWatcher {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKSelectionWatcher = true;
-
-    // Virtual class public types (including callbacks)
-    using KSelectionWatcher_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KSelectionWatcher_MetaObject_Callback = QMetaObject* (*)(const KSelectionWatcher*);
     using KSelectionWatcher_Metacast_Callback = void* (*)(KSelectionWatcher*, const char*);
     using KSelectionWatcher_Metacall_Callback = int (*)(KSelectionWatcher*, int, int, void**);
     using KSelectionWatcher_Event_Callback = bool (*)(KSelectionWatcher*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     using KSelectionWatcher_CustomEvent_Callback = void (*)(KSelectionWatcher*, QEvent*);
     using KSelectionWatcher_ConnectNotify_Callback = void (*)(KSelectionWatcher*, QMetaMethod*);
     using KSelectionWatcher_DisconnectNotify_Callback = void (*)(KSelectionWatcher*, QMetaMethod*);
-    using KSelectionWatcher_Sender_Callback = QObject* (*)();
-    using KSelectionWatcher_SenderSignalIndex_Callback = int (*)();
-    using KSelectionWatcher_Receivers_Callback = int (*)(const KSelectionWatcher*, const char*);
-    using KSelectionWatcher_IsSignalConnected_Callback = bool (*)(const KSelectionWatcher*, QMetaMethod*);
+    using KSelectionWatcher::isSignalConnected;
+    using KSelectionWatcher::receivers;
+    using KSelectionWatcher::sender;
+    using KSelectionWatcher::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KSelectionWatcher_MetaObject_Callback kselectionwatcher_metaobject_callback = nullptr;
     KSelectionWatcher_Metacast_Callback kselectionwatcher_metacast_callback = nullptr;
@@ -44,28 +39,16 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     KSelectionWatcher_CustomEvent_Callback kselectionwatcher_customevent_callback = nullptr;
     KSelectionWatcher_ConnectNotify_Callback kselectionwatcher_connectnotify_callback = nullptr;
     KSelectionWatcher_DisconnectNotify_Callback kselectionwatcher_disconnectnotify_callback = nullptr;
-    KSelectionWatcher_Sender_Callback kselectionwatcher_sender_callback = nullptr;
-    KSelectionWatcher_SenderSignalIndex_Callback kselectionwatcher_sendersignalindex_callback = nullptr;
-    KSelectionWatcher_Receivers_Callback kselectionwatcher_receivers_callback = nullptr;
-    KSelectionWatcher_IsSignalConnected_Callback kselectionwatcher_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kselectionwatcher_metaobject_isbase = false;
-    mutable bool kselectionwatcher_metacast_isbase = false;
-    mutable bool kselectionwatcher_metacall_isbase = false;
-    mutable bool kselectionwatcher_event_isbase = false;
-    mutable bool kselectionwatcher_eventfilter_isbase = false;
-    mutable bool kselectionwatcher_timerevent_isbase = false;
-    mutable bool kselectionwatcher_childevent_isbase = false;
-    mutable bool kselectionwatcher_customevent_isbase = false;
-    mutable bool kselectionwatcher_connectnotify_isbase = false;
-    mutable bool kselectionwatcher_disconnectnotify_isbase = false;
-    mutable bool kselectionwatcher_sender_isbase = false;
-    mutable bool kselectionwatcher_sendersignalindex_isbase = false;
-    mutable bool kselectionwatcher_receivers_isbase = false;
-    mutable bool kselectionwatcher_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KSelectionWatcher {
+        using KSelectionWatcher::childEvent;
+        using KSelectionWatcher::connectNotify;
+        using KSelectionWatcher::customEvent;
+        using KSelectionWatcher::disconnectNotify;
+        using KSelectionWatcher::timerEvent;
+    };
 
-  public:
     VirtualKSelectionWatcher(xcb_atom_t selection) : KSelectionWatcher(selection) {};
     VirtualKSelectionWatcher(const char* selection) : KSelectionWatcher(selection) {};
     VirtualKSelectionWatcher(xcb_atom_t selection, xcb_connection_t* c, xcb_window_t root) : KSelectionWatcher(selection, c, root) {};
@@ -77,47 +60,10 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
     VirtualKSelectionWatcher(xcb_atom_t selection, xcb_connection_t* c, xcb_window_t root, QObject* parent) : KSelectionWatcher(selection, c, root, parent) {};
     VirtualKSelectionWatcher(const char* selection, xcb_connection_t* c, xcb_window_t root, QObject* parent) : KSelectionWatcher(selection, c, root, parent) {};
 
-    // Callback setters
-    inline void setKSelectionWatcher_MetaObject_Callback(KSelectionWatcher_MetaObject_Callback cb) { kselectionwatcher_metaobject_callback = cb; }
-    inline void setKSelectionWatcher_Metacast_Callback(KSelectionWatcher_Metacast_Callback cb) { kselectionwatcher_metacast_callback = cb; }
-    inline void setKSelectionWatcher_Metacall_Callback(KSelectionWatcher_Metacall_Callback cb) { kselectionwatcher_metacall_callback = cb; }
-    inline void setKSelectionWatcher_Event_Callback(KSelectionWatcher_Event_Callback cb) { kselectionwatcher_event_callback = cb; }
-    inline void setKSelectionWatcher_EventFilter_Callback(KSelectionWatcher_EventFilter_Callback cb) { kselectionwatcher_eventfilter_callback = cb; }
-    inline void setKSelectionWatcher_TimerEvent_Callback(KSelectionWatcher_TimerEvent_Callback cb) { kselectionwatcher_timerevent_callback = cb; }
-    inline void setKSelectionWatcher_ChildEvent_Callback(KSelectionWatcher_ChildEvent_Callback cb) { kselectionwatcher_childevent_callback = cb; }
-    inline void setKSelectionWatcher_CustomEvent_Callback(KSelectionWatcher_CustomEvent_Callback cb) { kselectionwatcher_customevent_callback = cb; }
-    inline void setKSelectionWatcher_ConnectNotify_Callback(KSelectionWatcher_ConnectNotify_Callback cb) { kselectionwatcher_connectnotify_callback = cb; }
-    inline void setKSelectionWatcher_DisconnectNotify_Callback(KSelectionWatcher_DisconnectNotify_Callback cb) { kselectionwatcher_disconnectnotify_callback = cb; }
-    inline void setKSelectionWatcher_Sender_Callback(KSelectionWatcher_Sender_Callback cb) { kselectionwatcher_sender_callback = cb; }
-    inline void setKSelectionWatcher_SenderSignalIndex_Callback(KSelectionWatcher_SenderSignalIndex_Callback cb) { kselectionwatcher_sendersignalindex_callback = cb; }
-    inline void setKSelectionWatcher_Receivers_Callback(KSelectionWatcher_Receivers_Callback cb) { kselectionwatcher_receivers_callback = cb; }
-    inline void setKSelectionWatcher_IsSignalConnected_Callback(KSelectionWatcher_IsSignalConnected_Callback cb) { kselectionwatcher_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKSelectionWatcher_MetaObject_IsBase(bool value) const { kselectionwatcher_metaobject_isbase = value; }
-    inline void setKSelectionWatcher_Metacast_IsBase(bool value) const { kselectionwatcher_metacast_isbase = value; }
-    inline void setKSelectionWatcher_Metacall_IsBase(bool value) const { kselectionwatcher_metacall_isbase = value; }
-    inline void setKSelectionWatcher_Event_IsBase(bool value) const { kselectionwatcher_event_isbase = value; }
-    inline void setKSelectionWatcher_EventFilter_IsBase(bool value) const { kselectionwatcher_eventfilter_isbase = value; }
-    inline void setKSelectionWatcher_TimerEvent_IsBase(bool value) const { kselectionwatcher_timerevent_isbase = value; }
-    inline void setKSelectionWatcher_ChildEvent_IsBase(bool value) const { kselectionwatcher_childevent_isbase = value; }
-    inline void setKSelectionWatcher_CustomEvent_IsBase(bool value) const { kselectionwatcher_customevent_isbase = value; }
-    inline void setKSelectionWatcher_ConnectNotify_IsBase(bool value) const { kselectionwatcher_connectnotify_isbase = value; }
-    inline void setKSelectionWatcher_DisconnectNotify_IsBase(bool value) const { kselectionwatcher_disconnectnotify_isbase = value; }
-    inline void setKSelectionWatcher_Sender_IsBase(bool value) const { kselectionwatcher_sender_isbase = value; }
-    inline void setKSelectionWatcher_SenderSignalIndex_IsBase(bool value) const { kselectionwatcher_sendersignalindex_isbase = value; }
-    inline void setKSelectionWatcher_Receivers_IsBase(bool value) const { kselectionwatcher_receivers_isbase = value; }
-    inline void setKSelectionWatcher_IsSignalConnected_IsBase(bool value) const { kselectionwatcher_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kselectionwatcher_metaobject_isbase) {
-            kselectionwatcher_metaobject_isbase = false;
-            return KSelectionWatcher::metaObject();
-        }
-        auto metaobject_cb = kselectionwatcher_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kselectionwatcher_metaobject_callback) {
+            QMetaObject* callback_ret = kselectionwatcher_metaobject_callback(this);
             return callback_ret;
         }
         return KSelectionWatcher::metaObject();
@@ -125,14 +71,9 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kselectionwatcher_metacast_isbase) {
-            kselectionwatcher_metacast_isbase = false;
-            return KSelectionWatcher::qt_metacast(param1);
-        }
-        auto metacast_cb = kselectionwatcher_metacast_callback;
-        if (metacast_cb) {
+        if (kselectionwatcher_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kselectionwatcher_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KSelectionWatcher::qt_metacast(param1);
@@ -140,16 +81,11 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kselectionwatcher_metacall_isbase) {
-            kselectionwatcher_metacall_isbase = false;
-            return KSelectionWatcher::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kselectionwatcher_metacall_callback;
-        if (metacall_cb) {
+        if (kselectionwatcher_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kselectionwatcher_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KSelectionWatcher::qt_metacall(param1, param2, param3);
@@ -157,14 +93,9 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kselectionwatcher_event_isbase) {
-            kselectionwatcher_event_isbase = false;
-            return KSelectionWatcher::event(event);
-        }
-        auto event_cb = kselectionwatcher_event_callback;
-        if (event_cb) {
+        if (kselectionwatcher_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kselectionwatcher_event_callback(this, cbval1);
             return callback_ret;
         }
         return KSelectionWatcher::event(event);
@@ -172,15 +103,10 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kselectionwatcher_eventfilter_isbase) {
-            kselectionwatcher_eventfilter_isbase = false;
-            return KSelectionWatcher::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kselectionwatcher_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kselectionwatcher_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kselectionwatcher_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KSelectionWatcher::eventFilter(watched, event);
@@ -188,15 +114,9 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kselectionwatcher_timerevent_isbase) {
-            kselectionwatcher_timerevent_isbase = false;
-            KSelectionWatcher::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kselectionwatcher_timerevent_callback;
-        if (timerevent_cb) {
+        if (kselectionwatcher_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kselectionwatcher_timerevent_callback(this, cbval1);
             return;
         }
         KSelectionWatcher::timerEvent(event);
@@ -204,15 +124,9 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kselectionwatcher_childevent_isbase) {
-            kselectionwatcher_childevent_isbase = false;
-            KSelectionWatcher::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kselectionwatcher_childevent_callback;
-        if (childevent_cb) {
+        if (kselectionwatcher_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kselectionwatcher_childevent_callback(this, cbval1);
             return;
         }
         KSelectionWatcher::childEvent(event);
@@ -220,15 +134,9 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kselectionwatcher_customevent_isbase) {
-            kselectionwatcher_customevent_isbase = false;
-            KSelectionWatcher::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kselectionwatcher_customevent_callback;
-        if (customevent_cb) {
+        if (kselectionwatcher_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kselectionwatcher_customevent_callback(this, cbval1);
             return;
         }
         KSelectionWatcher::customEvent(event);
@@ -236,17 +144,11 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kselectionwatcher_connectnotify_isbase) {
-            kselectionwatcher_connectnotify_isbase = false;
-            KSelectionWatcher::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kselectionwatcher_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kselectionwatcher_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kselectionwatcher_connectnotify_callback(this, cbval1);
             return;
         }
         KSelectionWatcher::connectNotify(signal);
@@ -254,101 +156,22 @@ class VirtualKSelectionWatcher final : public KSelectionWatcher {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kselectionwatcher_disconnectnotify_isbase) {
-            kselectionwatcher_disconnectnotify_isbase = false;
-            KSelectionWatcher::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kselectionwatcher_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kselectionwatcher_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kselectionwatcher_disconnectnotify_callback(this, cbval1);
             return;
         }
         KSelectionWatcher::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kselectionwatcher_sender_isbase) {
-            kselectionwatcher_sender_isbase = false;
-            return KSelectionWatcher::sender();
-        }
-        auto sender_cb = kselectionwatcher_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KSelectionWatcher::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kselectionwatcher_sendersignalindex_isbase) {
-            kselectionwatcher_sendersignalindex_isbase = false;
-            return KSelectionWatcher::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kselectionwatcher_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KSelectionWatcher::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kselectionwatcher_receivers_isbase) {
-            kselectionwatcher_receivers_isbase = false;
-            return KSelectionWatcher::receivers(signal);
-        }
-        auto receivers_cb = kselectionwatcher_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KSelectionWatcher::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kselectionwatcher_issignalconnected_isbase) {
-            kselectionwatcher_issignalconnected_isbase = false;
-            return KSelectionWatcher::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kselectionwatcher_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KSelectionWatcher::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KSelectionWatcher_TimerEvent(KSelectionWatcher* self, QTimerEvent* event);
     friend void KSelectionWatcher_SuperTimerEvent(KSelectionWatcher* self, QTimerEvent* event);
-    friend void KSelectionWatcher_ChildEvent(KSelectionWatcher* self, QChildEvent* event);
     friend void KSelectionWatcher_SuperChildEvent(KSelectionWatcher* self, QChildEvent* event);
-    friend void KSelectionWatcher_CustomEvent(KSelectionWatcher* self, QEvent* event);
     friend void KSelectionWatcher_SuperCustomEvent(KSelectionWatcher* self, QEvent* event);
-    friend void KSelectionWatcher_ConnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
     friend void KSelectionWatcher_SuperConnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
-    friend void KSelectionWatcher_DisconnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
     friend void KSelectionWatcher_SuperDisconnectNotify(KSelectionWatcher* self, const QMetaMethod* signal);
-    friend QObject* KSelectionWatcher_Sender(const KSelectionWatcher* self);
-    friend QObject* KSelectionWatcher_SuperSender(const KSelectionWatcher* self);
-    friend int KSelectionWatcher_SenderSignalIndex(const KSelectionWatcher* self);
-    friend int KSelectionWatcher_SuperSenderSignalIndex(const KSelectionWatcher* self);
-    friend int KSelectionWatcher_Receivers(const KSelectionWatcher* self, const char* signal);
-    friend int KSelectionWatcher_SuperReceivers(const KSelectionWatcher* self, const char* signal);
-    friend bool KSelectionWatcher_IsSignalConnected(const KSelectionWatcher* self, const QMetaMethod* signal);
-    friend bool KSelectionWatcher_SuperIsSignalConnected(const KSelectionWatcher* self, const QMetaMethod* signal);
 };
 
 #endif

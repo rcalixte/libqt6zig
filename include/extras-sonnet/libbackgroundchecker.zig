@@ -110,9 +110,9 @@ pub const Sonnet__BackgroundChecker = extern struct {
     ///
     /// ` self: Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: Sonnet__BackgroundChecker) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Sonnet__BackgroundChecker, callback: *const fn (Sonnet__BackgroundChecker) callconv(.c) QMetaObject) void {
         qtc.Sonnet__BackgroundChecker_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -500,9 +500,9 @@ pub const Sonnet__BackgroundChecker = extern struct {
     ///
     /// ` self: Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Sonnet__BackgroundChecker) callconv(.c) void `
     ///
-    pub fn onStart(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void) void {
+    pub fn onStart(self: Sonnet__BackgroundChecker, callback: *const fn (Sonnet__BackgroundChecker) callconv(.c) void) void {
         qtc.Sonnet__BackgroundChecker_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -548,9 +548,9 @@ pub const Sonnet__BackgroundChecker = extern struct {
     ///
     /// ` self: Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Sonnet__BackgroundChecker) callconv(.c) void `
     ///
-    pub fn onStop(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void) void {
+    pub fn onStop(self: Sonnet__BackgroundChecker, callback: *const fn (Sonnet__BackgroundChecker) callconv(.c) void) void {
         qtc.Sonnet__BackgroundChecker_OnStop(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -644,9 +644,9 @@ pub const Sonnet__BackgroundChecker = extern struct {
     ///
     /// ` self: Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Sonnet__BackgroundChecker) callconv(.c) void `
     ///
-    pub fn onContinueChecking(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void) void {
+    pub fn onContinueChecking(self: Sonnet__BackgroundChecker, callback: *const fn (Sonnet__BackgroundChecker) callconv(.c) void) void {
         qtc.Sonnet__BackgroundChecker_OnContinueChecking(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -766,9 +766,9 @@ pub const Sonnet__BackgroundChecker = extern struct {
     ///
     /// ` self: Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: Sonnet__BackgroundChecker) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onFetchMoreText(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFetchMoreText(self: Sonnet__BackgroundChecker, callback: *const fn (Sonnet__BackgroundChecker) callconv(.c) [*:0]const u8) void {
         qtc.Sonnet__BackgroundChecker_OnFetchMoreText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -820,9 +820,9 @@ pub const Sonnet__BackgroundChecker = extern struct {
     ///
     /// ` self: Sonnet__BackgroundChecker `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: Sonnet__BackgroundChecker) callconv(.c) void `
     ///
-    pub fn onFinishedCurrentFeed(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void) void {
+    pub fn onFinishedCurrentFeed(self: Sonnet__BackgroundChecker, callback: *const fn (Sonnet__BackgroundChecker) callconv(.c) void) void {
         qtc.Sonnet__BackgroundChecker_OnFinishedCurrentFeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -854,40 +854,6 @@ pub const Sonnet__BackgroundChecker = extern struct {
     ///
     pub fn slotEngineDone(self: Sonnet__BackgroundChecker) void {
         qtc.Sonnet__BackgroundChecker_SlotEngineDone(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSlotEngineDone` instead
-    ///
-    pub const OnSlotEngineDone = onSlotEngineDone;
-
-    /// ### [Upstream resources](https://api.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__BackgroundChecker `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onSlotEngineDone(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnSlotEngineDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSlotEngineDone` instead
-    ///
-    pub const SuperSlotEngineDone = superSlotEngineDone;
-
-    /// ### [Upstream resources](https://api.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__BackgroundChecker `
-    ///
-    pub fn superSlotEngineDone(self: Sonnet__BackgroundChecker) void {
-        qtc.Sonnet__BackgroundChecker_SuperSlotEngineDone(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2367,44 +2333,6 @@ pub const Sonnet__BackgroundChecker = extern struct {
         return .{ .ptr = qtc.Sonnet__BackgroundChecker_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__BackgroundChecker `
-    ///
-    pub fn superSender(self: Sonnet__BackgroundChecker) QObject {
-        return .{ .ptr = qtc.Sonnet__BackgroundChecker_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__BackgroundChecker`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) QObject) void {
-        qtc.Sonnet__BackgroundChecker_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2421,44 +2349,6 @@ pub const Sonnet__BackgroundChecker = extern struct {
     ///
     pub fn senderSignalIndex(self: Sonnet__BackgroundChecker) i32 {
         return qtc.Sonnet__BackgroundChecker_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__BackgroundChecker `
-    ///
-    pub fn superSenderSignalIndex(self: Sonnet__BackgroundChecker) i32 {
-        return qtc.Sonnet__BackgroundChecker_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__BackgroundChecker`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) i32) void {
-        qtc.Sonnet__BackgroundChecker_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2482,47 +2372,6 @@ pub const Sonnet__BackgroundChecker = extern struct {
         return qtc.Sonnet__BackgroundChecker_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__BackgroundChecker `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: Sonnet__BackgroundChecker, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.Sonnet__BackgroundChecker_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__BackgroundChecker`
-    ///
-    /// ` callback: *const fn (self: Sonnet__BackgroundChecker, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: Sonnet__BackgroundChecker, callback: *const fn (Sonnet__BackgroundChecker, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Sonnet__BackgroundChecker_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2542,47 +2391,6 @@ pub const Sonnet__BackgroundChecker = extern struct {
     pub fn isSignalConnected(self: Sonnet__BackgroundChecker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Sonnet__BackgroundChecker_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Sonnet__BackgroundChecker `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: Sonnet__BackgroundChecker, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.Sonnet__BackgroundChecker_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: Sonnet__BackgroundChecker`
-    ///
-    /// ` callback: *const fn (self: Sonnet__BackgroundChecker, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: Sonnet__BackgroundChecker, callback: *const fn (Sonnet__BackgroundChecker, QMetaMethod) callconv(.c) bool) void {
-        qtc.Sonnet__BackgroundChecker_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

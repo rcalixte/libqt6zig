@@ -153,9 +153,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QHeaderView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) QMetaObject) void {
         qtc.QHeaderView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -426,11 +426,11 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) QSize) void {
         qtc.QHeaderView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1381,9 +1381,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn onDoItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QHeaderView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1497,9 +1497,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn onReset(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QHeaderView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1963,42 +1963,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_UpdateSection(@ptrCast(self.ptr), @bitCast(_logicalIndex));
     }
 
-    /// ### DEPRECATED: Use `onUpdateSection` instead
-    ///
-    pub const OnUpdateSection = onUpdateSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32) callconv(.c) void `
-    ///
-    pub fn onUpdateSection(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnUpdateSection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateSection` instead
-    ///
-    pub const SuperUpdateSection = superUpdateSection;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#updateSection)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` _logicalIndex: i32 `
-    ///
-    pub fn superUpdateSection(self: QHeaderView, _logicalIndex: i32) void {
-        qtc.QHeaderView_SuperUpdateSection(@ptrCast(self.ptr), @bitCast(_logicalIndex));
-    }
-
     /// ### DEPRECATED: Use `resizeSections2` instead
     ///
     pub const ResizeSections2 = resizeSections2;
@@ -2011,40 +1975,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn resizeSections2(self: QHeaderView) void {
         qtc.QHeaderView_ResizeSections2(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onResizeSections2` instead
-    ///
-    pub const OnResizeSections2 = onResizeSections2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onResizeSections2(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnResizeSections2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superResizeSections2` instead
-    ///
-    pub const SuperResizeSections2 = superResizeSections2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#resizeSections)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superResizeSections2(self: QHeaderView) void {
-        qtc.QHeaderView_SuperResizeSections2(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `sectionsInserted` instead
@@ -2068,47 +1998,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_SectionsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
 
-    /// ### DEPRECATED: Use `onSectionsInserted` instead
-    ///
-    pub const OnSectionsInserted = onSectionsInserted;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` callback: *const fn (self: QHeaderView, parent: QModelIndex, logicalFirst: i32, logicalLast: i32) callconv(.c) void `
-    ///
-    pub fn onSectionsInserted(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSectionsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSectionsInserted` instead
-    ///
-    pub const SuperSectionsInserted = superSectionsInserted;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsInserted)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` logicalFirst: i32 `
-    ///
-    /// ` logicalLast: i32 `
-    ///
-    pub fn superSectionsInserted(self: QHeaderView, _parent: anytype, logicalFirst: i32, logicalLast: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QHeaderView_SuperSectionsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
-    }
-
     /// ### DEPRECATED: Use `sectionsAboutToBeRemoved` instead
     ///
     pub const SectionsAboutToBeRemoved = sectionsAboutToBeRemoved;
@@ -2130,47 +2019,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_SectionsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
     }
 
-    /// ### DEPRECATED: Use `onSectionsAboutToBeRemoved` instead
-    ///
-    pub const OnSectionsAboutToBeRemoved = onSectionsAboutToBeRemoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` callback: *const fn (self: QHeaderView, parent: QModelIndex, logicalFirst: i32, logicalLast: i32) callconv(.c) void `
-    ///
-    pub fn onSectionsAboutToBeRemoved(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSectionsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSectionsAboutToBeRemoved` instead
-    ///
-    pub const SuperSectionsAboutToBeRemoved = superSectionsAboutToBeRemoved;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#sectionsAboutToBeRemoved)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` _parent: QModelIndex `
-    ///
-    /// ` logicalFirst: i32 `
-    ///
-    /// ` logicalLast: i32 `
-    ///
-    pub fn superSectionsAboutToBeRemoved(self: QHeaderView, _parent: anytype, logicalFirst: i32, logicalLast: i32) void {
-        comptime _ = @TypeOf(_parent)._is_QModelIndex;
-        qtc.QHeaderView_SuperSectionsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(logicalFirst), @bitCast(logicalLast));
-    }
-
     /// ### DEPRECATED: Use `initialize` instead
     ///
     pub const Initialize = initialize;
@@ -2185,40 +2033,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_Initialize(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onInitialize` instead
-    ///
-    pub const OnInitialize = onInitialize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onInitialize(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnInitialize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superInitialize` instead
-    ///
-    pub const SuperInitialize = superInitialize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initialize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superInitialize(self: QHeaderView) void {
-        qtc.QHeaderView_SuperInitialize(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `initializeSections` instead
     ///
     pub const InitializeSections = initializeSections;
@@ -2231,40 +2045,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn initializeSections(self: QHeaderView) void {
         qtc.QHeaderView_InitializeSections(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onInitializeSections` instead
-    ///
-    pub const OnInitializeSections = onInitializeSections;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onInitializeSections(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnInitializeSections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superInitializeSections` instead
-    ///
-    pub const SuperInitializeSections = superInitializeSections;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superInitializeSections(self: QHeaderView) void {
-        qtc.QHeaderView_SuperInitializeSections(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `initializeSections2` instead
@@ -2283,44 +2063,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn initializeSections2(self: QHeaderView, start: i32, end: i32) void {
         qtc.QHeaderView_InitializeSections2(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
-    }
-
-    /// ### DEPRECATED: Use `onInitializeSections2` instead
-    ///
-    pub const OnInitializeSections2 = onInitializeSections2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` callback: *const fn (self: QHeaderView, start: i32, end: i32) callconv(.c) void `
-    ///
-    pub fn onInitializeSections2(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnInitializeSections2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superInitializeSections2` instead
-    ///
-    pub const SuperInitializeSections2 = superInitializeSections2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qheaderview.html#initializeSections)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` start: i32 `
-    ///
-    /// ` end: i32 `
-    ///
-    pub fn superInitializeSections2(self: QHeaderView, start: i32, end: i32) void {
-        qtc.QHeaderView_SuperInitializeSections2(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### DEPRECATED: Use `currentChanged` instead
@@ -2905,9 +2647,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) i32 `
     ///
-    pub fn onHorizontalOffset(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) i32) void {
         qtc.QHeaderView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2953,9 +2695,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) i32 `
     ///
-    pub fn onVerticalOffset(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) i32) void {
         qtc.QHeaderView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3001,9 +2743,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn onUpdateGeometries(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QHeaderView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12280,9 +12022,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn onSelectAll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QHeaderView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12474,9 +12216,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorData(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QHeaderView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12530,9 +12272,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) void `
     ///
-    pub fn onUpdateEditorGeometries(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) void) void {
         qtc.QHeaderView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -13034,13 +12776,13 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn onSelectedIndexes(self: QHeaderView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) qtc.libqt_list) void {
         qtc.QHeaderView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14112,11 +13854,11 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) QSize) void {
         qtc.QHeaderView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14170,11 +13912,11 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) QSize) void {
         qtc.QHeaderView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14476,9 +14218,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) i32) void {
         qtc.QHeaderView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14592,9 +14334,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) bool) void {
         qtc.QHeaderView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -14648,9 +14390,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QHeaderView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) QPaintEngine) void {
         qtc.QHeaderView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15522,9 +15264,9 @@ pub const QHeaderView = extern struct {
     ///
     /// ` self: QHeaderView`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QHeaderView) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QHeaderView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QHeaderView, callback: *const fn (QHeaderView) callconv(.c) QPainter) void {
         qtc.QHeaderView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -15798,48 +15540,6 @@ pub const QHeaderView = extern struct {
         return qtc.QHeaderView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superState` instead
-    ///
-    pub const SuperState = superState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.State `
-    ///
-    pub fn superState(self: QHeaderView) i32 {
-        return qtc.QHeaderView_SuperState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onState` instead
-    ///
-    pub const OnState = onState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#state)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onState(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setState` instead
     ///
     pub const SetState = setState;
@@ -15860,46 +15560,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `superSetState` instead
-    ///
-    pub const SuperSetState = superSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` _state: qabstractitemview_enums.State `
-    ///
-    pub fn superSetState(self: QHeaderView, _state: i32) void {
-        qtc.QHeaderView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
-    }
-
-    /// ### DEPRECATED: Use `onSetState` instead
-    ///
-    pub const OnSetState = onSetState;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn (self: QHeaderView, state: qabstractitemview_enums.State) callconv(.c) void `
-    ///
-    pub fn onSetState(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
     ///
     pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
@@ -15918,44 +15578,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
-    ///
-    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superScheduleDelayedItemsLayout(self: QHeaderView) void {
-        qtc.QHeaderView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
-    ///
-    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onScheduleDelayedItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
     ///
     pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
@@ -15972,44 +15594,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn executeDelayedItemsLayout(self: QHeaderView) void {
         qtc.QHeaderView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
-    ///
-    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superExecuteDelayedItemsLayout(self: QHeaderView) void {
-        qtc.QHeaderView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
-    ///
-    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#executeDelayedItemsLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onExecuteDelayedItemsLayout(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setDirtyRegion` instead
@@ -16031,47 +15615,6 @@ pub const QHeaderView = extern struct {
     pub fn setDirtyRegion(self: QHeaderView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QHeaderView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
-    ///
-    pub const SuperSetDirtyRegion = superSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` region: QRegion `
-    ///
-    pub fn superSetDirtyRegion(self: QHeaderView, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QHeaderView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
-    ///
-    pub const OnSetDirtyRegion = onSetDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#setDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn (self: QHeaderView, region: QRegion) callconv(.c) void `
-    ///
-    pub fn onSetDirtyRegion(self: QHeaderView, callback: *const fn (QHeaderView, QRegion) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `scrollDirtyRegion` instead
@@ -16096,48 +15639,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
-    ///
-    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` dx: i32 `
-    ///
-    /// ` dy: i32 `
-    ///
-    pub fn superScrollDirtyRegion(self: QHeaderView, dx: i32, dy: i32) void {
-        qtc.QHeaderView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
-    }
-
-    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
-    ///
-    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scrollDirtyRegion)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn (self: QHeaderView, dx: i32, dy: i32) callconv(.c) void `
-    ///
-    pub fn onScrollDirtyRegion(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `dirtyRegionOffset` instead
     ///
     pub const DirtyRegionOffset = dirtyRegionOffset;
@@ -16154,46 +15655,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn dirtyRegionOffset(self: QHeaderView) QPoint {
         return .{ .ptr = qtc.QHeaderView_DirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
-    ///
-    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superDirtyRegionOffset(self: QHeaderView) QPoint {
-        return .{ .ptr = qtc.QHeaderView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
-    ///
-    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dirtyRegionOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPoint `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onDirtyRegionOffset(self: QHeaderView, callback: *const fn () callconv(.c) QPoint) void {
-        qtc.QHeaderView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `startAutoScroll` instead
@@ -16214,44 +15675,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStartAutoScroll` instead
-    ///
-    pub const SuperStartAutoScroll = superStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superStartAutoScroll(self: QHeaderView) void {
-        qtc.QHeaderView_SuperStartAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartAutoScroll` instead
-    ///
-    pub const OnStartAutoScroll = onStartAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `stopAutoScroll` instead
     ///
     pub const StopAutoScroll = stopAutoScroll;
@@ -16270,44 +15693,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superStopAutoScroll` instead
-    ///
-    pub const SuperStopAutoScroll = superStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superStopAutoScroll(self: QHeaderView) void {
-        qtc.QHeaderView_SuperStopAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStopAutoScroll` instead
-    ///
-    pub const OnStopAutoScroll = onStopAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStopAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `doAutoScroll` instead
     ///
     pub const DoAutoScroll = doAutoScroll;
@@ -16324,44 +15709,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn doAutoScroll(self: QHeaderView) void {
         qtc.QHeaderView_DoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDoAutoScroll` instead
-    ///
-    pub const SuperDoAutoScroll = superDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superDoAutoScroll(self: QHeaderView) void {
-        qtc.QHeaderView_SuperDoAutoScroll(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDoAutoScroll` instead
-    ///
-    pub const OnDoAutoScroll = onDoAutoScroll;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doAutoScroll)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDoAutoScroll(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `dropIndicatorPosition` instead
@@ -16384,48 +15731,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn dropIndicatorPosition(self: QHeaderView) i32 {
         return qtc.QHeaderView_DropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
-    ///
-    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractitemview_enums.DropIndicatorPosition `
-    ///
-    pub fn superDropIndicatorPosition(self: QHeaderView) i32 {
-        return qtc.QHeaderView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
-    ///
-    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#dropIndicatorPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onDropIndicatorPosition(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -16454,52 +15759,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QHeaderView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn (self: QHeaderView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QHeaderView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -16516,46 +15775,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn viewportMargins(self: QHeaderView) QMargins {
         return .{ .ptr = qtc.QHeaderView_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superViewportMargins(self: QHeaderView) QMargins {
-        return .{ .ptr = qtc.QHeaderView_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: QHeaderView, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.QHeaderView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -16579,47 +15798,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: QHeaderView, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.QHeaderView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn (self: QHeaderView, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: QHeaderView, callback: *const fn (QHeaderView, QPainter) callconv(.c) void) void {
-        qtc.QHeaderView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -16636,44 +15814,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn updateMicroFocus(self: QHeaderView) void {
         qtc.QHeaderView_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superUpdateMicroFocus(self: QHeaderView) void {
-        qtc.QHeaderView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -16694,44 +15834,6 @@ pub const QHeaderView = extern struct {
         qtc.QHeaderView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superCreate(self: QHeaderView) void {
-        qtc.QHeaderView_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -16748,44 +15850,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn destroy(self: QHeaderView) void {
         qtc.QHeaderView_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superDestroy(self: QHeaderView) void {
-        qtc.QHeaderView_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QHeaderView, callback: *const fn () callconv(.c) void) void {
-        qtc.QHeaderView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -16806,44 +15870,6 @@ pub const QHeaderView = extern struct {
         return qtc.QHeaderView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superFocusNextChild(self: QHeaderView) bool {
-        return qtc.QHeaderView_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QHeaderView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -16860,44 +15886,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn focusPreviousChild(self: QHeaderView) bool {
         return qtc.QHeaderView_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superFocusPreviousChild(self: QHeaderView) bool {
-        return qtc.QHeaderView_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QHeaderView, callback: *const fn () callconv(.c) bool) void {
-        qtc.QHeaderView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -16918,44 +15906,6 @@ pub const QHeaderView = extern struct {
         return .{ .ptr = qtc.QHeaderView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superSender(self: QHeaderView) QObject {
-        return .{ .ptr = qtc.QHeaderView_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QHeaderView, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QHeaderView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -16972,44 +15922,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn senderSignalIndex(self: QHeaderView) i32 {
         return qtc.QHeaderView_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    pub fn superSenderSignalIndex(self: QHeaderView) i32 {
-        return qtc.QHeaderView_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QHeaderView, callback: *const fn () callconv(.c) i32) void {
-        qtc.QHeaderView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -17033,47 +15945,6 @@ pub const QHeaderView = extern struct {
         return qtc.QHeaderView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QHeaderView, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QHeaderView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn (self: QHeaderView, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QHeaderView, callback: *const fn (QHeaderView, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QHeaderView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -17093,47 +15964,6 @@ pub const QHeaderView = extern struct {
     pub fn isSignalConnected(self: QHeaderView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QHeaderView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QHeaderView, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QHeaderView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn (self: QHeaderView, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QHeaderView, callback: *const fn (QHeaderView, QMetaMethod) callconv(.c) bool) void {
-        qtc.QHeaderView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -17156,48 +15986,6 @@ pub const QHeaderView = extern struct {
     ///
     pub fn getDecodedMetricF(self: QHeaderView, metricA: i32, metricB: i32) f64 {
         return qtc.QHeaderView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QHeaderView `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QHeaderView, metricA: i32, metricB: i32) f64 {
-        return qtc.QHeaderView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QHeaderView`
-    ///
-    /// ` callback: *const fn (self: QHeaderView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) f64) void {
-        qtc.QHeaderView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

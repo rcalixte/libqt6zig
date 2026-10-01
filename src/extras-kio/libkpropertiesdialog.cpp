@@ -349,1914 +349,1291 @@ bool KPropertiesDialog_ShowDialog35(const libqt_list /* of QUrl* */ urls, QWidge
 
 // Base class handler implementation
 QMetaObject* KPropertiesDialog_SuperMetaObject(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpropertiesdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KPropertiesDialog::metaObject();
-    }
+    return (QMetaObject*)self->KPropertiesDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnMetaObject(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_MetaObject_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MetaObject_Callback>(slot));
+void KPropertiesDialog_OnMetaObject(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_metaobject_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KPropertiesDialog_SuperMetacast(KPropertiesDialog* self, const char* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Metacast_IsBase(true);
-        return vkpropertiesdialog->qt_metacast(param1);
-    } else {
-        return self->KPropertiesDialog::qt_metacast(param1);
-    }
+    return self->KPropertiesDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnMetacast(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Metacast_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Metacast_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_metacast_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KPropertiesDialog_SuperMetacall(KPropertiesDialog* self, int param1, int param2, void** param3) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Metacall_IsBase(true);
-        return vkpropertiesdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KPropertiesDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KPropertiesDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnMetacall(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Metacall_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Metacall_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_metacall_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperAccept(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Accept_IsBase(true);
-        vkpropertiesdialog->accept();
-    } else {
-        self->KPropertiesDialog::accept();
-    }
+    self->KPropertiesDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnAccept(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Accept_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Accept_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_accept_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Accept_Callback>(slot);
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperReject(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Reject_IsBase(true);
-        vkpropertiesdialog->reject();
-    } else {
-        self->KPropertiesDialog::reject();
-    }
+    self->KPropertiesDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnReject(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Reject_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Reject_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_reject_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_SetVisible(KPropertiesDialog* self, bool visible) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setVisible(visible);
-    } else {
-        self->KPropertiesDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperSetVisible(KPropertiesDialog* self, bool visible) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_SetVisible_IsBase(true);
-        vkpropertiesdialog->setVisible(visible);
-    } else {
-        self->KPropertiesDialog::setVisible(visible);
-    }
+    self->KPropertiesDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnSetVisible(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_SetVisible_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SetVisible_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_setvisible_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPropertiesDialog_SizeHint(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return new QSize(vkpropertiesdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKPropertiesDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KPropertiesDialog_SuperSizeHint(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_SizeHint_IsBase(true);
-        return new QSize(vkpropertiesdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKPropertiesDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KPropertiesDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnSizeHint(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_SizeHint_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SizeHint_Callback>(slot));
+void KPropertiesDialog_OnSizeHint(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_sizehint_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KPropertiesDialog_MinimumSizeHint(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return new QSize(vkpropertiesdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPropertiesDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KPropertiesDialog_SuperMinimumSizeHint(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkpropertiesdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKPropertiesDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KPropertiesDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnMinimumSizeHint(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MinimumSizeHint_Callback>(slot));
+void KPropertiesDialog_OnMinimumSizeHint(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_minimumsizehint_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_Open(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->open();
-    } else {
-        self->KPropertiesDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperOpen(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Open_IsBase(true);
-        vkpropertiesdialog->open();
-    } else {
-        self->KPropertiesDialog::open();
-    }
+    self->KPropertiesDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnOpen(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Open_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Open_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_open_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPropertiesDialog_Exec(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->exec();
-    } else {
-        return self->KPropertiesDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KPropertiesDialog_SuperExec(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Exec_IsBase(true);
-        return vkpropertiesdialog->exec();
-    } else {
-        return self->KPropertiesDialog::exec();
-    }
+    return self->KPropertiesDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnExec(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Exec_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Exec_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_exec_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_Done(KPropertiesDialog* self, int param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->done(static_cast<int>(param1));
-    } else {
-        self->KPropertiesDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperDone(KPropertiesDialog* self, int param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Done_IsBase(true);
-        vkpropertiesdialog->done(static_cast<int>(param1));
-    } else {
-        self->KPropertiesDialog::done(static_cast<int>(param1));
-    }
+    self->KPropertiesDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnDone(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Done_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Done_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_done_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_KeyPressEvent(KPropertiesDialog* self, QKeyEvent* param1) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->keyPressEvent(param1);
     } else {
-        ((VirtualKPropertiesDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KPropertiesDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperKeyPressEvent(KPropertiesDialog* self, QKeyEvent* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_KeyPressEvent_IsBase(true);
-        vkpropertiesdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnKeyPressEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_keypressevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_CloseEvent(KPropertiesDialog* self, QCloseEvent* param1) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->closeEvent(param1);
     } else {
-        ((VirtualKPropertiesDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KPropertiesDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperCloseEvent(KPropertiesDialog* self, QCloseEvent* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_CloseEvent_IsBase(true);
-        vkpropertiesdialog->closeEvent(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnCloseEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_CloseEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_CloseEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_closeevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_ShowEvent(KPropertiesDialog* self, QShowEvent* param1) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->showEvent(param1);
     } else {
-        ((VirtualKPropertiesDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KPropertiesDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperShowEvent(KPropertiesDialog* self, QShowEvent* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_ShowEvent_IsBase(true);
-        vkpropertiesdialog->showEvent(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnShowEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_ShowEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ShowEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_showevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_ResizeEvent(KPropertiesDialog* self, QResizeEvent* param1) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->resizeEvent(param1);
     } else {
-        ((VirtualKPropertiesDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KPropertiesDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperResizeEvent(KPropertiesDialog* self, QResizeEvent* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_ResizeEvent_IsBase(true);
-        vkpropertiesdialog->resizeEvent(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnResizeEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_resizeevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_ContextMenuEvent(KPropertiesDialog* self, QContextMenuEvent* param1) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKPropertiesDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KPropertiesDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperContextMenuEvent(KPropertiesDialog* self, QContextMenuEvent* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_ContextMenuEvent_IsBase(true);
-        vkpropertiesdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnContextMenuEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_contextmenuevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPropertiesDialog_EventFilter(KPropertiesDialog* self, QObject* param1, QEvent* param2) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         return vkpropertiesdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKPropertiesDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KPropertiesDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPropertiesDialog_SuperEventFilter(KPropertiesDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_EventFilter_IsBase(true);
-        return vkpropertiesdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        return vkpropertiesdialog->KPropertiesDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnEventFilter(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_EventFilter_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_EventFilter_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_eventfilter_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPropertiesDialog_DevType(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->devType();
-    } else {
-        return self->KPropertiesDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KPropertiesDialog_SuperDevType(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_DevType_IsBase(true);
-        return vkpropertiesdialog->devType();
-    } else {
-        return self->KPropertiesDialog::devType();
-    }
+    return self->KPropertiesDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnDevType(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_DevType_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DevType_Callback>(slot));
+void KPropertiesDialog_OnDevType(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_devtype_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPropertiesDialog_HeightForWidth(const KPropertiesDialog* self, int param1) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPropertiesDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KPropertiesDialog_SuperHeightForWidth(const KPropertiesDialog* self, int param1) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_HeightForWidth_IsBase(true);
-        return vkpropertiesdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KPropertiesDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KPropertiesDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnHeightForWidth(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_HeightForWidth_Callback>(slot));
+void KPropertiesDialog_OnHeightForWidth(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_heightforwidth_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPropertiesDialog_HasHeightForWidth(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->hasHeightForWidth();
-    } else {
-        return self->KPropertiesDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KPropertiesDialog_SuperHasHeightForWidth(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_HasHeightForWidth_IsBase(true);
-        return vkpropertiesdialog->hasHeightForWidth();
-    } else {
-        return self->KPropertiesDialog::hasHeightForWidth();
-    }
+    return self->KPropertiesDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnHasHeightForWidth(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_HasHeightForWidth_Callback>(slot));
+void KPropertiesDialog_OnHasHeightForWidth(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_hasheightforwidth_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KPropertiesDialog_PaintEngine(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->paintEngine();
-    } else {
-        return self->KPropertiesDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KPropertiesDialog_SuperPaintEngine(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_PaintEngine_IsBase(true);
-        return vkpropertiesdialog->paintEngine();
-    } else {
-        return self->KPropertiesDialog::paintEngine();
-    }
+    return self->KPropertiesDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnPaintEngine(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_PaintEngine_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_PaintEngine_Callback>(slot));
+void KPropertiesDialog_OnPaintEngine(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_paintengine_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPropertiesDialog_Event(KPropertiesDialog* self, QEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         return vkpropertiesdialog->event(event);
     } else {
-        return ((VirtualKPropertiesDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPropertiesDialog_SuperEvent(KPropertiesDialog* self, QEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Event_IsBase(true);
-        return vkpropertiesdialog->event(event);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->event(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        return vkpropertiesdialog->KPropertiesDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Event_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Event_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_event_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_MousePressEvent(KPropertiesDialog* self, QMouseEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->mousePressEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperMousePressEvent(KPropertiesDialog* self, QMouseEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_MousePressEvent_IsBase(true);
-        vkpropertiesdialog->mousePressEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnMousePressEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_mousepressevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_MouseReleaseEvent(KPropertiesDialog* self, QMouseEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperMouseReleaseEvent(KPropertiesDialog* self, QMouseEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_MouseReleaseEvent_IsBase(true);
-        vkpropertiesdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnMouseReleaseEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_mousereleaseevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_MouseDoubleClickEvent(KPropertiesDialog* self, QMouseEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperMouseDoubleClickEvent(KPropertiesDialog* self, QMouseEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_MouseDoubleClickEvent_IsBase(true);
-        vkpropertiesdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnMouseDoubleClickEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_MouseMoveEvent(KPropertiesDialog* self, QMouseEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperMouseMoveEvent(KPropertiesDialog* self, QMouseEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_MouseMoveEvent_IsBase(true);
-        vkpropertiesdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnMouseMoveEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_mousemoveevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_WheelEvent(KPropertiesDialog* self, QWheelEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->wheelEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperWheelEvent(KPropertiesDialog* self, QWheelEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_WheelEvent_IsBase(true);
-        vkpropertiesdialog->wheelEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnWheelEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_WheelEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_WheelEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_wheelevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_KeyReleaseEvent(KPropertiesDialog* self, QKeyEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperKeyReleaseEvent(KPropertiesDialog* self, QKeyEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_KeyReleaseEvent_IsBase(true);
-        vkpropertiesdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnKeyReleaseEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_keyreleaseevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_FocusInEvent(KPropertiesDialog* self, QFocusEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->focusInEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperFocusInEvent(KPropertiesDialog* self, QFocusEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_FocusInEvent_IsBase(true);
-        vkpropertiesdialog->focusInEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnFocusInEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_focusinevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_FocusOutEvent(KPropertiesDialog* self, QFocusEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->focusOutEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperFocusOutEvent(KPropertiesDialog* self, QFocusEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_FocusOutEvent_IsBase(true);
-        vkpropertiesdialog->focusOutEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnFocusOutEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_focusoutevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_EnterEvent(KPropertiesDialog* self, QEnterEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->enterEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperEnterEvent(KPropertiesDialog* self, QEnterEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_EnterEvent_IsBase(true);
-        vkpropertiesdialog->enterEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnEnterEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_EnterEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_EnterEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_enterevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_LeaveEvent(KPropertiesDialog* self, QEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->leaveEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperLeaveEvent(KPropertiesDialog* self, QEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_LeaveEvent_IsBase(true);
-        vkpropertiesdialog->leaveEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnLeaveEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_leaveevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_PaintEvent(KPropertiesDialog* self, QPaintEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->paintEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperPaintEvent(KPropertiesDialog* self, QPaintEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_PaintEvent_IsBase(true);
-        vkpropertiesdialog->paintEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnPaintEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_PaintEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_PaintEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_paintevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_MoveEvent(KPropertiesDialog* self, QMoveEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->moveEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperMoveEvent(KPropertiesDialog* self, QMoveEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_MoveEvent_IsBase(true);
-        vkpropertiesdialog->moveEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnMoveEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_MoveEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MoveEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_moveevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_TabletEvent(KPropertiesDialog* self, QTabletEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->tabletEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperTabletEvent(KPropertiesDialog* self, QTabletEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_TabletEvent_IsBase(true);
-        vkpropertiesdialog->tabletEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnTabletEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_TabletEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_TabletEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_tabletevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_ActionEvent(KPropertiesDialog* self, QActionEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->actionEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperActionEvent(KPropertiesDialog* self, QActionEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_ActionEvent_IsBase(true);
-        vkpropertiesdialog->actionEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnActionEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_ActionEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ActionEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_actionevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_DragEnterEvent(KPropertiesDialog* self, QDragEnterEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->dragEnterEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperDragEnterEvent(KPropertiesDialog* self, QDragEnterEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_DragEnterEvent_IsBase(true);
-        vkpropertiesdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnDragEnterEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_dragenterevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_DragMoveEvent(KPropertiesDialog* self, QDragMoveEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->dragMoveEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperDragMoveEvent(KPropertiesDialog* self, QDragMoveEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_DragMoveEvent_IsBase(true);
-        vkpropertiesdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnDragMoveEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_dragmoveevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_DragLeaveEvent(KPropertiesDialog* self, QDragLeaveEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperDragLeaveEvent(KPropertiesDialog* self, QDragLeaveEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_DragLeaveEvent_IsBase(true);
-        vkpropertiesdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnDragLeaveEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_dragleaveevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_DropEvent(KPropertiesDialog* self, QDropEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->dropEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperDropEvent(KPropertiesDialog* self, QDropEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_DropEvent_IsBase(true);
-        vkpropertiesdialog->dropEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnDropEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_DropEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DropEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_dropevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_HideEvent(KPropertiesDialog* self, QHideEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->hideEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperHideEvent(KPropertiesDialog* self, QHideEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_HideEvent_IsBase(true);
-        vkpropertiesdialog->hideEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnHideEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_HideEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_HideEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_hideevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPropertiesDialog_NativeEvent(KPropertiesDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
+    if (vkpropertiesdialog) {
         return vkpropertiesdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKPropertiesDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KPropertiesDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPropertiesDialog_SuperNativeEvent(KPropertiesDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_NativeEvent_IsBase(true);
-        return vkpropertiesdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        return vkpropertiesdialog->KPropertiesDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnNativeEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_NativeEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_NativeEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_nativeevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_ChangeEvent(KPropertiesDialog* self, QEvent* param1) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->changeEvent(param1);
     } else {
-        ((VirtualKPropertiesDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KPropertiesDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperChangeEvent(KPropertiesDialog* self, QEvent* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_ChangeEvent_IsBase(true);
-        vkpropertiesdialog->changeEvent(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnChangeEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_changeevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KPropertiesDialog_Metric(const KPropertiesDialog* self, int param1) {
     auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         return vkpropertiesdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKPropertiesDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KPropertiesDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KPropertiesDialog_SuperMetric(const KPropertiesDialog* self, int param1) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Metric_IsBase(true);
-        return vkpropertiesdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        return vkpropertiesdialog->KPropertiesDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnMetric(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Metric_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Metric_Callback>(slot));
+void KPropertiesDialog_OnMetric(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_metric_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_InitPainter(const KPropertiesDialog* self, QPainter* painter) {
     auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->initPainter(painter);
     } else {
-        ((VirtualKPropertiesDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KPropertiesDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperInitPainter(const KPropertiesDialog* self, QPainter* painter) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_InitPainter_IsBase(true);
-        vkpropertiesdialog->initPainter(painter);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        vkpropertiesdialog->KPropertiesDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnInitPainter(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_InitPainter_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_InitPainter_Callback>(slot));
+void KPropertiesDialog_OnInitPainter(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_initpainter_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KPropertiesDialog_Redirected(const KPropertiesDialog* self, QPoint* offset) {
     auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         return vkpropertiesdialog->redirected(offset);
     } else {
-        return ((VirtualKPropertiesDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KPropertiesDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KPropertiesDialog_SuperRedirected(const KPropertiesDialog* self, QPoint* offset) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Redirected_IsBase(true);
-        return vkpropertiesdialog->redirected(offset);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->redirected(offset);
-    }
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        return vkpropertiesdialog->KPropertiesDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnRedirected(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Redirected_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Redirected_Callback>(slot));
+void KPropertiesDialog_OnRedirected(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_redirected_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KPropertiesDialog_SharedPainter(const KPropertiesDialog* self) {
     auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         return vkpropertiesdialog->sharedPainter();
     } else {
-        return ((VirtualKPropertiesDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KPropertiesDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KPropertiesDialog_SuperSharedPainter(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_SharedPainter_IsBase(true);
-        return vkpropertiesdialog->sharedPainter();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->sharedPainter();
-    }
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        return vkpropertiesdialog->KPropertiesDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnSharedPainter(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_SharedPainter_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SharedPainter_Callback>(slot));
+void KPropertiesDialog_OnSharedPainter(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_sharedpainter_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_InputMethodEvent(KPropertiesDialog* self, QInputMethodEvent* param1) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKPropertiesDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KPropertiesDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperInputMethodEvent(KPropertiesDialog* self, QInputMethodEvent* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_InputMethodEvent_IsBase(true);
-        vkpropertiesdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnInputMethodEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_inputmethodevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KPropertiesDialog_InputMethodQuery(const KPropertiesDialog* self, int param1) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return new QVariant(vkpropertiesdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPropertiesDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KPropertiesDialog_SuperInputMethodQuery(const KPropertiesDialog* self, int param1) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkpropertiesdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKPropertiesDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KPropertiesDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnInputMethodQuery(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_InputMethodQuery_Callback>(slot));
+void KPropertiesDialog_OnInputMethodQuery(KPropertiesDialog* self, intptr_t slot) {
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self)))
+        vkpropertiesdialog->kpropertiesdialog_inputmethodquery_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KPropertiesDialog_FocusNextPrevChild(KPropertiesDialog* self, bool next) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         return vkpropertiesdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKPropertiesDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KPropertiesDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KPropertiesDialog_SuperFocusNextPrevChild(KPropertiesDialog* self, bool next) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_FocusNextPrevChild_IsBase(true);
-        return vkpropertiesdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        return vkpropertiesdialog->KPropertiesDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnFocusNextPrevChild(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_focusnextprevchild_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_TimerEvent(KPropertiesDialog* self, QTimerEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->timerEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperTimerEvent(KPropertiesDialog* self, QTimerEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_TimerEvent_IsBase(true);
-        vkpropertiesdialog->timerEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnTimerEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_TimerEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_TimerEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_timerevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_ChildEvent(KPropertiesDialog* self, QChildEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->childEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperChildEvent(KPropertiesDialog* self, QChildEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_ChildEvent_IsBase(true);
-        vkpropertiesdialog->childEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->childEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnChildEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_ChildEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ChildEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_childevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_CustomEvent(KPropertiesDialog* self, QEvent* event) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->customEvent(event);
     } else {
-        ((VirtualKPropertiesDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KPropertiesDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperCustomEvent(KPropertiesDialog* self, QEvent* event) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_CustomEvent_IsBase(true);
-        vkpropertiesdialog->customEvent(event);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->customEvent(event);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnCustomEvent(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_CustomEvent_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_CustomEvent_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_customevent_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_ConnectNotify(KPropertiesDialog* self, const QMetaMethod* signal) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->connectNotify(*signal);
     } else {
-        ((VirtualKPropertiesDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KPropertiesDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperConnectNotify(KPropertiesDialog* self, const QMetaMethod* signal) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_ConnectNotify_IsBase(true);
-        vkpropertiesdialog->connectNotify(*signal);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnConnectNotify(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_connectnotify_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KPropertiesDialog_DisconnectNotify(KPropertiesDialog* self, const QMetaMethod* signal) {
     auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
+    if (vkpropertiesdialog) {
         vkpropertiesdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKPropertiesDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KPropertiesDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KPropertiesDialog_SuperDisconnectNotify(KPropertiesDialog* self, const QMetaMethod* signal) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_DisconnectNotify_IsBase(true);
-        vkpropertiesdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->KPropertiesDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KPropertiesDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KPropertiesDialog_OnDisconnectNotify(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self))
+        vkpropertiesdialog->kpropertiesdialog_disconnectnotify_callback = reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 KPageWidget* KPropertiesDialog_PageWidget(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->pageWidget();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->pageWidget();
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::pageWidget();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::pageWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-KPageWidget* KPropertiesDialog_SuperPageWidget(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_PageWidget_IsBase(true);
-        return vkpropertiesdialog->pageWidget();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->pageWidget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnPageWidget(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_PageWidget_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_PageWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPropertiesDialog_SetPageWidget(KPropertiesDialog* self, KPageWidget* widget) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setPageWidget(widget);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->setPageWidget(widget);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->VirtualKPropertiesDialog::setPageWidget(widget);
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::setPageWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPropertiesDialog_SuperSetPageWidget(KPropertiesDialog* self, KPageWidget* widget) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_SetPageWidget_IsBase(true);
-        vkpropertiesdialog->setPageWidget(widget);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->setPageWidget(widget);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnSetPageWidget(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_SetPageWidget_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SetPageWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QDialogButtonBox* KPropertiesDialog_ButtonBox(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->buttonBox();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->buttonBox();
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::buttonBox();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::buttonBox called without a directly constructed type");
 }
 
-// Base class handler implementation
-QDialogButtonBox* KPropertiesDialog_SuperButtonBox(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_ButtonBox_IsBase(true);
-        return vkpropertiesdialog->buttonBox();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->buttonBox();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnButtonBox(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_ButtonBox_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_ButtonBox_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPropertiesDialog_SetButtonBox(KPropertiesDialog* self, QDialogButtonBox* box) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setButtonBox(box);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->setButtonBox(box);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->VirtualKPropertiesDialog::setButtonBox(box);
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::setButtonBox called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPropertiesDialog_SuperSetButtonBox(KPropertiesDialog* self, QDialogButtonBox* box) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_SetButtonBox_IsBase(true);
-        vkpropertiesdialog->setButtonBox(box);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->setButtonBox(box);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnSetButtonBox(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_SetButtonBox_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SetButtonBox_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPropertiesDialog_AdjustPosition(KPropertiesDialog* self, QWidget* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->VirtualKPropertiesDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPropertiesDialog_SuperAdjustPosition(KPropertiesDialog* self, QWidget* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_AdjustPosition_IsBase(true);
-        vkpropertiesdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKPropertiesDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnAdjustPosition(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPropertiesDialog_UpdateMicroFocus(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->updateMicroFocus();
-    } else {
-        ((VirtualKPropertiesDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->VirtualKPropertiesDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPropertiesDialog_SuperUpdateMicroFocus(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_UpdateMicroFocus_IsBase(true);
-        vkpropertiesdialog->updateMicroFocus();
-    } else {
-        ((VirtualKPropertiesDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnUpdateMicroFocus(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPropertiesDialog_Create(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->create();
-    } else {
-        ((VirtualKPropertiesDialog*)self)->create();
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->VirtualKPropertiesDialog::create();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPropertiesDialog_SuperCreate(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Create_IsBase(true);
-        vkpropertiesdialog->create();
-    } else {
-        ((VirtualKPropertiesDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnCreate(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Create_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KPropertiesDialog_Destroy(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->destroy();
-    } else {
-        ((VirtualKPropertiesDialog*)self)->destroy();
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        vkpropertiesdialog->VirtualKPropertiesDialog::destroy();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KPropertiesDialog_SuperDestroy(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Destroy_IsBase(true);
-        vkpropertiesdialog->destroy();
-    } else {
-        ((VirtualKPropertiesDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnDestroy(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Destroy_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPropertiesDialog_FocusNextChild(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->focusNextChild();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->focusNextChild();
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPropertiesDialog_SuperFocusNextChild(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_FocusNextChild_IsBase(true);
-        return vkpropertiesdialog->focusNextChild();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnFocusNextChild(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPropertiesDialog_FocusPreviousChild(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self)) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPropertiesDialog_SuperFocusPreviousChild(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_FocusPreviousChild_IsBase(true);
-        return vkpropertiesdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnFocusPreviousChild(KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KPropertiesDialog_Sender(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->sender();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->sender();
-    }
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::sender();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KPropertiesDialog_SuperSender(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Sender_IsBase(true);
-        return vkpropertiesdialog->sender();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnSender(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Sender_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPropertiesDialog_SenderSignalIndex(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPropertiesDialog_SuperSenderSignalIndex(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_SenderSignalIndex_IsBase(true);
-        return vkpropertiesdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnSenderSignalIndex(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KPropertiesDialog_Receivers(const KPropertiesDialog* self, const char* signal) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->receivers(signal);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->receivers(signal);
-    }
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KPropertiesDialog_SuperReceivers(const KPropertiesDialog* self, const char* signal) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_Receivers_IsBase(true);
-        return vkpropertiesdialog->receivers(signal);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnReceivers(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_Receivers_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KPropertiesDialog_IsSignalConnected(const KPropertiesDialog* self, const QMetaMethod* signal) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KPropertiesDialog_SuperIsSignalConnected(const KPropertiesDialog* self, const QMetaMethod* signal) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_IsSignalConnected_IsBase(true);
-        return vkpropertiesdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnIsSignalConnected(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KPropertiesDialog_GetDecodedMetricF(const KPropertiesDialog* self, int metricA, int metricB) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return vkpropertiesdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KPropertiesDialog_SuperGetDecodedMetricF(const KPropertiesDialog* self, int metricA, int metricB) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        vkpropertiesdialog->setKPropertiesDialog_GetDecodedMetricF_IsBase(true);
-        return vkpropertiesdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KPropertiesDialog_OnGetDecodedMetricF(const KPropertiesDialog* self, intptr_t slot) {
-    auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self));
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog)
-        vkpropertiesdialog->setKPropertiesDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPropertiesDialog::KPropertiesDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkpropertiesdialog = const_cast<VirtualKPropertiesDialog*>(dynamic_cast<const VirtualKPropertiesDialog*>(self))) {
+        return vkpropertiesdialog->VirtualKPropertiesDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KPropertiesDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KPropertiesDialog_Delete(KPropertiesDialog* self) {

@@ -136,9 +136,9 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) bool `
     ///
-    pub fn onIsValid(self: QAccessibleWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsValid(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) bool) void {
         qtc.QAccessibleWidget_OnIsValid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -184,9 +184,9 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QWindow `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) QWindow `
     ///
-    pub fn onWindow(self: QAccessibleWidget, callback: *const fn () callconv(.c) QWindow) void {
+    pub fn onWindow(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) QWindow) void {
         qtc.QAccessibleWidget_OnWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -232,9 +232,9 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) i32 `
     ///
-    pub fn onChildCount(self: QAccessibleWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onChildCount(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) i32) void {
         qtc.QAccessibleWidget_OnChildCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -406,9 +406,9 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onFocusChild(self: QAccessibleWidget, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onFocusChild(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleWidget_OnFocusChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -454,11 +454,11 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QRect `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) QRect `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onRect(self: QAccessibleWidget, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onRect(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) QRect) void {
         qtc.QAccessibleWidget_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -504,9 +504,9 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) QAccessibleInterface `
     ///
-    pub fn onParent(self: QAccessibleWidget, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+    pub fn onParent(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) QAccessibleInterface) void {
         qtc.QAccessibleWidget_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -672,9 +672,9 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) i32 `
     ///
-    pub fn onRole(self: QAccessibleWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onRole(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) i32) void {
         qtc.QAccessibleWidget_OnRole(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -724,11 +724,11 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QAccessible__State `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) QAccessible__State `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onState(self: QAccessibleWidget, callback: *const fn () callconv(.c) QAccessible__State) void {
+    pub fn onState(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) QAccessible__State) void {
         qtc.QAccessibleWidget_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -774,11 +774,11 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QColor `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) QColor `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onForegroundColor(self: QAccessibleWidget, callback: *const fn () callconv(.c) QColor) void {
+    pub fn onForegroundColor(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) QColor) void {
         qtc.QAccessibleWidget_OnForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -824,11 +824,11 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QColor `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) QColor `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBackgroundColor(self: QAccessibleWidget, callback: *const fn () callconv(.c) QColor) void {
+    pub fn onBackgroundColor(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) QColor) void {
         qtc.QAccessibleWidget_OnBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -944,9 +944,9 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onActionNames(self: QAccessibleWidget, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onActionNames(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QAccessibleWidget_OnActionNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1150,40 +1150,6 @@ pub const QAccessibleWidget = extern struct {
         return .{ .ptr = qtc.QAccessibleWidget_Widget(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onWidget` instead
-    ///
-    pub const OnWidget = onWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAccessibleWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) QWidget `
-    ///
-    pub fn onWidget(self: QAccessibleWidget, callback: *const fn () callconv(.c) QWidget) void {
-        qtc.QAccessibleWidget_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superWidget` instead
-    ///
-    pub const SuperWidget = superWidget;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleWidget `
-    ///
-    pub fn superWidget(self: QAccessibleWidget) QWidget {
-        return .{ .ptr = qtc.QAccessibleWidget_SuperWidget(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `parentObject` instead
     ///
     pub const ParentObject = parentObject;
@@ -1196,40 +1162,6 @@ pub const QAccessibleWidget = extern struct {
     ///
     pub fn parentObject(self: QAccessibleWidget) QObject {
         return .{ .ptr = qtc.QAccessibleWidget_ParentObject(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onParentObject` instead
-    ///
-    pub const OnParentObject = onParentObject;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAccessibleWidget `
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onParentObject(self: QAccessibleWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAccessibleWidget_OnParentObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superParentObject` instead
-    ///
-    pub const SuperParentObject = superParentObject;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleWidget `
-    ///
-    pub fn superParentObject(self: QAccessibleWidget) QObject {
-        return .{ .ptr = qtc.QAccessibleWidget_SuperParentObject(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `addControllingSignal` instead
@@ -1250,46 +1182,6 @@ pub const QAccessibleWidget = extern struct {
             .data = signal.ptr,
         };
         qtc.QAccessibleWidget_AddControllingSignal(@ptrCast(self.ptr), signal_str);
-    }
-
-    /// ### DEPRECATED: Use `onAddControllingSignal` instead
-    ///
-    pub const OnAddControllingSignal = onAddControllingSignal;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAccessibleWidget `
-    ///
-    /// ` callback: *const fn (self: QAccessibleWidget, signal: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onAddControllingSignal(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnAddControllingSignal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddControllingSignal` instead
-    ///
-    pub const SuperAddControllingSignal = superAddControllingSignal;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleWidget `
-    ///
-    /// ` signal: []const u8 `
-    ///
-    pub fn superAddControllingSignal(self: QAccessibleWidget, signal: []const u8) void {
-        const signal_str = qtc.libqt_string{
-            .len = signal.len,
-            .data = signal.ptr,
-        };
-        qtc.QAccessibleWidget_SuperAddControllingSignal(@ptrCast(self.ptr), signal_str);
     }
 
     /// ### DEPRECATED: Use `textInterface` instead
@@ -1761,9 +1653,9 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` self: QAccessibleWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QObject `
+    /// ` callback: *const fn (self: QAccessibleWidget) callconv(.c) QObject `
     ///
-    pub fn onObject(self: QAccessibleWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onObject(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget) callconv(.c) QObject) void {
         qtc.QAccessibleWidget_OnObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

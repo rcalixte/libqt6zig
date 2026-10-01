@@ -81,9 +81,9 @@ pub const KExtendableItemDelegate = extern struct {
     ///
     /// ` self: KExtendableItemDelegate `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KExtendableItemDelegate) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KExtendableItemDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate) callconv(.c) QMetaObject) void {
         qtc.KExtendableItemDelegate_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -585,51 +585,6 @@ pub const KExtendableItemDelegate = extern struct {
         return .{ .ptr = qtc.KExtendableItemDelegate_ExtenderRect(@ptrCast(self.ptr), @ptrCast(extender.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onExtenderRect` instead
-    ///
-    pub const OnExtenderRect = onExtenderRect;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extenderRect)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` callback: *const fn (self: KExtendableItemDelegate, extender: QWidget, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) QRect `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onExtenderRect(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) QRect) void {
-        qtc.KExtendableItemDelegate_OnExtenderRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superExtenderRect` instead
-    ///
-    pub const SuperExtenderRect = superExtenderRect;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extenderRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` extender: QWidget `
-    ///
-    /// ` option: QStyleOptionViewItem `
-    ///
-    /// ` index: QModelIndex `
-    ///
-    pub fn superExtenderRect(self: KExtendableItemDelegate, extender: anytype, option: anytype, index: anytype) QRect {
-        comptime _ = @TypeOf(extender)._is_QWidget;
-        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtendableItemDelegate_SuperExtenderRect(@ptrCast(self.ptr), @ptrCast(extender.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `setExtendPixmap` instead
     ///
     pub const SetExtendPixmap = setExtendPixmap;
@@ -645,43 +600,6 @@ pub const KExtendableItemDelegate = extern struct {
     pub fn setExtendPixmap(self: KExtendableItemDelegate, pixmap: anytype) void {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         qtc.KExtendableItemDelegate_SetExtendPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetExtendPixmap` instead
-    ///
-    pub const OnSetExtendPixmap = onSetExtendPixmap;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#setExtendPixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` callback: *const fn (self: KExtendableItemDelegate, pixmap: QPixmap) callconv(.c) void `
-    ///
-    pub fn onSetExtendPixmap(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate, QPixmap) callconv(.c) void) void {
-        qtc.KExtendableItemDelegate_OnSetExtendPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetExtendPixmap` instead
-    ///
-    pub const SuperSetExtendPixmap = superSetExtendPixmap;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#setExtendPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` pixmap: QPixmap `
-    ///
-    pub fn superSetExtendPixmap(self: KExtendableItemDelegate, pixmap: anytype) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.KExtendableItemDelegate_SuperSetExtendPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
     }
 
     /// ### DEPRECATED: Use `setContractPixmap` instead
@@ -701,43 +619,6 @@ pub const KExtendableItemDelegate = extern struct {
         qtc.KExtendableItemDelegate_SetContractPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
     }
 
-    /// ### DEPRECATED: Use `onSetContractPixmap` instead
-    ///
-    pub const OnSetContractPixmap = onSetContractPixmap;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#setContractPixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` callback: *const fn (self: KExtendableItemDelegate, pixmap: QPixmap) callconv(.c) void `
-    ///
-    pub fn onSetContractPixmap(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate, QPixmap) callconv(.c) void) void {
-        qtc.KExtendableItemDelegate_OnSetContractPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetContractPixmap` instead
-    ///
-    pub const SuperSetContractPixmap = superSetContractPixmap;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#setContractPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` pixmap: QPixmap `
-    ///
-    pub fn superSetContractPixmap(self: KExtendableItemDelegate, pixmap: anytype) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.KExtendableItemDelegate_SuperSetContractPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
-    }
-
     /// ### DEPRECATED: Use `extendPixmap` instead
     ///
     pub const ExtendPixmap = extendPixmap;
@@ -752,42 +633,6 @@ pub const KExtendableItemDelegate = extern struct {
         return .{ .ptr = qtc.KExtendableItemDelegate_ExtendPixmap(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `onExtendPixmap` instead
-    ///
-    pub const OnExtendPixmap = onExtendPixmap;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extendPixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` callback: *const fn () callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onExtendPixmap(self: KExtendableItemDelegate, callback: *const fn () callconv(.c) QPixmap) void {
-        qtc.KExtendableItemDelegate_OnExtendPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superExtendPixmap` instead
-    ///
-    pub const SuperExtendPixmap = superExtendPixmap;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#extendPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    pub fn superExtendPixmap(self: KExtendableItemDelegate) QPixmap {
-        return .{ .ptr = qtc.KExtendableItemDelegate_SuperExtendPixmap(@ptrCast(self.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `contractPixmap` instead
     ///
     pub const ContractPixmap = contractPixmap;
@@ -800,42 +645,6 @@ pub const KExtendableItemDelegate = extern struct {
     ///
     pub fn contractPixmap(self: KExtendableItemDelegate) QPixmap {
         return .{ .ptr = qtc.KExtendableItemDelegate_ContractPixmap(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onContractPixmap` instead
-    ///
-    pub const OnContractPixmap = onContractPixmap;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#contractPixmap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` callback: *const fn () callconv(.c) QPixmap `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onContractPixmap(self: KExtendableItemDelegate, callback: *const fn () callconv(.c) QPixmap) void {
-        qtc.KExtendableItemDelegate_OnContractPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superContractPixmap` instead
-    ///
-    pub const SuperContractPixmap = superContractPixmap;
-
-    /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#contractPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    pub fn superContractPixmap(self: KExtendableItemDelegate) QPixmap {
-        return .{ .ptr = qtc.KExtendableItemDelegate_SuperContractPixmap(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2842,13 +2651,13 @@ pub const KExtendableItemDelegate = extern struct {
     ///
     /// ` self: KExtendableItemDelegate`
     ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KExtendableItemDelegate) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
     /// ` C ABI representation of []i32 `
     ///
-    pub fn onPaintingRoles(self: KExtendableItemDelegate, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPaintingRoles(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate) callconv(.c) qtc.libqt_list) void {
         qtc.KExtendableItemDelegate_OnPaintingRoles(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3242,44 +3051,6 @@ pub const KExtendableItemDelegate = extern struct {
         return .{ .ptr = qtc.KExtendableItemDelegate_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    pub fn superSender(self: KExtendableItemDelegate) QObject {
-        return .{ .ptr = qtc.KExtendableItemDelegate_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KExtendableItemDelegate, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KExtendableItemDelegate_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3296,44 +3067,6 @@ pub const KExtendableItemDelegate = extern struct {
     ///
     pub fn senderSignalIndex(self: KExtendableItemDelegate) i32 {
         return qtc.KExtendableItemDelegate_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    pub fn superSenderSignalIndex(self: KExtendableItemDelegate) i32 {
-        return qtc.KExtendableItemDelegate_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KExtendableItemDelegate, callback: *const fn () callconv(.c) i32) void {
-        qtc.KExtendableItemDelegate_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3357,47 +3090,6 @@ pub const KExtendableItemDelegate = extern struct {
         return qtc.KExtendableItemDelegate_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KExtendableItemDelegate, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KExtendableItemDelegate_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate`
-    ///
-    /// ` callback: *const fn (self: KExtendableItemDelegate, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KExtendableItemDelegate_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3417,47 +3109,6 @@ pub const KExtendableItemDelegate = extern struct {
     pub fn isSignalConnected(self: KExtendableItemDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KExtendableItemDelegate_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtendableItemDelegate `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KExtendableItemDelegate, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KExtendableItemDelegate_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KExtendableItemDelegate`
-    ///
-    /// ` callback: *const fn (self: KExtendableItemDelegate, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate, QMetaMethod) callconv(.c) bool) void {
-        qtc.KExtendableItemDelegate_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -202,9 +202,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) QMetaObject) void {
         qtc.QPrintPreviewDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7000,11 +7000,11 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) QSize) void {
         qtc.QPrintPreviewDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7058,11 +7058,11 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) QSize) void {
         qtc.QPrintPreviewDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7116,9 +7116,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) void `
     ///
-    pub fn onOpen(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) void) void {
         qtc.QPrintPreviewDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7172,9 +7172,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) i32 `
     ///
-    pub fn onExec(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) i32) void {
         qtc.QPrintPreviewDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7228,9 +7228,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) void `
     ///
-    pub fn onAccept(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) void) void {
         qtc.QPrintPreviewDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7284,9 +7284,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) void `
     ///
-    pub fn onReject(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) void) void {
         qtc.QPrintPreviewDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7718,9 +7718,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) i32) void {
         qtc.QPrintPreviewDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7834,9 +7834,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) bool) void {
         qtc.QPrintPreviewDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7890,9 +7890,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) QPaintEngine) void {
         qtc.QPrintPreviewDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9508,9 +9508,9 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QPrintPreviewDialog) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog) callconv(.c) QPainter) void {
         qtc.QPrintPreviewDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10029,47 +10029,6 @@ pub const QPrintPreviewDialog = extern struct {
         qtc.QPrintPreviewDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superAdjustPosition` instead
-    ///
-    pub const SuperAdjustPosition = superAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    /// ` param1: QWidget `
-    ///
-    pub fn superAdjustPosition(self: QPrintPreviewDialog, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWidget;
-        qtc.QPrintPreviewDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAdjustPosition` instead
-    ///
-    pub const OnAdjustPosition = onAdjustPosition;
-
-    /// Inherited from QDialog
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#adjustPosition)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn (self: QPrintPreviewDialog, param1: QWidget) callconv(.c) void `
-    ///
-    pub fn onAdjustPosition(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog, QWidget) callconv(.c) void) void {
-        qtc.QPrintPreviewDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -10086,44 +10045,6 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     pub fn updateMicroFocus(self: QPrintPreviewDialog) void {
         qtc.QPrintPreviewDialog_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    pub fn superUpdateMicroFocus(self: QPrintPreviewDialog) void {
-        qtc.QPrintPreviewDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QPrintPreviewDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -10144,44 +10065,6 @@ pub const QPrintPreviewDialog = extern struct {
         qtc.QPrintPreviewDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    pub fn superCreate(self: QPrintPreviewDialog) void {
-        qtc.QPrintPreviewDialog_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QPrintPreviewDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -10198,44 +10081,6 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     pub fn destroy(self: QPrintPreviewDialog) void {
         qtc.QPrintPreviewDialog_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    pub fn superDestroy(self: QPrintPreviewDialog) void {
-        qtc.QPrintPreviewDialog_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) void) void {
-        qtc.QPrintPreviewDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -10256,44 +10101,6 @@ pub const QPrintPreviewDialog = extern struct {
         return qtc.QPrintPreviewDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    pub fn superFocusNextChild(self: QPrintPreviewDialog) bool {
-        return qtc.QPrintPreviewDialog_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.QPrintPreviewDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -10310,44 +10117,6 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     pub fn focusPreviousChild(self: QPrintPreviewDialog) bool {
         return qtc.QPrintPreviewDialog_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    pub fn superFocusPreviousChild(self: QPrintPreviewDialog) bool {
-        return qtc.QPrintPreviewDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) bool) void {
-        qtc.QPrintPreviewDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -10368,44 +10137,6 @@ pub const QPrintPreviewDialog = extern struct {
         return .{ .ptr = qtc.QPrintPreviewDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    pub fn superSender(self: QPrintPreviewDialog) QObject {
-        return .{ .ptr = qtc.QPrintPreviewDialog_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QPrintPreviewDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10422,44 +10153,6 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     pub fn senderSignalIndex(self: QPrintPreviewDialog) i32 {
         return qtc.QPrintPreviewDialog_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    pub fn superSenderSignalIndex(self: QPrintPreviewDialog) i32 {
-        return qtc.QPrintPreviewDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QPrintPreviewDialog, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPrintPreviewDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10483,47 +10176,6 @@ pub const QPrintPreviewDialog = extern struct {
         return qtc.QPrintPreviewDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QPrintPreviewDialog, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QPrintPreviewDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn (self: QPrintPreviewDialog, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPrintPreviewDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10543,47 +10195,6 @@ pub const QPrintPreviewDialog = extern struct {
     pub fn isSignalConnected(self: QPrintPreviewDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPrintPreviewDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QPrintPreviewDialog, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QPrintPreviewDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn (self: QPrintPreviewDialog, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog, QMetaMethod) callconv(.c) bool) void {
-        qtc.QPrintPreviewDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10606,48 +10217,6 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     pub fn getDecodedMetricF(self: QPrintPreviewDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QPrintPreviewDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintPreviewDialog `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QPrintPreviewDialog, metricA: i32, metricB: i32) f64 {
-        return qtc.QPrintPreviewDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPrintPreviewDialog`
-    ///
-    /// ` callback: *const fn (self: QPrintPreviewDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog, i32, i32) callconv(.c) f64) void {
-        qtc.QPrintPreviewDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

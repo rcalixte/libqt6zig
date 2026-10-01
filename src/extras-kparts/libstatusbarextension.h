@@ -51,7 +51,7 @@ KParts__StatusBarExtension* KParts__StatusBarExtension_ChildObject(QObject* obj)
 bool KParts__StatusBarExtension_EventFilter(KParts__StatusBarExtension* self, QObject* watched, QEvent* ev);
 libqt_string KParts__StatusBarExtension_Tr2(const char* s, const char* c);
 libqt_string KParts__StatusBarExtension_Tr3(const char* s, const char* c, int n);
-void KParts__StatusBarExtension_OnMetaObject(const KParts__StatusBarExtension* self, intptr_t slot);
+void KParts__StatusBarExtension_OnMetaObject(KParts__StatusBarExtension* self, intptr_t slot);
 QMetaObject* KParts__StatusBarExtension_SuperMetaObject(const KParts__StatusBarExtension* self);
 void KParts__StatusBarExtension_OnMetacast(KParts__StatusBarExtension* self, intptr_t slot);
 void* KParts__StatusBarExtension_SuperMetacast(KParts__StatusBarExtension* self, const char* param1);
@@ -78,17 +78,9 @@ void KParts__StatusBarExtension_DisconnectNotify(KParts__StatusBarExtension* sel
 void KParts__StatusBarExtension_OnDisconnectNotify(KParts__StatusBarExtension* self, intptr_t slot);
 void KParts__StatusBarExtension_SuperDisconnectNotify(KParts__StatusBarExtension* self, const QMetaMethod* signal);
 QObject* KParts__StatusBarExtension_Sender(const KParts__StatusBarExtension* self);
-void KParts__StatusBarExtension_OnSender(const KParts__StatusBarExtension* self, intptr_t slot);
-QObject* KParts__StatusBarExtension_SuperSender(const KParts__StatusBarExtension* self);
 int KParts__StatusBarExtension_SenderSignalIndex(const KParts__StatusBarExtension* self);
-void KParts__StatusBarExtension_OnSenderSignalIndex(const KParts__StatusBarExtension* self, intptr_t slot);
-int KParts__StatusBarExtension_SuperSenderSignalIndex(const KParts__StatusBarExtension* self);
 int KParts__StatusBarExtension_Receivers(const KParts__StatusBarExtension* self, const char* signal);
-void KParts__StatusBarExtension_OnReceivers(const KParts__StatusBarExtension* self, intptr_t slot);
-int KParts__StatusBarExtension_SuperReceivers(const KParts__StatusBarExtension* self, const char* signal);
 bool KParts__StatusBarExtension_IsSignalConnected(const KParts__StatusBarExtension* self, const QMetaMethod* signal);
-void KParts__StatusBarExtension_OnIsSignalConnected(const KParts__StatusBarExtension* self, intptr_t slot);
-bool KParts__StatusBarExtension_SuperIsSignalConnected(const KParts__StatusBarExtension* self, const QMetaMethod* signal);
 void KParts__StatusBarExtension_Delete(KParts__StatusBarExtension* self);
 
 #ifdef __cplusplus

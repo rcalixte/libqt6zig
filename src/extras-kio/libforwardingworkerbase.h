@@ -60,7 +60,7 @@ bool KIO__ForwardingWorkerBase_RewriteUrl(KIO__ForwardingWorkerBase* self, const
 void KIO__ForwardingWorkerBase_AdjustUDSEntry(const KIO__ForwardingWorkerBase* self, KIO__UDSEntry* entry, int creationMode);
 libqt_string KIO__ForwardingWorkerBase_Tr2(const char* s, const char* c);
 libqt_string KIO__ForwardingWorkerBase_Tr3(const char* s, const char* c, int n);
-void KIO__ForwardingWorkerBase_OnMetaObject(const KIO__ForwardingWorkerBase* self, intptr_t slot);
+void KIO__ForwardingWorkerBase_OnMetaObject(KIO__ForwardingWorkerBase* self, intptr_t slot);
 QMetaObject* KIO__ForwardingWorkerBase_SuperMetaObject(const KIO__ForwardingWorkerBase* self);
 void KIO__ForwardingWorkerBase_OnMetacast(KIO__ForwardingWorkerBase* self, intptr_t slot);
 void* KIO__ForwardingWorkerBase_SuperMetacast(KIO__ForwardingWorkerBase* self, const char* param1);
@@ -91,8 +91,7 @@ KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperCopy(KIO__ForwardingWorkerBase
 void KIO__ForwardingWorkerBase_OnDel(KIO__ForwardingWorkerBase* self, intptr_t slot);
 KIO__WorkerResult* KIO__ForwardingWorkerBase_SuperDel(KIO__ForwardingWorkerBase* self, const QUrl* url, bool isfile);
 void KIO__ForwardingWorkerBase_OnRewriteUrl(KIO__ForwardingWorkerBase* self, intptr_t slot);
-bool KIO__ForwardingWorkerBase_SuperRewriteUrl(KIO__ForwardingWorkerBase* self, const QUrl* url, QUrl* newURL);
-void KIO__ForwardingWorkerBase_OnAdjustUDSEntry(const KIO__ForwardingWorkerBase* self, intptr_t slot);
+void KIO__ForwardingWorkerBase_OnAdjustUDSEntry(KIO__ForwardingWorkerBase* self, intptr_t slot);
 void KIO__ForwardingWorkerBase_SuperAdjustUDSEntry(const KIO__ForwardingWorkerBase* self, KIO__UDSEntry* entry, int creationMode);
 bool KIO__ForwardingWorkerBase_Event(KIO__ForwardingWorkerBase* self, QEvent* event);
 void KIO__ForwardingWorkerBase_OnEvent(KIO__ForwardingWorkerBase* self, intptr_t slot);
@@ -161,23 +160,11 @@ void KIO__ForwardingWorkerBase_ReparseConfiguration(KIO__ForwardingWorkerBase* s
 void KIO__ForwardingWorkerBase_OnReparseConfiguration(KIO__ForwardingWorkerBase* self, intptr_t slot);
 void KIO__ForwardingWorkerBase_SuperReparseConfiguration(KIO__ForwardingWorkerBase* self);
 QUrl* KIO__ForwardingWorkerBase_ProcessedUrl(const KIO__ForwardingWorkerBase* self);
-void KIO__ForwardingWorkerBase_OnProcessedUrl(const KIO__ForwardingWorkerBase* self, intptr_t slot);
-QUrl* KIO__ForwardingWorkerBase_SuperProcessedUrl(const KIO__ForwardingWorkerBase* self);
 QUrl* KIO__ForwardingWorkerBase_RequestedUrl(const KIO__ForwardingWorkerBase* self);
-void KIO__ForwardingWorkerBase_OnRequestedUrl(const KIO__ForwardingWorkerBase* self, intptr_t slot);
-QUrl* KIO__ForwardingWorkerBase_SuperRequestedUrl(const KIO__ForwardingWorkerBase* self);
 QObject* KIO__ForwardingWorkerBase_Sender(const KIO__ForwardingWorkerBase* self);
-void KIO__ForwardingWorkerBase_OnSender(const KIO__ForwardingWorkerBase* self, intptr_t slot);
-QObject* KIO__ForwardingWorkerBase_SuperSender(const KIO__ForwardingWorkerBase* self);
 int KIO__ForwardingWorkerBase_SenderSignalIndex(const KIO__ForwardingWorkerBase* self);
-void KIO__ForwardingWorkerBase_OnSenderSignalIndex(const KIO__ForwardingWorkerBase* self, intptr_t slot);
-int KIO__ForwardingWorkerBase_SuperSenderSignalIndex(const KIO__ForwardingWorkerBase* self);
 int KIO__ForwardingWorkerBase_Receivers(const KIO__ForwardingWorkerBase* self, const char* signal);
-void KIO__ForwardingWorkerBase_OnReceivers(const KIO__ForwardingWorkerBase* self, intptr_t slot);
-int KIO__ForwardingWorkerBase_SuperReceivers(const KIO__ForwardingWorkerBase* self, const char* signal);
 bool KIO__ForwardingWorkerBase_IsSignalConnected(const KIO__ForwardingWorkerBase* self, const QMetaMethod* signal);
-void KIO__ForwardingWorkerBase_OnIsSignalConnected(const KIO__ForwardingWorkerBase* self, intptr_t slot);
-bool KIO__ForwardingWorkerBase_SuperIsSignalConnected(const KIO__ForwardingWorkerBase* self, const QMetaMethod* signal);
 void KIO__ForwardingWorkerBase_Delete(KIO__ForwardingWorkerBase* self);
 
 #ifdef __cplusplus

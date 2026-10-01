@@ -107,7 +107,7 @@ void QVirtualKeyboardInputContext_SetPreeditText4(QVirtualKeyboardInputContext* 
 void QVirtualKeyboardInputContext_SendKeyClick3(QVirtualKeyboardInputContext* self, int key, const libqt_string text, int modifiers);
 void QVirtualKeyboardInputContext_Commit22(QVirtualKeyboardInputContext* self, const libqt_string text, int replaceFrom);
 void QVirtualKeyboardInputContext_Commit3(QVirtualKeyboardInputContext* self, const libqt_string text, int replaceFrom, int replaceLength);
-void QVirtualKeyboardInputContext_OnMetaObject(const QVirtualKeyboardInputContext* self, intptr_t slot);
+void QVirtualKeyboardInputContext_OnMetaObject(QVirtualKeyboardInputContext* self, intptr_t slot);
 QMetaObject* QVirtualKeyboardInputContext_SuperMetaObject(const QVirtualKeyboardInputContext* self);
 void QVirtualKeyboardInputContext_OnMetacast(QVirtualKeyboardInputContext* self, intptr_t slot);
 void* QVirtualKeyboardInputContext_SuperMetacast(QVirtualKeyboardInputContext* self, const char* param1);
@@ -135,17 +135,9 @@ void QVirtualKeyboardInputContext_DisconnectNotify(QVirtualKeyboardInputContext*
 void QVirtualKeyboardInputContext_OnDisconnectNotify(QVirtualKeyboardInputContext* self, intptr_t slot);
 void QVirtualKeyboardInputContext_SuperDisconnectNotify(QVirtualKeyboardInputContext* self, const QMetaMethod* signal);
 QObject* QVirtualKeyboardInputContext_Sender(const QVirtualKeyboardInputContext* self);
-void QVirtualKeyboardInputContext_OnSender(const QVirtualKeyboardInputContext* self, intptr_t slot);
-QObject* QVirtualKeyboardInputContext_SuperSender(const QVirtualKeyboardInputContext* self);
 int QVirtualKeyboardInputContext_SenderSignalIndex(const QVirtualKeyboardInputContext* self);
-void QVirtualKeyboardInputContext_OnSenderSignalIndex(const QVirtualKeyboardInputContext* self, intptr_t slot);
-int QVirtualKeyboardInputContext_SuperSenderSignalIndex(const QVirtualKeyboardInputContext* self);
 int QVirtualKeyboardInputContext_Receivers(const QVirtualKeyboardInputContext* self, const char* signal);
-void QVirtualKeyboardInputContext_OnReceivers(const QVirtualKeyboardInputContext* self, intptr_t slot);
-int QVirtualKeyboardInputContext_SuperReceivers(const QVirtualKeyboardInputContext* self, const char* signal);
 bool QVirtualKeyboardInputContext_IsSignalConnected(const QVirtualKeyboardInputContext* self, const QMetaMethod* signal);
-void QVirtualKeyboardInputContext_OnIsSignalConnected(const QVirtualKeyboardInputContext* self, intptr_t slot);
-bool QVirtualKeyboardInputContext_SuperIsSignalConnected(const QVirtualKeyboardInputContext* self, const QMetaMethod* signal);
 void QVirtualKeyboardInputContext_Delete(QVirtualKeyboardInputContext* self);
 
 #ifdef __cplusplus

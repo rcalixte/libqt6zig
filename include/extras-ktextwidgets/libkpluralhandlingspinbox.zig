@@ -137,9 +137,9 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) QMetaObject) void {
         qtc.KPluralHandlingSpinBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7851,11 +7851,11 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) QSize) void {
         qtc.KPluralHandlingSpinBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7909,11 +7909,11 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) QSize) void {
         qtc.KPluralHandlingSpinBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8089,9 +8089,9 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) void `
     ///
-    pub fn onClear(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) void) void {
         qtc.KPluralHandlingSpinBox_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9207,9 +9207,9 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) i32 `
     ///
-    pub fn onStepEnabled(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onStepEnabled(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) i32) void {
         qtc.KPluralHandlingSpinBox_OnStepEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9263,9 +9263,9 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) i32) void {
         qtc.KPluralHandlingSpinBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9439,9 +9439,9 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) bool) void {
         qtc.KPluralHandlingSpinBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9495,9 +9495,9 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) QPaintEngine) void {
         qtc.KPluralHandlingSpinBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10431,9 +10431,9 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     /// ` self: KPluralHandlingSpinBox`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: KPluralHandlingSpinBox) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox) callconv(.c) QPainter) void {
         qtc.KPluralHandlingSpinBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10893,44 +10893,6 @@ pub const KPluralHandlingSpinBox = extern struct {
         return .{ .ptr = qtc.KPluralHandlingSpinBox_LineEdit(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superLineEdit` instead
-    ///
-    pub const SuperLineEdit = superLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    pub fn superLineEdit(self: KPluralHandlingSpinBox) QLineEdit {
-        return .{ .ptr = qtc.KPluralHandlingSpinBox_SuperLineEdit(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onLineEdit` instead
-    ///
-    pub const OnLineEdit = onLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) QLineEdit `
-    ///
-    pub fn onLineEdit(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) QLineEdit) void {
-        qtc.KPluralHandlingSpinBox_OnLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setLineEdit` instead
     ///
     pub const SetLineEdit = setLineEdit;
@@ -10952,47 +10914,6 @@ pub const KPluralHandlingSpinBox = extern struct {
         qtc.KPluralHandlingSpinBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetLineEdit` instead
-    ///
-    pub const SuperSetLineEdit = superSetLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    /// ` edit: QLineEdit `
-    ///
-    pub fn superSetLineEdit(self: KPluralHandlingSpinBox, edit: anytype) void {
-        comptime _ = @TypeOf(edit)._is_QLineEdit;
-        qtc.KPluralHandlingSpinBox_SuperSetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetLineEdit` instead
-    ///
-    pub const OnSetLineEdit = onSetLineEdit;
-
-    /// Inherited from QAbstractSpinBox
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn (self: KPluralHandlingSpinBox, edit: QLineEdit) callconv(.c) void `
-    ///
-    pub fn onSetLineEdit(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox, QLineEdit) callconv(.c) void) void {
-        qtc.KPluralHandlingSpinBox_OnSetLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -11009,44 +10930,6 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     pub fn updateMicroFocus(self: KPluralHandlingSpinBox) void {
         qtc.KPluralHandlingSpinBox_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    pub fn superUpdateMicroFocus(self: KPluralHandlingSpinBox) void {
-        qtc.KPluralHandlingSpinBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KPluralHandlingSpinBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -11067,44 +10950,6 @@ pub const KPluralHandlingSpinBox = extern struct {
         qtc.KPluralHandlingSpinBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    pub fn superCreate(self: KPluralHandlingSpinBox) void {
-        qtc.KPluralHandlingSpinBox_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KPluralHandlingSpinBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -11121,44 +10966,6 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     pub fn destroy(self: KPluralHandlingSpinBox) void {
         qtc.KPluralHandlingSpinBox_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    pub fn superDestroy(self: KPluralHandlingSpinBox) void {
-        qtc.KPluralHandlingSpinBox_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) void) void {
-        qtc.KPluralHandlingSpinBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -11179,44 +10986,6 @@ pub const KPluralHandlingSpinBox = extern struct {
         return qtc.KPluralHandlingSpinBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    pub fn superFocusNextChild(self: KPluralHandlingSpinBox) bool {
-        return qtc.KPluralHandlingSpinBox_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPluralHandlingSpinBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -11233,44 +11002,6 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     pub fn focusPreviousChild(self: KPluralHandlingSpinBox) bool {
         return qtc.KPluralHandlingSpinBox_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    pub fn superFocusPreviousChild(self: KPluralHandlingSpinBox) bool {
-        return qtc.KPluralHandlingSpinBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) bool) void {
-        qtc.KPluralHandlingSpinBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -11291,44 +11022,6 @@ pub const KPluralHandlingSpinBox = extern struct {
         return .{ .ptr = qtc.KPluralHandlingSpinBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    pub fn superSender(self: KPluralHandlingSpinBox) QObject {
-        return .{ .ptr = qtc.KPluralHandlingSpinBox_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KPluralHandlingSpinBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -11345,44 +11038,6 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     pub fn senderSignalIndex(self: KPluralHandlingSpinBox) i32 {
         return qtc.KPluralHandlingSpinBox_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    pub fn superSenderSignalIndex(self: KPluralHandlingSpinBox) i32 {
-        return qtc.KPluralHandlingSpinBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KPluralHandlingSpinBox, callback: *const fn () callconv(.c) i32) void {
-        qtc.KPluralHandlingSpinBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -11406,47 +11061,6 @@ pub const KPluralHandlingSpinBox = extern struct {
         return qtc.KPluralHandlingSpinBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KPluralHandlingSpinBox, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KPluralHandlingSpinBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn (self: KPluralHandlingSpinBox, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KPluralHandlingSpinBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -11466,47 +11080,6 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn isSignalConnected(self: KPluralHandlingSpinBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPluralHandlingSpinBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KPluralHandlingSpinBox, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KPluralHandlingSpinBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn (self: KPluralHandlingSpinBox, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox, QMetaMethod) callconv(.c) bool) void {
-        qtc.KPluralHandlingSpinBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -11529,48 +11102,6 @@ pub const KPluralHandlingSpinBox = extern struct {
     ///
     pub fn getDecodedMetricF(self: KPluralHandlingSpinBox, metricA: i32, metricB: i32) f64 {
         return qtc.KPluralHandlingSpinBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPluralHandlingSpinBox `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: KPluralHandlingSpinBox, metricA: i32, metricB: i32) f64 {
-        return qtc.KPluralHandlingSpinBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KPluralHandlingSpinBox`
-    ///
-    /// ` callback: *const fn (self: KPluralHandlingSpinBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: KPluralHandlingSpinBox, callback: *const fn (KPluralHandlingSpinBox, i32, i32) callconv(.c) f64) void {
-        qtc.KPluralHandlingSpinBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

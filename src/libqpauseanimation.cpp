@@ -61,15 +61,15 @@ void QPauseAnimation_SetDuration(QPauseAnimation* self, int msecs) {
 
 bool QPauseAnimation_Event(QPauseAnimation* self, QEvent* e) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         return vqpauseanimation->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QPauseAnimation::event called without a directly constructed type");
 }
 
 void QPauseAnimation_UpdateCurrentTime(QPauseAnimation* self, int param1) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         vqpauseanimation->updateCurrentTime(static_cast<int>(param1));
     }
 }
@@ -100,446 +100,290 @@ libqt_string QPauseAnimation_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QPauseAnimation_SuperMetaObject(const QPauseAnimation* self) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_MetaObject_IsBase(true);
-        return (QMetaObject*)vqpauseanimation->metaObject();
-    } else {
-        return (QMetaObject*)self->QPauseAnimation::metaObject();
-    }
+    return (QMetaObject*)self->QPauseAnimation::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPauseAnimation_OnMetaObject(const QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_MetaObject_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_MetaObject_Callback>(slot));
+void QPauseAnimation_OnMetaObject(QPauseAnimation* self, intptr_t slot) {
+    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self)))
+        vqpauseanimation->qpauseanimation_metaobject_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QPauseAnimation_SuperMetacast(QPauseAnimation* self, const char* param1) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_Metacast_IsBase(true);
-        return vqpauseanimation->qt_metacast(param1);
-    } else {
-        return self->QPauseAnimation::qt_metacast(param1);
-    }
+    return self->QPauseAnimation::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnMetacast(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_Metacast_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Metacast_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_metacast_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPauseAnimation_SuperMetacall(QPauseAnimation* self, int param1, int param2, void** param3) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_Metacall_IsBase(true);
-        return vqpauseanimation->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QPauseAnimation::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QPauseAnimation::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnMetacall(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_Metacall_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Metacall_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_metacall_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPauseAnimation_SuperDuration(const QPauseAnimation* self) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_Duration_IsBase(true);
-        return vqpauseanimation->duration();
-    } else {
-        return self->QPauseAnimation::duration();
-    }
+    return self->QPauseAnimation::duration();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPauseAnimation_OnDuration(const QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_Duration_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Duration_Callback>(slot));
+void QPauseAnimation_OnDuration(QPauseAnimation* self, intptr_t slot) {
+    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self)))
+        vqpauseanimation->qpauseanimation_duration_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Duration_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QPauseAnimation_SuperEvent(QPauseAnimation* self, QEvent* e) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_Event_IsBase(true);
-        return vqpauseanimation->event(e);
-    } else {
-        return ((VirtualQPauseAnimation*)self)->event(e);
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        return vqpauseanimation->QPauseAnimation::event(e);
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnEvent(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_Event_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Event_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_event_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPauseAnimation_SuperUpdateCurrentTime(QPauseAnimation* self, int param1) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_UpdateCurrentTime_IsBase(true);
-        vqpauseanimation->updateCurrentTime(static_cast<int>(param1));
-    } else {
-        ((VirtualQPauseAnimation*)self)->updateCurrentTime(static_cast<int>(param1));
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        vqpauseanimation->QPauseAnimation::updateCurrentTime(static_cast<int>(param1));
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::updateCurrentTime called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnUpdateCurrentTime(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateCurrentTime_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_updatecurrenttime_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateCurrentTime_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPauseAnimation_UpdateState(QPauseAnimation* self, int newState, int oldState) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         vqpauseanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
     } else {
-        ((VirtualQPauseAnimation*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+        qFatal("Error: Protected virtual method QPauseAnimation::updateState called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_SuperUpdateState(QPauseAnimation* self, int newState, int oldState) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_UpdateState_IsBase(true);
-        vqpauseanimation->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    } else {
-        ((VirtualQPauseAnimation*)self)->updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        vqpauseanimation->QPauseAnimation::updateState(static_cast<QAbstractAnimation::State>(newState), static_cast<QAbstractAnimation::State>(oldState));
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::updateState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnUpdateState(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_UpdateState_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateState_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_updatestate_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateState_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPauseAnimation_UpdateDirection(QPauseAnimation* self, int direction) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         vqpauseanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     } else {
-        ((VirtualQPauseAnimation*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+        qFatal("Error: Protected virtual method QPauseAnimation::updateDirection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_SuperUpdateDirection(QPauseAnimation* self, int direction) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_UpdateDirection_IsBase(true);
-        vqpauseanimation->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
-    } else {
-        ((VirtualQPauseAnimation*)self)->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        vqpauseanimation->QPauseAnimation::updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::updateDirection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnUpdateDirection(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_UpdateDirection_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateDirection_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_updatedirection_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_UpdateDirection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QPauseAnimation_EventFilter(QPauseAnimation* self, QObject* watched, QEvent* event) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return vqpauseanimation->eventFilter(watched, event);
-    } else {
-        return self->QPauseAnimation::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QPauseAnimation_SuperEventFilter(QPauseAnimation* self, QObject* watched, QEvent* event) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_EventFilter_IsBase(true);
-        return vqpauseanimation->eventFilter(watched, event);
-    } else {
-        return self->QPauseAnimation::eventFilter(watched, event);
-    }
+    return self->QPauseAnimation::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnEventFilter(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_EventFilter_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_EventFilter_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_eventfilter_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPauseAnimation_TimerEvent(QPauseAnimation* self, QTimerEvent* event) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         vqpauseanimation->timerEvent(event);
     } else {
-        ((VirtualQPauseAnimation*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QPauseAnimation::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_SuperTimerEvent(QPauseAnimation* self, QTimerEvent* event) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_TimerEvent_IsBase(true);
-        vqpauseanimation->timerEvent(event);
-    } else {
-        ((VirtualQPauseAnimation*)self)->timerEvent(event);
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        vqpauseanimation->QPauseAnimation::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnTimerEvent(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_TimerEvent_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_TimerEvent_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_timerevent_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPauseAnimation_ChildEvent(QPauseAnimation* self, QChildEvent* event) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         vqpauseanimation->childEvent(event);
     } else {
-        ((VirtualQPauseAnimation*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QPauseAnimation::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_SuperChildEvent(QPauseAnimation* self, QChildEvent* event) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_ChildEvent_IsBase(true);
-        vqpauseanimation->childEvent(event);
-    } else {
-        ((VirtualQPauseAnimation*)self)->childEvent(event);
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        vqpauseanimation->QPauseAnimation::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnChildEvent(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_ChildEvent_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_ChildEvent_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_childevent_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPauseAnimation_CustomEvent(QPauseAnimation* self, QEvent* event) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         vqpauseanimation->customEvent(event);
     } else {
-        ((VirtualQPauseAnimation*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QPauseAnimation::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_SuperCustomEvent(QPauseAnimation* self, QEvent* event) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_CustomEvent_IsBase(true);
-        vqpauseanimation->customEvent(event);
-    } else {
-        ((VirtualQPauseAnimation*)self)->customEvent(event);
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        vqpauseanimation->QPauseAnimation::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnCustomEvent(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_CustomEvent_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_CustomEvent_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_customevent_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPauseAnimation_ConnectNotify(QPauseAnimation* self, const QMetaMethod* signal) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         vqpauseanimation->connectNotify(*signal);
     } else {
-        ((VirtualQPauseAnimation*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QPauseAnimation::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_SuperConnectNotify(QPauseAnimation* self, const QMetaMethod* signal) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_ConnectNotify_IsBase(true);
-        vqpauseanimation->connectNotify(*signal);
-    } else {
-        ((VirtualQPauseAnimation*)self)->connectNotify(*signal);
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        vqpauseanimation->QPauseAnimation::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnConnectNotify(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_ConnectNotify_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_ConnectNotify_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_connectnotify_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPauseAnimation_DisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal) {
     auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
+    if (vqpauseanimation) {
         vqpauseanimation->disconnectNotify(*signal);
     } else {
-        ((VirtualQPauseAnimation*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QPauseAnimation::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPauseAnimation_SuperDisconnectNotify(QPauseAnimation* self, const QMetaMethod* signal) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_DisconnectNotify_IsBase(true);
-        vqpauseanimation->disconnectNotify(*signal);
-    } else {
-        ((VirtualQPauseAnimation*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self)) {
+        vqpauseanimation->QPauseAnimation::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QPauseAnimation::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPauseAnimation_OnDisconnectNotify(QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_DisconnectNotify_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_DisconnectNotify_Callback>(slot));
+    if (auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self))
+        vqpauseanimation->qpauseanimation_disconnectnotify_callback = reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QPauseAnimation_Sender(const QPauseAnimation* self) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return vqpauseanimation->sender();
-    } else {
-        return ((VirtualQPauseAnimation*)self)->sender();
-    }
+    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+        return vqpauseanimation->VirtualQPauseAnimation::sender();
+    } else
+        qFatal("Error: Protected method QPauseAnimation::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QPauseAnimation_SuperSender(const QPauseAnimation* self) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_Sender_IsBase(true);
-        return vqpauseanimation->sender();
-    } else {
-        return ((VirtualQPauseAnimation*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPauseAnimation_OnSender(const QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_Sender_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPauseAnimation_SenderSignalIndex(const QPauseAnimation* self) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return vqpauseanimation->senderSignalIndex();
-    } else {
-        return ((VirtualQPauseAnimation*)self)->senderSignalIndex();
-    }
+    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+        return vqpauseanimation->VirtualQPauseAnimation::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QPauseAnimation::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPauseAnimation_SuperSenderSignalIndex(const QPauseAnimation* self) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_SenderSignalIndex_IsBase(true);
-        return vqpauseanimation->senderSignalIndex();
-    } else {
-        return ((VirtualQPauseAnimation*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPauseAnimation_OnSenderSignalIndex(const QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QPauseAnimation_Receivers(const QPauseAnimation* self, const char* signal) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return vqpauseanimation->receivers(signal);
-    } else {
-        return ((VirtualQPauseAnimation*)self)->receivers(signal);
-    }
+    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+        return vqpauseanimation->VirtualQPauseAnimation::receivers(signal);
+    } else
+        qFatal("Error: Protected method QPauseAnimation::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QPauseAnimation_SuperReceivers(const QPauseAnimation* self, const char* signal) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_Receivers_IsBase(true);
-        return vqpauseanimation->receivers(signal);
-    } else {
-        return ((VirtualQPauseAnimation*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPauseAnimation_OnReceivers(const QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_Receivers_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QPauseAnimation_IsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return vqpauseanimation->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPauseAnimation*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QPauseAnimation_SuperIsSignalConnected(const QPauseAnimation* self, const QMetaMethod* signal) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        vqpauseanimation->setQPauseAnimation_IsSignalConnected_IsBase(true);
-        return vqpauseanimation->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQPauseAnimation*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPauseAnimation_OnIsSignalConnected(const QPauseAnimation* self, intptr_t slot) {
-    auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self));
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation)
-        vqpauseanimation->setQPauseAnimation_IsSignalConnected_Callback(reinterpret_cast<VirtualQPauseAnimation::QPauseAnimation_IsSignalConnected_Callback>(slot));
+    if (auto* vqpauseanimation = const_cast<VirtualQPauseAnimation*>(dynamic_cast<const VirtualQPauseAnimation*>(self))) {
+        return vqpauseanimation->VirtualQPauseAnimation::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QPauseAnimation::isSignalConnected called without a directly constructed type");
 }
 
 void QPauseAnimation_Delete(QPauseAnimation* self) {

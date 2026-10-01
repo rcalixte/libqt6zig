@@ -50,7 +50,7 @@ void KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(KIO__WidgetsAskUserActi
 void KIO__WidgetsAskUserActionHandler_SetWindow(KIO__WidgetsAskUserActionHandler* self, QWidget* window);
 libqt_string KIO__WidgetsAskUserActionHandler_Tr2(const char* s, const char* c);
 libqt_string KIO__WidgetsAskUserActionHandler_Tr3(const char* s, const char* c, int n);
-void KIO__WidgetsAskUserActionHandler_OnMetaObject(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
+void KIO__WidgetsAskUserActionHandler_OnMetaObject(KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
 QMetaObject* KIO__WidgetsAskUserActionHandler_SuperMetaObject(const KIO__WidgetsAskUserActionHandler* self);
 void KIO__WidgetsAskUserActionHandler_OnMetacast(KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
 void* KIO__WidgetsAskUserActionHandler_SuperMetacast(KIO__WidgetsAskUserActionHandler* self, const char* param1);
@@ -88,17 +88,9 @@ void KIO__WidgetsAskUserActionHandler_DisconnectNotify(KIO__WidgetsAskUserAction
 void KIO__WidgetsAskUserActionHandler_OnDisconnectNotify(KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
 void KIO__WidgetsAskUserActionHandler_SuperDisconnectNotify(KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
 QObject* KIO__WidgetsAskUserActionHandler_Sender(const KIO__WidgetsAskUserActionHandler* self);
-void KIO__WidgetsAskUserActionHandler_OnSender(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
-QObject* KIO__WidgetsAskUserActionHandler_SuperSender(const KIO__WidgetsAskUserActionHandler* self);
 int KIO__WidgetsAskUserActionHandler_SenderSignalIndex(const KIO__WidgetsAskUserActionHandler* self);
-void KIO__WidgetsAskUserActionHandler_OnSenderSignalIndex(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
-int KIO__WidgetsAskUserActionHandler_SuperSenderSignalIndex(const KIO__WidgetsAskUserActionHandler* self);
 int KIO__WidgetsAskUserActionHandler_Receivers(const KIO__WidgetsAskUserActionHandler* self, const char* signal);
-void KIO__WidgetsAskUserActionHandler_OnReceivers(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
-int KIO__WidgetsAskUserActionHandler_SuperReceivers(const KIO__WidgetsAskUserActionHandler* self, const char* signal);
 bool KIO__WidgetsAskUserActionHandler_IsSignalConnected(const KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
-void KIO__WidgetsAskUserActionHandler_OnIsSignalConnected(const KIO__WidgetsAskUserActionHandler* self, intptr_t slot);
-bool KIO__WidgetsAskUserActionHandler_SuperIsSignalConnected(const KIO__WidgetsAskUserActionHandler* self, const QMetaMethod* signal);
 void KIO__WidgetsAskUserActionHandler_Delete(KIO__WidgetsAskUserActionHandler* self);
 
 #ifdef __cplusplus

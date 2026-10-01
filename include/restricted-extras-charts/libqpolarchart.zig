@@ -156,9 +156,9 @@ pub const QPolarChart = extern struct {
     ///
     /// ` self: QPolarChart `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QPolarChart) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QPolarChart, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPolarChart, callback: *const fn (QPolarChart) callconv(.c) QMetaObject) void {
         qtc.QPolarChart_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8586,9 +8586,9 @@ pub const QPolarChart = extern struct {
     ///
     /// ` self: QPolarChart`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPolarChart) callconv(.c) i32 `
     ///
-    pub fn onType(self: QPolarChart, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QPolarChart, callback: *const fn (QPolarChart) callconv(.c) i32) void {
         qtc.QPolarChart_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8790,11 +8790,11 @@ pub const QPolarChart = extern struct {
     ///
     /// ` self: QPolarChart`
     ///
-    /// ` callback: *const fn () callconv(.c) QRectF `
+    /// ` callback: *const fn (self: QPolarChart) callconv(.c) QRectF `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onBoundingRect(self: QPolarChart, callback: *const fn () callconv(.c) QRectF) void {
+    pub fn onBoundingRect(self: QPolarChart, callback: *const fn (QPolarChart) callconv(.c) QRectF) void {
         qtc.QPolarChart_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8848,11 +8848,11 @@ pub const QPolarChart = extern struct {
     ///
     /// ` self: QPolarChart`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainterPath `
+    /// ` callback: *const fn (self: QPolarChart) callconv(.c) QPainterPath `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onShape(self: QPolarChart, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onShape(self: QPolarChart, callback: *const fn (QPolarChart) callconv(.c) QPainterPath) void {
         qtc.QPolarChart_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9036,9 +9036,9 @@ pub const QPolarChart = extern struct {
     ///
     /// ` self: QPolarChart`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QPolarChart) callconv(.c) void `
     ///
-    pub fn onUpdateGeometry(self: QPolarChart, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometry(self: QPolarChart, callback: *const fn (QPolarChart) callconv(.c) void) void {
         qtc.QPolarChart_OnUpdateGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9924,9 +9924,9 @@ pub const QPolarChart = extern struct {
     ///
     /// ` self: QPolarChart`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QPolarChart) callconv(.c) void `
     ///
-    pub fn onPolishEvent(self: QPolarChart, callback: *const fn () callconv(.c) void) void {
+    pub fn onPolishEvent(self: QPolarChart, callback: *const fn (QPolarChart) callconv(.c) void) void {
         qtc.QPolarChart_OnPolishEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11174,11 +11174,11 @@ pub const QPolarChart = extern struct {
     ///
     /// ` self: QPolarChart`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainterPath `
+    /// ` callback: *const fn (self: QPolarChart) callconv(.c) QPainterPath `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onOpaqueArea(self: QPolarChart, callback: *const fn () callconv(.c) QPainterPath) void {
+    pub fn onOpaqueArea(self: QPolarChart, callback: *const fn (QPolarChart) callconv(.c) QPainterPath) void {
         qtc.QPolarChart_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12422,9 +12422,9 @@ pub const QPolarChart = extern struct {
     ///
     /// ` self: QPolarChart`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QPolarChart) callconv(.c) bool `
     ///
-    pub fn onIsEmpty(self: QPolarChart, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsEmpty(self: QPolarChart, callback: *const fn (QPolarChart) callconv(.c) bool) void {
         qtc.QPolarChart_OnIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12446,44 +12446,6 @@ pub const QPolarChart = extern struct {
         qtc.QPolarChart_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QGraphicsObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    pub fn superUpdateMicroFocus(self: QPolarChart) void {
-        qtc.QPolarChart_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QGraphicsObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QPolarChart, callback: *const fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -12502,44 +12464,6 @@ pub const QPolarChart = extern struct {
         return .{ .ptr = qtc.QPolarChart_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    pub fn superSender(self: QPolarChart) QObject {
-        return .{ .ptr = qtc.QPolarChart_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QPolarChart, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QPolarChart_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -12556,44 +12480,6 @@ pub const QPolarChart = extern struct {
     ///
     pub fn senderSignalIndex(self: QPolarChart) i32 {
         return qtc.QPolarChart_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    pub fn superSenderSignalIndex(self: QPolarChart) i32 {
-        return qtc.QPolarChart_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QPolarChart, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPolarChart_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -12617,47 +12503,6 @@ pub const QPolarChart = extern struct {
         return qtc.QPolarChart_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QPolarChart, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QPolarChart_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn (self: QPolarChart, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QPolarChart, callback: *const fn (QPolarChart, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPolarChart_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -12679,47 +12524,6 @@ pub const QPolarChart = extern struct {
         return qtc.QPolarChart_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QPolarChart, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QPolarChart_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn (self: QPolarChart, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QPolarChart, callback: *const fn (QPolarChart, QMetaMethod) callconv(.c) bool) void {
-        qtc.QPolarChart_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `addToIndex` instead
     ///
     pub const AddToIndex = addToIndex;
@@ -12736,44 +12540,6 @@ pub const QPolarChart = extern struct {
     ///
     pub fn addToIndex(self: QPolarChart) void {
         qtc.QPolarChart_AddToIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superAddToIndex` instead
-    ///
-    pub const SuperAddToIndex = superAddToIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    pub fn superAddToIndex(self: QPolarChart) void {
-        qtc.QPolarChart_SuperAddToIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onAddToIndex` instead
-    ///
-    pub const OnAddToIndex = onAddToIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAddToIndex(self: QPolarChart, callback: *const fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnAddToIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `removeFromIndex` instead
@@ -12794,44 +12560,6 @@ pub const QPolarChart = extern struct {
         qtc.QPolarChart_RemoveFromIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superRemoveFromIndex` instead
-    ///
-    pub const SuperRemoveFromIndex = superRemoveFromIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    pub fn superRemoveFromIndex(self: QPolarChart) void {
-        qtc.QPolarChart_SuperRemoveFromIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onRemoveFromIndex` instead
-    ///
-    pub const OnRemoveFromIndex = onRemoveFromIndex;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onRemoveFromIndex(self: QPolarChart, callback: *const fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnRemoveFromIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `prepareGeometryChange` instead
     ///
     pub const PrepareGeometryChange = prepareGeometryChange;
@@ -12848,44 +12576,6 @@ pub const QPolarChart = extern struct {
     ///
     pub fn prepareGeometryChange(self: QPolarChart) void {
         qtc.QPolarChart_PrepareGeometryChange(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superPrepareGeometryChange` instead
-    ///
-    pub const SuperPrepareGeometryChange = superPrepareGeometryChange;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    pub fn superPrepareGeometryChange(self: QPolarChart) void {
-        qtc.QPolarChart_SuperPrepareGeometryChange(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onPrepareGeometryChange` instead
-    ///
-    pub const OnPrepareGeometryChange = onPrepareGeometryChange;
-
-    /// Inherited from QGraphicsItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onPrepareGeometryChange(self: QPolarChart, callback: *const fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnPrepareGeometryChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setGraphicsItem` instead
@@ -12910,48 +12600,6 @@ pub const QPolarChart = extern struct {
         qtc.QPolarChart_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetGraphicsItem` instead
-    ///
-    pub const SuperSetGraphicsItem = superSetGraphicsItem;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    /// ` item: QGraphicsItem `
-    ///
-    pub fn superSetGraphicsItem(self: QPolarChart, item: anytype) void {
-        comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
-        qtc.QPolarChart_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetGraphicsItem` instead
-    ///
-    pub const OnSetGraphicsItem = onSetGraphicsItem;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn (self: QPolarChart, item: QGraphicsItem) callconv(.c) void `
-    ///
-    pub fn onSetGraphicsItem(self: QPolarChart, callback: *const fn (QPolarChart, QGraphicsItem) callconv(.c) void) void {
-        qtc.QPolarChart_OnSetGraphicsItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOwnedByLayout` instead
     ///
     pub const SetOwnedByLayout = setOwnedByLayout;
@@ -12970,46 +12618,6 @@ pub const QPolarChart = extern struct {
     ///
     pub fn setOwnedByLayout(self: QPolarChart, _ownedByLayout: bool) void {
         qtc.QPolarChart_SetOwnedByLayout(@ptrCast(self.ptr), _ownedByLayout);
-    }
-
-    /// ### DEPRECATED: Use `superSetOwnedByLayout` instead
-    ///
-    pub const SuperSetOwnedByLayout = superSetOwnedByLayout;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPolarChart `
-    ///
-    /// ` _ownedByLayout: bool `
-    ///
-    pub fn superSetOwnedByLayout(self: QPolarChart, _ownedByLayout: bool) void {
-        qtc.QPolarChart_SuperSetOwnedByLayout(@ptrCast(self.ptr), _ownedByLayout);
-    }
-
-    /// ### DEPRECATED: Use `onSetOwnedByLayout` instead
-    ///
-    pub const OnSetOwnedByLayout = onSetOwnedByLayout;
-
-    /// Inherited from QGraphicsLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPolarChart`
-    ///
-    /// ` callback: *const fn (self: QPolarChart, ownedByLayout: bool) callconv(.c) void `
-    ///
-    pub fn onSetOwnedByLayout(self: QPolarChart, callback: *const fn (QPolarChart, bool) callconv(.c) void) void {
-        qtc.QPolarChart_OnSetOwnedByLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

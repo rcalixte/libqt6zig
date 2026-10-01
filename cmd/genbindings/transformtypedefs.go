@@ -211,6 +211,9 @@ func applyTypedefs_Method(m *CppMethod, className string) {
 	}
 
 	m.ReturnType = applyTypedefs(m.ReturnType, className)
+	if IsKnownClass(m.ReturnType.ParameterType) {
+		KnownReturnClassnames[m.ReturnType.ParameterType] = struct{}{}
+	}
 
 	// Also apply OS compatibility rules
 	if FossCompatCheck(m.ReturnType) {

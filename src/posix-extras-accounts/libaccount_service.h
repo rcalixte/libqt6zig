@@ -75,7 +75,7 @@ libqt_string Accounts__AccountService_Tr3(const char* s, const char* c, int n);
 QVariant* Accounts__AccountService_Value32(const Accounts__AccountService* self, const libqt_string key, const QVariant* defaultValue, int* source);
 QVariant* Accounts__AccountService_Value22(const Accounts__AccountService* self, const libqt_string key, int* source);
 QVariant* Accounts__AccountService_Value23(const Accounts__AccountService* self, const char* key, int* source);
-void Accounts__AccountService_OnMetaObject(const Accounts__AccountService* self, intptr_t slot);
+void Accounts__AccountService_OnMetaObject(Accounts__AccountService* self, intptr_t slot);
 QMetaObject* Accounts__AccountService_SuperMetaObject(const Accounts__AccountService* self);
 void Accounts__AccountService_OnMetacast(Accounts__AccountService* self, intptr_t slot);
 void* Accounts__AccountService_SuperMetacast(Accounts__AccountService* self, const char* param1);
@@ -103,17 +103,9 @@ void Accounts__AccountService_DisconnectNotify(Accounts__AccountService* self, c
 void Accounts__AccountService_OnDisconnectNotify(Accounts__AccountService* self, intptr_t slot);
 void Accounts__AccountService_SuperDisconnectNotify(Accounts__AccountService* self, const QMetaMethod* signal);
 QObject* Accounts__AccountService_Sender(const Accounts__AccountService* self);
-void Accounts__AccountService_OnSender(const Accounts__AccountService* self, intptr_t slot);
-QObject* Accounts__AccountService_SuperSender(const Accounts__AccountService* self);
 int Accounts__AccountService_SenderSignalIndex(const Accounts__AccountService* self);
-void Accounts__AccountService_OnSenderSignalIndex(const Accounts__AccountService* self, intptr_t slot);
-int Accounts__AccountService_SuperSenderSignalIndex(const Accounts__AccountService* self);
 int Accounts__AccountService_Receivers(const Accounts__AccountService* self, const char* signal);
-void Accounts__AccountService_OnReceivers(const Accounts__AccountService* self, intptr_t slot);
-int Accounts__AccountService_SuperReceivers(const Accounts__AccountService* self, const char* signal);
 bool Accounts__AccountService_IsSignalConnected(const Accounts__AccountService* self, const QMetaMethod* signal);
-void Accounts__AccountService_OnIsSignalConnected(const Accounts__AccountService* self, intptr_t slot);
-bool Accounts__AccountService_SuperIsSignalConnected(const Accounts__AccountService* self, const QMetaMethod* signal);
 void Accounts__AccountService_Delete(Accounts__AccountService* self);
 
 #ifdef __cplusplus

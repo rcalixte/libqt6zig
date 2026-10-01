@@ -206,1654 +206,1173 @@ libqt_string Sonnet__ConfigView_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* Sonnet__ConfigView_SuperMetaObject(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_MetaObject_IsBase(true);
-        return (QMetaObject*)vsonnetconfigview->metaObject();
-    } else {
-        return (QMetaObject*)self->Sonnet::ConfigView::metaObject();
-    }
+    return (QMetaObject*)self->Sonnet::ConfigView::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnMetaObject(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_MetaObject_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MetaObject_Callback>(slot));
+void Sonnet__ConfigView_OnMetaObject(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_metaobject_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Sonnet__ConfigView_SuperMetacast(Sonnet__ConfigView* self, const char* param1) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Metacast_IsBase(true);
-        return vsonnetconfigview->qt_metacast(param1);
-    } else {
-        return self->Sonnet::ConfigView::qt_metacast(param1);
-    }
+    return self->Sonnet::ConfigView::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnMetacast(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Metacast_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Metacast_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_metacast_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Sonnet__ConfigView_SuperMetacall(Sonnet__ConfigView* self, int param1, int param2, void** param3) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Metacall_IsBase(true);
-        return vsonnetconfigview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Sonnet::ConfigView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Sonnet::ConfigView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnMetacall(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Metacall_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Metacall_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_metacall_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int Sonnet__ConfigView_DevType(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->devType();
-    } else {
-        return self->Sonnet::ConfigView::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int Sonnet__ConfigView_SuperDevType(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_DevType_IsBase(true);
-        return vsonnetconfigview->devType();
-    } else {
-        return self->Sonnet::ConfigView::devType();
-    }
+    return self->Sonnet::ConfigView::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnDevType(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_DevType_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DevType_Callback>(slot));
+void Sonnet__ConfigView_OnDevType(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_devtype_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_SetVisible(Sonnet__ConfigView* self, bool visible) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setVisible(visible);
-    } else {
-        self->Sonnet::ConfigView::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperSetVisible(Sonnet__ConfigView* self, bool visible) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_SetVisible_IsBase(true);
-        vsonnetconfigview->setVisible(visible);
-    } else {
-        self->Sonnet::ConfigView::setVisible(visible);
-    }
+    self->Sonnet::ConfigView::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnSetVisible(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_SetVisible_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_SetVisible_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_setvisible_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* Sonnet__ConfigView_SizeHint(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return new QSize(vsonnetconfigview->sizeHint());
-    } else {
-        return new QSize(((VirtualSonnetConfigView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* Sonnet__ConfigView_SuperSizeHint(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_SizeHint_IsBase(true);
-        return new QSize(vsonnetconfigview->sizeHint());
-    } else {
-        return new QSize(((VirtualSonnetConfigView*)self)->sizeHint());
-    }
+    return new QSize(self->Sonnet::ConfigView::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnSizeHint(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_SizeHint_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_SizeHint_Callback>(slot));
+void Sonnet__ConfigView_OnSizeHint(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_sizehint_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* Sonnet__ConfigView_MinimumSizeHint(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return new QSize(vsonnetconfigview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualSonnetConfigView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* Sonnet__ConfigView_SuperMinimumSizeHint(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_MinimumSizeHint_IsBase(true);
-        return new QSize(vsonnetconfigview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualSonnetConfigView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->Sonnet::ConfigView::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnMinimumSizeHint(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_MinimumSizeHint_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MinimumSizeHint_Callback>(slot));
+void Sonnet__ConfigView_OnMinimumSizeHint(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_minimumsizehint_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int Sonnet__ConfigView_HeightForWidth(const Sonnet__ConfigView* self, int param1) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->Sonnet::ConfigView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int Sonnet__ConfigView_SuperHeightForWidth(const Sonnet__ConfigView* self, int param1) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_HeightForWidth_IsBase(true);
-        return vsonnetconfigview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->Sonnet::ConfigView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->Sonnet::ConfigView::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnHeightForWidth(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_HeightForWidth_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_HeightForWidth_Callback>(slot));
+void Sonnet__ConfigView_OnHeightForWidth(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_heightforwidth_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__ConfigView_HasHeightForWidth(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->hasHeightForWidth();
-    } else {
-        return self->Sonnet::ConfigView::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool Sonnet__ConfigView_SuperHasHeightForWidth(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_HasHeightForWidth_IsBase(true);
-        return vsonnetconfigview->hasHeightForWidth();
-    } else {
-        return self->Sonnet::ConfigView::hasHeightForWidth();
-    }
+    return self->Sonnet::ConfigView::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnHasHeightForWidth(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_HasHeightForWidth_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_HasHeightForWidth_Callback>(slot));
+void Sonnet__ConfigView_OnHasHeightForWidth(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_hasheightforwidth_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* Sonnet__ConfigView_PaintEngine(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->paintEngine();
-    } else {
-        return self->Sonnet::ConfigView::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* Sonnet__ConfigView_SuperPaintEngine(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_PaintEngine_IsBase(true);
-        return vsonnetconfigview->paintEngine();
-    } else {
-        return self->Sonnet::ConfigView::paintEngine();
-    }
+    return self->Sonnet::ConfigView::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnPaintEngine(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_PaintEngine_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_PaintEngine_Callback>(slot));
+void Sonnet__ConfigView_OnPaintEngine(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_paintengine_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__ConfigView_Event(Sonnet__ConfigView* self, QEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         return vsonnetconfigview->event(event);
     } else {
-        return ((VirtualSonnetConfigView*)self)->event(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool Sonnet__ConfigView_SuperEvent(Sonnet__ConfigView* self, QEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Event_IsBase(true);
-        return vsonnetconfigview->event(event);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->event(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        return vsonnetconfigview->Sonnet::ConfigView::event(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Event_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Event_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_event_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_MousePressEvent(Sonnet__ConfigView* self, QMouseEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->mousePressEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperMousePressEvent(Sonnet__ConfigView* self, QMouseEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_MousePressEvent_IsBase(true);
-        vsonnetconfigview->mousePressEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->mousePressEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnMousePressEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_MousePressEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MousePressEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_mousepressevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_MouseReleaseEvent(Sonnet__ConfigView* self, QMouseEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->mouseReleaseEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperMouseReleaseEvent(Sonnet__ConfigView* self, QMouseEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_MouseReleaseEvent_IsBase(true);
-        vsonnetconfigview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnMouseReleaseEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MouseReleaseEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_mousereleaseevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_MouseDoubleClickEvent(Sonnet__ConfigView* self, QMouseEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperMouseDoubleClickEvent(Sonnet__ConfigView* self, QMouseEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_MouseDoubleClickEvent_IsBase(true);
-        vsonnetconfigview->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnMouseDoubleClickEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_mousedoubleclickevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_MouseMoveEvent(Sonnet__ConfigView* self, QMouseEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->mouseMoveEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperMouseMoveEvent(Sonnet__ConfigView* self, QMouseEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_MouseMoveEvent_IsBase(true);
-        vsonnetconfigview->mouseMoveEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnMouseMoveEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_MouseMoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MouseMoveEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_mousemoveevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_WheelEvent(Sonnet__ConfigView* self, QWheelEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->wheelEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperWheelEvent(Sonnet__ConfigView* self, QWheelEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_WheelEvent_IsBase(true);
-        vsonnetconfigview->wheelEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->wheelEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnWheelEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_WheelEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_WheelEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_wheelevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_KeyPressEvent(Sonnet__ConfigView* self, QKeyEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->keyPressEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperKeyPressEvent(Sonnet__ConfigView* self, QKeyEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_KeyPressEvent_IsBase(true);
-        vsonnetconfigview->keyPressEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->keyPressEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnKeyPressEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_KeyPressEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_KeyPressEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_keypressevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_KeyReleaseEvent(Sonnet__ConfigView* self, QKeyEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->keyReleaseEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperKeyReleaseEvent(Sonnet__ConfigView* self, QKeyEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_KeyReleaseEvent_IsBase(true);
-        vsonnetconfigview->keyReleaseEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnKeyReleaseEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_KeyReleaseEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_keyreleaseevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_FocusInEvent(Sonnet__ConfigView* self, QFocusEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->focusInEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperFocusInEvent(Sonnet__ConfigView* self, QFocusEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_FocusInEvent_IsBase(true);
-        vsonnetconfigview->focusInEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->focusInEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnFocusInEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_FocusInEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_FocusInEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_focusinevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_FocusOutEvent(Sonnet__ConfigView* self, QFocusEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->focusOutEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperFocusOutEvent(Sonnet__ConfigView* self, QFocusEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_FocusOutEvent_IsBase(true);
-        vsonnetconfigview->focusOutEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->focusOutEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnFocusOutEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_FocusOutEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_FocusOutEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_focusoutevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_EnterEvent(Sonnet__ConfigView* self, QEnterEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->enterEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperEnterEvent(Sonnet__ConfigView* self, QEnterEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_EnterEvent_IsBase(true);
-        vsonnetconfigview->enterEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->enterEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnEnterEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_EnterEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_EnterEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_enterevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_LeaveEvent(Sonnet__ConfigView* self, QEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->leaveEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperLeaveEvent(Sonnet__ConfigView* self, QEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_LeaveEvent_IsBase(true);
-        vsonnetconfigview->leaveEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->leaveEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnLeaveEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_LeaveEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_LeaveEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_leaveevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_PaintEvent(Sonnet__ConfigView* self, QPaintEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->paintEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperPaintEvent(Sonnet__ConfigView* self, QPaintEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_PaintEvent_IsBase(true);
-        vsonnetconfigview->paintEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->paintEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnPaintEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_PaintEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_PaintEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_paintevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_MoveEvent(Sonnet__ConfigView* self, QMoveEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->moveEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperMoveEvent(Sonnet__ConfigView* self, QMoveEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_MoveEvent_IsBase(true);
-        vsonnetconfigview->moveEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->moveEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnMoveEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_MoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MoveEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_moveevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_ResizeEvent(Sonnet__ConfigView* self, QResizeEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->resizeEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperResizeEvent(Sonnet__ConfigView* self, QResizeEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_ResizeEvent_IsBase(true);
-        vsonnetconfigview->resizeEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->resizeEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnResizeEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_ResizeEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ResizeEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_resizeevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_CloseEvent(Sonnet__ConfigView* self, QCloseEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->closeEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperCloseEvent(Sonnet__ConfigView* self, QCloseEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_CloseEvent_IsBase(true);
-        vsonnetconfigview->closeEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->closeEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnCloseEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_CloseEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_CloseEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_closeevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_ContextMenuEvent(Sonnet__ConfigView* self, QContextMenuEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->contextMenuEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperContextMenuEvent(Sonnet__ConfigView* self, QContextMenuEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_ContextMenuEvent_IsBase(true);
-        vsonnetconfigview->contextMenuEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->contextMenuEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnContextMenuEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_ContextMenuEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ContextMenuEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_contextmenuevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_TabletEvent(Sonnet__ConfigView* self, QTabletEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->tabletEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperTabletEvent(Sonnet__ConfigView* self, QTabletEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_TabletEvent_IsBase(true);
-        vsonnetconfigview->tabletEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->tabletEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnTabletEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_TabletEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_TabletEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_tabletevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_ActionEvent(Sonnet__ConfigView* self, QActionEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->actionEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperActionEvent(Sonnet__ConfigView* self, QActionEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_ActionEvent_IsBase(true);
-        vsonnetconfigview->actionEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->actionEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnActionEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_ActionEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ActionEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_actionevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_DragEnterEvent(Sonnet__ConfigView* self, QDragEnterEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->dragEnterEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperDragEnterEvent(Sonnet__ConfigView* self, QDragEnterEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_DragEnterEvent_IsBase(true);
-        vsonnetconfigview->dragEnterEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->dragEnterEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnDragEnterEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_DragEnterEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DragEnterEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_dragenterevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_DragMoveEvent(Sonnet__ConfigView* self, QDragMoveEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->dragMoveEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperDragMoveEvent(Sonnet__ConfigView* self, QDragMoveEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_DragMoveEvent_IsBase(true);
-        vsonnetconfigview->dragMoveEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->dragMoveEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnDragMoveEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_DragMoveEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DragMoveEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_dragmoveevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_DragLeaveEvent(Sonnet__ConfigView* self, QDragLeaveEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->dragLeaveEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperDragLeaveEvent(Sonnet__ConfigView* self, QDragLeaveEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_DragLeaveEvent_IsBase(true);
-        vsonnetconfigview->dragLeaveEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnDragLeaveEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_DragLeaveEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DragLeaveEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_dragleaveevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_DropEvent(Sonnet__ConfigView* self, QDropEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->dropEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperDropEvent(Sonnet__ConfigView* self, QDropEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_DropEvent_IsBase(true);
-        vsonnetconfigview->dropEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->dropEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnDropEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_DropEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DropEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_dropevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_ShowEvent(Sonnet__ConfigView* self, QShowEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->showEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperShowEvent(Sonnet__ConfigView* self, QShowEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_ShowEvent_IsBase(true);
-        vsonnetconfigview->showEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->showEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnShowEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_ShowEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ShowEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_showevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_HideEvent(Sonnet__ConfigView* self, QHideEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->hideEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperHideEvent(Sonnet__ConfigView* self, QHideEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_HideEvent_IsBase(true);
-        vsonnetconfigview->hideEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->hideEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnHideEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_HideEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_HideEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_hideevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__ConfigView_NativeEvent(Sonnet__ConfigView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
+    if (vsonnetconfigview) {
         return vsonnetconfigview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualSonnetConfigView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool Sonnet__ConfigView_SuperNativeEvent(Sonnet__ConfigView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_NativeEvent_IsBase(true);
-        return vsonnetconfigview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualSonnetConfigView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        return vsonnetconfigview->Sonnet::ConfigView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnNativeEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_NativeEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_NativeEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_nativeevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_ChangeEvent(Sonnet__ConfigView* self, QEvent* param1) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->changeEvent(param1);
     } else {
-        ((VirtualSonnetConfigView*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperChangeEvent(Sonnet__ConfigView* self, QEvent* param1) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_ChangeEvent_IsBase(true);
-        vsonnetconfigview->changeEvent(param1);
-    } else {
-        ((VirtualSonnetConfigView*)self)->changeEvent(param1);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnChangeEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_ChangeEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ChangeEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_changeevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int Sonnet__ConfigView_Metric(const Sonnet__ConfigView* self, int param1) {
     auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         return vsonnetconfigview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualSonnetConfigView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int Sonnet__ConfigView_SuperMetric(const Sonnet__ConfigView* self, int param1) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Metric_IsBase(true);
-        return vsonnetconfigview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualSonnetConfigView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        return vsonnetconfigview->Sonnet::ConfigView::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnMetric(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Metric_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Metric_Callback>(slot));
+void Sonnet__ConfigView_OnMetric(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_metric_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_InitPainter(const Sonnet__ConfigView* self, QPainter* painter) {
     auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->initPainter(painter);
     } else {
-        ((VirtualSonnetConfigView*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperInitPainter(const Sonnet__ConfigView* self, QPainter* painter) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_InitPainter_IsBase(true);
-        vsonnetconfigview->initPainter(painter);
-    } else {
-        ((VirtualSonnetConfigView*)self)->initPainter(painter);
-    }
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        vsonnetconfigview->Sonnet::ConfigView::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnInitPainter(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_InitPainter_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_InitPainter_Callback>(slot));
+void Sonnet__ConfigView_OnInitPainter(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_initpainter_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* Sonnet__ConfigView_Redirected(const Sonnet__ConfigView* self, QPoint* offset) {
     auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         return vsonnetconfigview->redirected(offset);
     } else {
-        return ((VirtualSonnetConfigView*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* Sonnet__ConfigView_SuperRedirected(const Sonnet__ConfigView* self, QPoint* offset) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Redirected_IsBase(true);
-        return vsonnetconfigview->redirected(offset);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->redirected(offset);
-    }
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        return vsonnetconfigview->Sonnet::ConfigView::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnRedirected(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Redirected_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Redirected_Callback>(slot));
+void Sonnet__ConfigView_OnRedirected(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_redirected_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* Sonnet__ConfigView_SharedPainter(const Sonnet__ConfigView* self) {
     auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         return vsonnetconfigview->sharedPainter();
     } else {
-        return ((VirtualSonnetConfigView*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* Sonnet__ConfigView_SuperSharedPainter(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_SharedPainter_IsBase(true);
-        return vsonnetconfigview->sharedPainter();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->sharedPainter();
-    }
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        return vsonnetconfigview->Sonnet::ConfigView::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnSharedPainter(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_SharedPainter_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_SharedPainter_Callback>(slot));
+void Sonnet__ConfigView_OnSharedPainter(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_sharedpainter_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_InputMethodEvent(Sonnet__ConfigView* self, QInputMethodEvent* param1) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->inputMethodEvent(param1);
     } else {
-        ((VirtualSonnetConfigView*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperInputMethodEvent(Sonnet__ConfigView* self, QInputMethodEvent* param1) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_InputMethodEvent_IsBase(true);
-        vsonnetconfigview->inputMethodEvent(param1);
-    } else {
-        ((VirtualSonnetConfigView*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnInputMethodEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_InputMethodEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_InputMethodEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_inputmethodevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* Sonnet__ConfigView_InputMethodQuery(const Sonnet__ConfigView* self, int param1) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return new QVariant(vsonnetconfigview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualSonnetConfigView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* Sonnet__ConfigView_SuperInputMethodQuery(const Sonnet__ConfigView* self, int param1) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_InputMethodQuery_IsBase(true);
-        return new QVariant(vsonnetconfigview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualSonnetConfigView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->Sonnet::ConfigView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnInputMethodQuery(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_InputMethodQuery_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_InputMethodQuery_Callback>(slot));
+void Sonnet__ConfigView_OnInputMethodQuery(Sonnet__ConfigView* self, intptr_t slot) {
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self)))
+        vsonnetconfigview->sonnet__configview_inputmethodquery_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__ConfigView_FocusNextPrevChild(Sonnet__ConfigView* self, bool next) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         return vsonnetconfigview->focusNextPrevChild(next);
     } else {
-        return ((VirtualSonnetConfigView*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool Sonnet__ConfigView_SuperFocusNextPrevChild(Sonnet__ConfigView* self, bool next) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_FocusNextPrevChild_IsBase(true);
-        return vsonnetconfigview->focusNextPrevChild(next);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        return vsonnetconfigview->Sonnet::ConfigView::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnFocusNextPrevChild(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_FocusNextPrevChild_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_focusnextprevchild_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Sonnet__ConfigView_EventFilter(Sonnet__ConfigView* self, QObject* watched, QEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->eventFilter(watched, event);
-    } else {
-        return self->Sonnet::ConfigView::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Sonnet__ConfigView_SuperEventFilter(Sonnet__ConfigView* self, QObject* watched, QEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_EventFilter_IsBase(true);
-        return vsonnetconfigview->eventFilter(watched, event);
-    } else {
-        return self->Sonnet::ConfigView::eventFilter(watched, event);
-    }
+    return self->Sonnet::ConfigView::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnEventFilter(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_EventFilter_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_EventFilter_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_eventfilter_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_TimerEvent(Sonnet__ConfigView* self, QTimerEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->timerEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperTimerEvent(Sonnet__ConfigView* self, QTimerEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_TimerEvent_IsBase(true);
-        vsonnetconfigview->timerEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->timerEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnTimerEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_TimerEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_TimerEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_timerevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_ChildEvent(Sonnet__ConfigView* self, QChildEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->childEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperChildEvent(Sonnet__ConfigView* self, QChildEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_ChildEvent_IsBase(true);
-        vsonnetconfigview->childEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->childEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnChildEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_ChildEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ChildEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_childevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_CustomEvent(Sonnet__ConfigView* self, QEvent* event) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->customEvent(event);
     } else {
-        ((VirtualSonnetConfigView*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperCustomEvent(Sonnet__ConfigView* self, QEvent* event) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_CustomEvent_IsBase(true);
-        vsonnetconfigview->customEvent(event);
-    } else {
-        ((VirtualSonnetConfigView*)self)->customEvent(event);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnCustomEvent(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_CustomEvent_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_CustomEvent_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_customevent_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_ConnectNotify(Sonnet__ConfigView* self, const QMetaMethod* signal) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->connectNotify(*signal);
     } else {
-        ((VirtualSonnetConfigView*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperConnectNotify(Sonnet__ConfigView* self, const QMetaMethod* signal) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_ConnectNotify_IsBase(true);
-        vsonnetconfigview->connectNotify(*signal);
-    } else {
-        ((VirtualSonnetConfigView*)self)->connectNotify(*signal);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnConnectNotify(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ConnectNotify_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_connectnotify_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Sonnet__ConfigView_DisconnectNotify(Sonnet__ConfigView* self, const QMetaMethod* signal) {
     auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
+    if (vsonnetconfigview) {
         vsonnetconfigview->disconnectNotify(*signal);
     } else {
-        ((VirtualSonnetConfigView*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Sonnet__ConfigView_SuperDisconnectNotify(Sonnet__ConfigView* self, const QMetaMethod* signal) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_DisconnectNotify_IsBase(true);
-        vsonnetconfigview->disconnectNotify(*signal);
-    } else {
-        ((VirtualSonnetConfigView*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->Sonnet::ConfigView::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Sonnet::ConfigView::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__ConfigView_OnDisconnectNotify(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DisconnectNotify_Callback>(slot));
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self))
+        vsonnetconfigview->sonnet__configview_disconnectnotify_callback = reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__ConfigView_UpdateMicroFocus(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->updateMicroFocus();
-    } else {
-        ((VirtualSonnetConfigView*)self)->updateMicroFocus();
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->VirtualSonnetConfigView::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__ConfigView_SuperUpdateMicroFocus(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_UpdateMicroFocus_IsBase(true);
-        vsonnetconfigview->updateMicroFocus();
-    } else {
-        ((VirtualSonnetConfigView*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnUpdateMicroFocus(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__ConfigView_Create(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->create();
-    } else {
-        ((VirtualSonnetConfigView*)self)->create();
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->VirtualSonnetConfigView::create();
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__ConfigView_SuperCreate(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Create_IsBase(true);
-        vsonnetconfigview->create();
-    } else {
-        ((VirtualSonnetConfigView*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnCreate(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Create_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void Sonnet__ConfigView_Destroy(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->destroy();
-    } else {
-        ((VirtualSonnetConfigView*)self)->destroy();
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        vsonnetconfigview->VirtualSonnetConfigView::destroy();
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void Sonnet__ConfigView_SuperDestroy(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Destroy_IsBase(true);
-        vsonnetconfigview->destroy();
-    } else {
-        ((VirtualSonnetConfigView*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnDestroy(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Destroy_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__ConfigView_FocusNextChild(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->focusNextChild();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->focusNextChild();
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        return vsonnetconfigview->VirtualSonnetConfigView::focusNextChild();
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool Sonnet__ConfigView_SuperFocusNextChild(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_FocusNextChild_IsBase(true);
-        return vsonnetconfigview->focusNextChild();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnFocusNextChild(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_FocusNextChild_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__ConfigView_FocusPreviousChild(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->focusPreviousChild();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->focusPreviousChild();
-    }
+    if (auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self)) {
+        return vsonnetconfigview->VirtualSonnetConfigView::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool Sonnet__ConfigView_SuperFocusPreviousChild(Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_FocusPreviousChild_IsBase(true);
-        return vsonnetconfigview->focusPreviousChild();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnFocusPreviousChild(Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_FocusPreviousChild_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Sonnet__ConfigView_Sender(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->sender();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->sender();
-    }
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        return vsonnetconfigview->VirtualSonnetConfigView::sender();
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Sonnet__ConfigView_SuperSender(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Sender_IsBase(true);
-        return vsonnetconfigview->sender();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnSender(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Sender_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__ConfigView_SenderSignalIndex(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->senderSignalIndex();
-    }
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        return vsonnetconfigview->VirtualSonnetConfigView::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__ConfigView_SuperSenderSignalIndex(const Sonnet__ConfigView* self) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_SenderSignalIndex_IsBase(true);
-        return vsonnetconfigview->senderSignalIndex();
-    } else {
-        return ((VirtualSonnetConfigView*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnSenderSignalIndex(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Sonnet__ConfigView_Receivers(const Sonnet__ConfigView* self, const char* signal) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->receivers(signal);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->receivers(signal);
-    }
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        return vsonnetconfigview->VirtualSonnetConfigView::receivers(signal);
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Sonnet__ConfigView_SuperReceivers(const Sonnet__ConfigView* self, const char* signal) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_Receivers_IsBase(true);
-        return vsonnetconfigview->receivers(signal);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnReceivers(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_Receivers_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Sonnet__ConfigView_IsSignalConnected(const Sonnet__ConfigView* self, const QMetaMethod* signal) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        return vsonnetconfigview->VirtualSonnetConfigView::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool Sonnet__ConfigView_SuperIsSignalConnected(const Sonnet__ConfigView* self, const QMetaMethod* signal) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_IsSignalConnected_IsBase(true);
-        return vsonnetconfigview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnIsSignalConnected(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double Sonnet__ConfigView_GetDecodedMetricF(const Sonnet__ConfigView* self, int metricA, int metricB) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        return vsonnetconfigview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualSonnetConfigView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double Sonnet__ConfigView_SuperGetDecodedMetricF(const Sonnet__ConfigView* self, int metricA, int metricB) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView) {
-        vsonnetconfigview->setSonnet__ConfigView_GetDecodedMetricF_IsBase(true);
-        return vsonnetconfigview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualSonnetConfigView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Sonnet__ConfigView_OnGetDecodedMetricF(const Sonnet__ConfigView* self, intptr_t slot) {
-    auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self));
-    if (vsonnetconfigview && vsonnetconfigview->isVirtualSonnetConfigView)
-        vsonnetconfigview->setSonnet__ConfigView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualSonnetConfigView::Sonnet__ConfigView_GetDecodedMetricF_Callback>(slot));
+    if (auto* vsonnetconfigview = const_cast<VirtualSonnetConfigView*>(dynamic_cast<const VirtualSonnetConfigView*>(self))) {
+        return vsonnetconfigview->VirtualSonnetConfigView::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method Sonnet::ConfigView::getDecodedMetricF called without a directly constructed type");
 }
 
 void Sonnet__ConfigView_Delete(Sonnet__ConfigView* self) {

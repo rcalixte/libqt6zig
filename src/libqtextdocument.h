@@ -180,7 +180,7 @@ QTextCursor* QTextDocument_Find35(const QTextDocument* self, const QRegularExpre
 void QTextDocument_DrawContents2(QTextDocument* self, QPainter* painter, const QRectF* rect);
 void QTextDocument_ClearUndoRedoStacks1(QTextDocument* self, int historyToClear);
 void QTextDocument_SetModified1(QTextDocument* self, bool m);
-void QTextDocument_OnMetaObject(const QTextDocument* self, intptr_t slot);
+void QTextDocument_OnMetaObject(QTextDocument* self, intptr_t slot);
 QMetaObject* QTextDocument_SuperMetaObject(const QTextDocument* self);
 void QTextDocument_OnMetacast(QTextDocument* self, intptr_t slot);
 void* QTextDocument_SuperMetacast(QTextDocument* self, const char* param1);
@@ -214,17 +214,9 @@ void QTextDocument_DisconnectNotify(QTextDocument* self, const QMetaMethod* sign
 void QTextDocument_OnDisconnectNotify(QTextDocument* self, intptr_t slot);
 void QTextDocument_SuperDisconnectNotify(QTextDocument* self, const QMetaMethod* signal);
 QObject* QTextDocument_Sender(const QTextDocument* self);
-void QTextDocument_OnSender(const QTextDocument* self, intptr_t slot);
-QObject* QTextDocument_SuperSender(const QTextDocument* self);
 int QTextDocument_SenderSignalIndex(const QTextDocument* self);
-void QTextDocument_OnSenderSignalIndex(const QTextDocument* self, intptr_t slot);
-int QTextDocument_SuperSenderSignalIndex(const QTextDocument* self);
 int QTextDocument_Receivers(const QTextDocument* self, const char* signal);
-void QTextDocument_OnReceivers(const QTextDocument* self, intptr_t slot);
-int QTextDocument_SuperReceivers(const QTextDocument* self, const char* signal);
 bool QTextDocument_IsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
-void QTextDocument_OnIsSignalConnected(const QTextDocument* self, intptr_t slot);
-bool QTextDocument_SuperIsSignalConnected(const QTextDocument* self, const QMetaMethod* signal);
 void QTextDocument_Delete(QTextDocument* self);
 
 #ifdef __cplusplus

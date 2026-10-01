@@ -81,418 +81,247 @@ libqt_string KParts__FileInfoExtension_Tr3(const char* s, const char* c, int n) 
 
 // Base class handler implementation
 QMetaObject* KParts__FileInfoExtension_SuperMetaObject(const KParts__FileInfoExtension* self) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_MetaObject_IsBase(true);
-        return (QMetaObject*)vkpartsfileinfoextension->metaObject();
-    } else {
-        return (QMetaObject*)self->KParts::FileInfoExtension::metaObject();
-    }
+    return (QMetaObject*)self->KParts::FileInfoExtension::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__FileInfoExtension_OnMetaObject(const KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_MetaObject_Callback>(slot));
+void KParts__FileInfoExtension_OnMetaObject(KParts__FileInfoExtension* self, intptr_t slot) {
+    if (auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self)))
+        vkpartsfileinfoextension->kparts__fileinfoextension_metaobject_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KParts__FileInfoExtension_SuperMetacast(KParts__FileInfoExtension* self, const char* param1) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Metacast_IsBase(true);
-        return vkpartsfileinfoextension->qt_metacast(param1);
-    } else {
-        return self->KParts::FileInfoExtension::qt_metacast(param1);
-    }
+    return self->KParts::FileInfoExtension::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnMetacast(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Metacast_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_metacast_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KParts__FileInfoExtension_SuperMetacall(KParts__FileInfoExtension* self, int param1, int param2, void** param3) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Metacall_IsBase(true);
-        return vkpartsfileinfoextension->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KParts::FileInfoExtension::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KParts::FileInfoExtension::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnMetacall(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Metacall_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Metacall_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_metacall_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KParts__FileInfoExtension_SuperHasSelection(const KParts__FileInfoExtension* self) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_HasSelection_IsBase(true);
-        return vkpartsfileinfoextension->hasSelection();
-    } else {
-        return self->KParts::FileInfoExtension::hasSelection();
-    }
+    return self->KParts::FileInfoExtension::hasSelection();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__FileInfoExtension_OnHasSelection(const KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_HasSelection_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_HasSelection_Callback>(slot));
+void KParts__FileInfoExtension_OnHasSelection(KParts__FileInfoExtension* self, intptr_t slot) {
+    if (auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self)))
+        vkpartsfileinfoextension->kparts__fileinfoextension_hasselection_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_HasSelection_Callback>(slot);
 }
 
 // Base class handler implementation
 int KParts__FileInfoExtension_SuperSupportedQueryModes(const KParts__FileInfoExtension* self) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_SupportedQueryModes_IsBase(true);
-        return static_cast<int>(vkpartsfileinfoextension->supportedQueryModes());
-    } else {
-        return static_cast<int>(self->KParts::FileInfoExtension::supportedQueryModes());
-    }
+    return static_cast<int>(self->KParts::FileInfoExtension::supportedQueryModes());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__FileInfoExtension_OnSupportedQueryModes(const KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_SupportedQueryModes_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_SupportedQueryModes_Callback>(slot));
-}
-
-// Base class handler implementation
-KFileItemList* KParts__FileInfoExtension_SuperQueryFor(const KParts__FileInfoExtension* self, int mode) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_QueryFor_IsBase(true);
-        return new KFileItemList(vkpartsfileinfoextension->queryFor(static_cast<KParts::FileInfoExtension::QueryMode>(mode)));
-    } else {
-        return new KFileItemList(((VirtualKPartsFileInfoExtension*)self)->queryFor(static_cast<KParts::FileInfoExtension::QueryMode>(mode)));
-    }
+void KParts__FileInfoExtension_OnSupportedQueryModes(KParts__FileInfoExtension* self, intptr_t slot) {
+    if (auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self)))
+        vkpartsfileinfoextension->kparts__fileinfoextension_supportedquerymodes_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_SupportedQueryModes_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KParts__FileInfoExtension_OnQueryFor(const KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_QueryFor_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_QueryFor_Callback>(slot));
+void KParts__FileInfoExtension_OnQueryFor(KParts__FileInfoExtension* self, intptr_t slot) {
+    if (auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self)))
+        vkpartsfileinfoextension->kparts__fileinfoextension_queryfor_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_QueryFor_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__FileInfoExtension_Event(KParts__FileInfoExtension* self, QEvent* event) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return vkpartsfileinfoextension->event(event);
-    } else {
-        return self->KParts::FileInfoExtension::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KParts__FileInfoExtension_SuperEvent(KParts__FileInfoExtension* self, QEvent* event) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Event_IsBase(true);
-        return vkpartsfileinfoextension->event(event);
-    } else {
-        return self->KParts::FileInfoExtension::event(event);
-    }
+    return self->KParts::FileInfoExtension::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnEvent(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Event_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Event_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_event_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KParts__FileInfoExtension_EventFilter(KParts__FileInfoExtension* self, QObject* watched, QEvent* event) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return vkpartsfileinfoextension->eventFilter(watched, event);
-    } else {
-        return self->KParts::FileInfoExtension::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KParts__FileInfoExtension_SuperEventFilter(KParts__FileInfoExtension* self, QObject* watched, QEvent* event) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_EventFilter_IsBase(true);
-        return vkpartsfileinfoextension->eventFilter(watched, event);
-    } else {
-        return self->KParts::FileInfoExtension::eventFilter(watched, event);
-    }
+    return self->KParts::FileInfoExtension::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnEventFilter(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_EventFilter_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_EventFilter_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_eventfilter_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__FileInfoExtension_TimerEvent(KParts__FileInfoExtension* self, QTimerEvent* event) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+    if (vkpartsfileinfoextension) {
         vkpartsfileinfoextension->timerEvent(event);
     } else {
-        ((VirtualKPartsFileInfoExtension*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__FileInfoExtension_SuperTimerEvent(KParts__FileInfoExtension* self, QTimerEvent* event) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_TimerEvent_IsBase(true);
-        vkpartsfileinfoextension->timerEvent(event);
-    } else {
-        ((VirtualKPartsFileInfoExtension*)self)->timerEvent(event);
-    }
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self)) {
+        vkpartsfileinfoextension->KParts::FileInfoExtension::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnTimerEvent(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_TimerEvent_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_TimerEvent_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_timerevent_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__FileInfoExtension_ChildEvent(KParts__FileInfoExtension* self, QChildEvent* event) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+    if (vkpartsfileinfoextension) {
         vkpartsfileinfoextension->childEvent(event);
     } else {
-        ((VirtualKPartsFileInfoExtension*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__FileInfoExtension_SuperChildEvent(KParts__FileInfoExtension* self, QChildEvent* event) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_ChildEvent_IsBase(true);
-        vkpartsfileinfoextension->childEvent(event);
-    } else {
-        ((VirtualKPartsFileInfoExtension*)self)->childEvent(event);
-    }
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self)) {
+        vkpartsfileinfoextension->KParts::FileInfoExtension::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnChildEvent(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_ChildEvent_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_ChildEvent_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_childevent_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__FileInfoExtension_CustomEvent(KParts__FileInfoExtension* self, QEvent* event) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+    if (vkpartsfileinfoextension) {
         vkpartsfileinfoextension->customEvent(event);
     } else {
-        ((VirtualKPartsFileInfoExtension*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__FileInfoExtension_SuperCustomEvent(KParts__FileInfoExtension* self, QEvent* event) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_CustomEvent_IsBase(true);
-        vkpartsfileinfoextension->customEvent(event);
-    } else {
-        ((VirtualKPartsFileInfoExtension*)self)->customEvent(event);
-    }
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self)) {
+        vkpartsfileinfoextension->KParts::FileInfoExtension::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnCustomEvent(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_CustomEvent_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_CustomEvent_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_customevent_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__FileInfoExtension_ConnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+    if (vkpartsfileinfoextension) {
         vkpartsfileinfoextension->connectNotify(*signal);
     } else {
-        ((VirtualKPartsFileInfoExtension*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__FileInfoExtension_SuperConnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_ConnectNotify_IsBase(true);
-        vkpartsfileinfoextension->connectNotify(*signal);
-    } else {
-        ((VirtualKPartsFileInfoExtension*)self)->connectNotify(*signal);
-    }
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self)) {
+        vkpartsfileinfoextension->KParts::FileInfoExtension::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnConnectNotify(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_ConnectNotify_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_connectnotify_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KParts__FileInfoExtension_DisconnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal) {
     auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
+    if (vkpartsfileinfoextension) {
         vkpartsfileinfoextension->disconnectNotify(*signal);
     } else {
-        ((VirtualKPartsFileInfoExtension*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KParts__FileInfoExtension_SuperDisconnectNotify(KParts__FileInfoExtension* self, const QMetaMethod* signal) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_DisconnectNotify_IsBase(true);
-        vkpartsfileinfoextension->disconnectNotify(*signal);
-    } else {
-        ((VirtualKPartsFileInfoExtension*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self)) {
+        vkpartsfileinfoextension->KParts::FileInfoExtension::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KParts::FileInfoExtension::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KParts__FileInfoExtension_OnDisconnectNotify(KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_DisconnectNotify_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self))
+        vkpartsfileinfoextension->kparts__fileinfoextension_disconnectnotify_callback = reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KParts__FileInfoExtension_Sender(const KParts__FileInfoExtension* self) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return vkpartsfileinfoextension->sender();
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->sender();
-    }
+    if (auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self))) {
+        return vkpartsfileinfoextension->VirtualKPartsFileInfoExtension::sender();
+    } else
+        qFatal("Error: Protected method KParts::FileInfoExtension::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KParts__FileInfoExtension_SuperSender(const KParts__FileInfoExtension* self) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Sender_IsBase(true);
-        return vkpartsfileinfoextension->sender();
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__FileInfoExtension_OnSender(const KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Sender_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KParts__FileInfoExtension_SenderSignalIndex(const KParts__FileInfoExtension* self) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return vkpartsfileinfoextension->senderSignalIndex();
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->senderSignalIndex();
-    }
+    if (auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self))) {
+        return vkpartsfileinfoextension->VirtualKPartsFileInfoExtension::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KParts::FileInfoExtension::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KParts__FileInfoExtension_SuperSenderSignalIndex(const KParts__FileInfoExtension* self) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_SenderSignalIndex_IsBase(true);
-        return vkpartsfileinfoextension->senderSignalIndex();
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__FileInfoExtension_OnSenderSignalIndex(const KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KParts__FileInfoExtension_Receivers(const KParts__FileInfoExtension* self, const char* signal) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return vkpartsfileinfoextension->receivers(signal);
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->receivers(signal);
-    }
+    if (auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self))) {
+        return vkpartsfileinfoextension->VirtualKPartsFileInfoExtension::receivers(signal);
+    } else
+        qFatal("Error: Protected method KParts::FileInfoExtension::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KParts__FileInfoExtension_SuperReceivers(const KParts__FileInfoExtension* self, const char* signal) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Receivers_IsBase(true);
-        return vkpartsfileinfoextension->receivers(signal);
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__FileInfoExtension_OnReceivers(const KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_Receivers_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KParts__FileInfoExtension_IsSignalConnected(const KParts__FileInfoExtension* self, const QMetaMethod* signal) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return vkpartsfileinfoextension->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KParts__FileInfoExtension_SuperIsSignalConnected(const KParts__FileInfoExtension* self, const QMetaMethod* signal) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension) {
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_IsSignalConnected_IsBase(true);
-        return vkpartsfileinfoextension->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KParts__FileInfoExtension_OnIsSignalConnected(const KParts__FileInfoExtension* self, intptr_t slot) {
-    auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self));
-    if (vkpartsfileinfoextension && vkpartsfileinfoextension->isVirtualKPartsFileInfoExtension)
-        vkpartsfileinfoextension->setKParts__FileInfoExtension_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsFileInfoExtension::KParts__FileInfoExtension_IsSignalConnected_Callback>(slot));
+    if (auto* vkpartsfileinfoextension = const_cast<VirtualKPartsFileInfoExtension*>(dynamic_cast<const VirtualKPartsFileInfoExtension*>(self))) {
+        return vkpartsfileinfoextension->VirtualKPartsFileInfoExtension::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KParts::FileInfoExtension::isSignalConnected called without a directly constructed type");
 }
 
 void KParts__FileInfoExtension_Delete(KParts__FileInfoExtension* self) {

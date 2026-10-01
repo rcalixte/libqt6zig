@@ -185,364 +185,219 @@ libqt_string QLibrary_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QLibrary_SuperMetaObject(const QLibrary* self) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_MetaObject_IsBase(true);
-        return (QMetaObject*)vqlibrary->metaObject();
-    } else {
-        return (QMetaObject*)self->QLibrary::metaObject();
-    }
+    return (QMetaObject*)self->QLibrary::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLibrary_OnMetaObject(const QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_MetaObject_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_MetaObject_Callback>(slot));
+void QLibrary_OnMetaObject(QLibrary* self, intptr_t slot) {
+    if (auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self)))
+        vqlibrary->qlibrary_metaobject_callback = reinterpret_cast<VirtualQLibrary::QLibrary_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QLibrary_SuperMetacast(QLibrary* self, const char* param1) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_Metacast_IsBase(true);
-        return vqlibrary->qt_metacast(param1);
-    } else {
-        return self->QLibrary::qt_metacast(param1);
-    }
+    return self->QLibrary::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnMetacast(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_Metacast_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Metacast_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_metacast_callback = reinterpret_cast<VirtualQLibrary::QLibrary_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLibrary_SuperMetacall(QLibrary* self, int param1, int param2, void** param3) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_Metacall_IsBase(true);
-        return vqlibrary->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QLibrary::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QLibrary::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnMetacall(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_Metacall_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Metacall_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_metacall_callback = reinterpret_cast<VirtualQLibrary::QLibrary_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLibrary_Event(QLibrary* self, QEvent* event) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return vqlibrary->event(event);
-    } else {
-        return self->QLibrary::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QLibrary_SuperEvent(QLibrary* self, QEvent* event) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_Event_IsBase(true);
-        return vqlibrary->event(event);
-    } else {
-        return self->QLibrary::event(event);
-    }
+    return self->QLibrary::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnEvent(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_Event_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Event_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_event_callback = reinterpret_cast<VirtualQLibrary::QLibrary_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLibrary_EventFilter(QLibrary* self, QObject* watched, QEvent* event) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return vqlibrary->eventFilter(watched, event);
-    } else {
-        return self->QLibrary::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QLibrary_SuperEventFilter(QLibrary* self, QObject* watched, QEvent* event) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_EventFilter_IsBase(true);
-        return vqlibrary->eventFilter(watched, event);
-    } else {
-        return self->QLibrary::eventFilter(watched, event);
-    }
+    return self->QLibrary::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnEventFilter(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_EventFilter_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_EventFilter_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_eventfilter_callback = reinterpret_cast<VirtualQLibrary::QLibrary_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLibrary_TimerEvent(QLibrary* self, QTimerEvent* event) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary) {
         vqlibrary->timerEvent(event);
     } else {
-        ((VirtualQLibrary*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QLibrary::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLibrary_SuperTimerEvent(QLibrary* self, QTimerEvent* event) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_TimerEvent_IsBase(true);
-        vqlibrary->timerEvent(event);
-    } else {
-        ((VirtualQLibrary*)self)->timerEvent(event);
-    }
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self)) {
+        vqlibrary->QLibrary::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLibrary::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnTimerEvent(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_TimerEvent_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_TimerEvent_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_timerevent_callback = reinterpret_cast<VirtualQLibrary::QLibrary_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLibrary_ChildEvent(QLibrary* self, QChildEvent* event) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary) {
         vqlibrary->childEvent(event);
     } else {
-        ((VirtualQLibrary*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QLibrary::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLibrary_SuperChildEvent(QLibrary* self, QChildEvent* event) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_ChildEvent_IsBase(true);
-        vqlibrary->childEvent(event);
-    } else {
-        ((VirtualQLibrary*)self)->childEvent(event);
-    }
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self)) {
+        vqlibrary->QLibrary::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLibrary::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnChildEvent(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_ChildEvent_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_ChildEvent_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_childevent_callback = reinterpret_cast<VirtualQLibrary::QLibrary_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLibrary_CustomEvent(QLibrary* self, QEvent* event) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary) {
         vqlibrary->customEvent(event);
     } else {
-        ((VirtualQLibrary*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QLibrary::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLibrary_SuperCustomEvent(QLibrary* self, QEvent* event) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_CustomEvent_IsBase(true);
-        vqlibrary->customEvent(event);
-    } else {
-        ((VirtualQLibrary*)self)->customEvent(event);
-    }
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self)) {
+        vqlibrary->QLibrary::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLibrary::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnCustomEvent(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_CustomEvent_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_CustomEvent_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_customevent_callback = reinterpret_cast<VirtualQLibrary::QLibrary_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLibrary_ConnectNotify(QLibrary* self, const QMetaMethod* signal) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary) {
         vqlibrary->connectNotify(*signal);
     } else {
-        ((VirtualQLibrary*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QLibrary::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLibrary_SuperConnectNotify(QLibrary* self, const QMetaMethod* signal) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_ConnectNotify_IsBase(true);
-        vqlibrary->connectNotify(*signal);
-    } else {
-        ((VirtualQLibrary*)self)->connectNotify(*signal);
-    }
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self)) {
+        vqlibrary->QLibrary::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QLibrary::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnConnectNotify(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_ConnectNotify_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_ConnectNotify_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_connectnotify_callback = reinterpret_cast<VirtualQLibrary::QLibrary_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLibrary_DisconnectNotify(QLibrary* self, const QMetaMethod* signal) {
     auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
+    if (vqlibrary) {
         vqlibrary->disconnectNotify(*signal);
     } else {
-        ((VirtualQLibrary*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QLibrary::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLibrary_SuperDisconnectNotify(QLibrary* self, const QMetaMethod* signal) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_DisconnectNotify_IsBase(true);
-        vqlibrary->disconnectNotify(*signal);
-    } else {
-        ((VirtualQLibrary*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self)) {
+        vqlibrary->QLibrary::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QLibrary::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLibrary_OnDisconnectNotify(QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_DisconnectNotify_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_DisconnectNotify_Callback>(slot));
+    if (auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self))
+        vqlibrary->qlibrary_disconnectnotify_callback = reinterpret_cast<VirtualQLibrary::QLibrary_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QLibrary_Sender(const QLibrary* self) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return vqlibrary->sender();
-    } else {
-        return ((VirtualQLibrary*)self)->sender();
-    }
+    if (auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self))) {
+        return vqlibrary->VirtualQLibrary::sender();
+    } else
+        qFatal("Error: Protected method QLibrary::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QLibrary_SuperSender(const QLibrary* self) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_Sender_IsBase(true);
-        return vqlibrary->sender();
-    } else {
-        return ((VirtualQLibrary*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLibrary_OnSender(const QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_Sender_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QLibrary_SenderSignalIndex(const QLibrary* self) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return vqlibrary->senderSignalIndex();
-    } else {
-        return ((VirtualQLibrary*)self)->senderSignalIndex();
-    }
+    if (auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self))) {
+        return vqlibrary->VirtualQLibrary::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QLibrary::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QLibrary_SuperSenderSignalIndex(const QLibrary* self) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_SenderSignalIndex_IsBase(true);
-        return vqlibrary->senderSignalIndex();
-    } else {
-        return ((VirtualQLibrary*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLibrary_OnSenderSignalIndex(const QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QLibrary_Receivers(const QLibrary* self, const char* signal) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return vqlibrary->receivers(signal);
-    } else {
-        return ((VirtualQLibrary*)self)->receivers(signal);
-    }
+    if (auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self))) {
+        return vqlibrary->VirtualQLibrary::receivers(signal);
+    } else
+        qFatal("Error: Protected method QLibrary::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QLibrary_SuperReceivers(const QLibrary* self, const char* signal) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_Receivers_IsBase(true);
-        return vqlibrary->receivers(signal);
-    } else {
-        return ((VirtualQLibrary*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLibrary_OnReceivers(const QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_Receivers_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QLibrary_IsSignalConnected(const QLibrary* self, const QMetaMethod* signal) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return vqlibrary->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQLibrary*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QLibrary_SuperIsSignalConnected(const QLibrary* self, const QMetaMethod* signal) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        vqlibrary->setQLibrary_IsSignalConnected_IsBase(true);
-        return vqlibrary->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQLibrary*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLibrary_OnIsSignalConnected(const QLibrary* self, intptr_t slot) {
-    auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self));
-    if (vqlibrary && vqlibrary->isVirtualQLibrary)
-        vqlibrary->setQLibrary_IsSignalConnected_Callback(reinterpret_cast<VirtualQLibrary::QLibrary_IsSignalConnected_Callback>(slot));
+    if (auto* vqlibrary = const_cast<VirtualQLibrary*>(dynamic_cast<const VirtualQLibrary*>(self))) {
+        return vqlibrary->VirtualQLibrary::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QLibrary::isSignalConnected called without a directly constructed type");
 }
 
 void QLibrary_Delete(QLibrary* self) {

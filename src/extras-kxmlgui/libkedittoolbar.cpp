@@ -110,14 +110,14 @@ void KEditToolBar_Connect_NewToolBarConfig(KEditToolBar* self, intptr_t slot) {
 
 void KEditToolBar_ShowEvent(KEditToolBar* self, QShowEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->showEvent(event);
     }
 }
 
 void KEditToolBar_HideEvent(KEditToolBar* self, QHideEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->hideEvent(event);
     }
 }
@@ -153,1802 +153,1249 @@ void KEditToolBar_SetResourceFile2(KEditToolBar* self, const libqt_string file, 
 
 // Base class handler implementation
 QMetaObject* KEditToolBar_SuperMetaObject(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_MetaObject_IsBase(true);
-        return (QMetaObject*)vkedittoolbar->metaObject();
-    } else {
-        return (QMetaObject*)self->KEditToolBar::metaObject();
-    }
+    return (QMetaObject*)self->KEditToolBar::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnMetaObject(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_MetaObject_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MetaObject_Callback>(slot));
+void KEditToolBar_OnMetaObject(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_metaobject_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KEditToolBar_SuperMetacast(KEditToolBar* self, const char* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Metacast_IsBase(true);
-        return vkedittoolbar->qt_metacast(param1);
-    } else {
-        return self->KEditToolBar::qt_metacast(param1);
-    }
+    return self->KEditToolBar::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMetacast(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Metacast_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metacast_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_metacast_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KEditToolBar_SuperMetacall(KEditToolBar* self, int param1, int param2, void** param3) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Metacall_IsBase(true);
-        return vkedittoolbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KEditToolBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KEditToolBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMetacall(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Metacall_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metacall_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_metacall_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperShowEvent(KEditToolBar* self, QShowEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_ShowEvent_IsBase(true);
-        vkedittoolbar->showEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->showEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnShowEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_ShowEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ShowEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_showevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperHideEvent(KEditToolBar* self, QHideEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_HideEvent_IsBase(true);
-        vkedittoolbar->hideEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->hideEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnHideEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_HideEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HideEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_hideevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_SetVisible(KEditToolBar* self, bool visible) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setVisible(visible);
-    } else {
-        self->KEditToolBar::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperSetVisible(KEditToolBar* self, bool visible) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_SetVisible_IsBase(true);
-        vkedittoolbar->setVisible(visible);
-    } else {
-        self->KEditToolBar::setVisible(visible);
-    }
+    self->KEditToolBar::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnSetVisible(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_SetVisible_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SetVisible_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_setvisible_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KEditToolBar_SizeHint(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return new QSize(vkedittoolbar->sizeHint());
-    } else {
-        return new QSize(((VirtualKEditToolBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KEditToolBar_SuperSizeHint(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_SizeHint_IsBase(true);
-        return new QSize(vkedittoolbar->sizeHint());
-    } else {
-        return new QSize(((VirtualKEditToolBar*)self)->sizeHint());
-    }
+    return new QSize(self->KEditToolBar::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnSizeHint(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_SizeHint_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SizeHint_Callback>(slot));
+void KEditToolBar_OnSizeHint(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_sizehint_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KEditToolBar_MinimumSizeHint(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return new QSize(vkedittoolbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKEditToolBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KEditToolBar_SuperMinimumSizeHint(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vkedittoolbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKEditToolBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KEditToolBar::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnMinimumSizeHint(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MinimumSizeHint_Callback>(slot));
+void KEditToolBar_OnMinimumSizeHint(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_minimumsizehint_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_Open(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->open();
-    } else {
-        self->KEditToolBar::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperOpen(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Open_IsBase(true);
-        vkedittoolbar->open();
-    } else {
-        self->KEditToolBar::open();
-    }
+    self->KEditToolBar::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnOpen(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Open_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Open_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_open_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KEditToolBar_Exec(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->exec();
-    } else {
-        return self->KEditToolBar::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KEditToolBar_SuperExec(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Exec_IsBase(true);
-        return vkedittoolbar->exec();
-    } else {
-        return self->KEditToolBar::exec();
-    }
+    return self->KEditToolBar::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnExec(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Exec_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Exec_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_exec_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_Done(KEditToolBar* self, int param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->done(static_cast<int>(param1));
-    } else {
-        self->KEditToolBar::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperDone(KEditToolBar* self, int param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Done_IsBase(true);
-        vkedittoolbar->done(static_cast<int>(param1));
-    } else {
-        self->KEditToolBar::done(static_cast<int>(param1));
-    }
+    self->KEditToolBar::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDone(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Done_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Done_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_done_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_Accept(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->accept();
-    } else {
-        self->KEditToolBar::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperAccept(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Accept_IsBase(true);
-        vkedittoolbar->accept();
-    } else {
-        self->KEditToolBar::accept();
-    }
+    self->KEditToolBar::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnAccept(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Accept_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Accept_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_accept_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_Reject(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->reject();
-    } else {
-        self->KEditToolBar::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperReject(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Reject_IsBase(true);
-        vkedittoolbar->reject();
-    } else {
-        self->KEditToolBar::reject();
-    }
+    self->KEditToolBar::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnReject(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Reject_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Reject_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_reject_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_KeyPressEvent(KEditToolBar* self, QKeyEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->keyPressEvent(param1);
     } else {
-        ((VirtualKEditToolBar*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KEditToolBar::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperKeyPressEvent(KEditToolBar* self, QKeyEvent* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_KeyPressEvent_IsBase(true);
-        vkedittoolbar->keyPressEvent(param1);
-    } else {
-        ((VirtualKEditToolBar*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnKeyPressEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_KeyPressEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_keypressevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_CloseEvent(KEditToolBar* self, QCloseEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->closeEvent(param1);
     } else {
-        ((VirtualKEditToolBar*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KEditToolBar::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperCloseEvent(KEditToolBar* self, QCloseEvent* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_CloseEvent_IsBase(true);
-        vkedittoolbar->closeEvent(param1);
-    } else {
-        ((VirtualKEditToolBar*)self)->closeEvent(param1);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnCloseEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_CloseEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_CloseEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_closeevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_ResizeEvent(KEditToolBar* self, QResizeEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->resizeEvent(param1);
     } else {
-        ((VirtualKEditToolBar*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KEditToolBar::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperResizeEvent(KEditToolBar* self, QResizeEvent* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_ResizeEvent_IsBase(true);
-        vkedittoolbar->resizeEvent(param1);
-    } else {
-        ((VirtualKEditToolBar*)self)->resizeEvent(param1);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnResizeEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_ResizeEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ResizeEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_resizeevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_ContextMenuEvent(KEditToolBar* self, QContextMenuEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->contextMenuEvent(param1);
     } else {
-        ((VirtualKEditToolBar*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KEditToolBar::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperContextMenuEvent(KEditToolBar* self, QContextMenuEvent* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_ContextMenuEvent_IsBase(true);
-        vkedittoolbar->contextMenuEvent(param1);
-    } else {
-        ((VirtualKEditToolBar*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnContextMenuEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ContextMenuEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_contextmenuevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditToolBar_EventFilter(KEditToolBar* self, QObject* param1, QEvent* param2) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         return vkedittoolbar->eventFilter(param1, param2);
     } else {
-        return ((VirtualKEditToolBar*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KEditToolBar::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEditToolBar_SuperEventFilter(KEditToolBar* self, QObject* param1, QEvent* param2) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_EventFilter_IsBase(true);
-        return vkedittoolbar->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKEditToolBar*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        return vkedittoolbar->KEditToolBar::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnEventFilter(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_EventFilter_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_EventFilter_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_eventfilter_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KEditToolBar_DevType(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->devType();
-    } else {
-        return self->KEditToolBar::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KEditToolBar_SuperDevType(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_DevType_IsBase(true);
-        return vkedittoolbar->devType();
-    } else {
-        return self->KEditToolBar::devType();
-    }
+    return self->KEditToolBar::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnDevType(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_DevType_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DevType_Callback>(slot));
+void KEditToolBar_OnDevType(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_devtype_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KEditToolBar_HeightForWidth(const KEditToolBar* self, int param1) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KEditToolBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KEditToolBar_SuperHeightForWidth(const KEditToolBar* self, int param1) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_HeightForWidth_IsBase(true);
-        return vkedittoolbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KEditToolBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KEditToolBar::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnHeightForWidth(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_HeightForWidth_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HeightForWidth_Callback>(slot));
+void KEditToolBar_OnHeightForWidth(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_heightforwidth_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditToolBar_HasHeightForWidth(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->hasHeightForWidth();
-    } else {
-        return self->KEditToolBar::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KEditToolBar_SuperHasHeightForWidth(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_HasHeightForWidth_IsBase(true);
-        return vkedittoolbar->hasHeightForWidth();
-    } else {
-        return self->KEditToolBar::hasHeightForWidth();
-    }
+    return self->KEditToolBar::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnHasHeightForWidth(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HasHeightForWidth_Callback>(slot));
+void KEditToolBar_OnHasHeightForWidth(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_hasheightforwidth_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KEditToolBar_PaintEngine(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->paintEngine();
-    } else {
-        return self->KEditToolBar::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KEditToolBar_SuperPaintEngine(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_PaintEngine_IsBase(true);
-        return vkedittoolbar->paintEngine();
-    } else {
-        return self->KEditToolBar::paintEngine();
-    }
+    return self->KEditToolBar::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnPaintEngine(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_PaintEngine_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_PaintEngine_Callback>(slot));
+void KEditToolBar_OnPaintEngine(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_paintengine_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditToolBar_Event(KEditToolBar* self, QEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         return vkedittoolbar->event(event);
     } else {
-        return ((VirtualKEditToolBar*)self)->event(event);
+        qFatal("Error: Protected virtual method KEditToolBar::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEditToolBar_SuperEvent(KEditToolBar* self, QEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Event_IsBase(true);
-        return vkedittoolbar->event(event);
-    } else {
-        return ((VirtualKEditToolBar*)self)->event(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        return vkedittoolbar->KEditToolBar::event(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Event_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Event_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_event_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_MousePressEvent(KEditToolBar* self, QMouseEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->mousePressEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperMousePressEvent(KEditToolBar* self, QMouseEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_MousePressEvent_IsBase(true);
-        vkedittoolbar->mousePressEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->mousePressEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMousePressEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_MousePressEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MousePressEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_mousepressevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_MouseReleaseEvent(KEditToolBar* self, QMouseEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->mouseReleaseEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperMouseReleaseEvent(KEditToolBar* self, QMouseEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_MouseReleaseEvent_IsBase(true);
-        vkedittoolbar->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMouseReleaseEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_mousereleaseevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_MouseDoubleClickEvent(KEditToolBar* self, QMouseEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperMouseDoubleClickEvent(KEditToolBar* self, QMouseEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_MouseDoubleClickEvent_IsBase(true);
-        vkedittoolbar->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMouseDoubleClickEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_mousedoubleclickevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_MouseMoveEvent(KEditToolBar* self, QMouseEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->mouseMoveEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperMouseMoveEvent(KEditToolBar* self, QMouseEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_MouseMoveEvent_IsBase(true);
-        vkedittoolbar->mouseMoveEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMouseMoveEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseMoveEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_mousemoveevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_WheelEvent(KEditToolBar* self, QWheelEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->wheelEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperWheelEvent(KEditToolBar* self, QWheelEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_WheelEvent_IsBase(true);
-        vkedittoolbar->wheelEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->wheelEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnWheelEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_WheelEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_WheelEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_wheelevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_KeyReleaseEvent(KEditToolBar* self, QKeyEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->keyReleaseEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperKeyReleaseEvent(KEditToolBar* self, QKeyEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_KeyReleaseEvent_IsBase(true);
-        vkedittoolbar->keyReleaseEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnKeyReleaseEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_keyreleaseevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_FocusInEvent(KEditToolBar* self, QFocusEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->focusInEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperFocusInEvent(KEditToolBar* self, QFocusEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_FocusInEvent_IsBase(true);
-        vkedittoolbar->focusInEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->focusInEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnFocusInEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_FocusInEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusInEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_focusinevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_FocusOutEvent(KEditToolBar* self, QFocusEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->focusOutEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperFocusOutEvent(KEditToolBar* self, QFocusEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_FocusOutEvent_IsBase(true);
-        vkedittoolbar->focusOutEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->focusOutEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnFocusOutEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusOutEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_focusoutevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_EnterEvent(KEditToolBar* self, QEnterEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->enterEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperEnterEvent(KEditToolBar* self, QEnterEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_EnterEvent_IsBase(true);
-        vkedittoolbar->enterEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->enterEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnEnterEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_EnterEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_EnterEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_enterevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_LeaveEvent(KEditToolBar* self, QEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->leaveEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperLeaveEvent(KEditToolBar* self, QEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_LeaveEvent_IsBase(true);
-        vkedittoolbar->leaveEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->leaveEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnLeaveEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_LeaveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_LeaveEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_leaveevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_PaintEvent(KEditToolBar* self, QPaintEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->paintEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperPaintEvent(KEditToolBar* self, QPaintEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_PaintEvent_IsBase(true);
-        vkedittoolbar->paintEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->paintEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnPaintEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_PaintEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_PaintEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_paintevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_MoveEvent(KEditToolBar* self, QMoveEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->moveEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperMoveEvent(KEditToolBar* self, QMoveEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_MoveEvent_IsBase(true);
-        vkedittoolbar->moveEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->moveEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMoveEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_MoveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MoveEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_moveevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_TabletEvent(KEditToolBar* self, QTabletEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->tabletEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperTabletEvent(KEditToolBar* self, QTabletEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_TabletEvent_IsBase(true);
-        vkedittoolbar->tabletEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->tabletEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnTabletEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_TabletEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_TabletEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_tabletevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_ActionEvent(KEditToolBar* self, QActionEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->actionEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperActionEvent(KEditToolBar* self, QActionEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_ActionEvent_IsBase(true);
-        vkedittoolbar->actionEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->actionEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnActionEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_ActionEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ActionEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_actionevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_DragEnterEvent(KEditToolBar* self, QDragEnterEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->dragEnterEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperDragEnterEvent(KEditToolBar* self, QDragEnterEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_DragEnterEvent_IsBase(true);
-        vkedittoolbar->dragEnterEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDragEnterEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragEnterEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_dragenterevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_DragMoveEvent(KEditToolBar* self, QDragMoveEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->dragMoveEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperDragMoveEvent(KEditToolBar* self, QDragMoveEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_DragMoveEvent_IsBase(true);
-        vkedittoolbar->dragMoveEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDragMoveEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragMoveEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_dragmoveevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_DragLeaveEvent(KEditToolBar* self, QDragLeaveEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->dragLeaveEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperDragLeaveEvent(KEditToolBar* self, QDragLeaveEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_DragLeaveEvent_IsBase(true);
-        vkedittoolbar->dragLeaveEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDragLeaveEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragLeaveEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_dragleaveevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_DropEvent(KEditToolBar* self, QDropEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->dropEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperDropEvent(KEditToolBar* self, QDropEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_DropEvent_IsBase(true);
-        vkedittoolbar->dropEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->dropEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDropEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_DropEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DropEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_dropevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditToolBar_NativeEvent(KEditToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
+    if (vkedittoolbar) {
         return vkedittoolbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKEditToolBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KEditToolBar::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEditToolBar_SuperNativeEvent(KEditToolBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_NativeEvent_IsBase(true);
-        return vkedittoolbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKEditToolBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        return vkedittoolbar->KEditToolBar::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnNativeEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_NativeEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_NativeEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_nativeevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_ChangeEvent(KEditToolBar* self, QEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->changeEvent(param1);
     } else {
-        ((VirtualKEditToolBar*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KEditToolBar::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperChangeEvent(KEditToolBar* self, QEvent* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_ChangeEvent_IsBase(true);
-        vkedittoolbar->changeEvent(param1);
-    } else {
-        ((VirtualKEditToolBar*)self)->changeEvent(param1);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnChangeEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_ChangeEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ChangeEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_changeevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KEditToolBar_Metric(const KEditToolBar* self, int param1) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         return vkedittoolbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKEditToolBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KEditToolBar::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KEditToolBar_SuperMetric(const KEditToolBar* self, int param1) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Metric_IsBase(true);
-        return vkedittoolbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKEditToolBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        return vkedittoolbar->KEditToolBar::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnMetric(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Metric_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metric_Callback>(slot));
+void KEditToolBar_OnMetric(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_metric_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_InitPainter(const KEditToolBar* self, QPainter* painter) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->initPainter(painter);
     } else {
-        ((VirtualKEditToolBar*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KEditToolBar::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperInitPainter(const KEditToolBar* self, QPainter* painter) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_InitPainter_IsBase(true);
-        vkedittoolbar->initPainter(painter);
-    } else {
-        ((VirtualKEditToolBar*)self)->initPainter(painter);
-    }
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        vkedittoolbar->KEditToolBar::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnInitPainter(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_InitPainter_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InitPainter_Callback>(slot));
+void KEditToolBar_OnInitPainter(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_initpainter_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KEditToolBar_Redirected(const KEditToolBar* self, QPoint* offset) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         return vkedittoolbar->redirected(offset);
     } else {
-        return ((VirtualKEditToolBar*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KEditToolBar::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KEditToolBar_SuperRedirected(const KEditToolBar* self, QPoint* offset) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Redirected_IsBase(true);
-        return vkedittoolbar->redirected(offset);
-    } else {
-        return ((VirtualKEditToolBar*)self)->redirected(offset);
-    }
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        return vkedittoolbar->KEditToolBar::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnRedirected(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Redirected_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Redirected_Callback>(slot));
+void KEditToolBar_OnRedirected(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_redirected_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KEditToolBar_SharedPainter(const KEditToolBar* self) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         return vkedittoolbar->sharedPainter();
     } else {
-        return ((VirtualKEditToolBar*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KEditToolBar::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KEditToolBar_SuperSharedPainter(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_SharedPainter_IsBase(true);
-        return vkedittoolbar->sharedPainter();
-    } else {
-        return ((VirtualKEditToolBar*)self)->sharedPainter();
-    }
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        return vkedittoolbar->KEditToolBar::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnSharedPainter(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_SharedPainter_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SharedPainter_Callback>(slot));
+void KEditToolBar_OnSharedPainter(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_sharedpainter_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_InputMethodEvent(KEditToolBar* self, QInputMethodEvent* param1) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->inputMethodEvent(param1);
     } else {
-        ((VirtualKEditToolBar*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KEditToolBar::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperInputMethodEvent(KEditToolBar* self, QInputMethodEvent* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_InputMethodEvent_IsBase(true);
-        vkedittoolbar->inputMethodEvent(param1);
-    } else {
-        ((VirtualKEditToolBar*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnInputMethodEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InputMethodEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_inputmethodevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KEditToolBar_InputMethodQuery(const KEditToolBar* self, int param1) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return new QVariant(vkedittoolbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKEditToolBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KEditToolBar_SuperInputMethodQuery(const KEditToolBar* self, int param1) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_InputMethodQuery_IsBase(true);
-        return new QVariant(vkedittoolbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKEditToolBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KEditToolBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnInputMethodQuery(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InputMethodQuery_Callback>(slot));
+void KEditToolBar_OnInputMethodQuery(KEditToolBar* self, intptr_t slot) {
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self)))
+        vkedittoolbar->kedittoolbar_inputmethodquery_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KEditToolBar_FocusNextPrevChild(KEditToolBar* self, bool next) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         return vkedittoolbar->focusNextPrevChild(next);
     } else {
-        return ((VirtualKEditToolBar*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KEditToolBar::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KEditToolBar_SuperFocusNextPrevChild(KEditToolBar* self, bool next) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_FocusNextPrevChild_IsBase(true);
-        return vkedittoolbar->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKEditToolBar*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        return vkedittoolbar->KEditToolBar::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnFocusNextPrevChild(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_focusnextprevchild_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_TimerEvent(KEditToolBar* self, QTimerEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->timerEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperTimerEvent(KEditToolBar* self, QTimerEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_TimerEvent_IsBase(true);
-        vkedittoolbar->timerEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->timerEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnTimerEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_TimerEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_TimerEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_timerevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_ChildEvent(KEditToolBar* self, QChildEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->childEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperChildEvent(KEditToolBar* self, QChildEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_ChildEvent_IsBase(true);
-        vkedittoolbar->childEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->childEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnChildEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_ChildEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ChildEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_childevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_CustomEvent(KEditToolBar* self, QEvent* event) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->customEvent(event);
     } else {
-        ((VirtualKEditToolBar*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KEditToolBar::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperCustomEvent(KEditToolBar* self, QEvent* event) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_CustomEvent_IsBase(true);
-        vkedittoolbar->customEvent(event);
-    } else {
-        ((VirtualKEditToolBar*)self)->customEvent(event);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnCustomEvent(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_CustomEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_CustomEvent_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_customevent_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_ConnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->connectNotify(*signal);
     } else {
-        ((VirtualKEditToolBar*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KEditToolBar::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperConnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_ConnectNotify_IsBase(true);
-        vkedittoolbar->connectNotify(*signal);
-    } else {
-        ((VirtualKEditToolBar*)self)->connectNotify(*signal);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnConnectNotify(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_ConnectNotify_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ConnectNotify_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_connectnotify_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KEditToolBar_DisconnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar) {
         vkedittoolbar->disconnectNotify(*signal);
     } else {
-        ((VirtualKEditToolBar*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KEditToolBar::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KEditToolBar_SuperDisconnectNotify(KEditToolBar* self, const QMetaMethod* signal) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_DisconnectNotify_IsBase(true);
-        vkedittoolbar->disconnectNotify(*signal);
-    } else {
-        ((VirtualKEditToolBar*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->KEditToolBar::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KEditToolBar::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDisconnectNotify(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DisconnectNotify_Callback>(slot));
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self))
+        vkedittoolbar->kedittoolbar_disconnectnotify_callback = reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEditToolBar_AdjustPosition(KEditToolBar* self, QWidget* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->adjustPosition(param1);
-    } else {
-        ((VirtualKEditToolBar*)self)->adjustPosition(param1);
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->VirtualKEditToolBar::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KEditToolBar::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEditToolBar_SuperAdjustPosition(KEditToolBar* self, QWidget* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_AdjustPosition_IsBase(true);
-        vkedittoolbar->adjustPosition(param1);
-    } else {
-        ((VirtualKEditToolBar*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnAdjustPosition(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_AdjustPosition_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEditToolBar_UpdateMicroFocus(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->updateMicroFocus();
-    } else {
-        ((VirtualKEditToolBar*)self)->updateMicroFocus();
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->VirtualKEditToolBar::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KEditToolBar::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEditToolBar_SuperUpdateMicroFocus(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_UpdateMicroFocus_IsBase(true);
-        vkedittoolbar->updateMicroFocus();
-    } else {
-        ((VirtualKEditToolBar*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnUpdateMicroFocus(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEditToolBar_Create(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->create();
-    } else {
-        ((VirtualKEditToolBar*)self)->create();
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->VirtualKEditToolBar::create();
+    } else
+        qFatal("Error: Protected method KEditToolBar::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEditToolBar_SuperCreate(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Create_IsBase(true);
-        vkedittoolbar->create();
-    } else {
-        ((VirtualKEditToolBar*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnCreate(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Create_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KEditToolBar_Destroy(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->destroy();
-    } else {
-        ((VirtualKEditToolBar*)self)->destroy();
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        vkedittoolbar->VirtualKEditToolBar::destroy();
+    } else
+        qFatal("Error: Protected method KEditToolBar::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KEditToolBar_SuperDestroy(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Destroy_IsBase(true);
-        vkedittoolbar->destroy();
-    } else {
-        ((VirtualKEditToolBar*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnDestroy(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Destroy_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KEditToolBar_FocusNextChild(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->focusNextChild();
-    } else {
-        return ((VirtualKEditToolBar*)self)->focusNextChild();
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        return vkedittoolbar->VirtualKEditToolBar::focusNextChild();
+    } else
+        qFatal("Error: Protected method KEditToolBar::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KEditToolBar_SuperFocusNextChild(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_FocusNextChild_IsBase(true);
-        return vkedittoolbar->focusNextChild();
-    } else {
-        return ((VirtualKEditToolBar*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnFocusNextChild(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_FocusNextChild_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KEditToolBar_FocusPreviousChild(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->focusPreviousChild();
-    } else {
-        return ((VirtualKEditToolBar*)self)->focusPreviousChild();
-    }
+    if (auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self)) {
+        return vkedittoolbar->VirtualKEditToolBar::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KEditToolBar::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KEditToolBar_SuperFocusPreviousChild(KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_FocusPreviousChild_IsBase(true);
-        return vkedittoolbar->focusPreviousChild();
-    } else {
-        return ((VirtualKEditToolBar*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnFocusPreviousChild(KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KEditToolBar_Sender(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->sender();
-    } else {
-        return ((VirtualKEditToolBar*)self)->sender();
-    }
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        return vkedittoolbar->VirtualKEditToolBar::sender();
+    } else
+        qFatal("Error: Protected method KEditToolBar::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KEditToolBar_SuperSender(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Sender_IsBase(true);
-        return vkedittoolbar->sender();
-    } else {
-        return ((VirtualKEditToolBar*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnSender(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Sender_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KEditToolBar_SenderSignalIndex(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->senderSignalIndex();
-    } else {
-        return ((VirtualKEditToolBar*)self)->senderSignalIndex();
-    }
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        return vkedittoolbar->VirtualKEditToolBar::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KEditToolBar::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KEditToolBar_SuperSenderSignalIndex(const KEditToolBar* self) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_SenderSignalIndex_IsBase(true);
-        return vkedittoolbar->senderSignalIndex();
-    } else {
-        return ((VirtualKEditToolBar*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnSenderSignalIndex(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KEditToolBar_Receivers(const KEditToolBar* self, const char* signal) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->receivers(signal);
-    } else {
-        return ((VirtualKEditToolBar*)self)->receivers(signal);
-    }
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        return vkedittoolbar->VirtualKEditToolBar::receivers(signal);
+    } else
+        qFatal("Error: Protected method KEditToolBar::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KEditToolBar_SuperReceivers(const KEditToolBar* self, const char* signal) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_Receivers_IsBase(true);
-        return vkedittoolbar->receivers(signal);
-    } else {
-        return ((VirtualKEditToolBar*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnReceivers(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_Receivers_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KEditToolBar_IsSignalConnected(const KEditToolBar* self, const QMetaMethod* signal) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKEditToolBar*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        return vkedittoolbar->VirtualKEditToolBar::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KEditToolBar::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KEditToolBar_SuperIsSignalConnected(const KEditToolBar* self, const QMetaMethod* signal) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_IsSignalConnected_IsBase(true);
-        return vkedittoolbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKEditToolBar*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnIsSignalConnected(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KEditToolBar_GetDecodedMetricF(const KEditToolBar* self, int metricA, int metricB) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return vkedittoolbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKEditToolBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KEditToolBar_SuperGetDecodedMetricF(const KEditToolBar* self, int metricA, int metricB) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        vkedittoolbar->setKEditToolBar_GetDecodedMetricF_IsBase(true);
-        return vkedittoolbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKEditToolBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KEditToolBar_OnGetDecodedMetricF(const KEditToolBar* self, intptr_t slot) {
-    auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
-        vkedittoolbar->setKEditToolBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self))) {
+        return vkedittoolbar->VirtualKEditToolBar::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KEditToolBar::getDecodedMetricF called without a directly constructed type");
 }
 
 void KEditToolBar_Delete(KEditToolBar* self) {

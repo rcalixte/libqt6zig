@@ -142,364 +142,219 @@ bool QOpenGLShader_HasOpenGLShaders2(int typeVal, QOpenGLContext* context) {
 
 // Base class handler implementation
 QMetaObject* QOpenGLShader_SuperMetaObject(const QOpenGLShader* self) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_MetaObject_IsBase(true);
-        return (QMetaObject*)vqopenglshader->metaObject();
-    } else {
-        return (QMetaObject*)self->QOpenGLShader::metaObject();
-    }
+    return (QMetaObject*)self->QOpenGLShader::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLShader_OnMetaObject(const QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_MetaObject_Callback>(slot));
+void QOpenGLShader_OnMetaObject(QOpenGLShader* self, intptr_t slot) {
+    if (auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self)))
+        vqopenglshader->qopenglshader_metaobject_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QOpenGLShader_SuperMetacast(QOpenGLShader* self, const char* param1) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_Metacast_IsBase(true);
-        return vqopenglshader->qt_metacast(param1);
-    } else {
-        return self->QOpenGLShader::qt_metacast(param1);
-    }
+    return self->QOpenGLShader::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnMetacast(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_Metacast_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Metacast_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_metacast_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLShader_SuperMetacall(QOpenGLShader* self, int param1, int param2, void** param3) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_Metacall_IsBase(true);
-        return vqopenglshader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QOpenGLShader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QOpenGLShader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnMetacall(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_Metacall_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Metacall_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_metacall_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLShader_Event(QOpenGLShader* self, QEvent* event) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return vqopenglshader->event(event);
-    } else {
-        return self->QOpenGLShader::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QOpenGLShader_SuperEvent(QOpenGLShader* self, QEvent* event) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_Event_IsBase(true);
-        return vqopenglshader->event(event);
-    } else {
-        return self->QOpenGLShader::event(event);
-    }
+    return self->QOpenGLShader::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnEvent(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_Event_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Event_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_event_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLShader_EventFilter(QOpenGLShader* self, QObject* watched, QEvent* event) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return vqopenglshader->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLShader::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QOpenGLShader_SuperEventFilter(QOpenGLShader* self, QObject* watched, QEvent* event) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_EventFilter_IsBase(true);
-        return vqopenglshader->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLShader::eventFilter(watched, event);
-    }
+    return self->QOpenGLShader::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnEventFilter(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_EventFilter_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_eventfilter_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShader_TimerEvent(QOpenGLShader* self, QTimerEvent* event) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader) {
         vqopenglshader->timerEvent(event);
     } else {
-        ((VirtualQOpenGLShader*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLShader::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShader_SuperTimerEvent(QOpenGLShader* self, QTimerEvent* event) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_TimerEvent_IsBase(true);
-        vqopenglshader->timerEvent(event);
-    } else {
-        ((VirtualQOpenGLShader*)self)->timerEvent(event);
-    }
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self)) {
+        vqopenglshader->QOpenGLShader::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShader::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnTimerEvent(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_TimerEvent_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_timerevent_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShader_ChildEvent(QOpenGLShader* self, QChildEvent* event) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader) {
         vqopenglshader->childEvent(event);
     } else {
-        ((VirtualQOpenGLShader*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLShader::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShader_SuperChildEvent(QOpenGLShader* self, QChildEvent* event) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_ChildEvent_IsBase(true);
-        vqopenglshader->childEvent(event);
-    } else {
-        ((VirtualQOpenGLShader*)self)->childEvent(event);
-    }
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self)) {
+        vqopenglshader->QOpenGLShader::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShader::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnChildEvent(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_ChildEvent_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_childevent_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShader_CustomEvent(QOpenGLShader* self, QEvent* event) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader) {
         vqopenglshader->customEvent(event);
     } else {
-        ((VirtualQOpenGLShader*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLShader::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShader_SuperCustomEvent(QOpenGLShader* self, QEvent* event) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_CustomEvent_IsBase(true);
-        vqopenglshader->customEvent(event);
-    } else {
-        ((VirtualQOpenGLShader*)self)->customEvent(event);
-    }
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self)) {
+        vqopenglshader->QOpenGLShader::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShader::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnCustomEvent(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_CustomEvent_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_customevent_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShader_ConnectNotify(QOpenGLShader* self, const QMetaMethod* signal) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader) {
         vqopenglshader->connectNotify(*signal);
     } else {
-        ((VirtualQOpenGLShader*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLShader::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShader_SuperConnectNotify(QOpenGLShader* self, const QMetaMethod* signal) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_ConnectNotify_IsBase(true);
-        vqopenglshader->connectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLShader*)self)->connectNotify(*signal);
-    }
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self)) {
+        vqopenglshader->QOpenGLShader::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShader::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnConnectNotify(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_ConnectNotify_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_connectnotify_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShader_DisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal) {
     auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
+    if (vqopenglshader) {
         vqopenglshader->disconnectNotify(*signal);
     } else {
-        ((VirtualQOpenGLShader*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLShader::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShader_SuperDisconnectNotify(QOpenGLShader* self, const QMetaMethod* signal) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_DisconnectNotify_IsBase(true);
-        vqopenglshader->disconnectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLShader*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self)) {
+        vqopenglshader->QOpenGLShader::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShader::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShader_OnDisconnectNotify(QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_DisconnectNotify_Callback>(slot));
+    if (auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self))
+        vqopenglshader->qopenglshader_disconnectnotify_callback = reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QOpenGLShader_Sender(const QOpenGLShader* self) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return vqopenglshader->sender();
-    } else {
-        return ((VirtualQOpenGLShader*)self)->sender();
-    }
+    if (auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self))) {
+        return vqopenglshader->VirtualQOpenGLShader::sender();
+    } else
+        qFatal("Error: Protected method QOpenGLShader::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QOpenGLShader_SuperSender(const QOpenGLShader* self) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_Sender_IsBase(true);
-        return vqopenglshader->sender();
-    } else {
-        return ((VirtualQOpenGLShader*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLShader_OnSender(const QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_Sender_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLShader_SenderSignalIndex(const QOpenGLShader* self) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return vqopenglshader->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLShader*)self)->senderSignalIndex();
-    }
+    if (auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self))) {
+        return vqopenglshader->VirtualQOpenGLShader::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QOpenGLShader::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLShader_SuperSenderSignalIndex(const QOpenGLShader* self) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_SenderSignalIndex_IsBase(true);
-        return vqopenglshader->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLShader*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLShader_OnSenderSignalIndex(const QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLShader_Receivers(const QOpenGLShader* self, const char* signal) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return vqopenglshader->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLShader*)self)->receivers(signal);
-    }
+    if (auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self))) {
+        return vqopenglshader->VirtualQOpenGLShader::receivers(signal);
+    } else
+        qFatal("Error: Protected method QOpenGLShader::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLShader_SuperReceivers(const QOpenGLShader* self, const char* signal) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_Receivers_IsBase(true);
-        return vqopenglshader->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLShader*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLShader_OnReceivers(const QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_Receivers_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLShader_IsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return vqopenglshader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLShader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QOpenGLShader_SuperIsSignalConnected(const QOpenGLShader* self, const QMetaMethod* signal) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        vqopenglshader->setQOpenGLShader_IsSignalConnected_IsBase(true);
-        return vqopenglshader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLShader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLShader_OnIsSignalConnected(const QOpenGLShader* self, intptr_t slot) {
-    auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self));
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader)
-        vqopenglshader->setQOpenGLShader_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLShader::QOpenGLShader_IsSignalConnected_Callback>(slot));
+    if (auto* vqopenglshader = const_cast<VirtualQOpenGLShader*>(dynamic_cast<const VirtualQOpenGLShader*>(self))) {
+        return vqopenglshader->VirtualQOpenGLShader::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QOpenGLShader::isSignalConnected called without a directly constructed type");
 }
 
 void QOpenGLShader_Delete(QOpenGLShader* self) {
@@ -1139,382 +994,230 @@ bool QOpenGLShaderProgram_HasOpenGLShaderPrograms1(QOpenGLContext* context) {
 
 // Base class handler implementation
 QMetaObject* QOpenGLShaderProgram_SuperMetaObject(const QOpenGLShaderProgram* self) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_MetaObject_IsBase(true);
-        return (QMetaObject*)vqopenglshaderprogram->metaObject();
-    } else {
-        return (QMetaObject*)self->QOpenGLShaderProgram::metaObject();
-    }
+    return (QMetaObject*)self->QOpenGLShaderProgram::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOpenGLShaderProgram_OnMetaObject(const QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_MetaObject_Callback>(slot));
+void QOpenGLShaderProgram_OnMetaObject(QOpenGLShaderProgram* self, intptr_t slot) {
+    if (auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self)))
+        vqopenglshaderprogram->qopenglshaderprogram_metaobject_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QOpenGLShaderProgram_SuperMetacast(QOpenGLShaderProgram* self, const char* param1) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Metacast_IsBase(true);
-        return vqopenglshaderprogram->qt_metacast(param1);
-    } else {
-        return self->QOpenGLShaderProgram::qt_metacast(param1);
-    }
+    return self->QOpenGLShaderProgram::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnMetacast(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Metacast_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Metacast_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_metacast_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOpenGLShaderProgram_SuperMetacall(QOpenGLShaderProgram* self, int param1, int param2, void** param3) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Metacall_IsBase(true);
-        return vqopenglshaderprogram->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QOpenGLShaderProgram::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QOpenGLShaderProgram::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnMetacall(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Metacall_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Metacall_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_metacall_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QOpenGLShaderProgram_SuperLink(QOpenGLShaderProgram* self) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Link_IsBase(true);
-        return vqopenglshaderprogram->link();
-    } else {
-        return self->QOpenGLShaderProgram::link();
-    }
+    return self->QOpenGLShaderProgram::link();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnLink(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Link_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Link_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_link_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Link_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLShaderProgram_Event(QOpenGLShaderProgram* self, QEvent* event) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return vqopenglshaderprogram->event(event);
-    } else {
-        return self->QOpenGLShaderProgram::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QOpenGLShaderProgram_SuperEvent(QOpenGLShaderProgram* self, QEvent* event) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Event_IsBase(true);
-        return vqopenglshaderprogram->event(event);
-    } else {
-        return self->QOpenGLShaderProgram::event(event);
-    }
+    return self->QOpenGLShaderProgram::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnEvent(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Event_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Event_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_event_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOpenGLShaderProgram_EventFilter(QOpenGLShaderProgram* self, QObject* watched, QEvent* event) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return vqopenglshaderprogram->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLShaderProgram::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QOpenGLShaderProgram_SuperEventFilter(QOpenGLShaderProgram* self, QObject* watched, QEvent* event) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_EventFilter_IsBase(true);
-        return vqopenglshaderprogram->eventFilter(watched, event);
-    } else {
-        return self->QOpenGLShaderProgram::eventFilter(watched, event);
-    }
+    return self->QOpenGLShaderProgram::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnEventFilter(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_EventFilter_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_eventfilter_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShaderProgram_TimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram) {
         vqopenglshaderprogram->timerEvent(event);
     } else {
-        ((VirtualQOpenGLShaderProgram*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShaderProgram_SuperTimerEvent(QOpenGLShaderProgram* self, QTimerEvent* event) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_TimerEvent_IsBase(true);
-        vqopenglshaderprogram->timerEvent(event);
-    } else {
-        ((VirtualQOpenGLShaderProgram*)self)->timerEvent(event);
-    }
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self)) {
+        vqopenglshaderprogram->QOpenGLShaderProgram::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnTimerEvent(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_TimerEvent_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_timerevent_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShaderProgram_ChildEvent(QOpenGLShaderProgram* self, QChildEvent* event) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram) {
         vqopenglshaderprogram->childEvent(event);
     } else {
-        ((VirtualQOpenGLShaderProgram*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShaderProgram_SuperChildEvent(QOpenGLShaderProgram* self, QChildEvent* event) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_ChildEvent_IsBase(true);
-        vqopenglshaderprogram->childEvent(event);
-    } else {
-        ((VirtualQOpenGLShaderProgram*)self)->childEvent(event);
-    }
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self)) {
+        vqopenglshaderprogram->QOpenGLShaderProgram::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnChildEvent(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_ChildEvent_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_childevent_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShaderProgram_CustomEvent(QOpenGLShaderProgram* self, QEvent* event) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram) {
         vqopenglshaderprogram->customEvent(event);
     } else {
-        ((VirtualQOpenGLShaderProgram*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShaderProgram_SuperCustomEvent(QOpenGLShaderProgram* self, QEvent* event) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_CustomEvent_IsBase(true);
-        vqopenglshaderprogram->customEvent(event);
-    } else {
-        ((VirtualQOpenGLShaderProgram*)self)->customEvent(event);
-    }
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self)) {
+        vqopenglshaderprogram->QOpenGLShaderProgram::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnCustomEvent(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_CustomEvent_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_customevent_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShaderProgram_ConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram) {
         vqopenglshaderprogram->connectNotify(*signal);
     } else {
-        ((VirtualQOpenGLShaderProgram*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShaderProgram_SuperConnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_ConnectNotify_IsBase(true);
-        vqopenglshaderprogram->connectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLShaderProgram*)self)->connectNotify(*signal);
-    }
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self)) {
+        vqopenglshaderprogram->QOpenGLShaderProgram::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnConnectNotify(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_ConnectNotify_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_connectnotify_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOpenGLShaderProgram_DisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal) {
     auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
+    if (vqopenglshaderprogram) {
         vqopenglshaderprogram->disconnectNotify(*signal);
     } else {
-        ((VirtualQOpenGLShaderProgram*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOpenGLShaderProgram_SuperDisconnectNotify(QOpenGLShaderProgram* self, const QMetaMethod* signal) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_DisconnectNotify_IsBase(true);
-        vqopenglshaderprogram->disconnectNotify(*signal);
-    } else {
-        ((VirtualQOpenGLShaderProgram*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self)) {
+        vqopenglshaderprogram->QOpenGLShaderProgram::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOpenGLShaderProgram::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLShaderProgram_OnDisconnectNotify(QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_DisconnectNotify_Callback>(slot));
+    if (auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self))
+        vqopenglshaderprogram->qopenglshaderprogram_disconnectnotify_callback = reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QOpenGLShaderProgram_Sender(const QOpenGLShaderProgram* self) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return vqopenglshaderprogram->sender();
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->sender();
-    }
+    if (auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self))) {
+        return vqopenglshaderprogram->VirtualQOpenGLShaderProgram::sender();
+    } else
+        qFatal("Error: Protected method QOpenGLShaderProgram::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QOpenGLShaderProgram_SuperSender(const QOpenGLShaderProgram* self) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Sender_IsBase(true);
-        return vqopenglshaderprogram->sender();
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLShaderProgram_OnSender(const QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Sender_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLShaderProgram_SenderSignalIndex(const QOpenGLShaderProgram* self) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return vqopenglshaderprogram->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->senderSignalIndex();
-    }
+    if (auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self))) {
+        return vqopenglshaderprogram->VirtualQOpenGLShaderProgram::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QOpenGLShaderProgram::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLShaderProgram_SuperSenderSignalIndex(const QOpenGLShaderProgram* self) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_SenderSignalIndex_IsBase(true);
-        return vqopenglshaderprogram->senderSignalIndex();
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLShaderProgram_OnSenderSignalIndex(const QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOpenGLShaderProgram_Receivers(const QOpenGLShaderProgram* self, const char* signal) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return vqopenglshaderprogram->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->receivers(signal);
-    }
+    if (auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self))) {
+        return vqopenglshaderprogram->VirtualQOpenGLShaderProgram::receivers(signal);
+    } else
+        qFatal("Error: Protected method QOpenGLShaderProgram::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOpenGLShaderProgram_SuperReceivers(const QOpenGLShaderProgram* self, const char* signal) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Receivers_IsBase(true);
-        return vqopenglshaderprogram->receivers(signal);
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLShaderProgram_OnReceivers(const QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_Receivers_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOpenGLShaderProgram_IsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return vqopenglshaderprogram->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QOpenGLShaderProgram_SuperIsSignalConnected(const QOpenGLShaderProgram* self, const QMetaMethod* signal) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        vqopenglshaderprogram->setQOpenGLShaderProgram_IsSignalConnected_IsBase(true);
-        return vqopenglshaderprogram->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOpenGLShaderProgram_OnIsSignalConnected(const QOpenGLShaderProgram* self, intptr_t slot) {
-    auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self));
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram)
-        vqopenglshaderprogram->setQOpenGLShaderProgram_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLShaderProgram::QOpenGLShaderProgram_IsSignalConnected_Callback>(slot));
+    if (auto* vqopenglshaderprogram = const_cast<VirtualQOpenGLShaderProgram*>(dynamic_cast<const VirtualQOpenGLShaderProgram*>(self))) {
+        return vqopenglshaderprogram->VirtualQOpenGLShaderProgram::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QOpenGLShaderProgram::isSignalConnected called without a directly constructed type");
 }
 
 void QOpenGLShaderProgram_Delete(QOpenGLShaderProgram* self) {

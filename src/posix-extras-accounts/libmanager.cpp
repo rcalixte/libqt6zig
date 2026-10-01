@@ -334,364 +334,219 @@ libqt_list /* of Accounts__Service* */ Accounts__Manager_ServiceList1(const Acco
 
 // Base class handler implementation
 QMetaObject* Accounts__Manager_SuperMetaObject(const Accounts__Manager* self) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_MetaObject_IsBase(true);
-        return (QMetaObject*)vaccountsmanager->metaObject();
-    } else {
-        return (QMetaObject*)self->Accounts::Manager::metaObject();
-    }
+    return (QMetaObject*)self->Accounts::Manager::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Accounts__Manager_OnMetaObject(const Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_MetaObject_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_MetaObject_Callback>(slot));
+void Accounts__Manager_OnMetaObject(Accounts__Manager* self, intptr_t slot) {
+    if (auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self)))
+        vaccountsmanager->accounts__manager_metaobject_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Accounts__Manager_SuperMetacast(Accounts__Manager* self, const char* param1) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_Metacast_IsBase(true);
-        return vaccountsmanager->qt_metacast(param1);
-    } else {
-        return self->Accounts::Manager::qt_metacast(param1);
-    }
+    return self->Accounts::Manager::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnMetacast(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_Metacast_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Metacast_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_metacast_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Accounts__Manager_SuperMetacall(Accounts__Manager* self, int param1, int param2, void** param3) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_Metacall_IsBase(true);
-        return vaccountsmanager->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Accounts::Manager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Accounts::Manager::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnMetacall(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_Metacall_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Metacall_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_metacall_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Accounts__Manager_Event(Accounts__Manager* self, QEvent* event) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        return vaccountsmanager->event(event);
-    } else {
-        return self->Accounts::Manager::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Accounts__Manager_SuperEvent(Accounts__Manager* self, QEvent* event) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_Event_IsBase(true);
-        return vaccountsmanager->event(event);
-    } else {
-        return self->Accounts::Manager::event(event);
-    }
+    return self->Accounts::Manager::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnEvent(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_Event_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Event_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_event_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Accounts__Manager_EventFilter(Accounts__Manager* self, QObject* watched, QEvent* event) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        return vaccountsmanager->eventFilter(watched, event);
-    } else {
-        return self->Accounts::Manager::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Accounts__Manager_SuperEventFilter(Accounts__Manager* self, QObject* watched, QEvent* event) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_EventFilter_IsBase(true);
-        return vaccountsmanager->eventFilter(watched, event);
-    } else {
-        return self->Accounts::Manager::eventFilter(watched, event);
-    }
+    return self->Accounts::Manager::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnEventFilter(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_EventFilter_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_EventFilter_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_eventfilter_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Manager_TimerEvent(Accounts__Manager* self, QTimerEvent* event) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+    if (vaccountsmanager) {
         vaccountsmanager->timerEvent(event);
     } else {
-        ((VirtualAccountsManager*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Manager::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Manager_SuperTimerEvent(Accounts__Manager* self, QTimerEvent* event) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_TimerEvent_IsBase(true);
-        vaccountsmanager->timerEvent(event);
-    } else {
-        ((VirtualAccountsManager*)self)->timerEvent(event);
-    }
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self)) {
+        vaccountsmanager->Accounts::Manager::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Manager::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnTimerEvent(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_TimerEvent_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_TimerEvent_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_timerevent_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Manager_ChildEvent(Accounts__Manager* self, QChildEvent* event) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+    if (vaccountsmanager) {
         vaccountsmanager->childEvent(event);
     } else {
-        ((VirtualAccountsManager*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Manager::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Manager_SuperChildEvent(Accounts__Manager* self, QChildEvent* event) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_ChildEvent_IsBase(true);
-        vaccountsmanager->childEvent(event);
-    } else {
-        ((VirtualAccountsManager*)self)->childEvent(event);
-    }
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self)) {
+        vaccountsmanager->Accounts::Manager::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Manager::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnChildEvent(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_ChildEvent_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_ChildEvent_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_childevent_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Manager_CustomEvent(Accounts__Manager* self, QEvent* event) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+    if (vaccountsmanager) {
         vaccountsmanager->customEvent(event);
     } else {
-        ((VirtualAccountsManager*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Accounts::Manager::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Manager_SuperCustomEvent(Accounts__Manager* self, QEvent* event) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_CustomEvent_IsBase(true);
-        vaccountsmanager->customEvent(event);
-    } else {
-        ((VirtualAccountsManager*)self)->customEvent(event);
-    }
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self)) {
+        vaccountsmanager->Accounts::Manager::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Manager::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnCustomEvent(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_CustomEvent_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_CustomEvent_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_customevent_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Manager_ConnectNotify(Accounts__Manager* self, const QMetaMethod* signal) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+    if (vaccountsmanager) {
         vaccountsmanager->connectNotify(*signal);
     } else {
-        ((VirtualAccountsManager*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Accounts::Manager::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Manager_SuperConnectNotify(Accounts__Manager* self, const QMetaMethod* signal) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_ConnectNotify_IsBase(true);
-        vaccountsmanager->connectNotify(*signal);
-    } else {
-        ((VirtualAccountsManager*)self)->connectNotify(*signal);
-    }
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self)) {
+        vaccountsmanager->Accounts::Manager::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Manager::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnConnectNotify(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_ConnectNotify_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_ConnectNotify_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_connectnotify_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Accounts__Manager_DisconnectNotify(Accounts__Manager* self, const QMetaMethod* signal) {
     auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
+    if (vaccountsmanager) {
         vaccountsmanager->disconnectNotify(*signal);
     } else {
-        ((VirtualAccountsManager*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Accounts::Manager::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Accounts__Manager_SuperDisconnectNotify(Accounts__Manager* self, const QMetaMethod* signal) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_DisconnectNotify_IsBase(true);
-        vaccountsmanager->disconnectNotify(*signal);
-    } else {
-        ((VirtualAccountsManager*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self)) {
+        vaccountsmanager->Accounts::Manager::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Accounts::Manager::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Accounts__Manager_OnDisconnectNotify(Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_DisconnectNotify_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_DisconnectNotify_Callback>(slot));
+    if (auto* vaccountsmanager = dynamic_cast<VirtualAccountsManager*>(self))
+        vaccountsmanager->accounts__manager_disconnectnotify_callback = reinterpret_cast<VirtualAccountsManager::Accounts__Manager_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Accounts__Manager_Sender(const Accounts__Manager* self) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        return vaccountsmanager->sender();
-    } else {
-        return ((VirtualAccountsManager*)self)->sender();
-    }
+    if (auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self))) {
+        return vaccountsmanager->VirtualAccountsManager::sender();
+    } else
+        qFatal("Error: Protected method Accounts::Manager::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Accounts__Manager_SuperSender(const Accounts__Manager* self) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_Sender_IsBase(true);
-        return vaccountsmanager->sender();
-    } else {
-        return ((VirtualAccountsManager*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Manager_OnSender(const Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_Sender_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Accounts__Manager_SenderSignalIndex(const Accounts__Manager* self) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        return vaccountsmanager->senderSignalIndex();
-    } else {
-        return ((VirtualAccountsManager*)self)->senderSignalIndex();
-    }
+    if (auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self))) {
+        return vaccountsmanager->VirtualAccountsManager::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Accounts::Manager::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Accounts__Manager_SuperSenderSignalIndex(const Accounts__Manager* self) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_SenderSignalIndex_IsBase(true);
-        return vaccountsmanager->senderSignalIndex();
-    } else {
-        return ((VirtualAccountsManager*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Manager_OnSenderSignalIndex(const Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_SenderSignalIndex_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Accounts__Manager_Receivers(const Accounts__Manager* self, const char* signal) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        return vaccountsmanager->receivers(signal);
-    } else {
-        return ((VirtualAccountsManager*)self)->receivers(signal);
-    }
+    if (auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self))) {
+        return vaccountsmanager->VirtualAccountsManager::receivers(signal);
+    } else
+        qFatal("Error: Protected method Accounts::Manager::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Accounts__Manager_SuperReceivers(const Accounts__Manager* self, const char* signal) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_Receivers_IsBase(true);
-        return vaccountsmanager->receivers(signal);
-    } else {
-        return ((VirtualAccountsManager*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Manager_OnReceivers(const Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_Receivers_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Accounts__Manager_IsSignalConnected(const Accounts__Manager* self, const QMetaMethod* signal) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        return vaccountsmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualAccountsManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Accounts__Manager_SuperIsSignalConnected(const Accounts__Manager* self, const QMetaMethod* signal) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager) {
-        vaccountsmanager->setAccounts__Manager_IsSignalConnected_IsBase(true);
-        return vaccountsmanager->isSignalConnected(*signal);
-    } else {
-        return ((VirtualAccountsManager*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Accounts__Manager_OnIsSignalConnected(const Accounts__Manager* self, intptr_t slot) {
-    auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self));
-    if (vaccountsmanager && vaccountsmanager->isVirtualAccountsManager)
-        vaccountsmanager->setAccounts__Manager_IsSignalConnected_Callback(reinterpret_cast<VirtualAccountsManager::Accounts__Manager_IsSignalConnected_Callback>(slot));
+    if (auto* vaccountsmanager = const_cast<VirtualAccountsManager*>(dynamic_cast<const VirtualAccountsManager*>(self))) {
+        return vaccountsmanager->VirtualAccountsManager::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Accounts::Manager::isSignalConnected called without a directly constructed type");
 }
 
 void Accounts__Manager_Delete(Accounts__Manager* self) {

@@ -16,22 +16,10 @@ void QQmlPropertyValueSource_OperatorAssign(QQmlPropertyValueSource* self, const
     self->operator=(*param1);
 }
 
-// Base class handler implementation
-void QQmlPropertyValueSource_SuperSetTarget(QQmlPropertyValueSource* self, const QQmlProperty* target) {
-    auto* vqqmlpropertyvaluesource = dynamic_cast<VirtualQQmlPropertyValueSource*>(self);
-    if (vqqmlpropertyvaluesource && vqqmlpropertyvaluesource->isVirtualQQmlPropertyValueSource) {
-        vqqmlpropertyvaluesource->setQQmlPropertyValueSource_SetTarget_IsBase(true);
-        vqqmlpropertyvaluesource->setTarget(*target);
-    } else {
-        ((VirtualQQmlPropertyValueSource*)self)->setTarget(*target);
-    }
-}
-
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyValueSource_OnSetTarget(QQmlPropertyValueSource* self, intptr_t slot) {
-    auto* vqqmlpropertyvaluesource = dynamic_cast<VirtualQQmlPropertyValueSource*>(self);
-    if (vqqmlpropertyvaluesource && vqqmlpropertyvaluesource->isVirtualQQmlPropertyValueSource)
-        vqqmlpropertyvaluesource->setQQmlPropertyValueSource_SetTarget_Callback(reinterpret_cast<VirtualQQmlPropertyValueSource::QQmlPropertyValueSource_SetTarget_Callback>(slot));
+    if (auto* vqqmlpropertyvaluesource = dynamic_cast<VirtualQQmlPropertyValueSource*>(self))
+        vqqmlpropertyvaluesource->qqmlpropertyvaluesource_settarget_callback = reinterpret_cast<VirtualQQmlPropertyValueSource::QQmlPropertyValueSource_SetTarget_Callback>(slot);
 }
 
 void QQmlPropertyValueSource_Delete(QQmlPropertyValueSource* self) {

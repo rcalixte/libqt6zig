@@ -9,19 +9,15 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KIconButton so that we can call protected methods
+// This class is a subclass of KIconButton
 class VirtualKIconButton final : public KIconButton {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKIconButton = true;
-
-    // Virtual class public types (including callbacks)
-    using KIconButton_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KIconButton_MetaObject_Callback = QMetaObject* (*)(const KIconButton*);
     using KIconButton_Metacast_Callback = void* (*)(KIconButton*, const char*);
     using KIconButton_Metacall_Callback = int (*)(KIconButton*, int, int, void**);
-    using KIconButton_SizeHint_Callback = QSize* (*)();
-    using KIconButton_MinimumSizeHint_Callback = QSize* (*)();
+    using KIconButton_SizeHint_Callback = QSize* (*)(const KIconButton*);
+    using KIconButton_MinimumSizeHint_Callback = QSize* (*)(const KIconButton*);
     using KIconButton_Event_Callback = bool (*)(KIconButton*, QEvent*);
     using KIconButton_PaintEvent_Callback = void (*)(KIconButton*, QPaintEvent*);
     using KIconButton_KeyPressEvent_Callback = void (*)(KIconButton*, QKeyEvent*);
@@ -30,18 +26,18 @@ class VirtualKIconButton final : public KIconButton {
     using KIconButton_MouseMoveEvent_Callback = void (*)(KIconButton*, QMouseEvent*);
     using KIconButton_InitStyleOption_Callback = void (*)(const KIconButton*, QStyleOptionButton*);
     using KIconButton_HitButton_Callback = bool (*)(const KIconButton*, QPoint*);
-    using KIconButton_CheckStateSet_Callback = void (*)();
-    using KIconButton_NextCheckState_Callback = void (*)();
+    using KIconButton_CheckStateSet_Callback = void (*)(KIconButton*);
+    using KIconButton_NextCheckState_Callback = void (*)(KIconButton*);
     using KIconButton_KeyReleaseEvent_Callback = void (*)(KIconButton*, QKeyEvent*);
     using KIconButton_MousePressEvent_Callback = void (*)(KIconButton*, QMouseEvent*);
     using KIconButton_MouseReleaseEvent_Callback = void (*)(KIconButton*, QMouseEvent*);
     using KIconButton_ChangeEvent_Callback = void (*)(KIconButton*, QEvent*);
     using KIconButton_TimerEvent_Callback = void (*)(KIconButton*, QTimerEvent*);
-    using KIconButton_DevType_Callback = int (*)();
+    using KIconButton_DevType_Callback = int (*)(const KIconButton*);
     using KIconButton_SetVisible_Callback = void (*)(KIconButton*, bool);
     using KIconButton_HeightForWidth_Callback = int (*)(const KIconButton*, int);
-    using KIconButton_HasHeightForWidth_Callback = bool (*)();
-    using KIconButton_PaintEngine_Callback = QPaintEngine* (*)();
+    using KIconButton_HasHeightForWidth_Callback = bool (*)(const KIconButton*);
+    using KIconButton_PaintEngine_Callback = QPaintEngine* (*)(const KIconButton*);
     using KIconButton_MouseDoubleClickEvent_Callback = void (*)(KIconButton*, QMouseEvent*);
     using KIconButton_WheelEvent_Callback = void (*)(KIconButton*, QWheelEvent*);
     using KIconButton_EnterEvent_Callback = void (*)(KIconButton*, QEnterEvent*);
@@ -62,7 +58,7 @@ class VirtualKIconButton final : public KIconButton {
     using KIconButton_Metric_Callback = int (*)(const KIconButton*, int);
     using KIconButton_InitPainter_Callback = void (*)(const KIconButton*, QPainter*);
     using KIconButton_Redirected_Callback = QPaintDevice* (*)(const KIconButton*, QPoint*);
-    using KIconButton_SharedPainter_Callback = QPainter* (*)();
+    using KIconButton_SharedPainter_Callback = QPainter* (*)(const KIconButton*);
     using KIconButton_InputMethodEvent_Callback = void (*)(KIconButton*, QInputMethodEvent*);
     using KIconButton_InputMethodQuery_Callback = QVariant* (*)(const KIconButton*, int);
     using KIconButton_FocusNextPrevChild_Callback = bool (*)(KIconButton*, bool);
@@ -71,18 +67,17 @@ class VirtualKIconButton final : public KIconButton {
     using KIconButton_CustomEvent_Callback = void (*)(KIconButton*, QEvent*);
     using KIconButton_ConnectNotify_Callback = void (*)(KIconButton*, QMetaMethod*);
     using KIconButton_DisconnectNotify_Callback = void (*)(KIconButton*, QMetaMethod*);
-    using KIconButton_UpdateMicroFocus_Callback = void (*)();
-    using KIconButton_Create_Callback = void (*)();
-    using KIconButton_Destroy_Callback = void (*)();
-    using KIconButton_FocusNextChild_Callback = bool (*)();
-    using KIconButton_FocusPreviousChild_Callback = bool (*)();
-    using KIconButton_Sender_Callback = QObject* (*)();
-    using KIconButton_SenderSignalIndex_Callback = int (*)();
-    using KIconButton_Receivers_Callback = int (*)(const KIconButton*, const char*);
-    using KIconButton_IsSignalConnected_Callback = bool (*)(const KIconButton*, QMetaMethod*);
-    using KIconButton_GetDecodedMetricF_Callback = double (*)(const KIconButton*, int, int);
+    using KIconButton::create;
+    using KIconButton::destroy;
+    using KIconButton::focusNextChild;
+    using KIconButton::focusPreviousChild;
+    using KIconButton::getDecodedMetricF;
+    using KIconButton::isSignalConnected;
+    using KIconButton::receivers;
+    using KIconButton::sender;
+    using KIconButton::senderSignalIndex;
+    using KIconButton::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KIconButton_MetaObject_Callback kiconbutton_metaobject_callback = nullptr;
     KIconButton_Metacast_Callback kiconbutton_metacast_callback = nullptr;
@@ -138,228 +133,60 @@ class VirtualKIconButton final : public KIconButton {
     KIconButton_CustomEvent_Callback kiconbutton_customevent_callback = nullptr;
     KIconButton_ConnectNotify_Callback kiconbutton_connectnotify_callback = nullptr;
     KIconButton_DisconnectNotify_Callback kiconbutton_disconnectnotify_callback = nullptr;
-    KIconButton_UpdateMicroFocus_Callback kiconbutton_updatemicrofocus_callback = nullptr;
-    KIconButton_Create_Callback kiconbutton_create_callback = nullptr;
-    KIconButton_Destroy_Callback kiconbutton_destroy_callback = nullptr;
-    KIconButton_FocusNextChild_Callback kiconbutton_focusnextchild_callback = nullptr;
-    KIconButton_FocusPreviousChild_Callback kiconbutton_focuspreviouschild_callback = nullptr;
-    KIconButton_Sender_Callback kiconbutton_sender_callback = nullptr;
-    KIconButton_SenderSignalIndex_Callback kiconbutton_sendersignalindex_callback = nullptr;
-    KIconButton_Receivers_Callback kiconbutton_receivers_callback = nullptr;
-    KIconButton_IsSignalConnected_Callback kiconbutton_issignalconnected_callback = nullptr;
-    KIconButton_GetDecodedMetricF_Callback kiconbutton_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kiconbutton_metaobject_isbase = false;
-    mutable bool kiconbutton_metacast_isbase = false;
-    mutable bool kiconbutton_metacall_isbase = false;
-    mutable bool kiconbutton_sizehint_isbase = false;
-    mutable bool kiconbutton_minimumsizehint_isbase = false;
-    mutable bool kiconbutton_event_isbase = false;
-    mutable bool kiconbutton_paintevent_isbase = false;
-    mutable bool kiconbutton_keypressevent_isbase = false;
-    mutable bool kiconbutton_focusinevent_isbase = false;
-    mutable bool kiconbutton_focusoutevent_isbase = false;
-    mutable bool kiconbutton_mousemoveevent_isbase = false;
-    mutable bool kiconbutton_initstyleoption_isbase = false;
-    mutable bool kiconbutton_hitbutton_isbase = false;
-    mutable bool kiconbutton_checkstateset_isbase = false;
-    mutable bool kiconbutton_nextcheckstate_isbase = false;
-    mutable bool kiconbutton_keyreleaseevent_isbase = false;
-    mutable bool kiconbutton_mousepressevent_isbase = false;
-    mutable bool kiconbutton_mousereleaseevent_isbase = false;
-    mutable bool kiconbutton_changeevent_isbase = false;
-    mutable bool kiconbutton_timerevent_isbase = false;
-    mutable bool kiconbutton_devtype_isbase = false;
-    mutable bool kiconbutton_setvisible_isbase = false;
-    mutable bool kiconbutton_heightforwidth_isbase = false;
-    mutable bool kiconbutton_hasheightforwidth_isbase = false;
-    mutable bool kiconbutton_paintengine_isbase = false;
-    mutable bool kiconbutton_mousedoubleclickevent_isbase = false;
-    mutable bool kiconbutton_wheelevent_isbase = false;
-    mutable bool kiconbutton_enterevent_isbase = false;
-    mutable bool kiconbutton_leaveevent_isbase = false;
-    mutable bool kiconbutton_moveevent_isbase = false;
-    mutable bool kiconbutton_resizeevent_isbase = false;
-    mutable bool kiconbutton_closeevent_isbase = false;
-    mutable bool kiconbutton_contextmenuevent_isbase = false;
-    mutable bool kiconbutton_tabletevent_isbase = false;
-    mutable bool kiconbutton_actionevent_isbase = false;
-    mutable bool kiconbutton_dragenterevent_isbase = false;
-    mutable bool kiconbutton_dragmoveevent_isbase = false;
-    mutable bool kiconbutton_dragleaveevent_isbase = false;
-    mutable bool kiconbutton_dropevent_isbase = false;
-    mutable bool kiconbutton_showevent_isbase = false;
-    mutable bool kiconbutton_hideevent_isbase = false;
-    mutable bool kiconbutton_nativeevent_isbase = false;
-    mutable bool kiconbutton_metric_isbase = false;
-    mutable bool kiconbutton_initpainter_isbase = false;
-    mutable bool kiconbutton_redirected_isbase = false;
-    mutable bool kiconbutton_sharedpainter_isbase = false;
-    mutable bool kiconbutton_inputmethodevent_isbase = false;
-    mutable bool kiconbutton_inputmethodquery_isbase = false;
-    mutable bool kiconbutton_focusnextprevchild_isbase = false;
-    mutable bool kiconbutton_eventfilter_isbase = false;
-    mutable bool kiconbutton_childevent_isbase = false;
-    mutable bool kiconbutton_customevent_isbase = false;
-    mutable bool kiconbutton_connectnotify_isbase = false;
-    mutable bool kiconbutton_disconnectnotify_isbase = false;
-    mutable bool kiconbutton_updatemicrofocus_isbase = false;
-    mutable bool kiconbutton_create_isbase = false;
-    mutable bool kiconbutton_destroy_isbase = false;
-    mutable bool kiconbutton_focusnextchild_isbase = false;
-    mutable bool kiconbutton_focuspreviouschild_isbase = false;
-    mutable bool kiconbutton_sender_isbase = false;
-    mutable bool kiconbutton_sendersignalindex_isbase = false;
-    mutable bool kiconbutton_receivers_isbase = false;
-    mutable bool kiconbutton_issignalconnected_isbase = false;
-    mutable bool kiconbutton_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KIconButton {
+        using KIconButton::actionEvent;
+        using KIconButton::changeEvent;
+        using KIconButton::checkStateSet;
+        using KIconButton::childEvent;
+        using KIconButton::closeEvent;
+        using KIconButton::connectNotify;
+        using KIconButton::contextMenuEvent;
+        using KIconButton::customEvent;
+        using KIconButton::disconnectNotify;
+        using KIconButton::dragEnterEvent;
+        using KIconButton::dragLeaveEvent;
+        using KIconButton::dragMoveEvent;
+        using KIconButton::dropEvent;
+        using KIconButton::enterEvent;
+        using KIconButton::event;
+        using KIconButton::focusInEvent;
+        using KIconButton::focusNextPrevChild;
+        using KIconButton::focusOutEvent;
+        using KIconButton::hideEvent;
+        using KIconButton::hitButton;
+        using KIconButton::initPainter;
+        using KIconButton::initStyleOption;
+        using KIconButton::inputMethodEvent;
+        using KIconButton::keyPressEvent;
+        using KIconButton::keyReleaseEvent;
+        using KIconButton::leaveEvent;
+        using KIconButton::metric;
+        using KIconButton::mouseDoubleClickEvent;
+        using KIconButton::mouseMoveEvent;
+        using KIconButton::mousePressEvent;
+        using KIconButton::mouseReleaseEvent;
+        using KIconButton::moveEvent;
+        using KIconButton::nativeEvent;
+        using KIconButton::nextCheckState;
+        using KIconButton::paintEvent;
+        using KIconButton::redirected;
+        using KIconButton::resizeEvent;
+        using KIconButton::sharedPainter;
+        using KIconButton::showEvent;
+        using KIconButton::tabletEvent;
+        using KIconButton::timerEvent;
+        using KIconButton::wheelEvent;
+    };
 
-  public:
     VirtualKIconButton(QWidget* parent) : KIconButton(parent) {};
     VirtualKIconButton() : KIconButton() {};
 
-    // Callback setters
-    inline void setKIconButton_MetaObject_Callback(KIconButton_MetaObject_Callback cb) { kiconbutton_metaobject_callback = cb; }
-    inline void setKIconButton_Metacast_Callback(KIconButton_Metacast_Callback cb) { kiconbutton_metacast_callback = cb; }
-    inline void setKIconButton_Metacall_Callback(KIconButton_Metacall_Callback cb) { kiconbutton_metacall_callback = cb; }
-    inline void setKIconButton_SizeHint_Callback(KIconButton_SizeHint_Callback cb) { kiconbutton_sizehint_callback = cb; }
-    inline void setKIconButton_MinimumSizeHint_Callback(KIconButton_MinimumSizeHint_Callback cb) { kiconbutton_minimumsizehint_callback = cb; }
-    inline void setKIconButton_Event_Callback(KIconButton_Event_Callback cb) { kiconbutton_event_callback = cb; }
-    inline void setKIconButton_PaintEvent_Callback(KIconButton_PaintEvent_Callback cb) { kiconbutton_paintevent_callback = cb; }
-    inline void setKIconButton_KeyPressEvent_Callback(KIconButton_KeyPressEvent_Callback cb) { kiconbutton_keypressevent_callback = cb; }
-    inline void setKIconButton_FocusInEvent_Callback(KIconButton_FocusInEvent_Callback cb) { kiconbutton_focusinevent_callback = cb; }
-    inline void setKIconButton_FocusOutEvent_Callback(KIconButton_FocusOutEvent_Callback cb) { kiconbutton_focusoutevent_callback = cb; }
-    inline void setKIconButton_MouseMoveEvent_Callback(KIconButton_MouseMoveEvent_Callback cb) { kiconbutton_mousemoveevent_callback = cb; }
-    inline void setKIconButton_InitStyleOption_Callback(KIconButton_InitStyleOption_Callback cb) { kiconbutton_initstyleoption_callback = cb; }
-    inline void setKIconButton_HitButton_Callback(KIconButton_HitButton_Callback cb) { kiconbutton_hitbutton_callback = cb; }
-    inline void setKIconButton_CheckStateSet_Callback(KIconButton_CheckStateSet_Callback cb) { kiconbutton_checkstateset_callback = cb; }
-    inline void setKIconButton_NextCheckState_Callback(KIconButton_NextCheckState_Callback cb) { kiconbutton_nextcheckstate_callback = cb; }
-    inline void setKIconButton_KeyReleaseEvent_Callback(KIconButton_KeyReleaseEvent_Callback cb) { kiconbutton_keyreleaseevent_callback = cb; }
-    inline void setKIconButton_MousePressEvent_Callback(KIconButton_MousePressEvent_Callback cb) { kiconbutton_mousepressevent_callback = cb; }
-    inline void setKIconButton_MouseReleaseEvent_Callback(KIconButton_MouseReleaseEvent_Callback cb) { kiconbutton_mousereleaseevent_callback = cb; }
-    inline void setKIconButton_ChangeEvent_Callback(KIconButton_ChangeEvent_Callback cb) { kiconbutton_changeevent_callback = cb; }
-    inline void setKIconButton_TimerEvent_Callback(KIconButton_TimerEvent_Callback cb) { kiconbutton_timerevent_callback = cb; }
-    inline void setKIconButton_DevType_Callback(KIconButton_DevType_Callback cb) { kiconbutton_devtype_callback = cb; }
-    inline void setKIconButton_SetVisible_Callback(KIconButton_SetVisible_Callback cb) { kiconbutton_setvisible_callback = cb; }
-    inline void setKIconButton_HeightForWidth_Callback(KIconButton_HeightForWidth_Callback cb) { kiconbutton_heightforwidth_callback = cb; }
-    inline void setKIconButton_HasHeightForWidth_Callback(KIconButton_HasHeightForWidth_Callback cb) { kiconbutton_hasheightforwidth_callback = cb; }
-    inline void setKIconButton_PaintEngine_Callback(KIconButton_PaintEngine_Callback cb) { kiconbutton_paintengine_callback = cb; }
-    inline void setKIconButton_MouseDoubleClickEvent_Callback(KIconButton_MouseDoubleClickEvent_Callback cb) { kiconbutton_mousedoubleclickevent_callback = cb; }
-    inline void setKIconButton_WheelEvent_Callback(KIconButton_WheelEvent_Callback cb) { kiconbutton_wheelevent_callback = cb; }
-    inline void setKIconButton_EnterEvent_Callback(KIconButton_EnterEvent_Callback cb) { kiconbutton_enterevent_callback = cb; }
-    inline void setKIconButton_LeaveEvent_Callback(KIconButton_LeaveEvent_Callback cb) { kiconbutton_leaveevent_callback = cb; }
-    inline void setKIconButton_MoveEvent_Callback(KIconButton_MoveEvent_Callback cb) { kiconbutton_moveevent_callback = cb; }
-    inline void setKIconButton_ResizeEvent_Callback(KIconButton_ResizeEvent_Callback cb) { kiconbutton_resizeevent_callback = cb; }
-    inline void setKIconButton_CloseEvent_Callback(KIconButton_CloseEvent_Callback cb) { kiconbutton_closeevent_callback = cb; }
-    inline void setKIconButton_ContextMenuEvent_Callback(KIconButton_ContextMenuEvent_Callback cb) { kiconbutton_contextmenuevent_callback = cb; }
-    inline void setKIconButton_TabletEvent_Callback(KIconButton_TabletEvent_Callback cb) { kiconbutton_tabletevent_callback = cb; }
-    inline void setKIconButton_ActionEvent_Callback(KIconButton_ActionEvent_Callback cb) { kiconbutton_actionevent_callback = cb; }
-    inline void setKIconButton_DragEnterEvent_Callback(KIconButton_DragEnterEvent_Callback cb) { kiconbutton_dragenterevent_callback = cb; }
-    inline void setKIconButton_DragMoveEvent_Callback(KIconButton_DragMoveEvent_Callback cb) { kiconbutton_dragmoveevent_callback = cb; }
-    inline void setKIconButton_DragLeaveEvent_Callback(KIconButton_DragLeaveEvent_Callback cb) { kiconbutton_dragleaveevent_callback = cb; }
-    inline void setKIconButton_DropEvent_Callback(KIconButton_DropEvent_Callback cb) { kiconbutton_dropevent_callback = cb; }
-    inline void setKIconButton_ShowEvent_Callback(KIconButton_ShowEvent_Callback cb) { kiconbutton_showevent_callback = cb; }
-    inline void setKIconButton_HideEvent_Callback(KIconButton_HideEvent_Callback cb) { kiconbutton_hideevent_callback = cb; }
-    inline void setKIconButton_NativeEvent_Callback(KIconButton_NativeEvent_Callback cb) { kiconbutton_nativeevent_callback = cb; }
-    inline void setKIconButton_Metric_Callback(KIconButton_Metric_Callback cb) { kiconbutton_metric_callback = cb; }
-    inline void setKIconButton_InitPainter_Callback(KIconButton_InitPainter_Callback cb) { kiconbutton_initpainter_callback = cb; }
-    inline void setKIconButton_Redirected_Callback(KIconButton_Redirected_Callback cb) { kiconbutton_redirected_callback = cb; }
-    inline void setKIconButton_SharedPainter_Callback(KIconButton_SharedPainter_Callback cb) { kiconbutton_sharedpainter_callback = cb; }
-    inline void setKIconButton_InputMethodEvent_Callback(KIconButton_InputMethodEvent_Callback cb) { kiconbutton_inputmethodevent_callback = cb; }
-    inline void setKIconButton_InputMethodQuery_Callback(KIconButton_InputMethodQuery_Callback cb) { kiconbutton_inputmethodquery_callback = cb; }
-    inline void setKIconButton_FocusNextPrevChild_Callback(KIconButton_FocusNextPrevChild_Callback cb) { kiconbutton_focusnextprevchild_callback = cb; }
-    inline void setKIconButton_EventFilter_Callback(KIconButton_EventFilter_Callback cb) { kiconbutton_eventfilter_callback = cb; }
-    inline void setKIconButton_ChildEvent_Callback(KIconButton_ChildEvent_Callback cb) { kiconbutton_childevent_callback = cb; }
-    inline void setKIconButton_CustomEvent_Callback(KIconButton_CustomEvent_Callback cb) { kiconbutton_customevent_callback = cb; }
-    inline void setKIconButton_ConnectNotify_Callback(KIconButton_ConnectNotify_Callback cb) { kiconbutton_connectnotify_callback = cb; }
-    inline void setKIconButton_DisconnectNotify_Callback(KIconButton_DisconnectNotify_Callback cb) { kiconbutton_disconnectnotify_callback = cb; }
-    inline void setKIconButton_UpdateMicroFocus_Callback(KIconButton_UpdateMicroFocus_Callback cb) { kiconbutton_updatemicrofocus_callback = cb; }
-    inline void setKIconButton_Create_Callback(KIconButton_Create_Callback cb) { kiconbutton_create_callback = cb; }
-    inline void setKIconButton_Destroy_Callback(KIconButton_Destroy_Callback cb) { kiconbutton_destroy_callback = cb; }
-    inline void setKIconButton_FocusNextChild_Callback(KIconButton_FocusNextChild_Callback cb) { kiconbutton_focusnextchild_callback = cb; }
-    inline void setKIconButton_FocusPreviousChild_Callback(KIconButton_FocusPreviousChild_Callback cb) { kiconbutton_focuspreviouschild_callback = cb; }
-    inline void setKIconButton_Sender_Callback(KIconButton_Sender_Callback cb) { kiconbutton_sender_callback = cb; }
-    inline void setKIconButton_SenderSignalIndex_Callback(KIconButton_SenderSignalIndex_Callback cb) { kiconbutton_sendersignalindex_callback = cb; }
-    inline void setKIconButton_Receivers_Callback(KIconButton_Receivers_Callback cb) { kiconbutton_receivers_callback = cb; }
-    inline void setKIconButton_IsSignalConnected_Callback(KIconButton_IsSignalConnected_Callback cb) { kiconbutton_issignalconnected_callback = cb; }
-    inline void setKIconButton_GetDecodedMetricF_Callback(KIconButton_GetDecodedMetricF_Callback cb) { kiconbutton_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKIconButton_MetaObject_IsBase(bool value) const { kiconbutton_metaobject_isbase = value; }
-    inline void setKIconButton_Metacast_IsBase(bool value) const { kiconbutton_metacast_isbase = value; }
-    inline void setKIconButton_Metacall_IsBase(bool value) const { kiconbutton_metacall_isbase = value; }
-    inline void setKIconButton_SizeHint_IsBase(bool value) const { kiconbutton_sizehint_isbase = value; }
-    inline void setKIconButton_MinimumSizeHint_IsBase(bool value) const { kiconbutton_minimumsizehint_isbase = value; }
-    inline void setKIconButton_Event_IsBase(bool value) const { kiconbutton_event_isbase = value; }
-    inline void setKIconButton_PaintEvent_IsBase(bool value) const { kiconbutton_paintevent_isbase = value; }
-    inline void setKIconButton_KeyPressEvent_IsBase(bool value) const { kiconbutton_keypressevent_isbase = value; }
-    inline void setKIconButton_FocusInEvent_IsBase(bool value) const { kiconbutton_focusinevent_isbase = value; }
-    inline void setKIconButton_FocusOutEvent_IsBase(bool value) const { kiconbutton_focusoutevent_isbase = value; }
-    inline void setKIconButton_MouseMoveEvent_IsBase(bool value) const { kiconbutton_mousemoveevent_isbase = value; }
-    inline void setKIconButton_InitStyleOption_IsBase(bool value) const { kiconbutton_initstyleoption_isbase = value; }
-    inline void setKIconButton_HitButton_IsBase(bool value) const { kiconbutton_hitbutton_isbase = value; }
-    inline void setKIconButton_CheckStateSet_IsBase(bool value) const { kiconbutton_checkstateset_isbase = value; }
-    inline void setKIconButton_NextCheckState_IsBase(bool value) const { kiconbutton_nextcheckstate_isbase = value; }
-    inline void setKIconButton_KeyReleaseEvent_IsBase(bool value) const { kiconbutton_keyreleaseevent_isbase = value; }
-    inline void setKIconButton_MousePressEvent_IsBase(bool value) const { kiconbutton_mousepressevent_isbase = value; }
-    inline void setKIconButton_MouseReleaseEvent_IsBase(bool value) const { kiconbutton_mousereleaseevent_isbase = value; }
-    inline void setKIconButton_ChangeEvent_IsBase(bool value) const { kiconbutton_changeevent_isbase = value; }
-    inline void setKIconButton_TimerEvent_IsBase(bool value) const { kiconbutton_timerevent_isbase = value; }
-    inline void setKIconButton_DevType_IsBase(bool value) const { kiconbutton_devtype_isbase = value; }
-    inline void setKIconButton_SetVisible_IsBase(bool value) const { kiconbutton_setvisible_isbase = value; }
-    inline void setKIconButton_HeightForWidth_IsBase(bool value) const { kiconbutton_heightforwidth_isbase = value; }
-    inline void setKIconButton_HasHeightForWidth_IsBase(bool value) const { kiconbutton_hasheightforwidth_isbase = value; }
-    inline void setKIconButton_PaintEngine_IsBase(bool value) const { kiconbutton_paintengine_isbase = value; }
-    inline void setKIconButton_MouseDoubleClickEvent_IsBase(bool value) const { kiconbutton_mousedoubleclickevent_isbase = value; }
-    inline void setKIconButton_WheelEvent_IsBase(bool value) const { kiconbutton_wheelevent_isbase = value; }
-    inline void setKIconButton_EnterEvent_IsBase(bool value) const { kiconbutton_enterevent_isbase = value; }
-    inline void setKIconButton_LeaveEvent_IsBase(bool value) const { kiconbutton_leaveevent_isbase = value; }
-    inline void setKIconButton_MoveEvent_IsBase(bool value) const { kiconbutton_moveevent_isbase = value; }
-    inline void setKIconButton_ResizeEvent_IsBase(bool value) const { kiconbutton_resizeevent_isbase = value; }
-    inline void setKIconButton_CloseEvent_IsBase(bool value) const { kiconbutton_closeevent_isbase = value; }
-    inline void setKIconButton_ContextMenuEvent_IsBase(bool value) const { kiconbutton_contextmenuevent_isbase = value; }
-    inline void setKIconButton_TabletEvent_IsBase(bool value) const { kiconbutton_tabletevent_isbase = value; }
-    inline void setKIconButton_ActionEvent_IsBase(bool value) const { kiconbutton_actionevent_isbase = value; }
-    inline void setKIconButton_DragEnterEvent_IsBase(bool value) const { kiconbutton_dragenterevent_isbase = value; }
-    inline void setKIconButton_DragMoveEvent_IsBase(bool value) const { kiconbutton_dragmoveevent_isbase = value; }
-    inline void setKIconButton_DragLeaveEvent_IsBase(bool value) const { kiconbutton_dragleaveevent_isbase = value; }
-    inline void setKIconButton_DropEvent_IsBase(bool value) const { kiconbutton_dropevent_isbase = value; }
-    inline void setKIconButton_ShowEvent_IsBase(bool value) const { kiconbutton_showevent_isbase = value; }
-    inline void setKIconButton_HideEvent_IsBase(bool value) const { kiconbutton_hideevent_isbase = value; }
-    inline void setKIconButton_NativeEvent_IsBase(bool value) const { kiconbutton_nativeevent_isbase = value; }
-    inline void setKIconButton_Metric_IsBase(bool value) const { kiconbutton_metric_isbase = value; }
-    inline void setKIconButton_InitPainter_IsBase(bool value) const { kiconbutton_initpainter_isbase = value; }
-    inline void setKIconButton_Redirected_IsBase(bool value) const { kiconbutton_redirected_isbase = value; }
-    inline void setKIconButton_SharedPainter_IsBase(bool value) const { kiconbutton_sharedpainter_isbase = value; }
-    inline void setKIconButton_InputMethodEvent_IsBase(bool value) const { kiconbutton_inputmethodevent_isbase = value; }
-    inline void setKIconButton_InputMethodQuery_IsBase(bool value) const { kiconbutton_inputmethodquery_isbase = value; }
-    inline void setKIconButton_FocusNextPrevChild_IsBase(bool value) const { kiconbutton_focusnextprevchild_isbase = value; }
-    inline void setKIconButton_EventFilter_IsBase(bool value) const { kiconbutton_eventfilter_isbase = value; }
-    inline void setKIconButton_ChildEvent_IsBase(bool value) const { kiconbutton_childevent_isbase = value; }
-    inline void setKIconButton_CustomEvent_IsBase(bool value) const { kiconbutton_customevent_isbase = value; }
-    inline void setKIconButton_ConnectNotify_IsBase(bool value) const { kiconbutton_connectnotify_isbase = value; }
-    inline void setKIconButton_DisconnectNotify_IsBase(bool value) const { kiconbutton_disconnectnotify_isbase = value; }
-    inline void setKIconButton_UpdateMicroFocus_IsBase(bool value) const { kiconbutton_updatemicrofocus_isbase = value; }
-    inline void setKIconButton_Create_IsBase(bool value) const { kiconbutton_create_isbase = value; }
-    inline void setKIconButton_Destroy_IsBase(bool value) const { kiconbutton_destroy_isbase = value; }
-    inline void setKIconButton_FocusNextChild_IsBase(bool value) const { kiconbutton_focusnextchild_isbase = value; }
-    inline void setKIconButton_FocusPreviousChild_IsBase(bool value) const { kiconbutton_focuspreviouschild_isbase = value; }
-    inline void setKIconButton_Sender_IsBase(bool value) const { kiconbutton_sender_isbase = value; }
-    inline void setKIconButton_SenderSignalIndex_IsBase(bool value) const { kiconbutton_sendersignalindex_isbase = value; }
-    inline void setKIconButton_Receivers_IsBase(bool value) const { kiconbutton_receivers_isbase = value; }
-    inline void setKIconButton_IsSignalConnected_IsBase(bool value) const { kiconbutton_issignalconnected_isbase = value; }
-    inline void setKIconButton_GetDecodedMetricF_IsBase(bool value) const { kiconbutton_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kiconbutton_metaobject_isbase) {
-            kiconbutton_metaobject_isbase = false;
-            return KIconButton::metaObject();
-        }
-        auto metaobject_cb = kiconbutton_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kiconbutton_metaobject_callback) {
+            QMetaObject* callback_ret = kiconbutton_metaobject_callback(this);
             return callback_ret;
         }
         return KIconButton::metaObject();
@@ -367,14 +194,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kiconbutton_metacast_isbase) {
-            kiconbutton_metacast_isbase = false;
-            return KIconButton::qt_metacast(param1);
-        }
-        auto metacast_cb = kiconbutton_metacast_callback;
-        if (metacast_cb) {
+        if (kiconbutton_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kiconbutton_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KIconButton::qt_metacast(param1);
@@ -382,16 +204,11 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kiconbutton_metacall_isbase) {
-            kiconbutton_metacall_isbase = false;
-            return KIconButton::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kiconbutton_metacall_callback;
-        if (metacall_cb) {
+        if (kiconbutton_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kiconbutton_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KIconButton::qt_metacall(param1, param2, param3);
@@ -399,13 +216,8 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kiconbutton_sizehint_isbase) {
-            kiconbutton_sizehint_isbase = false;
-            return KIconButton::sizeHint();
-        }
-        auto sizehint_cb = kiconbutton_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kiconbutton_sizehint_callback) {
+            QSize* callback_ret = kiconbutton_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -415,13 +227,8 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kiconbutton_minimumsizehint_isbase) {
-            kiconbutton_minimumsizehint_isbase = false;
-            return KIconButton::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kiconbutton_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kiconbutton_minimumsizehint_callback) {
+            QSize* callback_ret = kiconbutton_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -431,14 +238,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* e) override {
-        if (kiconbutton_event_isbase) {
-            kiconbutton_event_isbase = false;
-            return KIconButton::event(e);
-        }
-        auto event_cb = kiconbutton_event_callback;
-        if (event_cb) {
+        if (kiconbutton_event_callback) {
             QEvent* cbval1 = e;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kiconbutton_event_callback(this, cbval1);
             return callback_ret;
         }
         return KIconButton::event(e);
@@ -446,15 +248,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* param1) override {
-        if (kiconbutton_paintevent_isbase) {
-            kiconbutton_paintevent_isbase = false;
-            KIconButton::paintEvent(param1);
-            return;
-        }
-        auto paintevent_cb = kiconbutton_paintevent_callback;
-        if (paintevent_cb) {
+        if (kiconbutton_paintevent_callback) {
             QPaintEvent* cbval1 = param1;
-            paintevent_cb(this, cbval1);
+            kiconbutton_paintevent_callback(this, cbval1);
             return;
         }
         KIconButton::paintEvent(param1);
@@ -462,15 +258,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (kiconbutton_keypressevent_isbase) {
-            kiconbutton_keypressevent_isbase = false;
-            KIconButton::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = kiconbutton_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kiconbutton_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            kiconbutton_keypressevent_callback(this, cbval1);
             return;
         }
         KIconButton::keyPressEvent(param1);
@@ -478,15 +268,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* param1) override {
-        if (kiconbutton_focusinevent_isbase) {
-            kiconbutton_focusinevent_isbase = false;
-            KIconButton::focusInEvent(param1);
-            return;
-        }
-        auto focusinevent_cb = kiconbutton_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kiconbutton_focusinevent_callback) {
             QFocusEvent* cbval1 = param1;
-            focusinevent_cb(this, cbval1);
+            kiconbutton_focusinevent_callback(this, cbval1);
             return;
         }
         KIconButton::focusInEvent(param1);
@@ -494,15 +278,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* param1) override {
-        if (kiconbutton_focusoutevent_isbase) {
-            kiconbutton_focusoutevent_isbase = false;
-            KIconButton::focusOutEvent(param1);
-            return;
-        }
-        auto focusoutevent_cb = kiconbutton_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kiconbutton_focusoutevent_callback) {
             QFocusEvent* cbval1 = param1;
-            focusoutevent_cb(this, cbval1);
+            kiconbutton_focusoutevent_callback(this, cbval1);
             return;
         }
         KIconButton::focusOutEvent(param1);
@@ -510,15 +288,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* param1) override {
-        if (kiconbutton_mousemoveevent_isbase) {
-            kiconbutton_mousemoveevent_isbase = false;
-            KIconButton::mouseMoveEvent(param1);
-            return;
-        }
-        auto mousemoveevent_cb = kiconbutton_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kiconbutton_mousemoveevent_callback) {
             QMouseEvent* cbval1 = param1;
-            mousemoveevent_cb(this, cbval1);
+            kiconbutton_mousemoveevent_callback(this, cbval1);
             return;
         }
         KIconButton::mouseMoveEvent(param1);
@@ -526,15 +298,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionButton* option) const override {
-        if (kiconbutton_initstyleoption_isbase) {
-            kiconbutton_initstyleoption_isbase = false;
-            KIconButton::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = kiconbutton_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (kiconbutton_initstyleoption_callback) {
             QStyleOptionButton* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            kiconbutton_initstyleoption_callback(this, cbval1);
             return;
         }
         KIconButton::initStyleOption(option);
@@ -542,16 +308,11 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hitButton(const QPoint& pos) const override {
-        if (kiconbutton_hitbutton_isbase) {
-            kiconbutton_hitbutton_isbase = false;
-            return KIconButton::hitButton(pos);
-        }
-        auto hitbutton_cb = kiconbutton_hitbutton_callback;
-        if (hitbutton_cb) {
+        if (kiconbutton_hitbutton_callback) {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
-            bool callback_ret = hitbutton_cb(this, cbval1);
+            bool callback_ret = kiconbutton_hitbutton_callback(this, cbval1);
             return callback_ret;
         }
         return KIconButton::hitButton(pos);
@@ -559,14 +320,8 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void checkStateSet() override {
-        if (kiconbutton_checkstateset_isbase) {
-            kiconbutton_checkstateset_isbase = false;
-            KIconButton::checkStateSet();
-            return;
-        }
-        auto checkstateset_cb = kiconbutton_checkstateset_callback;
-        if (checkstateset_cb) {
-            checkstateset_cb();
+        if (kiconbutton_checkstateset_callback) {
+            kiconbutton_checkstateset_callback(this);
             return;
         }
         KIconButton::checkStateSet();
@@ -574,14 +329,8 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void nextCheckState() override {
-        if (kiconbutton_nextcheckstate_isbase) {
-            kiconbutton_nextcheckstate_isbase = false;
-            KIconButton::nextCheckState();
-            return;
-        }
-        auto nextcheckstate_cb = kiconbutton_nextcheckstate_callback;
-        if (nextcheckstate_cb) {
-            nextcheckstate_cb();
+        if (kiconbutton_nextcheckstate_callback) {
+            kiconbutton_nextcheckstate_callback(this);
             return;
         }
         KIconButton::nextCheckState();
@@ -589,15 +338,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* e) override {
-        if (kiconbutton_keyreleaseevent_isbase) {
-            kiconbutton_keyreleaseevent_isbase = false;
-            KIconButton::keyReleaseEvent(e);
-            return;
-        }
-        auto keyreleaseevent_cb = kiconbutton_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kiconbutton_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = e;
-            keyreleaseevent_cb(this, cbval1);
+            kiconbutton_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KIconButton::keyReleaseEvent(e);
@@ -605,15 +348,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* e) override {
-        if (kiconbutton_mousepressevent_isbase) {
-            kiconbutton_mousepressevent_isbase = false;
-            KIconButton::mousePressEvent(e);
-            return;
-        }
-        auto mousepressevent_cb = kiconbutton_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kiconbutton_mousepressevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousepressevent_cb(this, cbval1);
+            kiconbutton_mousepressevent_callback(this, cbval1);
             return;
         }
         KIconButton::mousePressEvent(e);
@@ -621,15 +358,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* e) override {
-        if (kiconbutton_mousereleaseevent_isbase) {
-            kiconbutton_mousereleaseevent_isbase = false;
-            KIconButton::mouseReleaseEvent(e);
-            return;
-        }
-        auto mousereleaseevent_cb = kiconbutton_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kiconbutton_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousereleaseevent_cb(this, cbval1);
+            kiconbutton_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KIconButton::mouseReleaseEvent(e);
@@ -637,15 +368,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* e) override {
-        if (kiconbutton_changeevent_isbase) {
-            kiconbutton_changeevent_isbase = false;
-            KIconButton::changeEvent(e);
-            return;
-        }
-        auto changeevent_cb = kiconbutton_changeevent_callback;
-        if (changeevent_cb) {
+        if (kiconbutton_changeevent_callback) {
             QEvent* cbval1 = e;
-            changeevent_cb(this, cbval1);
+            kiconbutton_changeevent_callback(this, cbval1);
             return;
         }
         KIconButton::changeEvent(e);
@@ -653,15 +378,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* e) override {
-        if (kiconbutton_timerevent_isbase) {
-            kiconbutton_timerevent_isbase = false;
-            KIconButton::timerEvent(e);
-            return;
-        }
-        auto timerevent_cb = kiconbutton_timerevent_callback;
-        if (timerevent_cb) {
+        if (kiconbutton_timerevent_callback) {
             QTimerEvent* cbval1 = e;
-            timerevent_cb(this, cbval1);
+            kiconbutton_timerevent_callback(this, cbval1);
             return;
         }
         KIconButton::timerEvent(e);
@@ -669,13 +388,8 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kiconbutton_devtype_isbase) {
-            kiconbutton_devtype_isbase = false;
-            return KIconButton::devType();
-        }
-        auto devtype_cb = kiconbutton_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kiconbutton_devtype_callback) {
+            int callback_ret = kiconbutton_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KIconButton::devType();
@@ -683,15 +397,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kiconbutton_setvisible_isbase) {
-            kiconbutton_setvisible_isbase = false;
-            KIconButton::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kiconbutton_setvisible_callback;
-        if (setvisible_cb) {
+        if (kiconbutton_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kiconbutton_setvisible_callback(this, cbval1);
             return;
         }
         KIconButton::setVisible(visible);
@@ -699,14 +407,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kiconbutton_heightforwidth_isbase) {
-            kiconbutton_heightforwidth_isbase = false;
-            return KIconButton::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kiconbutton_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kiconbutton_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kiconbutton_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KIconButton::heightForWidth(param1);
@@ -714,13 +417,8 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kiconbutton_hasheightforwidth_isbase) {
-            kiconbutton_hasheightforwidth_isbase = false;
-            return KIconButton::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kiconbutton_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kiconbutton_hasheightforwidth_callback) {
+            bool callback_ret = kiconbutton_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KIconButton::hasHeightForWidth();
@@ -728,13 +426,8 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kiconbutton_paintengine_isbase) {
-            kiconbutton_paintengine_isbase = false;
-            return KIconButton::paintEngine();
-        }
-        auto paintengine_cb = kiconbutton_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kiconbutton_paintengine_callback) {
+            QPaintEngine* callback_ret = kiconbutton_paintengine_callback(this);
             return callback_ret;
         }
         return KIconButton::paintEngine();
@@ -742,15 +435,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kiconbutton_mousedoubleclickevent_isbase) {
-            kiconbutton_mousedoubleclickevent_isbase = false;
-            KIconButton::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kiconbutton_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kiconbutton_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kiconbutton_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KIconButton::mouseDoubleClickEvent(event);
@@ -758,15 +445,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kiconbutton_wheelevent_isbase) {
-            kiconbutton_wheelevent_isbase = false;
-            KIconButton::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kiconbutton_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kiconbutton_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kiconbutton_wheelevent_callback(this, cbval1);
             return;
         }
         KIconButton::wheelEvent(event);
@@ -774,15 +455,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kiconbutton_enterevent_isbase) {
-            kiconbutton_enterevent_isbase = false;
-            KIconButton::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kiconbutton_enterevent_callback;
-        if (enterevent_cb) {
+        if (kiconbutton_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kiconbutton_enterevent_callback(this, cbval1);
             return;
         }
         KIconButton::enterEvent(event);
@@ -790,15 +465,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kiconbutton_leaveevent_isbase) {
-            kiconbutton_leaveevent_isbase = false;
-            KIconButton::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kiconbutton_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kiconbutton_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kiconbutton_leaveevent_callback(this, cbval1);
             return;
         }
         KIconButton::leaveEvent(event);
@@ -806,15 +475,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kiconbutton_moveevent_isbase) {
-            kiconbutton_moveevent_isbase = false;
-            KIconButton::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kiconbutton_moveevent_callback;
-        if (moveevent_cb) {
+        if (kiconbutton_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kiconbutton_moveevent_callback(this, cbval1);
             return;
         }
         KIconButton::moveEvent(event);
@@ -822,15 +485,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (kiconbutton_resizeevent_isbase) {
-            kiconbutton_resizeevent_isbase = false;
-            KIconButton::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = kiconbutton_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kiconbutton_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            kiconbutton_resizeevent_callback(this, cbval1);
             return;
         }
         KIconButton::resizeEvent(event);
@@ -838,15 +495,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (kiconbutton_closeevent_isbase) {
-            kiconbutton_closeevent_isbase = false;
-            KIconButton::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = kiconbutton_closeevent_callback;
-        if (closeevent_cb) {
+        if (kiconbutton_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            kiconbutton_closeevent_callback(this, cbval1);
             return;
         }
         KIconButton::closeEvent(event);
@@ -854,15 +505,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (kiconbutton_contextmenuevent_isbase) {
-            kiconbutton_contextmenuevent_isbase = false;
-            KIconButton::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = kiconbutton_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kiconbutton_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            kiconbutton_contextmenuevent_callback(this, cbval1);
             return;
         }
         KIconButton::contextMenuEvent(event);
@@ -870,15 +515,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kiconbutton_tabletevent_isbase) {
-            kiconbutton_tabletevent_isbase = false;
-            KIconButton::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kiconbutton_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kiconbutton_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kiconbutton_tabletevent_callback(this, cbval1);
             return;
         }
         KIconButton::tabletEvent(event);
@@ -886,15 +525,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kiconbutton_actionevent_isbase) {
-            kiconbutton_actionevent_isbase = false;
-            KIconButton::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kiconbutton_actionevent_callback;
-        if (actionevent_cb) {
+        if (kiconbutton_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kiconbutton_actionevent_callback(this, cbval1);
             return;
         }
         KIconButton::actionEvent(event);
@@ -902,15 +535,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kiconbutton_dragenterevent_isbase) {
-            kiconbutton_dragenterevent_isbase = false;
-            KIconButton::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kiconbutton_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kiconbutton_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kiconbutton_dragenterevent_callback(this, cbval1);
             return;
         }
         KIconButton::dragEnterEvent(event);
@@ -918,15 +545,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kiconbutton_dragmoveevent_isbase) {
-            kiconbutton_dragmoveevent_isbase = false;
-            KIconButton::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kiconbutton_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kiconbutton_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kiconbutton_dragmoveevent_callback(this, cbval1);
             return;
         }
         KIconButton::dragMoveEvent(event);
@@ -934,15 +555,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kiconbutton_dragleaveevent_isbase) {
-            kiconbutton_dragleaveevent_isbase = false;
-            KIconButton::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kiconbutton_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kiconbutton_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kiconbutton_dragleaveevent_callback(this, cbval1);
             return;
         }
         KIconButton::dragLeaveEvent(event);
@@ -950,15 +565,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kiconbutton_dropevent_isbase) {
-            kiconbutton_dropevent_isbase = false;
-            KIconButton::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kiconbutton_dropevent_callback;
-        if (dropevent_cb) {
+        if (kiconbutton_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kiconbutton_dropevent_callback(this, cbval1);
             return;
         }
         KIconButton::dropEvent(event);
@@ -966,15 +575,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (kiconbutton_showevent_isbase) {
-            kiconbutton_showevent_isbase = false;
-            KIconButton::showEvent(event);
-            return;
-        }
-        auto showevent_cb = kiconbutton_showevent_callback;
-        if (showevent_cb) {
+        if (kiconbutton_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            kiconbutton_showevent_callback(this, cbval1);
             return;
         }
         KIconButton::showEvent(event);
@@ -982,15 +585,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kiconbutton_hideevent_isbase) {
-            kiconbutton_hideevent_isbase = false;
-            KIconButton::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kiconbutton_hideevent_callback;
-        if (hideevent_cb) {
+        if (kiconbutton_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kiconbutton_hideevent_callback(this, cbval1);
             return;
         }
         KIconButton::hideEvent(event);
@@ -998,12 +595,7 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kiconbutton_nativeevent_isbase) {
-            kiconbutton_nativeevent_isbase = false;
-            return KIconButton::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kiconbutton_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kiconbutton_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1013,7 +605,7 @@ class VirtualKIconButton final : public KIconButton {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kiconbutton_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1022,14 +614,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kiconbutton_metric_isbase) {
-            kiconbutton_metric_isbase = false;
-            return KIconButton::metric(param1);
-        }
-        auto metric_cb = kiconbutton_metric_callback;
-        if (metric_cb) {
+        if (kiconbutton_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kiconbutton_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KIconButton::metric(param1);
@@ -1037,15 +624,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kiconbutton_initpainter_isbase) {
-            kiconbutton_initpainter_isbase = false;
-            KIconButton::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kiconbutton_initpainter_callback;
-        if (initpainter_cb) {
+        if (kiconbutton_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kiconbutton_initpainter_callback(this, cbval1);
             return;
         }
         KIconButton::initPainter(painter);
@@ -1053,14 +634,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kiconbutton_redirected_isbase) {
-            kiconbutton_redirected_isbase = false;
-            return KIconButton::redirected(offset);
-        }
-        auto redirected_cb = kiconbutton_redirected_callback;
-        if (redirected_cb) {
+        if (kiconbutton_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kiconbutton_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KIconButton::redirected(offset);
@@ -1068,13 +644,8 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kiconbutton_sharedpainter_isbase) {
-            kiconbutton_sharedpainter_isbase = false;
-            return KIconButton::sharedPainter();
-        }
-        auto sharedpainter_cb = kiconbutton_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kiconbutton_sharedpainter_callback) {
+            QPainter* callback_ret = kiconbutton_sharedpainter_callback(this);
             return callback_ret;
         }
         return KIconButton::sharedPainter();
@@ -1082,15 +653,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kiconbutton_inputmethodevent_isbase) {
-            kiconbutton_inputmethodevent_isbase = false;
-            KIconButton::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kiconbutton_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kiconbutton_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kiconbutton_inputmethodevent_callback(this, cbval1);
             return;
         }
         KIconButton::inputMethodEvent(param1);
@@ -1098,14 +663,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kiconbutton_inputmethodquery_isbase) {
-            kiconbutton_inputmethodquery_isbase = false;
-            return KIconButton::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kiconbutton_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kiconbutton_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kiconbutton_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1115,14 +675,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kiconbutton_focusnextprevchild_isbase) {
-            kiconbutton_focusnextprevchild_isbase = false;
-            return KIconButton::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kiconbutton_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kiconbutton_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kiconbutton_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KIconButton::focusNextPrevChild(next);
@@ -1130,15 +685,10 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kiconbutton_eventfilter_isbase) {
-            kiconbutton_eventfilter_isbase = false;
-            return KIconButton::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kiconbutton_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kiconbutton_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kiconbutton_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KIconButton::eventFilter(watched, event);
@@ -1146,15 +696,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kiconbutton_childevent_isbase) {
-            kiconbutton_childevent_isbase = false;
-            KIconButton::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kiconbutton_childevent_callback;
-        if (childevent_cb) {
+        if (kiconbutton_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kiconbutton_childevent_callback(this, cbval1);
             return;
         }
         KIconButton::childEvent(event);
@@ -1162,15 +706,9 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kiconbutton_customevent_isbase) {
-            kiconbutton_customevent_isbase = false;
-            KIconButton::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kiconbutton_customevent_callback;
-        if (customevent_cb) {
+        if (kiconbutton_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kiconbutton_customevent_callback(this, cbval1);
             return;
         }
         KIconButton::customEvent(event);
@@ -1178,17 +716,11 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kiconbutton_connectnotify_isbase) {
-            kiconbutton_connectnotify_isbase = false;
-            KIconButton::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kiconbutton_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kiconbutton_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kiconbutton_connectnotify_callback(this, cbval1);
             return;
         }
         KIconButton::connectNotify(signal);
@@ -1196,276 +728,59 @@ class VirtualKIconButton final : public KIconButton {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kiconbutton_disconnectnotify_isbase) {
-            kiconbutton_disconnectnotify_isbase = false;
-            KIconButton::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kiconbutton_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kiconbutton_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kiconbutton_disconnectnotify_callback(this, cbval1);
             return;
         }
         KIconButton::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kiconbutton_updatemicrofocus_isbase) {
-            kiconbutton_updatemicrofocus_isbase = false;
-            KIconButton::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kiconbutton_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KIconButton::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kiconbutton_create_isbase) {
-            kiconbutton_create_isbase = false;
-            KIconButton::create();
-            return;
-        }
-        auto create_cb = kiconbutton_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KIconButton::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kiconbutton_destroy_isbase) {
-            kiconbutton_destroy_isbase = false;
-            KIconButton::destroy();
-            return;
-        }
-        auto destroy_cb = kiconbutton_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KIconButton::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kiconbutton_focusnextchild_isbase) {
-            kiconbutton_focusnextchild_isbase = false;
-            return KIconButton::focusNextChild();
-        }
-        auto focusnextchild_cb = kiconbutton_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KIconButton::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kiconbutton_focuspreviouschild_isbase) {
-            kiconbutton_focuspreviouschild_isbase = false;
-            return KIconButton::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kiconbutton_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KIconButton::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kiconbutton_sender_isbase) {
-            kiconbutton_sender_isbase = false;
-            return KIconButton::sender();
-        }
-        auto sender_cb = kiconbutton_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KIconButton::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kiconbutton_sendersignalindex_isbase) {
-            kiconbutton_sendersignalindex_isbase = false;
-            return KIconButton::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kiconbutton_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KIconButton::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kiconbutton_receivers_isbase) {
-            kiconbutton_receivers_isbase = false;
-            return KIconButton::receivers(signal);
-        }
-        auto receivers_cb = kiconbutton_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KIconButton::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kiconbutton_issignalconnected_isbase) {
-            kiconbutton_issignalconnected_isbase = false;
-            return KIconButton::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kiconbutton_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KIconButton::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kiconbutton_getdecodedmetricf_isbase) {
-            kiconbutton_getdecodedmetricf_isbase = false;
-            return KIconButton::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kiconbutton_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KIconButton::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool KIconButton_Event(KIconButton* self, QEvent* e);
     friend bool KIconButton_SuperEvent(KIconButton* self, QEvent* e);
-    friend void KIconButton_PaintEvent(KIconButton* self, QPaintEvent* param1);
     friend void KIconButton_SuperPaintEvent(KIconButton* self, QPaintEvent* param1);
-    friend void KIconButton_KeyPressEvent(KIconButton* self, QKeyEvent* param1);
     friend void KIconButton_SuperKeyPressEvent(KIconButton* self, QKeyEvent* param1);
-    friend void KIconButton_FocusInEvent(KIconButton* self, QFocusEvent* param1);
     friend void KIconButton_SuperFocusInEvent(KIconButton* self, QFocusEvent* param1);
-    friend void KIconButton_FocusOutEvent(KIconButton* self, QFocusEvent* param1);
     friend void KIconButton_SuperFocusOutEvent(KIconButton* self, QFocusEvent* param1);
-    friend void KIconButton_MouseMoveEvent(KIconButton* self, QMouseEvent* param1);
     friend void KIconButton_SuperMouseMoveEvent(KIconButton* self, QMouseEvent* param1);
-    friend void KIconButton_InitStyleOption(const KIconButton* self, QStyleOptionButton* option);
     friend void KIconButton_SuperInitStyleOption(const KIconButton* self, QStyleOptionButton* option);
-    friend bool KIconButton_HitButton(const KIconButton* self, const QPoint* pos);
     friend bool KIconButton_SuperHitButton(const KIconButton* self, const QPoint* pos);
-    friend void KIconButton_CheckStateSet(KIconButton* self);
     friend void KIconButton_SuperCheckStateSet(KIconButton* self);
-    friend void KIconButton_NextCheckState(KIconButton* self);
     friend void KIconButton_SuperNextCheckState(KIconButton* self);
-    friend void KIconButton_KeyReleaseEvent(KIconButton* self, QKeyEvent* e);
     friend void KIconButton_SuperKeyReleaseEvent(KIconButton* self, QKeyEvent* e);
-    friend void KIconButton_MousePressEvent(KIconButton* self, QMouseEvent* e);
     friend void KIconButton_SuperMousePressEvent(KIconButton* self, QMouseEvent* e);
-    friend void KIconButton_MouseReleaseEvent(KIconButton* self, QMouseEvent* e);
     friend void KIconButton_SuperMouseReleaseEvent(KIconButton* self, QMouseEvent* e);
-    friend void KIconButton_ChangeEvent(KIconButton* self, QEvent* e);
     friend void KIconButton_SuperChangeEvent(KIconButton* self, QEvent* e);
-    friend void KIconButton_TimerEvent(KIconButton* self, QTimerEvent* e);
     friend void KIconButton_SuperTimerEvent(KIconButton* self, QTimerEvent* e);
-    friend void KIconButton_MouseDoubleClickEvent(KIconButton* self, QMouseEvent* event);
     friend void KIconButton_SuperMouseDoubleClickEvent(KIconButton* self, QMouseEvent* event);
-    friend void KIconButton_WheelEvent(KIconButton* self, QWheelEvent* event);
     friend void KIconButton_SuperWheelEvent(KIconButton* self, QWheelEvent* event);
-    friend void KIconButton_EnterEvent(KIconButton* self, QEnterEvent* event);
     friend void KIconButton_SuperEnterEvent(KIconButton* self, QEnterEvent* event);
-    friend void KIconButton_LeaveEvent(KIconButton* self, QEvent* event);
     friend void KIconButton_SuperLeaveEvent(KIconButton* self, QEvent* event);
-    friend void KIconButton_MoveEvent(KIconButton* self, QMoveEvent* event);
     friend void KIconButton_SuperMoveEvent(KIconButton* self, QMoveEvent* event);
-    friend void KIconButton_ResizeEvent(KIconButton* self, QResizeEvent* event);
     friend void KIconButton_SuperResizeEvent(KIconButton* self, QResizeEvent* event);
-    friend void KIconButton_CloseEvent(KIconButton* self, QCloseEvent* event);
     friend void KIconButton_SuperCloseEvent(KIconButton* self, QCloseEvent* event);
-    friend void KIconButton_ContextMenuEvent(KIconButton* self, QContextMenuEvent* event);
     friend void KIconButton_SuperContextMenuEvent(KIconButton* self, QContextMenuEvent* event);
-    friend void KIconButton_TabletEvent(KIconButton* self, QTabletEvent* event);
     friend void KIconButton_SuperTabletEvent(KIconButton* self, QTabletEvent* event);
-    friend void KIconButton_ActionEvent(KIconButton* self, QActionEvent* event);
     friend void KIconButton_SuperActionEvent(KIconButton* self, QActionEvent* event);
-    friend void KIconButton_DragEnterEvent(KIconButton* self, QDragEnterEvent* event);
     friend void KIconButton_SuperDragEnterEvent(KIconButton* self, QDragEnterEvent* event);
-    friend void KIconButton_DragMoveEvent(KIconButton* self, QDragMoveEvent* event);
     friend void KIconButton_SuperDragMoveEvent(KIconButton* self, QDragMoveEvent* event);
-    friend void KIconButton_DragLeaveEvent(KIconButton* self, QDragLeaveEvent* event);
     friend void KIconButton_SuperDragLeaveEvent(KIconButton* self, QDragLeaveEvent* event);
-    friend void KIconButton_DropEvent(KIconButton* self, QDropEvent* event);
     friend void KIconButton_SuperDropEvent(KIconButton* self, QDropEvent* event);
-    friend void KIconButton_ShowEvent(KIconButton* self, QShowEvent* event);
     friend void KIconButton_SuperShowEvent(KIconButton* self, QShowEvent* event);
-    friend void KIconButton_HideEvent(KIconButton* self, QHideEvent* event);
     friend void KIconButton_SuperHideEvent(KIconButton* self, QHideEvent* event);
-    friend bool KIconButton_NativeEvent(KIconButton* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KIconButton_SuperNativeEvent(KIconButton* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KIconButton_Metric(const KIconButton* self, int param1);
     friend int KIconButton_SuperMetric(const KIconButton* self, int param1);
-    friend void KIconButton_InitPainter(const KIconButton* self, QPainter* painter);
     friend void KIconButton_SuperInitPainter(const KIconButton* self, QPainter* painter);
-    friend QPaintDevice* KIconButton_Redirected(const KIconButton* self, QPoint* offset);
     friend QPaintDevice* KIconButton_SuperRedirected(const KIconButton* self, QPoint* offset);
-    friend QPainter* KIconButton_SharedPainter(const KIconButton* self);
     friend QPainter* KIconButton_SuperSharedPainter(const KIconButton* self);
-    friend void KIconButton_InputMethodEvent(KIconButton* self, QInputMethodEvent* param1);
     friend void KIconButton_SuperInputMethodEvent(KIconButton* self, QInputMethodEvent* param1);
-    friend bool KIconButton_FocusNextPrevChild(KIconButton* self, bool next);
     friend bool KIconButton_SuperFocusNextPrevChild(KIconButton* self, bool next);
-    friend void KIconButton_ChildEvent(KIconButton* self, QChildEvent* event);
     friend void KIconButton_SuperChildEvent(KIconButton* self, QChildEvent* event);
-    friend void KIconButton_CustomEvent(KIconButton* self, QEvent* event);
     friend void KIconButton_SuperCustomEvent(KIconButton* self, QEvent* event);
-    friend void KIconButton_ConnectNotify(KIconButton* self, const QMetaMethod* signal);
     friend void KIconButton_SuperConnectNotify(KIconButton* self, const QMetaMethod* signal);
-    friend void KIconButton_DisconnectNotify(KIconButton* self, const QMetaMethod* signal);
     friend void KIconButton_SuperDisconnectNotify(KIconButton* self, const QMetaMethod* signal);
-    friend void KIconButton_UpdateMicroFocus(KIconButton* self);
-    friend void KIconButton_SuperUpdateMicroFocus(KIconButton* self);
-    friend void KIconButton_Create(KIconButton* self);
-    friend void KIconButton_SuperCreate(KIconButton* self);
-    friend void KIconButton_Destroy(KIconButton* self);
-    friend void KIconButton_SuperDestroy(KIconButton* self);
-    friend bool KIconButton_FocusNextChild(KIconButton* self);
-    friend bool KIconButton_SuperFocusNextChild(KIconButton* self);
-    friend bool KIconButton_FocusPreviousChild(KIconButton* self);
-    friend bool KIconButton_SuperFocusPreviousChild(KIconButton* self);
-    friend QObject* KIconButton_Sender(const KIconButton* self);
-    friend QObject* KIconButton_SuperSender(const KIconButton* self);
-    friend int KIconButton_SenderSignalIndex(const KIconButton* self);
-    friend int KIconButton_SuperSenderSignalIndex(const KIconButton* self);
-    friend int KIconButton_Receivers(const KIconButton* self, const char* signal);
-    friend int KIconButton_SuperReceivers(const KIconButton* self, const char* signal);
-    friend bool KIconButton_IsSignalConnected(const KIconButton* self, const QMetaMethod* signal);
-    friend bool KIconButton_SuperIsSignalConnected(const KIconButton* self, const QMetaMethod* signal);
-    friend double KIconButton_GetDecodedMetricF(const KIconButton* self, int metricA, int metricB);
-    friend double KIconButton_SuperGetDecodedMetricF(const KIconButton* self, int metricA, int metricB);
 };
 
 #endif

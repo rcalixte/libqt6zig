@@ -9,28 +9,24 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KTextEdit so that we can call protected methods
+// This class is a subclass of KTextEdit
 class VirtualKTextEdit final : public KTextEdit {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKTextEdit = true;
-
-    // Virtual class public types (including callbacks)
-    using KTextEdit_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KTextEdit_MetaObject_Callback = QMetaObject* (*)(const KTextEdit*);
     using KTextEdit_Metacast_Callback = void* (*)(KTextEdit*, const char*);
     using KTextEdit_Metacall_Callback = int (*)(KTextEdit*, int, int, void**);
     using KTextEdit_SetReadOnly_Callback = void (*)(KTextEdit*, bool);
     using KTextEdit_SetCheckSpellingEnabled_Callback = void (*)(KTextEdit*, bool);
-    using KTextEdit_CheckSpellingEnabled_Callback = bool (*)();
+    using KTextEdit_CheckSpellingEnabled_Callback = bool (*)(const KTextEdit*);
     using KTextEdit_ShouldBlockBeSpellChecked_Callback = bool (*)(const KTextEdit*, const char*);
-    using KTextEdit_CreateHighlighter_Callback = void (*)();
-    using KTextEdit_MousePopupMenu_Callback = QMenu* (*)();
+    using KTextEdit_CreateHighlighter_Callback = void (*)(KTextEdit*);
+    using KTextEdit_MousePopupMenu_Callback = QMenu* (*)(KTextEdit*);
     using KTextEdit_Event_Callback = bool (*)(KTextEdit*, QEvent*);
     using KTextEdit_KeyPressEvent_Callback = void (*)(KTextEdit*, QKeyEvent*);
     using KTextEdit_FocusInEvent_Callback = void (*)(KTextEdit*, QFocusEvent*);
-    using KTextEdit_DeleteWordBack_Callback = void (*)();
-    using KTextEdit_DeleteWordForward_Callback = void (*)();
+    using KTextEdit_DeleteWordBack_Callback = void (*)(KTextEdit*);
+    using KTextEdit_DeleteWordForward_Callback = void (*)(KTextEdit*);
     using KTextEdit_ContextMenuEvent_Callback = void (*)(KTextEdit*, QContextMenuEvent*);
     using KTextEdit_LoadResource_Callback = QVariant* (*)(KTextEdit*, int, QUrl*);
     using KTextEdit_InputMethodQuery_Callback = QVariant* (*)(const KTextEdit*, int);
@@ -51,24 +47,24 @@ class VirtualKTextEdit final : public KTextEdit {
     using KTextEdit_ShowEvent_Callback = void (*)(KTextEdit*, QShowEvent*);
     using KTextEdit_ChangeEvent_Callback = void (*)(KTextEdit*, QEvent*);
     using KTextEdit_WheelEvent_Callback = void (*)(KTextEdit*, QWheelEvent*);
-    using KTextEdit_CreateMimeDataFromSelection_Callback = QMimeData* (*)();
+    using KTextEdit_CreateMimeDataFromSelection_Callback = QMimeData* (*)(const KTextEdit*);
     using KTextEdit_CanInsertFromMimeData_Callback = bool (*)(const KTextEdit*, QMimeData*);
     using KTextEdit_InsertFromMimeData_Callback = void (*)(KTextEdit*, QMimeData*);
     using KTextEdit_InputMethodEvent_Callback = void (*)(KTextEdit*, QInputMethodEvent*);
     using KTextEdit_ScrollContentsBy_Callback = void (*)(KTextEdit*, int, int);
     using KTextEdit_DoSetTextCursor_Callback = void (*)(KTextEdit*, QTextCursor*);
-    using KTextEdit_MinimumSizeHint_Callback = QSize* (*)();
-    using KTextEdit_SizeHint_Callback = QSize* (*)();
+    using KTextEdit_MinimumSizeHint_Callback = QSize* (*)(const KTextEdit*);
+    using KTextEdit_SizeHint_Callback = QSize* (*)(const KTextEdit*);
     using KTextEdit_SetupViewport_Callback = void (*)(KTextEdit*, QWidget*);
     using KTextEdit_EventFilter_Callback = bool (*)(KTextEdit*, QObject*, QEvent*);
     using KTextEdit_ViewportEvent_Callback = bool (*)(KTextEdit*, QEvent*);
-    using KTextEdit_ViewportSizeHint_Callback = QSize* (*)();
+    using KTextEdit_ViewportSizeHint_Callback = QSize* (*)(const KTextEdit*);
     using KTextEdit_InitStyleOption_Callback = void (*)(const KTextEdit*, QStyleOptionFrame*);
-    using KTextEdit_DevType_Callback = int (*)();
+    using KTextEdit_DevType_Callback = int (*)(const KTextEdit*);
     using KTextEdit_SetVisible_Callback = void (*)(KTextEdit*, bool);
     using KTextEdit_HeightForWidth_Callback = int (*)(const KTextEdit*, int);
-    using KTextEdit_HasHeightForWidth_Callback = bool (*)();
-    using KTextEdit_PaintEngine_Callback = QPaintEngine* (*)();
+    using KTextEdit_HasHeightForWidth_Callback = bool (*)(const KTextEdit*);
+    using KTextEdit_PaintEngine_Callback = QPaintEngine* (*)(const KTextEdit*);
     using KTextEdit_EnterEvent_Callback = void (*)(KTextEdit*, QEnterEvent*);
     using KTextEdit_LeaveEvent_Callback = void (*)(KTextEdit*, QEvent*);
     using KTextEdit_MoveEvent_Callback = void (*)(KTextEdit*, QMoveEvent*);
@@ -80,35 +76,34 @@ class VirtualKTextEdit final : public KTextEdit {
     using KTextEdit_Metric_Callback = int (*)(const KTextEdit*, int);
     using KTextEdit_InitPainter_Callback = void (*)(const KTextEdit*, QPainter*);
     using KTextEdit_Redirected_Callback = QPaintDevice* (*)(const KTextEdit*, QPoint*);
-    using KTextEdit_SharedPainter_Callback = QPainter* (*)();
+    using KTextEdit_SharedPainter_Callback = QPainter* (*)(const KTextEdit*);
     using KTextEdit_ChildEvent_Callback = void (*)(KTextEdit*, QChildEvent*);
     using KTextEdit_CustomEvent_Callback = void (*)(KTextEdit*, QEvent*);
     using KTextEdit_ConnectNotify_Callback = void (*)(KTextEdit*, QMetaMethod*);
     using KTextEdit_DisconnectNotify_Callback = void (*)(KTextEdit*, QMetaMethod*);
-    using KTextEdit_SlotDoReplace_Callback = void (*)();
-    using KTextEdit_SlotReplaceNext_Callback = void (*)();
-    using KTextEdit_SlotDoFind_Callback = void (*)();
-    using KTextEdit_SlotFind_Callback = void (*)();
-    using KTextEdit_SlotFindNext_Callback = void (*)();
-    using KTextEdit_SlotFindPrevious_Callback = void (*)();
-    using KTextEdit_SlotReplace_Callback = void (*)();
-    using KTextEdit_SlotSpeakText_Callback = void (*)();
-    using KTextEdit_ZoomInF_Callback = void (*)(KTextEdit*, float);
-    using KTextEdit_SetViewportMargins_Callback = void (*)(KTextEdit*, int, int, int, int);
-    using KTextEdit_ViewportMargins_Callback = QMargins* (*)();
-    using KTextEdit_DrawFrame_Callback = void (*)(KTextEdit*, QPainter*);
-    using KTextEdit_UpdateMicroFocus_Callback = void (*)();
-    using KTextEdit_Create_Callback = void (*)();
-    using KTextEdit_Destroy_Callback = void (*)();
-    using KTextEdit_FocusNextChild_Callback = bool (*)();
-    using KTextEdit_FocusPreviousChild_Callback = bool (*)();
-    using KTextEdit_Sender_Callback = QObject* (*)();
-    using KTextEdit_SenderSignalIndex_Callback = int (*)();
-    using KTextEdit_Receivers_Callback = int (*)(const KTextEdit*, const char*);
-    using KTextEdit_IsSignalConnected_Callback = bool (*)(const KTextEdit*, QMetaMethod*);
-    using KTextEdit_GetDecodedMetricF_Callback = double (*)(const KTextEdit*, int, int);
+    using KTextEdit::create;
+    using KTextEdit::destroy;
+    using KTextEdit::drawFrame;
+    using KTextEdit::focusNextChild;
+    using KTextEdit::focusPreviousChild;
+    using KTextEdit::getDecodedMetricF;
+    using KTextEdit::isSignalConnected;
+    using KTextEdit::receivers;
+    using KTextEdit::sender;
+    using KTextEdit::senderSignalIndex;
+    using KTextEdit::setViewportMargins;
+    using KTextEdit::slotDoFind;
+    using KTextEdit::slotDoReplace;
+    using KTextEdit::slotFind;
+    using KTextEdit::slotFindNext;
+    using KTextEdit::slotFindPrevious;
+    using KTextEdit::slotReplace;
+    using KTextEdit::slotReplaceNext;
+    using KTextEdit::slotSpeakText;
+    using KTextEdit::updateMicroFocus;
+    using KTextEdit::viewportMargins;
+    using KTextEdit::zoomInF;
 
-  protected:
     // Instance callback storage
     KTextEdit_MetaObject_Callback ktextedit_metaobject_callback = nullptr;
     KTextEdit_Metacast_Callback ktextedit_metacast_callback = nullptr;
@@ -178,320 +173,69 @@ class VirtualKTextEdit final : public KTextEdit {
     KTextEdit_CustomEvent_Callback ktextedit_customevent_callback = nullptr;
     KTextEdit_ConnectNotify_Callback ktextedit_connectnotify_callback = nullptr;
     KTextEdit_DisconnectNotify_Callback ktextedit_disconnectnotify_callback = nullptr;
-    KTextEdit_SlotDoReplace_Callback ktextedit_slotdoreplace_callback = nullptr;
-    KTextEdit_SlotReplaceNext_Callback ktextedit_slotreplacenext_callback = nullptr;
-    KTextEdit_SlotDoFind_Callback ktextedit_slotdofind_callback = nullptr;
-    KTextEdit_SlotFind_Callback ktextedit_slotfind_callback = nullptr;
-    KTextEdit_SlotFindNext_Callback ktextedit_slotfindnext_callback = nullptr;
-    KTextEdit_SlotFindPrevious_Callback ktextedit_slotfindprevious_callback = nullptr;
-    KTextEdit_SlotReplace_Callback ktextedit_slotreplace_callback = nullptr;
-    KTextEdit_SlotSpeakText_Callback ktextedit_slotspeaktext_callback = nullptr;
-    KTextEdit_ZoomInF_Callback ktextedit_zoominf_callback = nullptr;
-    KTextEdit_SetViewportMargins_Callback ktextedit_setviewportmargins_callback = nullptr;
-    KTextEdit_ViewportMargins_Callback ktextedit_viewportmargins_callback = nullptr;
-    KTextEdit_DrawFrame_Callback ktextedit_drawframe_callback = nullptr;
-    KTextEdit_UpdateMicroFocus_Callback ktextedit_updatemicrofocus_callback = nullptr;
-    KTextEdit_Create_Callback ktextedit_create_callback = nullptr;
-    KTextEdit_Destroy_Callback ktextedit_destroy_callback = nullptr;
-    KTextEdit_FocusNextChild_Callback ktextedit_focusnextchild_callback = nullptr;
-    KTextEdit_FocusPreviousChild_Callback ktextedit_focuspreviouschild_callback = nullptr;
-    KTextEdit_Sender_Callback ktextedit_sender_callback = nullptr;
-    KTextEdit_SenderSignalIndex_Callback ktextedit_sendersignalindex_callback = nullptr;
-    KTextEdit_Receivers_Callback ktextedit_receivers_callback = nullptr;
-    KTextEdit_IsSignalConnected_Callback ktextedit_issignalconnected_callback = nullptr;
-    KTextEdit_GetDecodedMetricF_Callback ktextedit_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool ktextedit_metaobject_isbase = false;
-    mutable bool ktextedit_metacast_isbase = false;
-    mutable bool ktextedit_metacall_isbase = false;
-    mutable bool ktextedit_setreadonly_isbase = false;
-    mutable bool ktextedit_setcheckspellingenabled_isbase = false;
-    mutable bool ktextedit_checkspellingenabled_isbase = false;
-    mutable bool ktextedit_shouldblockbespellchecked_isbase = false;
-    mutable bool ktextedit_createhighlighter_isbase = false;
-    mutable bool ktextedit_mousepopupmenu_isbase = false;
-    mutable bool ktextedit_event_isbase = false;
-    mutable bool ktextedit_keypressevent_isbase = false;
-    mutable bool ktextedit_focusinevent_isbase = false;
-    mutable bool ktextedit_deletewordback_isbase = false;
-    mutable bool ktextedit_deletewordforward_isbase = false;
-    mutable bool ktextedit_contextmenuevent_isbase = false;
-    mutable bool ktextedit_loadresource_isbase = false;
-    mutable bool ktextedit_inputmethodquery_isbase = false;
-    mutable bool ktextedit_timerevent_isbase = false;
-    mutable bool ktextedit_keyreleaseevent_isbase = false;
-    mutable bool ktextedit_resizeevent_isbase = false;
-    mutable bool ktextedit_paintevent_isbase = false;
-    mutable bool ktextedit_mousepressevent_isbase = false;
-    mutable bool ktextedit_mousemoveevent_isbase = false;
-    mutable bool ktextedit_mousereleaseevent_isbase = false;
-    mutable bool ktextedit_mousedoubleclickevent_isbase = false;
-    mutable bool ktextedit_focusnextprevchild_isbase = false;
-    mutable bool ktextedit_dragenterevent_isbase = false;
-    mutable bool ktextedit_dragleaveevent_isbase = false;
-    mutable bool ktextedit_dragmoveevent_isbase = false;
-    mutable bool ktextedit_dropevent_isbase = false;
-    mutable bool ktextedit_focusoutevent_isbase = false;
-    mutable bool ktextedit_showevent_isbase = false;
-    mutable bool ktextedit_changeevent_isbase = false;
-    mutable bool ktextedit_wheelevent_isbase = false;
-    mutable bool ktextedit_createmimedatafromselection_isbase = false;
-    mutable bool ktextedit_caninsertfrommimedata_isbase = false;
-    mutable bool ktextedit_insertfrommimedata_isbase = false;
-    mutable bool ktextedit_inputmethodevent_isbase = false;
-    mutable bool ktextedit_scrollcontentsby_isbase = false;
-    mutable bool ktextedit_dosettextcursor_isbase = false;
-    mutable bool ktextedit_minimumsizehint_isbase = false;
-    mutable bool ktextedit_sizehint_isbase = false;
-    mutable bool ktextedit_setupviewport_isbase = false;
-    mutable bool ktextedit_eventfilter_isbase = false;
-    mutable bool ktextedit_viewportevent_isbase = false;
-    mutable bool ktextedit_viewportsizehint_isbase = false;
-    mutable bool ktextedit_initstyleoption_isbase = false;
-    mutable bool ktextedit_devtype_isbase = false;
-    mutable bool ktextedit_setvisible_isbase = false;
-    mutable bool ktextedit_heightforwidth_isbase = false;
-    mutable bool ktextedit_hasheightforwidth_isbase = false;
-    mutable bool ktextedit_paintengine_isbase = false;
-    mutable bool ktextedit_enterevent_isbase = false;
-    mutable bool ktextedit_leaveevent_isbase = false;
-    mutable bool ktextedit_moveevent_isbase = false;
-    mutable bool ktextedit_closeevent_isbase = false;
-    mutable bool ktextedit_tabletevent_isbase = false;
-    mutable bool ktextedit_actionevent_isbase = false;
-    mutable bool ktextedit_hideevent_isbase = false;
-    mutable bool ktextedit_nativeevent_isbase = false;
-    mutable bool ktextedit_metric_isbase = false;
-    mutable bool ktextedit_initpainter_isbase = false;
-    mutable bool ktextedit_redirected_isbase = false;
-    mutable bool ktextedit_sharedpainter_isbase = false;
-    mutable bool ktextedit_childevent_isbase = false;
-    mutable bool ktextedit_customevent_isbase = false;
-    mutable bool ktextedit_connectnotify_isbase = false;
-    mutable bool ktextedit_disconnectnotify_isbase = false;
-    mutable bool ktextedit_slotdoreplace_isbase = false;
-    mutable bool ktextedit_slotreplacenext_isbase = false;
-    mutable bool ktextedit_slotdofind_isbase = false;
-    mutable bool ktextedit_slotfind_isbase = false;
-    mutable bool ktextedit_slotfindnext_isbase = false;
-    mutable bool ktextedit_slotfindprevious_isbase = false;
-    mutable bool ktextedit_slotreplace_isbase = false;
-    mutable bool ktextedit_slotspeaktext_isbase = false;
-    mutable bool ktextedit_zoominf_isbase = false;
-    mutable bool ktextedit_setviewportmargins_isbase = false;
-    mutable bool ktextedit_viewportmargins_isbase = false;
-    mutable bool ktextedit_drawframe_isbase = false;
-    mutable bool ktextedit_updatemicrofocus_isbase = false;
-    mutable bool ktextedit_create_isbase = false;
-    mutable bool ktextedit_destroy_isbase = false;
-    mutable bool ktextedit_focusnextchild_isbase = false;
-    mutable bool ktextedit_focuspreviouschild_isbase = false;
-    mutable bool ktextedit_sender_isbase = false;
-    mutable bool ktextedit_sendersignalindex_isbase = false;
-    mutable bool ktextedit_receivers_isbase = false;
-    mutable bool ktextedit_issignalconnected_isbase = false;
-    mutable bool ktextedit_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KTextEdit {
+        using KTextEdit::actionEvent;
+        using KTextEdit::canInsertFromMimeData;
+        using KTextEdit::changeEvent;
+        using KTextEdit::childEvent;
+        using KTextEdit::closeEvent;
+        using KTextEdit::connectNotify;
+        using KTextEdit::contextMenuEvent;
+        using KTextEdit::createMimeDataFromSelection;
+        using KTextEdit::customEvent;
+        using KTextEdit::deleteWordBack;
+        using KTextEdit::deleteWordForward;
+        using KTextEdit::disconnectNotify;
+        using KTextEdit::doSetTextCursor;
+        using KTextEdit::dragEnterEvent;
+        using KTextEdit::dragLeaveEvent;
+        using KTextEdit::dragMoveEvent;
+        using KTextEdit::dropEvent;
+        using KTextEdit::enterEvent;
+        using KTextEdit::event;
+        using KTextEdit::eventFilter;
+        using KTextEdit::focusInEvent;
+        using KTextEdit::focusNextPrevChild;
+        using KTextEdit::focusOutEvent;
+        using KTextEdit::hideEvent;
+        using KTextEdit::initPainter;
+        using KTextEdit::initStyleOption;
+        using KTextEdit::inputMethodEvent;
+        using KTextEdit::insertFromMimeData;
+        using KTextEdit::keyPressEvent;
+        using KTextEdit::keyReleaseEvent;
+        using KTextEdit::leaveEvent;
+        using KTextEdit::metric;
+        using KTextEdit::mouseDoubleClickEvent;
+        using KTextEdit::mouseMoveEvent;
+        using KTextEdit::mousePressEvent;
+        using KTextEdit::mouseReleaseEvent;
+        using KTextEdit::moveEvent;
+        using KTextEdit::nativeEvent;
+        using KTextEdit::paintEvent;
+        using KTextEdit::redirected;
+        using KTextEdit::resizeEvent;
+        using KTextEdit::scrollContentsBy;
+        using KTextEdit::sharedPainter;
+        using KTextEdit::showEvent;
+        using KTextEdit::tabletEvent;
+        using KTextEdit::timerEvent;
+        using KTextEdit::viewportEvent;
+        using KTextEdit::viewportSizeHint;
+        using KTextEdit::wheelEvent;
+    };
 
-  public:
     VirtualKTextEdit(QWidget* parent) : KTextEdit(parent) {};
     VirtualKTextEdit(const QString& text) : KTextEdit(text) {};
     VirtualKTextEdit() : KTextEdit() {};
     VirtualKTextEdit(const QString& text, QWidget* parent) : KTextEdit(text, parent) {};
 
-    // Callback setters
-    inline void setKTextEdit_MetaObject_Callback(KTextEdit_MetaObject_Callback cb) { ktextedit_metaobject_callback = cb; }
-    inline void setKTextEdit_Metacast_Callback(KTextEdit_Metacast_Callback cb) { ktextedit_metacast_callback = cb; }
-    inline void setKTextEdit_Metacall_Callback(KTextEdit_Metacall_Callback cb) { ktextedit_metacall_callback = cb; }
-    inline void setKTextEdit_SetReadOnly_Callback(KTextEdit_SetReadOnly_Callback cb) { ktextedit_setreadonly_callback = cb; }
-    inline void setKTextEdit_SetCheckSpellingEnabled_Callback(KTextEdit_SetCheckSpellingEnabled_Callback cb) { ktextedit_setcheckspellingenabled_callback = cb; }
-    inline void setKTextEdit_CheckSpellingEnabled_Callback(KTextEdit_CheckSpellingEnabled_Callback cb) { ktextedit_checkspellingenabled_callback = cb; }
-    inline void setKTextEdit_ShouldBlockBeSpellChecked_Callback(KTextEdit_ShouldBlockBeSpellChecked_Callback cb) { ktextedit_shouldblockbespellchecked_callback = cb; }
-    inline void setKTextEdit_CreateHighlighter_Callback(KTextEdit_CreateHighlighter_Callback cb) { ktextedit_createhighlighter_callback = cb; }
-    inline void setKTextEdit_MousePopupMenu_Callback(KTextEdit_MousePopupMenu_Callback cb) { ktextedit_mousepopupmenu_callback = cb; }
-    inline void setKTextEdit_Event_Callback(KTextEdit_Event_Callback cb) { ktextedit_event_callback = cb; }
-    inline void setKTextEdit_KeyPressEvent_Callback(KTextEdit_KeyPressEvent_Callback cb) { ktextedit_keypressevent_callback = cb; }
-    inline void setKTextEdit_FocusInEvent_Callback(KTextEdit_FocusInEvent_Callback cb) { ktextedit_focusinevent_callback = cb; }
-    inline void setKTextEdit_DeleteWordBack_Callback(KTextEdit_DeleteWordBack_Callback cb) { ktextedit_deletewordback_callback = cb; }
-    inline void setKTextEdit_DeleteWordForward_Callback(KTextEdit_DeleteWordForward_Callback cb) { ktextedit_deletewordforward_callback = cb; }
-    inline void setKTextEdit_ContextMenuEvent_Callback(KTextEdit_ContextMenuEvent_Callback cb) { ktextedit_contextmenuevent_callback = cb; }
-    inline void setKTextEdit_LoadResource_Callback(KTextEdit_LoadResource_Callback cb) { ktextedit_loadresource_callback = cb; }
-    inline void setKTextEdit_InputMethodQuery_Callback(KTextEdit_InputMethodQuery_Callback cb) { ktextedit_inputmethodquery_callback = cb; }
-    inline void setKTextEdit_TimerEvent_Callback(KTextEdit_TimerEvent_Callback cb) { ktextedit_timerevent_callback = cb; }
-    inline void setKTextEdit_KeyReleaseEvent_Callback(KTextEdit_KeyReleaseEvent_Callback cb) { ktextedit_keyreleaseevent_callback = cb; }
-    inline void setKTextEdit_ResizeEvent_Callback(KTextEdit_ResizeEvent_Callback cb) { ktextedit_resizeevent_callback = cb; }
-    inline void setKTextEdit_PaintEvent_Callback(KTextEdit_PaintEvent_Callback cb) { ktextedit_paintevent_callback = cb; }
-    inline void setKTextEdit_MousePressEvent_Callback(KTextEdit_MousePressEvent_Callback cb) { ktextedit_mousepressevent_callback = cb; }
-    inline void setKTextEdit_MouseMoveEvent_Callback(KTextEdit_MouseMoveEvent_Callback cb) { ktextedit_mousemoveevent_callback = cb; }
-    inline void setKTextEdit_MouseReleaseEvent_Callback(KTextEdit_MouseReleaseEvent_Callback cb) { ktextedit_mousereleaseevent_callback = cb; }
-    inline void setKTextEdit_MouseDoubleClickEvent_Callback(KTextEdit_MouseDoubleClickEvent_Callback cb) { ktextedit_mousedoubleclickevent_callback = cb; }
-    inline void setKTextEdit_FocusNextPrevChild_Callback(KTextEdit_FocusNextPrevChild_Callback cb) { ktextedit_focusnextprevchild_callback = cb; }
-    inline void setKTextEdit_DragEnterEvent_Callback(KTextEdit_DragEnterEvent_Callback cb) { ktextedit_dragenterevent_callback = cb; }
-    inline void setKTextEdit_DragLeaveEvent_Callback(KTextEdit_DragLeaveEvent_Callback cb) { ktextedit_dragleaveevent_callback = cb; }
-    inline void setKTextEdit_DragMoveEvent_Callback(KTextEdit_DragMoveEvent_Callback cb) { ktextedit_dragmoveevent_callback = cb; }
-    inline void setKTextEdit_DropEvent_Callback(KTextEdit_DropEvent_Callback cb) { ktextedit_dropevent_callback = cb; }
-    inline void setKTextEdit_FocusOutEvent_Callback(KTextEdit_FocusOutEvent_Callback cb) { ktextedit_focusoutevent_callback = cb; }
-    inline void setKTextEdit_ShowEvent_Callback(KTextEdit_ShowEvent_Callback cb) { ktextedit_showevent_callback = cb; }
-    inline void setKTextEdit_ChangeEvent_Callback(KTextEdit_ChangeEvent_Callback cb) { ktextedit_changeevent_callback = cb; }
-    inline void setKTextEdit_WheelEvent_Callback(KTextEdit_WheelEvent_Callback cb) { ktextedit_wheelevent_callback = cb; }
-    inline void setKTextEdit_CreateMimeDataFromSelection_Callback(KTextEdit_CreateMimeDataFromSelection_Callback cb) { ktextedit_createmimedatafromselection_callback = cb; }
-    inline void setKTextEdit_CanInsertFromMimeData_Callback(KTextEdit_CanInsertFromMimeData_Callback cb) { ktextedit_caninsertfrommimedata_callback = cb; }
-    inline void setKTextEdit_InsertFromMimeData_Callback(KTextEdit_InsertFromMimeData_Callback cb) { ktextedit_insertfrommimedata_callback = cb; }
-    inline void setKTextEdit_InputMethodEvent_Callback(KTextEdit_InputMethodEvent_Callback cb) { ktextedit_inputmethodevent_callback = cb; }
-    inline void setKTextEdit_ScrollContentsBy_Callback(KTextEdit_ScrollContentsBy_Callback cb) { ktextedit_scrollcontentsby_callback = cb; }
-    inline void setKTextEdit_DoSetTextCursor_Callback(KTextEdit_DoSetTextCursor_Callback cb) { ktextedit_dosettextcursor_callback = cb; }
-    inline void setKTextEdit_MinimumSizeHint_Callback(KTextEdit_MinimumSizeHint_Callback cb) { ktextedit_minimumsizehint_callback = cb; }
-    inline void setKTextEdit_SizeHint_Callback(KTextEdit_SizeHint_Callback cb) { ktextedit_sizehint_callback = cb; }
-    inline void setKTextEdit_SetupViewport_Callback(KTextEdit_SetupViewport_Callback cb) { ktextedit_setupviewport_callback = cb; }
-    inline void setKTextEdit_EventFilter_Callback(KTextEdit_EventFilter_Callback cb) { ktextedit_eventfilter_callback = cb; }
-    inline void setKTextEdit_ViewportEvent_Callback(KTextEdit_ViewportEvent_Callback cb) { ktextedit_viewportevent_callback = cb; }
-    inline void setKTextEdit_ViewportSizeHint_Callback(KTextEdit_ViewportSizeHint_Callback cb) { ktextedit_viewportsizehint_callback = cb; }
-    inline void setKTextEdit_InitStyleOption_Callback(KTextEdit_InitStyleOption_Callback cb) { ktextedit_initstyleoption_callback = cb; }
-    inline void setKTextEdit_DevType_Callback(KTextEdit_DevType_Callback cb) { ktextedit_devtype_callback = cb; }
-    inline void setKTextEdit_SetVisible_Callback(KTextEdit_SetVisible_Callback cb) { ktextedit_setvisible_callback = cb; }
-    inline void setKTextEdit_HeightForWidth_Callback(KTextEdit_HeightForWidth_Callback cb) { ktextedit_heightforwidth_callback = cb; }
-    inline void setKTextEdit_HasHeightForWidth_Callback(KTextEdit_HasHeightForWidth_Callback cb) { ktextedit_hasheightforwidth_callback = cb; }
-    inline void setKTextEdit_PaintEngine_Callback(KTextEdit_PaintEngine_Callback cb) { ktextedit_paintengine_callback = cb; }
-    inline void setKTextEdit_EnterEvent_Callback(KTextEdit_EnterEvent_Callback cb) { ktextedit_enterevent_callback = cb; }
-    inline void setKTextEdit_LeaveEvent_Callback(KTextEdit_LeaveEvent_Callback cb) { ktextedit_leaveevent_callback = cb; }
-    inline void setKTextEdit_MoveEvent_Callback(KTextEdit_MoveEvent_Callback cb) { ktextedit_moveevent_callback = cb; }
-    inline void setKTextEdit_CloseEvent_Callback(KTextEdit_CloseEvent_Callback cb) { ktextedit_closeevent_callback = cb; }
-    inline void setKTextEdit_TabletEvent_Callback(KTextEdit_TabletEvent_Callback cb) { ktextedit_tabletevent_callback = cb; }
-    inline void setKTextEdit_ActionEvent_Callback(KTextEdit_ActionEvent_Callback cb) { ktextedit_actionevent_callback = cb; }
-    inline void setKTextEdit_HideEvent_Callback(KTextEdit_HideEvent_Callback cb) { ktextedit_hideevent_callback = cb; }
-    inline void setKTextEdit_NativeEvent_Callback(KTextEdit_NativeEvent_Callback cb) { ktextedit_nativeevent_callback = cb; }
-    inline void setKTextEdit_Metric_Callback(KTextEdit_Metric_Callback cb) { ktextedit_metric_callback = cb; }
-    inline void setKTextEdit_InitPainter_Callback(KTextEdit_InitPainter_Callback cb) { ktextedit_initpainter_callback = cb; }
-    inline void setKTextEdit_Redirected_Callback(KTextEdit_Redirected_Callback cb) { ktextedit_redirected_callback = cb; }
-    inline void setKTextEdit_SharedPainter_Callback(KTextEdit_SharedPainter_Callback cb) { ktextedit_sharedpainter_callback = cb; }
-    inline void setKTextEdit_ChildEvent_Callback(KTextEdit_ChildEvent_Callback cb) { ktextedit_childevent_callback = cb; }
-    inline void setKTextEdit_CustomEvent_Callback(KTextEdit_CustomEvent_Callback cb) { ktextedit_customevent_callback = cb; }
-    inline void setKTextEdit_ConnectNotify_Callback(KTextEdit_ConnectNotify_Callback cb) { ktextedit_connectnotify_callback = cb; }
-    inline void setKTextEdit_DisconnectNotify_Callback(KTextEdit_DisconnectNotify_Callback cb) { ktextedit_disconnectnotify_callback = cb; }
-    inline void setKTextEdit_SlotDoReplace_Callback(KTextEdit_SlotDoReplace_Callback cb) { ktextedit_slotdoreplace_callback = cb; }
-    inline void setKTextEdit_SlotReplaceNext_Callback(KTextEdit_SlotReplaceNext_Callback cb) { ktextedit_slotreplacenext_callback = cb; }
-    inline void setKTextEdit_SlotDoFind_Callback(KTextEdit_SlotDoFind_Callback cb) { ktextedit_slotdofind_callback = cb; }
-    inline void setKTextEdit_SlotFind_Callback(KTextEdit_SlotFind_Callback cb) { ktextedit_slotfind_callback = cb; }
-    inline void setKTextEdit_SlotFindNext_Callback(KTextEdit_SlotFindNext_Callback cb) { ktextedit_slotfindnext_callback = cb; }
-    inline void setKTextEdit_SlotFindPrevious_Callback(KTextEdit_SlotFindPrevious_Callback cb) { ktextedit_slotfindprevious_callback = cb; }
-    inline void setKTextEdit_SlotReplace_Callback(KTextEdit_SlotReplace_Callback cb) { ktextedit_slotreplace_callback = cb; }
-    inline void setKTextEdit_SlotSpeakText_Callback(KTextEdit_SlotSpeakText_Callback cb) { ktextedit_slotspeaktext_callback = cb; }
-    inline void setKTextEdit_ZoomInF_Callback(KTextEdit_ZoomInF_Callback cb) { ktextedit_zoominf_callback = cb; }
-    inline void setKTextEdit_SetViewportMargins_Callback(KTextEdit_SetViewportMargins_Callback cb) { ktextedit_setviewportmargins_callback = cb; }
-    inline void setKTextEdit_ViewportMargins_Callback(KTextEdit_ViewportMargins_Callback cb) { ktextedit_viewportmargins_callback = cb; }
-    inline void setKTextEdit_DrawFrame_Callback(KTextEdit_DrawFrame_Callback cb) { ktextedit_drawframe_callback = cb; }
-    inline void setKTextEdit_UpdateMicroFocus_Callback(KTextEdit_UpdateMicroFocus_Callback cb) { ktextedit_updatemicrofocus_callback = cb; }
-    inline void setKTextEdit_Create_Callback(KTextEdit_Create_Callback cb) { ktextedit_create_callback = cb; }
-    inline void setKTextEdit_Destroy_Callback(KTextEdit_Destroy_Callback cb) { ktextedit_destroy_callback = cb; }
-    inline void setKTextEdit_FocusNextChild_Callback(KTextEdit_FocusNextChild_Callback cb) { ktextedit_focusnextchild_callback = cb; }
-    inline void setKTextEdit_FocusPreviousChild_Callback(KTextEdit_FocusPreviousChild_Callback cb) { ktextedit_focuspreviouschild_callback = cb; }
-    inline void setKTextEdit_Sender_Callback(KTextEdit_Sender_Callback cb) { ktextedit_sender_callback = cb; }
-    inline void setKTextEdit_SenderSignalIndex_Callback(KTextEdit_SenderSignalIndex_Callback cb) { ktextedit_sendersignalindex_callback = cb; }
-    inline void setKTextEdit_Receivers_Callback(KTextEdit_Receivers_Callback cb) { ktextedit_receivers_callback = cb; }
-    inline void setKTextEdit_IsSignalConnected_Callback(KTextEdit_IsSignalConnected_Callback cb) { ktextedit_issignalconnected_callback = cb; }
-    inline void setKTextEdit_GetDecodedMetricF_Callback(KTextEdit_GetDecodedMetricF_Callback cb) { ktextedit_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKTextEdit_MetaObject_IsBase(bool value) const { ktextedit_metaobject_isbase = value; }
-    inline void setKTextEdit_Metacast_IsBase(bool value) const { ktextedit_metacast_isbase = value; }
-    inline void setKTextEdit_Metacall_IsBase(bool value) const { ktextedit_metacall_isbase = value; }
-    inline void setKTextEdit_SetReadOnly_IsBase(bool value) const { ktextedit_setreadonly_isbase = value; }
-    inline void setKTextEdit_SetCheckSpellingEnabled_IsBase(bool value) const { ktextedit_setcheckspellingenabled_isbase = value; }
-    inline void setKTextEdit_CheckSpellingEnabled_IsBase(bool value) const { ktextedit_checkspellingenabled_isbase = value; }
-    inline void setKTextEdit_ShouldBlockBeSpellChecked_IsBase(bool value) const { ktextedit_shouldblockbespellchecked_isbase = value; }
-    inline void setKTextEdit_CreateHighlighter_IsBase(bool value) const { ktextedit_createhighlighter_isbase = value; }
-    inline void setKTextEdit_MousePopupMenu_IsBase(bool value) const { ktextedit_mousepopupmenu_isbase = value; }
-    inline void setKTextEdit_Event_IsBase(bool value) const { ktextedit_event_isbase = value; }
-    inline void setKTextEdit_KeyPressEvent_IsBase(bool value) const { ktextedit_keypressevent_isbase = value; }
-    inline void setKTextEdit_FocusInEvent_IsBase(bool value) const { ktextedit_focusinevent_isbase = value; }
-    inline void setKTextEdit_DeleteWordBack_IsBase(bool value) const { ktextedit_deletewordback_isbase = value; }
-    inline void setKTextEdit_DeleteWordForward_IsBase(bool value) const { ktextedit_deletewordforward_isbase = value; }
-    inline void setKTextEdit_ContextMenuEvent_IsBase(bool value) const { ktextedit_contextmenuevent_isbase = value; }
-    inline void setKTextEdit_LoadResource_IsBase(bool value) const { ktextedit_loadresource_isbase = value; }
-    inline void setKTextEdit_InputMethodQuery_IsBase(bool value) const { ktextedit_inputmethodquery_isbase = value; }
-    inline void setKTextEdit_TimerEvent_IsBase(bool value) const { ktextedit_timerevent_isbase = value; }
-    inline void setKTextEdit_KeyReleaseEvent_IsBase(bool value) const { ktextedit_keyreleaseevent_isbase = value; }
-    inline void setKTextEdit_ResizeEvent_IsBase(bool value) const { ktextedit_resizeevent_isbase = value; }
-    inline void setKTextEdit_PaintEvent_IsBase(bool value) const { ktextedit_paintevent_isbase = value; }
-    inline void setKTextEdit_MousePressEvent_IsBase(bool value) const { ktextedit_mousepressevent_isbase = value; }
-    inline void setKTextEdit_MouseMoveEvent_IsBase(bool value) const { ktextedit_mousemoveevent_isbase = value; }
-    inline void setKTextEdit_MouseReleaseEvent_IsBase(bool value) const { ktextedit_mousereleaseevent_isbase = value; }
-    inline void setKTextEdit_MouseDoubleClickEvent_IsBase(bool value) const { ktextedit_mousedoubleclickevent_isbase = value; }
-    inline void setKTextEdit_FocusNextPrevChild_IsBase(bool value) const { ktextedit_focusnextprevchild_isbase = value; }
-    inline void setKTextEdit_DragEnterEvent_IsBase(bool value) const { ktextedit_dragenterevent_isbase = value; }
-    inline void setKTextEdit_DragLeaveEvent_IsBase(bool value) const { ktextedit_dragleaveevent_isbase = value; }
-    inline void setKTextEdit_DragMoveEvent_IsBase(bool value) const { ktextedit_dragmoveevent_isbase = value; }
-    inline void setKTextEdit_DropEvent_IsBase(bool value) const { ktextedit_dropevent_isbase = value; }
-    inline void setKTextEdit_FocusOutEvent_IsBase(bool value) const { ktextedit_focusoutevent_isbase = value; }
-    inline void setKTextEdit_ShowEvent_IsBase(bool value) const { ktextedit_showevent_isbase = value; }
-    inline void setKTextEdit_ChangeEvent_IsBase(bool value) const { ktextedit_changeevent_isbase = value; }
-    inline void setKTextEdit_WheelEvent_IsBase(bool value) const { ktextedit_wheelevent_isbase = value; }
-    inline void setKTextEdit_CreateMimeDataFromSelection_IsBase(bool value) const { ktextedit_createmimedatafromselection_isbase = value; }
-    inline void setKTextEdit_CanInsertFromMimeData_IsBase(bool value) const { ktextedit_caninsertfrommimedata_isbase = value; }
-    inline void setKTextEdit_InsertFromMimeData_IsBase(bool value) const { ktextedit_insertfrommimedata_isbase = value; }
-    inline void setKTextEdit_InputMethodEvent_IsBase(bool value) const { ktextedit_inputmethodevent_isbase = value; }
-    inline void setKTextEdit_ScrollContentsBy_IsBase(bool value) const { ktextedit_scrollcontentsby_isbase = value; }
-    inline void setKTextEdit_DoSetTextCursor_IsBase(bool value) const { ktextedit_dosettextcursor_isbase = value; }
-    inline void setKTextEdit_MinimumSizeHint_IsBase(bool value) const { ktextedit_minimumsizehint_isbase = value; }
-    inline void setKTextEdit_SizeHint_IsBase(bool value) const { ktextedit_sizehint_isbase = value; }
-    inline void setKTextEdit_SetupViewport_IsBase(bool value) const { ktextedit_setupviewport_isbase = value; }
-    inline void setKTextEdit_EventFilter_IsBase(bool value) const { ktextedit_eventfilter_isbase = value; }
-    inline void setKTextEdit_ViewportEvent_IsBase(bool value) const { ktextedit_viewportevent_isbase = value; }
-    inline void setKTextEdit_ViewportSizeHint_IsBase(bool value) const { ktextedit_viewportsizehint_isbase = value; }
-    inline void setKTextEdit_InitStyleOption_IsBase(bool value) const { ktextedit_initstyleoption_isbase = value; }
-    inline void setKTextEdit_DevType_IsBase(bool value) const { ktextedit_devtype_isbase = value; }
-    inline void setKTextEdit_SetVisible_IsBase(bool value) const { ktextedit_setvisible_isbase = value; }
-    inline void setKTextEdit_HeightForWidth_IsBase(bool value) const { ktextedit_heightforwidth_isbase = value; }
-    inline void setKTextEdit_HasHeightForWidth_IsBase(bool value) const { ktextedit_hasheightforwidth_isbase = value; }
-    inline void setKTextEdit_PaintEngine_IsBase(bool value) const { ktextedit_paintengine_isbase = value; }
-    inline void setKTextEdit_EnterEvent_IsBase(bool value) const { ktextedit_enterevent_isbase = value; }
-    inline void setKTextEdit_LeaveEvent_IsBase(bool value) const { ktextedit_leaveevent_isbase = value; }
-    inline void setKTextEdit_MoveEvent_IsBase(bool value) const { ktextedit_moveevent_isbase = value; }
-    inline void setKTextEdit_CloseEvent_IsBase(bool value) const { ktextedit_closeevent_isbase = value; }
-    inline void setKTextEdit_TabletEvent_IsBase(bool value) const { ktextedit_tabletevent_isbase = value; }
-    inline void setKTextEdit_ActionEvent_IsBase(bool value) const { ktextedit_actionevent_isbase = value; }
-    inline void setKTextEdit_HideEvent_IsBase(bool value) const { ktextedit_hideevent_isbase = value; }
-    inline void setKTextEdit_NativeEvent_IsBase(bool value) const { ktextedit_nativeevent_isbase = value; }
-    inline void setKTextEdit_Metric_IsBase(bool value) const { ktextedit_metric_isbase = value; }
-    inline void setKTextEdit_InitPainter_IsBase(bool value) const { ktextedit_initpainter_isbase = value; }
-    inline void setKTextEdit_Redirected_IsBase(bool value) const { ktextedit_redirected_isbase = value; }
-    inline void setKTextEdit_SharedPainter_IsBase(bool value) const { ktextedit_sharedpainter_isbase = value; }
-    inline void setKTextEdit_ChildEvent_IsBase(bool value) const { ktextedit_childevent_isbase = value; }
-    inline void setKTextEdit_CustomEvent_IsBase(bool value) const { ktextedit_customevent_isbase = value; }
-    inline void setKTextEdit_ConnectNotify_IsBase(bool value) const { ktextedit_connectnotify_isbase = value; }
-    inline void setKTextEdit_DisconnectNotify_IsBase(bool value) const { ktextedit_disconnectnotify_isbase = value; }
-    inline void setKTextEdit_SlotDoReplace_IsBase(bool value) const { ktextedit_slotdoreplace_isbase = value; }
-    inline void setKTextEdit_SlotReplaceNext_IsBase(bool value) const { ktextedit_slotreplacenext_isbase = value; }
-    inline void setKTextEdit_SlotDoFind_IsBase(bool value) const { ktextedit_slotdofind_isbase = value; }
-    inline void setKTextEdit_SlotFind_IsBase(bool value) const { ktextedit_slotfind_isbase = value; }
-    inline void setKTextEdit_SlotFindNext_IsBase(bool value) const { ktextedit_slotfindnext_isbase = value; }
-    inline void setKTextEdit_SlotFindPrevious_IsBase(bool value) const { ktextedit_slotfindprevious_isbase = value; }
-    inline void setKTextEdit_SlotReplace_IsBase(bool value) const { ktextedit_slotreplace_isbase = value; }
-    inline void setKTextEdit_SlotSpeakText_IsBase(bool value) const { ktextedit_slotspeaktext_isbase = value; }
-    inline void setKTextEdit_ZoomInF_IsBase(bool value) const { ktextedit_zoominf_isbase = value; }
-    inline void setKTextEdit_SetViewportMargins_IsBase(bool value) const { ktextedit_setviewportmargins_isbase = value; }
-    inline void setKTextEdit_ViewportMargins_IsBase(bool value) const { ktextedit_viewportmargins_isbase = value; }
-    inline void setKTextEdit_DrawFrame_IsBase(bool value) const { ktextedit_drawframe_isbase = value; }
-    inline void setKTextEdit_UpdateMicroFocus_IsBase(bool value) const { ktextedit_updatemicrofocus_isbase = value; }
-    inline void setKTextEdit_Create_IsBase(bool value) const { ktextedit_create_isbase = value; }
-    inline void setKTextEdit_Destroy_IsBase(bool value) const { ktextedit_destroy_isbase = value; }
-    inline void setKTextEdit_FocusNextChild_IsBase(bool value) const { ktextedit_focusnextchild_isbase = value; }
-    inline void setKTextEdit_FocusPreviousChild_IsBase(bool value) const { ktextedit_focuspreviouschild_isbase = value; }
-    inline void setKTextEdit_Sender_IsBase(bool value) const { ktextedit_sender_isbase = value; }
-    inline void setKTextEdit_SenderSignalIndex_IsBase(bool value) const { ktextedit_sendersignalindex_isbase = value; }
-    inline void setKTextEdit_Receivers_IsBase(bool value) const { ktextedit_receivers_isbase = value; }
-    inline void setKTextEdit_IsSignalConnected_IsBase(bool value) const { ktextedit_issignalconnected_isbase = value; }
-    inline void setKTextEdit_GetDecodedMetricF_IsBase(bool value) const { ktextedit_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (ktextedit_metaobject_isbase) {
-            ktextedit_metaobject_isbase = false;
-            return KTextEdit::metaObject();
-        }
-        auto metaobject_cb = ktextedit_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (ktextedit_metaobject_callback) {
+            QMetaObject* callback_ret = ktextedit_metaobject_callback(this);
             return callback_ret;
         }
         return KTextEdit::metaObject();
@@ -499,14 +243,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (ktextedit_metacast_isbase) {
-            ktextedit_metacast_isbase = false;
-            return KTextEdit::qt_metacast(param1);
-        }
-        auto metacast_cb = ktextedit_metacast_callback;
-        if (metacast_cb) {
+        if (ktextedit_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = ktextedit_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEdit::qt_metacast(param1);
@@ -514,16 +253,11 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (ktextedit_metacall_isbase) {
-            ktextedit_metacall_isbase = false;
-            return KTextEdit::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = ktextedit_metacall_callback;
-        if (metacall_cb) {
+        if (ktextedit_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = ktextedit_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KTextEdit::qt_metacall(param1, param2, param3);
@@ -531,15 +265,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void setReadOnly(bool readOnly) override {
-        if (ktextedit_setreadonly_isbase) {
-            ktextedit_setreadonly_isbase = false;
-            KTextEdit::setReadOnly(readOnly);
-            return;
-        }
-        auto setreadonly_cb = ktextedit_setreadonly_callback;
-        if (setreadonly_cb) {
+        if (ktextedit_setreadonly_callback) {
             bool cbval1 = readOnly;
-            setreadonly_cb(this, cbval1);
+            ktextedit_setreadonly_callback(this, cbval1);
             return;
         }
         KTextEdit::setReadOnly(readOnly);
@@ -547,15 +275,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void setCheckSpellingEnabled(bool check) override {
-        if (ktextedit_setcheckspellingenabled_isbase) {
-            ktextedit_setcheckspellingenabled_isbase = false;
-            KTextEdit::setCheckSpellingEnabled(check);
-            return;
-        }
-        auto setcheckspellingenabled_cb = ktextedit_setcheckspellingenabled_callback;
-        if (setcheckspellingenabled_cb) {
+        if (ktextedit_setcheckspellingenabled_callback) {
             bool cbval1 = check;
-            setcheckspellingenabled_cb(this, cbval1);
+            ktextedit_setcheckspellingenabled_callback(this, cbval1);
             return;
         }
         KTextEdit::setCheckSpellingEnabled(check);
@@ -563,13 +285,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool checkSpellingEnabled() const override {
-        if (ktextedit_checkspellingenabled_isbase) {
-            ktextedit_checkspellingenabled_isbase = false;
-            return KTextEdit::checkSpellingEnabled();
-        }
-        auto checkspellingenabled_cb = ktextedit_checkspellingenabled_callback;
-        if (checkspellingenabled_cb) {
-            bool callback_ret = checkspellingenabled_cb();
+        if (ktextedit_checkspellingenabled_callback) {
+            bool callback_ret = ktextedit_checkspellingenabled_callback(this);
             return callback_ret;
         }
         return KTextEdit::checkSpellingEnabled();
@@ -577,12 +294,7 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool shouldBlockBeSpellChecked(const QString& block) const override {
-        if (ktextedit_shouldblockbespellchecked_isbase) {
-            ktextedit_shouldblockbespellchecked_isbase = false;
-            return KTextEdit::shouldBlockBeSpellChecked(block);
-        }
-        auto shouldblockbespellchecked_cb = ktextedit_shouldblockbespellchecked_callback;
-        if (shouldblockbespellchecked_cb) {
+        if (ktextedit_shouldblockbespellchecked_callback) {
             const auto block_ret = block;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray block_b = block_ret.toUtf8();
@@ -591,7 +303,7 @@ class VirtualKTextEdit final : public KTextEdit {
             memcpy((void*)block_str, block_b.data(), block_str_len);
             ((char*)block_str)[block_str_len] = '\0';
             const char* cbval1 = block_str;
-            bool callback_ret = shouldblockbespellchecked_cb(this, cbval1);
+            bool callback_ret = ktextedit_shouldblockbespellchecked_callback(this, cbval1);
             libqt_free(block_str);
             return callback_ret;
         }
@@ -600,14 +312,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void createHighlighter() override {
-        if (ktextedit_createhighlighter_isbase) {
-            ktextedit_createhighlighter_isbase = false;
-            KTextEdit::createHighlighter();
-            return;
-        }
-        auto createhighlighter_cb = ktextedit_createhighlighter_callback;
-        if (createhighlighter_cb) {
-            createhighlighter_cb();
+        if (ktextedit_createhighlighter_callback) {
+            ktextedit_createhighlighter_callback(this);
             return;
         }
         KTextEdit::createHighlighter();
@@ -615,13 +321,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QMenu* mousePopupMenu() override {
-        if (ktextedit_mousepopupmenu_isbase) {
-            ktextedit_mousepopupmenu_isbase = false;
-            return KTextEdit::mousePopupMenu();
-        }
-        auto mousepopupmenu_cb = ktextedit_mousepopupmenu_callback;
-        if (mousepopupmenu_cb) {
-            QMenu* callback_ret = mousepopupmenu_cb();
+        if (ktextedit_mousepopupmenu_callback) {
+            QMenu* callback_ret = ktextedit_mousepopupmenu_callback(this);
             return callback_ret;
         }
         return KTextEdit::mousePopupMenu();
@@ -629,14 +330,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (ktextedit_event_isbase) {
-            ktextedit_event_isbase = false;
-            return KTextEdit::event(param1);
-        }
-        auto event_cb = ktextedit_event_callback;
-        if (event_cb) {
+        if (ktextedit_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = ktextedit_event_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEdit::event(param1);
@@ -644,15 +340,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (ktextedit_keypressevent_isbase) {
-            ktextedit_keypressevent_isbase = false;
-            KTextEdit::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = ktextedit_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (ktextedit_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            ktextedit_keypressevent_callback(this, cbval1);
             return;
         }
         KTextEdit::keyPressEvent(param1);
@@ -660,15 +350,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* param1) override {
-        if (ktextedit_focusinevent_isbase) {
-            ktextedit_focusinevent_isbase = false;
-            KTextEdit::focusInEvent(param1);
-            return;
-        }
-        auto focusinevent_cb = ktextedit_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (ktextedit_focusinevent_callback) {
             QFocusEvent* cbval1 = param1;
-            focusinevent_cb(this, cbval1);
+            ktextedit_focusinevent_callback(this, cbval1);
             return;
         }
         KTextEdit::focusInEvent(param1);
@@ -676,14 +360,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void deleteWordBack() override {
-        if (ktextedit_deletewordback_isbase) {
-            ktextedit_deletewordback_isbase = false;
-            KTextEdit::deleteWordBack();
-            return;
-        }
-        auto deletewordback_cb = ktextedit_deletewordback_callback;
-        if (deletewordback_cb) {
-            deletewordback_cb();
+        if (ktextedit_deletewordback_callback) {
+            ktextedit_deletewordback_callback(this);
             return;
         }
         KTextEdit::deleteWordBack();
@@ -691,14 +369,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void deleteWordForward() override {
-        if (ktextedit_deletewordforward_isbase) {
-            ktextedit_deletewordforward_isbase = false;
-            KTextEdit::deleteWordForward();
-            return;
-        }
-        auto deletewordforward_cb = ktextedit_deletewordforward_callback;
-        if (deletewordforward_cb) {
-            deletewordforward_cb();
+        if (ktextedit_deletewordforward_callback) {
+            ktextedit_deletewordforward_callback(this);
             return;
         }
         KTextEdit::deleteWordForward();
@@ -706,15 +378,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (ktextedit_contextmenuevent_isbase) {
-            ktextedit_contextmenuevent_isbase = false;
-            KTextEdit::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = ktextedit_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (ktextedit_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            ktextedit_contextmenuevent_callback(this, cbval1);
             return;
         }
         KTextEdit::contextMenuEvent(param1);
@@ -722,17 +388,12 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant loadResource(int typeVal, const QUrl& name) override {
-        if (ktextedit_loadresource_isbase) {
-            ktextedit_loadresource_isbase = false;
-            return KTextEdit::loadResource(typeVal, name);
-        }
-        auto loadresource_cb = ktextedit_loadresource_callback;
-        if (loadresource_cb) {
+        if (ktextedit_loadresource_callback) {
             int cbval1 = typeVal;
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
-            QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
+            QVariant* callback_ret = ktextedit_loadresource_callback(this, cbval1, cbval2);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -742,14 +403,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery property) const override {
-        if (ktextedit_inputmethodquery_isbase) {
-            ktextedit_inputmethodquery_isbase = false;
-            return KTextEdit::inputMethodQuery(property);
-        }
-        auto inputmethodquery_cb = ktextedit_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (ktextedit_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(property);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = ktextedit_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -759,15 +415,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* e) override {
-        if (ktextedit_timerevent_isbase) {
-            ktextedit_timerevent_isbase = false;
-            KTextEdit::timerEvent(e);
-            return;
-        }
-        auto timerevent_cb = ktextedit_timerevent_callback;
-        if (timerevent_cb) {
+        if (ktextedit_timerevent_callback) {
             QTimerEvent* cbval1 = e;
-            timerevent_cb(this, cbval1);
+            ktextedit_timerevent_callback(this, cbval1);
             return;
         }
         KTextEdit::timerEvent(e);
@@ -775,15 +425,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* e) override {
-        if (ktextedit_keyreleaseevent_isbase) {
-            ktextedit_keyreleaseevent_isbase = false;
-            KTextEdit::keyReleaseEvent(e);
-            return;
-        }
-        auto keyreleaseevent_cb = ktextedit_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (ktextedit_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = e;
-            keyreleaseevent_cb(this, cbval1);
+            ktextedit_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KTextEdit::keyReleaseEvent(e);
@@ -791,15 +435,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* e) override {
-        if (ktextedit_resizeevent_isbase) {
-            ktextedit_resizeevent_isbase = false;
-            KTextEdit::resizeEvent(e);
-            return;
-        }
-        auto resizeevent_cb = ktextedit_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (ktextedit_resizeevent_callback) {
             QResizeEvent* cbval1 = e;
-            resizeevent_cb(this, cbval1);
+            ktextedit_resizeevent_callback(this, cbval1);
             return;
         }
         KTextEdit::resizeEvent(e);
@@ -807,15 +445,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* e) override {
-        if (ktextedit_paintevent_isbase) {
-            ktextedit_paintevent_isbase = false;
-            KTextEdit::paintEvent(e);
-            return;
-        }
-        auto paintevent_cb = ktextedit_paintevent_callback;
-        if (paintevent_cb) {
+        if (ktextedit_paintevent_callback) {
             QPaintEvent* cbval1 = e;
-            paintevent_cb(this, cbval1);
+            ktextedit_paintevent_callback(this, cbval1);
             return;
         }
         KTextEdit::paintEvent(e);
@@ -823,15 +455,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* e) override {
-        if (ktextedit_mousepressevent_isbase) {
-            ktextedit_mousepressevent_isbase = false;
-            KTextEdit::mousePressEvent(e);
-            return;
-        }
-        auto mousepressevent_cb = ktextedit_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (ktextedit_mousepressevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousepressevent_cb(this, cbval1);
+            ktextedit_mousepressevent_callback(this, cbval1);
             return;
         }
         KTextEdit::mousePressEvent(e);
@@ -839,15 +465,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* e) override {
-        if (ktextedit_mousemoveevent_isbase) {
-            ktextedit_mousemoveevent_isbase = false;
-            KTextEdit::mouseMoveEvent(e);
-            return;
-        }
-        auto mousemoveevent_cb = ktextedit_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (ktextedit_mousemoveevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousemoveevent_cb(this, cbval1);
+            ktextedit_mousemoveevent_callback(this, cbval1);
             return;
         }
         KTextEdit::mouseMoveEvent(e);
@@ -855,15 +475,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* e) override {
-        if (ktextedit_mousereleaseevent_isbase) {
-            ktextedit_mousereleaseevent_isbase = false;
-            KTextEdit::mouseReleaseEvent(e);
-            return;
-        }
-        auto mousereleaseevent_cb = ktextedit_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (ktextedit_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousereleaseevent_cb(this, cbval1);
+            ktextedit_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KTextEdit::mouseReleaseEvent(e);
@@ -871,15 +485,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* e) override {
-        if (ktextedit_mousedoubleclickevent_isbase) {
-            ktextedit_mousedoubleclickevent_isbase = false;
-            KTextEdit::mouseDoubleClickEvent(e);
-            return;
-        }
-        auto mousedoubleclickevent_cb = ktextedit_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (ktextedit_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = e;
-            mousedoubleclickevent_cb(this, cbval1);
+            ktextedit_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KTextEdit::mouseDoubleClickEvent(e);
@@ -887,14 +495,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (ktextedit_focusnextprevchild_isbase) {
-            ktextedit_focusnextprevchild_isbase = false;
-            return KTextEdit::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = ktextedit_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (ktextedit_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = ktextedit_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEdit::focusNextPrevChild(next);
@@ -902,15 +505,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* e) override {
-        if (ktextedit_dragenterevent_isbase) {
-            ktextedit_dragenterevent_isbase = false;
-            KTextEdit::dragEnterEvent(e);
-            return;
-        }
-        auto dragenterevent_cb = ktextedit_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (ktextedit_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = e;
-            dragenterevent_cb(this, cbval1);
+            ktextedit_dragenterevent_callback(this, cbval1);
             return;
         }
         KTextEdit::dragEnterEvent(e);
@@ -918,15 +515,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* e) override {
-        if (ktextedit_dragleaveevent_isbase) {
-            ktextedit_dragleaveevent_isbase = false;
-            KTextEdit::dragLeaveEvent(e);
-            return;
-        }
-        auto dragleaveevent_cb = ktextedit_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (ktextedit_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = e;
-            dragleaveevent_cb(this, cbval1);
+            ktextedit_dragleaveevent_callback(this, cbval1);
             return;
         }
         KTextEdit::dragLeaveEvent(e);
@@ -934,15 +525,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* e) override {
-        if (ktextedit_dragmoveevent_isbase) {
-            ktextedit_dragmoveevent_isbase = false;
-            KTextEdit::dragMoveEvent(e);
-            return;
-        }
-        auto dragmoveevent_cb = ktextedit_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (ktextedit_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = e;
-            dragmoveevent_cb(this, cbval1);
+            ktextedit_dragmoveevent_callback(this, cbval1);
             return;
         }
         KTextEdit::dragMoveEvent(e);
@@ -950,15 +535,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* e) override {
-        if (ktextedit_dropevent_isbase) {
-            ktextedit_dropevent_isbase = false;
-            KTextEdit::dropEvent(e);
-            return;
-        }
-        auto dropevent_cb = ktextedit_dropevent_callback;
-        if (dropevent_cb) {
+        if (ktextedit_dropevent_callback) {
             QDropEvent* cbval1 = e;
-            dropevent_cb(this, cbval1);
+            ktextedit_dropevent_callback(this, cbval1);
             return;
         }
         KTextEdit::dropEvent(e);
@@ -966,15 +545,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* e) override {
-        if (ktextedit_focusoutevent_isbase) {
-            ktextedit_focusoutevent_isbase = false;
-            KTextEdit::focusOutEvent(e);
-            return;
-        }
-        auto focusoutevent_cb = ktextedit_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (ktextedit_focusoutevent_callback) {
             QFocusEvent* cbval1 = e;
-            focusoutevent_cb(this, cbval1);
+            ktextedit_focusoutevent_callback(this, cbval1);
             return;
         }
         KTextEdit::focusOutEvent(e);
@@ -982,15 +555,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (ktextedit_showevent_isbase) {
-            ktextedit_showevent_isbase = false;
-            KTextEdit::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = ktextedit_showevent_callback;
-        if (showevent_cb) {
+        if (ktextedit_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            ktextedit_showevent_callback(this, cbval1);
             return;
         }
         KTextEdit::showEvent(param1);
@@ -998,15 +565,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* e) override {
-        if (ktextedit_changeevent_isbase) {
-            ktextedit_changeevent_isbase = false;
-            KTextEdit::changeEvent(e);
-            return;
-        }
-        auto changeevent_cb = ktextedit_changeevent_callback;
-        if (changeevent_cb) {
+        if (ktextedit_changeevent_callback) {
             QEvent* cbval1 = e;
-            changeevent_cb(this, cbval1);
+            ktextedit_changeevent_callback(this, cbval1);
             return;
         }
         KTextEdit::changeEvent(e);
@@ -1014,15 +575,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* e) override {
-        if (ktextedit_wheelevent_isbase) {
-            ktextedit_wheelevent_isbase = false;
-            KTextEdit::wheelEvent(e);
-            return;
-        }
-        auto wheelevent_cb = ktextedit_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (ktextedit_wheelevent_callback) {
             QWheelEvent* cbval1 = e;
-            wheelevent_cb(this, cbval1);
+            ktextedit_wheelevent_callback(this, cbval1);
             return;
         }
         KTextEdit::wheelEvent(e);
@@ -1030,13 +585,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QMimeData* createMimeDataFromSelection() const override {
-        if (ktextedit_createmimedatafromselection_isbase) {
-            ktextedit_createmimedatafromselection_isbase = false;
-            return KTextEdit::createMimeDataFromSelection();
-        }
-        auto createmimedatafromselection_cb = ktextedit_createmimedatafromselection_callback;
-        if (createmimedatafromselection_cb) {
-            QMimeData* callback_ret = createmimedatafromselection_cb();
+        if (ktextedit_createmimedatafromselection_callback) {
+            QMimeData* callback_ret = ktextedit_createmimedatafromselection_callback(this);
             return callback_ret;
         }
         return KTextEdit::createMimeDataFromSelection();
@@ -1044,14 +594,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool canInsertFromMimeData(const QMimeData* source) const override {
-        if (ktextedit_caninsertfrommimedata_isbase) {
-            ktextedit_caninsertfrommimedata_isbase = false;
-            return KTextEdit::canInsertFromMimeData(source);
-        }
-        auto caninsertfrommimedata_cb = ktextedit_caninsertfrommimedata_callback;
-        if (caninsertfrommimedata_cb) {
+        if (ktextedit_caninsertfrommimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)source;
-            bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
+            bool callback_ret = ktextedit_caninsertfrommimedata_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEdit::canInsertFromMimeData(source);
@@ -1059,15 +604,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void insertFromMimeData(const QMimeData* source) override {
-        if (ktextedit_insertfrommimedata_isbase) {
-            ktextedit_insertfrommimedata_isbase = false;
-            KTextEdit::insertFromMimeData(source);
-            return;
-        }
-        auto insertfrommimedata_cb = ktextedit_insertfrommimedata_callback;
-        if (insertfrommimedata_cb) {
+        if (ktextedit_insertfrommimedata_callback) {
             QMimeData* cbval1 = (QMimeData*)source;
-            insertfrommimedata_cb(this, cbval1);
+            ktextedit_insertfrommimedata_callback(this, cbval1);
             return;
         }
         KTextEdit::insertFromMimeData(source);
@@ -1075,15 +614,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (ktextedit_inputmethodevent_isbase) {
-            ktextedit_inputmethodevent_isbase = false;
-            KTextEdit::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = ktextedit_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (ktextedit_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            ktextedit_inputmethodevent_callback(this, cbval1);
             return;
         }
         KTextEdit::inputMethodEvent(param1);
@@ -1091,16 +624,10 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void scrollContentsBy(int dx, int dy) override {
-        if (ktextedit_scrollcontentsby_isbase) {
-            ktextedit_scrollcontentsby_isbase = false;
-            KTextEdit::scrollContentsBy(dx, dy);
-            return;
-        }
-        auto scrollcontentsby_cb = ktextedit_scrollcontentsby_callback;
-        if (scrollcontentsby_cb) {
+        if (ktextedit_scrollcontentsby_callback) {
             int cbval1 = dx;
             int cbval2 = dy;
-            scrollcontentsby_cb(this, cbval1, cbval2);
+            ktextedit_scrollcontentsby_callback(this, cbval1, cbval2);
             return;
         }
         KTextEdit::scrollContentsBy(dx, dy);
@@ -1108,17 +635,11 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void doSetTextCursor(const QTextCursor& cursor) override {
-        if (ktextedit_dosettextcursor_isbase) {
-            ktextedit_dosettextcursor_isbase = false;
-            KTextEdit::doSetTextCursor(cursor);
-            return;
-        }
-        auto dosettextcursor_cb = ktextedit_dosettextcursor_callback;
-        if (dosettextcursor_cb) {
+        if (ktextedit_dosettextcursor_callback) {
             const QTextCursor& cursor_ret = cursor;
             // Cast returned reference into pointer
             QTextCursor* cbval1 = const_cast<QTextCursor*>(&cursor_ret);
-            dosettextcursor_cb(this, cbval1);
+            ktextedit_dosettextcursor_callback(this, cbval1);
             return;
         }
         KTextEdit::doSetTextCursor(cursor);
@@ -1126,13 +647,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (ktextedit_minimumsizehint_isbase) {
-            ktextedit_minimumsizehint_isbase = false;
-            return KTextEdit::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = ktextedit_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (ktextedit_minimumsizehint_callback) {
+            QSize* callback_ret = ktextedit_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1142,13 +658,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (ktextedit_sizehint_isbase) {
-            ktextedit_sizehint_isbase = false;
-            return KTextEdit::sizeHint();
-        }
-        auto sizehint_cb = ktextedit_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (ktextedit_sizehint_callback) {
+            QSize* callback_ret = ktextedit_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1158,15 +669,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void setupViewport(QWidget* viewport) override {
-        if (ktextedit_setupviewport_isbase) {
-            ktextedit_setupviewport_isbase = false;
-            KTextEdit::setupViewport(viewport);
-            return;
-        }
-        auto setupviewport_cb = ktextedit_setupviewport_callback;
-        if (setupviewport_cb) {
+        if (ktextedit_setupviewport_callback) {
             QWidget* cbval1 = viewport;
-            setupviewport_cb(this, cbval1);
+            ktextedit_setupviewport_callback(this, cbval1);
             return;
         }
         KTextEdit::setupViewport(viewport);
@@ -1174,15 +679,10 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (ktextedit_eventfilter_isbase) {
-            ktextedit_eventfilter_isbase = false;
-            return KTextEdit::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = ktextedit_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (ktextedit_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = ktextedit_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KTextEdit::eventFilter(param1, param2);
@@ -1190,14 +690,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool viewportEvent(QEvent* param1) override {
-        if (ktextedit_viewportevent_isbase) {
-            ktextedit_viewportevent_isbase = false;
-            return KTextEdit::viewportEvent(param1);
-        }
-        auto viewportevent_cb = ktextedit_viewportevent_callback;
-        if (viewportevent_cb) {
+        if (ktextedit_viewportevent_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = viewportevent_cb(this, cbval1);
+            bool callback_ret = ktextedit_viewportevent_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEdit::viewportEvent(param1);
@@ -1205,13 +700,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize viewportSizeHint() const override {
-        if (ktextedit_viewportsizehint_isbase) {
-            ktextedit_viewportsizehint_isbase = false;
-            return KTextEdit::viewportSizeHint();
-        }
-        auto viewportsizehint_cb = ktextedit_viewportsizehint_callback;
-        if (viewportsizehint_cb) {
-            QSize* callback_ret = viewportsizehint_cb();
+        if (ktextedit_viewportsizehint_callback) {
+            QSize* callback_ret = ktextedit_viewportsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1221,15 +711,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionFrame* option) const override {
-        if (ktextedit_initstyleoption_isbase) {
-            ktextedit_initstyleoption_isbase = false;
-            KTextEdit::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = ktextedit_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (ktextedit_initstyleoption_callback) {
             QStyleOptionFrame* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            ktextedit_initstyleoption_callback(this, cbval1);
             return;
         }
         KTextEdit::initStyleOption(option);
@@ -1237,13 +721,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (ktextedit_devtype_isbase) {
-            ktextedit_devtype_isbase = false;
-            return KTextEdit::devType();
-        }
-        auto devtype_cb = ktextedit_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (ktextedit_devtype_callback) {
+            int callback_ret = ktextedit_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KTextEdit::devType();
@@ -1251,15 +730,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (ktextedit_setvisible_isbase) {
-            ktextedit_setvisible_isbase = false;
-            KTextEdit::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = ktextedit_setvisible_callback;
-        if (setvisible_cb) {
+        if (ktextedit_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            ktextedit_setvisible_callback(this, cbval1);
             return;
         }
         KTextEdit::setVisible(visible);
@@ -1267,14 +740,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (ktextedit_heightforwidth_isbase) {
-            ktextedit_heightforwidth_isbase = false;
-            return KTextEdit::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = ktextedit_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (ktextedit_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = ktextedit_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KTextEdit::heightForWidth(param1);
@@ -1282,13 +750,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (ktextedit_hasheightforwidth_isbase) {
-            ktextedit_hasheightforwidth_isbase = false;
-            return KTextEdit::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = ktextedit_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (ktextedit_hasheightforwidth_callback) {
+            bool callback_ret = ktextedit_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KTextEdit::hasHeightForWidth();
@@ -1296,13 +759,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (ktextedit_paintengine_isbase) {
-            ktextedit_paintengine_isbase = false;
-            return KTextEdit::paintEngine();
-        }
-        auto paintengine_cb = ktextedit_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (ktextedit_paintengine_callback) {
+            QPaintEngine* callback_ret = ktextedit_paintengine_callback(this);
             return callback_ret;
         }
         return KTextEdit::paintEngine();
@@ -1310,15 +768,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (ktextedit_enterevent_isbase) {
-            ktextedit_enterevent_isbase = false;
-            KTextEdit::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = ktextedit_enterevent_callback;
-        if (enterevent_cb) {
+        if (ktextedit_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            ktextedit_enterevent_callback(this, cbval1);
             return;
         }
         KTextEdit::enterEvent(event);
@@ -1326,15 +778,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (ktextedit_leaveevent_isbase) {
-            ktextedit_leaveevent_isbase = false;
-            KTextEdit::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = ktextedit_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (ktextedit_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            ktextedit_leaveevent_callback(this, cbval1);
             return;
         }
         KTextEdit::leaveEvent(event);
@@ -1342,15 +788,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (ktextedit_moveevent_isbase) {
-            ktextedit_moveevent_isbase = false;
-            KTextEdit::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = ktextedit_moveevent_callback;
-        if (moveevent_cb) {
+        if (ktextedit_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            ktextedit_moveevent_callback(this, cbval1);
             return;
         }
         KTextEdit::moveEvent(event);
@@ -1358,15 +798,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (ktextedit_closeevent_isbase) {
-            ktextedit_closeevent_isbase = false;
-            KTextEdit::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = ktextedit_closeevent_callback;
-        if (closeevent_cb) {
+        if (ktextedit_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            ktextedit_closeevent_callback(this, cbval1);
             return;
         }
         KTextEdit::closeEvent(event);
@@ -1374,15 +808,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (ktextedit_tabletevent_isbase) {
-            ktextedit_tabletevent_isbase = false;
-            KTextEdit::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = ktextedit_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (ktextedit_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            ktextedit_tabletevent_callback(this, cbval1);
             return;
         }
         KTextEdit::tabletEvent(event);
@@ -1390,15 +818,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (ktextedit_actionevent_isbase) {
-            ktextedit_actionevent_isbase = false;
-            KTextEdit::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = ktextedit_actionevent_callback;
-        if (actionevent_cb) {
+        if (ktextedit_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            ktextedit_actionevent_callback(this, cbval1);
             return;
         }
         KTextEdit::actionEvent(event);
@@ -1406,15 +828,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (ktextedit_hideevent_isbase) {
-            ktextedit_hideevent_isbase = false;
-            KTextEdit::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = ktextedit_hideevent_callback;
-        if (hideevent_cb) {
+        if (ktextedit_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            ktextedit_hideevent_callback(this, cbval1);
             return;
         }
         KTextEdit::hideEvent(event);
@@ -1422,12 +838,7 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (ktextedit_nativeevent_isbase) {
-            ktextedit_nativeevent_isbase = false;
-            return KTextEdit::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = ktextedit_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (ktextedit_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1437,7 +848,7 @@ class VirtualKTextEdit final : public KTextEdit {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = ktextedit_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1446,14 +857,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (ktextedit_metric_isbase) {
-            ktextedit_metric_isbase = false;
-            return KTextEdit::metric(param1);
-        }
-        auto metric_cb = ktextedit_metric_callback;
-        if (metric_cb) {
+        if (ktextedit_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = ktextedit_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KTextEdit::metric(param1);
@@ -1461,15 +867,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (ktextedit_initpainter_isbase) {
-            ktextedit_initpainter_isbase = false;
-            KTextEdit::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = ktextedit_initpainter_callback;
-        if (initpainter_cb) {
+        if (ktextedit_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            ktextedit_initpainter_callback(this, cbval1);
             return;
         }
         KTextEdit::initPainter(painter);
@@ -1477,14 +877,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (ktextedit_redirected_isbase) {
-            ktextedit_redirected_isbase = false;
-            return KTextEdit::redirected(offset);
-        }
-        auto redirected_cb = ktextedit_redirected_callback;
-        if (redirected_cb) {
+        if (ktextedit_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = ktextedit_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KTextEdit::redirected(offset);
@@ -1492,13 +887,8 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (ktextedit_sharedpainter_isbase) {
-            ktextedit_sharedpainter_isbase = false;
-            return KTextEdit::sharedPainter();
-        }
-        auto sharedpainter_cb = ktextedit_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (ktextedit_sharedpainter_callback) {
+            QPainter* callback_ret = ktextedit_sharedpainter_callback(this);
             return callback_ret;
         }
         return KTextEdit::sharedPainter();
@@ -1506,15 +896,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (ktextedit_childevent_isbase) {
-            ktextedit_childevent_isbase = false;
-            KTextEdit::childEvent(event);
-            return;
-        }
-        auto childevent_cb = ktextedit_childevent_callback;
-        if (childevent_cb) {
+        if (ktextedit_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            ktextedit_childevent_callback(this, cbval1);
             return;
         }
         KTextEdit::childEvent(event);
@@ -1522,15 +906,9 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (ktextedit_customevent_isbase) {
-            ktextedit_customevent_isbase = false;
-            KTextEdit::customEvent(event);
-            return;
-        }
-        auto customevent_cb = ktextedit_customevent_callback;
-        if (customevent_cb) {
+        if (ktextedit_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            ktextedit_customevent_callback(this, cbval1);
             return;
         }
         KTextEdit::customEvent(event);
@@ -1538,17 +916,11 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (ktextedit_connectnotify_isbase) {
-            ktextedit_connectnotify_isbase = false;
-            KTextEdit::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = ktextedit_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (ktextedit_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            ktextedit_connectnotify_callback(this, cbval1);
             return;
         }
         KTextEdit::connectNotify(signal);
@@ -1556,501 +928,66 @@ class VirtualKTextEdit final : public KTextEdit {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (ktextedit_disconnectnotify_isbase) {
-            ktextedit_disconnectnotify_isbase = false;
-            KTextEdit::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = ktextedit_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (ktextedit_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            ktextedit_disconnectnotify_callback(this, cbval1);
             return;
         }
         KTextEdit::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void slotDoReplace() {
-        if (ktextedit_slotdoreplace_isbase) {
-            ktextedit_slotdoreplace_isbase = false;
-            KTextEdit::slotDoReplace();
-            return;
-        }
-        auto slotdoreplace_cb = ktextedit_slotdoreplace_callback;
-        if (slotdoreplace_cb) {
-            slotdoreplace_cb();
-            return;
-        }
-        KTextEdit::slotDoReplace();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotReplaceNext() {
-        if (ktextedit_slotreplacenext_isbase) {
-            ktextedit_slotreplacenext_isbase = false;
-            KTextEdit::slotReplaceNext();
-            return;
-        }
-        auto slotreplacenext_cb = ktextedit_slotreplacenext_callback;
-        if (slotreplacenext_cb) {
-            slotreplacenext_cb();
-            return;
-        }
-        KTextEdit::slotReplaceNext();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotDoFind() {
-        if (ktextedit_slotdofind_isbase) {
-            ktextedit_slotdofind_isbase = false;
-            KTextEdit::slotDoFind();
-            return;
-        }
-        auto slotdofind_cb = ktextedit_slotdofind_callback;
-        if (slotdofind_cb) {
-            slotdofind_cb();
-            return;
-        }
-        KTextEdit::slotDoFind();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFind() {
-        if (ktextedit_slotfind_isbase) {
-            ktextedit_slotfind_isbase = false;
-            KTextEdit::slotFind();
-            return;
-        }
-        auto slotfind_cb = ktextedit_slotfind_callback;
-        if (slotfind_cb) {
-            slotfind_cb();
-            return;
-        }
-        KTextEdit::slotFind();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFindNext() {
-        if (ktextedit_slotfindnext_isbase) {
-            ktextedit_slotfindnext_isbase = false;
-            KTextEdit::slotFindNext();
-            return;
-        }
-        auto slotfindnext_cb = ktextedit_slotfindnext_callback;
-        if (slotfindnext_cb) {
-            slotfindnext_cb();
-            return;
-        }
-        KTextEdit::slotFindNext();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotFindPrevious() {
-        if (ktextedit_slotfindprevious_isbase) {
-            ktextedit_slotfindprevious_isbase = false;
-            KTextEdit::slotFindPrevious();
-            return;
-        }
-        auto slotfindprevious_cb = ktextedit_slotfindprevious_callback;
-        if (slotfindprevious_cb) {
-            slotfindprevious_cb();
-            return;
-        }
-        KTextEdit::slotFindPrevious();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotReplace() {
-        if (ktextedit_slotreplace_isbase) {
-            ktextedit_slotreplace_isbase = false;
-            KTextEdit::slotReplace();
-            return;
-        }
-        auto slotreplace_cb = ktextedit_slotreplace_callback;
-        if (slotreplace_cb) {
-            slotreplace_cb();
-            return;
-        }
-        KTextEdit::slotReplace();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void slotSpeakText() {
-        if (ktextedit_slotspeaktext_isbase) {
-            ktextedit_slotspeaktext_isbase = false;
-            KTextEdit::slotSpeakText();
-            return;
-        }
-        auto slotspeaktext_cb = ktextedit_slotspeaktext_callback;
-        if (slotspeaktext_cb) {
-            slotspeaktext_cb();
-            return;
-        }
-        KTextEdit::slotSpeakText();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void zoomInF(float range) {
-        if (ktextedit_zoominf_isbase) {
-            ktextedit_zoominf_isbase = false;
-            KTextEdit::zoomInF(range);
-            return;
-        }
-        auto zoominf_cb = ktextedit_zoominf_callback;
-        if (zoominf_cb) {
-            float cbval1 = range;
-            zoominf_cb(this, cbval1);
-            return;
-        }
-        KTextEdit::zoomInF(range);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setViewportMargins(int left, int top, int right, int bottom) {
-        if (ktextedit_setviewportmargins_isbase) {
-            ktextedit_setviewportmargins_isbase = false;
-            KTextEdit::setViewportMargins(left, top, right, bottom);
-            return;
-        }
-        auto setviewportmargins_cb = ktextedit_setviewportmargins_callback;
-        if (setviewportmargins_cb) {
-            int cbval1 = left;
-            int cbval2 = top;
-            int cbval3 = right;
-            int cbval4 = bottom;
-            setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return;
-        }
-        KTextEdit::setViewportMargins(left, top, right, bottom);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QMargins viewportMargins() const {
-        if (ktextedit_viewportmargins_isbase) {
-            ktextedit_viewportmargins_isbase = false;
-            return KTextEdit::viewportMargins();
-        }
-        auto viewportmargins_cb = ktextedit_viewportmargins_callback;
-        if (viewportmargins_cb) {
-            QMargins* callback_ret = viewportmargins_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return KTextEdit::viewportMargins();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void drawFrame(QPainter* param1) {
-        if (ktextedit_drawframe_isbase) {
-            ktextedit_drawframe_isbase = false;
-            KTextEdit::drawFrame(param1);
-            return;
-        }
-        auto drawframe_cb = ktextedit_drawframe_callback;
-        if (drawframe_cb) {
-            QPainter* cbval1 = param1;
-            drawframe_cb(this, cbval1);
-            return;
-        }
-        KTextEdit::drawFrame(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (ktextedit_updatemicrofocus_isbase) {
-            ktextedit_updatemicrofocus_isbase = false;
-            KTextEdit::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = ktextedit_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KTextEdit::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (ktextedit_create_isbase) {
-            ktextedit_create_isbase = false;
-            KTextEdit::create();
-            return;
-        }
-        auto create_cb = ktextedit_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KTextEdit::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (ktextedit_destroy_isbase) {
-            ktextedit_destroy_isbase = false;
-            KTextEdit::destroy();
-            return;
-        }
-        auto destroy_cb = ktextedit_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KTextEdit::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (ktextedit_focusnextchild_isbase) {
-            ktextedit_focusnextchild_isbase = false;
-            return KTextEdit::focusNextChild();
-        }
-        auto focusnextchild_cb = ktextedit_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KTextEdit::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (ktextedit_focuspreviouschild_isbase) {
-            ktextedit_focuspreviouschild_isbase = false;
-            return KTextEdit::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = ktextedit_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KTextEdit::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (ktextedit_sender_isbase) {
-            ktextedit_sender_isbase = false;
-            return KTextEdit::sender();
-        }
-        auto sender_cb = ktextedit_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KTextEdit::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (ktextedit_sendersignalindex_isbase) {
-            ktextedit_sendersignalindex_isbase = false;
-            return KTextEdit::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = ktextedit_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KTextEdit::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (ktextedit_receivers_isbase) {
-            ktextedit_receivers_isbase = false;
-            return KTextEdit::receivers(signal);
-        }
-        auto receivers_cb = ktextedit_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KTextEdit::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (ktextedit_issignalconnected_isbase) {
-            ktextedit_issignalconnected_isbase = false;
-            return KTextEdit::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = ktextedit_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KTextEdit::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (ktextedit_getdecodedmetricf_isbase) {
-            ktextedit_getdecodedmetricf_isbase = false;
-            return KTextEdit::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = ktextedit_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KTextEdit::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool KTextEdit_Event(KTextEdit* self, QEvent* param1);
     friend bool KTextEdit_SuperEvent(KTextEdit* self, QEvent* param1);
-    friend void KTextEdit_KeyPressEvent(KTextEdit* self, QKeyEvent* param1);
     friend void KTextEdit_SuperKeyPressEvent(KTextEdit* self, QKeyEvent* param1);
-    friend void KTextEdit_FocusInEvent(KTextEdit* self, QFocusEvent* param1);
     friend void KTextEdit_SuperFocusInEvent(KTextEdit* self, QFocusEvent* param1);
-    friend void KTextEdit_DeleteWordBack(KTextEdit* self);
     friend void KTextEdit_SuperDeleteWordBack(KTextEdit* self);
-    friend void KTextEdit_DeleteWordForward(KTextEdit* self);
     friend void KTextEdit_SuperDeleteWordForward(KTextEdit* self);
-    friend void KTextEdit_ContextMenuEvent(KTextEdit* self, QContextMenuEvent* param1);
     friend void KTextEdit_SuperContextMenuEvent(KTextEdit* self, QContextMenuEvent* param1);
-    friend void KTextEdit_TimerEvent(KTextEdit* self, QTimerEvent* e);
     friend void KTextEdit_SuperTimerEvent(KTextEdit* self, QTimerEvent* e);
-    friend void KTextEdit_KeyReleaseEvent(KTextEdit* self, QKeyEvent* e);
     friend void KTextEdit_SuperKeyReleaseEvent(KTextEdit* self, QKeyEvent* e);
-    friend void KTextEdit_ResizeEvent(KTextEdit* self, QResizeEvent* e);
     friend void KTextEdit_SuperResizeEvent(KTextEdit* self, QResizeEvent* e);
-    friend void KTextEdit_PaintEvent(KTextEdit* self, QPaintEvent* e);
     friend void KTextEdit_SuperPaintEvent(KTextEdit* self, QPaintEvent* e);
-    friend void KTextEdit_MousePressEvent(KTextEdit* self, QMouseEvent* e);
     friend void KTextEdit_SuperMousePressEvent(KTextEdit* self, QMouseEvent* e);
-    friend void KTextEdit_MouseMoveEvent(KTextEdit* self, QMouseEvent* e);
     friend void KTextEdit_SuperMouseMoveEvent(KTextEdit* self, QMouseEvent* e);
-    friend void KTextEdit_MouseReleaseEvent(KTextEdit* self, QMouseEvent* e);
     friend void KTextEdit_SuperMouseReleaseEvent(KTextEdit* self, QMouseEvent* e);
-    friend void KTextEdit_MouseDoubleClickEvent(KTextEdit* self, QMouseEvent* e);
     friend void KTextEdit_SuperMouseDoubleClickEvent(KTextEdit* self, QMouseEvent* e);
-    friend bool KTextEdit_FocusNextPrevChild(KTextEdit* self, bool next);
     friend bool KTextEdit_SuperFocusNextPrevChild(KTextEdit* self, bool next);
-    friend void KTextEdit_DragEnterEvent(KTextEdit* self, QDragEnterEvent* e);
     friend void KTextEdit_SuperDragEnterEvent(KTextEdit* self, QDragEnterEvent* e);
-    friend void KTextEdit_DragLeaveEvent(KTextEdit* self, QDragLeaveEvent* e);
     friend void KTextEdit_SuperDragLeaveEvent(KTextEdit* self, QDragLeaveEvent* e);
-    friend void KTextEdit_DragMoveEvent(KTextEdit* self, QDragMoveEvent* e);
     friend void KTextEdit_SuperDragMoveEvent(KTextEdit* self, QDragMoveEvent* e);
-    friend void KTextEdit_DropEvent(KTextEdit* self, QDropEvent* e);
     friend void KTextEdit_SuperDropEvent(KTextEdit* self, QDropEvent* e);
-    friend void KTextEdit_FocusOutEvent(KTextEdit* self, QFocusEvent* e);
     friend void KTextEdit_SuperFocusOutEvent(KTextEdit* self, QFocusEvent* e);
-    friend void KTextEdit_ShowEvent(KTextEdit* self, QShowEvent* param1);
     friend void KTextEdit_SuperShowEvent(KTextEdit* self, QShowEvent* param1);
-    friend void KTextEdit_ChangeEvent(KTextEdit* self, QEvent* e);
     friend void KTextEdit_SuperChangeEvent(KTextEdit* self, QEvent* e);
-    friend void KTextEdit_WheelEvent(KTextEdit* self, QWheelEvent* e);
     friend void KTextEdit_SuperWheelEvent(KTextEdit* self, QWheelEvent* e);
-    friend QMimeData* KTextEdit_CreateMimeDataFromSelection(const KTextEdit* self);
     friend QMimeData* KTextEdit_SuperCreateMimeDataFromSelection(const KTextEdit* self);
-    friend bool KTextEdit_CanInsertFromMimeData(const KTextEdit* self, const QMimeData* source);
     friend bool KTextEdit_SuperCanInsertFromMimeData(const KTextEdit* self, const QMimeData* source);
-    friend void KTextEdit_InsertFromMimeData(KTextEdit* self, const QMimeData* source);
     friend void KTextEdit_SuperInsertFromMimeData(KTextEdit* self, const QMimeData* source);
-    friend void KTextEdit_InputMethodEvent(KTextEdit* self, QInputMethodEvent* param1);
     friend void KTextEdit_SuperInputMethodEvent(KTextEdit* self, QInputMethodEvent* param1);
-    friend void KTextEdit_ScrollContentsBy(KTextEdit* self, int dx, int dy);
     friend void KTextEdit_SuperScrollContentsBy(KTextEdit* self, int dx, int dy);
-    friend void KTextEdit_DoSetTextCursor(KTextEdit* self, const QTextCursor* cursor);
     friend void KTextEdit_SuperDoSetTextCursor(KTextEdit* self, const QTextCursor* cursor);
-    friend bool KTextEdit_EventFilter(KTextEdit* self, QObject* param1, QEvent* param2);
     friend bool KTextEdit_SuperEventFilter(KTextEdit* self, QObject* param1, QEvent* param2);
-    friend bool KTextEdit_ViewportEvent(KTextEdit* self, QEvent* param1);
     friend bool KTextEdit_SuperViewportEvent(KTextEdit* self, QEvent* param1);
-    friend QSize* KTextEdit_ViewportSizeHint(const KTextEdit* self);
     friend QSize* KTextEdit_SuperViewportSizeHint(const KTextEdit* self);
-    friend void KTextEdit_InitStyleOption(const KTextEdit* self, QStyleOptionFrame* option);
     friend void KTextEdit_SuperInitStyleOption(const KTextEdit* self, QStyleOptionFrame* option);
-    friend void KTextEdit_EnterEvent(KTextEdit* self, QEnterEvent* event);
     friend void KTextEdit_SuperEnterEvent(KTextEdit* self, QEnterEvent* event);
-    friend void KTextEdit_LeaveEvent(KTextEdit* self, QEvent* event);
     friend void KTextEdit_SuperLeaveEvent(KTextEdit* self, QEvent* event);
-    friend void KTextEdit_MoveEvent(KTextEdit* self, QMoveEvent* event);
     friend void KTextEdit_SuperMoveEvent(KTextEdit* self, QMoveEvent* event);
-    friend void KTextEdit_CloseEvent(KTextEdit* self, QCloseEvent* event);
     friend void KTextEdit_SuperCloseEvent(KTextEdit* self, QCloseEvent* event);
-    friend void KTextEdit_TabletEvent(KTextEdit* self, QTabletEvent* event);
     friend void KTextEdit_SuperTabletEvent(KTextEdit* self, QTabletEvent* event);
-    friend void KTextEdit_ActionEvent(KTextEdit* self, QActionEvent* event);
     friend void KTextEdit_SuperActionEvent(KTextEdit* self, QActionEvent* event);
-    friend void KTextEdit_HideEvent(KTextEdit* self, QHideEvent* event);
     friend void KTextEdit_SuperHideEvent(KTextEdit* self, QHideEvent* event);
-    friend bool KTextEdit_NativeEvent(KTextEdit* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KTextEdit_SuperNativeEvent(KTextEdit* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int KTextEdit_Metric(const KTextEdit* self, int param1);
     friend int KTextEdit_SuperMetric(const KTextEdit* self, int param1);
-    friend void KTextEdit_InitPainter(const KTextEdit* self, QPainter* painter);
     friend void KTextEdit_SuperInitPainter(const KTextEdit* self, QPainter* painter);
-    friend QPaintDevice* KTextEdit_Redirected(const KTextEdit* self, QPoint* offset);
     friend QPaintDevice* KTextEdit_SuperRedirected(const KTextEdit* self, QPoint* offset);
-    friend QPainter* KTextEdit_SharedPainter(const KTextEdit* self);
     friend QPainter* KTextEdit_SuperSharedPainter(const KTextEdit* self);
-    friend void KTextEdit_ChildEvent(KTextEdit* self, QChildEvent* event);
     friend void KTextEdit_SuperChildEvent(KTextEdit* self, QChildEvent* event);
-    friend void KTextEdit_CustomEvent(KTextEdit* self, QEvent* event);
     friend void KTextEdit_SuperCustomEvent(KTextEdit* self, QEvent* event);
-    friend void KTextEdit_ConnectNotify(KTextEdit* self, const QMetaMethod* signal);
     friend void KTextEdit_SuperConnectNotify(KTextEdit* self, const QMetaMethod* signal);
-    friend void KTextEdit_DisconnectNotify(KTextEdit* self, const QMetaMethod* signal);
     friend void KTextEdit_SuperDisconnectNotify(KTextEdit* self, const QMetaMethod* signal);
-    friend void KTextEdit_SlotDoReplace(KTextEdit* self);
-    friend void KTextEdit_SuperSlotDoReplace(KTextEdit* self);
-    friend void KTextEdit_SlotReplaceNext(KTextEdit* self);
-    friend void KTextEdit_SuperSlotReplaceNext(KTextEdit* self);
-    friend void KTextEdit_SlotDoFind(KTextEdit* self);
-    friend void KTextEdit_SuperSlotDoFind(KTextEdit* self);
-    friend void KTextEdit_SlotFind(KTextEdit* self);
-    friend void KTextEdit_SuperSlotFind(KTextEdit* self);
-    friend void KTextEdit_SlotFindNext(KTextEdit* self);
-    friend void KTextEdit_SuperSlotFindNext(KTextEdit* self);
-    friend void KTextEdit_SlotFindPrevious(KTextEdit* self);
-    friend void KTextEdit_SuperSlotFindPrevious(KTextEdit* self);
-    friend void KTextEdit_SlotReplace(KTextEdit* self);
-    friend void KTextEdit_SuperSlotReplace(KTextEdit* self);
-    friend void KTextEdit_SlotSpeakText(KTextEdit* self);
-    friend void KTextEdit_SuperSlotSpeakText(KTextEdit* self);
-    friend void KTextEdit_ZoomInF(KTextEdit* self, float range);
-    friend void KTextEdit_SuperZoomInF(KTextEdit* self, float range);
-    friend void KTextEdit_SetViewportMargins(KTextEdit* self, int left, int top, int right, int bottom);
-    friend void KTextEdit_SuperSetViewportMargins(KTextEdit* self, int left, int top, int right, int bottom);
-    friend QMargins* KTextEdit_ViewportMargins(const KTextEdit* self);
-    friend QMargins* KTextEdit_SuperViewportMargins(const KTextEdit* self);
-    friend void KTextEdit_DrawFrame(KTextEdit* self, QPainter* param1);
-    friend void KTextEdit_SuperDrawFrame(KTextEdit* self, QPainter* param1);
-    friend void KTextEdit_UpdateMicroFocus(KTextEdit* self);
-    friend void KTextEdit_SuperUpdateMicroFocus(KTextEdit* self);
-    friend void KTextEdit_Create(KTextEdit* self);
-    friend void KTextEdit_SuperCreate(KTextEdit* self);
-    friend void KTextEdit_Destroy(KTextEdit* self);
-    friend void KTextEdit_SuperDestroy(KTextEdit* self);
-    friend bool KTextEdit_FocusNextChild(KTextEdit* self);
-    friend bool KTextEdit_SuperFocusNextChild(KTextEdit* self);
-    friend bool KTextEdit_FocusPreviousChild(KTextEdit* self);
-    friend bool KTextEdit_SuperFocusPreviousChild(KTextEdit* self);
-    friend QObject* KTextEdit_Sender(const KTextEdit* self);
-    friend QObject* KTextEdit_SuperSender(const KTextEdit* self);
-    friend int KTextEdit_SenderSignalIndex(const KTextEdit* self);
-    friend int KTextEdit_SuperSenderSignalIndex(const KTextEdit* self);
-    friend int KTextEdit_Receivers(const KTextEdit* self, const char* signal);
-    friend int KTextEdit_SuperReceivers(const KTextEdit* self, const char* signal);
-    friend bool KTextEdit_IsSignalConnected(const KTextEdit* self, const QMetaMethod* signal);
-    friend bool KTextEdit_SuperIsSignalConnected(const KTextEdit* self, const QMetaMethod* signal);
-    friend double KTextEdit_GetDecodedMetricF(const KTextEdit* self, int metricA, int metricB);
-    friend double KTextEdit_SuperGetDecodedMetricF(const KTextEdit* self, int metricA, int metricB);
 };
 
 #endif

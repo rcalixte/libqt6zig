@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KColorSchemeManager so that we can call protected methods
+// This class is a subclass of KColorSchemeManager
 class VirtualKColorSchemeManager final : public KColorSchemeManager {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKColorSchemeManager = true;
-
-    // Virtual class public types (including callbacks)
-    using KColorSchemeManager_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KColorSchemeManager_MetaObject_Callback = QMetaObject* (*)(const KColorSchemeManager*);
     using KColorSchemeManager_Metacast_Callback = void* (*)(KColorSchemeManager*, const char*);
     using KColorSchemeManager_Metacall_Callback = int (*)(KColorSchemeManager*, int, int, void**);
     using KColorSchemeManager_Event_Callback = bool (*)(KColorSchemeManager*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
     using KColorSchemeManager_CustomEvent_Callback = void (*)(KColorSchemeManager*, QEvent*);
     using KColorSchemeManager_ConnectNotify_Callback = void (*)(KColorSchemeManager*, QMetaMethod*);
     using KColorSchemeManager_DisconnectNotify_Callback = void (*)(KColorSchemeManager*, QMetaMethod*);
-    using KColorSchemeManager_Sender_Callback = QObject* (*)();
-    using KColorSchemeManager_SenderSignalIndex_Callback = int (*)();
-    using KColorSchemeManager_Receivers_Callback = int (*)(const KColorSchemeManager*, const char*);
-    using KColorSchemeManager_IsSignalConnected_Callback = bool (*)(const KColorSchemeManager*, QMetaMethod*);
+    using KColorSchemeManager::isSignalConnected;
+    using KColorSchemeManager::receivers;
+    using KColorSchemeManager::sender;
+    using KColorSchemeManager::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KColorSchemeManager_MetaObject_Callback kcolorschememanager_metaobject_callback = nullptr;
     KColorSchemeManager_Metacast_Callback kcolorschememanager_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
     KColorSchemeManager_CustomEvent_Callback kcolorschememanager_customevent_callback = nullptr;
     KColorSchemeManager_ConnectNotify_Callback kcolorschememanager_connectnotify_callback = nullptr;
     KColorSchemeManager_DisconnectNotify_Callback kcolorschememanager_disconnectnotify_callback = nullptr;
-    KColorSchemeManager_Sender_Callback kcolorschememanager_sender_callback = nullptr;
-    KColorSchemeManager_SenderSignalIndex_Callback kcolorschememanager_sendersignalindex_callback = nullptr;
-    KColorSchemeManager_Receivers_Callback kcolorschememanager_receivers_callback = nullptr;
-    KColorSchemeManager_IsSignalConnected_Callback kcolorschememanager_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kcolorschememanager_metaobject_isbase = false;
-    mutable bool kcolorschememanager_metacast_isbase = false;
-    mutable bool kcolorschememanager_metacall_isbase = false;
-    mutable bool kcolorschememanager_event_isbase = false;
-    mutable bool kcolorschememanager_eventfilter_isbase = false;
-    mutable bool kcolorschememanager_timerevent_isbase = false;
-    mutable bool kcolorschememanager_childevent_isbase = false;
-    mutable bool kcolorschememanager_customevent_isbase = false;
-    mutable bool kcolorschememanager_connectnotify_isbase = false;
-    mutable bool kcolorschememanager_disconnectnotify_isbase = false;
-    mutable bool kcolorschememanager_sender_isbase = false;
-    mutable bool kcolorschememanager_sendersignalindex_isbase = false;
-    mutable bool kcolorschememanager_receivers_isbase = false;
-    mutable bool kcolorschememanager_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KColorSchemeManager {
+        using KColorSchemeManager::childEvent;
+        using KColorSchemeManager::connectNotify;
+        using KColorSchemeManager::customEvent;
+        using KColorSchemeManager::disconnectNotify;
+        using KColorSchemeManager::timerEvent;
+    };
 
-  public:
     VirtualKColorSchemeManager() : KColorSchemeManager() {};
     VirtualKColorSchemeManager(QObject* parent) : KColorSchemeManager(parent) {};
 
-    // Callback setters
-    inline void setKColorSchemeManager_MetaObject_Callback(KColorSchemeManager_MetaObject_Callback cb) { kcolorschememanager_metaobject_callback = cb; }
-    inline void setKColorSchemeManager_Metacast_Callback(KColorSchemeManager_Metacast_Callback cb) { kcolorschememanager_metacast_callback = cb; }
-    inline void setKColorSchemeManager_Metacall_Callback(KColorSchemeManager_Metacall_Callback cb) { kcolorschememanager_metacall_callback = cb; }
-    inline void setKColorSchemeManager_Event_Callback(KColorSchemeManager_Event_Callback cb) { kcolorschememanager_event_callback = cb; }
-    inline void setKColorSchemeManager_EventFilter_Callback(KColorSchemeManager_EventFilter_Callback cb) { kcolorschememanager_eventfilter_callback = cb; }
-    inline void setKColorSchemeManager_TimerEvent_Callback(KColorSchemeManager_TimerEvent_Callback cb) { kcolorschememanager_timerevent_callback = cb; }
-    inline void setKColorSchemeManager_ChildEvent_Callback(KColorSchemeManager_ChildEvent_Callback cb) { kcolorschememanager_childevent_callback = cb; }
-    inline void setKColorSchemeManager_CustomEvent_Callback(KColorSchemeManager_CustomEvent_Callback cb) { kcolorschememanager_customevent_callback = cb; }
-    inline void setKColorSchemeManager_ConnectNotify_Callback(KColorSchemeManager_ConnectNotify_Callback cb) { kcolorschememanager_connectnotify_callback = cb; }
-    inline void setKColorSchemeManager_DisconnectNotify_Callback(KColorSchemeManager_DisconnectNotify_Callback cb) { kcolorschememanager_disconnectnotify_callback = cb; }
-    inline void setKColorSchemeManager_Sender_Callback(KColorSchemeManager_Sender_Callback cb) { kcolorschememanager_sender_callback = cb; }
-    inline void setKColorSchemeManager_SenderSignalIndex_Callback(KColorSchemeManager_SenderSignalIndex_Callback cb) { kcolorschememanager_sendersignalindex_callback = cb; }
-    inline void setKColorSchemeManager_Receivers_Callback(KColorSchemeManager_Receivers_Callback cb) { kcolorschememanager_receivers_callback = cb; }
-    inline void setKColorSchemeManager_IsSignalConnected_Callback(KColorSchemeManager_IsSignalConnected_Callback cb) { kcolorschememanager_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKColorSchemeManager_MetaObject_IsBase(bool value) const { kcolorschememanager_metaobject_isbase = value; }
-    inline void setKColorSchemeManager_Metacast_IsBase(bool value) const { kcolorschememanager_metacast_isbase = value; }
-    inline void setKColorSchemeManager_Metacall_IsBase(bool value) const { kcolorschememanager_metacall_isbase = value; }
-    inline void setKColorSchemeManager_Event_IsBase(bool value) const { kcolorschememanager_event_isbase = value; }
-    inline void setKColorSchemeManager_EventFilter_IsBase(bool value) const { kcolorschememanager_eventfilter_isbase = value; }
-    inline void setKColorSchemeManager_TimerEvent_IsBase(bool value) const { kcolorschememanager_timerevent_isbase = value; }
-    inline void setKColorSchemeManager_ChildEvent_IsBase(bool value) const { kcolorschememanager_childevent_isbase = value; }
-    inline void setKColorSchemeManager_CustomEvent_IsBase(bool value) const { kcolorschememanager_customevent_isbase = value; }
-    inline void setKColorSchemeManager_ConnectNotify_IsBase(bool value) const { kcolorschememanager_connectnotify_isbase = value; }
-    inline void setKColorSchemeManager_DisconnectNotify_IsBase(bool value) const { kcolorschememanager_disconnectnotify_isbase = value; }
-    inline void setKColorSchemeManager_Sender_IsBase(bool value) const { kcolorschememanager_sender_isbase = value; }
-    inline void setKColorSchemeManager_SenderSignalIndex_IsBase(bool value) const { kcolorschememanager_sendersignalindex_isbase = value; }
-    inline void setKColorSchemeManager_Receivers_IsBase(bool value) const { kcolorschememanager_receivers_isbase = value; }
-    inline void setKColorSchemeManager_IsSignalConnected_IsBase(bool value) const { kcolorschememanager_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kcolorschememanager_metaobject_isbase) {
-            kcolorschememanager_metaobject_isbase = false;
-            return KColorSchemeManager::metaObject();
-        }
-        auto metaobject_cb = kcolorschememanager_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kcolorschememanager_metaobject_callback) {
+            QMetaObject* callback_ret = kcolorschememanager_metaobject_callback(this);
             return callback_ret;
         }
         return KColorSchemeManager::metaObject();
@@ -117,14 +63,9 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kcolorschememanager_metacast_isbase) {
-            kcolorschememanager_metacast_isbase = false;
-            return KColorSchemeManager::qt_metacast(param1);
-        }
-        auto metacast_cb = kcolorschememanager_metacast_callback;
-        if (metacast_cb) {
+        if (kcolorschememanager_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kcolorschememanager_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KColorSchemeManager::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kcolorschememanager_metacall_isbase) {
-            kcolorschememanager_metacall_isbase = false;
-            return KColorSchemeManager::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kcolorschememanager_metacall_callback;
-        if (metacall_cb) {
+        if (kcolorschememanager_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kcolorschememanager_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KColorSchemeManager::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kcolorschememanager_event_isbase) {
-            kcolorschememanager_event_isbase = false;
-            return KColorSchemeManager::event(event);
-        }
-        auto event_cb = kcolorschememanager_event_callback;
-        if (event_cb) {
+        if (kcolorschememanager_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kcolorschememanager_event_callback(this, cbval1);
             return callback_ret;
         }
         return KColorSchemeManager::event(event);
@@ -164,15 +95,10 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (kcolorschememanager_eventfilter_isbase) {
-            kcolorschememanager_eventfilter_isbase = false;
-            return KColorSchemeManager::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = kcolorschememanager_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kcolorschememanager_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kcolorschememanager_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KColorSchemeManager::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kcolorschememanager_timerevent_isbase) {
-            kcolorschememanager_timerevent_isbase = false;
-            KColorSchemeManager::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kcolorschememanager_timerevent_callback;
-        if (timerevent_cb) {
+        if (kcolorschememanager_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kcolorschememanager_timerevent_callback(this, cbval1);
             return;
         }
         KColorSchemeManager::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kcolorschememanager_childevent_isbase) {
-            kcolorschememanager_childevent_isbase = false;
-            KColorSchemeManager::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kcolorschememanager_childevent_callback;
-        if (childevent_cb) {
+        if (kcolorschememanager_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kcolorschememanager_childevent_callback(this, cbval1);
             return;
         }
         KColorSchemeManager::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kcolorschememanager_customevent_isbase) {
-            kcolorschememanager_customevent_isbase = false;
-            KColorSchemeManager::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kcolorschememanager_customevent_callback;
-        if (customevent_cb) {
+        if (kcolorschememanager_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kcolorschememanager_customevent_callback(this, cbval1);
             return;
         }
         KColorSchemeManager::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kcolorschememanager_connectnotify_isbase) {
-            kcolorschememanager_connectnotify_isbase = false;
-            KColorSchemeManager::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kcolorschememanager_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kcolorschememanager_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kcolorschememanager_connectnotify_callback(this, cbval1);
             return;
         }
         KColorSchemeManager::connectNotify(signal);
@@ -246,101 +148,22 @@ class VirtualKColorSchemeManager final : public KColorSchemeManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kcolorschememanager_disconnectnotify_isbase) {
-            kcolorschememanager_disconnectnotify_isbase = false;
-            KColorSchemeManager::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kcolorschememanager_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kcolorschememanager_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kcolorschememanager_disconnectnotify_callback(this, cbval1);
             return;
         }
         KColorSchemeManager::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kcolorschememanager_sender_isbase) {
-            kcolorschememanager_sender_isbase = false;
-            return KColorSchemeManager::sender();
-        }
-        auto sender_cb = kcolorschememanager_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KColorSchemeManager::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kcolorschememanager_sendersignalindex_isbase) {
-            kcolorschememanager_sendersignalindex_isbase = false;
-            return KColorSchemeManager::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kcolorschememanager_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KColorSchemeManager::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kcolorschememanager_receivers_isbase) {
-            kcolorschememanager_receivers_isbase = false;
-            return KColorSchemeManager::receivers(signal);
-        }
-        auto receivers_cb = kcolorschememanager_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KColorSchemeManager::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kcolorschememanager_issignalconnected_isbase) {
-            kcolorschememanager_issignalconnected_isbase = false;
-            return KColorSchemeManager::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kcolorschememanager_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KColorSchemeManager::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KColorSchemeManager_TimerEvent(KColorSchemeManager* self, QTimerEvent* event);
     friend void KColorSchemeManager_SuperTimerEvent(KColorSchemeManager* self, QTimerEvent* event);
-    friend void KColorSchemeManager_ChildEvent(KColorSchemeManager* self, QChildEvent* event);
     friend void KColorSchemeManager_SuperChildEvent(KColorSchemeManager* self, QChildEvent* event);
-    friend void KColorSchemeManager_CustomEvent(KColorSchemeManager* self, QEvent* event);
     friend void KColorSchemeManager_SuperCustomEvent(KColorSchemeManager* self, QEvent* event);
-    friend void KColorSchemeManager_ConnectNotify(KColorSchemeManager* self, const QMetaMethod* signal);
     friend void KColorSchemeManager_SuperConnectNotify(KColorSchemeManager* self, const QMetaMethod* signal);
-    friend void KColorSchemeManager_DisconnectNotify(KColorSchemeManager* self, const QMetaMethod* signal);
     friend void KColorSchemeManager_SuperDisconnectNotify(KColorSchemeManager* self, const QMetaMethod* signal);
-    friend QObject* KColorSchemeManager_Sender(const KColorSchemeManager* self);
-    friend QObject* KColorSchemeManager_SuperSender(const KColorSchemeManager* self);
-    friend int KColorSchemeManager_SenderSignalIndex(const KColorSchemeManager* self);
-    friend int KColorSchemeManager_SuperSenderSignalIndex(const KColorSchemeManager* self);
-    friend int KColorSchemeManager_Receivers(const KColorSchemeManager* self, const char* signal);
-    friend int KColorSchemeManager_SuperReceivers(const KColorSchemeManager* self, const char* signal);
-    friend bool KColorSchemeManager_IsSignalConnected(const KColorSchemeManager* self, const QMetaMethod* signal);
-    friend bool KColorSchemeManager_SuperIsSignalConnected(const KColorSchemeManager* self, const QMetaMethod* signal);
 };
 
 #endif

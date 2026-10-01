@@ -9,24 +9,19 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QPicture so that we can call protected methods
+// This class is a subclass of QPicture
 class VirtualQPicture final : public QPicture {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQPicture = true;
-
-    // Virtual class public types (including callbacks)
-    using QPicture_DevType_Callback = int (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QPicture_DevType_Callback = int (*)(const QPicture*);
     using QPicture_SetData_Callback = void (*)(QPicture*, const char*, unsigned int);
-    using QPicture_PaintEngine_Callback = QPaintEngine* (*)();
+    using QPicture_PaintEngine_Callback = QPaintEngine* (*)(const QPicture*);
     using QPicture_Metric_Callback = int (*)(const QPicture*, int);
     using QPicture_InitPainter_Callback = void (*)(const QPicture*, QPainter*);
     using QPicture_Redirected_Callback = QPaintDevice* (*)(const QPicture*, QPoint*);
-    using QPicture_SharedPainter_Callback = QPainter* (*)();
-    using QPicture_GetDecodedMetricF_Callback = double (*)(const QPicture*, int, int);
+    using QPicture_SharedPainter_Callback = QPainter* (*)(const QPicture*);
+    using QPicture::getDecodedMetricF;
 
-  protected:
     // Instance callback storage
     QPicture_DevType_Callback qpicture_devtype_callback = nullptr;
     QPicture_SetData_Callback qpicture_setdata_callback = nullptr;
@@ -35,52 +30,23 @@ class VirtualQPicture final : public QPicture {
     QPicture_InitPainter_Callback qpicture_initpainter_callback = nullptr;
     QPicture_Redirected_Callback qpicture_redirected_callback = nullptr;
     QPicture_SharedPainter_Callback qpicture_sharedpainter_callback = nullptr;
-    QPicture_GetDecodedMetricF_Callback qpicture_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qpicture_devtype_isbase = false;
-    mutable bool qpicture_setdata_isbase = false;
-    mutable bool qpicture_paintengine_isbase = false;
-    mutable bool qpicture_metric_isbase = false;
-    mutable bool qpicture_initpainter_isbase = false;
-    mutable bool qpicture_redirected_isbase = false;
-    mutable bool qpicture_sharedpainter_isbase = false;
-    mutable bool qpicture_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QPicture {
+        using QPicture::initPainter;
+        using QPicture::metric;
+        using QPicture::redirected;
+        using QPicture::sharedPainter;
+    };
 
-  public:
     VirtualQPicture() : QPicture() {};
     VirtualQPicture(const QPicture& param1) : QPicture(param1) {};
     VirtualQPicture(int formatVersion) : QPicture(formatVersion) {};
 
-    // Callback setters
-    inline void setQPicture_DevType_Callback(QPicture_DevType_Callback cb) { qpicture_devtype_callback = cb; }
-    inline void setQPicture_SetData_Callback(QPicture_SetData_Callback cb) { qpicture_setdata_callback = cb; }
-    inline void setQPicture_PaintEngine_Callback(QPicture_PaintEngine_Callback cb) { qpicture_paintengine_callback = cb; }
-    inline void setQPicture_Metric_Callback(QPicture_Metric_Callback cb) { qpicture_metric_callback = cb; }
-    inline void setQPicture_InitPainter_Callback(QPicture_InitPainter_Callback cb) { qpicture_initpainter_callback = cb; }
-    inline void setQPicture_Redirected_Callback(QPicture_Redirected_Callback cb) { qpicture_redirected_callback = cb; }
-    inline void setQPicture_SharedPainter_Callback(QPicture_SharedPainter_Callback cb) { qpicture_sharedpainter_callback = cb; }
-    inline void setQPicture_GetDecodedMetricF_Callback(QPicture_GetDecodedMetricF_Callback cb) { qpicture_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQPicture_DevType_IsBase(bool value) const { qpicture_devtype_isbase = value; }
-    inline void setQPicture_SetData_IsBase(bool value) const { qpicture_setdata_isbase = value; }
-    inline void setQPicture_PaintEngine_IsBase(bool value) const { qpicture_paintengine_isbase = value; }
-    inline void setQPicture_Metric_IsBase(bool value) const { qpicture_metric_isbase = value; }
-    inline void setQPicture_InitPainter_IsBase(bool value) const { qpicture_initpainter_isbase = value; }
-    inline void setQPicture_Redirected_IsBase(bool value) const { qpicture_redirected_isbase = value; }
-    inline void setQPicture_SharedPainter_IsBase(bool value) const { qpicture_sharedpainter_isbase = value; }
-    inline void setQPicture_GetDecodedMetricF_IsBase(bool value) const { qpicture_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qpicture_devtype_isbase) {
-            qpicture_devtype_isbase = false;
-            return QPicture::devType();
-        }
-        auto devtype_cb = qpicture_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qpicture_devtype_callback) {
+            int callback_ret = qpicture_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QPicture::devType();
@@ -88,16 +54,10 @@ class VirtualQPicture final : public QPicture {
 
     // Virtual method for C ABI access and custom callback
     virtual void setData(const char* data, uint size) override {
-        if (qpicture_setdata_isbase) {
-            qpicture_setdata_isbase = false;
-            QPicture::setData(data, size);
-            return;
-        }
-        auto setdata_cb = qpicture_setdata_callback;
-        if (setdata_cb) {
+        if (qpicture_setdata_callback) {
             const char* cbval1 = (const char*)data;
             unsigned int cbval2 = static_cast<unsigned int>(size);
-            setdata_cb(this, cbval1, cbval2);
+            qpicture_setdata_callback(this, cbval1, cbval2);
             return;
         }
         QPicture::setData(data, size);
@@ -105,13 +65,8 @@ class VirtualQPicture final : public QPicture {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qpicture_paintengine_isbase) {
-            qpicture_paintengine_isbase = false;
-            return QPicture::paintEngine();
-        }
-        auto paintengine_cb = qpicture_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qpicture_paintengine_callback) {
+            QPaintEngine* callback_ret = qpicture_paintengine_callback(this);
             return callback_ret;
         }
         return QPicture::paintEngine();
@@ -119,14 +74,9 @@ class VirtualQPicture final : public QPicture {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric m) const override {
-        if (qpicture_metric_isbase) {
-            qpicture_metric_isbase = false;
-            return QPicture::metric(m);
-        }
-        auto metric_cb = qpicture_metric_callback;
-        if (metric_cb) {
+        if (qpicture_metric_callback) {
             int cbval1 = static_cast<int>(m);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qpicture_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QPicture::metric(m);
@@ -134,15 +84,9 @@ class VirtualQPicture final : public QPicture {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qpicture_initpainter_isbase) {
-            qpicture_initpainter_isbase = false;
-            QPicture::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qpicture_initpainter_callback;
-        if (initpainter_cb) {
+        if (qpicture_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qpicture_initpainter_callback(this, cbval1);
             return;
         }
         QPicture::initPainter(painter);
@@ -150,14 +94,9 @@ class VirtualQPicture final : public QPicture {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qpicture_redirected_isbase) {
-            qpicture_redirected_isbase = false;
-            return QPicture::redirected(offset);
-        }
-        auto redirected_cb = qpicture_redirected_callback;
-        if (redirected_cb) {
+        if (qpicture_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qpicture_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QPicture::redirected(offset);
@@ -165,45 +104,18 @@ class VirtualQPicture final : public QPicture {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qpicture_sharedpainter_isbase) {
-            qpicture_sharedpainter_isbase = false;
-            return QPicture::sharedPainter();
-        }
-        auto sharedpainter_cb = qpicture_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qpicture_sharedpainter_callback) {
+            QPainter* callback_ret = qpicture_sharedpainter_callback(this);
             return callback_ret;
         }
         return QPicture::sharedPainter();
     }
 
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qpicture_getdecodedmetricf_isbase) {
-            qpicture_getdecodedmetricf_isbase = false;
-            return QPicture::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qpicture_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QPicture::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend int QPicture_Metric(const QPicture* self, int m);
     friend int QPicture_SuperMetric(const QPicture* self, int m);
-    friend void QPicture_InitPainter(const QPicture* self, QPainter* painter);
     friend void QPicture_SuperInitPainter(const QPicture* self, QPainter* painter);
-    friend QPaintDevice* QPicture_Redirected(const QPicture* self, QPoint* offset);
     friend QPaintDevice* QPicture_SuperRedirected(const QPicture* self, QPoint* offset);
-    friend QPainter* QPicture_SharedPainter(const QPicture* self);
     friend QPainter* QPicture_SuperSharedPainter(const QPicture* self);
-    friend double QPicture_GetDecodedMetricF(const QPicture* self, int metricA, int metricB);
-    friend double QPicture_SuperGetDecodedMetricF(const QPicture* self, int metricA, int metricB);
 };
 
 #endif

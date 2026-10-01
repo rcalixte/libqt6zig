@@ -50,13 +50,13 @@ void QNetworkDiskCache_Clear(QNetworkDiskCache* self);
 long long QNetworkDiskCache_Expire(QNetworkDiskCache* self);
 libqt_string QNetworkDiskCache_Tr2(const char* s, const char* c);
 libqt_string QNetworkDiskCache_Tr3(const char* s, const char* c, int n);
-void QNetworkDiskCache_OnMetaObject(const QNetworkDiskCache* self, intptr_t slot);
+void QNetworkDiskCache_OnMetaObject(QNetworkDiskCache* self, intptr_t slot);
 QMetaObject* QNetworkDiskCache_SuperMetaObject(const QNetworkDiskCache* self);
 void QNetworkDiskCache_OnMetacast(QNetworkDiskCache* self, intptr_t slot);
 void* QNetworkDiskCache_SuperMetacast(QNetworkDiskCache* self, const char* param1);
 void QNetworkDiskCache_OnMetacall(QNetworkDiskCache* self, intptr_t slot);
 int QNetworkDiskCache_SuperMetacall(QNetworkDiskCache* self, int param1, int param2, void** param3);
-void QNetworkDiskCache_OnCacheSize(const QNetworkDiskCache* self, intptr_t slot);
+void QNetworkDiskCache_OnCacheSize(QNetworkDiskCache* self, intptr_t slot);
 long long QNetworkDiskCache_SuperCacheSize(const QNetworkDiskCache* self);
 void QNetworkDiskCache_OnMetaData(QNetworkDiskCache* self, intptr_t slot);
 QNetworkCacheMetaData* QNetworkDiskCache_SuperMetaData(QNetworkDiskCache* self, const QUrl* url);
@@ -96,17 +96,9 @@ void QNetworkDiskCache_DisconnectNotify(QNetworkDiskCache* self, const QMetaMeth
 void QNetworkDiskCache_OnDisconnectNotify(QNetworkDiskCache* self, intptr_t slot);
 void QNetworkDiskCache_SuperDisconnectNotify(QNetworkDiskCache* self, const QMetaMethod* signal);
 QObject* QNetworkDiskCache_Sender(const QNetworkDiskCache* self);
-void QNetworkDiskCache_OnSender(const QNetworkDiskCache* self, intptr_t slot);
-QObject* QNetworkDiskCache_SuperSender(const QNetworkDiskCache* self);
 int QNetworkDiskCache_SenderSignalIndex(const QNetworkDiskCache* self);
-void QNetworkDiskCache_OnSenderSignalIndex(const QNetworkDiskCache* self, intptr_t slot);
-int QNetworkDiskCache_SuperSenderSignalIndex(const QNetworkDiskCache* self);
 int QNetworkDiskCache_Receivers(const QNetworkDiskCache* self, const char* signal);
-void QNetworkDiskCache_OnReceivers(const QNetworkDiskCache* self, intptr_t slot);
-int QNetworkDiskCache_SuperReceivers(const QNetworkDiskCache* self, const char* signal);
 bool QNetworkDiskCache_IsSignalConnected(const QNetworkDiskCache* self, const QMetaMethod* signal);
-void QNetworkDiskCache_OnIsSignalConnected(const QNetworkDiskCache* self, intptr_t slot);
-bool QNetworkDiskCache_SuperIsSignalConnected(const QNetworkDiskCache* self, const QMetaMethod* signal);
 void QNetworkDiskCache_Delete(QNetworkDiskCache* self);
 
 #ifdef __cplusplus

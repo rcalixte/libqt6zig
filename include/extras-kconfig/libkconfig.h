@@ -17,7 +17,6 @@ extern "C" {
 #else
 typedef struct KConfig KConfig;
 typedef struct KConfigBase KConfigBase;
-typedef struct KConfigGroup KConfigGroup;
 #endif
 
 KConfig* KConfig_new();
@@ -49,8 +48,6 @@ libqt_map /* of libqt_string to libqt_string */ KConfig_EntryMap(const KConfig* 
 void KConfig_SetMainConfigName(const libqt_string str);
 libqt_string KConfig_MainConfigName();
 bool KConfig_HasGroupImpl(const KConfig* self, const libqt_string groupName);
-KConfigGroup* KConfig_GroupImpl(KConfig* self, const libqt_string groupName);
-KConfigGroup* KConfig_GroupImpl2(const KConfig* self, const libqt_string groupName);
 void KConfig_DeleteGroupImpl(KConfig* self, const libqt_string groupName, int flags);
 bool KConfig_IsGroupImmutableImpl(const KConfig* self, const libqt_string groupName);
 void KConfig_VirtualHook(KConfig* self, int id, void* data);
@@ -60,21 +57,17 @@ void KConfig_OnSync(KConfig* self, intptr_t slot);
 bool KConfig_SuperSync(KConfig* self);
 void KConfig_OnMarkAsClean(KConfig* self, intptr_t slot);
 void KConfig_SuperMarkAsClean(KConfig* self);
-void KConfig_OnAccessMode(const KConfig* self, intptr_t slot);
+void KConfig_OnAccessMode(KConfig* self, intptr_t slot);
 int KConfig_SuperAccessMode(const KConfig* self);
-void KConfig_OnIsImmutable(const KConfig* self, intptr_t slot);
+void KConfig_OnIsImmutable(KConfig* self, intptr_t slot);
 bool KConfig_SuperIsImmutable(const KConfig* self);
-void KConfig_OnGroupList(const KConfig* self, intptr_t slot);
+void KConfig_OnGroupList(KConfig* self, intptr_t slot);
 libqt_list /* of libqt_string */ KConfig_SuperGroupList(const KConfig* self);
-void KConfig_OnHasGroupImpl(const KConfig* self, intptr_t slot);
+void KConfig_OnHasGroupImpl(KConfig* self, intptr_t slot);
 bool KConfig_SuperHasGroupImpl(const KConfig* self, const libqt_string groupName);
-void KConfig_OnGroupImpl(KConfig* self, intptr_t slot);
-KConfigGroup* KConfig_SuperGroupImpl(KConfig* self, const libqt_string groupName);
-void KConfig_OnGroupImpl2(const KConfig* self, intptr_t slot);
-KConfigGroup* KConfig_SuperGroupImpl2(const KConfig* self, const libqt_string groupName);
 void KConfig_OnDeleteGroupImpl(KConfig* self, intptr_t slot);
 void KConfig_SuperDeleteGroupImpl(KConfig* self, const libqt_string groupName, int flags);
-void KConfig_OnIsGroupImmutableImpl(const KConfig* self, intptr_t slot);
+void KConfig_OnIsGroupImmutableImpl(KConfig* self, intptr_t slot);
 bool KConfig_SuperIsGroupImmutableImpl(const KConfig* self, const libqt_string groupName);
 void KConfig_OnVirtualHook(KConfig* self, intptr_t slot);
 void KConfig_SuperVirtualHook(KConfig* self, int id, void* data);

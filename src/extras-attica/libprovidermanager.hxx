@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of Attica::ProviderManager so that we can call protected methods
+// This class is a subclass of Attica::ProviderManager
 class VirtualAtticaProviderManager final : public Attica::ProviderManager {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualAtticaProviderManager = true;
-
-    // Virtual class public types (including callbacks)
-    using Attica__ProviderManager_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using Attica__ProviderManager_MetaObject_Callback = QMetaObject* (*)(const Attica__ProviderManager*);
     using Attica__ProviderManager_Metacast_Callback = void* (*)(Attica__ProviderManager*, const char*);
     using Attica__ProviderManager_Metacall_Callback = int (*)(Attica__ProviderManager*, int, int, void**);
     using Attica__ProviderManager_Event_Callback = bool (*)(Attica__ProviderManager*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
     using Attica__ProviderManager_CustomEvent_Callback = void (*)(Attica__ProviderManager*, QEvent*);
     using Attica__ProviderManager_ConnectNotify_Callback = void (*)(Attica__ProviderManager*, QMetaMethod*);
     using Attica__ProviderManager_DisconnectNotify_Callback = void (*)(Attica__ProviderManager*, QMetaMethod*);
-    using Attica__ProviderManager_Sender_Callback = QObject* (*)();
-    using Attica__ProviderManager_SenderSignalIndex_Callback = int (*)();
-    using Attica__ProviderManager_Receivers_Callback = int (*)(const Attica__ProviderManager*, const char*);
-    using Attica__ProviderManager_IsSignalConnected_Callback = bool (*)(const Attica__ProviderManager*, QMetaMethod*);
+    using Attica::ProviderManager::isSignalConnected;
+    using Attica::ProviderManager::receivers;
+    using Attica::ProviderManager::sender;
+    using Attica::ProviderManager::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     Attica__ProviderManager_MetaObject_Callback attica__providermanager_metaobject_callback = nullptr;
     Attica__ProviderManager_Metacast_Callback attica__providermanager_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
     Attica__ProviderManager_CustomEvent_Callback attica__providermanager_customevent_callback = nullptr;
     Attica__ProviderManager_ConnectNotify_Callback attica__providermanager_connectnotify_callback = nullptr;
     Attica__ProviderManager_DisconnectNotify_Callback attica__providermanager_disconnectnotify_callback = nullptr;
-    Attica__ProviderManager_Sender_Callback attica__providermanager_sender_callback = nullptr;
-    Attica__ProviderManager_SenderSignalIndex_Callback attica__providermanager_sendersignalindex_callback = nullptr;
-    Attica__ProviderManager_Receivers_Callback attica__providermanager_receivers_callback = nullptr;
-    Attica__ProviderManager_IsSignalConnected_Callback attica__providermanager_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool attica__providermanager_metaobject_isbase = false;
-    mutable bool attica__providermanager_metacast_isbase = false;
-    mutable bool attica__providermanager_metacall_isbase = false;
-    mutable bool attica__providermanager_event_isbase = false;
-    mutable bool attica__providermanager_eventfilter_isbase = false;
-    mutable bool attica__providermanager_timerevent_isbase = false;
-    mutable bool attica__providermanager_childevent_isbase = false;
-    mutable bool attica__providermanager_customevent_isbase = false;
-    mutable bool attica__providermanager_connectnotify_isbase = false;
-    mutable bool attica__providermanager_disconnectnotify_isbase = false;
-    mutable bool attica__providermanager_sender_isbase = false;
-    mutable bool attica__providermanager_sendersignalindex_isbase = false;
-    mutable bool attica__providermanager_receivers_isbase = false;
-    mutable bool attica__providermanager_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : Attica::ProviderManager {
+        using Attica::ProviderManager::childEvent;
+        using Attica::ProviderManager::connectNotify;
+        using Attica::ProviderManager::customEvent;
+        using Attica::ProviderManager::disconnectNotify;
+        using Attica::ProviderManager::timerEvent;
+    };
 
-  public:
     VirtualAtticaProviderManager() : Attica::ProviderManager() {};
     VirtualAtticaProviderManager(const Attica::ProviderManager::ProviderFlags& flags) : Attica::ProviderManager(flags) {};
 
-    // Callback setters
-    inline void setAttica__ProviderManager_MetaObject_Callback(Attica__ProviderManager_MetaObject_Callback cb) { attica__providermanager_metaobject_callback = cb; }
-    inline void setAttica__ProviderManager_Metacast_Callback(Attica__ProviderManager_Metacast_Callback cb) { attica__providermanager_metacast_callback = cb; }
-    inline void setAttica__ProviderManager_Metacall_Callback(Attica__ProviderManager_Metacall_Callback cb) { attica__providermanager_metacall_callback = cb; }
-    inline void setAttica__ProviderManager_Event_Callback(Attica__ProviderManager_Event_Callback cb) { attica__providermanager_event_callback = cb; }
-    inline void setAttica__ProviderManager_EventFilter_Callback(Attica__ProviderManager_EventFilter_Callback cb) { attica__providermanager_eventfilter_callback = cb; }
-    inline void setAttica__ProviderManager_TimerEvent_Callback(Attica__ProviderManager_TimerEvent_Callback cb) { attica__providermanager_timerevent_callback = cb; }
-    inline void setAttica__ProviderManager_ChildEvent_Callback(Attica__ProviderManager_ChildEvent_Callback cb) { attica__providermanager_childevent_callback = cb; }
-    inline void setAttica__ProviderManager_CustomEvent_Callback(Attica__ProviderManager_CustomEvent_Callback cb) { attica__providermanager_customevent_callback = cb; }
-    inline void setAttica__ProviderManager_ConnectNotify_Callback(Attica__ProviderManager_ConnectNotify_Callback cb) { attica__providermanager_connectnotify_callback = cb; }
-    inline void setAttica__ProviderManager_DisconnectNotify_Callback(Attica__ProviderManager_DisconnectNotify_Callback cb) { attica__providermanager_disconnectnotify_callback = cb; }
-    inline void setAttica__ProviderManager_Sender_Callback(Attica__ProviderManager_Sender_Callback cb) { attica__providermanager_sender_callback = cb; }
-    inline void setAttica__ProviderManager_SenderSignalIndex_Callback(Attica__ProviderManager_SenderSignalIndex_Callback cb) { attica__providermanager_sendersignalindex_callback = cb; }
-    inline void setAttica__ProviderManager_Receivers_Callback(Attica__ProviderManager_Receivers_Callback cb) { attica__providermanager_receivers_callback = cb; }
-    inline void setAttica__ProviderManager_IsSignalConnected_Callback(Attica__ProviderManager_IsSignalConnected_Callback cb) { attica__providermanager_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setAttica__ProviderManager_MetaObject_IsBase(bool value) const { attica__providermanager_metaobject_isbase = value; }
-    inline void setAttica__ProviderManager_Metacast_IsBase(bool value) const { attica__providermanager_metacast_isbase = value; }
-    inline void setAttica__ProviderManager_Metacall_IsBase(bool value) const { attica__providermanager_metacall_isbase = value; }
-    inline void setAttica__ProviderManager_Event_IsBase(bool value) const { attica__providermanager_event_isbase = value; }
-    inline void setAttica__ProviderManager_EventFilter_IsBase(bool value) const { attica__providermanager_eventfilter_isbase = value; }
-    inline void setAttica__ProviderManager_TimerEvent_IsBase(bool value) const { attica__providermanager_timerevent_isbase = value; }
-    inline void setAttica__ProviderManager_ChildEvent_IsBase(bool value) const { attica__providermanager_childevent_isbase = value; }
-    inline void setAttica__ProviderManager_CustomEvent_IsBase(bool value) const { attica__providermanager_customevent_isbase = value; }
-    inline void setAttica__ProviderManager_ConnectNotify_IsBase(bool value) const { attica__providermanager_connectnotify_isbase = value; }
-    inline void setAttica__ProviderManager_DisconnectNotify_IsBase(bool value) const { attica__providermanager_disconnectnotify_isbase = value; }
-    inline void setAttica__ProviderManager_Sender_IsBase(bool value) const { attica__providermanager_sender_isbase = value; }
-    inline void setAttica__ProviderManager_SenderSignalIndex_IsBase(bool value) const { attica__providermanager_sendersignalindex_isbase = value; }
-    inline void setAttica__ProviderManager_Receivers_IsBase(bool value) const { attica__providermanager_receivers_isbase = value; }
-    inline void setAttica__ProviderManager_IsSignalConnected_IsBase(bool value) const { attica__providermanager_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (attica__providermanager_metaobject_isbase) {
-            attica__providermanager_metaobject_isbase = false;
-            return Attica__ProviderManager::metaObject();
-        }
-        auto metaobject_cb = attica__providermanager_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (attica__providermanager_metaobject_callback) {
+            QMetaObject* callback_ret = attica__providermanager_metaobject_callback(this);
             return callback_ret;
         }
         return Attica__ProviderManager::metaObject();
@@ -117,14 +63,9 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (attica__providermanager_metacast_isbase) {
-            attica__providermanager_metacast_isbase = false;
-            return Attica__ProviderManager::qt_metacast(param1);
-        }
-        auto metacast_cb = attica__providermanager_metacast_callback;
-        if (metacast_cb) {
+        if (attica__providermanager_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = attica__providermanager_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return Attica__ProviderManager::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (attica__providermanager_metacall_isbase) {
-            attica__providermanager_metacall_isbase = false;
-            return Attica__ProviderManager::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = attica__providermanager_metacall_callback;
-        if (metacall_cb) {
+        if (attica__providermanager_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = attica__providermanager_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return Attica__ProviderManager::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (attica__providermanager_event_isbase) {
-            attica__providermanager_event_isbase = false;
-            return Attica__ProviderManager::event(event);
-        }
-        auto event_cb = attica__providermanager_event_callback;
-        if (event_cb) {
+        if (attica__providermanager_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = attica__providermanager_event_callback(this, cbval1);
             return callback_ret;
         }
         return Attica__ProviderManager::event(event);
@@ -164,15 +95,10 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (attica__providermanager_eventfilter_isbase) {
-            attica__providermanager_eventfilter_isbase = false;
-            return Attica__ProviderManager::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = attica__providermanager_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (attica__providermanager_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = attica__providermanager_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return Attica__ProviderManager::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (attica__providermanager_timerevent_isbase) {
-            attica__providermanager_timerevent_isbase = false;
-            Attica__ProviderManager::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = attica__providermanager_timerevent_callback;
-        if (timerevent_cb) {
+        if (attica__providermanager_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            attica__providermanager_timerevent_callback(this, cbval1);
             return;
         }
         Attica__ProviderManager::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (attica__providermanager_childevent_isbase) {
-            attica__providermanager_childevent_isbase = false;
-            Attica__ProviderManager::childEvent(event);
-            return;
-        }
-        auto childevent_cb = attica__providermanager_childevent_callback;
-        if (childevent_cb) {
+        if (attica__providermanager_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            attica__providermanager_childevent_callback(this, cbval1);
             return;
         }
         Attica__ProviderManager::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (attica__providermanager_customevent_isbase) {
-            attica__providermanager_customevent_isbase = false;
-            Attica__ProviderManager::customEvent(event);
-            return;
-        }
-        auto customevent_cb = attica__providermanager_customevent_callback;
-        if (customevent_cb) {
+        if (attica__providermanager_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            attica__providermanager_customevent_callback(this, cbval1);
             return;
         }
         Attica__ProviderManager::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (attica__providermanager_connectnotify_isbase) {
-            attica__providermanager_connectnotify_isbase = false;
-            Attica__ProviderManager::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = attica__providermanager_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (attica__providermanager_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            attica__providermanager_connectnotify_callback(this, cbval1);
             return;
         }
         Attica__ProviderManager::connectNotify(signal);
@@ -246,101 +148,22 @@ class VirtualAtticaProviderManager final : public Attica::ProviderManager {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (attica__providermanager_disconnectnotify_isbase) {
-            attica__providermanager_disconnectnotify_isbase = false;
-            Attica__ProviderManager::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = attica__providermanager_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (attica__providermanager_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            attica__providermanager_disconnectnotify_callback(this, cbval1);
             return;
         }
         Attica__ProviderManager::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (attica__providermanager_sender_isbase) {
-            attica__providermanager_sender_isbase = false;
-            return Attica__ProviderManager::sender();
-        }
-        auto sender_cb = attica__providermanager_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return Attica__ProviderManager::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (attica__providermanager_sendersignalindex_isbase) {
-            attica__providermanager_sendersignalindex_isbase = false;
-            return Attica__ProviderManager::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = attica__providermanager_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return Attica__ProviderManager::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (attica__providermanager_receivers_isbase) {
-            attica__providermanager_receivers_isbase = false;
-            return Attica__ProviderManager::receivers(signal);
-        }
-        auto receivers_cb = attica__providermanager_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return Attica__ProviderManager::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (attica__providermanager_issignalconnected_isbase) {
-            attica__providermanager_issignalconnected_isbase = false;
-            return Attica__ProviderManager::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = attica__providermanager_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return Attica__ProviderManager::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void Attica__ProviderManager_TimerEvent(Attica::ProviderManager* self, QTimerEvent* event);
     friend void Attica__ProviderManager_SuperTimerEvent(Attica::ProviderManager* self, QTimerEvent* event);
-    friend void Attica__ProviderManager_ChildEvent(Attica::ProviderManager* self, QChildEvent* event);
     friend void Attica__ProviderManager_SuperChildEvent(Attica::ProviderManager* self, QChildEvent* event);
-    friend void Attica__ProviderManager_CustomEvent(Attica::ProviderManager* self, QEvent* event);
     friend void Attica__ProviderManager_SuperCustomEvent(Attica::ProviderManager* self, QEvent* event);
-    friend void Attica__ProviderManager_ConnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
     friend void Attica__ProviderManager_SuperConnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
-    friend void Attica__ProviderManager_DisconnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
     friend void Attica__ProviderManager_SuperDisconnectNotify(Attica::ProviderManager* self, const QMetaMethod* signal);
-    friend QObject* Attica__ProviderManager_Sender(const Attica::ProviderManager* self);
-    friend QObject* Attica__ProviderManager_SuperSender(const Attica::ProviderManager* self);
-    friend int Attica__ProviderManager_SenderSignalIndex(const Attica::ProviderManager* self);
-    friend int Attica__ProviderManager_SuperSenderSignalIndex(const Attica::ProviderManager* self);
-    friend int Attica__ProviderManager_Receivers(const Attica::ProviderManager* self, const char* signal);
-    friend int Attica__ProviderManager_SuperReceivers(const Attica::ProviderManager* self, const char* signal);
-    friend bool Attica__ProviderManager_IsSignalConnected(const Attica::ProviderManager* self, const QMetaMethod* signal);
-    friend bool Attica__ProviderManager_SuperIsSignalConnected(const Attica::ProviderManager* self, const QMetaMethod* signal);
 };
 
 #endif

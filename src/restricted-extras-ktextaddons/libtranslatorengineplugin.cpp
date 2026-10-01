@@ -199,7 +199,7 @@ void TextTranslator__TranslatorEnginePlugin_Connect_LanguagesChanged(TextTransla
 libqt_string TextTranslator__TranslatorEnginePlugin_LanguageCode(TextTranslator__TranslatorEnginePlugin* self, const libqt_string langStr) {
     QString langStr_QString = QString::fromUtf8(langStr.data, langStr.len);
     auto* vtexttranslator__translatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslator__translatorengineplugin && vtexttranslator__translatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
+    if (vtexttranslator__translatorengineplugin) {
         auto _ret = vtexttranslator__translatorengineplugin->languageCode(langStr_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
@@ -210,7 +210,7 @@ libqt_string TextTranslator__TranslatorEnginePlugin_LanguageCode(TextTranslator_
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
-    return {};
+    qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::languageCode called without a directly constructed type");
 }
 
 libqt_string TextTranslator__TranslatorEnginePlugin_Tr2(const char* s, const char* c) {
@@ -239,83 +239,48 @@ libqt_string TextTranslator__TranslatorEnginePlugin_Tr3(const char* s, const cha
 
 // Base class handler implementation
 QMetaObject* TextTranslator__TranslatorEnginePlugin_SuperMetaObject(const TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_MetaObject_IsBase(true);
-        return (QMetaObject*)vtexttranslatortranslatorengineplugin->metaObject();
-    } else {
-        return (QMetaObject*)self->TextTranslator::TranslatorEnginePlugin::metaObject();
-    }
+    return (QMetaObject*)self->TextTranslator::TranslatorEnginePlugin::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnMetaObject(const TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_MetaObject_Callback>(slot));
+void TextTranslator__TranslatorEnginePlugin_OnMetaObject(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
+    if (auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self)))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_metaobject_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* TextTranslator__TranslatorEnginePlugin_SuperMetacast(TextTranslator__TranslatorEnginePlugin* self, const char* param1) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Metacast_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->qt_metacast(param1);
-    } else {
-        return self->TextTranslator::TranslatorEnginePlugin::qt_metacast(param1);
-    }
+    return self->TextTranslator::TranslatorEnginePlugin::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnMetacast(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Metacast_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_metacast_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int TextTranslator__TranslatorEnginePlugin_SuperMetacall(TextTranslator__TranslatorEnginePlugin* self, int param1, int param2, void** param3) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Metacall_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->TextTranslator::TranslatorEnginePlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->TextTranslator::TranslatorEnginePlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnMetacall(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-void TextTranslator__TranslatorEnginePlugin_SuperTranslate(TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Translate_IsBase(true);
-        vtexttranslatortranslatorengineplugin->translate();
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->translate();
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_metacall_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnTranslate(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Translate_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Translate_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_translate_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Translate_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string TextTranslator__TranslatorEnginePlugin_SuperLanguageCode(TextTranslator__TranslatorEnginePlugin* self, const libqt_string langStr) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
     QString langStr_QString = QString::fromUtf8(langStr.data, langStr.len);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_LanguageCode_IsBase(true);
-        auto _ret = vtexttranslatortranslatorengineplugin->languageCode(langStr_QString);
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        auto _ret = vtexttranslatortranslatorengineplugin->TextTranslator::TranslatorEnginePlugin::languageCode(langStr_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -324,446 +289,231 @@ libqt_string TextTranslator__TranslatorEnginePlugin_SuperLanguageCode(TextTransl
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
-    } else {
-        auto _ret = ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->languageCode(langStr_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::languageCode called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnLanguageCode(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_LanguageCode_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_LanguageCode_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_languagecode_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_LanguageCode_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorEnginePlugin_Event(TextTranslator__TranslatorEnginePlugin* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return vtexttranslatortranslatorengineplugin->event(event);
-    } else {
-        return self->TextTranslator::TranslatorEnginePlugin::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorEnginePlugin_SuperEvent(TextTranslator__TranslatorEnginePlugin* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Event_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->event(event);
-    } else {
-        return self->TextTranslator::TranslatorEnginePlugin::event(event);
-    }
+    return self->TextTranslator::TranslatorEnginePlugin::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnEvent(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Event_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_event_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool TextTranslator__TranslatorEnginePlugin_EventFilter(TextTranslator__TranslatorEnginePlugin* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return vtexttranslatortranslatorengineplugin->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorEnginePlugin::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool TextTranslator__TranslatorEnginePlugin_SuperEventFilter(TextTranslator__TranslatorEnginePlugin* self, QObject* watched, QEvent* event) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_EventFilter_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->eventFilter(watched, event);
-    } else {
-        return self->TextTranslator::TranslatorEnginePlugin::eventFilter(watched, event);
-    }
+    return self->TextTranslator::TranslatorEnginePlugin::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnEventFilter(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_EventFilter_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_eventfilter_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEnginePlugin_TimerEvent(TextTranslator__TranslatorEnginePlugin* self, QTimerEvent* event) {
     auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
+    if (vtexttranslatortranslatorengineplugin) {
         vtexttranslatortranslatorengineplugin->timerEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEnginePlugin_SuperTimerEvent(TextTranslator__TranslatorEnginePlugin* self, QTimerEvent* event) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_TimerEvent_IsBase(true);
-        vtexttranslatortranslatorengineplugin->timerEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->timerEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        vtexttranslatortranslatorengineplugin->TextTranslator::TranslatorEnginePlugin::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnTimerEvent(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_TimerEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_timerevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEnginePlugin_ChildEvent(TextTranslator__TranslatorEnginePlugin* self, QChildEvent* event) {
     auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
+    if (vtexttranslatortranslatorengineplugin) {
         vtexttranslatortranslatorengineplugin->childEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEnginePlugin_SuperChildEvent(TextTranslator__TranslatorEnginePlugin* self, QChildEvent* event) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_ChildEvent_IsBase(true);
-        vtexttranslatortranslatorengineplugin->childEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->childEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        vtexttranslatortranslatorengineplugin->TextTranslator::TranslatorEnginePlugin::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnChildEvent(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_ChildEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_childevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEnginePlugin_CustomEvent(TextTranslator__TranslatorEnginePlugin* self, QEvent* event) {
     auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
+    if (vtexttranslatortranslatorengineplugin) {
         vtexttranslatortranslatorengineplugin->customEvent(event);
     } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEnginePlugin_SuperCustomEvent(TextTranslator__TranslatorEnginePlugin* self, QEvent* event) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_CustomEvent_IsBase(true);
-        vtexttranslatortranslatorengineplugin->customEvent(event);
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->customEvent(event);
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        vtexttranslatortranslatorengineplugin->TextTranslator::TranslatorEnginePlugin::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnCustomEvent(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_CustomEvent_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_customevent_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEnginePlugin_ConnectNotify(TextTranslator__TranslatorEnginePlugin* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
+    if (vtexttranslatortranslatorengineplugin) {
         vtexttranslatortranslatorengineplugin->connectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEnginePlugin_SuperConnectNotify(TextTranslator__TranslatorEnginePlugin* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_ConnectNotify_IsBase(true);
-        vtexttranslatortranslatorengineplugin->connectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->connectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        vtexttranslatortranslatorengineplugin->TextTranslator::TranslatorEnginePlugin::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnConnectNotify(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_ConnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_connectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void TextTranslator__TranslatorEnginePlugin_DisconnectNotify(TextTranslator__TranslatorEnginePlugin* self, const QMetaMethod* signal) {
     auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
+    if (vtexttranslatortranslatorengineplugin) {
         vtexttranslatortranslatorengineplugin->disconnectNotify(*signal);
     } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void TextTranslator__TranslatorEnginePlugin_SuperDisconnectNotify(TextTranslator__TranslatorEnginePlugin* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_DisconnectNotify_IsBase(true);
-        vtexttranslatortranslatorengineplugin->disconnectNotify(*signal);
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        vtexttranslatortranslatorengineplugin->TextTranslator::TranslatorEnginePlugin::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method TextTranslator::TranslatorEnginePlugin::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEnginePlugin_OnDisconnectNotify(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_DisconnectNotify_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self))
+        vtexttranslatortranslatorengineplugin->texttranslator__translatorengineplugin_disconnectnotify_callback = reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorEnginePlugin_AppendResult(TextTranslator__TranslatorEnginePlugin* self, const libqt_string result) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    QString result_QString = QString::fromUtf8(result.data, result.len);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->appendResult(result_QString);
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->appendResult(result_QString);
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        QString result_QString = QString::fromUtf8(result.data, result.len);
+        vtexttranslatortranslatorengineplugin->VirtualTextTranslatorTranslatorEnginePlugin::appendResult(result_QString);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::appendResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorEnginePlugin_SuperAppendResult(TextTranslator__TranslatorEnginePlugin* self, const libqt_string result) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    QString result_QString = QString::fromUtf8(result.data, result.len);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_AppendResult_IsBase(true);
-        vtexttranslatortranslatorengineplugin->appendResult(result_QString);
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->appendResult(result_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnAppendResult(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_AppendResult_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_AppendResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void TextTranslator__TranslatorEnginePlugin_SlotError(TextTranslator__TranslatorEnginePlugin* self, int errorVal) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->slotError(static_cast<QNetworkReply::NetworkError>(errorVal));
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->slotError(static_cast<QNetworkReply::NetworkError>(errorVal));
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        vtexttranslatortranslatorengineplugin->VirtualTextTranslatorTranslatorEnginePlugin::slotError(static_cast<QNetworkReply::NetworkError>(errorVal));
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::slotError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void TextTranslator__TranslatorEnginePlugin_SuperSlotError(TextTranslator__TranslatorEnginePlugin* self, int errorVal) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_SlotError_IsBase(true);
-        vtexttranslatortranslatorengineplugin->slotError(static_cast<QNetworkReply::NetworkError>(errorVal));
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->slotError(static_cast<QNetworkReply::NetworkError>(errorVal));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnSlotError(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_SlotError_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_SlotError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorEnginePlugin_VerifyFromAndToLanguage(TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return vtexttranslatortranslatorengineplugin->verifyFromAndToLanguage();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->verifyFromAndToLanguage();
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self)) {
+        return vtexttranslatortranslatorengineplugin->VirtualTextTranslatorTranslatorEnginePlugin::verifyFromAndToLanguage();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::verifyFromAndToLanguage called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextTranslator__TranslatorEnginePlugin_SuperVerifyFromAndToLanguage(TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_VerifyFromAndToLanguage_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->verifyFromAndToLanguage();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->verifyFromAndToLanguage();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnVerifyFromAndToLanguage(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_VerifyFromAndToLanguage_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_VerifyFromAndToLanguage_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorEnginePlugin_HasDebug(const TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return vtexttranslatortranslatorengineplugin->hasDebug();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->hasDebug();
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self))) {
+        return vtexttranslatortranslatorengineplugin->VirtualTextTranslatorTranslatorEnginePlugin::hasDebug();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::hasDebug called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool TextTranslator__TranslatorEnginePlugin_SuperHasDebug(const TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_HasDebug_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->hasDebug();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->hasDebug();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnHasDebug(const TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_HasDebug_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_HasDebug_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* TextTranslator__TranslatorEnginePlugin_Sender(const TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return vtexttranslatortranslatorengineplugin->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->sender();
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self))) {
+        return vtexttranslatortranslatorengineplugin->VirtualTextTranslatorTranslatorEnginePlugin::sender();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* TextTranslator__TranslatorEnginePlugin_SuperSender(const TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Sender_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->sender();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnSender(const TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorEnginePlugin_SenderSignalIndex(const TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return vtexttranslatortranslatorengineplugin->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->senderSignalIndex();
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self))) {
+        return vtexttranslatortranslatorengineplugin->VirtualTextTranslatorTranslatorEnginePlugin::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorEnginePlugin_SuperSenderSignalIndex(const TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_SenderSignalIndex_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->senderSignalIndex();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnSenderSignalIndex(const TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int TextTranslator__TranslatorEnginePlugin_Receivers(const TextTranslator__TranslatorEnginePlugin* self, const char* signal) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return vtexttranslatortranslatorengineplugin->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->receivers(signal);
-    }
+    if (auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self))) {
+        return vtexttranslatortranslatorengineplugin->VirtualTextTranslatorTranslatorEnginePlugin::receivers(signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int TextTranslator__TranslatorEnginePlugin_SuperReceivers(const TextTranslator__TranslatorEnginePlugin* self, const char* signal) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Receivers_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->receivers(signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnReceivers(const TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool TextTranslator__TranslatorEnginePlugin_IsSignalConnected(const TextTranslator__TranslatorEnginePlugin* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return vtexttranslatortranslatorengineplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool TextTranslator__TranslatorEnginePlugin_SuperIsSignalConnected(const TextTranslator__TranslatorEnginePlugin* self, const QMetaMethod* signal) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_IsSignalConnected_IsBase(true);
-        return vtexttranslatortranslatorengineplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void TextTranslator__TranslatorEnginePlugin_OnIsSignalConnected(const TextTranslator__TranslatorEnginePlugin* self, intptr_t slot) {
-    auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self));
-    if (vtexttranslatortranslatorengineplugin && vtexttranslatortranslatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin)
-        vtexttranslatortranslatorengineplugin->setTextTranslator__TranslatorEnginePlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEnginePlugin::TextTranslator__TranslatorEnginePlugin_IsSignalConnected_Callback>(slot));
+    if (auto* vtexttranslatortranslatorengineplugin = const_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self))) {
+        return vtexttranslatortranslatorengineplugin->VirtualTextTranslatorTranslatorEnginePlugin::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method TextTranslator::TranslatorEnginePlugin::isSignalConnected called without a directly constructed type");
 }
 
 void TextTranslator__TranslatorEnginePlugin_Delete(TextTranslator__TranslatorEnginePlugin* self) {

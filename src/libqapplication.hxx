@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QApplication so that we can call protected methods
+// This class is a subclass of QApplication
 class VirtualQApplication final : public QApplication {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQApplication = true;
-
-    // Virtual class public types (including callbacks)
-    using QApplication_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QApplication_MetaObject_Callback = QMetaObject* (*)(const QApplication*);
     using QApplication_Metacast_Callback = void* (*)(QApplication*, const char*);
     using QApplication_Metacall_Callback = int (*)(QApplication*, int, int, void**);
     using QApplication_Notify_Callback = bool (*)(QApplication*, QObject*, QEvent*);
@@ -28,13 +24,12 @@ class VirtualQApplication final : public QApplication {
     using QApplication_CustomEvent_Callback = void (*)(QApplication*, QEvent*);
     using QApplication_ConnectNotify_Callback = void (*)(QApplication*, QMetaMethod*);
     using QApplication_DisconnectNotify_Callback = void (*)(QApplication*, QMetaMethod*);
-    using QApplication_ResolveInterface_Callback = void* (*)(const QApplication*, const char*, int);
-    using QApplication_Sender_Callback = QObject* (*)();
-    using QApplication_SenderSignalIndex_Callback = int (*)();
-    using QApplication_Receivers_Callback = int (*)(const QApplication*, const char*);
-    using QApplication_IsSignalConnected_Callback = bool (*)(const QApplication*, QMetaMethod*);
+    using QApplication::isSignalConnected;
+    using QApplication::receivers;
+    using QApplication::resolveInterface;
+    using QApplication::sender;
+    using QApplication::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QApplication_MetaObject_Callback qapplication_metaobject_callback = nullptr;
     QApplication_Metacast_Callback qapplication_metacast_callback = nullptr;
@@ -47,79 +42,24 @@ class VirtualQApplication final : public QApplication {
     QApplication_CustomEvent_Callback qapplication_customevent_callback = nullptr;
     QApplication_ConnectNotify_Callback qapplication_connectnotify_callback = nullptr;
     QApplication_DisconnectNotify_Callback qapplication_disconnectnotify_callback = nullptr;
-    QApplication_ResolveInterface_Callback qapplication_resolveinterface_callback = nullptr;
-    QApplication_Sender_Callback qapplication_sender_callback = nullptr;
-    QApplication_SenderSignalIndex_Callback qapplication_sendersignalindex_callback = nullptr;
-    QApplication_Receivers_Callback qapplication_receivers_callback = nullptr;
-    QApplication_IsSignalConnected_Callback qapplication_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qapplication_metaobject_isbase = false;
-    mutable bool qapplication_metacast_isbase = false;
-    mutable bool qapplication_metacall_isbase = false;
-    mutable bool qapplication_notify_isbase = false;
-    mutable bool qapplication_event_isbase = false;
-    mutable bool qapplication_eventfilter_isbase = false;
-    mutable bool qapplication_timerevent_isbase = false;
-    mutable bool qapplication_childevent_isbase = false;
-    mutable bool qapplication_customevent_isbase = false;
-    mutable bool qapplication_connectnotify_isbase = false;
-    mutable bool qapplication_disconnectnotify_isbase = false;
-    mutable bool qapplication_resolveinterface_isbase = false;
-    mutable bool qapplication_sender_isbase = false;
-    mutable bool qapplication_sendersignalindex_isbase = false;
-    mutable bool qapplication_receivers_isbase = false;
-    mutable bool qapplication_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QApplication {
+        using QApplication::childEvent;
+        using QApplication::connectNotify;
+        using QApplication::customEvent;
+        using QApplication::disconnectNotify;
+        using QApplication::event;
+        using QApplication::timerEvent;
+    };
 
-  public:
     VirtualQApplication(int& argc, char** argv) : QApplication(argc, argv) {};
     VirtualQApplication(int& argc, char** argv, int param3) : QApplication(argc, argv, param3) {};
 
-    // Callback setters
-    inline void setQApplication_MetaObject_Callback(QApplication_MetaObject_Callback cb) { qapplication_metaobject_callback = cb; }
-    inline void setQApplication_Metacast_Callback(QApplication_Metacast_Callback cb) { qapplication_metacast_callback = cb; }
-    inline void setQApplication_Metacall_Callback(QApplication_Metacall_Callback cb) { qapplication_metacall_callback = cb; }
-    inline void setQApplication_Notify_Callback(QApplication_Notify_Callback cb) { qapplication_notify_callback = cb; }
-    inline void setQApplication_Event_Callback(QApplication_Event_Callback cb) { qapplication_event_callback = cb; }
-    inline void setQApplication_EventFilter_Callback(QApplication_EventFilter_Callback cb) { qapplication_eventfilter_callback = cb; }
-    inline void setQApplication_TimerEvent_Callback(QApplication_TimerEvent_Callback cb) { qapplication_timerevent_callback = cb; }
-    inline void setQApplication_ChildEvent_Callback(QApplication_ChildEvent_Callback cb) { qapplication_childevent_callback = cb; }
-    inline void setQApplication_CustomEvent_Callback(QApplication_CustomEvent_Callback cb) { qapplication_customevent_callback = cb; }
-    inline void setQApplication_ConnectNotify_Callback(QApplication_ConnectNotify_Callback cb) { qapplication_connectnotify_callback = cb; }
-    inline void setQApplication_DisconnectNotify_Callback(QApplication_DisconnectNotify_Callback cb) { qapplication_disconnectnotify_callback = cb; }
-    inline void setQApplication_ResolveInterface_Callback(QApplication_ResolveInterface_Callback cb) { qapplication_resolveinterface_callback = cb; }
-    inline void setQApplication_Sender_Callback(QApplication_Sender_Callback cb) { qapplication_sender_callback = cb; }
-    inline void setQApplication_SenderSignalIndex_Callback(QApplication_SenderSignalIndex_Callback cb) { qapplication_sendersignalindex_callback = cb; }
-    inline void setQApplication_Receivers_Callback(QApplication_Receivers_Callback cb) { qapplication_receivers_callback = cb; }
-    inline void setQApplication_IsSignalConnected_Callback(QApplication_IsSignalConnected_Callback cb) { qapplication_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQApplication_MetaObject_IsBase(bool value) const { qapplication_metaobject_isbase = value; }
-    inline void setQApplication_Metacast_IsBase(bool value) const { qapplication_metacast_isbase = value; }
-    inline void setQApplication_Metacall_IsBase(bool value) const { qapplication_metacall_isbase = value; }
-    inline void setQApplication_Notify_IsBase(bool value) const { qapplication_notify_isbase = value; }
-    inline void setQApplication_Event_IsBase(bool value) const { qapplication_event_isbase = value; }
-    inline void setQApplication_EventFilter_IsBase(bool value) const { qapplication_eventfilter_isbase = value; }
-    inline void setQApplication_TimerEvent_IsBase(bool value) const { qapplication_timerevent_isbase = value; }
-    inline void setQApplication_ChildEvent_IsBase(bool value) const { qapplication_childevent_isbase = value; }
-    inline void setQApplication_CustomEvent_IsBase(bool value) const { qapplication_customevent_isbase = value; }
-    inline void setQApplication_ConnectNotify_IsBase(bool value) const { qapplication_connectnotify_isbase = value; }
-    inline void setQApplication_DisconnectNotify_IsBase(bool value) const { qapplication_disconnectnotify_isbase = value; }
-    inline void setQApplication_ResolveInterface_IsBase(bool value) const { qapplication_resolveinterface_isbase = value; }
-    inline void setQApplication_Sender_IsBase(bool value) const { qapplication_sender_isbase = value; }
-    inline void setQApplication_SenderSignalIndex_IsBase(bool value) const { qapplication_sendersignalindex_isbase = value; }
-    inline void setQApplication_Receivers_IsBase(bool value) const { qapplication_receivers_isbase = value; }
-    inline void setQApplication_IsSignalConnected_IsBase(bool value) const { qapplication_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qapplication_metaobject_isbase) {
-            qapplication_metaobject_isbase = false;
-            return QApplication::metaObject();
-        }
-        auto metaobject_cb = qapplication_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qapplication_metaobject_callback) {
+            QMetaObject* callback_ret = qapplication_metaobject_callback(this);
             return callback_ret;
         }
         return QApplication::metaObject();
@@ -127,14 +67,9 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qapplication_metacast_isbase) {
-            qapplication_metacast_isbase = false;
-            return QApplication::qt_metacast(param1);
-        }
-        auto metacast_cb = qapplication_metacast_callback;
-        if (metacast_cb) {
+        if (qapplication_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qapplication_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QApplication::qt_metacast(param1);
@@ -142,16 +77,11 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qapplication_metacall_isbase) {
-            qapplication_metacall_isbase = false;
-            return QApplication::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qapplication_metacall_callback;
-        if (metacall_cb) {
+        if (qapplication_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qapplication_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QApplication::qt_metacall(param1, param2, param3);
@@ -159,15 +89,10 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual bool notify(QObject* param1, QEvent* param2) override {
-        if (qapplication_notify_isbase) {
-            qapplication_notify_isbase = false;
-            return QApplication::notify(param1, param2);
-        }
-        auto notify_cb = qapplication_notify_callback;
-        if (notify_cb) {
+        if (qapplication_notify_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = notify_cb(this, cbval1, cbval2);
+            bool callback_ret = qapplication_notify_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QApplication::notify(param1, param2);
@@ -175,14 +100,9 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* param1) override {
-        if (qapplication_event_isbase) {
-            qapplication_event_isbase = false;
-            return QApplication::event(param1);
-        }
-        auto event_cb = qapplication_event_callback;
-        if (event_cb) {
+        if (qapplication_event_callback) {
             QEvent* cbval1 = param1;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qapplication_event_callback(this, cbval1);
             return callback_ret;
         }
         return QApplication::event(param1);
@@ -190,15 +110,10 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qapplication_eventfilter_isbase) {
-            qapplication_eventfilter_isbase = false;
-            return QApplication::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qapplication_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qapplication_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qapplication_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QApplication::eventFilter(watched, event);
@@ -206,15 +121,9 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qapplication_timerevent_isbase) {
-            qapplication_timerevent_isbase = false;
-            QApplication::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qapplication_timerevent_callback;
-        if (timerevent_cb) {
+        if (qapplication_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qapplication_timerevent_callback(this, cbval1);
             return;
         }
         QApplication::timerEvent(event);
@@ -222,15 +131,9 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qapplication_childevent_isbase) {
-            qapplication_childevent_isbase = false;
-            QApplication::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qapplication_childevent_callback;
-        if (childevent_cb) {
+        if (qapplication_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qapplication_childevent_callback(this, cbval1);
             return;
         }
         QApplication::childEvent(event);
@@ -238,15 +141,9 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qapplication_customevent_isbase) {
-            qapplication_customevent_isbase = false;
-            QApplication::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qapplication_customevent_callback;
-        if (customevent_cb) {
+        if (qapplication_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qapplication_customevent_callback(this, cbval1);
             return;
         }
         QApplication::customEvent(event);
@@ -254,17 +151,11 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qapplication_connectnotify_isbase) {
-            qapplication_connectnotify_isbase = false;
-            QApplication::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qapplication_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qapplication_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qapplication_connectnotify_callback(this, cbval1);
             return;
         }
         QApplication::connectNotify(signal);
@@ -272,121 +163,23 @@ class VirtualQApplication final : public QApplication {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qapplication_disconnectnotify_isbase) {
-            qapplication_disconnectnotify_isbase = false;
-            QApplication::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qapplication_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qapplication_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qapplication_disconnectnotify_callback(this, cbval1);
             return;
         }
         QApplication::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void* resolveInterface(const char* name, int revision) const {
-        if (qapplication_resolveinterface_isbase) {
-            qapplication_resolveinterface_isbase = false;
-            return QApplication::resolveInterface(name, revision);
-        }
-        auto resolveinterface_cb = qapplication_resolveinterface_callback;
-        if (resolveinterface_cb) {
-            const char* cbval1 = (const char*)name;
-            int cbval2 = revision;
-            void* callback_ret = resolveinterface_cb(this, cbval1, cbval2);
-            return callback_ret;
-        }
-        return QApplication::resolveInterface(name, revision);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qapplication_sender_isbase) {
-            qapplication_sender_isbase = false;
-            return QApplication::sender();
-        }
-        auto sender_cb = qapplication_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QApplication::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qapplication_sendersignalindex_isbase) {
-            qapplication_sendersignalindex_isbase = false;
-            return QApplication::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qapplication_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QApplication::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qapplication_receivers_isbase) {
-            qapplication_receivers_isbase = false;
-            return QApplication::receivers(signal);
-        }
-        auto receivers_cb = qapplication_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QApplication::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qapplication_issignalconnected_isbase) {
-            qapplication_issignalconnected_isbase = false;
-            return QApplication::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qapplication_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QApplication::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend bool QApplication_Event(QApplication* self, QEvent* param1);
     friend bool QApplication_SuperEvent(QApplication* self, QEvent* param1);
-    friend void QApplication_TimerEvent(QApplication* self, QTimerEvent* event);
     friend void QApplication_SuperTimerEvent(QApplication* self, QTimerEvent* event);
-    friend void QApplication_ChildEvent(QApplication* self, QChildEvent* event);
     friend void QApplication_SuperChildEvent(QApplication* self, QChildEvent* event);
-    friend void QApplication_CustomEvent(QApplication* self, QEvent* event);
     friend void QApplication_SuperCustomEvent(QApplication* self, QEvent* event);
-    friend void QApplication_ConnectNotify(QApplication* self, const QMetaMethod* signal);
     friend void QApplication_SuperConnectNotify(QApplication* self, const QMetaMethod* signal);
-    friend void QApplication_DisconnectNotify(QApplication* self, const QMetaMethod* signal);
     friend void QApplication_SuperDisconnectNotify(QApplication* self, const QMetaMethod* signal);
-    friend void* QApplication_ResolveInterface(const QApplication* self, const char* name, int revision);
-    friend void* QApplication_SuperResolveInterface(const QApplication* self, const char* name, int revision);
-    friend QObject* QApplication_Sender(const QApplication* self);
-    friend QObject* QApplication_SuperSender(const QApplication* self);
-    friend int QApplication_SenderSignalIndex(const QApplication* self);
-    friend int QApplication_SuperSenderSignalIndex(const QApplication* self);
-    friend int QApplication_Receivers(const QApplication* self, const char* signal);
-    friend int QApplication_SuperReceivers(const QApplication* self, const char* signal);
-    friend bool QApplication_IsSignalConnected(const QApplication* self, const QMetaMethod* signal);
-    friend bool QApplication_SuperIsSignalConnected(const QApplication* self, const QMetaMethod* signal);
 };
 
 #endif

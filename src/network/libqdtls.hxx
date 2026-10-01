@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QDtlsClientVerifier so that we can call protected methods
+// This class is a subclass of QDtlsClientVerifier
 class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDtlsClientVerifier = true;
-
-    // Virtual class public types (including callbacks)
-    using QDtlsClientVerifier_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QDtlsClientVerifier_MetaObject_Callback = QMetaObject* (*)(const QDtlsClientVerifier*);
     using QDtlsClientVerifier_Metacast_Callback = void* (*)(QDtlsClientVerifier*, const char*);
     using QDtlsClientVerifier_Metacall_Callback = int (*)(QDtlsClientVerifier*, int, int, void**);
     using QDtlsClientVerifier_Event_Callback = bool (*)(QDtlsClientVerifier*, QEvent*);
@@ -27,12 +23,11 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
     using QDtlsClientVerifier_CustomEvent_Callback = void (*)(QDtlsClientVerifier*, QEvent*);
     using QDtlsClientVerifier_ConnectNotify_Callback = void (*)(QDtlsClientVerifier*, QMetaMethod*);
     using QDtlsClientVerifier_DisconnectNotify_Callback = void (*)(QDtlsClientVerifier*, QMetaMethod*);
-    using QDtlsClientVerifier_Sender_Callback = QObject* (*)();
-    using QDtlsClientVerifier_SenderSignalIndex_Callback = int (*)();
-    using QDtlsClientVerifier_Receivers_Callback = int (*)(const QDtlsClientVerifier*, const char*);
-    using QDtlsClientVerifier_IsSignalConnected_Callback = bool (*)(const QDtlsClientVerifier*, QMetaMethod*);
+    using QDtlsClientVerifier::isSignalConnected;
+    using QDtlsClientVerifier::receivers;
+    using QDtlsClientVerifier::sender;
+    using QDtlsClientVerifier::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QDtlsClientVerifier_MetaObject_Callback qdtlsclientverifier_metaobject_callback = nullptr;
     QDtlsClientVerifier_Metacast_Callback qdtlsclientverifier_metacast_callback = nullptr;
@@ -44,72 +39,23 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
     QDtlsClientVerifier_CustomEvent_Callback qdtlsclientverifier_customevent_callback = nullptr;
     QDtlsClientVerifier_ConnectNotify_Callback qdtlsclientverifier_connectnotify_callback = nullptr;
     QDtlsClientVerifier_DisconnectNotify_Callback qdtlsclientverifier_disconnectnotify_callback = nullptr;
-    QDtlsClientVerifier_Sender_Callback qdtlsclientverifier_sender_callback = nullptr;
-    QDtlsClientVerifier_SenderSignalIndex_Callback qdtlsclientverifier_sendersignalindex_callback = nullptr;
-    QDtlsClientVerifier_Receivers_Callback qdtlsclientverifier_receivers_callback = nullptr;
-    QDtlsClientVerifier_IsSignalConnected_Callback qdtlsclientverifier_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdtlsclientverifier_metaobject_isbase = false;
-    mutable bool qdtlsclientverifier_metacast_isbase = false;
-    mutable bool qdtlsclientverifier_metacall_isbase = false;
-    mutable bool qdtlsclientverifier_event_isbase = false;
-    mutable bool qdtlsclientverifier_eventfilter_isbase = false;
-    mutable bool qdtlsclientverifier_timerevent_isbase = false;
-    mutable bool qdtlsclientverifier_childevent_isbase = false;
-    mutable bool qdtlsclientverifier_customevent_isbase = false;
-    mutable bool qdtlsclientverifier_connectnotify_isbase = false;
-    mutable bool qdtlsclientverifier_disconnectnotify_isbase = false;
-    mutable bool qdtlsclientverifier_sender_isbase = false;
-    mutable bool qdtlsclientverifier_sendersignalindex_isbase = false;
-    mutable bool qdtlsclientverifier_receivers_isbase = false;
-    mutable bool qdtlsclientverifier_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QDtlsClientVerifier {
+        using QDtlsClientVerifier::childEvent;
+        using QDtlsClientVerifier::connectNotify;
+        using QDtlsClientVerifier::customEvent;
+        using QDtlsClientVerifier::disconnectNotify;
+        using QDtlsClientVerifier::timerEvent;
+    };
 
-  public:
     VirtualQDtlsClientVerifier() : QDtlsClientVerifier() {};
     VirtualQDtlsClientVerifier(QObject* parent) : QDtlsClientVerifier(parent) {};
 
-    // Callback setters
-    inline void setQDtlsClientVerifier_MetaObject_Callback(QDtlsClientVerifier_MetaObject_Callback cb) { qdtlsclientverifier_metaobject_callback = cb; }
-    inline void setQDtlsClientVerifier_Metacast_Callback(QDtlsClientVerifier_Metacast_Callback cb) { qdtlsclientverifier_metacast_callback = cb; }
-    inline void setQDtlsClientVerifier_Metacall_Callback(QDtlsClientVerifier_Metacall_Callback cb) { qdtlsclientverifier_metacall_callback = cb; }
-    inline void setQDtlsClientVerifier_Event_Callback(QDtlsClientVerifier_Event_Callback cb) { qdtlsclientverifier_event_callback = cb; }
-    inline void setQDtlsClientVerifier_EventFilter_Callback(QDtlsClientVerifier_EventFilter_Callback cb) { qdtlsclientverifier_eventfilter_callback = cb; }
-    inline void setQDtlsClientVerifier_TimerEvent_Callback(QDtlsClientVerifier_TimerEvent_Callback cb) { qdtlsclientverifier_timerevent_callback = cb; }
-    inline void setQDtlsClientVerifier_ChildEvent_Callback(QDtlsClientVerifier_ChildEvent_Callback cb) { qdtlsclientverifier_childevent_callback = cb; }
-    inline void setQDtlsClientVerifier_CustomEvent_Callback(QDtlsClientVerifier_CustomEvent_Callback cb) { qdtlsclientverifier_customevent_callback = cb; }
-    inline void setQDtlsClientVerifier_ConnectNotify_Callback(QDtlsClientVerifier_ConnectNotify_Callback cb) { qdtlsclientverifier_connectnotify_callback = cb; }
-    inline void setQDtlsClientVerifier_DisconnectNotify_Callback(QDtlsClientVerifier_DisconnectNotify_Callback cb) { qdtlsclientverifier_disconnectnotify_callback = cb; }
-    inline void setQDtlsClientVerifier_Sender_Callback(QDtlsClientVerifier_Sender_Callback cb) { qdtlsclientverifier_sender_callback = cb; }
-    inline void setQDtlsClientVerifier_SenderSignalIndex_Callback(QDtlsClientVerifier_SenderSignalIndex_Callback cb) { qdtlsclientverifier_sendersignalindex_callback = cb; }
-    inline void setQDtlsClientVerifier_Receivers_Callback(QDtlsClientVerifier_Receivers_Callback cb) { qdtlsclientverifier_receivers_callback = cb; }
-    inline void setQDtlsClientVerifier_IsSignalConnected_Callback(QDtlsClientVerifier_IsSignalConnected_Callback cb) { qdtlsclientverifier_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQDtlsClientVerifier_MetaObject_IsBase(bool value) const { qdtlsclientverifier_metaobject_isbase = value; }
-    inline void setQDtlsClientVerifier_Metacast_IsBase(bool value) const { qdtlsclientverifier_metacast_isbase = value; }
-    inline void setQDtlsClientVerifier_Metacall_IsBase(bool value) const { qdtlsclientverifier_metacall_isbase = value; }
-    inline void setQDtlsClientVerifier_Event_IsBase(bool value) const { qdtlsclientverifier_event_isbase = value; }
-    inline void setQDtlsClientVerifier_EventFilter_IsBase(bool value) const { qdtlsclientverifier_eventfilter_isbase = value; }
-    inline void setQDtlsClientVerifier_TimerEvent_IsBase(bool value) const { qdtlsclientverifier_timerevent_isbase = value; }
-    inline void setQDtlsClientVerifier_ChildEvent_IsBase(bool value) const { qdtlsclientverifier_childevent_isbase = value; }
-    inline void setQDtlsClientVerifier_CustomEvent_IsBase(bool value) const { qdtlsclientverifier_customevent_isbase = value; }
-    inline void setQDtlsClientVerifier_ConnectNotify_IsBase(bool value) const { qdtlsclientverifier_connectnotify_isbase = value; }
-    inline void setQDtlsClientVerifier_DisconnectNotify_IsBase(bool value) const { qdtlsclientverifier_disconnectnotify_isbase = value; }
-    inline void setQDtlsClientVerifier_Sender_IsBase(bool value) const { qdtlsclientverifier_sender_isbase = value; }
-    inline void setQDtlsClientVerifier_SenderSignalIndex_IsBase(bool value) const { qdtlsclientverifier_sendersignalindex_isbase = value; }
-    inline void setQDtlsClientVerifier_Receivers_IsBase(bool value) const { qdtlsclientverifier_receivers_isbase = value; }
-    inline void setQDtlsClientVerifier_IsSignalConnected_IsBase(bool value) const { qdtlsclientverifier_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qdtlsclientverifier_metaobject_isbase) {
-            qdtlsclientverifier_metaobject_isbase = false;
-            return QDtlsClientVerifier::metaObject();
-        }
-        auto metaobject_cb = qdtlsclientverifier_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qdtlsclientverifier_metaobject_callback) {
+            QMetaObject* callback_ret = qdtlsclientverifier_metaobject_callback(this);
             return callback_ret;
         }
         return QDtlsClientVerifier::metaObject();
@@ -117,14 +63,9 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qdtlsclientverifier_metacast_isbase) {
-            qdtlsclientverifier_metacast_isbase = false;
-            return QDtlsClientVerifier::qt_metacast(param1);
-        }
-        auto metacast_cb = qdtlsclientverifier_metacast_callback;
-        if (metacast_cb) {
+        if (qdtlsclientverifier_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qdtlsclientverifier_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QDtlsClientVerifier::qt_metacast(param1);
@@ -132,16 +73,11 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qdtlsclientverifier_metacall_isbase) {
-            qdtlsclientverifier_metacall_isbase = false;
-            return QDtlsClientVerifier::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qdtlsclientverifier_metacall_callback;
-        if (metacall_cb) {
+        if (qdtlsclientverifier_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qdtlsclientverifier_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QDtlsClientVerifier::qt_metacall(param1, param2, param3);
@@ -149,14 +85,9 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qdtlsclientverifier_event_isbase) {
-            qdtlsclientverifier_event_isbase = false;
-            return QDtlsClientVerifier::event(event);
-        }
-        auto event_cb = qdtlsclientverifier_event_callback;
-        if (event_cb) {
+        if (qdtlsclientverifier_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qdtlsclientverifier_event_callback(this, cbval1);
             return callback_ret;
         }
         return QDtlsClientVerifier::event(event);
@@ -164,15 +95,10 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qdtlsclientverifier_eventfilter_isbase) {
-            qdtlsclientverifier_eventfilter_isbase = false;
-            return QDtlsClientVerifier::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qdtlsclientverifier_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qdtlsclientverifier_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qdtlsclientverifier_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QDtlsClientVerifier::eventFilter(watched, event);
@@ -180,15 +106,9 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qdtlsclientverifier_timerevent_isbase) {
-            qdtlsclientverifier_timerevent_isbase = false;
-            QDtlsClientVerifier::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qdtlsclientverifier_timerevent_callback;
-        if (timerevent_cb) {
+        if (qdtlsclientverifier_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qdtlsclientverifier_timerevent_callback(this, cbval1);
             return;
         }
         QDtlsClientVerifier::timerEvent(event);
@@ -196,15 +116,9 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qdtlsclientverifier_childevent_isbase) {
-            qdtlsclientverifier_childevent_isbase = false;
-            QDtlsClientVerifier::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qdtlsclientverifier_childevent_callback;
-        if (childevent_cb) {
+        if (qdtlsclientverifier_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qdtlsclientverifier_childevent_callback(this, cbval1);
             return;
         }
         QDtlsClientVerifier::childEvent(event);
@@ -212,15 +126,9 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qdtlsclientverifier_customevent_isbase) {
-            qdtlsclientverifier_customevent_isbase = false;
-            QDtlsClientVerifier::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qdtlsclientverifier_customevent_callback;
-        if (customevent_cb) {
+        if (qdtlsclientverifier_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qdtlsclientverifier_customevent_callback(this, cbval1);
             return;
         }
         QDtlsClientVerifier::customEvent(event);
@@ -228,17 +136,11 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qdtlsclientverifier_connectnotify_isbase) {
-            qdtlsclientverifier_connectnotify_isbase = false;
-            QDtlsClientVerifier::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qdtlsclientverifier_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qdtlsclientverifier_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qdtlsclientverifier_connectnotify_callback(this, cbval1);
             return;
         }
         QDtlsClientVerifier::connectNotify(signal);
@@ -246,112 +148,29 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qdtlsclientverifier_disconnectnotify_isbase) {
-            qdtlsclientverifier_disconnectnotify_isbase = false;
-            QDtlsClientVerifier::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qdtlsclientverifier_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qdtlsclientverifier_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qdtlsclientverifier_disconnectnotify_callback(this, cbval1);
             return;
         }
         QDtlsClientVerifier::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qdtlsclientverifier_sender_isbase) {
-            qdtlsclientverifier_sender_isbase = false;
-            return QDtlsClientVerifier::sender();
-        }
-        auto sender_cb = qdtlsclientverifier_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QDtlsClientVerifier::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qdtlsclientverifier_sendersignalindex_isbase) {
-            qdtlsclientverifier_sendersignalindex_isbase = false;
-            return QDtlsClientVerifier::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qdtlsclientverifier_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QDtlsClientVerifier::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qdtlsclientverifier_receivers_isbase) {
-            qdtlsclientverifier_receivers_isbase = false;
-            return QDtlsClientVerifier::receivers(signal);
-        }
-        auto receivers_cb = qdtlsclientverifier_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QDtlsClientVerifier::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qdtlsclientverifier_issignalconnected_isbase) {
-            qdtlsclientverifier_issignalconnected_isbase = false;
-            return QDtlsClientVerifier::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qdtlsclientverifier_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QDtlsClientVerifier::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QDtlsClientVerifier_TimerEvent(QDtlsClientVerifier* self, QTimerEvent* event);
     friend void QDtlsClientVerifier_SuperTimerEvent(QDtlsClientVerifier* self, QTimerEvent* event);
-    friend void QDtlsClientVerifier_ChildEvent(QDtlsClientVerifier* self, QChildEvent* event);
     friend void QDtlsClientVerifier_SuperChildEvent(QDtlsClientVerifier* self, QChildEvent* event);
-    friend void QDtlsClientVerifier_CustomEvent(QDtlsClientVerifier* self, QEvent* event);
     friend void QDtlsClientVerifier_SuperCustomEvent(QDtlsClientVerifier* self, QEvent* event);
-    friend void QDtlsClientVerifier_ConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
     friend void QDtlsClientVerifier_SuperConnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
-    friend void QDtlsClientVerifier_DisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
     friend void QDtlsClientVerifier_SuperDisconnectNotify(QDtlsClientVerifier* self, const QMetaMethod* signal);
-    friend QObject* QDtlsClientVerifier_Sender(const QDtlsClientVerifier* self);
-    friend QObject* QDtlsClientVerifier_SuperSender(const QDtlsClientVerifier* self);
-    friend int QDtlsClientVerifier_SenderSignalIndex(const QDtlsClientVerifier* self);
-    friend int QDtlsClientVerifier_SuperSenderSignalIndex(const QDtlsClientVerifier* self);
-    friend int QDtlsClientVerifier_Receivers(const QDtlsClientVerifier* self, const char* signal);
-    friend int QDtlsClientVerifier_SuperReceivers(const QDtlsClientVerifier* self, const char* signal);
-    friend bool QDtlsClientVerifier_IsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal);
-    friend bool QDtlsClientVerifier_SuperIsSignalConnected(const QDtlsClientVerifier* self, const QMetaMethod* signal);
 };
 
-// This class is a subclass of QDtls so that we can call protected methods
+// This class is a subclass of QDtls
 class VirtualQDtls final : public QDtls {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDtls = true;
-
-    // Virtual class public types (including callbacks)
-    using QDtls_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QDtls_MetaObject_Callback = QMetaObject* (*)(const QDtls*);
     using QDtls_Metacast_Callback = void* (*)(QDtls*, const char*);
     using QDtls_Metacall_Callback = int (*)(QDtls*, int, int, void**);
     using QDtls_Event_Callback = bool (*)(QDtls*, QEvent*);
@@ -361,12 +180,11 @@ class VirtualQDtls final : public QDtls {
     using QDtls_CustomEvent_Callback = void (*)(QDtls*, QEvent*);
     using QDtls_ConnectNotify_Callback = void (*)(QDtls*, QMetaMethod*);
     using QDtls_DisconnectNotify_Callback = void (*)(QDtls*, QMetaMethod*);
-    using QDtls_Sender_Callback = QObject* (*)();
-    using QDtls_SenderSignalIndex_Callback = int (*)();
-    using QDtls_Receivers_Callback = int (*)(const QDtls*, const char*);
-    using QDtls_IsSignalConnected_Callback = bool (*)(const QDtls*, QMetaMethod*);
+    using QDtls::isSignalConnected;
+    using QDtls::receivers;
+    using QDtls::sender;
+    using QDtls::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QDtls_MetaObject_Callback qdtls_metaobject_callback = nullptr;
     QDtls_Metacast_Callback qdtls_metacast_callback = nullptr;
@@ -378,72 +196,23 @@ class VirtualQDtls final : public QDtls {
     QDtls_CustomEvent_Callback qdtls_customevent_callback = nullptr;
     QDtls_ConnectNotify_Callback qdtls_connectnotify_callback = nullptr;
     QDtls_DisconnectNotify_Callback qdtls_disconnectnotify_callback = nullptr;
-    QDtls_Sender_Callback qdtls_sender_callback = nullptr;
-    QDtls_SenderSignalIndex_Callback qdtls_sendersignalindex_callback = nullptr;
-    QDtls_Receivers_Callback qdtls_receivers_callback = nullptr;
-    QDtls_IsSignalConnected_Callback qdtls_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdtls_metaobject_isbase = false;
-    mutable bool qdtls_metacast_isbase = false;
-    mutable bool qdtls_metacall_isbase = false;
-    mutable bool qdtls_event_isbase = false;
-    mutable bool qdtls_eventfilter_isbase = false;
-    mutable bool qdtls_timerevent_isbase = false;
-    mutable bool qdtls_childevent_isbase = false;
-    mutable bool qdtls_customevent_isbase = false;
-    mutable bool qdtls_connectnotify_isbase = false;
-    mutable bool qdtls_disconnectnotify_isbase = false;
-    mutable bool qdtls_sender_isbase = false;
-    mutable bool qdtls_sendersignalindex_isbase = false;
-    mutable bool qdtls_receivers_isbase = false;
-    mutable bool qdtls_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QDtls {
+        using QDtls::childEvent;
+        using QDtls::connectNotify;
+        using QDtls::customEvent;
+        using QDtls::disconnectNotify;
+        using QDtls::timerEvent;
+    };
 
-  public:
     VirtualQDtls(QSslSocket::SslMode mode) : QDtls(mode) {};
     VirtualQDtls(QSslSocket::SslMode mode, QObject* parent) : QDtls(mode, parent) {};
 
-    // Callback setters
-    inline void setQDtls_MetaObject_Callback(QDtls_MetaObject_Callback cb) { qdtls_metaobject_callback = cb; }
-    inline void setQDtls_Metacast_Callback(QDtls_Metacast_Callback cb) { qdtls_metacast_callback = cb; }
-    inline void setQDtls_Metacall_Callback(QDtls_Metacall_Callback cb) { qdtls_metacall_callback = cb; }
-    inline void setQDtls_Event_Callback(QDtls_Event_Callback cb) { qdtls_event_callback = cb; }
-    inline void setQDtls_EventFilter_Callback(QDtls_EventFilter_Callback cb) { qdtls_eventfilter_callback = cb; }
-    inline void setQDtls_TimerEvent_Callback(QDtls_TimerEvent_Callback cb) { qdtls_timerevent_callback = cb; }
-    inline void setQDtls_ChildEvent_Callback(QDtls_ChildEvent_Callback cb) { qdtls_childevent_callback = cb; }
-    inline void setQDtls_CustomEvent_Callback(QDtls_CustomEvent_Callback cb) { qdtls_customevent_callback = cb; }
-    inline void setQDtls_ConnectNotify_Callback(QDtls_ConnectNotify_Callback cb) { qdtls_connectnotify_callback = cb; }
-    inline void setQDtls_DisconnectNotify_Callback(QDtls_DisconnectNotify_Callback cb) { qdtls_disconnectnotify_callback = cb; }
-    inline void setQDtls_Sender_Callback(QDtls_Sender_Callback cb) { qdtls_sender_callback = cb; }
-    inline void setQDtls_SenderSignalIndex_Callback(QDtls_SenderSignalIndex_Callback cb) { qdtls_sendersignalindex_callback = cb; }
-    inline void setQDtls_Receivers_Callback(QDtls_Receivers_Callback cb) { qdtls_receivers_callback = cb; }
-    inline void setQDtls_IsSignalConnected_Callback(QDtls_IsSignalConnected_Callback cb) { qdtls_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQDtls_MetaObject_IsBase(bool value) const { qdtls_metaobject_isbase = value; }
-    inline void setQDtls_Metacast_IsBase(bool value) const { qdtls_metacast_isbase = value; }
-    inline void setQDtls_Metacall_IsBase(bool value) const { qdtls_metacall_isbase = value; }
-    inline void setQDtls_Event_IsBase(bool value) const { qdtls_event_isbase = value; }
-    inline void setQDtls_EventFilter_IsBase(bool value) const { qdtls_eventfilter_isbase = value; }
-    inline void setQDtls_TimerEvent_IsBase(bool value) const { qdtls_timerevent_isbase = value; }
-    inline void setQDtls_ChildEvent_IsBase(bool value) const { qdtls_childevent_isbase = value; }
-    inline void setQDtls_CustomEvent_IsBase(bool value) const { qdtls_customevent_isbase = value; }
-    inline void setQDtls_ConnectNotify_IsBase(bool value) const { qdtls_connectnotify_isbase = value; }
-    inline void setQDtls_DisconnectNotify_IsBase(bool value) const { qdtls_disconnectnotify_isbase = value; }
-    inline void setQDtls_Sender_IsBase(bool value) const { qdtls_sender_isbase = value; }
-    inline void setQDtls_SenderSignalIndex_IsBase(bool value) const { qdtls_sendersignalindex_isbase = value; }
-    inline void setQDtls_Receivers_IsBase(bool value) const { qdtls_receivers_isbase = value; }
-    inline void setQDtls_IsSignalConnected_IsBase(bool value) const { qdtls_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qdtls_metaobject_isbase) {
-            qdtls_metaobject_isbase = false;
-            return QDtls::metaObject();
-        }
-        auto metaobject_cb = qdtls_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qdtls_metaobject_callback) {
+            QMetaObject* callback_ret = qdtls_metaobject_callback(this);
             return callback_ret;
         }
         return QDtls::metaObject();
@@ -451,14 +220,9 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qdtls_metacast_isbase) {
-            qdtls_metacast_isbase = false;
-            return QDtls::qt_metacast(param1);
-        }
-        auto metacast_cb = qdtls_metacast_callback;
-        if (metacast_cb) {
+        if (qdtls_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qdtls_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QDtls::qt_metacast(param1);
@@ -466,16 +230,11 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qdtls_metacall_isbase) {
-            qdtls_metacall_isbase = false;
-            return QDtls::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qdtls_metacall_callback;
-        if (metacall_cb) {
+        if (qdtls_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qdtls_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QDtls::qt_metacall(param1, param2, param3);
@@ -483,14 +242,9 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qdtls_event_isbase) {
-            qdtls_event_isbase = false;
-            return QDtls::event(event);
-        }
-        auto event_cb = qdtls_event_callback;
-        if (event_cb) {
+        if (qdtls_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qdtls_event_callback(this, cbval1);
             return callback_ret;
         }
         return QDtls::event(event);
@@ -498,15 +252,10 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qdtls_eventfilter_isbase) {
-            qdtls_eventfilter_isbase = false;
-            return QDtls::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qdtls_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qdtls_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qdtls_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QDtls::eventFilter(watched, event);
@@ -514,15 +263,9 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qdtls_timerevent_isbase) {
-            qdtls_timerevent_isbase = false;
-            QDtls::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qdtls_timerevent_callback;
-        if (timerevent_cb) {
+        if (qdtls_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qdtls_timerevent_callback(this, cbval1);
             return;
         }
         QDtls::timerEvent(event);
@@ -530,15 +273,9 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qdtls_childevent_isbase) {
-            qdtls_childevent_isbase = false;
-            QDtls::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qdtls_childevent_callback;
-        if (childevent_cb) {
+        if (qdtls_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qdtls_childevent_callback(this, cbval1);
             return;
         }
         QDtls::childEvent(event);
@@ -546,15 +283,9 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qdtls_customevent_isbase) {
-            qdtls_customevent_isbase = false;
-            QDtls::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qdtls_customevent_callback;
-        if (customevent_cb) {
+        if (qdtls_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qdtls_customevent_callback(this, cbval1);
             return;
         }
         QDtls::customEvent(event);
@@ -562,17 +293,11 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qdtls_connectnotify_isbase) {
-            qdtls_connectnotify_isbase = false;
-            QDtls::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qdtls_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qdtls_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qdtls_connectnotify_callback(this, cbval1);
             return;
         }
         QDtls::connectNotify(signal);
@@ -580,101 +305,22 @@ class VirtualQDtls final : public QDtls {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qdtls_disconnectnotify_isbase) {
-            qdtls_disconnectnotify_isbase = false;
-            QDtls::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qdtls_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qdtls_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qdtls_disconnectnotify_callback(this, cbval1);
             return;
         }
         QDtls::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qdtls_sender_isbase) {
-            qdtls_sender_isbase = false;
-            return QDtls::sender();
-        }
-        auto sender_cb = qdtls_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QDtls::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qdtls_sendersignalindex_isbase) {
-            qdtls_sendersignalindex_isbase = false;
-            return QDtls::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qdtls_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QDtls::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qdtls_receivers_isbase) {
-            qdtls_receivers_isbase = false;
-            return QDtls::receivers(signal);
-        }
-        auto receivers_cb = qdtls_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QDtls::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qdtls_issignalconnected_isbase) {
-            qdtls_issignalconnected_isbase = false;
-            return QDtls::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qdtls_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QDtls::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QDtls_TimerEvent(QDtls* self, QTimerEvent* event);
     friend void QDtls_SuperTimerEvent(QDtls* self, QTimerEvent* event);
-    friend void QDtls_ChildEvent(QDtls* self, QChildEvent* event);
     friend void QDtls_SuperChildEvent(QDtls* self, QChildEvent* event);
-    friend void QDtls_CustomEvent(QDtls* self, QEvent* event);
     friend void QDtls_SuperCustomEvent(QDtls* self, QEvent* event);
-    friend void QDtls_ConnectNotify(QDtls* self, const QMetaMethod* signal);
     friend void QDtls_SuperConnectNotify(QDtls* self, const QMetaMethod* signal);
-    friend void QDtls_DisconnectNotify(QDtls* self, const QMetaMethod* signal);
     friend void QDtls_SuperDisconnectNotify(QDtls* self, const QMetaMethod* signal);
-    friend QObject* QDtls_Sender(const QDtls* self);
-    friend QObject* QDtls_SuperSender(const QDtls* self);
-    friend int QDtls_SenderSignalIndex(const QDtls* self);
-    friend int QDtls_SuperSenderSignalIndex(const QDtls* self);
-    friend int QDtls_Receivers(const QDtls* self, const char* signal);
-    friend int QDtls_SuperReceivers(const QDtls* self, const char* signal);
-    friend bool QDtls_IsSignalConnected(const QDtls* self, const QMetaMethod* signal);
-    friend bool QDtls_SuperIsSignalConnected(const QDtls* self, const QMetaMethod* signal);
 };
 
 #endif

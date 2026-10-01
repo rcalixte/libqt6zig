@@ -315,43 +315,43 @@ void KTextEdit_ClearDecorator(KTextEdit* self) {
 
 bool KTextEdit_Event(KTextEdit* self, QEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method KTextEdit::event called without a directly constructed type");
 }
 
 void KTextEdit_KeyPressEvent(KTextEdit* self, QKeyEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->keyPressEvent(param1);
     }
 }
 
 void KTextEdit_FocusInEvent(KTextEdit* self, QFocusEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->focusInEvent(param1);
     }
 }
 
 void KTextEdit_DeleteWordBack(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->deleteWordBack();
     }
 }
 
 void KTextEdit_DeleteWordForward(KTextEdit* self) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->deleteWordForward();
     }
 }
 
 void KTextEdit_ContextMenuEvent(KTextEdit* self, QContextMenuEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->contextMenuEvent(param1);
     }
 }
@@ -387,2371 +387,1549 @@ void KTextEdit_ShowSpellConfigDialog1(KTextEdit* self, const libqt_string window
 
 // Base class handler implementation
 QMetaObject* KTextEdit_SuperMetaObject(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vktextedit->metaObject();
-    } else {
-        return (QMetaObject*)self->KTextEdit::metaObject();
-    }
+    return (QMetaObject*)self->KTextEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnMetaObject(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_MetaObject_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MetaObject_Callback>(slot));
+void KTextEdit_OnMetaObject(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_metaobject_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KTextEdit_SuperMetacast(KTextEdit* self, const char* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Metacast_IsBase(true);
-        return vktextedit->qt_metacast(param1);
-    } else {
-        return self->KTextEdit::qt_metacast(param1);
-    }
+    return self->KTextEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMetacast(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Metacast_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Metacast_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_metacast_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KTextEdit_SuperMetacall(KTextEdit* self, int param1, int param2, void** param3) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Metacall_IsBase(true);
-        return vktextedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KTextEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KTextEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMetacall(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Metacall_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Metacall_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_metacall_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperSetReadOnly(KTextEdit* self, bool readOnly) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SetReadOnly_IsBase(true);
-        vktextedit->setReadOnly(readOnly);
-    } else {
-        self->KTextEdit::setReadOnly(readOnly);
-    }
+    self->KTextEdit::setReadOnly(readOnly);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetReadOnly(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SetReadOnly_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetReadOnly_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_setreadonly_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_SetReadOnly_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperSetCheckSpellingEnabled(KTextEdit* self, bool check) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SetCheckSpellingEnabled_IsBase(true);
-        vktextedit->setCheckSpellingEnabled(check);
-    } else {
-        self->KTextEdit::setCheckSpellingEnabled(check);
-    }
+    self->KTextEdit::setCheckSpellingEnabled(check);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetCheckSpellingEnabled(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SetCheckSpellingEnabled_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetCheckSpellingEnabled_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_setcheckspellingenabled_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_SetCheckSpellingEnabled_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperCheckSpellingEnabled(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_CheckSpellingEnabled_IsBase(true);
-        return vktextedit->checkSpellingEnabled();
-    } else {
-        return self->KTextEdit::checkSpellingEnabled();
-    }
+    return self->KTextEdit::checkSpellingEnabled();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnCheckSpellingEnabled(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_CheckSpellingEnabled_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CheckSpellingEnabled_Callback>(slot));
+void KTextEdit_OnCheckSpellingEnabled(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_checkspellingenabled_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_CheckSpellingEnabled_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperShouldBlockBeSpellChecked(const KTextEdit* self, const libqt_string block) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
     QString block_QString = QString::fromUtf8(block.data, block.len);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ShouldBlockBeSpellChecked_IsBase(true);
-        return vktextedit->shouldBlockBeSpellChecked(block_QString);
-    } else {
-        return self->KTextEdit::shouldBlockBeSpellChecked(block_QString);
-    }
+    return self->KTextEdit::shouldBlockBeSpellChecked(block_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnShouldBlockBeSpellChecked(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ShouldBlockBeSpellChecked_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ShouldBlockBeSpellChecked_Callback>(slot));
+void KTextEdit_OnShouldBlockBeSpellChecked(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_shouldblockbespellchecked_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ShouldBlockBeSpellChecked_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperCreateHighlighter(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_CreateHighlighter_IsBase(true);
-        vktextedit->createHighlighter();
-    } else {
-        self->KTextEdit::createHighlighter();
-    }
+    self->KTextEdit::createHighlighter();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCreateHighlighter(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_CreateHighlighter_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CreateHighlighter_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_createhighlighter_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_CreateHighlighter_Callback>(slot);
 }
 
 // Base class handler implementation
 QMenu* KTextEdit_SuperMousePopupMenu(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_MousePopupMenu_IsBase(true);
-        return vktextedit->mousePopupMenu();
-    } else {
-        return self->KTextEdit::mousePopupMenu();
-    }
+    return self->KTextEdit::mousePopupMenu();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMousePopupMenu(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_MousePopupMenu_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MousePopupMenu_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_mousepopupmenu_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_MousePopupMenu_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperEvent(KTextEdit* self, QEvent* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Event_IsBase(true);
-        return vktextedit->event(param1);
-    } else {
-        return ((VirtualKTextEdit*)self)->event(param1);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        return vktextedit->KTextEdit::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Event_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Event_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_event_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperKeyPressEvent(KTextEdit* self, QKeyEvent* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_KeyPressEvent_IsBase(true);
-        vktextedit->keyPressEvent(param1);
-    } else {
-        ((VirtualKTextEdit*)self)->keyPressEvent(param1);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnKeyPressEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_keypressevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperFocusInEvent(KTextEdit* self, QFocusEvent* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_FocusInEvent_IsBase(true);
-        vktextedit->focusInEvent(param1);
-    } else {
-        ((VirtualKTextEdit*)self)->focusInEvent(param1);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnFocusInEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusInEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_focusinevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperDeleteWordBack(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DeleteWordBack_IsBase(true);
-        vktextedit->deleteWordBack();
-    } else {
-        ((VirtualKTextEdit*)self)->deleteWordBack();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::deleteWordBack();
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::deleteWordBack called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDeleteWordBack(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DeleteWordBack_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DeleteWordBack_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_deletewordback_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DeleteWordBack_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperDeleteWordForward(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DeleteWordForward_IsBase(true);
-        vktextedit->deleteWordForward();
-    } else {
-        ((VirtualKTextEdit*)self)->deleteWordForward();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::deleteWordForward();
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::deleteWordForward called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDeleteWordForward(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DeleteWordForward_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DeleteWordForward_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_deletewordforward_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DeleteWordForward_Callback>(slot);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperContextMenuEvent(KTextEdit* self, QContextMenuEvent* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ContextMenuEvent_IsBase(true);
-        vktextedit->contextMenuEvent(param1);
-    } else {
-        ((VirtualKTextEdit*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnContextMenuEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_contextmenuevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KTextEdit_LoadResource(KTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return new QVariant(vktextedit->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualKTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
 }
 
 // Base class handler implementation
 QVariant* KTextEdit_SuperLoadResource(KTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_LoadResource_IsBase(true);
-        return new QVariant(vktextedit->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualKTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->KTextEdit::loadResource(static_cast<int>(typeVal), *name));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnLoadResource(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_LoadResource_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_LoadResource_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_loadresource_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_LoadResource_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KTextEdit_InputMethodQuery(const KTextEdit* self, int property) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return new QVariant(vktextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualKTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 // Base class handler implementation
 QVariant* KTextEdit_SuperInputMethodQuery(const KTextEdit* self, int property) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vktextedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualKTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->KTextEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnInputMethodQuery(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InputMethodQuery_Callback>(slot));
+void KTextEdit_OnInputMethodQuery(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_inputmethodquery_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_TimerEvent(KTextEdit* self, QTimerEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->timerEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperTimerEvent(KTextEdit* self, QTimerEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_TimerEvent_IsBase(true);
-        vktextedit->timerEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->timerEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnTimerEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_TimerEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_timerevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_KeyReleaseEvent(KTextEdit* self, QKeyEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->keyReleaseEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperKeyReleaseEvent(KTextEdit* self, QKeyEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_KeyReleaseEvent_IsBase(true);
-        vktextedit->keyReleaseEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnKeyReleaseEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_keyreleaseevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_ResizeEvent(KTextEdit* self, QResizeEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->resizeEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperResizeEvent(KTextEdit* self, QResizeEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ResizeEvent_IsBase(true);
-        vktextedit->resizeEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->resizeEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnResizeEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ResizeEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_resizeevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_PaintEvent(KTextEdit* self, QPaintEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->paintEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperPaintEvent(KTextEdit* self, QPaintEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_PaintEvent_IsBase(true);
-        vktextedit->paintEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->paintEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnPaintEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_PaintEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_paintevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_MousePressEvent(KTextEdit* self, QMouseEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->mousePressEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->mousePressEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperMousePressEvent(KTextEdit* self, QMouseEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_MousePressEvent_IsBase(true);
-        vktextedit->mousePressEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->mousePressEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMousePressEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MousePressEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_mousepressevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_MouseMoveEvent(KTextEdit* self, QMouseEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->mouseMoveEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperMouseMoveEvent(KTextEdit* self, QMouseEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_MouseMoveEvent_IsBase(true);
-        vktextedit->mouseMoveEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMouseMoveEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_mousemoveevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_MouseReleaseEvent(KTextEdit* self, QMouseEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->mouseReleaseEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperMouseReleaseEvent(KTextEdit* self, QMouseEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_MouseReleaseEvent_IsBase(true);
-        vktextedit->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMouseReleaseEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_mousereleaseevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_MouseDoubleClickEvent(KTextEdit* self, QMouseEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->mouseDoubleClickEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->mouseDoubleClickEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperMouseDoubleClickEvent(KTextEdit* self, QMouseEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_MouseDoubleClickEvent_IsBase(true);
-        vktextedit->mouseDoubleClickEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->mouseDoubleClickEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::mouseDoubleClickEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMouseDoubleClickEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTextEdit_FocusNextPrevChild(KTextEdit* self, bool next) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->focusNextPrevChild(next);
     } else {
-        return ((VirtualKTextEdit*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KTextEdit::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperFocusNextPrevChild(KTextEdit* self, bool next) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_FocusNextPrevChild_IsBase(true);
-        return vktextedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKTextEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        return vktextedit->KTextEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnFocusNextPrevChild(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_focusnextprevchild_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_DragEnterEvent(KTextEdit* self, QDragEnterEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->dragEnterEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->dragEnterEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperDragEnterEvent(KTextEdit* self, QDragEnterEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DragEnterEvent_IsBase(true);
-        vktextedit->dragEnterEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->dragEnterEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::dragEnterEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDragEnterEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_dragenterevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_DragLeaveEvent(KTextEdit* self, QDragLeaveEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->dragLeaveEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->dragLeaveEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperDragLeaveEvent(KTextEdit* self, QDragLeaveEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DragLeaveEvent_IsBase(true);
-        vktextedit->dragLeaveEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDragLeaveEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_dragleaveevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_DragMoveEvent(KTextEdit* self, QDragMoveEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->dragMoveEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->dragMoveEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperDragMoveEvent(KTextEdit* self, QDragMoveEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DragMoveEvent_IsBase(true);
-        vktextedit->dragMoveEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->dragMoveEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDragMoveEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_dragmoveevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_DropEvent(KTextEdit* self, QDropEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->dropEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->dropEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperDropEvent(KTextEdit* self, QDropEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DropEvent_IsBase(true);
-        vktextedit->dropEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->dropEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::dropEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDropEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DropEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DropEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_dropevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_FocusOutEvent(KTextEdit* self, QFocusEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->focusOutEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->focusOutEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperFocusOutEvent(KTextEdit* self, QFocusEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_FocusOutEvent_IsBase(true);
-        vktextedit->focusOutEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->focusOutEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::focusOutEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnFocusOutEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_focusoutevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_ShowEvent(KTextEdit* self, QShowEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->showEvent(param1);
     } else {
-        ((VirtualKTextEdit*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KTextEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperShowEvent(KTextEdit* self, QShowEvent* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ShowEvent_IsBase(true);
-        vktextedit->showEvent(param1);
-    } else {
-        ((VirtualKTextEdit*)self)->showEvent(param1);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnShowEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ShowEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_showevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_ChangeEvent(KTextEdit* self, QEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->changeEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperChangeEvent(KTextEdit* self, QEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ChangeEvent_IsBase(true);
-        vktextedit->changeEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->changeEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnChangeEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ChangeEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_changeevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_WheelEvent(KTextEdit* self, QWheelEvent* e) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->wheelEvent(e);
     } else {
-        ((VirtualKTextEdit*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method KTextEdit::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperWheelEvent(KTextEdit* self, QWheelEvent* e) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_WheelEvent_IsBase(true);
-        vktextedit->wheelEvent(e);
-    } else {
-        ((VirtualKTextEdit*)self)->wheelEvent(e);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnWheelEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_WheelEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_wheelevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QMimeData* KTextEdit_CreateMimeDataFromSelection(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->createMimeDataFromSelection();
     } else {
-        return ((VirtualKTextEdit*)self)->createMimeDataFromSelection();
+        qFatal("Error: Protected virtual method KTextEdit::createMimeDataFromSelection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QMimeData* KTextEdit_SuperCreateMimeDataFromSelection(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_CreateMimeDataFromSelection_IsBase(true);
-        return vktextedit->createMimeDataFromSelection();
-    } else {
-        return ((VirtualKTextEdit*)self)->createMimeDataFromSelection();
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->KTextEdit::createMimeDataFromSelection();
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::createMimeDataFromSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnCreateMimeDataFromSelection(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CreateMimeDataFromSelection_Callback>(slot));
+void KTextEdit_OnCreateMimeDataFromSelection(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_createmimedatafromselection_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_CreateMimeDataFromSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTextEdit_CanInsertFromMimeData(const KTextEdit* self, const QMimeData* source) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->canInsertFromMimeData(source);
     } else {
-        return ((VirtualKTextEdit*)self)->canInsertFromMimeData(source);
+        qFatal("Error: Protected virtual method KTextEdit::canInsertFromMimeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperCanInsertFromMimeData(const KTextEdit* self, const QMimeData* source) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_CanInsertFromMimeData_IsBase(true);
-        return vktextedit->canInsertFromMimeData(source);
-    } else {
-        return ((VirtualKTextEdit*)self)->canInsertFromMimeData(source);
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->KTextEdit::canInsertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::canInsertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnCanInsertFromMimeData(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CanInsertFromMimeData_Callback>(slot));
+void KTextEdit_OnCanInsertFromMimeData(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_caninsertfrommimedata_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_CanInsertFromMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_InsertFromMimeData(KTextEdit* self, const QMimeData* source) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->insertFromMimeData(source);
     } else {
-        ((VirtualKTextEdit*)self)->insertFromMimeData(source);
+        qFatal("Error: Protected virtual method KTextEdit::insertFromMimeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperInsertFromMimeData(KTextEdit* self, const QMimeData* source) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_InsertFromMimeData_IsBase(true);
-        vktextedit->insertFromMimeData(source);
-    } else {
-        ((VirtualKTextEdit*)self)->insertFromMimeData(source);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::insertFromMimeData(source);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::insertFromMimeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnInsertFromMimeData(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InsertFromMimeData_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_insertfrommimedata_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_InsertFromMimeData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_InputMethodEvent(KTextEdit* self, QInputMethodEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->inputMethodEvent(param1);
     } else {
-        ((VirtualKTextEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KTextEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperInputMethodEvent(KTextEdit* self, QInputMethodEvent* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_InputMethodEvent_IsBase(true);
-        vktextedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualKTextEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnInputMethodEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_inputmethodevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_ScrollContentsBy(KTextEdit* self, int dx, int dy) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     } else {
-        ((VirtualKTextEdit*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+        qFatal("Error: Protected virtual method KTextEdit::scrollContentsBy called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperScrollContentsBy(KTextEdit* self, int dx, int dy) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ScrollContentsBy_IsBase(true);
-        vktextedit->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualKTextEdit*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnScrollContentsBy(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ScrollContentsBy_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_scrollcontentsby_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_DoSetTextCursor(KTextEdit* self, const QTextCursor* cursor) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->doSetTextCursor(*cursor);
     } else {
-        ((VirtualKTextEdit*)self)->doSetTextCursor(*cursor);
+        qFatal("Error: Protected virtual method KTextEdit::doSetTextCursor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperDoSetTextCursor(KTextEdit* self, const QTextCursor* cursor) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DoSetTextCursor_IsBase(true);
-        vktextedit->doSetTextCursor(*cursor);
-    } else {
-        ((VirtualKTextEdit*)self)->doSetTextCursor(*cursor);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::doSetTextCursor(*cursor);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::doSetTextCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDoSetTextCursor(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DoSetTextCursor_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_dosettextcursor_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DoSetTextCursor_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTextEdit_MinimumSizeHint(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return new QSize(vktextedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKTextEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KTextEdit_SuperMinimumSizeHint(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vktextedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKTextEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KTextEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnMinimumSizeHint(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MinimumSizeHint_Callback>(slot));
+void KTextEdit_OnMinimumSizeHint(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_minimumsizehint_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTextEdit_SizeHint(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return new QSize(vktextedit->sizeHint());
-    } else {
-        return new QSize(((VirtualKTextEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KTextEdit_SuperSizeHint(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SizeHint_IsBase(true);
-        return new QSize(vktextedit->sizeHint());
-    } else {
-        return new QSize(((VirtualKTextEdit*)self)->sizeHint());
-    }
+    return new QSize(self->KTextEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSizeHint(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SizeHint_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SizeHint_Callback>(slot));
+void KTextEdit_OnSizeHint(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_sizehint_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_SetupViewport(KTextEdit* self, QWidget* viewport) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setupViewport(viewport);
-    } else {
-        self->KTextEdit::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperSetupViewport(KTextEdit* self, QWidget* viewport) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SetupViewport_IsBase(true);
-        vktextedit->setupViewport(viewport);
-    } else {
-        self->KTextEdit::setupViewport(viewport);
-    }
+    self->KTextEdit::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetupViewport(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SetupViewport_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetupViewport_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_setupviewport_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTextEdit_EventFilter(KTextEdit* self, QObject* param1, QEvent* param2) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->eventFilter(param1, param2);
     } else {
-        return ((VirtualKTextEdit*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KTextEdit::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperEventFilter(KTextEdit* self, QObject* param1, QEvent* param2) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_EventFilter_IsBase(true);
-        return vktextedit->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKTextEdit*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        return vktextedit->KTextEdit::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnEventFilter(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_EventFilter_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_EventFilter_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_eventfilter_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTextEdit_ViewportEvent(KTextEdit* self, QEvent* param1) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->viewportEvent(param1);
     } else {
-        return ((VirtualKTextEdit*)self)->viewportEvent(param1);
+        qFatal("Error: Protected virtual method KTextEdit::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperViewportEvent(KTextEdit* self, QEvent* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ViewportEvent_IsBase(true);
-        return vktextedit->viewportEvent(param1);
-    } else {
-        return ((VirtualKTextEdit*)self)->viewportEvent(param1);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        return vktextedit->KTextEdit::viewportEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnViewportEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ViewportEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ViewportEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_viewportevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KTextEdit_ViewportSizeHint(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return new QSize(vktextedit->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualKTextEdit::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* KTextEdit_SuperViewportSizeHint(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ViewportSizeHint_IsBase(true);
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
         return new QSize(vktextedit->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method KTextEdit::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnViewportSizeHint(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ViewportSizeHint_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ViewportSizeHint_Callback>(slot));
+void KTextEdit_OnViewportSizeHint(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_viewportsizehint_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_InitStyleOption(const KTextEdit* self, QStyleOptionFrame* option) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->initStyleOption(option);
     } else {
-        ((VirtualKTextEdit*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KTextEdit::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperInitStyleOption(const KTextEdit* self, QStyleOptionFrame* option) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_InitStyleOption_IsBase(true);
-        vktextedit->initStyleOption(option);
-    } else {
-        ((VirtualKTextEdit*)self)->initStyleOption(option);
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        vktextedit->KTextEdit::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnInitStyleOption(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_InitStyleOption_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InitStyleOption_Callback>(slot));
+void KTextEdit_OnInitStyleOption(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_initstyleoption_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTextEdit_DevType(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->devType();
-    } else {
-        return self->KTextEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KTextEdit_SuperDevType(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DevType_IsBase(true);
-        return vktextedit->devType();
-    } else {
-        return self->KTextEdit::devType();
-    }
+    return self->KTextEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnDevType(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DevType_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DevType_Callback>(slot));
+void KTextEdit_OnDevType(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_devtype_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_SetVisible(KTextEdit* self, bool visible) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setVisible(visible);
-    } else {
-        self->KTextEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KTextEdit_SuperSetVisible(KTextEdit* self, bool visible) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SetVisible_IsBase(true);
-        vktextedit->setVisible(visible);
-    } else {
-        self->KTextEdit::setVisible(visible);
-    }
+    self->KTextEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnSetVisible(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SetVisible_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetVisible_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_setvisible_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTextEdit_HeightForWidth(const KTextEdit* self, int param1) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KTextEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KTextEdit_SuperHeightForWidth(const KTextEdit* self, int param1) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_HeightForWidth_IsBase(true);
-        return vktextedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KTextEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KTextEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnHeightForWidth(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_HeightForWidth_Callback>(slot));
+void KTextEdit_OnHeightForWidth(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_heightforwidth_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTextEdit_HasHeightForWidth(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->hasHeightForWidth();
-    } else {
-        return self->KTextEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperHasHeightForWidth(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_HasHeightForWidth_IsBase(true);
-        return vktextedit->hasHeightForWidth();
-    } else {
-        return self->KTextEdit::hasHeightForWidth();
-    }
+    return self->KTextEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnHasHeightForWidth(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_HasHeightForWidth_Callback>(slot));
+void KTextEdit_OnHasHeightForWidth(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_hasheightforwidth_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KTextEdit_PaintEngine(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->paintEngine();
-    } else {
-        return self->KTextEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KTextEdit_SuperPaintEngine(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_PaintEngine_IsBase(true);
-        return vktextedit->paintEngine();
-    } else {
-        return self->KTextEdit::paintEngine();
-    }
+    return self->KTextEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnPaintEngine(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_PaintEngine_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_PaintEngine_Callback>(slot));
+void KTextEdit_OnPaintEngine(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_paintengine_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_EnterEvent(KTextEdit* self, QEnterEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->enterEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperEnterEvent(KTextEdit* self, QEnterEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_EnterEvent_IsBase(true);
-        vktextedit->enterEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->enterEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnEnterEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_EnterEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_EnterEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_enterevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_LeaveEvent(KTextEdit* self, QEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->leaveEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperLeaveEvent(KTextEdit* self, QEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_LeaveEvent_IsBase(true);
-        vktextedit->leaveEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnLeaveEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_LeaveEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_leaveevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_MoveEvent(KTextEdit* self, QMoveEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->moveEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperMoveEvent(KTextEdit* self, QMoveEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_MoveEvent_IsBase(true);
-        vktextedit->moveEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->moveEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnMoveEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_MoveEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_MoveEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_moveevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_CloseEvent(KTextEdit* self, QCloseEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->closeEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperCloseEvent(KTextEdit* self, QCloseEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_CloseEvent_IsBase(true);
-        vktextedit->closeEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->closeEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCloseEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_CloseEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CloseEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_closeevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_TabletEvent(KTextEdit* self, QTabletEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->tabletEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperTabletEvent(KTextEdit* self, QTabletEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_TabletEvent_IsBase(true);
-        vktextedit->tabletEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnTabletEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_TabletEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_TabletEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_tabletevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_ActionEvent(KTextEdit* self, QActionEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->actionEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperActionEvent(KTextEdit* self, QActionEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ActionEvent_IsBase(true);
-        vktextedit->actionEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->actionEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnActionEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ActionEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ActionEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_actionevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_HideEvent(KTextEdit* self, QHideEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->hideEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperHideEvent(KTextEdit* self, QHideEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_HideEvent_IsBase(true);
-        vktextedit->hideEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->hideEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnHideEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_HideEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_HideEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_hideevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KTextEdit_NativeEvent(KTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
+    if (vktextedit) {
         return vktextedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKTextEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KTextEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KTextEdit_SuperNativeEvent(KTextEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_NativeEvent_IsBase(true);
-        return vktextedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKTextEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        return vktextedit->KTextEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnNativeEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_NativeEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_NativeEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_nativeevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KTextEdit_Metric(const KTextEdit* self, int param1) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKTextEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KTextEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KTextEdit_SuperMetric(const KTextEdit* self, int param1) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Metric_IsBase(true);
-        return vktextedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKTextEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->KTextEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnMetric(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Metric_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Metric_Callback>(slot));
+void KTextEdit_OnMetric(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_metric_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_InitPainter(const KTextEdit* self, QPainter* painter) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->initPainter(painter);
     } else {
-        ((VirtualKTextEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KTextEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperInitPainter(const KTextEdit* self, QPainter* painter) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_InitPainter_IsBase(true);
-        vktextedit->initPainter(painter);
-    } else {
-        ((VirtualKTextEdit*)self)->initPainter(painter);
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        vktextedit->KTextEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnInitPainter(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_InitPainter_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_InitPainter_Callback>(slot));
+void KTextEdit_OnInitPainter(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_initpainter_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KTextEdit_Redirected(const KTextEdit* self, QPoint* offset) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->redirected(offset);
     } else {
-        return ((VirtualKTextEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KTextEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KTextEdit_SuperRedirected(const KTextEdit* self, QPoint* offset) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Redirected_IsBase(true);
-        return vktextedit->redirected(offset);
-    } else {
-        return ((VirtualKTextEdit*)self)->redirected(offset);
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->KTextEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnRedirected(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Redirected_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Redirected_Callback>(slot));
+void KTextEdit_OnRedirected(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_redirected_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KTextEdit_SharedPainter(const KTextEdit* self) {
     auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         return vktextedit->sharedPainter();
     } else {
-        return ((VirtualKTextEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KTextEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KTextEdit_SuperSharedPainter(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SharedPainter_IsBase(true);
-        return vktextedit->sharedPainter();
-    } else {
-        return ((VirtualKTextEdit*)self)->sharedPainter();
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->KTextEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSharedPainter(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SharedPainter_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SharedPainter_Callback>(slot));
+void KTextEdit_OnSharedPainter(KTextEdit* self, intptr_t slot) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
+        vktextedit->ktextedit_sharedpainter_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_ChildEvent(KTextEdit* self, QChildEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->childEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperChildEvent(KTextEdit* self, QChildEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ChildEvent_IsBase(true);
-        vktextedit->childEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->childEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnChildEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ChildEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ChildEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_childevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_CustomEvent(KTextEdit* self, QEvent* event) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->customEvent(event);
     } else {
-        ((VirtualKTextEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KTextEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperCustomEvent(KTextEdit* self, QEvent* event) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_CustomEvent_IsBase(true);
-        vktextedit->customEvent(event);
-    } else {
-        ((VirtualKTextEdit*)self)->customEvent(event);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnCustomEvent(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_CustomEvent_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_CustomEvent_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_customevent_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_ConnectNotify(KTextEdit* self, const QMetaMethod* signal) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->connectNotify(*signal);
     } else {
-        ((VirtualKTextEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KTextEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperConnectNotify(KTextEdit* self, const QMetaMethod* signal) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ConnectNotify_IsBase(true);
-        vktextedit->connectNotify(*signal);
-    } else {
-        ((VirtualKTextEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnConnectNotify(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ConnectNotify_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_connectnotify_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KTextEdit_DisconnectNotify(KTextEdit* self, const QMetaMethod* signal) {
     auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (vktextedit) {
         vktextedit->disconnectNotify(*signal);
     } else {
-        ((VirtualKTextEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KTextEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KTextEdit_SuperDisconnectNotify(KTextEdit* self, const QMetaMethod* signal) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DisconnectNotify_IsBase(true);
-        vktextedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualKTextEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->KTextEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KTextEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KTextEdit_OnDisconnectNotify(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self))
+        vktextedit->ktextedit_disconnectnotify_callback = reinterpret_cast<VirtualKTextEdit::KTextEdit_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SlotDoReplace(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->slotDoReplace();
-    } else {
-        ((VirtualKTextEdit*)self)->slotDoReplace();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::slotDoReplace();
+    } else
+        qFatal("Error: Protected method KTextEdit::slotDoReplace called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperSlotDoReplace(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SlotDoReplace_IsBase(true);
-        vktextedit->slotDoReplace();
-    } else {
-        ((VirtualKTextEdit*)self)->slotDoReplace();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSlotDoReplace(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SlotDoReplace_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotDoReplace_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SlotReplaceNext(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->slotReplaceNext();
-    } else {
-        ((VirtualKTextEdit*)self)->slotReplaceNext();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::slotReplaceNext();
+    } else
+        qFatal("Error: Protected method KTextEdit::slotReplaceNext called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperSlotReplaceNext(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SlotReplaceNext_IsBase(true);
-        vktextedit->slotReplaceNext();
-    } else {
-        ((VirtualKTextEdit*)self)->slotReplaceNext();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSlotReplaceNext(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SlotReplaceNext_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotReplaceNext_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SlotDoFind(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->slotDoFind();
-    } else {
-        ((VirtualKTextEdit*)self)->slotDoFind();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::slotDoFind();
+    } else
+        qFatal("Error: Protected method KTextEdit::slotDoFind called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperSlotDoFind(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SlotDoFind_IsBase(true);
-        vktextedit->slotDoFind();
-    } else {
-        ((VirtualKTextEdit*)self)->slotDoFind();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSlotDoFind(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SlotDoFind_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotDoFind_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SlotFind(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->slotFind();
-    } else {
-        ((VirtualKTextEdit*)self)->slotFind();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::slotFind();
+    } else
+        qFatal("Error: Protected method KTextEdit::slotFind called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperSlotFind(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SlotFind_IsBase(true);
-        vktextedit->slotFind();
-    } else {
-        ((VirtualKTextEdit*)self)->slotFind();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSlotFind(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SlotFind_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotFind_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SlotFindNext(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->slotFindNext();
-    } else {
-        ((VirtualKTextEdit*)self)->slotFindNext();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::slotFindNext();
+    } else
+        qFatal("Error: Protected method KTextEdit::slotFindNext called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperSlotFindNext(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SlotFindNext_IsBase(true);
-        vktextedit->slotFindNext();
-    } else {
-        ((VirtualKTextEdit*)self)->slotFindNext();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSlotFindNext(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SlotFindNext_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotFindNext_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SlotFindPrevious(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->slotFindPrevious();
-    } else {
-        ((VirtualKTextEdit*)self)->slotFindPrevious();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::slotFindPrevious();
+    } else
+        qFatal("Error: Protected method KTextEdit::slotFindPrevious called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperSlotFindPrevious(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SlotFindPrevious_IsBase(true);
-        vktextedit->slotFindPrevious();
-    } else {
-        ((VirtualKTextEdit*)self)->slotFindPrevious();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSlotFindPrevious(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SlotFindPrevious_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotFindPrevious_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SlotReplace(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->slotReplace();
-    } else {
-        ((VirtualKTextEdit*)self)->slotReplace();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::slotReplace();
+    } else
+        qFatal("Error: Protected method KTextEdit::slotReplace called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperSlotReplace(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SlotReplace_IsBase(true);
-        vktextedit->slotReplace();
-    } else {
-        ((VirtualKTextEdit*)self)->slotReplace();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSlotReplace(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SlotReplace_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotReplace_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SlotSpeakText(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->slotSpeakText();
-    } else {
-        ((VirtualKTextEdit*)self)->slotSpeakText();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::slotSpeakText();
+    } else
+        qFatal("Error: Protected method KTextEdit::slotSpeakText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperSlotSpeakText(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SlotSpeakText_IsBase(true);
-        vktextedit->slotSpeakText();
-    } else {
-        ((VirtualKTextEdit*)self)->slotSpeakText();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSlotSpeakText(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SlotSpeakText_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SlotSpeakText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_ZoomInF(KTextEdit* self, float range) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->zoomInF(static_cast<float>(range));
-    } else {
-        ((VirtualKTextEdit*)self)->zoomInF(static_cast<float>(range));
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::zoomInF(static_cast<float>(range));
+    } else
+        qFatal("Error: Protected method KTextEdit::zoomInF called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperZoomInF(KTextEdit* self, float range) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ZoomInF_IsBase(true);
-        vktextedit->zoomInF(static_cast<float>(range));
-    } else {
-        ((VirtualKTextEdit*)self)->zoomInF(static_cast<float>(range));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnZoomInF(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ZoomInF_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ZoomInF_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_SetViewportMargins(KTextEdit* self, int left, int top, int right, int bottom) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualKTextEdit*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void KTextEdit_SuperSetViewportMargins(KTextEdit* self, int left, int top, int right, int bottom) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SetViewportMargins_IsBase(true);
-        vktextedit->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualKTextEdit*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSetViewportMargins(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SetViewportMargins_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SetViewportMargins_Callback>(slot));
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method KTextEdit::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* KTextEdit_ViewportMargins(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self)))
         return new QMargins(vktextedit->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method KTextEdit::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* KTextEdit_SuperViewportMargins(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_ViewportMargins_IsBase(true);
-        return new QMargins(vktextedit->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnViewportMargins(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_ViewportMargins_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_DrawFrame(KTextEdit* self, QPainter* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->drawFrame(param1);
-    } else {
-        ((VirtualKTextEdit*)self)->drawFrame(param1);
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KTextEdit::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperDrawFrame(KTextEdit* self, QPainter* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_DrawFrame_IsBase(true);
-        vktextedit->drawFrame(param1);
-    } else {
-        ((VirtualKTextEdit*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnDrawFrame(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_DrawFrame_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_UpdateMicroFocus(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->updateMicroFocus();
-    } else {
-        ((VirtualKTextEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KTextEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperUpdateMicroFocus(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_UpdateMicroFocus_IsBase(true);
-        vktextedit->updateMicroFocus();
-    } else {
-        ((VirtualKTextEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnUpdateMicroFocus(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_Create(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->create();
-    } else {
-        ((VirtualKTextEdit*)self)->create();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::create();
+    } else
+        qFatal("Error: Protected method KTextEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperCreate(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Create_IsBase(true);
-        vktextedit->create();
-    } else {
-        ((VirtualKTextEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnCreate(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Create_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KTextEdit_Destroy(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->destroy();
-    } else {
-        ((VirtualKTextEdit*)self)->destroy();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        vktextedit->VirtualKTextEdit::destroy();
+    } else
+        qFatal("Error: Protected method KTextEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KTextEdit_SuperDestroy(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Destroy_IsBase(true);
-        vktextedit->destroy();
-    } else {
-        ((VirtualKTextEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnDestroy(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Destroy_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTextEdit_FocusNextChild(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->focusNextChild();
-    } else {
-        return ((VirtualKTextEdit*)self)->focusNextChild();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        return vktextedit->VirtualKTextEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method KTextEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTextEdit_SuperFocusNextChild(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_FocusNextChild_IsBase(true);
-        return vktextedit->focusNextChild();
-    } else {
-        return ((VirtualKTextEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnFocusNextChild(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTextEdit_FocusPreviousChild(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->focusPreviousChild();
-    } else {
-        return ((VirtualKTextEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self)) {
+        return vktextedit->VirtualKTextEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KTextEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTextEdit_SuperFocusPreviousChild(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_FocusPreviousChild_IsBase(true);
-        return vktextedit->focusPreviousChild();
-    } else {
-        return ((VirtualKTextEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnFocusPreviousChild(KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KTextEdit_Sender(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->sender();
-    } else {
-        return ((VirtualKTextEdit*)self)->sender();
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->VirtualKTextEdit::sender();
+    } else
+        qFatal("Error: Protected method KTextEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KTextEdit_SuperSender(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Sender_IsBase(true);
-        return vktextedit->sender();
-    } else {
-        return ((VirtualKTextEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSender(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Sender_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTextEdit_SenderSignalIndex(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->senderSignalIndex();
-    } else {
-        return ((VirtualKTextEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->VirtualKTextEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KTextEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTextEdit_SuperSenderSignalIndex(const KTextEdit* self) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_SenderSignalIndex_IsBase(true);
-        return vktextedit->senderSignalIndex();
-    } else {
-        return ((VirtualKTextEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnSenderSignalIndex(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KTextEdit_Receivers(const KTextEdit* self, const char* signal) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->receivers(signal);
-    } else {
-        return ((VirtualKTextEdit*)self)->receivers(signal);
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->VirtualKTextEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method KTextEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KTextEdit_SuperReceivers(const KTextEdit* self, const char* signal) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_Receivers_IsBase(true);
-        return vktextedit->receivers(signal);
-    } else {
-        return ((VirtualKTextEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnReceivers(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_Receivers_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KTextEdit_IsSignalConnected(const KTextEdit* self, const QMetaMethod* signal) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTextEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->VirtualKTextEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KTextEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KTextEdit_SuperIsSignalConnected(const KTextEdit* self, const QMetaMethod* signal) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_IsSignalConnected_IsBase(true);
-        return vktextedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKTextEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnIsSignalConnected(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KTextEdit_GetDecodedMetricF(const KTextEdit* self, int metricA, int metricB) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return vktextedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKTextEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KTextEdit_SuperGetDecodedMetricF(const KTextEdit* self, int metricA, int metricB) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        vktextedit->setKTextEdit_GetDecodedMetricF_IsBase(true);
-        return vktextedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKTextEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KTextEdit_OnGetDecodedMetricF(const KTextEdit* self, intptr_t slot) {
-    auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self));
-    if (vktextedit && vktextedit->isVirtualKTextEdit)
-        vktextedit->setKTextEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKTextEdit::KTextEdit_GetDecodedMetricF_Callback>(slot));
+    if (auto* vktextedit = const_cast<VirtualKTextEdit*>(dynamic_cast<const VirtualKTextEdit*>(self))) {
+        return vktextedit->VirtualKTextEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KTextEdit::getDecodedMetricF called without a directly constructed type");
 }
 
 void KTextEdit_Delete(KTextEdit* self) {

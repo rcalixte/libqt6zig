@@ -113,10 +113,10 @@ QTemporaryFile* QTemporaryFile_CreateNativeFile2(QFile* file) {
 
 bool QTemporaryFile_Open2(QTemporaryFile* self, int flags) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     }
-    return {};
+    qFatal("Error: Protected method QTemporaryFile::open2 called without a directly constructed type");
 }
 
 libqt_string QTemporaryFile_Tr2(const char* s, const char* c) {
@@ -145,1006 +145,605 @@ libqt_string QTemporaryFile_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QTemporaryFile_SuperMetaObject(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtemporaryfile->metaObject();
-    } else {
-        return (QMetaObject*)self->QTemporaryFile::metaObject();
-    }
+    return (QMetaObject*)self->QTemporaryFile::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnMetaObject(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_MetaObject_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_MetaObject_Callback>(slot));
+void QTemporaryFile_OnMetaObject(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_metaobject_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTemporaryFile_SuperMetacast(QTemporaryFile* self, const char* param1) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Metacast_IsBase(true);
-        return vqtemporaryfile->qt_metacast(param1);
-    } else {
-        return self->QTemporaryFile::qt_metacast(param1);
-    }
+    return self->QTemporaryFile::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnMetacast(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Metacast_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Metacast_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_metacast_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTemporaryFile_SuperMetacall(QTemporaryFile* self, int param1, int param2, void** param3) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Metacall_IsBase(true);
-        return vqtemporaryfile->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTemporaryFile::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTemporaryFile::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnMetacall(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Metacall_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Metacall_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_metacall_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string QTemporaryFile_SuperFileName(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_FileName_IsBase(true);
-        auto _ret = vqtemporaryfile->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QTemporaryFile::fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->QTemporaryFile::fileName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_FileName_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_FileName_Callback>(slot));
+void QTemporaryFile_OnFileName(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_filename_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_FileName_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperOpen2(QTemporaryFile* self, int flags) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Open2_IsBase(true);
-        return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    } else {
-        return ((VirtualQTemporaryFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        return vqtemporaryfile->QTemporaryFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::open2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnOpen2(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Open2_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Open2_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_open2_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Open2_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long QTemporaryFile_Size(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return static_cast<long long>(vqtemporaryfile->size());
-    } else {
-        return static_cast<long long>(self->QTemporaryFile::size());
-    }
+    return static_cast<long long>(self->size());
 }
 
 // Base class handler implementation
 long long QTemporaryFile_SuperSize(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Size_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->size());
-    } else {
-        return static_cast<long long>(self->QTemporaryFile::size());
-    }
+    return static_cast<long long>(self->QTemporaryFile::size());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnSize(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Size_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Size_Callback>(slot));
+void QTemporaryFile_OnSize(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_size_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Size_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_Resize(QTemporaryFile* self, long long sz) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->resize(static_cast<qint64>(sz));
-    } else {
-        return self->QTemporaryFile::resize(static_cast<qint64>(sz));
-    }
+    return self->resize(static_cast<qint64>(sz));
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperResize(QTemporaryFile* self, long long sz) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Resize_IsBase(true);
-        return vqtemporaryfile->resize(static_cast<qint64>(sz));
-    } else {
-        return self->QTemporaryFile::resize(static_cast<qint64>(sz));
-    }
+    return self->QTemporaryFile::resize(static_cast<qint64>(sz));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnResize(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Resize_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Resize_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_resize_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Resize_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTemporaryFile_Permissions(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return static_cast<int>(vqtemporaryfile->permissions());
-    } else {
-        return static_cast<int>(self->QTemporaryFile::permissions());
-    }
+    return static_cast<int>(self->permissions());
 }
 
 // Base class handler implementation
 int QTemporaryFile_SuperPermissions(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Permissions_IsBase(true);
-        return static_cast<int>(vqtemporaryfile->permissions());
-    } else {
-        return static_cast<int>(self->QTemporaryFile::permissions());
-    }
+    return static_cast<int>(self->QTemporaryFile::permissions());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnPermissions(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Permissions_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Permissions_Callback>(slot));
+void QTemporaryFile_OnPermissions(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_permissions_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Permissions_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_SetPermissions(QTemporaryFile* self, int permissionSpec) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    } else {
-        return self->QTemporaryFile::setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    }
+    return self->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperSetPermissions(QTemporaryFile* self, int permissionSpec) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_SetPermissions_IsBase(true);
-        return vqtemporaryfile->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    } else {
-        return self->QTemporaryFile::setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    }
+    return self->QTemporaryFile::setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSetPermissions(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_SetPermissions_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SetPermissions_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_setpermissions_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SetPermissions_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTemporaryFile_Close(QTemporaryFile* self) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->close();
-    } else {
-        self->QTemporaryFile::close();
-    }
+    self->close();
 }
 
 // Base class handler implementation
 void QTemporaryFile_SuperClose(QTemporaryFile* self) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Close_IsBase(true);
-        vqtemporaryfile->close();
-    } else {
-        self->QTemporaryFile::close();
-    }
+    self->QTemporaryFile::close();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnClose(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Close_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Close_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_close_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Close_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_IsSequential(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->isSequential();
-    } else {
-        return self->QTemporaryFile::isSequential();
-    }
+    return self->isSequential();
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperIsSequential(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_IsSequential_IsBase(true);
-        return vqtemporaryfile->isSequential();
-    } else {
-        return self->QTemporaryFile::isSequential();
-    }
+    return self->QTemporaryFile::isSequential();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnIsSequential(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_IsSequential_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_IsSequential_Callback>(slot));
+void QTemporaryFile_OnIsSequential(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_issequential_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_IsSequential_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long QTemporaryFile_Pos(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return static_cast<long long>(vqtemporaryfile->pos());
-    } else {
-        return static_cast<long long>(self->QTemporaryFile::pos());
-    }
+    return static_cast<long long>(self->pos());
 }
 
 // Base class handler implementation
 long long QTemporaryFile_SuperPos(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Pos_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->pos());
-    } else {
-        return static_cast<long long>(self->QTemporaryFile::pos());
-    }
+    return static_cast<long long>(self->QTemporaryFile::pos());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnPos(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Pos_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Pos_Callback>(slot));
+void QTemporaryFile_OnPos(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_pos_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Pos_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_Seek(QTemporaryFile* self, long long offset) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->seek(static_cast<qint64>(offset));
-    } else {
-        return self->QTemporaryFile::seek(static_cast<qint64>(offset));
-    }
+    return self->seek(static_cast<qint64>(offset));
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperSeek(QTemporaryFile* self, long long offset) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Seek_IsBase(true);
-        return vqtemporaryfile->seek(static_cast<qint64>(offset));
-    } else {
-        return self->QTemporaryFile::seek(static_cast<qint64>(offset));
-    }
+    return self->QTemporaryFile::seek(static_cast<qint64>(offset));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSeek(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Seek_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Seek_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_seek_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Seek_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_AtEnd(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->atEnd();
-    } else {
-        return self->QTemporaryFile::atEnd();
-    }
+    return self->atEnd();
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperAtEnd(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_AtEnd_IsBase(true);
-        return vqtemporaryfile->atEnd();
-    } else {
-        return self->QTemporaryFile::atEnd();
-    }
+    return self->QTemporaryFile::atEnd();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnAtEnd(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_AtEnd_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_AtEnd_Callback>(slot));
+void QTemporaryFile_OnAtEnd(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_atend_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_AtEnd_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long QTemporaryFile_ReadData(QTemporaryFile* self, char* data, long long maxlen) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         return static_cast<long long>(vqtemporaryfile->readData(data, static_cast<qint64>(maxlen)));
     } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->readData(data, static_cast<qint64>(maxlen)));
+        qFatal("Error: Protected virtual method QTemporaryFile::readData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 long long QTemporaryFile_SuperReadData(QTemporaryFile* self, char* data, long long maxlen) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_ReadData_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->readData(data, static_cast<qint64>(maxlen)));
-    } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->readData(data, static_cast<qint64>(maxlen)));
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        return static_cast<long long>(vqtemporaryfile->QTemporaryFile::readData(data, static_cast<qint64>(maxlen)));
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::readData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnReadData(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_ReadData_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ReadData_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_readdata_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ReadData_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long QTemporaryFile_WriteData(QTemporaryFile* self, const char* data, long long len) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         return static_cast<long long>(vqtemporaryfile->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->writeData(data, static_cast<qint64>(len)));
+        qFatal("Error: Protected virtual method QTemporaryFile::writeData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 long long QTemporaryFile_SuperWriteData(QTemporaryFile* self, const char* data, long long len) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_WriteData_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->writeData(data, static_cast<qint64>(len)));
-    } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->writeData(data, static_cast<qint64>(len)));
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        return static_cast<long long>(vqtemporaryfile->QTemporaryFile::writeData(data, static_cast<qint64>(len)));
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::writeData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnWriteData(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_WriteData_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WriteData_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_writedata_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WriteData_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long QTemporaryFile_ReadLineData(QTemporaryFile* self, char* data, long long maxlen) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         return static_cast<long long>(vqtemporaryfile->readLineData(data, static_cast<qint64>(maxlen)));
     } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->readLineData(data, static_cast<qint64>(maxlen)));
+        qFatal("Error: Protected virtual method QTemporaryFile::readLineData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 long long QTemporaryFile_SuperReadLineData(QTemporaryFile* self, char* data, long long maxlen) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_ReadLineData_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->readLineData(data, static_cast<qint64>(maxlen)));
-    } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->readLineData(data, static_cast<qint64>(maxlen)));
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        return static_cast<long long>(vqtemporaryfile->QTemporaryFile::readLineData(data, static_cast<qint64>(maxlen)));
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::readLineData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnReadLineData(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_ReadLineData_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ReadLineData_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_readlinedata_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ReadLineData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_Reset(QTemporaryFile* self) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->reset();
-    } else {
-        return self->QTemporaryFile::reset();
-    }
+    return self->reset();
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperReset(QTemporaryFile* self) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Reset_IsBase(true);
-        return vqtemporaryfile->reset();
-    } else {
-        return self->QTemporaryFile::reset();
-    }
+    return self->QTemporaryFile::reset();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnReset(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Reset_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Reset_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_reset_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Reset_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long QTemporaryFile_BytesAvailable(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return static_cast<long long>(vqtemporaryfile->bytesAvailable());
-    } else {
-        return static_cast<long long>(self->QTemporaryFile::bytesAvailable());
-    }
+    return static_cast<long long>(self->bytesAvailable());
 }
 
 // Base class handler implementation
 long long QTemporaryFile_SuperBytesAvailable(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_BytesAvailable_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->bytesAvailable());
-    } else {
-        return static_cast<long long>(self->QTemporaryFile::bytesAvailable());
-    }
+    return static_cast<long long>(self->QTemporaryFile::bytesAvailable());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnBytesAvailable(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_BytesAvailable_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_BytesAvailable_Callback>(slot));
+void QTemporaryFile_OnBytesAvailable(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_bytesavailable_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_BytesAvailable_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long QTemporaryFile_BytesToWrite(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return static_cast<long long>(vqtemporaryfile->bytesToWrite());
-    } else {
-        return static_cast<long long>(self->QTemporaryFile::bytesToWrite());
-    }
+    return static_cast<long long>(self->bytesToWrite());
 }
 
 // Base class handler implementation
 long long QTemporaryFile_SuperBytesToWrite(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_BytesToWrite_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->bytesToWrite());
-    } else {
-        return static_cast<long long>(self->QTemporaryFile::bytesToWrite());
-    }
+    return static_cast<long long>(self->QTemporaryFile::bytesToWrite());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnBytesToWrite(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_BytesToWrite_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_BytesToWrite_Callback>(slot));
+void QTemporaryFile_OnBytesToWrite(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_bytestowrite_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_BytesToWrite_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_CanReadLine(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->canReadLine();
-    } else {
-        return self->QTemporaryFile::canReadLine();
-    }
+    return self->canReadLine();
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperCanReadLine(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_CanReadLine_IsBase(true);
-        return vqtemporaryfile->canReadLine();
-    } else {
-        return self->QTemporaryFile::canReadLine();
-    }
+    return self->QTemporaryFile::canReadLine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnCanReadLine(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_CanReadLine_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_CanReadLine_Callback>(slot));
+void QTemporaryFile_OnCanReadLine(QTemporaryFile* self, intptr_t slot) {
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self)))
+        vqtemporaryfile->qtemporaryfile_canreadline_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_CanReadLine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_WaitForReadyRead(QTemporaryFile* self, int msecs) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return self->QTemporaryFile::waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->waitForReadyRead(static_cast<int>(msecs));
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperWaitForReadyRead(QTemporaryFile* self, int msecs) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_WaitForReadyRead_IsBase(true);
-        return vqtemporaryfile->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return self->QTemporaryFile::waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->QTemporaryFile::waitForReadyRead(static_cast<int>(msecs));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnWaitForReadyRead(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_WaitForReadyRead_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WaitForReadyRead_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_waitforreadyread_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WaitForReadyRead_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_WaitForBytesWritten(QTemporaryFile* self, int msecs) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return self->QTemporaryFile::waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->waitForBytesWritten(static_cast<int>(msecs));
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperWaitForBytesWritten(QTemporaryFile* self, int msecs) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_WaitForBytesWritten_IsBase(true);
-        return vqtemporaryfile->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return self->QTemporaryFile::waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->QTemporaryFile::waitForBytesWritten(static_cast<int>(msecs));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnWaitForBytesWritten(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WaitForBytesWritten_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_waitforbyteswritten_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WaitForBytesWritten_Callback>(slot);
 }
 
 // Derived class handler implementation
 long long QTemporaryFile_SkipData(QTemporaryFile* self, long long maxSize) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         return static_cast<long long>(vqtemporaryfile->skipData(static_cast<qint64>(maxSize)));
     } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->skipData(static_cast<qint64>(maxSize)));
+        qFatal("Error: Protected virtual method QTemporaryFile::skipData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 long long QTemporaryFile_SuperSkipData(QTemporaryFile* self, long long maxSize) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_SkipData_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->skipData(static_cast<qint64>(maxSize)));
-    } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->skipData(static_cast<qint64>(maxSize)));
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        return static_cast<long long>(vqtemporaryfile->QTemporaryFile::skipData(static_cast<qint64>(maxSize)));
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::skipData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSkipData(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_SkipData_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SkipData_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_skipdata_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SkipData_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_Event(QTemporaryFile* self, QEvent* event) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->event(event);
-    } else {
-        return self->QTemporaryFile::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperEvent(QTemporaryFile* self, QEvent* event) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Event_IsBase(true);
-        return vqtemporaryfile->event(event);
-    } else {
-        return self->QTemporaryFile::event(event);
-    }
+    return self->QTemporaryFile::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnEvent(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Event_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Event_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_event_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTemporaryFile_EventFilter(QTemporaryFile* self, QObject* watched, QEvent* event) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->eventFilter(watched, event);
-    } else {
-        return self->QTemporaryFile::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QTemporaryFile_SuperEventFilter(QTemporaryFile* self, QObject* watched, QEvent* event) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_EventFilter_IsBase(true);
-        return vqtemporaryfile->eventFilter(watched, event);
-    } else {
-        return self->QTemporaryFile::eventFilter(watched, event);
-    }
+    return self->QTemporaryFile::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnEventFilter(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_EventFilter_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_EventFilter_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_eventfilter_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTemporaryFile_TimerEvent(QTemporaryFile* self, QTimerEvent* event) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         vqtemporaryfile->timerEvent(event);
     } else {
-        ((VirtualQTemporaryFile*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QTemporaryFile::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTemporaryFile_SuperTimerEvent(QTemporaryFile* self, QTimerEvent* event) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_TimerEvent_IsBase(true);
-        vqtemporaryfile->timerEvent(event);
-    } else {
-        ((VirtualQTemporaryFile*)self)->timerEvent(event);
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        vqtemporaryfile->QTemporaryFile::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnTimerEvent(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_TimerEvent_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_TimerEvent_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_timerevent_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTemporaryFile_ChildEvent(QTemporaryFile* self, QChildEvent* event) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         vqtemporaryfile->childEvent(event);
     } else {
-        ((VirtualQTemporaryFile*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTemporaryFile::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTemporaryFile_SuperChildEvent(QTemporaryFile* self, QChildEvent* event) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_ChildEvent_IsBase(true);
-        vqtemporaryfile->childEvent(event);
-    } else {
-        ((VirtualQTemporaryFile*)self)->childEvent(event);
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        vqtemporaryfile->QTemporaryFile::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnChildEvent(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_ChildEvent_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ChildEvent_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_childevent_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTemporaryFile_CustomEvent(QTemporaryFile* self, QEvent* event) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         vqtemporaryfile->customEvent(event);
     } else {
-        ((VirtualQTemporaryFile*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTemporaryFile::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTemporaryFile_SuperCustomEvent(QTemporaryFile* self, QEvent* event) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_CustomEvent_IsBase(true);
-        vqtemporaryfile->customEvent(event);
-    } else {
-        ((VirtualQTemporaryFile*)self)->customEvent(event);
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        vqtemporaryfile->QTemporaryFile::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnCustomEvent(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_CustomEvent_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_CustomEvent_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_customevent_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTemporaryFile_ConnectNotify(QTemporaryFile* self, const QMetaMethod* signal) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         vqtemporaryfile->connectNotify(*signal);
     } else {
-        ((VirtualQTemporaryFile*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTemporaryFile::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTemporaryFile_SuperConnectNotify(QTemporaryFile* self, const QMetaMethod* signal) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_ConnectNotify_IsBase(true);
-        vqtemporaryfile->connectNotify(*signal);
-    } else {
-        ((VirtualQTemporaryFile*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        vqtemporaryfile->QTemporaryFile::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnConnectNotify(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_ConnectNotify_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ConnectNotify_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_connectnotify_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTemporaryFile_DisconnectNotify(QTemporaryFile* self, const QMetaMethod* signal) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile) {
         vqtemporaryfile->disconnectNotify(*signal);
     } else {
-        ((VirtualQTemporaryFile*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTemporaryFile::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTemporaryFile_SuperDisconnectNotify(QTemporaryFile* self, const QMetaMethod* signal) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_DisconnectNotify_IsBase(true);
-        vqtemporaryfile->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTemporaryFile*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        vqtemporaryfile->QTemporaryFile::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTemporaryFile::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnDisconnectNotify(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_DisconnectNotify_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_DisconnectNotify_Callback>(slot));
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self))
+        vqtemporaryfile->qtemporaryfile_disconnectnotify_callback = reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTemporaryFile_SetOpenMode(QTemporaryFile* self, int openMode) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
-    } else {
-        ((VirtualQTemporaryFile*)self)->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        vqtemporaryfile->VirtualQTemporaryFile::setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
+    } else
+        qFatal("Error: Protected method QTemporaryFile::setOpenMode called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTemporaryFile_SuperSetOpenMode(QTemporaryFile* self, int openMode) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_SetOpenMode_IsBase(true);
-        vqtemporaryfile->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
-    } else {
-        ((VirtualQTemporaryFile*)self)->setOpenMode(static_cast<QIODeviceBase::OpenMode>(openMode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnSetOpenMode(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_SetOpenMode_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SetOpenMode_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTemporaryFile_SetErrorString(QTemporaryFile* self, const libqt_string errorString) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setErrorString(errorString_QString);
-    } else {
-        ((VirtualQTemporaryFile*)self)->setErrorString(errorString_QString);
-    }
+    if (auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self)) {
+        QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
+        vqtemporaryfile->VirtualQTemporaryFile::setErrorString(errorString_QString);
+    } else
+        qFatal("Error: Protected method QTemporaryFile::setErrorString called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTemporaryFile_SuperSetErrorString(QTemporaryFile* self, const libqt_string errorString) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_SetErrorString_IsBase(true);
-        vqtemporaryfile->setErrorString(errorString_QString);
-    } else {
-        ((VirtualQTemporaryFile*)self)->setErrorString(errorString_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnSetErrorString(QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_SetErrorString_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SetErrorString_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTemporaryFile_Sender(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->sender();
-    } else {
-        return ((VirtualQTemporaryFile*)self)->sender();
-    }
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self))) {
+        return vqtemporaryfile->VirtualQTemporaryFile::sender();
+    } else
+        qFatal("Error: Protected method QTemporaryFile::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTemporaryFile_SuperSender(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Sender_IsBase(true);
-        return vqtemporaryfile->sender();
-    } else {
-        return ((VirtualQTemporaryFile*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnSender(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Sender_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTemporaryFile_SenderSignalIndex(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->senderSignalIndex();
-    } else {
-        return ((VirtualQTemporaryFile*)self)->senderSignalIndex();
-    }
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self))) {
+        return vqtemporaryfile->VirtualQTemporaryFile::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTemporaryFile::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTemporaryFile_SuperSenderSignalIndex(const QTemporaryFile* self) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_SenderSignalIndex_IsBase(true);
-        return vqtemporaryfile->senderSignalIndex();
-    } else {
-        return ((VirtualQTemporaryFile*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnSenderSignalIndex(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTemporaryFile_Receivers(const QTemporaryFile* self, const char* signal) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->receivers(signal);
-    } else {
-        return ((VirtualQTemporaryFile*)self)->receivers(signal);
-    }
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self))) {
+        return vqtemporaryfile->VirtualQTemporaryFile::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTemporaryFile::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTemporaryFile_SuperReceivers(const QTemporaryFile* self, const char* signal) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_Receivers_IsBase(true);
-        return vqtemporaryfile->receivers(signal);
-    } else {
-        return ((VirtualQTemporaryFile*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnReceivers(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_Receivers_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTemporaryFile_IsSignalConnected(const QTemporaryFile* self, const QMetaMethod* signal) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTemporaryFile*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QTemporaryFile_SuperIsSignalConnected(const QTemporaryFile* self, const QMetaMethod* signal) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_IsSignalConnected_IsBase(true);
-        return vqtemporaryfile->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTemporaryFile*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnIsSignalConnected(const QTemporaryFile* self, intptr_t slot) {
-    auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
-        vqtemporaryfile->setQTemporaryFile_IsSignalConnected_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_IsSignalConnected_Callback>(slot));
+    if (auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self))) {
+        return vqtemporaryfile->VirtualQTemporaryFile::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTemporaryFile::isSignalConnected called without a directly constructed type");
 }
 
 void QTemporaryFile_Delete(QTemporaryFile* self) {

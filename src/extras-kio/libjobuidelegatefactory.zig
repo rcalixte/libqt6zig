@@ -20,6 +20,8 @@ pub const KIO__JobUiDelegateFactory = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegatefactory.html#createDelegate)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KIO__JobUiDelegateFactory `
@@ -33,6 +35,8 @@ pub const KIO__JobUiDelegateFactory = extern struct {
     pub const CreateDelegate2 = createDelegate2;
 
     /// ### [Upstream resources](https://api.kde.org/kio-jobuidelegatefactory.html#createDelegate)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

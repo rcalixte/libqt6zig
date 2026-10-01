@@ -51,7 +51,7 @@ void TextTranslator__TranslatorEngineLoader_LoadingTranslatorFailed(TextTranslat
 void TextTranslator__TranslatorEngineLoader_Connect_LoadingTranslatorFailed(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
 libqt_string TextTranslator__TranslatorEngineLoader_Tr2(const char* s, const char* c);
 libqt_string TextTranslator__TranslatorEngineLoader_Tr3(const char* s, const char* c, int n);
-void TextTranslator__TranslatorEngineLoader_OnMetaObject(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+void TextTranslator__TranslatorEngineLoader_OnMetaObject(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
 QMetaObject* TextTranslator__TranslatorEngineLoader_SuperMetaObject(const TextTranslator__TranslatorEngineLoader* self);
 void TextTranslator__TranslatorEngineLoader_OnMetacast(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
 void* TextTranslator__TranslatorEngineLoader_SuperMetacast(TextTranslator__TranslatorEngineLoader* self, const char* param1);
@@ -79,17 +79,9 @@ void TextTranslator__TranslatorEngineLoader_DisconnectNotify(TextTranslator__Tra
 void TextTranslator__TranslatorEngineLoader_OnDisconnectNotify(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
 void TextTranslator__TranslatorEngineLoader_SuperDisconnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
 QObject* TextTranslator__TranslatorEngineLoader_Sender(const TextTranslator__TranslatorEngineLoader* self);
-void TextTranslator__TranslatorEngineLoader_OnSender(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
-QObject* TextTranslator__TranslatorEngineLoader_SuperSender(const TextTranslator__TranslatorEngineLoader* self);
 int TextTranslator__TranslatorEngineLoader_SenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self);
-void TextTranslator__TranslatorEngineLoader_OnSenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
-int TextTranslator__TranslatorEngineLoader_SuperSenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self);
 int TextTranslator__TranslatorEngineLoader_Receivers(const TextTranslator__TranslatorEngineLoader* self, const char* signal);
-void TextTranslator__TranslatorEngineLoader_OnReceivers(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
-int TextTranslator__TranslatorEngineLoader_SuperReceivers(const TextTranslator__TranslatorEngineLoader* self, const char* signal);
 bool TextTranslator__TranslatorEngineLoader_IsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
-void TextTranslator__TranslatorEngineLoader_OnIsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
-bool TextTranslator__TranslatorEngineLoader_SuperIsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
 void TextTranslator__TranslatorEngineLoader_Delete(TextTranslator__TranslatorEngineLoader* self);
 
 #ifdef __cplusplus

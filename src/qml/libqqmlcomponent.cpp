@@ -308,516 +308,283 @@ void QQmlComponent_LoadFromModule3(QQmlComponent* self, libqt_string uri, libqt_
 
 // Base class handler implementation
 QMetaObject* QQmlComponent_SuperMetaObject(const QQmlComponent* self) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_MetaObject_IsBase(true);
-        return (QMetaObject*)vqqmlcomponent->metaObject();
-    } else {
-        return (QMetaObject*)self->QQmlComponent::metaObject();
-    }
+    return (QMetaObject*)self->QQmlComponent::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QQmlComponent_OnMetaObject(const QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_MetaObject_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_MetaObject_Callback>(slot));
+void QQmlComponent_OnMetaObject(QQmlComponent* self, intptr_t slot) {
+    if (auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self)))
+        vqqmlcomponent->qqmlcomponent_metaobject_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QQmlComponent_SuperMetacast(QQmlComponent* self, const char* param1) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_Metacast_IsBase(true);
-        return vqqmlcomponent->qt_metacast(param1);
-    } else {
-        return self->QQmlComponent::qt_metacast(param1);
-    }
+    return self->QQmlComponent::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnMetacast(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_Metacast_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Metacast_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_metacast_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QQmlComponent_SuperMetacall(QQmlComponent* self, int param1, int param2, void** param3) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_Metacall_IsBase(true);
-        return vqqmlcomponent->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QQmlComponent::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QQmlComponent::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnMetacall(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_Metacall_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Metacall_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_metacall_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QObject* QQmlComponent_SuperCreate(QQmlComponent* self, QQmlContext* context) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_Create_IsBase(true);
-        return vqqmlcomponent->create(context);
-    } else {
-        return self->QQmlComponent::create(context);
-    }
+    return self->QQmlComponent::create(context);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnCreate(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_Create_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Create_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_create_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Create_Callback>(slot);
 }
 
 // Base class handler implementation
 QObject* QQmlComponent_SuperBeginCreate(QQmlComponent* self, QQmlContext* param1) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_BeginCreate_IsBase(true);
-        return vqqmlcomponent->beginCreate(param1);
-    } else {
-        return self->QQmlComponent::beginCreate(param1);
-    }
+    return self->QQmlComponent::beginCreate(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnBeginCreate(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_BeginCreate_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_BeginCreate_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_begincreate_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_BeginCreate_Callback>(slot);
 }
 
 // Base class handler implementation
 void QQmlComponent_SuperCompleteCreate(QQmlComponent* self) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_CompleteCreate_IsBase(true);
-        vqqmlcomponent->completeCreate();
-    } else {
-        self->QQmlComponent::completeCreate();
-    }
+    self->QQmlComponent::completeCreate();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnCompleteCreate(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_CompleteCreate_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_CompleteCreate_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_completecreate_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_CompleteCreate_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQmlComponent_Event(QQmlComponent* self, QEvent* event) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->event(event);
-    } else {
-        return self->QQmlComponent::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QQmlComponent_SuperEvent(QQmlComponent* self, QEvent* event) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_Event_IsBase(true);
-        return vqqmlcomponent->event(event);
-    } else {
-        return self->QQmlComponent::event(event);
-    }
+    return self->QQmlComponent::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnEvent(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_Event_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Event_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_event_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QQmlComponent_EventFilter(QQmlComponent* self, QObject* watched, QEvent* event) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->eventFilter(watched, event);
-    } else {
-        return self->QQmlComponent::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QQmlComponent_SuperEventFilter(QQmlComponent* self, QObject* watched, QEvent* event) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_EventFilter_IsBase(true);
-        return vqqmlcomponent->eventFilter(watched, event);
-    } else {
-        return self->QQmlComponent::eventFilter(watched, event);
-    }
+    return self->QQmlComponent::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnEventFilter(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_EventFilter_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_EventFilter_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_eventfilter_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlComponent_TimerEvent(QQmlComponent* self, QTimerEvent* event) {
     auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
+    if (vqqmlcomponent) {
         vqqmlcomponent->timerEvent(event);
     } else {
-        ((VirtualQQmlComponent*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QQmlComponent::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlComponent_SuperTimerEvent(QQmlComponent* self, QTimerEvent* event) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_TimerEvent_IsBase(true);
-        vqqmlcomponent->timerEvent(event);
-    } else {
-        ((VirtualQQmlComponent*)self)->timerEvent(event);
-    }
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self)) {
+        vqqmlcomponent->QQmlComponent::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlComponent::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnTimerEvent(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_TimerEvent_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_TimerEvent_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_timerevent_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlComponent_ChildEvent(QQmlComponent* self, QChildEvent* event) {
     auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
+    if (vqqmlcomponent) {
         vqqmlcomponent->childEvent(event);
     } else {
-        ((VirtualQQmlComponent*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QQmlComponent::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlComponent_SuperChildEvent(QQmlComponent* self, QChildEvent* event) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_ChildEvent_IsBase(true);
-        vqqmlcomponent->childEvent(event);
-    } else {
-        ((VirtualQQmlComponent*)self)->childEvent(event);
-    }
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self)) {
+        vqqmlcomponent->QQmlComponent::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlComponent::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnChildEvent(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_ChildEvent_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_ChildEvent_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_childevent_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlComponent_CustomEvent(QQmlComponent* self, QEvent* event) {
     auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
+    if (vqqmlcomponent) {
         vqqmlcomponent->customEvent(event);
     } else {
-        ((VirtualQQmlComponent*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QQmlComponent::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlComponent_SuperCustomEvent(QQmlComponent* self, QEvent* event) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_CustomEvent_IsBase(true);
-        vqqmlcomponent->customEvent(event);
-    } else {
-        ((VirtualQQmlComponent*)self)->customEvent(event);
-    }
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self)) {
+        vqqmlcomponent->QQmlComponent::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QQmlComponent::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnCustomEvent(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_CustomEvent_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_CustomEvent_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_customevent_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlComponent_ConnectNotify(QQmlComponent* self, const QMetaMethod* signal) {
     auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
+    if (vqqmlcomponent) {
         vqqmlcomponent->connectNotify(*signal);
     } else {
-        ((VirtualQQmlComponent*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QQmlComponent::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlComponent_SuperConnectNotify(QQmlComponent* self, const QMetaMethod* signal) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_ConnectNotify_IsBase(true);
-        vqqmlcomponent->connectNotify(*signal);
-    } else {
-        ((VirtualQQmlComponent*)self)->connectNotify(*signal);
-    }
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self)) {
+        vqqmlcomponent->QQmlComponent::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQmlComponent::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnConnectNotify(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_ConnectNotify_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_ConnectNotify_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_connectnotify_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QQmlComponent_DisconnectNotify(QQmlComponent* self, const QMetaMethod* signal) {
     auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
+    if (vqqmlcomponent) {
         vqqmlcomponent->disconnectNotify(*signal);
     } else {
-        ((VirtualQQmlComponent*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QQmlComponent::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QQmlComponent_SuperDisconnectNotify(QQmlComponent* self, const QMetaMethod* signal) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_DisconnectNotify_IsBase(true);
-        vqqmlcomponent->disconnectNotify(*signal);
-    } else {
-        ((VirtualQQmlComponent*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self)) {
+        vqqmlcomponent->QQmlComponent::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QQmlComponent::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QQmlComponent_OnDisconnectNotify(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_DisconnectNotify_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_DisconnectNotify_Callback>(slot));
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self))
+        vqqmlcomponent->qqmlcomponent_disconnectnotify_callback = reinterpret_cast<VirtualQQmlComponent::QQmlComponent_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQmlComponent_CreateObject2(QQmlComponent* self) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->createObject();
-    } else {
-        return ((VirtualQQmlComponent*)self)->createObject();
-    }
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self)) {
+        return vqqmlcomponent->VirtualQQmlComponent::createObject();
+    } else
+        qFatal("Error: Protected method QQmlComponent::createObject2 called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQmlComponent_SuperCreateObject2(QQmlComponent* self) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_CreateObject2_IsBase(true);
-        return vqqmlcomponent->createObject();
-    } else {
-        return ((VirtualQQmlComponent*)self)->createObject();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlComponent_OnCreateObject2(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_CreateObject2_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_CreateObject2_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQmlComponent_CreateObject1(QQmlComponent* self, QObject* parent) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->createObject(parent);
-    } else {
-        return ((VirtualQQmlComponent*)self)->createObject(parent);
-    }
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self)) {
+        return vqqmlcomponent->VirtualQQmlComponent::createObject(parent);
+    } else
+        qFatal("Error: Protected method QQmlComponent::createObject1 called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQmlComponent_SuperCreateObject1(QQmlComponent* self, QObject* parent) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_CreateObject1_IsBase(true);
-        return vqqmlcomponent->createObject(parent);
-    } else {
-        return ((VirtualQQmlComponent*)self)->createObject(parent);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlComponent_OnCreateObject1(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_CreateObject1_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_CreateObject1_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQmlComponent_CreateObject22(QQmlComponent* self, QObject* parent, const libqt_map /* of libqt_string to QVariant* */ properties) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    QMap<QString, QVariant> properties_QMap;
-    libqt_string* properties_karr = static_cast<libqt_string*>(properties.keys);
-    QVariant** properties_varr = static_cast<QVariant**>(properties.values);
-    for (size_t i = 0; i < properties.len; ++i) {
-        QString properties_karr_i_QString = QString::fromUtf8(properties_karr[i].data, properties_karr[i].len);
-        properties_QMap.insert(properties_karr_i_QString, *(properties_varr[i]));
-    }
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->createObject(parent, properties_QMap);
-    } else {
-        return ((VirtualQQmlComponent*)self)->createObject(parent, properties_QMap);
-    }
+    if (auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self)) {
+        QMap<QString, QVariant> properties_QMap;
+        libqt_string* properties_karr = static_cast<libqt_string*>(properties.keys);
+        QVariant** properties_varr = static_cast<QVariant**>(properties.values);
+        for (size_t i = 0; i < properties.len; ++i) {
+            QString properties_karr_i_QString = QString::fromUtf8(properties_karr[i].data, properties_karr[i].len);
+            properties_QMap.insert(properties_karr_i_QString, *(properties_varr[i]));
+        }
+        return vqqmlcomponent->VirtualQQmlComponent::createObject(parent, properties_QMap);
+    } else
+        qFatal("Error: Protected method QQmlComponent::createObject22 called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQmlComponent_SuperCreateObject22(QQmlComponent* self, QObject* parent, const libqt_map /* of libqt_string to QVariant* */ properties) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    QMap<QString, QVariant> properties_QMap;
-    libqt_string* properties_karr = static_cast<libqt_string*>(properties.keys);
-    QVariant** properties_varr = static_cast<QVariant**>(properties.values);
-    for (size_t i = 0; i < properties.len; ++i) {
-        QString properties_karr_i_QString = QString::fromUtf8(properties_karr[i].data, properties_karr[i].len);
-        properties_QMap.insert(properties_karr_i_QString, *(properties_varr[i]));
-    }
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_CreateObject22_IsBase(true);
-        return vqqmlcomponent->createObject(parent, properties_QMap);
-    } else {
-        return ((VirtualQQmlComponent*)self)->createObject(parent, properties_QMap);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlComponent_OnCreateObject22(QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = dynamic_cast<VirtualQQmlComponent*>(self);
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_CreateObject22_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_CreateObject22_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QQmlComponent_Sender(const QQmlComponent* self) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->sender();
-    } else {
-        return ((VirtualQQmlComponent*)self)->sender();
-    }
+    if (auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self))) {
+        return vqqmlcomponent->VirtualQQmlComponent::sender();
+    } else
+        qFatal("Error: Protected method QQmlComponent::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QQmlComponent_SuperSender(const QQmlComponent* self) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_Sender_IsBase(true);
-        return vqqmlcomponent->sender();
-    } else {
-        return ((VirtualQQmlComponent*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlComponent_OnSender(const QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_Sender_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQmlComponent_SenderSignalIndex(const QQmlComponent* self) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->senderSignalIndex();
-    } else {
-        return ((VirtualQQmlComponent*)self)->senderSignalIndex();
-    }
+    if (auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self))) {
+        return vqqmlcomponent->VirtualQQmlComponent::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QQmlComponent::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQmlComponent_SuperSenderSignalIndex(const QQmlComponent* self) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_SenderSignalIndex_IsBase(true);
-        return vqqmlcomponent->senderSignalIndex();
-    } else {
-        return ((VirtualQQmlComponent*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlComponent_OnSenderSignalIndex(const QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_SenderSignalIndex_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QQmlComponent_Receivers(const QQmlComponent* self, const char* signal) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->receivers(signal);
-    } else {
-        return ((VirtualQQmlComponent*)self)->receivers(signal);
-    }
+    if (auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self))) {
+        return vqqmlcomponent->VirtualQQmlComponent::receivers(signal);
+    } else
+        qFatal("Error: Protected method QQmlComponent::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QQmlComponent_SuperReceivers(const QQmlComponent* self, const char* signal) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_Receivers_IsBase(true);
-        return vqqmlcomponent->receivers(signal);
-    } else {
-        return ((VirtualQQmlComponent*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlComponent_OnReceivers(const QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_Receivers_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QQmlComponent_IsSignalConnected(const QQmlComponent* self, const QMetaMethod* signal) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        return vqqmlcomponent->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQmlComponent*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QQmlComponent_SuperIsSignalConnected(const QQmlComponent* self, const QMetaMethod* signal) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent) {
-        vqqmlcomponent->setQQmlComponent_IsSignalConnected_IsBase(true);
-        return vqqmlcomponent->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQQmlComponent*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QQmlComponent_OnIsSignalConnected(const QQmlComponent* self, intptr_t slot) {
-    auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self));
-    if (vqqmlcomponent && vqqmlcomponent->isVirtualQQmlComponent)
-        vqqmlcomponent->setQQmlComponent_IsSignalConnected_Callback(reinterpret_cast<VirtualQQmlComponent::QQmlComponent_IsSignalConnected_Callback>(slot));
+    if (auto* vqqmlcomponent = const_cast<VirtualQQmlComponent*>(dynamic_cast<const VirtualQQmlComponent*>(self))) {
+        return vqqmlcomponent->VirtualQQmlComponent::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QQmlComponent::isSignalConnected called without a directly constructed type");
 }
 
 void QQmlComponent_Delete(QQmlComponent* self) {

@@ -193,364 +193,219 @@ libqt_string QWindowCapture_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QWindowCapture_SuperMetaObject(const QWindowCapture* self) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_MetaObject_IsBase(true);
-        return (QMetaObject*)vqwindowcapture->metaObject();
-    } else {
-        return (QMetaObject*)self->QWindowCapture::metaObject();
-    }
+    return (QMetaObject*)self->QWindowCapture::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QWindowCapture_OnMetaObject(const QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_MetaObject_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_MetaObject_Callback>(slot));
+void QWindowCapture_OnMetaObject(QWindowCapture* self, intptr_t slot) {
+    if (auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self)))
+        vqwindowcapture->qwindowcapture_metaobject_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QWindowCapture_SuperMetacast(QWindowCapture* self, const char* param1) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_Metacast_IsBase(true);
-        return vqwindowcapture->qt_metacast(param1);
-    } else {
-        return self->QWindowCapture::qt_metacast(param1);
-    }
+    return self->QWindowCapture::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnMetacast(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_Metacast_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Metacast_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_metacast_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QWindowCapture_SuperMetacall(QWindowCapture* self, int param1, int param2, void** param3) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_Metacall_IsBase(true);
-        return vqwindowcapture->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QWindowCapture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QWindowCapture::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnMetacall(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_Metacall_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Metacall_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_metacall_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWindowCapture_Event(QWindowCapture* self, QEvent* event) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return vqwindowcapture->event(event);
-    } else {
-        return self->QWindowCapture::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QWindowCapture_SuperEvent(QWindowCapture* self, QEvent* event) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_Event_IsBase(true);
-        return vqwindowcapture->event(event);
-    } else {
-        return self->QWindowCapture::event(event);
-    }
+    return self->QWindowCapture::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnEvent(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_Event_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Event_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_event_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QWindowCapture_EventFilter(QWindowCapture* self, QObject* watched, QEvent* event) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return vqwindowcapture->eventFilter(watched, event);
-    } else {
-        return self->QWindowCapture::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QWindowCapture_SuperEventFilter(QWindowCapture* self, QObject* watched, QEvent* event) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_EventFilter_IsBase(true);
-        return vqwindowcapture->eventFilter(watched, event);
-    } else {
-        return self->QWindowCapture::eventFilter(watched, event);
-    }
+    return self->QWindowCapture::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnEventFilter(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_EventFilter_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_EventFilter_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_eventfilter_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindowCapture_TimerEvent(QWindowCapture* self, QTimerEvent* event) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture) {
         vqwindowcapture->timerEvent(event);
     } else {
-        ((VirtualQWindowCapture*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QWindowCapture::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindowCapture_SuperTimerEvent(QWindowCapture* self, QTimerEvent* event) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_TimerEvent_IsBase(true);
-        vqwindowcapture->timerEvent(event);
-    } else {
-        ((VirtualQWindowCapture*)self)->timerEvent(event);
-    }
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self)) {
+        vqwindowcapture->QWindowCapture::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWindowCapture::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnTimerEvent(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_TimerEvent_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_TimerEvent_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_timerevent_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindowCapture_ChildEvent(QWindowCapture* self, QChildEvent* event) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture) {
         vqwindowcapture->childEvent(event);
     } else {
-        ((VirtualQWindowCapture*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QWindowCapture::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindowCapture_SuperChildEvent(QWindowCapture* self, QChildEvent* event) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_ChildEvent_IsBase(true);
-        vqwindowcapture->childEvent(event);
-    } else {
-        ((VirtualQWindowCapture*)self)->childEvent(event);
-    }
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self)) {
+        vqwindowcapture->QWindowCapture::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWindowCapture::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnChildEvent(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_ChildEvent_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_ChildEvent_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_childevent_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindowCapture_CustomEvent(QWindowCapture* self, QEvent* event) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture) {
         vqwindowcapture->customEvent(event);
     } else {
-        ((VirtualQWindowCapture*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QWindowCapture::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindowCapture_SuperCustomEvent(QWindowCapture* self, QEvent* event) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_CustomEvent_IsBase(true);
-        vqwindowcapture->customEvent(event);
-    } else {
-        ((VirtualQWindowCapture*)self)->customEvent(event);
-    }
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self)) {
+        vqwindowcapture->QWindowCapture::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QWindowCapture::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnCustomEvent(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_CustomEvent_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_CustomEvent_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_customevent_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindowCapture_ConnectNotify(QWindowCapture* self, const QMetaMethod* signal) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture) {
         vqwindowcapture->connectNotify(*signal);
     } else {
-        ((VirtualQWindowCapture*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QWindowCapture::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindowCapture_SuperConnectNotify(QWindowCapture* self, const QMetaMethod* signal) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_ConnectNotify_IsBase(true);
-        vqwindowcapture->connectNotify(*signal);
-    } else {
-        ((VirtualQWindowCapture*)self)->connectNotify(*signal);
-    }
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self)) {
+        vqwindowcapture->QWindowCapture::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWindowCapture::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnConnectNotify(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_ConnectNotify_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_ConnectNotify_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_connectnotify_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QWindowCapture_DisconnectNotify(QWindowCapture* self, const QMetaMethod* signal) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture) {
         vqwindowcapture->disconnectNotify(*signal);
     } else {
-        ((VirtualQWindowCapture*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QWindowCapture::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QWindowCapture_SuperDisconnectNotify(QWindowCapture* self, const QMetaMethod* signal) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_DisconnectNotify_IsBase(true);
-        vqwindowcapture->disconnectNotify(*signal);
-    } else {
-        ((VirtualQWindowCapture*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self)) {
+        vqwindowcapture->QWindowCapture::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QWindowCapture::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnDisconnectNotify(QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_DisconnectNotify_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_DisconnectNotify_Callback>(slot));
+    if (auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self))
+        vqwindowcapture->qwindowcapture_disconnectnotify_callback = reinterpret_cast<VirtualQWindowCapture::QWindowCapture_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QWindowCapture_Sender(const QWindowCapture* self) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return vqwindowcapture->sender();
-    } else {
-        return ((VirtualQWindowCapture*)self)->sender();
-    }
+    if (auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self))) {
+        return vqwindowcapture->VirtualQWindowCapture::sender();
+    } else
+        qFatal("Error: Protected method QWindowCapture::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QWindowCapture_SuperSender(const QWindowCapture* self) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_Sender_IsBase(true);
-        return vqwindowcapture->sender();
-    } else {
-        return ((VirtualQWindowCapture*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindowCapture_OnSender(const QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_Sender_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWindowCapture_SenderSignalIndex(const QWindowCapture* self) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return vqwindowcapture->senderSignalIndex();
-    } else {
-        return ((VirtualQWindowCapture*)self)->senderSignalIndex();
-    }
+    if (auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self))) {
+        return vqwindowcapture->VirtualQWindowCapture::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QWindowCapture::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWindowCapture_SuperSenderSignalIndex(const QWindowCapture* self) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_SenderSignalIndex_IsBase(true);
-        return vqwindowcapture->senderSignalIndex();
-    } else {
-        return ((VirtualQWindowCapture*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindowCapture_OnSenderSignalIndex(const QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QWindowCapture_Receivers(const QWindowCapture* self, const char* signal) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return vqwindowcapture->receivers(signal);
-    } else {
-        return ((VirtualQWindowCapture*)self)->receivers(signal);
-    }
+    if (auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self))) {
+        return vqwindowcapture->VirtualQWindowCapture::receivers(signal);
+    } else
+        qFatal("Error: Protected method QWindowCapture::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QWindowCapture_SuperReceivers(const QWindowCapture* self, const char* signal) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_Receivers_IsBase(true);
-        return vqwindowcapture->receivers(signal);
-    } else {
-        return ((VirtualQWindowCapture*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindowCapture_OnReceivers(const QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_Receivers_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QWindowCapture_IsSignalConnected(const QWindowCapture* self, const QMetaMethod* signal) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return vqwindowcapture->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWindowCapture*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QWindowCapture_SuperIsSignalConnected(const QWindowCapture* self, const QMetaMethod* signal) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        vqwindowcapture->setQWindowCapture_IsSignalConnected_IsBase(true);
-        return vqwindowcapture->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQWindowCapture*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QWindowCapture_OnIsSignalConnected(const QWindowCapture* self, intptr_t slot) {
-    auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
-        vqwindowcapture->setQWindowCapture_IsSignalConnected_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_IsSignalConnected_Callback>(slot));
+    if (auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self))) {
+        return vqwindowcapture->VirtualQWindowCapture::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QWindowCapture::isSignalConnected called without a directly constructed type");
 }
 
 void QWindowCapture_Delete(QWindowCapture* self) {

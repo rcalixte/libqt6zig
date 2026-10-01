@@ -78,9 +78,9 @@ pub const QAbstractAnimation = extern struct {
     ///
     /// ` self: QAbstractAnimation `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAbstractAnimation) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAbstractAnimation, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractAnimation, callback: *const fn (QAbstractAnimation) callconv(.c) QMetaObject) void {
         qtc.QAbstractAnimation_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -369,6 +369,8 @@ pub const QAbstractAnimation = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
     ///
+    /// This method must be implemented with `onDuration` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractAnimation `
@@ -389,26 +391,10 @@ pub const QAbstractAnimation = extern struct {
     ///
     /// ` self: QAbstractAnimation `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractAnimation) callconv(.c) i32 `
     ///
-    pub fn onDuration(self: QAbstractAnimation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDuration(self: QAbstractAnimation, callback: *const fn (QAbstractAnimation) callconv(.c) i32) void {
         qtc.QAbstractAnimation_OnDuration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superDuration` instead
-    ///
-    pub const SuperDuration = superDuration;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#duration)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractAnimation `
-    ///
-    pub fn superDuration(self: QAbstractAnimation) i32 {
-        return qtc.QAbstractAnimation_SuperDuration(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `totalDuration` instead
@@ -703,6 +689,8 @@ pub const QAbstractAnimation = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
     ///
+    /// This method must be implemented with `onUpdateCurrentTime` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractAnimation `
@@ -729,24 +717,6 @@ pub const QAbstractAnimation = extern struct {
     ///
     pub fn onUpdateCurrentTime(self: QAbstractAnimation, callback: *const fn (QAbstractAnimation, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_OnUpdateCurrentTime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateCurrentTime` instead
-    ///
-    pub const SuperUpdateCurrentTime = superUpdateCurrentTime;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#updateCurrentTime)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractAnimation `
-    ///
-    /// ` _currentTime: i32 `
-    ///
-    pub fn superUpdateCurrentTime(self: QAbstractAnimation, _currentTime: i32) void {
-        qtc.QAbstractAnimation_SuperUpdateCurrentTime(@ptrCast(self.ptr), @bitCast(_currentTime));
     }
 
     /// ### DEPRECATED: Use `updateState` instead
@@ -2288,44 +2258,6 @@ pub const QAbstractAnimation = extern struct {
         return .{ .ptr = qtc.QAbstractAnimation_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractAnimation `
-    ///
-    pub fn superSender(self: QAbstractAnimation) QObject {
-        return .{ .ptr = qtc.QAbstractAnimation_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractAnimation`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAbstractAnimation, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAbstractAnimation_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2342,44 +2274,6 @@ pub const QAbstractAnimation = extern struct {
     ///
     pub fn senderSignalIndex(self: QAbstractAnimation) i32 {
         return qtc.QAbstractAnimation_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractAnimation `
-    ///
-    pub fn superSenderSignalIndex(self: QAbstractAnimation) i32 {
-        return qtc.QAbstractAnimation_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractAnimation`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAbstractAnimation, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractAnimation_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2403,47 +2297,6 @@ pub const QAbstractAnimation = extern struct {
         return qtc.QAbstractAnimation_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractAnimation `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAbstractAnimation, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAbstractAnimation_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractAnimation`
-    ///
-    /// ` callback: *const fn (self: QAbstractAnimation, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAbstractAnimation, callback: *const fn (QAbstractAnimation, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractAnimation_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2463,47 +2316,6 @@ pub const QAbstractAnimation = extern struct {
     pub fn isSignalConnected(self: QAbstractAnimation, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractAnimation_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractAnimation `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAbstractAnimation, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAbstractAnimation_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAbstractAnimation`
-    ///
-    /// ` callback: *const fn (self: QAbstractAnimation, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAbstractAnimation, callback: *const fn (QAbstractAnimation, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAbstractAnimation_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2605,9 +2417,9 @@ pub const QAnimationDriver = extern struct {
     ///
     /// ` self: QAnimationDriver `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QAnimationDriver) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QAnimationDriver, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAnimationDriver, callback: *const fn (QAnimationDriver) callconv(.c) QMetaObject) void {
         qtc.QAnimationDriver_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2778,9 +2590,9 @@ pub const QAnimationDriver = extern struct {
     ///
     /// ` self: QAnimationDriver `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAnimationDriver) callconv(.c) void `
     ///
-    pub fn onAdvance(self: QAnimationDriver, callback: *const fn () callconv(.c) void) void {
+    pub fn onAdvance(self: QAnimationDriver, callback: *const fn (QAnimationDriver) callconv(.c) void) void {
         qtc.QAnimationDriver_OnAdvance(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2868,9 +2680,9 @@ pub const QAnimationDriver = extern struct {
     ///
     /// ` self: QAnimationDriver `
     ///
-    /// ` callback: *const fn () callconv(.c) i64 `
+    /// ` callback: *const fn (self: QAnimationDriver) callconv(.c) i64 `
     ///
-    pub fn onElapsed(self: QAnimationDriver, callback: *const fn () callconv(.c) i64) void {
+    pub fn onElapsed(self: QAnimationDriver, callback: *const fn (QAnimationDriver) callconv(.c) i64) void {
         qtc.QAnimationDriver_OnElapsed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2964,40 +2776,6 @@ pub const QAnimationDriver = extern struct {
         qtc.QAnimationDriver_AdvanceAnimation(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onAdvanceAnimation` instead
-    ///
-    pub const OnAdvanceAnimation = onAdvanceAnimation;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAnimationDriver `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onAdvanceAnimation(self: QAnimationDriver, callback: *const fn () callconv(.c) void) void {
-        qtc.QAnimationDriver_OnAdvanceAnimation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAdvanceAnimation` instead
-    ///
-    pub const SuperAdvanceAnimation = superAdvanceAnimation;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qanimationdriver.html#advanceAnimation)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAnimationDriver `
-    ///
-    pub fn superAdvanceAnimation(self: QAnimationDriver) void {
-        qtc.QAnimationDriver_SuperAdvanceAnimation(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `start` instead
     ///
     pub const Start = start;
@@ -3024,9 +2802,9 @@ pub const QAnimationDriver = extern struct {
     ///
     /// ` self: QAnimationDriver `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAnimationDriver) callconv(.c) void `
     ///
-    pub fn onStart(self: QAnimationDriver, callback: *const fn () callconv(.c) void) void {
+    pub fn onStart(self: QAnimationDriver, callback: *const fn (QAnimationDriver) callconv(.c) void) void {
         qtc.QAnimationDriver_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3072,9 +2850,9 @@ pub const QAnimationDriver = extern struct {
     ///
     /// ` self: QAnimationDriver `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QAnimationDriver) callconv(.c) void `
     ///
-    pub fn onStop(self: QAnimationDriver, callback: *const fn () callconv(.c) void) void {
+    pub fn onStop(self: QAnimationDriver, callback: *const fn (QAnimationDriver) callconv(.c) void) void {
         qtc.QAnimationDriver_OnStop(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4571,44 +4349,6 @@ pub const QAnimationDriver = extern struct {
         return .{ .ptr = qtc.QAnimationDriver_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAnimationDriver `
-    ///
-    pub fn superSender(self: QAnimationDriver) QObject {
-        return .{ .ptr = qtc.QAnimationDriver_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAnimationDriver`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QAnimationDriver, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QAnimationDriver_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4625,44 +4365,6 @@ pub const QAnimationDriver = extern struct {
     ///
     pub fn senderSignalIndex(self: QAnimationDriver) i32 {
         return qtc.QAnimationDriver_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAnimationDriver `
-    ///
-    pub fn superSenderSignalIndex(self: QAnimationDriver) i32 {
-        return qtc.QAnimationDriver_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAnimationDriver`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QAnimationDriver, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAnimationDriver_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4686,47 +4388,6 @@ pub const QAnimationDriver = extern struct {
         return qtc.QAnimationDriver_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAnimationDriver `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QAnimationDriver, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QAnimationDriver_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAnimationDriver`
-    ///
-    /// ` callback: *const fn (self: QAnimationDriver, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QAnimationDriver, callback: *const fn (QAnimationDriver, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAnimationDriver_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4746,47 +4407,6 @@ pub const QAnimationDriver = extern struct {
     pub fn isSignalConnected(self: QAnimationDriver, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAnimationDriver_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAnimationDriver `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QAnimationDriver, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QAnimationDriver_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QAnimationDriver`
-    ///
-    /// ` callback: *const fn (self: QAnimationDriver, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QAnimationDriver, callback: *const fn (QAnimationDriver, QMetaMethod) callconv(.c) bool) void {
-        qtc.QAnimationDriver_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

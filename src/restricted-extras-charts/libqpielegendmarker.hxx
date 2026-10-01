@@ -9,19 +9,15 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of QPieLegendMarker so that we can call protected methods
+// This class is a subclass of QPieLegendMarker
 class VirtualQPieLegendMarker final : public QPieLegendMarker {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQPieLegendMarker = true;
-
-    // Virtual class public types (including callbacks)
-    using QPieLegendMarker_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QPieLegendMarker_MetaObject_Callback = QMetaObject* (*)(const QPieLegendMarker*);
     using QPieLegendMarker_Metacast_Callback = void* (*)(QPieLegendMarker*, const char*);
     using QPieLegendMarker_Metacall_Callback = int (*)(QPieLegendMarker*, int, int, void**);
-    using QPieLegendMarker_Type_Callback = int (*)();
-    using QPieLegendMarker_Series_Callback = QPieSeries* (*)();
+    using QPieLegendMarker_Type_Callback = int (*)(QPieLegendMarker*);
+    using QPieLegendMarker_Series_Callback = QPieSeries* (*)(QPieLegendMarker*);
     using QPieLegendMarker_Event_Callback = bool (*)(QPieLegendMarker*, QEvent*);
     using QPieLegendMarker_EventFilter_Callback = bool (*)(QPieLegendMarker*, QObject*, QEvent*);
     using QPieLegendMarker_TimerEvent_Callback = void (*)(QPieLegendMarker*, QTimerEvent*);
@@ -29,12 +25,11 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     using QPieLegendMarker_CustomEvent_Callback = void (*)(QPieLegendMarker*, QEvent*);
     using QPieLegendMarker_ConnectNotify_Callback = void (*)(QPieLegendMarker*, QMetaMethod*);
     using QPieLegendMarker_DisconnectNotify_Callback = void (*)(QPieLegendMarker*, QMetaMethod*);
-    using QPieLegendMarker_Sender_Callback = QObject* (*)();
-    using QPieLegendMarker_SenderSignalIndex_Callback = int (*)();
-    using QPieLegendMarker_Receivers_Callback = int (*)(const QPieLegendMarker*, const char*);
-    using QPieLegendMarker_IsSignalConnected_Callback = bool (*)(const QPieLegendMarker*, QMetaMethod*);
+    using QPieLegendMarker::isSignalConnected;
+    using QPieLegendMarker::receivers;
+    using QPieLegendMarker::sender;
+    using QPieLegendMarker::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     QPieLegendMarker_MetaObject_Callback qpielegendmarker_metaobject_callback = nullptr;
     QPieLegendMarker_Metacast_Callback qpielegendmarker_metacast_callback = nullptr;
@@ -48,78 +43,23 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     QPieLegendMarker_CustomEvent_Callback qpielegendmarker_customevent_callback = nullptr;
     QPieLegendMarker_ConnectNotify_Callback qpielegendmarker_connectnotify_callback = nullptr;
     QPieLegendMarker_DisconnectNotify_Callback qpielegendmarker_disconnectnotify_callback = nullptr;
-    QPieLegendMarker_Sender_Callback qpielegendmarker_sender_callback = nullptr;
-    QPieLegendMarker_SenderSignalIndex_Callback qpielegendmarker_sendersignalindex_callback = nullptr;
-    QPieLegendMarker_Receivers_Callback qpielegendmarker_receivers_callback = nullptr;
-    QPieLegendMarker_IsSignalConnected_Callback qpielegendmarker_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qpielegendmarker_metaobject_isbase = false;
-    mutable bool qpielegendmarker_metacast_isbase = false;
-    mutable bool qpielegendmarker_metacall_isbase = false;
-    mutable bool qpielegendmarker_type_isbase = false;
-    mutable bool qpielegendmarker_series_isbase = false;
-    mutable bool qpielegendmarker_event_isbase = false;
-    mutable bool qpielegendmarker_eventfilter_isbase = false;
-    mutable bool qpielegendmarker_timerevent_isbase = false;
-    mutable bool qpielegendmarker_childevent_isbase = false;
-    mutable bool qpielegendmarker_customevent_isbase = false;
-    mutable bool qpielegendmarker_connectnotify_isbase = false;
-    mutable bool qpielegendmarker_disconnectnotify_isbase = false;
-    mutable bool qpielegendmarker_sender_isbase = false;
-    mutable bool qpielegendmarker_sendersignalindex_isbase = false;
-    mutable bool qpielegendmarker_receivers_isbase = false;
-    mutable bool qpielegendmarker_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : QPieLegendMarker {
+        using QPieLegendMarker::childEvent;
+        using QPieLegendMarker::connectNotify;
+        using QPieLegendMarker::customEvent;
+        using QPieLegendMarker::disconnectNotify;
+        using QPieLegendMarker::timerEvent;
+    };
 
-  public:
     VirtualQPieLegendMarker(QPieSeries* series, QPieSlice* slice, QLegend* legend) : QPieLegendMarker(series, slice, legend) {};
     VirtualQPieLegendMarker(QPieSeries* series, QPieSlice* slice, QLegend* legend, QObject* parent) : QPieLegendMarker(series, slice, legend, parent) {};
 
-    // Callback setters
-    inline void setQPieLegendMarker_MetaObject_Callback(QPieLegendMarker_MetaObject_Callback cb) { qpielegendmarker_metaobject_callback = cb; }
-    inline void setQPieLegendMarker_Metacast_Callback(QPieLegendMarker_Metacast_Callback cb) { qpielegendmarker_metacast_callback = cb; }
-    inline void setQPieLegendMarker_Metacall_Callback(QPieLegendMarker_Metacall_Callback cb) { qpielegendmarker_metacall_callback = cb; }
-    inline void setQPieLegendMarker_Type_Callback(QPieLegendMarker_Type_Callback cb) { qpielegendmarker_type_callback = cb; }
-    inline void setQPieLegendMarker_Series_Callback(QPieLegendMarker_Series_Callback cb) { qpielegendmarker_series_callback = cb; }
-    inline void setQPieLegendMarker_Event_Callback(QPieLegendMarker_Event_Callback cb) { qpielegendmarker_event_callback = cb; }
-    inline void setQPieLegendMarker_EventFilter_Callback(QPieLegendMarker_EventFilter_Callback cb) { qpielegendmarker_eventfilter_callback = cb; }
-    inline void setQPieLegendMarker_TimerEvent_Callback(QPieLegendMarker_TimerEvent_Callback cb) { qpielegendmarker_timerevent_callback = cb; }
-    inline void setQPieLegendMarker_ChildEvent_Callback(QPieLegendMarker_ChildEvent_Callback cb) { qpielegendmarker_childevent_callback = cb; }
-    inline void setQPieLegendMarker_CustomEvent_Callback(QPieLegendMarker_CustomEvent_Callback cb) { qpielegendmarker_customevent_callback = cb; }
-    inline void setQPieLegendMarker_ConnectNotify_Callback(QPieLegendMarker_ConnectNotify_Callback cb) { qpielegendmarker_connectnotify_callback = cb; }
-    inline void setQPieLegendMarker_DisconnectNotify_Callback(QPieLegendMarker_DisconnectNotify_Callback cb) { qpielegendmarker_disconnectnotify_callback = cb; }
-    inline void setQPieLegendMarker_Sender_Callback(QPieLegendMarker_Sender_Callback cb) { qpielegendmarker_sender_callback = cb; }
-    inline void setQPieLegendMarker_SenderSignalIndex_Callback(QPieLegendMarker_SenderSignalIndex_Callback cb) { qpielegendmarker_sendersignalindex_callback = cb; }
-    inline void setQPieLegendMarker_Receivers_Callback(QPieLegendMarker_Receivers_Callback cb) { qpielegendmarker_receivers_callback = cb; }
-    inline void setQPieLegendMarker_IsSignalConnected_Callback(QPieLegendMarker_IsSignalConnected_Callback cb) { qpielegendmarker_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setQPieLegendMarker_MetaObject_IsBase(bool value) const { qpielegendmarker_metaobject_isbase = value; }
-    inline void setQPieLegendMarker_Metacast_IsBase(bool value) const { qpielegendmarker_metacast_isbase = value; }
-    inline void setQPieLegendMarker_Metacall_IsBase(bool value) const { qpielegendmarker_metacall_isbase = value; }
-    inline void setQPieLegendMarker_Type_IsBase(bool value) const { qpielegendmarker_type_isbase = value; }
-    inline void setQPieLegendMarker_Series_IsBase(bool value) const { qpielegendmarker_series_isbase = value; }
-    inline void setQPieLegendMarker_Event_IsBase(bool value) const { qpielegendmarker_event_isbase = value; }
-    inline void setQPieLegendMarker_EventFilter_IsBase(bool value) const { qpielegendmarker_eventfilter_isbase = value; }
-    inline void setQPieLegendMarker_TimerEvent_IsBase(bool value) const { qpielegendmarker_timerevent_isbase = value; }
-    inline void setQPieLegendMarker_ChildEvent_IsBase(bool value) const { qpielegendmarker_childevent_isbase = value; }
-    inline void setQPieLegendMarker_CustomEvent_IsBase(bool value) const { qpielegendmarker_customevent_isbase = value; }
-    inline void setQPieLegendMarker_ConnectNotify_IsBase(bool value) const { qpielegendmarker_connectnotify_isbase = value; }
-    inline void setQPieLegendMarker_DisconnectNotify_IsBase(bool value) const { qpielegendmarker_disconnectnotify_isbase = value; }
-    inline void setQPieLegendMarker_Sender_IsBase(bool value) const { qpielegendmarker_sender_isbase = value; }
-    inline void setQPieLegendMarker_SenderSignalIndex_IsBase(bool value) const { qpielegendmarker_sendersignalindex_isbase = value; }
-    inline void setQPieLegendMarker_Receivers_IsBase(bool value) const { qpielegendmarker_receivers_isbase = value; }
-    inline void setQPieLegendMarker_IsSignalConnected_IsBase(bool value) const { qpielegendmarker_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qpielegendmarker_metaobject_isbase) {
-            qpielegendmarker_metaobject_isbase = false;
-            return QPieLegendMarker::metaObject();
-        }
-        auto metaobject_cb = qpielegendmarker_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qpielegendmarker_metaobject_callback) {
+            QMetaObject* callback_ret = qpielegendmarker_metaobject_callback(this);
             return callback_ret;
         }
         return QPieLegendMarker::metaObject();
@@ -127,14 +67,9 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qpielegendmarker_metacast_isbase) {
-            qpielegendmarker_metacast_isbase = false;
-            return QPieLegendMarker::qt_metacast(param1);
-        }
-        auto metacast_cb = qpielegendmarker_metacast_callback;
-        if (metacast_cb) {
+        if (qpielegendmarker_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qpielegendmarker_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QPieLegendMarker::qt_metacast(param1);
@@ -142,16 +77,11 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qpielegendmarker_metacall_isbase) {
-            qpielegendmarker_metacall_isbase = false;
-            return QPieLegendMarker::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qpielegendmarker_metacall_callback;
-        if (metacall_cb) {
+        if (qpielegendmarker_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qpielegendmarker_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QPieLegendMarker::qt_metacall(param1, param2, param3);
@@ -159,13 +89,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual QLegendMarker::LegendMarkerType type() override {
-        if (qpielegendmarker_type_isbase) {
-            qpielegendmarker_type_isbase = false;
-            return QPieLegendMarker::type();
-        }
-        auto type_cb = qpielegendmarker_type_callback;
-        if (type_cb) {
-            int callback_ret = type_cb();
+        if (qpielegendmarker_type_callback) {
+            int callback_ret = qpielegendmarker_type_callback(this);
             return static_cast<QLegendMarker::LegendMarkerType>(callback_ret);
         }
         return QPieLegendMarker::type();
@@ -173,13 +98,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual QPieSeries* series() override {
-        if (qpielegendmarker_series_isbase) {
-            qpielegendmarker_series_isbase = false;
-            return QPieLegendMarker::series();
-        }
-        auto series_cb = qpielegendmarker_series_callback;
-        if (series_cb) {
-            QPieSeries* callback_ret = series_cb();
+        if (qpielegendmarker_series_callback) {
+            QPieSeries* callback_ret = qpielegendmarker_series_callback(this);
             return callback_ret;
         }
         return QPieLegendMarker::series();
@@ -187,14 +107,9 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qpielegendmarker_event_isbase) {
-            qpielegendmarker_event_isbase = false;
-            return QPieLegendMarker::event(event);
-        }
-        auto event_cb = qpielegendmarker_event_callback;
-        if (event_cb) {
+        if (qpielegendmarker_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qpielegendmarker_event_callback(this, cbval1);
             return callback_ret;
         }
         return QPieLegendMarker::event(event);
@@ -202,15 +117,10 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qpielegendmarker_eventfilter_isbase) {
-            qpielegendmarker_eventfilter_isbase = false;
-            return QPieLegendMarker::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qpielegendmarker_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qpielegendmarker_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qpielegendmarker_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QPieLegendMarker::eventFilter(watched, event);
@@ -218,15 +128,9 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qpielegendmarker_timerevent_isbase) {
-            qpielegendmarker_timerevent_isbase = false;
-            QPieLegendMarker::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qpielegendmarker_timerevent_callback;
-        if (timerevent_cb) {
+        if (qpielegendmarker_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qpielegendmarker_timerevent_callback(this, cbval1);
             return;
         }
         QPieLegendMarker::timerEvent(event);
@@ -234,15 +138,9 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qpielegendmarker_childevent_isbase) {
-            qpielegendmarker_childevent_isbase = false;
-            QPieLegendMarker::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qpielegendmarker_childevent_callback;
-        if (childevent_cb) {
+        if (qpielegendmarker_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qpielegendmarker_childevent_callback(this, cbval1);
             return;
         }
         QPieLegendMarker::childEvent(event);
@@ -250,15 +148,9 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qpielegendmarker_customevent_isbase) {
-            qpielegendmarker_customevent_isbase = false;
-            QPieLegendMarker::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qpielegendmarker_customevent_callback;
-        if (customevent_cb) {
+        if (qpielegendmarker_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qpielegendmarker_customevent_callback(this, cbval1);
             return;
         }
         QPieLegendMarker::customEvent(event);
@@ -266,17 +158,11 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qpielegendmarker_connectnotify_isbase) {
-            qpielegendmarker_connectnotify_isbase = false;
-            QPieLegendMarker::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qpielegendmarker_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qpielegendmarker_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qpielegendmarker_connectnotify_callback(this, cbval1);
             return;
         }
         QPieLegendMarker::connectNotify(signal);
@@ -284,101 +170,22 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qpielegendmarker_disconnectnotify_isbase) {
-            qpielegendmarker_disconnectnotify_isbase = false;
-            QPieLegendMarker::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qpielegendmarker_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qpielegendmarker_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qpielegendmarker_disconnectnotify_callback(this, cbval1);
             return;
         }
         QPieLegendMarker::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qpielegendmarker_sender_isbase) {
-            qpielegendmarker_sender_isbase = false;
-            return QPieLegendMarker::sender();
-        }
-        auto sender_cb = qpielegendmarker_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QPieLegendMarker::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qpielegendmarker_sendersignalindex_isbase) {
-            qpielegendmarker_sendersignalindex_isbase = false;
-            return QPieLegendMarker::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qpielegendmarker_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QPieLegendMarker::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qpielegendmarker_receivers_isbase) {
-            qpielegendmarker_receivers_isbase = false;
-            return QPieLegendMarker::receivers(signal);
-        }
-        auto receivers_cb = qpielegendmarker_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QPieLegendMarker::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qpielegendmarker_issignalconnected_isbase) {
-            qpielegendmarker_issignalconnected_isbase = false;
-            return QPieLegendMarker::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qpielegendmarker_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QPieLegendMarker::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void QPieLegendMarker_TimerEvent(QPieLegendMarker* self, QTimerEvent* event);
     friend void QPieLegendMarker_SuperTimerEvent(QPieLegendMarker* self, QTimerEvent* event);
-    friend void QPieLegendMarker_ChildEvent(QPieLegendMarker* self, QChildEvent* event);
     friend void QPieLegendMarker_SuperChildEvent(QPieLegendMarker* self, QChildEvent* event);
-    friend void QPieLegendMarker_CustomEvent(QPieLegendMarker* self, QEvent* event);
     friend void QPieLegendMarker_SuperCustomEvent(QPieLegendMarker* self, QEvent* event);
-    friend void QPieLegendMarker_ConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
     friend void QPieLegendMarker_SuperConnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
-    friend void QPieLegendMarker_DisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
     friend void QPieLegendMarker_SuperDisconnectNotify(QPieLegendMarker* self, const QMetaMethod* signal);
-    friend QObject* QPieLegendMarker_Sender(const QPieLegendMarker* self);
-    friend QObject* QPieLegendMarker_SuperSender(const QPieLegendMarker* self);
-    friend int QPieLegendMarker_SenderSignalIndex(const QPieLegendMarker* self);
-    friend int QPieLegendMarker_SuperSenderSignalIndex(const QPieLegendMarker* self);
-    friend int QPieLegendMarker_Receivers(const QPieLegendMarker* self, const char* signal);
-    friend int QPieLegendMarker_SuperReceivers(const QPieLegendMarker* self, const char* signal);
-    friend bool QPieLegendMarker_IsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal);
-    friend bool QPieLegendMarker_SuperIsSignalConnected(const QPieLegendMarker* self, const QMetaMethod* signal);
 };
 
 #endif

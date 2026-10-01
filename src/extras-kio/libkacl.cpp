@@ -178,27 +178,23 @@ libqt_string KACL_AsString(const KACL* self) {
 
 void KACL_VirtualHook(KACL* self, int id, void* data) {
     auto* vkacl = dynamic_cast<VirtualKACL*>(self);
-    if (vkacl && vkacl->isVirtualKACL) {
+    if (vkacl) {
         vkacl->virtual_hook(static_cast<int>(id), data);
     }
 }
 
 // Base class handler implementation
 void KACL_SuperVirtualHook(KACL* self, int id, void* data) {
-    auto* vkacl = dynamic_cast<VirtualKACL*>(self);
-    if (vkacl && vkacl->isVirtualKACL) {
-        vkacl->setKACL_VirtualHook_IsBase(true);
-        vkacl->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKACL*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vkacl = dynamic_cast<VirtualKACL*>(self)) {
+        vkacl->KACL::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KACL::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KACL_OnVirtualHook(KACL* self, intptr_t slot) {
-    auto* vkacl = dynamic_cast<VirtualKACL*>(self);
-    if (vkacl && vkacl->isVirtualKACL)
-        vkacl->setKACL_VirtualHook_Callback(reinterpret_cast<VirtualKACL::KACL_VirtualHook_Callback>(slot));
+    if (auto* vkacl = dynamic_cast<VirtualKACL*>(self))
+        vkacl->kacl_virtualhook_callback = reinterpret_cast<VirtualKACL::KACL_VirtualHook_Callback>(slot);
 }
 
 void KACL_Delete(KACL* self) {

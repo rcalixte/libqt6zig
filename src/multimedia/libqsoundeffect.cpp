@@ -281,364 +281,219 @@ libqt_string QSoundEffect_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSoundEffect_SuperMetaObject(const QSoundEffect* self) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsoundeffect->metaObject();
-    } else {
-        return (QMetaObject*)self->QSoundEffect::metaObject();
-    }
+    return (QMetaObject*)self->QSoundEffect::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSoundEffect_OnMetaObject(const QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_MetaObject_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_MetaObject_Callback>(slot));
+void QSoundEffect_OnMetaObject(QSoundEffect* self, intptr_t slot) {
+    if (auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self)))
+        vqsoundeffect->qsoundeffect_metaobject_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSoundEffect_SuperMetacast(QSoundEffect* self, const char* param1) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_Metacast_IsBase(true);
-        return vqsoundeffect->qt_metacast(param1);
-    } else {
-        return self->QSoundEffect::qt_metacast(param1);
-    }
+    return self->QSoundEffect::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnMetacast(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_Metacast_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Metacast_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_metacast_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSoundEffect_SuperMetacall(QSoundEffect* self, int param1, int param2, void** param3) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_Metacall_IsBase(true);
-        return vqsoundeffect->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSoundEffect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSoundEffect::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnMetacall(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_Metacall_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Metacall_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_metacall_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSoundEffect_Event(QSoundEffect* self, QEvent* event) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return vqsoundeffect->event(event);
-    } else {
-        return self->QSoundEffect::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QSoundEffect_SuperEvent(QSoundEffect* self, QEvent* event) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_Event_IsBase(true);
-        return vqsoundeffect->event(event);
-    } else {
-        return self->QSoundEffect::event(event);
-    }
+    return self->QSoundEffect::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnEvent(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_Event_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Event_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_event_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSoundEffect_EventFilter(QSoundEffect* self, QObject* watched, QEvent* event) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return vqsoundeffect->eventFilter(watched, event);
-    } else {
-        return self->QSoundEffect::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSoundEffect_SuperEventFilter(QSoundEffect* self, QObject* watched, QEvent* event) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_EventFilter_IsBase(true);
-        return vqsoundeffect->eventFilter(watched, event);
-    } else {
-        return self->QSoundEffect::eventFilter(watched, event);
-    }
+    return self->QSoundEffect::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnEventFilter(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_EventFilter_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_EventFilter_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_eventfilter_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSoundEffect_TimerEvent(QSoundEffect* self, QTimerEvent* event) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+    if (vqsoundeffect) {
         vqsoundeffect->timerEvent(event);
     } else {
-        ((VirtualQSoundEffect*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSoundEffect::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSoundEffect_SuperTimerEvent(QSoundEffect* self, QTimerEvent* event) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_TimerEvent_IsBase(true);
-        vqsoundeffect->timerEvent(event);
-    } else {
-        ((VirtualQSoundEffect*)self)->timerEvent(event);
-    }
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self)) {
+        vqsoundeffect->QSoundEffect::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSoundEffect::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnTimerEvent(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_TimerEvent_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_TimerEvent_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_timerevent_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSoundEffect_ChildEvent(QSoundEffect* self, QChildEvent* event) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+    if (vqsoundeffect) {
         vqsoundeffect->childEvent(event);
     } else {
-        ((VirtualQSoundEffect*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSoundEffect::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSoundEffect_SuperChildEvent(QSoundEffect* self, QChildEvent* event) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_ChildEvent_IsBase(true);
-        vqsoundeffect->childEvent(event);
-    } else {
-        ((VirtualQSoundEffect*)self)->childEvent(event);
-    }
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self)) {
+        vqsoundeffect->QSoundEffect::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSoundEffect::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnChildEvent(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_ChildEvent_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_ChildEvent_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_childevent_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSoundEffect_CustomEvent(QSoundEffect* self, QEvent* event) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+    if (vqsoundeffect) {
         vqsoundeffect->customEvent(event);
     } else {
-        ((VirtualQSoundEffect*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSoundEffect::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSoundEffect_SuperCustomEvent(QSoundEffect* self, QEvent* event) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_CustomEvent_IsBase(true);
-        vqsoundeffect->customEvent(event);
-    } else {
-        ((VirtualQSoundEffect*)self)->customEvent(event);
-    }
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self)) {
+        vqsoundeffect->QSoundEffect::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSoundEffect::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnCustomEvent(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_CustomEvent_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_CustomEvent_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_customevent_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSoundEffect_ConnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+    if (vqsoundeffect) {
         vqsoundeffect->connectNotify(*signal);
     } else {
-        ((VirtualQSoundEffect*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSoundEffect::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSoundEffect_SuperConnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_ConnectNotify_IsBase(true);
-        vqsoundeffect->connectNotify(*signal);
-    } else {
-        ((VirtualQSoundEffect*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self)) {
+        vqsoundeffect->QSoundEffect::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSoundEffect::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnConnectNotify(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_ConnectNotify_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_ConnectNotify_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_connectnotify_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSoundEffect_DisconnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
     auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
+    if (vqsoundeffect) {
         vqsoundeffect->disconnectNotify(*signal);
     } else {
-        ((VirtualQSoundEffect*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSoundEffect::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSoundEffect_SuperDisconnectNotify(QSoundEffect* self, const QMetaMethod* signal) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_DisconnectNotify_IsBase(true);
-        vqsoundeffect->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSoundEffect*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self)) {
+        vqsoundeffect->QSoundEffect::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSoundEffect::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSoundEffect_OnDisconnectNotify(QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_DisconnectNotify_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_DisconnectNotify_Callback>(slot));
+    if (auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self))
+        vqsoundeffect->qsoundeffect_disconnectnotify_callback = reinterpret_cast<VirtualQSoundEffect::QSoundEffect_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSoundEffect_Sender(const QSoundEffect* self) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return vqsoundeffect->sender();
-    } else {
-        return ((VirtualQSoundEffect*)self)->sender();
-    }
+    if (auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self))) {
+        return vqsoundeffect->VirtualQSoundEffect::sender();
+    } else
+        qFatal("Error: Protected method QSoundEffect::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSoundEffect_SuperSender(const QSoundEffect* self) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_Sender_IsBase(true);
-        return vqsoundeffect->sender();
-    } else {
-        return ((VirtualQSoundEffect*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSoundEffect_OnSender(const QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_Sender_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSoundEffect_SenderSignalIndex(const QSoundEffect* self) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return vqsoundeffect->senderSignalIndex();
-    } else {
-        return ((VirtualQSoundEffect*)self)->senderSignalIndex();
-    }
+    if (auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self))) {
+        return vqsoundeffect->VirtualQSoundEffect::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSoundEffect::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSoundEffect_SuperSenderSignalIndex(const QSoundEffect* self) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_SenderSignalIndex_IsBase(true);
-        return vqsoundeffect->senderSignalIndex();
-    } else {
-        return ((VirtualQSoundEffect*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSoundEffect_OnSenderSignalIndex(const QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSoundEffect_Receivers(const QSoundEffect* self, const char* signal) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return vqsoundeffect->receivers(signal);
-    } else {
-        return ((VirtualQSoundEffect*)self)->receivers(signal);
-    }
+    if (auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self))) {
+        return vqsoundeffect->VirtualQSoundEffect::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSoundEffect::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSoundEffect_SuperReceivers(const QSoundEffect* self, const char* signal) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_Receivers_IsBase(true);
-        return vqsoundeffect->receivers(signal);
-    } else {
-        return ((VirtualQSoundEffect*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSoundEffect_OnReceivers(const QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_Receivers_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSoundEffect_IsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return vqsoundeffect->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSoundEffect*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSoundEffect_SuperIsSignalConnected(const QSoundEffect* self, const QMetaMethod* signal) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        vqsoundeffect->setQSoundEffect_IsSignalConnected_IsBase(true);
-        return vqsoundeffect->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSoundEffect*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSoundEffect_OnIsSignalConnected(const QSoundEffect* self, intptr_t slot) {
-    auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self));
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect)
-        vqsoundeffect->setQSoundEffect_IsSignalConnected_Callback(reinterpret_cast<VirtualQSoundEffect::QSoundEffect_IsSignalConnected_Callback>(slot));
+    if (auto* vqsoundeffect = const_cast<VirtualQSoundEffect*>(dynamic_cast<const VirtualQSoundEffect*>(self))) {
+        return vqsoundeffect->VirtualQSoundEffect::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSoundEffect::isSignalConnected called without a directly constructed type");
 }
 
 void QSoundEffect_Delete(QSoundEffect* self) {

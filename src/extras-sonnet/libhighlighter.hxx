@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of Sonnet::Highlighter so that we can call protected methods
+// This class is a subclass of Sonnet::Highlighter
 class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualSonnetHighlighter = true;
-
-    // Virtual class public types (including callbacks)
-    using Sonnet__Highlighter_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using Sonnet__Highlighter_MetaObject_Callback = QMetaObject* (*)(const Sonnet__Highlighter*);
     using Sonnet__Highlighter_Metacast_Callback = void* (*)(Sonnet__Highlighter*, const char*);
     using Sonnet__Highlighter_Metacall_Callback = int (*)(Sonnet__Highlighter*, int, int, void**);
     using Sonnet__Highlighter_HighlightBlock_Callback = void (*)(Sonnet__Highlighter*, const char*);
@@ -30,22 +26,21 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     using Sonnet__Highlighter_CustomEvent_Callback = void (*)(Sonnet__Highlighter*, QEvent*);
     using Sonnet__Highlighter_ConnectNotify_Callback = void (*)(Sonnet__Highlighter*, QMetaMethod*);
     using Sonnet__Highlighter_DisconnectNotify_Callback = void (*)(Sonnet__Highlighter*, QMetaMethod*);
-    using Sonnet__Highlighter_IntraWordEditing_Callback = bool (*)();
-    using Sonnet__Highlighter_SetIntraWordEditing_Callback = void (*)(Sonnet__Highlighter*, bool);
-    using Sonnet__Highlighter_SetFormat_Callback = void (*)(Sonnet__Highlighter*, int, int, QTextCharFormat*);
-    using Sonnet__Highlighter_Format_Callback = QTextCharFormat* (*)(const Sonnet__Highlighter*, int);
-    using Sonnet__Highlighter_PreviousBlockState_Callback = int (*)();
-    using Sonnet__Highlighter_CurrentBlockState_Callback = int (*)();
-    using Sonnet__Highlighter_SetCurrentBlockState_Callback = void (*)(Sonnet__Highlighter*, int);
-    using Sonnet__Highlighter_SetCurrentBlockUserData_Callback = void (*)(Sonnet__Highlighter*, QTextBlockUserData*);
-    using Sonnet__Highlighter_CurrentBlockUserData_Callback = QTextBlockUserData* (*)();
-    using Sonnet__Highlighter_CurrentBlock_Callback = QTextBlock* (*)();
-    using Sonnet__Highlighter_Sender_Callback = QObject* (*)();
-    using Sonnet__Highlighter_SenderSignalIndex_Callback = int (*)();
-    using Sonnet__Highlighter_Receivers_Callback = int (*)(const Sonnet__Highlighter*, const char*);
-    using Sonnet__Highlighter_IsSignalConnected_Callback = bool (*)(const Sonnet__Highlighter*, QMetaMethod*);
+    using Sonnet::Highlighter::currentBlock;
+    using Sonnet::Highlighter::currentBlockState;
+    using Sonnet::Highlighter::currentBlockUserData;
+    using Sonnet::Highlighter::format;
+    using Sonnet::Highlighter::intraWordEditing;
+    using Sonnet::Highlighter::isSignalConnected;
+    using Sonnet::Highlighter::previousBlockState;
+    using Sonnet::Highlighter::receivers;
+    using Sonnet::Highlighter::sender;
+    using Sonnet::Highlighter::senderSignalIndex;
+    using Sonnet::Highlighter::setCurrentBlockState;
+    using Sonnet::Highlighter::setCurrentBlockUserData;
+    using Sonnet::Highlighter::setFormat;
+    using Sonnet::Highlighter::setIntraWordEditing;
 
-  protected:
     // Instance callback storage
     Sonnet__Highlighter_MetaObject_Callback sonnet__highlighter_metaobject_callback = nullptr;
     Sonnet__Highlighter_Metacast_Callback sonnet__highlighter_metacast_callback = nullptr;
@@ -60,123 +55,29 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
     Sonnet__Highlighter_CustomEvent_Callback sonnet__highlighter_customevent_callback = nullptr;
     Sonnet__Highlighter_ConnectNotify_Callback sonnet__highlighter_connectnotify_callback = nullptr;
     Sonnet__Highlighter_DisconnectNotify_Callback sonnet__highlighter_disconnectnotify_callback = nullptr;
-    Sonnet__Highlighter_IntraWordEditing_Callback sonnet__highlighter_intrawordediting_callback = nullptr;
-    Sonnet__Highlighter_SetIntraWordEditing_Callback sonnet__highlighter_setintrawordediting_callback = nullptr;
-    Sonnet__Highlighter_SetFormat_Callback sonnet__highlighter_setformat_callback = nullptr;
-    Sonnet__Highlighter_Format_Callback sonnet__highlighter_format_callback = nullptr;
-    Sonnet__Highlighter_PreviousBlockState_Callback sonnet__highlighter_previousblockstate_callback = nullptr;
-    Sonnet__Highlighter_CurrentBlockState_Callback sonnet__highlighter_currentblockstate_callback = nullptr;
-    Sonnet__Highlighter_SetCurrentBlockState_Callback sonnet__highlighter_setcurrentblockstate_callback = nullptr;
-    Sonnet__Highlighter_SetCurrentBlockUserData_Callback sonnet__highlighter_setcurrentblockuserdata_callback = nullptr;
-    Sonnet__Highlighter_CurrentBlockUserData_Callback sonnet__highlighter_currentblockuserdata_callback = nullptr;
-    Sonnet__Highlighter_CurrentBlock_Callback sonnet__highlighter_currentblock_callback = nullptr;
-    Sonnet__Highlighter_Sender_Callback sonnet__highlighter_sender_callback = nullptr;
-    Sonnet__Highlighter_SenderSignalIndex_Callback sonnet__highlighter_sendersignalindex_callback = nullptr;
-    Sonnet__Highlighter_Receivers_Callback sonnet__highlighter_receivers_callback = nullptr;
-    Sonnet__Highlighter_IsSignalConnected_Callback sonnet__highlighter_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool sonnet__highlighter_metaobject_isbase = false;
-    mutable bool sonnet__highlighter_metacast_isbase = false;
-    mutable bool sonnet__highlighter_metacall_isbase = false;
-    mutable bool sonnet__highlighter_highlightblock_isbase = false;
-    mutable bool sonnet__highlighter_setmisspelled_isbase = false;
-    mutable bool sonnet__highlighter_unsetmisspelled_isbase = false;
-    mutable bool sonnet__highlighter_eventfilter_isbase = false;
-    mutable bool sonnet__highlighter_event_isbase = false;
-    mutable bool sonnet__highlighter_timerevent_isbase = false;
-    mutable bool sonnet__highlighter_childevent_isbase = false;
-    mutable bool sonnet__highlighter_customevent_isbase = false;
-    mutable bool sonnet__highlighter_connectnotify_isbase = false;
-    mutable bool sonnet__highlighter_disconnectnotify_isbase = false;
-    mutable bool sonnet__highlighter_intrawordediting_isbase = false;
-    mutable bool sonnet__highlighter_setintrawordediting_isbase = false;
-    mutable bool sonnet__highlighter_setformat_isbase = false;
-    mutable bool sonnet__highlighter_format_isbase = false;
-    mutable bool sonnet__highlighter_previousblockstate_isbase = false;
-    mutable bool sonnet__highlighter_currentblockstate_isbase = false;
-    mutable bool sonnet__highlighter_setcurrentblockstate_isbase = false;
-    mutable bool sonnet__highlighter_setcurrentblockuserdata_isbase = false;
-    mutable bool sonnet__highlighter_currentblockuserdata_isbase = false;
-    mutable bool sonnet__highlighter_currentblock_isbase = false;
-    mutable bool sonnet__highlighter_sender_isbase = false;
-    mutable bool sonnet__highlighter_sendersignalindex_isbase = false;
-    mutable bool sonnet__highlighter_receivers_isbase = false;
-    mutable bool sonnet__highlighter_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : Sonnet::Highlighter {
+        using Sonnet::Highlighter::childEvent;
+        using Sonnet::Highlighter::connectNotify;
+        using Sonnet::Highlighter::customEvent;
+        using Sonnet::Highlighter::disconnectNotify;
+        using Sonnet::Highlighter::eventFilter;
+        using Sonnet::Highlighter::highlightBlock;
+        using Sonnet::Highlighter::setMisspelled;
+        using Sonnet::Highlighter::timerEvent;
+        using Sonnet::Highlighter::unsetMisspelled;
+    };
 
-  public:
     VirtualSonnetHighlighter(QTextEdit* textEdit) : Sonnet::Highlighter(textEdit) {};
     VirtualSonnetHighlighter(QPlainTextEdit* textEdit) : Sonnet::Highlighter(textEdit) {};
     VirtualSonnetHighlighter(QTextEdit* textEdit, const QColor& col) : Sonnet::Highlighter(textEdit, col) {};
     VirtualSonnetHighlighter(QPlainTextEdit* textEdit, const QColor& col) : Sonnet::Highlighter(textEdit, col) {};
 
-    // Callback setters
-    inline void setSonnet__Highlighter_MetaObject_Callback(Sonnet__Highlighter_MetaObject_Callback cb) { sonnet__highlighter_metaobject_callback = cb; }
-    inline void setSonnet__Highlighter_Metacast_Callback(Sonnet__Highlighter_Metacast_Callback cb) { sonnet__highlighter_metacast_callback = cb; }
-    inline void setSonnet__Highlighter_Metacall_Callback(Sonnet__Highlighter_Metacall_Callback cb) { sonnet__highlighter_metacall_callback = cb; }
-    inline void setSonnet__Highlighter_HighlightBlock_Callback(Sonnet__Highlighter_HighlightBlock_Callback cb) { sonnet__highlighter_highlightblock_callback = cb; }
-    inline void setSonnet__Highlighter_SetMisspelled_Callback(Sonnet__Highlighter_SetMisspelled_Callback cb) { sonnet__highlighter_setmisspelled_callback = cb; }
-    inline void setSonnet__Highlighter_UnsetMisspelled_Callback(Sonnet__Highlighter_UnsetMisspelled_Callback cb) { sonnet__highlighter_unsetmisspelled_callback = cb; }
-    inline void setSonnet__Highlighter_EventFilter_Callback(Sonnet__Highlighter_EventFilter_Callback cb) { sonnet__highlighter_eventfilter_callback = cb; }
-    inline void setSonnet__Highlighter_Event_Callback(Sonnet__Highlighter_Event_Callback cb) { sonnet__highlighter_event_callback = cb; }
-    inline void setSonnet__Highlighter_TimerEvent_Callback(Sonnet__Highlighter_TimerEvent_Callback cb) { sonnet__highlighter_timerevent_callback = cb; }
-    inline void setSonnet__Highlighter_ChildEvent_Callback(Sonnet__Highlighter_ChildEvent_Callback cb) { sonnet__highlighter_childevent_callback = cb; }
-    inline void setSonnet__Highlighter_CustomEvent_Callback(Sonnet__Highlighter_CustomEvent_Callback cb) { sonnet__highlighter_customevent_callback = cb; }
-    inline void setSonnet__Highlighter_ConnectNotify_Callback(Sonnet__Highlighter_ConnectNotify_Callback cb) { sonnet__highlighter_connectnotify_callback = cb; }
-    inline void setSonnet__Highlighter_DisconnectNotify_Callback(Sonnet__Highlighter_DisconnectNotify_Callback cb) { sonnet__highlighter_disconnectnotify_callback = cb; }
-    inline void setSonnet__Highlighter_IntraWordEditing_Callback(Sonnet__Highlighter_IntraWordEditing_Callback cb) { sonnet__highlighter_intrawordediting_callback = cb; }
-    inline void setSonnet__Highlighter_SetIntraWordEditing_Callback(Sonnet__Highlighter_SetIntraWordEditing_Callback cb) { sonnet__highlighter_setintrawordediting_callback = cb; }
-    inline void setSonnet__Highlighter_SetFormat_Callback(Sonnet__Highlighter_SetFormat_Callback cb) { sonnet__highlighter_setformat_callback = cb; }
-    inline void setSonnet__Highlighter_Format_Callback(Sonnet__Highlighter_Format_Callback cb) { sonnet__highlighter_format_callback = cb; }
-    inline void setSonnet__Highlighter_PreviousBlockState_Callback(Sonnet__Highlighter_PreviousBlockState_Callback cb) { sonnet__highlighter_previousblockstate_callback = cb; }
-    inline void setSonnet__Highlighter_CurrentBlockState_Callback(Sonnet__Highlighter_CurrentBlockState_Callback cb) { sonnet__highlighter_currentblockstate_callback = cb; }
-    inline void setSonnet__Highlighter_SetCurrentBlockState_Callback(Sonnet__Highlighter_SetCurrentBlockState_Callback cb) { sonnet__highlighter_setcurrentblockstate_callback = cb; }
-    inline void setSonnet__Highlighter_SetCurrentBlockUserData_Callback(Sonnet__Highlighter_SetCurrentBlockUserData_Callback cb) { sonnet__highlighter_setcurrentblockuserdata_callback = cb; }
-    inline void setSonnet__Highlighter_CurrentBlockUserData_Callback(Sonnet__Highlighter_CurrentBlockUserData_Callback cb) { sonnet__highlighter_currentblockuserdata_callback = cb; }
-    inline void setSonnet__Highlighter_CurrentBlock_Callback(Sonnet__Highlighter_CurrentBlock_Callback cb) { sonnet__highlighter_currentblock_callback = cb; }
-    inline void setSonnet__Highlighter_Sender_Callback(Sonnet__Highlighter_Sender_Callback cb) { sonnet__highlighter_sender_callback = cb; }
-    inline void setSonnet__Highlighter_SenderSignalIndex_Callback(Sonnet__Highlighter_SenderSignalIndex_Callback cb) { sonnet__highlighter_sendersignalindex_callback = cb; }
-    inline void setSonnet__Highlighter_Receivers_Callback(Sonnet__Highlighter_Receivers_Callback cb) { sonnet__highlighter_receivers_callback = cb; }
-    inline void setSonnet__Highlighter_IsSignalConnected_Callback(Sonnet__Highlighter_IsSignalConnected_Callback cb) { sonnet__highlighter_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setSonnet__Highlighter_MetaObject_IsBase(bool value) const { sonnet__highlighter_metaobject_isbase = value; }
-    inline void setSonnet__Highlighter_Metacast_IsBase(bool value) const { sonnet__highlighter_metacast_isbase = value; }
-    inline void setSonnet__Highlighter_Metacall_IsBase(bool value) const { sonnet__highlighter_metacall_isbase = value; }
-    inline void setSonnet__Highlighter_HighlightBlock_IsBase(bool value) const { sonnet__highlighter_highlightblock_isbase = value; }
-    inline void setSonnet__Highlighter_SetMisspelled_IsBase(bool value) const { sonnet__highlighter_setmisspelled_isbase = value; }
-    inline void setSonnet__Highlighter_UnsetMisspelled_IsBase(bool value) const { sonnet__highlighter_unsetmisspelled_isbase = value; }
-    inline void setSonnet__Highlighter_EventFilter_IsBase(bool value) const { sonnet__highlighter_eventfilter_isbase = value; }
-    inline void setSonnet__Highlighter_Event_IsBase(bool value) const { sonnet__highlighter_event_isbase = value; }
-    inline void setSonnet__Highlighter_TimerEvent_IsBase(bool value) const { sonnet__highlighter_timerevent_isbase = value; }
-    inline void setSonnet__Highlighter_ChildEvent_IsBase(bool value) const { sonnet__highlighter_childevent_isbase = value; }
-    inline void setSonnet__Highlighter_CustomEvent_IsBase(bool value) const { sonnet__highlighter_customevent_isbase = value; }
-    inline void setSonnet__Highlighter_ConnectNotify_IsBase(bool value) const { sonnet__highlighter_connectnotify_isbase = value; }
-    inline void setSonnet__Highlighter_DisconnectNotify_IsBase(bool value) const { sonnet__highlighter_disconnectnotify_isbase = value; }
-    inline void setSonnet__Highlighter_IntraWordEditing_IsBase(bool value) const { sonnet__highlighter_intrawordediting_isbase = value; }
-    inline void setSonnet__Highlighter_SetIntraWordEditing_IsBase(bool value) const { sonnet__highlighter_setintrawordediting_isbase = value; }
-    inline void setSonnet__Highlighter_SetFormat_IsBase(bool value) const { sonnet__highlighter_setformat_isbase = value; }
-    inline void setSonnet__Highlighter_Format_IsBase(bool value) const { sonnet__highlighter_format_isbase = value; }
-    inline void setSonnet__Highlighter_PreviousBlockState_IsBase(bool value) const { sonnet__highlighter_previousblockstate_isbase = value; }
-    inline void setSonnet__Highlighter_CurrentBlockState_IsBase(bool value) const { sonnet__highlighter_currentblockstate_isbase = value; }
-    inline void setSonnet__Highlighter_SetCurrentBlockState_IsBase(bool value) const { sonnet__highlighter_setcurrentblockstate_isbase = value; }
-    inline void setSonnet__Highlighter_SetCurrentBlockUserData_IsBase(bool value) const { sonnet__highlighter_setcurrentblockuserdata_isbase = value; }
-    inline void setSonnet__Highlighter_CurrentBlockUserData_IsBase(bool value) const { sonnet__highlighter_currentblockuserdata_isbase = value; }
-    inline void setSonnet__Highlighter_CurrentBlock_IsBase(bool value) const { sonnet__highlighter_currentblock_isbase = value; }
-    inline void setSonnet__Highlighter_Sender_IsBase(bool value) const { sonnet__highlighter_sender_isbase = value; }
-    inline void setSonnet__Highlighter_SenderSignalIndex_IsBase(bool value) const { sonnet__highlighter_sendersignalindex_isbase = value; }
-    inline void setSonnet__Highlighter_Receivers_IsBase(bool value) const { sonnet__highlighter_receivers_isbase = value; }
-    inline void setSonnet__Highlighter_IsSignalConnected_IsBase(bool value) const { sonnet__highlighter_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (sonnet__highlighter_metaobject_isbase) {
-            sonnet__highlighter_metaobject_isbase = false;
-            return Sonnet__Highlighter::metaObject();
-        }
-        auto metaobject_cb = sonnet__highlighter_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (sonnet__highlighter_metaobject_callback) {
+            QMetaObject* callback_ret = sonnet__highlighter_metaobject_callback(this);
             return callback_ret;
         }
         return Sonnet__Highlighter::metaObject();
@@ -184,14 +85,9 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (sonnet__highlighter_metacast_isbase) {
-            sonnet__highlighter_metacast_isbase = false;
-            return Sonnet__Highlighter::qt_metacast(param1);
-        }
-        auto metacast_cb = sonnet__highlighter_metacast_callback;
-        if (metacast_cb) {
+        if (sonnet__highlighter_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = sonnet__highlighter_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return Sonnet__Highlighter::qt_metacast(param1);
@@ -199,16 +95,11 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (sonnet__highlighter_metacall_isbase) {
-            sonnet__highlighter_metacall_isbase = false;
-            return Sonnet__Highlighter::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = sonnet__highlighter_metacall_callback;
-        if (metacall_cb) {
+        if (sonnet__highlighter_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = sonnet__highlighter_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return Sonnet__Highlighter::qt_metacall(param1, param2, param3);
@@ -216,13 +107,7 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void highlightBlock(const QString& text) override {
-        if (sonnet__highlighter_highlightblock_isbase) {
-            sonnet__highlighter_highlightblock_isbase = false;
-            Sonnet__Highlighter::highlightBlock(text);
-            return;
-        }
-        auto highlightblock_cb = sonnet__highlighter_highlightblock_callback;
-        if (highlightblock_cb) {
+        if (sonnet__highlighter_highlightblock_callback) {
             const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -231,7 +116,7 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-            highlightblock_cb(this, cbval1);
+            sonnet__highlighter_highlightblock_callback(this, cbval1);
             libqt_free(text_str);
             return;
         }
@@ -240,16 +125,10 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void setMisspelled(int start, int count) override {
-        if (sonnet__highlighter_setmisspelled_isbase) {
-            sonnet__highlighter_setmisspelled_isbase = false;
-            Sonnet__Highlighter::setMisspelled(start, count);
-            return;
-        }
-        auto setmisspelled_cb = sonnet__highlighter_setmisspelled_callback;
-        if (setmisspelled_cb) {
+        if (sonnet__highlighter_setmisspelled_callback) {
             int cbval1 = start;
             int cbval2 = count;
-            setmisspelled_cb(this, cbval1, cbval2);
+            sonnet__highlighter_setmisspelled_callback(this, cbval1, cbval2);
             return;
         }
         Sonnet__Highlighter::setMisspelled(start, count);
@@ -257,16 +136,10 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void unsetMisspelled(int start, int count) override {
-        if (sonnet__highlighter_unsetmisspelled_isbase) {
-            sonnet__highlighter_unsetmisspelled_isbase = false;
-            Sonnet__Highlighter::unsetMisspelled(start, count);
-            return;
-        }
-        auto unsetmisspelled_cb = sonnet__highlighter_unsetmisspelled_callback;
-        if (unsetmisspelled_cb) {
+        if (sonnet__highlighter_unsetmisspelled_callback) {
             int cbval1 = start;
             int cbval2 = count;
-            unsetmisspelled_cb(this, cbval1, cbval2);
+            sonnet__highlighter_unsetmisspelled_callback(this, cbval1, cbval2);
             return;
         }
         Sonnet__Highlighter::unsetMisspelled(start, count);
@@ -274,15 +147,10 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* o, QEvent* e) override {
-        if (sonnet__highlighter_eventfilter_isbase) {
-            sonnet__highlighter_eventfilter_isbase = false;
-            return Sonnet__Highlighter::eventFilter(o, e);
-        }
-        auto eventfilter_cb = sonnet__highlighter_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (sonnet__highlighter_eventfilter_callback) {
             QObject* cbval1 = o;
             QEvent* cbval2 = e;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = sonnet__highlighter_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return Sonnet__Highlighter::eventFilter(o, e);
@@ -290,14 +158,9 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (sonnet__highlighter_event_isbase) {
-            sonnet__highlighter_event_isbase = false;
-            return Sonnet__Highlighter::event(event);
-        }
-        auto event_cb = sonnet__highlighter_event_callback;
-        if (event_cb) {
+        if (sonnet__highlighter_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = sonnet__highlighter_event_callback(this, cbval1);
             return callback_ret;
         }
         return Sonnet__Highlighter::event(event);
@@ -305,15 +168,9 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (sonnet__highlighter_timerevent_isbase) {
-            sonnet__highlighter_timerevent_isbase = false;
-            Sonnet__Highlighter::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = sonnet__highlighter_timerevent_callback;
-        if (timerevent_cb) {
+        if (sonnet__highlighter_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            sonnet__highlighter_timerevent_callback(this, cbval1);
             return;
         }
         Sonnet__Highlighter::timerEvent(event);
@@ -321,15 +178,9 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (sonnet__highlighter_childevent_isbase) {
-            sonnet__highlighter_childevent_isbase = false;
-            Sonnet__Highlighter::childEvent(event);
-            return;
-        }
-        auto childevent_cb = sonnet__highlighter_childevent_callback;
-        if (childevent_cb) {
+        if (sonnet__highlighter_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            sonnet__highlighter_childevent_callback(this, cbval1);
             return;
         }
         Sonnet__Highlighter::childEvent(event);
@@ -337,15 +188,9 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (sonnet__highlighter_customevent_isbase) {
-            sonnet__highlighter_customevent_isbase = false;
-            Sonnet__Highlighter::customEvent(event);
-            return;
-        }
-        auto customevent_cb = sonnet__highlighter_customevent_callback;
-        if (customevent_cb) {
+        if (sonnet__highlighter_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            sonnet__highlighter_customevent_callback(this, cbval1);
             return;
         }
         Sonnet__Highlighter::customEvent(event);
@@ -353,17 +198,11 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (sonnet__highlighter_connectnotify_isbase) {
-            sonnet__highlighter_connectnotify_isbase = false;
-            Sonnet__Highlighter::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = sonnet__highlighter_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (sonnet__highlighter_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            sonnet__highlighter_connectnotify_callback(this, cbval1);
             return;
         }
         Sonnet__Highlighter::connectNotify(signal);
@@ -371,286 +210,26 @@ class VirtualSonnetHighlighter final : public Sonnet::Highlighter {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (sonnet__highlighter_disconnectnotify_isbase) {
-            sonnet__highlighter_disconnectnotify_isbase = false;
-            Sonnet__Highlighter::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = sonnet__highlighter_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (sonnet__highlighter_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            sonnet__highlighter_disconnectnotify_callback(this, cbval1);
             return;
         }
         Sonnet__Highlighter::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    bool intraWordEditing() const {
-        if (sonnet__highlighter_intrawordediting_isbase) {
-            sonnet__highlighter_intrawordediting_isbase = false;
-            return Sonnet__Highlighter::intraWordEditing();
-        }
-        auto intrawordediting_cb = sonnet__highlighter_intrawordediting_callback;
-        if (intrawordediting_cb) {
-            bool callback_ret = intrawordediting_cb();
-            return callback_ret;
-        }
-        return Sonnet__Highlighter::intraWordEditing();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setIntraWordEditing(bool editing) {
-        if (sonnet__highlighter_setintrawordediting_isbase) {
-            sonnet__highlighter_setintrawordediting_isbase = false;
-            Sonnet__Highlighter::setIntraWordEditing(editing);
-            return;
-        }
-        auto setintrawordediting_cb = sonnet__highlighter_setintrawordediting_callback;
-        if (setintrawordediting_cb) {
-            bool cbval1 = editing;
-            setintrawordediting_cb(this, cbval1);
-            return;
-        }
-        Sonnet__Highlighter::setIntraWordEditing(editing);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setFormat(int start, int count, const QTextCharFormat& format) {
-        if (sonnet__highlighter_setformat_isbase) {
-            sonnet__highlighter_setformat_isbase = false;
-            Sonnet__Highlighter::setFormat(start, count, format);
-            return;
-        }
-        auto setformat_cb = sonnet__highlighter_setformat_callback;
-        if (setformat_cb) {
-            int cbval1 = start;
-            int cbval2 = count;
-            const QTextCharFormat& format_ret = format;
-            // Cast returned reference into pointer
-            QTextCharFormat* cbval3 = const_cast<QTextCharFormat*>(&format_ret);
-            setformat_cb(this, cbval1, cbval2, cbval3);
-            return;
-        }
-        Sonnet__Highlighter::setFormat(start, count, format);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QTextCharFormat format(int pos) const {
-        if (sonnet__highlighter_format_isbase) {
-            sonnet__highlighter_format_isbase = false;
-            return Sonnet__Highlighter::format(pos);
-        }
-        auto format_cb = sonnet__highlighter_format_callback;
-        if (format_cb) {
-            int cbval1 = pos;
-            QTextCharFormat* callback_ret = format_cb(this, cbval1);
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return Sonnet__Highlighter::format(pos);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int previousBlockState() const {
-        if (sonnet__highlighter_previousblockstate_isbase) {
-            sonnet__highlighter_previousblockstate_isbase = false;
-            return Sonnet__Highlighter::previousBlockState();
-        }
-        auto previousblockstate_cb = sonnet__highlighter_previousblockstate_callback;
-        if (previousblockstate_cb) {
-            int callback_ret = previousblockstate_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return Sonnet__Highlighter::previousBlockState();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int currentBlockState() const {
-        if (sonnet__highlighter_currentblockstate_isbase) {
-            sonnet__highlighter_currentblockstate_isbase = false;
-            return Sonnet__Highlighter::currentBlockState();
-        }
-        auto currentblockstate_cb = sonnet__highlighter_currentblockstate_callback;
-        if (currentblockstate_cb) {
-            int callback_ret = currentblockstate_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return Sonnet__Highlighter::currentBlockState();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setCurrentBlockState(int newState) {
-        if (sonnet__highlighter_setcurrentblockstate_isbase) {
-            sonnet__highlighter_setcurrentblockstate_isbase = false;
-            Sonnet__Highlighter::setCurrentBlockState(newState);
-            return;
-        }
-        auto setcurrentblockstate_cb = sonnet__highlighter_setcurrentblockstate_callback;
-        if (setcurrentblockstate_cb) {
-            int cbval1 = newState;
-            setcurrentblockstate_cb(this, cbval1);
-            return;
-        }
-        Sonnet__Highlighter::setCurrentBlockState(newState);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setCurrentBlockUserData(QTextBlockUserData* data) {
-        if (sonnet__highlighter_setcurrentblockuserdata_isbase) {
-            sonnet__highlighter_setcurrentblockuserdata_isbase = false;
-            Sonnet__Highlighter::setCurrentBlockUserData(data);
-            return;
-        }
-        auto setcurrentblockuserdata_cb = sonnet__highlighter_setcurrentblockuserdata_callback;
-        if (setcurrentblockuserdata_cb) {
-            QTextBlockUserData* cbval1 = data;
-            setcurrentblockuserdata_cb(this, cbval1);
-            return;
-        }
-        Sonnet__Highlighter::setCurrentBlockUserData(data);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QTextBlockUserData* currentBlockUserData() const {
-        if (sonnet__highlighter_currentblockuserdata_isbase) {
-            sonnet__highlighter_currentblockuserdata_isbase = false;
-            return Sonnet__Highlighter::currentBlockUserData();
-        }
-        auto currentblockuserdata_cb = sonnet__highlighter_currentblockuserdata_callback;
-        if (currentblockuserdata_cb) {
-            QTextBlockUserData* callback_ret = currentblockuserdata_cb();
-            return callback_ret;
-        }
-        return Sonnet__Highlighter::currentBlockUserData();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QTextBlock currentBlock() const {
-        if (sonnet__highlighter_currentblock_isbase) {
-            sonnet__highlighter_currentblock_isbase = false;
-            return Sonnet__Highlighter::currentBlock();
-        }
-        auto currentblock_cb = sonnet__highlighter_currentblock_callback;
-        if (currentblock_cb) {
-            QTextBlock* callback_ret = currentblock_cb();
-            auto callback_ret_Value = std::move(*callback_ret);
-            delete callback_ret;
-            return callback_ret_Value;
-        }
-        return Sonnet__Highlighter::currentBlock();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (sonnet__highlighter_sender_isbase) {
-            sonnet__highlighter_sender_isbase = false;
-            return Sonnet__Highlighter::sender();
-        }
-        auto sender_cb = sonnet__highlighter_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return Sonnet__Highlighter::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (sonnet__highlighter_sendersignalindex_isbase) {
-            sonnet__highlighter_sendersignalindex_isbase = false;
-            return Sonnet__Highlighter::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = sonnet__highlighter_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return Sonnet__Highlighter::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (sonnet__highlighter_receivers_isbase) {
-            sonnet__highlighter_receivers_isbase = false;
-            return Sonnet__Highlighter::receivers(signal);
-        }
-        auto receivers_cb = sonnet__highlighter_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return Sonnet__Highlighter::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (sonnet__highlighter_issignalconnected_isbase) {
-            sonnet__highlighter_issignalconnected_isbase = false;
-            return Sonnet__Highlighter::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = sonnet__highlighter_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return Sonnet__Highlighter::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void Sonnet__Highlighter_HighlightBlock(Sonnet::Highlighter* self, const libqt_string text);
     friend void Sonnet__Highlighter_SuperHighlightBlock(Sonnet::Highlighter* self, const libqt_string text);
-    friend void Sonnet__Highlighter_SetMisspelled(Sonnet::Highlighter* self, int start, int count);
     friend void Sonnet__Highlighter_SuperSetMisspelled(Sonnet::Highlighter* self, int start, int count);
-    friend void Sonnet__Highlighter_UnsetMisspelled(Sonnet::Highlighter* self, int start, int count);
     friend void Sonnet__Highlighter_SuperUnsetMisspelled(Sonnet::Highlighter* self, int start, int count);
-    friend bool Sonnet__Highlighter_EventFilter(Sonnet::Highlighter* self, QObject* o, QEvent* e);
     friend bool Sonnet__Highlighter_SuperEventFilter(Sonnet::Highlighter* self, QObject* o, QEvent* e);
-    friend void Sonnet__Highlighter_TimerEvent(Sonnet::Highlighter* self, QTimerEvent* event);
     friend void Sonnet__Highlighter_SuperTimerEvent(Sonnet::Highlighter* self, QTimerEvent* event);
-    friend void Sonnet__Highlighter_ChildEvent(Sonnet::Highlighter* self, QChildEvent* event);
     friend void Sonnet__Highlighter_SuperChildEvent(Sonnet::Highlighter* self, QChildEvent* event);
-    friend void Sonnet__Highlighter_CustomEvent(Sonnet::Highlighter* self, QEvent* event);
     friend void Sonnet__Highlighter_SuperCustomEvent(Sonnet::Highlighter* self, QEvent* event);
-    friend void Sonnet__Highlighter_ConnectNotify(Sonnet::Highlighter* self, const QMetaMethod* signal);
     friend void Sonnet__Highlighter_SuperConnectNotify(Sonnet::Highlighter* self, const QMetaMethod* signal);
-    friend void Sonnet__Highlighter_DisconnectNotify(Sonnet::Highlighter* self, const QMetaMethod* signal);
     friend void Sonnet__Highlighter_SuperDisconnectNotify(Sonnet::Highlighter* self, const QMetaMethod* signal);
-    friend bool Sonnet__Highlighter_IntraWordEditing(const Sonnet::Highlighter* self);
-    friend bool Sonnet__Highlighter_SuperIntraWordEditing(const Sonnet::Highlighter* self);
-    friend void Sonnet__Highlighter_SetIntraWordEditing(Sonnet::Highlighter* self, bool editing);
-    friend void Sonnet__Highlighter_SuperSetIntraWordEditing(Sonnet::Highlighter* self, bool editing);
-    friend void Sonnet__Highlighter_SetFormat(Sonnet::Highlighter* self, int start, int count, const QTextCharFormat* format);
-    friend void Sonnet__Highlighter_SuperSetFormat(Sonnet::Highlighter* self, int start, int count, const QTextCharFormat* format);
-    friend QTextCharFormat* Sonnet__Highlighter_Format(const Sonnet::Highlighter* self, int pos);
-    friend QTextCharFormat* Sonnet__Highlighter_SuperFormat(const Sonnet::Highlighter* self, int pos);
-    friend int Sonnet__Highlighter_PreviousBlockState(const Sonnet::Highlighter* self);
-    friend int Sonnet__Highlighter_SuperPreviousBlockState(const Sonnet::Highlighter* self);
-    friend int Sonnet__Highlighter_CurrentBlockState(const Sonnet::Highlighter* self);
-    friend int Sonnet__Highlighter_SuperCurrentBlockState(const Sonnet::Highlighter* self);
-    friend void Sonnet__Highlighter_SetCurrentBlockState(Sonnet::Highlighter* self, int newState);
-    friend void Sonnet__Highlighter_SuperSetCurrentBlockState(Sonnet::Highlighter* self, int newState);
-    friend void Sonnet__Highlighter_SetCurrentBlockUserData(Sonnet::Highlighter* self, QTextBlockUserData* data);
-    friend void Sonnet__Highlighter_SuperSetCurrentBlockUserData(Sonnet::Highlighter* self, QTextBlockUserData* data);
-    friend QTextBlockUserData* Sonnet__Highlighter_CurrentBlockUserData(const Sonnet::Highlighter* self);
-    friend QTextBlockUserData* Sonnet__Highlighter_SuperCurrentBlockUserData(const Sonnet::Highlighter* self);
-    friend QTextBlock* Sonnet__Highlighter_CurrentBlock(const Sonnet::Highlighter* self);
-    friend QTextBlock* Sonnet__Highlighter_SuperCurrentBlock(const Sonnet::Highlighter* self);
-    friend QObject* Sonnet__Highlighter_Sender(const Sonnet::Highlighter* self);
-    friend QObject* Sonnet__Highlighter_SuperSender(const Sonnet::Highlighter* self);
-    friend int Sonnet__Highlighter_SenderSignalIndex(const Sonnet::Highlighter* self);
-    friend int Sonnet__Highlighter_SuperSenderSignalIndex(const Sonnet::Highlighter* self);
-    friend int Sonnet__Highlighter_Receivers(const Sonnet::Highlighter* self, const char* signal);
-    friend int Sonnet__Highlighter_SuperReceivers(const Sonnet::Highlighter* self, const char* signal);
-    friend bool Sonnet__Highlighter_IsSignalConnected(const Sonnet::Highlighter* self, const QMetaMethod* signal);
-    friend bool Sonnet__Highlighter_SuperIsSignalConnected(const Sonnet::Highlighter* self, const QMetaMethod* signal);
 };
 
 #endif

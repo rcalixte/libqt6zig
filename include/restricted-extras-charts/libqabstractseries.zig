@@ -10,7 +10,6 @@ const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
 const QVariant = @import("libqt6").QVariant;
-const qabstractseries_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -94,26 +93,6 @@ pub const QAbstractSeries = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSeries.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// ### DEPRECATED: Use `type0` instead
-    ///
-    pub const Type = type0;
-
-    pub const @"type" = type0;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#type)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSeries `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qabstractseries_enums.SeriesType `
-    ///
-    pub fn type0(self: QAbstractSeries) i32 {
-        return qtc.QAbstractSeries_Type(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `setName` instead

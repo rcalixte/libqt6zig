@@ -249,511 +249,291 @@ QDialog* KFind_FindNextDialog1(KFind* self, bool create) {
 
 // Base class handler implementation
 QMetaObject* KFind_SuperMetaObject(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfind->metaObject();
-    } else {
-        return (QMetaObject*)self->KFind::metaObject();
-    }
+    return (QMetaObject*)self->KFind::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFind_OnMetaObject(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_MetaObject_Callback(reinterpret_cast<VirtualKFind::KFind_MetaObject_Callback>(slot));
+void KFind_OnMetaObject(KFind* self, intptr_t slot) {
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self)))
+        vkfind->kfind_metaobject_callback = reinterpret_cast<VirtualKFind::KFind_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFind_SuperMetacast(KFind* self, const char* param1) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_Metacast_IsBase(true);
-        return vkfind->qt_metacast(param1);
-    } else {
-        return self->KFind::qt_metacast(param1);
-    }
+    return self->KFind::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnMetacast(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_Metacast_Callback(reinterpret_cast<VirtualKFind::KFind_Metacast_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_metacast_callback = reinterpret_cast<VirtualKFind::KFind_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFind_SuperMetacall(KFind* self, int param1, int param2, void** param3) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_Metacall_IsBase(true);
-        return vkfind->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFind::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFind::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnMetacall(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_Metacall_Callback(reinterpret_cast<VirtualKFind::KFind_Metacall_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_metacall_callback = reinterpret_cast<VirtualKFind::KFind_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFind_SuperSetOptions(KFind* self, long options) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_SetOptions_IsBase(true);
-        vkfind->setOptions(static_cast<long>(options));
-    } else {
-        self->KFind::setOptions(static_cast<long>(options));
-    }
+    self->KFind::setOptions(static_cast<long>(options));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnSetOptions(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_SetOptions_Callback(reinterpret_cast<VirtualKFind::KFind_SetOptions_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_setoptions_callback = reinterpret_cast<VirtualKFind::KFind_SetOptions_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFind_SuperResetCounts(KFind* self) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_ResetCounts_IsBase(true);
-        vkfind->resetCounts();
-    } else {
-        self->KFind::resetCounts();
-    }
+    self->KFind::resetCounts();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnResetCounts(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_ResetCounts_Callback(reinterpret_cast<VirtualKFind::KFind_ResetCounts_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_resetcounts_callback = reinterpret_cast<VirtualKFind::KFind_ResetCounts_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KFind_SuperValidateMatch(KFind* self, const libqt_string text, int index, int matchedlength) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_ValidateMatch_IsBase(true);
-        return vkfind->validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
-    } else {
-        return self->KFind::validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
-    }
+    return self->KFind::validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnValidateMatch(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_ValidateMatch_Callback(reinterpret_cast<VirtualKFind::KFind_ValidateMatch_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_validatematch_callback = reinterpret_cast<VirtualKFind::KFind_ValidateMatch_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KFind_SuperShouldRestart(const KFind* self, bool forceAsking, bool showNumMatches) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_ShouldRestart_IsBase(true);
-        return vkfind->shouldRestart(forceAsking, showNumMatches);
-    } else {
-        return self->KFind::shouldRestart(forceAsking, showNumMatches);
-    }
+    return self->KFind::shouldRestart(forceAsking, showNumMatches);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFind_OnShouldRestart(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_ShouldRestart_Callback(reinterpret_cast<VirtualKFind::KFind_ShouldRestart_Callback>(slot));
+void KFind_OnShouldRestart(KFind* self, intptr_t slot) {
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self)))
+        vkfind->kfind_shouldrestart_callback = reinterpret_cast<VirtualKFind::KFind_ShouldRestart_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFind_SuperDisplayFinalDialog(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_DisplayFinalDialog_IsBase(true);
-        vkfind->displayFinalDialog();
-    } else {
-        self->KFind::displayFinalDialog();
-    }
+    self->KFind::displayFinalDialog();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFind_OnDisplayFinalDialog(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_DisplayFinalDialog_Callback(reinterpret_cast<VirtualKFind::KFind_DisplayFinalDialog_Callback>(slot));
+void KFind_OnDisplayFinalDialog(KFind* self, intptr_t slot) {
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self)))
+        vkfind->kfind_displayfinaldialog_callback = reinterpret_cast<VirtualKFind::KFind_DisplayFinalDialog_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFind_Event(KFind* self, QEvent* event) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        return vkfind->event(event);
-    } else {
-        return self->KFind::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KFind_SuperEvent(KFind* self, QEvent* event) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_Event_IsBase(true);
-        return vkfind->event(event);
-    } else {
-        return self->KFind::event(event);
-    }
+    return self->KFind::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnEvent(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_Event_Callback(reinterpret_cast<VirtualKFind::KFind_Event_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_event_callback = reinterpret_cast<VirtualKFind::KFind_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFind_EventFilter(KFind* self, QObject* watched, QEvent* event) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        return vkfind->eventFilter(watched, event);
-    } else {
-        return self->KFind::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KFind_SuperEventFilter(KFind* self, QObject* watched, QEvent* event) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_EventFilter_IsBase(true);
-        return vkfind->eventFilter(watched, event);
-    } else {
-        return self->KFind::eventFilter(watched, event);
-    }
+    return self->KFind::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnEventFilter(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_EventFilter_Callback(reinterpret_cast<VirtualKFind::KFind_EventFilter_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_eventfilter_callback = reinterpret_cast<VirtualKFind::KFind_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFind_TimerEvent(KFind* self, QTimerEvent* event) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind) {
         vkfind->timerEvent(event);
     } else {
-        ((VirtualKFind*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFind::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFind_SuperTimerEvent(KFind* self, QTimerEvent* event) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_TimerEvent_IsBase(true);
-        vkfind->timerEvent(event);
-    } else {
-        ((VirtualKFind*)self)->timerEvent(event);
-    }
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self)) {
+        vkfind->KFind::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFind::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnTimerEvent(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_TimerEvent_Callback(reinterpret_cast<VirtualKFind::KFind_TimerEvent_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_timerevent_callback = reinterpret_cast<VirtualKFind::KFind_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFind_ChildEvent(KFind* self, QChildEvent* event) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind) {
         vkfind->childEvent(event);
     } else {
-        ((VirtualKFind*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFind::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFind_SuperChildEvent(KFind* self, QChildEvent* event) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_ChildEvent_IsBase(true);
-        vkfind->childEvent(event);
-    } else {
-        ((VirtualKFind*)self)->childEvent(event);
-    }
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self)) {
+        vkfind->KFind::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFind::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnChildEvent(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_ChildEvent_Callback(reinterpret_cast<VirtualKFind::KFind_ChildEvent_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_childevent_callback = reinterpret_cast<VirtualKFind::KFind_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFind_CustomEvent(KFind* self, QEvent* event) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind) {
         vkfind->customEvent(event);
     } else {
-        ((VirtualKFind*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFind::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFind_SuperCustomEvent(KFind* self, QEvent* event) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_CustomEvent_IsBase(true);
-        vkfind->customEvent(event);
-    } else {
-        ((VirtualKFind*)self)->customEvent(event);
-    }
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self)) {
+        vkfind->KFind::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFind::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnCustomEvent(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_CustomEvent_Callback(reinterpret_cast<VirtualKFind::KFind_CustomEvent_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_customevent_callback = reinterpret_cast<VirtualKFind::KFind_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFind_ConnectNotify(KFind* self, const QMetaMethod* signal) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind) {
         vkfind->connectNotify(*signal);
     } else {
-        ((VirtualKFind*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFind::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFind_SuperConnectNotify(KFind* self, const QMetaMethod* signal) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_ConnectNotify_IsBase(true);
-        vkfind->connectNotify(*signal);
-    } else {
-        ((VirtualKFind*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self)) {
+        vkfind->KFind::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFind::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnConnectNotify(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_ConnectNotify_Callback(reinterpret_cast<VirtualKFind::KFind_ConnectNotify_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_connectnotify_callback = reinterpret_cast<VirtualKFind::KFind_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFind_DisconnectNotify(KFind* self, const QMetaMethod* signal) {
     auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
+    if (vkfind) {
         vkfind->disconnectNotify(*signal);
     } else {
-        ((VirtualKFind*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFind::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFind_SuperDisconnectNotify(KFind* self, const QMetaMethod* signal) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_DisconnectNotify_IsBase(true);
-        vkfind->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFind*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self)) {
+        vkfind->KFind::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFind::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFind_OnDisconnectNotify(KFind* self, intptr_t slot) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_DisconnectNotify_Callback(reinterpret_cast<VirtualKFind::KFind_DisconnectNotify_Callback>(slot));
+    if (auto* vkfind = dynamic_cast<VirtualKFind*>(self))
+        vkfind->kfind_disconnectnotify_callback = reinterpret_cast<VirtualKFind::KFind_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QWidget* KFind_ParentWidget(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        return vkfind->parentWidget();
-    } else {
-        return ((VirtualKFind*)self)->parentWidget();
-    }
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self))) {
+        return vkfind->VirtualKFind::parentWidget();
+    } else
+        qFatal("Error: Protected method KFind::parentWidget called without a directly constructed type");
 }
 
-// Base class handler implementation
-QWidget* KFind_SuperParentWidget(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_ParentWidget_IsBase(true);
-        return vkfind->parentWidget();
-    } else {
-        return ((VirtualKFind*)self)->parentWidget();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFind_OnParentWidget(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_ParentWidget_Callback(reinterpret_cast<VirtualKFind::KFind_ParentWidget_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QWidget* KFind_DialogsParent(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        return vkfind->dialogsParent();
-    } else {
-        return ((VirtualKFind*)self)->dialogsParent();
-    }
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self))) {
+        return vkfind->VirtualKFind::dialogsParent();
+    } else
+        qFatal("Error: Protected method KFind::dialogsParent called without a directly constructed type");
 }
 
-// Base class handler implementation
-QWidget* KFind_SuperDialogsParent(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_DialogsParent_IsBase(true);
-        return vkfind->dialogsParent();
-    } else {
-        return ((VirtualKFind*)self)->dialogsParent();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFind_OnDialogsParent(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_DialogsParent_Callback(reinterpret_cast<VirtualKFind::KFind_DialogsParent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFind_Sender(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        return vkfind->sender();
-    } else {
-        return ((VirtualKFind*)self)->sender();
-    }
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self))) {
+        return vkfind->VirtualKFind::sender();
+    } else
+        qFatal("Error: Protected method KFind::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFind_SuperSender(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_Sender_IsBase(true);
-        return vkfind->sender();
-    } else {
-        return ((VirtualKFind*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFind_OnSender(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_Sender_Callback(reinterpret_cast<VirtualKFind::KFind_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFind_SenderSignalIndex(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        return vkfind->senderSignalIndex();
-    } else {
-        return ((VirtualKFind*)self)->senderSignalIndex();
-    }
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self))) {
+        return vkfind->VirtualKFind::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFind::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFind_SuperSenderSignalIndex(const KFind* self) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_SenderSignalIndex_IsBase(true);
-        return vkfind->senderSignalIndex();
-    } else {
-        return ((VirtualKFind*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFind_OnSenderSignalIndex(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFind::KFind_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFind_Receivers(const KFind* self, const char* signal) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        return vkfind->receivers(signal);
-    } else {
-        return ((VirtualKFind*)self)->receivers(signal);
-    }
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self))) {
+        return vkfind->VirtualKFind::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFind::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFind_SuperReceivers(const KFind* self, const char* signal) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_Receivers_IsBase(true);
-        return vkfind->receivers(signal);
-    } else {
-        return ((VirtualKFind*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFind_OnReceivers(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_Receivers_Callback(reinterpret_cast<VirtualKFind::KFind_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFind_IsSignalConnected(const KFind* self, const QMetaMethod* signal) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        return vkfind->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFind*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KFind_SuperIsSignalConnected(const KFind* self, const QMetaMethod* signal) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind) {
-        vkfind->setKFind_IsSignalConnected_IsBase(true);
-        return vkfind->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFind*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFind_OnIsSignalConnected(const KFind* self, intptr_t slot) {
-    auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self));
-    if (vkfind && vkfind->isVirtualKFind)
-        vkfind->setKFind_IsSignalConnected_Callback(reinterpret_cast<VirtualKFind::KFind_IsSignalConnected_Callback>(slot));
+    if (auto* vkfind = const_cast<VirtualKFind*>(dynamic_cast<const VirtualKFind*>(self))) {
+        return vkfind->VirtualKFind::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFind::isSignalConnected called without a directly constructed type");
 }
 
 void KFind_Delete(KFind* self) {

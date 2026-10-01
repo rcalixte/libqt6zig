@@ -170,826 +170,641 @@ libqt_string QUndoView_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QUndoView_SuperMetaObject(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_MetaObject_IsBase(true);
-        return (QMetaObject*)vqundoview->metaObject();
-    } else {
-        return (QMetaObject*)self->QUndoView::metaObject();
-    }
+    return (QMetaObject*)self->QUndoView::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnMetaObject(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_MetaObject_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MetaObject_Callback>(slot));
+void QUndoView_OnMetaObject(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_metaobject_callback = reinterpret_cast<VirtualQUndoView::QUndoView_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QUndoView_SuperMetacast(QUndoView* self, const char* param1) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Metacast_IsBase(true);
-        return vqundoview->qt_metacast(param1);
-    } else {
-        return self->QUndoView::qt_metacast(param1);
-    }
+    return self->QUndoView::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMetacast(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Metacast_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Metacast_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_metacast_callback = reinterpret_cast<VirtualQUndoView::QUndoView_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QUndoView_SuperMetacall(QUndoView* self, int param1, int param2, void** param3) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Metacall_IsBase(true);
-        return vqundoview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QUndoView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QUndoView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMetacall(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Metacall_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Metacall_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_metacall_callback = reinterpret_cast<VirtualQUndoView::QUndoView_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRect* QUndoView_VisualRect(const QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return new QRect(vqundoview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQUndoView*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 // Base class handler implementation
 QRect* QUndoView_SuperVisualRect(const QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_VisualRect_IsBase(true);
-        return new QRect(vqundoview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQUndoView*)self)->visualRect(*index));
-    }
+    return new QRect(self->QUndoView::visualRect(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnVisualRect(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_VisualRect_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VisualRect_Callback>(slot));
+void QUndoView_OnVisualRect(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_visualrect_callback = reinterpret_cast<VirtualQUndoView::QUndoView_VisualRect_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ScrollTo(QUndoView* self, const QModelIndex* index, int hint) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->QUndoView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Base class handler implementation
 void QUndoView_SuperScrollTo(QUndoView* self, const QModelIndex* index, int hint) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ScrollTo_IsBase(true);
-        vqundoview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->QUndoView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->QUndoView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnScrollTo(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ScrollTo_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ScrollTo_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_scrollto_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ScrollTo_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QUndoView_IndexAt(const QUndoView* self, const QPoint* p) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return new QModelIndex(vqundoview->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQUndoView*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->indexAt(*p));
 }
 
 // Base class handler implementation
 QModelIndex* QUndoView_SuperIndexAt(const QUndoView* self, const QPoint* p) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_IndexAt_IsBase(true);
-        return new QModelIndex(vqundoview->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQUndoView*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->QUndoView::indexAt(*p));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnIndexAt(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_IndexAt_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_IndexAt_Callback>(slot));
+void QUndoView_OnIndexAt(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_indexat_callback = reinterpret_cast<VirtualQUndoView::QUndoView_IndexAt_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_DoItemsLayout(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->doItemsLayout();
-    } else {
-        self->QUndoView::doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 // Base class handler implementation
 void QUndoView_SuperDoItemsLayout(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DoItemsLayout_IsBase(true);
-        vqundoview->doItemsLayout();
-    } else {
-        self->QUndoView::doItemsLayout();
-    }
+    self->QUndoView::doItemsLayout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDoItemsLayout(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DoItemsLayout_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DoItemsLayout_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_doitemslayout_callback = reinterpret_cast<VirtualQUndoView::QUndoView_DoItemsLayout_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_Reset(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->reset();
-    } else {
-        self->QUndoView::reset();
-    }
+    self->reset();
 }
 
 // Base class handler implementation
 void QUndoView_SuperReset(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Reset_IsBase(true);
-        vqundoview->reset();
-    } else {
-        self->QUndoView::reset();
-    }
+    self->QUndoView::reset();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnReset(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Reset_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Reset_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_reset_callback = reinterpret_cast<VirtualQUndoView::QUndoView_Reset_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_SetRootIndex(QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setRootIndex(*index);
-    } else {
-        self->QUndoView::setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 // Base class handler implementation
 void QUndoView_SuperSetRootIndex(QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetRootIndex_IsBase(true);
-        vqundoview->setRootIndex(*index);
-    } else {
-        self->QUndoView::setRootIndex(*index);
-    }
+    self->QUndoView::setRootIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetRootIndex(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetRootIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetRootIndex_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_setrootindex_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SetRootIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUndoView_Event(QUndoView* self, QEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->event(e);
     } else {
-        return ((VirtualQUndoView*)self)->event(e);
+        qFatal("Error: Protected virtual method QUndoView::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QUndoView_SuperEvent(QUndoView* self, QEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Event_IsBase(true);
-        return vqundoview->event(e);
-    } else {
-        return ((VirtualQUndoView*)self)->event(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        return vqundoview->QUndoView::event(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Event_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Event_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_event_callback = reinterpret_cast<VirtualQUndoView::QUndoView_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ScrollContentsBy(QUndoView* self, int dx, int dy) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     } else {
-        ((VirtualQUndoView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+        qFatal("Error: Protected virtual method QUndoView::scrollContentsBy called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperScrollContentsBy(QUndoView* self, int dx, int dy) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ScrollContentsBy_IsBase(true);
-        vqundoview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQUndoView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnScrollContentsBy(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ScrollContentsBy_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_scrollcontentsby_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ScrollContentsBy_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_DataChanged(QUndoView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
+    if (vqundoview) {
         vqundoview->dataChanged(*topLeft, *bottomRight, roles_QList);
     } else {
-        ((VirtualQUndoView*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
+        qFatal("Error: Protected virtual method QUndoView::dataChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperDataChanged(QUndoView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DataChanged_IsBase(true);
-        vqundoview->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        ((VirtualQUndoView*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::dataChanged(*topLeft, *bottomRight, roles_QList);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::dataChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDataChanged(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DataChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DataChanged_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_datachanged_callback = reinterpret_cast<VirtualQUndoView::QUndoView_DataChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_RowsInserted(QUndoView* self, const QModelIndex* parent, int start, int end) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
     } else {
-        ((VirtualQUndoView*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+        qFatal("Error: Protected virtual method QUndoView::rowsInserted called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperRowsInserted(QUndoView* self, const QModelIndex* parent, int start, int end) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_RowsInserted_IsBase(true);
-        vqundoview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQUndoView*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::rowsInserted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnRowsInserted(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_RowsInserted_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_RowsInserted_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_rowsinserted_callback = reinterpret_cast<VirtualQUndoView::QUndoView_RowsInserted_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_RowsAboutToBeRemoved(QUndoView* self, const QModelIndex* parent, int start, int end) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
     } else {
-        ((VirtualQUndoView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+        qFatal("Error: Protected virtual method QUndoView::rowsAboutToBeRemoved called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperRowsAboutToBeRemoved(QUndoView* self, const QModelIndex* parent, int start, int end) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_RowsAboutToBeRemoved_IsBase(true);
-        vqundoview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQUndoView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::rowsAboutToBeRemoved called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnRowsAboutToBeRemoved(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_RowsAboutToBeRemoved_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_rowsabouttoberemoved_callback = reinterpret_cast<VirtualQUndoView::QUndoView_RowsAboutToBeRemoved_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_MouseMoveEvent(QUndoView* self, QMouseEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->mouseMoveEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->mouseMoveEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperMouseMoveEvent(QUndoView* self, QMouseEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_MouseMoveEvent_IsBase(true);
-        vqundoview->mouseMoveEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMouseMoveEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MouseMoveEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_mousemoveevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_MouseReleaseEvent(QUndoView* self, QMouseEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->mouseReleaseEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperMouseReleaseEvent(QUndoView* self, QMouseEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_MouseReleaseEvent_IsBase(true);
-        vqundoview->mouseReleaseEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMouseReleaseEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_mousereleaseevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_WheelEvent(QUndoView* self, QWheelEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->wheelEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->wheelEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperWheelEvent(QUndoView* self, QWheelEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_WheelEvent_IsBase(true);
-        vqundoview->wheelEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->wheelEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::wheelEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnWheelEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_WheelEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_WheelEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_wheelevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_TimerEvent(QUndoView* self, QTimerEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->timerEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperTimerEvent(QUndoView* self, QTimerEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_TimerEvent_IsBase(true);
-        vqundoview->timerEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->timerEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnTimerEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_TimerEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_TimerEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_timerevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ResizeEvent(QUndoView* self, QResizeEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->resizeEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->resizeEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperResizeEvent(QUndoView* self, QResizeEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ResizeEvent_IsBase(true);
-        vqundoview->resizeEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->resizeEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::resizeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnResizeEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ResizeEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ResizeEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_resizeevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_DragMoveEvent(QUndoView* self, QDragMoveEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->dragMoveEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->dragMoveEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperDragMoveEvent(QUndoView* self, QDragMoveEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DragMoveEvent_IsBase(true);
-        vqundoview->dragMoveEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->dragMoveEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDragMoveEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DragMoveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DragMoveEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_dragmoveevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_DragLeaveEvent(QUndoView* self, QDragLeaveEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->dragLeaveEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->dragLeaveEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperDragLeaveEvent(QUndoView* self, QDragLeaveEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DragLeaveEvent_IsBase(true);
-        vqundoview->dragLeaveEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDragLeaveEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DragLeaveEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_dragleaveevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_DropEvent(QUndoView* self, QDropEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->dropEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->dropEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperDropEvent(QUndoView* self, QDropEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DropEvent_IsBase(true);
-        vqundoview->dropEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->dropEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::dropEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDropEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DropEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DropEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_dropevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_StartDrag(QUndoView* self, int supportedActions) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->startDrag(static_cast<Qt::DropActions>(supportedActions));
     } else {
-        ((VirtualQUndoView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
+        qFatal("Error: Protected virtual method QUndoView::startDrag called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperStartDrag(QUndoView* self, int supportedActions) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_StartDrag_IsBase(true);
-        vqundoview->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    } else {
-        ((VirtualQUndoView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::startDrag(static_cast<Qt::DropActions>(supportedActions));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::startDrag called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnStartDrag(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_StartDrag_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_StartDrag_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_startdrag_callback = reinterpret_cast<VirtualQUndoView::QUndoView_StartDrag_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_InitViewItemOption(const QUndoView* self, QStyleOptionViewItem* option) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->initViewItemOption(option);
     } else {
-        ((VirtualQUndoView*)self)->initViewItemOption(option);
+        qFatal("Error: Protected virtual method QUndoView::initViewItemOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperInitViewItemOption(const QUndoView* self, QStyleOptionViewItem* option) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_InitViewItemOption_IsBase(true);
-        vqundoview->initViewItemOption(option);
-    } else {
-        ((VirtualQUndoView*)self)->initViewItemOption(option);
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        vqundoview->QUndoView::initViewItemOption(option);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::initViewItemOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnInitViewItemOption(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_InitViewItemOption_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InitViewItemOption_Callback>(slot));
+void QUndoView_OnInitViewItemOption(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_initviewitemoption_callback = reinterpret_cast<VirtualQUndoView::QUndoView_InitViewItemOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_PaintEvent(QUndoView* self, QPaintEvent* e) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->paintEvent(e);
     } else {
-        ((VirtualQUndoView*)self)->paintEvent(e);
+        qFatal("Error: Protected virtual method QUndoView::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperPaintEvent(QUndoView* self, QPaintEvent* e) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_PaintEvent_IsBase(true);
-        vqundoview->paintEvent(e);
-    } else {
-        ((VirtualQUndoView*)self)->paintEvent(e);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::paintEvent(e);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnPaintEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_PaintEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_PaintEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_paintevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QUndoView_HorizontalOffset(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->horizontalOffset();
     } else {
-        return ((VirtualQUndoView*)self)->horizontalOffset();
+        qFatal("Error: Protected virtual method QUndoView::horizontalOffset called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QUndoView_SuperHorizontalOffset(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_HorizontalOffset_IsBase(true);
-        return vqundoview->horizontalOffset();
-    } else {
-        return ((VirtualQUndoView*)self)->horizontalOffset();
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->QUndoView::horizontalOffset();
+    } else
+        qFatal("Error: Protected virtual method QUndoView::horizontalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnHorizontalOffset(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_HorizontalOffset_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalOffset_Callback>(slot));
+void QUndoView_OnHorizontalOffset(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_horizontaloffset_callback = reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalOffset_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QUndoView_VerticalOffset(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->verticalOffset();
     } else {
-        return ((VirtualQUndoView*)self)->verticalOffset();
+        qFatal("Error: Protected virtual method QUndoView::verticalOffset called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QUndoView_SuperVerticalOffset(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_VerticalOffset_IsBase(true);
-        return vqundoview->verticalOffset();
-    } else {
-        return ((VirtualQUndoView*)self)->verticalOffset();
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->QUndoView::verticalOffset();
+    } else
+        qFatal("Error: Protected virtual method QUndoView::verticalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnVerticalOffset(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_VerticalOffset_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VerticalOffset_Callback>(slot));
+void QUndoView_OnVerticalOffset(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_verticaloffset_callback = reinterpret_cast<VirtualQUndoView::QUndoView_VerticalOffset_Callback>(slot);
 }
 
 // Derived class handler implementation
 QModelIndex* QUndoView_MoveCursor(QUndoView* self, int cursorAction, int modifiers) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return new QModelIndex(vqundoview->moveCursor(static_cast<VirtualQUndoView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    return new QModelIndex((self->*&VirtualQUndoView::Base::moveCursor)(static_cast<VirtualQUndoView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
 }
 
 // Base class handler implementation
 QModelIndex* QUndoView_SuperMoveCursor(QUndoView* self, int cursorAction, int modifiers) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_MoveCursor_IsBase(true);
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
         return new QModelIndex(vqundoview->moveCursor(static_cast<VirtualQUndoView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QUndoView::moveCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMoveCursor(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_MoveCursor_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MoveCursor_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_movecursor_callback = reinterpret_cast<VirtualQUndoView::QUndoView_MoveCursor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_SetSelection(QUndoView* self, const QRect* rect, int command) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
     } else {
-        ((VirtualQUndoView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+        qFatal("Error: Protected virtual method QUndoView::setSelection called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperSetSelection(QUndoView* self, const QRect* rect, int command) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetSelection_IsBase(true);
-        vqundoview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualQUndoView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::setSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetSelection(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetSelection_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetSelection_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_setselection_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SetSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 QRegion* QUndoView_VisualRegionForSelection(const QUndoView* self, const QItemSelection* selection) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return new QRegion(vqundoview->visualRegionForSelection(*selection));
-    }
-    return {};
+    return new QRegion((self->*&VirtualQUndoView::Base::visualRegionForSelection)(*selection));
 }
 
 // Base class handler implementation
 QRegion* QUndoView_SuperVisualRegionForSelection(const QUndoView* self, const QItemSelection* selection) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_VisualRegionForSelection_IsBase(true);
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
         return new QRegion(vqundoview->visualRegionForSelection(*selection));
-    }
-    return {};
+    qFatal("Error: Protected virtual method QUndoView::visualRegionForSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnVisualRegionForSelection(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VisualRegionForSelection_Callback>(slot));
+void QUndoView_OnVisualRegionForSelection(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_visualregionforselection_callback = reinterpret_cast<VirtualQUndoView::QUndoView_VisualRegionForSelection_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of QModelIndex* */ QUndoView_SelectedIndexes(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         QList<QModelIndex> _ret = vqundoview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
@@ -1001,25 +816,14 @@ libqt_list /* of QModelIndex* */ QUndoView_SelectedIndexes(const QUndoView* self
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QList<QModelIndex> _ret = ((VirtualQUndoView*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+        qFatal("Error: Protected virtual method QUndoView::selectedIndexes called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ QUndoView_SuperSelectedIndexes(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SelectedIndexes_IsBase(true);
-        QList<QModelIndex> _ret = vqundoview->selectedIndexes();
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        QList<QModelIndex> _ret = vqundoview->QUndoView::selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1029,2567 +833,1616 @@ libqt_list /* of QModelIndex* */ QUndoView_SuperSelectedIndexes(const QUndoView*
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQUndoView*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method QUndoView::selectedIndexes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnSelectedIndexes(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SelectedIndexes_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SelectedIndexes_Callback>(slot));
+void QUndoView_OnSelectedIndexes(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_selectedindexes_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SelectedIndexes_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_UpdateGeometries(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->updateGeometries();
     } else {
-        ((VirtualQUndoView*)self)->updateGeometries();
+        qFatal("Error: Protected virtual method QUndoView::updateGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperUpdateGeometries(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_UpdateGeometries_IsBase(true);
-        vqundoview->updateGeometries();
-    } else {
-        ((VirtualQUndoView*)self)->updateGeometries();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::updateGeometries();
+    } else
+        qFatal("Error: Protected virtual method QUndoView::updateGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnUpdateGeometries(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_UpdateGeometries_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_UpdateGeometries_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_updategeometries_callback = reinterpret_cast<VirtualQUndoView::QUndoView_UpdateGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUndoView_IsIndexHidden(const QUndoView* self, const QModelIndex* index) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->isIndexHidden(*index);
     } else {
-        return ((VirtualQUndoView*)self)->isIndexHidden(*index);
+        qFatal("Error: Protected virtual method QUndoView::isIndexHidden called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QUndoView_SuperIsIndexHidden(const QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_IsIndexHidden_IsBase(true);
-        return vqundoview->isIndexHidden(*index);
-    } else {
-        return ((VirtualQUndoView*)self)->isIndexHidden(*index);
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->QUndoView::isIndexHidden(*index);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::isIndexHidden called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnIsIndexHidden(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_IsIndexHidden_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_IsIndexHidden_Callback>(slot));
+void QUndoView_OnIsIndexHidden(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_isindexhidden_callback = reinterpret_cast<VirtualQUndoView::QUndoView_IsIndexHidden_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_SelectionChanged(QUndoView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->selectionChanged(*selected, *deselected);
     } else {
-        ((VirtualQUndoView*)self)->selectionChanged(*selected, *deselected);
+        qFatal("Error: Protected virtual method QUndoView::selectionChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperSelectionChanged(QUndoView* self, const QItemSelection* selected, const QItemSelection* deselected) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SelectionChanged_IsBase(true);
-        vqundoview->selectionChanged(*selected, *deselected);
-    } else {
-        ((VirtualQUndoView*)self)->selectionChanged(*selected, *deselected);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::selectionChanged(*selected, *deselected);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::selectionChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSelectionChanged(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SelectionChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SelectionChanged_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_selectionchanged_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SelectionChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_CurrentChanged(QUndoView* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->currentChanged(*current, *previous);
     } else {
-        ((VirtualQUndoView*)self)->currentChanged(*current, *previous);
+        qFatal("Error: Protected virtual method QUndoView::currentChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperCurrentChanged(QUndoView* self, const QModelIndex* current, const QModelIndex* previous) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_CurrentChanged_IsBase(true);
-        vqundoview->currentChanged(*current, *previous);
-    } else {
-        ((VirtualQUndoView*)self)->currentChanged(*current, *previous);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::currentChanged(*current, *previous);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::currentChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCurrentChanged(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_CurrentChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CurrentChanged_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_currentchanged_callback = reinterpret_cast<VirtualQUndoView::QUndoView_CurrentChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QUndoView_ViewportSizeHint(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return new QSize(vqundoview->viewportSizeHint());
-    }
-    return {};
+    return new QSize((self->*&VirtualQUndoView::Base::viewportSizeHint)());
 }
 
 // Base class handler implementation
 QSize* QUndoView_SuperViewportSizeHint(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ViewportSizeHint_IsBase(true);
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
         return new QSize(vqundoview->viewportSizeHint());
-    }
-    return {};
+    qFatal("Error: Protected virtual method QUndoView::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnViewportSizeHint(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ViewportSizeHint_Callback>(slot));
+void QUndoView_OnViewportSizeHint(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_viewportsizehint_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ViewportSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_SetModel(QUndoView* self, QAbstractItemModel* model) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setModel(model);
-    } else {
-        self->QUndoView::setModel(model);
-    }
+    self->setModel(model);
 }
 
 // Base class handler implementation
 void QUndoView_SuperSetModel(QUndoView* self, QAbstractItemModel* model) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetModel_IsBase(true);
-        vqundoview->setModel(model);
-    } else {
-        self->QUndoView::setModel(model);
-    }
+    self->QUndoView::setModel(model);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetModel(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetModel_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetModel_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_setmodel_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SetModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_SetSelectionModel(QUndoView* self, QItemSelectionModel* selectionModel) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setSelectionModel(selectionModel);
-    } else {
-        self->QUndoView::setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 // Base class handler implementation
 void QUndoView_SuperSetSelectionModel(QUndoView* self, QItemSelectionModel* selectionModel) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetSelectionModel_IsBase(true);
-        vqundoview->setSelectionModel(selectionModel);
-    } else {
-        self->QUndoView::setSelectionModel(selectionModel);
-    }
+    self->QUndoView::setSelectionModel(selectionModel);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetSelectionModel(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetSelectionModel_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetSelectionModel_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_setselectionmodel_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SetSelectionModel_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_KeyboardSearch(QUndoView* self, const libqt_string search) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->keyboardSearch(search_QString);
-    } else {
-        self->QUndoView::keyboardSearch(search_QString);
-    }
+    self->keyboardSearch(search_QString);
 }
 
 // Base class handler implementation
 void QUndoView_SuperKeyboardSearch(QUndoView* self, const libqt_string search) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_KeyboardSearch_IsBase(true);
-        vqundoview->keyboardSearch(search_QString);
-    } else {
-        self->QUndoView::keyboardSearch(search_QString);
-    }
+    self->QUndoView::keyboardSearch(search_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnKeyboardSearch(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_KeyboardSearch_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_KeyboardSearch_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_keyboardsearch_callback = reinterpret_cast<VirtualQUndoView::QUndoView_KeyboardSearch_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QUndoView_SizeHintForRow(const QUndoView* self, int row) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->QUndoView::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->sizeHintForRow(static_cast<int>(row));
 }
 
 // Base class handler implementation
 int QUndoView_SuperSizeHintForRow(const QUndoView* self, int row) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SizeHintForRow_IsBase(true);
-        return vqundoview->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->QUndoView::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->QUndoView::sizeHintForRow(static_cast<int>(row));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnSizeHintForRow(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SizeHintForRow_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SizeHintForRow_Callback>(slot));
+void QUndoView_OnSizeHintForRow(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_sizehintforrow_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SizeHintForRow_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QUndoView_SizeHintForColumn(const QUndoView* self, int column) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return self->QUndoView::sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->sizeHintForColumn(static_cast<int>(column));
 }
 
 // Base class handler implementation
 int QUndoView_SuperSizeHintForColumn(const QUndoView* self, int column) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SizeHintForColumn_IsBase(true);
-        return vqundoview->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return self->QUndoView::sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->QUndoView::sizeHintForColumn(static_cast<int>(column));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnSizeHintForColumn(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SizeHintForColumn_Callback>(slot));
+void QUndoView_OnSizeHintForColumn(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_sizehintforcolumn_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SizeHintForColumn_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAbstractItemDelegate* QUndoView_ItemDelegateForIndex(const QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->itemDelegateForIndex(*index);
-    } else {
-        return self->QUndoView::itemDelegateForIndex(*index);
-    }
+    return self->itemDelegateForIndex(*index);
 }
 
 // Base class handler implementation
 QAbstractItemDelegate* QUndoView_SuperItemDelegateForIndex(const QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ItemDelegateForIndex_IsBase(true);
-        return vqundoview->itemDelegateForIndex(*index);
-    } else {
-        return self->QUndoView::itemDelegateForIndex(*index);
-    }
+    return self->QUndoView::itemDelegateForIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnItemDelegateForIndex(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ItemDelegateForIndex_Callback>(slot));
+void QUndoView_OnItemDelegateForIndex(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_itemdelegateforindex_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ItemDelegateForIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QUndoView_InputMethodQuery(const QUndoView* self, int query) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return new QVariant(vqundoview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQUndoView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* QUndoView_SuperInputMethodQuery(const QUndoView* self, int query) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_InputMethodQuery_IsBase(true);
-        return new QVariant(vqundoview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQUndoView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->QUndoView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnInputMethodQuery(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_InputMethodQuery_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InputMethodQuery_Callback>(slot));
+void QUndoView_OnInputMethodQuery(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_inputmethodquery_callback = reinterpret_cast<VirtualQUndoView::QUndoView_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_SelectAll(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->selectAll();
-    } else {
-        self->QUndoView::selectAll();
-    }
+    self->selectAll();
 }
 
 // Base class handler implementation
 void QUndoView_SuperSelectAll(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SelectAll_IsBase(true);
-        vqundoview->selectAll();
-    } else {
-        self->QUndoView::selectAll();
-    }
+    self->QUndoView::selectAll();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSelectAll(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SelectAll_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SelectAll_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_selectall_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SelectAll_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_UpdateEditorData(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->updateEditorData();
     } else {
-        ((VirtualQUndoView*)self)->updateEditorData();
+        qFatal("Error: Protected virtual method QUndoView::updateEditorData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperUpdateEditorData(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_UpdateEditorData_IsBase(true);
-        vqundoview->updateEditorData();
-    } else {
-        ((VirtualQUndoView*)self)->updateEditorData();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::updateEditorData();
+    } else
+        qFatal("Error: Protected virtual method QUndoView::updateEditorData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnUpdateEditorData(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_UpdateEditorData_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_UpdateEditorData_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_updateeditordata_callback = reinterpret_cast<VirtualQUndoView::QUndoView_UpdateEditorData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_UpdateEditorGeometries(QUndoView* self) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->updateEditorGeometries();
     } else {
-        ((VirtualQUndoView*)self)->updateEditorGeometries();
+        qFatal("Error: Protected virtual method QUndoView::updateEditorGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperUpdateEditorGeometries(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_UpdateEditorGeometries_IsBase(true);
-        vqundoview->updateEditorGeometries();
-    } else {
-        ((VirtualQUndoView*)self)->updateEditorGeometries();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::updateEditorGeometries();
+    } else
+        qFatal("Error: Protected virtual method QUndoView::updateEditorGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnUpdateEditorGeometries(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_UpdateEditorGeometries_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_updateeditorgeometries_callback = reinterpret_cast<VirtualQUndoView::QUndoView_UpdateEditorGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_VerticalScrollbarAction(QUndoView* self, int action) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->verticalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQUndoView*)self)->verticalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QUndoView::verticalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperVerticalScrollbarAction(QUndoView* self, int action) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_VerticalScrollbarAction_IsBase(true);
-        vqundoview->verticalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQUndoView*)self)->verticalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::verticalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::verticalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnVerticalScrollbarAction(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VerticalScrollbarAction_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_verticalscrollbaraction_callback = reinterpret_cast<VirtualQUndoView::QUndoView_VerticalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_HorizontalScrollbarAction(QUndoView* self, int action) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->horizontalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQUndoView*)self)->horizontalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QUndoView::horizontalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperHorizontalScrollbarAction(QUndoView* self, int action) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_HorizontalScrollbarAction_IsBase(true);
-        vqundoview->horizontalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQUndoView*)self)->horizontalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::horizontalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::horizontalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHorizontalScrollbarAction(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalScrollbarAction_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_horizontalscrollbaraction_callback = reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_VerticalScrollbarValueChanged(QUndoView* self, int value) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->verticalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQUndoView*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QUndoView::verticalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperVerticalScrollbarValueChanged(QUndoView* self, int value) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_VerticalScrollbarValueChanged_IsBase(true);
-        vqundoview->verticalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQUndoView*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::verticalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::verticalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnVerticalScrollbarValueChanged(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VerticalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_verticalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQUndoView::QUndoView_VerticalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_HorizontalScrollbarValueChanged(QUndoView* self, int value) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->horizontalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQUndoView*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QUndoView::horizontalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperHorizontalScrollbarValueChanged(QUndoView* self, int value) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_HorizontalScrollbarValueChanged_IsBase(true);
-        vqundoview->horizontalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQUndoView*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::horizontalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::horizontalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHorizontalScrollbarValueChanged(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_horizontalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_CloseEditor(QUndoView* self, QWidget* editor, int hint) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
     } else {
-        ((VirtualQUndoView*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+        qFatal("Error: Protected virtual method QUndoView::closeEditor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperCloseEditor(QUndoView* self, QWidget* editor, int hint) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_CloseEditor_IsBase(true);
-        vqundoview->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    } else {
-        ((VirtualQUndoView*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::closeEditor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCloseEditor(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_CloseEditor_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CloseEditor_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_closeeditor_callback = reinterpret_cast<VirtualQUndoView::QUndoView_CloseEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_CommitData(QUndoView* self, QWidget* editor) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->commitData(editor);
     } else {
-        ((VirtualQUndoView*)self)->commitData(editor);
+        qFatal("Error: Protected virtual method QUndoView::commitData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperCommitData(QUndoView* self, QWidget* editor) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_CommitData_IsBase(true);
-        vqundoview->commitData(editor);
-    } else {
-        ((VirtualQUndoView*)self)->commitData(editor);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::commitData(editor);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::commitData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCommitData(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_CommitData_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CommitData_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_commitdata_callback = reinterpret_cast<VirtualQUndoView::QUndoView_CommitData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_EditorDestroyed(QUndoView* self, QObject* editor) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->editorDestroyed(editor);
     } else {
-        ((VirtualQUndoView*)self)->editorDestroyed(editor);
+        qFatal("Error: Protected virtual method QUndoView::editorDestroyed called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperEditorDestroyed(QUndoView* self, QObject* editor) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_EditorDestroyed_IsBase(true);
-        vqundoview->editorDestroyed(editor);
-    } else {
-        ((VirtualQUndoView*)self)->editorDestroyed(editor);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::editorDestroyed(editor);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::editorDestroyed called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEditorDestroyed(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_EditorDestroyed_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_EditorDestroyed_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_editordestroyed_callback = reinterpret_cast<VirtualQUndoView::QUndoView_EditorDestroyed_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUndoView_Edit2(QUndoView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
     } else {
-        return ((VirtualQUndoView*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+        qFatal("Error: Protected virtual method QUndoView::edit2 called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QUndoView_SuperEdit2(QUndoView* self, const QModelIndex* index, int trigger, QEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Edit2_IsBase(true);
-        return vqundoview->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    } else {
-        return ((VirtualQUndoView*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        return vqundoview->QUndoView::edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::edit2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEdit2(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Edit2_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Edit2_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_edit2_callback = reinterpret_cast<VirtualQUndoView::QUndoView_Edit2_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QUndoView_SelectionCommand(const QUndoView* self, const QModelIndex* index, const QEvent* event) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return static_cast<int>(vqundoview->selectionCommand(*index, event));
     } else {
-        return static_cast<int>(((VirtualQUndoView*)self)->selectionCommand(*index, event));
+        qFatal("Error: Protected virtual method QUndoView::selectionCommand called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QUndoView_SuperSelectionCommand(const QUndoView* self, const QModelIndex* index, const QEvent* event) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SelectionCommand_IsBase(true);
-        return static_cast<int>(vqundoview->selectionCommand(*index, event));
-    } else {
-        return static_cast<int>(((VirtualQUndoView*)self)->selectionCommand(*index, event));
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return static_cast<int>(vqundoview->QUndoView::selectionCommand(*index, event));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::selectionCommand called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnSelectionCommand(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SelectionCommand_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SelectionCommand_Callback>(slot));
+void QUndoView_OnSelectionCommand(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_selectioncommand_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SelectionCommand_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUndoView_FocusNextPrevChild(QUndoView* self, bool next) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->focusNextPrevChild(next);
     } else {
-        return ((VirtualQUndoView*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QUndoView::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QUndoView_SuperFocusNextPrevChild(QUndoView* self, bool next) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_FocusNextPrevChild_IsBase(true);
-        return vqundoview->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQUndoView*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        return vqundoview->QUndoView::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnFocusNextPrevChild(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_focusnextprevchild_callback = reinterpret_cast<VirtualQUndoView::QUndoView_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUndoView_ViewportEvent(QUndoView* self, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->viewportEvent(event);
     } else {
-        return ((VirtualQUndoView*)self)->viewportEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::viewportEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QUndoView_SuperViewportEvent(QUndoView* self, QEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ViewportEvent_IsBase(true);
-        return vqundoview->viewportEvent(event);
-    } else {
-        return ((VirtualQUndoView*)self)->viewportEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        return vqundoview->QUndoView::viewportEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnViewportEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ViewportEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ViewportEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_viewportevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ViewportEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_MousePressEvent(QUndoView* self, QMouseEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->mousePressEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperMousePressEvent(QUndoView* self, QMouseEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_MousePressEvent_IsBase(true);
-        vqundoview->mousePressEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->mousePressEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMousePressEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_MousePressEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MousePressEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_mousepressevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_MouseDoubleClickEvent(QUndoView* self, QMouseEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperMouseDoubleClickEvent(QUndoView* self, QMouseEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_MouseDoubleClickEvent_IsBase(true);
-        vqundoview->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMouseDoubleClickEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_mousedoubleclickevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_DragEnterEvent(QUndoView* self, QDragEnterEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->dragEnterEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperDragEnterEvent(QUndoView* self, QDragEnterEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DragEnterEvent_IsBase(true);
-        vqundoview->dragEnterEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDragEnterEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DragEnterEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DragEnterEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_dragenterevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_FocusInEvent(QUndoView* self, QFocusEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->focusInEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperFocusInEvent(QUndoView* self, QFocusEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_FocusInEvent_IsBase(true);
-        vqundoview->focusInEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->focusInEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnFocusInEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_FocusInEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusInEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_focusinevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_FocusOutEvent(QUndoView* self, QFocusEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->focusOutEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperFocusOutEvent(QUndoView* self, QFocusEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_FocusOutEvent_IsBase(true);
-        vqundoview->focusOutEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->focusOutEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnFocusOutEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_FocusOutEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusOutEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_focusoutevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_KeyPressEvent(QUndoView* self, QKeyEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->keyPressEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperKeyPressEvent(QUndoView* self, QKeyEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_KeyPressEvent_IsBase(true);
-        vqundoview->keyPressEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->keyPressEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnKeyPressEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_KeyPressEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_KeyPressEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_keypressevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_InputMethodEvent(QUndoView* self, QInputMethodEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->inputMethodEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->inputMethodEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperInputMethodEvent(QUndoView* self, QInputMethodEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_InputMethodEvent_IsBase(true);
-        vqundoview->inputMethodEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnInputMethodEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_InputMethodEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InputMethodEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_inputmethodevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUndoView_EventFilter(QUndoView* self, QObject* object, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->eventFilter(object, event);
     } else {
-        return ((VirtualQUndoView*)self)->eventFilter(object, event);
+        qFatal("Error: Protected virtual method QUndoView::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QUndoView_SuperEventFilter(QUndoView* self, QObject* object, QEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_EventFilter_IsBase(true);
-        return vqundoview->eventFilter(object, event);
-    } else {
-        return ((VirtualQUndoView*)self)->eventFilter(object, event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        return vqundoview->QUndoView::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEventFilter(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_EventFilter_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_EventFilter_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_eventfilter_callback = reinterpret_cast<VirtualQUndoView::QUndoView_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QUndoView_MinimumSizeHint(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return new QSize(vqundoview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQUndoView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QUndoView_SuperMinimumSizeHint(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_MinimumSizeHint_IsBase(true);
-        return new QSize(vqundoview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQUndoView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QUndoView::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnMinimumSizeHint(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MinimumSizeHint_Callback>(slot));
+void QUndoView_OnMinimumSizeHint(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_minimumsizehint_callback = reinterpret_cast<VirtualQUndoView::QUndoView_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QUndoView_SizeHint(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return new QSize(vqundoview->sizeHint());
-    } else {
-        return new QSize(((VirtualQUndoView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QUndoView_SuperSizeHint(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SizeHint_IsBase(true);
-        return new QSize(vqundoview->sizeHint());
-    } else {
-        return new QSize(((VirtualQUndoView*)self)->sizeHint());
-    }
+    return new QSize(self->QUndoView::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnSizeHint(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SizeHint_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SizeHint_Callback>(slot));
+void QUndoView_OnSizeHint(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_sizehint_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_SetupViewport(QUndoView* self, QWidget* viewport) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setupViewport(viewport);
-    } else {
-        self->QUndoView::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void QUndoView_SuperSetupViewport(QUndoView* self, QWidget* viewport) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetupViewport_IsBase(true);
-        vqundoview->setupViewport(viewport);
-    } else {
-        self->QUndoView::setupViewport(viewport);
-    }
+    self->QUndoView::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetupViewport(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetupViewport_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetupViewport_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_setupviewport_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ContextMenuEvent(QUndoView* self, QContextMenuEvent* param1) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->contextMenuEvent(param1);
     } else {
-        ((VirtualQUndoView*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QUndoView::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperContextMenuEvent(QUndoView* self, QContextMenuEvent* param1) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ContextMenuEvent_IsBase(true);
-        vqundoview->contextMenuEvent(param1);
-    } else {
-        ((VirtualQUndoView*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnContextMenuEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ContextMenuEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_contextmenuevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ChangeEvent(QUndoView* self, QEvent* param1) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->changeEvent(param1);
     } else {
-        ((VirtualQUndoView*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QUndoView::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperChangeEvent(QUndoView* self, QEvent* param1) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ChangeEvent_IsBase(true);
-        vqundoview->changeEvent(param1);
-    } else {
-        ((VirtualQUndoView*)self)->changeEvent(param1);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnChangeEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ChangeEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ChangeEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_changeevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_InitStyleOption(const QUndoView* self, QStyleOptionFrame* option) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->initStyleOption(option);
     } else {
-        ((VirtualQUndoView*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QUndoView::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperInitStyleOption(const QUndoView* self, QStyleOptionFrame* option) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_InitStyleOption_IsBase(true);
-        vqundoview->initStyleOption(option);
-    } else {
-        ((VirtualQUndoView*)self)->initStyleOption(option);
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        vqundoview->QUndoView::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnInitStyleOption(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_InitStyleOption_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InitStyleOption_Callback>(slot));
+void QUndoView_OnInitStyleOption(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_initstyleoption_callback = reinterpret_cast<VirtualQUndoView::QUndoView_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QUndoView_DevType(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->devType();
-    } else {
-        return self->QUndoView::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QUndoView_SuperDevType(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DevType_IsBase(true);
-        return vqundoview->devType();
-    } else {
-        return self->QUndoView::devType();
-    }
+    return self->QUndoView::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnDevType(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DevType_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DevType_Callback>(slot));
+void QUndoView_OnDevType(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_devtype_callback = reinterpret_cast<VirtualQUndoView::QUndoView_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_SetVisible(QUndoView* self, bool visible) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setVisible(visible);
-    } else {
-        self->QUndoView::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QUndoView_SuperSetVisible(QUndoView* self, bool visible) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetVisible_IsBase(true);
-        vqundoview->setVisible(visible);
-    } else {
-        self->QUndoView::setVisible(visible);
-    }
+    self->QUndoView::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetVisible(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetVisible_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetVisible_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_setvisible_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QUndoView_HeightForWidth(const QUndoView* self, int param1) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QUndoView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QUndoView_SuperHeightForWidth(const QUndoView* self, int param1) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_HeightForWidth_IsBase(true);
-        return vqundoview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QUndoView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QUndoView::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnHeightForWidth(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_HeightForWidth_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HeightForWidth_Callback>(slot));
+void QUndoView_OnHeightForWidth(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_heightforwidth_callback = reinterpret_cast<VirtualQUndoView::QUndoView_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUndoView_HasHeightForWidth(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->hasHeightForWidth();
-    } else {
-        return self->QUndoView::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QUndoView_SuperHasHeightForWidth(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_HasHeightForWidth_IsBase(true);
-        return vqundoview->hasHeightForWidth();
-    } else {
-        return self->QUndoView::hasHeightForWidth();
-    }
+    return self->QUndoView::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnHasHeightForWidth(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HasHeightForWidth_Callback>(slot));
+void QUndoView_OnHasHeightForWidth(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_hasheightforwidth_callback = reinterpret_cast<VirtualQUndoView::QUndoView_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QUndoView_PaintEngine(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->paintEngine();
-    } else {
-        return self->QUndoView::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QUndoView_SuperPaintEngine(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_PaintEngine_IsBase(true);
-        return vqundoview->paintEngine();
-    } else {
-        return self->QUndoView::paintEngine();
-    }
+    return self->QUndoView::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnPaintEngine(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_PaintEngine_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_PaintEngine_Callback>(slot));
+void QUndoView_OnPaintEngine(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_paintengine_callback = reinterpret_cast<VirtualQUndoView::QUndoView_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_KeyReleaseEvent(QUndoView* self, QKeyEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->keyReleaseEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperKeyReleaseEvent(QUndoView* self, QKeyEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_KeyReleaseEvent_IsBase(true);
-        vqundoview->keyReleaseEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnKeyReleaseEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_keyreleaseevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_EnterEvent(QUndoView* self, QEnterEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->enterEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperEnterEvent(QUndoView* self, QEnterEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_EnterEvent_IsBase(true);
-        vqundoview->enterEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->enterEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEnterEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_EnterEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_EnterEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_enterevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_LeaveEvent(QUndoView* self, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->leaveEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperLeaveEvent(QUndoView* self, QEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_LeaveEvent_IsBase(true);
-        vqundoview->leaveEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->leaveEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnLeaveEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_LeaveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_LeaveEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_leaveevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_MoveEvent(QUndoView* self, QMoveEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->moveEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperMoveEvent(QUndoView* self, QMoveEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_MoveEvent_IsBase(true);
-        vqundoview->moveEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->moveEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMoveEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_MoveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MoveEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_moveevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_CloseEvent(QUndoView* self, QCloseEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->closeEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperCloseEvent(QUndoView* self, QCloseEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_CloseEvent_IsBase(true);
-        vqundoview->closeEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->closeEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCloseEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_CloseEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CloseEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_closeevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_TabletEvent(QUndoView* self, QTabletEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->tabletEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperTabletEvent(QUndoView* self, QTabletEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_TabletEvent_IsBase(true);
-        vqundoview->tabletEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->tabletEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnTabletEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_TabletEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_TabletEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_tabletevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ActionEvent(QUndoView* self, QActionEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->actionEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperActionEvent(QUndoView* self, QActionEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ActionEvent_IsBase(true);
-        vqundoview->actionEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->actionEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnActionEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ActionEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ActionEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_actionevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ShowEvent(QUndoView* self, QShowEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->showEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperShowEvent(QUndoView* self, QShowEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ShowEvent_IsBase(true);
-        vqundoview->showEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->showEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnShowEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ShowEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ShowEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_showevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_HideEvent(QUndoView* self, QHideEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->hideEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperHideEvent(QUndoView* self, QHideEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_HideEvent_IsBase(true);
-        vqundoview->hideEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->hideEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHideEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_HideEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HideEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_hideevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUndoView_NativeEvent(QUndoView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
+    if (vqundoview) {
         return vqundoview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQUndoView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QUndoView::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QUndoView_SuperNativeEvent(QUndoView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_NativeEvent_IsBase(true);
-        return vqundoview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQUndoView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        return vqundoview->QUndoView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnNativeEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_NativeEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_NativeEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_nativeevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QUndoView_Metric(const QUndoView* self, int param1) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQUndoView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QUndoView::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QUndoView_SuperMetric(const QUndoView* self, int param1) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Metric_IsBase(true);
-        return vqundoview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQUndoView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->QUndoView::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QUndoView::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnMetric(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Metric_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Metric_Callback>(slot));
+void QUndoView_OnMetric(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_metric_callback = reinterpret_cast<VirtualQUndoView::QUndoView_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_InitPainter(const QUndoView* self, QPainter* painter) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->initPainter(painter);
     } else {
-        ((VirtualQUndoView*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QUndoView::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperInitPainter(const QUndoView* self, QPainter* painter) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_InitPainter_IsBase(true);
-        vqundoview->initPainter(painter);
-    } else {
-        ((VirtualQUndoView*)self)->initPainter(painter);
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        vqundoview->QUndoView::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnInitPainter(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_InitPainter_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InitPainter_Callback>(slot));
+void QUndoView_OnInitPainter(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_initpainter_callback = reinterpret_cast<VirtualQUndoView::QUndoView_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QUndoView_Redirected(const QUndoView* self, QPoint* offset) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->redirected(offset);
     } else {
-        return ((VirtualQUndoView*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QUndoView::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QUndoView_SuperRedirected(const QUndoView* self, QPoint* offset) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Redirected_IsBase(true);
-        return vqundoview->redirected(offset);
-    } else {
-        return ((VirtualQUndoView*)self)->redirected(offset);
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->QUndoView::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnRedirected(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Redirected_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Redirected_Callback>(slot));
+void QUndoView_OnRedirected(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_redirected_callback = reinterpret_cast<VirtualQUndoView::QUndoView_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QUndoView_SharedPainter(const QUndoView* self) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         return vqundoview->sharedPainter();
     } else {
-        return ((VirtualQUndoView*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QUndoView::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QUndoView_SuperSharedPainter(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SharedPainter_IsBase(true);
-        return vqundoview->sharedPainter();
-    } else {
-        return ((VirtualQUndoView*)self)->sharedPainter();
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->QUndoView::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QUndoView::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUndoView_OnSharedPainter(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SharedPainter_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SharedPainter_Callback>(slot));
+void QUndoView_OnSharedPainter(QUndoView* self, intptr_t slot) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
+        vqundoview->qundoview_sharedpainter_callback = reinterpret_cast<VirtualQUndoView::QUndoView_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ChildEvent(QUndoView* self, QChildEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->childEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperChildEvent(QUndoView* self, QChildEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ChildEvent_IsBase(true);
-        vqundoview->childEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->childEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnChildEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ChildEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ChildEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_childevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_CustomEvent(QUndoView* self, QEvent* event) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->customEvent(event);
     } else {
-        ((VirtualQUndoView*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QUndoView::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperCustomEvent(QUndoView* self, QEvent* event) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_CustomEvent_IsBase(true);
-        vqundoview->customEvent(event);
-    } else {
-        ((VirtualQUndoView*)self)->customEvent(event);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCustomEvent(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_CustomEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CustomEvent_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_customevent_callback = reinterpret_cast<VirtualQUndoView::QUndoView_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_ConnectNotify(QUndoView* self, const QMetaMethod* signal) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->connectNotify(*signal);
     } else {
-        ((VirtualQUndoView*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QUndoView::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperConnectNotify(QUndoView* self, const QMetaMethod* signal) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ConnectNotify_IsBase(true);
-        vqundoview->connectNotify(*signal);
-    } else {
-        ((VirtualQUndoView*)self)->connectNotify(*signal);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnConnectNotify(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ConnectNotify_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ConnectNotify_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_connectnotify_callback = reinterpret_cast<VirtualQUndoView::QUndoView_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUndoView_DisconnectNotify(QUndoView* self, const QMetaMethod* signal) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview) {
         vqundoview->disconnectNotify(*signal);
     } else {
-        ((VirtualQUndoView*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QUndoView::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUndoView_SuperDisconnectNotify(QUndoView* self, const QMetaMethod* signal) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DisconnectNotify_IsBase(true);
-        vqundoview->disconnectNotify(*signal);
-    } else {
-        ((VirtualQUndoView*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->QUndoView::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QUndoView::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDisconnectNotify(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DisconnectNotify_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DisconnectNotify_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self))
+        vqundoview->qundoview_disconnectnotify_callback = reinterpret_cast<VirtualQUndoView::QUndoView_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_ResizeContents(QUndoView* self, int width, int height) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    } else {
-        ((VirtualQUndoView*)self)->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    }
-}
-
-// Base class handler implementation
-void QUndoView_SuperResizeContents(QUndoView* self, int width, int height) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ResizeContents_IsBase(true);
-        vqundoview->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    } else {
-        ((VirtualQUndoView*)self)->resizeContents(static_cast<int>(width), static_cast<int>(height));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnResizeContents(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ResizeContents_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ResizeContents_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::resizeContents(static_cast<int>(width), static_cast<int>(height));
+    } else
+        qFatal("Error: Protected method QUndoView::resizeContents called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QSize* QUndoView_ContentsSize(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
         return new QSize(vqundoview->contentsSize());
-    }
-    return {};
-}
-
-// Base class handler implementation
-QSize* QUndoView_SuperContentsSize(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ContentsSize_IsBase(true);
-        return new QSize(vqundoview->contentsSize());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnContentsSize(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ContentsSize_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ContentsSize_Callback>(slot));
+    qFatal("Error: Protected method QUndoView::contentsSize called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRect* QUndoView_RectForIndex(const QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
         return new QRect(vqundoview->rectForIndex(*index));
-    }
-    return {};
+    qFatal("Error: Protected method QUndoView::rectForIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* QUndoView_SuperRectForIndex(const QUndoView* self, const QModelIndex* index) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_RectForIndex_IsBase(true);
-        return new QRect(vqundoview->rectForIndex(*index));
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnRectForIndex(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_RectForIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_RectForIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_SetPositionForIndex(QUndoView* self, const QPoint* position, const QModelIndex* index) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setPositionForIndex(*position, *index);
-    } else {
-        ((VirtualQUndoView*)self)->setPositionForIndex(*position, *index);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::setPositionForIndex(*position, *index);
+    } else
+        qFatal("Error: Protected method QUndoView::setPositionForIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperSetPositionForIndex(QUndoView* self, const QPoint* position, const QModelIndex* index) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetPositionForIndex_IsBase(true);
-        vqundoview->setPositionForIndex(*position, *index);
-    } else {
-        ((VirtualQUndoView*)self)->setPositionForIndex(*position, *index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnSetPositionForIndex(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetPositionForIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetPositionForIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QUndoView_State(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return static_cast<int>(vqundoview->state());
-    } else {
-        return static_cast<int>(((VirtualQUndoView*)self)->state());
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return static_cast<int>(vqundoview->VirtualQUndoView::state());
+    } else
+        qFatal("Error: Protected method QUndoView::state called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QUndoView_SuperState(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_State_IsBase(true);
-        return static_cast<int>(vqundoview->state());
-    } else {
-        return static_cast<int>(((VirtualQUndoView*)self)->state());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnState(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_State_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_State_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_SetState(QUndoView* self, int state) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setState(static_cast<VirtualQUndoView::State>(state));
-    } else {
-        ((VirtualQUndoView*)self)->setState(static_cast<VirtualQUndoView::State>(state));
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::setState(static_cast<VirtualQUndoView::State>(state));
+    } else
+        qFatal("Error: Protected method QUndoView::setState called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperSetState(QUndoView* self, int state) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetState_IsBase(true);
-        vqundoview->setState(static_cast<VirtualQUndoView::State>(state));
-    } else {
-        ((VirtualQUndoView*)self)->setState(static_cast<VirtualQUndoView::State>(state));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnSetState(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetState_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_ScheduleDelayedItemsLayout(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQUndoView*)self)->scheduleDelayedItemsLayout();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::scheduleDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QUndoView::scheduleDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperScheduleDelayedItemsLayout(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ScheduleDelayedItemsLayout_IsBase(true);
-        vqundoview->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQUndoView*)self)->scheduleDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnScheduleDelayedItemsLayout(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ScheduleDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_ExecuteDelayedItemsLayout(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQUndoView*)self)->executeDelayedItemsLayout();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::executeDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QUndoView::executeDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperExecuteDelayedItemsLayout(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ExecuteDelayedItemsLayout_IsBase(true);
-        vqundoview->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQUndoView*)self)->executeDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnExecuteDelayedItemsLayout(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ExecuteDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_SetDirtyRegion(QUndoView* self, const QRegion* region) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setDirtyRegion(*region);
-    } else {
-        ((VirtualQUndoView*)self)->setDirtyRegion(*region);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::setDirtyRegion(*region);
+    } else
+        qFatal("Error: Protected method QUndoView::setDirtyRegion called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperSetDirtyRegion(QUndoView* self, const QRegion* region) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetDirtyRegion_IsBase(true);
-        vqundoview->setDirtyRegion(*region);
-    } else {
-        ((VirtualQUndoView*)self)->setDirtyRegion(*region);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnSetDirtyRegion(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetDirtyRegion_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetDirtyRegion_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_ScrollDirtyRegion(QUndoView* self, int dx, int dy) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQUndoView*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Base class handler implementation
-void QUndoView_SuperScrollDirtyRegion(QUndoView* self, int dx, int dy) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ScrollDirtyRegion_IsBase(true);
-        vqundoview->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQUndoView*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnScrollDirtyRegion(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ScrollDirtyRegion_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected method QUndoView::scrollDirtyRegion called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPoint* QUndoView_DirtyRegionOffset(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
         return new QPoint(vqundoview->dirtyRegionOffset());
-    }
-    return {};
+    qFatal("Error: Protected method QUndoView::dirtyRegionOffset called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPoint* QUndoView_SuperDirtyRegionOffset(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DirtyRegionOffset_IsBase(true);
-        return new QPoint(vqundoview->dirtyRegionOffset());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnDirtyRegionOffset(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DirtyRegionOffset_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_StartAutoScroll(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->startAutoScroll();
-    } else {
-        ((VirtualQUndoView*)self)->startAutoScroll();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::startAutoScroll();
+    } else
+        qFatal("Error: Protected method QUndoView::startAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperStartAutoScroll(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_StartAutoScroll_IsBase(true);
-        vqundoview->startAutoScroll();
-    } else {
-        ((VirtualQUndoView*)self)->startAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnStartAutoScroll(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_StartAutoScroll_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_StartAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_StopAutoScroll(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->stopAutoScroll();
-    } else {
-        ((VirtualQUndoView*)self)->stopAutoScroll();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::stopAutoScroll();
+    } else
+        qFatal("Error: Protected method QUndoView::stopAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperStopAutoScroll(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_StopAutoScroll_IsBase(true);
-        vqundoview->stopAutoScroll();
-    } else {
-        ((VirtualQUndoView*)self)->stopAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnStopAutoScroll(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_StopAutoScroll_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_StopAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_DoAutoScroll(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->doAutoScroll();
-    } else {
-        ((VirtualQUndoView*)self)->doAutoScroll();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::doAutoScroll();
+    } else
+        qFatal("Error: Protected method QUndoView::doAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperDoAutoScroll(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DoAutoScroll_IsBase(true);
-        vqundoview->doAutoScroll();
-    } else {
-        ((VirtualQUndoView*)self)->doAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnDoAutoScroll(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DoAutoScroll_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DoAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QUndoView_DropIndicatorPosition(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return static_cast<int>(vqundoview->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQUndoView*)self)->dropIndicatorPosition());
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return static_cast<int>(vqundoview->VirtualQUndoView::dropIndicatorPosition());
+    } else
+        qFatal("Error: Protected method QUndoView::dropIndicatorPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QUndoView_SuperDropIndicatorPosition(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DropIndicatorPosition_IsBase(true);
-        return static_cast<int>(vqundoview->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQUndoView*)self)->dropIndicatorPosition());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnDropIndicatorPosition(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DropIndicatorPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_SetViewportMargins(QUndoView* self, int left, int top, int right, int bottom) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQUndoView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QUndoView_SuperSetViewportMargins(QUndoView* self, int left, int top, int right, int bottom) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SetViewportMargins_IsBase(true);
-        vqundoview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQUndoView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnSetViewportMargins(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SetViewportMargins_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetViewportMargins_Callback>(slot));
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QUndoView::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QUndoView_ViewportMargins(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self)))
         return new QMargins(vqundoview->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QUndoView::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QUndoView_SuperViewportMargins(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_ViewportMargins_IsBase(true);
-        return new QMargins(vqundoview->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnViewportMargins(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_ViewportMargins_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_DrawFrame(QUndoView* self, QPainter* param1) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->drawFrame(param1);
-    } else {
-        ((VirtualQUndoView*)self)->drawFrame(param1);
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QUndoView::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperDrawFrame(QUndoView* self, QPainter* param1) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_DrawFrame_IsBase(true);
-        vqundoview->drawFrame(param1);
-    } else {
-        ((VirtualQUndoView*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnDrawFrame(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_DrawFrame_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_UpdateMicroFocus(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->updateMicroFocus();
-    } else {
-        ((VirtualQUndoView*)self)->updateMicroFocus();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QUndoView::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperUpdateMicroFocus(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_UpdateMicroFocus_IsBase(true);
-        vqundoview->updateMicroFocus();
-    } else {
-        ((VirtualQUndoView*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnUpdateMicroFocus(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_Create(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->create();
-    } else {
-        ((VirtualQUndoView*)self)->create();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::create();
+    } else
+        qFatal("Error: Protected method QUndoView::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperCreate(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Create_IsBase(true);
-        vqundoview->create();
-    } else {
-        ((VirtualQUndoView*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnCreate(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Create_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QUndoView_Destroy(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->destroy();
-    } else {
-        ((VirtualQUndoView*)self)->destroy();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        vqundoview->VirtualQUndoView::destroy();
+    } else
+        qFatal("Error: Protected method QUndoView::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QUndoView_SuperDestroy(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Destroy_IsBase(true);
-        vqundoview->destroy();
-    } else {
-        ((VirtualQUndoView*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnDestroy(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Destroy_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QUndoView_FocusNextChild(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->focusNextChild();
-    } else {
-        return ((VirtualQUndoView*)self)->focusNextChild();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        return vqundoview->VirtualQUndoView::focusNextChild();
+    } else
+        qFatal("Error: Protected method QUndoView::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QUndoView_SuperFocusNextChild(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_FocusNextChild_IsBase(true);
-        return vqundoview->focusNextChild();
-    } else {
-        return ((VirtualQUndoView*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnFocusNextChild(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_FocusNextChild_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QUndoView_FocusPreviousChild(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->focusPreviousChild();
-    } else {
-        return ((VirtualQUndoView*)self)->focusPreviousChild();
-    }
+    if (auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self)) {
+        return vqundoview->VirtualQUndoView::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QUndoView::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QUndoView_SuperFocusPreviousChild(QUndoView* self) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_FocusPreviousChild_IsBase(true);
-        return vqundoview->focusPreviousChild();
-    } else {
-        return ((VirtualQUndoView*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnFocusPreviousChild(QUndoView* self, intptr_t slot) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QUndoView_Sender(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->sender();
-    } else {
-        return ((VirtualQUndoView*)self)->sender();
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->VirtualQUndoView::sender();
+    } else
+        qFatal("Error: Protected method QUndoView::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QUndoView_SuperSender(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Sender_IsBase(true);
-        return vqundoview->sender();
-    } else {
-        return ((VirtualQUndoView*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnSender(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Sender_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QUndoView_SenderSignalIndex(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->senderSignalIndex();
-    } else {
-        return ((VirtualQUndoView*)self)->senderSignalIndex();
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->VirtualQUndoView::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QUndoView::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QUndoView_SuperSenderSignalIndex(const QUndoView* self) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_SenderSignalIndex_IsBase(true);
-        return vqundoview->senderSignalIndex();
-    } else {
-        return ((VirtualQUndoView*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnSenderSignalIndex(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QUndoView_Receivers(const QUndoView* self, const char* signal) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->receivers(signal);
-    } else {
-        return ((VirtualQUndoView*)self)->receivers(signal);
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->VirtualQUndoView::receivers(signal);
+    } else
+        qFatal("Error: Protected method QUndoView::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QUndoView_SuperReceivers(const QUndoView* self, const char* signal) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_Receivers_IsBase(true);
-        return vqundoview->receivers(signal);
-    } else {
-        return ((VirtualQUndoView*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnReceivers(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_Receivers_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QUndoView_IsSignalConnected(const QUndoView* self, const QMetaMethod* signal) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQUndoView*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->VirtualQUndoView::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QUndoView::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QUndoView_SuperIsSignalConnected(const QUndoView* self, const QMetaMethod* signal) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_IsSignalConnected_IsBase(true);
-        return vqundoview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQUndoView*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnIsSignalConnected(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_IsSignalConnected_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QUndoView_GetDecodedMetricF(const QUndoView* self, int metricA, int metricB) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return vqundoview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQUndoView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QUndoView_SuperGetDecodedMetricF(const QUndoView* self, int metricA, int metricB) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        vqundoview->setQUndoView_GetDecodedMetricF_IsBase(true);
-        return vqundoview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQUndoView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUndoView_OnGetDecodedMetricF(const QUndoView* self, intptr_t slot) {
-    auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView)
-        vqundoview->setQUndoView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self))) {
+        return vqundoview->VirtualQUndoView::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QUndoView::getDecodedMetricF called without a directly constructed type");
 }
 
 void QUndoView_Delete(QUndoView* self) {

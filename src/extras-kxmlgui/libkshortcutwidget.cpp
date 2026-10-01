@@ -181,1654 +181,1173 @@ libqt_string KShortcutWidget_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KShortcutWidget_SuperMetaObject(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vkshortcutwidget->metaObject();
-    } else {
-        return (QMetaObject*)self->KShortcutWidget::metaObject();
-    }
+    return (QMetaObject*)self->KShortcutWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnMetaObject(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_MetaObject_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MetaObject_Callback>(slot));
+void KShortcutWidget_OnMetaObject(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_metaobject_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KShortcutWidget_SuperMetacast(KShortcutWidget* self, const char* param1) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Metacast_IsBase(true);
-        return vkshortcutwidget->qt_metacast(param1);
-    } else {
-        return self->KShortcutWidget::qt_metacast(param1);
-    }
+    return self->KShortcutWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMetacast(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Metacast_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metacast_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_metacast_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KShortcutWidget_SuperMetacall(KShortcutWidget* self, int param1, int param2, void** param3) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Metacall_IsBase(true);
-        return vkshortcutwidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KShortcutWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KShortcutWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMetacall(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Metacall_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metacall_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_metacall_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KShortcutWidget_DevType(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->devType();
-    } else {
-        return self->KShortcutWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KShortcutWidget_SuperDevType(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_DevType_IsBase(true);
-        return vkshortcutwidget->devType();
-    } else {
-        return self->KShortcutWidget::devType();
-    }
+    return self->KShortcutWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnDevType(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_DevType_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DevType_Callback>(slot));
+void KShortcutWidget_OnDevType(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_devtype_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_SetVisible(KShortcutWidget* self, bool visible) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setVisible(visible);
-    } else {
-        self->KShortcutWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperSetVisible(KShortcutWidget* self, bool visible) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_SetVisible_IsBase(true);
-        vkshortcutwidget->setVisible(visible);
-    } else {
-        self->KShortcutWidget::setVisible(visible);
-    }
+    self->KShortcutWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnSetVisible(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_SetVisible_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SetVisible_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_setvisible_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KShortcutWidget_SizeHint(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return new QSize(vkshortcutwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKShortcutWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KShortcutWidget_SuperSizeHint(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_SizeHint_IsBase(true);
-        return new QSize(vkshortcutwidget->sizeHint());
-    } else {
-        return new QSize(((VirtualKShortcutWidget*)self)->sizeHint());
-    }
+    return new QSize(self->KShortcutWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnSizeHint(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_SizeHint_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SizeHint_Callback>(slot));
+void KShortcutWidget_OnSizeHint(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_sizehint_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KShortcutWidget_MinimumSizeHint(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return new QSize(vkshortcutwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKShortcutWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KShortcutWidget_SuperMinimumSizeHint(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vkshortcutwidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKShortcutWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KShortcutWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnMinimumSizeHint(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MinimumSizeHint_Callback>(slot));
+void KShortcutWidget_OnMinimumSizeHint(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_minimumsizehint_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KShortcutWidget_HeightForWidth(const KShortcutWidget* self, int param1) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KShortcutWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KShortcutWidget_SuperHeightForWidth(const KShortcutWidget* self, int param1) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_HeightForWidth_IsBase(true);
-        return vkshortcutwidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KShortcutWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KShortcutWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnHeightForWidth(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HeightForWidth_Callback>(slot));
+void KShortcutWidget_OnHeightForWidth(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_heightforwidth_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutWidget_HasHeightForWidth(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->hasHeightForWidth();
-    } else {
-        return self->KShortcutWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KShortcutWidget_SuperHasHeightForWidth(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_HasHeightForWidth_IsBase(true);
-        return vkshortcutwidget->hasHeightForWidth();
-    } else {
-        return self->KShortcutWidget::hasHeightForWidth();
-    }
+    return self->KShortcutWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnHasHeightForWidth(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HasHeightForWidth_Callback>(slot));
+void KShortcutWidget_OnHasHeightForWidth(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_hasheightforwidth_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KShortcutWidget_PaintEngine(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->paintEngine();
-    } else {
-        return self->KShortcutWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KShortcutWidget_SuperPaintEngine(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_PaintEngine_IsBase(true);
-        return vkshortcutwidget->paintEngine();
-    } else {
-        return self->KShortcutWidget::paintEngine();
-    }
+    return self->KShortcutWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnPaintEngine(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_PaintEngine_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_PaintEngine_Callback>(slot));
+void KShortcutWidget_OnPaintEngine(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_paintengine_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutWidget_Event(KShortcutWidget* self, QEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         return vkshortcutwidget->event(event);
     } else {
-        return ((VirtualKShortcutWidget*)self)->event(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KShortcutWidget_SuperEvent(KShortcutWidget* self, QEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Event_IsBase(true);
-        return vkshortcutwidget->event(event);
-    } else {
-        return ((VirtualKShortcutWidget*)self)->event(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        return vkshortcutwidget->KShortcutWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Event_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Event_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_event_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_MousePressEvent(KShortcutWidget* self, QMouseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->mousePressEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperMousePressEvent(KShortcutWidget* self, QMouseEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_MousePressEvent_IsBase(true);
-        vkshortcutwidget->mousePressEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMousePressEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MousePressEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_mousepressevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_MouseReleaseEvent(KShortcutWidget* self, QMouseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperMouseReleaseEvent(KShortcutWidget* self, QMouseEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_MouseReleaseEvent_IsBase(true);
-        vkshortcutwidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMouseReleaseEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_mousereleaseevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_MouseDoubleClickEvent(KShortcutWidget* self, QMouseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperMouseDoubleClickEvent(KShortcutWidget* self, QMouseEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_MouseDoubleClickEvent_IsBase(true);
-        vkshortcutwidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMouseDoubleClickEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_MouseMoveEvent(KShortcutWidget* self, QMouseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->mouseMoveEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperMouseMoveEvent(KShortcutWidget* self, QMouseEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_MouseMoveEvent_IsBase(true);
-        vkshortcutwidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMouseMoveEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_mousemoveevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_WheelEvent(KShortcutWidget* self, QWheelEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->wheelEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperWheelEvent(KShortcutWidget* self, QWheelEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_WheelEvent_IsBase(true);
-        vkshortcutwidget->wheelEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnWheelEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_WheelEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_WheelEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_wheelevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_KeyPressEvent(KShortcutWidget* self, QKeyEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->keyPressEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperKeyPressEvent(KShortcutWidget* self, QKeyEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_KeyPressEvent_IsBase(true);
-        vkshortcutwidget->keyPressEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnKeyPressEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_keypressevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_KeyReleaseEvent(KShortcutWidget* self, QKeyEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->keyReleaseEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperKeyReleaseEvent(KShortcutWidget* self, QKeyEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_KeyReleaseEvent_IsBase(true);
-        vkshortcutwidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnKeyReleaseEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_keyreleaseevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_FocusInEvent(KShortcutWidget* self, QFocusEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->focusInEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperFocusInEvent(KShortcutWidget* self, QFocusEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_FocusInEvent_IsBase(true);
-        vkshortcutwidget->focusInEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnFocusInEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusInEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_focusinevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_FocusOutEvent(KShortcutWidget* self, QFocusEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->focusOutEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperFocusOutEvent(KShortcutWidget* self, QFocusEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_FocusOutEvent_IsBase(true);
-        vkshortcutwidget->focusOutEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnFocusOutEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_focusoutevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_EnterEvent(KShortcutWidget* self, QEnterEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->enterEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperEnterEvent(KShortcutWidget* self, QEnterEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_EnterEvent_IsBase(true);
-        vkshortcutwidget->enterEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->enterEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnEnterEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_EnterEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_EnterEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_enterevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_LeaveEvent(KShortcutWidget* self, QEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->leaveEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperLeaveEvent(KShortcutWidget* self, QEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_LeaveEvent_IsBase(true);
-        vkshortcutwidget->leaveEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnLeaveEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_LeaveEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_leaveevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_PaintEvent(KShortcutWidget* self, QPaintEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->paintEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperPaintEvent(KShortcutWidget* self, QPaintEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_PaintEvent_IsBase(true);
-        vkshortcutwidget->paintEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->paintEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnPaintEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_PaintEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_PaintEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_paintevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_MoveEvent(KShortcutWidget* self, QMoveEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->moveEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperMoveEvent(KShortcutWidget* self, QMoveEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_MoveEvent_IsBase(true);
-        vkshortcutwidget->moveEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->moveEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMoveEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_MoveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MoveEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_moveevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_ResizeEvent(KShortcutWidget* self, QResizeEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->resizeEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperResizeEvent(KShortcutWidget* self, QResizeEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_ResizeEvent_IsBase(true);
-        vkshortcutwidget->resizeEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnResizeEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ResizeEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_resizeevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_CloseEvent(KShortcutWidget* self, QCloseEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->closeEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperCloseEvent(KShortcutWidget* self, QCloseEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_CloseEvent_IsBase(true);
-        vkshortcutwidget->closeEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->closeEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnCloseEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_CloseEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_CloseEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_closeevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_ContextMenuEvent(KShortcutWidget* self, QContextMenuEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->contextMenuEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperContextMenuEvent(KShortcutWidget* self, QContextMenuEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_ContextMenuEvent_IsBase(true);
-        vkshortcutwidget->contextMenuEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnContextMenuEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_contextmenuevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_TabletEvent(KShortcutWidget* self, QTabletEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->tabletEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperTabletEvent(KShortcutWidget* self, QTabletEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_TabletEvent_IsBase(true);
-        vkshortcutwidget->tabletEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnTabletEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_TabletEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_TabletEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_tabletevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_ActionEvent(KShortcutWidget* self, QActionEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->actionEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperActionEvent(KShortcutWidget* self, QActionEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_ActionEvent_IsBase(true);
-        vkshortcutwidget->actionEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->actionEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnActionEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_ActionEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ActionEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_actionevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_DragEnterEvent(KShortcutWidget* self, QDragEnterEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->dragEnterEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperDragEnterEvent(KShortcutWidget* self, QDragEnterEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_DragEnterEvent_IsBase(true);
-        vkshortcutwidget->dragEnterEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDragEnterEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_dragenterevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_DragMoveEvent(KShortcutWidget* self, QDragMoveEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->dragMoveEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperDragMoveEvent(KShortcutWidget* self, QDragMoveEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_DragMoveEvent_IsBase(true);
-        vkshortcutwidget->dragMoveEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDragMoveEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_dragmoveevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_DragLeaveEvent(KShortcutWidget* self, QDragLeaveEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->dragLeaveEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperDragLeaveEvent(KShortcutWidget* self, QDragLeaveEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_DragLeaveEvent_IsBase(true);
-        vkshortcutwidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDragLeaveEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_dragleaveevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_DropEvent(KShortcutWidget* self, QDropEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->dropEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperDropEvent(KShortcutWidget* self, QDropEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_DropEvent_IsBase(true);
-        vkshortcutwidget->dropEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->dropEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDropEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_DropEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DropEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_dropevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_ShowEvent(KShortcutWidget* self, QShowEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->showEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperShowEvent(KShortcutWidget* self, QShowEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_ShowEvent_IsBase(true);
-        vkshortcutwidget->showEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->showEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnShowEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_ShowEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ShowEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_showevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_HideEvent(KShortcutWidget* self, QHideEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->hideEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperHideEvent(KShortcutWidget* self, QHideEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_HideEvent_IsBase(true);
-        vkshortcutwidget->hideEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->hideEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnHideEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_HideEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HideEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_hideevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutWidget_NativeEvent(KShortcutWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
+    if (vkshortcutwidget) {
         return vkshortcutwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKShortcutWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KShortcutWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KShortcutWidget_SuperNativeEvent(KShortcutWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_NativeEvent_IsBase(true);
-        return vkshortcutwidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKShortcutWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        return vkshortcutwidget->KShortcutWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnNativeEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_NativeEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_NativeEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_nativeevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_ChangeEvent(KShortcutWidget* self, QEvent* param1) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->changeEvent(param1);
     } else {
-        ((VirtualKShortcutWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperChangeEvent(KShortcutWidget* self, QEvent* param1) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_ChangeEvent_IsBase(true);
-        vkshortcutwidget->changeEvent(param1);
-    } else {
-        ((VirtualKShortcutWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnChangeEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ChangeEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_changeevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KShortcutWidget_Metric(const KShortcutWidget* self, int param1) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         return vkshortcutwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKShortcutWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KShortcutWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KShortcutWidget_SuperMetric(const KShortcutWidget* self, int param1) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Metric_IsBase(true);
-        return vkshortcutwidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKShortcutWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        return vkshortcutwidget->KShortcutWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnMetric(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Metric_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metric_Callback>(slot));
+void KShortcutWidget_OnMetric(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_metric_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_InitPainter(const KShortcutWidget* self, QPainter* painter) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->initPainter(painter);
     } else {
-        ((VirtualKShortcutWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KShortcutWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperInitPainter(const KShortcutWidget* self, QPainter* painter) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_InitPainter_IsBase(true);
-        vkshortcutwidget->initPainter(painter);
-    } else {
-        ((VirtualKShortcutWidget*)self)->initPainter(painter);
-    }
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        vkshortcutwidget->KShortcutWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnInitPainter(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_InitPainter_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InitPainter_Callback>(slot));
+void KShortcutWidget_OnInitPainter(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_initpainter_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KShortcutWidget_Redirected(const KShortcutWidget* self, QPoint* offset) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         return vkshortcutwidget->redirected(offset);
     } else {
-        return ((VirtualKShortcutWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KShortcutWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KShortcutWidget_SuperRedirected(const KShortcutWidget* self, QPoint* offset) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Redirected_IsBase(true);
-        return vkshortcutwidget->redirected(offset);
-    } else {
-        return ((VirtualKShortcutWidget*)self)->redirected(offset);
-    }
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        return vkshortcutwidget->KShortcutWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnRedirected(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Redirected_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Redirected_Callback>(slot));
+void KShortcutWidget_OnRedirected(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_redirected_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KShortcutWidget_SharedPainter(const KShortcutWidget* self) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         return vkshortcutwidget->sharedPainter();
     } else {
-        return ((VirtualKShortcutWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KShortcutWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KShortcutWidget_SuperSharedPainter(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_SharedPainter_IsBase(true);
-        return vkshortcutwidget->sharedPainter();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->sharedPainter();
-    }
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        return vkshortcutwidget->KShortcutWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnSharedPainter(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_SharedPainter_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SharedPainter_Callback>(slot));
+void KShortcutWidget_OnSharedPainter(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_sharedpainter_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_InputMethodEvent(KShortcutWidget* self, QInputMethodEvent* param1) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->inputMethodEvent(param1);
     } else {
-        ((VirtualKShortcutWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KShortcutWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperInputMethodEvent(KShortcutWidget* self, QInputMethodEvent* param1) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_InputMethodEvent_IsBase(true);
-        vkshortcutwidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualKShortcutWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnInputMethodEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_inputmethodevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KShortcutWidget_InputMethodQuery(const KShortcutWidget* self, int param1) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return new QVariant(vkshortcutwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKShortcutWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KShortcutWidget_SuperInputMethodQuery(const KShortcutWidget* self, int param1) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vkshortcutwidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKShortcutWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KShortcutWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnInputMethodQuery(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InputMethodQuery_Callback>(slot));
+void KShortcutWidget_OnInputMethodQuery(KShortcutWidget* self, intptr_t slot) {
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self)))
+        vkshortcutwidget->kshortcutwidget_inputmethodquery_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutWidget_FocusNextPrevChild(KShortcutWidget* self, bool next) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         return vkshortcutwidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualKShortcutWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KShortcutWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KShortcutWidget_SuperFocusNextPrevChild(KShortcutWidget* self, bool next) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_FocusNextPrevChild_IsBase(true);
-        return vkshortcutwidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKShortcutWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        return vkshortcutwidget->KShortcutWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnFocusNextPrevChild(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_focusnextprevchild_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KShortcutWidget_EventFilter(KShortcutWidget* self, QObject* watched, QEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->eventFilter(watched, event);
-    } else {
-        return self->KShortcutWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KShortcutWidget_SuperEventFilter(KShortcutWidget* self, QObject* watched, QEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_EventFilter_IsBase(true);
-        return vkshortcutwidget->eventFilter(watched, event);
-    } else {
-        return self->KShortcutWidget::eventFilter(watched, event);
-    }
+    return self->KShortcutWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnEventFilter(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_EventFilter_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_EventFilter_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_eventfilter_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_TimerEvent(KShortcutWidget* self, QTimerEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->timerEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperTimerEvent(KShortcutWidget* self, QTimerEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_TimerEvent_IsBase(true);
-        vkshortcutwidget->timerEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->timerEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnTimerEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_TimerEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_TimerEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_timerevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_ChildEvent(KShortcutWidget* self, QChildEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->childEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperChildEvent(KShortcutWidget* self, QChildEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_ChildEvent_IsBase(true);
-        vkshortcutwidget->childEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->childEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnChildEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_ChildEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ChildEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_childevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_CustomEvent(KShortcutWidget* self, QEvent* event) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->customEvent(event);
     } else {
-        ((VirtualKShortcutWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KShortcutWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperCustomEvent(KShortcutWidget* self, QEvent* event) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_CustomEvent_IsBase(true);
-        vkshortcutwidget->customEvent(event);
-    } else {
-        ((VirtualKShortcutWidget*)self)->customEvent(event);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnCustomEvent(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_CustomEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_CustomEvent_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_customevent_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_ConnectNotify(KShortcutWidget* self, const QMetaMethod* signal) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->connectNotify(*signal);
     } else {
-        ((VirtualKShortcutWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KShortcutWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperConnectNotify(KShortcutWidget* self, const QMetaMethod* signal) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_ConnectNotify_IsBase(true);
-        vkshortcutwidget->connectNotify(*signal);
-    } else {
-        ((VirtualKShortcutWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnConnectNotify(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ConnectNotify_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_connectnotify_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KShortcutWidget_DisconnectNotify(KShortcutWidget* self, const QMetaMethod* signal) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget) {
         vkshortcutwidget->disconnectNotify(*signal);
     } else {
-        ((VirtualKShortcutWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KShortcutWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KShortcutWidget_SuperDisconnectNotify(KShortcutWidget* self, const QMetaMethod* signal) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_DisconnectNotify_IsBase(true);
-        vkshortcutwidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualKShortcutWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->KShortcutWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KShortcutWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDisconnectNotify(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self))
+        vkshortcutwidget->kshortcutwidget_disconnectnotify_callback = reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KShortcutWidget_UpdateMicroFocus(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->updateMicroFocus();
-    } else {
-        ((VirtualKShortcutWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->VirtualKShortcutWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KShortcutWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KShortcutWidget_SuperUpdateMicroFocus(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_UpdateMicroFocus_IsBase(true);
-        vkshortcutwidget->updateMicroFocus();
-    } else {
-        ((VirtualKShortcutWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnUpdateMicroFocus(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KShortcutWidget_Create(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->create();
-    } else {
-        ((VirtualKShortcutWidget*)self)->create();
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->VirtualKShortcutWidget::create();
+    } else
+        qFatal("Error: Protected method KShortcutWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KShortcutWidget_SuperCreate(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Create_IsBase(true);
-        vkshortcutwidget->create();
-    } else {
-        ((VirtualKShortcutWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnCreate(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Create_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KShortcutWidget_Destroy(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->destroy();
-    } else {
-        ((VirtualKShortcutWidget*)self)->destroy();
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        vkshortcutwidget->VirtualKShortcutWidget::destroy();
+    } else
+        qFatal("Error: Protected method KShortcutWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KShortcutWidget_SuperDestroy(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Destroy_IsBase(true);
-        vkshortcutwidget->destroy();
-    } else {
-        ((VirtualKShortcutWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnDestroy(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Destroy_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KShortcutWidget_FocusNextChild(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->focusNextChild();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->focusNextChild();
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        return vkshortcutwidget->VirtualKShortcutWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method KShortcutWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KShortcutWidget_SuperFocusNextChild(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_FocusNextChild_IsBase(true);
-        return vkshortcutwidget->focusNextChild();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnFocusNextChild(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KShortcutWidget_FocusPreviousChild(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self)) {
+        return vkshortcutwidget->VirtualKShortcutWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KShortcutWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KShortcutWidget_SuperFocusPreviousChild(KShortcutWidget* self) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_FocusPreviousChild_IsBase(true);
-        return vkshortcutwidget->focusPreviousChild();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnFocusPreviousChild(KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KShortcutWidget_Sender(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->sender();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->sender();
-    }
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        return vkshortcutwidget->VirtualKShortcutWidget::sender();
+    } else
+        qFatal("Error: Protected method KShortcutWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KShortcutWidget_SuperSender(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Sender_IsBase(true);
-        return vkshortcutwidget->sender();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnSender(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Sender_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KShortcutWidget_SenderSignalIndex(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        return vkshortcutwidget->VirtualKShortcutWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KShortcutWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KShortcutWidget_SuperSenderSignalIndex(const KShortcutWidget* self) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_SenderSignalIndex_IsBase(true);
-        return vkshortcutwidget->senderSignalIndex();
-    } else {
-        return ((VirtualKShortcutWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnSenderSignalIndex(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KShortcutWidget_Receivers(const KShortcutWidget* self, const char* signal) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->receivers(signal);
-    } else {
-        return ((VirtualKShortcutWidget*)self)->receivers(signal);
-    }
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        return vkshortcutwidget->VirtualKShortcutWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method KShortcutWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KShortcutWidget_SuperReceivers(const KShortcutWidget* self, const char* signal) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_Receivers_IsBase(true);
-        return vkshortcutwidget->receivers(signal);
-    } else {
-        return ((VirtualKShortcutWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnReceivers(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_Receivers_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KShortcutWidget_IsSignalConnected(const KShortcutWidget* self, const QMetaMethod* signal) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKShortcutWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        return vkshortcutwidget->VirtualKShortcutWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KShortcutWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KShortcutWidget_SuperIsSignalConnected(const KShortcutWidget* self, const QMetaMethod* signal) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_IsSignalConnected_IsBase(true);
-        return vkshortcutwidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKShortcutWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnIsSignalConnected(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KShortcutWidget_GetDecodedMetricF(const KShortcutWidget* self, int metricA, int metricB) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        return vkshortcutwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKShortcutWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KShortcutWidget_SuperGetDecodedMetricF(const KShortcutWidget* self, int metricA, int metricB) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
-        vkshortcutwidget->setKShortcutWidget_GetDecodedMetricF_IsBase(true);
-        return vkshortcutwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKShortcutWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KShortcutWidget_OnGetDecodedMetricF(const KShortcutWidget* self, intptr_t slot) {
-    auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
-        vkshortcutwidget->setKShortcutWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self))) {
+        return vkshortcutwidget->VirtualKShortcutWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KShortcutWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void KShortcutWidget_Delete(KShortcutWidget* self) {

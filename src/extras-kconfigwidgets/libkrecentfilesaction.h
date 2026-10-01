@@ -58,7 +58,7 @@ libqt_string KRecentFilesAction_Tr2(const char* s, const char* c);
 libqt_string KRecentFilesAction_Tr3(const char* s, const char* c, int n);
 void KRecentFilesAction_AddAction4(KRecentFilesAction* self, QAction* action, const QUrl* url, const libqt_string name, const QMimeType* mimeType);
 void KRecentFilesAction_AddUrl22(KRecentFilesAction* self, const QUrl* url, const libqt_string name);
-void KRecentFilesAction_OnMetaObject(const KRecentFilesAction* self, intptr_t slot);
+void KRecentFilesAction_OnMetaObject(KRecentFilesAction* self, intptr_t slot);
 QMetaObject* KRecentFilesAction_SuperMetaObject(const KRecentFilesAction* self);
 void KRecentFilesAction_OnMetacast(KRecentFilesAction* self, intptr_t slot);
 void* KRecentFilesAction_SuperMetacast(KRecentFilesAction* self, const char* param1);
@@ -102,23 +102,11 @@ void KRecentFilesAction_DisconnectNotify(KRecentFilesAction* self, const QMetaMe
 void KRecentFilesAction_OnDisconnectNotify(KRecentFilesAction* self, intptr_t slot);
 void KRecentFilesAction_SuperDisconnectNotify(KRecentFilesAction* self, const QMetaMethod* signal);
 void KRecentFilesAction_SlotToggled(KRecentFilesAction* self, bool param1);
-void KRecentFilesAction_OnSlotToggled(KRecentFilesAction* self, intptr_t slot);
-void KRecentFilesAction_SuperSlotToggled(KRecentFilesAction* self, bool param1);
 libqt_list /* of QWidget* */ KRecentFilesAction_CreatedWidgets(const KRecentFilesAction* self);
-void KRecentFilesAction_OnCreatedWidgets(const KRecentFilesAction* self, intptr_t slot);
-libqt_list /* of QWidget* */ KRecentFilesAction_SuperCreatedWidgets(const KRecentFilesAction* self);
 QObject* KRecentFilesAction_Sender(const KRecentFilesAction* self);
-void KRecentFilesAction_OnSender(const KRecentFilesAction* self, intptr_t slot);
-QObject* KRecentFilesAction_SuperSender(const KRecentFilesAction* self);
 int KRecentFilesAction_SenderSignalIndex(const KRecentFilesAction* self);
-void KRecentFilesAction_OnSenderSignalIndex(const KRecentFilesAction* self, intptr_t slot);
-int KRecentFilesAction_SuperSenderSignalIndex(const KRecentFilesAction* self);
 int KRecentFilesAction_Receivers(const KRecentFilesAction* self, const char* signal);
-void KRecentFilesAction_OnReceivers(const KRecentFilesAction* self, intptr_t slot);
-int KRecentFilesAction_SuperReceivers(const KRecentFilesAction* self, const char* signal);
 bool KRecentFilesAction_IsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal);
-void KRecentFilesAction_OnIsSignalConnected(const KRecentFilesAction* self, intptr_t slot);
-bool KRecentFilesAction_SuperIsSignalConnected(const KRecentFilesAction* self, const QMetaMethod* signal);
 void KRecentFilesAction_Delete(KRecentFilesAction* self);
 
 #ifdef __cplusplus

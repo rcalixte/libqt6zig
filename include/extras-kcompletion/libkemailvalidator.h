@@ -35,15 +35,15 @@ int KEmailValidator_Validate(const KEmailValidator* self, libqt_string str, int*
 void KEmailValidator_Fixup(const KEmailValidator* self, libqt_string str);
 libqt_string KEmailValidator_Tr2(const char* s, const char* c);
 libqt_string KEmailValidator_Tr3(const char* s, const char* c, int n);
-void KEmailValidator_OnMetaObject(const KEmailValidator* self, intptr_t slot);
+void KEmailValidator_OnMetaObject(KEmailValidator* self, intptr_t slot);
 QMetaObject* KEmailValidator_SuperMetaObject(const KEmailValidator* self);
 void KEmailValidator_OnMetacast(KEmailValidator* self, intptr_t slot);
 void* KEmailValidator_SuperMetacast(KEmailValidator* self, const char* param1);
 void KEmailValidator_OnMetacall(KEmailValidator* self, intptr_t slot);
 int KEmailValidator_SuperMetacall(KEmailValidator* self, int param1, int param2, void** param3);
-void KEmailValidator_OnValidate(const KEmailValidator* self, intptr_t slot);
+void KEmailValidator_OnValidate(KEmailValidator* self, intptr_t slot);
 int KEmailValidator_SuperValidate(const KEmailValidator* self, libqt_string str, int* pos);
-void KEmailValidator_OnFixup(const KEmailValidator* self, intptr_t slot);
+void KEmailValidator_OnFixup(KEmailValidator* self, intptr_t slot);
 void KEmailValidator_SuperFixup(const KEmailValidator* self, libqt_string str);
 bool KEmailValidator_Event(KEmailValidator* self, QEvent* event);
 void KEmailValidator_OnEvent(KEmailValidator* self, intptr_t slot);
@@ -67,17 +67,9 @@ void KEmailValidator_DisconnectNotify(KEmailValidator* self, const QMetaMethod* 
 void KEmailValidator_OnDisconnectNotify(KEmailValidator* self, intptr_t slot);
 void KEmailValidator_SuperDisconnectNotify(KEmailValidator* self, const QMetaMethod* signal);
 QObject* KEmailValidator_Sender(const KEmailValidator* self);
-void KEmailValidator_OnSender(const KEmailValidator* self, intptr_t slot);
-QObject* KEmailValidator_SuperSender(const KEmailValidator* self);
 int KEmailValidator_SenderSignalIndex(const KEmailValidator* self);
-void KEmailValidator_OnSenderSignalIndex(const KEmailValidator* self, intptr_t slot);
-int KEmailValidator_SuperSenderSignalIndex(const KEmailValidator* self);
 int KEmailValidator_Receivers(const KEmailValidator* self, const char* signal);
-void KEmailValidator_OnReceivers(const KEmailValidator* self, intptr_t slot);
-int KEmailValidator_SuperReceivers(const KEmailValidator* self, const char* signal);
 bool KEmailValidator_IsSignalConnected(const KEmailValidator* self, const QMetaMethod* signal);
-void KEmailValidator_OnIsSignalConnected(const KEmailValidator* self, intptr_t slot);
-bool KEmailValidator_SuperIsSignalConnected(const KEmailValidator* self, const QMetaMethod* signal);
 void KEmailValidator_Delete(KEmailValidator* self);
 
 #ifdef __cplusplus

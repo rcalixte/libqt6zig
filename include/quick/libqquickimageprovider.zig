@@ -67,9 +67,9 @@ pub const QQuickTextureFactory = extern struct {
     ///
     /// ` self: QQuickTextureFactory `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickTextureFactory) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickTextureFactory, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickTextureFactory, callback: *const fn (QQuickTextureFactory) callconv(.c) QMetaObject) void {
         qtc.QQuickTextureFactory_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -220,6 +220,8 @@ pub const QQuickTextureFactory = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktexturefactory.html#createTexture)
     ///
+    /// This method must be implemented with `onCreateTexture` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQuickTextureFactory `
@@ -249,30 +251,13 @@ pub const QQuickTextureFactory = extern struct {
         qtc.QQuickTextureFactory_OnCreateTexture(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superCreateTexture` instead
-    ///
-    pub const SuperCreateTexture = superCreateTexture;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktexturefactory.html#createTexture)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTextureFactory `
-    ///
-    /// ` window: QQuickWindow `
-    ///
-    pub fn superCreateTexture(self: QQuickTextureFactory, window: anytype) QSGTexture {
-        comptime _ = @TypeOf(window)._is_QQuickWindow;
-        return .{ .ptr = qtc.QQuickTextureFactory_SuperCreateTexture(@ptrCast(self.ptr), @ptrCast(window.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `textureSize` instead
     ///
     pub const TextureSize = textureSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktexturefactory.html#textureSize)
+    ///
+    /// This method must be implemented with `onTextureSize` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -294,28 +279,12 @@ pub const QQuickTextureFactory = extern struct {
     ///
     /// ` self: QQuickTextureFactory `
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QQuickTextureFactory) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onTextureSize(self: QQuickTextureFactory, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onTextureSize(self: QQuickTextureFactory, callback: *const fn (QQuickTextureFactory) callconv(.c) QSize) void {
         qtc.QQuickTextureFactory_OnTextureSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTextureSize` instead
-    ///
-    pub const SuperTextureSize = superTextureSize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktexturefactory.html#textureSize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTextureFactory `
-    ///
-    pub fn superTextureSize(self: QQuickTextureFactory) QSize {
-        return .{ .ptr = qtc.QQuickTextureFactory_SuperTextureSize(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `textureByteCount` instead
@@ -323,6 +292,8 @@ pub const QQuickTextureFactory = extern struct {
     pub const TextureByteCount = textureByteCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktexturefactory.html#textureByteCount)
+    ///
+    /// This method must be implemented with `onTextureByteCount` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -344,26 +315,10 @@ pub const QQuickTextureFactory = extern struct {
     ///
     /// ` self: QQuickTextureFactory `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QQuickTextureFactory) callconv(.c) i32 `
     ///
-    pub fn onTextureByteCount(self: QQuickTextureFactory, callback: *const fn () callconv(.c) i32) void {
+    pub fn onTextureByteCount(self: QQuickTextureFactory, callback: *const fn (QQuickTextureFactory) callconv(.c) i32) void {
         qtc.QQuickTextureFactory_OnTextureByteCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTextureByteCount` instead
-    ///
-    pub const SuperTextureByteCount = superTextureByteCount;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquicktexturefactory.html#textureByteCount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTextureFactory `
-    ///
-    pub fn superTextureByteCount(self: QQuickTextureFactory) i32 {
-        return qtc.QQuickTextureFactory_SuperTextureByteCount(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `image` instead
@@ -392,11 +347,11 @@ pub const QQuickTextureFactory = extern struct {
     ///
     /// ` self: QQuickTextureFactory `
     ///
-    /// ` callback: *const fn () callconv(.c) QImage `
+    /// ` callback: *const fn (self: QQuickTextureFactory) callconv(.c) QImage `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onImage(self: QQuickTextureFactory, callback: *const fn () callconv(.c) QImage) void {
+    pub fn onImage(self: QQuickTextureFactory, callback: *const fn (QQuickTextureFactory) callconv(.c) QImage) void {
         qtc.QQuickTextureFactory_OnImage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1908,44 +1863,6 @@ pub const QQuickTextureFactory = extern struct {
         return .{ .ptr = qtc.QQuickTextureFactory_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTextureFactory `
-    ///
-    pub fn superSender(self: QQuickTextureFactory) QObject {
-        return .{ .ptr = qtc.QQuickTextureFactory_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTextureFactory`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickTextureFactory, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickTextureFactory_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1962,44 +1879,6 @@ pub const QQuickTextureFactory = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickTextureFactory) i32 {
         return qtc.QQuickTextureFactory_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTextureFactory `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickTextureFactory) i32 {
-        return qtc.QQuickTextureFactory_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTextureFactory`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickTextureFactory, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickTextureFactory_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2023,47 +1902,6 @@ pub const QQuickTextureFactory = extern struct {
         return qtc.QQuickTextureFactory_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTextureFactory `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickTextureFactory, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickTextureFactory_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTextureFactory`
-    ///
-    /// ` callback: *const fn (self: QQuickTextureFactory, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickTextureFactory, callback: *const fn (QQuickTextureFactory, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickTextureFactory_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2083,47 +1921,6 @@ pub const QQuickTextureFactory = extern struct {
     pub fn isSignalConnected(self: QQuickTextureFactory, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickTextureFactory_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickTextureFactory `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickTextureFactory, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickTextureFactory_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickTextureFactory`
-    ///
-    /// ` callback: *const fn (self: QQuickTextureFactory, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickTextureFactory, callback: *const fn (QQuickTextureFactory, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickTextureFactory_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -2210,9 +2007,9 @@ pub const QQuickImageResponse = extern struct {
     ///
     /// ` self: QQuickImageResponse `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickImageResponse) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickImageResponse, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickImageResponse, callback: *const fn (QQuickImageResponse) callconv(.c) QMetaObject) void {
         qtc.QQuickImageResponse_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2363,6 +2160,8 @@ pub const QQuickImageResponse = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickimageresponse.html#textureFactory)
     ///
+    /// This method must be implemented with `onTextureFactory` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQuickImageResponse `
@@ -2383,26 +2182,10 @@ pub const QQuickImageResponse = extern struct {
     ///
     /// ` self: QQuickImageResponse `
     ///
-    /// ` callback: *const fn () callconv(.c) QQuickTextureFactory `
+    /// ` callback: *const fn (self: QQuickImageResponse) callconv(.c) QQuickTextureFactory `
     ///
-    pub fn onTextureFactory(self: QQuickImageResponse, callback: *const fn () callconv(.c) QQuickTextureFactory) void {
+    pub fn onTextureFactory(self: QQuickImageResponse, callback: *const fn (QQuickImageResponse) callconv(.c) QQuickTextureFactory) void {
         qtc.QQuickImageResponse_OnTextureFactory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superTextureFactory` instead
-    ///
-    pub const SuperTextureFactory = superTextureFactory;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickimageresponse.html#textureFactory)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageResponse `
-    ///
-    pub fn superTextureFactory(self: QQuickImageResponse) QQuickTextureFactory {
-        return .{ .ptr = qtc.QQuickImageResponse_SuperTextureFactory(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `errorString` instead
@@ -2437,9 +2220,9 @@ pub const QQuickImageResponse = extern struct {
     ///
     /// ` self: QQuickImageResponse `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QQuickImageResponse) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onErrorString(self: QQuickImageResponse, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: QQuickImageResponse, callback: *const fn (QQuickImageResponse) callconv(.c) [*:0]const u8) void {
         qtc.QQuickImageResponse_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2491,9 +2274,9 @@ pub const QQuickImageResponse = extern struct {
     ///
     /// ` self: QQuickImageResponse `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QQuickImageResponse) callconv(.c) void `
     ///
-    pub fn onCancel(self: QQuickImageResponse, callback: *const fn () callconv(.c) void) void {
+    pub fn onCancel(self: QQuickImageResponse, callback: *const fn (QQuickImageResponse) callconv(.c) void) void {
         qtc.QQuickImageResponse_OnCancel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4020,44 +3803,6 @@ pub const QQuickImageResponse = extern struct {
         return .{ .ptr = qtc.QQuickImageResponse_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageResponse `
-    ///
-    pub fn superSender(self: QQuickImageResponse) QObject {
-        return .{ .ptr = qtc.QQuickImageResponse_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickImageResponse`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickImageResponse, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickImageResponse_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4074,44 +3819,6 @@ pub const QQuickImageResponse = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickImageResponse) i32 {
         return qtc.QQuickImageResponse_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageResponse `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickImageResponse) i32 {
-        return qtc.QQuickImageResponse_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickImageResponse`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickImageResponse, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickImageResponse_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4135,47 +3842,6 @@ pub const QQuickImageResponse = extern struct {
         return qtc.QQuickImageResponse_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageResponse `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickImageResponse, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickImageResponse_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickImageResponse`
-    ///
-    /// ` callback: *const fn (self: QQuickImageResponse, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickImageResponse, callback: *const fn (QQuickImageResponse, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickImageResponse_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4195,47 +3861,6 @@ pub const QQuickImageResponse = extern struct {
     pub fn isSignalConnected(self: QQuickImageResponse, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickImageResponse_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageResponse `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickImageResponse, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickImageResponse_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickImageResponse`
-    ///
-    /// ` callback: *const fn (self: QQuickImageResponse, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickImageResponse, callback: *const fn (QQuickImageResponse, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickImageResponse_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -4343,9 +3968,9 @@ pub const QQuickImageProvider = extern struct {
     ///
     /// ` self: QQuickImageProvider `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickImageProvider) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickImageProvider, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickImageProvider, callback: *const fn (QQuickImageProvider) callconv(.c) QMetaObject) void {
         qtc.QQuickImageProvider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4520,9 +4145,9 @@ pub const QQuickImageProvider = extern struct {
     ///
     /// ` self: QQuickImageProvider `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QQuickImageProvider) callconv(.c) i32 `
     ///
-    pub fn onImageType(self: QQuickImageProvider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onImageType(self: QQuickImageProvider, callback: *const fn (QQuickImageProvider) callconv(.c) i32) void {
         qtc.QQuickImageProvider_OnImageType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4576,9 +4201,9 @@ pub const QQuickImageProvider = extern struct {
     ///
     /// ` self: QQuickImageProvider `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QQuickImageProvider) callconv(.c) i32 `
     ///
-    pub fn onFlags(self: QQuickImageProvider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFlags(self: QQuickImageProvider, callback: *const fn (QQuickImageProvider) callconv(.c) i32) void {
         qtc.QQuickImageProvider_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6299,44 +5924,6 @@ pub const QQuickImageProvider = extern struct {
         return .{ .ptr = qtc.QQuickImageProvider_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageProvider `
-    ///
-    pub fn superSender(self: QQuickImageProvider) QObject {
-        return .{ .ptr = qtc.QQuickImageProvider_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickImageProvider`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickImageProvider, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickImageProvider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -6353,44 +5940,6 @@ pub const QQuickImageProvider = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickImageProvider) i32 {
         return qtc.QQuickImageProvider_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageProvider `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickImageProvider) i32 {
-        return qtc.QQuickImageProvider_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickImageProvider`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickImageProvider, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickImageProvider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -6414,47 +5963,6 @@ pub const QQuickImageProvider = extern struct {
         return qtc.QQuickImageProvider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageProvider `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickImageProvider, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickImageProvider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickImageProvider`
-    ///
-    /// ` callback: *const fn (self: QQuickImageProvider, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickImageProvider, callback: *const fn (QQuickImageProvider, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickImageProvider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -6474,47 +5982,6 @@ pub const QQuickImageProvider = extern struct {
     pub fn isSignalConnected(self: QQuickImageProvider, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickImageProvider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickImageProvider `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickImageProvider, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickImageProvider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickImageProvider`
-    ///
-    /// ` callback: *const fn (self: QQuickImageProvider, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickImageProvider, callback: *const fn (QQuickImageProvider, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickImageProvider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -6583,6 +6050,8 @@ pub const QQuickAsyncImageProvider = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickasyncimageprovider.html#requestImageResponse)
     ///
+    /// This method must be implemented with `onRequestImageResponse` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QQuickAsyncImageProvider `
@@ -6616,31 +6085,6 @@ pub const QQuickAsyncImageProvider = extern struct {
     ///
     pub fn onRequestImageResponse(self: QQuickAsyncImageProvider, callback: *const fn (QQuickAsyncImageProvider, [*:0]const u8, QSize) callconv(.c) QQuickImageResponse) void {
         qtc.QQuickAsyncImageProvider_OnRequestImageResponse(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRequestImageResponse` instead
-    ///
-    pub const SuperRequestImageResponse = superRequestImageResponse;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickasyncimageprovider.html#requestImageResponse)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAsyncImageProvider `
-    ///
-    /// ` id: []const u8 `
-    ///
-    /// ` requestedSize: QSize `
-    ///
-    pub fn superRequestImageResponse(self: QQuickAsyncImageProvider, id: []const u8, requestedSize: anytype) QQuickImageResponse {
-        const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
-        };
-        comptime _ = @TypeOf(requestedSize)._is_QSize;
-        return .{ .ptr = qtc.QQuickAsyncImageProvider_SuperRequestImageResponse(@ptrCast(self.ptr), id_str, @ptrCast(requestedSize.ptr)) };
     }
 
     /// ### DEPRECATED: Use `objectName` instead
@@ -7658,9 +7102,9 @@ pub const QQuickAsyncImageProvider = extern struct {
     ///
     /// ` self: QQuickAsyncImageProvider`
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickAsyncImageProvider) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickAsyncImageProvider, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickAsyncImageProvider, callback: *const fn (QQuickAsyncImageProvider) callconv(.c) QMetaObject) void {
         qtc.QQuickAsyncImageProvider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7852,9 +7296,9 @@ pub const QQuickAsyncImageProvider = extern struct {
     ///
     /// ` self: QQuickAsyncImageProvider`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QQuickAsyncImageProvider) callconv(.c) i32 `
     ///
-    pub fn onImageType(self: QQuickAsyncImageProvider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onImageType(self: QQuickAsyncImageProvider, callback: *const fn (QQuickAsyncImageProvider) callconv(.c) i32) void {
         qtc.QQuickAsyncImageProvider_OnImageType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7916,9 +7360,9 @@ pub const QQuickAsyncImageProvider = extern struct {
     ///
     /// ` self: QQuickAsyncImageProvider`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QQuickAsyncImageProvider) callconv(.c) i32 `
     ///
-    pub fn onFlags(self: QQuickAsyncImageProvider, callback: *const fn () callconv(.c) i32) void {
+    pub fn onFlags(self: QQuickAsyncImageProvider, callback: *const fn (QQuickAsyncImageProvider) callconv(.c) i32) void {
         qtc.QQuickAsyncImageProvider_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8624,44 +8068,6 @@ pub const QQuickAsyncImageProvider = extern struct {
         return .{ .ptr = qtc.QQuickAsyncImageProvider_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAsyncImageProvider `
-    ///
-    pub fn superSender(self: QQuickAsyncImageProvider) QObject {
-        return .{ .ptr = qtc.QQuickAsyncImageProvider_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAsyncImageProvider`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickAsyncImageProvider, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickAsyncImageProvider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -8678,44 +8084,6 @@ pub const QQuickAsyncImageProvider = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickAsyncImageProvider) i32 {
         return qtc.QQuickAsyncImageProvider_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAsyncImageProvider `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickAsyncImageProvider) i32 {
-        return qtc.QQuickAsyncImageProvider_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAsyncImageProvider`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickAsyncImageProvider, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickAsyncImageProvider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -8739,47 +8107,6 @@ pub const QQuickAsyncImageProvider = extern struct {
         return qtc.QQuickAsyncImageProvider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAsyncImageProvider `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickAsyncImageProvider, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickAsyncImageProvider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAsyncImageProvider`
-    ///
-    /// ` callback: *const fn (self: QQuickAsyncImageProvider, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickAsyncImageProvider, callback: *const fn (QQuickAsyncImageProvider, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickAsyncImageProvider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -8799,47 +8126,6 @@ pub const QQuickAsyncImageProvider = extern struct {
     pub fn isSignalConnected(self: QQuickAsyncImageProvider, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickAsyncImageProvider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAsyncImageProvider `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickAsyncImageProvider, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickAsyncImageProvider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAsyncImageProvider`
-    ///
-    /// ` callback: *const fn (self: QQuickAsyncImageProvider, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickAsyncImageProvider, callback: *const fn (QQuickAsyncImageProvider, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickAsyncImageProvider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

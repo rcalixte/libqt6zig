@@ -94,194 +94,137 @@ QPaintEngine* QPicture_PaintEngine(const QPicture* self) {
 
 int QPicture_Metric(const QPicture* self, int m) {
     auto* vqpicture = dynamic_cast<const VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture) {
         return vqpicture->metric(static_cast<QPaintDevice::PaintDeviceMetric>(m));
     }
-    return {};
+    qFatal("Error: Protected method QPicture::metric called without a directly constructed type");
 }
 
 // Base class handler implementation
 int QPicture_SuperDevType(const QPicture* self) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_DevType_IsBase(true);
-        return vqpicture->devType();
-    } else {
-        return self->QPicture::devType();
-    }
+    return self->QPicture::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPicture_OnDevType(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture)
-        vqpicture->setQPicture_DevType_Callback(reinterpret_cast<VirtualQPicture::QPicture_DevType_Callback>(slot));
+void QPicture_OnDevType(QPicture* self, intptr_t slot) {
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self)))
+        vqpicture->qpicture_devtype_callback = reinterpret_cast<VirtualQPicture::QPicture_DevType_Callback>(slot);
 }
 
 // Base class handler implementation
 void QPicture_SuperSetData(QPicture* self, const char* data, unsigned int size) {
-    auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_SetData_IsBase(true);
-        vqpicture->setData(data, static_cast<uint>(size));
-    } else {
-        self->QPicture::setData(data, static_cast<uint>(size));
-    }
+    self->QPicture::setData(data, static_cast<uint>(size));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QPicture_OnSetData(QPicture* self, intptr_t slot) {
-    auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture)
-        vqpicture->setQPicture_SetData_Callback(reinterpret_cast<VirtualQPicture::QPicture_SetData_Callback>(slot));
+    if (auto* vqpicture = dynamic_cast<VirtualQPicture*>(self))
+        vqpicture->qpicture_setdata_callback = reinterpret_cast<VirtualQPicture::QPicture_SetData_Callback>(slot);
 }
 
 // Base class handler implementation
 QPaintEngine* QPicture_SuperPaintEngine(const QPicture* self) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_PaintEngine_IsBase(true);
-        return vqpicture->paintEngine();
-    } else {
-        return self->QPicture::paintEngine();
-    }
+    return self->QPicture::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPicture_OnPaintEngine(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture)
-        vqpicture->setQPicture_PaintEngine_Callback(reinterpret_cast<VirtualQPicture::QPicture_PaintEngine_Callback>(slot));
+void QPicture_OnPaintEngine(QPicture* self, intptr_t slot) {
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self)))
+        vqpicture->qpicture_paintengine_callback = reinterpret_cast<VirtualQPicture::QPicture_PaintEngine_Callback>(slot);
 }
 
 // Base class handler implementation
 int QPicture_SuperMetric(const QPicture* self, int m) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_Metric_IsBase(true);
-        return vqpicture->metric(static_cast<QPaintDevice::PaintDeviceMetric>(m));
-    } else {
-        return ((VirtualQPicture*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(m));
-    }
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self))) {
+        return vqpicture->QPicture::metric(static_cast<QPaintDevice::PaintDeviceMetric>(m));
+    } else
+        qFatal("Error: Protected virtual method QPicture::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPicture_OnMetric(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture)
-        vqpicture->setQPicture_Metric_Callback(reinterpret_cast<VirtualQPicture::QPicture_Metric_Callback>(slot));
+void QPicture_OnMetric(QPicture* self, intptr_t slot) {
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self)))
+        vqpicture->qpicture_metric_callback = reinterpret_cast<VirtualQPicture::QPicture_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QPicture_InitPainter(const QPicture* self, QPainter* painter) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture) {
         vqpicture->initPainter(painter);
     } else {
-        ((VirtualQPicture*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QPicture::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QPicture_SuperInitPainter(const QPicture* self, QPainter* painter) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_InitPainter_IsBase(true);
-        vqpicture->initPainter(painter);
-    } else {
-        ((VirtualQPicture*)self)->initPainter(painter);
-    }
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self))) {
+        vqpicture->QPicture::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QPicture::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPicture_OnInitPainter(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture)
-        vqpicture->setQPicture_InitPainter_Callback(reinterpret_cast<VirtualQPicture::QPicture_InitPainter_Callback>(slot));
+void QPicture_OnInitPainter(QPicture* self, intptr_t slot) {
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self)))
+        vqpicture->qpicture_initpainter_callback = reinterpret_cast<VirtualQPicture::QPicture_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QPicture_Redirected(const QPicture* self, QPoint* offset) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture) {
         return vqpicture->redirected(offset);
     } else {
-        return ((VirtualQPicture*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QPicture::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QPicture_SuperRedirected(const QPicture* self, QPoint* offset) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_Redirected_IsBase(true);
-        return vqpicture->redirected(offset);
-    } else {
-        return ((VirtualQPicture*)self)->redirected(offset);
-    }
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self))) {
+        return vqpicture->QPicture::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QPicture::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPicture_OnRedirected(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture)
-        vqpicture->setQPicture_Redirected_Callback(reinterpret_cast<VirtualQPicture::QPicture_Redirected_Callback>(slot));
+void QPicture_OnRedirected(QPicture* self, intptr_t slot) {
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self)))
+        vqpicture->qpicture_redirected_callback = reinterpret_cast<VirtualQPicture::QPicture_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QPicture_SharedPainter(const QPicture* self) {
     auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
+    if (vqpicture) {
         return vqpicture->sharedPainter();
     } else {
-        return ((VirtualQPicture*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QPicture::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QPicture_SuperSharedPainter(const QPicture* self) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_SharedPainter_IsBase(true);
-        return vqpicture->sharedPainter();
-    } else {
-        return ((VirtualQPicture*)self)->sharedPainter();
-    }
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self))) {
+        return vqpicture->QPicture::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QPicture::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPicture_OnSharedPainter(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture)
-        vqpicture->setQPicture_SharedPainter_Callback(reinterpret_cast<VirtualQPicture::QPicture_SharedPainter_Callback>(slot));
+void QPicture_OnSharedPainter(QPicture* self, intptr_t slot) {
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self)))
+        vqpicture->qpicture_sharedpainter_callback = reinterpret_cast<VirtualQPicture::QPicture_SharedPainter_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QPicture_GetDecodedMetricF(const QPicture* self, int metricA, int metricB) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        return vqpicture->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPicture*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QPicture_SuperGetDecodedMetricF(const QPicture* self, int metricA, int metricB) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        vqpicture->setQPicture_GetDecodedMetricF_IsBase(true);
-        return vqpicture->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQPicture*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QPicture_OnGetDecodedMetricF(const QPicture* self, intptr_t slot) {
-    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
-    if (vqpicture && vqpicture->isVirtualQPicture)
-        vqpicture->setQPicture_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPicture::QPicture_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self))) {
+        return vqpicture->VirtualQPicture::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QPicture::getDecodedMetricF called without a directly constructed type");
 }
 
 void QPicture_Delete(QPicture* self) {

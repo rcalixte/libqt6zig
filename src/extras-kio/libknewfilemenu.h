@@ -68,7 +68,7 @@ void KNewFileMenu_Connect_SelectExistingDir(KNewFileMenu* self, intptr_t slot);
 void KNewFileMenu_SlotResult(KNewFileMenu* self, KJob* job);
 libqt_string KNewFileMenu_Tr2(const char* s, const char* c);
 libqt_string KNewFileMenu_Tr3(const char* s, const char* c, int n);
-void KNewFileMenu_OnMetaObject(const KNewFileMenu* self, intptr_t slot);
+void KNewFileMenu_OnMetaObject(KNewFileMenu* self, intptr_t slot);
 QMetaObject* KNewFileMenu_SuperMetaObject(const KNewFileMenu* self);
 void KNewFileMenu_OnMetacast(KNewFileMenu* self, intptr_t slot);
 void* KNewFileMenu_SuperMetacast(KNewFileMenu* self, const char* param1);
@@ -104,20 +104,10 @@ void KNewFileMenu_DisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal
 void KNewFileMenu_OnDisconnectNotify(KNewFileMenu* self, intptr_t slot);
 void KNewFileMenu_SuperDisconnectNotify(KNewFileMenu* self, const QMetaMethod* signal);
 libqt_list /* of QWidget* */ KNewFileMenu_CreatedWidgets(const KNewFileMenu* self);
-void KNewFileMenu_OnCreatedWidgets(const KNewFileMenu* self, intptr_t slot);
-libqt_list /* of QWidget* */ KNewFileMenu_SuperCreatedWidgets(const KNewFileMenu* self);
 QObject* KNewFileMenu_Sender(const KNewFileMenu* self);
-void KNewFileMenu_OnSender(const KNewFileMenu* self, intptr_t slot);
-QObject* KNewFileMenu_SuperSender(const KNewFileMenu* self);
 int KNewFileMenu_SenderSignalIndex(const KNewFileMenu* self);
-void KNewFileMenu_OnSenderSignalIndex(const KNewFileMenu* self, intptr_t slot);
-int KNewFileMenu_SuperSenderSignalIndex(const KNewFileMenu* self);
 int KNewFileMenu_Receivers(const KNewFileMenu* self, const char* signal);
-void KNewFileMenu_OnReceivers(const KNewFileMenu* self, intptr_t slot);
-int KNewFileMenu_SuperReceivers(const KNewFileMenu* self, const char* signal);
 bool KNewFileMenu_IsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal);
-void KNewFileMenu_OnIsSignalConnected(const KNewFileMenu* self, intptr_t slot);
-bool KNewFileMenu_SuperIsSignalConnected(const KNewFileMenu* self, const QMetaMethod* signal);
 void KNewFileMenu_Delete(KNewFileMenu* self);
 
 #ifdef __cplusplus

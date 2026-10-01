@@ -120,36 +120,36 @@ void QVideoWidget_Connect_AspectRatioModeChanged(QVideoWidget* self, intptr_t sl
 
 bool QVideoWidget_Event(QVideoWidget* self, QEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         return vqvideowidget->event(event);
     }
-    return {};
+    qFatal("Error: Protected method QVideoWidget::event called without a directly constructed type");
 }
 
 void QVideoWidget_ShowEvent(QVideoWidget* self, QShowEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->showEvent(event);
     }
 }
 
 void QVideoWidget_HideEvent(QVideoWidget* self, QHideEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->hideEvent(event);
     }
 }
 
 void QVideoWidget_ResizeEvent(QVideoWidget* self, QResizeEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->resizeEvent(event);
     }
 }
 
 void QVideoWidget_MoveEvent(QVideoWidget* self, QMoveEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->moveEvent(event);
     }
 }
@@ -180,1594 +180,1118 @@ libqt_string QVideoWidget_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QVideoWidget_SuperMetaObject(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MetaObject_IsBase(true);
-        return (QMetaObject*)vqvideowidget->metaObject();
-    } else {
-        return (QMetaObject*)self->QVideoWidget::metaObject();
-    }
+    return (QMetaObject*)self->QVideoWidget::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnMetaObject(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_MetaObject_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MetaObject_Callback>(slot));
+void QVideoWidget_OnMetaObject(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_metaobject_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QVideoWidget_SuperMetacast(QVideoWidget* self, const char* param1) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Metacast_IsBase(true);
-        return vqvideowidget->qt_metacast(param1);
-    } else {
-        return self->QVideoWidget::qt_metacast(param1);
-    }
+    return self->QVideoWidget::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMetacast(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Metacast_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacast_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_metacast_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QVideoWidget_SuperMetacall(QVideoWidget* self, int param1, int param2, void** param3) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Metacall_IsBase(true);
-        return vqvideowidget->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QVideoWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QVideoWidget::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMetacall(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Metacall_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacall_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_metacall_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QVideoWidget_SuperSizeHint(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_SizeHint_IsBase(true);
-        return new QSize(vqvideowidget->sizeHint());
-    } else {
-        return new QSize(((VirtualQVideoWidget*)self)->sizeHint());
-    }
+    return new QSize(self->QVideoWidget::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnSizeHint(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_SizeHint_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SizeHint_Callback>(slot));
+void QVideoWidget_OnSizeHint(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_sizehint_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QVideoWidget_SuperEvent(QVideoWidget* self, QEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Event_IsBase(true);
-        return vqvideowidget->event(event);
-    } else {
-        return ((VirtualQVideoWidget*)self)->event(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        return vqvideowidget->QVideoWidget::event(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Event_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Event_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_event_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperShowEvent(QVideoWidget* self, QShowEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ShowEvent_IsBase(true);
-        vqvideowidget->showEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->showEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnShowEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_ShowEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ShowEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_showevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperHideEvent(QVideoWidget* self, QHideEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_HideEvent_IsBase(true);
-        vqvideowidget->hideEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->hideEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnHideEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_HideEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HideEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_hideevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HideEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperResizeEvent(QVideoWidget* self, QResizeEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ResizeEvent_IsBase(true);
-        vqvideowidget->resizeEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->resizeEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnResizeEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ResizeEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_resizeevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperMoveEvent(QVideoWidget* self, QMoveEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MoveEvent_IsBase(true);
-        vqvideowidget->moveEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->moveEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMoveEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_MoveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MoveEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_moveevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QVideoWidget_DevType(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->devType();
-    } else {
-        return self->QVideoWidget::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QVideoWidget_SuperDevType(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_DevType_IsBase(true);
-        return vqvideowidget->devType();
-    } else {
-        return self->QVideoWidget::devType();
-    }
+    return self->QVideoWidget::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnDevType(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_DevType_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DevType_Callback>(slot));
+void QVideoWidget_OnDevType(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_devtype_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_SetVisible(QVideoWidget* self, bool visible) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setVisible(visible);
-    } else {
-        self->QVideoWidget::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperSetVisible(QVideoWidget* self, bool visible) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_SetVisible_IsBase(true);
-        vqvideowidget->setVisible(visible);
-    } else {
-        self->QVideoWidget::setVisible(visible);
-    }
+    self->QVideoWidget::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnSetVisible(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_SetVisible_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SetVisible_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_setvisible_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QVideoWidget_MinimumSizeHint(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return new QSize(vqvideowidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQVideoWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QVideoWidget_SuperMinimumSizeHint(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MinimumSizeHint_IsBase(true);
-        return new QSize(vqvideowidget->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQVideoWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QVideoWidget::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnMinimumSizeHint(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MinimumSizeHint_Callback>(slot));
+void QVideoWidget_OnMinimumSizeHint(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_minimumsizehint_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QVideoWidget_HeightForWidth(const QVideoWidget* self, int param1) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QVideoWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QVideoWidget_SuperHeightForWidth(const QVideoWidget* self, int param1) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_HeightForWidth_IsBase(true);
-        return vqvideowidget->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QVideoWidget::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QVideoWidget::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnHeightForWidth(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HeightForWidth_Callback>(slot));
+void QVideoWidget_OnHeightForWidth(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_heightforwidth_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVideoWidget_HasHeightForWidth(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->hasHeightForWidth();
-    } else {
-        return self->QVideoWidget::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QVideoWidget_SuperHasHeightForWidth(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_HasHeightForWidth_IsBase(true);
-        return vqvideowidget->hasHeightForWidth();
-    } else {
-        return self->QVideoWidget::hasHeightForWidth();
-    }
+    return self->QVideoWidget::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnHasHeightForWidth(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HasHeightForWidth_Callback>(slot));
+void QVideoWidget_OnHasHeightForWidth(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_hasheightforwidth_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QVideoWidget_PaintEngine(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->paintEngine();
-    } else {
-        return self->QVideoWidget::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QVideoWidget_SuperPaintEngine(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_PaintEngine_IsBase(true);
-        return vqvideowidget->paintEngine();
-    } else {
-        return self->QVideoWidget::paintEngine();
-    }
+    return self->QVideoWidget::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnPaintEngine(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_PaintEngine_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_PaintEngine_Callback>(slot));
+void QVideoWidget_OnPaintEngine(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_paintengine_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_MousePressEvent(QVideoWidget* self, QMouseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->mousePressEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperMousePressEvent(QVideoWidget* self, QMouseEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MousePressEvent_IsBase(true);
-        vqvideowidget->mousePressEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->mousePressEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMousePressEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MousePressEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_mousepressevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_MouseReleaseEvent(QVideoWidget* self, QMouseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->mouseReleaseEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperMouseReleaseEvent(QVideoWidget* self, QMouseEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MouseReleaseEvent_IsBase(true);
-        vqvideowidget->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMouseReleaseEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_mousereleaseevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_MouseDoubleClickEvent(QVideoWidget* self, QMouseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperMouseDoubleClickEvent(QVideoWidget* self, QMouseEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MouseDoubleClickEvent_IsBase(true);
-        vqvideowidget->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMouseDoubleClickEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_mousedoubleclickevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_MouseMoveEvent(QVideoWidget* self, QMouseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->mouseMoveEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperMouseMoveEvent(QVideoWidget* self, QMouseEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_MouseMoveEvent_IsBase(true);
-        vqvideowidget->mouseMoveEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMouseMoveEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseMoveEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_mousemoveevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_WheelEvent(QVideoWidget* self, QWheelEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->wheelEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperWheelEvent(QVideoWidget* self, QWheelEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_WheelEvent_IsBase(true);
-        vqvideowidget->wheelEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->wheelEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnWheelEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_WheelEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_WheelEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_wheelevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_KeyPressEvent(QVideoWidget* self, QKeyEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->keyPressEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperKeyPressEvent(QVideoWidget* self, QKeyEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_KeyPressEvent_IsBase(true);
-        vqvideowidget->keyPressEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->keyPressEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnKeyPressEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_KeyPressEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_keypressevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_KeyReleaseEvent(QVideoWidget* self, QKeyEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->keyReleaseEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperKeyReleaseEvent(QVideoWidget* self, QKeyEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_KeyReleaseEvent_IsBase(true);
-        vqvideowidget->keyReleaseEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnKeyReleaseEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_keyreleaseevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_FocusInEvent(QVideoWidget* self, QFocusEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->focusInEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperFocusInEvent(QVideoWidget* self, QFocusEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_FocusInEvent_IsBase(true);
-        vqvideowidget->focusInEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->focusInEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnFocusInEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusInEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_focusinevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_FocusOutEvent(QVideoWidget* self, QFocusEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->focusOutEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperFocusOutEvent(QVideoWidget* self, QFocusEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_FocusOutEvent_IsBase(true);
-        vqvideowidget->focusOutEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->focusOutEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnFocusOutEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusOutEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_focusoutevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_EnterEvent(QVideoWidget* self, QEnterEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->enterEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperEnterEvent(QVideoWidget* self, QEnterEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_EnterEvent_IsBase(true);
-        vqvideowidget->enterEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->enterEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnEnterEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_EnterEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_EnterEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_enterevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_LeaveEvent(QVideoWidget* self, QEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->leaveEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperLeaveEvent(QVideoWidget* self, QEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_LeaveEvent_IsBase(true);
-        vqvideowidget->leaveEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->leaveEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnLeaveEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_LeaveEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_leaveevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_PaintEvent(QVideoWidget* self, QPaintEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->paintEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperPaintEvent(QVideoWidget* self, QPaintEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_PaintEvent_IsBase(true);
-        vqvideowidget->paintEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->paintEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnPaintEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_PaintEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_PaintEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_paintevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_CloseEvent(QVideoWidget* self, QCloseEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->closeEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperCloseEvent(QVideoWidget* self, QCloseEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_CloseEvent_IsBase(true);
-        vqvideowidget->closeEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->closeEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnCloseEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_CloseEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_CloseEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_closeevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_ContextMenuEvent(QVideoWidget* self, QContextMenuEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->contextMenuEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperContextMenuEvent(QVideoWidget* self, QContextMenuEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ContextMenuEvent_IsBase(true);
-        vqvideowidget->contextMenuEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnContextMenuEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ContextMenuEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_contextmenuevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_TabletEvent(QVideoWidget* self, QTabletEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->tabletEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperTabletEvent(QVideoWidget* self, QTabletEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_TabletEvent_IsBase(true);
-        vqvideowidget->tabletEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->tabletEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnTabletEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_TabletEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_TabletEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_tabletevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_ActionEvent(QVideoWidget* self, QActionEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->actionEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperActionEvent(QVideoWidget* self, QActionEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ActionEvent_IsBase(true);
-        vqvideowidget->actionEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->actionEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnActionEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_ActionEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ActionEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_actionevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_DragEnterEvent(QVideoWidget* self, QDragEnterEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->dragEnterEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperDragEnterEvent(QVideoWidget* self, QDragEnterEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_DragEnterEvent_IsBase(true);
-        vqvideowidget->dragEnterEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDragEnterEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragEnterEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_dragenterevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_DragMoveEvent(QVideoWidget* self, QDragMoveEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->dragMoveEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperDragMoveEvent(QVideoWidget* self, QDragMoveEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_DragMoveEvent_IsBase(true);
-        vqvideowidget->dragMoveEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDragMoveEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragMoveEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_dragmoveevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_DragLeaveEvent(QVideoWidget* self, QDragLeaveEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->dragLeaveEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperDragLeaveEvent(QVideoWidget* self, QDragLeaveEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_DragLeaveEvent_IsBase(true);
-        vqvideowidget->dragLeaveEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDragLeaveEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragLeaveEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_dragleaveevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_DropEvent(QVideoWidget* self, QDropEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->dropEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperDropEvent(QVideoWidget* self, QDropEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_DropEvent_IsBase(true);
-        vqvideowidget->dropEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->dropEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDropEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_DropEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DropEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_dropevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVideoWidget_NativeEvent(QVideoWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
+    if (vqvideowidget) {
         return vqvideowidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQVideoWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QVideoWidget::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QVideoWidget_SuperNativeEvent(QVideoWidget* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_NativeEvent_IsBase(true);
-        return vqvideowidget->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQVideoWidget*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        return vqvideowidget->QVideoWidget::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnNativeEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_NativeEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_NativeEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_nativeevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_ChangeEvent(QVideoWidget* self, QEvent* param1) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->changeEvent(param1);
     } else {
-        ((VirtualQVideoWidget*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QVideoWidget::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperChangeEvent(QVideoWidget* self, QEvent* param1) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ChangeEvent_IsBase(true);
-        vqvideowidget->changeEvent(param1);
-    } else {
-        ((VirtualQVideoWidget*)self)->changeEvent(param1);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnChangeEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ChangeEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_changeevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QVideoWidget_Metric(const QVideoWidget* self, int param1) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         return vqvideowidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQVideoWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QVideoWidget::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QVideoWidget_SuperMetric(const QVideoWidget* self, int param1) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Metric_IsBase(true);
-        return vqvideowidget->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQVideoWidget*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        return vqvideowidget->QVideoWidget::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnMetric(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Metric_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metric_Callback>(slot));
+void QVideoWidget_OnMetric(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_metric_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_InitPainter(const QVideoWidget* self, QPainter* painter) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->initPainter(painter);
     } else {
-        ((VirtualQVideoWidget*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QVideoWidget::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperInitPainter(const QVideoWidget* self, QPainter* painter) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_InitPainter_IsBase(true);
-        vqvideowidget->initPainter(painter);
-    } else {
-        ((VirtualQVideoWidget*)self)->initPainter(painter);
-    }
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        vqvideowidget->QVideoWidget::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnInitPainter(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_InitPainter_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InitPainter_Callback>(slot));
+void QVideoWidget_OnInitPainter(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_initpainter_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QVideoWidget_Redirected(const QVideoWidget* self, QPoint* offset) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         return vqvideowidget->redirected(offset);
     } else {
-        return ((VirtualQVideoWidget*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QVideoWidget::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QVideoWidget_SuperRedirected(const QVideoWidget* self, QPoint* offset) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Redirected_IsBase(true);
-        return vqvideowidget->redirected(offset);
-    } else {
-        return ((VirtualQVideoWidget*)self)->redirected(offset);
-    }
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        return vqvideowidget->QVideoWidget::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnRedirected(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Redirected_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Redirected_Callback>(slot));
+void QVideoWidget_OnRedirected(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_redirected_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QVideoWidget_SharedPainter(const QVideoWidget* self) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         return vqvideowidget->sharedPainter();
     } else {
-        return ((VirtualQVideoWidget*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QVideoWidget::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QVideoWidget_SuperSharedPainter(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_SharedPainter_IsBase(true);
-        return vqvideowidget->sharedPainter();
-    } else {
-        return ((VirtualQVideoWidget*)self)->sharedPainter();
-    }
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        return vqvideowidget->QVideoWidget::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnSharedPainter(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_SharedPainter_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SharedPainter_Callback>(slot));
+void QVideoWidget_OnSharedPainter(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_sharedpainter_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_InputMethodEvent(QVideoWidget* self, QInputMethodEvent* param1) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->inputMethodEvent(param1);
     } else {
-        ((VirtualQVideoWidget*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QVideoWidget::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperInputMethodEvent(QVideoWidget* self, QInputMethodEvent* param1) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_InputMethodEvent_IsBase(true);
-        vqvideowidget->inputMethodEvent(param1);
-    } else {
-        ((VirtualQVideoWidget*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnInputMethodEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InputMethodEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_inputmethodevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QVideoWidget_InputMethodQuery(const QVideoWidget* self, int param1) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return new QVariant(vqvideowidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQVideoWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QVideoWidget_SuperInputMethodQuery(const QVideoWidget* self, int param1) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_InputMethodQuery_IsBase(true);
-        return new QVariant(vqvideowidget->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQVideoWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QVideoWidget::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnInputMethodQuery(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InputMethodQuery_Callback>(slot));
+void QVideoWidget_OnInputMethodQuery(QVideoWidget* self, intptr_t slot) {
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self)))
+        vqvideowidget->qvideowidget_inputmethodquery_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVideoWidget_FocusNextPrevChild(QVideoWidget* self, bool next) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         return vqvideowidget->focusNextPrevChild(next);
     } else {
-        return ((VirtualQVideoWidget*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QVideoWidget::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QVideoWidget_SuperFocusNextPrevChild(QVideoWidget* self, bool next) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_FocusNextPrevChild_IsBase(true);
-        return vqvideowidget->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQVideoWidget*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        return vqvideowidget->QVideoWidget::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnFocusNextPrevChild(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_focusnextprevchild_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVideoWidget_EventFilter(QVideoWidget* self, QObject* watched, QEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->eventFilter(watched, event);
-    } else {
-        return self->QVideoWidget::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QVideoWidget_SuperEventFilter(QVideoWidget* self, QObject* watched, QEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_EventFilter_IsBase(true);
-        return vqvideowidget->eventFilter(watched, event);
-    } else {
-        return self->QVideoWidget::eventFilter(watched, event);
-    }
+    return self->QVideoWidget::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnEventFilter(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_EventFilter_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_EventFilter_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_eventfilter_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_TimerEvent(QVideoWidget* self, QTimerEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->timerEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperTimerEvent(QVideoWidget* self, QTimerEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_TimerEvent_IsBase(true);
-        vqvideowidget->timerEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->timerEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnTimerEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_TimerEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_TimerEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_timerevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_ChildEvent(QVideoWidget* self, QChildEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->childEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperChildEvent(QVideoWidget* self, QChildEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ChildEvent_IsBase(true);
-        vqvideowidget->childEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->childEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnChildEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_ChildEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ChildEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_childevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_CustomEvent(QVideoWidget* self, QEvent* event) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->customEvent(event);
     } else {
-        ((VirtualQVideoWidget*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QVideoWidget::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperCustomEvent(QVideoWidget* self, QEvent* event) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_CustomEvent_IsBase(true);
-        vqvideowidget->customEvent(event);
-    } else {
-        ((VirtualQVideoWidget*)self)->customEvent(event);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnCustomEvent(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_CustomEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_CustomEvent_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_customevent_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_ConnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->connectNotify(*signal);
     } else {
-        ((VirtualQVideoWidget*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QVideoWidget::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperConnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_ConnectNotify_IsBase(true);
-        vqvideowidget->connectNotify(*signal);
-    } else {
-        ((VirtualQVideoWidget*)self)->connectNotify(*signal);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnConnectNotify(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ConnectNotify_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_connectnotify_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVideoWidget_DisconnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget) {
         vqvideowidget->disconnectNotify(*signal);
     } else {
-        ((VirtualQVideoWidget*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QVideoWidget::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVideoWidget_SuperDisconnectNotify(QVideoWidget* self, const QMetaMethod* signal) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_DisconnectNotify_IsBase(true);
-        vqvideowidget->disconnectNotify(*signal);
-    } else {
-        ((VirtualQVideoWidget*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->QVideoWidget::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVideoWidget::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDisconnectNotify(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DisconnectNotify_Callback>(slot));
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self))
+        vqvideowidget->qvideowidget_disconnectnotify_callback = reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVideoWidget_UpdateMicroFocus(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->updateMicroFocus();
-    } else {
-        ((VirtualQVideoWidget*)self)->updateMicroFocus();
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->VirtualQVideoWidget::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QVideoWidget::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVideoWidget_SuperUpdateMicroFocus(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_UpdateMicroFocus_IsBase(true);
-        vqvideowidget->updateMicroFocus();
-    } else {
-        ((VirtualQVideoWidget*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnUpdateMicroFocus(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVideoWidget_Create(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->create();
-    } else {
-        ((VirtualQVideoWidget*)self)->create();
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->VirtualQVideoWidget::create();
+    } else
+        qFatal("Error: Protected method QVideoWidget::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVideoWidget_SuperCreate(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Create_IsBase(true);
-        vqvideowidget->create();
-    } else {
-        ((VirtualQVideoWidget*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnCreate(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Create_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVideoWidget_Destroy(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->destroy();
-    } else {
-        ((VirtualQVideoWidget*)self)->destroy();
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        vqvideowidget->VirtualQVideoWidget::destroy();
+    } else
+        qFatal("Error: Protected method QVideoWidget::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVideoWidget_SuperDestroy(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Destroy_IsBase(true);
-        vqvideowidget->destroy();
-    } else {
-        ((VirtualQVideoWidget*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnDestroy(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Destroy_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVideoWidget_FocusNextChild(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->focusNextChild();
-    } else {
-        return ((VirtualQVideoWidget*)self)->focusNextChild();
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        return vqvideowidget->VirtualQVideoWidget::focusNextChild();
+    } else
+        qFatal("Error: Protected method QVideoWidget::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QVideoWidget_SuperFocusNextChild(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_FocusNextChild_IsBase(true);
-        return vqvideowidget->focusNextChild();
-    } else {
-        return ((VirtualQVideoWidget*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnFocusNextChild(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVideoWidget_FocusPreviousChild(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->focusPreviousChild();
-    } else {
-        return ((VirtualQVideoWidget*)self)->focusPreviousChild();
-    }
+    if (auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self)) {
+        return vqvideowidget->VirtualQVideoWidget::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QVideoWidget::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QVideoWidget_SuperFocusPreviousChild(QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_FocusPreviousChild_IsBase(true);
-        return vqvideowidget->focusPreviousChild();
-    } else {
-        return ((VirtualQVideoWidget*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnFocusPreviousChild(QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QVideoWidget_Sender(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->sender();
-    } else {
-        return ((VirtualQVideoWidget*)self)->sender();
-    }
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        return vqvideowidget->VirtualQVideoWidget::sender();
+    } else
+        qFatal("Error: Protected method QVideoWidget::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QVideoWidget_SuperSender(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Sender_IsBase(true);
-        return vqvideowidget->sender();
-    } else {
-        return ((VirtualQVideoWidget*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnSender(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Sender_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVideoWidget_SenderSignalIndex(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->senderSignalIndex();
-    } else {
-        return ((VirtualQVideoWidget*)self)->senderSignalIndex();
-    }
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        return vqvideowidget->VirtualQVideoWidget::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QVideoWidget::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVideoWidget_SuperSenderSignalIndex(const QVideoWidget* self) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_SenderSignalIndex_IsBase(true);
-        return vqvideowidget->senderSignalIndex();
-    } else {
-        return ((VirtualQVideoWidget*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnSenderSignalIndex(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVideoWidget_Receivers(const QVideoWidget* self, const char* signal) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->receivers(signal);
-    } else {
-        return ((VirtualQVideoWidget*)self)->receivers(signal);
-    }
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        return vqvideowidget->VirtualQVideoWidget::receivers(signal);
+    } else
+        qFatal("Error: Protected method QVideoWidget::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVideoWidget_SuperReceivers(const QVideoWidget* self, const char* signal) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_Receivers_IsBase(true);
-        return vqvideowidget->receivers(signal);
-    } else {
-        return ((VirtualQVideoWidget*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnReceivers(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_Receivers_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVideoWidget_IsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVideoWidget*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        return vqvideowidget->VirtualQVideoWidget::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QVideoWidget::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QVideoWidget_SuperIsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_IsSignalConnected_IsBase(true);
-        return vqvideowidget->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVideoWidget*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnIsSignalConnected(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QVideoWidget_GetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return vqvideowidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQVideoWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QVideoWidget_SuperGetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        vqvideowidget->setQVideoWidget_GetDecodedMetricF_IsBase(true);
-        return vqvideowidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQVideoWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVideoWidget_OnGetDecodedMetricF(const QVideoWidget* self, intptr_t slot) {
-    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
-        vqvideowidget->setQVideoWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self))) {
+        return vqvideowidget->VirtualQVideoWidget::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QVideoWidget::getDecodedMetricF called without a directly constructed type");
 }
 
 void QVideoWidget_Delete(QVideoWidget* self) {

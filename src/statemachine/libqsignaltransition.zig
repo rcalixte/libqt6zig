@@ -121,9 +121,9 @@ pub const QSignalTransition = extern struct {
     ///
     /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QSignalTransition) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QSignalTransition, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSignalTransition, callback: *const fn (QSignalTransition) callconv(.c) QMetaObject) void {
         qtc.QSignalTransition_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2129,44 +2129,6 @@ pub const QSignalTransition = extern struct {
         return .{ .ptr = qtc.QSignalTransition_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSignalTransition `
-    ///
-    pub fn superSender(self: QSignalTransition) QObject {
-        return .{ .ptr = qtc.QSignalTransition_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSignalTransition`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QSignalTransition, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QSignalTransition_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2183,44 +2145,6 @@ pub const QSignalTransition = extern struct {
     ///
     pub fn senderSignalIndex(self: QSignalTransition) i32 {
         return qtc.QSignalTransition_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSignalTransition `
-    ///
-    pub fn superSenderSignalIndex(self: QSignalTransition) i32 {
-        return qtc.QSignalTransition_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSignalTransition`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QSignalTransition, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSignalTransition_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2244,47 +2168,6 @@ pub const QSignalTransition = extern struct {
         return qtc.QSignalTransition_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSignalTransition `
-    ///
-    /// ` _signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QSignalTransition, _signal: [:0]const u8) i32 {
-        const signal_Cstring = _signal.ptr;
-        return qtc.QSignalTransition_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSignalTransition`
-    ///
-    /// ` callback: *const fn (self: QSignalTransition, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QSignalTransition, callback: *const fn (QSignalTransition, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSignalTransition_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2304,47 +2187,6 @@ pub const QSignalTransition = extern struct {
     pub fn isSignalConnected(self: QSignalTransition, _signal: anytype) bool {
         comptime _ = @TypeOf(_signal)._is_QMetaMethod;
         return qtc.QSignalTransition_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(_signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSignalTransition `
-    ///
-    /// ` _signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QSignalTransition, _signal: anytype) bool {
-        comptime _ = @TypeOf(_signal)._is_QMetaMethod;
-        return qtc.QSignalTransition_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(_signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QSignalTransition`
-    ///
-    /// ` callback: *const fn (self: QSignalTransition, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QSignalTransition, callback: *const fn (QSignalTransition, QMetaMethod) callconv(.c) bool) void {
-        qtc.QSignalTransition_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onSenderObjectChanged` instead

@@ -225,7 +225,7 @@ void QWebEnginePage_PrintToPdf22(QWebEnginePage* self, const libqt_string filePa
 void QWebEnginePage_PrintToPdf3(QWebEnginePage* self, const libqt_string filePath, const QPageLayout* layout, const QPageRanges* ranges);
 void QWebEnginePage_PrintToPdf23(QWebEnginePage* self, intptr_t resultCallback, const QPageLayout* layout);
 void QWebEnginePage_PrintToPdf32(QWebEnginePage* self, intptr_t resultCallback, const QPageLayout* layout, const QPageRanges* ranges);
-void QWebEnginePage_OnMetaObject(const QWebEnginePage* self, intptr_t slot);
+void QWebEnginePage_OnMetaObject(QWebEnginePage* self, intptr_t slot);
 QMetaObject* QWebEnginePage_SuperMetaObject(const QWebEnginePage* self);
 void QWebEnginePage_OnMetacast(QWebEnginePage* self, intptr_t slot);
 void* QWebEnginePage_SuperMetacast(QWebEnginePage* self, const char* param1);
@@ -266,17 +266,9 @@ void QWebEnginePage_DisconnectNotify(QWebEnginePage* self, const QMetaMethod* si
 void QWebEnginePage_OnDisconnectNotify(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_SuperDisconnectNotify(QWebEnginePage* self, const QMetaMethod* signal);
 QObject* QWebEnginePage_Sender(const QWebEnginePage* self);
-void QWebEnginePage_OnSender(const QWebEnginePage* self, intptr_t slot);
-QObject* QWebEnginePage_SuperSender(const QWebEnginePage* self);
 int QWebEnginePage_SenderSignalIndex(const QWebEnginePage* self);
-void QWebEnginePage_OnSenderSignalIndex(const QWebEnginePage* self, intptr_t slot);
-int QWebEnginePage_SuperSenderSignalIndex(const QWebEnginePage* self);
 int QWebEnginePage_Receivers(const QWebEnginePage* self, const char* signal);
-void QWebEnginePage_OnReceivers(const QWebEnginePage* self, intptr_t slot);
-int QWebEnginePage_SuperReceivers(const QWebEnginePage* self, const char* signal);
 bool QWebEnginePage_IsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal);
-void QWebEnginePage_OnIsSignalConnected(const QWebEnginePage* self, intptr_t slot);
-bool QWebEnginePage_SuperIsSignalConnected(const QWebEnginePage* self, const QMetaMethod* signal);
 void QWebEnginePage_Delete(QWebEnginePage* self);
 
 #ifdef __cplusplus

@@ -34,6 +34,8 @@ pub const QIconEngine = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#paint)
     ///
+    /// This method must be implemented with `onPaint` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QIconEngine `
@@ -68,32 +70,6 @@ pub const QIconEngine = extern struct {
     ///
     pub fn onPaint(self: QIconEngine, callback: *const fn (QIconEngine, QPainter, QRect, i32, i32) callconv(.c) void) void {
         qtc.QIconEngine_OnPaint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superPaint` instead
-    ///
-    pub const SuperPaint = superPaint;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#paint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIconEngine `
-    ///
-    /// ` painter: QPainter `
-    ///
-    /// ` rect: QRect `
-    ///
-    /// ` mode: qicon_enums.Mode `
-    ///
-    /// ` state: qicon_enums.State `
-    ///
-    pub fn superPaint(self: QIconEngine, painter: anytype, rect: anytype, mode: i32, state: i32) void {
-        comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QIconEngine_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(mode), @bitCast(state));
     }
 
     /// ### DEPRECATED: Use `actualSize` instead
@@ -392,9 +368,9 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QIconEngine) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onKey(self: QIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onKey(self: QIconEngine, callback: *const fn (QIconEngine) callconv(.c) [*:0]const u8) void {
         qtc.QIconEngine_OnKey(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -426,6 +402,8 @@ pub const QIconEngine = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#clone)
     ///
+    /// This method must be implemented with `onClone` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QIconEngine `
@@ -446,26 +424,10 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QIconEngine `
+    /// ` callback: *const fn (self: QIconEngine) callconv(.c) QIconEngine `
     ///
-    pub fn onClone(self: QIconEngine, callback: *const fn () callconv(.c) QIconEngine) void {
+    pub fn onClone(self: QIconEngine, callback: *const fn (QIconEngine) callconv(.c) QIconEngine) void {
         qtc.QIconEngine_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superClone` instead
-    ///
-    pub const SuperClone = superClone;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#clone)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIconEngine `
-    ///
-    pub fn superClone(self: QIconEngine) QIconEngine {
-        return .{ .ptr = qtc.QIconEngine_SuperClone(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `read` instead
@@ -686,9 +648,9 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QIconEngine) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onIconName(self: QIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onIconName(self: QIconEngine, callback: *const fn (QIconEngine) callconv(.c) [*:0]const u8) void {
         qtc.QIconEngine_OnIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -740,9 +702,9 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QIconEngine) callconv(.c) bool `
     ///
-    pub fn onIsNull(self: QIconEngine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsNull(self: QIconEngine, callback: *const fn (QIconEngine) callconv(.c) bool) void {
         qtc.QIconEngine_OnIsNull(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

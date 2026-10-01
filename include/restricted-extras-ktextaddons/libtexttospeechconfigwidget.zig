@@ -130,9 +130,9 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QMetaObject) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6675,9 +6675,9 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) i32) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6791,11 +6791,11 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QSize) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6849,11 +6849,11 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QSize) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -6967,9 +6967,9 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7023,9 +7023,9 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QPaintEngine) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -8951,9 +8951,9 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget) callconv(.c) QPainter) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9537,44 +9537,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: TextEditTextToSpeech__TextToSpeechConfigWidget) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9591,44 +9553,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     pub fn create(self: TextEditTextToSpeech__TextToSpeechConfigWidget) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    pub fn superCreate(self: TextEditTextToSpeech__TextToSpeechConfigWidget) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9649,44 +9573,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    pub fn superDestroy(self: TextEditTextToSpeech__TextToSpeechConfigWidget) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -9703,44 +9589,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     pub fn focusNextChild(self: TextEditTextToSpeech__TextToSpeechConfigWidget) bool {
         return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    pub fn superFocusNextChild(self: TextEditTextToSpeech__TextToSpeechConfigWidget) bool {
-        return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -9761,44 +9609,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
         return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    pub fn superFocusPreviousChild(self: TextEditTextToSpeech__TextToSpeechConfigWidget) bool {
-        return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -9817,44 +9627,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
         return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    pub fn superSender(self: TextEditTextToSpeech__TextToSpeechConfigWidget) QObject {
-        return .{ .ptr = qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -9871,44 +9643,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: TextEditTextToSpeech__TextToSpeechConfigWidget) i32 {
         return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    pub fn superSenderSignalIndex(self: TextEditTextToSpeech__TextToSpeechConfigWidget) i32 {
-        return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -9932,47 +9666,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
         return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextEditTextToSpeech__TextToSpeechConfigWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -9992,47 +9685,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     pub fn isSignalConnected(self: TextEditTextToSpeech__TextToSpeechConfigWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextEditTextToSpeech__TextToSpeechConfigWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10055,48 +9707,6 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechConfigWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechConfigWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
-    ///
-    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget, i32, i32) callconv(.c) f64) void {
-        qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

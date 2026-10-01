@@ -40,7 +40,7 @@ libqt_list /* of libqt_string */ QFileSystemWatcher_Files(const QFileSystemWatch
 libqt_list /* of libqt_string */ QFileSystemWatcher_Directories(const QFileSystemWatcher* self);
 libqt_string QFileSystemWatcher_Tr2(const char* s, const char* c);
 libqt_string QFileSystemWatcher_Tr3(const char* s, const char* c, int n);
-void QFileSystemWatcher_OnMetaObject(const QFileSystemWatcher* self, intptr_t slot);
+void QFileSystemWatcher_OnMetaObject(QFileSystemWatcher* self, intptr_t slot);
 QMetaObject* QFileSystemWatcher_SuperMetaObject(const QFileSystemWatcher* self);
 void QFileSystemWatcher_OnMetacast(QFileSystemWatcher* self, intptr_t slot);
 void* QFileSystemWatcher_SuperMetacast(QFileSystemWatcher* self, const char* param1);
@@ -68,17 +68,9 @@ void QFileSystemWatcher_DisconnectNotify(QFileSystemWatcher* self, const QMetaMe
 void QFileSystemWatcher_OnDisconnectNotify(QFileSystemWatcher* self, intptr_t slot);
 void QFileSystemWatcher_SuperDisconnectNotify(QFileSystemWatcher* self, const QMetaMethod* signal);
 QObject* QFileSystemWatcher_Sender(const QFileSystemWatcher* self);
-void QFileSystemWatcher_OnSender(const QFileSystemWatcher* self, intptr_t slot);
-QObject* QFileSystemWatcher_SuperSender(const QFileSystemWatcher* self);
 int QFileSystemWatcher_SenderSignalIndex(const QFileSystemWatcher* self);
-void QFileSystemWatcher_OnSenderSignalIndex(const QFileSystemWatcher* self, intptr_t slot);
-int QFileSystemWatcher_SuperSenderSignalIndex(const QFileSystemWatcher* self);
 int QFileSystemWatcher_Receivers(const QFileSystemWatcher* self, const char* signal);
-void QFileSystemWatcher_OnReceivers(const QFileSystemWatcher* self, intptr_t slot);
-int QFileSystemWatcher_SuperReceivers(const QFileSystemWatcher* self, const char* signal);
 bool QFileSystemWatcher_IsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal);
-void QFileSystemWatcher_OnIsSignalConnected(const QFileSystemWatcher* self, intptr_t slot);
-bool QFileSystemWatcher_SuperIsSignalConnected(const QFileSystemWatcher* self, const QMetaMethod* signal);
 void QFileSystemWatcher_Connect_FileChanged(QFileSystemWatcher* self, intptr_t slot);
 void QFileSystemWatcher_Connect_DirectoryChanged(QFileSystemWatcher* self, intptr_t slot);
 void QFileSystemWatcher_Delete(QFileSystemWatcher* self);

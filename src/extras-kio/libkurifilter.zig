@@ -112,9 +112,9 @@ pub const KUriFilterSearchProvider = extern struct {
     ///
     /// ` self: KUriFilterSearchProvider `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KUriFilterSearchProvider) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onIconName(self: KUriFilterSearchProvider, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onIconName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider) callconv(.c) [*:0]const u8) void {
         qtc.KUriFilterSearchProvider_OnIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -227,46 +227,6 @@ pub const KUriFilterSearchProvider = extern struct {
         qtc.KUriFilterSearchProvider_SetDesktopEntryName(@ptrCast(self.ptr), desktopEntryName_str);
     }
 
-    /// ### DEPRECATED: Use `onSetDesktopEntryName` instead
-    ///
-    pub const OnSetDesktopEntryName = onSetDesktopEntryName;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` callback: *const fn (self: KUriFilterSearchProvider, desktopEntryName: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetDesktopEntryName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetDesktopEntryName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetDesktopEntryName` instead
-    ///
-    pub const SuperSetDesktopEntryName = superSetDesktopEntryName;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` _desktopEntryName: []const u8 `
-    ///
-    pub fn superSetDesktopEntryName(self: KUriFilterSearchProvider, _desktopEntryName: []const u8) void {
-        const desktopEntryName_str = qtc.libqt_string{
-            .len = _desktopEntryName.len,
-            .data = _desktopEntryName.ptr,
-        };
-        qtc.KUriFilterSearchProvider_SuperSetDesktopEntryName(@ptrCast(self.ptr), desktopEntryName_str);
-    }
-
     /// ### DEPRECATED: Use `setIconName` instead
     ///
     pub const SetIconName = setIconName;
@@ -285,46 +245,6 @@ pub const KUriFilterSearchProvider = extern struct {
             .data = _iconName.ptr,
         };
         qtc.KUriFilterSearchProvider_SetIconName(@ptrCast(self.ptr), iconName_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetIconName` instead
-    ///
-    pub const OnSetIconName = onSetIconName;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` callback: *const fn (self: KUriFilterSearchProvider, iconName: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetIconName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetIconName` instead
-    ///
-    pub const SuperSetIconName = superSetIconName;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` _iconName: []const u8 `
-    ///
-    pub fn superSetIconName(self: KUriFilterSearchProvider, _iconName: []const u8) void {
-        const iconName_str = qtc.libqt_string{
-            .len = _iconName.len,
-            .data = _iconName.ptr,
-        };
-        qtc.KUriFilterSearchProvider_SuperSetIconName(@ptrCast(self.ptr), iconName_str);
     }
 
     /// ### DEPRECATED: Use `setKeys` instead
@@ -356,55 +276,6 @@ pub const KUriFilterSearchProvider = extern struct {
         qtc.KUriFilterSearchProvider_SetKeys(@ptrCast(self.ptr), keys_list);
     }
 
-    /// ### DEPRECATED: Use `onSetKeys` instead
-    ///
-    pub const OnSetKeys = onSetKeys;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` callback: *const fn (self: KUriFilterSearchProvider, keys: ?[*:null]?[*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetKeys(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetKeys(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetKeys` instead
-    ///
-    pub const SuperSetKeys = superSetKeys;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` _keys: []const []const u8 `
-    ///
-    pub fn superSetKeys(self: KUriFilterSearchProvider, allocator: std.mem.Allocator, _keys: []const []const u8) void {
-        const keys_arr = allocator.alloc(qtc.libqt_string, _keys.len) catch @panic("KUriFilterSearchProvider.setKeys: Memory allocation failed");
-        defer allocator.free(keys_arr);
-        for (_keys, 0.._keys.len) |str_item, i|
-            keys_arr[i] = .{
-                .len = str_item.len,
-                .data = str_item.ptr,
-            };
-        const keys_list = qtc.libqt_list{
-            .len = _keys.len,
-            .data = keys_arr.ptr,
-        };
-        qtc.KUriFilterSearchProvider_SuperSetKeys(@ptrCast(self.ptr), keys_list);
-    }
-
     /// ### DEPRECATED: Use `setName` instead
     ///
     pub const SetName = setName;
@@ -423,46 +294,6 @@ pub const KUriFilterSearchProvider = extern struct {
             .data = _name.ptr,
         };
         qtc.KUriFilterSearchProvider_SetName(@ptrCast(self.ptr), name_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetName` instead
-    ///
-    pub const OnSetName = onSetName;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` callback: *const fn (self: KUriFilterSearchProvider, name: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetName(self: KUriFilterSearchProvider, callback: *const fn (KUriFilterSearchProvider, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetName` instead
-    ///
-    pub const SuperSetName = superSetName;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#setName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` _name: []const u8 `
-    ///
-    pub fn superSetName(self: KUriFilterSearchProvider, _name: []const u8) void {
-        const name_str = qtc.libqt_string{
-            .len = _name.len,
-            .data = _name.ptr,
-        };
-        qtc.KUriFilterSearchProvider_SuperSetName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### DEPRECATED: Use `delete` instead

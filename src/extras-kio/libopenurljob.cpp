@@ -121,10 +121,10 @@ void KIO__OpenUrlJob_Connect_MimeTypeFound(KIO__OpenUrlJob* self, intptr_t slot)
 
 bool KIO__OpenUrlJob_DoKill(KIO__OpenUrlJob* self) {
     auto* vkio__openurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkio__openurljob && vkio__openurljob->isVirtualKIOOpenUrlJob) {
+    if (vkio__openurljob) {
         return vkio__openurljob->doKill();
     }
-    return {};
+    qFatal("Error: Protected method KIO::OpenUrlJob::doKill called without a directly constructed type");
 }
 
 libqt_string KIO__OpenUrlJob_Tr2(const char* s, const char* c) {
@@ -153,525 +153,380 @@ libqt_string KIO__OpenUrlJob_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KIO__OpenUrlJob_SuperMetaObject(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_MetaObject_IsBase(true);
-        return (QMetaObject*)vkioopenurljob->metaObject();
-    } else {
-        return (QMetaObject*)self->KIO::OpenUrlJob::metaObject();
-    }
+    return (QMetaObject*)self->KIO::OpenUrlJob::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnMetaObject(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_MetaObject_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_MetaObject_Callback>(slot));
+void KIO__OpenUrlJob_OnMetaObject(KIO__OpenUrlJob* self, intptr_t slot) {
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self)))
+        vkioopenurljob->kio__openurljob_metaobject_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KIO__OpenUrlJob_SuperMetacast(KIO__OpenUrlJob* self, const char* param1) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_Metacast_IsBase(true);
-        return vkioopenurljob->qt_metacast(param1);
-    } else {
-        return self->KIO::OpenUrlJob::qt_metacast(param1);
-    }
+    return self->KIO::OpenUrlJob::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnMetacast(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_Metacast_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Metacast_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_metacast_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KIO__OpenUrlJob_SuperMetacall(KIO__OpenUrlJob* self, int param1, int param2, void** param3) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_Metacall_IsBase(true);
-        return vkioopenurljob->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KIO::OpenUrlJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KIO::OpenUrlJob::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnMetacall(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_Metacall_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Metacall_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_metacall_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KIO__OpenUrlJob_SuperStart(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_Start_IsBase(true);
-        vkioopenurljob->start();
-    } else {
-        self->KIO::OpenUrlJob::start();
-    }
+    self->KIO::OpenUrlJob::start();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnStart(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_Start_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Start_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_start_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Start_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KIO__OpenUrlJob_SuperDoKill(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_DoKill_IsBase(true);
-        return vkioopenurljob->doKill();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->doKill();
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        return vkioopenurljob->KIO::OpenUrlJob::doKill();
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::doKill called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnDoKill(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_DoKill_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoKill_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_dokill_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoKill_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__OpenUrlJob_AddSubjob(KIO__OpenUrlJob* self, KJob* job) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         return vkioopenurljob->addSubjob(job);
     } else {
-        return ((VirtualKIOOpenUrlJob*)self)->addSubjob(job);
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::addSubjob called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__OpenUrlJob_SuperAddSubjob(KIO__OpenUrlJob* self, KJob* job) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_AddSubjob_IsBase(true);
-        return vkioopenurljob->addSubjob(job);
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->addSubjob(job);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        return vkioopenurljob->KIO::OpenUrlJob::addSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::addSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnAddSubjob(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_AddSubjob_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_AddSubjob_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_addsubjob_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_AddSubjob_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__OpenUrlJob_RemoveSubjob(KIO__OpenUrlJob* self, KJob* job) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         return vkioopenurljob->removeSubjob(job);
     } else {
-        return ((VirtualKIOOpenUrlJob*)self)->removeSubjob(job);
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::removeSubjob called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__OpenUrlJob_SuperRemoveSubjob(KIO__OpenUrlJob* self, KJob* job) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_RemoveSubjob_IsBase(true);
-        return vkioopenurljob->removeSubjob(job);
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->removeSubjob(job);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        return vkioopenurljob->KIO::OpenUrlJob::removeSubjob(job);
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::removeSubjob called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnRemoveSubjob(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_RemoveSubjob_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_removesubjob_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_RemoveSubjob_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__OpenUrlJob_SlotInfoMessage(KIO__OpenUrlJob* self, KJob* job, const libqt_string message) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
+    if (vkioopenurljob) {
         vkioopenurljob->slotInfoMessage(job, message_QString);
     } else {
-        ((VirtualKIOOpenUrlJob*)self)->slotInfoMessage(job, message_QString);
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::slotInfoMessage called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__OpenUrlJob_SuperSlotInfoMessage(KIO__OpenUrlJob* self, KJob* job, const libqt_string message) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SlotInfoMessage_IsBase(true);
-        vkioopenurljob->slotInfoMessage(job, message_QString);
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->slotInfoMessage(job, message_QString);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->KIO::OpenUrlJob::slotInfoMessage(job, message_QString);
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::slotInfoMessage called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSlotInfoMessage(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SlotInfoMessage_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_slotinfomessage_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SlotInfoMessage_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__OpenUrlJob_DoSuspend(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         return vkioopenurljob->doSuspend();
     } else {
-        return ((VirtualKIOOpenUrlJob*)self)->doSuspend();
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::doSuspend called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__OpenUrlJob_SuperDoSuspend(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_DoSuspend_IsBase(true);
-        return vkioopenurljob->doSuspend();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->doSuspend();
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        return vkioopenurljob->KIO::OpenUrlJob::doSuspend();
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::doSuspend called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnDoSuspend(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoSuspend_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_dosuspend_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoSuspend_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__OpenUrlJob_DoResume(KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         return vkioopenurljob->doResume();
     } else {
-        return ((VirtualKIOOpenUrlJob*)self)->doResume();
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::doResume called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KIO__OpenUrlJob_SuperDoResume(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_DoResume_IsBase(true);
-        return vkioopenurljob->doResume();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->doResume();
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        return vkioopenurljob->KIO::OpenUrlJob::doResume();
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::doResume called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnDoResume(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_DoResume_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoResume_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_doresume_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoResume_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_string KIO__OpenUrlJob_ErrorString(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        auto _ret = vkioopenurljob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::OpenUrlJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
 libqt_string KIO__OpenUrlJob_SuperErrorString(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_ErrorString_IsBase(true);
-        auto _ret = vkioopenurljob->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->KIO::OpenUrlJob::errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->KIO::OpenUrlJob::errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnErrorString(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_ErrorString_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ErrorString_Callback>(slot));
+void KIO__OpenUrlJob_OnErrorString(KIO__OpenUrlJob* self, intptr_t slot) {
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self)))
+        vkioopenurljob->kio__openurljob_errorstring_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ErrorString_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__OpenUrlJob_Event(KIO__OpenUrlJob* self, QEvent* event) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        return vkioopenurljob->event(event);
-    } else {
-        return self->KIO::OpenUrlJob::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KIO__OpenUrlJob_SuperEvent(KIO__OpenUrlJob* self, QEvent* event) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_Event_IsBase(true);
-        return vkioopenurljob->event(event);
-    } else {
-        return self->KIO::OpenUrlJob::event(event);
-    }
+    return self->KIO::OpenUrlJob::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnEvent(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_Event_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Event_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_event_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KIO__OpenUrlJob_EventFilter(KIO__OpenUrlJob* self, QObject* watched, QEvent* event) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        return vkioopenurljob->eventFilter(watched, event);
-    } else {
-        return self->KIO::OpenUrlJob::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KIO__OpenUrlJob_SuperEventFilter(KIO__OpenUrlJob* self, QObject* watched, QEvent* event) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_EventFilter_IsBase(true);
-        return vkioopenurljob->eventFilter(watched, event);
-    } else {
-        return self->KIO::OpenUrlJob::eventFilter(watched, event);
-    }
+    return self->KIO::OpenUrlJob::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnEventFilter(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_EventFilter_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EventFilter_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_eventfilter_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__OpenUrlJob_TimerEvent(KIO__OpenUrlJob* self, QTimerEvent* event) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         vkioopenurljob->timerEvent(event);
     } else {
-        ((VirtualKIOOpenUrlJob*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__OpenUrlJob_SuperTimerEvent(KIO__OpenUrlJob* self, QTimerEvent* event) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_TimerEvent_IsBase(true);
-        vkioopenurljob->timerEvent(event);
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->timerEvent(event);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->KIO::OpenUrlJob::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnTimerEvent(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_TimerEvent_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_timerevent_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__OpenUrlJob_ChildEvent(KIO__OpenUrlJob* self, QChildEvent* event) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         vkioopenurljob->childEvent(event);
     } else {
-        ((VirtualKIOOpenUrlJob*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__OpenUrlJob_SuperChildEvent(KIO__OpenUrlJob* self, QChildEvent* event) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_ChildEvent_IsBase(true);
-        vkioopenurljob->childEvent(event);
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->childEvent(event);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->KIO::OpenUrlJob::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnChildEvent(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ChildEvent_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_childevent_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__OpenUrlJob_CustomEvent(KIO__OpenUrlJob* self, QEvent* event) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         vkioopenurljob->customEvent(event);
     } else {
-        ((VirtualKIOOpenUrlJob*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__OpenUrlJob_SuperCustomEvent(KIO__OpenUrlJob* self, QEvent* event) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_CustomEvent_IsBase(true);
-        vkioopenurljob->customEvent(event);
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->customEvent(event);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->KIO::OpenUrlJob::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnCustomEvent(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_CustomEvent_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_customevent_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__OpenUrlJob_ConnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* signal) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         vkioopenurljob->connectNotify(*signal);
     } else {
-        ((VirtualKIOOpenUrlJob*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__OpenUrlJob_SuperConnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* signal) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_ConnectNotify_IsBase(true);
-        vkioopenurljob->connectNotify(*signal);
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->connectNotify(*signal);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->KIO::OpenUrlJob::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnConnectNotify(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ConnectNotify_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_connectnotify_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KIO__OpenUrlJob_DisconnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* signal) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob) {
         vkioopenurljob->disconnectNotify(*signal);
     } else {
-        ((VirtualKIOOpenUrlJob*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KIO__OpenUrlJob_SuperDisconnectNotify(KIO__OpenUrlJob* self, const QMetaMethod* signal) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_DisconnectNotify_IsBase(true);
-        vkioopenurljob->disconnectNotify(*signal);
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->KIO::OpenUrlJob::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KIO::OpenUrlJob::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnDisconnectNotify(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DisconnectNotify_Callback>(slot));
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self))
+        vkioopenurljob->kio__openurljob_disconnectnotify_callback = reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__OpenUrlJob_HasSubjobs(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        return vkioopenurljob->hasSubjobs();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->hasSubjobs();
-    }
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self))) {
+        return vkioopenurljob->VirtualKIOOpenUrlJob::hasSubjobs();
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::hasSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__OpenUrlJob_SuperHasSubjobs(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_HasSubjobs_IsBase(true);
-        return vkioopenurljob->hasSubjobs();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->hasSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnHasSubjobs(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_HasSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of KJob* */ KIO__OpenUrlJob_Subjobs(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        const QList<KJob*>& _ret = vkioopenurljob->subjobs();
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self))) {
+        const QList<KJob*>& _ret = vkioopenurljob->VirtualKIOOpenUrlJob::subjobs();
         // Convert QList<> from C++ memory to manually-managed C memory
         KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -681,532 +536,145 @@ libqt_list /* of KJob* */ KIO__OpenUrlJob_Subjobs(const KIO__OpenUrlJob* self) {
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKIOOpenUrlJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::subjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of KJob* */ KIO__OpenUrlJob_SuperSubjobs(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_Subjobs_IsBase(true);
-        const QList<KJob*>& _ret = vkioopenurljob->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        const QList<KJob*>& _ret = ((VirtualKIOOpenUrlJob*)self)->subjobs();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KJob** _arr = static_cast<KJob**>(malloc(sizeof(KJob*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSubjobs(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_Subjobs_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Subjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_ClearSubjobs(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->clearSubjobs();
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->clearSubjobs();
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::clearSubjobs();
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::clearSubjobs called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperClearSubjobs(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_ClearSubjobs_IsBase(true);
-        vkioopenurljob->clearSubjobs();
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->clearSubjobs();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnClearSubjobs(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ClearSubjobs_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_SetCapabilities(KIO__OpenUrlJob* self, int capabilities) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::setCapabilities called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperSetCapabilities(KIO__OpenUrlJob* self, int capabilities) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SetCapabilities_IsBase(true);
-        vkioopenurljob->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setCapabilities(static_cast<QFlags<KJob::Capability>>(capabilities));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSetCapabilities(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetCapabilities_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__OpenUrlJob_IsFinished(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        return vkioopenurljob->isFinished();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->isFinished();
-    }
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self))) {
+        return vkioopenurljob->VirtualKIOOpenUrlJob::isFinished();
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::isFinished called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KIO__OpenUrlJob_SuperIsFinished(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_IsFinished_IsBase(true);
-        return vkioopenurljob->isFinished();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->isFinished();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnIsFinished(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_IsFinished_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_IsFinished_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_SetError(KIO__OpenUrlJob* self, int errorCode) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setError(static_cast<int>(errorCode));
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::setError(static_cast<int>(errorCode));
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::setError called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperSetError(KIO__OpenUrlJob* self, int errorCode) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SetError_IsBase(true);
-        vkioopenurljob->setError(static_cast<int>(errorCode));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setError(static_cast<int>(errorCode));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSetError(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SetError_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetError_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_SetErrorText(KIO__OpenUrlJob* self, const libqt_string errorText) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setErrorText(errorText_QString);
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
+        vkioopenurljob->VirtualKIOOpenUrlJob::setErrorText(errorText_QString);
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::setErrorText called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperSetErrorText(KIO__OpenUrlJob* self, const libqt_string errorText) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    QString errorText_QString = QString::fromUtf8(errorText.data, errorText.len);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SetErrorText_IsBase(true);
-        vkioopenurljob->setErrorText(errorText_QString);
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setErrorText(errorText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSetErrorText(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetErrorText_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_SetProcessedAmount(KIO__OpenUrlJob* self, int unit, unsigned long long amount) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::setProcessedAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperSetProcessedAmount(KIO__OpenUrlJob* self, int unit, unsigned long long amount) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SetProcessedAmount_IsBase(true);
-        vkioopenurljob->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setProcessedAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSetProcessedAmount(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetProcessedAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_SetTotalAmount(KIO__OpenUrlJob* self, int unit, unsigned long long amount) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::setTotalAmount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperSetTotalAmount(KIO__OpenUrlJob* self, int unit, unsigned long long amount) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SetTotalAmount_IsBase(true);
-        vkioopenurljob->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setTotalAmount(static_cast<KJob::Unit>(unit), static_cast<qulonglong>(amount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSetTotalAmount(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetTotalAmount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_SetProgressUnit(KIO__OpenUrlJob* self, int unit) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::setProgressUnit(static_cast<KJob::Unit>(unit));
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::setProgressUnit called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperSetProgressUnit(KIO__OpenUrlJob* self, int unit) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SetProgressUnit_IsBase(true);
-        vkioopenurljob->setProgressUnit(static_cast<KJob::Unit>(unit));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setProgressUnit(static_cast<KJob::Unit>(unit));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSetProgressUnit(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetProgressUnit_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_SetPercent(KIO__OpenUrlJob* self, unsigned long percentage) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::setPercent(static_cast<unsigned long>(percentage));
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::setPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperSetPercent(KIO__OpenUrlJob* self, unsigned long percentage) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SetPercent_IsBase(true);
-        vkioopenurljob->setPercent(static_cast<unsigned long>(percentage));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->setPercent(static_cast<unsigned long>(percentage));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSetPercent(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SetPercent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_EmitResult(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->emitResult();
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->emitResult();
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::emitResult();
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::emitResult called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperEmitResult(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_EmitResult_IsBase(true);
-        vkioopenurljob->emitResult();
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->emitResult();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnEmitResult(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_EmitResult_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EmitResult_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_EmitPercent(KIO__OpenUrlJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::emitPercent called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperEmitPercent(KIO__OpenUrlJob* self, unsigned long long processedAmount, unsigned long long totalAmount) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_EmitPercent_IsBase(true);
-        vkioopenurljob->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->emitPercent(static_cast<qulonglong>(processedAmount), static_cast<qulonglong>(totalAmount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnEmitPercent(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EmitPercent_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_EmitSpeed(KIO__OpenUrlJob* self, unsigned long speed) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::emitSpeed(static_cast<unsigned long>(speed));
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::emitSpeed called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperEmitSpeed(KIO__OpenUrlJob* self, unsigned long speed) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_EmitSpeed_IsBase(true);
-        vkioopenurljob->emitSpeed(static_cast<unsigned long>(speed));
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->emitSpeed(static_cast<unsigned long>(speed));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnEmitSpeed(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EmitSpeed_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KIO__OpenUrlJob_StartElapsedTimer(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->startElapsedTimer();
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->startElapsedTimer();
-    }
+    if (auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self)) {
+        vkioopenurljob->VirtualKIOOpenUrlJob::startElapsedTimer();
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::startElapsedTimer called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KIO__OpenUrlJob_SuperStartElapsedTimer(KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_StartElapsedTimer_IsBase(true);
-        vkioopenurljob->startElapsedTimer();
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->startElapsedTimer();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnStartElapsedTimer(KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_StartElapsedTimer_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KIO__OpenUrlJob_Sender(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        return vkioopenurljob->sender();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->sender();
-    }
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self))) {
+        return vkioopenurljob->VirtualKIOOpenUrlJob::sender();
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KIO__OpenUrlJob_SuperSender(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_Sender_IsBase(true);
-        return vkioopenurljob->sender();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSender(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_Sender_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__OpenUrlJob_SenderSignalIndex(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        return vkioopenurljob->senderSignalIndex();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->senderSignalIndex();
-    }
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self))) {
+        return vkioopenurljob->VirtualKIOOpenUrlJob::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__OpenUrlJob_SuperSenderSignalIndex(const KIO__OpenUrlJob* self) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_SenderSignalIndex_IsBase(true);
-        return vkioopenurljob->senderSignalIndex();
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnSenderSignalIndex(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KIO__OpenUrlJob_Receivers(const KIO__OpenUrlJob* self, const char* signal) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        return vkioopenurljob->receivers(signal);
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->receivers(signal);
-    }
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self))) {
+        return vkioopenurljob->VirtualKIOOpenUrlJob::receivers(signal);
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KIO__OpenUrlJob_SuperReceivers(const KIO__OpenUrlJob* self, const char* signal) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_Receivers_IsBase(true);
-        return vkioopenurljob->receivers(signal);
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnReceivers(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_Receivers_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KIO__OpenUrlJob_IsSignalConnected(const KIO__OpenUrlJob* self, const QMetaMethod* signal) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        return vkioopenurljob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KIO__OpenUrlJob_SuperIsSignalConnected(const KIO__OpenUrlJob* self, const QMetaMethod* signal) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        vkioopenurljob->setKIO__OpenUrlJob_IsSignalConnected_IsBase(true);
-        return vkioopenurljob->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KIO__OpenUrlJob_OnIsSignalConnected(const KIO__OpenUrlJob* self, intptr_t slot) {
-    auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
-        vkioopenurljob->setKIO__OpenUrlJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_IsSignalConnected_Callback>(slot));
+    if (auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self))) {
+        return vkioopenurljob->VirtualKIOOpenUrlJob::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KIO::OpenUrlJob::isSignalConnected called without a directly constructed type");
 }
 
 void KIO__OpenUrlJob_Delete(KIO__OpenUrlJob* self) {

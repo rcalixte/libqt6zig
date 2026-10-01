@@ -103,13 +103,13 @@ void QCandlestickSeries_PenChanged(QCandlestickSeries* self);
 void QCandlestickSeries_Connect_PenChanged(QCandlestickSeries* self, intptr_t slot);
 libqt_string QCandlestickSeries_Tr2(const char* s, const char* c);
 libqt_string QCandlestickSeries_Tr3(const char* s, const char* c, int n);
-void QCandlestickSeries_OnMetaObject(const QCandlestickSeries* self, intptr_t slot);
+void QCandlestickSeries_OnMetaObject(QCandlestickSeries* self, intptr_t slot);
 QMetaObject* QCandlestickSeries_SuperMetaObject(const QCandlestickSeries* self);
 void QCandlestickSeries_OnMetacast(QCandlestickSeries* self, intptr_t slot);
 void* QCandlestickSeries_SuperMetacast(QCandlestickSeries* self, const char* param1);
 void QCandlestickSeries_OnMetacall(QCandlestickSeries* self, intptr_t slot);
 int QCandlestickSeries_SuperMetacall(QCandlestickSeries* self, int param1, int param2, void** param3);
-void QCandlestickSeries_OnType(const QCandlestickSeries* self, intptr_t slot);
+void QCandlestickSeries_OnType(QCandlestickSeries* self, intptr_t slot);
 int QCandlestickSeries_SuperType(const QCandlestickSeries* self);
 bool QCandlestickSeries_Event(QCandlestickSeries* self, QEvent* event);
 void QCandlestickSeries_OnEvent(QCandlestickSeries* self, intptr_t slot);
@@ -133,17 +133,9 @@ void QCandlestickSeries_DisconnectNotify(QCandlestickSeries* self, const QMetaMe
 void QCandlestickSeries_OnDisconnectNotify(QCandlestickSeries* self, intptr_t slot);
 void QCandlestickSeries_SuperDisconnectNotify(QCandlestickSeries* self, const QMetaMethod* signal);
 QObject* QCandlestickSeries_Sender(const QCandlestickSeries* self);
-void QCandlestickSeries_OnSender(const QCandlestickSeries* self, intptr_t slot);
-QObject* QCandlestickSeries_SuperSender(const QCandlestickSeries* self);
 int QCandlestickSeries_SenderSignalIndex(const QCandlestickSeries* self);
-void QCandlestickSeries_OnSenderSignalIndex(const QCandlestickSeries* self, intptr_t slot);
-int QCandlestickSeries_SuperSenderSignalIndex(const QCandlestickSeries* self);
 int QCandlestickSeries_Receivers(const QCandlestickSeries* self, const char* signal);
-void QCandlestickSeries_OnReceivers(const QCandlestickSeries* self, intptr_t slot);
-int QCandlestickSeries_SuperReceivers(const QCandlestickSeries* self, const char* signal);
 bool QCandlestickSeries_IsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal);
-void QCandlestickSeries_OnIsSignalConnected(const QCandlestickSeries* self, intptr_t slot);
-bool QCandlestickSeries_SuperIsSignalConnected(const QCandlestickSeries* self, const QMetaMethod* signal);
 void QCandlestickSeries_Delete(QCandlestickSeries* self);
 
 #ifdef __cplusplus

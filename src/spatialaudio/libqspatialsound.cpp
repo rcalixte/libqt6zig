@@ -378,364 +378,219 @@ libqt_string QSpatialSound_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSpatialSound_SuperMetaObject(const QSpatialSound* self) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_MetaObject_IsBase(true);
-        return (QMetaObject*)vqspatialsound->metaObject();
-    } else {
-        return (QMetaObject*)self->QSpatialSound::metaObject();
-    }
+    return (QMetaObject*)self->QSpatialSound::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSpatialSound_OnMetaObject(const QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_MetaObject_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_MetaObject_Callback>(slot));
+void QSpatialSound_OnMetaObject(QSpatialSound* self, intptr_t slot) {
+    if (auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self)))
+        vqspatialsound->qspatialsound_metaobject_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSpatialSound_SuperMetacast(QSpatialSound* self, const char* param1) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_Metacast_IsBase(true);
-        return vqspatialsound->qt_metacast(param1);
-    } else {
-        return self->QSpatialSound::qt_metacast(param1);
-    }
+    return self->QSpatialSound::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnMetacast(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_Metacast_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Metacast_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_metacast_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSpatialSound_SuperMetacall(QSpatialSound* self, int param1, int param2, void** param3) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_Metacall_IsBase(true);
-        return vqspatialsound->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSpatialSound::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSpatialSound::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnMetacall(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_Metacall_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Metacall_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_metacall_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSpatialSound_Event(QSpatialSound* self, QEvent* event) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return vqspatialsound->event(event);
-    } else {
-        return self->QSpatialSound::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QSpatialSound_SuperEvent(QSpatialSound* self, QEvent* event) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_Event_IsBase(true);
-        return vqspatialsound->event(event);
-    } else {
-        return self->QSpatialSound::event(event);
-    }
+    return self->QSpatialSound::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnEvent(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_Event_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Event_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_event_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSpatialSound_EventFilter(QSpatialSound* self, QObject* watched, QEvent* event) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return vqspatialsound->eventFilter(watched, event);
-    } else {
-        return self->QSpatialSound::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSpatialSound_SuperEventFilter(QSpatialSound* self, QObject* watched, QEvent* event) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_EventFilter_IsBase(true);
-        return vqspatialsound->eventFilter(watched, event);
-    } else {
-        return self->QSpatialSound::eventFilter(watched, event);
-    }
+    return self->QSpatialSound::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnEventFilter(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_EventFilter_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_EventFilter_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_eventfilter_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSpatialSound_TimerEvent(QSpatialSound* self, QTimerEvent* event) {
     auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+    if (vqspatialsound) {
         vqspatialsound->timerEvent(event);
     } else {
-        ((VirtualQSpatialSound*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSpatialSound::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSpatialSound_SuperTimerEvent(QSpatialSound* self, QTimerEvent* event) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_TimerEvent_IsBase(true);
-        vqspatialsound->timerEvent(event);
-    } else {
-        ((VirtualQSpatialSound*)self)->timerEvent(event);
-    }
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self)) {
+        vqspatialsound->QSpatialSound::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSpatialSound::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnTimerEvent(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_TimerEvent_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_TimerEvent_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_timerevent_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSpatialSound_ChildEvent(QSpatialSound* self, QChildEvent* event) {
     auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+    if (vqspatialsound) {
         vqspatialsound->childEvent(event);
     } else {
-        ((VirtualQSpatialSound*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSpatialSound::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSpatialSound_SuperChildEvent(QSpatialSound* self, QChildEvent* event) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_ChildEvent_IsBase(true);
-        vqspatialsound->childEvent(event);
-    } else {
-        ((VirtualQSpatialSound*)self)->childEvent(event);
-    }
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self)) {
+        vqspatialsound->QSpatialSound::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSpatialSound::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnChildEvent(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_ChildEvent_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_ChildEvent_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_childevent_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSpatialSound_CustomEvent(QSpatialSound* self, QEvent* event) {
     auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+    if (vqspatialsound) {
         vqspatialsound->customEvent(event);
     } else {
-        ((VirtualQSpatialSound*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSpatialSound::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSpatialSound_SuperCustomEvent(QSpatialSound* self, QEvent* event) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_CustomEvent_IsBase(true);
-        vqspatialsound->customEvent(event);
-    } else {
-        ((VirtualQSpatialSound*)self)->customEvent(event);
-    }
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self)) {
+        vqspatialsound->QSpatialSound::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSpatialSound::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnCustomEvent(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_CustomEvent_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_CustomEvent_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_customevent_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSpatialSound_ConnectNotify(QSpatialSound* self, const QMetaMethod* signal) {
     auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+    if (vqspatialsound) {
         vqspatialsound->connectNotify(*signal);
     } else {
-        ((VirtualQSpatialSound*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSpatialSound::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSpatialSound_SuperConnectNotify(QSpatialSound* self, const QMetaMethod* signal) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_ConnectNotify_IsBase(true);
-        vqspatialsound->connectNotify(*signal);
-    } else {
-        ((VirtualQSpatialSound*)self)->connectNotify(*signal);
-    }
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self)) {
+        vqspatialsound->QSpatialSound::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSpatialSound::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnConnectNotify(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_ConnectNotify_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_ConnectNotify_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_connectnotify_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSpatialSound_DisconnectNotify(QSpatialSound* self, const QMetaMethod* signal) {
     auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
+    if (vqspatialsound) {
         vqspatialsound->disconnectNotify(*signal);
     } else {
-        ((VirtualQSpatialSound*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSpatialSound::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSpatialSound_SuperDisconnectNotify(QSpatialSound* self, const QMetaMethod* signal) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_DisconnectNotify_IsBase(true);
-        vqspatialsound->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSpatialSound*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self)) {
+        vqspatialsound->QSpatialSound::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSpatialSound::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSpatialSound_OnDisconnectNotify(QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_DisconnectNotify_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_DisconnectNotify_Callback>(slot));
+    if (auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self))
+        vqspatialsound->qspatialsound_disconnectnotify_callback = reinterpret_cast<VirtualQSpatialSound::QSpatialSound_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSpatialSound_Sender(const QSpatialSound* self) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return vqspatialsound->sender();
-    } else {
-        return ((VirtualQSpatialSound*)self)->sender();
-    }
+    if (auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self))) {
+        return vqspatialsound->VirtualQSpatialSound::sender();
+    } else
+        qFatal("Error: Protected method QSpatialSound::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSpatialSound_SuperSender(const QSpatialSound* self) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_Sender_IsBase(true);
-        return vqspatialsound->sender();
-    } else {
-        return ((VirtualQSpatialSound*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpatialSound_OnSender(const QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_Sender_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSpatialSound_SenderSignalIndex(const QSpatialSound* self) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return vqspatialsound->senderSignalIndex();
-    } else {
-        return ((VirtualQSpatialSound*)self)->senderSignalIndex();
-    }
+    if (auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self))) {
+        return vqspatialsound->VirtualQSpatialSound::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSpatialSound::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSpatialSound_SuperSenderSignalIndex(const QSpatialSound* self) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_SenderSignalIndex_IsBase(true);
-        return vqspatialsound->senderSignalIndex();
-    } else {
-        return ((VirtualQSpatialSound*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpatialSound_OnSenderSignalIndex(const QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSpatialSound_Receivers(const QSpatialSound* self, const char* signal) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return vqspatialsound->receivers(signal);
-    } else {
-        return ((VirtualQSpatialSound*)self)->receivers(signal);
-    }
+    if (auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self))) {
+        return vqspatialsound->VirtualQSpatialSound::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSpatialSound::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSpatialSound_SuperReceivers(const QSpatialSound* self, const char* signal) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_Receivers_IsBase(true);
-        return vqspatialsound->receivers(signal);
-    } else {
-        return ((VirtualQSpatialSound*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpatialSound_OnReceivers(const QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_Receivers_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSpatialSound_IsSignalConnected(const QSpatialSound* self, const QMetaMethod* signal) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return vqspatialsound->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSpatialSound*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSpatialSound_SuperIsSignalConnected(const QSpatialSound* self, const QMetaMethod* signal) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        vqspatialsound->setQSpatialSound_IsSignalConnected_IsBase(true);
-        return vqspatialsound->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSpatialSound*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSpatialSound_OnIsSignalConnected(const QSpatialSound* self, intptr_t slot) {
-    auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self));
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound)
-        vqspatialsound->setQSpatialSound_IsSignalConnected_Callback(reinterpret_cast<VirtualQSpatialSound::QSpatialSound_IsSignalConnected_Callback>(slot));
+    if (auto* vqspatialsound = const_cast<VirtualQSpatialSound*>(dynamic_cast<const VirtualQSpatialSound*>(self))) {
+        return vqspatialsound->VirtualQSpatialSound::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSpatialSound::isSignalConnected called without a directly constructed type");
 }
 
 void QSpatialSound_Delete(QSpatialSound* self) {

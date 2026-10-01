@@ -135,6 +135,8 @@ pub const QDesignerNewFormWidgetInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignernewformwidgetinterface.html#hasCurrentTemplate)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerNewFormWidgetInterface `

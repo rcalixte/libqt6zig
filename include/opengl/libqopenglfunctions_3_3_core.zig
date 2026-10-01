@@ -50,9 +50,9 @@ pub const QOpenGLFunctions_3_3_Core = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_3_Core `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QOpenGLFunctions_3_3_Core) callconv(.c) bool `
     ///
-    pub fn onInitializeOpenGLFunctions(self: QOpenGLFunctions_3_3_Core, callback: *const fn () callconv(.c) bool) void {
+    pub fn onInitializeOpenGLFunctions(self: QOpenGLFunctions_3_3_Core, callback: *const fn (QOpenGLFunctions_3_3_Core) callconv(.c) bool) void {
         qtc.QOpenGLFunctions_3_3_Core_OnInitializeOpenGLFunctions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -5753,44 +5753,6 @@ pub const QOpenGLFunctions_3_3_Core = extern struct {
         return qtc.QOpenGLFunctions_3_3_Core_IsInitialized(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIsInitialized` instead
-    ///
-    pub const SuperIsInitialized = superIsInitialized;
-
-    /// Inherited from QAbstractOpenGLFunctions
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#isInitialized)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_3_Core `
-    ///
-    pub fn superIsInitialized(self: QOpenGLFunctions_3_3_Core) bool {
-        return qtc.QOpenGLFunctions_3_3_Core_SuperIsInitialized(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsInitialized` instead
-    ///
-    pub const OnIsInitialized = onIsInitialized;
-
-    /// Inherited from QAbstractOpenGLFunctions
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#isInitialized)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLFunctions_3_3_Core`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsInitialized(self: QOpenGLFunctions_3_3_Core, callback: *const fn () callconv(.c) bool) void {
-        qtc.QOpenGLFunctions_3_3_Core_OnIsInitialized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setOwningContext` instead
     ///
     pub const SetOwningContext = setOwningContext;
@@ -5812,47 +5774,6 @@ pub const QOpenGLFunctions_3_3_Core = extern struct {
         qtc.QOpenGLFunctions_3_3_Core_SetOwningContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetOwningContext` instead
-    ///
-    pub const SuperSetOwningContext = superSetOwningContext;
-
-    /// Inherited from QAbstractOpenGLFunctions
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#setOwningContext)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_3_Core `
-    ///
-    /// ` context: QOpenGLContext `
-    ///
-    pub fn superSetOwningContext(self: QOpenGLFunctions_3_3_Core, context: anytype) void {
-        comptime _ = @TypeOf(context)._is_QOpenGLContext;
-        qtc.QOpenGLFunctions_3_3_Core_SuperSetOwningContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetOwningContext` instead
-    ///
-    pub const OnSetOwningContext = onSetOwningContext;
-
-    /// Inherited from QAbstractOpenGLFunctions
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#setOwningContext)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLFunctions_3_3_Core`
-    ///
-    /// ` callback: *const fn (self: QOpenGLFunctions_3_3_Core, context: QOpenGLContext) callconv(.c) void `
-    ///
-    pub fn onSetOwningContext(self: QOpenGLFunctions_3_3_Core, callback: *const fn (QOpenGLFunctions_3_3_Core, QOpenGLContext) callconv(.c) void) void {
-        qtc.QOpenGLFunctions_3_3_Core_OnSetOwningContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `owningContext` instead
     ///
     pub const OwningContext = owningContext;
@@ -5869,44 +5790,6 @@ pub const QOpenGLFunctions_3_3_Core = extern struct {
     ///
     pub fn owningContext(self: QOpenGLFunctions_3_3_Core) QOpenGLContext {
         return .{ .ptr = qtc.QOpenGLFunctions_3_3_Core_OwningContext(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superOwningContext` instead
-    ///
-    pub const SuperOwningContext = superOwningContext;
-
-    /// Inherited from QAbstractOpenGLFunctions
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#owningContext)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLFunctions_3_3_Core `
-    ///
-    pub fn superOwningContext(self: QOpenGLFunctions_3_3_Core) QOpenGLContext {
-        return .{ .ptr = qtc.QOpenGLFunctions_3_3_Core_SuperOwningContext(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onOwningContext` instead
-    ///
-    pub const OnOwningContext = onOwningContext;
-
-    /// Inherited from QAbstractOpenGLFunctions
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractopenglfunctions.html#owningContext)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QOpenGLFunctions_3_3_Core`
-    ///
-    /// ` callback: *const fn () callconv(.c) QOpenGLContext `
-    ///
-    pub fn onOwningContext(self: QOpenGLFunctions_3_3_Core, callback: *const fn () callconv(.c) QOpenGLContext) void {
-        qtc.QOpenGLFunctions_3_3_Core_OnOwningContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

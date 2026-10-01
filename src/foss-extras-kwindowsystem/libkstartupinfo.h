@@ -75,7 +75,7 @@ void KStartupInfo_Connect_GotRemoveStartup(KStartupInfo* self, intptr_t slot);
 void KStartupInfo_CustomEvent(KStartupInfo* self, QEvent* e_P);
 libqt_string KStartupInfo_Tr2(const char* s, const char* c);
 libqt_string KStartupInfo_Tr3(const char* s, const char* c, int n);
-void KStartupInfo_OnMetaObject(const KStartupInfo* self, intptr_t slot);
+void KStartupInfo_OnMetaObject(KStartupInfo* self, intptr_t slot);
 QMetaObject* KStartupInfo_SuperMetaObject(const KStartupInfo* self);
 void KStartupInfo_OnMetacast(KStartupInfo* self, intptr_t slot);
 void* KStartupInfo_SuperMetacast(KStartupInfo* self, const char* param1);
@@ -102,17 +102,9 @@ void KStartupInfo_DisconnectNotify(KStartupInfo* self, const QMetaMethod* signal
 void KStartupInfo_OnDisconnectNotify(KStartupInfo* self, intptr_t slot);
 void KStartupInfo_SuperDisconnectNotify(KStartupInfo* self, const QMetaMethod* signal);
 QObject* KStartupInfo_Sender(const KStartupInfo* self);
-void KStartupInfo_OnSender(const KStartupInfo* self, intptr_t slot);
-QObject* KStartupInfo_SuperSender(const KStartupInfo* self);
 int KStartupInfo_SenderSignalIndex(const KStartupInfo* self);
-void KStartupInfo_OnSenderSignalIndex(const KStartupInfo* self, intptr_t slot);
-int KStartupInfo_SuperSenderSignalIndex(const KStartupInfo* self);
 int KStartupInfo_Receivers(const KStartupInfo* self, const char* signal);
-void KStartupInfo_OnReceivers(const KStartupInfo* self, intptr_t slot);
-int KStartupInfo_SuperReceivers(const KStartupInfo* self, const char* signal);
 bool KStartupInfo_IsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal);
-void KStartupInfo_OnIsSignalConnected(const KStartupInfo* self, intptr_t slot);
-bool KStartupInfo_SuperIsSignalConnected(const KStartupInfo* self, const QMetaMethod* signal);
 void KStartupInfo_Delete(KStartupInfo* self);
 
 KStartupInfoId* KStartupInfoId_new();

@@ -104,7 +104,7 @@ void KSvg__Svg_Paint32(KSvg__Svg* self, QPainter* painter, const QPointF* point,
 void KSvg__Svg_Paint42(KSvg__Svg* self, QPainter* painter, int x, int y, const libqt_string elementID);
 void KSvg__Svg_Paint33(KSvg__Svg* self, QPainter* painter, const QRectF* rect, const libqt_string elementID);
 void KSvg__Svg_Paint6(KSvg__Svg* self, QPainter* painter, int x, int y, int width, int height, const libqt_string elementID);
-void KSvg__Svg_OnMetaObject(const KSvg__Svg* self, intptr_t slot);
+void KSvg__Svg_OnMetaObject(KSvg__Svg* self, intptr_t slot);
 QMetaObject* KSvg__Svg_SuperMetaObject(const KSvg__Svg* self);
 void KSvg__Svg_OnMetacast(KSvg__Svg* self, intptr_t slot);
 void* KSvg__Svg_SuperMetacast(KSvg__Svg* self, const char* param1);
@@ -131,17 +131,9 @@ void KSvg__Svg_DisconnectNotify(KSvg__Svg* self, const QMetaMethod* signal);
 void KSvg__Svg_OnDisconnectNotify(KSvg__Svg* self, intptr_t slot);
 void KSvg__Svg_SuperDisconnectNotify(KSvg__Svg* self, const QMetaMethod* signal);
 QObject* KSvg__Svg_Sender(const KSvg__Svg* self);
-void KSvg__Svg_OnSender(const KSvg__Svg* self, intptr_t slot);
-QObject* KSvg__Svg_SuperSender(const KSvg__Svg* self);
 int KSvg__Svg_SenderSignalIndex(const KSvg__Svg* self);
-void KSvg__Svg_OnSenderSignalIndex(const KSvg__Svg* self, intptr_t slot);
-int KSvg__Svg_SuperSenderSignalIndex(const KSvg__Svg* self);
 int KSvg__Svg_Receivers(const KSvg__Svg* self, const char* signal);
-void KSvg__Svg_OnReceivers(const KSvg__Svg* self, intptr_t slot);
-int KSvg__Svg_SuperReceivers(const KSvg__Svg* self, const char* signal);
 bool KSvg__Svg_IsSignalConnected(const KSvg__Svg* self, const QMetaMethod* signal);
-void KSvg__Svg_OnIsSignalConnected(const KSvg__Svg* self, intptr_t slot);
-bool KSvg__Svg_SuperIsSignalConnected(const KSvg__Svg* self, const QMetaMethod* signal);
 void KSvg__Svg_Delete(KSvg__Svg* self);
 
 #ifdef __cplusplus

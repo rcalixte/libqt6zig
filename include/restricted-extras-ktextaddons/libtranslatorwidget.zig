@@ -153,9 +153,9 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10224,9 +10224,9 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QMimeData `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) QMimeData `
     ///
-    pub fn onCreateMimeDataFromSelection(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) QMimeData) void {
         qtc.TextTranslator__TranslatorTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10592,11 +10592,11 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10650,11 +10650,11 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -10900,11 +10900,11 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onViewportSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11020,9 +11020,9 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11196,9 +11196,9 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -11252,9 +11252,9 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) QPaintEngine) void {
         qtc.TextTranslator__TranslatorTextEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12002,9 +12002,9 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) QPainter) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -12274,46 +12274,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_FirstVisibleBlock(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superFirstVisibleBlock` instead
-    ///
-    pub const SuperFirstVisibleBlock = superFirstVisibleBlock;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superFirstVisibleBlock(self: TextTranslator__TranslatorTextEdit) QTextBlock {
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperFirstVisibleBlock(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onFirstVisibleBlock` instead
-    ///
-    pub const OnFirstVisibleBlock = onFirstVisibleBlock;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QTextBlock `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onFirstVisibleBlock(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QTextBlock) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnFirstVisibleBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `contentOffset` instead
     ///
     pub const ContentOffset = contentOffset;
@@ -12330,46 +12290,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn contentOffset(self: TextTranslator__TranslatorTextEdit) QPointF {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_ContentOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superContentOffset` instead
-    ///
-    pub const SuperContentOffset = superContentOffset;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superContentOffset(self: TextTranslator__TranslatorTextEdit) QPointF {
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperContentOffset(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onContentOffset` instead
-    ///
-    pub const OnContentOffset = onContentOffset;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QPointF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onContentOffset(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPointF) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnContentOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `blockBoundingRect` instead
@@ -12393,49 +12313,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_BlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superBlockBoundingRect` instead
-    ///
-    pub const SuperBlockBoundingRect = superBlockBoundingRect;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` block: QTextBlock `
-    ///
-    pub fn superBlockBoundingRect(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
-        comptime _ = @TypeOf(block)._is_QTextBlock;
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperBlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onBlockBoundingRect` instead
-    ///
-    pub const OnBlockBoundingRect = onBlockBoundingRect;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, block: QTextBlock) callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onBlockBoundingRect(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextBlock) callconv(.c) QRectF) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `blockBoundingGeometry` instead
     ///
     pub const BlockBoundingGeometry = blockBoundingGeometry;
@@ -12457,49 +12334,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_BlockBoundingGeometry(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superBlockBoundingGeometry` instead
-    ///
-    pub const SuperBlockBoundingGeometry = superBlockBoundingGeometry;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` block: QTextBlock `
-    ///
-    pub fn superBlockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
-        comptime _ = @TypeOf(block)._is_QTextBlock;
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperBlockBoundingGeometry(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onBlockBoundingGeometry` instead
-    ///
-    pub const OnBlockBoundingGeometry = onBlockBoundingGeometry;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, block: QTextBlock) callconv(.c) QRectF `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onBlockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextBlock) callconv(.c) QRectF) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnBlockBoundingGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `getPaintContext` instead
     ///
     pub const GetPaintContext = getPaintContext;
@@ -12516,46 +12350,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn getPaintContext(self: TextTranslator__TranslatorTextEdit) QAbstractTextDocumentLayout__PaintContext {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_GetPaintContext(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superGetPaintContext` instead
-    ///
-    pub const SuperGetPaintContext = superGetPaintContext;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superGetPaintContext(self: TextTranslator__TranslatorTextEdit) QAbstractTextDocumentLayout__PaintContext {
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperGetPaintContext(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onGetPaintContext` instead
-    ///
-    pub const OnGetPaintContext = onGetPaintContext;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onGetPaintContext(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnGetPaintContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `zoomInF` instead
@@ -12576,46 +12370,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn zoomInF(self: TextTranslator__TranslatorTextEdit, range: f32) void {
         qtc.TextTranslator__TranslatorTextEdit_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `superZoomInF` instead
-    ///
-    pub const SuperZoomInF = superZoomInF;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` range: f32 `
-    ///
-    pub fn superZoomInF(self: TextTranslator__TranslatorTextEdit, range: f32) void {
-        qtc.TextTranslator__TranslatorTextEdit_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
-    }
-
-    /// ### DEPRECATED: Use `onZoomInF` instead
-    ///
-    pub const OnZoomInF = onZoomInF;
-
-    /// Inherited from QPlainTextEdit
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, range: f32) callconv(.c) void `
-    ///
-    pub fn onZoomInF(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, f32) callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setViewportMargins` instead
@@ -12644,52 +12398,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         qtc.TextTranslator__TranslatorTextEdit_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `superSetViewportMargins` instead
-    ///
-    pub const SuperSetViewportMargins = superSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` left: i32 `
-    ///
-    /// ` top: i32 `
-    ///
-    /// ` right: i32 `
-    ///
-    /// ` bottom: i32 `
-    ///
-    pub fn superSetViewportMargins(self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.TextTranslator__TranslatorTextEdit_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
-    }
-
-    /// ### DEPRECATED: Use `onSetViewportMargins` instead
-    ///
-    pub const OnSetViewportMargins = onSetViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#setViewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
-    ///
-    pub fn onSetViewportMargins(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `viewportMargins` instead
     ///
     pub const ViewportMargins = viewportMargins;
@@ -12706,46 +12414,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn viewportMargins(self: TextTranslator__TranslatorTextEdit) QMargins {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_ViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superViewportMargins` instead
-    ///
-    pub const SuperViewportMargins = superViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superViewportMargins(self: TextTranslator__TranslatorTextEdit) QMargins {
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperViewportMargins(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onViewportMargins` instead
-    ///
-    pub const OnViewportMargins = onViewportMargins;
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#viewportMargins)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QMargins `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onViewportMargins(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMargins) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `drawFrame` instead
@@ -12769,47 +12437,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         qtc.TextTranslator__TranslatorTextEdit_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDrawFrame` instead
-    ///
-    pub const SuperDrawFrame = superDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` param1: QPainter `
-    ///
-    pub fn superDrawFrame(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        qtc.TextTranslator__TranslatorTextEdit_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDrawFrame` instead
-    ///
-    pub const OnDrawFrame = onDrawFrame;
-
-    /// Inherited from QFrame
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qframe.html#drawFrame)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: QPainter) callconv(.c) void `
-    ///
-    pub fn onDrawFrame(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPainter) callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `updateMicroFocus` instead
     ///
     pub const UpdateMicroFocus = updateMicroFocus;
@@ -12826,44 +12453,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn updateMicroFocus(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_UpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superUpdateMicroFocus(self: TextTranslator__TranslatorTextEdit) void {
-        qtc.TextTranslator__TranslatorTextEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `create` instead
@@ -12884,44 +12473,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         qtc.TextTranslator__TranslatorTextEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superCreate(self: TextTranslator__TranslatorTextEdit) void {
-        qtc.TextTranslator__TranslatorTextEdit_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `destroy` instead
     ///
     pub const Destroy = destroy;
@@ -12938,44 +12489,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn destroy(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_Destroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superDestroy(self: TextTranslator__TranslatorTextEdit) void {
-        qtc.TextTranslator__TranslatorTextEdit_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusNextChild` instead
@@ -12996,44 +12509,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return qtc.TextTranslator__TranslatorTextEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superFocusNextChild(self: TextTranslator__TranslatorTextEdit) bool {
-        return qtc.TextTranslator__TranslatorTextEdit_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusPreviousChild` instead
     ///
     pub const FocusPreviousChild = focusPreviousChild;
@@ -13050,44 +12525,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn focusPreviousChild(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.TextTranslator__TranslatorTextEdit_FocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superFocusPreviousChild(self: TextTranslator__TranslatorTextEdit) bool {
-        return qtc.TextTranslator__TranslatorTextEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -13108,44 +12545,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superSender(self: TextTranslator__TranslatorTextEdit) QObject {
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -13162,44 +12561,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn senderSignalIndex(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorTextEdit) i32 {
-        return qtc.TextTranslator__TranslatorTextEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -13223,47 +12584,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return qtc.TextTranslator__TranslatorTextEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextTranslator__TranslatorTextEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -13283,47 +12603,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     pub fn isSignalConnected(self: TextTranslator__TranslatorTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorTextEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextTranslator__TranslatorTextEdit, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextTranslator__TranslatorTextEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -13346,48 +12625,6 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextTranslator__TranslatorTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorTextEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextTranslator__TranslatorTextEdit, metricA: i32, metricB: i32) f64 {
-        return qtc.TextTranslator__TranslatorTextEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32) callconv(.c) f64) void {
-        qtc.TextTranslator__TranslatorTextEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead
@@ -13530,9 +12767,9 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20163,9 +19400,9 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20279,11 +19516,11 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20337,11 +19574,11 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20455,9 +19692,9 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20511,9 +19748,9 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) QPaintEngine) void {
         qtc.TextTranslator__TranslatorWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -22377,9 +21614,9 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) QPainter) void {
         qtc.TextTranslator__TranslatorWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -22963,44 +22200,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         qtc.TextTranslator__TranslatorWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn superUpdateMicroFocus(self: TextTranslator__TranslatorWidget) void {
-        qtc.TextTranslator__TranslatorWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -23017,44 +22216,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     pub fn create(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn superCreate(self: TextTranslator__TranslatorWidget) void {
-        qtc.TextTranslator__TranslatorWidget_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -23075,44 +22236,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         qtc.TextTranslator__TranslatorWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn superDestroy(self: TextTranslator__TranslatorWidget) void {
-        qtc.TextTranslator__TranslatorWidget_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
-        qtc.TextTranslator__TranslatorWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -23129,44 +22252,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     pub fn focusNextChild(self: TextTranslator__TranslatorWidget) bool {
         return qtc.TextTranslator__TranslatorWidget_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn superFocusNextChild(self: TextTranslator__TranslatorWidget) bool {
-        return qtc.TextTranslator__TranslatorWidget_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -23187,44 +22272,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         return qtc.TextTranslator__TranslatorWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn superFocusPreviousChild(self: TextTranslator__TranslatorWidget) bool {
-        return qtc.TextTranslator__TranslatorWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -23243,44 +22290,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn superSender(self: TextTranslator__TranslatorWidget) QObject {
-        return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextTranslator__TranslatorWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -23297,44 +22306,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     pub fn senderSignalIndex(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.TextTranslator__TranslatorWidget_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorWidget) i32 {
-        return qtc.TextTranslator__TranslatorWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -23358,47 +22329,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         return qtc.TextTranslator__TranslatorWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextTranslator__TranslatorWidget, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextTranslator__TranslatorWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextTranslator__TranslatorWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -23418,47 +22348,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     pub fn isSignalConnected(self: TextTranslator__TranslatorWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextTranslator__TranslatorWidget, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextTranslator__TranslatorWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextTranslator__TranslatorWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -23481,48 +22370,6 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     pub fn getDecodedMetricF(self: TextTranslator__TranslatorWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: TextTranslator__TranslatorWidget, metricA: i32, metricB: i32) f64 {
-        return qtc.TextTranslator__TranslatorWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextTranslator__TranslatorWidget`
-    ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32, i32) callconv(.c) f64) void {
-        qtc.TextTranslator__TranslatorWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

@@ -222,590 +222,352 @@ libqt_string KFileItemDelegate_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KFileItemDelegate_SuperMetaObject(const KFileItemDelegate* self) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_MetaObject_IsBase(true);
-        return (QMetaObject*)vkfileitemdelegate->metaObject();
-    } else {
-        return (QMetaObject*)self->KFileItemDelegate::metaObject();
-    }
+    return (QMetaObject*)self->KFileItemDelegate::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnMetaObject(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_MetaObject_Callback>(slot));
+void KFileItemDelegate_OnMetaObject(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_metaobject_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KFileItemDelegate_SuperMetacast(KFileItemDelegate* self, const char* param1) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_Metacast_IsBase(true);
-        return vkfileitemdelegate->qt_metacast(param1);
-    } else {
-        return self->KFileItemDelegate::qt_metacast(param1);
-    }
+    return self->KFileItemDelegate::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnMetacast(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_Metacast_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Metacast_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_metacast_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KFileItemDelegate_SuperMetacall(KFileItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_Metacall_IsBase(true);
-        return vkfileitemdelegate->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KFileItemDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KFileItemDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnMetacall(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_Metacall_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Metacall_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_metacall_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KFileItemDelegate_SuperSizeHint(const KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_SizeHint_IsBase(true);
-        return new QSize(vkfileitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualKFileItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->KFileItemDelegate::sizeHint(*option, *index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnSizeHint(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_SizeHint_Callback>(slot));
+void KFileItemDelegate_OnSizeHint(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_sizehint_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperPaint(const KFileItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_Paint_IsBase(true);
-        vkfileitemdelegate->paint(painter, *option, *index);
-    } else {
-        self->KFileItemDelegate::paint(painter, *option, *index);
-    }
+    self->KFileItemDelegate::paint(painter, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnPaint(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_Paint_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Paint_Callback>(slot));
+void KFileItemDelegate_OnPaint(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_paint_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Paint_Callback>(slot);
 }
 
 // Base class handler implementation
 QWidget* KFileItemDelegate_SuperCreateEditor(const KFileItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_CreateEditor_IsBase(true);
-        return vkfileitemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->KFileItemDelegate::createEditor(parent, *option, *index);
-    }
+    return self->KFileItemDelegate::createEditor(parent, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnCreateEditor(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_CreateEditor_Callback>(slot));
+void KFileItemDelegate_OnCreateEditor(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_createeditor_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_CreateEditor_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KFileItemDelegate_SuperEditorEvent(KFileItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_EditorEvent_IsBase(true);
-        return vkfileitemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return self->KFileItemDelegate::editorEvent(event, model, *option, *index);
-    }
+    return self->KFileItemDelegate::editorEvent(event, model, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnEditorEvent(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_EditorEvent_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_editorevent_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_EditorEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperSetEditorData(const KFileItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_SetEditorData_IsBase(true);
-        vkfileitemdelegate->setEditorData(editor, *index);
-    } else {
-        self->KFileItemDelegate::setEditorData(editor, *index);
-    }
+    self->KFileItemDelegate::setEditorData(editor, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnSetEditorData(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_SetEditorData_Callback>(slot));
+void KFileItemDelegate_OnSetEditorData(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_seteditordata_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_SetEditorData_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperSetModelData(const KFileItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_SetModelData_IsBase(true);
-        vkfileitemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->KFileItemDelegate::setModelData(editor, model, *index);
-    }
+    self->KFileItemDelegate::setModelData(editor, model, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnSetModelData(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_SetModelData_Callback>(slot));
+void KFileItemDelegate_OnSetModelData(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_setmodeldata_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_SetModelData_Callback>(slot);
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperUpdateEditorGeometry(const KFileItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_UpdateEditorGeometry_IsBase(true);
-        vkfileitemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->KFileItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
+    self->KFileItemDelegate::updateEditorGeometry(editor, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnUpdateEditorGeometry(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_UpdateEditorGeometry_Callback>(slot));
+void KFileItemDelegate_OnUpdateEditorGeometry(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_updateeditorgeometry_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_UpdateEditorGeometry_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KFileItemDelegate_SuperEventFilter(KFileItemDelegate* self, QObject* object, QEvent* event) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_EventFilter_IsBase(true);
-        return vkfileitemdelegate->eventFilter(object, event);
-    } else {
-        return self->KFileItemDelegate::eventFilter(object, event);
-    }
+    return self->KFileItemDelegate::eventFilter(object, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnEventFilter(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_EventFilter_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_eventfilter_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KFileItemDelegate_SuperHelpEvent(KFileItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_HelpEvent_IsBase(true);
-        return vkfileitemdelegate->helpEvent(event, view, *option, *index);
-    } else {
-        return self->KFileItemDelegate::helpEvent(event, view, *option, *index);
-    }
+    return self->KFileItemDelegate::helpEvent(event, view, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnHelpEvent(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_HelpEvent_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_HelpEvent_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_helpevent_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_HelpEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileItemDelegate_DestroyEditor(const KFileItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->destroyEditor(editor, *index);
-    } else {
-        self->KFileItemDelegate::destroyEditor(editor, *index);
-    }
+    self->destroyEditor(editor, *index);
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperDestroyEditor(const KFileItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_DestroyEditor_IsBase(true);
-        vkfileitemdelegate->destroyEditor(editor, *index);
-    } else {
-        self->KFileItemDelegate::destroyEditor(editor, *index);
-    }
+    self->KFileItemDelegate::destroyEditor(editor, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnDestroyEditor(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_DestroyEditor_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_DestroyEditor_Callback>(slot));
+void KFileItemDelegate_OnDestroyEditor(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_destroyeditor_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_DestroyEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of int */ KFileItemDelegate_PaintingRoles(const KFileItemDelegate* self) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        QList<int> _ret = vkfileitemdelegate->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = self->KFileItemDelegate::paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of int */ KFileItemDelegate_SuperPaintingRoles(const KFileItemDelegate* self) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_PaintingRoles_IsBase(true);
-        QList<int> _ret = vkfileitemdelegate->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = self->KFileItemDelegate::paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->KFileItemDelegate::paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnPaintingRoles(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_PaintingRoles_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_PaintingRoles_Callback>(slot));
+void KFileItemDelegate_OnPaintingRoles(KFileItemDelegate* self, intptr_t slot) {
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self)))
+        vkfileitemdelegate->kfileitemdelegate_paintingroles_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_PaintingRoles_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KFileItemDelegate_Event(KFileItemDelegate* self, QEvent* event) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return vkfileitemdelegate->event(event);
-    } else {
-        return self->KFileItemDelegate::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool KFileItemDelegate_SuperEvent(KFileItemDelegate* self, QEvent* event) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_Event_IsBase(true);
-        return vkfileitemdelegate->event(event);
-    } else {
-        return self->KFileItemDelegate::event(event);
-    }
+    return self->KFileItemDelegate::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnEvent(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_Event_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Event_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_event_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileItemDelegate_TimerEvent(KFileItemDelegate* self, QTimerEvent* event) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+    if (vkfileitemdelegate) {
         vkfileitemdelegate->timerEvent(event);
     } else {
-        ((VirtualKFileItemDelegate*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KFileItemDelegate::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperTimerEvent(KFileItemDelegate* self, QTimerEvent* event) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_TimerEvent_IsBase(true);
-        vkfileitemdelegate->timerEvent(event);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->timerEvent(event);
-    }
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self)) {
+        vkfileitemdelegate->KFileItemDelegate::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileItemDelegate::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnTimerEvent(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_TimerEvent_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_TimerEvent_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_timerevent_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileItemDelegate_ChildEvent(KFileItemDelegate* self, QChildEvent* event) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+    if (vkfileitemdelegate) {
         vkfileitemdelegate->childEvent(event);
     } else {
-        ((VirtualKFileItemDelegate*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KFileItemDelegate::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperChildEvent(KFileItemDelegate* self, QChildEvent* event) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_ChildEvent_IsBase(true);
-        vkfileitemdelegate->childEvent(event);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->childEvent(event);
-    }
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self)) {
+        vkfileitemdelegate->KFileItemDelegate::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileItemDelegate::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnChildEvent(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_ChildEvent_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_ChildEvent_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_childevent_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileItemDelegate_CustomEvent(KFileItemDelegate* self, QEvent* event) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+    if (vkfileitemdelegate) {
         vkfileitemdelegate->customEvent(event);
     } else {
-        ((VirtualKFileItemDelegate*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KFileItemDelegate::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperCustomEvent(KFileItemDelegate* self, QEvent* event) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_CustomEvent_IsBase(true);
-        vkfileitemdelegate->customEvent(event);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->customEvent(event);
-    }
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self)) {
+        vkfileitemdelegate->KFileItemDelegate::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KFileItemDelegate::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnCustomEvent(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_CustomEvent_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_CustomEvent_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_customevent_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileItemDelegate_ConnectNotify(KFileItemDelegate* self, const QMetaMethod* signal) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+    if (vkfileitemdelegate) {
         vkfileitemdelegate->connectNotify(*signal);
     } else {
-        ((VirtualKFileItemDelegate*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KFileItemDelegate::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperConnectNotify(KFileItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_ConnectNotify_IsBase(true);
-        vkfileitemdelegate->connectNotify(*signal);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->connectNotify(*signal);
-    }
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self)) {
+        vkfileitemdelegate->KFileItemDelegate::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFileItemDelegate::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnConnectNotify(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_ConnectNotify_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_connectnotify_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KFileItemDelegate_DisconnectNotify(KFileItemDelegate* self, const QMetaMethod* signal) {
     auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
+    if (vkfileitemdelegate) {
         vkfileitemdelegate->disconnectNotify(*signal);
     } else {
-        ((VirtualKFileItemDelegate*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KFileItemDelegate::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KFileItemDelegate_SuperDisconnectNotify(KFileItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_DisconnectNotify_IsBase(true);
-        vkfileitemdelegate->disconnectNotify(*signal);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self)) {
+        vkfileitemdelegate->KFileItemDelegate::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KFileItemDelegate::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KFileItemDelegate_OnDisconnectNotify(KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_DisconnectNotify_Callback>(slot));
+    if (auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self))
+        vkfileitemdelegate->kfileitemdelegate_disconnectnotify_callback = reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KFileItemDelegate_Sender(const KFileItemDelegate* self) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return vkfileitemdelegate->sender();
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->sender();
-    }
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self))) {
+        return vkfileitemdelegate->VirtualKFileItemDelegate::sender();
+    } else
+        qFatal("Error: Protected method KFileItemDelegate::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KFileItemDelegate_SuperSender(const KFileItemDelegate* self) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_Sender_IsBase(true);
-        return vkfileitemdelegate->sender();
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnSender(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_Sender_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFileItemDelegate_SenderSignalIndex(const KFileItemDelegate* self) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return vkfileitemdelegate->senderSignalIndex();
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->senderSignalIndex();
-    }
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self))) {
+        return vkfileitemdelegate->VirtualKFileItemDelegate::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KFileItemDelegate::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFileItemDelegate_SuperSenderSignalIndex(const KFileItemDelegate* self) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_SenderSignalIndex_IsBase(true);
-        return vkfileitemdelegate->senderSignalIndex();
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnSenderSignalIndex(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KFileItemDelegate_Receivers(const KFileItemDelegate* self, const char* signal) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return vkfileitemdelegate->receivers(signal);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->receivers(signal);
-    }
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self))) {
+        return vkfileitemdelegate->VirtualKFileItemDelegate::receivers(signal);
+    } else
+        qFatal("Error: Protected method KFileItemDelegate::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KFileItemDelegate_SuperReceivers(const KFileItemDelegate* self, const char* signal) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_Receivers_IsBase(true);
-        return vkfileitemdelegate->receivers(signal);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnReceivers(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_Receivers_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KFileItemDelegate_IsSignalConnected(const KFileItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return vkfileitemdelegate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool KFileItemDelegate_SuperIsSignalConnected(const KFileItemDelegate* self, const QMetaMethod* signal) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        vkfileitemdelegate->setKFileItemDelegate_IsSignalConnected_IsBase(true);
-        return vkfileitemdelegate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KFileItemDelegate_OnIsSignalConnected(const KFileItemDelegate* self, intptr_t slot) {
-    auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self));
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate)
-        vkfileitemdelegate->setKFileItemDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileItemDelegate::KFileItemDelegate_IsSignalConnected_Callback>(slot));
+    if (auto* vkfileitemdelegate = const_cast<VirtualKFileItemDelegate*>(dynamic_cast<const VirtualKFileItemDelegate*>(self))) {
+        return vkfileitemdelegate->VirtualKFileItemDelegate::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KFileItemDelegate::isSignalConnected called without a directly constructed type");
 }
 
 void KFileItemDelegate_Delete(KFileItemDelegate* self) {

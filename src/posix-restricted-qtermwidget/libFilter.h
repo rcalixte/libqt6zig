@@ -67,9 +67,8 @@ void Konsole__Filter_Process(Konsole__Filter* self);
 void Konsole__Filter_Reset(Konsole__Filter* self);
 Konsole__Filter__HotSpot* Konsole__Filter_HotSpotAt(const Konsole__Filter* self, int line, int column);
 void Konsole__Filter_OnProcess(Konsole__Filter* self, intptr_t slot);
-void Konsole__Filter_SuperProcess(Konsole__Filter* self);
 QMetaObject* Konsole__Filter_MetaObject(const Konsole__Filter* self);
-void Konsole__Filter_OnMetaObject(const Konsole__Filter* self, intptr_t slot);
+void Konsole__Filter_OnMetaObject(Konsole__Filter* self, intptr_t slot);
 QMetaObject* Konsole__Filter_SuperMetaObject(const Konsole__Filter* self);
 void* Konsole__Filter_Metacast(Konsole__Filter* self, const char* param1);
 void Konsole__Filter_OnMetacast(Konsole__Filter* self, intptr_t slot);
@@ -99,26 +98,12 @@ void Konsole__Filter_DisconnectNotify(Konsole__Filter* self, const QMetaMethod* 
 void Konsole__Filter_OnDisconnectNotify(Konsole__Filter* self, intptr_t slot);
 void Konsole__Filter_SuperDisconnectNotify(Konsole__Filter* self, const QMetaMethod* signal);
 void Konsole__Filter_AddHotSpot(Konsole__Filter* self, Konsole__Filter__HotSpot* param1);
-void Konsole__Filter_OnAddHotSpot(Konsole__Filter* self, intptr_t slot);
-void Konsole__Filter_SuperAddHotSpot(Konsole__Filter* self, Konsole__Filter__HotSpot* param1);
 libqt_string Konsole__Filter_Buffer(Konsole__Filter* self);
-void Konsole__Filter_OnBuffer(Konsole__Filter* self, intptr_t slot);
-libqt_string Konsole__Filter_SuperBuffer(Konsole__Filter* self);
 void Konsole__Filter_GetLineColumn(Konsole__Filter* self, int position, int* startLine, int* startColumn);
-void Konsole__Filter_OnGetLineColumn(Konsole__Filter* self, intptr_t slot);
-void Konsole__Filter_SuperGetLineColumn(Konsole__Filter* self, int position, int* startLine, int* startColumn);
 QObject* Konsole__Filter_Sender(const Konsole__Filter* self);
-void Konsole__Filter_OnSender(const Konsole__Filter* self, intptr_t slot);
-QObject* Konsole__Filter_SuperSender(const Konsole__Filter* self);
 int Konsole__Filter_SenderSignalIndex(const Konsole__Filter* self);
-void Konsole__Filter_OnSenderSignalIndex(const Konsole__Filter* self, intptr_t slot);
-int Konsole__Filter_SuperSenderSignalIndex(const Konsole__Filter* self);
 int Konsole__Filter_Receivers(const Konsole__Filter* self, const char* signal);
-void Konsole__Filter_OnReceivers(const Konsole__Filter* self, intptr_t slot);
-int Konsole__Filter_SuperReceivers(const Konsole__Filter* self, const char* signal);
 bool Konsole__Filter_IsSignalConnected(const Konsole__Filter* self, const QMetaMethod* signal);
-void Konsole__Filter_OnIsSignalConnected(const Konsole__Filter* self, intptr_t slot);
-bool Konsole__Filter_SuperIsSignalConnected(const Konsole__Filter* self, const QMetaMethod* signal);
 void Konsole__Filter_Delete(Konsole__Filter* self);
 
 Konsole__RegExpFilter* Konsole__RegExpFilter_new();
@@ -131,7 +116,7 @@ void Konsole__RegExpFilter_SuperProcess(Konsole__RegExpFilter* self);
 void Konsole__RegExpFilter_OnNewHotSpot(Konsole__RegExpFilter* self, intptr_t slot);
 Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter_SuperNewHotSpot(Konsole__RegExpFilter* self, int startLine, int startColumn, int endLine, int endColumn);
 QMetaObject* Konsole__RegExpFilter_MetaObject(const Konsole__RegExpFilter* self);
-void Konsole__RegExpFilter_OnMetaObject(const Konsole__RegExpFilter* self, intptr_t slot);
+void Konsole__RegExpFilter_OnMetaObject(Konsole__RegExpFilter* self, intptr_t slot);
 QMetaObject* Konsole__RegExpFilter_SuperMetaObject(const Konsole__RegExpFilter* self);
 void* Konsole__RegExpFilter_Metacast(Konsole__RegExpFilter* self, const char* param1);
 void Konsole__RegExpFilter_OnMetacast(Konsole__RegExpFilter* self, intptr_t slot);
@@ -161,26 +146,12 @@ void Konsole__RegExpFilter_DisconnectNotify(Konsole__RegExpFilter* self, const Q
 void Konsole__RegExpFilter_OnDisconnectNotify(Konsole__RegExpFilter* self, intptr_t slot);
 void Konsole__RegExpFilter_SuperDisconnectNotify(Konsole__RegExpFilter* self, const QMetaMethod* signal);
 void Konsole__RegExpFilter_AddHotSpot(Konsole__RegExpFilter* self, Konsole__Filter__HotSpot* param1);
-void Konsole__RegExpFilter_OnAddHotSpot(Konsole__RegExpFilter* self, intptr_t slot);
-void Konsole__RegExpFilter_SuperAddHotSpot(Konsole__RegExpFilter* self, Konsole__Filter__HotSpot* param1);
 libqt_string Konsole__RegExpFilter_Buffer(Konsole__RegExpFilter* self);
-void Konsole__RegExpFilter_OnBuffer(Konsole__RegExpFilter* self, intptr_t slot);
-libqt_string Konsole__RegExpFilter_SuperBuffer(Konsole__RegExpFilter* self);
 void Konsole__RegExpFilter_GetLineColumn(Konsole__RegExpFilter* self, int position, int* startLine, int* startColumn);
-void Konsole__RegExpFilter_OnGetLineColumn(Konsole__RegExpFilter* self, intptr_t slot);
-void Konsole__RegExpFilter_SuperGetLineColumn(Konsole__RegExpFilter* self, int position, int* startLine, int* startColumn);
 QObject* Konsole__RegExpFilter_Sender(const Konsole__RegExpFilter* self);
-void Konsole__RegExpFilter_OnSender(const Konsole__RegExpFilter* self, intptr_t slot);
-QObject* Konsole__RegExpFilter_SuperSender(const Konsole__RegExpFilter* self);
 int Konsole__RegExpFilter_SenderSignalIndex(const Konsole__RegExpFilter* self);
-void Konsole__RegExpFilter_OnSenderSignalIndex(const Konsole__RegExpFilter* self, intptr_t slot);
-int Konsole__RegExpFilter_SuperSenderSignalIndex(const Konsole__RegExpFilter* self);
 int Konsole__RegExpFilter_Receivers(const Konsole__RegExpFilter* self, const char* signal);
-void Konsole__RegExpFilter_OnReceivers(const Konsole__RegExpFilter* self, intptr_t slot);
-int Konsole__RegExpFilter_SuperReceivers(const Konsole__RegExpFilter* self, const char* signal);
 bool Konsole__RegExpFilter_IsSignalConnected(const Konsole__RegExpFilter* self, const QMetaMethod* signal);
-void Konsole__RegExpFilter_OnIsSignalConnected(const Konsole__RegExpFilter* self, intptr_t slot);
-bool Konsole__RegExpFilter_SuperIsSignalConnected(const Konsole__RegExpFilter* self, const QMetaMethod* signal);
 void Konsole__RegExpFilter_Delete(Konsole__RegExpFilter* self);
 
 Konsole__UrlFilter* Konsole__UrlFilter_new();
@@ -193,7 +164,7 @@ void Konsole__UrlFilter_Activated(Konsole__UrlFilter* self, const QUrl* url, boo
 void Konsole__UrlFilter_Connect_Activated(Konsole__UrlFilter* self, intptr_t slot);
 libqt_string Konsole__UrlFilter_Tr2(const char* s, const char* c);
 libqt_string Konsole__UrlFilter_Tr3(const char* s, const char* c, int n);
-void Konsole__UrlFilter_OnMetaObject(const Konsole__UrlFilter* self, intptr_t slot);
+void Konsole__UrlFilter_OnMetaObject(Konsole__UrlFilter* self, intptr_t slot);
 QMetaObject* Konsole__UrlFilter_SuperMetaObject(const Konsole__UrlFilter* self);
 void Konsole__UrlFilter_OnMetacast(Konsole__UrlFilter* self, intptr_t slot);
 void* Konsole__UrlFilter_SuperMetacast(Konsole__UrlFilter* self, const char* param1);
@@ -226,26 +197,12 @@ void Konsole__UrlFilter_DisconnectNotify(Konsole__UrlFilter* self, const QMetaMe
 void Konsole__UrlFilter_OnDisconnectNotify(Konsole__UrlFilter* self, intptr_t slot);
 void Konsole__UrlFilter_SuperDisconnectNotify(Konsole__UrlFilter* self, const QMetaMethod* signal);
 void Konsole__UrlFilter_AddHotSpot(Konsole__UrlFilter* self, Konsole__Filter__HotSpot* param1);
-void Konsole__UrlFilter_OnAddHotSpot(Konsole__UrlFilter* self, intptr_t slot);
-void Konsole__UrlFilter_SuperAddHotSpot(Konsole__UrlFilter* self, Konsole__Filter__HotSpot* param1);
 libqt_string Konsole__UrlFilter_Buffer(Konsole__UrlFilter* self);
-void Konsole__UrlFilter_OnBuffer(Konsole__UrlFilter* self, intptr_t slot);
-libqt_string Konsole__UrlFilter_SuperBuffer(Konsole__UrlFilter* self);
 void Konsole__UrlFilter_GetLineColumn(Konsole__UrlFilter* self, int position, int* startLine, int* startColumn);
-void Konsole__UrlFilter_OnGetLineColumn(Konsole__UrlFilter* self, intptr_t slot);
-void Konsole__UrlFilter_SuperGetLineColumn(Konsole__UrlFilter* self, int position, int* startLine, int* startColumn);
 QObject* Konsole__UrlFilter_Sender(const Konsole__UrlFilter* self);
-void Konsole__UrlFilter_OnSender(const Konsole__UrlFilter* self, intptr_t slot);
-QObject* Konsole__UrlFilter_SuperSender(const Konsole__UrlFilter* self);
 int Konsole__UrlFilter_SenderSignalIndex(const Konsole__UrlFilter* self);
-void Konsole__UrlFilter_OnSenderSignalIndex(const Konsole__UrlFilter* self, intptr_t slot);
-int Konsole__UrlFilter_SuperSenderSignalIndex(const Konsole__UrlFilter* self);
 int Konsole__UrlFilter_Receivers(const Konsole__UrlFilter* self, const char* signal);
-void Konsole__UrlFilter_OnReceivers(const Konsole__UrlFilter* self, intptr_t slot);
-int Konsole__UrlFilter_SuperReceivers(const Konsole__UrlFilter* self, const char* signal);
 bool Konsole__UrlFilter_IsSignalConnected(const Konsole__UrlFilter* self, const QMetaMethod* signal);
-void Konsole__UrlFilter_OnIsSignalConnected(const Konsole__UrlFilter* self, intptr_t slot);
-bool Konsole__UrlFilter_SuperIsSignalConnected(const Konsole__UrlFilter* self, const QMetaMethod* signal);
 void Konsole__UrlFilter_Delete(Konsole__UrlFilter* self);
 
 Konsole__FilterObject* Konsole__FilterObject_new(Konsole__Filter__HotSpot* filter);
@@ -259,7 +216,7 @@ void Konsole__FilterObject_Activated(Konsole__FilterObject* self, const QUrl* ur
 void Konsole__FilterObject_Connect_Activated(Konsole__FilterObject* self, intptr_t slot);
 libqt_string Konsole__FilterObject_Tr2(const char* s, const char* c);
 libqt_string Konsole__FilterObject_Tr3(const char* s, const char* c, int n);
-void Konsole__FilterObject_OnMetaObject(const Konsole__FilterObject* self, intptr_t slot);
+void Konsole__FilterObject_OnMetaObject(Konsole__FilterObject* self, intptr_t slot);
 QMetaObject* Konsole__FilterObject_SuperMetaObject(const Konsole__FilterObject* self);
 void Konsole__FilterObject_OnMetacast(Konsole__FilterObject* self, intptr_t slot);
 void* Konsole__FilterObject_SuperMetacast(Konsole__FilterObject* self, const char* param1);
@@ -287,17 +244,9 @@ void Konsole__FilterObject_DisconnectNotify(Konsole__FilterObject* self, const Q
 void Konsole__FilterObject_OnDisconnectNotify(Konsole__FilterObject* self, intptr_t slot);
 void Konsole__FilterObject_SuperDisconnectNotify(Konsole__FilterObject* self, const QMetaMethod* signal);
 QObject* Konsole__FilterObject_Sender(const Konsole__FilterObject* self);
-void Konsole__FilterObject_OnSender(const Konsole__FilterObject* self, intptr_t slot);
-QObject* Konsole__FilterObject_SuperSender(const Konsole__FilterObject* self);
 int Konsole__FilterObject_SenderSignalIndex(const Konsole__FilterObject* self);
-void Konsole__FilterObject_OnSenderSignalIndex(const Konsole__FilterObject* self, intptr_t slot);
-int Konsole__FilterObject_SuperSenderSignalIndex(const Konsole__FilterObject* self);
 int Konsole__FilterObject_Receivers(const Konsole__FilterObject* self, const char* signal);
-void Konsole__FilterObject_OnReceivers(const Konsole__FilterObject* self, intptr_t slot);
-int Konsole__FilterObject_SuperReceivers(const Konsole__FilterObject* self, const char* signal);
 bool Konsole__FilterObject_IsSignalConnected(const Konsole__FilterObject* self, const QMetaMethod* signal);
-void Konsole__FilterObject_OnIsSignalConnected(const Konsole__FilterObject* self, intptr_t slot);
-bool Konsole__FilterObject_SuperIsSignalConnected(const Konsole__FilterObject* self, const QMetaMethod* signal);
 void Konsole__FilterObject_Delete(Konsole__FilterObject* self);
 
 Konsole__FilterChain* Konsole__FilterChain_new();
@@ -329,12 +278,9 @@ void Konsole__Filter__HotSpot_Activate(Konsole__Filter__HotSpot* self, const lib
 libqt_list /* of QAction* */ Konsole__Filter__HotSpot_Actions(Konsole__Filter__HotSpot* self);
 void Konsole__Filter__HotSpot_OperatorAssign(Konsole__Filter__HotSpot* self, const Konsole__Filter__HotSpot* param1);
 void Konsole__Filter__HotSpot_OnActivate(Konsole__Filter__HotSpot* self, intptr_t slot);
-void Konsole__Filter__HotSpot_SuperActivate(Konsole__Filter__HotSpot* self, const libqt_string action);
 void Konsole__Filter__HotSpot_OnActions(Konsole__Filter__HotSpot* self, intptr_t slot);
 libqt_list /* of QAction* */ Konsole__Filter__HotSpot_SuperActions(Konsole__Filter__HotSpot* self);
 void Konsole__Filter__HotSpot_SetType(Konsole__Filter__HotSpot* self, int typeVal);
-void Konsole__Filter__HotSpot_OnSetType(Konsole__Filter__HotSpot* self, intptr_t slot);
-void Konsole__Filter__HotSpot_SuperSetType(Konsole__Filter__HotSpot* self, int typeVal);
 void Konsole__Filter__HotSpot_Delete(Konsole__Filter__HotSpot* self);
 
 Konsole__RegExpFilter__HotSpot* Konsole__RegExpFilter__HotSpot_new(int startLine, int startColumn, int endLine, int endColumn);
@@ -349,8 +295,6 @@ libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_Actions(Konsole__Reg
 void Konsole__RegExpFilter__HotSpot_OnActions(Konsole__RegExpFilter__HotSpot* self, intptr_t slot);
 libqt_list /* of QAction* */ Konsole__RegExpFilter__HotSpot_SuperActions(Konsole__RegExpFilter__HotSpot* self);
 void Konsole__RegExpFilter__HotSpot_SetType(Konsole__RegExpFilter__HotSpot* self, int typeVal);
-void Konsole__RegExpFilter__HotSpot_OnSetType(Konsole__RegExpFilter__HotSpot* self, intptr_t slot);
-void Konsole__RegExpFilter__HotSpot_SuperSetType(Konsole__RegExpFilter__HotSpot* self, int typeVal);
 void Konsole__RegExpFilter__HotSpot_Delete(Konsole__RegExpFilter__HotSpot* self);
 
 Konsole__UrlFilter__HotSpot* Konsole__UrlFilter__HotSpot_new(int startLine, int startColumn, int endLine, int endColumn);
@@ -362,8 +306,6 @@ libqt_list /* of QAction* */ Konsole__UrlFilter__HotSpot_SuperActions(Konsole__U
 void Konsole__UrlFilter__HotSpot_OnActivate(Konsole__UrlFilter__HotSpot* self, intptr_t slot);
 void Konsole__UrlFilter__HotSpot_SuperActivate(Konsole__UrlFilter__HotSpot* self, const libqt_string action);
 void Konsole__UrlFilter__HotSpot_SetType(Konsole__UrlFilter__HotSpot* self, int typeVal);
-void Konsole__UrlFilter__HotSpot_OnSetType(Konsole__UrlFilter__HotSpot* self, intptr_t slot);
-void Konsole__UrlFilter__HotSpot_SuperSetType(Konsole__UrlFilter__HotSpot* self, int typeVal);
 void Konsole__UrlFilter__HotSpot_Delete(Konsole__UrlFilter__HotSpot* self);
 
 #ifdef __cplusplus

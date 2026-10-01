@@ -884,9 +884,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__WorkerBase) callconv(.c) void `
     ///
-    pub fn onAppConnectionMade(self: KIO__WorkerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onAppConnectionMade(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase) callconv(.c) void) void {
         qtc.KIO__WorkerBase_OnAppConnectionMade(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1020,11 +1020,11 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__WorkerBase) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onOpenConnection(self: KIO__WorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
+    pub fn onOpenConnection(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnOpenConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1070,9 +1070,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__WorkerBase) callconv(.c) void `
     ///
-    pub fn onCloseConnection(self: KIO__WorkerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onCloseConnection(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase) callconv(.c) void) void {
         qtc.KIO__WorkerBase_OnCloseConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1458,11 +1458,11 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__WorkerBase) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onClose(self: KIO__WorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
+    pub fn onClose(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2388,9 +2388,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__WorkerBase) callconv(.c) void `
     ///
-    pub fn onWorkerStatus2(self: KIO__WorkerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onWorkerStatus2(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase) callconv(.c) void) void {
         qtc.KIO__WorkerBase_OnWorkerStatus2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2436,9 +2436,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__WorkerBase) callconv(.c) void `
     ///
-    pub fn onReparseConfiguration(self: KIO__WorkerBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onReparseConfiguration(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase) callconv(.c) void) void {
         qtc.KIO__WorkerBase_OnReparseConfiguration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

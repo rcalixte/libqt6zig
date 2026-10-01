@@ -9,15 +9,11 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QSpinBox so that we can call protected methods
+// This class is a subclass of QSpinBox
 class VirtualQSpinBox final : public QSpinBox {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQSpinBox = true;
-
-    // Virtual class public types (including callbacks)
-    using QSpinBox_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QSpinBox_MetaObject_Callback = QMetaObject* (*)(const QSpinBox*);
     using QSpinBox_Metacast_Callback = void* (*)(QSpinBox*, const char*);
     using QSpinBox_Metacall_Callback = int (*)(QSpinBox*, int, int, void**);
     using QSpinBox_Event_Callback = bool (*)(QSpinBox*, QEvent*);
@@ -25,11 +21,11 @@ class VirtualQSpinBox final : public QSpinBox {
     using QSpinBox_ValueFromText_Callback = int (*)(const QSpinBox*, const char*);
     using QSpinBox_TextFromValue_Callback = const char* (*)(const QSpinBox*, int);
     using QSpinBox_Fixup_Callback = void (*)(const QSpinBox*, const char*);
-    using QSpinBox_SizeHint_Callback = QSize* (*)();
-    using QSpinBox_MinimumSizeHint_Callback = QSize* (*)();
+    using QSpinBox_SizeHint_Callback = QSize* (*)(const QSpinBox*);
+    using QSpinBox_MinimumSizeHint_Callback = QSize* (*)(const QSpinBox*);
     using QSpinBox_InputMethodQuery_Callback = QVariant* (*)(const QSpinBox*, int);
     using QSpinBox_StepBy_Callback = void (*)(QSpinBox*, int);
-    using QSpinBox_Clear_Callback = void (*)();
+    using QSpinBox_Clear_Callback = void (*)(QSpinBox*);
     using QSpinBox_ResizeEvent_Callback = void (*)(QSpinBox*, QResizeEvent*);
     using QSpinBox_KeyPressEvent_Callback = void (*)(QSpinBox*, QKeyEvent*);
     using QSpinBox_KeyReleaseEvent_Callback = void (*)(QSpinBox*, QKeyEvent*);
@@ -47,12 +43,12 @@ class VirtualQSpinBox final : public QSpinBox {
     using QSpinBox_PaintEvent_Callback = void (*)(QSpinBox*, QPaintEvent*);
     using QSpinBox_ShowEvent_Callback = void (*)(QSpinBox*, QShowEvent*);
     using QSpinBox_InitStyleOption_Callback = void (*)(const QSpinBox*, QStyleOptionSpinBox*);
-    using QSpinBox_StepEnabled_Callback = int (*)();
-    using QSpinBox_DevType_Callback = int (*)();
+    using QSpinBox_StepEnabled_Callback = int (*)(const QSpinBox*);
+    using QSpinBox_DevType_Callback = int (*)(const QSpinBox*);
     using QSpinBox_SetVisible_Callback = void (*)(QSpinBox*, bool);
     using QSpinBox_HeightForWidth_Callback = int (*)(const QSpinBox*, int);
-    using QSpinBox_HasHeightForWidth_Callback = bool (*)();
-    using QSpinBox_PaintEngine_Callback = QPaintEngine* (*)();
+    using QSpinBox_HasHeightForWidth_Callback = bool (*)(const QSpinBox*);
+    using QSpinBox_PaintEngine_Callback = QPaintEngine* (*)(const QSpinBox*);
     using QSpinBox_MouseDoubleClickEvent_Callback = void (*)(QSpinBox*, QMouseEvent*);
     using QSpinBox_EnterEvent_Callback = void (*)(QSpinBox*, QEnterEvent*);
     using QSpinBox_LeaveEvent_Callback = void (*)(QSpinBox*, QEvent*);
@@ -67,7 +63,7 @@ class VirtualQSpinBox final : public QSpinBox {
     using QSpinBox_Metric_Callback = int (*)(const QSpinBox*, int);
     using QSpinBox_InitPainter_Callback = void (*)(const QSpinBox*, QPainter*);
     using QSpinBox_Redirected_Callback = QPaintDevice* (*)(const QSpinBox*, QPoint*);
-    using QSpinBox_SharedPainter_Callback = QPainter* (*)();
+    using QSpinBox_SharedPainter_Callback = QPainter* (*)(const QSpinBox*);
     using QSpinBox_InputMethodEvent_Callback = void (*)(QSpinBox*, QInputMethodEvent*);
     using QSpinBox_FocusNextPrevChild_Callback = bool (*)(QSpinBox*, bool);
     using QSpinBox_EventFilter_Callback = bool (*)(QSpinBox*, QObject*, QEvent*);
@@ -75,20 +71,19 @@ class VirtualQSpinBox final : public QSpinBox {
     using QSpinBox_CustomEvent_Callback = void (*)(QSpinBox*, QEvent*);
     using QSpinBox_ConnectNotify_Callback = void (*)(QSpinBox*, QMetaMethod*);
     using QSpinBox_DisconnectNotify_Callback = void (*)(QSpinBox*, QMetaMethod*);
-    using QSpinBox_LineEdit_Callback = QLineEdit* (*)();
-    using QSpinBox_SetLineEdit_Callback = void (*)(QSpinBox*, QLineEdit*);
-    using QSpinBox_UpdateMicroFocus_Callback = void (*)();
-    using QSpinBox_Create_Callback = void (*)();
-    using QSpinBox_Destroy_Callback = void (*)();
-    using QSpinBox_FocusNextChild_Callback = bool (*)();
-    using QSpinBox_FocusPreviousChild_Callback = bool (*)();
-    using QSpinBox_Sender_Callback = QObject* (*)();
-    using QSpinBox_SenderSignalIndex_Callback = int (*)();
-    using QSpinBox_Receivers_Callback = int (*)(const QSpinBox*, const char*);
-    using QSpinBox_IsSignalConnected_Callback = bool (*)(const QSpinBox*, QMetaMethod*);
-    using QSpinBox_GetDecodedMetricF_Callback = double (*)(const QSpinBox*, int, int);
+    using QSpinBox::create;
+    using QSpinBox::destroy;
+    using QSpinBox::focusNextChild;
+    using QSpinBox::focusPreviousChild;
+    using QSpinBox::getDecodedMetricF;
+    using QSpinBox::isSignalConnected;
+    using QSpinBox::lineEdit;
+    using QSpinBox::receivers;
+    using QSpinBox::sender;
+    using QSpinBox::senderSignalIndex;
+    using QSpinBox::setLineEdit;
+    using QSpinBox::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QSpinBox_MetaObject_Callback qspinbox_metaobject_callback = nullptr;
     QSpinBox_Metacast_Callback qspinbox_metacast_callback = nullptr;
@@ -148,248 +143,62 @@ class VirtualQSpinBox final : public QSpinBox {
     QSpinBox_CustomEvent_Callback qspinbox_customevent_callback = nullptr;
     QSpinBox_ConnectNotify_Callback qspinbox_connectnotify_callback = nullptr;
     QSpinBox_DisconnectNotify_Callback qspinbox_disconnectnotify_callback = nullptr;
-    QSpinBox_LineEdit_Callback qspinbox_lineedit_callback = nullptr;
-    QSpinBox_SetLineEdit_Callback qspinbox_setlineedit_callback = nullptr;
-    QSpinBox_UpdateMicroFocus_Callback qspinbox_updatemicrofocus_callback = nullptr;
-    QSpinBox_Create_Callback qspinbox_create_callback = nullptr;
-    QSpinBox_Destroy_Callback qspinbox_destroy_callback = nullptr;
-    QSpinBox_FocusNextChild_Callback qspinbox_focusnextchild_callback = nullptr;
-    QSpinBox_FocusPreviousChild_Callback qspinbox_focuspreviouschild_callback = nullptr;
-    QSpinBox_Sender_Callback qspinbox_sender_callback = nullptr;
-    QSpinBox_SenderSignalIndex_Callback qspinbox_sendersignalindex_callback = nullptr;
-    QSpinBox_Receivers_Callback qspinbox_receivers_callback = nullptr;
-    QSpinBox_IsSignalConnected_Callback qspinbox_issignalconnected_callback = nullptr;
-    QSpinBox_GetDecodedMetricF_Callback qspinbox_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qspinbox_metaobject_isbase = false;
-    mutable bool qspinbox_metacast_isbase = false;
-    mutable bool qspinbox_metacall_isbase = false;
-    mutable bool qspinbox_event_isbase = false;
-    mutable bool qspinbox_validate_isbase = false;
-    mutable bool qspinbox_valuefromtext_isbase = false;
-    mutable bool qspinbox_textfromvalue_isbase = false;
-    mutable bool qspinbox_fixup_isbase = false;
-    mutable bool qspinbox_sizehint_isbase = false;
-    mutable bool qspinbox_minimumsizehint_isbase = false;
-    mutable bool qspinbox_inputmethodquery_isbase = false;
-    mutable bool qspinbox_stepby_isbase = false;
-    mutable bool qspinbox_clear_isbase = false;
-    mutable bool qspinbox_resizeevent_isbase = false;
-    mutable bool qspinbox_keypressevent_isbase = false;
-    mutable bool qspinbox_keyreleaseevent_isbase = false;
-    mutable bool qspinbox_wheelevent_isbase = false;
-    mutable bool qspinbox_focusinevent_isbase = false;
-    mutable bool qspinbox_focusoutevent_isbase = false;
-    mutable bool qspinbox_contextmenuevent_isbase = false;
-    mutable bool qspinbox_changeevent_isbase = false;
-    mutable bool qspinbox_closeevent_isbase = false;
-    mutable bool qspinbox_hideevent_isbase = false;
-    mutable bool qspinbox_mousepressevent_isbase = false;
-    mutable bool qspinbox_mousereleaseevent_isbase = false;
-    mutable bool qspinbox_mousemoveevent_isbase = false;
-    mutable bool qspinbox_timerevent_isbase = false;
-    mutable bool qspinbox_paintevent_isbase = false;
-    mutable bool qspinbox_showevent_isbase = false;
-    mutable bool qspinbox_initstyleoption_isbase = false;
-    mutable bool qspinbox_stepenabled_isbase = false;
-    mutable bool qspinbox_devtype_isbase = false;
-    mutable bool qspinbox_setvisible_isbase = false;
-    mutable bool qspinbox_heightforwidth_isbase = false;
-    mutable bool qspinbox_hasheightforwidth_isbase = false;
-    mutable bool qspinbox_paintengine_isbase = false;
-    mutable bool qspinbox_mousedoubleclickevent_isbase = false;
-    mutable bool qspinbox_enterevent_isbase = false;
-    mutable bool qspinbox_leaveevent_isbase = false;
-    mutable bool qspinbox_moveevent_isbase = false;
-    mutable bool qspinbox_tabletevent_isbase = false;
-    mutable bool qspinbox_actionevent_isbase = false;
-    mutable bool qspinbox_dragenterevent_isbase = false;
-    mutable bool qspinbox_dragmoveevent_isbase = false;
-    mutable bool qspinbox_dragleaveevent_isbase = false;
-    mutable bool qspinbox_dropevent_isbase = false;
-    mutable bool qspinbox_nativeevent_isbase = false;
-    mutable bool qspinbox_metric_isbase = false;
-    mutable bool qspinbox_initpainter_isbase = false;
-    mutable bool qspinbox_redirected_isbase = false;
-    mutable bool qspinbox_sharedpainter_isbase = false;
-    mutable bool qspinbox_inputmethodevent_isbase = false;
-    mutable bool qspinbox_focusnextprevchild_isbase = false;
-    mutable bool qspinbox_eventfilter_isbase = false;
-    mutable bool qspinbox_childevent_isbase = false;
-    mutable bool qspinbox_customevent_isbase = false;
-    mutable bool qspinbox_connectnotify_isbase = false;
-    mutable bool qspinbox_disconnectnotify_isbase = false;
-    mutable bool qspinbox_lineedit_isbase = false;
-    mutable bool qspinbox_setlineedit_isbase = false;
-    mutable bool qspinbox_updatemicrofocus_isbase = false;
-    mutable bool qspinbox_create_isbase = false;
-    mutable bool qspinbox_destroy_isbase = false;
-    mutable bool qspinbox_focusnextchild_isbase = false;
-    mutable bool qspinbox_focuspreviouschild_isbase = false;
-    mutable bool qspinbox_sender_isbase = false;
-    mutable bool qspinbox_sendersignalindex_isbase = false;
-    mutable bool qspinbox_receivers_isbase = false;
-    mutable bool qspinbox_issignalconnected_isbase = false;
-    mutable bool qspinbox_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QSpinBox {
+        using QSpinBox::actionEvent;
+        using QSpinBox::changeEvent;
+        using QSpinBox::childEvent;
+        using QSpinBox::closeEvent;
+        using QSpinBox::connectNotify;
+        using QSpinBox::contextMenuEvent;
+        using QSpinBox::customEvent;
+        using QSpinBox::disconnectNotify;
+        using QSpinBox::dragEnterEvent;
+        using QSpinBox::dragLeaveEvent;
+        using QSpinBox::dragMoveEvent;
+        using QSpinBox::dropEvent;
+        using QSpinBox::enterEvent;
+        using QSpinBox::event;
+        using QSpinBox::fixup;
+        using QSpinBox::focusInEvent;
+        using QSpinBox::focusNextPrevChild;
+        using QSpinBox::focusOutEvent;
+        using QSpinBox::hideEvent;
+        using QSpinBox::initPainter;
+        using QSpinBox::initStyleOption;
+        using QSpinBox::inputMethodEvent;
+        using QSpinBox::keyPressEvent;
+        using QSpinBox::keyReleaseEvent;
+        using QSpinBox::leaveEvent;
+        using QSpinBox::metric;
+        using QSpinBox::mouseDoubleClickEvent;
+        using QSpinBox::mouseMoveEvent;
+        using QSpinBox::mousePressEvent;
+        using QSpinBox::mouseReleaseEvent;
+        using QSpinBox::moveEvent;
+        using QSpinBox::nativeEvent;
+        using QSpinBox::paintEvent;
+        using QSpinBox::redirected;
+        using QSpinBox::resizeEvent;
+        using QSpinBox::sharedPainter;
+        using QSpinBox::showEvent;
+        using QSpinBox::stepEnabled;
+        using QSpinBox::tabletEvent;
+        using QSpinBox::textFromValue;
+        using QSpinBox::timerEvent;
+        using QSpinBox::validate;
+        using QSpinBox::valueFromText;
+        using QSpinBox::wheelEvent;
+    };
 
-  public:
     VirtualQSpinBox(QWidget* parent) : QSpinBox(parent) {};
     VirtualQSpinBox() : QSpinBox() {};
 
-    // Callback setters
-    inline void setQSpinBox_MetaObject_Callback(QSpinBox_MetaObject_Callback cb) { qspinbox_metaobject_callback = cb; }
-    inline void setQSpinBox_Metacast_Callback(QSpinBox_Metacast_Callback cb) { qspinbox_metacast_callback = cb; }
-    inline void setQSpinBox_Metacall_Callback(QSpinBox_Metacall_Callback cb) { qspinbox_metacall_callback = cb; }
-    inline void setQSpinBox_Event_Callback(QSpinBox_Event_Callback cb) { qspinbox_event_callback = cb; }
-    inline void setQSpinBox_Validate_Callback(QSpinBox_Validate_Callback cb) { qspinbox_validate_callback = cb; }
-    inline void setQSpinBox_ValueFromText_Callback(QSpinBox_ValueFromText_Callback cb) { qspinbox_valuefromtext_callback = cb; }
-    inline void setQSpinBox_TextFromValue_Callback(QSpinBox_TextFromValue_Callback cb) { qspinbox_textfromvalue_callback = cb; }
-    inline void setQSpinBox_Fixup_Callback(QSpinBox_Fixup_Callback cb) { qspinbox_fixup_callback = cb; }
-    inline void setQSpinBox_SizeHint_Callback(QSpinBox_SizeHint_Callback cb) { qspinbox_sizehint_callback = cb; }
-    inline void setQSpinBox_MinimumSizeHint_Callback(QSpinBox_MinimumSizeHint_Callback cb) { qspinbox_minimumsizehint_callback = cb; }
-    inline void setQSpinBox_InputMethodQuery_Callback(QSpinBox_InputMethodQuery_Callback cb) { qspinbox_inputmethodquery_callback = cb; }
-    inline void setQSpinBox_StepBy_Callback(QSpinBox_StepBy_Callback cb) { qspinbox_stepby_callback = cb; }
-    inline void setQSpinBox_Clear_Callback(QSpinBox_Clear_Callback cb) { qspinbox_clear_callback = cb; }
-    inline void setQSpinBox_ResizeEvent_Callback(QSpinBox_ResizeEvent_Callback cb) { qspinbox_resizeevent_callback = cb; }
-    inline void setQSpinBox_KeyPressEvent_Callback(QSpinBox_KeyPressEvent_Callback cb) { qspinbox_keypressevent_callback = cb; }
-    inline void setQSpinBox_KeyReleaseEvent_Callback(QSpinBox_KeyReleaseEvent_Callback cb) { qspinbox_keyreleaseevent_callback = cb; }
-    inline void setQSpinBox_WheelEvent_Callback(QSpinBox_WheelEvent_Callback cb) { qspinbox_wheelevent_callback = cb; }
-    inline void setQSpinBox_FocusInEvent_Callback(QSpinBox_FocusInEvent_Callback cb) { qspinbox_focusinevent_callback = cb; }
-    inline void setQSpinBox_FocusOutEvent_Callback(QSpinBox_FocusOutEvent_Callback cb) { qspinbox_focusoutevent_callback = cb; }
-    inline void setQSpinBox_ContextMenuEvent_Callback(QSpinBox_ContextMenuEvent_Callback cb) { qspinbox_contextmenuevent_callback = cb; }
-    inline void setQSpinBox_ChangeEvent_Callback(QSpinBox_ChangeEvent_Callback cb) { qspinbox_changeevent_callback = cb; }
-    inline void setQSpinBox_CloseEvent_Callback(QSpinBox_CloseEvent_Callback cb) { qspinbox_closeevent_callback = cb; }
-    inline void setQSpinBox_HideEvent_Callback(QSpinBox_HideEvent_Callback cb) { qspinbox_hideevent_callback = cb; }
-    inline void setQSpinBox_MousePressEvent_Callback(QSpinBox_MousePressEvent_Callback cb) { qspinbox_mousepressevent_callback = cb; }
-    inline void setQSpinBox_MouseReleaseEvent_Callback(QSpinBox_MouseReleaseEvent_Callback cb) { qspinbox_mousereleaseevent_callback = cb; }
-    inline void setQSpinBox_MouseMoveEvent_Callback(QSpinBox_MouseMoveEvent_Callback cb) { qspinbox_mousemoveevent_callback = cb; }
-    inline void setQSpinBox_TimerEvent_Callback(QSpinBox_TimerEvent_Callback cb) { qspinbox_timerevent_callback = cb; }
-    inline void setQSpinBox_PaintEvent_Callback(QSpinBox_PaintEvent_Callback cb) { qspinbox_paintevent_callback = cb; }
-    inline void setQSpinBox_ShowEvent_Callback(QSpinBox_ShowEvent_Callback cb) { qspinbox_showevent_callback = cb; }
-    inline void setQSpinBox_InitStyleOption_Callback(QSpinBox_InitStyleOption_Callback cb) { qspinbox_initstyleoption_callback = cb; }
-    inline void setQSpinBox_StepEnabled_Callback(QSpinBox_StepEnabled_Callback cb) { qspinbox_stepenabled_callback = cb; }
-    inline void setQSpinBox_DevType_Callback(QSpinBox_DevType_Callback cb) { qspinbox_devtype_callback = cb; }
-    inline void setQSpinBox_SetVisible_Callback(QSpinBox_SetVisible_Callback cb) { qspinbox_setvisible_callback = cb; }
-    inline void setQSpinBox_HeightForWidth_Callback(QSpinBox_HeightForWidth_Callback cb) { qspinbox_heightforwidth_callback = cb; }
-    inline void setQSpinBox_HasHeightForWidth_Callback(QSpinBox_HasHeightForWidth_Callback cb) { qspinbox_hasheightforwidth_callback = cb; }
-    inline void setQSpinBox_PaintEngine_Callback(QSpinBox_PaintEngine_Callback cb) { qspinbox_paintengine_callback = cb; }
-    inline void setQSpinBox_MouseDoubleClickEvent_Callback(QSpinBox_MouseDoubleClickEvent_Callback cb) { qspinbox_mousedoubleclickevent_callback = cb; }
-    inline void setQSpinBox_EnterEvent_Callback(QSpinBox_EnterEvent_Callback cb) { qspinbox_enterevent_callback = cb; }
-    inline void setQSpinBox_LeaveEvent_Callback(QSpinBox_LeaveEvent_Callback cb) { qspinbox_leaveevent_callback = cb; }
-    inline void setQSpinBox_MoveEvent_Callback(QSpinBox_MoveEvent_Callback cb) { qspinbox_moveevent_callback = cb; }
-    inline void setQSpinBox_TabletEvent_Callback(QSpinBox_TabletEvent_Callback cb) { qspinbox_tabletevent_callback = cb; }
-    inline void setQSpinBox_ActionEvent_Callback(QSpinBox_ActionEvent_Callback cb) { qspinbox_actionevent_callback = cb; }
-    inline void setQSpinBox_DragEnterEvent_Callback(QSpinBox_DragEnterEvent_Callback cb) { qspinbox_dragenterevent_callback = cb; }
-    inline void setQSpinBox_DragMoveEvent_Callback(QSpinBox_DragMoveEvent_Callback cb) { qspinbox_dragmoveevent_callback = cb; }
-    inline void setQSpinBox_DragLeaveEvent_Callback(QSpinBox_DragLeaveEvent_Callback cb) { qspinbox_dragleaveevent_callback = cb; }
-    inline void setQSpinBox_DropEvent_Callback(QSpinBox_DropEvent_Callback cb) { qspinbox_dropevent_callback = cb; }
-    inline void setQSpinBox_NativeEvent_Callback(QSpinBox_NativeEvent_Callback cb) { qspinbox_nativeevent_callback = cb; }
-    inline void setQSpinBox_Metric_Callback(QSpinBox_Metric_Callback cb) { qspinbox_metric_callback = cb; }
-    inline void setQSpinBox_InitPainter_Callback(QSpinBox_InitPainter_Callback cb) { qspinbox_initpainter_callback = cb; }
-    inline void setQSpinBox_Redirected_Callback(QSpinBox_Redirected_Callback cb) { qspinbox_redirected_callback = cb; }
-    inline void setQSpinBox_SharedPainter_Callback(QSpinBox_SharedPainter_Callback cb) { qspinbox_sharedpainter_callback = cb; }
-    inline void setQSpinBox_InputMethodEvent_Callback(QSpinBox_InputMethodEvent_Callback cb) { qspinbox_inputmethodevent_callback = cb; }
-    inline void setQSpinBox_FocusNextPrevChild_Callback(QSpinBox_FocusNextPrevChild_Callback cb) { qspinbox_focusnextprevchild_callback = cb; }
-    inline void setQSpinBox_EventFilter_Callback(QSpinBox_EventFilter_Callback cb) { qspinbox_eventfilter_callback = cb; }
-    inline void setQSpinBox_ChildEvent_Callback(QSpinBox_ChildEvent_Callback cb) { qspinbox_childevent_callback = cb; }
-    inline void setQSpinBox_CustomEvent_Callback(QSpinBox_CustomEvent_Callback cb) { qspinbox_customevent_callback = cb; }
-    inline void setQSpinBox_ConnectNotify_Callback(QSpinBox_ConnectNotify_Callback cb) { qspinbox_connectnotify_callback = cb; }
-    inline void setQSpinBox_DisconnectNotify_Callback(QSpinBox_DisconnectNotify_Callback cb) { qspinbox_disconnectnotify_callback = cb; }
-    inline void setQSpinBox_LineEdit_Callback(QSpinBox_LineEdit_Callback cb) { qspinbox_lineedit_callback = cb; }
-    inline void setQSpinBox_SetLineEdit_Callback(QSpinBox_SetLineEdit_Callback cb) { qspinbox_setlineedit_callback = cb; }
-    inline void setQSpinBox_UpdateMicroFocus_Callback(QSpinBox_UpdateMicroFocus_Callback cb) { qspinbox_updatemicrofocus_callback = cb; }
-    inline void setQSpinBox_Create_Callback(QSpinBox_Create_Callback cb) { qspinbox_create_callback = cb; }
-    inline void setQSpinBox_Destroy_Callback(QSpinBox_Destroy_Callback cb) { qspinbox_destroy_callback = cb; }
-    inline void setQSpinBox_FocusNextChild_Callback(QSpinBox_FocusNextChild_Callback cb) { qspinbox_focusnextchild_callback = cb; }
-    inline void setQSpinBox_FocusPreviousChild_Callback(QSpinBox_FocusPreviousChild_Callback cb) { qspinbox_focuspreviouschild_callback = cb; }
-    inline void setQSpinBox_Sender_Callback(QSpinBox_Sender_Callback cb) { qspinbox_sender_callback = cb; }
-    inline void setQSpinBox_SenderSignalIndex_Callback(QSpinBox_SenderSignalIndex_Callback cb) { qspinbox_sendersignalindex_callback = cb; }
-    inline void setQSpinBox_Receivers_Callback(QSpinBox_Receivers_Callback cb) { qspinbox_receivers_callback = cb; }
-    inline void setQSpinBox_IsSignalConnected_Callback(QSpinBox_IsSignalConnected_Callback cb) { qspinbox_issignalconnected_callback = cb; }
-    inline void setQSpinBox_GetDecodedMetricF_Callback(QSpinBox_GetDecodedMetricF_Callback cb) { qspinbox_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQSpinBox_MetaObject_IsBase(bool value) const { qspinbox_metaobject_isbase = value; }
-    inline void setQSpinBox_Metacast_IsBase(bool value) const { qspinbox_metacast_isbase = value; }
-    inline void setQSpinBox_Metacall_IsBase(bool value) const { qspinbox_metacall_isbase = value; }
-    inline void setQSpinBox_Event_IsBase(bool value) const { qspinbox_event_isbase = value; }
-    inline void setQSpinBox_Validate_IsBase(bool value) const { qspinbox_validate_isbase = value; }
-    inline void setQSpinBox_ValueFromText_IsBase(bool value) const { qspinbox_valuefromtext_isbase = value; }
-    inline void setQSpinBox_TextFromValue_IsBase(bool value) const { qspinbox_textfromvalue_isbase = value; }
-    inline void setQSpinBox_Fixup_IsBase(bool value) const { qspinbox_fixup_isbase = value; }
-    inline void setQSpinBox_SizeHint_IsBase(bool value) const { qspinbox_sizehint_isbase = value; }
-    inline void setQSpinBox_MinimumSizeHint_IsBase(bool value) const { qspinbox_minimumsizehint_isbase = value; }
-    inline void setQSpinBox_InputMethodQuery_IsBase(bool value) const { qspinbox_inputmethodquery_isbase = value; }
-    inline void setQSpinBox_StepBy_IsBase(bool value) const { qspinbox_stepby_isbase = value; }
-    inline void setQSpinBox_Clear_IsBase(bool value) const { qspinbox_clear_isbase = value; }
-    inline void setQSpinBox_ResizeEvent_IsBase(bool value) const { qspinbox_resizeevent_isbase = value; }
-    inline void setQSpinBox_KeyPressEvent_IsBase(bool value) const { qspinbox_keypressevent_isbase = value; }
-    inline void setQSpinBox_KeyReleaseEvent_IsBase(bool value) const { qspinbox_keyreleaseevent_isbase = value; }
-    inline void setQSpinBox_WheelEvent_IsBase(bool value) const { qspinbox_wheelevent_isbase = value; }
-    inline void setQSpinBox_FocusInEvent_IsBase(bool value) const { qspinbox_focusinevent_isbase = value; }
-    inline void setQSpinBox_FocusOutEvent_IsBase(bool value) const { qspinbox_focusoutevent_isbase = value; }
-    inline void setQSpinBox_ContextMenuEvent_IsBase(bool value) const { qspinbox_contextmenuevent_isbase = value; }
-    inline void setQSpinBox_ChangeEvent_IsBase(bool value) const { qspinbox_changeevent_isbase = value; }
-    inline void setQSpinBox_CloseEvent_IsBase(bool value) const { qspinbox_closeevent_isbase = value; }
-    inline void setQSpinBox_HideEvent_IsBase(bool value) const { qspinbox_hideevent_isbase = value; }
-    inline void setQSpinBox_MousePressEvent_IsBase(bool value) const { qspinbox_mousepressevent_isbase = value; }
-    inline void setQSpinBox_MouseReleaseEvent_IsBase(bool value) const { qspinbox_mousereleaseevent_isbase = value; }
-    inline void setQSpinBox_MouseMoveEvent_IsBase(bool value) const { qspinbox_mousemoveevent_isbase = value; }
-    inline void setQSpinBox_TimerEvent_IsBase(bool value) const { qspinbox_timerevent_isbase = value; }
-    inline void setQSpinBox_PaintEvent_IsBase(bool value) const { qspinbox_paintevent_isbase = value; }
-    inline void setQSpinBox_ShowEvent_IsBase(bool value) const { qspinbox_showevent_isbase = value; }
-    inline void setQSpinBox_InitStyleOption_IsBase(bool value) const { qspinbox_initstyleoption_isbase = value; }
-    inline void setQSpinBox_StepEnabled_IsBase(bool value) const { qspinbox_stepenabled_isbase = value; }
-    inline void setQSpinBox_DevType_IsBase(bool value) const { qspinbox_devtype_isbase = value; }
-    inline void setQSpinBox_SetVisible_IsBase(bool value) const { qspinbox_setvisible_isbase = value; }
-    inline void setQSpinBox_HeightForWidth_IsBase(bool value) const { qspinbox_heightforwidth_isbase = value; }
-    inline void setQSpinBox_HasHeightForWidth_IsBase(bool value) const { qspinbox_hasheightforwidth_isbase = value; }
-    inline void setQSpinBox_PaintEngine_IsBase(bool value) const { qspinbox_paintengine_isbase = value; }
-    inline void setQSpinBox_MouseDoubleClickEvent_IsBase(bool value) const { qspinbox_mousedoubleclickevent_isbase = value; }
-    inline void setQSpinBox_EnterEvent_IsBase(bool value) const { qspinbox_enterevent_isbase = value; }
-    inline void setQSpinBox_LeaveEvent_IsBase(bool value) const { qspinbox_leaveevent_isbase = value; }
-    inline void setQSpinBox_MoveEvent_IsBase(bool value) const { qspinbox_moveevent_isbase = value; }
-    inline void setQSpinBox_TabletEvent_IsBase(bool value) const { qspinbox_tabletevent_isbase = value; }
-    inline void setQSpinBox_ActionEvent_IsBase(bool value) const { qspinbox_actionevent_isbase = value; }
-    inline void setQSpinBox_DragEnterEvent_IsBase(bool value) const { qspinbox_dragenterevent_isbase = value; }
-    inline void setQSpinBox_DragMoveEvent_IsBase(bool value) const { qspinbox_dragmoveevent_isbase = value; }
-    inline void setQSpinBox_DragLeaveEvent_IsBase(bool value) const { qspinbox_dragleaveevent_isbase = value; }
-    inline void setQSpinBox_DropEvent_IsBase(bool value) const { qspinbox_dropevent_isbase = value; }
-    inline void setQSpinBox_NativeEvent_IsBase(bool value) const { qspinbox_nativeevent_isbase = value; }
-    inline void setQSpinBox_Metric_IsBase(bool value) const { qspinbox_metric_isbase = value; }
-    inline void setQSpinBox_InitPainter_IsBase(bool value) const { qspinbox_initpainter_isbase = value; }
-    inline void setQSpinBox_Redirected_IsBase(bool value) const { qspinbox_redirected_isbase = value; }
-    inline void setQSpinBox_SharedPainter_IsBase(bool value) const { qspinbox_sharedpainter_isbase = value; }
-    inline void setQSpinBox_InputMethodEvent_IsBase(bool value) const { qspinbox_inputmethodevent_isbase = value; }
-    inline void setQSpinBox_FocusNextPrevChild_IsBase(bool value) const { qspinbox_focusnextprevchild_isbase = value; }
-    inline void setQSpinBox_EventFilter_IsBase(bool value) const { qspinbox_eventfilter_isbase = value; }
-    inline void setQSpinBox_ChildEvent_IsBase(bool value) const { qspinbox_childevent_isbase = value; }
-    inline void setQSpinBox_CustomEvent_IsBase(bool value) const { qspinbox_customevent_isbase = value; }
-    inline void setQSpinBox_ConnectNotify_IsBase(bool value) const { qspinbox_connectnotify_isbase = value; }
-    inline void setQSpinBox_DisconnectNotify_IsBase(bool value) const { qspinbox_disconnectnotify_isbase = value; }
-    inline void setQSpinBox_LineEdit_IsBase(bool value) const { qspinbox_lineedit_isbase = value; }
-    inline void setQSpinBox_SetLineEdit_IsBase(bool value) const { qspinbox_setlineedit_isbase = value; }
-    inline void setQSpinBox_UpdateMicroFocus_IsBase(bool value) const { qspinbox_updatemicrofocus_isbase = value; }
-    inline void setQSpinBox_Create_IsBase(bool value) const { qspinbox_create_isbase = value; }
-    inline void setQSpinBox_Destroy_IsBase(bool value) const { qspinbox_destroy_isbase = value; }
-    inline void setQSpinBox_FocusNextChild_IsBase(bool value) const { qspinbox_focusnextchild_isbase = value; }
-    inline void setQSpinBox_FocusPreviousChild_IsBase(bool value) const { qspinbox_focuspreviouschild_isbase = value; }
-    inline void setQSpinBox_Sender_IsBase(bool value) const { qspinbox_sender_isbase = value; }
-    inline void setQSpinBox_SenderSignalIndex_IsBase(bool value) const { qspinbox_sendersignalindex_isbase = value; }
-    inline void setQSpinBox_Receivers_IsBase(bool value) const { qspinbox_receivers_isbase = value; }
-    inline void setQSpinBox_IsSignalConnected_IsBase(bool value) const { qspinbox_issignalconnected_isbase = value; }
-    inline void setQSpinBox_GetDecodedMetricF_IsBase(bool value) const { qspinbox_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qspinbox_metaobject_isbase) {
-            qspinbox_metaobject_isbase = false;
-            return QSpinBox::metaObject();
-        }
-        auto metaobject_cb = qspinbox_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qspinbox_metaobject_callback) {
+            QMetaObject* callback_ret = qspinbox_metaobject_callback(this);
             return callback_ret;
         }
         return QSpinBox::metaObject();
@@ -397,14 +206,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qspinbox_metacast_isbase) {
-            qspinbox_metacast_isbase = false;
-            return QSpinBox::qt_metacast(param1);
-        }
-        auto metacast_cb = qspinbox_metacast_callback;
-        if (metacast_cb) {
+        if (qspinbox_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qspinbox_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QSpinBox::qt_metacast(param1);
@@ -412,16 +216,11 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qspinbox_metacall_isbase) {
-            qspinbox_metacall_isbase = false;
-            return QSpinBox::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qspinbox_metacall_callback;
-        if (metacall_cb) {
+        if (qspinbox_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qspinbox_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QSpinBox::qt_metacall(param1, param2, param3);
@@ -429,14 +228,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qspinbox_event_isbase) {
-            qspinbox_event_isbase = false;
-            return QSpinBox::event(event);
-        }
-        auto event_cb = qspinbox_event_callback;
-        if (event_cb) {
+        if (qspinbox_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qspinbox_event_callback(this, cbval1);
             return callback_ret;
         }
         return QSpinBox::event(event);
@@ -444,12 +238,7 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QValidator::State validate(QString& input, int& pos) const override {
-        if (qspinbox_validate_isbase) {
-            qspinbox_validate_isbase = false;
-            return QSpinBox::validate(input, pos);
-        }
-        auto validate_cb = qspinbox_validate_callback;
-        if (validate_cb) {
+        if (qspinbox_validate_callback) {
             auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -459,7 +248,7 @@ class VirtualQSpinBox final : public QSpinBox {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
-            int callback_ret = validate_cb(this, cbval1, cbval2);
+            int callback_ret = qspinbox_validate_callback(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         }
@@ -468,12 +257,7 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int valueFromText(const QString& text) const override {
-        if (qspinbox_valuefromtext_isbase) {
-            qspinbox_valuefromtext_isbase = false;
-            return QSpinBox::valueFromText(text);
-        }
-        auto valuefromtext_cb = qspinbox_valuefromtext_callback;
-        if (valuefromtext_cb) {
+        if (qspinbox_valuefromtext_callback) {
             const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -482,7 +266,7 @@ class VirtualQSpinBox final : public QSpinBox {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-            int callback_ret = valuefromtext_cb(this, cbval1);
+            int callback_ret = qspinbox_valuefromtext_callback(this, cbval1);
             libqt_free(text_str);
             return static_cast<int>(callback_ret);
         }
@@ -491,14 +275,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QString textFromValue(int val) const override {
-        if (qspinbox_textfromvalue_isbase) {
-            qspinbox_textfromvalue_isbase = false;
-            return QSpinBox::textFromValue(val);
-        }
-        auto textfromvalue_cb = qspinbox_textfromvalue_callback;
-        if (textfromvalue_cb) {
+        if (qspinbox_textfromvalue_callback) {
             int cbval1 = val;
-            const char* callback_ret = textfromvalue_cb(this, cbval1);
+            const char* callback_ret = qspinbox_textfromvalue_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -507,13 +286,7 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void fixup(QString& str) const override {
-        if (qspinbox_fixup_isbase) {
-            qspinbox_fixup_isbase = false;
-            QSpinBox::fixup(str);
-            return;
-        }
-        auto fixup_cb = qspinbox_fixup_callback;
-        if (fixup_cb) {
+        if (qspinbox_fixup_callback) {
             auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
@@ -522,7 +295,7 @@ class VirtualQSpinBox final : public QSpinBox {
             memcpy((void*)str_str, str_b.data(), str_str_len);
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
-            fixup_cb(this, cbval1);
+            qspinbox_fixup_callback(this, cbval1);
             libqt_free(str_str);
             return;
         }
@@ -531,13 +304,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qspinbox_sizehint_isbase) {
-            qspinbox_sizehint_isbase = false;
-            return QSpinBox::sizeHint();
-        }
-        auto sizehint_cb = qspinbox_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qspinbox_sizehint_callback) {
+            QSize* callback_ret = qspinbox_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -547,13 +315,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qspinbox_minimumsizehint_isbase) {
-            qspinbox_minimumsizehint_isbase = false;
-            return QSpinBox::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qspinbox_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qspinbox_minimumsizehint_callback) {
+            QSize* callback_ret = qspinbox_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -563,14 +326,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qspinbox_inputmethodquery_isbase) {
-            qspinbox_inputmethodquery_isbase = false;
-            return QSpinBox::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qspinbox_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qspinbox_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qspinbox_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -580,15 +338,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void stepBy(int steps) override {
-        if (qspinbox_stepby_isbase) {
-            qspinbox_stepby_isbase = false;
-            QSpinBox::stepBy(steps);
-            return;
-        }
-        auto stepby_cb = qspinbox_stepby_callback;
-        if (stepby_cb) {
+        if (qspinbox_stepby_callback) {
             int cbval1 = steps;
-            stepby_cb(this, cbval1);
+            qspinbox_stepby_callback(this, cbval1);
             return;
         }
         QSpinBox::stepBy(steps);
@@ -596,14 +348,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void clear() override {
-        if (qspinbox_clear_isbase) {
-            qspinbox_clear_isbase = false;
-            QSpinBox::clear();
-            return;
-        }
-        auto clear_cb = qspinbox_clear_callback;
-        if (clear_cb) {
-            clear_cb();
+        if (qspinbox_clear_callback) {
+            qspinbox_clear_callback(this);
             return;
         }
         QSpinBox::clear();
@@ -611,15 +357,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qspinbox_resizeevent_isbase) {
-            qspinbox_resizeevent_isbase = false;
-            QSpinBox::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qspinbox_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qspinbox_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qspinbox_resizeevent_callback(this, cbval1);
             return;
         }
         QSpinBox::resizeEvent(event);
@@ -627,15 +367,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qspinbox_keypressevent_isbase) {
-            qspinbox_keypressevent_isbase = false;
-            QSpinBox::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qspinbox_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qspinbox_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qspinbox_keypressevent_callback(this, cbval1);
             return;
         }
         QSpinBox::keyPressEvent(event);
@@ -643,15 +377,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qspinbox_keyreleaseevent_isbase) {
-            qspinbox_keyreleaseevent_isbase = false;
-            QSpinBox::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qspinbox_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qspinbox_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qspinbox_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QSpinBox::keyReleaseEvent(event);
@@ -659,15 +387,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qspinbox_wheelevent_isbase) {
-            qspinbox_wheelevent_isbase = false;
-            QSpinBox::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qspinbox_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qspinbox_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qspinbox_wheelevent_callback(this, cbval1);
             return;
         }
         QSpinBox::wheelEvent(event);
@@ -675,15 +397,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qspinbox_focusinevent_isbase) {
-            qspinbox_focusinevent_isbase = false;
-            QSpinBox::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qspinbox_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qspinbox_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qspinbox_focusinevent_callback(this, cbval1);
             return;
         }
         QSpinBox::focusInEvent(event);
@@ -691,15 +407,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qspinbox_focusoutevent_isbase) {
-            qspinbox_focusoutevent_isbase = false;
-            QSpinBox::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qspinbox_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qspinbox_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qspinbox_focusoutevent_callback(this, cbval1);
             return;
         }
         QSpinBox::focusOutEvent(event);
@@ -707,15 +417,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qspinbox_contextmenuevent_isbase) {
-            qspinbox_contextmenuevent_isbase = false;
-            QSpinBox::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qspinbox_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qspinbox_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qspinbox_contextmenuevent_callback(this, cbval1);
             return;
         }
         QSpinBox::contextMenuEvent(event);
@@ -723,15 +427,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* event) override {
-        if (qspinbox_changeevent_isbase) {
-            qspinbox_changeevent_isbase = false;
-            QSpinBox::changeEvent(event);
-            return;
-        }
-        auto changeevent_cb = qspinbox_changeevent_callback;
-        if (changeevent_cb) {
+        if (qspinbox_changeevent_callback) {
             QEvent* cbval1 = event;
-            changeevent_cb(this, cbval1);
+            qspinbox_changeevent_callback(this, cbval1);
             return;
         }
         QSpinBox::changeEvent(event);
@@ -739,15 +437,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qspinbox_closeevent_isbase) {
-            qspinbox_closeevent_isbase = false;
-            QSpinBox::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qspinbox_closeevent_callback;
-        if (closeevent_cb) {
+        if (qspinbox_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qspinbox_closeevent_callback(this, cbval1);
             return;
         }
         QSpinBox::closeEvent(event);
@@ -755,15 +447,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qspinbox_hideevent_isbase) {
-            qspinbox_hideevent_isbase = false;
-            QSpinBox::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qspinbox_hideevent_callback;
-        if (hideevent_cb) {
+        if (qspinbox_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qspinbox_hideevent_callback(this, cbval1);
             return;
         }
         QSpinBox::hideEvent(event);
@@ -771,15 +457,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qspinbox_mousepressevent_isbase) {
-            qspinbox_mousepressevent_isbase = false;
-            QSpinBox::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qspinbox_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qspinbox_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qspinbox_mousepressevent_callback(this, cbval1);
             return;
         }
         QSpinBox::mousePressEvent(event);
@@ -787,15 +467,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qspinbox_mousereleaseevent_isbase) {
-            qspinbox_mousereleaseevent_isbase = false;
-            QSpinBox::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qspinbox_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qspinbox_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qspinbox_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QSpinBox::mouseReleaseEvent(event);
@@ -803,15 +477,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qspinbox_mousemoveevent_isbase) {
-            qspinbox_mousemoveevent_isbase = false;
-            QSpinBox::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qspinbox_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qspinbox_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qspinbox_mousemoveevent_callback(this, cbval1);
             return;
         }
         QSpinBox::mouseMoveEvent(event);
@@ -819,15 +487,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qspinbox_timerevent_isbase) {
-            qspinbox_timerevent_isbase = false;
-            QSpinBox::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qspinbox_timerevent_callback;
-        if (timerevent_cb) {
+        if (qspinbox_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qspinbox_timerevent_callback(this, cbval1);
             return;
         }
         QSpinBox::timerEvent(event);
@@ -835,15 +497,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qspinbox_paintevent_isbase) {
-            qspinbox_paintevent_isbase = false;
-            QSpinBox::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qspinbox_paintevent_callback;
-        if (paintevent_cb) {
+        if (qspinbox_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qspinbox_paintevent_callback(this, cbval1);
             return;
         }
         QSpinBox::paintEvent(event);
@@ -851,15 +507,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qspinbox_showevent_isbase) {
-            qspinbox_showevent_isbase = false;
-            QSpinBox::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qspinbox_showevent_callback;
-        if (showevent_cb) {
+        if (qspinbox_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qspinbox_showevent_callback(this, cbval1);
             return;
         }
         QSpinBox::showEvent(event);
@@ -867,15 +517,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionSpinBox* option) const override {
-        if (qspinbox_initstyleoption_isbase) {
-            qspinbox_initstyleoption_isbase = false;
-            QSpinBox::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qspinbox_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qspinbox_initstyleoption_callback) {
             QStyleOptionSpinBox* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qspinbox_initstyleoption_callback(this, cbval1);
             return;
         }
         QSpinBox::initStyleOption(option);
@@ -883,13 +527,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QAbstractSpinBox::StepEnabled stepEnabled() const override {
-        if (qspinbox_stepenabled_isbase) {
-            qspinbox_stepenabled_isbase = false;
-            return QSpinBox::stepEnabled();
-        }
-        auto stepenabled_cb = qspinbox_stepenabled_callback;
-        if (stepenabled_cb) {
-            int callback_ret = stepenabled_cb();
+        if (qspinbox_stepenabled_callback) {
+            int callback_ret = qspinbox_stepenabled_callback(this);
             return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
         }
         return QSpinBox::stepEnabled();
@@ -897,13 +536,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qspinbox_devtype_isbase) {
-            qspinbox_devtype_isbase = false;
-            return QSpinBox::devType();
-        }
-        auto devtype_cb = qspinbox_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qspinbox_devtype_callback) {
+            int callback_ret = qspinbox_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QSpinBox::devType();
@@ -911,15 +545,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qspinbox_setvisible_isbase) {
-            qspinbox_setvisible_isbase = false;
-            QSpinBox::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qspinbox_setvisible_callback;
-        if (setvisible_cb) {
+        if (qspinbox_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qspinbox_setvisible_callback(this, cbval1);
             return;
         }
         QSpinBox::setVisible(visible);
@@ -927,14 +555,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qspinbox_heightforwidth_isbase) {
-            qspinbox_heightforwidth_isbase = false;
-            return QSpinBox::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qspinbox_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qspinbox_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qspinbox_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSpinBox::heightForWidth(param1);
@@ -942,13 +565,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qspinbox_hasheightforwidth_isbase) {
-            qspinbox_hasheightforwidth_isbase = false;
-            return QSpinBox::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qspinbox_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qspinbox_hasheightforwidth_callback) {
+            bool callback_ret = qspinbox_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QSpinBox::hasHeightForWidth();
@@ -956,13 +574,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qspinbox_paintengine_isbase) {
-            qspinbox_paintengine_isbase = false;
-            return QSpinBox::paintEngine();
-        }
-        auto paintengine_cb = qspinbox_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qspinbox_paintengine_callback) {
+            QPaintEngine* callback_ret = qspinbox_paintengine_callback(this);
             return callback_ret;
         }
         return QSpinBox::paintEngine();
@@ -970,15 +583,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qspinbox_mousedoubleclickevent_isbase) {
-            qspinbox_mousedoubleclickevent_isbase = false;
-            QSpinBox::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qspinbox_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qspinbox_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qspinbox_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QSpinBox::mouseDoubleClickEvent(event);
@@ -986,15 +593,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qspinbox_enterevent_isbase) {
-            qspinbox_enterevent_isbase = false;
-            QSpinBox::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qspinbox_enterevent_callback;
-        if (enterevent_cb) {
+        if (qspinbox_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qspinbox_enterevent_callback(this, cbval1);
             return;
         }
         QSpinBox::enterEvent(event);
@@ -1002,15 +603,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qspinbox_leaveevent_isbase) {
-            qspinbox_leaveevent_isbase = false;
-            QSpinBox::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qspinbox_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qspinbox_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qspinbox_leaveevent_callback(this, cbval1);
             return;
         }
         QSpinBox::leaveEvent(event);
@@ -1018,15 +613,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qspinbox_moveevent_isbase) {
-            qspinbox_moveevent_isbase = false;
-            QSpinBox::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qspinbox_moveevent_callback;
-        if (moveevent_cb) {
+        if (qspinbox_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qspinbox_moveevent_callback(this, cbval1);
             return;
         }
         QSpinBox::moveEvent(event);
@@ -1034,15 +623,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qspinbox_tabletevent_isbase) {
-            qspinbox_tabletevent_isbase = false;
-            QSpinBox::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qspinbox_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qspinbox_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qspinbox_tabletevent_callback(this, cbval1);
             return;
         }
         QSpinBox::tabletEvent(event);
@@ -1050,15 +633,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qspinbox_actionevent_isbase) {
-            qspinbox_actionevent_isbase = false;
-            QSpinBox::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qspinbox_actionevent_callback;
-        if (actionevent_cb) {
+        if (qspinbox_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qspinbox_actionevent_callback(this, cbval1);
             return;
         }
         QSpinBox::actionEvent(event);
@@ -1066,15 +643,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qspinbox_dragenterevent_isbase) {
-            qspinbox_dragenterevent_isbase = false;
-            QSpinBox::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qspinbox_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qspinbox_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qspinbox_dragenterevent_callback(this, cbval1);
             return;
         }
         QSpinBox::dragEnterEvent(event);
@@ -1082,15 +653,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qspinbox_dragmoveevent_isbase) {
-            qspinbox_dragmoveevent_isbase = false;
-            QSpinBox::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qspinbox_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qspinbox_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qspinbox_dragmoveevent_callback(this, cbval1);
             return;
         }
         QSpinBox::dragMoveEvent(event);
@@ -1098,15 +663,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qspinbox_dragleaveevent_isbase) {
-            qspinbox_dragleaveevent_isbase = false;
-            QSpinBox::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qspinbox_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qspinbox_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qspinbox_dragleaveevent_callback(this, cbval1);
             return;
         }
         QSpinBox::dragLeaveEvent(event);
@@ -1114,15 +673,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qspinbox_dropevent_isbase) {
-            qspinbox_dropevent_isbase = false;
-            QSpinBox::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qspinbox_dropevent_callback;
-        if (dropevent_cb) {
+        if (qspinbox_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qspinbox_dropevent_callback(this, cbval1);
             return;
         }
         QSpinBox::dropEvent(event);
@@ -1130,12 +683,7 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qspinbox_nativeevent_isbase) {
-            qspinbox_nativeevent_isbase = false;
-            return QSpinBox::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qspinbox_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qspinbox_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1145,7 +693,7 @@ class VirtualQSpinBox final : public QSpinBox {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qspinbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1154,14 +702,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qspinbox_metric_isbase) {
-            qspinbox_metric_isbase = false;
-            return QSpinBox::metric(param1);
-        }
-        auto metric_cb = qspinbox_metric_callback;
-        if (metric_cb) {
+        if (qspinbox_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qspinbox_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QSpinBox::metric(param1);
@@ -1169,15 +712,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qspinbox_initpainter_isbase) {
-            qspinbox_initpainter_isbase = false;
-            QSpinBox::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qspinbox_initpainter_callback;
-        if (initpainter_cb) {
+        if (qspinbox_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qspinbox_initpainter_callback(this, cbval1);
             return;
         }
         QSpinBox::initPainter(painter);
@@ -1185,14 +722,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qspinbox_redirected_isbase) {
-            qspinbox_redirected_isbase = false;
-            return QSpinBox::redirected(offset);
-        }
-        auto redirected_cb = qspinbox_redirected_callback;
-        if (redirected_cb) {
+        if (qspinbox_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qspinbox_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QSpinBox::redirected(offset);
@@ -1200,13 +732,8 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qspinbox_sharedpainter_isbase) {
-            qspinbox_sharedpainter_isbase = false;
-            return QSpinBox::sharedPainter();
-        }
-        auto sharedpainter_cb = qspinbox_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qspinbox_sharedpainter_callback) {
+            QPainter* callback_ret = qspinbox_sharedpainter_callback(this);
             return callback_ret;
         }
         return QSpinBox::sharedPainter();
@@ -1214,15 +741,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qspinbox_inputmethodevent_isbase) {
-            qspinbox_inputmethodevent_isbase = false;
-            QSpinBox::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qspinbox_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qspinbox_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qspinbox_inputmethodevent_callback(this, cbval1);
             return;
         }
         QSpinBox::inputMethodEvent(param1);
@@ -1230,14 +751,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qspinbox_focusnextprevchild_isbase) {
-            qspinbox_focusnextprevchild_isbase = false;
-            return QSpinBox::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qspinbox_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qspinbox_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qspinbox_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QSpinBox::focusNextPrevChild(next);
@@ -1245,15 +761,10 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qspinbox_eventfilter_isbase) {
-            qspinbox_eventfilter_isbase = false;
-            return QSpinBox::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qspinbox_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qspinbox_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qspinbox_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QSpinBox::eventFilter(watched, event);
@@ -1261,15 +772,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qspinbox_childevent_isbase) {
-            qspinbox_childevent_isbase = false;
-            QSpinBox::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qspinbox_childevent_callback;
-        if (childevent_cb) {
+        if (qspinbox_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qspinbox_childevent_callback(this, cbval1);
             return;
         }
         QSpinBox::childEvent(event);
@@ -1277,15 +782,9 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qspinbox_customevent_isbase) {
-            qspinbox_customevent_isbase = false;
-            QSpinBox::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qspinbox_customevent_callback;
-        if (customevent_cb) {
+        if (qspinbox_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qspinbox_customevent_callback(this, cbval1);
             return;
         }
         QSpinBox::customEvent(event);
@@ -1293,17 +792,11 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qspinbox_connectnotify_isbase) {
-            qspinbox_connectnotify_isbase = false;
-            QSpinBox::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qspinbox_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qspinbox_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qspinbox_connectnotify_callback(this, cbval1);
             return;
         }
         QSpinBox::connectNotify(signal);
@@ -1311,337 +804,80 @@ class VirtualQSpinBox final : public QSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qspinbox_disconnectnotify_isbase) {
-            qspinbox_disconnectnotify_isbase = false;
-            QSpinBox::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qspinbox_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qspinbox_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qspinbox_disconnectnotify_callback(this, cbval1);
             return;
         }
         QSpinBox::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QLineEdit* lineEdit() const {
-        if (qspinbox_lineedit_isbase) {
-            qspinbox_lineedit_isbase = false;
-            return QSpinBox::lineEdit();
-        }
-        auto lineedit_cb = qspinbox_lineedit_callback;
-        if (lineedit_cb) {
-            QLineEdit* callback_ret = lineedit_cb();
-            return callback_ret;
-        }
-        return QSpinBox::lineEdit();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setLineEdit(QLineEdit* edit) {
-        if (qspinbox_setlineedit_isbase) {
-            qspinbox_setlineedit_isbase = false;
-            QSpinBox::setLineEdit(edit);
-            return;
-        }
-        auto setlineedit_cb = qspinbox_setlineedit_callback;
-        if (setlineedit_cb) {
-            QLineEdit* cbval1 = edit;
-            setlineedit_cb(this, cbval1);
-            return;
-        }
-        QSpinBox::setLineEdit(edit);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qspinbox_updatemicrofocus_isbase) {
-            qspinbox_updatemicrofocus_isbase = false;
-            QSpinBox::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qspinbox_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QSpinBox::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qspinbox_create_isbase) {
-            qspinbox_create_isbase = false;
-            QSpinBox::create();
-            return;
-        }
-        auto create_cb = qspinbox_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QSpinBox::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qspinbox_destroy_isbase) {
-            qspinbox_destroy_isbase = false;
-            QSpinBox::destroy();
-            return;
-        }
-        auto destroy_cb = qspinbox_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QSpinBox::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qspinbox_focusnextchild_isbase) {
-            qspinbox_focusnextchild_isbase = false;
-            return QSpinBox::focusNextChild();
-        }
-        auto focusnextchild_cb = qspinbox_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QSpinBox::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qspinbox_focuspreviouschild_isbase) {
-            qspinbox_focuspreviouschild_isbase = false;
-            return QSpinBox::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qspinbox_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QSpinBox::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qspinbox_sender_isbase) {
-            qspinbox_sender_isbase = false;
-            return QSpinBox::sender();
-        }
-        auto sender_cb = qspinbox_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QSpinBox::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qspinbox_sendersignalindex_isbase) {
-            qspinbox_sendersignalindex_isbase = false;
-            return QSpinBox::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qspinbox_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QSpinBox::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qspinbox_receivers_isbase) {
-            qspinbox_receivers_isbase = false;
-            return QSpinBox::receivers(signal);
-        }
-        auto receivers_cb = qspinbox_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QSpinBox::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qspinbox_issignalconnected_isbase) {
-            qspinbox_issignalconnected_isbase = false;
-            return QSpinBox::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qspinbox_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QSpinBox::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qspinbox_getdecodedmetricf_isbase) {
-            qspinbox_getdecodedmetricf_isbase = false;
-            return QSpinBox::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qspinbox_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QSpinBox::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend bool QSpinBox_Event(QSpinBox* self, QEvent* event);
     friend bool QSpinBox_SuperEvent(QSpinBox* self, QEvent* event);
-    friend int QSpinBox_Validate(const QSpinBox* self, libqt_string input, int* pos);
     friend int QSpinBox_SuperValidate(const QSpinBox* self, libqt_string input, int* pos);
-    friend int QSpinBox_ValueFromText(const QSpinBox* self, const libqt_string text);
     friend int QSpinBox_SuperValueFromText(const QSpinBox* self, const libqt_string text);
-    friend libqt_string QSpinBox_TextFromValue(const QSpinBox* self, int val);
     friend libqt_string QSpinBox_SuperTextFromValue(const QSpinBox* self, int val);
-    friend void QSpinBox_Fixup(const QSpinBox* self, libqt_string str);
     friend void QSpinBox_SuperFixup(const QSpinBox* self, libqt_string str);
-    friend void QSpinBox_ResizeEvent(QSpinBox* self, QResizeEvent* event);
     friend void QSpinBox_SuperResizeEvent(QSpinBox* self, QResizeEvent* event);
-    friend void QSpinBox_KeyPressEvent(QSpinBox* self, QKeyEvent* event);
     friend void QSpinBox_SuperKeyPressEvent(QSpinBox* self, QKeyEvent* event);
-    friend void QSpinBox_KeyReleaseEvent(QSpinBox* self, QKeyEvent* event);
     friend void QSpinBox_SuperKeyReleaseEvent(QSpinBox* self, QKeyEvent* event);
-    friend void QSpinBox_WheelEvent(QSpinBox* self, QWheelEvent* event);
     friend void QSpinBox_SuperWheelEvent(QSpinBox* self, QWheelEvent* event);
-    friend void QSpinBox_FocusInEvent(QSpinBox* self, QFocusEvent* event);
     friend void QSpinBox_SuperFocusInEvent(QSpinBox* self, QFocusEvent* event);
-    friend void QSpinBox_FocusOutEvent(QSpinBox* self, QFocusEvent* event);
     friend void QSpinBox_SuperFocusOutEvent(QSpinBox* self, QFocusEvent* event);
-    friend void QSpinBox_ContextMenuEvent(QSpinBox* self, QContextMenuEvent* event);
     friend void QSpinBox_SuperContextMenuEvent(QSpinBox* self, QContextMenuEvent* event);
-    friend void QSpinBox_ChangeEvent(QSpinBox* self, QEvent* event);
     friend void QSpinBox_SuperChangeEvent(QSpinBox* self, QEvent* event);
-    friend void QSpinBox_CloseEvent(QSpinBox* self, QCloseEvent* event);
     friend void QSpinBox_SuperCloseEvent(QSpinBox* self, QCloseEvent* event);
-    friend void QSpinBox_HideEvent(QSpinBox* self, QHideEvent* event);
     friend void QSpinBox_SuperHideEvent(QSpinBox* self, QHideEvent* event);
-    friend void QSpinBox_MousePressEvent(QSpinBox* self, QMouseEvent* event);
     friend void QSpinBox_SuperMousePressEvent(QSpinBox* self, QMouseEvent* event);
-    friend void QSpinBox_MouseReleaseEvent(QSpinBox* self, QMouseEvent* event);
     friend void QSpinBox_SuperMouseReleaseEvent(QSpinBox* self, QMouseEvent* event);
-    friend void QSpinBox_MouseMoveEvent(QSpinBox* self, QMouseEvent* event);
     friend void QSpinBox_SuperMouseMoveEvent(QSpinBox* self, QMouseEvent* event);
-    friend void QSpinBox_TimerEvent(QSpinBox* self, QTimerEvent* event);
     friend void QSpinBox_SuperTimerEvent(QSpinBox* self, QTimerEvent* event);
-    friend void QSpinBox_PaintEvent(QSpinBox* self, QPaintEvent* event);
     friend void QSpinBox_SuperPaintEvent(QSpinBox* self, QPaintEvent* event);
-    friend void QSpinBox_ShowEvent(QSpinBox* self, QShowEvent* event);
     friend void QSpinBox_SuperShowEvent(QSpinBox* self, QShowEvent* event);
-    friend void QSpinBox_InitStyleOption(const QSpinBox* self, QStyleOptionSpinBox* option);
     friend void QSpinBox_SuperInitStyleOption(const QSpinBox* self, QStyleOptionSpinBox* option);
-    friend int QSpinBox_StepEnabled(const QSpinBox* self);
     friend int QSpinBox_SuperStepEnabled(const QSpinBox* self);
-    friend void QSpinBox_MouseDoubleClickEvent(QSpinBox* self, QMouseEvent* event);
     friend void QSpinBox_SuperMouseDoubleClickEvent(QSpinBox* self, QMouseEvent* event);
-    friend void QSpinBox_EnterEvent(QSpinBox* self, QEnterEvent* event);
     friend void QSpinBox_SuperEnterEvent(QSpinBox* self, QEnterEvent* event);
-    friend void QSpinBox_LeaveEvent(QSpinBox* self, QEvent* event);
     friend void QSpinBox_SuperLeaveEvent(QSpinBox* self, QEvent* event);
-    friend void QSpinBox_MoveEvent(QSpinBox* self, QMoveEvent* event);
     friend void QSpinBox_SuperMoveEvent(QSpinBox* self, QMoveEvent* event);
-    friend void QSpinBox_TabletEvent(QSpinBox* self, QTabletEvent* event);
     friend void QSpinBox_SuperTabletEvent(QSpinBox* self, QTabletEvent* event);
-    friend void QSpinBox_ActionEvent(QSpinBox* self, QActionEvent* event);
     friend void QSpinBox_SuperActionEvent(QSpinBox* self, QActionEvent* event);
-    friend void QSpinBox_DragEnterEvent(QSpinBox* self, QDragEnterEvent* event);
     friend void QSpinBox_SuperDragEnterEvent(QSpinBox* self, QDragEnterEvent* event);
-    friend void QSpinBox_DragMoveEvent(QSpinBox* self, QDragMoveEvent* event);
     friend void QSpinBox_SuperDragMoveEvent(QSpinBox* self, QDragMoveEvent* event);
-    friend void QSpinBox_DragLeaveEvent(QSpinBox* self, QDragLeaveEvent* event);
     friend void QSpinBox_SuperDragLeaveEvent(QSpinBox* self, QDragLeaveEvent* event);
-    friend void QSpinBox_DropEvent(QSpinBox* self, QDropEvent* event);
     friend void QSpinBox_SuperDropEvent(QSpinBox* self, QDropEvent* event);
-    friend bool QSpinBox_NativeEvent(QSpinBox* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QSpinBox_SuperNativeEvent(QSpinBox* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int QSpinBox_Metric(const QSpinBox* self, int param1);
     friend int QSpinBox_SuperMetric(const QSpinBox* self, int param1);
-    friend void QSpinBox_InitPainter(const QSpinBox* self, QPainter* painter);
     friend void QSpinBox_SuperInitPainter(const QSpinBox* self, QPainter* painter);
-    friend QPaintDevice* QSpinBox_Redirected(const QSpinBox* self, QPoint* offset);
     friend QPaintDevice* QSpinBox_SuperRedirected(const QSpinBox* self, QPoint* offset);
-    friend QPainter* QSpinBox_SharedPainter(const QSpinBox* self);
     friend QPainter* QSpinBox_SuperSharedPainter(const QSpinBox* self);
-    friend void QSpinBox_InputMethodEvent(QSpinBox* self, QInputMethodEvent* param1);
     friend void QSpinBox_SuperInputMethodEvent(QSpinBox* self, QInputMethodEvent* param1);
-    friend bool QSpinBox_FocusNextPrevChild(QSpinBox* self, bool next);
     friend bool QSpinBox_SuperFocusNextPrevChild(QSpinBox* self, bool next);
-    friend void QSpinBox_ChildEvent(QSpinBox* self, QChildEvent* event);
     friend void QSpinBox_SuperChildEvent(QSpinBox* self, QChildEvent* event);
-    friend void QSpinBox_CustomEvent(QSpinBox* self, QEvent* event);
     friend void QSpinBox_SuperCustomEvent(QSpinBox* self, QEvent* event);
-    friend void QSpinBox_ConnectNotify(QSpinBox* self, const QMetaMethod* signal);
     friend void QSpinBox_SuperConnectNotify(QSpinBox* self, const QMetaMethod* signal);
-    friend void QSpinBox_DisconnectNotify(QSpinBox* self, const QMetaMethod* signal);
     friend void QSpinBox_SuperDisconnectNotify(QSpinBox* self, const QMetaMethod* signal);
-    friend QLineEdit* QSpinBox_LineEdit(const QSpinBox* self);
-    friend QLineEdit* QSpinBox_SuperLineEdit(const QSpinBox* self);
-    friend void QSpinBox_SetLineEdit(QSpinBox* self, QLineEdit* edit);
-    friend void QSpinBox_SuperSetLineEdit(QSpinBox* self, QLineEdit* edit);
-    friend void QSpinBox_UpdateMicroFocus(QSpinBox* self);
-    friend void QSpinBox_SuperUpdateMicroFocus(QSpinBox* self);
-    friend void QSpinBox_Create(QSpinBox* self);
-    friend void QSpinBox_SuperCreate(QSpinBox* self);
-    friend void QSpinBox_Destroy(QSpinBox* self);
-    friend void QSpinBox_SuperDestroy(QSpinBox* self);
-    friend bool QSpinBox_FocusNextChild(QSpinBox* self);
-    friend bool QSpinBox_SuperFocusNextChild(QSpinBox* self);
-    friend bool QSpinBox_FocusPreviousChild(QSpinBox* self);
-    friend bool QSpinBox_SuperFocusPreviousChild(QSpinBox* self);
-    friend QObject* QSpinBox_Sender(const QSpinBox* self);
-    friend QObject* QSpinBox_SuperSender(const QSpinBox* self);
-    friend int QSpinBox_SenderSignalIndex(const QSpinBox* self);
-    friend int QSpinBox_SuperSenderSignalIndex(const QSpinBox* self);
-    friend int QSpinBox_Receivers(const QSpinBox* self, const char* signal);
-    friend int QSpinBox_SuperReceivers(const QSpinBox* self, const char* signal);
-    friend bool QSpinBox_IsSignalConnected(const QSpinBox* self, const QMetaMethod* signal);
-    friend bool QSpinBox_SuperIsSignalConnected(const QSpinBox* self, const QMetaMethod* signal);
-    friend double QSpinBox_GetDecodedMetricF(const QSpinBox* self, int metricA, int metricB);
-    friend double QSpinBox_SuperGetDecodedMetricF(const QSpinBox* self, int metricA, int metricB);
 };
 
-// This class is a subclass of QDoubleSpinBox so that we can call protected methods
+// This class is a subclass of QDoubleSpinBox
 class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQDoubleSpinBox = true;
-
-    // Virtual class public types (including callbacks)
-    using QDoubleSpinBox_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QDoubleSpinBox_MetaObject_Callback = QMetaObject* (*)(const QDoubleSpinBox*);
     using QDoubleSpinBox_Metacast_Callback = void* (*)(QDoubleSpinBox*, const char*);
     using QDoubleSpinBox_Metacall_Callback = int (*)(QDoubleSpinBox*, int, int, void**);
     using QDoubleSpinBox_Validate_Callback = int (*)(const QDoubleSpinBox*, const char*, int*);
     using QDoubleSpinBox_ValueFromText_Callback = double (*)(const QDoubleSpinBox*, const char*);
     using QDoubleSpinBox_TextFromValue_Callback = const char* (*)(const QDoubleSpinBox*, double);
     using QDoubleSpinBox_Fixup_Callback = void (*)(const QDoubleSpinBox*, const char*);
-    using QDoubleSpinBox_SizeHint_Callback = QSize* (*)();
-    using QDoubleSpinBox_MinimumSizeHint_Callback = QSize* (*)();
+    using QDoubleSpinBox_SizeHint_Callback = QSize* (*)(const QDoubleSpinBox*);
+    using QDoubleSpinBox_MinimumSizeHint_Callback = QSize* (*)(const QDoubleSpinBox*);
     using QDoubleSpinBox_Event_Callback = bool (*)(QDoubleSpinBox*, QEvent*);
     using QDoubleSpinBox_InputMethodQuery_Callback = QVariant* (*)(const QDoubleSpinBox*, int);
     using QDoubleSpinBox_StepBy_Callback = void (*)(QDoubleSpinBox*, int);
-    using QDoubleSpinBox_Clear_Callback = void (*)();
+    using QDoubleSpinBox_Clear_Callback = void (*)(QDoubleSpinBox*);
     using QDoubleSpinBox_ResizeEvent_Callback = void (*)(QDoubleSpinBox*, QResizeEvent*);
     using QDoubleSpinBox_KeyPressEvent_Callback = void (*)(QDoubleSpinBox*, QKeyEvent*);
     using QDoubleSpinBox_KeyReleaseEvent_Callback = void (*)(QDoubleSpinBox*, QKeyEvent*);
@@ -1659,12 +895,12 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     using QDoubleSpinBox_PaintEvent_Callback = void (*)(QDoubleSpinBox*, QPaintEvent*);
     using QDoubleSpinBox_ShowEvent_Callback = void (*)(QDoubleSpinBox*, QShowEvent*);
     using QDoubleSpinBox_InitStyleOption_Callback = void (*)(const QDoubleSpinBox*, QStyleOptionSpinBox*);
-    using QDoubleSpinBox_StepEnabled_Callback = int (*)();
-    using QDoubleSpinBox_DevType_Callback = int (*)();
+    using QDoubleSpinBox_StepEnabled_Callback = int (*)(const QDoubleSpinBox*);
+    using QDoubleSpinBox_DevType_Callback = int (*)(const QDoubleSpinBox*);
     using QDoubleSpinBox_SetVisible_Callback = void (*)(QDoubleSpinBox*, bool);
     using QDoubleSpinBox_HeightForWidth_Callback = int (*)(const QDoubleSpinBox*, int);
-    using QDoubleSpinBox_HasHeightForWidth_Callback = bool (*)();
-    using QDoubleSpinBox_PaintEngine_Callback = QPaintEngine* (*)();
+    using QDoubleSpinBox_HasHeightForWidth_Callback = bool (*)(const QDoubleSpinBox*);
+    using QDoubleSpinBox_PaintEngine_Callback = QPaintEngine* (*)(const QDoubleSpinBox*);
     using QDoubleSpinBox_MouseDoubleClickEvent_Callback = void (*)(QDoubleSpinBox*, QMouseEvent*);
     using QDoubleSpinBox_EnterEvent_Callback = void (*)(QDoubleSpinBox*, QEnterEvent*);
     using QDoubleSpinBox_LeaveEvent_Callback = void (*)(QDoubleSpinBox*, QEvent*);
@@ -1679,7 +915,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     using QDoubleSpinBox_Metric_Callback = int (*)(const QDoubleSpinBox*, int);
     using QDoubleSpinBox_InitPainter_Callback = void (*)(const QDoubleSpinBox*, QPainter*);
     using QDoubleSpinBox_Redirected_Callback = QPaintDevice* (*)(const QDoubleSpinBox*, QPoint*);
-    using QDoubleSpinBox_SharedPainter_Callback = QPainter* (*)();
+    using QDoubleSpinBox_SharedPainter_Callback = QPainter* (*)(const QDoubleSpinBox*);
     using QDoubleSpinBox_InputMethodEvent_Callback = void (*)(QDoubleSpinBox*, QInputMethodEvent*);
     using QDoubleSpinBox_FocusNextPrevChild_Callback = bool (*)(QDoubleSpinBox*, bool);
     using QDoubleSpinBox_EventFilter_Callback = bool (*)(QDoubleSpinBox*, QObject*, QEvent*);
@@ -1687,20 +923,19 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     using QDoubleSpinBox_CustomEvent_Callback = void (*)(QDoubleSpinBox*, QEvent*);
     using QDoubleSpinBox_ConnectNotify_Callback = void (*)(QDoubleSpinBox*, QMetaMethod*);
     using QDoubleSpinBox_DisconnectNotify_Callback = void (*)(QDoubleSpinBox*, QMetaMethod*);
-    using QDoubleSpinBox_LineEdit_Callback = QLineEdit* (*)();
-    using QDoubleSpinBox_SetLineEdit_Callback = void (*)(QDoubleSpinBox*, QLineEdit*);
-    using QDoubleSpinBox_UpdateMicroFocus_Callback = void (*)();
-    using QDoubleSpinBox_Create_Callback = void (*)();
-    using QDoubleSpinBox_Destroy_Callback = void (*)();
-    using QDoubleSpinBox_FocusNextChild_Callback = bool (*)();
-    using QDoubleSpinBox_FocusPreviousChild_Callback = bool (*)();
-    using QDoubleSpinBox_Sender_Callback = QObject* (*)();
-    using QDoubleSpinBox_SenderSignalIndex_Callback = int (*)();
-    using QDoubleSpinBox_Receivers_Callback = int (*)(const QDoubleSpinBox*, const char*);
-    using QDoubleSpinBox_IsSignalConnected_Callback = bool (*)(const QDoubleSpinBox*, QMetaMethod*);
-    using QDoubleSpinBox_GetDecodedMetricF_Callback = double (*)(const QDoubleSpinBox*, int, int);
+    using QDoubleSpinBox::create;
+    using QDoubleSpinBox::destroy;
+    using QDoubleSpinBox::focusNextChild;
+    using QDoubleSpinBox::focusPreviousChild;
+    using QDoubleSpinBox::getDecodedMetricF;
+    using QDoubleSpinBox::isSignalConnected;
+    using QDoubleSpinBox::lineEdit;
+    using QDoubleSpinBox::receivers;
+    using QDoubleSpinBox::sender;
+    using QDoubleSpinBox::senderSignalIndex;
+    using QDoubleSpinBox::setLineEdit;
+    using QDoubleSpinBox::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QDoubleSpinBox_MetaObject_Callback qdoublespinbox_metaobject_callback = nullptr;
     QDoubleSpinBox_Metacast_Callback qdoublespinbox_metacast_callback = nullptr;
@@ -1760,248 +995,57 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     QDoubleSpinBox_CustomEvent_Callback qdoublespinbox_customevent_callback = nullptr;
     QDoubleSpinBox_ConnectNotify_Callback qdoublespinbox_connectnotify_callback = nullptr;
     QDoubleSpinBox_DisconnectNotify_Callback qdoublespinbox_disconnectnotify_callback = nullptr;
-    QDoubleSpinBox_LineEdit_Callback qdoublespinbox_lineedit_callback = nullptr;
-    QDoubleSpinBox_SetLineEdit_Callback qdoublespinbox_setlineedit_callback = nullptr;
-    QDoubleSpinBox_UpdateMicroFocus_Callback qdoublespinbox_updatemicrofocus_callback = nullptr;
-    QDoubleSpinBox_Create_Callback qdoublespinbox_create_callback = nullptr;
-    QDoubleSpinBox_Destroy_Callback qdoublespinbox_destroy_callback = nullptr;
-    QDoubleSpinBox_FocusNextChild_Callback qdoublespinbox_focusnextchild_callback = nullptr;
-    QDoubleSpinBox_FocusPreviousChild_Callback qdoublespinbox_focuspreviouschild_callback = nullptr;
-    QDoubleSpinBox_Sender_Callback qdoublespinbox_sender_callback = nullptr;
-    QDoubleSpinBox_SenderSignalIndex_Callback qdoublespinbox_sendersignalindex_callback = nullptr;
-    QDoubleSpinBox_Receivers_Callback qdoublespinbox_receivers_callback = nullptr;
-    QDoubleSpinBox_IsSignalConnected_Callback qdoublespinbox_issignalconnected_callback = nullptr;
-    QDoubleSpinBox_GetDecodedMetricF_Callback qdoublespinbox_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qdoublespinbox_metaobject_isbase = false;
-    mutable bool qdoublespinbox_metacast_isbase = false;
-    mutable bool qdoublespinbox_metacall_isbase = false;
-    mutable bool qdoublespinbox_validate_isbase = false;
-    mutable bool qdoublespinbox_valuefromtext_isbase = false;
-    mutable bool qdoublespinbox_textfromvalue_isbase = false;
-    mutable bool qdoublespinbox_fixup_isbase = false;
-    mutable bool qdoublespinbox_sizehint_isbase = false;
-    mutable bool qdoublespinbox_minimumsizehint_isbase = false;
-    mutable bool qdoublespinbox_event_isbase = false;
-    mutable bool qdoublespinbox_inputmethodquery_isbase = false;
-    mutable bool qdoublespinbox_stepby_isbase = false;
-    mutable bool qdoublespinbox_clear_isbase = false;
-    mutable bool qdoublespinbox_resizeevent_isbase = false;
-    mutable bool qdoublespinbox_keypressevent_isbase = false;
-    mutable bool qdoublespinbox_keyreleaseevent_isbase = false;
-    mutable bool qdoublespinbox_wheelevent_isbase = false;
-    mutable bool qdoublespinbox_focusinevent_isbase = false;
-    mutable bool qdoublespinbox_focusoutevent_isbase = false;
-    mutable bool qdoublespinbox_contextmenuevent_isbase = false;
-    mutable bool qdoublespinbox_changeevent_isbase = false;
-    mutable bool qdoublespinbox_closeevent_isbase = false;
-    mutable bool qdoublespinbox_hideevent_isbase = false;
-    mutable bool qdoublespinbox_mousepressevent_isbase = false;
-    mutable bool qdoublespinbox_mousereleaseevent_isbase = false;
-    mutable bool qdoublespinbox_mousemoveevent_isbase = false;
-    mutable bool qdoublespinbox_timerevent_isbase = false;
-    mutable bool qdoublespinbox_paintevent_isbase = false;
-    mutable bool qdoublespinbox_showevent_isbase = false;
-    mutable bool qdoublespinbox_initstyleoption_isbase = false;
-    mutable bool qdoublespinbox_stepenabled_isbase = false;
-    mutable bool qdoublespinbox_devtype_isbase = false;
-    mutable bool qdoublespinbox_setvisible_isbase = false;
-    mutable bool qdoublespinbox_heightforwidth_isbase = false;
-    mutable bool qdoublespinbox_hasheightforwidth_isbase = false;
-    mutable bool qdoublespinbox_paintengine_isbase = false;
-    mutable bool qdoublespinbox_mousedoubleclickevent_isbase = false;
-    mutable bool qdoublespinbox_enterevent_isbase = false;
-    mutable bool qdoublespinbox_leaveevent_isbase = false;
-    mutable bool qdoublespinbox_moveevent_isbase = false;
-    mutable bool qdoublespinbox_tabletevent_isbase = false;
-    mutable bool qdoublespinbox_actionevent_isbase = false;
-    mutable bool qdoublespinbox_dragenterevent_isbase = false;
-    mutable bool qdoublespinbox_dragmoveevent_isbase = false;
-    mutable bool qdoublespinbox_dragleaveevent_isbase = false;
-    mutable bool qdoublespinbox_dropevent_isbase = false;
-    mutable bool qdoublespinbox_nativeevent_isbase = false;
-    mutable bool qdoublespinbox_metric_isbase = false;
-    mutable bool qdoublespinbox_initpainter_isbase = false;
-    mutable bool qdoublespinbox_redirected_isbase = false;
-    mutable bool qdoublespinbox_sharedpainter_isbase = false;
-    mutable bool qdoublespinbox_inputmethodevent_isbase = false;
-    mutable bool qdoublespinbox_focusnextprevchild_isbase = false;
-    mutable bool qdoublespinbox_eventfilter_isbase = false;
-    mutable bool qdoublespinbox_childevent_isbase = false;
-    mutable bool qdoublespinbox_customevent_isbase = false;
-    mutable bool qdoublespinbox_connectnotify_isbase = false;
-    mutable bool qdoublespinbox_disconnectnotify_isbase = false;
-    mutable bool qdoublespinbox_lineedit_isbase = false;
-    mutable bool qdoublespinbox_setlineedit_isbase = false;
-    mutable bool qdoublespinbox_updatemicrofocus_isbase = false;
-    mutable bool qdoublespinbox_create_isbase = false;
-    mutable bool qdoublespinbox_destroy_isbase = false;
-    mutable bool qdoublespinbox_focusnextchild_isbase = false;
-    mutable bool qdoublespinbox_focuspreviouschild_isbase = false;
-    mutable bool qdoublespinbox_sender_isbase = false;
-    mutable bool qdoublespinbox_sendersignalindex_isbase = false;
-    mutable bool qdoublespinbox_receivers_isbase = false;
-    mutable bool qdoublespinbox_issignalconnected_isbase = false;
-    mutable bool qdoublespinbox_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QDoubleSpinBox {
+        using QDoubleSpinBox::actionEvent;
+        using QDoubleSpinBox::changeEvent;
+        using QDoubleSpinBox::childEvent;
+        using QDoubleSpinBox::closeEvent;
+        using QDoubleSpinBox::connectNotify;
+        using QDoubleSpinBox::contextMenuEvent;
+        using QDoubleSpinBox::customEvent;
+        using QDoubleSpinBox::disconnectNotify;
+        using QDoubleSpinBox::dragEnterEvent;
+        using QDoubleSpinBox::dragLeaveEvent;
+        using QDoubleSpinBox::dragMoveEvent;
+        using QDoubleSpinBox::dropEvent;
+        using QDoubleSpinBox::enterEvent;
+        using QDoubleSpinBox::focusInEvent;
+        using QDoubleSpinBox::focusNextPrevChild;
+        using QDoubleSpinBox::focusOutEvent;
+        using QDoubleSpinBox::hideEvent;
+        using QDoubleSpinBox::initPainter;
+        using QDoubleSpinBox::initStyleOption;
+        using QDoubleSpinBox::inputMethodEvent;
+        using QDoubleSpinBox::keyPressEvent;
+        using QDoubleSpinBox::keyReleaseEvent;
+        using QDoubleSpinBox::leaveEvent;
+        using QDoubleSpinBox::metric;
+        using QDoubleSpinBox::mouseDoubleClickEvent;
+        using QDoubleSpinBox::mouseMoveEvent;
+        using QDoubleSpinBox::mousePressEvent;
+        using QDoubleSpinBox::mouseReleaseEvent;
+        using QDoubleSpinBox::moveEvent;
+        using QDoubleSpinBox::nativeEvent;
+        using QDoubleSpinBox::paintEvent;
+        using QDoubleSpinBox::redirected;
+        using QDoubleSpinBox::resizeEvent;
+        using QDoubleSpinBox::sharedPainter;
+        using QDoubleSpinBox::showEvent;
+        using QDoubleSpinBox::stepEnabled;
+        using QDoubleSpinBox::tabletEvent;
+        using QDoubleSpinBox::timerEvent;
+        using QDoubleSpinBox::wheelEvent;
+    };
 
-  public:
     VirtualQDoubleSpinBox(QWidget* parent) : QDoubleSpinBox(parent) {};
     VirtualQDoubleSpinBox() : QDoubleSpinBox() {};
 
-    // Callback setters
-    inline void setQDoubleSpinBox_MetaObject_Callback(QDoubleSpinBox_MetaObject_Callback cb) { qdoublespinbox_metaobject_callback = cb; }
-    inline void setQDoubleSpinBox_Metacast_Callback(QDoubleSpinBox_Metacast_Callback cb) { qdoublespinbox_metacast_callback = cb; }
-    inline void setQDoubleSpinBox_Metacall_Callback(QDoubleSpinBox_Metacall_Callback cb) { qdoublespinbox_metacall_callback = cb; }
-    inline void setQDoubleSpinBox_Validate_Callback(QDoubleSpinBox_Validate_Callback cb) { qdoublespinbox_validate_callback = cb; }
-    inline void setQDoubleSpinBox_ValueFromText_Callback(QDoubleSpinBox_ValueFromText_Callback cb) { qdoublespinbox_valuefromtext_callback = cb; }
-    inline void setQDoubleSpinBox_TextFromValue_Callback(QDoubleSpinBox_TextFromValue_Callback cb) { qdoublespinbox_textfromvalue_callback = cb; }
-    inline void setQDoubleSpinBox_Fixup_Callback(QDoubleSpinBox_Fixup_Callback cb) { qdoublespinbox_fixup_callback = cb; }
-    inline void setQDoubleSpinBox_SizeHint_Callback(QDoubleSpinBox_SizeHint_Callback cb) { qdoublespinbox_sizehint_callback = cb; }
-    inline void setQDoubleSpinBox_MinimumSizeHint_Callback(QDoubleSpinBox_MinimumSizeHint_Callback cb) { qdoublespinbox_minimumsizehint_callback = cb; }
-    inline void setQDoubleSpinBox_Event_Callback(QDoubleSpinBox_Event_Callback cb) { qdoublespinbox_event_callback = cb; }
-    inline void setQDoubleSpinBox_InputMethodQuery_Callback(QDoubleSpinBox_InputMethodQuery_Callback cb) { qdoublespinbox_inputmethodquery_callback = cb; }
-    inline void setQDoubleSpinBox_StepBy_Callback(QDoubleSpinBox_StepBy_Callback cb) { qdoublespinbox_stepby_callback = cb; }
-    inline void setQDoubleSpinBox_Clear_Callback(QDoubleSpinBox_Clear_Callback cb) { qdoublespinbox_clear_callback = cb; }
-    inline void setQDoubleSpinBox_ResizeEvent_Callback(QDoubleSpinBox_ResizeEvent_Callback cb) { qdoublespinbox_resizeevent_callback = cb; }
-    inline void setQDoubleSpinBox_KeyPressEvent_Callback(QDoubleSpinBox_KeyPressEvent_Callback cb) { qdoublespinbox_keypressevent_callback = cb; }
-    inline void setQDoubleSpinBox_KeyReleaseEvent_Callback(QDoubleSpinBox_KeyReleaseEvent_Callback cb) { qdoublespinbox_keyreleaseevent_callback = cb; }
-    inline void setQDoubleSpinBox_WheelEvent_Callback(QDoubleSpinBox_WheelEvent_Callback cb) { qdoublespinbox_wheelevent_callback = cb; }
-    inline void setQDoubleSpinBox_FocusInEvent_Callback(QDoubleSpinBox_FocusInEvent_Callback cb) { qdoublespinbox_focusinevent_callback = cb; }
-    inline void setQDoubleSpinBox_FocusOutEvent_Callback(QDoubleSpinBox_FocusOutEvent_Callback cb) { qdoublespinbox_focusoutevent_callback = cb; }
-    inline void setQDoubleSpinBox_ContextMenuEvent_Callback(QDoubleSpinBox_ContextMenuEvent_Callback cb) { qdoublespinbox_contextmenuevent_callback = cb; }
-    inline void setQDoubleSpinBox_ChangeEvent_Callback(QDoubleSpinBox_ChangeEvent_Callback cb) { qdoublespinbox_changeevent_callback = cb; }
-    inline void setQDoubleSpinBox_CloseEvent_Callback(QDoubleSpinBox_CloseEvent_Callback cb) { qdoublespinbox_closeevent_callback = cb; }
-    inline void setQDoubleSpinBox_HideEvent_Callback(QDoubleSpinBox_HideEvent_Callback cb) { qdoublespinbox_hideevent_callback = cb; }
-    inline void setQDoubleSpinBox_MousePressEvent_Callback(QDoubleSpinBox_MousePressEvent_Callback cb) { qdoublespinbox_mousepressevent_callback = cb; }
-    inline void setQDoubleSpinBox_MouseReleaseEvent_Callback(QDoubleSpinBox_MouseReleaseEvent_Callback cb) { qdoublespinbox_mousereleaseevent_callback = cb; }
-    inline void setQDoubleSpinBox_MouseMoveEvent_Callback(QDoubleSpinBox_MouseMoveEvent_Callback cb) { qdoublespinbox_mousemoveevent_callback = cb; }
-    inline void setQDoubleSpinBox_TimerEvent_Callback(QDoubleSpinBox_TimerEvent_Callback cb) { qdoublespinbox_timerevent_callback = cb; }
-    inline void setQDoubleSpinBox_PaintEvent_Callback(QDoubleSpinBox_PaintEvent_Callback cb) { qdoublespinbox_paintevent_callback = cb; }
-    inline void setQDoubleSpinBox_ShowEvent_Callback(QDoubleSpinBox_ShowEvent_Callback cb) { qdoublespinbox_showevent_callback = cb; }
-    inline void setQDoubleSpinBox_InitStyleOption_Callback(QDoubleSpinBox_InitStyleOption_Callback cb) { qdoublespinbox_initstyleoption_callback = cb; }
-    inline void setQDoubleSpinBox_StepEnabled_Callback(QDoubleSpinBox_StepEnabled_Callback cb) { qdoublespinbox_stepenabled_callback = cb; }
-    inline void setQDoubleSpinBox_DevType_Callback(QDoubleSpinBox_DevType_Callback cb) { qdoublespinbox_devtype_callback = cb; }
-    inline void setQDoubleSpinBox_SetVisible_Callback(QDoubleSpinBox_SetVisible_Callback cb) { qdoublespinbox_setvisible_callback = cb; }
-    inline void setQDoubleSpinBox_HeightForWidth_Callback(QDoubleSpinBox_HeightForWidth_Callback cb) { qdoublespinbox_heightforwidth_callback = cb; }
-    inline void setQDoubleSpinBox_HasHeightForWidth_Callback(QDoubleSpinBox_HasHeightForWidth_Callback cb) { qdoublespinbox_hasheightforwidth_callback = cb; }
-    inline void setQDoubleSpinBox_PaintEngine_Callback(QDoubleSpinBox_PaintEngine_Callback cb) { qdoublespinbox_paintengine_callback = cb; }
-    inline void setQDoubleSpinBox_MouseDoubleClickEvent_Callback(QDoubleSpinBox_MouseDoubleClickEvent_Callback cb) { qdoublespinbox_mousedoubleclickevent_callback = cb; }
-    inline void setQDoubleSpinBox_EnterEvent_Callback(QDoubleSpinBox_EnterEvent_Callback cb) { qdoublespinbox_enterevent_callback = cb; }
-    inline void setQDoubleSpinBox_LeaveEvent_Callback(QDoubleSpinBox_LeaveEvent_Callback cb) { qdoublespinbox_leaveevent_callback = cb; }
-    inline void setQDoubleSpinBox_MoveEvent_Callback(QDoubleSpinBox_MoveEvent_Callback cb) { qdoublespinbox_moveevent_callback = cb; }
-    inline void setQDoubleSpinBox_TabletEvent_Callback(QDoubleSpinBox_TabletEvent_Callback cb) { qdoublespinbox_tabletevent_callback = cb; }
-    inline void setQDoubleSpinBox_ActionEvent_Callback(QDoubleSpinBox_ActionEvent_Callback cb) { qdoublespinbox_actionevent_callback = cb; }
-    inline void setQDoubleSpinBox_DragEnterEvent_Callback(QDoubleSpinBox_DragEnterEvent_Callback cb) { qdoublespinbox_dragenterevent_callback = cb; }
-    inline void setQDoubleSpinBox_DragMoveEvent_Callback(QDoubleSpinBox_DragMoveEvent_Callback cb) { qdoublespinbox_dragmoveevent_callback = cb; }
-    inline void setQDoubleSpinBox_DragLeaveEvent_Callback(QDoubleSpinBox_DragLeaveEvent_Callback cb) { qdoublespinbox_dragleaveevent_callback = cb; }
-    inline void setQDoubleSpinBox_DropEvent_Callback(QDoubleSpinBox_DropEvent_Callback cb) { qdoublespinbox_dropevent_callback = cb; }
-    inline void setQDoubleSpinBox_NativeEvent_Callback(QDoubleSpinBox_NativeEvent_Callback cb) { qdoublespinbox_nativeevent_callback = cb; }
-    inline void setQDoubleSpinBox_Metric_Callback(QDoubleSpinBox_Metric_Callback cb) { qdoublespinbox_metric_callback = cb; }
-    inline void setQDoubleSpinBox_InitPainter_Callback(QDoubleSpinBox_InitPainter_Callback cb) { qdoublespinbox_initpainter_callback = cb; }
-    inline void setQDoubleSpinBox_Redirected_Callback(QDoubleSpinBox_Redirected_Callback cb) { qdoublespinbox_redirected_callback = cb; }
-    inline void setQDoubleSpinBox_SharedPainter_Callback(QDoubleSpinBox_SharedPainter_Callback cb) { qdoublespinbox_sharedpainter_callback = cb; }
-    inline void setQDoubleSpinBox_InputMethodEvent_Callback(QDoubleSpinBox_InputMethodEvent_Callback cb) { qdoublespinbox_inputmethodevent_callback = cb; }
-    inline void setQDoubleSpinBox_FocusNextPrevChild_Callback(QDoubleSpinBox_FocusNextPrevChild_Callback cb) { qdoublespinbox_focusnextprevchild_callback = cb; }
-    inline void setQDoubleSpinBox_EventFilter_Callback(QDoubleSpinBox_EventFilter_Callback cb) { qdoublespinbox_eventfilter_callback = cb; }
-    inline void setQDoubleSpinBox_ChildEvent_Callback(QDoubleSpinBox_ChildEvent_Callback cb) { qdoublespinbox_childevent_callback = cb; }
-    inline void setQDoubleSpinBox_CustomEvent_Callback(QDoubleSpinBox_CustomEvent_Callback cb) { qdoublespinbox_customevent_callback = cb; }
-    inline void setQDoubleSpinBox_ConnectNotify_Callback(QDoubleSpinBox_ConnectNotify_Callback cb) { qdoublespinbox_connectnotify_callback = cb; }
-    inline void setQDoubleSpinBox_DisconnectNotify_Callback(QDoubleSpinBox_DisconnectNotify_Callback cb) { qdoublespinbox_disconnectnotify_callback = cb; }
-    inline void setQDoubleSpinBox_LineEdit_Callback(QDoubleSpinBox_LineEdit_Callback cb) { qdoublespinbox_lineedit_callback = cb; }
-    inline void setQDoubleSpinBox_SetLineEdit_Callback(QDoubleSpinBox_SetLineEdit_Callback cb) { qdoublespinbox_setlineedit_callback = cb; }
-    inline void setQDoubleSpinBox_UpdateMicroFocus_Callback(QDoubleSpinBox_UpdateMicroFocus_Callback cb) { qdoublespinbox_updatemicrofocus_callback = cb; }
-    inline void setQDoubleSpinBox_Create_Callback(QDoubleSpinBox_Create_Callback cb) { qdoublespinbox_create_callback = cb; }
-    inline void setQDoubleSpinBox_Destroy_Callback(QDoubleSpinBox_Destroy_Callback cb) { qdoublespinbox_destroy_callback = cb; }
-    inline void setQDoubleSpinBox_FocusNextChild_Callback(QDoubleSpinBox_FocusNextChild_Callback cb) { qdoublespinbox_focusnextchild_callback = cb; }
-    inline void setQDoubleSpinBox_FocusPreviousChild_Callback(QDoubleSpinBox_FocusPreviousChild_Callback cb) { qdoublespinbox_focuspreviouschild_callback = cb; }
-    inline void setQDoubleSpinBox_Sender_Callback(QDoubleSpinBox_Sender_Callback cb) { qdoublespinbox_sender_callback = cb; }
-    inline void setQDoubleSpinBox_SenderSignalIndex_Callback(QDoubleSpinBox_SenderSignalIndex_Callback cb) { qdoublespinbox_sendersignalindex_callback = cb; }
-    inline void setQDoubleSpinBox_Receivers_Callback(QDoubleSpinBox_Receivers_Callback cb) { qdoublespinbox_receivers_callback = cb; }
-    inline void setQDoubleSpinBox_IsSignalConnected_Callback(QDoubleSpinBox_IsSignalConnected_Callback cb) { qdoublespinbox_issignalconnected_callback = cb; }
-    inline void setQDoubleSpinBox_GetDecodedMetricF_Callback(QDoubleSpinBox_GetDecodedMetricF_Callback cb) { qdoublespinbox_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQDoubleSpinBox_MetaObject_IsBase(bool value) const { qdoublespinbox_metaobject_isbase = value; }
-    inline void setQDoubleSpinBox_Metacast_IsBase(bool value) const { qdoublespinbox_metacast_isbase = value; }
-    inline void setQDoubleSpinBox_Metacall_IsBase(bool value) const { qdoublespinbox_metacall_isbase = value; }
-    inline void setQDoubleSpinBox_Validate_IsBase(bool value) const { qdoublespinbox_validate_isbase = value; }
-    inline void setQDoubleSpinBox_ValueFromText_IsBase(bool value) const { qdoublespinbox_valuefromtext_isbase = value; }
-    inline void setQDoubleSpinBox_TextFromValue_IsBase(bool value) const { qdoublespinbox_textfromvalue_isbase = value; }
-    inline void setQDoubleSpinBox_Fixup_IsBase(bool value) const { qdoublespinbox_fixup_isbase = value; }
-    inline void setQDoubleSpinBox_SizeHint_IsBase(bool value) const { qdoublespinbox_sizehint_isbase = value; }
-    inline void setQDoubleSpinBox_MinimumSizeHint_IsBase(bool value) const { qdoublespinbox_minimumsizehint_isbase = value; }
-    inline void setQDoubleSpinBox_Event_IsBase(bool value) const { qdoublespinbox_event_isbase = value; }
-    inline void setQDoubleSpinBox_InputMethodQuery_IsBase(bool value) const { qdoublespinbox_inputmethodquery_isbase = value; }
-    inline void setQDoubleSpinBox_StepBy_IsBase(bool value) const { qdoublespinbox_stepby_isbase = value; }
-    inline void setQDoubleSpinBox_Clear_IsBase(bool value) const { qdoublespinbox_clear_isbase = value; }
-    inline void setQDoubleSpinBox_ResizeEvent_IsBase(bool value) const { qdoublespinbox_resizeevent_isbase = value; }
-    inline void setQDoubleSpinBox_KeyPressEvent_IsBase(bool value) const { qdoublespinbox_keypressevent_isbase = value; }
-    inline void setQDoubleSpinBox_KeyReleaseEvent_IsBase(bool value) const { qdoublespinbox_keyreleaseevent_isbase = value; }
-    inline void setQDoubleSpinBox_WheelEvent_IsBase(bool value) const { qdoublespinbox_wheelevent_isbase = value; }
-    inline void setQDoubleSpinBox_FocusInEvent_IsBase(bool value) const { qdoublespinbox_focusinevent_isbase = value; }
-    inline void setQDoubleSpinBox_FocusOutEvent_IsBase(bool value) const { qdoublespinbox_focusoutevent_isbase = value; }
-    inline void setQDoubleSpinBox_ContextMenuEvent_IsBase(bool value) const { qdoublespinbox_contextmenuevent_isbase = value; }
-    inline void setQDoubleSpinBox_ChangeEvent_IsBase(bool value) const { qdoublespinbox_changeevent_isbase = value; }
-    inline void setQDoubleSpinBox_CloseEvent_IsBase(bool value) const { qdoublespinbox_closeevent_isbase = value; }
-    inline void setQDoubleSpinBox_HideEvent_IsBase(bool value) const { qdoublespinbox_hideevent_isbase = value; }
-    inline void setQDoubleSpinBox_MousePressEvent_IsBase(bool value) const { qdoublespinbox_mousepressevent_isbase = value; }
-    inline void setQDoubleSpinBox_MouseReleaseEvent_IsBase(bool value) const { qdoublespinbox_mousereleaseevent_isbase = value; }
-    inline void setQDoubleSpinBox_MouseMoveEvent_IsBase(bool value) const { qdoublespinbox_mousemoveevent_isbase = value; }
-    inline void setQDoubleSpinBox_TimerEvent_IsBase(bool value) const { qdoublespinbox_timerevent_isbase = value; }
-    inline void setQDoubleSpinBox_PaintEvent_IsBase(bool value) const { qdoublespinbox_paintevent_isbase = value; }
-    inline void setQDoubleSpinBox_ShowEvent_IsBase(bool value) const { qdoublespinbox_showevent_isbase = value; }
-    inline void setQDoubleSpinBox_InitStyleOption_IsBase(bool value) const { qdoublespinbox_initstyleoption_isbase = value; }
-    inline void setQDoubleSpinBox_StepEnabled_IsBase(bool value) const { qdoublespinbox_stepenabled_isbase = value; }
-    inline void setQDoubleSpinBox_DevType_IsBase(bool value) const { qdoublespinbox_devtype_isbase = value; }
-    inline void setQDoubleSpinBox_SetVisible_IsBase(bool value) const { qdoublespinbox_setvisible_isbase = value; }
-    inline void setQDoubleSpinBox_HeightForWidth_IsBase(bool value) const { qdoublespinbox_heightforwidth_isbase = value; }
-    inline void setQDoubleSpinBox_HasHeightForWidth_IsBase(bool value) const { qdoublespinbox_hasheightforwidth_isbase = value; }
-    inline void setQDoubleSpinBox_PaintEngine_IsBase(bool value) const { qdoublespinbox_paintengine_isbase = value; }
-    inline void setQDoubleSpinBox_MouseDoubleClickEvent_IsBase(bool value) const { qdoublespinbox_mousedoubleclickevent_isbase = value; }
-    inline void setQDoubleSpinBox_EnterEvent_IsBase(bool value) const { qdoublespinbox_enterevent_isbase = value; }
-    inline void setQDoubleSpinBox_LeaveEvent_IsBase(bool value) const { qdoublespinbox_leaveevent_isbase = value; }
-    inline void setQDoubleSpinBox_MoveEvent_IsBase(bool value) const { qdoublespinbox_moveevent_isbase = value; }
-    inline void setQDoubleSpinBox_TabletEvent_IsBase(bool value) const { qdoublespinbox_tabletevent_isbase = value; }
-    inline void setQDoubleSpinBox_ActionEvent_IsBase(bool value) const { qdoublespinbox_actionevent_isbase = value; }
-    inline void setQDoubleSpinBox_DragEnterEvent_IsBase(bool value) const { qdoublespinbox_dragenterevent_isbase = value; }
-    inline void setQDoubleSpinBox_DragMoveEvent_IsBase(bool value) const { qdoublespinbox_dragmoveevent_isbase = value; }
-    inline void setQDoubleSpinBox_DragLeaveEvent_IsBase(bool value) const { qdoublespinbox_dragleaveevent_isbase = value; }
-    inline void setQDoubleSpinBox_DropEvent_IsBase(bool value) const { qdoublespinbox_dropevent_isbase = value; }
-    inline void setQDoubleSpinBox_NativeEvent_IsBase(bool value) const { qdoublespinbox_nativeevent_isbase = value; }
-    inline void setQDoubleSpinBox_Metric_IsBase(bool value) const { qdoublespinbox_metric_isbase = value; }
-    inline void setQDoubleSpinBox_InitPainter_IsBase(bool value) const { qdoublespinbox_initpainter_isbase = value; }
-    inline void setQDoubleSpinBox_Redirected_IsBase(bool value) const { qdoublespinbox_redirected_isbase = value; }
-    inline void setQDoubleSpinBox_SharedPainter_IsBase(bool value) const { qdoublespinbox_sharedpainter_isbase = value; }
-    inline void setQDoubleSpinBox_InputMethodEvent_IsBase(bool value) const { qdoublespinbox_inputmethodevent_isbase = value; }
-    inline void setQDoubleSpinBox_FocusNextPrevChild_IsBase(bool value) const { qdoublespinbox_focusnextprevchild_isbase = value; }
-    inline void setQDoubleSpinBox_EventFilter_IsBase(bool value) const { qdoublespinbox_eventfilter_isbase = value; }
-    inline void setQDoubleSpinBox_ChildEvent_IsBase(bool value) const { qdoublespinbox_childevent_isbase = value; }
-    inline void setQDoubleSpinBox_CustomEvent_IsBase(bool value) const { qdoublespinbox_customevent_isbase = value; }
-    inline void setQDoubleSpinBox_ConnectNotify_IsBase(bool value) const { qdoublespinbox_connectnotify_isbase = value; }
-    inline void setQDoubleSpinBox_DisconnectNotify_IsBase(bool value) const { qdoublespinbox_disconnectnotify_isbase = value; }
-    inline void setQDoubleSpinBox_LineEdit_IsBase(bool value) const { qdoublespinbox_lineedit_isbase = value; }
-    inline void setQDoubleSpinBox_SetLineEdit_IsBase(bool value) const { qdoublespinbox_setlineedit_isbase = value; }
-    inline void setQDoubleSpinBox_UpdateMicroFocus_IsBase(bool value) const { qdoublespinbox_updatemicrofocus_isbase = value; }
-    inline void setQDoubleSpinBox_Create_IsBase(bool value) const { qdoublespinbox_create_isbase = value; }
-    inline void setQDoubleSpinBox_Destroy_IsBase(bool value) const { qdoublespinbox_destroy_isbase = value; }
-    inline void setQDoubleSpinBox_FocusNextChild_IsBase(bool value) const { qdoublespinbox_focusnextchild_isbase = value; }
-    inline void setQDoubleSpinBox_FocusPreviousChild_IsBase(bool value) const { qdoublespinbox_focuspreviouschild_isbase = value; }
-    inline void setQDoubleSpinBox_Sender_IsBase(bool value) const { qdoublespinbox_sender_isbase = value; }
-    inline void setQDoubleSpinBox_SenderSignalIndex_IsBase(bool value) const { qdoublespinbox_sendersignalindex_isbase = value; }
-    inline void setQDoubleSpinBox_Receivers_IsBase(bool value) const { qdoublespinbox_receivers_isbase = value; }
-    inline void setQDoubleSpinBox_IsSignalConnected_IsBase(bool value) const { qdoublespinbox_issignalconnected_isbase = value; }
-    inline void setQDoubleSpinBox_GetDecodedMetricF_IsBase(bool value) const { qdoublespinbox_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qdoublespinbox_metaobject_isbase) {
-            qdoublespinbox_metaobject_isbase = false;
-            return QDoubleSpinBox::metaObject();
-        }
-        auto metaobject_cb = qdoublespinbox_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qdoublespinbox_metaobject_callback) {
+            QMetaObject* callback_ret = qdoublespinbox_metaobject_callback(this);
             return callback_ret;
         }
         return QDoubleSpinBox::metaObject();
@@ -2009,14 +1053,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qdoublespinbox_metacast_isbase) {
-            qdoublespinbox_metacast_isbase = false;
-            return QDoubleSpinBox::qt_metacast(param1);
-        }
-        auto metacast_cb = qdoublespinbox_metacast_callback;
-        if (metacast_cb) {
+        if (qdoublespinbox_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qdoublespinbox_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QDoubleSpinBox::qt_metacast(param1);
@@ -2024,16 +1063,11 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qdoublespinbox_metacall_isbase) {
-            qdoublespinbox_metacall_isbase = false;
-            return QDoubleSpinBox::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qdoublespinbox_metacall_callback;
-        if (metacall_cb) {
+        if (qdoublespinbox_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qdoublespinbox_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QDoubleSpinBox::qt_metacall(param1, param2, param3);
@@ -2041,12 +1075,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QValidator::State validate(QString& input, int& pos) const override {
-        if (qdoublespinbox_validate_isbase) {
-            qdoublespinbox_validate_isbase = false;
-            return QDoubleSpinBox::validate(input, pos);
-        }
-        auto validate_cb = qdoublespinbox_validate_callback;
-        if (validate_cb) {
+        if (qdoublespinbox_validate_callback) {
             auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
@@ -2056,7 +1085,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
-            int callback_ret = validate_cb(this, cbval1, cbval2);
+            int callback_ret = qdoublespinbox_validate_callback(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
         }
@@ -2065,12 +1094,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual double valueFromText(const QString& text) const override {
-        if (qdoublespinbox_valuefromtext_isbase) {
-            qdoublespinbox_valuefromtext_isbase = false;
-            return QDoubleSpinBox::valueFromText(text);
-        }
-        auto valuefromtext_cb = qdoublespinbox_valuefromtext_callback;
-        if (valuefromtext_cb) {
+        if (qdoublespinbox_valuefromtext_callback) {
             const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
@@ -2079,7 +1103,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-            double callback_ret = valuefromtext_cb(this, cbval1);
+            double callback_ret = qdoublespinbox_valuefromtext_callback(this, cbval1);
             libqt_free(text_str);
             return static_cast<double>(callback_ret);
         }
@@ -2088,14 +1112,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QString textFromValue(double val) const override {
-        if (qdoublespinbox_textfromvalue_isbase) {
-            qdoublespinbox_textfromvalue_isbase = false;
-            return QDoubleSpinBox::textFromValue(val);
-        }
-        auto textfromvalue_cb = qdoublespinbox_textfromvalue_callback;
-        if (textfromvalue_cb) {
+        if (qdoublespinbox_textfromvalue_callback) {
             double cbval1 = val;
-            const char* callback_ret = textfromvalue_cb(this, cbval1);
+            const char* callback_ret = qdoublespinbox_textfromvalue_callback(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         }
@@ -2104,13 +1123,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void fixup(QString& str) const override {
-        if (qdoublespinbox_fixup_isbase) {
-            qdoublespinbox_fixup_isbase = false;
-            QDoubleSpinBox::fixup(str);
-            return;
-        }
-        auto fixup_cb = qdoublespinbox_fixup_callback;
-        if (fixup_cb) {
+        if (qdoublespinbox_fixup_callback) {
             auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
@@ -2119,7 +1132,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             memcpy((void*)str_str, str_b.data(), str_str_len);
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
-            fixup_cb(this, cbval1);
+            qdoublespinbox_fixup_callback(this, cbval1);
             libqt_free(str_str);
             return;
         }
@@ -2128,13 +1141,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qdoublespinbox_sizehint_isbase) {
-            qdoublespinbox_sizehint_isbase = false;
-            return QDoubleSpinBox::sizeHint();
-        }
-        auto sizehint_cb = qdoublespinbox_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qdoublespinbox_sizehint_callback) {
+            QSize* callback_ret = qdoublespinbox_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -2144,13 +1152,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qdoublespinbox_minimumsizehint_isbase) {
-            qdoublespinbox_minimumsizehint_isbase = false;
-            return QDoubleSpinBox::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qdoublespinbox_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qdoublespinbox_minimumsizehint_callback) {
+            QSize* callback_ret = qdoublespinbox_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -2160,14 +1163,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qdoublespinbox_event_isbase) {
-            qdoublespinbox_event_isbase = false;
-            return QDoubleSpinBox::event(event);
-        }
-        auto event_cb = qdoublespinbox_event_callback;
-        if (event_cb) {
+        if (qdoublespinbox_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qdoublespinbox_event_callback(this, cbval1);
             return callback_ret;
         }
         return QDoubleSpinBox::event(event);
@@ -2175,14 +1173,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qdoublespinbox_inputmethodquery_isbase) {
-            qdoublespinbox_inputmethodquery_isbase = false;
-            return QDoubleSpinBox::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qdoublespinbox_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qdoublespinbox_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qdoublespinbox_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -2192,15 +1185,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void stepBy(int steps) override {
-        if (qdoublespinbox_stepby_isbase) {
-            qdoublespinbox_stepby_isbase = false;
-            QDoubleSpinBox::stepBy(steps);
-            return;
-        }
-        auto stepby_cb = qdoublespinbox_stepby_callback;
-        if (stepby_cb) {
+        if (qdoublespinbox_stepby_callback) {
             int cbval1 = steps;
-            stepby_cb(this, cbval1);
+            qdoublespinbox_stepby_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::stepBy(steps);
@@ -2208,14 +1195,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void clear() override {
-        if (qdoublespinbox_clear_isbase) {
-            qdoublespinbox_clear_isbase = false;
-            QDoubleSpinBox::clear();
-            return;
-        }
-        auto clear_cb = qdoublespinbox_clear_callback;
-        if (clear_cb) {
-            clear_cb();
+        if (qdoublespinbox_clear_callback) {
+            qdoublespinbox_clear_callback(this);
             return;
         }
         QDoubleSpinBox::clear();
@@ -2223,15 +1204,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qdoublespinbox_resizeevent_isbase) {
-            qdoublespinbox_resizeevent_isbase = false;
-            QDoubleSpinBox::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qdoublespinbox_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qdoublespinbox_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qdoublespinbox_resizeevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::resizeEvent(event);
@@ -2239,15 +1214,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* event) override {
-        if (qdoublespinbox_keypressevent_isbase) {
-            qdoublespinbox_keypressevent_isbase = false;
-            QDoubleSpinBox::keyPressEvent(event);
-            return;
-        }
-        auto keypressevent_cb = qdoublespinbox_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qdoublespinbox_keypressevent_callback) {
             QKeyEvent* cbval1 = event;
-            keypressevent_cb(this, cbval1);
+            qdoublespinbox_keypressevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::keyPressEvent(event);
@@ -2255,15 +1224,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qdoublespinbox_keyreleaseevent_isbase) {
-            qdoublespinbox_keyreleaseevent_isbase = false;
-            QDoubleSpinBox::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qdoublespinbox_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qdoublespinbox_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qdoublespinbox_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::keyReleaseEvent(event);
@@ -2271,15 +1234,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qdoublespinbox_wheelevent_isbase) {
-            qdoublespinbox_wheelevent_isbase = false;
-            QDoubleSpinBox::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qdoublespinbox_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qdoublespinbox_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qdoublespinbox_wheelevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::wheelEvent(event);
@@ -2287,15 +1244,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qdoublespinbox_focusinevent_isbase) {
-            qdoublespinbox_focusinevent_isbase = false;
-            QDoubleSpinBox::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qdoublespinbox_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qdoublespinbox_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qdoublespinbox_focusinevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::focusInEvent(event);
@@ -2303,15 +1254,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qdoublespinbox_focusoutevent_isbase) {
-            qdoublespinbox_focusoutevent_isbase = false;
-            QDoubleSpinBox::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qdoublespinbox_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qdoublespinbox_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qdoublespinbox_focusoutevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::focusOutEvent(event);
@@ -2319,15 +1264,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* event) override {
-        if (qdoublespinbox_contextmenuevent_isbase) {
-            qdoublespinbox_contextmenuevent_isbase = false;
-            QDoubleSpinBox::contextMenuEvent(event);
-            return;
-        }
-        auto contextmenuevent_cb = qdoublespinbox_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qdoublespinbox_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = event;
-            contextmenuevent_cb(this, cbval1);
+            qdoublespinbox_contextmenuevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::contextMenuEvent(event);
@@ -2335,15 +1274,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* event) override {
-        if (qdoublespinbox_changeevent_isbase) {
-            qdoublespinbox_changeevent_isbase = false;
-            QDoubleSpinBox::changeEvent(event);
-            return;
-        }
-        auto changeevent_cb = qdoublespinbox_changeevent_callback;
-        if (changeevent_cb) {
+        if (qdoublespinbox_changeevent_callback) {
             QEvent* cbval1 = event;
-            changeevent_cb(this, cbval1);
+            qdoublespinbox_changeevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::changeEvent(event);
@@ -2351,15 +1284,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qdoublespinbox_closeevent_isbase) {
-            qdoublespinbox_closeevent_isbase = false;
-            QDoubleSpinBox::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qdoublespinbox_closeevent_callback;
-        if (closeevent_cb) {
+        if (qdoublespinbox_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qdoublespinbox_closeevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::closeEvent(event);
@@ -2367,15 +1294,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qdoublespinbox_hideevent_isbase) {
-            qdoublespinbox_hideevent_isbase = false;
-            QDoubleSpinBox::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qdoublespinbox_hideevent_callback;
-        if (hideevent_cb) {
+        if (qdoublespinbox_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qdoublespinbox_hideevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::hideEvent(event);
@@ -2383,15 +1304,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qdoublespinbox_mousepressevent_isbase) {
-            qdoublespinbox_mousepressevent_isbase = false;
-            QDoubleSpinBox::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qdoublespinbox_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qdoublespinbox_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qdoublespinbox_mousepressevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::mousePressEvent(event);
@@ -2399,15 +1314,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qdoublespinbox_mousereleaseevent_isbase) {
-            qdoublespinbox_mousereleaseevent_isbase = false;
-            QDoubleSpinBox::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qdoublespinbox_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qdoublespinbox_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qdoublespinbox_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::mouseReleaseEvent(event);
@@ -2415,15 +1324,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qdoublespinbox_mousemoveevent_isbase) {
-            qdoublespinbox_mousemoveevent_isbase = false;
-            QDoubleSpinBox::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qdoublespinbox_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qdoublespinbox_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qdoublespinbox_mousemoveevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::mouseMoveEvent(event);
@@ -2431,15 +1334,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qdoublespinbox_timerevent_isbase) {
-            qdoublespinbox_timerevent_isbase = false;
-            QDoubleSpinBox::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qdoublespinbox_timerevent_callback;
-        if (timerevent_cb) {
+        if (qdoublespinbox_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qdoublespinbox_timerevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::timerEvent(event);
@@ -2447,15 +1344,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qdoublespinbox_paintevent_isbase) {
-            qdoublespinbox_paintevent_isbase = false;
-            QDoubleSpinBox::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qdoublespinbox_paintevent_callback;
-        if (paintevent_cb) {
+        if (qdoublespinbox_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qdoublespinbox_paintevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::paintEvent(event);
@@ -2463,15 +1354,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qdoublespinbox_showevent_isbase) {
-            qdoublespinbox_showevent_isbase = false;
-            QDoubleSpinBox::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qdoublespinbox_showevent_callback;
-        if (showevent_cb) {
+        if (qdoublespinbox_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qdoublespinbox_showevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::showEvent(event);
@@ -2479,15 +1364,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initStyleOption(QStyleOptionSpinBox* option) const override {
-        if (qdoublespinbox_initstyleoption_isbase) {
-            qdoublespinbox_initstyleoption_isbase = false;
-            QDoubleSpinBox::initStyleOption(option);
-            return;
-        }
-        auto initstyleoption_cb = qdoublespinbox_initstyleoption_callback;
-        if (initstyleoption_cb) {
+        if (qdoublespinbox_initstyleoption_callback) {
             QStyleOptionSpinBox* cbval1 = option;
-            initstyleoption_cb(this, cbval1);
+            qdoublespinbox_initstyleoption_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::initStyleOption(option);
@@ -2495,13 +1374,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QAbstractSpinBox::StepEnabled stepEnabled() const override {
-        if (qdoublespinbox_stepenabled_isbase) {
-            qdoublespinbox_stepenabled_isbase = false;
-            return QDoubleSpinBox::stepEnabled();
-        }
-        auto stepenabled_cb = qdoublespinbox_stepenabled_callback;
-        if (stepenabled_cb) {
-            int callback_ret = stepenabled_cb();
+        if (qdoublespinbox_stepenabled_callback) {
+            int callback_ret = qdoublespinbox_stepenabled_callback(this);
             return static_cast<QAbstractSpinBox::StepEnabled>(callback_ret);
         }
         return QDoubleSpinBox::stepEnabled();
@@ -2509,13 +1383,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qdoublespinbox_devtype_isbase) {
-            qdoublespinbox_devtype_isbase = false;
-            return QDoubleSpinBox::devType();
-        }
-        auto devtype_cb = qdoublespinbox_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qdoublespinbox_devtype_callback) {
+            int callback_ret = qdoublespinbox_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QDoubleSpinBox::devType();
@@ -2523,15 +1392,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qdoublespinbox_setvisible_isbase) {
-            qdoublespinbox_setvisible_isbase = false;
-            QDoubleSpinBox::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qdoublespinbox_setvisible_callback;
-        if (setvisible_cb) {
+        if (qdoublespinbox_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qdoublespinbox_setvisible_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::setVisible(visible);
@@ -2539,14 +1402,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qdoublespinbox_heightforwidth_isbase) {
-            qdoublespinbox_heightforwidth_isbase = false;
-            return QDoubleSpinBox::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qdoublespinbox_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qdoublespinbox_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qdoublespinbox_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QDoubleSpinBox::heightForWidth(param1);
@@ -2554,13 +1412,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qdoublespinbox_hasheightforwidth_isbase) {
-            qdoublespinbox_hasheightforwidth_isbase = false;
-            return QDoubleSpinBox::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qdoublespinbox_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qdoublespinbox_hasheightforwidth_callback) {
+            bool callback_ret = qdoublespinbox_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QDoubleSpinBox::hasHeightForWidth();
@@ -2568,13 +1421,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qdoublespinbox_paintengine_isbase) {
-            qdoublespinbox_paintengine_isbase = false;
-            return QDoubleSpinBox::paintEngine();
-        }
-        auto paintengine_cb = qdoublespinbox_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qdoublespinbox_paintengine_callback) {
+            QPaintEngine* callback_ret = qdoublespinbox_paintengine_callback(this);
             return callback_ret;
         }
         return QDoubleSpinBox::paintEngine();
@@ -2582,15 +1430,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qdoublespinbox_mousedoubleclickevent_isbase) {
-            qdoublespinbox_mousedoubleclickevent_isbase = false;
-            QDoubleSpinBox::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qdoublespinbox_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qdoublespinbox_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qdoublespinbox_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::mouseDoubleClickEvent(event);
@@ -2598,15 +1440,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qdoublespinbox_enterevent_isbase) {
-            qdoublespinbox_enterevent_isbase = false;
-            QDoubleSpinBox::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qdoublespinbox_enterevent_callback;
-        if (enterevent_cb) {
+        if (qdoublespinbox_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qdoublespinbox_enterevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::enterEvent(event);
@@ -2614,15 +1450,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qdoublespinbox_leaveevent_isbase) {
-            qdoublespinbox_leaveevent_isbase = false;
-            QDoubleSpinBox::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qdoublespinbox_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qdoublespinbox_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qdoublespinbox_leaveevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::leaveEvent(event);
@@ -2630,15 +1460,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qdoublespinbox_moveevent_isbase) {
-            qdoublespinbox_moveevent_isbase = false;
-            QDoubleSpinBox::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qdoublespinbox_moveevent_callback;
-        if (moveevent_cb) {
+        if (qdoublespinbox_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qdoublespinbox_moveevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::moveEvent(event);
@@ -2646,15 +1470,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qdoublespinbox_tabletevent_isbase) {
-            qdoublespinbox_tabletevent_isbase = false;
-            QDoubleSpinBox::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qdoublespinbox_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qdoublespinbox_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qdoublespinbox_tabletevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::tabletEvent(event);
@@ -2662,15 +1480,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qdoublespinbox_actionevent_isbase) {
-            qdoublespinbox_actionevent_isbase = false;
-            QDoubleSpinBox::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qdoublespinbox_actionevent_callback;
-        if (actionevent_cb) {
+        if (qdoublespinbox_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qdoublespinbox_actionevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::actionEvent(event);
@@ -2678,15 +1490,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qdoublespinbox_dragenterevent_isbase) {
-            qdoublespinbox_dragenterevent_isbase = false;
-            QDoubleSpinBox::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qdoublespinbox_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qdoublespinbox_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qdoublespinbox_dragenterevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::dragEnterEvent(event);
@@ -2694,15 +1500,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qdoublespinbox_dragmoveevent_isbase) {
-            qdoublespinbox_dragmoveevent_isbase = false;
-            QDoubleSpinBox::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qdoublespinbox_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qdoublespinbox_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qdoublespinbox_dragmoveevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::dragMoveEvent(event);
@@ -2710,15 +1510,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qdoublespinbox_dragleaveevent_isbase) {
-            qdoublespinbox_dragleaveevent_isbase = false;
-            QDoubleSpinBox::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qdoublespinbox_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qdoublespinbox_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qdoublespinbox_dragleaveevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::dragLeaveEvent(event);
@@ -2726,15 +1520,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qdoublespinbox_dropevent_isbase) {
-            qdoublespinbox_dropevent_isbase = false;
-            QDoubleSpinBox::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qdoublespinbox_dropevent_callback;
-        if (dropevent_cb) {
+        if (qdoublespinbox_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qdoublespinbox_dropevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::dropEvent(event);
@@ -2742,12 +1530,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qdoublespinbox_nativeevent_isbase) {
-            qdoublespinbox_nativeevent_isbase = false;
-            return QDoubleSpinBox::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qdoublespinbox_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qdoublespinbox_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -2757,7 +1540,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qdoublespinbox_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -2766,14 +1549,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qdoublespinbox_metric_isbase) {
-            qdoublespinbox_metric_isbase = false;
-            return QDoubleSpinBox::metric(param1);
-        }
-        auto metric_cb = qdoublespinbox_metric_callback;
-        if (metric_cb) {
+        if (qdoublespinbox_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qdoublespinbox_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QDoubleSpinBox::metric(param1);
@@ -2781,15 +1559,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qdoublespinbox_initpainter_isbase) {
-            qdoublespinbox_initpainter_isbase = false;
-            QDoubleSpinBox::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qdoublespinbox_initpainter_callback;
-        if (initpainter_cb) {
+        if (qdoublespinbox_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qdoublespinbox_initpainter_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::initPainter(painter);
@@ -2797,14 +1569,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qdoublespinbox_redirected_isbase) {
-            qdoublespinbox_redirected_isbase = false;
-            return QDoubleSpinBox::redirected(offset);
-        }
-        auto redirected_cb = qdoublespinbox_redirected_callback;
-        if (redirected_cb) {
+        if (qdoublespinbox_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qdoublespinbox_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QDoubleSpinBox::redirected(offset);
@@ -2812,13 +1579,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qdoublespinbox_sharedpainter_isbase) {
-            qdoublespinbox_sharedpainter_isbase = false;
-            return QDoubleSpinBox::sharedPainter();
-        }
-        auto sharedpainter_cb = qdoublespinbox_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qdoublespinbox_sharedpainter_callback) {
+            QPainter* callback_ret = qdoublespinbox_sharedpainter_callback(this);
             return callback_ret;
         }
         return QDoubleSpinBox::sharedPainter();
@@ -2826,15 +1588,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qdoublespinbox_inputmethodevent_isbase) {
-            qdoublespinbox_inputmethodevent_isbase = false;
-            QDoubleSpinBox::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qdoublespinbox_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qdoublespinbox_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qdoublespinbox_inputmethodevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::inputMethodEvent(param1);
@@ -2842,14 +1598,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qdoublespinbox_focusnextprevchild_isbase) {
-            qdoublespinbox_focusnextprevchild_isbase = false;
-            return QDoubleSpinBox::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qdoublespinbox_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qdoublespinbox_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qdoublespinbox_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QDoubleSpinBox::focusNextPrevChild(next);
@@ -2857,15 +1608,10 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (qdoublespinbox_eventfilter_isbase) {
-            qdoublespinbox_eventfilter_isbase = false;
-            return QDoubleSpinBox::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = qdoublespinbox_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qdoublespinbox_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qdoublespinbox_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QDoubleSpinBox::eventFilter(watched, event);
@@ -2873,15 +1619,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qdoublespinbox_childevent_isbase) {
-            qdoublespinbox_childevent_isbase = false;
-            QDoubleSpinBox::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qdoublespinbox_childevent_callback;
-        if (childevent_cb) {
+        if (qdoublespinbox_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qdoublespinbox_childevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::childEvent(event);
@@ -2889,15 +1629,9 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qdoublespinbox_customevent_isbase) {
-            qdoublespinbox_customevent_isbase = false;
-            QDoubleSpinBox::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qdoublespinbox_customevent_callback;
-        if (customevent_cb) {
+        if (qdoublespinbox_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qdoublespinbox_customevent_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::customEvent(event);
@@ -2905,17 +1639,11 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qdoublespinbox_connectnotify_isbase) {
-            qdoublespinbox_connectnotify_isbase = false;
-            QDoubleSpinBox::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qdoublespinbox_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qdoublespinbox_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qdoublespinbox_connectnotify_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::connectNotify(signal);
@@ -2923,304 +1651,56 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qdoublespinbox_disconnectnotify_isbase) {
-            qdoublespinbox_disconnectnotify_isbase = false;
-            QDoubleSpinBox::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qdoublespinbox_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qdoublespinbox_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qdoublespinbox_disconnectnotify_callback(this, cbval1);
             return;
         }
         QDoubleSpinBox::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QLineEdit* lineEdit() const {
-        if (qdoublespinbox_lineedit_isbase) {
-            qdoublespinbox_lineedit_isbase = false;
-            return QDoubleSpinBox::lineEdit();
-        }
-        auto lineedit_cb = qdoublespinbox_lineedit_callback;
-        if (lineedit_cb) {
-            QLineEdit* callback_ret = lineedit_cb();
-            return callback_ret;
-        }
-        return QDoubleSpinBox::lineEdit();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void setLineEdit(QLineEdit* edit) {
-        if (qdoublespinbox_setlineedit_isbase) {
-            qdoublespinbox_setlineedit_isbase = false;
-            QDoubleSpinBox::setLineEdit(edit);
-            return;
-        }
-        auto setlineedit_cb = qdoublespinbox_setlineedit_callback;
-        if (setlineedit_cb) {
-            QLineEdit* cbval1 = edit;
-            setlineedit_cb(this, cbval1);
-            return;
-        }
-        QDoubleSpinBox::setLineEdit(edit);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qdoublespinbox_updatemicrofocus_isbase) {
-            qdoublespinbox_updatemicrofocus_isbase = false;
-            QDoubleSpinBox::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qdoublespinbox_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QDoubleSpinBox::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qdoublespinbox_create_isbase) {
-            qdoublespinbox_create_isbase = false;
-            QDoubleSpinBox::create();
-            return;
-        }
-        auto create_cb = qdoublespinbox_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QDoubleSpinBox::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qdoublespinbox_destroy_isbase) {
-            qdoublespinbox_destroy_isbase = false;
-            QDoubleSpinBox::destroy();
-            return;
-        }
-        auto destroy_cb = qdoublespinbox_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QDoubleSpinBox::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qdoublespinbox_focusnextchild_isbase) {
-            qdoublespinbox_focusnextchild_isbase = false;
-            return QDoubleSpinBox::focusNextChild();
-        }
-        auto focusnextchild_cb = qdoublespinbox_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QDoubleSpinBox::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qdoublespinbox_focuspreviouschild_isbase) {
-            qdoublespinbox_focuspreviouschild_isbase = false;
-            return QDoubleSpinBox::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qdoublespinbox_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QDoubleSpinBox::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qdoublespinbox_sender_isbase) {
-            qdoublespinbox_sender_isbase = false;
-            return QDoubleSpinBox::sender();
-        }
-        auto sender_cb = qdoublespinbox_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QDoubleSpinBox::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qdoublespinbox_sendersignalindex_isbase) {
-            qdoublespinbox_sendersignalindex_isbase = false;
-            return QDoubleSpinBox::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qdoublespinbox_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QDoubleSpinBox::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qdoublespinbox_receivers_isbase) {
-            qdoublespinbox_receivers_isbase = false;
-            return QDoubleSpinBox::receivers(signal);
-        }
-        auto receivers_cb = qdoublespinbox_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QDoubleSpinBox::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qdoublespinbox_issignalconnected_isbase) {
-            qdoublespinbox_issignalconnected_isbase = false;
-            return QDoubleSpinBox::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qdoublespinbox_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QDoubleSpinBox::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qdoublespinbox_getdecodedmetricf_isbase) {
-            qdoublespinbox_getdecodedmetricf_isbase = false;
-            return QDoubleSpinBox::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qdoublespinbox_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QDoubleSpinBox::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QDoubleSpinBox_ResizeEvent(QDoubleSpinBox* self, QResizeEvent* event);
     friend void QDoubleSpinBox_SuperResizeEvent(QDoubleSpinBox* self, QResizeEvent* event);
-    friend void QDoubleSpinBox_KeyPressEvent(QDoubleSpinBox* self, QKeyEvent* event);
     friend void QDoubleSpinBox_SuperKeyPressEvent(QDoubleSpinBox* self, QKeyEvent* event);
-    friend void QDoubleSpinBox_KeyReleaseEvent(QDoubleSpinBox* self, QKeyEvent* event);
     friend void QDoubleSpinBox_SuperKeyReleaseEvent(QDoubleSpinBox* self, QKeyEvent* event);
-    friend void QDoubleSpinBox_WheelEvent(QDoubleSpinBox* self, QWheelEvent* event);
     friend void QDoubleSpinBox_SuperWheelEvent(QDoubleSpinBox* self, QWheelEvent* event);
-    friend void QDoubleSpinBox_FocusInEvent(QDoubleSpinBox* self, QFocusEvent* event);
     friend void QDoubleSpinBox_SuperFocusInEvent(QDoubleSpinBox* self, QFocusEvent* event);
-    friend void QDoubleSpinBox_FocusOutEvent(QDoubleSpinBox* self, QFocusEvent* event);
     friend void QDoubleSpinBox_SuperFocusOutEvent(QDoubleSpinBox* self, QFocusEvent* event);
-    friend void QDoubleSpinBox_ContextMenuEvent(QDoubleSpinBox* self, QContextMenuEvent* event);
     friend void QDoubleSpinBox_SuperContextMenuEvent(QDoubleSpinBox* self, QContextMenuEvent* event);
-    friend void QDoubleSpinBox_ChangeEvent(QDoubleSpinBox* self, QEvent* event);
     friend void QDoubleSpinBox_SuperChangeEvent(QDoubleSpinBox* self, QEvent* event);
-    friend void QDoubleSpinBox_CloseEvent(QDoubleSpinBox* self, QCloseEvent* event);
     friend void QDoubleSpinBox_SuperCloseEvent(QDoubleSpinBox* self, QCloseEvent* event);
-    friend void QDoubleSpinBox_HideEvent(QDoubleSpinBox* self, QHideEvent* event);
     friend void QDoubleSpinBox_SuperHideEvent(QDoubleSpinBox* self, QHideEvent* event);
-    friend void QDoubleSpinBox_MousePressEvent(QDoubleSpinBox* self, QMouseEvent* event);
     friend void QDoubleSpinBox_SuperMousePressEvent(QDoubleSpinBox* self, QMouseEvent* event);
-    friend void QDoubleSpinBox_MouseReleaseEvent(QDoubleSpinBox* self, QMouseEvent* event);
     friend void QDoubleSpinBox_SuperMouseReleaseEvent(QDoubleSpinBox* self, QMouseEvent* event);
-    friend void QDoubleSpinBox_MouseMoveEvent(QDoubleSpinBox* self, QMouseEvent* event);
     friend void QDoubleSpinBox_SuperMouseMoveEvent(QDoubleSpinBox* self, QMouseEvent* event);
-    friend void QDoubleSpinBox_TimerEvent(QDoubleSpinBox* self, QTimerEvent* event);
     friend void QDoubleSpinBox_SuperTimerEvent(QDoubleSpinBox* self, QTimerEvent* event);
-    friend void QDoubleSpinBox_PaintEvent(QDoubleSpinBox* self, QPaintEvent* event);
     friend void QDoubleSpinBox_SuperPaintEvent(QDoubleSpinBox* self, QPaintEvent* event);
-    friend void QDoubleSpinBox_ShowEvent(QDoubleSpinBox* self, QShowEvent* event);
     friend void QDoubleSpinBox_SuperShowEvent(QDoubleSpinBox* self, QShowEvent* event);
-    friend void QDoubleSpinBox_InitStyleOption(const QDoubleSpinBox* self, QStyleOptionSpinBox* option);
     friend void QDoubleSpinBox_SuperInitStyleOption(const QDoubleSpinBox* self, QStyleOptionSpinBox* option);
-    friend int QDoubleSpinBox_StepEnabled(const QDoubleSpinBox* self);
     friend int QDoubleSpinBox_SuperStepEnabled(const QDoubleSpinBox* self);
-    friend void QDoubleSpinBox_MouseDoubleClickEvent(QDoubleSpinBox* self, QMouseEvent* event);
     friend void QDoubleSpinBox_SuperMouseDoubleClickEvent(QDoubleSpinBox* self, QMouseEvent* event);
-    friend void QDoubleSpinBox_EnterEvent(QDoubleSpinBox* self, QEnterEvent* event);
     friend void QDoubleSpinBox_SuperEnterEvent(QDoubleSpinBox* self, QEnterEvent* event);
-    friend void QDoubleSpinBox_LeaveEvent(QDoubleSpinBox* self, QEvent* event);
     friend void QDoubleSpinBox_SuperLeaveEvent(QDoubleSpinBox* self, QEvent* event);
-    friend void QDoubleSpinBox_MoveEvent(QDoubleSpinBox* self, QMoveEvent* event);
     friend void QDoubleSpinBox_SuperMoveEvent(QDoubleSpinBox* self, QMoveEvent* event);
-    friend void QDoubleSpinBox_TabletEvent(QDoubleSpinBox* self, QTabletEvent* event);
     friend void QDoubleSpinBox_SuperTabletEvent(QDoubleSpinBox* self, QTabletEvent* event);
-    friend void QDoubleSpinBox_ActionEvent(QDoubleSpinBox* self, QActionEvent* event);
     friend void QDoubleSpinBox_SuperActionEvent(QDoubleSpinBox* self, QActionEvent* event);
-    friend void QDoubleSpinBox_DragEnterEvent(QDoubleSpinBox* self, QDragEnterEvent* event);
     friend void QDoubleSpinBox_SuperDragEnterEvent(QDoubleSpinBox* self, QDragEnterEvent* event);
-    friend void QDoubleSpinBox_DragMoveEvent(QDoubleSpinBox* self, QDragMoveEvent* event);
     friend void QDoubleSpinBox_SuperDragMoveEvent(QDoubleSpinBox* self, QDragMoveEvent* event);
-    friend void QDoubleSpinBox_DragLeaveEvent(QDoubleSpinBox* self, QDragLeaveEvent* event);
     friend void QDoubleSpinBox_SuperDragLeaveEvent(QDoubleSpinBox* self, QDragLeaveEvent* event);
-    friend void QDoubleSpinBox_DropEvent(QDoubleSpinBox* self, QDropEvent* event);
     friend void QDoubleSpinBox_SuperDropEvent(QDoubleSpinBox* self, QDropEvent* event);
-    friend bool QDoubleSpinBox_NativeEvent(QDoubleSpinBox* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QDoubleSpinBox_SuperNativeEvent(QDoubleSpinBox* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int QDoubleSpinBox_Metric(const QDoubleSpinBox* self, int param1);
     friend int QDoubleSpinBox_SuperMetric(const QDoubleSpinBox* self, int param1);
-    friend void QDoubleSpinBox_InitPainter(const QDoubleSpinBox* self, QPainter* painter);
     friend void QDoubleSpinBox_SuperInitPainter(const QDoubleSpinBox* self, QPainter* painter);
-    friend QPaintDevice* QDoubleSpinBox_Redirected(const QDoubleSpinBox* self, QPoint* offset);
     friend QPaintDevice* QDoubleSpinBox_SuperRedirected(const QDoubleSpinBox* self, QPoint* offset);
-    friend QPainter* QDoubleSpinBox_SharedPainter(const QDoubleSpinBox* self);
     friend QPainter* QDoubleSpinBox_SuperSharedPainter(const QDoubleSpinBox* self);
-    friend void QDoubleSpinBox_InputMethodEvent(QDoubleSpinBox* self, QInputMethodEvent* param1);
     friend void QDoubleSpinBox_SuperInputMethodEvent(QDoubleSpinBox* self, QInputMethodEvent* param1);
-    friend bool QDoubleSpinBox_FocusNextPrevChild(QDoubleSpinBox* self, bool next);
     friend bool QDoubleSpinBox_SuperFocusNextPrevChild(QDoubleSpinBox* self, bool next);
-    friend void QDoubleSpinBox_ChildEvent(QDoubleSpinBox* self, QChildEvent* event);
     friend void QDoubleSpinBox_SuperChildEvent(QDoubleSpinBox* self, QChildEvent* event);
-    friend void QDoubleSpinBox_CustomEvent(QDoubleSpinBox* self, QEvent* event);
     friend void QDoubleSpinBox_SuperCustomEvent(QDoubleSpinBox* self, QEvent* event);
-    friend void QDoubleSpinBox_ConnectNotify(QDoubleSpinBox* self, const QMetaMethod* signal);
     friend void QDoubleSpinBox_SuperConnectNotify(QDoubleSpinBox* self, const QMetaMethod* signal);
-    friend void QDoubleSpinBox_DisconnectNotify(QDoubleSpinBox* self, const QMetaMethod* signal);
     friend void QDoubleSpinBox_SuperDisconnectNotify(QDoubleSpinBox* self, const QMetaMethod* signal);
-    friend QLineEdit* QDoubleSpinBox_LineEdit(const QDoubleSpinBox* self);
-    friend QLineEdit* QDoubleSpinBox_SuperLineEdit(const QDoubleSpinBox* self);
-    friend void QDoubleSpinBox_SetLineEdit(QDoubleSpinBox* self, QLineEdit* edit);
-    friend void QDoubleSpinBox_SuperSetLineEdit(QDoubleSpinBox* self, QLineEdit* edit);
-    friend void QDoubleSpinBox_UpdateMicroFocus(QDoubleSpinBox* self);
-    friend void QDoubleSpinBox_SuperUpdateMicroFocus(QDoubleSpinBox* self);
-    friend void QDoubleSpinBox_Create(QDoubleSpinBox* self);
-    friend void QDoubleSpinBox_SuperCreate(QDoubleSpinBox* self);
-    friend void QDoubleSpinBox_Destroy(QDoubleSpinBox* self);
-    friend void QDoubleSpinBox_SuperDestroy(QDoubleSpinBox* self);
-    friend bool QDoubleSpinBox_FocusNextChild(QDoubleSpinBox* self);
-    friend bool QDoubleSpinBox_SuperFocusNextChild(QDoubleSpinBox* self);
-    friend bool QDoubleSpinBox_FocusPreviousChild(QDoubleSpinBox* self);
-    friend bool QDoubleSpinBox_SuperFocusPreviousChild(QDoubleSpinBox* self);
-    friend QObject* QDoubleSpinBox_Sender(const QDoubleSpinBox* self);
-    friend QObject* QDoubleSpinBox_SuperSender(const QDoubleSpinBox* self);
-    friend int QDoubleSpinBox_SenderSignalIndex(const QDoubleSpinBox* self);
-    friend int QDoubleSpinBox_SuperSenderSignalIndex(const QDoubleSpinBox* self);
-    friend int QDoubleSpinBox_Receivers(const QDoubleSpinBox* self, const char* signal);
-    friend int QDoubleSpinBox_SuperReceivers(const QDoubleSpinBox* self, const char* signal);
-    friend bool QDoubleSpinBox_IsSignalConnected(const QDoubleSpinBox* self, const QMetaMethod* signal);
-    friend bool QDoubleSpinBox_SuperIsSignalConnected(const QDoubleSpinBox* self, const QMetaMethod* signal);
-    friend double QDoubleSpinBox_GetDecodedMetricF(const QDoubleSpinBox* self, int metricA, int metricB);
-    friend double QDoubleSpinBox_SuperGetDecodedMetricF(const QDoubleSpinBox* self, int metricA, int metricB);
 };
 
 #endif

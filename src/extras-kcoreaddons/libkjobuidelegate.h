@@ -40,7 +40,7 @@ bool KJobUiDelegate_IsAutoWarningHandlingEnabled(const KJobUiDelegate* self);
 void KJobUiDelegate_SlotWarning(KJobUiDelegate* self, KJob* job, const libqt_string message);
 libqt_string KJobUiDelegate_Tr2(const char* s, const char* c);
 libqt_string KJobUiDelegate_Tr3(const char* s, const char* c, int n);
-void KJobUiDelegate_OnMetaObject(const KJobUiDelegate* self, intptr_t slot);
+void KJobUiDelegate_OnMetaObject(KJobUiDelegate* self, intptr_t slot);
 QMetaObject* KJobUiDelegate_SuperMetaObject(const KJobUiDelegate* self);
 void KJobUiDelegate_OnMetacast(KJobUiDelegate* self, intptr_t slot);
 void* KJobUiDelegate_SuperMetacast(KJobUiDelegate* self, const char* param1);
@@ -74,20 +74,10 @@ void KJobUiDelegate_DisconnectNotify(KJobUiDelegate* self, const QMetaMethod* si
 void KJobUiDelegate_OnDisconnectNotify(KJobUiDelegate* self, intptr_t slot);
 void KJobUiDelegate_SuperDisconnectNotify(KJobUiDelegate* self, const QMetaMethod* signal);
 KJob* KJobUiDelegate_Job(const KJobUiDelegate* self);
-void KJobUiDelegate_OnJob(const KJobUiDelegate* self, intptr_t slot);
-KJob* KJobUiDelegate_SuperJob(const KJobUiDelegate* self);
 QObject* KJobUiDelegate_Sender(const KJobUiDelegate* self);
-void KJobUiDelegate_OnSender(const KJobUiDelegate* self, intptr_t slot);
-QObject* KJobUiDelegate_SuperSender(const KJobUiDelegate* self);
 int KJobUiDelegate_SenderSignalIndex(const KJobUiDelegate* self);
-void KJobUiDelegate_OnSenderSignalIndex(const KJobUiDelegate* self, intptr_t slot);
-int KJobUiDelegate_SuperSenderSignalIndex(const KJobUiDelegate* self);
 int KJobUiDelegate_Receivers(const KJobUiDelegate* self, const char* signal);
-void KJobUiDelegate_OnReceivers(const KJobUiDelegate* self, intptr_t slot);
-int KJobUiDelegate_SuperReceivers(const KJobUiDelegate* self, const char* signal);
 bool KJobUiDelegate_IsSignalConnected(const KJobUiDelegate* self, const QMetaMethod* signal);
-void KJobUiDelegate_OnIsSignalConnected(const KJobUiDelegate* self, intptr_t slot);
-bool KJobUiDelegate_SuperIsSignalConnected(const KJobUiDelegate* self, const QMetaMethod* signal);
 void KJobUiDelegate_Delete(KJobUiDelegate* self);
 
 #ifdef __cplusplus

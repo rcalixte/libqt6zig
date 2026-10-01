@@ -213,442 +213,269 @@ QWidget* QUiLoader_Load2(QUiLoader* self, QIODevice* device, QWidget* parentWidg
 
 // Base class handler implementation
 QMetaObject* QUiLoader_SuperMetaObject(const QUiLoader* self) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_MetaObject_IsBase(true);
-        return (QMetaObject*)vquiloader->metaObject();
-    } else {
-        return (QMetaObject*)self->QUiLoader::metaObject();
-    }
+    return (QMetaObject*)self->QUiLoader::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QUiLoader_OnMetaObject(const QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_MetaObject_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_MetaObject_Callback>(slot));
+void QUiLoader_OnMetaObject(QUiLoader* self, intptr_t slot) {
+    if (auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self)))
+        vquiloader->quiloader_metaobject_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QUiLoader_SuperMetacast(QUiLoader* self, const char* param1) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_Metacast_IsBase(true);
-        return vquiloader->qt_metacast(param1);
-    } else {
-        return self->QUiLoader::qt_metacast(param1);
-    }
+    return self->QUiLoader::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnMetacast(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_Metacast_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Metacast_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_metacast_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QUiLoader_SuperMetacall(QUiLoader* self, int param1, int param2, void** param3) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_Metacall_IsBase(true);
-        return vquiloader->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QUiLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QUiLoader::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnMetacall(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_Metacall_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Metacall_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_metacall_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QWidget* QUiLoader_SuperCreateWidget(QUiLoader* self, const libqt_string className, QWidget* parent, const libqt_string name) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     QString className_QString = QString::fromUtf8(className.data, className.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_CreateWidget_IsBase(true);
-        return vquiloader->createWidget(className_QString, parent, name_QString);
-    } else {
-        return self->QUiLoader::createWidget(className_QString, parent, name_QString);
-    }
+    return self->QUiLoader::createWidget(className_QString, parent, name_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCreateWidget(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_CreateWidget_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateWidget_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_createwidget_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateWidget_Callback>(slot);
 }
 
 // Base class handler implementation
 QLayout* QUiLoader_SuperCreateLayout(QUiLoader* self, const libqt_string className, QObject* parent, const libqt_string name) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     QString className_QString = QString::fromUtf8(className.data, className.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_CreateLayout_IsBase(true);
-        return vquiloader->createLayout(className_QString, parent, name_QString);
-    } else {
-        return self->QUiLoader::createLayout(className_QString, parent, name_QString);
-    }
+    return self->QUiLoader::createLayout(className_QString, parent, name_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCreateLayout(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_CreateLayout_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateLayout_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_createlayout_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateLayout_Callback>(slot);
 }
 
 // Base class handler implementation
 QActionGroup* QUiLoader_SuperCreateActionGroup(QUiLoader* self, QObject* parent, const libqt_string name) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_CreateActionGroup_IsBase(true);
-        return vquiloader->createActionGroup(parent, name_QString);
-    } else {
-        return self->QUiLoader::createActionGroup(parent, name_QString);
-    }
+    return self->QUiLoader::createActionGroup(parent, name_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCreateActionGroup(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_CreateActionGroup_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateActionGroup_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_createactiongroup_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateActionGroup_Callback>(slot);
 }
 
 // Base class handler implementation
 QAction* QUiLoader_SuperCreateAction(QUiLoader* self, QObject* parent, const libqt_string name) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_CreateAction_IsBase(true);
-        return vquiloader->createAction(parent, name_QString);
-    } else {
-        return self->QUiLoader::createAction(parent, name_QString);
-    }
+    return self->QUiLoader::createAction(parent, name_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCreateAction(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_CreateAction_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateAction_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_createaction_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_CreateAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUiLoader_Event(QUiLoader* self, QEvent* event) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return vquiloader->event(event);
-    } else {
-        return self->QUiLoader::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QUiLoader_SuperEvent(QUiLoader* self, QEvent* event) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_Event_IsBase(true);
-        return vquiloader->event(event);
-    } else {
-        return self->QUiLoader::event(event);
-    }
+    return self->QUiLoader::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnEvent(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_Event_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Event_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_event_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QUiLoader_EventFilter(QUiLoader* self, QObject* watched, QEvent* event) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return vquiloader->eventFilter(watched, event);
-    } else {
-        return self->QUiLoader::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QUiLoader_SuperEventFilter(QUiLoader* self, QObject* watched, QEvent* event) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_EventFilter_IsBase(true);
-        return vquiloader->eventFilter(watched, event);
-    } else {
-        return self->QUiLoader::eventFilter(watched, event);
-    }
+    return self->QUiLoader::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnEventFilter(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_EventFilter_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_EventFilter_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_eventfilter_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUiLoader_TimerEvent(QUiLoader* self, QTimerEvent* event) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader) {
         vquiloader->timerEvent(event);
     } else {
-        ((VirtualQUiLoader*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QUiLoader::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUiLoader_SuperTimerEvent(QUiLoader* self, QTimerEvent* event) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_TimerEvent_IsBase(true);
-        vquiloader->timerEvent(event);
-    } else {
-        ((VirtualQUiLoader*)self)->timerEvent(event);
-    }
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self)) {
+        vquiloader->QUiLoader::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUiLoader::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnTimerEvent(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_TimerEvent_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_TimerEvent_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_timerevent_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUiLoader_ChildEvent(QUiLoader* self, QChildEvent* event) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader) {
         vquiloader->childEvent(event);
     } else {
-        ((VirtualQUiLoader*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QUiLoader::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUiLoader_SuperChildEvent(QUiLoader* self, QChildEvent* event) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_ChildEvent_IsBase(true);
-        vquiloader->childEvent(event);
-    } else {
-        ((VirtualQUiLoader*)self)->childEvent(event);
-    }
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self)) {
+        vquiloader->QUiLoader::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUiLoader::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnChildEvent(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_ChildEvent_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_ChildEvent_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_childevent_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUiLoader_CustomEvent(QUiLoader* self, QEvent* event) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader) {
         vquiloader->customEvent(event);
     } else {
-        ((VirtualQUiLoader*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QUiLoader::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUiLoader_SuperCustomEvent(QUiLoader* self, QEvent* event) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_CustomEvent_IsBase(true);
-        vquiloader->customEvent(event);
-    } else {
-        ((VirtualQUiLoader*)self)->customEvent(event);
-    }
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self)) {
+        vquiloader->QUiLoader::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QUiLoader::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnCustomEvent(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_CustomEvent_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_CustomEvent_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_customevent_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUiLoader_ConnectNotify(QUiLoader* self, const QMetaMethod* signal) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader) {
         vquiloader->connectNotify(*signal);
     } else {
-        ((VirtualQUiLoader*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QUiLoader::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUiLoader_SuperConnectNotify(QUiLoader* self, const QMetaMethod* signal) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_ConnectNotify_IsBase(true);
-        vquiloader->connectNotify(*signal);
-    } else {
-        ((VirtualQUiLoader*)self)->connectNotify(*signal);
-    }
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self)) {
+        vquiloader->QUiLoader::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QUiLoader::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnConnectNotify(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_ConnectNotify_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_ConnectNotify_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_connectnotify_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QUiLoader_DisconnectNotify(QUiLoader* self, const QMetaMethod* signal) {
     auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
+    if (vquiloader) {
         vquiloader->disconnectNotify(*signal);
     } else {
-        ((VirtualQUiLoader*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QUiLoader::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QUiLoader_SuperDisconnectNotify(QUiLoader* self, const QMetaMethod* signal) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_DisconnectNotify_IsBase(true);
-        vquiloader->disconnectNotify(*signal);
-    } else {
-        ((VirtualQUiLoader*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self)) {
+        vquiloader->QUiLoader::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QUiLoader::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QUiLoader_OnDisconnectNotify(QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_DisconnectNotify_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_DisconnectNotify_Callback>(slot));
+    if (auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self))
+        vquiloader->quiloader_disconnectnotify_callback = reinterpret_cast<VirtualQUiLoader::QUiLoader_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QUiLoader_Sender(const QUiLoader* self) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return vquiloader->sender();
-    } else {
-        return ((VirtualQUiLoader*)self)->sender();
-    }
+    if (auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self))) {
+        return vquiloader->VirtualQUiLoader::sender();
+    } else
+        qFatal("Error: Protected method QUiLoader::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QUiLoader_SuperSender(const QUiLoader* self) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_Sender_IsBase(true);
-        return vquiloader->sender();
-    } else {
-        return ((VirtualQUiLoader*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUiLoader_OnSender(const QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_Sender_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QUiLoader_SenderSignalIndex(const QUiLoader* self) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return vquiloader->senderSignalIndex();
-    } else {
-        return ((VirtualQUiLoader*)self)->senderSignalIndex();
-    }
+    if (auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self))) {
+        return vquiloader->VirtualQUiLoader::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QUiLoader::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QUiLoader_SuperSenderSignalIndex(const QUiLoader* self) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_SenderSignalIndex_IsBase(true);
-        return vquiloader->senderSignalIndex();
-    } else {
-        return ((VirtualQUiLoader*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUiLoader_OnSenderSignalIndex(const QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_SenderSignalIndex_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QUiLoader_Receivers(const QUiLoader* self, const char* signal) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return vquiloader->receivers(signal);
-    } else {
-        return ((VirtualQUiLoader*)self)->receivers(signal);
-    }
+    if (auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self))) {
+        return vquiloader->VirtualQUiLoader::receivers(signal);
+    } else
+        qFatal("Error: Protected method QUiLoader::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QUiLoader_SuperReceivers(const QUiLoader* self, const char* signal) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_Receivers_IsBase(true);
-        return vquiloader->receivers(signal);
-    } else {
-        return ((VirtualQUiLoader*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUiLoader_OnReceivers(const QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_Receivers_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QUiLoader_IsSignalConnected(const QUiLoader* self, const QMetaMethod* signal) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return vquiloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQUiLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QUiLoader_SuperIsSignalConnected(const QUiLoader* self, const QMetaMethod* signal) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        vquiloader->setQUiLoader_IsSignalConnected_IsBase(true);
-        return vquiloader->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQUiLoader*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QUiLoader_OnIsSignalConnected(const QUiLoader* self, intptr_t slot) {
-    auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self));
-    if (vquiloader && vquiloader->isVirtualQUiLoader)
-        vquiloader->setQUiLoader_IsSignalConnected_Callback(reinterpret_cast<VirtualQUiLoader::QUiLoader_IsSignalConnected_Callback>(slot));
+    if (auto* vquiloader = const_cast<VirtualQUiLoader*>(dynamic_cast<const VirtualQUiLoader*>(self))) {
+        return vquiloader->VirtualQUiLoader::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QUiLoader::isSignalConnected called without a directly constructed type");
 }
 
 void QUiLoader_Delete(QUiLoader* self) {

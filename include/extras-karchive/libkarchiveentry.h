@@ -30,15 +30,13 @@ libqt_string KArchiveEntry_SymLinkTarget(const KArchiveEntry* self);
 bool KArchiveEntry_IsFile(const KArchiveEntry* self);
 bool KArchiveEntry_IsDirectory(const KArchiveEntry* self);
 void KArchiveEntry_VirtualHook(KArchiveEntry* self, int id, void* data);
-void KArchiveEntry_OnIsFile(const KArchiveEntry* self, intptr_t slot);
+void KArchiveEntry_OnIsFile(KArchiveEntry* self, intptr_t slot);
 bool KArchiveEntry_SuperIsFile(const KArchiveEntry* self);
-void KArchiveEntry_OnIsDirectory(const KArchiveEntry* self, intptr_t slot);
+void KArchiveEntry_OnIsDirectory(KArchiveEntry* self, intptr_t slot);
 bool KArchiveEntry_SuperIsDirectory(const KArchiveEntry* self);
 void KArchiveEntry_OnVirtualHook(KArchiveEntry* self, intptr_t slot);
 void KArchiveEntry_SuperVirtualHook(KArchiveEntry* self, int id, void* data);
 KArchive* KArchiveEntry_Archive(const KArchiveEntry* self);
-void KArchiveEntry_OnArchive(const KArchiveEntry* self, intptr_t slot);
-KArchive* KArchiveEntry_SuperArchive(const KArchiveEntry* self);
 void KArchiveEntry_Delete(KArchiveEntry* self);
 
 #ifdef __cplusplus

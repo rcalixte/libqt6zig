@@ -101,25 +101,25 @@ libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, co
 
 void QStyledItemDelegate_InitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate) {
         vqstyleditemdelegate->initStyleOption(option, *index);
     }
 }
 
 bool QStyledItemDelegate_EventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate) {
         return vqstyleditemdelegate->eventFilter(object, event);
     }
-    return {};
+    qFatal("Error: Protected method QStyledItemDelegate::eventFilter called without a directly constructed type");
 }
 
 bool QStyledItemDelegate_EditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate) {
         return vqstyleditemdelegate->editorEvent(event, model, *option, *index);
     }
-    return {};
+    qFatal("Error: Protected method QStyledItemDelegate::editorEvent called without a directly constructed type");
 }
 
 libqt_string QStyledItemDelegate_Tr2(const char* s, const char* c) {
@@ -148,652 +148,396 @@ libqt_string QStyledItemDelegate_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QStyledItemDelegate_SuperMetaObject(const QStyledItemDelegate* self) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_MetaObject_IsBase(true);
-        return (QMetaObject*)vqstyleditemdelegate->metaObject();
-    } else {
-        return (QMetaObject*)self->QStyledItemDelegate::metaObject();
-    }
+    return (QMetaObject*)self->QStyledItemDelegate::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnMetaObject(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_MetaObject_Callback>(slot));
+void QStyledItemDelegate_OnMetaObject(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_metaobject_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QStyledItemDelegate_SuperMetacast(QStyledItemDelegate* self, const char* param1) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_Metacast_IsBase(true);
-        return vqstyleditemdelegate->qt_metacast(param1);
-    } else {
-        return self->QStyledItemDelegate::qt_metacast(param1);
-    }
+    return self->QStyledItemDelegate::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnMetacast(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_Metacast_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Metacast_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_metacast_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QStyledItemDelegate_SuperMetacall(QStyledItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_Metacall_IsBase(true);
-        return vqstyleditemdelegate->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QStyledItemDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QStyledItemDelegate::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnMetacall(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_Metacall_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Metacall_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_metacall_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperPaint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_Paint_IsBase(true);
-        vqstyleditemdelegate->paint(painter, *option, *index);
-    } else {
-        self->QStyledItemDelegate::paint(painter, *option, *index);
-    }
+    self->QStyledItemDelegate::paint(painter, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnPaint(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_Paint_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Paint_Callback>(slot));
+void QStyledItemDelegate_OnPaint(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_paint_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Paint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QStyledItemDelegate_SuperSizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SizeHint_IsBase(true);
-        return new QSize(vqstyleditemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualQStyledItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->QStyledItemDelegate::sizeHint(*option, *index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnSizeHint(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SizeHint_Callback>(slot));
+void QStyledItemDelegate_OnSizeHint(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_sizehint_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QWidget* QStyledItemDelegate_SuperCreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_CreateEditor_IsBase(true);
-        return vqstyleditemdelegate->createEditor(parent, *option, *index);
-    } else {
-        return self->QStyledItemDelegate::createEditor(parent, *option, *index);
-    }
+    return self->QStyledItemDelegate::createEditor(parent, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnCreateEditor(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_CreateEditor_Callback>(slot));
+void QStyledItemDelegate_OnCreateEditor(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_createeditor_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_CreateEditor_Callback>(slot);
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperSetEditorData(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SetEditorData_IsBase(true);
-        vqstyleditemdelegate->setEditorData(editor, *index);
-    } else {
-        self->QStyledItemDelegate::setEditorData(editor, *index);
-    }
+    self->QStyledItemDelegate::setEditorData(editor, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnSetEditorData(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetEditorData_Callback>(slot));
+void QStyledItemDelegate_OnSetEditorData(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_seteditordata_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetEditorData_Callback>(slot);
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperSetModelData(const QStyledItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SetModelData_IsBase(true);
-        vqstyleditemdelegate->setModelData(editor, model, *index);
-    } else {
-        self->QStyledItemDelegate::setModelData(editor, model, *index);
-    }
+    self->QStyledItemDelegate::setModelData(editor, model, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnSetModelData(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetModelData_Callback>(slot));
+void QStyledItemDelegate_OnSetModelData(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_setmodeldata_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetModelData_Callback>(slot);
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperUpdateEditorGeometry(const QStyledItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_UpdateEditorGeometry_IsBase(true);
-        vqstyleditemdelegate->updateEditorGeometry(editor, *option, *index);
-    } else {
-        self->QStyledItemDelegate::updateEditorGeometry(editor, *option, *index);
-    }
+    self->QStyledItemDelegate::updateEditorGeometry(editor, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnUpdateEditorGeometry(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_UpdateEditorGeometry_Callback>(slot));
+void QStyledItemDelegate_OnUpdateEditorGeometry(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_updateeditorgeometry_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_UpdateEditorGeometry_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_string QStyledItemDelegate_SuperDisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_IsBase(true);
-        auto _ret = vqstyleditemdelegate->displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = self->QStyledItemDelegate::displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->QStyledItemDelegate::displayText(*value, *locale);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnDisplayText(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DisplayText_Callback>(slot));
+void QStyledItemDelegate_OnDisplayText(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_displaytext_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DisplayText_Callback>(slot);
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperInitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_InitStyleOption_IsBase(true);
-        vqstyleditemdelegate->initStyleOption(option, *index);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->initStyleOption(option, *index);
-    }
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self))) {
+        vqstyleditemdelegate->QStyledItemDelegate::initStyleOption(option, *index);
+    } else
+        qFatal("Error: Protected virtual method QStyledItemDelegate::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnInitStyleOption(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_InitStyleOption_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_InitStyleOption_Callback>(slot));
+void QStyledItemDelegate_OnInitStyleOption(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_initstyleoption_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_InitStyleOption_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QStyledItemDelegate_SuperEventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_EventFilter_IsBase(true);
-        return vqstyleditemdelegate->eventFilter(object, event);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->eventFilter(object, event);
-    }
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self)) {
+        return vqstyleditemdelegate->QStyledItemDelegate::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method QStyledItemDelegate::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnEventFilter(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EventFilter_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_eventfilter_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EventFilter_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QStyledItemDelegate_SuperEditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_EditorEvent_IsBase(true);
-        return vqstyleditemdelegate->editorEvent(event, model, *option, *index);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->editorEvent(event, model, *option, *index);
-    }
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self)) {
+        return vqstyleditemdelegate->QStyledItemDelegate::editorEvent(event, model, *option, *index);
+    } else
+        qFatal("Error: Protected virtual method QStyledItemDelegate::editorEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnEditorEvent(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EditorEvent_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_editorevent_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EditorEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStyledItemDelegate_DestroyEditor(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->destroyEditor(editor, *index);
-    } else {
-        self->QStyledItemDelegate::destroyEditor(editor, *index);
-    }
+    self->destroyEditor(editor, *index);
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperDestroyEditor(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_DestroyEditor_IsBase(true);
-        vqstyleditemdelegate->destroyEditor(editor, *index);
-    } else {
-        self->QStyledItemDelegate::destroyEditor(editor, *index);
-    }
+    self->QStyledItemDelegate::destroyEditor(editor, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnDestroyEditor(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_DestroyEditor_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DestroyEditor_Callback>(slot));
+void QStyledItemDelegate_OnDestroyEditor(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_destroyeditor_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DestroyEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QStyledItemDelegate_HelpEvent(QStyledItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->helpEvent(event, view, *option, *index);
-    } else {
-        return self->QStyledItemDelegate::helpEvent(event, view, *option, *index);
-    }
+    return self->helpEvent(event, view, *option, *index);
 }
 
 // Base class handler implementation
 bool QStyledItemDelegate_SuperHelpEvent(QStyledItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_HelpEvent_IsBase(true);
-        return vqstyleditemdelegate->helpEvent(event, view, *option, *index);
-    } else {
-        return self->QStyledItemDelegate::helpEvent(event, view, *option, *index);
-    }
+    return self->QStyledItemDelegate::helpEvent(event, view, *option, *index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnHelpEvent(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_HelpEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_HelpEvent_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_helpevent_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_HelpEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 libqt_list /* of int */ QStyledItemDelegate_PaintingRoles(const QStyledItemDelegate* self) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        QList<int> _ret = vqstyleditemdelegate->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = self->QStyledItemDelegate::paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
 libqt_list /* of int */ QStyledItemDelegate_SuperPaintingRoles(const QStyledItemDelegate* self) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_PaintingRoles_IsBase(true);
-        QList<int> _ret = vqstyleditemdelegate->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = self->QStyledItemDelegate::paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->QStyledItemDelegate::paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnPaintingRoles(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_PaintingRoles_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_PaintingRoles_Callback>(slot));
+void QStyledItemDelegate_OnPaintingRoles(QStyledItemDelegate* self, intptr_t slot) {
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self)))
+        vqstyleditemdelegate->qstyleditemdelegate_paintingroles_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_PaintingRoles_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QStyledItemDelegate_Event(QStyledItemDelegate* self, QEvent* event) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->event(event);
-    } else {
-        return self->QStyledItemDelegate::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QStyledItemDelegate_SuperEvent(QStyledItemDelegate* self, QEvent* event) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_Event_IsBase(true);
-        return vqstyleditemdelegate->event(event);
-    } else {
-        return self->QStyledItemDelegate::event(event);
-    }
+    return self->QStyledItemDelegate::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnEvent(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_Event_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Event_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_event_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStyledItemDelegate_TimerEvent(QStyledItemDelegate* self, QTimerEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate) {
         vqstyleditemdelegate->timerEvent(event);
     } else {
-        ((VirtualQStyledItemDelegate*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QStyledItemDelegate::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperTimerEvent(QStyledItemDelegate* self, QTimerEvent* event) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_TimerEvent_IsBase(true);
-        vqstyleditemdelegate->timerEvent(event);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->timerEvent(event);
-    }
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self)) {
+        vqstyleditemdelegate->QStyledItemDelegate::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStyledItemDelegate::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnTimerEvent(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_TimerEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_TimerEvent_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_timerevent_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStyledItemDelegate_ChildEvent(QStyledItemDelegate* self, QChildEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate) {
         vqstyleditemdelegate->childEvent(event);
     } else {
-        ((VirtualQStyledItemDelegate*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QStyledItemDelegate::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperChildEvent(QStyledItemDelegate* self, QChildEvent* event) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_ChildEvent_IsBase(true);
-        vqstyleditemdelegate->childEvent(event);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->childEvent(event);
-    }
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self)) {
+        vqstyleditemdelegate->QStyledItemDelegate::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStyledItemDelegate::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnChildEvent(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_ChildEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_ChildEvent_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_childevent_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStyledItemDelegate_CustomEvent(QStyledItemDelegate* self, QEvent* event) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate) {
         vqstyleditemdelegate->customEvent(event);
     } else {
-        ((VirtualQStyledItemDelegate*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QStyledItemDelegate::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperCustomEvent(QStyledItemDelegate* self, QEvent* event) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_CustomEvent_IsBase(true);
-        vqstyleditemdelegate->customEvent(event);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->customEvent(event);
-    }
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self)) {
+        vqstyleditemdelegate->QStyledItemDelegate::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStyledItemDelegate::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnCustomEvent(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_CustomEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_CustomEvent_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_customevent_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStyledItemDelegate_ConnectNotify(QStyledItemDelegate* self, const QMetaMethod* signal) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate) {
         vqstyleditemdelegate->connectNotify(*signal);
     } else {
-        ((VirtualQStyledItemDelegate*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QStyledItemDelegate::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperConnectNotify(QStyledItemDelegate* self, const QMetaMethod* signal) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_ConnectNotify_IsBase(true);
-        vqstyleditemdelegate->connectNotify(*signal);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->connectNotify(*signal);
-    }
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self)) {
+        vqstyleditemdelegate->QStyledItemDelegate::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QStyledItemDelegate::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnConnectNotify(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_ConnectNotify_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_connectnotify_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStyledItemDelegate_DisconnectNotify(QStyledItemDelegate* self, const QMetaMethod* signal) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate) {
         vqstyleditemdelegate->disconnectNotify(*signal);
     } else {
-        ((VirtualQStyledItemDelegate*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QStyledItemDelegate::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStyledItemDelegate_SuperDisconnectNotify(QStyledItemDelegate* self, const QMetaMethod* signal) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_DisconnectNotify_IsBase(true);
-        vqstyleditemdelegate->disconnectNotify(*signal);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self)) {
+        vqstyleditemdelegate->QStyledItemDelegate::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QStyledItemDelegate::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnDisconnectNotify(QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DisconnectNotify_Callback>(slot));
+    if (auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self))
+        vqstyleditemdelegate->qstyleditemdelegate_disconnectnotify_callback = reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QStyledItemDelegate_Sender(const QStyledItemDelegate* self) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->sender();
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->sender();
-    }
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self))) {
+        return vqstyleditemdelegate->VirtualQStyledItemDelegate::sender();
+    } else
+        qFatal("Error: Protected method QStyledItemDelegate::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QStyledItemDelegate_SuperSender(const QStyledItemDelegate* self) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_Sender_IsBase(true);
-        return vqstyleditemdelegate->sender();
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnSender(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_Sender_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QStyledItemDelegate_SenderSignalIndex(const QStyledItemDelegate* self) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->senderSignalIndex();
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->senderSignalIndex();
-    }
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self))) {
+        return vqstyleditemdelegate->VirtualQStyledItemDelegate::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QStyledItemDelegate::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QStyledItemDelegate_SuperSenderSignalIndex(const QStyledItemDelegate* self) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_SenderSignalIndex_IsBase(true);
-        return vqstyleditemdelegate->senderSignalIndex();
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnSenderSignalIndex(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QStyledItemDelegate_Receivers(const QStyledItemDelegate* self, const char* signal) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->receivers(signal);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->receivers(signal);
-    }
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self))) {
+        return vqstyleditemdelegate->VirtualQStyledItemDelegate::receivers(signal);
+    } else
+        qFatal("Error: Protected method QStyledItemDelegate::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QStyledItemDelegate_SuperReceivers(const QStyledItemDelegate* self, const char* signal) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_Receivers_IsBase(true);
-        return vqstyleditemdelegate->receivers(signal);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnReceivers(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_Receivers_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QStyledItemDelegate_IsSignalConnected(const QStyledItemDelegate* self, const QMetaMethod* signal) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return vqstyleditemdelegate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QStyledItemDelegate_SuperIsSignalConnected(const QStyledItemDelegate* self, const QMetaMethod* signal) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        vqstyleditemdelegate->setQStyledItemDelegate_IsSignalConnected_IsBase(true);
-        return vqstyleditemdelegate->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStyledItemDelegate_OnIsSignalConnected(const QStyledItemDelegate* self, intptr_t slot) {
-    auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
-        vqstyleditemdelegate->setQStyledItemDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_IsSignalConnected_Callback>(slot));
+    if (auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self))) {
+        return vqstyleditemdelegate->VirtualQStyledItemDelegate::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QStyledItemDelegate::isSignalConnected called without a directly constructed type");
 }
 
 void QStyledItemDelegate_Delete(QStyledItemDelegate* self) {

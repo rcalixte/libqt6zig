@@ -237,364 +237,219 @@ void QButtonGroup_AddButton2(QButtonGroup* self, QAbstractButton* param1, int id
 
 // Base class handler implementation
 QMetaObject* QButtonGroup_SuperMetaObject(const QButtonGroup* self) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_MetaObject_IsBase(true);
-        return (QMetaObject*)vqbuttongroup->metaObject();
-    } else {
-        return (QMetaObject*)self->QButtonGroup::metaObject();
-    }
+    return (QMetaObject*)self->QButtonGroup::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QButtonGroup_OnMetaObject(const QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_MetaObject_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_MetaObject_Callback>(slot));
+void QButtonGroup_OnMetaObject(QButtonGroup* self, intptr_t slot) {
+    if (auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self)))
+        vqbuttongroup->qbuttongroup_metaobject_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QButtonGroup_SuperMetacast(QButtonGroup* self, const char* param1) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_Metacast_IsBase(true);
-        return vqbuttongroup->qt_metacast(param1);
-    } else {
-        return self->QButtonGroup::qt_metacast(param1);
-    }
+    return self->QButtonGroup::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnMetacast(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_Metacast_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Metacast_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_metacast_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QButtonGroup_SuperMetacall(QButtonGroup* self, int param1, int param2, void** param3) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_Metacall_IsBase(true);
-        return vqbuttongroup->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QButtonGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QButtonGroup::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnMetacall(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_Metacall_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Metacall_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_metacall_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QButtonGroup_Event(QButtonGroup* self, QEvent* event) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        return vqbuttongroup->event(event);
-    } else {
-        return self->QButtonGroup::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QButtonGroup_SuperEvent(QButtonGroup* self, QEvent* event) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_Event_IsBase(true);
-        return vqbuttongroup->event(event);
-    } else {
-        return self->QButtonGroup::event(event);
-    }
+    return self->QButtonGroup::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnEvent(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_Event_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Event_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_event_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QButtonGroup_EventFilter(QButtonGroup* self, QObject* watched, QEvent* event) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        return vqbuttongroup->eventFilter(watched, event);
-    } else {
-        return self->QButtonGroup::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QButtonGroup_SuperEventFilter(QButtonGroup* self, QObject* watched, QEvent* event) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_EventFilter_IsBase(true);
-        return vqbuttongroup->eventFilter(watched, event);
-    } else {
-        return self->QButtonGroup::eventFilter(watched, event);
-    }
+    return self->QButtonGroup::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnEventFilter(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_EventFilter_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_EventFilter_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_eventfilter_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QButtonGroup_TimerEvent(QButtonGroup* self, QTimerEvent* event) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+    if (vqbuttongroup) {
         vqbuttongroup->timerEvent(event);
     } else {
-        ((VirtualQButtonGroup*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QButtonGroup::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QButtonGroup_SuperTimerEvent(QButtonGroup* self, QTimerEvent* event) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_TimerEvent_IsBase(true);
-        vqbuttongroup->timerEvent(event);
-    } else {
-        ((VirtualQButtonGroup*)self)->timerEvent(event);
-    }
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self)) {
+        vqbuttongroup->QButtonGroup::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QButtonGroup::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnTimerEvent(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_TimerEvent_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_TimerEvent_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_timerevent_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QButtonGroup_ChildEvent(QButtonGroup* self, QChildEvent* event) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+    if (vqbuttongroup) {
         vqbuttongroup->childEvent(event);
     } else {
-        ((VirtualQButtonGroup*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QButtonGroup::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QButtonGroup_SuperChildEvent(QButtonGroup* self, QChildEvent* event) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_ChildEvent_IsBase(true);
-        vqbuttongroup->childEvent(event);
-    } else {
-        ((VirtualQButtonGroup*)self)->childEvent(event);
-    }
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self)) {
+        vqbuttongroup->QButtonGroup::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QButtonGroup::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnChildEvent(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_ChildEvent_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_ChildEvent_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_childevent_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QButtonGroup_CustomEvent(QButtonGroup* self, QEvent* event) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+    if (vqbuttongroup) {
         vqbuttongroup->customEvent(event);
     } else {
-        ((VirtualQButtonGroup*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QButtonGroup::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QButtonGroup_SuperCustomEvent(QButtonGroup* self, QEvent* event) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_CustomEvent_IsBase(true);
-        vqbuttongroup->customEvent(event);
-    } else {
-        ((VirtualQButtonGroup*)self)->customEvent(event);
-    }
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self)) {
+        vqbuttongroup->QButtonGroup::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QButtonGroup::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnCustomEvent(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_CustomEvent_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_CustomEvent_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_customevent_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QButtonGroup_ConnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+    if (vqbuttongroup) {
         vqbuttongroup->connectNotify(*signal);
     } else {
-        ((VirtualQButtonGroup*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QButtonGroup::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QButtonGroup_SuperConnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_ConnectNotify_IsBase(true);
-        vqbuttongroup->connectNotify(*signal);
-    } else {
-        ((VirtualQButtonGroup*)self)->connectNotify(*signal);
-    }
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self)) {
+        vqbuttongroup->QButtonGroup::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QButtonGroup::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnConnectNotify(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_ConnectNotify_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_ConnectNotify_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_connectnotify_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QButtonGroup_DisconnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
     auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
+    if (vqbuttongroup) {
         vqbuttongroup->disconnectNotify(*signal);
     } else {
-        ((VirtualQButtonGroup*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QButtonGroup::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QButtonGroup_SuperDisconnectNotify(QButtonGroup* self, const QMetaMethod* signal) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_DisconnectNotify_IsBase(true);
-        vqbuttongroup->disconnectNotify(*signal);
-    } else {
-        ((VirtualQButtonGroup*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self)) {
+        vqbuttongroup->QButtonGroup::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QButtonGroup::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QButtonGroup_OnDisconnectNotify(QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self);
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_DisconnectNotify_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_DisconnectNotify_Callback>(slot));
+    if (auto* vqbuttongroup = dynamic_cast<VirtualQButtonGroup*>(self))
+        vqbuttongroup->qbuttongroup_disconnectnotify_callback = reinterpret_cast<VirtualQButtonGroup::QButtonGroup_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QButtonGroup_Sender(const QButtonGroup* self) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        return vqbuttongroup->sender();
-    } else {
-        return ((VirtualQButtonGroup*)self)->sender();
-    }
+    if (auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self))) {
+        return vqbuttongroup->VirtualQButtonGroup::sender();
+    } else
+        qFatal("Error: Protected method QButtonGroup::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QButtonGroup_SuperSender(const QButtonGroup* self) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_Sender_IsBase(true);
-        return vqbuttongroup->sender();
-    } else {
-        return ((VirtualQButtonGroup*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QButtonGroup_OnSender(const QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_Sender_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QButtonGroup_SenderSignalIndex(const QButtonGroup* self) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        return vqbuttongroup->senderSignalIndex();
-    } else {
-        return ((VirtualQButtonGroup*)self)->senderSignalIndex();
-    }
+    if (auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self))) {
+        return vqbuttongroup->VirtualQButtonGroup::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QButtonGroup::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QButtonGroup_SuperSenderSignalIndex(const QButtonGroup* self) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_SenderSignalIndex_IsBase(true);
-        return vqbuttongroup->senderSignalIndex();
-    } else {
-        return ((VirtualQButtonGroup*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QButtonGroup_OnSenderSignalIndex(const QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QButtonGroup_Receivers(const QButtonGroup* self, const char* signal) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        return vqbuttongroup->receivers(signal);
-    } else {
-        return ((VirtualQButtonGroup*)self)->receivers(signal);
-    }
+    if (auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self))) {
+        return vqbuttongroup->VirtualQButtonGroup::receivers(signal);
+    } else
+        qFatal("Error: Protected method QButtonGroup::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QButtonGroup_SuperReceivers(const QButtonGroup* self, const char* signal) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_Receivers_IsBase(true);
-        return vqbuttongroup->receivers(signal);
-    } else {
-        return ((VirtualQButtonGroup*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QButtonGroup_OnReceivers(const QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_Receivers_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QButtonGroup_IsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        return vqbuttongroup->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQButtonGroup*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QButtonGroup_SuperIsSignalConnected(const QButtonGroup* self, const QMetaMethod* signal) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup) {
-        vqbuttongroup->setQButtonGroup_IsSignalConnected_IsBase(true);
-        return vqbuttongroup->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQButtonGroup*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QButtonGroup_OnIsSignalConnected(const QButtonGroup* self, intptr_t slot) {
-    auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self));
-    if (vqbuttongroup && vqbuttongroup->isVirtualQButtonGroup)
-        vqbuttongroup->setQButtonGroup_IsSignalConnected_Callback(reinterpret_cast<VirtualQButtonGroup::QButtonGroup_IsSignalConnected_Callback>(slot));
+    if (auto* vqbuttongroup = const_cast<VirtualQButtonGroup*>(dynamic_cast<const VirtualQButtonGroup*>(self))) {
+        return vqbuttongroup->VirtualQButtonGroup::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QButtonGroup::isSignalConnected called without a directly constructed type");
 }
 
 void QButtonGroup_Delete(QButtonGroup* self) {

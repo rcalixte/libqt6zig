@@ -54,7 +54,7 @@ void QQuickTextDocument_ErrorStringChanged(QQuickTextDocument* self);
 void QQuickTextDocument_Connect_ErrorStringChanged(QQuickTextDocument* self, intptr_t slot);
 libqt_string QQuickTextDocument_Tr2(const char* s, const char* c);
 libqt_string QQuickTextDocument_Tr3(const char* s, const char* c, int n);
-void QQuickTextDocument_OnMetaObject(const QQuickTextDocument* self, intptr_t slot);
+void QQuickTextDocument_OnMetaObject(QQuickTextDocument* self, intptr_t slot);
 QMetaObject* QQuickTextDocument_SuperMetaObject(const QQuickTextDocument* self);
 void QQuickTextDocument_OnMetacast(QQuickTextDocument* self, intptr_t slot);
 void* QQuickTextDocument_SuperMetacast(QQuickTextDocument* self, const char* param1);
@@ -82,17 +82,9 @@ void QQuickTextDocument_DisconnectNotify(QQuickTextDocument* self, const QMetaMe
 void QQuickTextDocument_OnDisconnectNotify(QQuickTextDocument* self, intptr_t slot);
 void QQuickTextDocument_SuperDisconnectNotify(QQuickTextDocument* self, const QMetaMethod* signal);
 QObject* QQuickTextDocument_Sender(const QQuickTextDocument* self);
-void QQuickTextDocument_OnSender(const QQuickTextDocument* self, intptr_t slot);
-QObject* QQuickTextDocument_SuperSender(const QQuickTextDocument* self);
 int QQuickTextDocument_SenderSignalIndex(const QQuickTextDocument* self);
-void QQuickTextDocument_OnSenderSignalIndex(const QQuickTextDocument* self, intptr_t slot);
-int QQuickTextDocument_SuperSenderSignalIndex(const QQuickTextDocument* self);
 int QQuickTextDocument_Receivers(const QQuickTextDocument* self, const char* signal);
-void QQuickTextDocument_OnReceivers(const QQuickTextDocument* self, intptr_t slot);
-int QQuickTextDocument_SuperReceivers(const QQuickTextDocument* self, const char* signal);
 bool QQuickTextDocument_IsSignalConnected(const QQuickTextDocument* self, const QMetaMethod* signal);
-void QQuickTextDocument_OnIsSignalConnected(const QQuickTextDocument* self, intptr_t slot);
-bool QQuickTextDocument_SuperIsSignalConnected(const QQuickTextDocument* self, const QMetaMethod* signal);
 void QQuickTextDocument_Delete(QQuickTextDocument* self);
 
 #ifdef __cplusplus

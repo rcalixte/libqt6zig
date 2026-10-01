@@ -321,81 +321,81 @@ void QLabel_Connect_LinkHovered(QLabel* self, intptr_t slot) {
 
 bool QLabel_Event(QLabel* self, QEvent* e) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         return vqlabel->event(e);
     }
-    return {};
+    qFatal("Error: Protected method QLabel::event called without a directly constructed type");
 }
 
 void QLabel_KeyPressEvent(QLabel* self, QKeyEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->keyPressEvent(ev);
     }
 }
 
 void QLabel_PaintEvent(QLabel* self, QPaintEvent* param1) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->paintEvent(param1);
     }
 }
 
 void QLabel_ChangeEvent(QLabel* self, QEvent* param1) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->changeEvent(param1);
     }
 }
 
 void QLabel_MousePressEvent(QLabel* self, QMouseEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->mousePressEvent(ev);
     }
 }
 
 void QLabel_MouseMoveEvent(QLabel* self, QMouseEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->mouseMoveEvent(ev);
     }
 }
 
 void QLabel_MouseReleaseEvent(QLabel* self, QMouseEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->mouseReleaseEvent(ev);
     }
 }
 
 void QLabel_ContextMenuEvent(QLabel* self, QContextMenuEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->contextMenuEvent(ev);
     }
 }
 
 void QLabel_FocusInEvent(QLabel* self, QFocusEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->focusInEvent(ev);
     }
 }
 
 void QLabel_FocusOutEvent(QLabel* self, QFocusEvent* ev) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->focusOutEvent(ev);
     }
 }
 
 bool QLabel_FocusNextPrevChild(QLabel* self, bool next) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         return vqlabel->focusNextPrevChild(next);
     }
-    return {};
+    qFatal("Error: Protected method QLabel::focusNextPrevChild called without a directly constructed type");
 }
 
 libqt_string QLabel_Tr2(const char* s, const char* c) {
@@ -424,1570 +424,1080 @@ libqt_string QLabel_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QLabel_SuperMetaObject(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_MetaObject_IsBase(true);
-        return (QMetaObject*)vqlabel->metaObject();
-    } else {
-        return (QMetaObject*)self->QLabel::metaObject();
-    }
+    return (QMetaObject*)self->QLabel::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnMetaObject(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_MetaObject_Callback(reinterpret_cast<VirtualQLabel::QLabel_MetaObject_Callback>(slot));
+void QLabel_OnMetaObject(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_metaobject_callback = reinterpret_cast<VirtualQLabel::QLabel_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QLabel_SuperMetacast(QLabel* self, const char* param1) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Metacast_IsBase(true);
-        return vqlabel->qt_metacast(param1);
-    } else {
-        return self->QLabel::qt_metacast(param1);
-    }
+    return self->QLabel::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMetacast(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Metacast_Callback(reinterpret_cast<VirtualQLabel::QLabel_Metacast_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_metacast_callback = reinterpret_cast<VirtualQLabel::QLabel_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLabel_SuperMetacall(QLabel* self, int param1, int param2, void** param3) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Metacall_IsBase(true);
-        return vqlabel->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QLabel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QLabel::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMetacall(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Metacall_Callback(reinterpret_cast<VirtualQLabel::QLabel_Metacall_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_metacall_callback = reinterpret_cast<VirtualQLabel::QLabel_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QLabel_SuperSizeHint(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_SizeHint_IsBase(true);
-        return new QSize(vqlabel->sizeHint());
-    } else {
-        return new QSize(((VirtualQLabel*)self)->sizeHint());
-    }
+    return new QSize(self->QLabel::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnSizeHint(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_SizeHint_Callback(reinterpret_cast<VirtualQLabel::QLabel_SizeHint_Callback>(slot));
+void QLabel_OnSizeHint(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_sizehint_callback = reinterpret_cast<VirtualQLabel::QLabel_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QLabel_SuperMinimumSizeHint(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_MinimumSizeHint_IsBase(true);
-        return new QSize(vqlabel->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQLabel*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QLabel::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnMinimumSizeHint(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_MinimumSizeHint_Callback(reinterpret_cast<VirtualQLabel::QLabel_MinimumSizeHint_Callback>(slot));
+void QLabel_OnMinimumSizeHint(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_minimumsizehint_callback = reinterpret_cast<VirtualQLabel::QLabel_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 int QLabel_SuperHeightForWidth(const QLabel* self, int param1) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_HeightForWidth_IsBase(true);
-        return vqlabel->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QLabel::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QLabel::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnHeightForWidth(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_HeightForWidth_Callback(reinterpret_cast<VirtualQLabel::QLabel_HeightForWidth_Callback>(slot));
+void QLabel_OnHeightForWidth(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_heightforwidth_callback = reinterpret_cast<VirtualQLabel::QLabel_HeightForWidth_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QLabel_SuperEvent(QLabel* self, QEvent* e) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Event_IsBase(true);
-        return vqlabel->event(e);
-    } else {
-        return ((VirtualQLabel*)self)->event(e);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        return vqlabel->QLabel::event(e);
+    } else
+        qFatal("Error: Protected virtual method QLabel::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Event_Callback(reinterpret_cast<VirtualQLabel::QLabel_Event_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_event_callback = reinterpret_cast<VirtualQLabel::QLabel_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperKeyPressEvent(QLabel* self, QKeyEvent* ev) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_KeyPressEvent_IsBase(true);
-        vqlabel->keyPressEvent(ev);
-    } else {
-        ((VirtualQLabel*)self)->keyPressEvent(ev);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::keyPressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method QLabel::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnKeyPressEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_KeyPressEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_KeyPressEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_keypressevent_callback = reinterpret_cast<VirtualQLabel::QLabel_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperPaintEvent(QLabel* self, QPaintEvent* param1) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_PaintEvent_IsBase(true);
-        vqlabel->paintEvent(param1);
-    } else {
-        ((VirtualQLabel*)self)->paintEvent(param1);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QLabel::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnPaintEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_PaintEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_PaintEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_paintevent_callback = reinterpret_cast<VirtualQLabel::QLabel_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperChangeEvent(QLabel* self, QEvent* param1) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_ChangeEvent_IsBase(true);
-        vqlabel->changeEvent(param1);
-    } else {
-        ((VirtualQLabel*)self)->changeEvent(param1);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QLabel::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnChangeEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_ChangeEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ChangeEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_changeevent_callback = reinterpret_cast<VirtualQLabel::QLabel_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperMousePressEvent(QLabel* self, QMouseEvent* ev) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_MousePressEvent_IsBase(true);
-        vqlabel->mousePressEvent(ev);
-    } else {
-        ((VirtualQLabel*)self)->mousePressEvent(ev);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::mousePressEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method QLabel::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMousePressEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_MousePressEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MousePressEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_mousepressevent_callback = reinterpret_cast<VirtualQLabel::QLabel_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperMouseMoveEvent(QLabel* self, QMouseEvent* ev) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_MouseMoveEvent_IsBase(true);
-        vqlabel->mouseMoveEvent(ev);
-    } else {
-        ((VirtualQLabel*)self)->mouseMoveEvent(ev);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::mouseMoveEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method QLabel::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMouseMoveEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_MouseMoveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MouseMoveEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_mousemoveevent_callback = reinterpret_cast<VirtualQLabel::QLabel_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperMouseReleaseEvent(QLabel* self, QMouseEvent* ev) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_MouseReleaseEvent_IsBase(true);
-        vqlabel->mouseReleaseEvent(ev);
-    } else {
-        ((VirtualQLabel*)self)->mouseReleaseEvent(ev);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::mouseReleaseEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method QLabel::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMouseReleaseEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_mousereleaseevent_callback = reinterpret_cast<VirtualQLabel::QLabel_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperContextMenuEvent(QLabel* self, QContextMenuEvent* ev) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_ContextMenuEvent_IsBase(true);
-        vqlabel->contextMenuEvent(ev);
-    } else {
-        ((VirtualQLabel*)self)->contextMenuEvent(ev);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::contextMenuEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method QLabel::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnContextMenuEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_ContextMenuEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ContextMenuEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_contextmenuevent_callback = reinterpret_cast<VirtualQLabel::QLabel_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperFocusInEvent(QLabel* self, QFocusEvent* ev) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_FocusInEvent_IsBase(true);
-        vqlabel->focusInEvent(ev);
-    } else {
-        ((VirtualQLabel*)self)->focusInEvent(ev);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::focusInEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method QLabel::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnFocusInEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_FocusInEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusInEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_focusinevent_callback = reinterpret_cast<VirtualQLabel::QLabel_FocusInEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QLabel_SuperFocusOutEvent(QLabel* self, QFocusEvent* ev) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_FocusOutEvent_IsBase(true);
-        vqlabel->focusOutEvent(ev);
-    } else {
-        ((VirtualQLabel*)self)->focusOutEvent(ev);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::focusOutEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method QLabel::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnFocusOutEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_FocusOutEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusOutEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_focusoutevent_callback = reinterpret_cast<VirtualQLabel::QLabel_FocusOutEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QLabel_SuperFocusNextPrevChild(QLabel* self, bool next) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_FocusNextPrevChild_IsBase(true);
-        return vqlabel->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQLabel*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        return vqlabel->QLabel::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QLabel::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnFocusNextPrevChild(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_focusnextprevchild_callback = reinterpret_cast<VirtualQLabel::QLabel_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_InitStyleOption(const QLabel* self, QStyleOptionFrame* option) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->initStyleOption(option);
     } else {
-        ((VirtualQLabel*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QLabel::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperInitStyleOption(const QLabel* self, QStyleOptionFrame* option) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_InitStyleOption_IsBase(true);
-        vqlabel->initStyleOption(option);
-    } else {
-        ((VirtualQLabel*)self)->initStyleOption(option);
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        vqlabel->QLabel::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QLabel::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnInitStyleOption(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_InitStyleOption_Callback(reinterpret_cast<VirtualQLabel::QLabel_InitStyleOption_Callback>(slot));
+void QLabel_OnInitStyleOption(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_initstyleoption_callback = reinterpret_cast<VirtualQLabel::QLabel_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QLabel_DevType(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->devType();
-    } else {
-        return self->QLabel::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QLabel_SuperDevType(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_DevType_IsBase(true);
-        return vqlabel->devType();
-    } else {
-        return self->QLabel::devType();
-    }
+    return self->QLabel::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnDevType(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_DevType_Callback(reinterpret_cast<VirtualQLabel::QLabel_DevType_Callback>(slot));
+void QLabel_OnDevType(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_devtype_callback = reinterpret_cast<VirtualQLabel::QLabel_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_SetVisible(QLabel* self, bool visible) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setVisible(visible);
-    } else {
-        self->QLabel::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QLabel_SuperSetVisible(QLabel* self, bool visible) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_SetVisible_IsBase(true);
-        vqlabel->setVisible(visible);
-    } else {
-        self->QLabel::setVisible(visible);
-    }
+    self->QLabel::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnSetVisible(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_SetVisible_Callback(reinterpret_cast<VirtualQLabel::QLabel_SetVisible_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_setvisible_callback = reinterpret_cast<VirtualQLabel::QLabel_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLabel_HasHeightForWidth(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->hasHeightForWidth();
-    } else {
-        return self->QLabel::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QLabel_SuperHasHeightForWidth(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_HasHeightForWidth_IsBase(true);
-        return vqlabel->hasHeightForWidth();
-    } else {
-        return self->QLabel::hasHeightForWidth();
-    }
+    return self->QLabel::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnHasHeightForWidth(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_HasHeightForWidth_Callback(reinterpret_cast<VirtualQLabel::QLabel_HasHeightForWidth_Callback>(slot));
+void QLabel_OnHasHeightForWidth(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_hasheightforwidth_callback = reinterpret_cast<VirtualQLabel::QLabel_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QLabel_PaintEngine(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->paintEngine();
-    } else {
-        return self->QLabel::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QLabel_SuperPaintEngine(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_PaintEngine_IsBase(true);
-        return vqlabel->paintEngine();
-    } else {
-        return self->QLabel::paintEngine();
-    }
+    return self->QLabel::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnPaintEngine(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_PaintEngine_Callback(reinterpret_cast<VirtualQLabel::QLabel_PaintEngine_Callback>(slot));
+void QLabel_OnPaintEngine(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_paintengine_callback = reinterpret_cast<VirtualQLabel::QLabel_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_MouseDoubleClickEvent(QLabel* self, QMouseEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQLabel*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QLabel::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperMouseDoubleClickEvent(QLabel* self, QMouseEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_MouseDoubleClickEvent_IsBase(true);
-        vqlabel->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMouseDoubleClickEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_mousedoubleclickevent_callback = reinterpret_cast<VirtualQLabel::QLabel_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_WheelEvent(QLabel* self, QWheelEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->wheelEvent(event);
     } else {
-        ((VirtualQLabel*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QLabel::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperWheelEvent(QLabel* self, QWheelEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_WheelEvent_IsBase(true);
-        vqlabel->wheelEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->wheelEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnWheelEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_WheelEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_WheelEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_wheelevent_callback = reinterpret_cast<VirtualQLabel::QLabel_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_KeyReleaseEvent(QLabel* self, QKeyEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->keyReleaseEvent(event);
     } else {
-        ((VirtualQLabel*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QLabel::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperKeyReleaseEvent(QLabel* self, QKeyEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_KeyReleaseEvent_IsBase(true);
-        vqlabel->keyReleaseEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnKeyReleaseEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_keyreleaseevent_callback = reinterpret_cast<VirtualQLabel::QLabel_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_EnterEvent(QLabel* self, QEnterEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->enterEvent(event);
     } else {
-        ((VirtualQLabel*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QLabel::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperEnterEvent(QLabel* self, QEnterEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_EnterEvent_IsBase(true);
-        vqlabel->enterEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->enterEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnEnterEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_EnterEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_EnterEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_enterevent_callback = reinterpret_cast<VirtualQLabel::QLabel_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_LeaveEvent(QLabel* self, QEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->leaveEvent(event);
     } else {
-        ((VirtualQLabel*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QLabel::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperLeaveEvent(QLabel* self, QEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_LeaveEvent_IsBase(true);
-        vqlabel->leaveEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->leaveEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnLeaveEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_LeaveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_LeaveEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_leaveevent_callback = reinterpret_cast<VirtualQLabel::QLabel_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_MoveEvent(QLabel* self, QMoveEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->moveEvent(event);
     } else {
-        ((VirtualQLabel*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QLabel::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperMoveEvent(QLabel* self, QMoveEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_MoveEvent_IsBase(true);
-        vqlabel->moveEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->moveEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnMoveEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_MoveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_MoveEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_moveevent_callback = reinterpret_cast<VirtualQLabel::QLabel_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_ResizeEvent(QLabel* self, QResizeEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->resizeEvent(event);
     } else {
-        ((VirtualQLabel*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QLabel::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperResizeEvent(QLabel* self, QResizeEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_ResizeEvent_IsBase(true);
-        vqlabel->resizeEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->resizeEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnResizeEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_ResizeEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ResizeEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_resizeevent_callback = reinterpret_cast<VirtualQLabel::QLabel_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_CloseEvent(QLabel* self, QCloseEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->closeEvent(event);
     } else {
-        ((VirtualQLabel*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QLabel::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperCloseEvent(QLabel* self, QCloseEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_CloseEvent_IsBase(true);
-        vqlabel->closeEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->closeEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnCloseEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_CloseEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_CloseEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_closeevent_callback = reinterpret_cast<VirtualQLabel::QLabel_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_TabletEvent(QLabel* self, QTabletEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->tabletEvent(event);
     } else {
-        ((VirtualQLabel*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QLabel::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperTabletEvent(QLabel* self, QTabletEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_TabletEvent_IsBase(true);
-        vqlabel->tabletEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->tabletEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnTabletEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_TabletEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_TabletEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_tabletevent_callback = reinterpret_cast<VirtualQLabel::QLabel_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_ActionEvent(QLabel* self, QActionEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->actionEvent(event);
     } else {
-        ((VirtualQLabel*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QLabel::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperActionEvent(QLabel* self, QActionEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_ActionEvent_IsBase(true);
-        vqlabel->actionEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->actionEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnActionEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_ActionEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ActionEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_actionevent_callback = reinterpret_cast<VirtualQLabel::QLabel_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_DragEnterEvent(QLabel* self, QDragEnterEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->dragEnterEvent(event);
     } else {
-        ((VirtualQLabel*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QLabel::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperDragEnterEvent(QLabel* self, QDragEnterEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_DragEnterEvent_IsBase(true);
-        vqlabel->dragEnterEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDragEnterEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_DragEnterEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_DragEnterEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_dragenterevent_callback = reinterpret_cast<VirtualQLabel::QLabel_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_DragMoveEvent(QLabel* self, QDragMoveEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->dragMoveEvent(event);
     } else {
-        ((VirtualQLabel*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QLabel::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperDragMoveEvent(QLabel* self, QDragMoveEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_DragMoveEvent_IsBase(true);
-        vqlabel->dragMoveEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDragMoveEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_DragMoveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_DragMoveEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_dragmoveevent_callback = reinterpret_cast<VirtualQLabel::QLabel_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_DragLeaveEvent(QLabel* self, QDragLeaveEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->dragLeaveEvent(event);
     } else {
-        ((VirtualQLabel*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QLabel::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperDragLeaveEvent(QLabel* self, QDragLeaveEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_DragLeaveEvent_IsBase(true);
-        vqlabel->dragLeaveEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDragLeaveEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_DragLeaveEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_DragLeaveEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_dragleaveevent_callback = reinterpret_cast<VirtualQLabel::QLabel_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_DropEvent(QLabel* self, QDropEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->dropEvent(event);
     } else {
-        ((VirtualQLabel*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QLabel::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperDropEvent(QLabel* self, QDropEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_DropEvent_IsBase(true);
-        vqlabel->dropEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->dropEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDropEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_DropEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_DropEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_dropevent_callback = reinterpret_cast<VirtualQLabel::QLabel_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_ShowEvent(QLabel* self, QShowEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->showEvent(event);
     } else {
-        ((VirtualQLabel*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QLabel::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperShowEvent(QLabel* self, QShowEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_ShowEvent_IsBase(true);
-        vqlabel->showEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->showEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnShowEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_ShowEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ShowEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_showevent_callback = reinterpret_cast<VirtualQLabel::QLabel_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_HideEvent(QLabel* self, QHideEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->hideEvent(event);
     } else {
-        ((VirtualQLabel*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QLabel::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperHideEvent(QLabel* self, QHideEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_HideEvent_IsBase(true);
-        vqlabel->hideEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->hideEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnHideEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_HideEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_HideEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_hideevent_callback = reinterpret_cast<VirtualQLabel::QLabel_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLabel_NativeEvent(QLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
+    if (vqlabel) {
         return vqlabel->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQLabel*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QLabel::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QLabel_SuperNativeEvent(QLabel* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_NativeEvent_IsBase(true);
-        return vqlabel->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQLabel*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        return vqlabel->QLabel::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QLabel::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnNativeEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_NativeEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_NativeEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_nativeevent_callback = reinterpret_cast<VirtualQLabel::QLabel_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QLabel_Metric(const QLabel* self, int param1) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         return vqlabel->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQLabel*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QLabel::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QLabel_SuperMetric(const QLabel* self, int param1) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Metric_IsBase(true);
-        return vqlabel->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQLabel*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        return vqlabel->QLabel::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QLabel::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnMetric(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Metric_Callback(reinterpret_cast<VirtualQLabel::QLabel_Metric_Callback>(slot));
+void QLabel_OnMetric(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_metric_callback = reinterpret_cast<VirtualQLabel::QLabel_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_InitPainter(const QLabel* self, QPainter* painter) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->initPainter(painter);
     } else {
-        ((VirtualQLabel*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QLabel::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperInitPainter(const QLabel* self, QPainter* painter) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_InitPainter_IsBase(true);
-        vqlabel->initPainter(painter);
-    } else {
-        ((VirtualQLabel*)self)->initPainter(painter);
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        vqlabel->QLabel::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QLabel::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnInitPainter(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_InitPainter_Callback(reinterpret_cast<VirtualQLabel::QLabel_InitPainter_Callback>(slot));
+void QLabel_OnInitPainter(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_initpainter_callback = reinterpret_cast<VirtualQLabel::QLabel_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QLabel_Redirected(const QLabel* self, QPoint* offset) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         return vqlabel->redirected(offset);
     } else {
-        return ((VirtualQLabel*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QLabel::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QLabel_SuperRedirected(const QLabel* self, QPoint* offset) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Redirected_IsBase(true);
-        return vqlabel->redirected(offset);
-    } else {
-        return ((VirtualQLabel*)self)->redirected(offset);
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        return vqlabel->QLabel::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QLabel::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnRedirected(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Redirected_Callback(reinterpret_cast<VirtualQLabel::QLabel_Redirected_Callback>(slot));
+void QLabel_OnRedirected(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_redirected_callback = reinterpret_cast<VirtualQLabel::QLabel_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QLabel_SharedPainter(const QLabel* self) {
     auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         return vqlabel->sharedPainter();
     } else {
-        return ((VirtualQLabel*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QLabel::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QLabel_SuperSharedPainter(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_SharedPainter_IsBase(true);
-        return vqlabel->sharedPainter();
-    } else {
-        return ((VirtualQLabel*)self)->sharedPainter();
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        return vqlabel->QLabel::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QLabel::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnSharedPainter(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_SharedPainter_Callback(reinterpret_cast<VirtualQLabel::QLabel_SharedPainter_Callback>(slot));
+void QLabel_OnSharedPainter(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_sharedpainter_callback = reinterpret_cast<VirtualQLabel::QLabel_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_InputMethodEvent(QLabel* self, QInputMethodEvent* param1) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->inputMethodEvent(param1);
     } else {
-        ((VirtualQLabel*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QLabel::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperInputMethodEvent(QLabel* self, QInputMethodEvent* param1) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_InputMethodEvent_IsBase(true);
-        vqlabel->inputMethodEvent(param1);
-    } else {
-        ((VirtualQLabel*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QLabel::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnInputMethodEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_InputMethodEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_InputMethodEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_inputmethodevent_callback = reinterpret_cast<VirtualQLabel::QLabel_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QLabel_InputMethodQuery(const QLabel* self, int param1) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return new QVariant(vqlabel->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQLabel*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QLabel_SuperInputMethodQuery(const QLabel* self, int param1) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_InputMethodQuery_IsBase(true);
-        return new QVariant(vqlabel->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQLabel*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QLabel::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLabel_OnInputMethodQuery(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_InputMethodQuery_Callback(reinterpret_cast<VirtualQLabel::QLabel_InputMethodQuery_Callback>(slot));
+void QLabel_OnInputMethodQuery(QLabel* self, intptr_t slot) {
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self)))
+        vqlabel->qlabel_inputmethodquery_callback = reinterpret_cast<VirtualQLabel::QLabel_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QLabel_EventFilter(QLabel* self, QObject* watched, QEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->eventFilter(watched, event);
-    } else {
-        return self->QLabel::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QLabel_SuperEventFilter(QLabel* self, QObject* watched, QEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_EventFilter_IsBase(true);
-        return vqlabel->eventFilter(watched, event);
-    } else {
-        return self->QLabel::eventFilter(watched, event);
-    }
+    return self->QLabel::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnEventFilter(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_EventFilter_Callback(reinterpret_cast<VirtualQLabel::QLabel_EventFilter_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_eventfilter_callback = reinterpret_cast<VirtualQLabel::QLabel_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_TimerEvent(QLabel* self, QTimerEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->timerEvent(event);
     } else {
-        ((VirtualQLabel*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QLabel::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperTimerEvent(QLabel* self, QTimerEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_TimerEvent_IsBase(true);
-        vqlabel->timerEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->timerEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnTimerEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_TimerEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_TimerEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_timerevent_callback = reinterpret_cast<VirtualQLabel::QLabel_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_ChildEvent(QLabel* self, QChildEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->childEvent(event);
     } else {
-        ((VirtualQLabel*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QLabel::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperChildEvent(QLabel* self, QChildEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_ChildEvent_IsBase(true);
-        vqlabel->childEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->childEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnChildEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_ChildEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_ChildEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_childevent_callback = reinterpret_cast<VirtualQLabel::QLabel_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_CustomEvent(QLabel* self, QEvent* event) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->customEvent(event);
     } else {
-        ((VirtualQLabel*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QLabel::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperCustomEvent(QLabel* self, QEvent* event) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_CustomEvent_IsBase(true);
-        vqlabel->customEvent(event);
-    } else {
-        ((VirtualQLabel*)self)->customEvent(event);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QLabel::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnCustomEvent(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_CustomEvent_Callback(reinterpret_cast<VirtualQLabel::QLabel_CustomEvent_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_customevent_callback = reinterpret_cast<VirtualQLabel::QLabel_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_ConnectNotify(QLabel* self, const QMetaMethod* signal) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->connectNotify(*signal);
     } else {
-        ((VirtualQLabel*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QLabel::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperConnectNotify(QLabel* self, const QMetaMethod* signal) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_ConnectNotify_IsBase(true);
-        vqlabel->connectNotify(*signal);
-    } else {
-        ((VirtualQLabel*)self)->connectNotify(*signal);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QLabel::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnConnectNotify(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_ConnectNotify_Callback(reinterpret_cast<VirtualQLabel::QLabel_ConnectNotify_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_connectnotify_callback = reinterpret_cast<VirtualQLabel::QLabel_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QLabel_DisconnectNotify(QLabel* self, const QMetaMethod* signal) {
     auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
+    if (vqlabel) {
         vqlabel->disconnectNotify(*signal);
     } else {
-        ((VirtualQLabel*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QLabel::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QLabel_SuperDisconnectNotify(QLabel* self, const QMetaMethod* signal) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_DisconnectNotify_IsBase(true);
-        vqlabel->disconnectNotify(*signal);
-    } else {
-        ((VirtualQLabel*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->QLabel::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QLabel::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QLabel_OnDisconnectNotify(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_DisconnectNotify_Callback(reinterpret_cast<VirtualQLabel::QLabel_DisconnectNotify_Callback>(slot));
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self))
+        vqlabel->qlabel_disconnectnotify_callback = reinterpret_cast<VirtualQLabel::QLabel_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QLabel_DrawFrame(QLabel* self, QPainter* param1) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->drawFrame(param1);
-    } else {
-        ((VirtualQLabel*)self)->drawFrame(param1);
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->VirtualQLabel::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QLabel::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QLabel_SuperDrawFrame(QLabel* self, QPainter* param1) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_DrawFrame_IsBase(true);
-        vqlabel->drawFrame(param1);
-    } else {
-        ((VirtualQLabel*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnDrawFrame(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_DrawFrame_Callback(reinterpret_cast<VirtualQLabel::QLabel_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QLabel_UpdateMicroFocus(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->updateMicroFocus();
-    } else {
-        ((VirtualQLabel*)self)->updateMicroFocus();
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->VirtualQLabel::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QLabel::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QLabel_SuperUpdateMicroFocus(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_UpdateMicroFocus_IsBase(true);
-        vqlabel->updateMicroFocus();
-    } else {
-        ((VirtualQLabel*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnUpdateMicroFocus(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQLabel::QLabel_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QLabel_Create(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->create();
-    } else {
-        ((VirtualQLabel*)self)->create();
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->VirtualQLabel::create();
+    } else
+        qFatal("Error: Protected method QLabel::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QLabel_SuperCreate(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Create_IsBase(true);
-        vqlabel->create();
-    } else {
-        ((VirtualQLabel*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnCreate(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Create_Callback(reinterpret_cast<VirtualQLabel::QLabel_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QLabel_Destroy(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->destroy();
-    } else {
-        ((VirtualQLabel*)self)->destroy();
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        vqlabel->VirtualQLabel::destroy();
+    } else
+        qFatal("Error: Protected method QLabel::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QLabel_SuperDestroy(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Destroy_IsBase(true);
-        vqlabel->destroy();
-    } else {
-        ((VirtualQLabel*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnDestroy(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Destroy_Callback(reinterpret_cast<VirtualQLabel::QLabel_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QLabel_FocusNextChild(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->focusNextChild();
-    } else {
-        return ((VirtualQLabel*)self)->focusNextChild();
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        return vqlabel->VirtualQLabel::focusNextChild();
+    } else
+        qFatal("Error: Protected method QLabel::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QLabel_SuperFocusNextChild(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_FocusNextChild_IsBase(true);
-        return vqlabel->focusNextChild();
-    } else {
-        return ((VirtualQLabel*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnFocusNextChild(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_FocusNextChild_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QLabel_FocusPreviousChild(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->focusPreviousChild();
-    } else {
-        return ((VirtualQLabel*)self)->focusPreviousChild();
-    }
+    if (auto* vqlabel = dynamic_cast<VirtualQLabel*>(self)) {
+        return vqlabel->VirtualQLabel::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QLabel::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QLabel_SuperFocusPreviousChild(QLabel* self) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_FocusPreviousChild_IsBase(true);
-        return vqlabel->focusPreviousChild();
-    } else {
-        return ((VirtualQLabel*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnFocusPreviousChild(QLabel* self, intptr_t slot) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_FocusPreviousChild_Callback(reinterpret_cast<VirtualQLabel::QLabel_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QLabel_Sender(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->sender();
-    } else {
-        return ((VirtualQLabel*)self)->sender();
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        return vqlabel->VirtualQLabel::sender();
+    } else
+        qFatal("Error: Protected method QLabel::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QLabel_SuperSender(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Sender_IsBase(true);
-        return vqlabel->sender();
-    } else {
-        return ((VirtualQLabel*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnSender(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Sender_Callback(reinterpret_cast<VirtualQLabel::QLabel_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QLabel_SenderSignalIndex(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->senderSignalIndex();
-    } else {
-        return ((VirtualQLabel*)self)->senderSignalIndex();
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        return vqlabel->VirtualQLabel::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QLabel::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QLabel_SuperSenderSignalIndex(const QLabel* self) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_SenderSignalIndex_IsBase(true);
-        return vqlabel->senderSignalIndex();
-    } else {
-        return ((VirtualQLabel*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnSenderSignalIndex(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLabel::QLabel_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QLabel_Receivers(const QLabel* self, const char* signal) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->receivers(signal);
-    } else {
-        return ((VirtualQLabel*)self)->receivers(signal);
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        return vqlabel->VirtualQLabel::receivers(signal);
+    } else
+        qFatal("Error: Protected method QLabel::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QLabel_SuperReceivers(const QLabel* self, const char* signal) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_Receivers_IsBase(true);
-        return vqlabel->receivers(signal);
-    } else {
-        return ((VirtualQLabel*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnReceivers(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_Receivers_Callback(reinterpret_cast<VirtualQLabel::QLabel_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QLabel_IsSignalConnected(const QLabel* self, const QMetaMethod* signal) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQLabel*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        return vqlabel->VirtualQLabel::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QLabel::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QLabel_SuperIsSignalConnected(const QLabel* self, const QMetaMethod* signal) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_IsSignalConnected_IsBase(true);
-        return vqlabel->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQLabel*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnIsSignalConnected(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_IsSignalConnected_Callback(reinterpret_cast<VirtualQLabel::QLabel_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QLabel_GetDecodedMetricF(const QLabel* self, int metricA, int metricB) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return vqlabel->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQLabel*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QLabel_SuperGetDecodedMetricF(const QLabel* self, int metricA, int metricB) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        vqlabel->setQLabel_GetDecodedMetricF_IsBase(true);
-        return vqlabel->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQLabel*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QLabel_OnGetDecodedMetricF(const QLabel* self, intptr_t slot) {
-    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
-    if (vqlabel && vqlabel->isVirtualQLabel)
-        vqlabel->setQLabel_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQLabel::QLabel_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self))) {
+        return vqlabel->VirtualQLabel::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QLabel::getDecodedMetricF called without a directly constructed type");
 }
 
 void QLabel_Delete(QLabel* self) {

@@ -86,10 +86,10 @@ void KCommandBar_Show(KCommandBar* self) {
 
 bool KCommandBar_EventFilter(KCommandBar* self, QObject* obj, QEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         return vkcommandbar->eventFilter(obj, event);
     }
-    return {};
+    qFatal("Error: Protected method KCommandBar::eventFilter called without a directly constructed type");
 }
 
 libqt_string KCommandBar_Tr2(const char* s, const char* c) {
@@ -118,1700 +118,1203 @@ libqt_string KCommandBar_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KCommandBar_SuperMetaObject(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_MetaObject_IsBase(true);
-        return (QMetaObject*)vkcommandbar->metaObject();
-    } else {
-        return (QMetaObject*)self->KCommandBar::metaObject();
-    }
+    return (QMetaObject*)self->KCommandBar::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnMetaObject(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_MetaObject_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MetaObject_Callback>(slot));
+void KCommandBar_OnMetaObject(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_metaobject_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KCommandBar_SuperMetacast(KCommandBar* self, const char* param1) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Metacast_IsBase(true);
-        return vkcommandbar->qt_metacast(param1);
-    } else {
-        return self->KCommandBar::qt_metacast(param1);
-    }
+    return self->KCommandBar::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMetacast(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Metacast_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Metacast_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_metacast_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KCommandBar_SuperMetacall(KCommandBar* self, int param1, int param2, void** param3) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Metacall_IsBase(true);
-        return vkcommandbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KCommandBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KCommandBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMetacall(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Metacall_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Metacall_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_metacall_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KCommandBar_SuperEventFilter(KCommandBar* self, QObject* obj, QEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_EventFilter_IsBase(true);
-        return vkcommandbar->eventFilter(obj, event);
-    } else {
-        return ((VirtualKCommandBar*)self)->eventFilter(obj, event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        return vkcommandbar->KCommandBar::eventFilter(obj, event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnEventFilter(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_EventFilter_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_EventFilter_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_eventfilter_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KCommandBar_SizeHint(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return new QSize(vkcommandbar->sizeHint());
-    } else {
-        return new QSize(((VirtualKCommandBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KCommandBar_SuperSizeHint(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_SizeHint_IsBase(true);
-        return new QSize(vkcommandbar->sizeHint());
-    } else {
-        return new QSize(((VirtualKCommandBar*)self)->sizeHint());
-    }
+    return new QSize(self->KCommandBar::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnSizeHint(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_SizeHint_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_SizeHint_Callback>(slot));
+void KCommandBar_OnSizeHint(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_sizehint_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCommandBar_Event(KCommandBar* self, QEvent* e) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         return vkcommandbar->event(e);
     } else {
-        return ((VirtualKCommandBar*)self)->event(e);
+        qFatal("Error: Protected virtual method KCommandBar::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCommandBar_SuperEvent(KCommandBar* self, QEvent* e) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Event_IsBase(true);
-        return vkcommandbar->event(e);
-    } else {
-        return ((VirtualKCommandBar*)self)->event(e);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        return vkcommandbar->KCommandBar::event(e);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Event_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Event_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_event_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_PaintEvent(KCommandBar* self, QPaintEvent* param1) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->paintEvent(param1);
     } else {
-        ((VirtualKCommandBar*)self)->paintEvent(param1);
+        qFatal("Error: Protected virtual method KCommandBar::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperPaintEvent(KCommandBar* self, QPaintEvent* param1) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_PaintEvent_IsBase(true);
-        vkcommandbar->paintEvent(param1);
-    } else {
-        ((VirtualKCommandBar*)self)->paintEvent(param1);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnPaintEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_PaintEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_PaintEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_paintevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_ChangeEvent(KCommandBar* self, QEvent* param1) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->changeEvent(param1);
     } else {
-        ((VirtualKCommandBar*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KCommandBar::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperChangeEvent(KCommandBar* self, QEvent* param1) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_ChangeEvent_IsBase(true);
-        vkcommandbar->changeEvent(param1);
-    } else {
-        ((VirtualKCommandBar*)self)->changeEvent(param1);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnChangeEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_ChangeEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ChangeEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_changeevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_InitStyleOption(const KCommandBar* self, QStyleOptionFrame* option) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->initStyleOption(option);
     } else {
-        ((VirtualKCommandBar*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KCommandBar::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperInitStyleOption(const KCommandBar* self, QStyleOptionFrame* option) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_InitStyleOption_IsBase(true);
-        vkcommandbar->initStyleOption(option);
-    } else {
-        ((VirtualKCommandBar*)self)->initStyleOption(option);
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        vkcommandbar->KCommandBar::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnInitStyleOption(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_InitStyleOption_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_InitStyleOption_Callback>(slot));
+void KCommandBar_OnInitStyleOption(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_initstyleoption_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCommandBar_DevType(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->devType();
-    } else {
-        return self->KCommandBar::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KCommandBar_SuperDevType(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_DevType_IsBase(true);
-        return vkcommandbar->devType();
-    } else {
-        return self->KCommandBar::devType();
-    }
+    return self->KCommandBar::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnDevType(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_DevType_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DevType_Callback>(slot));
+void KCommandBar_OnDevType(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_devtype_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_SetVisible(KCommandBar* self, bool visible) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setVisible(visible);
-    } else {
-        self->KCommandBar::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KCommandBar_SuperSetVisible(KCommandBar* self, bool visible) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_SetVisible_IsBase(true);
-        vkcommandbar->setVisible(visible);
-    } else {
-        self->KCommandBar::setVisible(visible);
-    }
+    self->KCommandBar::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnSetVisible(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_SetVisible_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_SetVisible_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_setvisible_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KCommandBar_MinimumSizeHint(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return new QSize(vkcommandbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCommandBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KCommandBar_SuperMinimumSizeHint(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vkcommandbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCommandBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KCommandBar::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnMinimumSizeHint(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MinimumSizeHint_Callback>(slot));
+void KCommandBar_OnMinimumSizeHint(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_minimumsizehint_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCommandBar_HeightForWidth(const KCommandBar* self, int param1) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KCommandBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KCommandBar_SuperHeightForWidth(const KCommandBar* self, int param1) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_HeightForWidth_IsBase(true);
-        return vkcommandbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KCommandBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KCommandBar::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnHeightForWidth(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_HeightForWidth_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_HeightForWidth_Callback>(slot));
+void KCommandBar_OnHeightForWidth(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_heightforwidth_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCommandBar_HasHeightForWidth(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->hasHeightForWidth();
-    } else {
-        return self->KCommandBar::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KCommandBar_SuperHasHeightForWidth(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_HasHeightForWidth_IsBase(true);
-        return vkcommandbar->hasHeightForWidth();
-    } else {
-        return self->KCommandBar::hasHeightForWidth();
-    }
+    return self->KCommandBar::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnHasHeightForWidth(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_HasHeightForWidth_Callback>(slot));
+void KCommandBar_OnHasHeightForWidth(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_hasheightforwidth_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KCommandBar_PaintEngine(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->paintEngine();
-    } else {
-        return self->KCommandBar::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KCommandBar_SuperPaintEngine(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_PaintEngine_IsBase(true);
-        return vkcommandbar->paintEngine();
-    } else {
-        return self->KCommandBar::paintEngine();
-    }
+    return self->KCommandBar::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnPaintEngine(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_PaintEngine_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_PaintEngine_Callback>(slot));
+void KCommandBar_OnPaintEngine(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_paintengine_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_MousePressEvent(KCommandBar* self, QMouseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->mousePressEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperMousePressEvent(KCommandBar* self, QMouseEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_MousePressEvent_IsBase(true);
-        vkcommandbar->mousePressEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->mousePressEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMousePressEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_MousePressEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MousePressEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_mousepressevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_MouseReleaseEvent(KCommandBar* self, QMouseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->mouseReleaseEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperMouseReleaseEvent(KCommandBar* self, QMouseEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_MouseReleaseEvent_IsBase(true);
-        vkcommandbar->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMouseReleaseEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_mousereleaseevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_MouseDoubleClickEvent(KCommandBar* self, QMouseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperMouseDoubleClickEvent(KCommandBar* self, QMouseEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_MouseDoubleClickEvent_IsBase(true);
-        vkcommandbar->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMouseDoubleClickEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_mousedoubleclickevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_MouseMoveEvent(KCommandBar* self, QMouseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->mouseMoveEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperMouseMoveEvent(KCommandBar* self, QMouseEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_MouseMoveEvent_IsBase(true);
-        vkcommandbar->mouseMoveEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMouseMoveEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseMoveEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_mousemoveevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_WheelEvent(KCommandBar* self, QWheelEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->wheelEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperWheelEvent(KCommandBar* self, QWheelEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_WheelEvent_IsBase(true);
-        vkcommandbar->wheelEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->wheelEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnWheelEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_WheelEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_WheelEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_wheelevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_KeyPressEvent(KCommandBar* self, QKeyEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->keyPressEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperKeyPressEvent(KCommandBar* self, QKeyEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_KeyPressEvent_IsBase(true);
-        vkcommandbar->keyPressEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->keyPressEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnKeyPressEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_KeyPressEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_keypressevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_KeyReleaseEvent(KCommandBar* self, QKeyEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->keyReleaseEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperKeyReleaseEvent(KCommandBar* self, QKeyEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_KeyReleaseEvent_IsBase(true);
-        vkcommandbar->keyReleaseEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnKeyReleaseEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_keyreleaseevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_FocusInEvent(KCommandBar* self, QFocusEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->focusInEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperFocusInEvent(KCommandBar* self, QFocusEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_FocusInEvent_IsBase(true);
-        vkcommandbar->focusInEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->focusInEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnFocusInEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_FocusInEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusInEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_focusinevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_FocusOutEvent(KCommandBar* self, QFocusEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->focusOutEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperFocusOutEvent(KCommandBar* self, QFocusEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_FocusOutEvent_IsBase(true);
-        vkcommandbar->focusOutEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->focusOutEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnFocusOutEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusOutEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_focusoutevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_EnterEvent(KCommandBar* self, QEnterEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->enterEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperEnterEvent(KCommandBar* self, QEnterEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_EnterEvent_IsBase(true);
-        vkcommandbar->enterEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->enterEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnEnterEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_EnterEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_EnterEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_enterevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_LeaveEvent(KCommandBar* self, QEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->leaveEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperLeaveEvent(KCommandBar* self, QEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_LeaveEvent_IsBase(true);
-        vkcommandbar->leaveEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->leaveEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnLeaveEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_LeaveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_LeaveEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_leaveevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_MoveEvent(KCommandBar* self, QMoveEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->moveEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperMoveEvent(KCommandBar* self, QMoveEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_MoveEvent_IsBase(true);
-        vkcommandbar->moveEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->moveEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnMoveEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_MoveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_MoveEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_moveevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_ResizeEvent(KCommandBar* self, QResizeEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->resizeEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperResizeEvent(KCommandBar* self, QResizeEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_ResizeEvent_IsBase(true);
-        vkcommandbar->resizeEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->resizeEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnResizeEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_ResizeEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ResizeEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_resizeevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_CloseEvent(KCommandBar* self, QCloseEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->closeEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperCloseEvent(KCommandBar* self, QCloseEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_CloseEvent_IsBase(true);
-        vkcommandbar->closeEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->closeEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnCloseEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_CloseEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_CloseEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_closeevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_ContextMenuEvent(KCommandBar* self, QContextMenuEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->contextMenuEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperContextMenuEvent(KCommandBar* self, QContextMenuEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_ContextMenuEvent_IsBase(true);
-        vkcommandbar->contextMenuEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnContextMenuEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ContextMenuEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_contextmenuevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_TabletEvent(KCommandBar* self, QTabletEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->tabletEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperTabletEvent(KCommandBar* self, QTabletEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_TabletEvent_IsBase(true);
-        vkcommandbar->tabletEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->tabletEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnTabletEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_TabletEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_TabletEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_tabletevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_ActionEvent(KCommandBar* self, QActionEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->actionEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperActionEvent(KCommandBar* self, QActionEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_ActionEvent_IsBase(true);
-        vkcommandbar->actionEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->actionEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnActionEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_ActionEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ActionEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_actionevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_DragEnterEvent(KCommandBar* self, QDragEnterEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->dragEnterEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperDragEnterEvent(KCommandBar* self, QDragEnterEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_DragEnterEvent_IsBase(true);
-        vkcommandbar->dragEnterEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDragEnterEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DragEnterEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_dragenterevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_DragMoveEvent(KCommandBar* self, QDragMoveEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->dragMoveEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperDragMoveEvent(KCommandBar* self, QDragMoveEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_DragMoveEvent_IsBase(true);
-        vkcommandbar->dragMoveEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDragMoveEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DragMoveEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_dragmoveevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_DragLeaveEvent(KCommandBar* self, QDragLeaveEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->dragLeaveEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperDragLeaveEvent(KCommandBar* self, QDragLeaveEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_DragLeaveEvent_IsBase(true);
-        vkcommandbar->dragLeaveEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDragLeaveEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DragLeaveEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_dragleaveevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_DropEvent(KCommandBar* self, QDropEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->dropEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperDropEvent(KCommandBar* self, QDropEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_DropEvent_IsBase(true);
-        vkcommandbar->dropEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->dropEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDropEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_DropEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DropEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_dropevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_ShowEvent(KCommandBar* self, QShowEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->showEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperShowEvent(KCommandBar* self, QShowEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_ShowEvent_IsBase(true);
-        vkcommandbar->showEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->showEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnShowEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_ShowEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ShowEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_showevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_HideEvent(KCommandBar* self, QHideEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->hideEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperHideEvent(KCommandBar* self, QHideEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_HideEvent_IsBase(true);
-        vkcommandbar->hideEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->hideEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnHideEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_HideEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_HideEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_hideevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCommandBar_NativeEvent(KCommandBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
+    if (vkcommandbar) {
         return vkcommandbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKCommandBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KCommandBar::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCommandBar_SuperNativeEvent(KCommandBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_NativeEvent_IsBase(true);
-        return vkcommandbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKCommandBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        return vkcommandbar->KCommandBar::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnNativeEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_NativeEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_NativeEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_nativeevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KCommandBar_Metric(const KCommandBar* self, int param1) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         return vkcommandbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKCommandBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KCommandBar::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KCommandBar_SuperMetric(const KCommandBar* self, int param1) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Metric_IsBase(true);
-        return vkcommandbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKCommandBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        return vkcommandbar->KCommandBar::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnMetric(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Metric_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Metric_Callback>(slot));
+void KCommandBar_OnMetric(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_metric_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_InitPainter(const KCommandBar* self, QPainter* painter) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->initPainter(painter);
     } else {
-        ((VirtualKCommandBar*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KCommandBar::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperInitPainter(const KCommandBar* self, QPainter* painter) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_InitPainter_IsBase(true);
-        vkcommandbar->initPainter(painter);
-    } else {
-        ((VirtualKCommandBar*)self)->initPainter(painter);
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        vkcommandbar->KCommandBar::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnInitPainter(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_InitPainter_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_InitPainter_Callback>(slot));
+void KCommandBar_OnInitPainter(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_initpainter_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KCommandBar_Redirected(const KCommandBar* self, QPoint* offset) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         return vkcommandbar->redirected(offset);
     } else {
-        return ((VirtualKCommandBar*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KCommandBar::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KCommandBar_SuperRedirected(const KCommandBar* self, QPoint* offset) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Redirected_IsBase(true);
-        return vkcommandbar->redirected(offset);
-    } else {
-        return ((VirtualKCommandBar*)self)->redirected(offset);
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        return vkcommandbar->KCommandBar::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnRedirected(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Redirected_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Redirected_Callback>(slot));
+void KCommandBar_OnRedirected(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_redirected_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KCommandBar_SharedPainter(const KCommandBar* self) {
     auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         return vkcommandbar->sharedPainter();
     } else {
-        return ((VirtualKCommandBar*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KCommandBar::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KCommandBar_SuperSharedPainter(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_SharedPainter_IsBase(true);
-        return vkcommandbar->sharedPainter();
-    } else {
-        return ((VirtualKCommandBar*)self)->sharedPainter();
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        return vkcommandbar->KCommandBar::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnSharedPainter(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_SharedPainter_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_SharedPainter_Callback>(slot));
+void KCommandBar_OnSharedPainter(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_sharedpainter_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_InputMethodEvent(KCommandBar* self, QInputMethodEvent* param1) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->inputMethodEvent(param1);
     } else {
-        ((VirtualKCommandBar*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KCommandBar::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperInputMethodEvent(KCommandBar* self, QInputMethodEvent* param1) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_InputMethodEvent_IsBase(true);
-        vkcommandbar->inputMethodEvent(param1);
-    } else {
-        ((VirtualKCommandBar*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnInputMethodEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_InputMethodEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_inputmethodevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KCommandBar_InputMethodQuery(const KCommandBar* self, int param1) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return new QVariant(vkcommandbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKCommandBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KCommandBar_SuperInputMethodQuery(const KCommandBar* self, int param1) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_InputMethodQuery_IsBase(true);
-        return new QVariant(vkcommandbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKCommandBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KCommandBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KCommandBar_OnInputMethodQuery(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_InputMethodQuery_Callback>(slot));
+void KCommandBar_OnInputMethodQuery(KCommandBar* self, intptr_t slot) {
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self)))
+        vkcommandbar->kcommandbar_inputmethodquery_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KCommandBar_FocusNextPrevChild(KCommandBar* self, bool next) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         return vkcommandbar->focusNextPrevChild(next);
     } else {
-        return ((VirtualKCommandBar*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KCommandBar::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KCommandBar_SuperFocusNextPrevChild(KCommandBar* self, bool next) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_FocusNextPrevChild_IsBase(true);
-        return vkcommandbar->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKCommandBar*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        return vkcommandbar->KCommandBar::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnFocusNextPrevChild(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_focusnextprevchild_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_TimerEvent(KCommandBar* self, QTimerEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->timerEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperTimerEvent(KCommandBar* self, QTimerEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_TimerEvent_IsBase(true);
-        vkcommandbar->timerEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->timerEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnTimerEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_TimerEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_TimerEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_timerevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_ChildEvent(KCommandBar* self, QChildEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->childEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperChildEvent(KCommandBar* self, QChildEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_ChildEvent_IsBase(true);
-        vkcommandbar->childEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->childEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnChildEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_ChildEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ChildEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_childevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_CustomEvent(KCommandBar* self, QEvent* event) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->customEvent(event);
     } else {
-        ((VirtualKCommandBar*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KCommandBar::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperCustomEvent(KCommandBar* self, QEvent* event) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_CustomEvent_IsBase(true);
-        vkcommandbar->customEvent(event);
-    } else {
-        ((VirtualKCommandBar*)self)->customEvent(event);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnCustomEvent(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_CustomEvent_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_CustomEvent_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_customevent_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_ConnectNotify(KCommandBar* self, const QMetaMethod* signal) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->connectNotify(*signal);
     } else {
-        ((VirtualKCommandBar*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KCommandBar::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperConnectNotify(KCommandBar* self, const QMetaMethod* signal) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_ConnectNotify_IsBase(true);
-        vkcommandbar->connectNotify(*signal);
-    } else {
-        ((VirtualKCommandBar*)self)->connectNotify(*signal);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnConnectNotify(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_ConnectNotify_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_ConnectNotify_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_connectnotify_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KCommandBar_DisconnectNotify(KCommandBar* self, const QMetaMethod* signal) {
     auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
+    if (vkcommandbar) {
         vkcommandbar->disconnectNotify(*signal);
     } else {
-        ((VirtualKCommandBar*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KCommandBar::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KCommandBar_SuperDisconnectNotify(KCommandBar* self, const QMetaMethod* signal) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_DisconnectNotify_IsBase(true);
-        vkcommandbar->disconnectNotify(*signal);
-    } else {
-        ((VirtualKCommandBar*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->KCommandBar::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KCommandBar::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KCommandBar_OnDisconnectNotify(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DisconnectNotify_Callback>(slot));
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self))
+        vkcommandbar->kcommandbar_disconnectnotify_callback = reinterpret_cast<VirtualKCommandBar::KCommandBar_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCommandBar_DrawFrame(KCommandBar* self, QPainter* param1) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->drawFrame(param1);
-    } else {
-        ((VirtualKCommandBar*)self)->drawFrame(param1);
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->VirtualKCommandBar::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method KCommandBar::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCommandBar_SuperDrawFrame(KCommandBar* self, QPainter* param1) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_DrawFrame_IsBase(true);
-        vkcommandbar->drawFrame(param1);
-    } else {
-        ((VirtualKCommandBar*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnDrawFrame(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_DrawFrame_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCommandBar_UpdateMicroFocus(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->updateMicroFocus();
-    } else {
-        ((VirtualKCommandBar*)self)->updateMicroFocus();
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->VirtualKCommandBar::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KCommandBar::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCommandBar_SuperUpdateMicroFocus(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_UpdateMicroFocus_IsBase(true);
-        vkcommandbar->updateMicroFocus();
-    } else {
-        ((VirtualKCommandBar*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnUpdateMicroFocus(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCommandBar_Create(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->create();
-    } else {
-        ((VirtualKCommandBar*)self)->create();
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->VirtualKCommandBar::create();
+    } else
+        qFatal("Error: Protected method KCommandBar::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCommandBar_SuperCreate(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Create_IsBase(true);
-        vkcommandbar->create();
-    } else {
-        ((VirtualKCommandBar*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnCreate(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Create_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KCommandBar_Destroy(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->destroy();
-    } else {
-        ((VirtualKCommandBar*)self)->destroy();
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        vkcommandbar->VirtualKCommandBar::destroy();
+    } else
+        qFatal("Error: Protected method KCommandBar::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KCommandBar_SuperDestroy(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Destroy_IsBase(true);
-        vkcommandbar->destroy();
-    } else {
-        ((VirtualKCommandBar*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnDestroy(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Destroy_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCommandBar_FocusNextChild(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->focusNextChild();
-    } else {
-        return ((VirtualKCommandBar*)self)->focusNextChild();
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        return vkcommandbar->VirtualKCommandBar::focusNextChild();
+    } else
+        qFatal("Error: Protected method KCommandBar::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCommandBar_SuperFocusNextChild(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_FocusNextChild_IsBase(true);
-        return vkcommandbar->focusNextChild();
-    } else {
-        return ((VirtualKCommandBar*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnFocusNextChild(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_FocusNextChild_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCommandBar_FocusPreviousChild(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->focusPreviousChild();
-    } else {
-        return ((VirtualKCommandBar*)self)->focusPreviousChild();
-    }
+    if (auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self)) {
+        return vkcommandbar->VirtualKCommandBar::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KCommandBar::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCommandBar_SuperFocusPreviousChild(KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_FocusPreviousChild_IsBase(true);
-        return vkcommandbar->focusPreviousChild();
-    } else {
-        return ((VirtualKCommandBar*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnFocusPreviousChild(KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KCommandBar_Sender(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->sender();
-    } else {
-        return ((VirtualKCommandBar*)self)->sender();
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        return vkcommandbar->VirtualKCommandBar::sender();
+    } else
+        qFatal("Error: Protected method KCommandBar::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KCommandBar_SuperSender(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Sender_IsBase(true);
-        return vkcommandbar->sender();
-    } else {
-        return ((VirtualKCommandBar*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnSender(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Sender_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCommandBar_SenderSignalIndex(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->senderSignalIndex();
-    } else {
-        return ((VirtualKCommandBar*)self)->senderSignalIndex();
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        return vkcommandbar->VirtualKCommandBar::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KCommandBar::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCommandBar_SuperSenderSignalIndex(const KCommandBar* self) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_SenderSignalIndex_IsBase(true);
-        return vkcommandbar->senderSignalIndex();
-    } else {
-        return ((VirtualKCommandBar*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnSenderSignalIndex(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KCommandBar_Receivers(const KCommandBar* self, const char* signal) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->receivers(signal);
-    } else {
-        return ((VirtualKCommandBar*)self)->receivers(signal);
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        return vkcommandbar->VirtualKCommandBar::receivers(signal);
+    } else
+        qFatal("Error: Protected method KCommandBar::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KCommandBar_SuperReceivers(const KCommandBar* self, const char* signal) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_Receivers_IsBase(true);
-        return vkcommandbar->receivers(signal);
-    } else {
-        return ((VirtualKCommandBar*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnReceivers(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_Receivers_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KCommandBar_IsSignalConnected(const KCommandBar* self, const QMetaMethod* signal) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCommandBar*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        return vkcommandbar->VirtualKCommandBar::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KCommandBar::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KCommandBar_SuperIsSignalConnected(const KCommandBar* self, const QMetaMethod* signal) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_IsSignalConnected_IsBase(true);
-        return vkcommandbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKCommandBar*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnIsSignalConnected(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KCommandBar_GetDecodedMetricF(const KCommandBar* self, int metricA, int metricB) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return vkcommandbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKCommandBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KCommandBar_SuperGetDecodedMetricF(const KCommandBar* self, int metricA, int metricB) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        vkcommandbar->setKCommandBar_GetDecodedMetricF_IsBase(true);
-        return vkcommandbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKCommandBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KCommandBar_OnGetDecodedMetricF(const KCommandBar* self, intptr_t slot) {
-    auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self));
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar)
-        vkcommandbar->setKCommandBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKCommandBar::KCommandBar_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkcommandbar = const_cast<VirtualKCommandBar*>(dynamic_cast<const VirtualKCommandBar*>(self))) {
+        return vkcommandbar->VirtualKCommandBar::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KCommandBar::getDecodedMetricF called without a directly constructed type");
 }
 
 void KCommandBar_Delete(KCommandBar* self) {

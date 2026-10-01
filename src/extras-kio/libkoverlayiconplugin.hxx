@@ -9,15 +9,11 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KOverlayIconPlugin so that we can call protected methods
+// This class is a subclass of KOverlayIconPlugin
 class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKOverlayIconPlugin = true;
-
-    // Virtual class public types (including callbacks)
-    using KOverlayIconPlugin_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KOverlayIconPlugin_MetaObject_Callback = QMetaObject* (*)(const KOverlayIconPlugin*);
     using KOverlayIconPlugin_Metacast_Callback = void* (*)(KOverlayIconPlugin*, const char*);
     using KOverlayIconPlugin_Metacall_Callback = int (*)(KOverlayIconPlugin*, int, int, void**);
     using KOverlayIconPlugin_GetOverlays_Callback = const char** (*)(KOverlayIconPlugin*, QUrl*);
@@ -28,12 +24,11 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     using KOverlayIconPlugin_CustomEvent_Callback = void (*)(KOverlayIconPlugin*, QEvent*);
     using KOverlayIconPlugin_ConnectNotify_Callback = void (*)(KOverlayIconPlugin*, QMetaMethod*);
     using KOverlayIconPlugin_DisconnectNotify_Callback = void (*)(KOverlayIconPlugin*, QMetaMethod*);
-    using KOverlayIconPlugin_Sender_Callback = QObject* (*)();
-    using KOverlayIconPlugin_SenderSignalIndex_Callback = int (*)();
-    using KOverlayIconPlugin_Receivers_Callback = int (*)(const KOverlayIconPlugin*, const char*);
-    using KOverlayIconPlugin_IsSignalConnected_Callback = bool (*)(const KOverlayIconPlugin*, QMetaMethod*);
+    using KOverlayIconPlugin::isSignalConnected;
+    using KOverlayIconPlugin::receivers;
+    using KOverlayIconPlugin::sender;
+    using KOverlayIconPlugin::senderSignalIndex;
 
-  protected:
     // Instance callback storage
     KOverlayIconPlugin_MetaObject_Callback koverlayiconplugin_metaobject_callback = nullptr;
     KOverlayIconPlugin_Metacast_Callback koverlayiconplugin_metacast_callback = nullptr;
@@ -46,75 +41,23 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
     KOverlayIconPlugin_CustomEvent_Callback koverlayiconplugin_customevent_callback = nullptr;
     KOverlayIconPlugin_ConnectNotify_Callback koverlayiconplugin_connectnotify_callback = nullptr;
     KOverlayIconPlugin_DisconnectNotify_Callback koverlayiconplugin_disconnectnotify_callback = nullptr;
-    KOverlayIconPlugin_Sender_Callback koverlayiconplugin_sender_callback = nullptr;
-    KOverlayIconPlugin_SenderSignalIndex_Callback koverlayiconplugin_sendersignalindex_callback = nullptr;
-    KOverlayIconPlugin_Receivers_Callback koverlayiconplugin_receivers_callback = nullptr;
-    KOverlayIconPlugin_IsSignalConnected_Callback koverlayiconplugin_issignalconnected_callback = nullptr;
 
-    // Instance base flags
-    mutable bool koverlayiconplugin_metaobject_isbase = false;
-    mutable bool koverlayiconplugin_metacast_isbase = false;
-    mutable bool koverlayiconplugin_metacall_isbase = false;
-    mutable bool koverlayiconplugin_getoverlays_isbase = false;
-    mutable bool koverlayiconplugin_event_isbase = false;
-    mutable bool koverlayiconplugin_eventfilter_isbase = false;
-    mutable bool koverlayiconplugin_timerevent_isbase = false;
-    mutable bool koverlayiconplugin_childevent_isbase = false;
-    mutable bool koverlayiconplugin_customevent_isbase = false;
-    mutable bool koverlayiconplugin_connectnotify_isbase = false;
-    mutable bool koverlayiconplugin_disconnectnotify_isbase = false;
-    mutable bool koverlayiconplugin_sender_isbase = false;
-    mutable bool koverlayiconplugin_sendersignalindex_isbase = false;
-    mutable bool koverlayiconplugin_receivers_isbase = false;
-    mutable bool koverlayiconplugin_issignalconnected_isbase = false;
+    // Access struct
+    struct Base : KOverlayIconPlugin {
+        using KOverlayIconPlugin::childEvent;
+        using KOverlayIconPlugin::connectNotify;
+        using KOverlayIconPlugin::customEvent;
+        using KOverlayIconPlugin::disconnectNotify;
+        using KOverlayIconPlugin::timerEvent;
+    };
 
-  public:
     VirtualKOverlayIconPlugin() : KOverlayIconPlugin() {};
     VirtualKOverlayIconPlugin(QObject* parent) : KOverlayIconPlugin(parent) {};
 
-    // Callback setters
-    inline void setKOverlayIconPlugin_MetaObject_Callback(KOverlayIconPlugin_MetaObject_Callback cb) { koverlayiconplugin_metaobject_callback = cb; }
-    inline void setKOverlayIconPlugin_Metacast_Callback(KOverlayIconPlugin_Metacast_Callback cb) { koverlayiconplugin_metacast_callback = cb; }
-    inline void setKOverlayIconPlugin_Metacall_Callback(KOverlayIconPlugin_Metacall_Callback cb) { koverlayiconplugin_metacall_callback = cb; }
-    inline void setKOverlayIconPlugin_GetOverlays_Callback(KOverlayIconPlugin_GetOverlays_Callback cb) { koverlayiconplugin_getoverlays_callback = cb; }
-    inline void setKOverlayIconPlugin_Event_Callback(KOverlayIconPlugin_Event_Callback cb) { koverlayiconplugin_event_callback = cb; }
-    inline void setKOverlayIconPlugin_EventFilter_Callback(KOverlayIconPlugin_EventFilter_Callback cb) { koverlayiconplugin_eventfilter_callback = cb; }
-    inline void setKOverlayIconPlugin_TimerEvent_Callback(KOverlayIconPlugin_TimerEvent_Callback cb) { koverlayiconplugin_timerevent_callback = cb; }
-    inline void setKOverlayIconPlugin_ChildEvent_Callback(KOverlayIconPlugin_ChildEvent_Callback cb) { koverlayiconplugin_childevent_callback = cb; }
-    inline void setKOverlayIconPlugin_CustomEvent_Callback(KOverlayIconPlugin_CustomEvent_Callback cb) { koverlayiconplugin_customevent_callback = cb; }
-    inline void setKOverlayIconPlugin_ConnectNotify_Callback(KOverlayIconPlugin_ConnectNotify_Callback cb) { koverlayiconplugin_connectnotify_callback = cb; }
-    inline void setKOverlayIconPlugin_DisconnectNotify_Callback(KOverlayIconPlugin_DisconnectNotify_Callback cb) { koverlayiconplugin_disconnectnotify_callback = cb; }
-    inline void setKOverlayIconPlugin_Sender_Callback(KOverlayIconPlugin_Sender_Callback cb) { koverlayiconplugin_sender_callback = cb; }
-    inline void setKOverlayIconPlugin_SenderSignalIndex_Callback(KOverlayIconPlugin_SenderSignalIndex_Callback cb) { koverlayiconplugin_sendersignalindex_callback = cb; }
-    inline void setKOverlayIconPlugin_Receivers_Callback(KOverlayIconPlugin_Receivers_Callback cb) { koverlayiconplugin_receivers_callback = cb; }
-    inline void setKOverlayIconPlugin_IsSignalConnected_Callback(KOverlayIconPlugin_IsSignalConnected_Callback cb) { koverlayiconplugin_issignalconnected_callback = cb; }
-
-    // Base flag setters
-    inline void setKOverlayIconPlugin_MetaObject_IsBase(bool value) const { koverlayiconplugin_metaobject_isbase = value; }
-    inline void setKOverlayIconPlugin_Metacast_IsBase(bool value) const { koverlayiconplugin_metacast_isbase = value; }
-    inline void setKOverlayIconPlugin_Metacall_IsBase(bool value) const { koverlayiconplugin_metacall_isbase = value; }
-    inline void setKOverlayIconPlugin_GetOverlays_IsBase(bool value) const { koverlayiconplugin_getoverlays_isbase = value; }
-    inline void setKOverlayIconPlugin_Event_IsBase(bool value) const { koverlayiconplugin_event_isbase = value; }
-    inline void setKOverlayIconPlugin_EventFilter_IsBase(bool value) const { koverlayiconplugin_eventfilter_isbase = value; }
-    inline void setKOverlayIconPlugin_TimerEvent_IsBase(bool value) const { koverlayiconplugin_timerevent_isbase = value; }
-    inline void setKOverlayIconPlugin_ChildEvent_IsBase(bool value) const { koverlayiconplugin_childevent_isbase = value; }
-    inline void setKOverlayIconPlugin_CustomEvent_IsBase(bool value) const { koverlayiconplugin_customevent_isbase = value; }
-    inline void setKOverlayIconPlugin_ConnectNotify_IsBase(bool value) const { koverlayiconplugin_connectnotify_isbase = value; }
-    inline void setKOverlayIconPlugin_DisconnectNotify_IsBase(bool value) const { koverlayiconplugin_disconnectnotify_isbase = value; }
-    inline void setKOverlayIconPlugin_Sender_IsBase(bool value) const { koverlayiconplugin_sender_isbase = value; }
-    inline void setKOverlayIconPlugin_SenderSignalIndex_IsBase(bool value) const { koverlayiconplugin_sendersignalindex_isbase = value; }
-    inline void setKOverlayIconPlugin_Receivers_IsBase(bool value) const { koverlayiconplugin_receivers_isbase = value; }
-    inline void setKOverlayIconPlugin_IsSignalConnected_IsBase(bool value) const { koverlayiconplugin_issignalconnected_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (koverlayiconplugin_metaobject_isbase) {
-            koverlayiconplugin_metaobject_isbase = false;
-            return KOverlayIconPlugin::metaObject();
-        }
-        auto metaobject_cb = koverlayiconplugin_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (koverlayiconplugin_metaobject_callback) {
+            QMetaObject* callback_ret = koverlayiconplugin_metaobject_callback(this);
             return callback_ret;
         }
         return KOverlayIconPlugin::metaObject();
@@ -122,14 +65,9 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (koverlayiconplugin_metacast_isbase) {
-            koverlayiconplugin_metacast_isbase = false;
-            return KOverlayIconPlugin::qt_metacast(param1);
-        }
-        auto metacast_cb = koverlayiconplugin_metacast_callback;
-        if (metacast_cb) {
+        if (koverlayiconplugin_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = koverlayiconplugin_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KOverlayIconPlugin::qt_metacast(param1);
@@ -137,16 +75,11 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (koverlayiconplugin_metacall_isbase) {
-            koverlayiconplugin_metacall_isbase = false;
-            return KOverlayIconPlugin::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = koverlayiconplugin_metacall_callback;
-        if (metacall_cb) {
+        if (koverlayiconplugin_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = koverlayiconplugin_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KOverlayIconPlugin::qt_metacall(param1, param2, param3);
@@ -154,12 +87,11 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> getOverlays(const QUrl& item) override {
-        auto getoverlays_cb = koverlayiconplugin_getoverlays_callback;
-        if (getoverlays_cb) {
+        if (koverlayiconplugin_getoverlays_callback) {
             const QUrl& item_ret = item;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&item_ret);
-            const char** callback_ret = getoverlays_cb(this, cbval1);
+            const char** callback_ret = koverlayiconplugin_getoverlays_callback(this, cbval1);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
             callback_ret_QList.reserve(callback_ret_len);
@@ -171,19 +103,15 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
             libqt_free(callback_ret);
             return callback_ret_QList;
         }
-        return {};
+        // Pure virtual method
+        qFatal("Error: Pure virtual method KOverlayIconPlugin::getOverlays called without being implemented");
     }
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (koverlayiconplugin_event_isbase) {
-            koverlayiconplugin_event_isbase = false;
-            return KOverlayIconPlugin::event(event);
-        }
-        auto event_cb = koverlayiconplugin_event_callback;
-        if (event_cb) {
+        if (koverlayiconplugin_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = koverlayiconplugin_event_callback(this, cbval1);
             return callback_ret;
         }
         return KOverlayIconPlugin::event(event);
@@ -191,15 +119,10 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* watched, QEvent* event) override {
-        if (koverlayiconplugin_eventfilter_isbase) {
-            koverlayiconplugin_eventfilter_isbase = false;
-            return KOverlayIconPlugin::eventFilter(watched, event);
-        }
-        auto eventfilter_cb = koverlayiconplugin_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (koverlayiconplugin_eventfilter_callback) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = koverlayiconplugin_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KOverlayIconPlugin::eventFilter(watched, event);
@@ -207,15 +130,9 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (koverlayiconplugin_timerevent_isbase) {
-            koverlayiconplugin_timerevent_isbase = false;
-            KOverlayIconPlugin::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = koverlayiconplugin_timerevent_callback;
-        if (timerevent_cb) {
+        if (koverlayiconplugin_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            koverlayiconplugin_timerevent_callback(this, cbval1);
             return;
         }
         KOverlayIconPlugin::timerEvent(event);
@@ -223,15 +140,9 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (koverlayiconplugin_childevent_isbase) {
-            koverlayiconplugin_childevent_isbase = false;
-            KOverlayIconPlugin::childEvent(event);
-            return;
-        }
-        auto childevent_cb = koverlayiconplugin_childevent_callback;
-        if (childevent_cb) {
+        if (koverlayiconplugin_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            koverlayiconplugin_childevent_callback(this, cbval1);
             return;
         }
         KOverlayIconPlugin::childEvent(event);
@@ -239,15 +150,9 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (koverlayiconplugin_customevent_isbase) {
-            koverlayiconplugin_customevent_isbase = false;
-            KOverlayIconPlugin::customEvent(event);
-            return;
-        }
-        auto customevent_cb = koverlayiconplugin_customevent_callback;
-        if (customevent_cb) {
+        if (koverlayiconplugin_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            koverlayiconplugin_customevent_callback(this, cbval1);
             return;
         }
         KOverlayIconPlugin::customEvent(event);
@@ -255,17 +160,11 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (koverlayiconplugin_connectnotify_isbase) {
-            koverlayiconplugin_connectnotify_isbase = false;
-            KOverlayIconPlugin::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = koverlayiconplugin_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (koverlayiconplugin_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            koverlayiconplugin_connectnotify_callback(this, cbval1);
             return;
         }
         KOverlayIconPlugin::connectNotify(signal);
@@ -273,101 +172,22 @@ class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (koverlayiconplugin_disconnectnotify_isbase) {
-            koverlayiconplugin_disconnectnotify_isbase = false;
-            KOverlayIconPlugin::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = koverlayiconplugin_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (koverlayiconplugin_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            koverlayiconplugin_disconnectnotify_callback(this, cbval1);
             return;
         }
         KOverlayIconPlugin::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (koverlayiconplugin_sender_isbase) {
-            koverlayiconplugin_sender_isbase = false;
-            return KOverlayIconPlugin::sender();
-        }
-        auto sender_cb = koverlayiconplugin_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KOverlayIconPlugin::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (koverlayiconplugin_sendersignalindex_isbase) {
-            koverlayiconplugin_sendersignalindex_isbase = false;
-            return KOverlayIconPlugin::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = koverlayiconplugin_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KOverlayIconPlugin::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (koverlayiconplugin_receivers_isbase) {
-            koverlayiconplugin_receivers_isbase = false;
-            return KOverlayIconPlugin::receivers(signal);
-        }
-        auto receivers_cb = koverlayiconplugin_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KOverlayIconPlugin::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (koverlayiconplugin_issignalconnected_isbase) {
-            koverlayiconplugin_issignalconnected_isbase = false;
-            return KOverlayIconPlugin::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = koverlayiconplugin_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KOverlayIconPlugin::isSignalConnected(signal);
-    }
-
     // Friend functions
-    friend void KOverlayIconPlugin_TimerEvent(KOverlayIconPlugin* self, QTimerEvent* event);
     friend void KOverlayIconPlugin_SuperTimerEvent(KOverlayIconPlugin* self, QTimerEvent* event);
-    friend void KOverlayIconPlugin_ChildEvent(KOverlayIconPlugin* self, QChildEvent* event);
     friend void KOverlayIconPlugin_SuperChildEvent(KOverlayIconPlugin* self, QChildEvent* event);
-    friend void KOverlayIconPlugin_CustomEvent(KOverlayIconPlugin* self, QEvent* event);
     friend void KOverlayIconPlugin_SuperCustomEvent(KOverlayIconPlugin* self, QEvent* event);
-    friend void KOverlayIconPlugin_ConnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
     friend void KOverlayIconPlugin_SuperConnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
-    friend void KOverlayIconPlugin_DisconnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
     friend void KOverlayIconPlugin_SuperDisconnectNotify(KOverlayIconPlugin* self, const QMetaMethod* signal);
-    friend QObject* KOverlayIconPlugin_Sender(const KOverlayIconPlugin* self);
-    friend QObject* KOverlayIconPlugin_SuperSender(const KOverlayIconPlugin* self);
-    friend int KOverlayIconPlugin_SenderSignalIndex(const KOverlayIconPlugin* self);
-    friend int KOverlayIconPlugin_SuperSenderSignalIndex(const KOverlayIconPlugin* self);
-    friend int KOverlayIconPlugin_Receivers(const KOverlayIconPlugin* self, const char* signal);
-    friend int KOverlayIconPlugin_SuperReceivers(const KOverlayIconPlugin* self, const char* signal);
-    friend bool KOverlayIconPlugin_IsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal);
-    friend bool KOverlayIconPlugin_SuperIsSignalConnected(const KOverlayIconPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

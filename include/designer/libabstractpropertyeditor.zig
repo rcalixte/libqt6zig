@@ -138,9 +138,9 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) QMetaObject) void {
         qtc.QDesignerPropertyEditorInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -311,9 +311,9 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QDesignerFormEditorInterface `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) QDesignerFormEditorInterface `
     ///
-    pub fn onCore(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
+    pub fn onCore(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) QDesignerFormEditorInterface) void {
         qtc.QDesignerPropertyEditorInterface_OnCore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -339,6 +339,8 @@ pub const QDesignerPropertyEditorInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#isReadOnly)
     ///
+    /// This method must be implemented with `onIsReadOnly` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerPropertyEditorInterface `
@@ -359,26 +361,10 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) bool `
     ///
-    pub fn onIsReadOnly(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsReadOnly(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) bool) void {
         qtc.QDesignerPropertyEditorInterface_OnIsReadOnly(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsReadOnly` instead
-    ///
-    pub const SuperIsReadOnly = superIsReadOnly;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#isReadOnly)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superIsReadOnly(self: QDesignerPropertyEditorInterface) bool {
-        return qtc.QDesignerPropertyEditorInterface_SuperIsReadOnly(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `object` instead
@@ -386,6 +372,8 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     pub const Object = object;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#object)
+    ///
+    /// This method must be implemented with `onObject` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -407,26 +395,10 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QObject `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) QObject `
     ///
-    pub fn onObject(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onObject(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) QObject) void {
         qtc.QDesignerPropertyEditorInterface_OnObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superObject` instead
-    ///
-    pub const SuperObject = superObject;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#object)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superObject(self: QDesignerPropertyEditorInterface) QObject {
-        return .{ .ptr = qtc.QDesignerPropertyEditorInterface_SuperObject(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `currentPropertyName` instead
@@ -434,6 +406,8 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     pub const CurrentPropertyName = currentPropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#currentPropertyName)
+    ///
+    /// This method must be implemented with `onCurrentPropertyName` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -461,32 +435,10 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onCurrentPropertyName(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onCurrentPropertyName(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerPropertyEditorInterface_OnCurrentPropertyName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superCurrentPropertyName` instead
-    ///
-    pub const SuperCurrentPropertyName = superCurrentPropertyName;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#currentPropertyName)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superCurrentPropertyName(self: QDesignerPropertyEditorInterface, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerPropertyEditorInterface_SuperCurrentPropertyName(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertyEditorInterface.currentPropertyName: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `propertyChanged` instead
@@ -534,6 +486,8 @@ pub const QDesignerPropertyEditorInterface = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#setObject)
     ///
+    /// This method must be implemented with `onSetObject` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerPropertyEditorInterface `
@@ -563,30 +517,13 @@ pub const QDesignerPropertyEditorInterface = extern struct {
         qtc.QDesignerPropertyEditorInterface_OnSetObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetObject` instead
-    ///
-    pub const SuperSetObject = superSetObject;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#setObject)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    /// ` _object: QObject `
-    ///
-    pub fn superSetObject(self: QDesignerPropertyEditorInterface, _object: anytype) void {
-        comptime _ = @TypeOf(_object)._is_QObject;
-        qtc.QDesignerPropertyEditorInterface_SuperSetObject(@ptrCast(self.ptr), @ptrCast(_object.ptr));
-    }
-
     /// ### DEPRECATED: Use `setPropertyValue` instead
     ///
     pub const SetPropertyValue = setPropertyValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#setPropertyValue)
+    ///
+    /// This method must be implemented with `onSetPropertyValue` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -625,38 +562,13 @@ pub const QDesignerPropertyEditorInterface = extern struct {
         qtc.QDesignerPropertyEditorInterface_OnSetPropertyValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSetPropertyValue` instead
-    ///
-    pub const SuperSetPropertyValue = superSetPropertyValue;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#setPropertyValue)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    /// ` name: []const u8 `
-    ///
-    /// ` value: QVariant `
-    ///
-    /// ` changed: bool `
-    ///
-    pub fn superSetPropertyValue(self: QDesignerPropertyEditorInterface, name: []const u8, value: anytype, changed: bool) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QDesignerPropertyEditorInterface_SuperSetPropertyValue(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr), changed);
-    }
-
     /// ### DEPRECATED: Use `setReadOnly` instead
     ///
     pub const SetReadOnly = setReadOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#setReadOnly)
+    ///
+    /// This method must be implemented with `onSetReadOnly` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -684,24 +596,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     pub fn onSetReadOnly(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface, bool) callconv(.c) void) void {
         qtc.QDesignerPropertyEditorInterface_OnSetReadOnly(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetReadOnly` instead
-    ///
-    pub const SuperSetReadOnly = superSetReadOnly;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerpropertyeditorinterface.html#setReadOnly)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    /// ` readOnly: bool `
-    ///
-    pub fn superSetReadOnly(self: QDesignerPropertyEditorInterface, readOnly: bool) void {
-        qtc.QDesignerPropertyEditorInterface_SuperSetReadOnly(@ptrCast(self.ptr), readOnly);
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -7014,9 +6908,9 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) i32) void {
         qtc.QDesignerPropertyEditorInterface_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7130,11 +7024,11 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSizeHint(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) QSize) void {
         qtc.QDesignerPropertyEditorInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7188,11 +7082,11 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QSize `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) QSize `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onMinimumSizeHint(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) QSize) void {
         qtc.QDesignerPropertyEditorInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7306,9 +7200,9 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) bool `
     ///
-    pub fn onHasHeightForWidth(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) bool) void {
         qtc.QDesignerPropertyEditorInterface_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -7362,9 +7256,9 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) QPaintEngine) void {
         qtc.QDesignerPropertyEditorInterface_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9290,9 +9184,9 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface) callconv(.c) QPainter) void {
         qtc.QDesignerPropertyEditorInterface_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -9876,44 +9770,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
         qtc.QDesignerPropertyEditorInterface_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
-    ///
-    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superUpdateMicroFocus(self: QDesignerPropertyEditorInterface) void {
-        qtc.QDesignerPropertyEditorInterface_SuperUpdateMicroFocus(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
-    ///
-    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onUpdateMicroFocus(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerPropertyEditorInterface_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `create` instead
     ///
     pub const Create = create;
@@ -9930,44 +9786,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     pub fn create(self: QDesignerPropertyEditorInterface) void {
         qtc.QDesignerPropertyEditorInterface_Create(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superCreate` instead
-    ///
-    pub const SuperCreate = superCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superCreate(self: QDesignerPropertyEditorInterface) void {
-        qtc.QDesignerPropertyEditorInterface_SuperCreate(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCreate` instead
-    ///
-    pub const OnCreate = onCreate;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onCreate(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerPropertyEditorInterface_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `destroy` instead
@@ -9988,44 +9806,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
         qtc.QDesignerPropertyEditorInterface_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superDestroy` instead
-    ///
-    pub const SuperDestroy = superDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superDestroy(self: QDesignerPropertyEditorInterface) void {
-        qtc.QDesignerPropertyEditorInterface_SuperDestroy(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onDestroy` instead
-    ///
-    pub const OnDestroy = onDestroy;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#destroy)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onDestroy(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerPropertyEditorInterface_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `focusNextChild` instead
     ///
     pub const FocusNextChild = focusNextChild;
@@ -10042,44 +9822,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     pub fn focusNextChild(self: QDesignerPropertyEditorInterface) bool {
         return qtc.QDesignerPropertyEditorInterface_FocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superFocusNextChild` instead
-    ///
-    pub const SuperFocusNextChild = superFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superFocusNextChild(self: QDesignerPropertyEditorInterface) bool {
-        return qtc.QDesignerPropertyEditorInterface_SuperFocusNextChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusNextChild` instead
-    ///
-    pub const OnFocusNextChild = onFocusNextChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusNextChild(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerPropertyEditorInterface_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `focusPreviousChild` instead
@@ -10100,44 +9842,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
         return qtc.QDesignerPropertyEditorInterface_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
-    ///
-    pub const SuperFocusPreviousChild = superFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superFocusPreviousChild(self: QDesignerPropertyEditorInterface) bool {
-        return qtc.QDesignerPropertyEditorInterface_SuperFocusPreviousChild(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
-    ///
-    pub const OnFocusPreviousChild = onFocusPreviousChild;
-
-    /// Inherited from QWidget
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusPreviousChild)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onFocusPreviousChild(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerPropertyEditorInterface_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -10156,44 +9860,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
         return .{ .ptr = qtc.QDesignerPropertyEditorInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superSender(self: QDesignerPropertyEditorInterface) QObject {
-        return .{ .ptr = qtc.QDesignerPropertyEditorInterface_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QDesignerPropertyEditorInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -10210,44 +9876,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     pub fn senderSignalIndex(self: QDesignerPropertyEditorInterface) i32 {
         return qtc.QDesignerPropertyEditorInterface_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    pub fn superSenderSignalIndex(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QDesignerPropertyEditorInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerPropertyEditorInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -10271,47 +9899,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
         return qtc.QDesignerPropertyEditorInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QDesignerPropertyEditorInterface, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QDesignerPropertyEditorInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerPropertyEditorInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -10331,47 +9918,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     pub fn isSignalConnected(self: QDesignerPropertyEditorInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerPropertyEditorInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QDesignerPropertyEditorInterface, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QDesignerPropertyEditorInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface, QMetaMethod) callconv(.c) bool) void {
-        qtc.QDesignerPropertyEditorInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `getDecodedMetricF` instead
@@ -10394,48 +9940,6 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     pub fn getDecodedMetricF(self: QDesignerPropertyEditorInterface, metricA: i32, metricB: i32) f64 {
         return qtc.QDesignerPropertyEditorInterface_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerPropertyEditorInterface `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QDesignerPropertyEditorInterface, metricA: i32, metricB: i32) f64 {
-        return qtc.QDesignerPropertyEditorInterface_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QDesignerPropertyEditorInterface`
-    ///
-    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface, i32, i32) callconv(.c) f64) void {
-        qtc.QDesignerPropertyEditorInterface_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

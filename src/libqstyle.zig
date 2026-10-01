@@ -78,9 +78,9 @@ pub const QStyle = extern struct {
     ///
     /// ` self: QStyle `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QStyle) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QStyle, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QStyle, callback: *const fn (QStyle) callconv(.c) QMetaObject) void {
         qtc.QStyle_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -849,11 +849,11 @@ pub const QStyle = extern struct {
     ///
     /// ` self: QStyle `
     ///
-    /// ` callback: *const fn () callconv(.c) QPalette `
+    /// ` callback: *const fn (self: QStyle) callconv(.c) QPalette `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onStandardPalette(self: QStyle, callback: *const fn () callconv(.c) QPalette) void {
+    pub fn onStandardPalette(self: QStyle, callback: *const fn (QStyle) callconv(.c) QPalette) void {
         qtc.QStyle_OnStandardPalette(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -878,6 +878,8 @@ pub const QStyle = extern struct {
     pub const DrawPrimitive = drawPrimitive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawPrimitive)
+    ///
+    /// This method must be implemented with `onDrawPrimitive` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -916,38 +918,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnDrawPrimitive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superDrawPrimitive` instead
-    ///
-    pub const SuperDrawPrimitive = superDrawPrimitive;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawPrimitive)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` pe: qstyle_enums.PrimitiveElement `
-    ///
-    /// ` opt: QStyleOption `
-    ///
-    /// ` p: QPainter `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superDrawPrimitive(self: QStyle, pe: i32, opt: anytype, p: anytype, w: anytype) void {
-        comptime _ = @TypeOf(opt)._is_QStyleOption;
-        comptime _ = @TypeOf(p)._is_QPainter;
-        comptime _ = @TypeOf(w)._is_QWidget;
-        qtc.QStyle_SuperDrawPrimitive(@ptrCast(self.ptr), @bitCast(pe), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(w.ptr));
-    }
-
     /// ### DEPRECATED: Use `drawControl` instead
     ///
     pub const DrawControl = drawControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawControl)
+    ///
+    /// This method must be implemented with `onDrawControl` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -986,38 +963,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnDrawControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superDrawControl` instead
-    ///
-    pub const SuperDrawControl = superDrawControl;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawControl)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` element: qstyle_enums.ControlElement `
-    ///
-    /// ` opt: QStyleOption `
-    ///
-    /// ` p: QPainter `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superDrawControl(self: QStyle, element: i32, opt: anytype, p: anytype, w: anytype) void {
-        comptime _ = @TypeOf(opt)._is_QStyleOption;
-        comptime _ = @TypeOf(p)._is_QPainter;
-        comptime _ = @TypeOf(w)._is_QWidget;
-        qtc.QStyle_SuperDrawControl(@ptrCast(self.ptr), @bitCast(element), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(w.ptr));
-    }
-
     /// ### DEPRECATED: Use `subElementRect` instead
     ///
     pub const SubElementRect = subElementRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subElementRect)
+    ///
+    /// This method must be implemented with `onSubElementRect` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1055,35 +1007,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnSubElementRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSubElementRect` instead
-    ///
-    pub const SuperSubElementRect = superSubElementRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subElementRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` subElement: qstyle_enums.SubElement `
-    ///
-    /// ` option: QStyleOption `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superSubElementRect(self: QStyle, subElement: i32, option: anytype, widget: anytype) QRect {
-        comptime _ = @TypeOf(option)._is_QStyleOption;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QStyle_SuperSubElementRect(@ptrCast(self.ptr), @bitCast(subElement), @ptrCast(option.ptr), @ptrCast(widget.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `drawComplexControl` instead
     ///
     pub const DrawComplexControl = drawComplexControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawComplexControl)
+    ///
+    /// This method must be implemented with `onDrawComplexControl` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1122,38 +1052,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnDrawComplexControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superDrawComplexControl` instead
-    ///
-    pub const SuperDrawComplexControl = superDrawComplexControl;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#drawComplexControl)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` cc: qstyle_enums.ComplexControl `
-    ///
-    /// ` opt: QStyleOptionComplex `
-    ///
-    /// ` p: QPainter `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superDrawComplexControl(self: QStyle, cc: i32, opt: anytype, p: anytype, widget: anytype) void {
-        comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
-        comptime _ = @TypeOf(p)._is_QPainter;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QStyle_SuperDrawComplexControl(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @ptrCast(p.ptr), @ptrCast(widget.ptr));
-    }
-
     /// ### DEPRECATED: Use `hitTestComplexControl` instead
     ///
     pub const HitTestComplexControl = hitTestComplexControl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl)
+    ///
+    /// This method must be implemented with `onHitTestComplexControl` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1196,42 +1101,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnHitTestComplexControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superHitTestComplexControl` instead
-    ///
-    pub const SuperHitTestComplexControl = superHitTestComplexControl;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#hitTestComplexControl)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` cc: qstyle_enums.ComplexControl `
-    ///
-    /// ` opt: QStyleOptionComplex `
-    ///
-    /// ` pt: QPoint `
-    ///
-    /// ` widget: QWidget `
-    ///
-    /// ## Returns:
-    ///
-    /// ` qstyle_enums.SubControl `
-    ///
-    pub fn superHitTestComplexControl(self: QStyle, cc: i32, opt: anytype, pt: anytype, widget: anytype) i32 {
-        comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
-        comptime _ = @TypeOf(pt)._is_QPoint;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return qtc.QStyle_SuperHitTestComplexControl(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @ptrCast(pt.ptr), @ptrCast(widget.ptr));
-    }
-
     /// ### DEPRECATED: Use `subControlRect` instead
     ///
     pub const SubControlRect = subControlRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subControlRect)
+    ///
+    /// This method must be implemented with `onSubControlRect` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1271,37 +1147,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnSubControlRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSubControlRect` instead
-    ///
-    pub const SuperSubControlRect = superSubControlRect;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#subControlRect)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` cc: qstyle_enums.ComplexControl `
-    ///
-    /// ` opt: QStyleOptionComplex `
-    ///
-    /// ` sc: qstyle_enums.SubControl `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superSubControlRect(self: QStyle, cc: i32, opt: anytype, sc: i32, widget: anytype) QRect {
-        comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QStyle_SuperSubControlRect(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @bitCast(sc), @ptrCast(widget.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `pixelMetric` instead
     ///
     pub const PixelMetric = pixelMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#pixelMetric)
+    ///
+    /// This method must be implemented with `onPixelMetric` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1337,35 +1189,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnPixelMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superPixelMetric` instead
-    ///
-    pub const SuperPixelMetric = superPixelMetric;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#pixelMetric)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` metric: qstyle_enums.PixelMetric `
-    ///
-    /// ` option: QStyleOption `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superPixelMetric(self: QStyle, metric: i32, option: anytype, widget: anytype) i32 {
-        comptime _ = @TypeOf(option)._is_QStyleOption;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return qtc.QStyle_SuperPixelMetric(@ptrCast(self.ptr), @bitCast(metric), @ptrCast(option.ptr), @ptrCast(widget.ptr));
-    }
-
     /// ### DEPRECATED: Use `sizeFromContents` instead
     ///
     pub const SizeFromContents = sizeFromContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sizeFromContents)
+    ///
+    /// This method must be implemented with `onSizeFromContents` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1406,38 +1236,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnSizeFromContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superSizeFromContents` instead
-    ///
-    pub const SuperSizeFromContents = superSizeFromContents;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#sizeFromContents)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` ct: qstyle_enums.ContentsType `
-    ///
-    /// ` opt: QStyleOption `
-    ///
-    /// ` contentsSize: QSize `
-    ///
-    /// ` w: QWidget `
-    ///
-    pub fn superSizeFromContents(self: QStyle, ct: i32, opt: anytype, contentsSize: anytype, w: anytype) QSize {
-        comptime _ = @TypeOf(opt)._is_QStyleOption;
-        comptime _ = @TypeOf(contentsSize)._is_QSize;
-        comptime _ = @TypeOf(w)._is_QWidget;
-        return .{ .ptr = qtc.QStyle_SuperSizeFromContents(@ptrCast(self.ptr), @bitCast(ct), @ptrCast(opt.ptr), @ptrCast(contentsSize.ptr), @ptrCast(w.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `styleHint` instead
     ///
     pub const StyleHint = styleHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#styleHint)
+    ///
+    /// This method must be implemented with `onStyleHint` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1476,38 +1281,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnStyleHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superStyleHint` instead
-    ///
-    pub const SuperStyleHint = superStyleHint;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#styleHint)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` stylehint: qstyle_enums.StyleHint `
-    ///
-    /// ` opt: QStyleOption `
-    ///
-    /// ` widget: QWidget `
-    ///
-    /// ` returnData: QStyleHintReturn `
-    ///
-    pub fn superStyleHint(self: QStyle, stylehint: i32, opt: anytype, widget: anytype, returnData: anytype) i32 {
-        comptime _ = @TypeOf(opt)._is_QStyleOption;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        comptime _ = @TypeOf(returnData)._is_QStyleHintReturn;
-        return qtc.QStyle_SuperStyleHint(@ptrCast(self.ptr), @bitCast(stylehint), @ptrCast(opt.ptr), @ptrCast(widget.ptr), @ptrCast(returnData.ptr));
-    }
-
     /// ### DEPRECATED: Use `standardPixmap` instead
     ///
     pub const StandardPixmap = standardPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardPixmap)
+    ///
+    /// This method must be implemented with `onStandardPixmap` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1545,35 +1325,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnStandardPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superStandardPixmap` instead
-    ///
-    pub const SuperStandardPixmap = superStandardPixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` _standardPixmap: qstyle_enums.StandardPixmap `
-    ///
-    /// ` opt: QStyleOption `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superStandardPixmap(self: QStyle, _standardPixmap: i32, opt: anytype, widget: anytype) QPixmap {
-        comptime _ = @TypeOf(opt)._is_QStyleOption;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QStyle_SuperStandardPixmap(@ptrCast(self.ptr), @bitCast(_standardPixmap), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `standardIcon` instead
     ///
     pub const StandardIcon = standardIcon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardIcon)
+    ///
+    /// This method must be implemented with `onStandardIcon` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1611,35 +1369,13 @@ pub const QStyle = extern struct {
         qtc.QStyle_OnStandardIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `superStandardIcon` instead
-    ///
-    pub const SuperStandardIcon = superStandardIcon;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#standardIcon)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` _standardIcon: qstyle_enums.StandardPixmap `
-    ///
-    /// ` option: QStyleOption `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superStandardIcon(self: QStyle, _standardIcon: i32, option: anytype, widget: anytype) QIcon {
-        comptime _ = @TypeOf(option)._is_QStyleOption;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return .{ .ptr = qtc.QStyle_SuperStandardIcon(@ptrCast(self.ptr), @bitCast(_standardIcon), @ptrCast(option.ptr), @ptrCast(widget.ptr)) };
-    }
-
     /// ### DEPRECATED: Use `generatedIconPixmap` instead
     ///
     pub const GeneratedIconPixmap = generatedIconPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#generatedIconPixmap)
+    ///
+    /// This method must be implemented with `onGeneratedIconPixmap` before it can be called.
     ///
     /// ## Parameter(s):
     ///
@@ -1675,30 +1411,6 @@ pub const QStyle = extern struct {
     ///
     pub fn onGeneratedIconPixmap(self: QStyle, callback: *const fn (QStyle, i32, QPixmap, QStyleOption) callconv(.c) QPixmap) void {
         qtc.QStyle_OnGeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superGeneratedIconPixmap` instead
-    ///
-    pub const SuperGeneratedIconPixmap = superGeneratedIconPixmap;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#generatedIconPixmap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` iconMode: qicon_enums.Mode `
-    ///
-    /// ` pixmap: QPixmap `
-    ///
-    /// ` opt: QStyleOption `
-    ///
-    pub fn superGeneratedIconPixmap(self: QStyle, iconMode: i32, pixmap: anytype, opt: anytype) QPixmap {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        comptime _ = @TypeOf(opt)._is_QStyleOption;
-        return .{ .ptr = qtc.QStyle_SuperGeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(iconMode), @ptrCast(pixmap.ptr), @ptrCast(opt.ptr)) };
     }
 
     /// ### DEPRECATED: Use `visualRect` instead
@@ -1829,6 +1541,8 @@ pub const QStyle = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#layoutSpacing)
     ///
+    /// This method must be implemented with `onLayoutSpacing` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyle `
@@ -1865,34 +1579,6 @@ pub const QStyle = extern struct {
     ///
     pub fn onLayoutSpacing(self: QStyle, callback: *const fn (QStyle, i32, i32, i32, QStyleOption, QWidget) callconv(.c) i32) void {
         qtc.QStyle_OnLayoutSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superLayoutSpacing` instead
-    ///
-    pub const SuperLayoutSpacing = superLayoutSpacing;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#layoutSpacing)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` control1: qsizepolicy_enums.ControlType `
-    ///
-    /// ` control2: qsizepolicy_enums.ControlType `
-    ///
-    /// ` orientation: qnamespace_enums.Orientation `
-    ///
-    /// ` option: QStyleOption `
-    ///
-    /// ` widget: QWidget `
-    ///
-    pub fn superLayoutSpacing(self: QStyle, control1: i32, control2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
-        comptime _ = @TypeOf(option)._is_QStyleOption;
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        return qtc.QStyle_SuperLayoutSpacing(@ptrCast(self.ptr), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### DEPRECATED: Use `combinedLayoutSpacing` instead
@@ -3499,44 +3185,6 @@ pub const QStyle = extern struct {
         return .{ .ptr = qtc.QStyle_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    pub fn superSender(self: QStyle) QObject {
-        return .{ .ptr = qtc.QStyle_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStyle`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QStyle, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QStyle_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3553,44 +3201,6 @@ pub const QStyle = extern struct {
     ///
     pub fn senderSignalIndex(self: QStyle) i32 {
         return qtc.QStyle_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    pub fn superSenderSignalIndex(self: QStyle) i32 {
-        return qtc.QStyle_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStyle`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QStyle, callback: *const fn () callconv(.c) i32) void {
-        qtc.QStyle_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3614,47 +3224,6 @@ pub const QStyle = extern struct {
         return qtc.QStyle_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QStyle, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QStyle_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStyle`
-    ///
-    /// ` callback: *const fn (self: QStyle, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QStyle, callback: *const fn (QStyle, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QStyle_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3674,47 +3243,6 @@ pub const QStyle = extern struct {
     pub fn isSignalConnected(self: QStyle, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStyle_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyle `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QStyle, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QStyle_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QStyle`
-    ///
-    /// ` callback: *const fn (self: QStyle, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QStyle, callback: *const fn (QStyle, QMetaMethod) callconv(.c) bool) void {
-        qtc.QStyle_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

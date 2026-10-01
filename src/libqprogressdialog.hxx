@@ -9,36 +9,32 @@
 
 #include "qtlibc.h"
 
-// This class is a subclass of QProgressDialog so that we can call protected methods
+// This class is a subclass of QProgressDialog
 class VirtualQProgressDialog final : public QProgressDialog {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualQProgressDialog = true;
-
-    // Virtual class public types (including callbacks)
-    using QProgressDialog_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using QProgressDialog_MetaObject_Callback = QMetaObject* (*)(const QProgressDialog*);
     using QProgressDialog_Metacast_Callback = void* (*)(QProgressDialog*, const char*);
     using QProgressDialog_Metacall_Callback = int (*)(QProgressDialog*, int, int, void**);
-    using QProgressDialog_SizeHint_Callback = QSize* (*)();
+    using QProgressDialog_SizeHint_Callback = QSize* (*)(const QProgressDialog*);
     using QProgressDialog_ResizeEvent_Callback = void (*)(QProgressDialog*, QResizeEvent*);
     using QProgressDialog_CloseEvent_Callback = void (*)(QProgressDialog*, QCloseEvent*);
     using QProgressDialog_ChangeEvent_Callback = void (*)(QProgressDialog*, QEvent*);
     using QProgressDialog_ShowEvent_Callback = void (*)(QProgressDialog*, QShowEvent*);
     using QProgressDialog_SetVisible_Callback = void (*)(QProgressDialog*, bool);
-    using QProgressDialog_MinimumSizeHint_Callback = QSize* (*)();
-    using QProgressDialog_Open_Callback = void (*)();
-    using QProgressDialog_Exec_Callback = int (*)();
+    using QProgressDialog_MinimumSizeHint_Callback = QSize* (*)(const QProgressDialog*);
+    using QProgressDialog_Open_Callback = void (*)(QProgressDialog*);
+    using QProgressDialog_Exec_Callback = int (*)(QProgressDialog*);
     using QProgressDialog_Done_Callback = void (*)(QProgressDialog*, int);
-    using QProgressDialog_Accept_Callback = void (*)();
-    using QProgressDialog_Reject_Callback = void (*)();
+    using QProgressDialog_Accept_Callback = void (*)(QProgressDialog*);
+    using QProgressDialog_Reject_Callback = void (*)(QProgressDialog*);
     using QProgressDialog_KeyPressEvent_Callback = void (*)(QProgressDialog*, QKeyEvent*);
     using QProgressDialog_ContextMenuEvent_Callback = void (*)(QProgressDialog*, QContextMenuEvent*);
     using QProgressDialog_EventFilter_Callback = bool (*)(QProgressDialog*, QObject*, QEvent*);
-    using QProgressDialog_DevType_Callback = int (*)();
+    using QProgressDialog_DevType_Callback = int (*)(const QProgressDialog*);
     using QProgressDialog_HeightForWidth_Callback = int (*)(const QProgressDialog*, int);
-    using QProgressDialog_HasHeightForWidth_Callback = bool (*)();
-    using QProgressDialog_PaintEngine_Callback = QPaintEngine* (*)();
+    using QProgressDialog_HasHeightForWidth_Callback = bool (*)(const QProgressDialog*);
+    using QProgressDialog_PaintEngine_Callback = QPaintEngine* (*)(const QProgressDialog*);
     using QProgressDialog_Event_Callback = bool (*)(QProgressDialog*, QEvent*);
     using QProgressDialog_MousePressEvent_Callback = void (*)(QProgressDialog*, QMouseEvent*);
     using QProgressDialog_MouseReleaseEvent_Callback = void (*)(QProgressDialog*, QMouseEvent*);
@@ -63,7 +59,7 @@ class VirtualQProgressDialog final : public QProgressDialog {
     using QProgressDialog_Metric_Callback = int (*)(const QProgressDialog*, int);
     using QProgressDialog_InitPainter_Callback = void (*)(const QProgressDialog*, QPainter*);
     using QProgressDialog_Redirected_Callback = QPaintDevice* (*)(const QProgressDialog*, QPoint*);
-    using QProgressDialog_SharedPainter_Callback = QPainter* (*)();
+    using QProgressDialog_SharedPainter_Callback = QPainter* (*)(const QProgressDialog*);
     using QProgressDialog_InputMethodEvent_Callback = void (*)(QProgressDialog*, QInputMethodEvent*);
     using QProgressDialog_InputMethodQuery_Callback = QVariant* (*)(const QProgressDialog*, int);
     using QProgressDialog_FocusNextPrevChild_Callback = bool (*)(QProgressDialog*, bool);
@@ -72,20 +68,19 @@ class VirtualQProgressDialog final : public QProgressDialog {
     using QProgressDialog_CustomEvent_Callback = void (*)(QProgressDialog*, QEvent*);
     using QProgressDialog_ConnectNotify_Callback = void (*)(QProgressDialog*, QMetaMethod*);
     using QProgressDialog_DisconnectNotify_Callback = void (*)(QProgressDialog*, QMetaMethod*);
-    using QProgressDialog_ForceShow_Callback = void (*)();
-    using QProgressDialog_AdjustPosition_Callback = void (*)(QProgressDialog*, QWidget*);
-    using QProgressDialog_UpdateMicroFocus_Callback = void (*)();
-    using QProgressDialog_Create_Callback = void (*)();
-    using QProgressDialog_Destroy_Callback = void (*)();
-    using QProgressDialog_FocusNextChild_Callback = bool (*)();
-    using QProgressDialog_FocusPreviousChild_Callback = bool (*)();
-    using QProgressDialog_Sender_Callback = QObject* (*)();
-    using QProgressDialog_SenderSignalIndex_Callback = int (*)();
-    using QProgressDialog_Receivers_Callback = int (*)(const QProgressDialog*, const char*);
-    using QProgressDialog_IsSignalConnected_Callback = bool (*)(const QProgressDialog*, QMetaMethod*);
-    using QProgressDialog_GetDecodedMetricF_Callback = double (*)(const QProgressDialog*, int, int);
+    using QProgressDialog::adjustPosition;
+    using QProgressDialog::create;
+    using QProgressDialog::destroy;
+    using QProgressDialog::focusNextChild;
+    using QProgressDialog::focusPreviousChild;
+    using QProgressDialog::forceShow;
+    using QProgressDialog::getDecodedMetricF;
+    using QProgressDialog::isSignalConnected;
+    using QProgressDialog::receivers;
+    using QProgressDialog::sender;
+    using QProgressDialog::senderSignalIndex;
+    using QProgressDialog::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     QProgressDialog_MetaObject_Callback qprogressdialog_metaobject_callback = nullptr;
     QProgressDialog_Metacast_Callback qprogressdialog_metacast_callback = nullptr;
@@ -142,89 +137,50 @@ class VirtualQProgressDialog final : public QProgressDialog {
     QProgressDialog_CustomEvent_Callback qprogressdialog_customevent_callback = nullptr;
     QProgressDialog_ConnectNotify_Callback qprogressdialog_connectnotify_callback = nullptr;
     QProgressDialog_DisconnectNotify_Callback qprogressdialog_disconnectnotify_callback = nullptr;
-    QProgressDialog_ForceShow_Callback qprogressdialog_forceshow_callback = nullptr;
-    QProgressDialog_AdjustPosition_Callback qprogressdialog_adjustposition_callback = nullptr;
-    QProgressDialog_UpdateMicroFocus_Callback qprogressdialog_updatemicrofocus_callback = nullptr;
-    QProgressDialog_Create_Callback qprogressdialog_create_callback = nullptr;
-    QProgressDialog_Destroy_Callback qprogressdialog_destroy_callback = nullptr;
-    QProgressDialog_FocusNextChild_Callback qprogressdialog_focusnextchild_callback = nullptr;
-    QProgressDialog_FocusPreviousChild_Callback qprogressdialog_focuspreviouschild_callback = nullptr;
-    QProgressDialog_Sender_Callback qprogressdialog_sender_callback = nullptr;
-    QProgressDialog_SenderSignalIndex_Callback qprogressdialog_sendersignalindex_callback = nullptr;
-    QProgressDialog_Receivers_Callback qprogressdialog_receivers_callback = nullptr;
-    QProgressDialog_IsSignalConnected_Callback qprogressdialog_issignalconnected_callback = nullptr;
-    QProgressDialog_GetDecodedMetricF_Callback qprogressdialog_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool qprogressdialog_metaobject_isbase = false;
-    mutable bool qprogressdialog_metacast_isbase = false;
-    mutable bool qprogressdialog_metacall_isbase = false;
-    mutable bool qprogressdialog_sizehint_isbase = false;
-    mutable bool qprogressdialog_resizeevent_isbase = false;
-    mutable bool qprogressdialog_closeevent_isbase = false;
-    mutable bool qprogressdialog_changeevent_isbase = false;
-    mutable bool qprogressdialog_showevent_isbase = false;
-    mutable bool qprogressdialog_setvisible_isbase = false;
-    mutable bool qprogressdialog_minimumsizehint_isbase = false;
-    mutable bool qprogressdialog_open_isbase = false;
-    mutable bool qprogressdialog_exec_isbase = false;
-    mutable bool qprogressdialog_done_isbase = false;
-    mutable bool qprogressdialog_accept_isbase = false;
-    mutable bool qprogressdialog_reject_isbase = false;
-    mutable bool qprogressdialog_keypressevent_isbase = false;
-    mutable bool qprogressdialog_contextmenuevent_isbase = false;
-    mutable bool qprogressdialog_eventfilter_isbase = false;
-    mutable bool qprogressdialog_devtype_isbase = false;
-    mutable bool qprogressdialog_heightforwidth_isbase = false;
-    mutable bool qprogressdialog_hasheightforwidth_isbase = false;
-    mutable bool qprogressdialog_paintengine_isbase = false;
-    mutable bool qprogressdialog_event_isbase = false;
-    mutable bool qprogressdialog_mousepressevent_isbase = false;
-    mutable bool qprogressdialog_mousereleaseevent_isbase = false;
-    mutable bool qprogressdialog_mousedoubleclickevent_isbase = false;
-    mutable bool qprogressdialog_mousemoveevent_isbase = false;
-    mutable bool qprogressdialog_wheelevent_isbase = false;
-    mutable bool qprogressdialog_keyreleaseevent_isbase = false;
-    mutable bool qprogressdialog_focusinevent_isbase = false;
-    mutable bool qprogressdialog_focusoutevent_isbase = false;
-    mutable bool qprogressdialog_enterevent_isbase = false;
-    mutable bool qprogressdialog_leaveevent_isbase = false;
-    mutable bool qprogressdialog_paintevent_isbase = false;
-    mutable bool qprogressdialog_moveevent_isbase = false;
-    mutable bool qprogressdialog_tabletevent_isbase = false;
-    mutable bool qprogressdialog_actionevent_isbase = false;
-    mutable bool qprogressdialog_dragenterevent_isbase = false;
-    mutable bool qprogressdialog_dragmoveevent_isbase = false;
-    mutable bool qprogressdialog_dragleaveevent_isbase = false;
-    mutable bool qprogressdialog_dropevent_isbase = false;
-    mutable bool qprogressdialog_hideevent_isbase = false;
-    mutable bool qprogressdialog_nativeevent_isbase = false;
-    mutable bool qprogressdialog_metric_isbase = false;
-    mutable bool qprogressdialog_initpainter_isbase = false;
-    mutable bool qprogressdialog_redirected_isbase = false;
-    mutable bool qprogressdialog_sharedpainter_isbase = false;
-    mutable bool qprogressdialog_inputmethodevent_isbase = false;
-    mutable bool qprogressdialog_inputmethodquery_isbase = false;
-    mutable bool qprogressdialog_focusnextprevchild_isbase = false;
-    mutable bool qprogressdialog_timerevent_isbase = false;
-    mutable bool qprogressdialog_childevent_isbase = false;
-    mutable bool qprogressdialog_customevent_isbase = false;
-    mutable bool qprogressdialog_connectnotify_isbase = false;
-    mutable bool qprogressdialog_disconnectnotify_isbase = false;
-    mutable bool qprogressdialog_forceshow_isbase = false;
-    mutable bool qprogressdialog_adjustposition_isbase = false;
-    mutable bool qprogressdialog_updatemicrofocus_isbase = false;
-    mutable bool qprogressdialog_create_isbase = false;
-    mutable bool qprogressdialog_destroy_isbase = false;
-    mutable bool qprogressdialog_focusnextchild_isbase = false;
-    mutable bool qprogressdialog_focuspreviouschild_isbase = false;
-    mutable bool qprogressdialog_sender_isbase = false;
-    mutable bool qprogressdialog_sendersignalindex_isbase = false;
-    mutable bool qprogressdialog_receivers_isbase = false;
-    mutable bool qprogressdialog_issignalconnected_isbase = false;
-    mutable bool qprogressdialog_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : QProgressDialog {
+        using QProgressDialog::actionEvent;
+        using QProgressDialog::changeEvent;
+        using QProgressDialog::childEvent;
+        using QProgressDialog::closeEvent;
+        using QProgressDialog::connectNotify;
+        using QProgressDialog::contextMenuEvent;
+        using QProgressDialog::customEvent;
+        using QProgressDialog::disconnectNotify;
+        using QProgressDialog::dragEnterEvent;
+        using QProgressDialog::dragLeaveEvent;
+        using QProgressDialog::dragMoveEvent;
+        using QProgressDialog::dropEvent;
+        using QProgressDialog::enterEvent;
+        using QProgressDialog::event;
+        using QProgressDialog::eventFilter;
+        using QProgressDialog::focusInEvent;
+        using QProgressDialog::focusNextPrevChild;
+        using QProgressDialog::focusOutEvent;
+        using QProgressDialog::hideEvent;
+        using QProgressDialog::initPainter;
+        using QProgressDialog::inputMethodEvent;
+        using QProgressDialog::keyPressEvent;
+        using QProgressDialog::keyReleaseEvent;
+        using QProgressDialog::leaveEvent;
+        using QProgressDialog::metric;
+        using QProgressDialog::mouseDoubleClickEvent;
+        using QProgressDialog::mouseMoveEvent;
+        using QProgressDialog::mousePressEvent;
+        using QProgressDialog::mouseReleaseEvent;
+        using QProgressDialog::moveEvent;
+        using QProgressDialog::nativeEvent;
+        using QProgressDialog::paintEvent;
+        using QProgressDialog::redirected;
+        using QProgressDialog::resizeEvent;
+        using QProgressDialog::sharedPainter;
+        using QProgressDialog::showEvent;
+        using QProgressDialog::tabletEvent;
+        using QProgressDialog::timerEvent;
+        using QProgressDialog::wheelEvent;
+    };
 
-  public:
     VirtualQProgressDialog(QWidget* parent) : QProgressDialog(parent) {};
     VirtualQProgressDialog() : QProgressDialog() {};
     VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum) : QProgressDialog(labelText, cancelButtonText, minimum, maximum) {};
@@ -232,153 +188,10 @@ class VirtualQProgressDialog final : public QProgressDialog {
     VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent) {};
     VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent, Qt::WindowFlags flags) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent, flags) {};
 
-    // Callback setters
-    inline void setQProgressDialog_MetaObject_Callback(QProgressDialog_MetaObject_Callback cb) { qprogressdialog_metaobject_callback = cb; }
-    inline void setQProgressDialog_Metacast_Callback(QProgressDialog_Metacast_Callback cb) { qprogressdialog_metacast_callback = cb; }
-    inline void setQProgressDialog_Metacall_Callback(QProgressDialog_Metacall_Callback cb) { qprogressdialog_metacall_callback = cb; }
-    inline void setQProgressDialog_SizeHint_Callback(QProgressDialog_SizeHint_Callback cb) { qprogressdialog_sizehint_callback = cb; }
-    inline void setQProgressDialog_ResizeEvent_Callback(QProgressDialog_ResizeEvent_Callback cb) { qprogressdialog_resizeevent_callback = cb; }
-    inline void setQProgressDialog_CloseEvent_Callback(QProgressDialog_CloseEvent_Callback cb) { qprogressdialog_closeevent_callback = cb; }
-    inline void setQProgressDialog_ChangeEvent_Callback(QProgressDialog_ChangeEvent_Callback cb) { qprogressdialog_changeevent_callback = cb; }
-    inline void setQProgressDialog_ShowEvent_Callback(QProgressDialog_ShowEvent_Callback cb) { qprogressdialog_showevent_callback = cb; }
-    inline void setQProgressDialog_SetVisible_Callback(QProgressDialog_SetVisible_Callback cb) { qprogressdialog_setvisible_callback = cb; }
-    inline void setQProgressDialog_MinimumSizeHint_Callback(QProgressDialog_MinimumSizeHint_Callback cb) { qprogressdialog_minimumsizehint_callback = cb; }
-    inline void setQProgressDialog_Open_Callback(QProgressDialog_Open_Callback cb) { qprogressdialog_open_callback = cb; }
-    inline void setQProgressDialog_Exec_Callback(QProgressDialog_Exec_Callback cb) { qprogressdialog_exec_callback = cb; }
-    inline void setQProgressDialog_Done_Callback(QProgressDialog_Done_Callback cb) { qprogressdialog_done_callback = cb; }
-    inline void setQProgressDialog_Accept_Callback(QProgressDialog_Accept_Callback cb) { qprogressdialog_accept_callback = cb; }
-    inline void setQProgressDialog_Reject_Callback(QProgressDialog_Reject_Callback cb) { qprogressdialog_reject_callback = cb; }
-    inline void setQProgressDialog_KeyPressEvent_Callback(QProgressDialog_KeyPressEvent_Callback cb) { qprogressdialog_keypressevent_callback = cb; }
-    inline void setQProgressDialog_ContextMenuEvent_Callback(QProgressDialog_ContextMenuEvent_Callback cb) { qprogressdialog_contextmenuevent_callback = cb; }
-    inline void setQProgressDialog_EventFilter_Callback(QProgressDialog_EventFilter_Callback cb) { qprogressdialog_eventfilter_callback = cb; }
-    inline void setQProgressDialog_DevType_Callback(QProgressDialog_DevType_Callback cb) { qprogressdialog_devtype_callback = cb; }
-    inline void setQProgressDialog_HeightForWidth_Callback(QProgressDialog_HeightForWidth_Callback cb) { qprogressdialog_heightforwidth_callback = cb; }
-    inline void setQProgressDialog_HasHeightForWidth_Callback(QProgressDialog_HasHeightForWidth_Callback cb) { qprogressdialog_hasheightforwidth_callback = cb; }
-    inline void setQProgressDialog_PaintEngine_Callback(QProgressDialog_PaintEngine_Callback cb) { qprogressdialog_paintengine_callback = cb; }
-    inline void setQProgressDialog_Event_Callback(QProgressDialog_Event_Callback cb) { qprogressdialog_event_callback = cb; }
-    inline void setQProgressDialog_MousePressEvent_Callback(QProgressDialog_MousePressEvent_Callback cb) { qprogressdialog_mousepressevent_callback = cb; }
-    inline void setQProgressDialog_MouseReleaseEvent_Callback(QProgressDialog_MouseReleaseEvent_Callback cb) { qprogressdialog_mousereleaseevent_callback = cb; }
-    inline void setQProgressDialog_MouseDoubleClickEvent_Callback(QProgressDialog_MouseDoubleClickEvent_Callback cb) { qprogressdialog_mousedoubleclickevent_callback = cb; }
-    inline void setQProgressDialog_MouseMoveEvent_Callback(QProgressDialog_MouseMoveEvent_Callback cb) { qprogressdialog_mousemoveevent_callback = cb; }
-    inline void setQProgressDialog_WheelEvent_Callback(QProgressDialog_WheelEvent_Callback cb) { qprogressdialog_wheelevent_callback = cb; }
-    inline void setQProgressDialog_KeyReleaseEvent_Callback(QProgressDialog_KeyReleaseEvent_Callback cb) { qprogressdialog_keyreleaseevent_callback = cb; }
-    inline void setQProgressDialog_FocusInEvent_Callback(QProgressDialog_FocusInEvent_Callback cb) { qprogressdialog_focusinevent_callback = cb; }
-    inline void setQProgressDialog_FocusOutEvent_Callback(QProgressDialog_FocusOutEvent_Callback cb) { qprogressdialog_focusoutevent_callback = cb; }
-    inline void setQProgressDialog_EnterEvent_Callback(QProgressDialog_EnterEvent_Callback cb) { qprogressdialog_enterevent_callback = cb; }
-    inline void setQProgressDialog_LeaveEvent_Callback(QProgressDialog_LeaveEvent_Callback cb) { qprogressdialog_leaveevent_callback = cb; }
-    inline void setQProgressDialog_PaintEvent_Callback(QProgressDialog_PaintEvent_Callback cb) { qprogressdialog_paintevent_callback = cb; }
-    inline void setQProgressDialog_MoveEvent_Callback(QProgressDialog_MoveEvent_Callback cb) { qprogressdialog_moveevent_callback = cb; }
-    inline void setQProgressDialog_TabletEvent_Callback(QProgressDialog_TabletEvent_Callback cb) { qprogressdialog_tabletevent_callback = cb; }
-    inline void setQProgressDialog_ActionEvent_Callback(QProgressDialog_ActionEvent_Callback cb) { qprogressdialog_actionevent_callback = cb; }
-    inline void setQProgressDialog_DragEnterEvent_Callback(QProgressDialog_DragEnterEvent_Callback cb) { qprogressdialog_dragenterevent_callback = cb; }
-    inline void setQProgressDialog_DragMoveEvent_Callback(QProgressDialog_DragMoveEvent_Callback cb) { qprogressdialog_dragmoveevent_callback = cb; }
-    inline void setQProgressDialog_DragLeaveEvent_Callback(QProgressDialog_DragLeaveEvent_Callback cb) { qprogressdialog_dragleaveevent_callback = cb; }
-    inline void setQProgressDialog_DropEvent_Callback(QProgressDialog_DropEvent_Callback cb) { qprogressdialog_dropevent_callback = cb; }
-    inline void setQProgressDialog_HideEvent_Callback(QProgressDialog_HideEvent_Callback cb) { qprogressdialog_hideevent_callback = cb; }
-    inline void setQProgressDialog_NativeEvent_Callback(QProgressDialog_NativeEvent_Callback cb) { qprogressdialog_nativeevent_callback = cb; }
-    inline void setQProgressDialog_Metric_Callback(QProgressDialog_Metric_Callback cb) { qprogressdialog_metric_callback = cb; }
-    inline void setQProgressDialog_InitPainter_Callback(QProgressDialog_InitPainter_Callback cb) { qprogressdialog_initpainter_callback = cb; }
-    inline void setQProgressDialog_Redirected_Callback(QProgressDialog_Redirected_Callback cb) { qprogressdialog_redirected_callback = cb; }
-    inline void setQProgressDialog_SharedPainter_Callback(QProgressDialog_SharedPainter_Callback cb) { qprogressdialog_sharedpainter_callback = cb; }
-    inline void setQProgressDialog_InputMethodEvent_Callback(QProgressDialog_InputMethodEvent_Callback cb) { qprogressdialog_inputmethodevent_callback = cb; }
-    inline void setQProgressDialog_InputMethodQuery_Callback(QProgressDialog_InputMethodQuery_Callback cb) { qprogressdialog_inputmethodquery_callback = cb; }
-    inline void setQProgressDialog_FocusNextPrevChild_Callback(QProgressDialog_FocusNextPrevChild_Callback cb) { qprogressdialog_focusnextprevchild_callback = cb; }
-    inline void setQProgressDialog_TimerEvent_Callback(QProgressDialog_TimerEvent_Callback cb) { qprogressdialog_timerevent_callback = cb; }
-    inline void setQProgressDialog_ChildEvent_Callback(QProgressDialog_ChildEvent_Callback cb) { qprogressdialog_childevent_callback = cb; }
-    inline void setQProgressDialog_CustomEvent_Callback(QProgressDialog_CustomEvent_Callback cb) { qprogressdialog_customevent_callback = cb; }
-    inline void setQProgressDialog_ConnectNotify_Callback(QProgressDialog_ConnectNotify_Callback cb) { qprogressdialog_connectnotify_callback = cb; }
-    inline void setQProgressDialog_DisconnectNotify_Callback(QProgressDialog_DisconnectNotify_Callback cb) { qprogressdialog_disconnectnotify_callback = cb; }
-    inline void setQProgressDialog_ForceShow_Callback(QProgressDialog_ForceShow_Callback cb) { qprogressdialog_forceshow_callback = cb; }
-    inline void setQProgressDialog_AdjustPosition_Callback(QProgressDialog_AdjustPosition_Callback cb) { qprogressdialog_adjustposition_callback = cb; }
-    inline void setQProgressDialog_UpdateMicroFocus_Callback(QProgressDialog_UpdateMicroFocus_Callback cb) { qprogressdialog_updatemicrofocus_callback = cb; }
-    inline void setQProgressDialog_Create_Callback(QProgressDialog_Create_Callback cb) { qprogressdialog_create_callback = cb; }
-    inline void setQProgressDialog_Destroy_Callback(QProgressDialog_Destroy_Callback cb) { qprogressdialog_destroy_callback = cb; }
-    inline void setQProgressDialog_FocusNextChild_Callback(QProgressDialog_FocusNextChild_Callback cb) { qprogressdialog_focusnextchild_callback = cb; }
-    inline void setQProgressDialog_FocusPreviousChild_Callback(QProgressDialog_FocusPreviousChild_Callback cb) { qprogressdialog_focuspreviouschild_callback = cb; }
-    inline void setQProgressDialog_Sender_Callback(QProgressDialog_Sender_Callback cb) { qprogressdialog_sender_callback = cb; }
-    inline void setQProgressDialog_SenderSignalIndex_Callback(QProgressDialog_SenderSignalIndex_Callback cb) { qprogressdialog_sendersignalindex_callback = cb; }
-    inline void setQProgressDialog_Receivers_Callback(QProgressDialog_Receivers_Callback cb) { qprogressdialog_receivers_callback = cb; }
-    inline void setQProgressDialog_IsSignalConnected_Callback(QProgressDialog_IsSignalConnected_Callback cb) { qprogressdialog_issignalconnected_callback = cb; }
-    inline void setQProgressDialog_GetDecodedMetricF_Callback(QProgressDialog_GetDecodedMetricF_Callback cb) { qprogressdialog_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setQProgressDialog_MetaObject_IsBase(bool value) const { qprogressdialog_metaobject_isbase = value; }
-    inline void setQProgressDialog_Metacast_IsBase(bool value) const { qprogressdialog_metacast_isbase = value; }
-    inline void setQProgressDialog_Metacall_IsBase(bool value) const { qprogressdialog_metacall_isbase = value; }
-    inline void setQProgressDialog_SizeHint_IsBase(bool value) const { qprogressdialog_sizehint_isbase = value; }
-    inline void setQProgressDialog_ResizeEvent_IsBase(bool value) const { qprogressdialog_resizeevent_isbase = value; }
-    inline void setQProgressDialog_CloseEvent_IsBase(bool value) const { qprogressdialog_closeevent_isbase = value; }
-    inline void setQProgressDialog_ChangeEvent_IsBase(bool value) const { qprogressdialog_changeevent_isbase = value; }
-    inline void setQProgressDialog_ShowEvent_IsBase(bool value) const { qprogressdialog_showevent_isbase = value; }
-    inline void setQProgressDialog_SetVisible_IsBase(bool value) const { qprogressdialog_setvisible_isbase = value; }
-    inline void setQProgressDialog_MinimumSizeHint_IsBase(bool value) const { qprogressdialog_minimumsizehint_isbase = value; }
-    inline void setQProgressDialog_Open_IsBase(bool value) const { qprogressdialog_open_isbase = value; }
-    inline void setQProgressDialog_Exec_IsBase(bool value) const { qprogressdialog_exec_isbase = value; }
-    inline void setQProgressDialog_Done_IsBase(bool value) const { qprogressdialog_done_isbase = value; }
-    inline void setQProgressDialog_Accept_IsBase(bool value) const { qprogressdialog_accept_isbase = value; }
-    inline void setQProgressDialog_Reject_IsBase(bool value) const { qprogressdialog_reject_isbase = value; }
-    inline void setQProgressDialog_KeyPressEvent_IsBase(bool value) const { qprogressdialog_keypressevent_isbase = value; }
-    inline void setQProgressDialog_ContextMenuEvent_IsBase(bool value) const { qprogressdialog_contextmenuevent_isbase = value; }
-    inline void setQProgressDialog_EventFilter_IsBase(bool value) const { qprogressdialog_eventfilter_isbase = value; }
-    inline void setQProgressDialog_DevType_IsBase(bool value) const { qprogressdialog_devtype_isbase = value; }
-    inline void setQProgressDialog_HeightForWidth_IsBase(bool value) const { qprogressdialog_heightforwidth_isbase = value; }
-    inline void setQProgressDialog_HasHeightForWidth_IsBase(bool value) const { qprogressdialog_hasheightforwidth_isbase = value; }
-    inline void setQProgressDialog_PaintEngine_IsBase(bool value) const { qprogressdialog_paintengine_isbase = value; }
-    inline void setQProgressDialog_Event_IsBase(bool value) const { qprogressdialog_event_isbase = value; }
-    inline void setQProgressDialog_MousePressEvent_IsBase(bool value) const { qprogressdialog_mousepressevent_isbase = value; }
-    inline void setQProgressDialog_MouseReleaseEvent_IsBase(bool value) const { qprogressdialog_mousereleaseevent_isbase = value; }
-    inline void setQProgressDialog_MouseDoubleClickEvent_IsBase(bool value) const { qprogressdialog_mousedoubleclickevent_isbase = value; }
-    inline void setQProgressDialog_MouseMoveEvent_IsBase(bool value) const { qprogressdialog_mousemoveevent_isbase = value; }
-    inline void setQProgressDialog_WheelEvent_IsBase(bool value) const { qprogressdialog_wheelevent_isbase = value; }
-    inline void setQProgressDialog_KeyReleaseEvent_IsBase(bool value) const { qprogressdialog_keyreleaseevent_isbase = value; }
-    inline void setQProgressDialog_FocusInEvent_IsBase(bool value) const { qprogressdialog_focusinevent_isbase = value; }
-    inline void setQProgressDialog_FocusOutEvent_IsBase(bool value) const { qprogressdialog_focusoutevent_isbase = value; }
-    inline void setQProgressDialog_EnterEvent_IsBase(bool value) const { qprogressdialog_enterevent_isbase = value; }
-    inline void setQProgressDialog_LeaveEvent_IsBase(bool value) const { qprogressdialog_leaveevent_isbase = value; }
-    inline void setQProgressDialog_PaintEvent_IsBase(bool value) const { qprogressdialog_paintevent_isbase = value; }
-    inline void setQProgressDialog_MoveEvent_IsBase(bool value) const { qprogressdialog_moveevent_isbase = value; }
-    inline void setQProgressDialog_TabletEvent_IsBase(bool value) const { qprogressdialog_tabletevent_isbase = value; }
-    inline void setQProgressDialog_ActionEvent_IsBase(bool value) const { qprogressdialog_actionevent_isbase = value; }
-    inline void setQProgressDialog_DragEnterEvent_IsBase(bool value) const { qprogressdialog_dragenterevent_isbase = value; }
-    inline void setQProgressDialog_DragMoveEvent_IsBase(bool value) const { qprogressdialog_dragmoveevent_isbase = value; }
-    inline void setQProgressDialog_DragLeaveEvent_IsBase(bool value) const { qprogressdialog_dragleaveevent_isbase = value; }
-    inline void setQProgressDialog_DropEvent_IsBase(bool value) const { qprogressdialog_dropevent_isbase = value; }
-    inline void setQProgressDialog_HideEvent_IsBase(bool value) const { qprogressdialog_hideevent_isbase = value; }
-    inline void setQProgressDialog_NativeEvent_IsBase(bool value) const { qprogressdialog_nativeevent_isbase = value; }
-    inline void setQProgressDialog_Metric_IsBase(bool value) const { qprogressdialog_metric_isbase = value; }
-    inline void setQProgressDialog_InitPainter_IsBase(bool value) const { qprogressdialog_initpainter_isbase = value; }
-    inline void setQProgressDialog_Redirected_IsBase(bool value) const { qprogressdialog_redirected_isbase = value; }
-    inline void setQProgressDialog_SharedPainter_IsBase(bool value) const { qprogressdialog_sharedpainter_isbase = value; }
-    inline void setQProgressDialog_InputMethodEvent_IsBase(bool value) const { qprogressdialog_inputmethodevent_isbase = value; }
-    inline void setQProgressDialog_InputMethodQuery_IsBase(bool value) const { qprogressdialog_inputmethodquery_isbase = value; }
-    inline void setQProgressDialog_FocusNextPrevChild_IsBase(bool value) const { qprogressdialog_focusnextprevchild_isbase = value; }
-    inline void setQProgressDialog_TimerEvent_IsBase(bool value) const { qprogressdialog_timerevent_isbase = value; }
-    inline void setQProgressDialog_ChildEvent_IsBase(bool value) const { qprogressdialog_childevent_isbase = value; }
-    inline void setQProgressDialog_CustomEvent_IsBase(bool value) const { qprogressdialog_customevent_isbase = value; }
-    inline void setQProgressDialog_ConnectNotify_IsBase(bool value) const { qprogressdialog_connectnotify_isbase = value; }
-    inline void setQProgressDialog_DisconnectNotify_IsBase(bool value) const { qprogressdialog_disconnectnotify_isbase = value; }
-    inline void setQProgressDialog_ForceShow_IsBase(bool value) const { qprogressdialog_forceshow_isbase = value; }
-    inline void setQProgressDialog_AdjustPosition_IsBase(bool value) const { qprogressdialog_adjustposition_isbase = value; }
-    inline void setQProgressDialog_UpdateMicroFocus_IsBase(bool value) const { qprogressdialog_updatemicrofocus_isbase = value; }
-    inline void setQProgressDialog_Create_IsBase(bool value) const { qprogressdialog_create_isbase = value; }
-    inline void setQProgressDialog_Destroy_IsBase(bool value) const { qprogressdialog_destroy_isbase = value; }
-    inline void setQProgressDialog_FocusNextChild_IsBase(bool value) const { qprogressdialog_focusnextchild_isbase = value; }
-    inline void setQProgressDialog_FocusPreviousChild_IsBase(bool value) const { qprogressdialog_focuspreviouschild_isbase = value; }
-    inline void setQProgressDialog_Sender_IsBase(bool value) const { qprogressdialog_sender_isbase = value; }
-    inline void setQProgressDialog_SenderSignalIndex_IsBase(bool value) const { qprogressdialog_sendersignalindex_isbase = value; }
-    inline void setQProgressDialog_Receivers_IsBase(bool value) const { qprogressdialog_receivers_isbase = value; }
-    inline void setQProgressDialog_IsSignalConnected_IsBase(bool value) const { qprogressdialog_issignalconnected_isbase = value; }
-    inline void setQProgressDialog_GetDecodedMetricF_IsBase(bool value) const { qprogressdialog_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (qprogressdialog_metaobject_isbase) {
-            qprogressdialog_metaobject_isbase = false;
-            return QProgressDialog::metaObject();
-        }
-        auto metaobject_cb = qprogressdialog_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (qprogressdialog_metaobject_callback) {
+            QMetaObject* callback_ret = qprogressdialog_metaobject_callback(this);
             return callback_ret;
         }
         return QProgressDialog::metaObject();
@@ -386,14 +199,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (qprogressdialog_metacast_isbase) {
-            qprogressdialog_metacast_isbase = false;
-            return QProgressDialog::qt_metacast(param1);
-        }
-        auto metacast_cb = qprogressdialog_metacast_callback;
-        if (metacast_cb) {
+        if (qprogressdialog_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = qprogressdialog_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return QProgressDialog::qt_metacast(param1);
@@ -401,16 +209,11 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (qprogressdialog_metacall_isbase) {
-            qprogressdialog_metacall_isbase = false;
-            return QProgressDialog::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = qprogressdialog_metacall_callback;
-        if (metacall_cb) {
+        if (qprogressdialog_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = qprogressdialog_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return QProgressDialog::qt_metacall(param1, param2, param3);
@@ -418,13 +221,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (qprogressdialog_sizehint_isbase) {
-            qprogressdialog_sizehint_isbase = false;
-            return QProgressDialog::sizeHint();
-        }
-        auto sizehint_cb = qprogressdialog_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (qprogressdialog_sizehint_callback) {
+            QSize* callback_ret = qprogressdialog_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -434,15 +232,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* event) override {
-        if (qprogressdialog_resizeevent_isbase) {
-            qprogressdialog_resizeevent_isbase = false;
-            QProgressDialog::resizeEvent(event);
-            return;
-        }
-        auto resizeevent_cb = qprogressdialog_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (qprogressdialog_resizeevent_callback) {
             QResizeEvent* cbval1 = event;
-            resizeevent_cb(this, cbval1);
+            qprogressdialog_resizeevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::resizeEvent(event);
@@ -450,15 +242,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* event) override {
-        if (qprogressdialog_closeevent_isbase) {
-            qprogressdialog_closeevent_isbase = false;
-            QProgressDialog::closeEvent(event);
-            return;
-        }
-        auto closeevent_cb = qprogressdialog_closeevent_callback;
-        if (closeevent_cb) {
+        if (qprogressdialog_closeevent_callback) {
             QCloseEvent* cbval1 = event;
-            closeevent_cb(this, cbval1);
+            qprogressdialog_closeevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::closeEvent(event);
@@ -466,15 +252,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* event) override {
-        if (qprogressdialog_changeevent_isbase) {
-            qprogressdialog_changeevent_isbase = false;
-            QProgressDialog::changeEvent(event);
-            return;
-        }
-        auto changeevent_cb = qprogressdialog_changeevent_callback;
-        if (changeevent_cb) {
+        if (qprogressdialog_changeevent_callback) {
             QEvent* cbval1 = event;
-            changeevent_cb(this, cbval1);
+            qprogressdialog_changeevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::changeEvent(event);
@@ -482,15 +262,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* event) override {
-        if (qprogressdialog_showevent_isbase) {
-            qprogressdialog_showevent_isbase = false;
-            QProgressDialog::showEvent(event);
-            return;
-        }
-        auto showevent_cb = qprogressdialog_showevent_callback;
-        if (showevent_cb) {
+        if (qprogressdialog_showevent_callback) {
             QShowEvent* cbval1 = event;
-            showevent_cb(this, cbval1);
+            qprogressdialog_showevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::showEvent(event);
@@ -498,15 +272,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (qprogressdialog_setvisible_isbase) {
-            qprogressdialog_setvisible_isbase = false;
-            QProgressDialog::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = qprogressdialog_setvisible_callback;
-        if (setvisible_cb) {
+        if (qprogressdialog_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            qprogressdialog_setvisible_callback(this, cbval1);
             return;
         }
         QProgressDialog::setVisible(visible);
@@ -514,13 +282,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (qprogressdialog_minimumsizehint_isbase) {
-            qprogressdialog_minimumsizehint_isbase = false;
-            return QProgressDialog::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = qprogressdialog_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (qprogressdialog_minimumsizehint_callback) {
+            QSize* callback_ret = qprogressdialog_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -530,14 +293,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void open() override {
-        if (qprogressdialog_open_isbase) {
-            qprogressdialog_open_isbase = false;
-            QProgressDialog::open();
-            return;
-        }
-        auto open_cb = qprogressdialog_open_callback;
-        if (open_cb) {
-            open_cb();
+        if (qprogressdialog_open_callback) {
+            qprogressdialog_open_callback(this);
             return;
         }
         QProgressDialog::open();
@@ -545,13 +302,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int exec() override {
-        if (qprogressdialog_exec_isbase) {
-            qprogressdialog_exec_isbase = false;
-            return QProgressDialog::exec();
-        }
-        auto exec_cb = qprogressdialog_exec_callback;
-        if (exec_cb) {
-            int callback_ret = exec_cb();
+        if (qprogressdialog_exec_callback) {
+            int callback_ret = qprogressdialog_exec_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QProgressDialog::exec();
@@ -559,15 +311,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void done(int param1) override {
-        if (qprogressdialog_done_isbase) {
-            qprogressdialog_done_isbase = false;
-            QProgressDialog::done(param1);
-            return;
-        }
-        auto done_cb = qprogressdialog_done_callback;
-        if (done_cb) {
+        if (qprogressdialog_done_callback) {
             int cbval1 = param1;
-            done_cb(this, cbval1);
+            qprogressdialog_done_callback(this, cbval1);
             return;
         }
         QProgressDialog::done(param1);
@@ -575,14 +321,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void accept() override {
-        if (qprogressdialog_accept_isbase) {
-            qprogressdialog_accept_isbase = false;
-            QProgressDialog::accept();
-            return;
-        }
-        auto accept_cb = qprogressdialog_accept_callback;
-        if (accept_cb) {
-            accept_cb();
+        if (qprogressdialog_accept_callback) {
+            qprogressdialog_accept_callback(this);
             return;
         }
         QProgressDialog::accept();
@@ -590,14 +330,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void reject() override {
-        if (qprogressdialog_reject_isbase) {
-            qprogressdialog_reject_isbase = false;
-            QProgressDialog::reject();
-            return;
-        }
-        auto reject_cb = qprogressdialog_reject_callback;
-        if (reject_cb) {
-            reject_cb();
+        if (qprogressdialog_reject_callback) {
+            qprogressdialog_reject_callback(this);
             return;
         }
         QProgressDialog::reject();
@@ -605,15 +339,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (qprogressdialog_keypressevent_isbase) {
-            qprogressdialog_keypressevent_isbase = false;
-            QProgressDialog::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = qprogressdialog_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (qprogressdialog_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            qprogressdialog_keypressevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::keyPressEvent(param1);
@@ -621,15 +349,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (qprogressdialog_contextmenuevent_isbase) {
-            qprogressdialog_contextmenuevent_isbase = false;
-            QProgressDialog::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = qprogressdialog_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (qprogressdialog_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            qprogressdialog_contextmenuevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::contextMenuEvent(param1);
@@ -637,15 +359,10 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (qprogressdialog_eventfilter_isbase) {
-            qprogressdialog_eventfilter_isbase = false;
-            return QProgressDialog::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = qprogressdialog_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (qprogressdialog_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = qprogressdialog_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return QProgressDialog::eventFilter(param1, param2);
@@ -653,13 +370,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (qprogressdialog_devtype_isbase) {
-            qprogressdialog_devtype_isbase = false;
-            return QProgressDialog::devType();
-        }
-        auto devtype_cb = qprogressdialog_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (qprogressdialog_devtype_callback) {
+            int callback_ret = qprogressdialog_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return QProgressDialog::devType();
@@ -667,14 +379,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (qprogressdialog_heightforwidth_isbase) {
-            qprogressdialog_heightforwidth_isbase = false;
-            return QProgressDialog::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = qprogressdialog_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (qprogressdialog_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = qprogressdialog_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QProgressDialog::heightForWidth(param1);
@@ -682,13 +389,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (qprogressdialog_hasheightforwidth_isbase) {
-            qprogressdialog_hasheightforwidth_isbase = false;
-            return QProgressDialog::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = qprogressdialog_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (qprogressdialog_hasheightforwidth_callback) {
+            bool callback_ret = qprogressdialog_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return QProgressDialog::hasHeightForWidth();
@@ -696,13 +398,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (qprogressdialog_paintengine_isbase) {
-            qprogressdialog_paintengine_isbase = false;
-            return QProgressDialog::paintEngine();
-        }
-        auto paintengine_cb = qprogressdialog_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (qprogressdialog_paintengine_callback) {
+            QPaintEngine* callback_ret = qprogressdialog_paintengine_callback(this);
             return callback_ret;
         }
         return QProgressDialog::paintEngine();
@@ -710,14 +407,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (qprogressdialog_event_isbase) {
-            qprogressdialog_event_isbase = false;
-            return QProgressDialog::event(event);
-        }
-        auto event_cb = qprogressdialog_event_callback;
-        if (event_cb) {
+        if (qprogressdialog_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = qprogressdialog_event_callback(this, cbval1);
             return callback_ret;
         }
         return QProgressDialog::event(event);
@@ -725,15 +417,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (qprogressdialog_mousepressevent_isbase) {
-            qprogressdialog_mousepressevent_isbase = false;
-            QProgressDialog::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = qprogressdialog_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (qprogressdialog_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            qprogressdialog_mousepressevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::mousePressEvent(event);
@@ -741,15 +427,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (qprogressdialog_mousereleaseevent_isbase) {
-            qprogressdialog_mousereleaseevent_isbase = false;
-            QProgressDialog::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = qprogressdialog_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (qprogressdialog_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            qprogressdialog_mousereleaseevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::mouseReleaseEvent(event);
@@ -757,15 +437,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (qprogressdialog_mousedoubleclickevent_isbase) {
-            qprogressdialog_mousedoubleclickevent_isbase = false;
-            QProgressDialog::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = qprogressdialog_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (qprogressdialog_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            qprogressdialog_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::mouseDoubleClickEvent(event);
@@ -773,15 +447,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (qprogressdialog_mousemoveevent_isbase) {
-            qprogressdialog_mousemoveevent_isbase = false;
-            QProgressDialog::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = qprogressdialog_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (qprogressdialog_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            qprogressdialog_mousemoveevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::mouseMoveEvent(event);
@@ -789,15 +457,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (qprogressdialog_wheelevent_isbase) {
-            qprogressdialog_wheelevent_isbase = false;
-            QProgressDialog::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = qprogressdialog_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (qprogressdialog_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            qprogressdialog_wheelevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::wheelEvent(event);
@@ -805,15 +467,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (qprogressdialog_keyreleaseevent_isbase) {
-            qprogressdialog_keyreleaseevent_isbase = false;
-            QProgressDialog::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = qprogressdialog_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (qprogressdialog_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            qprogressdialog_keyreleaseevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::keyReleaseEvent(event);
@@ -821,15 +477,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (qprogressdialog_focusinevent_isbase) {
-            qprogressdialog_focusinevent_isbase = false;
-            QProgressDialog::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = qprogressdialog_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (qprogressdialog_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            qprogressdialog_focusinevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::focusInEvent(event);
@@ -837,15 +487,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (qprogressdialog_focusoutevent_isbase) {
-            qprogressdialog_focusoutevent_isbase = false;
-            QProgressDialog::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = qprogressdialog_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (qprogressdialog_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            qprogressdialog_focusoutevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::focusOutEvent(event);
@@ -853,15 +497,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (qprogressdialog_enterevent_isbase) {
-            qprogressdialog_enterevent_isbase = false;
-            QProgressDialog::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = qprogressdialog_enterevent_callback;
-        if (enterevent_cb) {
+        if (qprogressdialog_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            qprogressdialog_enterevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::enterEvent(event);
@@ -869,15 +507,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (qprogressdialog_leaveevent_isbase) {
-            qprogressdialog_leaveevent_isbase = false;
-            QProgressDialog::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = qprogressdialog_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (qprogressdialog_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            qprogressdialog_leaveevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::leaveEvent(event);
@@ -885,15 +517,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (qprogressdialog_paintevent_isbase) {
-            qprogressdialog_paintevent_isbase = false;
-            QProgressDialog::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = qprogressdialog_paintevent_callback;
-        if (paintevent_cb) {
+        if (qprogressdialog_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            qprogressdialog_paintevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::paintEvent(event);
@@ -901,15 +527,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (qprogressdialog_moveevent_isbase) {
-            qprogressdialog_moveevent_isbase = false;
-            QProgressDialog::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = qprogressdialog_moveevent_callback;
-        if (moveevent_cb) {
+        if (qprogressdialog_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            qprogressdialog_moveevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::moveEvent(event);
@@ -917,15 +537,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (qprogressdialog_tabletevent_isbase) {
-            qprogressdialog_tabletevent_isbase = false;
-            QProgressDialog::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = qprogressdialog_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (qprogressdialog_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            qprogressdialog_tabletevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::tabletEvent(event);
@@ -933,15 +547,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (qprogressdialog_actionevent_isbase) {
-            qprogressdialog_actionevent_isbase = false;
-            QProgressDialog::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = qprogressdialog_actionevent_callback;
-        if (actionevent_cb) {
+        if (qprogressdialog_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            qprogressdialog_actionevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::actionEvent(event);
@@ -949,15 +557,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (qprogressdialog_dragenterevent_isbase) {
-            qprogressdialog_dragenterevent_isbase = false;
-            QProgressDialog::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = qprogressdialog_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (qprogressdialog_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            qprogressdialog_dragenterevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::dragEnterEvent(event);
@@ -965,15 +567,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (qprogressdialog_dragmoveevent_isbase) {
-            qprogressdialog_dragmoveevent_isbase = false;
-            QProgressDialog::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = qprogressdialog_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (qprogressdialog_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            qprogressdialog_dragmoveevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::dragMoveEvent(event);
@@ -981,15 +577,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (qprogressdialog_dragleaveevent_isbase) {
-            qprogressdialog_dragleaveevent_isbase = false;
-            QProgressDialog::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = qprogressdialog_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (qprogressdialog_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            qprogressdialog_dragleaveevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::dragLeaveEvent(event);
@@ -997,15 +587,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (qprogressdialog_dropevent_isbase) {
-            qprogressdialog_dropevent_isbase = false;
-            QProgressDialog::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = qprogressdialog_dropevent_callback;
-        if (dropevent_cb) {
+        if (qprogressdialog_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            qprogressdialog_dropevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::dropEvent(event);
@@ -1013,15 +597,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (qprogressdialog_hideevent_isbase) {
-            qprogressdialog_hideevent_isbase = false;
-            QProgressDialog::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = qprogressdialog_hideevent_callback;
-        if (hideevent_cb) {
+        if (qprogressdialog_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            qprogressdialog_hideevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::hideEvent(event);
@@ -1029,12 +607,7 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (qprogressdialog_nativeevent_isbase) {
-            qprogressdialog_nativeevent_isbase = false;
-            return QProgressDialog::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = qprogressdialog_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (qprogressdialog_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1044,7 +617,7 @@ class VirtualQProgressDialog final : public QProgressDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = qprogressdialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1053,14 +626,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (qprogressdialog_metric_isbase) {
-            qprogressdialog_metric_isbase = false;
-            return QProgressDialog::metric(param1);
-        }
-        auto metric_cb = qprogressdialog_metric_callback;
-        if (metric_cb) {
+        if (qprogressdialog_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = qprogressdialog_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return QProgressDialog::metric(param1);
@@ -1068,15 +636,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (qprogressdialog_initpainter_isbase) {
-            qprogressdialog_initpainter_isbase = false;
-            QProgressDialog::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = qprogressdialog_initpainter_callback;
-        if (initpainter_cb) {
+        if (qprogressdialog_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            qprogressdialog_initpainter_callback(this, cbval1);
             return;
         }
         QProgressDialog::initPainter(painter);
@@ -1084,14 +646,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (qprogressdialog_redirected_isbase) {
-            qprogressdialog_redirected_isbase = false;
-            return QProgressDialog::redirected(offset);
-        }
-        auto redirected_cb = qprogressdialog_redirected_callback;
-        if (redirected_cb) {
+        if (qprogressdialog_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = qprogressdialog_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return QProgressDialog::redirected(offset);
@@ -1099,13 +656,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (qprogressdialog_sharedpainter_isbase) {
-            qprogressdialog_sharedpainter_isbase = false;
-            return QProgressDialog::sharedPainter();
-        }
-        auto sharedpainter_cb = qprogressdialog_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (qprogressdialog_sharedpainter_callback) {
+            QPainter* callback_ret = qprogressdialog_sharedpainter_callback(this);
             return callback_ret;
         }
         return QProgressDialog::sharedPainter();
@@ -1113,15 +665,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (qprogressdialog_inputmethodevent_isbase) {
-            qprogressdialog_inputmethodevent_isbase = false;
-            QProgressDialog::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = qprogressdialog_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (qprogressdialog_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            qprogressdialog_inputmethodevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::inputMethodEvent(param1);
@@ -1129,14 +675,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qprogressdialog_inputmethodquery_isbase) {
-            qprogressdialog_inputmethodquery_isbase = false;
-            return QProgressDialog::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = qprogressdialog_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (qprogressdialog_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = qprogressdialog_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1146,14 +687,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (qprogressdialog_focusnextprevchild_isbase) {
-            qprogressdialog_focusnextprevchild_isbase = false;
-            return QProgressDialog::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = qprogressdialog_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (qprogressdialog_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = qprogressdialog_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return QProgressDialog::focusNextPrevChild(next);
@@ -1161,15 +697,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (qprogressdialog_timerevent_isbase) {
-            qprogressdialog_timerevent_isbase = false;
-            QProgressDialog::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = qprogressdialog_timerevent_callback;
-        if (timerevent_cb) {
+        if (qprogressdialog_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            qprogressdialog_timerevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::timerEvent(event);
@@ -1177,15 +707,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (qprogressdialog_childevent_isbase) {
-            qprogressdialog_childevent_isbase = false;
-            QProgressDialog::childEvent(event);
-            return;
-        }
-        auto childevent_cb = qprogressdialog_childevent_callback;
-        if (childevent_cb) {
+        if (qprogressdialog_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            qprogressdialog_childevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::childEvent(event);
@@ -1193,15 +717,9 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (qprogressdialog_customevent_isbase) {
-            qprogressdialog_customevent_isbase = false;
-            QProgressDialog::customEvent(event);
-            return;
-        }
-        auto customevent_cb = qprogressdialog_customevent_callback;
-        if (customevent_cb) {
+        if (qprogressdialog_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            qprogressdialog_customevent_callback(this, cbval1);
             return;
         }
         QProgressDialog::customEvent(event);
@@ -1209,17 +727,11 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qprogressdialog_connectnotify_isbase) {
-            qprogressdialog_connectnotify_isbase = false;
-            QProgressDialog::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = qprogressdialog_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (qprogressdialog_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            qprogressdialog_connectnotify_callback(this, cbval1);
             return;
         }
         QProgressDialog::connectNotify(signal);
@@ -1227,305 +739,56 @@ class VirtualQProgressDialog final : public QProgressDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (qprogressdialog_disconnectnotify_isbase) {
-            qprogressdialog_disconnectnotify_isbase = false;
-            QProgressDialog::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = qprogressdialog_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (qprogressdialog_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            qprogressdialog_disconnectnotify_callback(this, cbval1);
             return;
         }
         QProgressDialog::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void forceShow() {
-        if (qprogressdialog_forceshow_isbase) {
-            qprogressdialog_forceshow_isbase = false;
-            QProgressDialog::forceShow();
-            return;
-        }
-        auto forceshow_cb = qprogressdialog_forceshow_callback;
-        if (forceshow_cb) {
-            forceshow_cb();
-            return;
-        }
-        QProgressDialog::forceShow();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void adjustPosition(QWidget* param1) {
-        if (qprogressdialog_adjustposition_isbase) {
-            qprogressdialog_adjustposition_isbase = false;
-            QProgressDialog::adjustPosition(param1);
-            return;
-        }
-        auto adjustposition_cb = qprogressdialog_adjustposition_callback;
-        if (adjustposition_cb) {
-            QWidget* cbval1 = param1;
-            adjustposition_cb(this, cbval1);
-            return;
-        }
-        QProgressDialog::adjustPosition(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (qprogressdialog_updatemicrofocus_isbase) {
-            qprogressdialog_updatemicrofocus_isbase = false;
-            QProgressDialog::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = qprogressdialog_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        QProgressDialog::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (qprogressdialog_create_isbase) {
-            qprogressdialog_create_isbase = false;
-            QProgressDialog::create();
-            return;
-        }
-        auto create_cb = qprogressdialog_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        QProgressDialog::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (qprogressdialog_destroy_isbase) {
-            qprogressdialog_destroy_isbase = false;
-            QProgressDialog::destroy();
-            return;
-        }
-        auto destroy_cb = qprogressdialog_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        QProgressDialog::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (qprogressdialog_focusnextchild_isbase) {
-            qprogressdialog_focusnextchild_isbase = false;
-            return QProgressDialog::focusNextChild();
-        }
-        auto focusnextchild_cb = qprogressdialog_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return QProgressDialog::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (qprogressdialog_focuspreviouschild_isbase) {
-            qprogressdialog_focuspreviouschild_isbase = false;
-            return QProgressDialog::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = qprogressdialog_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return QProgressDialog::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (qprogressdialog_sender_isbase) {
-            qprogressdialog_sender_isbase = false;
-            return QProgressDialog::sender();
-        }
-        auto sender_cb = qprogressdialog_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return QProgressDialog::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (qprogressdialog_sendersignalindex_isbase) {
-            qprogressdialog_sendersignalindex_isbase = false;
-            return QProgressDialog::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = qprogressdialog_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return QProgressDialog::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (qprogressdialog_receivers_isbase) {
-            qprogressdialog_receivers_isbase = false;
-            return QProgressDialog::receivers(signal);
-        }
-        auto receivers_cb = qprogressdialog_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return QProgressDialog::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (qprogressdialog_issignalconnected_isbase) {
-            qprogressdialog_issignalconnected_isbase = false;
-            return QProgressDialog::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = qprogressdialog_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return QProgressDialog::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (qprogressdialog_getdecodedmetricf_isbase) {
-            qprogressdialog_getdecodedmetricf_isbase = false;
-            return QProgressDialog::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = qprogressdialog_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return QProgressDialog::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void QProgressDialog_ResizeEvent(QProgressDialog* self, QResizeEvent* event);
     friend void QProgressDialog_SuperResizeEvent(QProgressDialog* self, QResizeEvent* event);
-    friend void QProgressDialog_CloseEvent(QProgressDialog* self, QCloseEvent* event);
     friend void QProgressDialog_SuperCloseEvent(QProgressDialog* self, QCloseEvent* event);
-    friend void QProgressDialog_ChangeEvent(QProgressDialog* self, QEvent* event);
     friend void QProgressDialog_SuperChangeEvent(QProgressDialog* self, QEvent* event);
-    friend void QProgressDialog_ShowEvent(QProgressDialog* self, QShowEvent* event);
     friend void QProgressDialog_SuperShowEvent(QProgressDialog* self, QShowEvent* event);
-    friend void QProgressDialog_KeyPressEvent(QProgressDialog* self, QKeyEvent* param1);
     friend void QProgressDialog_SuperKeyPressEvent(QProgressDialog* self, QKeyEvent* param1);
-    friend void QProgressDialog_ContextMenuEvent(QProgressDialog* self, QContextMenuEvent* param1);
     friend void QProgressDialog_SuperContextMenuEvent(QProgressDialog* self, QContextMenuEvent* param1);
-    friend bool QProgressDialog_EventFilter(QProgressDialog* self, QObject* param1, QEvent* param2);
     friend bool QProgressDialog_SuperEventFilter(QProgressDialog* self, QObject* param1, QEvent* param2);
-    friend bool QProgressDialog_Event(QProgressDialog* self, QEvent* event);
     friend bool QProgressDialog_SuperEvent(QProgressDialog* self, QEvent* event);
-    friend void QProgressDialog_MousePressEvent(QProgressDialog* self, QMouseEvent* event);
     friend void QProgressDialog_SuperMousePressEvent(QProgressDialog* self, QMouseEvent* event);
-    friend void QProgressDialog_MouseReleaseEvent(QProgressDialog* self, QMouseEvent* event);
     friend void QProgressDialog_SuperMouseReleaseEvent(QProgressDialog* self, QMouseEvent* event);
-    friend void QProgressDialog_MouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* event);
     friend void QProgressDialog_SuperMouseDoubleClickEvent(QProgressDialog* self, QMouseEvent* event);
-    friend void QProgressDialog_MouseMoveEvent(QProgressDialog* self, QMouseEvent* event);
     friend void QProgressDialog_SuperMouseMoveEvent(QProgressDialog* self, QMouseEvent* event);
-    friend void QProgressDialog_WheelEvent(QProgressDialog* self, QWheelEvent* event);
     friend void QProgressDialog_SuperWheelEvent(QProgressDialog* self, QWheelEvent* event);
-    friend void QProgressDialog_KeyReleaseEvent(QProgressDialog* self, QKeyEvent* event);
     friend void QProgressDialog_SuperKeyReleaseEvent(QProgressDialog* self, QKeyEvent* event);
-    friend void QProgressDialog_FocusInEvent(QProgressDialog* self, QFocusEvent* event);
     friend void QProgressDialog_SuperFocusInEvent(QProgressDialog* self, QFocusEvent* event);
-    friend void QProgressDialog_FocusOutEvent(QProgressDialog* self, QFocusEvent* event);
     friend void QProgressDialog_SuperFocusOutEvent(QProgressDialog* self, QFocusEvent* event);
-    friend void QProgressDialog_EnterEvent(QProgressDialog* self, QEnterEvent* event);
     friend void QProgressDialog_SuperEnterEvent(QProgressDialog* self, QEnterEvent* event);
-    friend void QProgressDialog_LeaveEvent(QProgressDialog* self, QEvent* event);
     friend void QProgressDialog_SuperLeaveEvent(QProgressDialog* self, QEvent* event);
-    friend void QProgressDialog_PaintEvent(QProgressDialog* self, QPaintEvent* event);
     friend void QProgressDialog_SuperPaintEvent(QProgressDialog* self, QPaintEvent* event);
-    friend void QProgressDialog_MoveEvent(QProgressDialog* self, QMoveEvent* event);
     friend void QProgressDialog_SuperMoveEvent(QProgressDialog* self, QMoveEvent* event);
-    friend void QProgressDialog_TabletEvent(QProgressDialog* self, QTabletEvent* event);
     friend void QProgressDialog_SuperTabletEvent(QProgressDialog* self, QTabletEvent* event);
-    friend void QProgressDialog_ActionEvent(QProgressDialog* self, QActionEvent* event);
     friend void QProgressDialog_SuperActionEvent(QProgressDialog* self, QActionEvent* event);
-    friend void QProgressDialog_DragEnterEvent(QProgressDialog* self, QDragEnterEvent* event);
     friend void QProgressDialog_SuperDragEnterEvent(QProgressDialog* self, QDragEnterEvent* event);
-    friend void QProgressDialog_DragMoveEvent(QProgressDialog* self, QDragMoveEvent* event);
     friend void QProgressDialog_SuperDragMoveEvent(QProgressDialog* self, QDragMoveEvent* event);
-    friend void QProgressDialog_DragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* event);
     friend void QProgressDialog_SuperDragLeaveEvent(QProgressDialog* self, QDragLeaveEvent* event);
-    friend void QProgressDialog_DropEvent(QProgressDialog* self, QDropEvent* event);
     friend void QProgressDialog_SuperDropEvent(QProgressDialog* self, QDropEvent* event);
-    friend void QProgressDialog_HideEvent(QProgressDialog* self, QHideEvent* event);
     friend void QProgressDialog_SuperHideEvent(QProgressDialog* self, QHideEvent* event);
-    friend bool QProgressDialog_NativeEvent(QProgressDialog* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool QProgressDialog_SuperNativeEvent(QProgressDialog* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend int QProgressDialog_Metric(const QProgressDialog* self, int param1);
     friend int QProgressDialog_SuperMetric(const QProgressDialog* self, int param1);
-    friend void QProgressDialog_InitPainter(const QProgressDialog* self, QPainter* painter);
     friend void QProgressDialog_SuperInitPainter(const QProgressDialog* self, QPainter* painter);
-    friend QPaintDevice* QProgressDialog_Redirected(const QProgressDialog* self, QPoint* offset);
     friend QPaintDevice* QProgressDialog_SuperRedirected(const QProgressDialog* self, QPoint* offset);
-    friend QPainter* QProgressDialog_SharedPainter(const QProgressDialog* self);
     friend QPainter* QProgressDialog_SuperSharedPainter(const QProgressDialog* self);
-    friend void QProgressDialog_InputMethodEvent(QProgressDialog* self, QInputMethodEvent* param1);
     friend void QProgressDialog_SuperInputMethodEvent(QProgressDialog* self, QInputMethodEvent* param1);
-    friend bool QProgressDialog_FocusNextPrevChild(QProgressDialog* self, bool next);
     friend bool QProgressDialog_SuperFocusNextPrevChild(QProgressDialog* self, bool next);
-    friend void QProgressDialog_TimerEvent(QProgressDialog* self, QTimerEvent* event);
     friend void QProgressDialog_SuperTimerEvent(QProgressDialog* self, QTimerEvent* event);
-    friend void QProgressDialog_ChildEvent(QProgressDialog* self, QChildEvent* event);
     friend void QProgressDialog_SuperChildEvent(QProgressDialog* self, QChildEvent* event);
-    friend void QProgressDialog_CustomEvent(QProgressDialog* self, QEvent* event);
     friend void QProgressDialog_SuperCustomEvent(QProgressDialog* self, QEvent* event);
-    friend void QProgressDialog_ConnectNotify(QProgressDialog* self, const QMetaMethod* signal);
     friend void QProgressDialog_SuperConnectNotify(QProgressDialog* self, const QMetaMethod* signal);
-    friend void QProgressDialog_DisconnectNotify(QProgressDialog* self, const QMetaMethod* signal);
     friend void QProgressDialog_SuperDisconnectNotify(QProgressDialog* self, const QMetaMethod* signal);
-    friend void QProgressDialog_ForceShow(QProgressDialog* self);
-    friend void QProgressDialog_SuperForceShow(QProgressDialog* self);
-    friend void QProgressDialog_AdjustPosition(QProgressDialog* self, QWidget* param1);
-    friend void QProgressDialog_SuperAdjustPosition(QProgressDialog* self, QWidget* param1);
-    friend void QProgressDialog_UpdateMicroFocus(QProgressDialog* self);
-    friend void QProgressDialog_SuperUpdateMicroFocus(QProgressDialog* self);
-    friend void QProgressDialog_Create(QProgressDialog* self);
-    friend void QProgressDialog_SuperCreate(QProgressDialog* self);
-    friend void QProgressDialog_Destroy(QProgressDialog* self);
-    friend void QProgressDialog_SuperDestroy(QProgressDialog* self);
-    friend bool QProgressDialog_FocusNextChild(QProgressDialog* self);
-    friend bool QProgressDialog_SuperFocusNextChild(QProgressDialog* self);
-    friend bool QProgressDialog_FocusPreviousChild(QProgressDialog* self);
-    friend bool QProgressDialog_SuperFocusPreviousChild(QProgressDialog* self);
-    friend QObject* QProgressDialog_Sender(const QProgressDialog* self);
-    friend QObject* QProgressDialog_SuperSender(const QProgressDialog* self);
-    friend int QProgressDialog_SenderSignalIndex(const QProgressDialog* self);
-    friend int QProgressDialog_SuperSenderSignalIndex(const QProgressDialog* self);
-    friend int QProgressDialog_Receivers(const QProgressDialog* self, const char* signal);
-    friend int QProgressDialog_SuperReceivers(const QProgressDialog* self, const char* signal);
-    friend bool QProgressDialog_IsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal);
-    friend bool QProgressDialog_SuperIsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal);
-    friend double QProgressDialog_GetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB);
-    friend double QProgressDialog_SuperGetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB);
 };
 
 #endif

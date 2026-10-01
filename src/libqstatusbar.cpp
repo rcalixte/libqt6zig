@@ -143,31 +143,31 @@ void QStatusBar_Connect_MessageChanged(QStatusBar* self, intptr_t slot) {
 
 void QStatusBar_ShowEvent(QStatusBar* self, QShowEvent* param1) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->showEvent(param1);
     }
 }
 
 void QStatusBar_PaintEvent(QStatusBar* self, QPaintEvent* param1) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->paintEvent(param1);
     }
 }
 
 void QStatusBar_ResizeEvent(QStatusBar* self, QResizeEvent* param1) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->resizeEvent(param1);
     }
 }
 
 bool QStatusBar_Event(QStatusBar* self, QEvent* param1) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         return vqstatusbar->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method QStatusBar::event called without a directly constructed type");
 }
 
 libqt_string QStatusBar_Tr2(const char* s, const char* c) {
@@ -217,1670 +217,1149 @@ void QStatusBar_ShowMessage2(QStatusBar* self, const libqt_string text, int time
 
 // Base class handler implementation
 QMetaObject* QStatusBar_SuperMetaObject(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_MetaObject_IsBase(true);
-        return (QMetaObject*)vqstatusbar->metaObject();
-    } else {
-        return (QMetaObject*)self->QStatusBar::metaObject();
-    }
+    return (QMetaObject*)self->QStatusBar::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnMetaObject(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_MetaObject_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_MetaObject_Callback>(slot));
+void QStatusBar_OnMetaObject(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_metaobject_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QStatusBar_SuperMetacast(QStatusBar* self, const char* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Metacast_IsBase(true);
-        return vqstatusbar->qt_metacast(param1);
-    } else {
-        return self->QStatusBar::qt_metacast(param1);
-    }
+    return self->QStatusBar::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnMetacast(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Metacast_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Metacast_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_metacast_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QStatusBar_SuperMetacall(QStatusBar* self, int param1, int param2, void** param3) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Metacall_IsBase(true);
-        return vqstatusbar->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QStatusBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QStatusBar::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnMetacall(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Metacall_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Metacall_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_metacall_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QStatusBar_SuperShowEvent(QStatusBar* self, QShowEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ShowEvent_IsBase(true);
-        vqstatusbar->showEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->showEvent(param1);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnShowEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_ShowEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ShowEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_showevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_ShowEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QStatusBar_SuperPaintEvent(QStatusBar* self, QPaintEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_PaintEvent_IsBase(true);
-        vqstatusbar->paintEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->paintEvent(param1);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::paintEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnPaintEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_PaintEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_PaintEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_paintevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QStatusBar_SuperResizeEvent(QStatusBar* self, QResizeEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ResizeEvent_IsBase(true);
-        vqstatusbar->resizeEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->resizeEvent(param1);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnResizeEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_ResizeEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ResizeEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_resizeevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QStatusBar_SuperEvent(QStatusBar* self, QEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Event_IsBase(true);
-        return vqstatusbar->event(param1);
-    } else {
-        return ((VirtualQStatusBar*)self)->event(param1);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        return vqstatusbar->QStatusBar::event(param1);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Event_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Event_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_event_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QStatusBar_DevType(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->devType();
-    } else {
-        return self->QStatusBar::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QStatusBar_SuperDevType(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_DevType_IsBase(true);
-        return vqstatusbar->devType();
-    } else {
-        return self->QStatusBar::devType();
-    }
+    return self->QStatusBar::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnDevType(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_DevType_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_DevType_Callback>(slot));
+void QStatusBar_OnDevType(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_devtype_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_SetVisible(QStatusBar* self, bool visible) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setVisible(visible);
-    } else {
-        self->QStatusBar::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QStatusBar_SuperSetVisible(QStatusBar* self, bool visible) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_SetVisible_IsBase(true);
-        vqstatusbar->setVisible(visible);
-    } else {
-        self->QStatusBar::setVisible(visible);
-    }
+    self->QStatusBar::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnSetVisible(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_SetVisible_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_SetVisible_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_setvisible_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QStatusBar_SizeHint(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return new QSize(vqstatusbar->sizeHint());
-    } else {
-        return new QSize(((VirtualQStatusBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QStatusBar_SuperSizeHint(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_SizeHint_IsBase(true);
-        return new QSize(vqstatusbar->sizeHint());
-    } else {
-        return new QSize(((VirtualQStatusBar*)self)->sizeHint());
-    }
+    return new QSize(self->QStatusBar::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnSizeHint(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_SizeHint_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_SizeHint_Callback>(slot));
+void QStatusBar_OnSizeHint(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_sizehint_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QStatusBar_MinimumSizeHint(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return new QSize(vqstatusbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQStatusBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QStatusBar_SuperMinimumSizeHint(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_MinimumSizeHint_IsBase(true);
-        return new QSize(vqstatusbar->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQStatusBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QStatusBar::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnMinimumSizeHint(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_MinimumSizeHint_Callback>(slot));
+void QStatusBar_OnMinimumSizeHint(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_minimumsizehint_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QStatusBar_HeightForWidth(const QStatusBar* self, int param1) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QStatusBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QStatusBar_SuperHeightForWidth(const QStatusBar* self, int param1) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_HeightForWidth_IsBase(true);
-        return vqstatusbar->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QStatusBar::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QStatusBar::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnHeightForWidth(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_HeightForWidth_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_HeightForWidth_Callback>(slot));
+void QStatusBar_OnHeightForWidth(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_heightforwidth_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QStatusBar_HasHeightForWidth(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->hasHeightForWidth();
-    } else {
-        return self->QStatusBar::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QStatusBar_SuperHasHeightForWidth(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_HasHeightForWidth_IsBase(true);
-        return vqstatusbar->hasHeightForWidth();
-    } else {
-        return self->QStatusBar::hasHeightForWidth();
-    }
+    return self->QStatusBar::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnHasHeightForWidth(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_HasHeightForWidth_Callback>(slot));
+void QStatusBar_OnHasHeightForWidth(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_hasheightforwidth_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QStatusBar_PaintEngine(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->paintEngine();
-    } else {
-        return self->QStatusBar::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QStatusBar_SuperPaintEngine(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_PaintEngine_IsBase(true);
-        return vqstatusbar->paintEngine();
-    } else {
-        return self->QStatusBar::paintEngine();
-    }
+    return self->QStatusBar::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnPaintEngine(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_PaintEngine_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_PaintEngine_Callback>(slot));
+void QStatusBar_OnPaintEngine(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_paintengine_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_MousePressEvent(QStatusBar* self, QMouseEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->mousePressEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperMousePressEvent(QStatusBar* self, QMouseEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_MousePressEvent_IsBase(true);
-        vqstatusbar->mousePressEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->mousePressEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnMousePressEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_MousePressEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_MousePressEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_mousepressevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_MouseReleaseEvent(QStatusBar* self, QMouseEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->mouseReleaseEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperMouseReleaseEvent(QStatusBar* self, QMouseEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_MouseReleaseEvent_IsBase(true);
-        vqstatusbar->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnMouseReleaseEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_mousereleaseevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_MouseDoubleClickEvent(QStatusBar* self, QMouseEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperMouseDoubleClickEvent(QStatusBar* self, QMouseEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_MouseDoubleClickEvent_IsBase(true);
-        vqstatusbar->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnMouseDoubleClickEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_mousedoubleclickevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_MouseMoveEvent(QStatusBar* self, QMouseEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->mouseMoveEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperMouseMoveEvent(QStatusBar* self, QMouseEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_MouseMoveEvent_IsBase(true);
-        vqstatusbar->mouseMoveEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnMouseMoveEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_MouseMoveEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_mousemoveevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_WheelEvent(QStatusBar* self, QWheelEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->wheelEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperWheelEvent(QStatusBar* self, QWheelEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_WheelEvent_IsBase(true);
-        vqstatusbar->wheelEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->wheelEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnWheelEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_WheelEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_WheelEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_wheelevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_KeyPressEvent(QStatusBar* self, QKeyEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->keyPressEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->keyPressEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperKeyPressEvent(QStatusBar* self, QKeyEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_KeyPressEvent_IsBase(true);
-        vqstatusbar->keyPressEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->keyPressEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnKeyPressEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_KeyPressEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_KeyPressEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_keypressevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_KeyReleaseEvent(QStatusBar* self, QKeyEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->keyReleaseEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperKeyReleaseEvent(QStatusBar* self, QKeyEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_KeyReleaseEvent_IsBase(true);
-        vqstatusbar->keyReleaseEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnKeyReleaseEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_keyreleaseevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_FocusInEvent(QStatusBar* self, QFocusEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->focusInEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperFocusInEvent(QStatusBar* self, QFocusEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_FocusInEvent_IsBase(true);
-        vqstatusbar->focusInEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->focusInEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnFocusInEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_FocusInEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_FocusInEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_focusinevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_FocusOutEvent(QStatusBar* self, QFocusEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->focusOutEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperFocusOutEvent(QStatusBar* self, QFocusEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_FocusOutEvent_IsBase(true);
-        vqstatusbar->focusOutEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->focusOutEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnFocusOutEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_FocusOutEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_FocusOutEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_focusoutevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_EnterEvent(QStatusBar* self, QEnterEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->enterEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperEnterEvent(QStatusBar* self, QEnterEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_EnterEvent_IsBase(true);
-        vqstatusbar->enterEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->enterEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnEnterEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_EnterEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_EnterEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_enterevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_LeaveEvent(QStatusBar* self, QEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->leaveEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperLeaveEvent(QStatusBar* self, QEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_LeaveEvent_IsBase(true);
-        vqstatusbar->leaveEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->leaveEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnLeaveEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_LeaveEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_LeaveEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_leaveevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_MoveEvent(QStatusBar* self, QMoveEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->moveEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperMoveEvent(QStatusBar* self, QMoveEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_MoveEvent_IsBase(true);
-        vqstatusbar->moveEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->moveEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnMoveEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_MoveEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_MoveEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_moveevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_CloseEvent(QStatusBar* self, QCloseEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->closeEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperCloseEvent(QStatusBar* self, QCloseEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_CloseEvent_IsBase(true);
-        vqstatusbar->closeEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->closeEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnCloseEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_CloseEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_CloseEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_closeevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_ContextMenuEvent(QStatusBar* self, QContextMenuEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->contextMenuEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperContextMenuEvent(QStatusBar* self, QContextMenuEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ContextMenuEvent_IsBase(true);
-        vqstatusbar->contextMenuEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->contextMenuEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnContextMenuEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ContextMenuEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_contextmenuevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_TabletEvent(QStatusBar* self, QTabletEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->tabletEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperTabletEvent(QStatusBar* self, QTabletEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_TabletEvent_IsBase(true);
-        vqstatusbar->tabletEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->tabletEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnTabletEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_TabletEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_TabletEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_tabletevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_ActionEvent(QStatusBar* self, QActionEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->actionEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperActionEvent(QStatusBar* self, QActionEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ActionEvent_IsBase(true);
-        vqstatusbar->actionEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->actionEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnActionEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_ActionEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ActionEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_actionevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_DragEnterEvent(QStatusBar* self, QDragEnterEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->dragEnterEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperDragEnterEvent(QStatusBar* self, QDragEnterEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_DragEnterEvent_IsBase(true);
-        vqstatusbar->dragEnterEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnDragEnterEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_DragEnterEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_DragEnterEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_dragenterevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_DragMoveEvent(QStatusBar* self, QDragMoveEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->dragMoveEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperDragMoveEvent(QStatusBar* self, QDragMoveEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_DragMoveEvent_IsBase(true);
-        vqstatusbar->dragMoveEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnDragMoveEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_DragMoveEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_DragMoveEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_dragmoveevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_DragLeaveEvent(QStatusBar* self, QDragLeaveEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->dragLeaveEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperDragLeaveEvent(QStatusBar* self, QDragLeaveEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_DragLeaveEvent_IsBase(true);
-        vqstatusbar->dragLeaveEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnDragLeaveEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_DragLeaveEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_dragleaveevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_DropEvent(QStatusBar* self, QDropEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->dropEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperDropEvent(QStatusBar* self, QDropEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_DropEvent_IsBase(true);
-        vqstatusbar->dropEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->dropEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnDropEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_DropEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_DropEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_dropevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_HideEvent(QStatusBar* self, QHideEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->hideEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperHideEvent(QStatusBar* self, QHideEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_HideEvent_IsBase(true);
-        vqstatusbar->hideEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->hideEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnHideEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_HideEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_HideEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_hideevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QStatusBar_NativeEvent(QStatusBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
+    if (vqstatusbar) {
         return vqstatusbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQStatusBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QStatusBar::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QStatusBar_SuperNativeEvent(QStatusBar* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_NativeEvent_IsBase(true);
-        return vqstatusbar->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQStatusBar*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        return vqstatusbar->QStatusBar::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnNativeEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_NativeEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_NativeEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_nativeevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_ChangeEvent(QStatusBar* self, QEvent* param1) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->changeEvent(param1);
     } else {
-        ((VirtualQStatusBar*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method QStatusBar::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperChangeEvent(QStatusBar* self, QEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ChangeEvent_IsBase(true);
-        vqstatusbar->changeEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->changeEvent(param1);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnChangeEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_ChangeEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ChangeEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_changeevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QStatusBar_Metric(const QStatusBar* self, int param1) {
     auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         return vqstatusbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQStatusBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QStatusBar::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QStatusBar_SuperMetric(const QStatusBar* self, int param1) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Metric_IsBase(true);
-        return vqstatusbar->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQStatusBar*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        return vqstatusbar->QStatusBar::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnMetric(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Metric_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Metric_Callback>(slot));
+void QStatusBar_OnMetric(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_metric_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_InitPainter(const QStatusBar* self, QPainter* painter) {
     auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->initPainter(painter);
     } else {
-        ((VirtualQStatusBar*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QStatusBar::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperInitPainter(const QStatusBar* self, QPainter* painter) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_InitPainter_IsBase(true);
-        vqstatusbar->initPainter(painter);
-    } else {
-        ((VirtualQStatusBar*)self)->initPainter(painter);
-    }
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        vqstatusbar->QStatusBar::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnInitPainter(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_InitPainter_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_InitPainter_Callback>(slot));
+void QStatusBar_OnInitPainter(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_initpainter_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QStatusBar_Redirected(const QStatusBar* self, QPoint* offset) {
     auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         return vqstatusbar->redirected(offset);
     } else {
-        return ((VirtualQStatusBar*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QStatusBar::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QStatusBar_SuperRedirected(const QStatusBar* self, QPoint* offset) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Redirected_IsBase(true);
-        return vqstatusbar->redirected(offset);
-    } else {
-        return ((VirtualQStatusBar*)self)->redirected(offset);
-    }
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        return vqstatusbar->QStatusBar::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnRedirected(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Redirected_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Redirected_Callback>(slot));
+void QStatusBar_OnRedirected(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_redirected_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QStatusBar_SharedPainter(const QStatusBar* self) {
     auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         return vqstatusbar->sharedPainter();
     } else {
-        return ((VirtualQStatusBar*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QStatusBar::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QStatusBar_SuperSharedPainter(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_SharedPainter_IsBase(true);
-        return vqstatusbar->sharedPainter();
-    } else {
-        return ((VirtualQStatusBar*)self)->sharedPainter();
-    }
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        return vqstatusbar->QStatusBar::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnSharedPainter(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_SharedPainter_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_SharedPainter_Callback>(slot));
+void QStatusBar_OnSharedPainter(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_sharedpainter_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_InputMethodEvent(QStatusBar* self, QInputMethodEvent* param1) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->inputMethodEvent(param1);
     } else {
-        ((VirtualQStatusBar*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method QStatusBar::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperInputMethodEvent(QStatusBar* self, QInputMethodEvent* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_InputMethodEvent_IsBase(true);
-        vqstatusbar->inputMethodEvent(param1);
-    } else {
-        ((VirtualQStatusBar*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnInputMethodEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_InputMethodEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_InputMethodEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_inputmethodevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QStatusBar_InputMethodQuery(const QStatusBar* self, int param1) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return new QVariant(vqstatusbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQStatusBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* QStatusBar_SuperInputMethodQuery(const QStatusBar* self, int param1) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_InputMethodQuery_IsBase(true);
-        return new QVariant(vqstatusbar->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQStatusBar*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->QStatusBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStatusBar_OnInputMethodQuery(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_InputMethodQuery_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_InputMethodQuery_Callback>(slot));
+void QStatusBar_OnInputMethodQuery(QStatusBar* self, intptr_t slot) {
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self)))
+        vqstatusbar->qstatusbar_inputmethodquery_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QStatusBar_FocusNextPrevChild(QStatusBar* self, bool next) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         return vqstatusbar->focusNextPrevChild(next);
     } else {
-        return ((VirtualQStatusBar*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QStatusBar::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QStatusBar_SuperFocusNextPrevChild(QStatusBar* self, bool next) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_FocusNextPrevChild_IsBase(true);
-        return vqstatusbar->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQStatusBar*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        return vqstatusbar->QStatusBar::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnFocusNextPrevChild(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_focusnextprevchild_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QStatusBar_EventFilter(QStatusBar* self, QObject* watched, QEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->eventFilter(watched, event);
-    } else {
-        return self->QStatusBar::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QStatusBar_SuperEventFilter(QStatusBar* self, QObject* watched, QEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_EventFilter_IsBase(true);
-        return vqstatusbar->eventFilter(watched, event);
-    } else {
-        return self->QStatusBar::eventFilter(watched, event);
-    }
+    return self->QStatusBar::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnEventFilter(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_EventFilter_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_EventFilter_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_eventfilter_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_TimerEvent(QStatusBar* self, QTimerEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->timerEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperTimerEvent(QStatusBar* self, QTimerEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_TimerEvent_IsBase(true);
-        vqstatusbar->timerEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->timerEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnTimerEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_TimerEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_TimerEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_timerevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_ChildEvent(QStatusBar* self, QChildEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->childEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperChildEvent(QStatusBar* self, QChildEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ChildEvent_IsBase(true);
-        vqstatusbar->childEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->childEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnChildEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_ChildEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ChildEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_childevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_CustomEvent(QStatusBar* self, QEvent* event) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->customEvent(event);
     } else {
-        ((VirtualQStatusBar*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QStatusBar::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperCustomEvent(QStatusBar* self, QEvent* event) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_CustomEvent_IsBase(true);
-        vqstatusbar->customEvent(event);
-    } else {
-        ((VirtualQStatusBar*)self)->customEvent(event);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnCustomEvent(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_CustomEvent_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_CustomEvent_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_customevent_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_ConnectNotify(QStatusBar* self, const QMetaMethod* signal) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->connectNotify(*signal);
     } else {
-        ((VirtualQStatusBar*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QStatusBar::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperConnectNotify(QStatusBar* self, const QMetaMethod* signal) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_ConnectNotify_IsBase(true);
-        vqstatusbar->connectNotify(*signal);
-    } else {
-        ((VirtualQStatusBar*)self)->connectNotify(*signal);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnConnectNotify(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_ConnectNotify_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_ConnectNotify_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_connectnotify_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QStatusBar_DisconnectNotify(QStatusBar* self, const QMetaMethod* signal) {
     auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
+    if (vqstatusbar) {
         vqstatusbar->disconnectNotify(*signal);
     } else {
-        ((VirtualQStatusBar*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QStatusBar::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QStatusBar_SuperDisconnectNotify(QStatusBar* self, const QMetaMethod* signal) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_DisconnectNotify_IsBase(true);
-        vqstatusbar->disconnectNotify(*signal);
-    } else {
-        ((VirtualQStatusBar*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->QStatusBar::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QStatusBar::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QStatusBar_OnDisconnectNotify(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_DisconnectNotify_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_DisconnectNotify_Callback>(slot));
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self))
+        vqstatusbar->qstatusbar_disconnectnotify_callback = reinterpret_cast<VirtualQStatusBar::QStatusBar_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QStatusBar_Reformat(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->reformat();
-    } else {
-        ((VirtualQStatusBar*)self)->reformat();
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->VirtualQStatusBar::reformat();
+    } else
+        qFatal("Error: Protected method QStatusBar::reformat called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QStatusBar_SuperReformat(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Reformat_IsBase(true);
-        vqstatusbar->reformat();
-    } else {
-        ((VirtualQStatusBar*)self)->reformat();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnReformat(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Reformat_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Reformat_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QStatusBar_HideOrShow(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->hideOrShow();
-    } else {
-        ((VirtualQStatusBar*)self)->hideOrShow();
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->VirtualQStatusBar::hideOrShow();
+    } else
+        qFatal("Error: Protected method QStatusBar::hideOrShow called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QStatusBar_SuperHideOrShow(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_HideOrShow_IsBase(true);
-        vqstatusbar->hideOrShow();
-    } else {
-        ((VirtualQStatusBar*)self)->hideOrShow();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnHideOrShow(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_HideOrShow_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_HideOrShow_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QStatusBar_UpdateMicroFocus(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->updateMicroFocus();
-    } else {
-        ((VirtualQStatusBar*)self)->updateMicroFocus();
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->VirtualQStatusBar::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QStatusBar::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QStatusBar_SuperUpdateMicroFocus(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_UpdateMicroFocus_IsBase(true);
-        vqstatusbar->updateMicroFocus();
-    } else {
-        ((VirtualQStatusBar*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnUpdateMicroFocus(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QStatusBar_Create(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->create();
-    } else {
-        ((VirtualQStatusBar*)self)->create();
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->VirtualQStatusBar::create();
+    } else
+        qFatal("Error: Protected method QStatusBar::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QStatusBar_SuperCreate(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Create_IsBase(true);
-        vqstatusbar->create();
-    } else {
-        ((VirtualQStatusBar*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnCreate(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Create_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QStatusBar_Destroy(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->destroy();
-    } else {
-        ((VirtualQStatusBar*)self)->destroy();
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        vqstatusbar->VirtualQStatusBar::destroy();
+    } else
+        qFatal("Error: Protected method QStatusBar::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QStatusBar_SuperDestroy(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Destroy_IsBase(true);
-        vqstatusbar->destroy();
-    } else {
-        ((VirtualQStatusBar*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnDestroy(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Destroy_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QStatusBar_FocusNextChild(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->focusNextChild();
-    } else {
-        return ((VirtualQStatusBar*)self)->focusNextChild();
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        return vqstatusbar->VirtualQStatusBar::focusNextChild();
+    } else
+        qFatal("Error: Protected method QStatusBar::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QStatusBar_SuperFocusNextChild(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_FocusNextChild_IsBase(true);
-        return vqstatusbar->focusNextChild();
-    } else {
-        return ((VirtualQStatusBar*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnFocusNextChild(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_FocusNextChild_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QStatusBar_FocusPreviousChild(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->focusPreviousChild();
-    } else {
-        return ((VirtualQStatusBar*)self)->focusPreviousChild();
-    }
+    if (auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self)) {
+        return vqstatusbar->VirtualQStatusBar::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QStatusBar::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QStatusBar_SuperFocusPreviousChild(QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_FocusPreviousChild_IsBase(true);
-        return vqstatusbar->focusPreviousChild();
-    } else {
-        return ((VirtualQStatusBar*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnFocusPreviousChild(QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QStatusBar_Sender(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->sender();
-    } else {
-        return ((VirtualQStatusBar*)self)->sender();
-    }
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        return vqstatusbar->VirtualQStatusBar::sender();
+    } else
+        qFatal("Error: Protected method QStatusBar::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QStatusBar_SuperSender(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Sender_IsBase(true);
-        return vqstatusbar->sender();
-    } else {
-        return ((VirtualQStatusBar*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnSender(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Sender_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QStatusBar_SenderSignalIndex(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->senderSignalIndex();
-    } else {
-        return ((VirtualQStatusBar*)self)->senderSignalIndex();
-    }
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        return vqstatusbar->VirtualQStatusBar::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QStatusBar::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QStatusBar_SuperSenderSignalIndex(const QStatusBar* self) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_SenderSignalIndex_IsBase(true);
-        return vqstatusbar->senderSignalIndex();
-    } else {
-        return ((VirtualQStatusBar*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnSenderSignalIndex(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QStatusBar_Receivers(const QStatusBar* self, const char* signal) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->receivers(signal);
-    } else {
-        return ((VirtualQStatusBar*)self)->receivers(signal);
-    }
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        return vqstatusbar->VirtualQStatusBar::receivers(signal);
+    } else
+        qFatal("Error: Protected method QStatusBar::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QStatusBar_SuperReceivers(const QStatusBar* self, const char* signal) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_Receivers_IsBase(true);
-        return vqstatusbar->receivers(signal);
-    } else {
-        return ((VirtualQStatusBar*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnReceivers(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_Receivers_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QStatusBar_IsSignalConnected(const QStatusBar* self, const QMetaMethod* signal) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQStatusBar*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        return vqstatusbar->VirtualQStatusBar::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QStatusBar::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QStatusBar_SuperIsSignalConnected(const QStatusBar* self, const QMetaMethod* signal) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_IsSignalConnected_IsBase(true);
-        return vqstatusbar->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQStatusBar*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnIsSignalConnected(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_IsSignalConnected_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QStatusBar_GetDecodedMetricF(const QStatusBar* self, int metricA, int metricB) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return vqstatusbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQStatusBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QStatusBar_SuperGetDecodedMetricF(const QStatusBar* self, int metricA, int metricB) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        vqstatusbar->setQStatusBar_GetDecodedMetricF_IsBase(true);
-        return vqstatusbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQStatusBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QStatusBar_OnGetDecodedMetricF(const QStatusBar* self, intptr_t slot) {
-    auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self));
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar)
-        vqstatusbar->setQStatusBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQStatusBar::QStatusBar_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqstatusbar = const_cast<VirtualQStatusBar*>(dynamic_cast<const VirtualQStatusBar*>(self))) {
+        return vqstatusbar->VirtualQStatusBar::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QStatusBar::getDecodedMetricF called without a directly constructed type");
 }
 
 void QStatusBar_Delete(QStatusBar* self) {

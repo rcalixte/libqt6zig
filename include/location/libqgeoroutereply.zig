@@ -97,9 +97,9 @@ pub const QGeoRouteReply = extern struct {
     ///
     /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QGeoRouteReply) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QGeoRouteReply, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply) callconv(.c) QMetaObject) void {
         qtc.QGeoRouteReply_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -360,9 +360,9 @@ pub const QGeoRouteReply = extern struct {
     ///
     /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply) callconv(.c) void `
     ///
-    pub fn onAbort(self: QGeoRouteReply, callback: *const fn () callconv(.c) void) void {
+    pub fn onAbort(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply) callconv(.c) void) void {
         qtc.QGeoRouteReply_OnAbort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -496,48 +496,6 @@ pub const QGeoRouteReply = extern struct {
         qtc.QGeoRouteReply_SetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setError)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` callback: *const fn (self: QGeoRouteReply, errorVal: qgeoroutereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetError(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setError)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` errorVal: qgeoroutereply_enums.Error `
-    ///
-    /// ` _errorString: []const u8 `
-    ///
-    pub fn superSetError(self: QGeoRouteReply, errorVal: i32, _errorString: []const u8) void {
-        const errorString_str = qtc.libqt_string{
-            .len = _errorString.len,
-            .data = _errorString.ptr,
-        };
-        qtc.QGeoRouteReply_SuperSetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
-    }
-
     /// ### DEPRECATED: Use `setFinished` instead
     ///
     pub const SetFinished = setFinished;
@@ -552,42 +510,6 @@ pub const QGeoRouteReply = extern struct {
     ///
     pub fn setFinished(self: QGeoRouteReply, _finished: bool) void {
         qtc.QGeoRouteReply_SetFinished(@ptrCast(self.ptr), _finished);
-    }
-
-    /// ### DEPRECATED: Use `onSetFinished` instead
-    ///
-    pub const OnSetFinished = onSetFinished;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setFinished)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` callback: *const fn (self: QGeoRouteReply, finished: bool) callconv(.c) void `
-    ///
-    pub fn onSetFinished(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, bool) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnSetFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetFinished` instead
-    ///
-    pub const SuperSetFinished = superSetFinished;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setFinished)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` _finished: bool `
-    ///
-    pub fn superSetFinished(self: QGeoRouteReply, _finished: bool) void {
-        qtc.QGeoRouteReply_SuperSetFinished(@ptrCast(self.ptr), _finished);
     }
 
     /// ### DEPRECATED: Use `setRoutes` instead
@@ -610,46 +532,6 @@ pub const QGeoRouteReply = extern struct {
         qtc.QGeoRouteReply_SetRoutes(@ptrCast(self.ptr), routes_list);
     }
 
-    /// ### DEPRECATED: Use `onSetRoutes` instead
-    ///
-    pub const OnSetRoutes = onSetRoutes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setRoutes)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` callback: *const fn (self: QGeoRouteReply, routes: qtc.libqt_list ([]QGeoRoute)) callconv(.c) void `
-    ///
-    pub fn onSetRoutes(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnSetRoutes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetRoutes` instead
-    ///
-    pub const SuperSetRoutes = superSetRoutes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setRoutes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` _routes: []QGeoRoute `
-    ///
-    pub fn superSetRoutes(self: QGeoRouteReply, _routes: []QGeoRoute) void {
-        const routes_list = qtc.libqt_list{
-            .len = _routes.len,
-            .data = @ptrCast(_routes.ptr),
-        };
-        qtc.QGeoRouteReply_SuperSetRoutes(@ptrCast(self.ptr), routes_list);
-    }
-
     /// ### DEPRECATED: Use `addRoutes` instead
     ///
     pub const AddRoutes = addRoutes;
@@ -668,46 +550,6 @@ pub const QGeoRouteReply = extern struct {
             .data = @ptrCast(_routes.ptr),
         };
         qtc.QGeoRouteReply_AddRoutes(@ptrCast(self.ptr), routes_list);
-    }
-
-    /// ### DEPRECATED: Use `onAddRoutes` instead
-    ///
-    pub const OnAddRoutes = onAddRoutes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#addRoutes)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` callback: *const fn (self: QGeoRouteReply, routes: qtc.libqt_list ([]QGeoRoute)) callconv(.c) void `
-    ///
-    pub fn onAddRoutes(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnAddRoutes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superAddRoutes` instead
-    ///
-    pub const SuperAddRoutes = superAddRoutes;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#addRoutes)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` _routes: []QGeoRoute `
-    ///
-    pub fn superAddRoutes(self: QGeoRouteReply, _routes: []QGeoRoute) void {
-        const routes_list = qtc.libqt_list{
-            .len = _routes.len,
-            .data = @ptrCast(_routes.ptr),
-        };
-        qtc.QGeoRouteReply_SuperAddRoutes(@ptrCast(self.ptr), routes_list);
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -2225,44 +2067,6 @@ pub const QGeoRouteReply = extern struct {
         return .{ .ptr = qtc.QGeoRouteReply_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    pub fn superSender(self: QGeoRouteReply) QObject {
-        return .{ .ptr = qtc.QGeoRouteReply_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRouteReply`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QGeoRouteReply, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QGeoRouteReply_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -2279,44 +2083,6 @@ pub const QGeoRouteReply = extern struct {
     ///
     pub fn senderSignalIndex(self: QGeoRouteReply) i32 {
         return qtc.QGeoRouteReply_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    pub fn superSenderSignalIndex(self: QGeoRouteReply) i32 {
-        return qtc.QGeoRouteReply_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRouteReply`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QGeoRouteReply, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoRouteReply_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -2340,47 +2106,6 @@ pub const QGeoRouteReply = extern struct {
         return qtc.QGeoRouteReply_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QGeoRouteReply, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QGeoRouteReply_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRouteReply`
-    ///
-    /// ` callback: *const fn (self: QGeoRouteReply, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoRouteReply_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2400,47 +2125,6 @@ pub const QGeoRouteReply = extern struct {
     pub fn isSignalConnected(self: QGeoRouteReply, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QGeoRouteReply_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoRouteReply `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QGeoRouteReply, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QGeoRouteReply_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QGeoRouteReply`
-    ///
-    /// ` callback: *const fn (self: QGeoRouteReply, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QMetaMethod) callconv(.c) bool) void {
-        qtc.QGeoRouteReply_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

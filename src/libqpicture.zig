@@ -99,9 +99,9 @@ pub const QPicture = extern struct {
     ///
     /// ` self: QPicture `
     ///
-    /// ` callback: *const fn () callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPicture) callconv(.c) i32 `
     ///
-    pub fn onDevType(self: QPicture, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QPicture, callback: *const fn (QPicture) callconv(.c) i32) void {
         qtc.QPicture_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -418,9 +418,9 @@ pub const QPicture = extern struct {
     ///
     /// ` self: QPicture `
     ///
-    /// ` callback: *const fn () callconv(.c) QPaintEngine `
+    /// ` callback: *const fn (self: QPicture) callconv(.c) QPaintEngine `
     ///
-    pub fn onPaintEngine(self: QPicture, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QPicture, callback: *const fn (QPicture) callconv(.c) QPaintEngine) void {
         qtc.QPicture_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -904,9 +904,9 @@ pub const QPicture = extern struct {
     ///
     /// ` self: QPicture`
     ///
-    /// ` callback: *const fn () callconv(.c) QPainter `
+    /// ` callback: *const fn (self: QPicture) callconv(.c) QPainter `
     ///
-    pub fn onSharedPainter(self: QPicture, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QPicture, callback: *const fn (QPicture) callconv(.c) QPainter) void {
         qtc.QPicture_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -930,48 +930,6 @@ pub const QPicture = extern struct {
     ///
     pub fn getDecodedMetricF(self: QPicture, metricA: i32, metricB: i32) f64 {
         return qtc.QPicture_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
-    ///
-    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPicture `
-    ///
-    /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
-    ///
-    pub fn superGetDecodedMetricF(self: QPicture, metricA: i32, metricB: i32) f64 {
-        return qtc.QPicture_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
-    }
-
-    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
-    ///
-    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
-
-    /// Inherited from QPaintDevice
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QPicture`
-    ///
-    /// ` callback: *const fn (self: QPicture, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
-    ///
-    pub fn onGetDecodedMetricF(self: QPicture, callback: *const fn (QPicture, i32, i32) callconv(.c) f64) void {
-        qtc.QPicture_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `delete` instead

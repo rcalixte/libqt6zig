@@ -114,343 +114,265 @@ libqt_string QTextList_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QTextList_SuperMetaObject(const QTextList* self) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtextlist->metaObject();
-    } else {
-        return (QMetaObject*)self->QTextList::metaObject();
-    }
+    return (QMetaObject*)self->QTextList::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTextList_OnMetaObject(const QTextList* self, intptr_t slot) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_MetaObject_Callback(reinterpret_cast<VirtualQTextList::QTextList_MetaObject_Callback>(slot));
+void QTextList_OnMetaObject(QTextList* self, intptr_t slot) {
+    if (auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self)))
+        vqtextlist->qtextlist_metaobject_callback = reinterpret_cast<VirtualQTextList::QTextList_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTextList_SuperMetacast(QTextList* self, const char* param1) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_Metacast_IsBase(true);
-        return vqtextlist->qt_metacast(param1);
-    } else {
-        return self->QTextList::qt_metacast(param1);
-    }
+    return self->QTextList::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnMetacast(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_Metacast_Callback(reinterpret_cast<VirtualQTextList::QTextList_Metacast_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_metacast_callback = reinterpret_cast<VirtualQTextList::QTextList_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTextList_SuperMetacall(QTextList* self, int param1, int param2, void** param3) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_Metacall_IsBase(true);
-        return vqtextlist->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTextList::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTextList::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnMetacall(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_Metacall_Callback(reinterpret_cast<VirtualQTextList::QTextList_Metacall_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_metacall_callback = reinterpret_cast<VirtualQTextList::QTextList_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextList_BlockInserted(QTextList* self, const QTextBlock* block) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist) {
         vqtextlist->blockInserted(*block);
     } else {
-        ((VirtualQTextList*)self)->blockInserted(*block);
+        qFatal("Error: Protected virtual method QTextList::blockInserted called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextList_SuperBlockInserted(QTextList* self, const QTextBlock* block) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_BlockInserted_IsBase(true);
-        vqtextlist->blockInserted(*block);
-    } else {
-        ((VirtualQTextList*)self)->blockInserted(*block);
-    }
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self)) {
+        vqtextlist->QTextList::blockInserted(*block);
+    } else
+        qFatal("Error: Protected virtual method QTextList::blockInserted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnBlockInserted(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_BlockInserted_Callback(reinterpret_cast<VirtualQTextList::QTextList_BlockInserted_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_blockinserted_callback = reinterpret_cast<VirtualQTextList::QTextList_BlockInserted_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextList_BlockRemoved(QTextList* self, const QTextBlock* block) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist) {
         vqtextlist->blockRemoved(*block);
     } else {
-        ((VirtualQTextList*)self)->blockRemoved(*block);
+        qFatal("Error: Protected virtual method QTextList::blockRemoved called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextList_SuperBlockRemoved(QTextList* self, const QTextBlock* block) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_BlockRemoved_IsBase(true);
-        vqtextlist->blockRemoved(*block);
-    } else {
-        ((VirtualQTextList*)self)->blockRemoved(*block);
-    }
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self)) {
+        vqtextlist->QTextList::blockRemoved(*block);
+    } else
+        qFatal("Error: Protected virtual method QTextList::blockRemoved called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnBlockRemoved(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_BlockRemoved_Callback(reinterpret_cast<VirtualQTextList::QTextList_BlockRemoved_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_blockremoved_callback = reinterpret_cast<VirtualQTextList::QTextList_BlockRemoved_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextList_BlockFormatChanged(QTextList* self, const QTextBlock* block) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist) {
         vqtextlist->blockFormatChanged(*block);
     } else {
-        ((VirtualQTextList*)self)->blockFormatChanged(*block);
+        qFatal("Error: Protected virtual method QTextList::blockFormatChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextList_SuperBlockFormatChanged(QTextList* self, const QTextBlock* block) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_BlockFormatChanged_IsBase(true);
-        vqtextlist->blockFormatChanged(*block);
-    } else {
-        ((VirtualQTextList*)self)->blockFormatChanged(*block);
-    }
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self)) {
+        vqtextlist->QTextList::blockFormatChanged(*block);
+    } else
+        qFatal("Error: Protected virtual method QTextList::blockFormatChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnBlockFormatChanged(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_BlockFormatChanged_Callback(reinterpret_cast<VirtualQTextList::QTextList_BlockFormatChanged_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_blockformatchanged_callback = reinterpret_cast<VirtualQTextList::QTextList_BlockFormatChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTextList_Event(QTextList* self, QEvent* event) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return vqtextlist->event(event);
-    } else {
-        return self->QTextList::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QTextList_SuperEvent(QTextList* self, QEvent* event) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_Event_IsBase(true);
-        return vqtextlist->event(event);
-    } else {
-        return self->QTextList::event(event);
-    }
+    return self->QTextList::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnEvent(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_Event_Callback(reinterpret_cast<VirtualQTextList::QTextList_Event_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_event_callback = reinterpret_cast<VirtualQTextList::QTextList_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTextList_EventFilter(QTextList* self, QObject* watched, QEvent* event) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return vqtextlist->eventFilter(watched, event);
-    } else {
-        return self->QTextList::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QTextList_SuperEventFilter(QTextList* self, QObject* watched, QEvent* event) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_EventFilter_IsBase(true);
-        return vqtextlist->eventFilter(watched, event);
-    } else {
-        return self->QTextList::eventFilter(watched, event);
-    }
+    return self->QTextList::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnEventFilter(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_EventFilter_Callback(reinterpret_cast<VirtualQTextList::QTextList_EventFilter_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_eventfilter_callback = reinterpret_cast<VirtualQTextList::QTextList_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextList_TimerEvent(QTextList* self, QTimerEvent* event) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist) {
         vqtextlist->timerEvent(event);
     } else {
-        ((VirtualQTextList*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QTextList::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextList_SuperTimerEvent(QTextList* self, QTimerEvent* event) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_TimerEvent_IsBase(true);
-        vqtextlist->timerEvent(event);
-    } else {
-        ((VirtualQTextList*)self)->timerEvent(event);
-    }
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self)) {
+        vqtextlist->QTextList::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextList::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnTimerEvent(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_TimerEvent_Callback(reinterpret_cast<VirtualQTextList::QTextList_TimerEvent_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_timerevent_callback = reinterpret_cast<VirtualQTextList::QTextList_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextList_ChildEvent(QTextList* self, QChildEvent* event) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist) {
         vqtextlist->childEvent(event);
     } else {
-        ((VirtualQTextList*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTextList::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextList_SuperChildEvent(QTextList* self, QChildEvent* event) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_ChildEvent_IsBase(true);
-        vqtextlist->childEvent(event);
-    } else {
-        ((VirtualQTextList*)self)->childEvent(event);
-    }
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self)) {
+        vqtextlist->QTextList::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextList::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnChildEvent(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_ChildEvent_Callback(reinterpret_cast<VirtualQTextList::QTextList_ChildEvent_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_childevent_callback = reinterpret_cast<VirtualQTextList::QTextList_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextList_CustomEvent(QTextList* self, QEvent* event) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist) {
         vqtextlist->customEvent(event);
     } else {
-        ((VirtualQTextList*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTextList::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextList_SuperCustomEvent(QTextList* self, QEvent* event) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_CustomEvent_IsBase(true);
-        vqtextlist->customEvent(event);
-    } else {
-        ((VirtualQTextList*)self)->customEvent(event);
-    }
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self)) {
+        vqtextlist->QTextList::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTextList::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnCustomEvent(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_CustomEvent_Callback(reinterpret_cast<VirtualQTextList::QTextList_CustomEvent_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_customevent_callback = reinterpret_cast<VirtualQTextList::QTextList_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextList_ConnectNotify(QTextList* self, const QMetaMethod* signal) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist) {
         vqtextlist->connectNotify(*signal);
     } else {
-        ((VirtualQTextList*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTextList::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextList_SuperConnectNotify(QTextList* self, const QMetaMethod* signal) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_ConnectNotify_IsBase(true);
-        vqtextlist->connectNotify(*signal);
-    } else {
-        ((VirtualQTextList*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self)) {
+        vqtextlist->QTextList::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTextList::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnConnectNotify(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_ConnectNotify_Callback(reinterpret_cast<VirtualQTextList::QTextList_ConnectNotify_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_connectnotify_callback = reinterpret_cast<VirtualQTextList::QTextList_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTextList_DisconnectNotify(QTextList* self, const QMetaMethod* signal) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist) {
         vqtextlist->disconnectNotify(*signal);
     } else {
-        ((VirtualQTextList*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTextList::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTextList_SuperDisconnectNotify(QTextList* self, const QMetaMethod* signal) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_DisconnectNotify_IsBase(true);
-        vqtextlist->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTextList*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self)) {
+        vqtextlist->QTextList::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTextList::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnDisconnectNotify(QTextList* self, intptr_t slot) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_DisconnectNotify_Callback(reinterpret_cast<VirtualQTextList::QTextList_DisconnectNotify_Callback>(slot));
+    if (auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self))
+        vqtextlist->qtextlist_disconnectnotify_callback = reinterpret_cast<VirtualQTextList::QTextList_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_list /* of QTextBlock* */ QTextList_BlockList(const QTextList* self) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        QList<QTextBlock> _ret = vqtextlist->blockList();
+    if (auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self))) {
+        QList<QTextBlock> _ret = vqtextlist->VirtualQTextList::blockList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -460,166 +382,40 @@ libqt_list /* of QTextBlock* */ QTextList_BlockList(const QTextList* self) {
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QTextBlock> _ret = ((VirtualQTextList*)self)->blockList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QTextBlock(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method QTextList::blockList called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_list /* of QTextBlock* */ QTextList_SuperBlockList(const QTextList* self) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_BlockList_IsBase(true);
-        QList<QTextBlock> _ret = vqtextlist->blockList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QTextBlock(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QTextBlock> _ret = ((VirtualQTextList*)self)->blockList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QTextBlock(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextList_OnBlockList(const QTextList* self, intptr_t slot) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_BlockList_Callback(reinterpret_cast<VirtualQTextList::QTextList_BlockList_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTextList_Sender(const QTextList* self) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return vqtextlist->sender();
-    } else {
-        return ((VirtualQTextList*)self)->sender();
-    }
+    if (auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self))) {
+        return vqtextlist->VirtualQTextList::sender();
+    } else
+        qFatal("Error: Protected method QTextList::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTextList_SuperSender(const QTextList* self) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_Sender_IsBase(true);
-        return vqtextlist->sender();
-    } else {
-        return ((VirtualQTextList*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextList_OnSender(const QTextList* self, intptr_t slot) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_Sender_Callback(reinterpret_cast<VirtualQTextList::QTextList_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTextList_SenderSignalIndex(const QTextList* self) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return vqtextlist->senderSignalIndex();
-    } else {
-        return ((VirtualQTextList*)self)->senderSignalIndex();
-    }
+    if (auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self))) {
+        return vqtextlist->VirtualQTextList::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTextList::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTextList_SuperSenderSignalIndex(const QTextList* self) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_SenderSignalIndex_IsBase(true);
-        return vqtextlist->senderSignalIndex();
-    } else {
-        return ((VirtualQTextList*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextList_OnSenderSignalIndex(const QTextList* self, intptr_t slot) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTextList::QTextList_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTextList_Receivers(const QTextList* self, const char* signal) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return vqtextlist->receivers(signal);
-    } else {
-        return ((VirtualQTextList*)self)->receivers(signal);
-    }
+    if (auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self))) {
+        return vqtextlist->VirtualQTextList::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTextList::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTextList_SuperReceivers(const QTextList* self, const char* signal) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_Receivers_IsBase(true);
-        return vqtextlist->receivers(signal);
-    } else {
-        return ((VirtualQTextList*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextList_OnReceivers(const QTextList* self, intptr_t slot) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_Receivers_Callback(reinterpret_cast<VirtualQTextList::QTextList_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTextList_IsSignalConnected(const QTextList* self, const QMetaMethod* signal) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return vqtextlist->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTextList*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QTextList_SuperIsSignalConnected(const QTextList* self, const QMetaMethod* signal) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        vqtextlist->setQTextList_IsSignalConnected_IsBase(true);
-        return vqtextlist->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTextList*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTextList_OnIsSignalConnected(const QTextList* self, intptr_t slot) {
-    auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList)
-        vqtextlist->setQTextList_IsSignalConnected_Callback(reinterpret_cast<VirtualQTextList::QTextList_IsSignalConnected_Callback>(slot));
+    if (auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self))) {
+        return vqtextlist->VirtualQTextList::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTextList::isSignalConnected called without a directly constructed type");
 }
 
 void QTextList_Delete(QTextList* self) {

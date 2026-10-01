@@ -39,13 +39,13 @@ void QParallelAnimationGroup_UpdateState(QParallelAnimationGroup* self, int newS
 void QParallelAnimationGroup_UpdateDirection(QParallelAnimationGroup* self, int direction);
 libqt_string QParallelAnimationGroup_Tr2(const char* s, const char* c);
 libqt_string QParallelAnimationGroup_Tr3(const char* s, const char* c, int n);
-void QParallelAnimationGroup_OnMetaObject(const QParallelAnimationGroup* self, intptr_t slot);
+void QParallelAnimationGroup_OnMetaObject(QParallelAnimationGroup* self, intptr_t slot);
 QMetaObject* QParallelAnimationGroup_SuperMetaObject(const QParallelAnimationGroup* self);
 void QParallelAnimationGroup_OnMetacast(QParallelAnimationGroup* self, intptr_t slot);
 void* QParallelAnimationGroup_SuperMetacast(QParallelAnimationGroup* self, const char* param1);
 void QParallelAnimationGroup_OnMetacall(QParallelAnimationGroup* self, intptr_t slot);
 int QParallelAnimationGroup_SuperMetacall(QParallelAnimationGroup* self, int param1, int param2, void** param3);
-void QParallelAnimationGroup_OnDuration(const QParallelAnimationGroup* self, intptr_t slot);
+void QParallelAnimationGroup_OnDuration(QParallelAnimationGroup* self, intptr_t slot);
 int QParallelAnimationGroup_SuperDuration(const QParallelAnimationGroup* self);
 void QParallelAnimationGroup_OnEvent(QParallelAnimationGroup* self, intptr_t slot);
 bool QParallelAnimationGroup_SuperEvent(QParallelAnimationGroup* self, QEvent* event);
@@ -74,17 +74,9 @@ void QParallelAnimationGroup_DisconnectNotify(QParallelAnimationGroup* self, con
 void QParallelAnimationGroup_OnDisconnectNotify(QParallelAnimationGroup* self, intptr_t slot);
 void QParallelAnimationGroup_SuperDisconnectNotify(QParallelAnimationGroup* self, const QMetaMethod* signal);
 QObject* QParallelAnimationGroup_Sender(const QParallelAnimationGroup* self);
-void QParallelAnimationGroup_OnSender(const QParallelAnimationGroup* self, intptr_t slot);
-QObject* QParallelAnimationGroup_SuperSender(const QParallelAnimationGroup* self);
 int QParallelAnimationGroup_SenderSignalIndex(const QParallelAnimationGroup* self);
-void QParallelAnimationGroup_OnSenderSignalIndex(const QParallelAnimationGroup* self, intptr_t slot);
-int QParallelAnimationGroup_SuperSenderSignalIndex(const QParallelAnimationGroup* self);
 int QParallelAnimationGroup_Receivers(const QParallelAnimationGroup* self, const char* signal);
-void QParallelAnimationGroup_OnReceivers(const QParallelAnimationGroup* self, intptr_t slot);
-int QParallelAnimationGroup_SuperReceivers(const QParallelAnimationGroup* self, const char* signal);
 bool QParallelAnimationGroup_IsSignalConnected(const QParallelAnimationGroup* self, const QMetaMethod* signal);
-void QParallelAnimationGroup_OnIsSignalConnected(const QParallelAnimationGroup* self, intptr_t slot);
-bool QParallelAnimationGroup_SuperIsSignalConnected(const QParallelAnimationGroup* self, const QMetaMethod* signal);
 void QParallelAnimationGroup_Delete(QParallelAnimationGroup* self);
 
 #ifdef __cplusplus

@@ -78,9 +78,9 @@ pub const KJob = extern struct {
     ///
     /// ` self: KJob `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KJob) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KJob, callback: *const fn (KJob) callconv(.c) QMetaObject) void {
         qtc.KJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -294,6 +294,8 @@ pub const KJob = extern struct {
 
     /// ### [Upstream resources](https://api.kde.org/kjob.html#start)
     ///
+    /// This method must be implemented with `onStart` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: KJob `
@@ -314,26 +316,10 @@ pub const KJob = extern struct {
     ///
     /// ` self: KJob `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KJob) callconv(.c) void `
     ///
-    pub fn onStart(self: KJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onStart(self: KJob, callback: *const fn (KJob) callconv(.c) void) void {
         qtc.KJob_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superStart` instead
-    ///
-    pub const SuperStart = superStart;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#start)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    pub fn superStart(self: KJob) void {
-        qtc.KJob_SuperStart(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `kill` instead
@@ -408,9 +394,9 @@ pub const KJob = extern struct {
     ///
     /// ` self: KJob `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KJob) callconv(.c) bool `
     ///
-    pub fn onDoKill(self: KJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoKill(self: KJob, callback: *const fn (KJob) callconv(.c) bool) void {
         qtc.KJob_OnDoKill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -456,9 +442,9 @@ pub const KJob = extern struct {
     ///
     /// ` self: KJob `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KJob) callconv(.c) bool `
     ///
-    pub fn onDoSuspend(self: KJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoSuspend(self: KJob, callback: *const fn (KJob) callconv(.c) bool) void {
         qtc.KJob_OnDoSuspend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -504,9 +490,9 @@ pub const KJob = extern struct {
     ///
     /// ` self: KJob `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KJob) callconv(.c) bool `
     ///
-    pub fn onDoResume(self: KJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoResume(self: KJob, callback: *const fn (KJob) callconv(.c) bool) void {
         qtc.KJob_OnDoResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -540,42 +526,6 @@ pub const KJob = extern struct {
     ///
     pub fn setCapabilities(self: KJob, _capabilities: i32) void {
         qtc.KJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
-    }
-
-    /// ### DEPRECATED: Use `onSetCapabilities` instead
-    ///
-    pub const OnSetCapabilities = onSetCapabilities;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
-    ///
-    pub fn onSetCapabilities(self: KJob, callback: *const fn (KJob, i32) callconv(.c) void) void {
-        qtc.KJob_OnSetCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetCapabilities` instead
-    ///
-    pub const SuperSetCapabilities = superSetCapabilities;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` _capabilities: flag of kjob_enums.Capability `
-    ///
-    pub fn superSetCapabilities(self: KJob, _capabilities: i32) void {
-        qtc.KJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
     }
 
     /// ### DEPRECATED: Use `exec` instead
@@ -660,9 +610,9 @@ pub const KJob = extern struct {
     ///
     /// ` self: KJob `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KJob) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onErrorString(self: KJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: KJob, callback: *const fn (KJob) callconv(.c) [*:0]const u8) void {
         qtc.KJob_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1017,40 +967,6 @@ pub const KJob = extern struct {
         return qtc.KJob_IsFinished(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `onIsFinished` instead
-    ///
-    pub const OnIsFinished = onIsFinished;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsFinished(self: KJob, callback: *const fn () callconv(.c) bool) void {
-        qtc.KJob_OnIsFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superIsFinished` instead
-    ///
-    pub const SuperIsFinished = superIsFinished;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    pub fn superIsFinished(self: KJob) bool {
-        return qtc.KJob_SuperIsFinished(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `setError` instead
     ///
     pub const SetError = setError;
@@ -1065,42 +981,6 @@ pub const KJob = extern struct {
     ///
     pub fn setError(self: KJob, errorCode: i32) void {
         qtc.KJob_SetError(@ptrCast(self.ptr), @bitCast(errorCode));
-    }
-
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, errorCode: i32) callconv(.c) void `
-    ///
-    pub fn onSetError(self: KJob, callback: *const fn (KJob, i32) callconv(.c) void) void {
-        qtc.KJob_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` errorCode: i32 `
-    ///
-    pub fn superSetError(self: KJob, errorCode: i32) void {
-        qtc.KJob_SuperSetError(@ptrCast(self.ptr), @bitCast(errorCode));
     }
 
     /// ### DEPRECATED: Use `setErrorText` instead
@@ -1123,46 +1003,6 @@ pub const KJob = extern struct {
         qtc.KJob_SetErrorText(@ptrCast(self.ptr), errorText_str);
     }
 
-    /// ### DEPRECATED: Use `onSetErrorText` instead
-    ///
-    pub const OnSetErrorText = onSetErrorText;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, errorText: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorText(self: KJob, callback: *const fn (KJob, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_OnSetErrorText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetErrorText` instead
-    ///
-    pub const SuperSetErrorText = superSetErrorText;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` _errorText: []const u8 `
-    ///
-    pub fn superSetErrorText(self: KJob, _errorText: []const u8) void {
-        const errorText_str = qtc.libqt_string{
-            .len = _errorText.len,
-            .data = _errorText.ptr,
-        };
-        qtc.KJob_SuperSetErrorText(@ptrCast(self.ptr), errorText_str);
-    }
-
     /// ### DEPRECATED: Use `setProcessedAmount` instead
     ///
     pub const SetProcessedAmount = setProcessedAmount;
@@ -1179,44 +1019,6 @@ pub const KJob = extern struct {
     ///
     pub fn setProcessedAmount(self: KJob, unit: i32, amount: usize) void {
         qtc.KJob_SetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `onSetProcessedAmount` instead
-    ///
-    pub const OnSetProcessedAmount = onSetProcessedAmount;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
-    ///
-    pub fn onSetProcessedAmount(self: KJob, callback: *const fn (KJob, i32, usize) callconv(.c) void) void {
-        qtc.KJob_OnSetProcessedAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetProcessedAmount` instead
-    ///
-    pub const SuperSetProcessedAmount = superSetProcessedAmount;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    /// ` amount: usize `
-    ///
-    pub fn superSetProcessedAmount(self: KJob, unit: i32, amount: usize) void {
-        qtc.KJob_SuperSetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
     /// ### DEPRECATED: Use `setTotalAmount` instead
@@ -1237,44 +1039,6 @@ pub const KJob = extern struct {
         qtc.KJob_SetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
-    /// ### DEPRECATED: Use `onSetTotalAmount` instead
-    ///
-    pub const OnSetTotalAmount = onSetTotalAmount;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
-    ///
-    pub fn onSetTotalAmount(self: KJob, callback: *const fn (KJob, i32, usize) callconv(.c) void) void {
-        qtc.KJob_OnSetTotalAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetTotalAmount` instead
-    ///
-    pub const SuperSetTotalAmount = superSetTotalAmount;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    /// ` amount: usize `
-    ///
-    pub fn superSetTotalAmount(self: KJob, unit: i32, amount: usize) void {
-        qtc.KJob_SuperSetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
     /// ### DEPRECATED: Use `setProgressUnit` instead
     ///
     pub const SetProgressUnit = setProgressUnit;
@@ -1289,42 +1053,6 @@ pub const KJob = extern struct {
     ///
     pub fn setProgressUnit(self: KJob, unit: i32) void {
         qtc.KJob_SetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
-    }
-
-    /// ### DEPRECATED: Use `onSetProgressUnit` instead
-    ///
-    pub const OnSetProgressUnit = onSetProgressUnit;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, unit: kjob_enums.Unit) callconv(.c) void `
-    ///
-    pub fn onSetProgressUnit(self: KJob, callback: *const fn (KJob, i32) callconv(.c) void) void {
-        qtc.KJob_OnSetProgressUnit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetProgressUnit` instead
-    ///
-    pub const SuperSetProgressUnit = superSetProgressUnit;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    pub fn superSetProgressUnit(self: KJob, unit: i32) void {
-        qtc.KJob_SuperSetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// ### DEPRECATED: Use `setPercent` instead
@@ -1343,42 +1071,6 @@ pub const KJob = extern struct {
         qtc.KJob_SetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
 
-    /// ### DEPRECATED: Use `onSetPercent` instead
-    ///
-    pub const OnSetPercent = onSetPercent;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, percentage: usize) callconv(.c) void `
-    ///
-    pub fn onSetPercent(self: KJob, callback: *const fn (KJob, usize) callconv(.c) void) void {
-        qtc.KJob_OnSetPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superSetPercent` instead
-    ///
-    pub const SuperSetPercent = superSetPercent;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` percentage: usize `
-    ///
-    pub fn superSetPercent(self: KJob, percentage: usize) void {
-        qtc.KJob_SuperSetPercent(@ptrCast(self.ptr), @bitCast(percentage));
-    }
-
     /// ### DEPRECATED: Use `emitResult` instead
     ///
     pub const EmitResult = emitResult;
@@ -1391,40 +1083,6 @@ pub const KJob = extern struct {
     ///
     pub fn emitResult(self: KJob) void {
         qtc.KJob_EmitResult(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEmitResult` instead
-    ///
-    pub const OnEmitResult = onEmitResult;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEmitResult(self: KJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KJob_OnEmitResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEmitResult` instead
-    ///
-    pub const SuperEmitResult = superEmitResult;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    pub fn superEmitResult(self: KJob) void {
-        qtc.KJob_SuperEmitResult(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `emitPercent` instead
@@ -1445,44 +1103,6 @@ pub const KJob = extern struct {
         qtc.KJob_EmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
     }
 
-    /// ### DEPRECATED: Use `onEmitPercent` instead
-    ///
-    pub const OnEmitPercent = onEmitPercent;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
-    ///
-    pub fn onEmitPercent(self: KJob, callback: *const fn (KJob, usize, usize) callconv(.c) void) void {
-        qtc.KJob_OnEmitPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEmitPercent` instead
-    ///
-    pub const SuperEmitPercent = superEmitPercent;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` _processedAmount: usize `
-    ///
-    /// ` _totalAmount: usize `
-    ///
-    pub fn superEmitPercent(self: KJob, _processedAmount: usize, _totalAmount: usize) void {
-        qtc.KJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
-    }
-
     /// ### DEPRECATED: Use `emitSpeed` instead
     ///
     pub const EmitSpeed = emitSpeed;
@@ -1499,42 +1119,6 @@ pub const KJob = extern struct {
         qtc.KJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
     }
 
-    /// ### DEPRECATED: Use `onEmitSpeed` instead
-    ///
-    pub const OnEmitSpeed = onEmitSpeed;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn (self: KJob, speed: usize) callconv(.c) void `
-    ///
-    pub fn onEmitSpeed(self: KJob, callback: *const fn (KJob, usize) callconv(.c) void) void {
-        qtc.KJob_OnEmitSpeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superEmitSpeed` instead
-    ///
-    pub const SuperEmitSpeed = superEmitSpeed;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` _speed: usize `
-    ///
-    pub fn superEmitSpeed(self: KJob, _speed: usize) void {
-        qtc.KJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
-    }
-
     /// ### DEPRECATED: Use `startElapsedTimer` instead
     ///
     pub const StartElapsedTimer = startElapsedTimer;
@@ -1547,40 +1131,6 @@ pub const KJob = extern struct {
     ///
     pub fn startElapsedTimer(self: KJob) void {
         qtc.KJob_StartElapsedTimer(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartElapsedTimer` instead
-    ///
-    pub const OnStartElapsedTimer = onStartElapsedTimer;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartElapsedTimer(self: KJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KJob_OnStartElapsedTimer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superStartElapsedTimer` instead
-    ///
-    pub const SuperStartElapsedTimer = superStartElapsedTimer;
-
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    pub fn superStartElapsedTimer(self: KJob) void {
-        qtc.KJob_SuperStartElapsedTimer(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -3092,44 +2642,6 @@ pub const KJob = extern struct {
         return .{ .ptr = qtc.KJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    pub fn superSender(self: KJob) QObject {
-        return .{ .ptr = qtc.KJob_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KJob, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3146,44 +2658,6 @@ pub const KJob = extern struct {
     ///
     pub fn senderSignalIndex(self: KJob) i32 {
         return qtc.KJob_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    pub fn superSenderSignalIndex(self: KJob) i32 {
-        return qtc.KJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KJob, callback: *const fn () callconv(.c) i32) void {
-        qtc.KJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3207,47 +2681,6 @@ pub const KJob = extern struct {
         return qtc.KJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KJob, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob`
-    ///
-    /// ` callback: *const fn (self: KJob, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KJob, callback: *const fn (KJob, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3267,47 +2700,6 @@ pub const KJob = extern struct {
     pub fn isSignalConnected(self: KJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KJob `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KJob, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KJob`
-    ///
-    /// ` callback: *const fn (self: KJob, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KJob, callback: *const fn (KJob, QMetaMethod) callconv(.c) bool) void {
-        qtc.KJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onFinished` instead

@@ -190,364 +190,219 @@ libqt_string Kirigami__Platform__IconSizes_Tr3(const char* s, const char* c, int
 
 // Base class handler implementation
 QMetaObject* Kirigami__Platform__IconSizes_SuperMetaObject(const Kirigami__Platform__IconSizes* self) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_MetaObject_IsBase(true);
-        return (QMetaObject*)vkirigamiplatformiconsizes->metaObject();
-    } else {
-        return (QMetaObject*)self->Kirigami::Platform::IconSizes::metaObject();
-    }
+    return (QMetaObject*)self->Kirigami::Platform::IconSizes::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__IconSizes_OnMetaObject(const Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_MetaObject_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_MetaObject_Callback>(slot));
+void Kirigami__Platform__IconSizes_OnMetaObject(Kirigami__Platform__IconSizes* self, intptr_t slot) {
+    if (auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self)))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_metaobject_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* Kirigami__Platform__IconSizes_SuperMetacast(Kirigami__Platform__IconSizes* self, const char* param1) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Metacast_IsBase(true);
-        return vkirigamiplatformiconsizes->qt_metacast(param1);
-    } else {
-        return self->Kirigami::Platform::IconSizes::qt_metacast(param1);
-    }
+    return self->Kirigami::Platform::IconSizes::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnMetacast(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Metacast_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_Metacast_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_metacast_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int Kirigami__Platform__IconSizes_SuperMetacall(Kirigami__Platform__IconSizes* self, int param1, int param2, void** param3) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Metacall_IsBase(true);
-        return vkirigamiplatformiconsizes->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->Kirigami::Platform::IconSizes::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->Kirigami::Platform::IconSizes::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnMetacall(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Metacall_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_Metacall_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_metacall_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Kirigami__Platform__IconSizes_Event(Kirigami__Platform__IconSizes* self, QEvent* event) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        return vkirigamiplatformiconsizes->event(event);
-    } else {
-        return self->Kirigami::Platform::IconSizes::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool Kirigami__Platform__IconSizes_SuperEvent(Kirigami__Platform__IconSizes* self, QEvent* event) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Event_IsBase(true);
-        return vkirigamiplatformiconsizes->event(event);
-    } else {
-        return self->Kirigami::Platform::IconSizes::event(event);
-    }
+    return self->Kirigami::Platform::IconSizes::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnEvent(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Event_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_Event_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_event_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool Kirigami__Platform__IconSizes_EventFilter(Kirigami__Platform__IconSizes* self, QObject* watched, QEvent* event) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        return vkirigamiplatformiconsizes->eventFilter(watched, event);
-    } else {
-        return self->Kirigami::Platform::IconSizes::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool Kirigami__Platform__IconSizes_SuperEventFilter(Kirigami__Platform__IconSizes* self, QObject* watched, QEvent* event) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_EventFilter_IsBase(true);
-        return vkirigamiplatformiconsizes->eventFilter(watched, event);
-    } else {
-        return self->Kirigami::Platform::IconSizes::eventFilter(watched, event);
-    }
+    return self->Kirigami::Platform::IconSizes::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnEventFilter(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_EventFilter_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_EventFilter_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_eventfilter_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__IconSizes_TimerEvent(Kirigami__Platform__IconSizes* self, QTimerEvent* event) {
     auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
+    if (vkirigamiplatformiconsizes) {
         vkirigamiplatformiconsizes->timerEvent(event);
     } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__IconSizes_SuperTimerEvent(Kirigami__Platform__IconSizes* self, QTimerEvent* event) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_TimerEvent_IsBase(true);
-        vkirigamiplatformiconsizes->timerEvent(event);
-    } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->timerEvent(event);
-    }
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self)) {
+        vkirigamiplatformiconsizes->Kirigami::Platform::IconSizes::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnTimerEvent(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_TimerEvent_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_TimerEvent_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_timerevent_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__IconSizes_ChildEvent(Kirigami__Platform__IconSizes* self, QChildEvent* event) {
     auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
+    if (vkirigamiplatformiconsizes) {
         vkirigamiplatformiconsizes->childEvent(event);
     } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__IconSizes_SuperChildEvent(Kirigami__Platform__IconSizes* self, QChildEvent* event) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_ChildEvent_IsBase(true);
-        vkirigamiplatformiconsizes->childEvent(event);
-    } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->childEvent(event);
-    }
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self)) {
+        vkirigamiplatformiconsizes->Kirigami::Platform::IconSizes::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnChildEvent(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_ChildEvent_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_ChildEvent_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_childevent_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__IconSizes_CustomEvent(Kirigami__Platform__IconSizes* self, QEvent* event) {
     auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
+    if (vkirigamiplatformiconsizes) {
         vkirigamiplatformiconsizes->customEvent(event);
     } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__IconSizes_SuperCustomEvent(Kirigami__Platform__IconSizes* self, QEvent* event) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_CustomEvent_IsBase(true);
-        vkirigamiplatformiconsizes->customEvent(event);
-    } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->customEvent(event);
-    }
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self)) {
+        vkirigamiplatformiconsizes->Kirigami::Platform::IconSizes::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnCustomEvent(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_CustomEvent_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_CustomEvent_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_customevent_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__IconSizes_ConnectNotify(Kirigami__Platform__IconSizes* self, const QMetaMethod* signal) {
     auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
+    if (vkirigamiplatformiconsizes) {
         vkirigamiplatformiconsizes->connectNotify(*signal);
     } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__IconSizes_SuperConnectNotify(Kirigami__Platform__IconSizes* self, const QMetaMethod* signal) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_ConnectNotify_IsBase(true);
-        vkirigamiplatformiconsizes->connectNotify(*signal);
-    } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->connectNotify(*signal);
-    }
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self)) {
+        vkirigamiplatformiconsizes->Kirigami::Platform::IconSizes::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnConnectNotify(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_ConnectNotify_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_ConnectNotify_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_connectnotify_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void Kirigami__Platform__IconSizes_DisconnectNotify(Kirigami__Platform__IconSizes* self, const QMetaMethod* signal) {
     auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
+    if (vkirigamiplatformiconsizes) {
         vkirigamiplatformiconsizes->disconnectNotify(*signal);
     } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void Kirigami__Platform__IconSizes_SuperDisconnectNotify(Kirigami__Platform__IconSizes* self, const QMetaMethod* signal) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_DisconnectNotify_IsBase(true);
-        vkirigamiplatformiconsizes->disconnectNotify(*signal);
-    } else {
-        ((VirtualKirigamiPlatformIconSizes*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self)) {
+        vkirigamiplatformiconsizes->Kirigami::Platform::IconSizes::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method Kirigami::Platform::IconSizes::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void Kirigami__Platform__IconSizes_OnDisconnectNotify(Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self);
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_DisconnectNotify_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_DisconnectNotify_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = dynamic_cast<VirtualKirigamiPlatformIconSizes*>(self))
+        vkirigamiplatformiconsizes->kirigami__platform__iconsizes_disconnectnotify_callback = reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* Kirigami__Platform__IconSizes_Sender(const Kirigami__Platform__IconSizes* self) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        return vkirigamiplatformiconsizes->sender();
-    } else {
-        return ((VirtualKirigamiPlatformIconSizes*)self)->sender();
-    }
+    if (auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self))) {
+        return vkirigamiplatformiconsizes->VirtualKirigamiPlatformIconSizes::sender();
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::IconSizes::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* Kirigami__Platform__IconSizes_SuperSender(const Kirigami__Platform__IconSizes* self) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Sender_IsBase(true);
-        return vkirigamiplatformiconsizes->sender();
-    } else {
-        return ((VirtualKirigamiPlatformIconSizes*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__IconSizes_OnSender(const Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Sender_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Kirigami__Platform__IconSizes_SenderSignalIndex(const Kirigami__Platform__IconSizes* self) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        return vkirigamiplatformiconsizes->senderSignalIndex();
-    } else {
-        return ((VirtualKirigamiPlatformIconSizes*)self)->senderSignalIndex();
-    }
+    if (auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self))) {
+        return vkirigamiplatformiconsizes->VirtualKirigamiPlatformIconSizes::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::IconSizes::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Kirigami__Platform__IconSizes_SuperSenderSignalIndex(const Kirigami__Platform__IconSizes* self) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_SenderSignalIndex_IsBase(true);
-        return vkirigamiplatformiconsizes->senderSignalIndex();
-    } else {
-        return ((VirtualKirigamiPlatformIconSizes*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__IconSizes_OnSenderSignalIndex(const Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_SenderSignalIndex_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int Kirigami__Platform__IconSizes_Receivers(const Kirigami__Platform__IconSizes* self, const char* signal) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        return vkirigamiplatformiconsizes->receivers(signal);
-    } else {
-        return ((VirtualKirigamiPlatformIconSizes*)self)->receivers(signal);
-    }
+    if (auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self))) {
+        return vkirigamiplatformiconsizes->VirtualKirigamiPlatformIconSizes::receivers(signal);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::IconSizes::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int Kirigami__Platform__IconSizes_SuperReceivers(const Kirigami__Platform__IconSizes* self, const char* signal) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Receivers_IsBase(true);
-        return vkirigamiplatformiconsizes->receivers(signal);
-    } else {
-        return ((VirtualKirigamiPlatformIconSizes*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__IconSizes_OnReceivers(const Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_Receivers_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool Kirigami__Platform__IconSizes_IsSignalConnected(const Kirigami__Platform__IconSizes* self, const QMetaMethod* signal) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        return vkirigamiplatformiconsizes->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKirigamiPlatformIconSizes*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool Kirigami__Platform__IconSizes_SuperIsSignalConnected(const Kirigami__Platform__IconSizes* self, const QMetaMethod* signal) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes) {
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_IsSignalConnected_IsBase(true);
-        return vkirigamiplatformiconsizes->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKirigamiPlatformIconSizes*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void Kirigami__Platform__IconSizes_OnIsSignalConnected(const Kirigami__Platform__IconSizes* self, intptr_t slot) {
-    auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self));
-    if (vkirigamiplatformiconsizes && vkirigamiplatformiconsizes->isVirtualKirigamiPlatformIconSizes)
-        vkirigamiplatformiconsizes->setKirigami__Platform__IconSizes_IsSignalConnected_Callback(reinterpret_cast<VirtualKirigamiPlatformIconSizes::Kirigami__Platform__IconSizes_IsSignalConnected_Callback>(slot));
+    if (auto* vkirigamiplatformiconsizes = const_cast<VirtualKirigamiPlatformIconSizes*>(dynamic_cast<const VirtualKirigamiPlatformIconSizes*>(self))) {
+        return vkirigamiplatformiconsizes->VirtualKirigamiPlatformIconSizes::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method Kirigami::Platform::IconSizes::isSignalConnected called without a directly constructed type");
 }
 
 void Kirigami__Platform__IconSizes_Delete(Kirigami__Platform__IconSizes* self) {

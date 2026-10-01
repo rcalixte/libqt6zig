@@ -153,7 +153,7 @@ void QDnsLookup_Connect_NameserverProtocolChanged(QDnsLookup* self, intptr_t slo
 libqt_string QDnsLookup_Tr2(const char* s, const char* c);
 libqt_string QDnsLookup_Tr3(const char* s, const char* c, int n);
 void QDnsLookup_SetNameserver32(QDnsLookup* self, uint8_t protocol, const QHostAddress* nameserver, uint16_t port);
-void QDnsLookup_OnMetaObject(const QDnsLookup* self, intptr_t slot);
+void QDnsLookup_OnMetaObject(QDnsLookup* self, intptr_t slot);
 QMetaObject* QDnsLookup_SuperMetaObject(const QDnsLookup* self);
 void QDnsLookup_OnMetacast(QDnsLookup* self, intptr_t slot);
 void* QDnsLookup_SuperMetacast(QDnsLookup* self, const char* param1);
@@ -181,17 +181,9 @@ void QDnsLookup_DisconnectNotify(QDnsLookup* self, const QMetaMethod* signal);
 void QDnsLookup_OnDisconnectNotify(QDnsLookup* self, intptr_t slot);
 void QDnsLookup_SuperDisconnectNotify(QDnsLookup* self, const QMetaMethod* signal);
 QObject* QDnsLookup_Sender(const QDnsLookup* self);
-void QDnsLookup_OnSender(const QDnsLookup* self, intptr_t slot);
-QObject* QDnsLookup_SuperSender(const QDnsLookup* self);
 int QDnsLookup_SenderSignalIndex(const QDnsLookup* self);
-void QDnsLookup_OnSenderSignalIndex(const QDnsLookup* self, intptr_t slot);
-int QDnsLookup_SuperSenderSignalIndex(const QDnsLookup* self);
 int QDnsLookup_Receivers(const QDnsLookup* self, const char* signal);
-void QDnsLookup_OnReceivers(const QDnsLookup* self, intptr_t slot);
-int QDnsLookup_SuperReceivers(const QDnsLookup* self, const char* signal);
 bool QDnsLookup_IsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal);
-void QDnsLookup_OnIsSignalConnected(const QDnsLookup* self, intptr_t slot);
-bool QDnsLookup_SuperIsSignalConnected(const QDnsLookup* self, const QMetaMethod* signal);
 void QDnsLookup_Delete(QDnsLookup* self);
 
 #ifdef __cplusplus

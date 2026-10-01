@@ -27,6 +27,8 @@ pub const QRunnable = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
     ///
+    /// This method must be implemented with `onRun` before it can be called.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QRunnable `
@@ -47,26 +49,10 @@ pub const QRunnable = extern struct {
     ///
     /// ` self: QRunnable `
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: QRunnable) callconv(.c) void `
     ///
-    pub fn onRun(self: QRunnable, callback: *const fn () callconv(.c) void) void {
+    pub fn onRun(self: QRunnable, callback: *const fn (QRunnable) callconv(.c) void) void {
         qtc.QRunnable_OnRun(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superRun` instead
-    ///
-    pub const SuperRun = superRun;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QRunnable `
-    ///
-    pub fn superRun(self: QRunnable) void {
-        qtc.QRunnable_SuperRun(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `autoDelete` instead

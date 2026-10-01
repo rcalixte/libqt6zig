@@ -138,446 +138,260 @@ libqt_string QOffscreenSurface_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QOffscreenSurface_SuperMetaObject(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_MetaObject_IsBase(true);
-        return (QMetaObject*)vqoffscreensurface->metaObject();
-    } else {
-        return (QMetaObject*)self->QOffscreenSurface::metaObject();
-    }
+    return (QMetaObject*)self->QOffscreenSurface::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnMetaObject(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_MetaObject_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_MetaObject_Callback>(slot));
+void QOffscreenSurface_OnMetaObject(QOffscreenSurface* self, intptr_t slot) {
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self)))
+        vqoffscreensurface->qoffscreensurface_metaobject_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QOffscreenSurface_SuperMetacast(QOffscreenSurface* self, const char* param1) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Metacast_IsBase(true);
-        return vqoffscreensurface->qt_metacast(param1);
-    } else {
-        return self->QOffscreenSurface::qt_metacast(param1);
-    }
+    return self->QOffscreenSurface::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnMetacast(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_Metacast_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Metacast_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_metacast_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOffscreenSurface_SuperMetacall(QOffscreenSurface* self, int param1, int param2, void** param3) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Metacall_IsBase(true);
-        return vqoffscreensurface->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QOffscreenSurface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QOffscreenSurface::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnMetacall(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_Metacall_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Metacall_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_metacall_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 int QOffscreenSurface_SuperSurfaceType(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_SurfaceType_IsBase(true);
-        return static_cast<int>(vqoffscreensurface->surfaceType());
-    } else {
-        return static_cast<int>(self->QOffscreenSurface::surfaceType());
-    }
+    return static_cast<int>(self->QOffscreenSurface::surfaceType());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnSurfaceType(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_SurfaceType_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_SurfaceType_Callback>(slot));
+void QOffscreenSurface_OnSurfaceType(QOffscreenSurface* self, intptr_t slot) {
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self)))
+        vqoffscreensurface->qoffscreensurface_surfacetype_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_SurfaceType_Callback>(slot);
 }
 
 // Base class handler implementation
 QSurfaceFormat* QOffscreenSurface_SuperFormat(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Format_IsBase(true);
-        return new QSurfaceFormat(vqoffscreensurface->format());
-    } else {
-        return new QSurfaceFormat(((VirtualQOffscreenSurface*)self)->format());
-    }
+    return new QSurfaceFormat(self->QOffscreenSurface::format());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnFormat(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_Format_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Format_Callback>(slot));
+void QOffscreenSurface_OnFormat(QOffscreenSurface* self, intptr_t slot) {
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self)))
+        vqoffscreensurface->qoffscreensurface_format_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Format_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QOffscreenSurface_SuperSize(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Size_IsBase(true);
-        return new QSize(vqoffscreensurface->size());
-    } else {
-        return new QSize(((VirtualQOffscreenSurface*)self)->size());
-    }
+    return new QSize(self->QOffscreenSurface::size());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnSize(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_Size_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Size_Callback>(slot));
+void QOffscreenSurface_OnSize(QOffscreenSurface* self, intptr_t slot) {
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self)))
+        vqoffscreensurface->qoffscreensurface_size_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Size_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOffscreenSurface_Event(QOffscreenSurface* self, QEvent* event) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return vqoffscreensurface->event(event);
-    } else {
-        return self->QOffscreenSurface::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QOffscreenSurface_SuperEvent(QOffscreenSurface* self, QEvent* event) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Event_IsBase(true);
-        return vqoffscreensurface->event(event);
-    } else {
-        return self->QOffscreenSurface::event(event);
-    }
+    return self->QOffscreenSurface::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnEvent(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_Event_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Event_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_event_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QOffscreenSurface_EventFilter(QOffscreenSurface* self, QObject* watched, QEvent* event) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return vqoffscreensurface->eventFilter(watched, event);
-    } else {
-        return self->QOffscreenSurface::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QOffscreenSurface_SuperEventFilter(QOffscreenSurface* self, QObject* watched, QEvent* event) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_EventFilter_IsBase(true);
-        return vqoffscreensurface->eventFilter(watched, event);
-    } else {
-        return self->QOffscreenSurface::eventFilter(watched, event);
-    }
+    return self->QOffscreenSurface::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnEventFilter(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_EventFilter_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_EventFilter_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_eventfilter_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOffscreenSurface_TimerEvent(QOffscreenSurface* self, QTimerEvent* event) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+    if (vqoffscreensurface) {
         vqoffscreensurface->timerEvent(event);
     } else {
-        ((VirtualQOffscreenSurface*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QOffscreenSurface::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOffscreenSurface_SuperTimerEvent(QOffscreenSurface* self, QTimerEvent* event) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_TimerEvent_IsBase(true);
-        vqoffscreensurface->timerEvent(event);
-    } else {
-        ((VirtualQOffscreenSurface*)self)->timerEvent(event);
-    }
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self)) {
+        vqoffscreensurface->QOffscreenSurface::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOffscreenSurface::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnTimerEvent(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_TimerEvent_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_TimerEvent_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_timerevent_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOffscreenSurface_ChildEvent(QOffscreenSurface* self, QChildEvent* event) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+    if (vqoffscreensurface) {
         vqoffscreensurface->childEvent(event);
     } else {
-        ((VirtualQOffscreenSurface*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QOffscreenSurface::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOffscreenSurface_SuperChildEvent(QOffscreenSurface* self, QChildEvent* event) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_ChildEvent_IsBase(true);
-        vqoffscreensurface->childEvent(event);
-    } else {
-        ((VirtualQOffscreenSurface*)self)->childEvent(event);
-    }
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self)) {
+        vqoffscreensurface->QOffscreenSurface::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOffscreenSurface::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnChildEvent(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_ChildEvent_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_ChildEvent_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_childevent_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOffscreenSurface_CustomEvent(QOffscreenSurface* self, QEvent* event) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+    if (vqoffscreensurface) {
         vqoffscreensurface->customEvent(event);
     } else {
-        ((VirtualQOffscreenSurface*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QOffscreenSurface::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOffscreenSurface_SuperCustomEvent(QOffscreenSurface* self, QEvent* event) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_CustomEvent_IsBase(true);
-        vqoffscreensurface->customEvent(event);
-    } else {
-        ((VirtualQOffscreenSurface*)self)->customEvent(event);
-    }
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self)) {
+        vqoffscreensurface->QOffscreenSurface::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QOffscreenSurface::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnCustomEvent(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_CustomEvent_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_CustomEvent_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_customevent_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOffscreenSurface_ConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+    if (vqoffscreensurface) {
         vqoffscreensurface->connectNotify(*signal);
     } else {
-        ((VirtualQOffscreenSurface*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QOffscreenSurface::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOffscreenSurface_SuperConnectNotify(QOffscreenSurface* self, const QMetaMethod* signal) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_ConnectNotify_IsBase(true);
-        vqoffscreensurface->connectNotify(*signal);
-    } else {
-        ((VirtualQOffscreenSurface*)self)->connectNotify(*signal);
-    }
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self)) {
+        vqoffscreensurface->QOffscreenSurface::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOffscreenSurface::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnConnectNotify(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_ConnectNotify_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_ConnectNotify_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_connectnotify_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QOffscreenSurface_DisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal) {
     auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
+    if (vqoffscreensurface) {
         vqoffscreensurface->disconnectNotify(*signal);
     } else {
-        ((VirtualQOffscreenSurface*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QOffscreenSurface::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QOffscreenSurface_SuperDisconnectNotify(QOffscreenSurface* self, const QMetaMethod* signal) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_DisconnectNotify_IsBase(true);
-        vqoffscreensurface->disconnectNotify(*signal);
-    } else {
-        ((VirtualQOffscreenSurface*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self)) {
+        vqoffscreensurface->QOffscreenSurface::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QOffscreenSurface::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QOffscreenSurface_OnDisconnectNotify(QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_DisconnectNotify_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_DisconnectNotify_Callback>(slot));
+    if (auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self))
+        vqoffscreensurface->qoffscreensurface_disconnectnotify_callback = reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void* QOffscreenSurface_ResolveInterface(const QOffscreenSurface* self, const char* name, int revision) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return vqoffscreensurface->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self))) {
+        return vqoffscreensurface->VirtualQOffscreenSurface::resolveInterface(name, static_cast<int>(revision));
+    } else
+        qFatal("Error: Protected method QOffscreenSurface::resolveInterface called without a directly constructed type");
 }
 
-// Base class handler implementation
-void* QOffscreenSurface_SuperResolveInterface(const QOffscreenSurface* self, const char* name, int revision) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_ResolveInterface_IsBase(true);
-        return vqoffscreensurface->resolveInterface(name, static_cast<int>(revision));
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->resolveInterface(name, static_cast<int>(revision));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnResolveInterface(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_ResolveInterface_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_ResolveInterface_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QOffscreenSurface_Sender(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return vqoffscreensurface->sender();
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->sender();
-    }
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self))) {
+        return vqoffscreensurface->VirtualQOffscreenSurface::sender();
+    } else
+        qFatal("Error: Protected method QOffscreenSurface::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QOffscreenSurface_SuperSender(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Sender_IsBase(true);
-        return vqoffscreensurface->sender();
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnSender(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_Sender_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOffscreenSurface_SenderSignalIndex(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return vqoffscreensurface->senderSignalIndex();
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->senderSignalIndex();
-    }
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self))) {
+        return vqoffscreensurface->VirtualQOffscreenSurface::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QOffscreenSurface::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOffscreenSurface_SuperSenderSignalIndex(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_SenderSignalIndex_IsBase(true);
-        return vqoffscreensurface->senderSignalIndex();
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnSenderSignalIndex(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QOffscreenSurface_Receivers(const QOffscreenSurface* self, const char* signal) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return vqoffscreensurface->receivers(signal);
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->receivers(signal);
-    }
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self))) {
+        return vqoffscreensurface->VirtualQOffscreenSurface::receivers(signal);
+    } else
+        qFatal("Error: Protected method QOffscreenSurface::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QOffscreenSurface_SuperReceivers(const QOffscreenSurface* self, const char* signal) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_Receivers_IsBase(true);
-        return vqoffscreensurface->receivers(signal);
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnReceivers(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_Receivers_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QOffscreenSurface_IsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return vqoffscreensurface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QOffscreenSurface_SuperIsSignalConnected(const QOffscreenSurface* self, const QMetaMethod* signal) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        vqoffscreensurface->setQOffscreenSurface_IsSignalConnected_IsBase(true);
-        return vqoffscreensurface->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QOffscreenSurface_OnIsSignalConnected(const QOffscreenSurface* self, intptr_t slot) {
-    auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self));
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface)
-        vqoffscreensurface->setQOffscreenSurface_IsSignalConnected_Callback(reinterpret_cast<VirtualQOffscreenSurface::QOffscreenSurface_IsSignalConnected_Callback>(slot));
+    if (auto* vqoffscreensurface = const_cast<VirtualQOffscreenSurface*>(dynamic_cast<const VirtualQOffscreenSurface*>(self))) {
+        return vqoffscreensurface->VirtualQOffscreenSurface::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QOffscreenSurface::isSignalConnected called without a directly constructed type");
 }
 
 void QOffscreenSurface_Delete(QOffscreenSurface* self) {

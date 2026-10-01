@@ -115,7 +115,7 @@ void KParts__NavigationExtension_PopupMenu52(KParts__NavigationExtension* self, 
 void KParts__NavigationExtension_Connect_PopupMenu52(KParts__NavigationExtension* self, intptr_t slot);
 void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, const QPoint* global, const QUrl* url, mode_t mode, const KParts__OpenUrlArguments* arguments, int flags, const libqt_map /* of libqt_string to libqt_list of QAction* */ actionGroups);
 void KParts__NavigationExtension_Connect_PopupMenu6(KParts__NavigationExtension* self, intptr_t slot);
-void KParts__NavigationExtension_OnMetaObject(const KParts__NavigationExtension* self, intptr_t slot);
+void KParts__NavigationExtension_OnMetaObject(KParts__NavigationExtension* self, intptr_t slot);
 QMetaObject* KParts__NavigationExtension_SuperMetaObject(const KParts__NavigationExtension* self);
 void KParts__NavigationExtension_OnMetacast(KParts__NavigationExtension* self, intptr_t slot);
 void* KParts__NavigationExtension_SuperMetacast(KParts__NavigationExtension* self, const char* param1);
@@ -151,17 +151,9 @@ void KParts__NavigationExtension_DisconnectNotify(KParts__NavigationExtension* s
 void KParts__NavigationExtension_OnDisconnectNotify(KParts__NavigationExtension* self, intptr_t slot);
 void KParts__NavigationExtension_SuperDisconnectNotify(KParts__NavigationExtension* self, const QMetaMethod* signal);
 QObject* KParts__NavigationExtension_Sender(const KParts__NavigationExtension* self);
-void KParts__NavigationExtension_OnSender(const KParts__NavigationExtension* self, intptr_t slot);
-QObject* KParts__NavigationExtension_SuperSender(const KParts__NavigationExtension* self);
 int KParts__NavigationExtension_SenderSignalIndex(const KParts__NavigationExtension* self);
-void KParts__NavigationExtension_OnSenderSignalIndex(const KParts__NavigationExtension* self, intptr_t slot);
-int KParts__NavigationExtension_SuperSenderSignalIndex(const KParts__NavigationExtension* self);
 int KParts__NavigationExtension_Receivers(const KParts__NavigationExtension* self, const char* signal);
-void KParts__NavigationExtension_OnReceivers(const KParts__NavigationExtension* self, intptr_t slot);
-int KParts__NavigationExtension_SuperReceivers(const KParts__NavigationExtension* self, const char* signal);
 bool KParts__NavigationExtension_IsSignalConnected(const KParts__NavigationExtension* self, const QMetaMethod* signal);
-void KParts__NavigationExtension_OnIsSignalConnected(const KParts__NavigationExtension* self, intptr_t slot);
-bool KParts__NavigationExtension_SuperIsSignalConnected(const KParts__NavigationExtension* self, const QMetaMethod* signal);
 void KParts__NavigationExtension_Delete(KParts__NavigationExtension* self);
 
 #ifdef __cplusplus

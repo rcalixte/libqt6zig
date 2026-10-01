@@ -373,74 +373,74 @@ void QTreeView_ExpandToDepth(QTreeView* self, int depth) {
 
 void QTreeView_VerticalScrollbarValueChanged(QTreeView* self, int value) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->verticalScrollbarValueChanged(static_cast<int>(value));
     }
 }
 
 void QTreeView_ScrollContentsBy(QTreeView* self, int dx, int dy) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     }
 }
 
 void QTreeView_RowsInserted(QTreeView* self, const QModelIndex* parent, int start, int end) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
     }
 }
 
 void QTreeView_RowsAboutToBeRemoved(QTreeView* self, const QModelIndex* parent, int start, int end) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
     }
 }
 
 QModelIndex* QTreeView_MoveCursor(QTreeView* self, int cursorAction, int modifiers) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return new QModelIndex(vqtreeview->moveCursor(static_cast<VirtualQTreeView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::moveCursor called without a directly constructed type");
 }
 
 int QTreeView_HorizontalOffset(const QTreeView* self) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->horizontalOffset();
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::horizontalOffset called without a directly constructed type");
 }
 
 int QTreeView_VerticalOffset(const QTreeView* self) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->verticalOffset();
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::verticalOffset called without a directly constructed type");
 }
 
 void QTreeView_SetSelection(QTreeView* self, const QRect* rect, int command) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
     }
 }
 
 QRegion* QTreeView_VisualRegionForSelection(const QTreeView* self, const QItemSelection* selection) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return new QRegion(vqtreeview->visualRegionForSelection(*selection));
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::visualRegionForSelection called without a directly constructed type");
 }
 
 libqt_list /* of QModelIndex* */ QTreeView_SelectedIndexes(const QTreeView* self) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         QList<QModelIndex> _ret = vqtreeview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
@@ -452,142 +452,142 @@ libqt_list /* of QModelIndex* */ QTreeView_SelectedIndexes(const QTreeView* self
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::selectedIndexes called without a directly constructed type");
 }
 
 void QTreeView_ChangeEvent(QTreeView* self, QEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->changeEvent(event);
     }
 }
 
 void QTreeView_TimerEvent(QTreeView* self, QTimerEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->timerEvent(event);
     }
 }
 
 void QTreeView_PaintEvent(QTreeView* self, QPaintEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->paintEvent(event);
     }
 }
 
 void QTreeView_DrawRow(const QTreeView* self, QPainter* painter, const QStyleOptionViewItem* options, const QModelIndex* index) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->drawRow(painter, *options, *index);
     }
 }
 
 void QTreeView_DrawBranches(const QTreeView* self, QPainter* painter, const QRect* rect, const QModelIndex* index) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->drawBranches(painter, *rect, *index);
     }
 }
 
 void QTreeView_MousePressEvent(QTreeView* self, QMouseEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->mousePressEvent(event);
     }
 }
 
 void QTreeView_MouseReleaseEvent(QTreeView* self, QMouseEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->mouseReleaseEvent(event);
     }
 }
 
 void QTreeView_MouseDoubleClickEvent(QTreeView* self, QMouseEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->mouseDoubleClickEvent(event);
     }
 }
 
 void QTreeView_MouseMoveEvent(QTreeView* self, QMouseEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->mouseMoveEvent(event);
     }
 }
 
 void QTreeView_KeyPressEvent(QTreeView* self, QKeyEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->keyPressEvent(event);
     }
 }
 
 void QTreeView_DragMoveEvent(QTreeView* self, QDragMoveEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->dragMoveEvent(event);
     }
 }
 
 bool QTreeView_ViewportEvent(QTreeView* self, QEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->viewportEvent(event);
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::viewportEvent called without a directly constructed type");
 }
 
 void QTreeView_UpdateGeometries(QTreeView* self) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->updateGeometries();
     }
 }
 
 QSize* QTreeView_ViewportSizeHint(const QTreeView* self) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return new QSize(vqtreeview->viewportSizeHint());
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::viewportSizeHint called without a directly constructed type");
 }
 
 int QTreeView_SizeHintForColumn(const QTreeView* self, int column) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->sizeHintForColumn(static_cast<int>(column));
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::sizeHintForColumn called without a directly constructed type");
 }
 
 void QTreeView_HorizontalScrollbarAction(QTreeView* self, int action) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->horizontalScrollbarAction(static_cast<int>(action));
     }
 }
 
 bool QTreeView_IsIndexHidden(const QTreeView* self, const QModelIndex* index) {
     auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->isIndexHidden(*index);
     }
-    return {};
+    qFatal("Error: Protected method QTreeView::isIndexHidden called without a directly constructed type");
 }
 
 void QTreeView_SelectionChanged(QTreeView* self, const QItemSelection* selected, const QItemSelection* deselected) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->selectionChanged(*selected, *deselected);
     }
 }
 
 void QTreeView_CurrentChanged(QTreeView* self, const QModelIndex* current, const QModelIndex* previous) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->currentChanged(*current, *previous);
     }
 }
@@ -622,429 +622,293 @@ void QTreeView_ExpandRecursively2(QTreeView* self, const QModelIndex* index, int
 
 // Base class handler implementation
 QMetaObject* QTreeView_SuperMetaObject(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_MetaObject_IsBase(true);
-        return (QMetaObject*)vqtreeview->metaObject();
-    } else {
-        return (QMetaObject*)self->QTreeView::metaObject();
-    }
+    return (QMetaObject*)self->QTreeView::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnMetaObject(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_MetaObject_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MetaObject_Callback>(slot));
+void QTreeView_OnMetaObject(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_metaobject_callback = reinterpret_cast<VirtualQTreeView::QTreeView_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QTreeView_SuperMetacast(QTreeView* self, const char* param1) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Metacast_IsBase(true);
-        return vqtreeview->qt_metacast(param1);
-    } else {
-        return self->QTreeView::qt_metacast(param1);
-    }
+    return self->QTreeView::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMetacast(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Metacast_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Metacast_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_metacast_callback = reinterpret_cast<VirtualQTreeView::QTreeView_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTreeView_SuperMetacall(QTreeView* self, int param1, int param2, void** param3) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Metacall_IsBase(true);
-        return vqtreeview->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QTreeView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QTreeView::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMetacall(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Metacall_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Metacall_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_metacall_callback = reinterpret_cast<VirtualQTreeView::QTreeView_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperSetModel(QTreeView* self, QAbstractItemModel* model) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetModel_IsBase(true);
-        vqtreeview->setModel(model);
-    } else {
-        self->QTreeView::setModel(model);
-    }
+    self->QTreeView::setModel(model);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetModel(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetModel_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetModel_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_setmodel_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SetModel_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperSetRootIndex(QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetRootIndex_IsBase(true);
-        vqtreeview->setRootIndex(*index);
-    } else {
-        self->QTreeView::setRootIndex(*index);
-    }
+    self->QTreeView::setRootIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetRootIndex(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetRootIndex_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetRootIndex_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_setrootindex_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SetRootIndex_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperSetSelectionModel(QTreeView* self, QItemSelectionModel* selectionModel) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetSelectionModel_IsBase(true);
-        vqtreeview->setSelectionModel(selectionModel);
-    } else {
-        self->QTreeView::setSelectionModel(selectionModel);
-    }
+    self->QTreeView::setSelectionModel(selectionModel);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetSelectionModel(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetSelectionModel_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetSelectionModel_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_setselectionmodel_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SetSelectionModel_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperKeyboardSearch(QTreeView* self, const libqt_string search) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_KeyboardSearch_IsBase(true);
-        vqtreeview->keyboardSearch(search_QString);
-    } else {
-        self->QTreeView::keyboardSearch(search_QString);
-    }
+    self->QTreeView::keyboardSearch(search_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnKeyboardSearch(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_KeyboardSearch_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_KeyboardSearch_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_keyboardsearch_callback = reinterpret_cast<VirtualQTreeView::QTreeView_KeyboardSearch_Callback>(slot);
 }
 
 // Base class handler implementation
 QRect* QTreeView_SuperVisualRect(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_VisualRect_IsBase(true);
-        return new QRect(vqtreeview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQTreeView*)self)->visualRect(*index));
-    }
+    return new QRect(self->QTreeView::visualRect(*index));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnVisualRect(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_VisualRect_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VisualRect_Callback>(slot));
+void QTreeView_OnVisualRect(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_visualrect_callback = reinterpret_cast<VirtualQTreeView::QTreeView_VisualRect_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperScrollTo(QTreeView* self, const QModelIndex* index, int hint) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ScrollTo_IsBase(true);
-        vqtreeview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        self->QTreeView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->QTreeView::scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnScrollTo(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ScrollTo_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ScrollTo_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_scrollto_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ScrollTo_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* QTreeView_SuperIndexAt(const QTreeView* self, const QPoint* p) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_IndexAt_IsBase(true);
-        return new QModelIndex(vqtreeview->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQTreeView*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->QTreeView::indexAt(*p));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnIndexAt(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_IndexAt_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_IndexAt_Callback>(slot));
+void QTreeView_OnIndexAt(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_indexat_callback = reinterpret_cast<VirtualQTreeView::QTreeView_IndexAt_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperDoItemsLayout(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DoItemsLayout_IsBase(true);
-        vqtreeview->doItemsLayout();
-    } else {
-        self->QTreeView::doItemsLayout();
-    }
+    self->QTreeView::doItemsLayout();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDoItemsLayout(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DoItemsLayout_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DoItemsLayout_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_doitemslayout_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DoItemsLayout_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperReset(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Reset_IsBase(true);
-        vqtreeview->reset();
-    } else {
-        self->QTreeView::reset();
-    }
+    self->QTreeView::reset();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnReset(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Reset_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Reset_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_reset_callback = reinterpret_cast<VirtualQTreeView::QTreeView_Reset_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperDataChanged(QTreeView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
     QList<int> roles_QList;
     roles_QList.reserve(roles.len);
     int* roles_arr = static_cast<int*>(roles.data);
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DataChanged_IsBase(true);
-        vqtreeview->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        self->QTreeView::dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
+    self->QTreeView::dataChanged(*topLeft, *bottomRight, roles_QList);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDataChanged(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DataChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DataChanged_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_datachanged_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DataChanged_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperSelectAll(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SelectAll_IsBase(true);
-        vqtreeview->selectAll();
-    } else {
-        self->QTreeView::selectAll();
-    }
+    self->QTreeView::selectAll();
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSelectAll(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SelectAll_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SelectAll_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_selectall_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SelectAll_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperVerticalScrollbarValueChanged(QTreeView* self, int value) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_VerticalScrollbarValueChanged_IsBase(true);
-        vqtreeview->verticalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQTreeView*)self)->verticalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::verticalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::verticalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnVerticalScrollbarValueChanged(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VerticalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_verticalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQTreeView::QTreeView_VerticalScrollbarValueChanged_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperScrollContentsBy(QTreeView* self, int dx, int dy) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ScrollContentsBy_IsBase(true);
-        vqtreeview->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQTreeView*)self)->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::scrollContentsBy called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnScrollContentsBy(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ScrollContentsBy_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_scrollcontentsby_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ScrollContentsBy_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperRowsInserted(QTreeView* self, const QModelIndex* parent, int start, int end) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_RowsInserted_IsBase(true);
-        vqtreeview->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQTreeView*)self)->rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::rowsInserted called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnRowsInserted(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_RowsInserted_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_RowsInserted_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_rowsinserted_callback = reinterpret_cast<VirtualQTreeView::QTreeView_RowsInserted_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperRowsAboutToBeRemoved(QTreeView* self, const QModelIndex* parent, int start, int end) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_RowsAboutToBeRemoved_IsBase(true);
-        vqtreeview->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQTreeView*)self)->rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::rowsAboutToBeRemoved called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnRowsAboutToBeRemoved(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_RowsAboutToBeRemoved_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_rowsabouttoberemoved_callback = reinterpret_cast<VirtualQTreeView::QTreeView_RowsAboutToBeRemoved_Callback>(slot);
 }
 
 // Base class handler implementation
 QModelIndex* QTreeView_SuperMoveCursor(QTreeView* self, int cursorAction, int modifiers) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_MoveCursor_IsBase(true);
-        return new QModelIndex(vqtreeview->moveCursor(static_cast<VirtualQTreeView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
-    }
-    return {};
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        return new QModelIndex(vqtreeview->QTreeView::moveCursor(static_cast<VirtualQTreeView::CursorAction>(cursorAction), static_cast<Qt::KeyboardModifiers>(modifiers)));
+    qFatal("Error: Protected virtual method QTreeView::moveCursor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMoveCursor(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_MoveCursor_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MoveCursor_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_movecursor_callback = reinterpret_cast<VirtualQTreeView::QTreeView_MoveCursor_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTreeView_SuperHorizontalOffset(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_HorizontalOffset_IsBase(true);
-        return vqtreeview->horizontalOffset();
-    } else {
-        return ((VirtualQTreeView*)self)->horizontalOffset();
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->QTreeView::horizontalOffset();
+    } else
+        qFatal("Error: Protected virtual method QTreeView::horizontalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnHorizontalOffset(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_HorizontalOffset_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalOffset_Callback>(slot));
+void QTreeView_OnHorizontalOffset(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_horizontaloffset_callback = reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalOffset_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTreeView_SuperVerticalOffset(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_VerticalOffset_IsBase(true);
-        return vqtreeview->verticalOffset();
-    } else {
-        return ((VirtualQTreeView*)self)->verticalOffset();
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->QTreeView::verticalOffset();
+    } else
+        qFatal("Error: Protected virtual method QTreeView::verticalOffset called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnVerticalOffset(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_VerticalOffset_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VerticalOffset_Callback>(slot));
+void QTreeView_OnVerticalOffset(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_verticaloffset_callback = reinterpret_cast<VirtualQTreeView::QTreeView_VerticalOffset_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperSetSelection(QTreeView* self, const QRect* rect, int command) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetSelection_IsBase(true);
-        vqtreeview->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualQTreeView*)self)->setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::setSelection(*rect, static_cast<QItemSelectionModel::SelectionFlags>(command));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::setSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetSelection(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetSelection_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetSelection_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_setselection_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SetSelection_Callback>(slot);
 }
 
 // Base class handler implementation
 QRegion* QTreeView_SuperVisualRegionForSelection(const QTreeView* self, const QItemSelection* selection) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_VisualRegionForSelection_IsBase(true);
-        return new QRegion(vqtreeview->visualRegionForSelection(*selection));
-    }
-    return {};
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        return new QRegion(vqtreeview->QTreeView::visualRegionForSelection(*selection));
+    qFatal("Error: Protected virtual method QTreeView::visualRegionForSelection called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnVisualRegionForSelection(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VisualRegionForSelection_Callback>(slot));
+void QTreeView_OnVisualRegionForSelection(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_visualregionforselection_callback = reinterpret_cast<VirtualQTreeView::QTreeView_VisualRegionForSelection_Callback>(slot);
 }
 
 // Base class handler implementation
 libqt_list /* of QModelIndex* */ QTreeView_SuperSelectedIndexes(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SelectedIndexes_IsBase(true);
-        QList<QModelIndex> _ret = vqtreeview->selectedIndexes();
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        QList<QModelIndex> _ret = vqtreeview->QTreeView::selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -1054,2744 +918,1719 @@ libqt_list /* of QModelIndex* */ QTreeView_SuperSelectedIndexes(const QTreeView*
         _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQTreeView*)self)->selectedIndexes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected virtual method QTreeView::selectedIndexes called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnSelectedIndexes(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SelectedIndexes_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SelectedIndexes_Callback>(slot));
+void QTreeView_OnSelectedIndexes(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_selectedindexes_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SelectedIndexes_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperChangeEvent(QTreeView* self, QEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ChangeEvent_IsBase(true);
-        vqtreeview->changeEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->changeEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::changeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnChangeEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ChangeEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ChangeEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_changeevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ChangeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperTimerEvent(QTreeView* self, QTimerEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_TimerEvent_IsBase(true);
-        vqtreeview->timerEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->timerEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnTimerEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_TimerEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_TimerEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_timerevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_TimerEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperPaintEvent(QTreeView* self, QPaintEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_PaintEvent_IsBase(true);
-        vqtreeview->paintEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->paintEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnPaintEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_PaintEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_PaintEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_paintevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperDrawRow(const QTreeView* self, QPainter* painter, const QStyleOptionViewItem* options, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DrawRow_IsBase(true);
-        vqtreeview->drawRow(painter, *options, *index);
-    } else {
-        ((VirtualQTreeView*)self)->drawRow(painter, *options, *index);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        vqtreeview->QTreeView::drawRow(painter, *options, *index);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::drawRow called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnDrawRow(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DrawRow_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DrawRow_Callback>(slot));
+void QTreeView_OnDrawRow(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_drawrow_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DrawRow_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperDrawBranches(const QTreeView* self, QPainter* painter, const QRect* rect, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DrawBranches_IsBase(true);
-        vqtreeview->drawBranches(painter, *rect, *index);
-    } else {
-        ((VirtualQTreeView*)self)->drawBranches(painter, *rect, *index);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        vqtreeview->QTreeView::drawBranches(painter, *rect, *index);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::drawBranches called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnDrawBranches(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DrawBranches_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DrawBranches_Callback>(slot));
+void QTreeView_OnDrawBranches(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_drawbranches_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DrawBranches_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperMousePressEvent(QTreeView* self, QMouseEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_MousePressEvent_IsBase(true);
-        vqtreeview->mousePressEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->mousePressEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMousePressEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_MousePressEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MousePressEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_mousepressevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperMouseReleaseEvent(QTreeView* self, QMouseEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_MouseReleaseEvent_IsBase(true);
-        vqtreeview->mouseReleaseEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMouseReleaseEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MouseReleaseEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_mousereleaseevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperMouseDoubleClickEvent(QTreeView* self, QMouseEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_MouseDoubleClickEvent_IsBase(true);
-        vqtreeview->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMouseDoubleClickEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_mousedoubleclickevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperMouseMoveEvent(QTreeView* self, QMouseEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_MouseMoveEvent_IsBase(true);
-        vqtreeview->mouseMoveEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMouseMoveEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MouseMoveEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_mousemoveevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperKeyPressEvent(QTreeView* self, QKeyEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_KeyPressEvent_IsBase(true);
-        vqtreeview->keyPressEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->keyPressEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::keyPressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnKeyPressEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_KeyPressEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_KeyPressEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_keypressevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperDragMoveEvent(QTreeView* self, QDragMoveEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DragMoveEvent_IsBase(true);
-        vqtreeview->dragMoveEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->dragMoveEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDragMoveEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DragMoveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DragMoveEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_dragmoveevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DragMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QTreeView_SuperViewportEvent(QTreeView* self, QEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ViewportEvent_IsBase(true);
-        return vqtreeview->viewportEvent(event);
-    } else {
-        return ((VirtualQTreeView*)self)->viewportEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        return vqtreeview->QTreeView::viewportEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::viewportEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnViewportEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ViewportEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ViewportEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_viewportevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ViewportEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperUpdateGeometries(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_UpdateGeometries_IsBase(true);
-        vqtreeview->updateGeometries();
-    } else {
-        ((VirtualQTreeView*)self)->updateGeometries();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::updateGeometries();
+    } else
+        qFatal("Error: Protected virtual method QTreeView::updateGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnUpdateGeometries(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_UpdateGeometries_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_UpdateGeometries_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_updategeometries_callback = reinterpret_cast<VirtualQTreeView::QTreeView_UpdateGeometries_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* QTreeView_SuperViewportSizeHint(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ViewportSizeHint_IsBase(true);
-        return new QSize(vqtreeview->viewportSizeHint());
-    }
-    return {};
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        return new QSize(vqtreeview->QTreeView::viewportSizeHint());
+    qFatal("Error: Protected virtual method QTreeView::viewportSizeHint called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnViewportSizeHint(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ViewportSizeHint_Callback>(slot));
+void QTreeView_OnViewportSizeHint(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_viewportsizehint_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ViewportSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 int QTreeView_SuperSizeHintForColumn(const QTreeView* self, int column) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SizeHintForColumn_IsBase(true);
-        return vqtreeview->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return ((VirtualQTreeView*)self)->sizeHintForColumn(static_cast<int>(column));
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->QTreeView::sizeHintForColumn(static_cast<int>(column));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::sizeHintForColumn called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnSizeHintForColumn(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SizeHintForColumn_Callback>(slot));
+void QTreeView_OnSizeHintForColumn(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_sizehintforcolumn_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SizeHintForColumn_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperHorizontalScrollbarAction(QTreeView* self, int action) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_HorizontalScrollbarAction_IsBase(true);
-        vqtreeview->horizontalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQTreeView*)self)->horizontalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::horizontalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::horizontalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHorizontalScrollbarAction(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalScrollbarAction_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_horizontalscrollbaraction_callback = reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalScrollbarAction_Callback>(slot);
 }
 
 // Base class handler implementation
 bool QTreeView_SuperIsIndexHidden(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_IsIndexHidden_IsBase(true);
-        return vqtreeview->isIndexHidden(*index);
-    } else {
-        return ((VirtualQTreeView*)self)->isIndexHidden(*index);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->QTreeView::isIndexHidden(*index);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::isIndexHidden called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnIsIndexHidden(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_IsIndexHidden_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_IsIndexHidden_Callback>(slot));
+void QTreeView_OnIsIndexHidden(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_isindexhidden_callback = reinterpret_cast<VirtualQTreeView::QTreeView_IsIndexHidden_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperSelectionChanged(QTreeView* self, const QItemSelection* selected, const QItemSelection* deselected) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SelectionChanged_IsBase(true);
-        vqtreeview->selectionChanged(*selected, *deselected);
-    } else {
-        ((VirtualQTreeView*)self)->selectionChanged(*selected, *deselected);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::selectionChanged(*selected, *deselected);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::selectionChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSelectionChanged(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SelectionChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SelectionChanged_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_selectionchanged_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SelectionChanged_Callback>(slot);
 }
 
 // Base class handler implementation
 void QTreeView_SuperCurrentChanged(QTreeView* self, const QModelIndex* current, const QModelIndex* previous) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_CurrentChanged_IsBase(true);
-        vqtreeview->currentChanged(*current, *previous);
-    } else {
-        ((VirtualQTreeView*)self)->currentChanged(*current, *previous);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::currentChanged(*current, *previous);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::currentChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCurrentChanged(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_CurrentChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CurrentChanged_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_currentchanged_callback = reinterpret_cast<VirtualQTreeView::QTreeView_CurrentChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTreeView_SizeHintForRow(const QTreeView* self, int row) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->QTreeView::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->sizeHintForRow(static_cast<int>(row));
 }
 
 // Base class handler implementation
 int QTreeView_SuperSizeHintForRow(const QTreeView* self, int row) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SizeHintForRow_IsBase(true);
-        return vqtreeview->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return self->QTreeView::sizeHintForRow(static_cast<int>(row));
-    }
+    return self->QTreeView::sizeHintForRow(static_cast<int>(row));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnSizeHintForRow(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SizeHintForRow_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SizeHintForRow_Callback>(slot));
+void QTreeView_OnSizeHintForRow(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_sizehintforrow_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SizeHintForRow_Callback>(slot);
 }
 
 // Derived class handler implementation
 QAbstractItemDelegate* QTreeView_ItemDelegateForIndex(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->itemDelegateForIndex(*index);
-    } else {
-        return self->QTreeView::itemDelegateForIndex(*index);
-    }
+    return self->itemDelegateForIndex(*index);
 }
 
 // Base class handler implementation
 QAbstractItemDelegate* QTreeView_SuperItemDelegateForIndex(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ItemDelegateForIndex_IsBase(true);
-        return vqtreeview->itemDelegateForIndex(*index);
-    } else {
-        return self->QTreeView::itemDelegateForIndex(*index);
-    }
+    return self->QTreeView::itemDelegateForIndex(*index);
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnItemDelegateForIndex(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ItemDelegateForIndex_Callback>(slot));
+void QTreeView_OnItemDelegateForIndex(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_itemdelegateforindex_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ItemDelegateForIndex_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* QTreeView_InputMethodQuery(const QTreeView* self, int query) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return new QVariant(vqtreeview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQTreeView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Base class handler implementation
 QVariant* QTreeView_SuperInputMethodQuery(const QTreeView* self, int query) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_InputMethodQuery_IsBase(true);
-        return new QVariant(vqtreeview->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQTreeView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->QTreeView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnInputMethodQuery(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_InputMethodQuery_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InputMethodQuery_Callback>(slot));
+void QTreeView_OnInputMethodQuery(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_inputmethodquery_callback = reinterpret_cast<VirtualQTreeView::QTreeView_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_UpdateEditorData(QTreeView* self) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->updateEditorData();
     } else {
-        ((VirtualQTreeView*)self)->updateEditorData();
+        qFatal("Error: Protected virtual method QTreeView::updateEditorData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperUpdateEditorData(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_UpdateEditorData_IsBase(true);
-        vqtreeview->updateEditorData();
-    } else {
-        ((VirtualQTreeView*)self)->updateEditorData();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::updateEditorData();
+    } else
+        qFatal("Error: Protected virtual method QTreeView::updateEditorData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnUpdateEditorData(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_UpdateEditorData_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_UpdateEditorData_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_updateeditordata_callback = reinterpret_cast<VirtualQTreeView::QTreeView_UpdateEditorData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_UpdateEditorGeometries(QTreeView* self) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->updateEditorGeometries();
     } else {
-        ((VirtualQTreeView*)self)->updateEditorGeometries();
+        qFatal("Error: Protected virtual method QTreeView::updateEditorGeometries called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperUpdateEditorGeometries(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_UpdateEditorGeometries_IsBase(true);
-        vqtreeview->updateEditorGeometries();
-    } else {
-        ((VirtualQTreeView*)self)->updateEditorGeometries();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::updateEditorGeometries();
+    } else
+        qFatal("Error: Protected virtual method QTreeView::updateEditorGeometries called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnUpdateEditorGeometries(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_UpdateEditorGeometries_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_updateeditorgeometries_callback = reinterpret_cast<VirtualQTreeView::QTreeView_UpdateEditorGeometries_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_VerticalScrollbarAction(QTreeView* self, int action) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->verticalScrollbarAction(static_cast<int>(action));
     } else {
-        ((VirtualQTreeView*)self)->verticalScrollbarAction(static_cast<int>(action));
+        qFatal("Error: Protected virtual method QTreeView::verticalScrollbarAction called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperVerticalScrollbarAction(QTreeView* self, int action) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_VerticalScrollbarAction_IsBase(true);
-        vqtreeview->verticalScrollbarAction(static_cast<int>(action));
-    } else {
-        ((VirtualQTreeView*)self)->verticalScrollbarAction(static_cast<int>(action));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::verticalScrollbarAction(static_cast<int>(action));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::verticalScrollbarAction called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnVerticalScrollbarAction(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_VerticalScrollbarAction_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_verticalscrollbaraction_callback = reinterpret_cast<VirtualQTreeView::QTreeView_VerticalScrollbarAction_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_HorizontalScrollbarValueChanged(QTreeView* self, int value) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->horizontalScrollbarValueChanged(static_cast<int>(value));
     } else {
-        ((VirtualQTreeView*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
+        qFatal("Error: Protected virtual method QTreeView::horizontalScrollbarValueChanged called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperHorizontalScrollbarValueChanged(QTreeView* self, int value) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_HorizontalScrollbarValueChanged_IsBase(true);
-        vqtreeview->horizontalScrollbarValueChanged(static_cast<int>(value));
-    } else {
-        ((VirtualQTreeView*)self)->horizontalScrollbarValueChanged(static_cast<int>(value));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::horizontalScrollbarValueChanged(static_cast<int>(value));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::horizontalScrollbarValueChanged called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHorizontalScrollbarValueChanged(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalScrollbarValueChanged_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_horizontalscrollbarvaluechanged_callback = reinterpret_cast<VirtualQTreeView::QTreeView_HorizontalScrollbarValueChanged_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_CloseEditor(QTreeView* self, QWidget* editor, int hint) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
     } else {
-        ((VirtualQTreeView*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+        qFatal("Error: Protected virtual method QTreeView::closeEditor called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperCloseEditor(QTreeView* self, QWidget* editor, int hint) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_CloseEditor_IsBase(true);
-        vqtreeview->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    } else {
-        ((VirtualQTreeView*)self)->closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::closeEditor called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCloseEditor(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_CloseEditor_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CloseEditor_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_closeeditor_callback = reinterpret_cast<VirtualQTreeView::QTreeView_CloseEditor_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_CommitData(QTreeView* self, QWidget* editor) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->commitData(editor);
     } else {
-        ((VirtualQTreeView*)self)->commitData(editor);
+        qFatal("Error: Protected virtual method QTreeView::commitData called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperCommitData(QTreeView* self, QWidget* editor) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_CommitData_IsBase(true);
-        vqtreeview->commitData(editor);
-    } else {
-        ((VirtualQTreeView*)self)->commitData(editor);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::commitData(editor);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::commitData called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCommitData(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_CommitData_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CommitData_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_commitdata_callback = reinterpret_cast<VirtualQTreeView::QTreeView_CommitData_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_EditorDestroyed(QTreeView* self, QObject* editor) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->editorDestroyed(editor);
     } else {
-        ((VirtualQTreeView*)self)->editorDestroyed(editor);
+        qFatal("Error: Protected virtual method QTreeView::editorDestroyed called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperEditorDestroyed(QTreeView* self, QObject* editor) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_EditorDestroyed_IsBase(true);
-        vqtreeview->editorDestroyed(editor);
-    } else {
-        ((VirtualQTreeView*)self)->editorDestroyed(editor);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::editorDestroyed(editor);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::editorDestroyed called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEditorDestroyed(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_EditorDestroyed_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_EditorDestroyed_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_editordestroyed_callback = reinterpret_cast<VirtualQTreeView::QTreeView_EditorDestroyed_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTreeView_Edit2(QTreeView* self, const QModelIndex* index, int trigger, QEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
     } else {
-        return ((VirtualQTreeView*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+        qFatal("Error: Protected virtual method QTreeView::edit2 called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTreeView_SuperEdit2(QTreeView* self, const QModelIndex* index, int trigger, QEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Edit2_IsBase(true);
-        return vqtreeview->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    } else {
-        return ((VirtualQTreeView*)self)->edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        return vqtreeview->QTreeView::edit(*index, static_cast<QAbstractItemView::EditTrigger>(trigger), event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::edit2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEdit2(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Edit2_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Edit2_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_edit2_callback = reinterpret_cast<VirtualQTreeView::QTreeView_Edit2_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTreeView_SelectionCommand(const QTreeView* self, const QModelIndex* index, const QEvent* event) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return static_cast<int>(vqtreeview->selectionCommand(*index, event));
     } else {
-        return static_cast<int>(((VirtualQTreeView*)self)->selectionCommand(*index, event));
+        qFatal("Error: Protected virtual method QTreeView::selectionCommand called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTreeView_SuperSelectionCommand(const QTreeView* self, const QModelIndex* index, const QEvent* event) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SelectionCommand_IsBase(true);
-        return static_cast<int>(vqtreeview->selectionCommand(*index, event));
-    } else {
-        return static_cast<int>(((VirtualQTreeView*)self)->selectionCommand(*index, event));
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return static_cast<int>(vqtreeview->QTreeView::selectionCommand(*index, event));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::selectionCommand called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnSelectionCommand(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SelectionCommand_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SelectionCommand_Callback>(slot));
+void QTreeView_OnSelectionCommand(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_selectioncommand_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SelectionCommand_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_StartDrag(QTreeView* self, int supportedActions) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->startDrag(static_cast<Qt::DropActions>(supportedActions));
     } else {
-        ((VirtualQTreeView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
+        qFatal("Error: Protected virtual method QTreeView::startDrag called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperStartDrag(QTreeView* self, int supportedActions) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_StartDrag_IsBase(true);
-        vqtreeview->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    } else {
-        ((VirtualQTreeView*)self)->startDrag(static_cast<Qt::DropActions>(supportedActions));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::startDrag(static_cast<Qt::DropActions>(supportedActions));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::startDrag called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnStartDrag(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_StartDrag_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_StartDrag_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_startdrag_callback = reinterpret_cast<VirtualQTreeView::QTreeView_StartDrag_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_InitViewItemOption(const QTreeView* self, QStyleOptionViewItem* option) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->initViewItemOption(option);
     } else {
-        ((VirtualQTreeView*)self)->initViewItemOption(option);
+        qFatal("Error: Protected virtual method QTreeView::initViewItemOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperInitViewItemOption(const QTreeView* self, QStyleOptionViewItem* option) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_InitViewItemOption_IsBase(true);
-        vqtreeview->initViewItemOption(option);
-    } else {
-        ((VirtualQTreeView*)self)->initViewItemOption(option);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        vqtreeview->QTreeView::initViewItemOption(option);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::initViewItemOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnInitViewItemOption(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_InitViewItemOption_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InitViewItemOption_Callback>(slot));
+void QTreeView_OnInitViewItemOption(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_initviewitemoption_callback = reinterpret_cast<VirtualQTreeView::QTreeView_InitViewItemOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTreeView_FocusNextPrevChild(QTreeView* self, bool next) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->focusNextPrevChild(next);
     } else {
-        return ((VirtualQTreeView*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method QTreeView::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTreeView_SuperFocusNextPrevChild(QTreeView* self, bool next) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_FocusNextPrevChild_IsBase(true);
-        return vqtreeview->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQTreeView*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        return vqtreeview->QTreeView::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnFocusNextPrevChild(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusNextPrevChild_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_focusnextprevchild_callback = reinterpret_cast<VirtualQTreeView::QTreeView_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTreeView_Event(QTreeView* self, QEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->event(event);
     } else {
-        return ((VirtualQTreeView*)self)->event(event);
+        qFatal("Error: Protected virtual method QTreeView::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTreeView_SuperEvent(QTreeView* self, QEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Event_IsBase(true);
-        return vqtreeview->event(event);
-    } else {
-        return ((VirtualQTreeView*)self)->event(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        return vqtreeview->QTreeView::event(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Event_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Event_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_event_callback = reinterpret_cast<VirtualQTreeView::QTreeView_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_DragEnterEvent(QTreeView* self, QDragEnterEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->dragEnterEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperDragEnterEvent(QTreeView* self, QDragEnterEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DragEnterEvent_IsBase(true);
-        vqtreeview->dragEnterEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->dragEnterEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDragEnterEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DragEnterEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DragEnterEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_dragenterevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_DragLeaveEvent(QTreeView* self, QDragLeaveEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->dragLeaveEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperDragLeaveEvent(QTreeView* self, QDragLeaveEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DragLeaveEvent_IsBase(true);
-        vqtreeview->dragLeaveEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDragLeaveEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DragLeaveEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_dragleaveevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_DropEvent(QTreeView* self, QDropEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->dropEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperDropEvent(QTreeView* self, QDropEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DropEvent_IsBase(true);
-        vqtreeview->dropEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->dropEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDropEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DropEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DropEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_dropevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_FocusInEvent(QTreeView* self, QFocusEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->focusInEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperFocusInEvent(QTreeView* self, QFocusEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_FocusInEvent_IsBase(true);
-        vqtreeview->focusInEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->focusInEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnFocusInEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_FocusInEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusInEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_focusinevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_FocusOutEvent(QTreeView* self, QFocusEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->focusOutEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperFocusOutEvent(QTreeView* self, QFocusEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_FocusOutEvent_IsBase(true);
-        vqtreeview->focusOutEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->focusOutEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnFocusOutEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_FocusOutEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusOutEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_focusoutevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_ResizeEvent(QTreeView* self, QResizeEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->resizeEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperResizeEvent(QTreeView* self, QResizeEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ResizeEvent_IsBase(true);
-        vqtreeview->resizeEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->resizeEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnResizeEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ResizeEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ResizeEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_resizeevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_InputMethodEvent(QTreeView* self, QInputMethodEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->inputMethodEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->inputMethodEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperInputMethodEvent(QTreeView* self, QInputMethodEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_InputMethodEvent_IsBase(true);
-        vqtreeview->inputMethodEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->inputMethodEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::inputMethodEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnInputMethodEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_InputMethodEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InputMethodEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_inputmethodevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTreeView_EventFilter(QTreeView* self, QObject* object, QEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->eventFilter(object, event);
     } else {
-        return ((VirtualQTreeView*)self)->eventFilter(object, event);
+        qFatal("Error: Protected virtual method QTreeView::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTreeView_SuperEventFilter(QTreeView* self, QObject* object, QEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_EventFilter_IsBase(true);
-        return vqtreeview->eventFilter(object, event);
-    } else {
-        return ((VirtualQTreeView*)self)->eventFilter(object, event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        return vqtreeview->QTreeView::eventFilter(object, event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEventFilter(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_EventFilter_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_EventFilter_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_eventfilter_callback = reinterpret_cast<VirtualQTreeView::QTreeView_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QTreeView_MinimumSizeHint(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return new QSize(vqtreeview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTreeView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* QTreeView_SuperMinimumSizeHint(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_MinimumSizeHint_IsBase(true);
-        return new QSize(vqtreeview->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTreeView*)self)->minimumSizeHint());
-    }
+    return new QSize(self->QTreeView::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnMinimumSizeHint(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MinimumSizeHint_Callback>(slot));
+void QTreeView_OnMinimumSizeHint(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_minimumsizehint_callback = reinterpret_cast<VirtualQTreeView::QTreeView_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* QTreeView_SizeHint(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return new QSize(vqtreeview->sizeHint());
-    } else {
-        return new QSize(((VirtualQTreeView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* QTreeView_SuperSizeHint(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SizeHint_IsBase(true);
-        return new QSize(vqtreeview->sizeHint());
-    } else {
-        return new QSize(((VirtualQTreeView*)self)->sizeHint());
-    }
+    return new QSize(self->QTreeView::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnSizeHint(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SizeHint_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SizeHint_Callback>(slot));
+void QTreeView_OnSizeHint(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_sizehint_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_SetupViewport(QTreeView* self, QWidget* viewport) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setupViewport(viewport);
-    } else {
-        self->QTreeView::setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 // Base class handler implementation
 void QTreeView_SuperSetupViewport(QTreeView* self, QWidget* viewport) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetupViewport_IsBase(true);
-        vqtreeview->setupViewport(viewport);
-    } else {
-        self->QTreeView::setupViewport(viewport);
-    }
+    self->QTreeView::setupViewport(viewport);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetupViewport(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetupViewport_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetupViewport_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_setupviewport_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SetupViewport_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_WheelEvent(QTreeView* self, QWheelEvent* param1) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->wheelEvent(param1);
     } else {
-        ((VirtualQTreeView*)self)->wheelEvent(param1);
+        qFatal("Error: Protected virtual method QTreeView::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperWheelEvent(QTreeView* self, QWheelEvent* param1) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_WheelEvent_IsBase(true);
-        vqtreeview->wheelEvent(param1);
-    } else {
-        ((VirtualQTreeView*)self)->wheelEvent(param1);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::wheelEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnWheelEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_WheelEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_WheelEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_wheelevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_ContextMenuEvent(QTreeView* self, QContextMenuEvent* param1) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->contextMenuEvent(param1);
     } else {
-        ((VirtualQTreeView*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method QTreeView::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperContextMenuEvent(QTreeView* self, QContextMenuEvent* param1) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ContextMenuEvent_IsBase(true);
-        vqtreeview->contextMenuEvent(param1);
-    } else {
-        ((VirtualQTreeView*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnContextMenuEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ContextMenuEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_contextmenuevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_InitStyleOption(const QTreeView* self, QStyleOptionFrame* option) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->initStyleOption(option);
     } else {
-        ((VirtualQTreeView*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method QTreeView::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperInitStyleOption(const QTreeView* self, QStyleOptionFrame* option) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_InitStyleOption_IsBase(true);
-        vqtreeview->initStyleOption(option);
-    } else {
-        ((VirtualQTreeView*)self)->initStyleOption(option);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        vqtreeview->QTreeView::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnInitStyleOption(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_InitStyleOption_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InitStyleOption_Callback>(slot));
+void QTreeView_OnInitStyleOption(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_initstyleoption_callback = reinterpret_cast<VirtualQTreeView::QTreeView_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTreeView_DevType(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->devType();
-    } else {
-        return self->QTreeView::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QTreeView_SuperDevType(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DevType_IsBase(true);
-        return vqtreeview->devType();
-    } else {
-        return self->QTreeView::devType();
-    }
+    return self->QTreeView::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnDevType(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DevType_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DevType_Callback>(slot));
+void QTreeView_OnDevType(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_devtype_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_SetVisible(QTreeView* self, bool visible) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setVisible(visible);
-    } else {
-        self->QTreeView::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void QTreeView_SuperSetVisible(QTreeView* self, bool visible) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetVisible_IsBase(true);
-        vqtreeview->setVisible(visible);
-    } else {
-        self->QTreeView::setVisible(visible);
-    }
+    self->QTreeView::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnSetVisible(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetVisible_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetVisible_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_setvisible_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTreeView_HeightForWidth(const QTreeView* self, int param1) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QTreeView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int QTreeView_SuperHeightForWidth(const QTreeView* self, int param1) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_HeightForWidth_IsBase(true);
-        return vqtreeview->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->QTreeView::heightForWidth(static_cast<int>(param1));
-    }
+    return self->QTreeView::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnHeightForWidth(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_HeightForWidth_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HeightForWidth_Callback>(slot));
+void QTreeView_OnHeightForWidth(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_heightforwidth_callback = reinterpret_cast<VirtualQTreeView::QTreeView_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTreeView_HasHeightForWidth(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->hasHeightForWidth();
-    } else {
-        return self->QTreeView::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool QTreeView_SuperHasHeightForWidth(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_HasHeightForWidth_IsBase(true);
-        return vqtreeview->hasHeightForWidth();
-    } else {
-        return self->QTreeView::hasHeightForWidth();
-    }
+    return self->QTreeView::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnHasHeightForWidth(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HasHeightForWidth_Callback>(slot));
+void QTreeView_OnHasHeightForWidth(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_hasheightforwidth_callback = reinterpret_cast<VirtualQTreeView::QTreeView_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* QTreeView_PaintEngine(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->paintEngine();
-    } else {
-        return self->QTreeView::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* QTreeView_SuperPaintEngine(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_PaintEngine_IsBase(true);
-        return vqtreeview->paintEngine();
-    } else {
-        return self->QTreeView::paintEngine();
-    }
+    return self->QTreeView::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnPaintEngine(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_PaintEngine_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_PaintEngine_Callback>(slot));
+void QTreeView_OnPaintEngine(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_paintengine_callback = reinterpret_cast<VirtualQTreeView::QTreeView_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_KeyReleaseEvent(QTreeView* self, QKeyEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->keyReleaseEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperKeyReleaseEvent(QTreeView* self, QKeyEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_KeyReleaseEvent_IsBase(true);
-        vqtreeview->keyReleaseEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnKeyReleaseEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_KeyReleaseEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_keyreleaseevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_EnterEvent(QTreeView* self, QEnterEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->enterEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperEnterEvent(QTreeView* self, QEnterEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_EnterEvent_IsBase(true);
-        vqtreeview->enterEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->enterEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnEnterEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_EnterEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_EnterEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_enterevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_LeaveEvent(QTreeView* self, QEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->leaveEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperLeaveEvent(QTreeView* self, QEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_LeaveEvent_IsBase(true);
-        vqtreeview->leaveEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->leaveEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnLeaveEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_LeaveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_LeaveEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_leaveevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_MoveEvent(QTreeView* self, QMoveEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->moveEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperMoveEvent(QTreeView* self, QMoveEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_MoveEvent_IsBase(true);
-        vqtreeview->moveEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->moveEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnMoveEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_MoveEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_MoveEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_moveevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_CloseEvent(QTreeView* self, QCloseEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->closeEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperCloseEvent(QTreeView* self, QCloseEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_CloseEvent_IsBase(true);
-        vqtreeview->closeEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->closeEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCloseEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_CloseEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CloseEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_closeevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_TabletEvent(QTreeView* self, QTabletEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->tabletEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperTabletEvent(QTreeView* self, QTabletEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_TabletEvent_IsBase(true);
-        vqtreeview->tabletEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->tabletEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnTabletEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_TabletEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_TabletEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_tabletevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_ActionEvent(QTreeView* self, QActionEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->actionEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperActionEvent(QTreeView* self, QActionEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ActionEvent_IsBase(true);
-        vqtreeview->actionEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->actionEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnActionEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ActionEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ActionEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_actionevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_ShowEvent(QTreeView* self, QShowEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->showEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperShowEvent(QTreeView* self, QShowEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ShowEvent_IsBase(true);
-        vqtreeview->showEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->showEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnShowEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ShowEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ShowEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_showevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_HideEvent(QTreeView* self, QHideEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->hideEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperHideEvent(QTreeView* self, QHideEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_HideEvent_IsBase(true);
-        vqtreeview->hideEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->hideEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnHideEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_HideEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_HideEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_hideevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QTreeView_NativeEvent(QTreeView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
+    if (vqtreeview) {
         return vqtreeview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualQTreeView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method QTreeView::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool QTreeView_SuperNativeEvent(QTreeView* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_NativeEvent_IsBase(true);
-        return vqtreeview->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQTreeView*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        return vqtreeview->QTreeView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnNativeEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_NativeEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_NativeEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_nativeevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QTreeView_Metric(const QTreeView* self, int param1) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualQTreeView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method QTreeView::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int QTreeView_SuperMetric(const QTreeView* self, int param1) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Metric_IsBase(true);
-        return vqtreeview->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualQTreeView*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->QTreeView::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method QTreeView::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnMetric(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Metric_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Metric_Callback>(slot));
+void QTreeView_OnMetric(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_metric_callback = reinterpret_cast<VirtualQTreeView::QTreeView_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_InitPainter(const QTreeView* self, QPainter* painter) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->initPainter(painter);
     } else {
-        ((VirtualQTreeView*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QTreeView::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperInitPainter(const QTreeView* self, QPainter* painter) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_InitPainter_IsBase(true);
-        vqtreeview->initPainter(painter);
-    } else {
-        ((VirtualQTreeView*)self)->initPainter(painter);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        vqtreeview->QTreeView::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnInitPainter(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_InitPainter_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_InitPainter_Callback>(slot));
+void QTreeView_OnInitPainter(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_initpainter_callback = reinterpret_cast<VirtualQTreeView::QTreeView_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QTreeView_Redirected(const QTreeView* self, QPoint* offset) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->redirected(offset);
     } else {
-        return ((VirtualQTreeView*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QTreeView::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QTreeView_SuperRedirected(const QTreeView* self, QPoint* offset) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Redirected_IsBase(true);
-        return vqtreeview->redirected(offset);
-    } else {
-        return ((VirtualQTreeView*)self)->redirected(offset);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->QTreeView::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnRedirected(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Redirected_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Redirected_Callback>(slot));
+void QTreeView_OnRedirected(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_redirected_callback = reinterpret_cast<VirtualQTreeView::QTreeView_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QTreeView_SharedPainter(const QTreeView* self) {
     auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         return vqtreeview->sharedPainter();
     } else {
-        return ((VirtualQTreeView*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QTreeView::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QTreeView_SuperSharedPainter(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SharedPainter_IsBase(true);
-        return vqtreeview->sharedPainter();
-    } else {
-        return ((VirtualQTreeView*)self)->sharedPainter();
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->QTreeView::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QTreeView::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTreeView_OnSharedPainter(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SharedPainter_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SharedPainter_Callback>(slot));
+void QTreeView_OnSharedPainter(QTreeView* self, intptr_t slot) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
+        vqtreeview->qtreeview_sharedpainter_callback = reinterpret_cast<VirtualQTreeView::QTreeView_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_ChildEvent(QTreeView* self, QChildEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->childEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperChildEvent(QTreeView* self, QChildEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ChildEvent_IsBase(true);
-        vqtreeview->childEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->childEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnChildEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ChildEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ChildEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_childevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_CustomEvent(QTreeView* self, QEvent* event) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->customEvent(event);
     } else {
-        ((VirtualQTreeView*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QTreeView::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperCustomEvent(QTreeView* self, QEvent* event) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_CustomEvent_IsBase(true);
-        vqtreeview->customEvent(event);
-    } else {
-        ((VirtualQTreeView*)self)->customEvent(event);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnCustomEvent(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_CustomEvent_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_CustomEvent_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_customevent_callback = reinterpret_cast<VirtualQTreeView::QTreeView_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_ConnectNotify(QTreeView* self, const QMetaMethod* signal) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->connectNotify(*signal);
     } else {
-        ((VirtualQTreeView*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QTreeView::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperConnectNotify(QTreeView* self, const QMetaMethod* signal) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ConnectNotify_IsBase(true);
-        vqtreeview->connectNotify(*signal);
-    } else {
-        ((VirtualQTreeView*)self)->connectNotify(*signal);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnConnectNotify(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ConnectNotify_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ConnectNotify_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_connectnotify_callback = reinterpret_cast<VirtualQTreeView::QTreeView_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QTreeView_DisconnectNotify(QTreeView* self, const QMetaMethod* signal) {
     auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (vqtreeview) {
         vqtreeview->disconnectNotify(*signal);
     } else {
-        ((VirtualQTreeView*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QTreeView::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QTreeView_SuperDisconnectNotify(QTreeView* self, const QMetaMethod* signal) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DisconnectNotify_IsBase(true);
-        vqtreeview->disconnectNotify(*signal);
-    } else {
-        ((VirtualQTreeView*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->QTreeView::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QTreeView::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QTreeView_OnDisconnectNotify(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DisconnectNotify_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DisconnectNotify_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self))
+        vqtreeview->qtreeview_disconnectnotify_callback = reinterpret_cast<VirtualQTreeView::QTreeView_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_ColumnResized(QTreeView* self, int column, int oldSize, int newSize) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->columnResized(static_cast<int>(column), static_cast<int>(oldSize), static_cast<int>(newSize));
-    } else {
-        ((VirtualQTreeView*)self)->columnResized(static_cast<int>(column), static_cast<int>(oldSize), static_cast<int>(newSize));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::columnResized(static_cast<int>(column), static_cast<int>(oldSize), static_cast<int>(newSize));
+    } else
+        qFatal("Error: Protected method QTreeView::columnResized called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperColumnResized(QTreeView* self, int column, int oldSize, int newSize) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ColumnResized_IsBase(true);
-        vqtreeview->columnResized(static_cast<int>(column), static_cast<int>(oldSize), static_cast<int>(newSize));
-    } else {
-        ((VirtualQTreeView*)self)->columnResized(static_cast<int>(column), static_cast<int>(oldSize), static_cast<int>(newSize));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnColumnResized(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ColumnResized_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ColumnResized_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_ColumnCountChanged(QTreeView* self, int oldCount, int newCount) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    } else {
-        ((VirtualQTreeView*)self)->columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
+    } else
+        qFatal("Error: Protected method QTreeView::columnCountChanged called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperColumnCountChanged(QTreeView* self, int oldCount, int newCount) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ColumnCountChanged_IsBase(true);
-        vqtreeview->columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    } else {
-        ((VirtualQTreeView*)self)->columnCountChanged(static_cast<int>(oldCount), static_cast<int>(newCount));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnColumnCountChanged(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ColumnCountChanged_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ColumnCountChanged_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_ColumnMoved(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->columnMoved();
-    } else {
-        ((VirtualQTreeView*)self)->columnMoved();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::columnMoved();
+    } else
+        qFatal("Error: Protected method QTreeView::columnMoved called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperColumnMoved(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ColumnMoved_IsBase(true);
-        vqtreeview->columnMoved();
-    } else {
-        ((VirtualQTreeView*)self)->columnMoved();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnColumnMoved(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ColumnMoved_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ColumnMoved_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_Reexpand(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->reexpand();
-    } else {
-        ((VirtualQTreeView*)self)->reexpand();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::reexpand();
+    } else
+        qFatal("Error: Protected method QTreeView::reexpand called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperReexpand(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Reexpand_IsBase(true);
-        vqtreeview->reexpand();
-    } else {
-        ((VirtualQTreeView*)self)->reexpand();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnReexpand(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Reexpand_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Reexpand_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_RowsRemoved(QTreeView* self, const QModelIndex* parent, int first, int last) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->rowsRemoved(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQTreeView*)self)->rowsRemoved(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::rowsRemoved(*parent, static_cast<int>(first), static_cast<int>(last));
+    } else
+        qFatal("Error: Protected method QTreeView::rowsRemoved called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperRowsRemoved(QTreeView* self, const QModelIndex* parent, int first, int last) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_RowsRemoved_IsBase(true);
-        vqtreeview->rowsRemoved(*parent, static_cast<int>(first), static_cast<int>(last));
-    } else {
-        ((VirtualQTreeView*)self)->rowsRemoved(*parent, static_cast<int>(first), static_cast<int>(last));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnRowsRemoved(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_RowsRemoved_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_RowsRemoved_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_DrawTree(const QTreeView* self, QPainter* painter, const QRegion* region) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->drawTree(painter, *region);
-    } else {
-        ((VirtualQTreeView*)self)->drawTree(painter, *region);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        vqtreeview->VirtualQTreeView::drawTree(painter, *region);
+    } else
+        qFatal("Error: Protected method QTreeView::drawTree called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperDrawTree(const QTreeView* self, QPainter* painter, const QRegion* region) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DrawTree_IsBase(true);
-        vqtreeview->drawTree(painter, *region);
-    } else {
-        ((VirtualQTreeView*)self)->drawTree(painter, *region);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnDrawTree(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DrawTree_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DrawTree_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTreeView_IndexRowSizeHint(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->indexRowSizeHint(*index);
-    } else {
-        return ((VirtualQTreeView*)self)->indexRowSizeHint(*index);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->VirtualQTreeView::indexRowSizeHint(*index);
+    } else
+        qFatal("Error: Protected method QTreeView::indexRowSizeHint called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTreeView_SuperIndexRowSizeHint(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_IndexRowSizeHint_IsBase(true);
-        return vqtreeview->indexRowSizeHint(*index);
-    } else {
-        return ((VirtualQTreeView*)self)->indexRowSizeHint(*index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnIndexRowSizeHint(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_IndexRowSizeHint_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_IndexRowSizeHint_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTreeView_RowHeight(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->rowHeight(*index);
-    } else {
-        return ((VirtualQTreeView*)self)->rowHeight(*index);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->VirtualQTreeView::rowHeight(*index);
+    } else
+        qFatal("Error: Protected method QTreeView::rowHeight called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTreeView_SuperRowHeight(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_RowHeight_IsBase(true);
-        return vqtreeview->rowHeight(*index);
-    } else {
-        return ((VirtualQTreeView*)self)->rowHeight(*index);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnRowHeight(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_RowHeight_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_RowHeight_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTreeView_State(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return static_cast<int>(vqtreeview->state());
-    } else {
-        return static_cast<int>(((VirtualQTreeView*)self)->state());
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return static_cast<int>(vqtreeview->VirtualQTreeView::state());
+    } else
+        qFatal("Error: Protected method QTreeView::state called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTreeView_SuperState(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_State_IsBase(true);
-        return static_cast<int>(vqtreeview->state());
-    } else {
-        return static_cast<int>(((VirtualQTreeView*)self)->state());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnState(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_State_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_State_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_SetState(QTreeView* self, int state) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setState(static_cast<VirtualQTreeView::State>(state));
-    } else {
-        ((VirtualQTreeView*)self)->setState(static_cast<VirtualQTreeView::State>(state));
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::setState(static_cast<VirtualQTreeView::State>(state));
+    } else
+        qFatal("Error: Protected method QTreeView::setState called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperSetState(QTreeView* self, int state) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetState_IsBase(true);
-        vqtreeview->setState(static_cast<VirtualQTreeView::State>(state));
-    } else {
-        ((VirtualQTreeView*)self)->setState(static_cast<VirtualQTreeView::State>(state));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnSetState(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetState_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetState_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_ScheduleDelayedItemsLayout(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQTreeView*)self)->scheduleDelayedItemsLayout();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::scheduleDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QTreeView::scheduleDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperScheduleDelayedItemsLayout(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ScheduleDelayedItemsLayout_IsBase(true);
-        vqtreeview->scheduleDelayedItemsLayout();
-    } else {
-        ((VirtualQTreeView*)self)->scheduleDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnScheduleDelayedItemsLayout(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ScheduleDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_ExecuteDelayedItemsLayout(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQTreeView*)self)->executeDelayedItemsLayout();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::executeDelayedItemsLayout();
+    } else
+        qFatal("Error: Protected method QTreeView::executeDelayedItemsLayout called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperExecuteDelayedItemsLayout(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ExecuteDelayedItemsLayout_IsBase(true);
-        vqtreeview->executeDelayedItemsLayout();
-    } else {
-        ((VirtualQTreeView*)self)->executeDelayedItemsLayout();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnExecuteDelayedItemsLayout(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ExecuteDelayedItemsLayout_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_SetDirtyRegion(QTreeView* self, const QRegion* region) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setDirtyRegion(*region);
-    } else {
-        ((VirtualQTreeView*)self)->setDirtyRegion(*region);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::setDirtyRegion(*region);
+    } else
+        qFatal("Error: Protected method QTreeView::setDirtyRegion called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperSetDirtyRegion(QTreeView* self, const QRegion* region) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetDirtyRegion_IsBase(true);
-        vqtreeview->setDirtyRegion(*region);
-    } else {
-        ((VirtualQTreeView*)self)->setDirtyRegion(*region);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnSetDirtyRegion(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetDirtyRegion_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetDirtyRegion_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_ScrollDirtyRegion(QTreeView* self, int dx, int dy) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQTreeView*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Base class handler implementation
-void QTreeView_SuperScrollDirtyRegion(QTreeView* self, int dx, int dy) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ScrollDirtyRegion_IsBase(true);
-        vqtreeview->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    } else {
-        ((VirtualQTreeView*)self)->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnScrollDirtyRegion(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ScrollDirtyRegion_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
+    } else
+        qFatal("Error: Protected method QTreeView::scrollDirtyRegion called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QPoint* QTreeView_DirtyRegionOffset(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
         return new QPoint(vqtreeview->dirtyRegionOffset());
-    }
-    return {};
+    qFatal("Error: Protected method QTreeView::dirtyRegionOffset called without a directly constructed type");
 }
 
-// Base class handler implementation
-QPoint* QTreeView_SuperDirtyRegionOffset(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DirtyRegionOffset_IsBase(true);
-        return new QPoint(vqtreeview->dirtyRegionOffset());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnDirtyRegionOffset(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DirtyRegionOffset_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_StartAutoScroll(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->startAutoScroll();
-    } else {
-        ((VirtualQTreeView*)self)->startAutoScroll();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::startAutoScroll();
+    } else
+        qFatal("Error: Protected method QTreeView::startAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperStartAutoScroll(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_StartAutoScroll_IsBase(true);
-        vqtreeview->startAutoScroll();
-    } else {
-        ((VirtualQTreeView*)self)->startAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnStartAutoScroll(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_StartAutoScroll_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_StartAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_StopAutoScroll(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->stopAutoScroll();
-    } else {
-        ((VirtualQTreeView*)self)->stopAutoScroll();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::stopAutoScroll();
+    } else
+        qFatal("Error: Protected method QTreeView::stopAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperStopAutoScroll(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_StopAutoScroll_IsBase(true);
-        vqtreeview->stopAutoScroll();
-    } else {
-        ((VirtualQTreeView*)self)->stopAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnStopAutoScroll(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_StopAutoScroll_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_StopAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_DoAutoScroll(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->doAutoScroll();
-    } else {
-        ((VirtualQTreeView*)self)->doAutoScroll();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::doAutoScroll();
+    } else
+        qFatal("Error: Protected method QTreeView::doAutoScroll called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperDoAutoScroll(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DoAutoScroll_IsBase(true);
-        vqtreeview->doAutoScroll();
-    } else {
-        ((VirtualQTreeView*)self)->doAutoScroll();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnDoAutoScroll(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DoAutoScroll_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DoAutoScroll_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTreeView_DropIndicatorPosition(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return static_cast<int>(vqtreeview->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQTreeView*)self)->dropIndicatorPosition());
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return static_cast<int>(vqtreeview->VirtualQTreeView::dropIndicatorPosition());
+    } else
+        qFatal("Error: Protected method QTreeView::dropIndicatorPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTreeView_SuperDropIndicatorPosition(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DropIndicatorPosition_IsBase(true);
-        return static_cast<int>(vqtreeview->dropIndicatorPosition());
-    } else {
-        return static_cast<int>(((VirtualQTreeView*)self)->dropIndicatorPosition());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnDropIndicatorPosition(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DropIndicatorPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_SetViewportMargins(QTreeView* self, int left, int top, int right, int bottom) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQTreeView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Base class handler implementation
-void QTreeView_SuperSetViewportMargins(QTreeView* self, int left, int top, int right, int bottom) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SetViewportMargins_IsBase(true);
-        vqtreeview->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    } else {
-        ((VirtualQTreeView*)self)->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnSetViewportMargins(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SetViewportMargins_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SetViewportMargins_Callback>(slot));
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+    } else
+        qFatal("Error: Protected method QTreeView::setViewportMargins called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QMargins* QTreeView_ViewportMargins(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self)))
         return new QMargins(vqtreeview->viewportMargins());
-    }
-    return {};
+    qFatal("Error: Protected method QTreeView::viewportMargins called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMargins* QTreeView_SuperViewportMargins(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_ViewportMargins_IsBase(true);
-        return new QMargins(vqtreeview->viewportMargins());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnViewportMargins(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_ViewportMargins_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_ViewportMargins_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_DrawFrame(QTreeView* self, QPainter* param1) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->drawFrame(param1);
-    } else {
-        ((VirtualQTreeView*)self)->drawFrame(param1);
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::drawFrame(param1);
+    } else
+        qFatal("Error: Protected method QTreeView::drawFrame called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperDrawFrame(QTreeView* self, QPainter* param1) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_DrawFrame_IsBase(true);
-        vqtreeview->drawFrame(param1);
-    } else {
-        ((VirtualQTreeView*)self)->drawFrame(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnDrawFrame(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_DrawFrame_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_DrawFrame_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_UpdateMicroFocus(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->updateMicroFocus();
-    } else {
-        ((VirtualQTreeView*)self)->updateMicroFocus();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method QTreeView::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperUpdateMicroFocus(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_UpdateMicroFocus_IsBase(true);
-        vqtreeview->updateMicroFocus();
-    } else {
-        ((VirtualQTreeView*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnUpdateMicroFocus(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_Create(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->create();
-    } else {
-        ((VirtualQTreeView*)self)->create();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::create();
+    } else
+        qFatal("Error: Protected method QTreeView::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperCreate(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Create_IsBase(true);
-        vqtreeview->create();
-    } else {
-        ((VirtualQTreeView*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnCreate(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Create_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QTreeView_Destroy(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->destroy();
-    } else {
-        ((VirtualQTreeView*)self)->destroy();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        vqtreeview->VirtualQTreeView::destroy();
+    } else
+        qFatal("Error: Protected method QTreeView::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QTreeView_SuperDestroy(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Destroy_IsBase(true);
-        vqtreeview->destroy();
-    } else {
-        ((VirtualQTreeView*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnDestroy(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Destroy_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTreeView_FocusNextChild(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->focusNextChild();
-    } else {
-        return ((VirtualQTreeView*)self)->focusNextChild();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        return vqtreeview->VirtualQTreeView::focusNextChild();
+    } else
+        qFatal("Error: Protected method QTreeView::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTreeView_SuperFocusNextChild(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_FocusNextChild_IsBase(true);
-        return vqtreeview->focusNextChild();
-    } else {
-        return ((VirtualQTreeView*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnFocusNextChild(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_FocusNextChild_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTreeView_FocusPreviousChild(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->focusPreviousChild();
-    } else {
-        return ((VirtualQTreeView*)self)->focusPreviousChild();
-    }
+    if (auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self)) {
+        return vqtreeview->VirtualQTreeView::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method QTreeView::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTreeView_SuperFocusPreviousChild(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_FocusPreviousChild_IsBase(true);
-        return vqtreeview->focusPreviousChild();
-    } else {
-        return ((VirtualQTreeView*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnFocusPreviousChild(QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QTreeView_Sender(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->sender();
-    } else {
-        return ((VirtualQTreeView*)self)->sender();
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->VirtualQTreeView::sender();
+    } else
+        qFatal("Error: Protected method QTreeView::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QTreeView_SuperSender(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Sender_IsBase(true);
-        return vqtreeview->sender();
-    } else {
-        return ((VirtualQTreeView*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnSender(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Sender_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTreeView_SenderSignalIndex(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->senderSignalIndex();
-    } else {
-        return ((VirtualQTreeView*)self)->senderSignalIndex();
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->VirtualQTreeView::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QTreeView::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTreeView_SuperSenderSignalIndex(const QTreeView* self) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_SenderSignalIndex_IsBase(true);
-        return vqtreeview->senderSignalIndex();
-    } else {
-        return ((VirtualQTreeView*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnSenderSignalIndex(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QTreeView_Receivers(const QTreeView* self, const char* signal) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->receivers(signal);
-    } else {
-        return ((VirtualQTreeView*)self)->receivers(signal);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->VirtualQTreeView::receivers(signal);
+    } else
+        qFatal("Error: Protected method QTreeView::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QTreeView_SuperReceivers(const QTreeView* self, const char* signal) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_Receivers_IsBase(true);
-        return vqtreeview->receivers(signal);
-    } else {
-        return ((VirtualQTreeView*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnReceivers(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_Receivers_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QTreeView_IsSignalConnected(const QTreeView* self, const QMetaMethod* signal) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTreeView*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->VirtualQTreeView::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QTreeView::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool QTreeView_SuperIsSignalConnected(const QTreeView* self, const QMetaMethod* signal) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_IsSignalConnected_IsBase(true);
-        return vqtreeview->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQTreeView*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnIsSignalConnected(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_IsSignalConnected_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QTreeView_GetDecodedMetricF(const QTreeView* self, int metricA, int metricB) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return vqtreeview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQTreeView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QTreeView_SuperGetDecodedMetricF(const QTreeView* self, int metricA, int metricB) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        vqtreeview->setQTreeView_GetDecodedMetricF_IsBase(true);
-        return vqtreeview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQTreeView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTreeView_OnGetDecodedMetricF(const QTreeView* self, intptr_t slot) {
-    auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self));
-    if (vqtreeview && vqtreeview->isVirtualQTreeView)
-        vqtreeview->setQTreeView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTreeView::QTreeView_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqtreeview = const_cast<VirtualQTreeView*>(dynamic_cast<const VirtualQTreeView*>(self))) {
+        return vqtreeview->VirtualQTreeView::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QTreeView::getDecodedMetricF called without a directly constructed type");
 }
 
 void QTreeView_Delete(QTreeView* self) {

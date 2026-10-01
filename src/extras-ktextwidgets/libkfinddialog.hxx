@@ -9,35 +9,31 @@
 
 #include "../qtlibc.h"
 
-// This class is a subclass of KFindDialog so that we can call protected methods
+// This class is a subclass of KFindDialog
 class VirtualKFindDialog final : public KFindDialog {
-
   public:
-    // Virtual class boolean flag
-    bool isVirtualKFindDialog = true;
-
-    // Virtual class public types (including callbacks)
-    using KFindDialog_MetaObject_Callback = QMetaObject* (*)();
+    // Virtual class public types (including callbacks and access types)
+    using KFindDialog_MetaObject_Callback = QMetaObject* (*)(const KFindDialog*);
     using KFindDialog_Metacast_Callback = void* (*)(KFindDialog*, const char*);
     using KFindDialog_Metacall_Callback = int (*)(KFindDialog*, int, int, void**);
     using KFindDialog_ShowEvent_Callback = void (*)(KFindDialog*, QShowEvent*);
     using KFindDialog_SetVisible_Callback = void (*)(KFindDialog*, bool);
-    using KFindDialog_SizeHint_Callback = QSize* (*)();
-    using KFindDialog_MinimumSizeHint_Callback = QSize* (*)();
-    using KFindDialog_Open_Callback = void (*)();
-    using KFindDialog_Exec_Callback = int (*)();
+    using KFindDialog_SizeHint_Callback = QSize* (*)(const KFindDialog*);
+    using KFindDialog_MinimumSizeHint_Callback = QSize* (*)(const KFindDialog*);
+    using KFindDialog_Open_Callback = void (*)(KFindDialog*);
+    using KFindDialog_Exec_Callback = int (*)(KFindDialog*);
     using KFindDialog_Done_Callback = void (*)(KFindDialog*, int);
-    using KFindDialog_Accept_Callback = void (*)();
-    using KFindDialog_Reject_Callback = void (*)();
+    using KFindDialog_Accept_Callback = void (*)(KFindDialog*);
+    using KFindDialog_Reject_Callback = void (*)(KFindDialog*);
     using KFindDialog_KeyPressEvent_Callback = void (*)(KFindDialog*, QKeyEvent*);
     using KFindDialog_CloseEvent_Callback = void (*)(KFindDialog*, QCloseEvent*);
     using KFindDialog_ResizeEvent_Callback = void (*)(KFindDialog*, QResizeEvent*);
     using KFindDialog_ContextMenuEvent_Callback = void (*)(KFindDialog*, QContextMenuEvent*);
     using KFindDialog_EventFilter_Callback = bool (*)(KFindDialog*, QObject*, QEvent*);
-    using KFindDialog_DevType_Callback = int (*)();
+    using KFindDialog_DevType_Callback = int (*)(const KFindDialog*);
     using KFindDialog_HeightForWidth_Callback = int (*)(const KFindDialog*, int);
-    using KFindDialog_HasHeightForWidth_Callback = bool (*)();
-    using KFindDialog_PaintEngine_Callback = QPaintEngine* (*)();
+    using KFindDialog_HasHeightForWidth_Callback = bool (*)(const KFindDialog*);
+    using KFindDialog_PaintEngine_Callback = QPaintEngine* (*)(const KFindDialog*);
     using KFindDialog_Event_Callback = bool (*)(KFindDialog*, QEvent*);
     using KFindDialog_MousePressEvent_Callback = void (*)(KFindDialog*, QMouseEvent*);
     using KFindDialog_MouseReleaseEvent_Callback = void (*)(KFindDialog*, QMouseEvent*);
@@ -63,7 +59,7 @@ class VirtualKFindDialog final : public KFindDialog {
     using KFindDialog_Metric_Callback = int (*)(const KFindDialog*, int);
     using KFindDialog_InitPainter_Callback = void (*)(const KFindDialog*, QPainter*);
     using KFindDialog_Redirected_Callback = QPaintDevice* (*)(const KFindDialog*, QPoint*);
-    using KFindDialog_SharedPainter_Callback = QPainter* (*)();
+    using KFindDialog_SharedPainter_Callback = QPainter* (*)(const KFindDialog*);
     using KFindDialog_InputMethodEvent_Callback = void (*)(KFindDialog*, QInputMethodEvent*);
     using KFindDialog_InputMethodQuery_Callback = QVariant* (*)(const KFindDialog*, int);
     using KFindDialog_FocusNextPrevChild_Callback = bool (*)(KFindDialog*, bool);
@@ -72,19 +68,18 @@ class VirtualKFindDialog final : public KFindDialog {
     using KFindDialog_CustomEvent_Callback = void (*)(KFindDialog*, QEvent*);
     using KFindDialog_ConnectNotify_Callback = void (*)(KFindDialog*, QMetaMethod*);
     using KFindDialog_DisconnectNotify_Callback = void (*)(KFindDialog*, QMetaMethod*);
-    using KFindDialog_AdjustPosition_Callback = void (*)(KFindDialog*, QWidget*);
-    using KFindDialog_UpdateMicroFocus_Callback = void (*)();
-    using KFindDialog_Create_Callback = void (*)();
-    using KFindDialog_Destroy_Callback = void (*)();
-    using KFindDialog_FocusNextChild_Callback = bool (*)();
-    using KFindDialog_FocusPreviousChild_Callback = bool (*)();
-    using KFindDialog_Sender_Callback = QObject* (*)();
-    using KFindDialog_SenderSignalIndex_Callback = int (*)();
-    using KFindDialog_Receivers_Callback = int (*)(const KFindDialog*, const char*);
-    using KFindDialog_IsSignalConnected_Callback = bool (*)(const KFindDialog*, QMetaMethod*);
-    using KFindDialog_GetDecodedMetricF_Callback = double (*)(const KFindDialog*, int, int);
+    using KFindDialog::adjustPosition;
+    using KFindDialog::create;
+    using KFindDialog::destroy;
+    using KFindDialog::focusNextChild;
+    using KFindDialog::focusPreviousChild;
+    using KFindDialog::getDecodedMetricF;
+    using KFindDialog::isSignalConnected;
+    using KFindDialog::receivers;
+    using KFindDialog::sender;
+    using KFindDialog::senderSignalIndex;
+    using KFindDialog::updateMicroFocus;
 
-  protected:
     // Instance callback storage
     KFindDialog_MetaObject_Callback kfinddialog_metaobject_callback = nullptr;
     KFindDialog_Metacast_Callback kfinddialog_metacast_callback = nullptr;
@@ -141,87 +136,50 @@ class VirtualKFindDialog final : public KFindDialog {
     KFindDialog_CustomEvent_Callback kfinddialog_customevent_callback = nullptr;
     KFindDialog_ConnectNotify_Callback kfinddialog_connectnotify_callback = nullptr;
     KFindDialog_DisconnectNotify_Callback kfinddialog_disconnectnotify_callback = nullptr;
-    KFindDialog_AdjustPosition_Callback kfinddialog_adjustposition_callback = nullptr;
-    KFindDialog_UpdateMicroFocus_Callback kfinddialog_updatemicrofocus_callback = nullptr;
-    KFindDialog_Create_Callback kfinddialog_create_callback = nullptr;
-    KFindDialog_Destroy_Callback kfinddialog_destroy_callback = nullptr;
-    KFindDialog_FocusNextChild_Callback kfinddialog_focusnextchild_callback = nullptr;
-    KFindDialog_FocusPreviousChild_Callback kfinddialog_focuspreviouschild_callback = nullptr;
-    KFindDialog_Sender_Callback kfinddialog_sender_callback = nullptr;
-    KFindDialog_SenderSignalIndex_Callback kfinddialog_sendersignalindex_callback = nullptr;
-    KFindDialog_Receivers_Callback kfinddialog_receivers_callback = nullptr;
-    KFindDialog_IsSignalConnected_Callback kfinddialog_issignalconnected_callback = nullptr;
-    KFindDialog_GetDecodedMetricF_Callback kfinddialog_getdecodedmetricf_callback = nullptr;
 
-    // Instance base flags
-    mutable bool kfinddialog_metaobject_isbase = false;
-    mutable bool kfinddialog_metacast_isbase = false;
-    mutable bool kfinddialog_metacall_isbase = false;
-    mutable bool kfinddialog_showevent_isbase = false;
-    mutable bool kfinddialog_setvisible_isbase = false;
-    mutable bool kfinddialog_sizehint_isbase = false;
-    mutable bool kfinddialog_minimumsizehint_isbase = false;
-    mutable bool kfinddialog_open_isbase = false;
-    mutable bool kfinddialog_exec_isbase = false;
-    mutable bool kfinddialog_done_isbase = false;
-    mutable bool kfinddialog_accept_isbase = false;
-    mutable bool kfinddialog_reject_isbase = false;
-    mutable bool kfinddialog_keypressevent_isbase = false;
-    mutable bool kfinddialog_closeevent_isbase = false;
-    mutable bool kfinddialog_resizeevent_isbase = false;
-    mutable bool kfinddialog_contextmenuevent_isbase = false;
-    mutable bool kfinddialog_eventfilter_isbase = false;
-    mutable bool kfinddialog_devtype_isbase = false;
-    mutable bool kfinddialog_heightforwidth_isbase = false;
-    mutable bool kfinddialog_hasheightforwidth_isbase = false;
-    mutable bool kfinddialog_paintengine_isbase = false;
-    mutable bool kfinddialog_event_isbase = false;
-    mutable bool kfinddialog_mousepressevent_isbase = false;
-    mutable bool kfinddialog_mousereleaseevent_isbase = false;
-    mutable bool kfinddialog_mousedoubleclickevent_isbase = false;
-    mutable bool kfinddialog_mousemoveevent_isbase = false;
-    mutable bool kfinddialog_wheelevent_isbase = false;
-    mutable bool kfinddialog_keyreleaseevent_isbase = false;
-    mutable bool kfinddialog_focusinevent_isbase = false;
-    mutable bool kfinddialog_focusoutevent_isbase = false;
-    mutable bool kfinddialog_enterevent_isbase = false;
-    mutable bool kfinddialog_leaveevent_isbase = false;
-    mutable bool kfinddialog_paintevent_isbase = false;
-    mutable bool kfinddialog_moveevent_isbase = false;
-    mutable bool kfinddialog_tabletevent_isbase = false;
-    mutable bool kfinddialog_actionevent_isbase = false;
-    mutable bool kfinddialog_dragenterevent_isbase = false;
-    mutable bool kfinddialog_dragmoveevent_isbase = false;
-    mutable bool kfinddialog_dragleaveevent_isbase = false;
-    mutable bool kfinddialog_dropevent_isbase = false;
-    mutable bool kfinddialog_hideevent_isbase = false;
-    mutable bool kfinddialog_nativeevent_isbase = false;
-    mutable bool kfinddialog_changeevent_isbase = false;
-    mutable bool kfinddialog_metric_isbase = false;
-    mutable bool kfinddialog_initpainter_isbase = false;
-    mutable bool kfinddialog_redirected_isbase = false;
-    mutable bool kfinddialog_sharedpainter_isbase = false;
-    mutable bool kfinddialog_inputmethodevent_isbase = false;
-    mutable bool kfinddialog_inputmethodquery_isbase = false;
-    mutable bool kfinddialog_focusnextprevchild_isbase = false;
-    mutable bool kfinddialog_timerevent_isbase = false;
-    mutable bool kfinddialog_childevent_isbase = false;
-    mutable bool kfinddialog_customevent_isbase = false;
-    mutable bool kfinddialog_connectnotify_isbase = false;
-    mutable bool kfinddialog_disconnectnotify_isbase = false;
-    mutable bool kfinddialog_adjustposition_isbase = false;
-    mutable bool kfinddialog_updatemicrofocus_isbase = false;
-    mutable bool kfinddialog_create_isbase = false;
-    mutable bool kfinddialog_destroy_isbase = false;
-    mutable bool kfinddialog_focusnextchild_isbase = false;
-    mutable bool kfinddialog_focuspreviouschild_isbase = false;
-    mutable bool kfinddialog_sender_isbase = false;
-    mutable bool kfinddialog_sendersignalindex_isbase = false;
-    mutable bool kfinddialog_receivers_isbase = false;
-    mutable bool kfinddialog_issignalconnected_isbase = false;
-    mutable bool kfinddialog_getdecodedmetricf_isbase = false;
+    // Access struct
+    struct Base : KFindDialog {
+        using KFindDialog::actionEvent;
+        using KFindDialog::changeEvent;
+        using KFindDialog::childEvent;
+        using KFindDialog::closeEvent;
+        using KFindDialog::connectNotify;
+        using KFindDialog::contextMenuEvent;
+        using KFindDialog::customEvent;
+        using KFindDialog::disconnectNotify;
+        using KFindDialog::dragEnterEvent;
+        using KFindDialog::dragLeaveEvent;
+        using KFindDialog::dragMoveEvent;
+        using KFindDialog::dropEvent;
+        using KFindDialog::enterEvent;
+        using KFindDialog::event;
+        using KFindDialog::eventFilter;
+        using KFindDialog::focusInEvent;
+        using KFindDialog::focusNextPrevChild;
+        using KFindDialog::focusOutEvent;
+        using KFindDialog::hideEvent;
+        using KFindDialog::initPainter;
+        using KFindDialog::inputMethodEvent;
+        using KFindDialog::keyPressEvent;
+        using KFindDialog::keyReleaseEvent;
+        using KFindDialog::leaveEvent;
+        using KFindDialog::metric;
+        using KFindDialog::mouseDoubleClickEvent;
+        using KFindDialog::mouseMoveEvent;
+        using KFindDialog::mousePressEvent;
+        using KFindDialog::mouseReleaseEvent;
+        using KFindDialog::moveEvent;
+        using KFindDialog::nativeEvent;
+        using KFindDialog::paintEvent;
+        using KFindDialog::redirected;
+        using KFindDialog::resizeEvent;
+        using KFindDialog::sharedPainter;
+        using KFindDialog::showEvent;
+        using KFindDialog::tabletEvent;
+        using KFindDialog::timerEvent;
+        using KFindDialog::wheelEvent;
+    };
 
-  public:
     VirtualKFindDialog(QWidget* parent) : KFindDialog(parent) {};
     VirtualKFindDialog() : KFindDialog() {};
     VirtualKFindDialog(QWidget* parent, long options) : KFindDialog(parent, options) {};
@@ -229,151 +187,10 @@ class VirtualKFindDialog final : public KFindDialog {
     VirtualKFindDialog(QWidget* parent, long options, const QList<QString>& findStrings, bool hasSelection) : KFindDialog(parent, options, findStrings, hasSelection) {};
     VirtualKFindDialog(QWidget* parent, long options, const QList<QString>& findStrings, bool hasSelection, bool replaceDialog) : KFindDialog(parent, options, findStrings, hasSelection, replaceDialog) {};
 
-    // Callback setters
-    inline void setKFindDialog_MetaObject_Callback(KFindDialog_MetaObject_Callback cb) { kfinddialog_metaobject_callback = cb; }
-    inline void setKFindDialog_Metacast_Callback(KFindDialog_Metacast_Callback cb) { kfinddialog_metacast_callback = cb; }
-    inline void setKFindDialog_Metacall_Callback(KFindDialog_Metacall_Callback cb) { kfinddialog_metacall_callback = cb; }
-    inline void setKFindDialog_ShowEvent_Callback(KFindDialog_ShowEvent_Callback cb) { kfinddialog_showevent_callback = cb; }
-    inline void setKFindDialog_SetVisible_Callback(KFindDialog_SetVisible_Callback cb) { kfinddialog_setvisible_callback = cb; }
-    inline void setKFindDialog_SizeHint_Callback(KFindDialog_SizeHint_Callback cb) { kfinddialog_sizehint_callback = cb; }
-    inline void setKFindDialog_MinimumSizeHint_Callback(KFindDialog_MinimumSizeHint_Callback cb) { kfinddialog_minimumsizehint_callback = cb; }
-    inline void setKFindDialog_Open_Callback(KFindDialog_Open_Callback cb) { kfinddialog_open_callback = cb; }
-    inline void setKFindDialog_Exec_Callback(KFindDialog_Exec_Callback cb) { kfinddialog_exec_callback = cb; }
-    inline void setKFindDialog_Done_Callback(KFindDialog_Done_Callback cb) { kfinddialog_done_callback = cb; }
-    inline void setKFindDialog_Accept_Callback(KFindDialog_Accept_Callback cb) { kfinddialog_accept_callback = cb; }
-    inline void setKFindDialog_Reject_Callback(KFindDialog_Reject_Callback cb) { kfinddialog_reject_callback = cb; }
-    inline void setKFindDialog_KeyPressEvent_Callback(KFindDialog_KeyPressEvent_Callback cb) { kfinddialog_keypressevent_callback = cb; }
-    inline void setKFindDialog_CloseEvent_Callback(KFindDialog_CloseEvent_Callback cb) { kfinddialog_closeevent_callback = cb; }
-    inline void setKFindDialog_ResizeEvent_Callback(KFindDialog_ResizeEvent_Callback cb) { kfinddialog_resizeevent_callback = cb; }
-    inline void setKFindDialog_ContextMenuEvent_Callback(KFindDialog_ContextMenuEvent_Callback cb) { kfinddialog_contextmenuevent_callback = cb; }
-    inline void setKFindDialog_EventFilter_Callback(KFindDialog_EventFilter_Callback cb) { kfinddialog_eventfilter_callback = cb; }
-    inline void setKFindDialog_DevType_Callback(KFindDialog_DevType_Callback cb) { kfinddialog_devtype_callback = cb; }
-    inline void setKFindDialog_HeightForWidth_Callback(KFindDialog_HeightForWidth_Callback cb) { kfinddialog_heightforwidth_callback = cb; }
-    inline void setKFindDialog_HasHeightForWidth_Callback(KFindDialog_HasHeightForWidth_Callback cb) { kfinddialog_hasheightforwidth_callback = cb; }
-    inline void setKFindDialog_PaintEngine_Callback(KFindDialog_PaintEngine_Callback cb) { kfinddialog_paintengine_callback = cb; }
-    inline void setKFindDialog_Event_Callback(KFindDialog_Event_Callback cb) { kfinddialog_event_callback = cb; }
-    inline void setKFindDialog_MousePressEvent_Callback(KFindDialog_MousePressEvent_Callback cb) { kfinddialog_mousepressevent_callback = cb; }
-    inline void setKFindDialog_MouseReleaseEvent_Callback(KFindDialog_MouseReleaseEvent_Callback cb) { kfinddialog_mousereleaseevent_callback = cb; }
-    inline void setKFindDialog_MouseDoubleClickEvent_Callback(KFindDialog_MouseDoubleClickEvent_Callback cb) { kfinddialog_mousedoubleclickevent_callback = cb; }
-    inline void setKFindDialog_MouseMoveEvent_Callback(KFindDialog_MouseMoveEvent_Callback cb) { kfinddialog_mousemoveevent_callback = cb; }
-    inline void setKFindDialog_WheelEvent_Callback(KFindDialog_WheelEvent_Callback cb) { kfinddialog_wheelevent_callback = cb; }
-    inline void setKFindDialog_KeyReleaseEvent_Callback(KFindDialog_KeyReleaseEvent_Callback cb) { kfinddialog_keyreleaseevent_callback = cb; }
-    inline void setKFindDialog_FocusInEvent_Callback(KFindDialog_FocusInEvent_Callback cb) { kfinddialog_focusinevent_callback = cb; }
-    inline void setKFindDialog_FocusOutEvent_Callback(KFindDialog_FocusOutEvent_Callback cb) { kfinddialog_focusoutevent_callback = cb; }
-    inline void setKFindDialog_EnterEvent_Callback(KFindDialog_EnterEvent_Callback cb) { kfinddialog_enterevent_callback = cb; }
-    inline void setKFindDialog_LeaveEvent_Callback(KFindDialog_LeaveEvent_Callback cb) { kfinddialog_leaveevent_callback = cb; }
-    inline void setKFindDialog_PaintEvent_Callback(KFindDialog_PaintEvent_Callback cb) { kfinddialog_paintevent_callback = cb; }
-    inline void setKFindDialog_MoveEvent_Callback(KFindDialog_MoveEvent_Callback cb) { kfinddialog_moveevent_callback = cb; }
-    inline void setKFindDialog_TabletEvent_Callback(KFindDialog_TabletEvent_Callback cb) { kfinddialog_tabletevent_callback = cb; }
-    inline void setKFindDialog_ActionEvent_Callback(KFindDialog_ActionEvent_Callback cb) { kfinddialog_actionevent_callback = cb; }
-    inline void setKFindDialog_DragEnterEvent_Callback(KFindDialog_DragEnterEvent_Callback cb) { kfinddialog_dragenterevent_callback = cb; }
-    inline void setKFindDialog_DragMoveEvent_Callback(KFindDialog_DragMoveEvent_Callback cb) { kfinddialog_dragmoveevent_callback = cb; }
-    inline void setKFindDialog_DragLeaveEvent_Callback(KFindDialog_DragLeaveEvent_Callback cb) { kfinddialog_dragleaveevent_callback = cb; }
-    inline void setKFindDialog_DropEvent_Callback(KFindDialog_DropEvent_Callback cb) { kfinddialog_dropevent_callback = cb; }
-    inline void setKFindDialog_HideEvent_Callback(KFindDialog_HideEvent_Callback cb) { kfinddialog_hideevent_callback = cb; }
-    inline void setKFindDialog_NativeEvent_Callback(KFindDialog_NativeEvent_Callback cb) { kfinddialog_nativeevent_callback = cb; }
-    inline void setKFindDialog_ChangeEvent_Callback(KFindDialog_ChangeEvent_Callback cb) { kfinddialog_changeevent_callback = cb; }
-    inline void setKFindDialog_Metric_Callback(KFindDialog_Metric_Callback cb) { kfinddialog_metric_callback = cb; }
-    inline void setKFindDialog_InitPainter_Callback(KFindDialog_InitPainter_Callback cb) { kfinddialog_initpainter_callback = cb; }
-    inline void setKFindDialog_Redirected_Callback(KFindDialog_Redirected_Callback cb) { kfinddialog_redirected_callback = cb; }
-    inline void setKFindDialog_SharedPainter_Callback(KFindDialog_SharedPainter_Callback cb) { kfinddialog_sharedpainter_callback = cb; }
-    inline void setKFindDialog_InputMethodEvent_Callback(KFindDialog_InputMethodEvent_Callback cb) { kfinddialog_inputmethodevent_callback = cb; }
-    inline void setKFindDialog_InputMethodQuery_Callback(KFindDialog_InputMethodQuery_Callback cb) { kfinddialog_inputmethodquery_callback = cb; }
-    inline void setKFindDialog_FocusNextPrevChild_Callback(KFindDialog_FocusNextPrevChild_Callback cb) { kfinddialog_focusnextprevchild_callback = cb; }
-    inline void setKFindDialog_TimerEvent_Callback(KFindDialog_TimerEvent_Callback cb) { kfinddialog_timerevent_callback = cb; }
-    inline void setKFindDialog_ChildEvent_Callback(KFindDialog_ChildEvent_Callback cb) { kfinddialog_childevent_callback = cb; }
-    inline void setKFindDialog_CustomEvent_Callback(KFindDialog_CustomEvent_Callback cb) { kfinddialog_customevent_callback = cb; }
-    inline void setKFindDialog_ConnectNotify_Callback(KFindDialog_ConnectNotify_Callback cb) { kfinddialog_connectnotify_callback = cb; }
-    inline void setKFindDialog_DisconnectNotify_Callback(KFindDialog_DisconnectNotify_Callback cb) { kfinddialog_disconnectnotify_callback = cb; }
-    inline void setKFindDialog_AdjustPosition_Callback(KFindDialog_AdjustPosition_Callback cb) { kfinddialog_adjustposition_callback = cb; }
-    inline void setKFindDialog_UpdateMicroFocus_Callback(KFindDialog_UpdateMicroFocus_Callback cb) { kfinddialog_updatemicrofocus_callback = cb; }
-    inline void setKFindDialog_Create_Callback(KFindDialog_Create_Callback cb) { kfinddialog_create_callback = cb; }
-    inline void setKFindDialog_Destroy_Callback(KFindDialog_Destroy_Callback cb) { kfinddialog_destroy_callback = cb; }
-    inline void setKFindDialog_FocusNextChild_Callback(KFindDialog_FocusNextChild_Callback cb) { kfinddialog_focusnextchild_callback = cb; }
-    inline void setKFindDialog_FocusPreviousChild_Callback(KFindDialog_FocusPreviousChild_Callback cb) { kfinddialog_focuspreviouschild_callback = cb; }
-    inline void setKFindDialog_Sender_Callback(KFindDialog_Sender_Callback cb) { kfinddialog_sender_callback = cb; }
-    inline void setKFindDialog_SenderSignalIndex_Callback(KFindDialog_SenderSignalIndex_Callback cb) { kfinddialog_sendersignalindex_callback = cb; }
-    inline void setKFindDialog_Receivers_Callback(KFindDialog_Receivers_Callback cb) { kfinddialog_receivers_callback = cb; }
-    inline void setKFindDialog_IsSignalConnected_Callback(KFindDialog_IsSignalConnected_Callback cb) { kfinddialog_issignalconnected_callback = cb; }
-    inline void setKFindDialog_GetDecodedMetricF_Callback(KFindDialog_GetDecodedMetricF_Callback cb) { kfinddialog_getdecodedmetricf_callback = cb; }
-
-    // Base flag setters
-    inline void setKFindDialog_MetaObject_IsBase(bool value) const { kfinddialog_metaobject_isbase = value; }
-    inline void setKFindDialog_Metacast_IsBase(bool value) const { kfinddialog_metacast_isbase = value; }
-    inline void setKFindDialog_Metacall_IsBase(bool value) const { kfinddialog_metacall_isbase = value; }
-    inline void setKFindDialog_ShowEvent_IsBase(bool value) const { kfinddialog_showevent_isbase = value; }
-    inline void setKFindDialog_SetVisible_IsBase(bool value) const { kfinddialog_setvisible_isbase = value; }
-    inline void setKFindDialog_SizeHint_IsBase(bool value) const { kfinddialog_sizehint_isbase = value; }
-    inline void setKFindDialog_MinimumSizeHint_IsBase(bool value) const { kfinddialog_minimumsizehint_isbase = value; }
-    inline void setKFindDialog_Open_IsBase(bool value) const { kfinddialog_open_isbase = value; }
-    inline void setKFindDialog_Exec_IsBase(bool value) const { kfinddialog_exec_isbase = value; }
-    inline void setKFindDialog_Done_IsBase(bool value) const { kfinddialog_done_isbase = value; }
-    inline void setKFindDialog_Accept_IsBase(bool value) const { kfinddialog_accept_isbase = value; }
-    inline void setKFindDialog_Reject_IsBase(bool value) const { kfinddialog_reject_isbase = value; }
-    inline void setKFindDialog_KeyPressEvent_IsBase(bool value) const { kfinddialog_keypressevent_isbase = value; }
-    inline void setKFindDialog_CloseEvent_IsBase(bool value) const { kfinddialog_closeevent_isbase = value; }
-    inline void setKFindDialog_ResizeEvent_IsBase(bool value) const { kfinddialog_resizeevent_isbase = value; }
-    inline void setKFindDialog_ContextMenuEvent_IsBase(bool value) const { kfinddialog_contextmenuevent_isbase = value; }
-    inline void setKFindDialog_EventFilter_IsBase(bool value) const { kfinddialog_eventfilter_isbase = value; }
-    inline void setKFindDialog_DevType_IsBase(bool value) const { kfinddialog_devtype_isbase = value; }
-    inline void setKFindDialog_HeightForWidth_IsBase(bool value) const { kfinddialog_heightforwidth_isbase = value; }
-    inline void setKFindDialog_HasHeightForWidth_IsBase(bool value) const { kfinddialog_hasheightforwidth_isbase = value; }
-    inline void setKFindDialog_PaintEngine_IsBase(bool value) const { kfinddialog_paintengine_isbase = value; }
-    inline void setKFindDialog_Event_IsBase(bool value) const { kfinddialog_event_isbase = value; }
-    inline void setKFindDialog_MousePressEvent_IsBase(bool value) const { kfinddialog_mousepressevent_isbase = value; }
-    inline void setKFindDialog_MouseReleaseEvent_IsBase(bool value) const { kfinddialog_mousereleaseevent_isbase = value; }
-    inline void setKFindDialog_MouseDoubleClickEvent_IsBase(bool value) const { kfinddialog_mousedoubleclickevent_isbase = value; }
-    inline void setKFindDialog_MouseMoveEvent_IsBase(bool value) const { kfinddialog_mousemoveevent_isbase = value; }
-    inline void setKFindDialog_WheelEvent_IsBase(bool value) const { kfinddialog_wheelevent_isbase = value; }
-    inline void setKFindDialog_KeyReleaseEvent_IsBase(bool value) const { kfinddialog_keyreleaseevent_isbase = value; }
-    inline void setKFindDialog_FocusInEvent_IsBase(bool value) const { kfinddialog_focusinevent_isbase = value; }
-    inline void setKFindDialog_FocusOutEvent_IsBase(bool value) const { kfinddialog_focusoutevent_isbase = value; }
-    inline void setKFindDialog_EnterEvent_IsBase(bool value) const { kfinddialog_enterevent_isbase = value; }
-    inline void setKFindDialog_LeaveEvent_IsBase(bool value) const { kfinddialog_leaveevent_isbase = value; }
-    inline void setKFindDialog_PaintEvent_IsBase(bool value) const { kfinddialog_paintevent_isbase = value; }
-    inline void setKFindDialog_MoveEvent_IsBase(bool value) const { kfinddialog_moveevent_isbase = value; }
-    inline void setKFindDialog_TabletEvent_IsBase(bool value) const { kfinddialog_tabletevent_isbase = value; }
-    inline void setKFindDialog_ActionEvent_IsBase(bool value) const { kfinddialog_actionevent_isbase = value; }
-    inline void setKFindDialog_DragEnterEvent_IsBase(bool value) const { kfinddialog_dragenterevent_isbase = value; }
-    inline void setKFindDialog_DragMoveEvent_IsBase(bool value) const { kfinddialog_dragmoveevent_isbase = value; }
-    inline void setKFindDialog_DragLeaveEvent_IsBase(bool value) const { kfinddialog_dragleaveevent_isbase = value; }
-    inline void setKFindDialog_DropEvent_IsBase(bool value) const { kfinddialog_dropevent_isbase = value; }
-    inline void setKFindDialog_HideEvent_IsBase(bool value) const { kfinddialog_hideevent_isbase = value; }
-    inline void setKFindDialog_NativeEvent_IsBase(bool value) const { kfinddialog_nativeevent_isbase = value; }
-    inline void setKFindDialog_ChangeEvent_IsBase(bool value) const { kfinddialog_changeevent_isbase = value; }
-    inline void setKFindDialog_Metric_IsBase(bool value) const { kfinddialog_metric_isbase = value; }
-    inline void setKFindDialog_InitPainter_IsBase(bool value) const { kfinddialog_initpainter_isbase = value; }
-    inline void setKFindDialog_Redirected_IsBase(bool value) const { kfinddialog_redirected_isbase = value; }
-    inline void setKFindDialog_SharedPainter_IsBase(bool value) const { kfinddialog_sharedpainter_isbase = value; }
-    inline void setKFindDialog_InputMethodEvent_IsBase(bool value) const { kfinddialog_inputmethodevent_isbase = value; }
-    inline void setKFindDialog_InputMethodQuery_IsBase(bool value) const { kfinddialog_inputmethodquery_isbase = value; }
-    inline void setKFindDialog_FocusNextPrevChild_IsBase(bool value) const { kfinddialog_focusnextprevchild_isbase = value; }
-    inline void setKFindDialog_TimerEvent_IsBase(bool value) const { kfinddialog_timerevent_isbase = value; }
-    inline void setKFindDialog_ChildEvent_IsBase(bool value) const { kfinddialog_childevent_isbase = value; }
-    inline void setKFindDialog_CustomEvent_IsBase(bool value) const { kfinddialog_customevent_isbase = value; }
-    inline void setKFindDialog_ConnectNotify_IsBase(bool value) const { kfinddialog_connectnotify_isbase = value; }
-    inline void setKFindDialog_DisconnectNotify_IsBase(bool value) const { kfinddialog_disconnectnotify_isbase = value; }
-    inline void setKFindDialog_AdjustPosition_IsBase(bool value) const { kfinddialog_adjustposition_isbase = value; }
-    inline void setKFindDialog_UpdateMicroFocus_IsBase(bool value) const { kfinddialog_updatemicrofocus_isbase = value; }
-    inline void setKFindDialog_Create_IsBase(bool value) const { kfinddialog_create_isbase = value; }
-    inline void setKFindDialog_Destroy_IsBase(bool value) const { kfinddialog_destroy_isbase = value; }
-    inline void setKFindDialog_FocusNextChild_IsBase(bool value) const { kfinddialog_focusnextchild_isbase = value; }
-    inline void setKFindDialog_FocusPreviousChild_IsBase(bool value) const { kfinddialog_focuspreviouschild_isbase = value; }
-    inline void setKFindDialog_Sender_IsBase(bool value) const { kfinddialog_sender_isbase = value; }
-    inline void setKFindDialog_SenderSignalIndex_IsBase(bool value) const { kfinddialog_sendersignalindex_isbase = value; }
-    inline void setKFindDialog_Receivers_IsBase(bool value) const { kfinddialog_receivers_isbase = value; }
-    inline void setKFindDialog_IsSignalConnected_IsBase(bool value) const { kfinddialog_issignalconnected_isbase = value; }
-    inline void setKFindDialog_GetDecodedMetricF_IsBase(bool value) const { kfinddialog_getdecodedmetricf_isbase = value; }
-
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
-        if (kfinddialog_metaobject_isbase) {
-            kfinddialog_metaobject_isbase = false;
-            return KFindDialog::metaObject();
-        }
-        auto metaobject_cb = kfinddialog_metaobject_callback;
-        if (metaobject_cb) {
-            QMetaObject* callback_ret = metaobject_cb();
+        if (kfinddialog_metaobject_callback) {
+            QMetaObject* callback_ret = kfinddialog_metaobject_callback(this);
             return callback_ret;
         }
         return KFindDialog::metaObject();
@@ -381,14 +198,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void* qt_metacast(const char* param1) override {
-        if (kfinddialog_metacast_isbase) {
-            kfinddialog_metacast_isbase = false;
-            return KFindDialog::qt_metacast(param1);
-        }
-        auto metacast_cb = kfinddialog_metacast_callback;
-        if (metacast_cb) {
+        if (kfinddialog_metacast_callback) {
             const char* cbval1 = (const char*)param1;
-            void* callback_ret = metacast_cb(this, cbval1);
+            void* callback_ret = kfinddialog_metacast_callback(this, cbval1);
             return callback_ret;
         }
         return KFindDialog::qt_metacast(param1);
@@ -396,16 +208,11 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
-        if (kfinddialog_metacall_isbase) {
-            kfinddialog_metacall_isbase = false;
-            return KFindDialog::qt_metacall(param1, param2, param3);
-        }
-        auto metacall_cb = kfinddialog_metacall_callback;
-        if (metacall_cb) {
+        if (kfinddialog_metacall_callback) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            int callback_ret = kfinddialog_metacall_callback(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
         return KFindDialog::qt_metacall(param1, param2, param3);
@@ -413,15 +220,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void showEvent(QShowEvent* param1) override {
-        if (kfinddialog_showevent_isbase) {
-            kfinddialog_showevent_isbase = false;
-            KFindDialog::showEvent(param1);
-            return;
-        }
-        auto showevent_cb = kfinddialog_showevent_callback;
-        if (showevent_cb) {
+        if (kfinddialog_showevent_callback) {
             QShowEvent* cbval1 = param1;
-            showevent_cb(this, cbval1);
+            kfinddialog_showevent_callback(this, cbval1);
             return;
         }
         KFindDialog::showEvent(param1);
@@ -429,15 +230,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void setVisible(bool visible) override {
-        if (kfinddialog_setvisible_isbase) {
-            kfinddialog_setvisible_isbase = false;
-            KFindDialog::setVisible(visible);
-            return;
-        }
-        auto setvisible_cb = kfinddialog_setvisible_callback;
-        if (setvisible_cb) {
+        if (kfinddialog_setvisible_callback) {
             bool cbval1 = visible;
-            setvisible_cb(this, cbval1);
+            kfinddialog_setvisible_callback(this, cbval1);
             return;
         }
         KFindDialog::setVisible(visible);
@@ -445,13 +240,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize sizeHint() const override {
-        if (kfinddialog_sizehint_isbase) {
-            kfinddialog_sizehint_isbase = false;
-            return KFindDialog::sizeHint();
-        }
-        auto sizehint_cb = kfinddialog_sizehint_callback;
-        if (sizehint_cb) {
-            QSize* callback_ret = sizehint_cb();
+        if (kfinddialog_sizehint_callback) {
+            QSize* callback_ret = kfinddialog_sizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -461,13 +251,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QSize minimumSizeHint() const override {
-        if (kfinddialog_minimumsizehint_isbase) {
-            kfinddialog_minimumsizehint_isbase = false;
-            return KFindDialog::minimumSizeHint();
-        }
-        auto minimumsizehint_cb = kfinddialog_minimumsizehint_callback;
-        if (minimumsizehint_cb) {
-            QSize* callback_ret = minimumsizehint_cb();
+        if (kfinddialog_minimumsizehint_callback) {
+            QSize* callback_ret = kfinddialog_minimumsizehint_callback(this);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -477,14 +262,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void open() override {
-        if (kfinddialog_open_isbase) {
-            kfinddialog_open_isbase = false;
-            KFindDialog::open();
-            return;
-        }
-        auto open_cb = kfinddialog_open_callback;
-        if (open_cb) {
-            open_cb();
+        if (kfinddialog_open_callback) {
+            kfinddialog_open_callback(this);
             return;
         }
         KFindDialog::open();
@@ -492,13 +271,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int exec() override {
-        if (kfinddialog_exec_isbase) {
-            kfinddialog_exec_isbase = false;
-            return KFindDialog::exec();
-        }
-        auto exec_cb = kfinddialog_exec_callback;
-        if (exec_cb) {
-            int callback_ret = exec_cb();
+        if (kfinddialog_exec_callback) {
+            int callback_ret = kfinddialog_exec_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KFindDialog::exec();
@@ -506,15 +280,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void done(int param1) override {
-        if (kfinddialog_done_isbase) {
-            kfinddialog_done_isbase = false;
-            KFindDialog::done(param1);
-            return;
-        }
-        auto done_cb = kfinddialog_done_callback;
-        if (done_cb) {
+        if (kfinddialog_done_callback) {
             int cbval1 = param1;
-            done_cb(this, cbval1);
+            kfinddialog_done_callback(this, cbval1);
             return;
         }
         KFindDialog::done(param1);
@@ -522,14 +290,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void accept() override {
-        if (kfinddialog_accept_isbase) {
-            kfinddialog_accept_isbase = false;
-            KFindDialog::accept();
-            return;
-        }
-        auto accept_cb = kfinddialog_accept_callback;
-        if (accept_cb) {
-            accept_cb();
+        if (kfinddialog_accept_callback) {
+            kfinddialog_accept_callback(this);
             return;
         }
         KFindDialog::accept();
@@ -537,14 +299,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void reject() override {
-        if (kfinddialog_reject_isbase) {
-            kfinddialog_reject_isbase = false;
-            KFindDialog::reject();
-            return;
-        }
-        auto reject_cb = kfinddialog_reject_callback;
-        if (reject_cb) {
-            reject_cb();
+        if (kfinddialog_reject_callback) {
+            kfinddialog_reject_callback(this);
             return;
         }
         KFindDialog::reject();
@@ -552,15 +308,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyPressEvent(QKeyEvent* param1) override {
-        if (kfinddialog_keypressevent_isbase) {
-            kfinddialog_keypressevent_isbase = false;
-            KFindDialog::keyPressEvent(param1);
-            return;
-        }
-        auto keypressevent_cb = kfinddialog_keypressevent_callback;
-        if (keypressevent_cb) {
+        if (kfinddialog_keypressevent_callback) {
             QKeyEvent* cbval1 = param1;
-            keypressevent_cb(this, cbval1);
+            kfinddialog_keypressevent_callback(this, cbval1);
             return;
         }
         KFindDialog::keyPressEvent(param1);
@@ -568,15 +318,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void closeEvent(QCloseEvent* param1) override {
-        if (kfinddialog_closeevent_isbase) {
-            kfinddialog_closeevent_isbase = false;
-            KFindDialog::closeEvent(param1);
-            return;
-        }
-        auto closeevent_cb = kfinddialog_closeevent_callback;
-        if (closeevent_cb) {
+        if (kfinddialog_closeevent_callback) {
             QCloseEvent* cbval1 = param1;
-            closeevent_cb(this, cbval1);
+            kfinddialog_closeevent_callback(this, cbval1);
             return;
         }
         KFindDialog::closeEvent(param1);
@@ -584,15 +328,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void resizeEvent(QResizeEvent* param1) override {
-        if (kfinddialog_resizeevent_isbase) {
-            kfinddialog_resizeevent_isbase = false;
-            KFindDialog::resizeEvent(param1);
-            return;
-        }
-        auto resizeevent_cb = kfinddialog_resizeevent_callback;
-        if (resizeevent_cb) {
+        if (kfinddialog_resizeevent_callback) {
             QResizeEvent* cbval1 = param1;
-            resizeevent_cb(this, cbval1);
+            kfinddialog_resizeevent_callback(this, cbval1);
             return;
         }
         KFindDialog::resizeEvent(param1);
@@ -600,15 +338,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void contextMenuEvent(QContextMenuEvent* param1) override {
-        if (kfinddialog_contextmenuevent_isbase) {
-            kfinddialog_contextmenuevent_isbase = false;
-            KFindDialog::contextMenuEvent(param1);
-            return;
-        }
-        auto contextmenuevent_cb = kfinddialog_contextmenuevent_callback;
-        if (contextmenuevent_cb) {
+        if (kfinddialog_contextmenuevent_callback) {
             QContextMenuEvent* cbval1 = param1;
-            contextmenuevent_cb(this, cbval1);
+            kfinddialog_contextmenuevent_callback(this, cbval1);
             return;
         }
         KFindDialog::contextMenuEvent(param1);
@@ -616,15 +348,10 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool eventFilter(QObject* param1, QEvent* param2) override {
-        if (kfinddialog_eventfilter_isbase) {
-            kfinddialog_eventfilter_isbase = false;
-            return KFindDialog::eventFilter(param1, param2);
-        }
-        auto eventfilter_cb = kfinddialog_eventfilter_callback;
-        if (eventfilter_cb) {
+        if (kfinddialog_eventfilter_callback) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            bool callback_ret = kfinddialog_eventfilter_callback(this, cbval1, cbval2);
             return callback_ret;
         }
         return KFindDialog::eventFilter(param1, param2);
@@ -632,13 +359,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
-        if (kfinddialog_devtype_isbase) {
-            kfinddialog_devtype_isbase = false;
-            return KFindDialog::devType();
-        }
-        auto devtype_cb = kfinddialog_devtype_callback;
-        if (devtype_cb) {
-            int callback_ret = devtype_cb();
+        if (kfinddialog_devtype_callback) {
+            int callback_ret = kfinddialog_devtype_callback(this);
             return static_cast<int>(callback_ret);
         }
         return KFindDialog::devType();
@@ -646,14 +368,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int heightForWidth(int param1) const override {
-        if (kfinddialog_heightforwidth_isbase) {
-            kfinddialog_heightforwidth_isbase = false;
-            return KFindDialog::heightForWidth(param1);
-        }
-        auto heightforwidth_cb = kfinddialog_heightforwidth_callback;
-        if (heightforwidth_cb) {
+        if (kfinddialog_heightforwidth_callback) {
             int cbval1 = param1;
-            int callback_ret = heightforwidth_cb(this, cbval1);
+            int callback_ret = kfinddialog_heightforwidth_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KFindDialog::heightForWidth(param1);
@@ -661,13 +378,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool hasHeightForWidth() const override {
-        if (kfinddialog_hasheightforwidth_isbase) {
-            kfinddialog_hasheightforwidth_isbase = false;
-            return KFindDialog::hasHeightForWidth();
-        }
-        auto hasheightforwidth_cb = kfinddialog_hasheightforwidth_callback;
-        if (hasheightforwidth_cb) {
-            bool callback_ret = hasheightforwidth_cb();
+        if (kfinddialog_hasheightforwidth_callback) {
+            bool callback_ret = kfinddialog_hasheightforwidth_callback(this);
             return callback_ret;
         }
         return KFindDialog::hasHeightForWidth();
@@ -675,13 +387,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintEngine* paintEngine() const override {
-        if (kfinddialog_paintengine_isbase) {
-            kfinddialog_paintengine_isbase = false;
-            return KFindDialog::paintEngine();
-        }
-        auto paintengine_cb = kfinddialog_paintengine_callback;
-        if (paintengine_cb) {
-            QPaintEngine* callback_ret = paintengine_cb();
+        if (kfinddialog_paintengine_callback) {
+            QPaintEngine* callback_ret = kfinddialog_paintengine_callback(this);
             return callback_ret;
         }
         return KFindDialog::paintEngine();
@@ -689,14 +396,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
-        if (kfinddialog_event_isbase) {
-            kfinddialog_event_isbase = false;
-            return KFindDialog::event(event);
-        }
-        auto event_cb = kfinddialog_event_callback;
-        if (event_cb) {
+        if (kfinddialog_event_callback) {
             QEvent* cbval1 = event;
-            bool callback_ret = event_cb(this, cbval1);
+            bool callback_ret = kfinddialog_event_callback(this, cbval1);
             return callback_ret;
         }
         return KFindDialog::event(event);
@@ -704,15 +406,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mousePressEvent(QMouseEvent* event) override {
-        if (kfinddialog_mousepressevent_isbase) {
-            kfinddialog_mousepressevent_isbase = false;
-            KFindDialog::mousePressEvent(event);
-            return;
-        }
-        auto mousepressevent_cb = kfinddialog_mousepressevent_callback;
-        if (mousepressevent_cb) {
+        if (kfinddialog_mousepressevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousepressevent_cb(this, cbval1);
+            kfinddialog_mousepressevent_callback(this, cbval1);
             return;
         }
         KFindDialog::mousePressEvent(event);
@@ -720,15 +416,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseReleaseEvent(QMouseEvent* event) override {
-        if (kfinddialog_mousereleaseevent_isbase) {
-            kfinddialog_mousereleaseevent_isbase = false;
-            KFindDialog::mouseReleaseEvent(event);
-            return;
-        }
-        auto mousereleaseevent_cb = kfinddialog_mousereleaseevent_callback;
-        if (mousereleaseevent_cb) {
+        if (kfinddialog_mousereleaseevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousereleaseevent_cb(this, cbval1);
+            kfinddialog_mousereleaseevent_callback(this, cbval1);
             return;
         }
         KFindDialog::mouseReleaseEvent(event);
@@ -736,15 +426,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
-        if (kfinddialog_mousedoubleclickevent_isbase) {
-            kfinddialog_mousedoubleclickevent_isbase = false;
-            KFindDialog::mouseDoubleClickEvent(event);
-            return;
-        }
-        auto mousedoubleclickevent_cb = kfinddialog_mousedoubleclickevent_callback;
-        if (mousedoubleclickevent_cb) {
+        if (kfinddialog_mousedoubleclickevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousedoubleclickevent_cb(this, cbval1);
+            kfinddialog_mousedoubleclickevent_callback(this, cbval1);
             return;
         }
         KFindDialog::mouseDoubleClickEvent(event);
@@ -752,15 +436,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void mouseMoveEvent(QMouseEvent* event) override {
-        if (kfinddialog_mousemoveevent_isbase) {
-            kfinddialog_mousemoveevent_isbase = false;
-            KFindDialog::mouseMoveEvent(event);
-            return;
-        }
-        auto mousemoveevent_cb = kfinddialog_mousemoveevent_callback;
-        if (mousemoveevent_cb) {
+        if (kfinddialog_mousemoveevent_callback) {
             QMouseEvent* cbval1 = event;
-            mousemoveevent_cb(this, cbval1);
+            kfinddialog_mousemoveevent_callback(this, cbval1);
             return;
         }
         KFindDialog::mouseMoveEvent(event);
@@ -768,15 +446,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void wheelEvent(QWheelEvent* event) override {
-        if (kfinddialog_wheelevent_isbase) {
-            kfinddialog_wheelevent_isbase = false;
-            KFindDialog::wheelEvent(event);
-            return;
-        }
-        auto wheelevent_cb = kfinddialog_wheelevent_callback;
-        if (wheelevent_cb) {
+        if (kfinddialog_wheelevent_callback) {
             QWheelEvent* cbval1 = event;
-            wheelevent_cb(this, cbval1);
+            kfinddialog_wheelevent_callback(this, cbval1);
             return;
         }
         KFindDialog::wheelEvent(event);
@@ -784,15 +456,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void keyReleaseEvent(QKeyEvent* event) override {
-        if (kfinddialog_keyreleaseevent_isbase) {
-            kfinddialog_keyreleaseevent_isbase = false;
-            KFindDialog::keyReleaseEvent(event);
-            return;
-        }
-        auto keyreleaseevent_cb = kfinddialog_keyreleaseevent_callback;
-        if (keyreleaseevent_cb) {
+        if (kfinddialog_keyreleaseevent_callback) {
             QKeyEvent* cbval1 = event;
-            keyreleaseevent_cb(this, cbval1);
+            kfinddialog_keyreleaseevent_callback(this, cbval1);
             return;
         }
         KFindDialog::keyReleaseEvent(event);
@@ -800,15 +466,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusInEvent(QFocusEvent* event) override {
-        if (kfinddialog_focusinevent_isbase) {
-            kfinddialog_focusinevent_isbase = false;
-            KFindDialog::focusInEvent(event);
-            return;
-        }
-        auto focusinevent_cb = kfinddialog_focusinevent_callback;
-        if (focusinevent_cb) {
+        if (kfinddialog_focusinevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusinevent_cb(this, cbval1);
+            kfinddialog_focusinevent_callback(this, cbval1);
             return;
         }
         KFindDialog::focusInEvent(event);
@@ -816,15 +476,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void focusOutEvent(QFocusEvent* event) override {
-        if (kfinddialog_focusoutevent_isbase) {
-            kfinddialog_focusoutevent_isbase = false;
-            KFindDialog::focusOutEvent(event);
-            return;
-        }
-        auto focusoutevent_cb = kfinddialog_focusoutevent_callback;
-        if (focusoutevent_cb) {
+        if (kfinddialog_focusoutevent_callback) {
             QFocusEvent* cbval1 = event;
-            focusoutevent_cb(this, cbval1);
+            kfinddialog_focusoutevent_callback(this, cbval1);
             return;
         }
         KFindDialog::focusOutEvent(event);
@@ -832,15 +486,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void enterEvent(QEnterEvent* event) override {
-        if (kfinddialog_enterevent_isbase) {
-            kfinddialog_enterevent_isbase = false;
-            KFindDialog::enterEvent(event);
-            return;
-        }
-        auto enterevent_cb = kfinddialog_enterevent_callback;
-        if (enterevent_cb) {
+        if (kfinddialog_enterevent_callback) {
             QEnterEvent* cbval1 = event;
-            enterevent_cb(this, cbval1);
+            kfinddialog_enterevent_callback(this, cbval1);
             return;
         }
         KFindDialog::enterEvent(event);
@@ -848,15 +496,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void leaveEvent(QEvent* event) override {
-        if (kfinddialog_leaveevent_isbase) {
-            kfinddialog_leaveevent_isbase = false;
-            KFindDialog::leaveEvent(event);
-            return;
-        }
-        auto leaveevent_cb = kfinddialog_leaveevent_callback;
-        if (leaveevent_cb) {
+        if (kfinddialog_leaveevent_callback) {
             QEvent* cbval1 = event;
-            leaveevent_cb(this, cbval1);
+            kfinddialog_leaveevent_callback(this, cbval1);
             return;
         }
         KFindDialog::leaveEvent(event);
@@ -864,15 +506,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void paintEvent(QPaintEvent* event) override {
-        if (kfinddialog_paintevent_isbase) {
-            kfinddialog_paintevent_isbase = false;
-            KFindDialog::paintEvent(event);
-            return;
-        }
-        auto paintevent_cb = kfinddialog_paintevent_callback;
-        if (paintevent_cb) {
+        if (kfinddialog_paintevent_callback) {
             QPaintEvent* cbval1 = event;
-            paintevent_cb(this, cbval1);
+            kfinddialog_paintevent_callback(this, cbval1);
             return;
         }
         KFindDialog::paintEvent(event);
@@ -880,15 +516,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void moveEvent(QMoveEvent* event) override {
-        if (kfinddialog_moveevent_isbase) {
-            kfinddialog_moveevent_isbase = false;
-            KFindDialog::moveEvent(event);
-            return;
-        }
-        auto moveevent_cb = kfinddialog_moveevent_callback;
-        if (moveevent_cb) {
+        if (kfinddialog_moveevent_callback) {
             QMoveEvent* cbval1 = event;
-            moveevent_cb(this, cbval1);
+            kfinddialog_moveevent_callback(this, cbval1);
             return;
         }
         KFindDialog::moveEvent(event);
@@ -896,15 +526,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void tabletEvent(QTabletEvent* event) override {
-        if (kfinddialog_tabletevent_isbase) {
-            kfinddialog_tabletevent_isbase = false;
-            KFindDialog::tabletEvent(event);
-            return;
-        }
-        auto tabletevent_cb = kfinddialog_tabletevent_callback;
-        if (tabletevent_cb) {
+        if (kfinddialog_tabletevent_callback) {
             QTabletEvent* cbval1 = event;
-            tabletevent_cb(this, cbval1);
+            kfinddialog_tabletevent_callback(this, cbval1);
             return;
         }
         KFindDialog::tabletEvent(event);
@@ -912,15 +536,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void actionEvent(QActionEvent* event) override {
-        if (kfinddialog_actionevent_isbase) {
-            kfinddialog_actionevent_isbase = false;
-            KFindDialog::actionEvent(event);
-            return;
-        }
-        auto actionevent_cb = kfinddialog_actionevent_callback;
-        if (actionevent_cb) {
+        if (kfinddialog_actionevent_callback) {
             QActionEvent* cbval1 = event;
-            actionevent_cb(this, cbval1);
+            kfinddialog_actionevent_callback(this, cbval1);
             return;
         }
         KFindDialog::actionEvent(event);
@@ -928,15 +546,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragEnterEvent(QDragEnterEvent* event) override {
-        if (kfinddialog_dragenterevent_isbase) {
-            kfinddialog_dragenterevent_isbase = false;
-            KFindDialog::dragEnterEvent(event);
-            return;
-        }
-        auto dragenterevent_cb = kfinddialog_dragenterevent_callback;
-        if (dragenterevent_cb) {
+        if (kfinddialog_dragenterevent_callback) {
             QDragEnterEvent* cbval1 = event;
-            dragenterevent_cb(this, cbval1);
+            kfinddialog_dragenterevent_callback(this, cbval1);
             return;
         }
         KFindDialog::dragEnterEvent(event);
@@ -944,15 +556,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragMoveEvent(QDragMoveEvent* event) override {
-        if (kfinddialog_dragmoveevent_isbase) {
-            kfinddialog_dragmoveevent_isbase = false;
-            KFindDialog::dragMoveEvent(event);
-            return;
-        }
-        auto dragmoveevent_cb = kfinddialog_dragmoveevent_callback;
-        if (dragmoveevent_cb) {
+        if (kfinddialog_dragmoveevent_callback) {
             QDragMoveEvent* cbval1 = event;
-            dragmoveevent_cb(this, cbval1);
+            kfinddialog_dragmoveevent_callback(this, cbval1);
             return;
         }
         KFindDialog::dragMoveEvent(event);
@@ -960,15 +566,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
-        if (kfinddialog_dragleaveevent_isbase) {
-            kfinddialog_dragleaveevent_isbase = false;
-            KFindDialog::dragLeaveEvent(event);
-            return;
-        }
-        auto dragleaveevent_cb = kfinddialog_dragleaveevent_callback;
-        if (dragleaveevent_cb) {
+        if (kfinddialog_dragleaveevent_callback) {
             QDragLeaveEvent* cbval1 = event;
-            dragleaveevent_cb(this, cbval1);
+            kfinddialog_dragleaveevent_callback(this, cbval1);
             return;
         }
         KFindDialog::dragLeaveEvent(event);
@@ -976,15 +576,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void dropEvent(QDropEvent* event) override {
-        if (kfinddialog_dropevent_isbase) {
-            kfinddialog_dropevent_isbase = false;
-            KFindDialog::dropEvent(event);
-            return;
-        }
-        auto dropevent_cb = kfinddialog_dropevent_callback;
-        if (dropevent_cb) {
+        if (kfinddialog_dropevent_callback) {
             QDropEvent* cbval1 = event;
-            dropevent_cb(this, cbval1);
+            kfinddialog_dropevent_callback(this, cbval1);
             return;
         }
         KFindDialog::dropEvent(event);
@@ -992,15 +586,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void hideEvent(QHideEvent* event) override {
-        if (kfinddialog_hideevent_isbase) {
-            kfinddialog_hideevent_isbase = false;
-            KFindDialog::hideEvent(event);
-            return;
-        }
-        auto hideevent_cb = kfinddialog_hideevent_callback;
-        if (hideevent_cb) {
+        if (kfinddialog_hideevent_callback) {
             QHideEvent* cbval1 = event;
-            hideevent_cb(this, cbval1);
+            kfinddialog_hideevent_callback(this, cbval1);
             return;
         }
         KFindDialog::hideEvent(event);
@@ -1008,12 +596,7 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
-        if (kfinddialog_nativeevent_isbase) {
-            kfinddialog_nativeevent_isbase = false;
-            return KFindDialog::nativeEvent(eventType, message, result);
-        }
-        auto nativeevent_cb = kfinddialog_nativeevent_callback;
-        if (nativeevent_cb) {
+        if (kfinddialog_nativeevent_callback) {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
@@ -1023,7 +606,7 @@ class VirtualKFindDialog final : public KFindDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            bool callback_ret = kfinddialog_nativeevent_callback(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
         }
@@ -1032,15 +615,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void changeEvent(QEvent* param1) override {
-        if (kfinddialog_changeevent_isbase) {
-            kfinddialog_changeevent_isbase = false;
-            KFindDialog::changeEvent(param1);
-            return;
-        }
-        auto changeevent_cb = kfinddialog_changeevent_callback;
-        if (changeevent_cb) {
+        if (kfinddialog_changeevent_callback) {
             QEvent* cbval1 = param1;
-            changeevent_cb(this, cbval1);
+            kfinddialog_changeevent_callback(this, cbval1);
             return;
         }
         KFindDialog::changeEvent(param1);
@@ -1048,14 +625,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
-        if (kfinddialog_metric_isbase) {
-            kfinddialog_metric_isbase = false;
-            return KFindDialog::metric(param1);
-        }
-        auto metric_cb = kfinddialog_metric_callback;
-        if (metric_cb) {
+        if (kfinddialog_metric_callback) {
             int cbval1 = static_cast<int>(param1);
-            int callback_ret = metric_cb(this, cbval1);
+            int callback_ret = kfinddialog_metric_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         }
         return KFindDialog::metric(param1);
@@ -1063,15 +635,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void initPainter(QPainter* painter) const override {
-        if (kfinddialog_initpainter_isbase) {
-            kfinddialog_initpainter_isbase = false;
-            KFindDialog::initPainter(painter);
-            return;
-        }
-        auto initpainter_cb = kfinddialog_initpainter_callback;
-        if (initpainter_cb) {
+        if (kfinddialog_initpainter_callback) {
             QPainter* cbval1 = painter;
-            initpainter_cb(this, cbval1);
+            kfinddialog_initpainter_callback(this, cbval1);
             return;
         }
         KFindDialog::initPainter(painter);
@@ -1079,14 +645,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPaintDevice* redirected(QPoint* offset) const override {
-        if (kfinddialog_redirected_isbase) {
-            kfinddialog_redirected_isbase = false;
-            return KFindDialog::redirected(offset);
-        }
-        auto redirected_cb = kfinddialog_redirected_callback;
-        if (redirected_cb) {
+        if (kfinddialog_redirected_callback) {
             QPoint* cbval1 = offset;
-            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            QPaintDevice* callback_ret = kfinddialog_redirected_callback(this, cbval1);
             return callback_ret;
         }
         return KFindDialog::redirected(offset);
@@ -1094,13 +655,8 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QPainter* sharedPainter() const override {
-        if (kfinddialog_sharedpainter_isbase) {
-            kfinddialog_sharedpainter_isbase = false;
-            return KFindDialog::sharedPainter();
-        }
-        auto sharedpainter_cb = kfinddialog_sharedpainter_callback;
-        if (sharedpainter_cb) {
-            QPainter* callback_ret = sharedpainter_cb();
+        if (kfinddialog_sharedpainter_callback) {
+            QPainter* callback_ret = kfinddialog_sharedpainter_callback(this);
             return callback_ret;
         }
         return KFindDialog::sharedPainter();
@@ -1108,15 +664,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void inputMethodEvent(QInputMethodEvent* param1) override {
-        if (kfinddialog_inputmethodevent_isbase) {
-            kfinddialog_inputmethodevent_isbase = false;
-            KFindDialog::inputMethodEvent(param1);
-            return;
-        }
-        auto inputmethodevent_cb = kfinddialog_inputmethodevent_callback;
-        if (inputmethodevent_cb) {
+        if (kfinddialog_inputmethodevent_callback) {
             QInputMethodEvent* cbval1 = param1;
-            inputmethodevent_cb(this, cbval1);
+            kfinddialog_inputmethodevent_callback(this, cbval1);
             return;
         }
         KFindDialog::inputMethodEvent(param1);
@@ -1124,14 +674,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (kfinddialog_inputmethodquery_isbase) {
-            kfinddialog_inputmethodquery_isbase = false;
-            return KFindDialog::inputMethodQuery(param1);
-        }
-        auto inputmethodquery_cb = kfinddialog_inputmethodquery_callback;
-        if (inputmethodquery_cb) {
+        if (kfinddialog_inputmethodquery_callback) {
             int cbval1 = static_cast<int>(param1);
-            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            QVariant* callback_ret = kfinddialog_inputmethodquery_callback(this, cbval1);
             auto callback_ret_Value = std::move(*callback_ret);
             delete callback_ret;
             return callback_ret_Value;
@@ -1141,14 +686,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual bool focusNextPrevChild(bool next) override {
-        if (kfinddialog_focusnextprevchild_isbase) {
-            kfinddialog_focusnextprevchild_isbase = false;
-            return KFindDialog::focusNextPrevChild(next);
-        }
-        auto focusnextprevchild_cb = kfinddialog_focusnextprevchild_callback;
-        if (focusnextprevchild_cb) {
+        if (kfinddialog_focusnextprevchild_callback) {
             bool cbval1 = next;
-            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            bool callback_ret = kfinddialog_focusnextprevchild_callback(this, cbval1);
             return callback_ret;
         }
         return KFindDialog::focusNextPrevChild(next);
@@ -1156,15 +696,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
-        if (kfinddialog_timerevent_isbase) {
-            kfinddialog_timerevent_isbase = false;
-            KFindDialog::timerEvent(event);
-            return;
-        }
-        auto timerevent_cb = kfinddialog_timerevent_callback;
-        if (timerevent_cb) {
+        if (kfinddialog_timerevent_callback) {
             QTimerEvent* cbval1 = event;
-            timerevent_cb(this, cbval1);
+            kfinddialog_timerevent_callback(this, cbval1);
             return;
         }
         KFindDialog::timerEvent(event);
@@ -1172,15 +706,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void childEvent(QChildEvent* event) override {
-        if (kfinddialog_childevent_isbase) {
-            kfinddialog_childevent_isbase = false;
-            KFindDialog::childEvent(event);
-            return;
-        }
-        auto childevent_cb = kfinddialog_childevent_callback;
-        if (childevent_cb) {
+        if (kfinddialog_childevent_callback) {
             QChildEvent* cbval1 = event;
-            childevent_cb(this, cbval1);
+            kfinddialog_childevent_callback(this, cbval1);
             return;
         }
         KFindDialog::childEvent(event);
@@ -1188,15 +716,9 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void customEvent(QEvent* event) override {
-        if (kfinddialog_customevent_isbase) {
-            kfinddialog_customevent_isbase = false;
-            KFindDialog::customEvent(event);
-            return;
-        }
-        auto customevent_cb = kfinddialog_customevent_callback;
-        if (customevent_cb) {
+        if (kfinddialog_customevent_callback) {
             QEvent* cbval1 = event;
-            customevent_cb(this, cbval1);
+            kfinddialog_customevent_callback(this, cbval1);
             return;
         }
         KFindDialog::customEvent(event);
@@ -1204,17 +726,11 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void connectNotify(const QMetaMethod& signal) override {
-        if (kfinddialog_connectnotify_isbase) {
-            kfinddialog_connectnotify_isbase = false;
-            KFindDialog::connectNotify(signal);
-            return;
-        }
-        auto connectnotify_cb = kfinddialog_connectnotify_callback;
-        if (connectnotify_cb) {
+        if (kfinddialog_connectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            connectnotify_cb(this, cbval1);
+            kfinddialog_connectnotify_callback(this, cbval1);
             return;
         }
         KFindDialog::connectNotify(signal);
@@ -1222,288 +738,56 @@ class VirtualKFindDialog final : public KFindDialog {
 
     // Virtual method for C ABI access and custom callback
     virtual void disconnectNotify(const QMetaMethod& signal) override {
-        if (kfinddialog_disconnectnotify_isbase) {
-            kfinddialog_disconnectnotify_isbase = false;
-            KFindDialog::disconnectNotify(signal);
-            return;
-        }
-        auto disconnectnotify_cb = kfinddialog_disconnectnotify_callback;
-        if (disconnectnotify_cb) {
+        if (kfinddialog_disconnectnotify_callback) {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            disconnectnotify_cb(this, cbval1);
+            kfinddialog_disconnectnotify_callback(this, cbval1);
             return;
         }
         KFindDialog::disconnectNotify(signal);
     }
 
-    // Virtual method for C ABI access and custom callback
-    void adjustPosition(QWidget* param1) {
-        if (kfinddialog_adjustposition_isbase) {
-            kfinddialog_adjustposition_isbase = false;
-            KFindDialog::adjustPosition(param1);
-            return;
-        }
-        auto adjustposition_cb = kfinddialog_adjustposition_callback;
-        if (adjustposition_cb) {
-            QWidget* cbval1 = param1;
-            adjustposition_cb(this, cbval1);
-            return;
-        }
-        KFindDialog::adjustPosition(param1);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void updateMicroFocus() {
-        if (kfinddialog_updatemicrofocus_isbase) {
-            kfinddialog_updatemicrofocus_isbase = false;
-            KFindDialog::updateMicroFocus();
-            return;
-        }
-        auto updatemicrofocus_cb = kfinddialog_updatemicrofocus_callback;
-        if (updatemicrofocus_cb) {
-            updatemicrofocus_cb();
-            return;
-        }
-        KFindDialog::updateMicroFocus();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void create() {
-        if (kfinddialog_create_isbase) {
-            kfinddialog_create_isbase = false;
-            KFindDialog::create();
-            return;
-        }
-        auto create_cb = kfinddialog_create_callback;
-        if (create_cb) {
-            create_cb();
-            return;
-        }
-        KFindDialog::create();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    void destroy() {
-        if (kfinddialog_destroy_isbase) {
-            kfinddialog_destroy_isbase = false;
-            KFindDialog::destroy();
-            return;
-        }
-        auto destroy_cb = kfinddialog_destroy_callback;
-        if (destroy_cb) {
-            destroy_cb();
-            return;
-        }
-        KFindDialog::destroy();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusNextChild() {
-        if (kfinddialog_focusnextchild_isbase) {
-            kfinddialog_focusnextchild_isbase = false;
-            return KFindDialog::focusNextChild();
-        }
-        auto focusnextchild_cb = kfinddialog_focusnextchild_callback;
-        if (focusnextchild_cb) {
-            bool callback_ret = focusnextchild_cb();
-            return callback_ret;
-        }
-        return KFindDialog::focusNextChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool focusPreviousChild() {
-        if (kfinddialog_focuspreviouschild_isbase) {
-            kfinddialog_focuspreviouschild_isbase = false;
-            return KFindDialog::focusPreviousChild();
-        }
-        auto focuspreviouschild_cb = kfinddialog_focuspreviouschild_callback;
-        if (focuspreviouschild_cb) {
-            bool callback_ret = focuspreviouschild_cb();
-            return callback_ret;
-        }
-        return KFindDialog::focusPreviousChild();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    QObject* sender() const {
-        if (kfinddialog_sender_isbase) {
-            kfinddialog_sender_isbase = false;
-            return KFindDialog::sender();
-        }
-        auto sender_cb = kfinddialog_sender_callback;
-        if (sender_cb) {
-            QObject* callback_ret = sender_cb();
-            return callback_ret;
-        }
-        return KFindDialog::sender();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int senderSignalIndex() const {
-        if (kfinddialog_sendersignalindex_isbase) {
-            kfinddialog_sendersignalindex_isbase = false;
-            return KFindDialog::senderSignalIndex();
-        }
-        auto sendersignalindex_cb = kfinddialog_sendersignalindex_callback;
-        if (sendersignalindex_cb) {
-            int callback_ret = sendersignalindex_cb();
-            return static_cast<int>(callback_ret);
-        }
-        return KFindDialog::senderSignalIndex();
-    }
-
-    // Virtual method for C ABI access and custom callback
-    int receivers(const char* signal) const {
-        if (kfinddialog_receivers_isbase) {
-            kfinddialog_receivers_isbase = false;
-            return KFindDialog::receivers(signal);
-        }
-        auto receivers_cb = kfinddialog_receivers_callback;
-        if (receivers_cb) {
-            const char* cbval1 = (const char*)signal;
-            int callback_ret = receivers_cb(this, cbval1);
-            return static_cast<int>(callback_ret);
-        }
-        return KFindDialog::receivers(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    bool isSignalConnected(const QMetaMethod& signal) const {
-        if (kfinddialog_issignalconnected_isbase) {
-            kfinddialog_issignalconnected_isbase = false;
-            return KFindDialog::isSignalConnected(signal);
-        }
-        auto issignalconnected_cb = kfinddialog_issignalconnected_callback;
-        if (issignalconnected_cb) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-            bool callback_ret = issignalconnected_cb(this, cbval1);
-            return callback_ret;
-        }
-        return KFindDialog::isSignalConnected(signal);
-    }
-
-    // Virtual method for C ABI access and custom callback
-    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
-        if (kfinddialog_getdecodedmetricf_isbase) {
-            kfinddialog_getdecodedmetricf_isbase = false;
-            return KFindDialog::getDecodedMetricF(metricA, metricB);
-        }
-        auto getdecodedmetricf_cb = kfinddialog_getdecodedmetricf_callback;
-        if (getdecodedmetricf_cb) {
-            int cbval1 = static_cast<int>(metricA);
-            int cbval2 = static_cast<int>(metricB);
-            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
-            return static_cast<double>(callback_ret);
-        }
-        return KFindDialog::getDecodedMetricF(metricA, metricB);
-    }
-
     // Friend functions
-    friend void KFindDialog_ShowEvent(KFindDialog* self, QShowEvent* param1);
     friend void KFindDialog_SuperShowEvent(KFindDialog* self, QShowEvent* param1);
-    friend void KFindDialog_KeyPressEvent(KFindDialog* self, QKeyEvent* param1);
     friend void KFindDialog_SuperKeyPressEvent(KFindDialog* self, QKeyEvent* param1);
-    friend void KFindDialog_CloseEvent(KFindDialog* self, QCloseEvent* param1);
     friend void KFindDialog_SuperCloseEvent(KFindDialog* self, QCloseEvent* param1);
-    friend void KFindDialog_ResizeEvent(KFindDialog* self, QResizeEvent* param1);
     friend void KFindDialog_SuperResizeEvent(KFindDialog* self, QResizeEvent* param1);
-    friend void KFindDialog_ContextMenuEvent(KFindDialog* self, QContextMenuEvent* param1);
     friend void KFindDialog_SuperContextMenuEvent(KFindDialog* self, QContextMenuEvent* param1);
-    friend bool KFindDialog_EventFilter(KFindDialog* self, QObject* param1, QEvent* param2);
     friend bool KFindDialog_SuperEventFilter(KFindDialog* self, QObject* param1, QEvent* param2);
-    friend bool KFindDialog_Event(KFindDialog* self, QEvent* event);
     friend bool KFindDialog_SuperEvent(KFindDialog* self, QEvent* event);
-    friend void KFindDialog_MousePressEvent(KFindDialog* self, QMouseEvent* event);
     friend void KFindDialog_SuperMousePressEvent(KFindDialog* self, QMouseEvent* event);
-    friend void KFindDialog_MouseReleaseEvent(KFindDialog* self, QMouseEvent* event);
     friend void KFindDialog_SuperMouseReleaseEvent(KFindDialog* self, QMouseEvent* event);
-    friend void KFindDialog_MouseDoubleClickEvent(KFindDialog* self, QMouseEvent* event);
     friend void KFindDialog_SuperMouseDoubleClickEvent(KFindDialog* self, QMouseEvent* event);
-    friend void KFindDialog_MouseMoveEvent(KFindDialog* self, QMouseEvent* event);
     friend void KFindDialog_SuperMouseMoveEvent(KFindDialog* self, QMouseEvent* event);
-    friend void KFindDialog_WheelEvent(KFindDialog* self, QWheelEvent* event);
     friend void KFindDialog_SuperWheelEvent(KFindDialog* self, QWheelEvent* event);
-    friend void KFindDialog_KeyReleaseEvent(KFindDialog* self, QKeyEvent* event);
     friend void KFindDialog_SuperKeyReleaseEvent(KFindDialog* self, QKeyEvent* event);
-    friend void KFindDialog_FocusInEvent(KFindDialog* self, QFocusEvent* event);
     friend void KFindDialog_SuperFocusInEvent(KFindDialog* self, QFocusEvent* event);
-    friend void KFindDialog_FocusOutEvent(KFindDialog* self, QFocusEvent* event);
     friend void KFindDialog_SuperFocusOutEvent(KFindDialog* self, QFocusEvent* event);
-    friend void KFindDialog_EnterEvent(KFindDialog* self, QEnterEvent* event);
     friend void KFindDialog_SuperEnterEvent(KFindDialog* self, QEnterEvent* event);
-    friend void KFindDialog_LeaveEvent(KFindDialog* self, QEvent* event);
     friend void KFindDialog_SuperLeaveEvent(KFindDialog* self, QEvent* event);
-    friend void KFindDialog_PaintEvent(KFindDialog* self, QPaintEvent* event);
     friend void KFindDialog_SuperPaintEvent(KFindDialog* self, QPaintEvent* event);
-    friend void KFindDialog_MoveEvent(KFindDialog* self, QMoveEvent* event);
     friend void KFindDialog_SuperMoveEvent(KFindDialog* self, QMoveEvent* event);
-    friend void KFindDialog_TabletEvent(KFindDialog* self, QTabletEvent* event);
     friend void KFindDialog_SuperTabletEvent(KFindDialog* self, QTabletEvent* event);
-    friend void KFindDialog_ActionEvent(KFindDialog* self, QActionEvent* event);
     friend void KFindDialog_SuperActionEvent(KFindDialog* self, QActionEvent* event);
-    friend void KFindDialog_DragEnterEvent(KFindDialog* self, QDragEnterEvent* event);
     friend void KFindDialog_SuperDragEnterEvent(KFindDialog* self, QDragEnterEvent* event);
-    friend void KFindDialog_DragMoveEvent(KFindDialog* self, QDragMoveEvent* event);
     friend void KFindDialog_SuperDragMoveEvent(KFindDialog* self, QDragMoveEvent* event);
-    friend void KFindDialog_DragLeaveEvent(KFindDialog* self, QDragLeaveEvent* event);
     friend void KFindDialog_SuperDragLeaveEvent(KFindDialog* self, QDragLeaveEvent* event);
-    friend void KFindDialog_DropEvent(KFindDialog* self, QDropEvent* event);
     friend void KFindDialog_SuperDropEvent(KFindDialog* self, QDropEvent* event);
-    friend void KFindDialog_HideEvent(KFindDialog* self, QHideEvent* event);
     friend void KFindDialog_SuperHideEvent(KFindDialog* self, QHideEvent* event);
-    friend bool KFindDialog_NativeEvent(KFindDialog* self, const libqt_string eventType, void* message, intptr_t* result);
     friend bool KFindDialog_SuperNativeEvent(KFindDialog* self, const libqt_string eventType, void* message, intptr_t* result);
-    friend void KFindDialog_ChangeEvent(KFindDialog* self, QEvent* param1);
     friend void KFindDialog_SuperChangeEvent(KFindDialog* self, QEvent* param1);
-    friend int KFindDialog_Metric(const KFindDialog* self, int param1);
     friend int KFindDialog_SuperMetric(const KFindDialog* self, int param1);
-    friend void KFindDialog_InitPainter(const KFindDialog* self, QPainter* painter);
     friend void KFindDialog_SuperInitPainter(const KFindDialog* self, QPainter* painter);
-    friend QPaintDevice* KFindDialog_Redirected(const KFindDialog* self, QPoint* offset);
     friend QPaintDevice* KFindDialog_SuperRedirected(const KFindDialog* self, QPoint* offset);
-    friend QPainter* KFindDialog_SharedPainter(const KFindDialog* self);
     friend QPainter* KFindDialog_SuperSharedPainter(const KFindDialog* self);
-    friend void KFindDialog_InputMethodEvent(KFindDialog* self, QInputMethodEvent* param1);
     friend void KFindDialog_SuperInputMethodEvent(KFindDialog* self, QInputMethodEvent* param1);
-    friend bool KFindDialog_FocusNextPrevChild(KFindDialog* self, bool next);
     friend bool KFindDialog_SuperFocusNextPrevChild(KFindDialog* self, bool next);
-    friend void KFindDialog_TimerEvent(KFindDialog* self, QTimerEvent* event);
     friend void KFindDialog_SuperTimerEvent(KFindDialog* self, QTimerEvent* event);
-    friend void KFindDialog_ChildEvent(KFindDialog* self, QChildEvent* event);
     friend void KFindDialog_SuperChildEvent(KFindDialog* self, QChildEvent* event);
-    friend void KFindDialog_CustomEvent(KFindDialog* self, QEvent* event);
     friend void KFindDialog_SuperCustomEvent(KFindDialog* self, QEvent* event);
-    friend void KFindDialog_ConnectNotify(KFindDialog* self, const QMetaMethod* signal);
     friend void KFindDialog_SuperConnectNotify(KFindDialog* self, const QMetaMethod* signal);
-    friend void KFindDialog_DisconnectNotify(KFindDialog* self, const QMetaMethod* signal);
     friend void KFindDialog_SuperDisconnectNotify(KFindDialog* self, const QMetaMethod* signal);
-    friend void KFindDialog_AdjustPosition(KFindDialog* self, QWidget* param1);
-    friend void KFindDialog_SuperAdjustPosition(KFindDialog* self, QWidget* param1);
-    friend void KFindDialog_UpdateMicroFocus(KFindDialog* self);
-    friend void KFindDialog_SuperUpdateMicroFocus(KFindDialog* self);
-    friend void KFindDialog_Create(KFindDialog* self);
-    friend void KFindDialog_SuperCreate(KFindDialog* self);
-    friend void KFindDialog_Destroy(KFindDialog* self);
-    friend void KFindDialog_SuperDestroy(KFindDialog* self);
-    friend bool KFindDialog_FocusNextChild(KFindDialog* self);
-    friend bool KFindDialog_SuperFocusNextChild(KFindDialog* self);
-    friend bool KFindDialog_FocusPreviousChild(KFindDialog* self);
-    friend bool KFindDialog_SuperFocusPreviousChild(KFindDialog* self);
-    friend QObject* KFindDialog_Sender(const KFindDialog* self);
-    friend QObject* KFindDialog_SuperSender(const KFindDialog* self);
-    friend int KFindDialog_SenderSignalIndex(const KFindDialog* self);
-    friend int KFindDialog_SuperSenderSignalIndex(const KFindDialog* self);
-    friend int KFindDialog_Receivers(const KFindDialog* self, const char* signal);
-    friend int KFindDialog_SuperReceivers(const KFindDialog* self, const char* signal);
-    friend bool KFindDialog_IsSignalConnected(const KFindDialog* self, const QMetaMethod* signal);
-    friend bool KFindDialog_SuperIsSignalConnected(const KFindDialog* self, const QMetaMethod* signal);
-    friend double KFindDialog_GetDecodedMetricF(const KFindDialog* self, int metricA, int metricB);
-    friend double KFindDialog_SuperGetDecodedMetricF(const KFindDialog* self, int metricA, int metricB);
 };
 
 #endif

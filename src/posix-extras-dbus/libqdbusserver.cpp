@@ -124,364 +124,219 @@ libqt_string QDBusServer_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QDBusServer_SuperMetaObject(const QDBusServer* self) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_MetaObject_IsBase(true);
-        return (QMetaObject*)vqdbusserver->metaObject();
-    } else {
-        return (QMetaObject*)self->QDBusServer::metaObject();
-    }
+    return (QMetaObject*)self->QDBusServer::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QDBusServer_OnMetaObject(const QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_MetaObject_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_MetaObject_Callback>(slot));
+void QDBusServer_OnMetaObject(QDBusServer* self, intptr_t slot) {
+    if (auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self)))
+        vqdbusserver->qdbusserver_metaobject_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QDBusServer_SuperMetacast(QDBusServer* self, const char* param1) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_Metacast_IsBase(true);
-        return vqdbusserver->qt_metacast(param1);
-    } else {
-        return self->QDBusServer::qt_metacast(param1);
-    }
+    return self->QDBusServer::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnMetacast(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_Metacast_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Metacast_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_metacast_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QDBusServer_SuperMetacall(QDBusServer* self, int param1, int param2, void** param3) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_Metacall_IsBase(true);
-        return vqdbusserver->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QDBusServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QDBusServer::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnMetacall(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_Metacall_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Metacall_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_metacall_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDBusServer_Event(QDBusServer* self, QEvent* event) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return vqdbusserver->event(event);
-    } else {
-        return self->QDBusServer::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QDBusServer_SuperEvent(QDBusServer* self, QEvent* event) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_Event_IsBase(true);
-        return vqdbusserver->event(event);
-    } else {
-        return self->QDBusServer::event(event);
-    }
+    return self->QDBusServer::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnEvent(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_Event_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Event_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_event_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QDBusServer_EventFilter(QDBusServer* self, QObject* watched, QEvent* event) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return vqdbusserver->eventFilter(watched, event);
-    } else {
-        return self->QDBusServer::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QDBusServer_SuperEventFilter(QDBusServer* self, QObject* watched, QEvent* event) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_EventFilter_IsBase(true);
-        return vqdbusserver->eventFilter(watched, event);
-    } else {
-        return self->QDBusServer::eventFilter(watched, event);
-    }
+    return self->QDBusServer::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnEventFilter(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_EventFilter_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_EventFilter_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_eventfilter_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusServer_TimerEvent(QDBusServer* self, QTimerEvent* event) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver) {
         vqdbusserver->timerEvent(event);
     } else {
-        ((VirtualQDBusServer*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QDBusServer::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusServer_SuperTimerEvent(QDBusServer* self, QTimerEvent* event) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_TimerEvent_IsBase(true);
-        vqdbusserver->timerEvent(event);
-    } else {
-        ((VirtualQDBusServer*)self)->timerEvent(event);
-    }
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self)) {
+        vqdbusserver->QDBusServer::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDBusServer::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnTimerEvent(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_TimerEvent_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_TimerEvent_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_timerevent_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusServer_ChildEvent(QDBusServer* self, QChildEvent* event) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver) {
         vqdbusserver->childEvent(event);
     } else {
-        ((VirtualQDBusServer*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QDBusServer::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusServer_SuperChildEvent(QDBusServer* self, QChildEvent* event) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_ChildEvent_IsBase(true);
-        vqdbusserver->childEvent(event);
-    } else {
-        ((VirtualQDBusServer*)self)->childEvent(event);
-    }
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self)) {
+        vqdbusserver->QDBusServer::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDBusServer::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnChildEvent(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_ChildEvent_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_ChildEvent_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_childevent_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusServer_CustomEvent(QDBusServer* self, QEvent* event) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver) {
         vqdbusserver->customEvent(event);
     } else {
-        ((VirtualQDBusServer*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QDBusServer::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusServer_SuperCustomEvent(QDBusServer* self, QEvent* event) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_CustomEvent_IsBase(true);
-        vqdbusserver->customEvent(event);
-    } else {
-        ((VirtualQDBusServer*)self)->customEvent(event);
-    }
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self)) {
+        vqdbusserver->QDBusServer::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QDBusServer::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnCustomEvent(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_CustomEvent_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_CustomEvent_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_customevent_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusServer_ConnectNotify(QDBusServer* self, const QMetaMethod* signal) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver) {
         vqdbusserver->connectNotify(*signal);
     } else {
-        ((VirtualQDBusServer*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QDBusServer::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusServer_SuperConnectNotify(QDBusServer* self, const QMetaMethod* signal) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_ConnectNotify_IsBase(true);
-        vqdbusserver->connectNotify(*signal);
-    } else {
-        ((VirtualQDBusServer*)self)->connectNotify(*signal);
-    }
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self)) {
+        vqdbusserver->QDBusServer::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDBusServer::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnConnectNotify(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_ConnectNotify_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_ConnectNotify_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_connectnotify_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QDBusServer_DisconnectNotify(QDBusServer* self, const QMetaMethod* signal) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver) {
         vqdbusserver->disconnectNotify(*signal);
     } else {
-        ((VirtualQDBusServer*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QDBusServer::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QDBusServer_SuperDisconnectNotify(QDBusServer* self, const QMetaMethod* signal) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_DisconnectNotify_IsBase(true);
-        vqdbusserver->disconnectNotify(*signal);
-    } else {
-        ((VirtualQDBusServer*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self)) {
+        vqdbusserver->QDBusServer::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QDBusServer::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnDisconnectNotify(QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_DisconnectNotify_Callback>(slot));
+    if (auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self))
+        vqdbusserver->qdbusserver_disconnectnotify_callback = reinterpret_cast<VirtualQDBusServer::QDBusServer_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QDBusServer_Sender(const QDBusServer* self) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return vqdbusserver->sender();
-    } else {
-        return ((VirtualQDBusServer*)self)->sender();
-    }
+    if (auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self))) {
+        return vqdbusserver->VirtualQDBusServer::sender();
+    } else
+        qFatal("Error: Protected method QDBusServer::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QDBusServer_SuperSender(const QDBusServer* self) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_Sender_IsBase(true);
-        return vqdbusserver->sender();
-    } else {
-        return ((VirtualQDBusServer*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDBusServer_OnSender(const QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_Sender_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDBusServer_SenderSignalIndex(const QDBusServer* self) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return vqdbusserver->senderSignalIndex();
-    } else {
-        return ((VirtualQDBusServer*)self)->senderSignalIndex();
-    }
+    if (auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self))) {
+        return vqdbusserver->VirtualQDBusServer::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QDBusServer::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDBusServer_SuperSenderSignalIndex(const QDBusServer* self) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_SenderSignalIndex_IsBase(true);
-        return vqdbusserver->senderSignalIndex();
-    } else {
-        return ((VirtualQDBusServer*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDBusServer_OnSenderSignalIndex(const QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QDBusServer_Receivers(const QDBusServer* self, const char* signal) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return vqdbusserver->receivers(signal);
-    } else {
-        return ((VirtualQDBusServer*)self)->receivers(signal);
-    }
+    if (auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self))) {
+        return vqdbusserver->VirtualQDBusServer::receivers(signal);
+    } else
+        qFatal("Error: Protected method QDBusServer::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QDBusServer_SuperReceivers(const QDBusServer* self, const char* signal) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_Receivers_IsBase(true);
-        return vqdbusserver->receivers(signal);
-    } else {
-        return ((VirtualQDBusServer*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDBusServer_OnReceivers(const QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_Receivers_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QDBusServer_IsSignalConnected(const QDBusServer* self, const QMetaMethod* signal) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return vqdbusserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDBusServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QDBusServer_SuperIsSignalConnected(const QDBusServer* self, const QMetaMethod* signal) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        vqdbusserver->setQDBusServer_IsSignalConnected_IsBase(true);
-        return vqdbusserver->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQDBusServer*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QDBusServer_OnIsSignalConnected(const QDBusServer* self, intptr_t slot) {
-    auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
-        vqdbusserver->setQDBusServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_IsSignalConnected_Callback>(slot));
+    if (auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self))) {
+        return vqdbusserver->VirtualQDBusServer::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QDBusServer::isSignalConnected called without a directly constructed type");
 }
 
 void QDBusServer_Delete(QDBusServer* self) {

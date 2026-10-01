@@ -42,15 +42,14 @@ int KTextEditor__Plugin_ConfigPages(const KTextEditor__Plugin* self);
 KTextEditor__ConfigPage* KTextEditor__Plugin_ConfigPage(KTextEditor__Plugin* self, int number, QWidget* parent);
 libqt_string KTextEditor__Plugin_Tr2(const char* s, const char* c);
 libqt_string KTextEditor__Plugin_Tr3(const char* s, const char* c, int n);
-void KTextEditor__Plugin_OnMetaObject(const KTextEditor__Plugin* self, intptr_t slot);
+void KTextEditor__Plugin_OnMetaObject(KTextEditor__Plugin* self, intptr_t slot);
 QMetaObject* KTextEditor__Plugin_SuperMetaObject(const KTextEditor__Plugin* self);
 void KTextEditor__Plugin_OnMetacast(KTextEditor__Plugin* self, intptr_t slot);
 void* KTextEditor__Plugin_SuperMetacast(KTextEditor__Plugin* self, const char* param1);
 void KTextEditor__Plugin_OnMetacall(KTextEditor__Plugin* self, intptr_t slot);
 int KTextEditor__Plugin_SuperMetacall(KTextEditor__Plugin* self, int param1, int param2, void** param3);
 void KTextEditor__Plugin_OnCreateView(KTextEditor__Plugin* self, intptr_t slot);
-QObject* KTextEditor__Plugin_SuperCreateView(KTextEditor__Plugin* self, KTextEditor__MainWindow* mainWindow);
-void KTextEditor__Plugin_OnConfigPages(const KTextEditor__Plugin* self, intptr_t slot);
+void KTextEditor__Plugin_OnConfigPages(KTextEditor__Plugin* self, intptr_t slot);
 int KTextEditor__Plugin_SuperConfigPages(const KTextEditor__Plugin* self);
 void KTextEditor__Plugin_OnConfigPage(KTextEditor__Plugin* self, intptr_t slot);
 KTextEditor__ConfigPage* KTextEditor__Plugin_SuperConfigPage(KTextEditor__Plugin* self, int number, QWidget* parent);
@@ -76,17 +75,9 @@ void KTextEditor__Plugin_DisconnectNotify(KTextEditor__Plugin* self, const QMeta
 void KTextEditor__Plugin_OnDisconnectNotify(KTextEditor__Plugin* self, intptr_t slot);
 void KTextEditor__Plugin_SuperDisconnectNotify(KTextEditor__Plugin* self, const QMetaMethod* signal);
 QObject* KTextEditor__Plugin_Sender(const KTextEditor__Plugin* self);
-void KTextEditor__Plugin_OnSender(const KTextEditor__Plugin* self, intptr_t slot);
-QObject* KTextEditor__Plugin_SuperSender(const KTextEditor__Plugin* self);
 int KTextEditor__Plugin_SenderSignalIndex(const KTextEditor__Plugin* self);
-void KTextEditor__Plugin_OnSenderSignalIndex(const KTextEditor__Plugin* self, intptr_t slot);
-int KTextEditor__Plugin_SuperSenderSignalIndex(const KTextEditor__Plugin* self);
 int KTextEditor__Plugin_Receivers(const KTextEditor__Plugin* self, const char* signal);
-void KTextEditor__Plugin_OnReceivers(const KTextEditor__Plugin* self, intptr_t slot);
-int KTextEditor__Plugin_SuperReceivers(const KTextEditor__Plugin* self, const char* signal);
 bool KTextEditor__Plugin_IsSignalConnected(const KTextEditor__Plugin* self, const QMetaMethod* signal);
-void KTextEditor__Plugin_OnIsSignalConnected(const KTextEditor__Plugin* self, intptr_t slot);
-bool KTextEditor__Plugin_SuperIsSignalConnected(const KTextEditor__Plugin* self, const QMetaMethod* signal);
 void KTextEditor__Plugin_Delete(KTextEditor__Plugin* self);
 
 #ifdef __cplusplus

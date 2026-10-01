@@ -139,42 +139,42 @@ void KColorButton_Connect_Changed(KColorButton* self, intptr_t slot) {
 
 void KColorButton_PaintEvent(KColorButton* self, QPaintEvent* pe) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->paintEvent(pe);
     }
 }
 
 void KColorButton_DragEnterEvent(KColorButton* self, QDragEnterEvent* param1) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->dragEnterEvent(param1);
     }
 }
 
 void KColorButton_DropEvent(KColorButton* self, QDropEvent* param1) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->dropEvent(param1);
     }
 }
 
 void KColorButton_MousePressEvent(KColorButton* self, QMouseEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->mousePressEvent(e);
     }
 }
 
 void KColorButton_MouseMoveEvent(KColorButton* self, QMouseEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->mouseMoveEvent(e);
     }
 }
 
 void KColorButton_KeyPressEvent(KColorButton* self, QKeyEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->keyPressEvent(e);
     }
 }
@@ -205,1686 +205,1199 @@ libqt_string KColorButton_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* KColorButton_SuperMetaObject(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_MetaObject_IsBase(true);
-        return (QMetaObject*)vkcolorbutton->metaObject();
-    } else {
-        return (QMetaObject*)self->KColorButton::metaObject();
-    }
+    return (QMetaObject*)self->KColorButton::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnMetaObject(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_MetaObject_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MetaObject_Callback>(slot));
+void KColorButton_OnMetaObject(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_metaobject_callback = reinterpret_cast<VirtualKColorButton::KColorButton_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KColorButton_SuperMetacast(KColorButton* self, const char* param1) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Metacast_IsBase(true);
-        return vkcolorbutton->qt_metacast(param1);
-    } else {
-        return self->KColorButton::qt_metacast(param1);
-    }
+    return self->KColorButton::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMetacast(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Metacast_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Metacast_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_metacast_callback = reinterpret_cast<VirtualKColorButton::KColorButton_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KColorButton_SuperMetacall(KColorButton* self, int param1, int param2, void** param3) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Metacall_IsBase(true);
-        return vkcolorbutton->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KColorButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KColorButton::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMetacall(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Metacall_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Metacall_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_metacall_callback = reinterpret_cast<VirtualKColorButton::KColorButton_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KColorButton_SuperSizeHint(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_SizeHint_IsBase(true);
-        return new QSize(vkcolorbutton->sizeHint());
-    } else {
-        return new QSize(((VirtualKColorButton*)self)->sizeHint());
-    }
+    return new QSize(self->KColorButton::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnSizeHint(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_SizeHint_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_SizeHint_Callback>(slot));
+void KColorButton_OnSizeHint(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_sizehint_callback = reinterpret_cast<VirtualKColorButton::KColorButton_SizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 QSize* KColorButton_SuperMinimumSizeHint(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_MinimumSizeHint_IsBase(true);
-        return new QSize(vkcolorbutton->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKColorButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KColorButton::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnMinimumSizeHint(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MinimumSizeHint_Callback>(slot));
+void KColorButton_OnMinimumSizeHint(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_minimumsizehint_callback = reinterpret_cast<VirtualKColorButton::KColorButton_MinimumSizeHint_Callback>(slot);
 }
 
 // Base class handler implementation
 void KColorButton_SuperPaintEvent(KColorButton* self, QPaintEvent* pe) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_PaintEvent_IsBase(true);
-        vkcolorbutton->paintEvent(pe);
-    } else {
-        ((VirtualKColorButton*)self)->paintEvent(pe);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::paintEvent(pe);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnPaintEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_PaintEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_PaintEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_paintevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_PaintEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KColorButton_SuperDragEnterEvent(KColorButton* self, QDragEnterEvent* param1) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_DragEnterEvent_IsBase(true);
-        vkcolorbutton->dragEnterEvent(param1);
-    } else {
-        ((VirtualKColorButton*)self)->dragEnterEvent(param1);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::dragEnterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDragEnterEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DragEnterEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_dragenterevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_DragEnterEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KColorButton_SuperDropEvent(KColorButton* self, QDropEvent* param1) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_DropEvent_IsBase(true);
-        vkcolorbutton->dropEvent(param1);
-    } else {
-        ((VirtualKColorButton*)self)->dropEvent(param1);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDropEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_DropEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DropEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_dropevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_DropEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KColorButton_SuperMousePressEvent(KColorButton* self, QMouseEvent* e) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_MousePressEvent_IsBase(true);
-        vkcolorbutton->mousePressEvent(e);
-    } else {
-        ((VirtualKColorButton*)self)->mousePressEvent(e);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::mousePressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMousePressEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_MousePressEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MousePressEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_mousepressevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KColorButton_SuperMouseMoveEvent(KColorButton* self, QMouseEvent* e) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_MouseMoveEvent_IsBase(true);
-        vkcolorbutton->mouseMoveEvent(e);
-    } else {
-        ((VirtualKColorButton*)self)->mouseMoveEvent(e);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::mouseMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMouseMoveEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MouseMoveEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_mousemoveevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_MouseMoveEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KColorButton_SuperKeyPressEvent(KColorButton* self, QKeyEvent* e) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_KeyPressEvent_IsBase(true);
-        vkcolorbutton->keyPressEvent(e);
-    } else {
-        ((VirtualKColorButton*)self)->keyPressEvent(e);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::keyPressEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnKeyPressEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_KeyPressEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_keypressevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KColorButton_Event(KColorButton* self, QEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         return vkcolorbutton->event(e);
     } else {
-        return ((VirtualKColorButton*)self)->event(e);
+        qFatal("Error: Protected virtual method KColorButton::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KColorButton_SuperEvent(KColorButton* self, QEvent* e) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Event_IsBase(true);
-        return vkcolorbutton->event(e);
-    } else {
-        return ((VirtualKColorButton*)self)->event(e);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        return vkcolorbutton->KColorButton::event(e);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Event_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Event_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_event_callback = reinterpret_cast<VirtualKColorButton::KColorButton_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_FocusInEvent(KColorButton* self, QFocusEvent* param1) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->focusInEvent(param1);
     } else {
-        ((VirtualKColorButton*)self)->focusInEvent(param1);
+        qFatal("Error: Protected virtual method KColorButton::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperFocusInEvent(KColorButton* self, QFocusEvent* param1) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_FocusInEvent_IsBase(true);
-        vkcolorbutton->focusInEvent(param1);
-    } else {
-        ((VirtualKColorButton*)self)->focusInEvent(param1);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnFocusInEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_FocusInEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusInEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_focusinevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_FocusOutEvent(KColorButton* self, QFocusEvent* param1) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->focusOutEvent(param1);
     } else {
-        ((VirtualKColorButton*)self)->focusOutEvent(param1);
+        qFatal("Error: Protected virtual method KColorButton::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperFocusOutEvent(KColorButton* self, QFocusEvent* param1) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_FocusOutEvent_IsBase(true);
-        vkcolorbutton->focusOutEvent(param1);
-    } else {
-        ((VirtualKColorButton*)self)->focusOutEvent(param1);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnFocusOutEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusOutEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_focusoutevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_InitStyleOption(const KColorButton* self, QStyleOptionButton* option) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->initStyleOption(option);
     } else {
-        ((VirtualKColorButton*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KColorButton::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperInitStyleOption(const KColorButton* self, QStyleOptionButton* option) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_InitStyleOption_IsBase(true);
-        vkcolorbutton->initStyleOption(option);
-    } else {
-        ((VirtualKColorButton*)self)->initStyleOption(option);
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        vkcolorbutton->KColorButton::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnInitStyleOption(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_InitStyleOption_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_InitStyleOption_Callback>(slot));
+void KColorButton_OnInitStyleOption(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_initstyleoption_callback = reinterpret_cast<VirtualKColorButton::KColorButton_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KColorButton_HitButton(const KColorButton* self, const QPoint* pos) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         return vkcolorbutton->hitButton(*pos);
     } else {
-        return ((VirtualKColorButton*)self)->hitButton(*pos);
+        qFatal("Error: Protected virtual method KColorButton::hitButton called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KColorButton_SuperHitButton(const KColorButton* self, const QPoint* pos) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_HitButton_IsBase(true);
-        return vkcolorbutton->hitButton(*pos);
-    } else {
-        return ((VirtualKColorButton*)self)->hitButton(*pos);
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->KColorButton::hitButton(*pos);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::hitButton called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnHitButton(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_HitButton_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_HitButton_Callback>(slot));
+void KColorButton_OnHitButton(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_hitbutton_callback = reinterpret_cast<VirtualKColorButton::KColorButton_HitButton_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_CheckStateSet(KColorButton* self) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->checkStateSet();
     } else {
-        ((VirtualKColorButton*)self)->checkStateSet();
+        qFatal("Error: Protected virtual method KColorButton::checkStateSet called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperCheckStateSet(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_CheckStateSet_IsBase(true);
-        vkcolorbutton->checkStateSet();
-    } else {
-        ((VirtualKColorButton*)self)->checkStateSet();
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::checkStateSet();
+    } else
+        qFatal("Error: Protected virtual method KColorButton::checkStateSet called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnCheckStateSet(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_CheckStateSet_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_CheckStateSet_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_checkstateset_callback = reinterpret_cast<VirtualKColorButton::KColorButton_CheckStateSet_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_NextCheckState(KColorButton* self) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->nextCheckState();
     } else {
-        ((VirtualKColorButton*)self)->nextCheckState();
+        qFatal("Error: Protected virtual method KColorButton::nextCheckState called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperNextCheckState(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_NextCheckState_IsBase(true);
-        vkcolorbutton->nextCheckState();
-    } else {
-        ((VirtualKColorButton*)self)->nextCheckState();
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::nextCheckState();
+    } else
+        qFatal("Error: Protected virtual method KColorButton::nextCheckState called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnNextCheckState(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_NextCheckState_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_NextCheckState_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_nextcheckstate_callback = reinterpret_cast<VirtualKColorButton::KColorButton_NextCheckState_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_KeyReleaseEvent(KColorButton* self, QKeyEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->keyReleaseEvent(e);
     } else {
-        ((VirtualKColorButton*)self)->keyReleaseEvent(e);
+        qFatal("Error: Protected virtual method KColorButton::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperKeyReleaseEvent(KColorButton* self, QKeyEvent* e) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_KeyReleaseEvent_IsBase(true);
-        vkcolorbutton->keyReleaseEvent(e);
-    } else {
-        ((VirtualKColorButton*)self)->keyReleaseEvent(e);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::keyReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnKeyReleaseEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_keyreleaseevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_MouseReleaseEvent(KColorButton* self, QMouseEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->mouseReleaseEvent(e);
     } else {
-        ((VirtualKColorButton*)self)->mouseReleaseEvent(e);
+        qFatal("Error: Protected virtual method KColorButton::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperMouseReleaseEvent(KColorButton* self, QMouseEvent* e) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_MouseReleaseEvent_IsBase(true);
-        vkcolorbutton->mouseReleaseEvent(e);
-    } else {
-        ((VirtualKColorButton*)self)->mouseReleaseEvent(e);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::mouseReleaseEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMouseReleaseEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_mousereleaseevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_ChangeEvent(KColorButton* self, QEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->changeEvent(e);
     } else {
-        ((VirtualKColorButton*)self)->changeEvent(e);
+        qFatal("Error: Protected virtual method KColorButton::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperChangeEvent(KColorButton* self, QEvent* e) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_ChangeEvent_IsBase(true);
-        vkcolorbutton->changeEvent(e);
-    } else {
-        ((VirtualKColorButton*)self)->changeEvent(e);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::changeEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnChangeEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_ChangeEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ChangeEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_changeevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_TimerEvent(KColorButton* self, QTimerEvent* e) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->timerEvent(e);
     } else {
-        ((VirtualKColorButton*)self)->timerEvent(e);
+        qFatal("Error: Protected virtual method KColorButton::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperTimerEvent(KColorButton* self, QTimerEvent* e) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_TimerEvent_IsBase(true);
-        vkcolorbutton->timerEvent(e);
-    } else {
-        ((VirtualKColorButton*)self)->timerEvent(e);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::timerEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnTimerEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_TimerEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_TimerEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_timerevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KColorButton_DevType(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->devType();
-    } else {
-        return self->KColorButton::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KColorButton_SuperDevType(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_DevType_IsBase(true);
-        return vkcolorbutton->devType();
-    } else {
-        return self->KColorButton::devType();
-    }
+    return self->KColorButton::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnDevType(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_DevType_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DevType_Callback>(slot));
+void KColorButton_OnDevType(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_devtype_callback = reinterpret_cast<VirtualKColorButton::KColorButton_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_SetVisible(KColorButton* self, bool visible) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setVisible(visible);
-    } else {
-        self->KColorButton::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KColorButton_SuperSetVisible(KColorButton* self, bool visible) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_SetVisible_IsBase(true);
-        vkcolorbutton->setVisible(visible);
-    } else {
-        self->KColorButton::setVisible(visible);
-    }
+    self->KColorButton::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnSetVisible(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_SetVisible_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_SetVisible_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_setvisible_callback = reinterpret_cast<VirtualKColorButton::KColorButton_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KColorButton_HeightForWidth(const KColorButton* self, int param1) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KColorButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KColorButton_SuperHeightForWidth(const KColorButton* self, int param1) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_HeightForWidth_IsBase(true);
-        return vkcolorbutton->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KColorButton::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KColorButton::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnHeightForWidth(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_HeightForWidth_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_HeightForWidth_Callback>(slot));
+void KColorButton_OnHeightForWidth(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_heightforwidth_callback = reinterpret_cast<VirtualKColorButton::KColorButton_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KColorButton_HasHeightForWidth(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->hasHeightForWidth();
-    } else {
-        return self->KColorButton::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KColorButton_SuperHasHeightForWidth(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_HasHeightForWidth_IsBase(true);
-        return vkcolorbutton->hasHeightForWidth();
-    } else {
-        return self->KColorButton::hasHeightForWidth();
-    }
+    return self->KColorButton::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnHasHeightForWidth(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_HasHeightForWidth_Callback>(slot));
+void KColorButton_OnHasHeightForWidth(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_hasheightforwidth_callback = reinterpret_cast<VirtualKColorButton::KColorButton_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KColorButton_PaintEngine(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->paintEngine();
-    } else {
-        return self->KColorButton::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KColorButton_SuperPaintEngine(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_PaintEngine_IsBase(true);
-        return vkcolorbutton->paintEngine();
-    } else {
-        return self->KColorButton::paintEngine();
-    }
+    return self->KColorButton::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnPaintEngine(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_PaintEngine_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_PaintEngine_Callback>(slot));
+void KColorButton_OnPaintEngine(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_paintengine_callback = reinterpret_cast<VirtualKColorButton::KColorButton_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_MouseDoubleClickEvent(KColorButton* self, QMouseEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperMouseDoubleClickEvent(KColorButton* self, QMouseEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_MouseDoubleClickEvent_IsBase(true);
-        vkcolorbutton->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMouseDoubleClickEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_mousedoubleclickevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_WheelEvent(KColorButton* self, QWheelEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->wheelEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperWheelEvent(KColorButton* self, QWheelEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_WheelEvent_IsBase(true);
-        vkcolorbutton->wheelEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->wheelEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnWheelEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_WheelEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_WheelEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_wheelevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_EnterEvent(KColorButton* self, QEnterEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->enterEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperEnterEvent(KColorButton* self, QEnterEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_EnterEvent_IsBase(true);
-        vkcolorbutton->enterEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->enterEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnEnterEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_EnterEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_EnterEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_enterevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_LeaveEvent(KColorButton* self, QEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->leaveEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperLeaveEvent(KColorButton* self, QEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_LeaveEvent_IsBase(true);
-        vkcolorbutton->leaveEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->leaveEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnLeaveEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_LeaveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_LeaveEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_leaveevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_MoveEvent(KColorButton* self, QMoveEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->moveEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperMoveEvent(KColorButton* self, QMoveEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_MoveEvent_IsBase(true);
-        vkcolorbutton->moveEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->moveEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMoveEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_MoveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MoveEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_moveevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_ResizeEvent(KColorButton* self, QResizeEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->resizeEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->resizeEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperResizeEvent(KColorButton* self, QResizeEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_ResizeEvent_IsBase(true);
-        vkcolorbutton->resizeEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->resizeEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::resizeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnResizeEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_ResizeEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ResizeEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_resizeevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_CloseEvent(KColorButton* self, QCloseEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->closeEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperCloseEvent(KColorButton* self, QCloseEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_CloseEvent_IsBase(true);
-        vkcolorbutton->closeEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->closeEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnCloseEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_CloseEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_CloseEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_closeevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_ContextMenuEvent(KColorButton* self, QContextMenuEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->contextMenuEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->contextMenuEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperContextMenuEvent(KColorButton* self, QContextMenuEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_ContextMenuEvent_IsBase(true);
-        vkcolorbutton->contextMenuEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->contextMenuEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::contextMenuEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnContextMenuEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ContextMenuEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_contextmenuevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_TabletEvent(KColorButton* self, QTabletEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->tabletEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperTabletEvent(KColorButton* self, QTabletEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_TabletEvent_IsBase(true);
-        vkcolorbutton->tabletEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->tabletEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnTabletEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_TabletEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_TabletEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_tabletevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_ActionEvent(KColorButton* self, QActionEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->actionEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperActionEvent(KColorButton* self, QActionEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_ActionEvent_IsBase(true);
-        vkcolorbutton->actionEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->actionEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnActionEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_ActionEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ActionEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_actionevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_DragMoveEvent(KColorButton* self, QDragMoveEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->dragMoveEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperDragMoveEvent(KColorButton* self, QDragMoveEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_DragMoveEvent_IsBase(true);
-        vkcolorbutton->dragMoveEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDragMoveEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DragMoveEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_dragmoveevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_DragLeaveEvent(KColorButton* self, QDragLeaveEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->dragLeaveEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperDragLeaveEvent(KColorButton* self, QDragLeaveEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_DragLeaveEvent_IsBase(true);
-        vkcolorbutton->dragLeaveEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDragLeaveEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DragLeaveEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_dragleaveevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_ShowEvent(KColorButton* self, QShowEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->showEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperShowEvent(KColorButton* self, QShowEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_ShowEvent_IsBase(true);
-        vkcolorbutton->showEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->showEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnShowEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_ShowEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ShowEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_showevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_HideEvent(KColorButton* self, QHideEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->hideEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperHideEvent(KColorButton* self, QHideEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_HideEvent_IsBase(true);
-        vkcolorbutton->hideEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->hideEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnHideEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_HideEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_HideEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_hideevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KColorButton_NativeEvent(KColorButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
+    if (vkcolorbutton) {
         return vkcolorbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKColorButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KColorButton::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KColorButton_SuperNativeEvent(KColorButton* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_NativeEvent_IsBase(true);
-        return vkcolorbutton->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKColorButton*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        return vkcolorbutton->KColorButton::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KColorButton::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnNativeEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_NativeEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_NativeEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_nativeevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KColorButton_Metric(const KColorButton* self, int param1) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         return vkcolorbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKColorButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KColorButton::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KColorButton_SuperMetric(const KColorButton* self, int param1) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Metric_IsBase(true);
-        return vkcolorbutton->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKColorButton*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->KColorButton::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KColorButton::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnMetric(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Metric_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Metric_Callback>(slot));
+void KColorButton_OnMetric(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_metric_callback = reinterpret_cast<VirtualKColorButton::KColorButton_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_InitPainter(const KColorButton* self, QPainter* painter) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->initPainter(painter);
     } else {
-        ((VirtualKColorButton*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KColorButton::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperInitPainter(const KColorButton* self, QPainter* painter) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_InitPainter_IsBase(true);
-        vkcolorbutton->initPainter(painter);
-    } else {
-        ((VirtualKColorButton*)self)->initPainter(painter);
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        vkcolorbutton->KColorButton::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnInitPainter(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_InitPainter_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_InitPainter_Callback>(slot));
+void KColorButton_OnInitPainter(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_initpainter_callback = reinterpret_cast<VirtualKColorButton::KColorButton_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KColorButton_Redirected(const KColorButton* self, QPoint* offset) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         return vkcolorbutton->redirected(offset);
     } else {
-        return ((VirtualKColorButton*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KColorButton::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KColorButton_SuperRedirected(const KColorButton* self, QPoint* offset) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Redirected_IsBase(true);
-        return vkcolorbutton->redirected(offset);
-    } else {
-        return ((VirtualKColorButton*)self)->redirected(offset);
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->KColorButton::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnRedirected(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Redirected_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Redirected_Callback>(slot));
+void KColorButton_OnRedirected(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_redirected_callback = reinterpret_cast<VirtualKColorButton::KColorButton_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KColorButton_SharedPainter(const KColorButton* self) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         return vkcolorbutton->sharedPainter();
     } else {
-        return ((VirtualKColorButton*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KColorButton::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KColorButton_SuperSharedPainter(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_SharedPainter_IsBase(true);
-        return vkcolorbutton->sharedPainter();
-    } else {
-        return ((VirtualKColorButton*)self)->sharedPainter();
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->KColorButton::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KColorButton::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnSharedPainter(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_SharedPainter_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_SharedPainter_Callback>(slot));
+void KColorButton_OnSharedPainter(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_sharedpainter_callback = reinterpret_cast<VirtualKColorButton::KColorButton_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_InputMethodEvent(KColorButton* self, QInputMethodEvent* param1) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->inputMethodEvent(param1);
     } else {
-        ((VirtualKColorButton*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KColorButton::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperInputMethodEvent(KColorButton* self, QInputMethodEvent* param1) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_InputMethodEvent_IsBase(true);
-        vkcolorbutton->inputMethodEvent(param1);
-    } else {
-        ((VirtualKColorButton*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnInputMethodEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_InputMethodEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_inputmethodevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KColorButton_InputMethodQuery(const KColorButton* self, int param1) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return new QVariant(vkcolorbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKColorButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KColorButton_SuperInputMethodQuery(const KColorButton* self, int param1) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_InputMethodQuery_IsBase(true);
-        return new QVariant(vkcolorbutton->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKColorButton*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KColorButton::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KColorButton_OnInputMethodQuery(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_InputMethodQuery_Callback>(slot));
+void KColorButton_OnInputMethodQuery(KColorButton* self, intptr_t slot) {
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self)))
+        vkcolorbutton->kcolorbutton_inputmethodquery_callback = reinterpret_cast<VirtualKColorButton::KColorButton_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KColorButton_FocusNextPrevChild(KColorButton* self, bool next) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         return vkcolorbutton->focusNextPrevChild(next);
     } else {
-        return ((VirtualKColorButton*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KColorButton::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KColorButton_SuperFocusNextPrevChild(KColorButton* self, bool next) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_FocusNextPrevChild_IsBase(true);
-        return vkcolorbutton->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKColorButton*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        return vkcolorbutton->KColorButton::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnFocusNextPrevChild(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_focusnextprevchild_callback = reinterpret_cast<VirtualKColorButton::KColorButton_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KColorButton_EventFilter(KColorButton* self, QObject* watched, QEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->eventFilter(watched, event);
-    } else {
-        return self->KColorButton::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KColorButton_SuperEventFilter(KColorButton* self, QObject* watched, QEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_EventFilter_IsBase(true);
-        return vkcolorbutton->eventFilter(watched, event);
-    } else {
-        return self->KColorButton::eventFilter(watched, event);
-    }
+    return self->KColorButton::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnEventFilter(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_EventFilter_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_EventFilter_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_eventfilter_callback = reinterpret_cast<VirtualKColorButton::KColorButton_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_ChildEvent(KColorButton* self, QChildEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->childEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperChildEvent(KColorButton* self, QChildEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_ChildEvent_IsBase(true);
-        vkcolorbutton->childEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->childEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnChildEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_ChildEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ChildEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_childevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_CustomEvent(KColorButton* self, QEvent* event) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->customEvent(event);
     } else {
-        ((VirtualKColorButton*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KColorButton::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperCustomEvent(KColorButton* self, QEvent* event) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_CustomEvent_IsBase(true);
-        vkcolorbutton->customEvent(event);
-    } else {
-        ((VirtualKColorButton*)self)->customEvent(event);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnCustomEvent(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_CustomEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_CustomEvent_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_customevent_callback = reinterpret_cast<VirtualKColorButton::KColorButton_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_ConnectNotify(KColorButton* self, const QMetaMethod* signal) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->connectNotify(*signal);
     } else {
-        ((VirtualKColorButton*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KColorButton::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperConnectNotify(KColorButton* self, const QMetaMethod* signal) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_ConnectNotify_IsBase(true);
-        vkcolorbutton->connectNotify(*signal);
-    } else {
-        ((VirtualKColorButton*)self)->connectNotify(*signal);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnConnectNotify(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_ConnectNotify_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ConnectNotify_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_connectnotify_callback = reinterpret_cast<VirtualKColorButton::KColorButton_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KColorButton_DisconnectNotify(KColorButton* self, const QMetaMethod* signal) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton) {
         vkcolorbutton->disconnectNotify(*signal);
     } else {
-        ((VirtualKColorButton*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KColorButton::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KColorButton_SuperDisconnectNotify(KColorButton* self, const QMetaMethod* signal) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_DisconnectNotify_IsBase(true);
-        vkcolorbutton->disconnectNotify(*signal);
-    } else {
-        ((VirtualKColorButton*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->KColorButton::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KColorButton::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDisconnectNotify(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DisconnectNotify_Callback>(slot));
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self))
+        vkcolorbutton->kcolorbutton_disconnectnotify_callback = reinterpret_cast<VirtualKColorButton::KColorButton_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KColorButton_UpdateMicroFocus(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->updateMicroFocus();
-    } else {
-        ((VirtualKColorButton*)self)->updateMicroFocus();
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->VirtualKColorButton::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KColorButton::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KColorButton_SuperUpdateMicroFocus(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_UpdateMicroFocus_IsBase(true);
-        vkcolorbutton->updateMicroFocus();
-    } else {
-        ((VirtualKColorButton*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnUpdateMicroFocus(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KColorButton_Create(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->create();
-    } else {
-        ((VirtualKColorButton*)self)->create();
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->VirtualKColorButton::create();
+    } else
+        qFatal("Error: Protected method KColorButton::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KColorButton_SuperCreate(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Create_IsBase(true);
-        vkcolorbutton->create();
-    } else {
-        ((VirtualKColorButton*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnCreate(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Create_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KColorButton_Destroy(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->destroy();
-    } else {
-        ((VirtualKColorButton*)self)->destroy();
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        vkcolorbutton->VirtualKColorButton::destroy();
+    } else
+        qFatal("Error: Protected method KColorButton::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KColorButton_SuperDestroy(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Destroy_IsBase(true);
-        vkcolorbutton->destroy();
-    } else {
-        ((VirtualKColorButton*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnDestroy(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Destroy_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KColorButton_FocusNextChild(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->focusNextChild();
-    } else {
-        return ((VirtualKColorButton*)self)->focusNextChild();
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        return vkcolorbutton->VirtualKColorButton::focusNextChild();
+    } else
+        qFatal("Error: Protected method KColorButton::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KColorButton_SuperFocusNextChild(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_FocusNextChild_IsBase(true);
-        return vkcolorbutton->focusNextChild();
-    } else {
-        return ((VirtualKColorButton*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnFocusNextChild(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_FocusNextChild_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KColorButton_FocusPreviousChild(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->focusPreviousChild();
-    } else {
-        return ((VirtualKColorButton*)self)->focusPreviousChild();
-    }
+    if (auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self)) {
+        return vkcolorbutton->VirtualKColorButton::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KColorButton::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KColorButton_SuperFocusPreviousChild(KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_FocusPreviousChild_IsBase(true);
-        return vkcolorbutton->focusPreviousChild();
-    } else {
-        return ((VirtualKColorButton*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnFocusPreviousChild(KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KColorButton_Sender(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->sender();
-    } else {
-        return ((VirtualKColorButton*)self)->sender();
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->VirtualKColorButton::sender();
+    } else
+        qFatal("Error: Protected method KColorButton::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KColorButton_SuperSender(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Sender_IsBase(true);
-        return vkcolorbutton->sender();
-    } else {
-        return ((VirtualKColorButton*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnSender(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Sender_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KColorButton_SenderSignalIndex(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->senderSignalIndex();
-    } else {
-        return ((VirtualKColorButton*)self)->senderSignalIndex();
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->VirtualKColorButton::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KColorButton::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KColorButton_SuperSenderSignalIndex(const KColorButton* self) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_SenderSignalIndex_IsBase(true);
-        return vkcolorbutton->senderSignalIndex();
-    } else {
-        return ((VirtualKColorButton*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnSenderSignalIndex(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KColorButton_Receivers(const KColorButton* self, const char* signal) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->receivers(signal);
-    } else {
-        return ((VirtualKColorButton*)self)->receivers(signal);
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->VirtualKColorButton::receivers(signal);
+    } else
+        qFatal("Error: Protected method KColorButton::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KColorButton_SuperReceivers(const KColorButton* self, const char* signal) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_Receivers_IsBase(true);
-        return vkcolorbutton->receivers(signal);
-    } else {
-        return ((VirtualKColorButton*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnReceivers(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_Receivers_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KColorButton_IsSignalConnected(const KColorButton* self, const QMetaMethod* signal) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKColorButton*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->VirtualKColorButton::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KColorButton::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KColorButton_SuperIsSignalConnected(const KColorButton* self, const QMetaMethod* signal) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_IsSignalConnected_IsBase(true);
-        return vkcolorbutton->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKColorButton*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnIsSignalConnected(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KColorButton_GetDecodedMetricF(const KColorButton* self, int metricA, int metricB) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return vkcolorbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKColorButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KColorButton_SuperGetDecodedMetricF(const KColorButton* self, int metricA, int metricB) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        vkcolorbutton->setKColorButton_GetDecodedMetricF_IsBase(true);
-        return vkcolorbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKColorButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KColorButton_OnGetDecodedMetricF(const KColorButton* self, intptr_t slot) {
-    auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
-        vkcolorbutton->setKColorButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self))) {
+        return vkcolorbutton->VirtualKColorButton::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KColorButton::getDecodedMetricF called without a directly constructed type");
 }
 
 void KColorButton_Delete(KColorButton* self) {

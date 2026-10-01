@@ -2013,9 +2013,9 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) callconv(.c) QMetaObject) void {
         qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2739,44 +2739,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IntraWordEditing(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superIntraWordEditing` instead
-    ///
-    pub const SuperIntraWordEditing = superIntraWordEditing;
-
-    /// Inherited from Sonnet::Highlighter
-    ///
-    /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    pub fn superIntraWordEditing(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) bool {
-        return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperIntraWordEditing(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIntraWordEditing` instead
-    ///
-    pub const OnIntraWordEditing = onIntraWordEditing;
-
-    /// Inherited from Sonnet::Highlighter
-    ///
-    /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIntraWordEditing(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnIntraWordEditing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setIntraWordEditing` instead
     ///
     pub const SetIntraWordEditing = setIntraWordEditing;
@@ -2795,46 +2757,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     pub fn setIntraWordEditing(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, editing: bool) void {
         qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetIntraWordEditing(@ptrCast(self.ptr), editing);
-    }
-
-    /// ### DEPRECATED: Use `superSetIntraWordEditing` instead
-    ///
-    pub const SuperSetIntraWordEditing = superSetIntraWordEditing;
-
-    /// Inherited from Sonnet::Highlighter
-    ///
-    /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    /// ` editing: bool `
-    ///
-    pub fn superSetIntraWordEditing(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, editing: bool) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetIntraWordEditing(@ptrCast(self.ptr), editing);
-    }
-
-    /// ### DEPRECATED: Use `onSetIntraWordEditing` instead
-    ///
-    pub const OnSetIntraWordEditing = onSetIntraWordEditing;
-
-    /// Inherited from Sonnet::Highlighter
-    ///
-    /// ### [Upstream resources](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, editing: bool) callconv(.c) void `
-    ///
-    pub fn onSetIntraWordEditing(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, bool) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetIntraWordEditing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setFormat` instead
@@ -2862,51 +2784,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetFormat(@ptrCast(self.ptr), @bitCast(start), @bitCast(count), @ptrCast(_format.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetFormat` instead
-    ///
-    pub const SuperSetFormat = superSetFormat;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    /// ` start: i32 `
-    ///
-    /// ` count: i32 `
-    ///
-    /// ` _format: QTextCharFormat `
-    ///
-    pub fn superSetFormat(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, start: i32, count: i32, _format: anytype) void {
-        comptime _ = @TypeOf(_format)._is_QTextCharFormat;
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetFormat(@ptrCast(self.ptr), @bitCast(start), @bitCast(count), @ptrCast(_format.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetFormat` instead
-    ///
-    pub const OnSetFormat = onSetFormat;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, start: i32, count: i32, format: QTextCharFormat) callconv(.c) void `
-    ///
-    pub fn onSetFormat(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, i32, i32, QTextCharFormat) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `format` instead
     ///
     pub const Format = format;
@@ -2927,48 +2804,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Format(@ptrCast(self.ptr), @bitCast(pos)) };
     }
 
-    /// ### DEPRECATED: Use `superFormat` instead
-    ///
-    pub const SuperFormat = superFormat;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    /// ` pos: i32 `
-    ///
-    pub fn superFormat(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, pos: i32) QTextCharFormat {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperFormat(@ptrCast(self.ptr), @bitCast(pos)) };
-    }
-
-    /// ### DEPRECATED: Use `onFormat` instead
-    ///
-    pub const OnFormat = onFormat;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, pos: i32) callconv(.c) QTextCharFormat `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onFormat(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, i32) callconv(.c) QTextCharFormat) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `previousBlockState` instead
     ///
     pub const PreviousBlockState = previousBlockState;
@@ -2985,44 +2820,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     pub fn previousBlockState(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) i32 {
         return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_PreviousBlockState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superPreviousBlockState` instead
-    ///
-    pub const SuperPreviousBlockState = superPreviousBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    pub fn superPreviousBlockState(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) i32 {
-        return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperPreviousBlockState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onPreviousBlockState` instead
-    ///
-    pub const OnPreviousBlockState = onPreviousBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onPreviousBlockState(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnPreviousBlockState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `currentBlockState` instead
@@ -3043,44 +2840,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlockState(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superCurrentBlockState` instead
-    ///
-    pub const SuperCurrentBlockState = superCurrentBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    pub fn superCurrentBlockState(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) i32 {
-        return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperCurrentBlockState(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onCurrentBlockState` instead
-    ///
-    pub const OnCurrentBlockState = onCurrentBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onCurrentBlockState(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnCurrentBlockState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setCurrentBlockState` instead
     ///
     pub const SetCurrentBlockState = setCurrentBlockState;
@@ -3099,46 +2858,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     pub fn setCurrentBlockState(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, newState: i32) void {
         qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetCurrentBlockState(@ptrCast(self.ptr), @bitCast(newState));
-    }
-
-    /// ### DEPRECATED: Use `superSetCurrentBlockState` instead
-    ///
-    pub const SuperSetCurrentBlockState = superSetCurrentBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    /// ` newState: i32 `
-    ///
-    pub fn superSetCurrentBlockState(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, newState: i32) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetCurrentBlockState(@ptrCast(self.ptr), @bitCast(newState));
-    }
-
-    /// ### DEPRECATED: Use `onSetCurrentBlockState` instead
-    ///
-    pub const OnSetCurrentBlockState = onSetCurrentBlockState;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, newState: i32) callconv(.c) void `
-    ///
-    pub fn onSetCurrentBlockState(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, i32) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetCurrentBlockState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setCurrentBlockUserData` instead
@@ -3162,47 +2881,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetCurrentBlockUserData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
 
-    /// ### DEPRECATED: Use `superSetCurrentBlockUserData` instead
-    ///
-    pub const SuperSetCurrentBlockUserData = superSetCurrentBlockUserData;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    /// ` data: QTextBlockUserData `
-    ///
-    pub fn superSetCurrentBlockUserData(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, data: anytype) void {
-        comptime _ = @TypeOf(data)._is_QTextBlockUserData;
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetCurrentBlockUserData(@ptrCast(self.ptr), @ptrCast(data.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSetCurrentBlockUserData` instead
-    ///
-    pub const OnSetCurrentBlockUserData = onSetCurrentBlockUserData;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, data: QTextBlockUserData) callconv(.c) void `
-    ///
-    pub fn onSetCurrentBlockUserData(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, QTextBlockUserData) callconv(.c) void) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetCurrentBlockUserData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `currentBlockUserData` instead
     ///
     pub const CurrentBlockUserData = currentBlockUserData;
@@ -3219,44 +2897,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     pub fn currentBlockUserData(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) QTextBlockUserData {
         return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlockUserData(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superCurrentBlockUserData` instead
-    ///
-    pub const SuperCurrentBlockUserData = superCurrentBlockUserData;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    pub fn superCurrentBlockUserData(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) QTextBlockUserData {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperCurrentBlockUserData(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCurrentBlockUserData` instead
-    ///
-    pub const OnCurrentBlockUserData = onCurrentBlockUserData;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QTextBlockUserData `
-    ///
-    pub fn onCurrentBlockUserData(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) QTextBlockUserData) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnCurrentBlockUserData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `currentBlock` instead
@@ -3277,46 +2917,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlock(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superCurrentBlock` instead
-    ///
-    pub const SuperCurrentBlock = superCurrentBlock;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    pub fn superCurrentBlock(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) QTextBlock {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperCurrentBlock(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onCurrentBlock` instead
-    ///
-    pub const OnCurrentBlock = onCurrentBlock;
-
-    /// Inherited from QSyntaxHighlighter
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QTextBlock `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onCurrentBlock(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) QTextBlock) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnCurrentBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `sender` instead
     ///
     pub const Sender = sender;
@@ -3335,44 +2935,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    pub fn superSender(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) QObject {
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) QObject) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -3389,44 +2951,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     pub fn senderSignalIndex(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) i32 {
         return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    pub fn superSenderSignalIndex(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) i32 {
-        return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) i32) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -3450,47 +2974,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, [*:0]const u8) callconv(.c) i32) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -3510,47 +2993,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     pub fn isSignalConnected(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, QMetaMethod) callconv(.c) bool) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `highlightLine` instead
@@ -3578,55 +3020,6 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         };
         comptime _ = @TypeOf(state)._is_KSyntaxHighlighting__State;
         return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine(@ptrCast(self.ptr), text_str, @ptrCast(state.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `superHighlightLine` instead
-    ///
-    pub const SuperHighlightLine = superHighlightLine;
-
-    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
-    ///
-    /// ` text: []const u8 `
-    ///
-    /// ` state: KSyntaxHighlighting__State `
-    ///
-    pub fn superHighlightLine(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, text: []const u8, state: anytype) KSyntaxHighlighting__State {
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        comptime _ = @TypeOf(state)._is_KSyntaxHighlighting__State;
-        return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperHighlightLine(@ptrCast(self.ptr), text_str, @ptrCast(state.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onHighlightLine` instead
-    ///
-    pub const OnHighlightLine = onHighlightLine;
-
-    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
-    ///
-    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
-    ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, text: [*:0]const u8, state: KSyntaxHighlighting__State) callconv(.c) KSyntaxHighlighting__State `
-    ///
-    /// **Warning:** Memory for the returned type of the callback is freed by the library.
-    ///
-    pub fn onHighlightLine(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, [*:0]const u8, KSyntaxHighlighting__State) callconv(.c) KSyntaxHighlighting__State) void {
-        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnHighlightLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

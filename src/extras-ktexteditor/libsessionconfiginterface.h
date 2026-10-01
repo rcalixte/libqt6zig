@@ -26,9 +26,7 @@ KTextEditor__SessionConfigInterface* KTextEditor__SessionConfigInterface_new();
 void KTextEditor__SessionConfigInterface_ReadSessionConfig(KTextEditor__SessionConfigInterface* self, const KConfigGroup* config);
 void KTextEditor__SessionConfigInterface_WriteSessionConfig(KTextEditor__SessionConfigInterface* self, KConfigGroup* config);
 void KTextEditor__SessionConfigInterface_OnReadSessionConfig(KTextEditor__SessionConfigInterface* self, intptr_t slot);
-void KTextEditor__SessionConfigInterface_SuperReadSessionConfig(KTextEditor__SessionConfigInterface* self, const KConfigGroup* config);
 void KTextEditor__SessionConfigInterface_OnWriteSessionConfig(KTextEditor__SessionConfigInterface* self, intptr_t slot);
-void KTextEditor__SessionConfigInterface_SuperWriteSessionConfig(KTextEditor__SessionConfigInterface* self, KConfigGroup* config);
 void KTextEditor__SessionConfigInterface_Delete(KTextEditor__SessionConfigInterface* self);
 
 #ifdef __cplusplus

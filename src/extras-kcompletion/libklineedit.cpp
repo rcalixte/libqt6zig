@@ -363,57 +363,57 @@ void KLineEdit_SetText(KLineEdit* self, const libqt_string text) {
 void KLineEdit_MakeCompletion(KLineEdit* self, const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->makeCompletion(param1_QString);
     }
 }
 
 bool KLineEdit_Event(KLineEdit* self, QEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         return vklineedit->event(param1);
     }
-    return {};
+    qFatal("Error: Protected method KLineEdit::event called without a directly constructed type");
 }
 
 void KLineEdit_ResizeEvent(KLineEdit* self, QResizeEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->resizeEvent(param1);
     }
 }
 
 void KLineEdit_KeyPressEvent(KLineEdit* self, QKeyEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->keyPressEvent(param1);
     }
 }
 
 void KLineEdit_MousePressEvent(KLineEdit* self, QMouseEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->mousePressEvent(param1);
     }
 }
 
 void KLineEdit_MouseReleaseEvent(KLineEdit* self, QMouseEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->mouseReleaseEvent(param1);
     }
 }
 
 void KLineEdit_MouseDoubleClickEvent(KLineEdit* self, QMouseEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->mouseDoubleClickEvent(param1);
     }
 }
 
 void KLineEdit_ContextMenuEvent(KLineEdit* self, QContextMenuEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->contextMenuEvent(param1);
     }
 }
@@ -421,14 +421,14 @@ void KLineEdit_ContextMenuEvent(KLineEdit* self, QContextMenuEvent* param1) {
 void KLineEdit_SetCompletedText2(KLineEdit* self, const libqt_string param1, bool param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->setCompletedText(param1_QString, param2);
     }
 }
 
 void KLineEdit_PaintEvent(KLineEdit* self, QPaintEvent* ev) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->paintEvent(ev);
     }
 }
@@ -463,170 +463,106 @@ void KLineEdit_SetCompletionModeDisabled2(KLineEdit* self, int mode, bool disabl
 
 // Base class handler implementation
 QMetaObject* KLineEdit_SuperMetaObject(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_MetaObject_IsBase(true);
-        return (QMetaObject*)vklineedit->metaObject();
-    } else {
-        return (QMetaObject*)self->KLineEdit::metaObject();
-    }
+    return (QMetaObject*)self->KLineEdit::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnMetaObject(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_MetaObject_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MetaObject_Callback>(slot));
+void KLineEdit_OnMetaObject(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_metaobject_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KLineEdit_SuperMetacast(KLineEdit* self, const char* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Metacast_IsBase(true);
-        return vklineedit->qt_metacast(param1);
-    } else {
-        return self->KLineEdit::qt_metacast(param1);
-    }
+    return self->KLineEdit::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMetacast(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Metacast_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Metacast_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_metacast_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KLineEdit_SuperMetacall(KLineEdit* self, int param1, int param2, void** param3) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Metacall_IsBase(true);
-        return vklineedit->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KLineEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KLineEdit::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMetacall(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Metacall_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Metacall_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_metacall_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_Metacall_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetCompletionMode(KLineEdit* self, int mode) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetCompletionMode_IsBase(true);
-        vklineedit->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    } else {
-        self->KLineEdit::setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    }
+    self->KLineEdit::setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletionMode(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetCompletionMode_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletionMode_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_setcompletionmode_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletionMode_Callback>(slot);
 }
 
 // Base class handler implementation
 KCompletionBox* KLineEdit_SuperCompletionBox(KLineEdit* self, bool create) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_CompletionBox_IsBase(true);
-        return vklineedit->completionBox(create);
-    } else {
-        return self->KLineEdit::completionBox(create);
-    }
+    return self->KLineEdit::completionBox(create);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCompletionBox(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_CompletionBox_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CompletionBox_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_completionbox_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_CompletionBox_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetCompletionObject(KLineEdit* self, KCompletion* param1, bool handle) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetCompletionObject_IsBase(true);
-        vklineedit->setCompletionObject(param1, handle);
-    } else {
-        self->KLineEdit::setCompletionObject(param1, handle);
-    }
+    self->KLineEdit::setCompletionObject(param1, handle);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletionObject(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetCompletionObject_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletionObject_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_setcompletionobject_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletionObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperCopy(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Copy_IsBase(true);
-        vklineedit->copy();
-    } else {
-        self->KLineEdit::copy();
-    }
+    self->KLineEdit::copy();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnCopy(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Copy_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Copy_Callback>(slot));
+void KLineEdit_OnCopy(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_copy_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_Copy_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetReadOnly(KLineEdit* self, bool readOnly) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetReadOnly_IsBase(true);
-        vklineedit->setReadOnly(readOnly);
-    } else {
-        self->KLineEdit::setReadOnly(readOnly);
-    }
+    self->KLineEdit::setReadOnly(readOnly);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetReadOnly(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetReadOnly_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetReadOnly_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_setreadonly_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetReadOnly_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetCompletedText(KLineEdit* self, const libqt_string completedText) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetCompletedText_IsBase(true);
-        vklineedit->setCompletedText(completedText_QString);
-    } else {
-        self->KLineEdit::setCompletedText(completedText_QString);
-    }
+    self->KLineEdit::setCompletedText(completedText_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletedText(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetCompletedText_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedText_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_setcompletedtext_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedText_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetCompletedItems(KLineEdit* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
@@ -634,1825 +570,1215 @@ void KLineEdit_SuperSetCompletedItems(KLineEdit* self, const libqt_list /* of li
         QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
         items_QList.push_back(items_arr_i_QString);
     }
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetCompletedItems_IsBase(true);
-        vklineedit->setCompletedItems(items_QList, autoSuggest);
-    } else {
-        self->KLineEdit::setCompletedItems(items_QList, autoSuggest);
-    }
+    self->KLineEdit::setCompletedItems(items_QList, autoSuggest);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletedItems(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetCompletedItems_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedItems_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_setcompleteditems_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedItems_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetText(KLineEdit* self, const libqt_string text) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetText_IsBase(true);
-        vklineedit->setText(text_QString);
-    } else {
-        self->KLineEdit::setText(text_QString);
-    }
+    self->KLineEdit::setText(text_QString);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetText(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetText_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetText_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_settext_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetText_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperMakeCompletion(KLineEdit* self, const libqt_string param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_MakeCompletion_IsBase(true);
-        vklineedit->makeCompletion(param1_QString);
-    } else {
-        ((VirtualKLineEdit*)self)->makeCompletion(param1_QString);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::makeCompletion(param1_QString);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::makeCompletion called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMakeCompletion(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_MakeCompletion_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MakeCompletion_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_makecompletion_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_MakeCompletion_Callback>(slot);
 }
 
 // Base class handler implementation
 bool KLineEdit_SuperEvent(KLineEdit* self, QEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Event_IsBase(true);
-        return vklineedit->event(param1);
-    } else {
-        return ((VirtualKLineEdit*)self)->event(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        return vklineedit->KLineEdit::event(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Event_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Event_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_event_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_Event_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperResizeEvent(KLineEdit* self, QResizeEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_ResizeEvent_IsBase(true);
-        vklineedit->resizeEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->resizeEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnResizeEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ResizeEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_resizeevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_ResizeEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperKeyPressEvent(KLineEdit* self, QKeyEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_KeyPressEvent_IsBase(true);
-        vklineedit->keyPressEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->keyPressEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnKeyPressEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_KeyPressEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_keypressevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_KeyPressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperMousePressEvent(KLineEdit* self, QMouseEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_MousePressEvent_IsBase(true);
-        vklineedit->mousePressEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->mousePressEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::mousePressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMousePressEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MousePressEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_mousepressevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_MousePressEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperMouseReleaseEvent(KLineEdit* self, QMouseEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_MouseReleaseEvent_IsBase(true);
-        vklineedit->mouseReleaseEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->mouseReleaseEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::mouseReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMouseReleaseEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseReleaseEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_mousereleaseevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseReleaseEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperMouseDoubleClickEvent(KLineEdit* self, QMouseEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_MouseDoubleClickEvent_IsBase(true);
-        vklineedit->mouseDoubleClickEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->mouseDoubleClickEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::mouseDoubleClickEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMouseDoubleClickEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_mousedoubleclickevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperContextMenuEvent(KLineEdit* self, QContextMenuEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_ContextMenuEvent_IsBase(true);
-        vklineedit->contextMenuEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnContextMenuEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ContextMenuEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_contextmenuevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_ContextMenuEvent_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetCompletedText2(KLineEdit* self, const libqt_string param1, bool param2) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetCompletedText2_IsBase(true);
-        vklineedit->setCompletedText(param1_QString, param2);
-    } else {
-        ((VirtualKLineEdit*)self)->setCompletedText(param1_QString, param2);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::setCompletedText(param1_QString, param2);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::setCompletedText2 called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletedText2(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetCompletedText2_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedText2_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_setcompletedtext2_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedText2_Callback>(slot);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperPaintEvent(KLineEdit* self, QPaintEvent* ev) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_PaintEvent_IsBase(true);
-        vklineedit->paintEvent(ev);
-    } else {
-        ((VirtualKLineEdit*)self)->paintEvent(ev);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::paintEvent(ev);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnPaintEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_PaintEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_PaintEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_paintevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KLineEdit_SizeHint(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return new QSize(vklineedit->sizeHint());
-    } else {
-        return new QSize(((VirtualKLineEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KLineEdit_SuperSizeHint(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SizeHint_IsBase(true);
-        return new QSize(vklineedit->sizeHint());
-    } else {
-        return new QSize(((VirtualKLineEdit*)self)->sizeHint());
-    }
+    return new QSize(self->KLineEdit::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnSizeHint(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SizeHint_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SizeHint_Callback>(slot));
+void KLineEdit_OnSizeHint(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_sizehint_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KLineEdit_MinimumSizeHint(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return new QSize(vklineedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKLineEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KLineEdit_SuperMinimumSizeHint(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_MinimumSizeHint_IsBase(true);
-        return new QSize(vklineedit->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKLineEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KLineEdit::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnMinimumSizeHint(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MinimumSizeHint_Callback>(slot));
+void KLineEdit_OnMinimumSizeHint(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_minimumsizehint_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_MouseMoveEvent(KLineEdit* self, QMouseEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->mouseMoveEvent(param1);
     } else {
-        ((VirtualKLineEdit*)self)->mouseMoveEvent(param1);
+        qFatal("Error: Protected virtual method KLineEdit::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperMouseMoveEvent(KLineEdit* self, QMouseEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_MouseMoveEvent_IsBase(true);
-        vklineedit->mouseMoveEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->mouseMoveEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::mouseMoveEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMouseMoveEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseMoveEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_mousemoveevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_KeyReleaseEvent(KLineEdit* self, QKeyEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->keyReleaseEvent(param1);
     } else {
-        ((VirtualKLineEdit*)self)->keyReleaseEvent(param1);
+        qFatal("Error: Protected virtual method KLineEdit::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperKeyReleaseEvent(KLineEdit* self, QKeyEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_KeyReleaseEvent_IsBase(true);
-        vklineedit->keyReleaseEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->keyReleaseEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::keyReleaseEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnKeyReleaseEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_KeyReleaseEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_keyreleaseevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_FocusInEvent(KLineEdit* self, QFocusEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->focusInEvent(param1);
     } else {
-        ((VirtualKLineEdit*)self)->focusInEvent(param1);
+        qFatal("Error: Protected virtual method KLineEdit::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperFocusInEvent(KLineEdit* self, QFocusEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_FocusInEvent_IsBase(true);
-        vklineedit->focusInEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->focusInEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::focusInEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnFocusInEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusInEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_focusinevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_FocusOutEvent(KLineEdit* self, QFocusEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->focusOutEvent(param1);
     } else {
-        ((VirtualKLineEdit*)self)->focusOutEvent(param1);
+        qFatal("Error: Protected virtual method KLineEdit::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperFocusOutEvent(KLineEdit* self, QFocusEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_FocusOutEvent_IsBase(true);
-        vklineedit->focusOutEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->focusOutEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::focusOutEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnFocusOutEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusOutEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_focusoutevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_DragEnterEvent(KLineEdit* self, QDragEnterEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->dragEnterEvent(param1);
     } else {
-        ((VirtualKLineEdit*)self)->dragEnterEvent(param1);
+        qFatal("Error: Protected virtual method KLineEdit::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperDragEnterEvent(KLineEdit* self, QDragEnterEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_DragEnterEvent_IsBase(true);
-        vklineedit->dragEnterEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->dragEnterEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::dragEnterEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDragEnterEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DragEnterEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_dragenterevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_DragMoveEvent(KLineEdit* self, QDragMoveEvent* e) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->dragMoveEvent(e);
     } else {
-        ((VirtualKLineEdit*)self)->dragMoveEvent(e);
+        qFatal("Error: Protected virtual method KLineEdit::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperDragMoveEvent(KLineEdit* self, QDragMoveEvent* e) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_DragMoveEvent_IsBase(true);
-        vklineedit->dragMoveEvent(e);
-    } else {
-        ((VirtualKLineEdit*)self)->dragMoveEvent(e);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::dragMoveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDragMoveEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DragMoveEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_dragmoveevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_DragLeaveEvent(KLineEdit* self, QDragLeaveEvent* e) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->dragLeaveEvent(e);
     } else {
-        ((VirtualKLineEdit*)self)->dragLeaveEvent(e);
+        qFatal("Error: Protected virtual method KLineEdit::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperDragLeaveEvent(KLineEdit* self, QDragLeaveEvent* e) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_DragLeaveEvent_IsBase(true);
-        vklineedit->dragLeaveEvent(e);
-    } else {
-        ((VirtualKLineEdit*)self)->dragLeaveEvent(e);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::dragLeaveEvent(e);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDragLeaveEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DragLeaveEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_dragleaveevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_DropEvent(KLineEdit* self, QDropEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->dropEvent(param1);
     } else {
-        ((VirtualKLineEdit*)self)->dropEvent(param1);
+        qFatal("Error: Protected virtual method KLineEdit::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperDropEvent(KLineEdit* self, QDropEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_DropEvent_IsBase(true);
-        vklineedit->dropEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->dropEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::dropEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDropEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_DropEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DropEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_dropevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_ChangeEvent(KLineEdit* self, QEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->changeEvent(param1);
     } else {
-        ((VirtualKLineEdit*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KLineEdit::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperChangeEvent(KLineEdit* self, QEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_ChangeEvent_IsBase(true);
-        vklineedit->changeEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->changeEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnChangeEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ChangeEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_changeevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_InputMethodEvent(KLineEdit* self, QInputMethodEvent* param1) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->inputMethodEvent(param1);
     } else {
-        ((VirtualKLineEdit*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KLineEdit::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperInputMethodEvent(KLineEdit* self, QInputMethodEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_InputMethodEvent_IsBase(true);
-        vklineedit->inputMethodEvent(param1);
-    } else {
-        ((VirtualKLineEdit*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnInputMethodEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_InputMethodEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_inputmethodevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_InitStyleOption(const KLineEdit* self, QStyleOptionFrame* option) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->initStyleOption(option);
     } else {
-        ((VirtualKLineEdit*)self)->initStyleOption(option);
+        qFatal("Error: Protected virtual method KLineEdit::initStyleOption called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperInitStyleOption(const KLineEdit* self, QStyleOptionFrame* option) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_InitStyleOption_IsBase(true);
-        vklineedit->initStyleOption(option);
-    } else {
-        ((VirtualKLineEdit*)self)->initStyleOption(option);
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        vklineedit->KLineEdit::initStyleOption(option);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::initStyleOption called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnInitStyleOption(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_InitStyleOption_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_InitStyleOption_Callback>(slot));
+void KLineEdit_OnInitStyleOption(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_initstyleoption_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_InitStyleOption_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KLineEdit_InputMethodQuery(const KLineEdit* self, int param1) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return new QVariant(vklineedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KLineEdit_SuperInputMethodQuery(const KLineEdit* self, int param1) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_InputMethodQuery_IsBase(true);
-        return new QVariant(vklineedit->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KLineEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnInputMethodQuery(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_InputMethodQuery_Callback>(slot));
+void KLineEdit_OnInputMethodQuery(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_inputmethodquery_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_TimerEvent(KLineEdit* self, QTimerEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->timerEvent(param1);
-    } else {
-        self->KLineEdit::timerEvent(param1);
-    }
+    self->timerEvent(param1);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperTimerEvent(KLineEdit* self, QTimerEvent* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_TimerEvent_IsBase(true);
-        vklineedit->timerEvent(param1);
-    } else {
-        self->KLineEdit::timerEvent(param1);
-    }
+    self->KLineEdit::timerEvent(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnTimerEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_TimerEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_TimerEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_timerevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLineEdit_DevType(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->devType();
-    } else {
-        return self->KLineEdit::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KLineEdit_SuperDevType(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_DevType_IsBase(true);
-        return vklineedit->devType();
-    } else {
-        return self->KLineEdit::devType();
-    }
+    return self->KLineEdit::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnDevType(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_DevType_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DevType_Callback>(slot));
+void KLineEdit_OnDevType(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_devtype_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_SetVisible(KLineEdit* self, bool visible) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setVisible(visible);
-    } else {
-        self->KLineEdit::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetVisible(KLineEdit* self, bool visible) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetVisible_IsBase(true);
-        vklineedit->setVisible(visible);
-    } else {
-        self->KLineEdit::setVisible(visible);
-    }
+    self->KLineEdit::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetVisible(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetVisible_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetVisible_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_setvisible_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLineEdit_HeightForWidth(const KLineEdit* self, int param1) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KLineEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KLineEdit_SuperHeightForWidth(const KLineEdit* self, int param1) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_HeightForWidth_IsBase(true);
-        return vklineedit->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KLineEdit::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KLineEdit::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnHeightForWidth(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_HeightForWidth_Callback>(slot));
+void KLineEdit_OnHeightForWidth(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_heightforwidth_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLineEdit_HasHeightForWidth(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->hasHeightForWidth();
-    } else {
-        return self->KLineEdit::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KLineEdit_SuperHasHeightForWidth(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_HasHeightForWidth_IsBase(true);
-        return vklineedit->hasHeightForWidth();
-    } else {
-        return self->KLineEdit::hasHeightForWidth();
-    }
+    return self->KLineEdit::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnHasHeightForWidth(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_HasHeightForWidth_Callback>(slot));
+void KLineEdit_OnHasHeightForWidth(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_hasheightforwidth_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KLineEdit_PaintEngine(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->paintEngine();
-    } else {
-        return self->KLineEdit::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KLineEdit_SuperPaintEngine(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_PaintEngine_IsBase(true);
-        return vklineedit->paintEngine();
-    } else {
-        return self->KLineEdit::paintEngine();
-    }
+    return self->KLineEdit::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnPaintEngine(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_PaintEngine_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_PaintEngine_Callback>(slot));
+void KLineEdit_OnPaintEngine(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_paintengine_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_WheelEvent(KLineEdit* self, QWheelEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->wheelEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperWheelEvent(KLineEdit* self, QWheelEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_WheelEvent_IsBase(true);
-        vklineedit->wheelEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->wheelEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnWheelEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_WheelEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_WheelEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_wheelevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_EnterEvent(KLineEdit* self, QEnterEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->enterEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperEnterEvent(KLineEdit* self, QEnterEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_EnterEvent_IsBase(true);
-        vklineedit->enterEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->enterEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnEnterEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_EnterEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_EnterEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_enterevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_LeaveEvent(KLineEdit* self, QEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->leaveEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperLeaveEvent(KLineEdit* self, QEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_LeaveEvent_IsBase(true);
-        vklineedit->leaveEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->leaveEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnLeaveEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_LeaveEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_leaveevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_MoveEvent(KLineEdit* self, QMoveEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->moveEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperMoveEvent(KLineEdit* self, QMoveEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_MoveEvent_IsBase(true);
-        vklineedit->moveEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->moveEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMoveEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_MoveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MoveEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_moveevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_CloseEvent(KLineEdit* self, QCloseEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->closeEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->closeEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperCloseEvent(KLineEdit* self, QCloseEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_CloseEvent_IsBase(true);
-        vklineedit->closeEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->closeEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::closeEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCloseEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_CloseEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CloseEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_closeevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_TabletEvent(KLineEdit* self, QTabletEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->tabletEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperTabletEvent(KLineEdit* self, QTabletEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_TabletEvent_IsBase(true);
-        vklineedit->tabletEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->tabletEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnTabletEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_TabletEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_TabletEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_tabletevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_ActionEvent(KLineEdit* self, QActionEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->actionEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperActionEvent(KLineEdit* self, QActionEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_ActionEvent_IsBase(true);
-        vklineedit->actionEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->actionEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnActionEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_ActionEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ActionEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_actionevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_ShowEvent(KLineEdit* self, QShowEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->showEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->showEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperShowEvent(KLineEdit* self, QShowEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_ShowEvent_IsBase(true);
-        vklineedit->showEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->showEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::showEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnShowEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_ShowEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ShowEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_showevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_HideEvent(KLineEdit* self, QHideEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->hideEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperHideEvent(KLineEdit* self, QHideEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_HideEvent_IsBase(true);
-        vklineedit->hideEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->hideEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnHideEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_HideEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_HideEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_hideevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLineEdit_NativeEvent(KLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
+    if (vklineedit) {
         return vklineedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKLineEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KLineEdit::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KLineEdit_SuperNativeEvent(KLineEdit* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_NativeEvent_IsBase(true);
-        return vklineedit->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKLineEdit*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        return vklineedit->KLineEdit::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnNativeEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_NativeEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_NativeEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_nativeevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KLineEdit_Metric(const KLineEdit* self, int param1) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         return vklineedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKLineEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KLineEdit::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KLineEdit_SuperMetric(const KLineEdit* self, int param1) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Metric_IsBase(true);
-        return vklineedit->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKLineEdit*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->KLineEdit::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnMetric(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Metric_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Metric_Callback>(slot));
+void KLineEdit_OnMetric(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_metric_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_InitPainter(const KLineEdit* self, QPainter* painter) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->initPainter(painter);
     } else {
-        ((VirtualKLineEdit*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KLineEdit::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperInitPainter(const KLineEdit* self, QPainter* painter) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_InitPainter_IsBase(true);
-        vklineedit->initPainter(painter);
-    } else {
-        ((VirtualKLineEdit*)self)->initPainter(painter);
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        vklineedit->KLineEdit::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnInitPainter(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_InitPainter_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_InitPainter_Callback>(slot));
+void KLineEdit_OnInitPainter(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_initpainter_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KLineEdit_Redirected(const KLineEdit* self, QPoint* offset) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         return vklineedit->redirected(offset);
     } else {
-        return ((VirtualKLineEdit*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KLineEdit::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KLineEdit_SuperRedirected(const KLineEdit* self, QPoint* offset) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Redirected_IsBase(true);
-        return vklineedit->redirected(offset);
-    } else {
-        return ((VirtualKLineEdit*)self)->redirected(offset);
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->KLineEdit::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnRedirected(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Redirected_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Redirected_Callback>(slot));
+void KLineEdit_OnRedirected(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_redirected_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KLineEdit_SharedPainter(const KLineEdit* self) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         return vklineedit->sharedPainter();
     } else {
-        return ((VirtualKLineEdit*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KLineEdit::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KLineEdit_SuperSharedPainter(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SharedPainter_IsBase(true);
-        return vklineedit->sharedPainter();
-    } else {
-        return ((VirtualKLineEdit*)self)->sharedPainter();
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->KLineEdit::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KLineEdit_OnSharedPainter(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SharedPainter_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SharedPainter_Callback>(slot));
+void KLineEdit_OnSharedPainter(KLineEdit* self, intptr_t slot) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
+        vklineedit->klineedit_sharedpainter_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLineEdit_FocusNextPrevChild(KLineEdit* self, bool next) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         return vklineedit->focusNextPrevChild(next);
     } else {
-        return ((VirtualKLineEdit*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KLineEdit::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KLineEdit_SuperFocusNextPrevChild(KLineEdit* self, bool next) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_FocusNextPrevChild_IsBase(true);
-        return vklineedit->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKLineEdit*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        return vklineedit->KLineEdit::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnFocusNextPrevChild(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusNextPrevChild_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_focusnextprevchild_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KLineEdit_EventFilter(KLineEdit* self, QObject* watched, QEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->eventFilter(watched, event);
-    } else {
-        return self->KLineEdit::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool KLineEdit_SuperEventFilter(KLineEdit* self, QObject* watched, QEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_EventFilter_IsBase(true);
-        return vklineedit->eventFilter(watched, event);
-    } else {
-        return self->KLineEdit::eventFilter(watched, event);
-    }
+    return self->KLineEdit::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnEventFilter(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_EventFilter_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_EventFilter_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_eventfilter_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_ChildEvent(KLineEdit* self, QChildEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->childEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperChildEvent(KLineEdit* self, QChildEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_ChildEvent_IsBase(true);
-        vklineedit->childEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->childEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnChildEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_ChildEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ChildEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_childevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_CustomEvent(KLineEdit* self, QEvent* event) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->customEvent(event);
     } else {
-        ((VirtualKLineEdit*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KLineEdit::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperCustomEvent(KLineEdit* self, QEvent* event) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_CustomEvent_IsBase(true);
-        vklineedit->customEvent(event);
-    } else {
-        ((VirtualKLineEdit*)self)->customEvent(event);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCustomEvent(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_CustomEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CustomEvent_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_customevent_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_ConnectNotify(KLineEdit* self, const QMetaMethod* signal) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->connectNotify(*signal);
     } else {
-        ((VirtualKLineEdit*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KLineEdit::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperConnectNotify(KLineEdit* self, const QMetaMethod* signal) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_ConnectNotify_IsBase(true);
-        vklineedit->connectNotify(*signal);
-    } else {
-        ((VirtualKLineEdit*)self)->connectNotify(*signal);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnConnectNotify(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ConnectNotify_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_connectnotify_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_DisconnectNotify(KLineEdit* self, const QMetaMethod* signal) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->disconnectNotify(*signal);
     } else {
-        ((VirtualKLineEdit*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KLineEdit::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperDisconnectNotify(KLineEdit* self, const QMetaMethod* signal) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_DisconnectNotify_IsBase(true);
-        vklineedit->disconnectNotify(*signal);
-    } else {
-        ((VirtualKLineEdit*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDisconnectNotify(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DisconnectNotify_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_disconnectnotify_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_DisconnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_SetHandleSignals(KLineEdit* self, bool handle) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setHandleSignals(handle);
-    } else {
-        self->KLineEdit::setHandleSignals(handle);
-    }
+    self->setHandleSignals(handle);
 }
 
 // Base class handler implementation
 void KLineEdit_SuperSetHandleSignals(KLineEdit* self, bool handle) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetHandleSignals_IsBase(true);
-        vklineedit->setHandleSignals(handle);
-    } else {
-        self->KLineEdit::setHandleSignals(handle);
-    }
+    self->KLineEdit::setHandleSignals(handle);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetHandleSignals(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetHandleSignals_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetHandleSignals_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_sethandlesignals_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_SetHandleSignals_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KLineEdit_VirtualHook(KLineEdit* self, int id, void* data) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit) {
         vklineedit->virtual_hook(static_cast<int>(id), data);
     } else {
-        ((VirtualKLineEdit*)self)->virtual_hook(static_cast<int>(id), data);
+        qFatal("Error: Protected virtual method KLineEdit::virtual_hook called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KLineEdit_SuperVirtualHook(KLineEdit* self, int id, void* data) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_VirtualHook_IsBase(true);
-        vklineedit->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKLineEdit*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->KLineEdit::virtual_hook(static_cast<int>(id), data);
+    } else
+        qFatal("Error: Protected virtual method KLineEdit::virtual_hook called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnVirtualHook(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_VirtualHook_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_VirtualHook_Callback>(slot));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self))
+        vklineedit->klineedit_virtualhook_callback = reinterpret_cast<VirtualKLineEdit::KLineEdit_VirtualHook_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLineEdit_UserCancelled(KLineEdit* self, const libqt_string cancelText) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    QString cancelText_QString = QString::fromUtf8(cancelText.data, cancelText.len);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->userCancelled(cancelText_QString);
-    } else {
-        ((VirtualKLineEdit*)self)->userCancelled(cancelText_QString);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        QString cancelText_QString = QString::fromUtf8(cancelText.data, cancelText.len);
+        vklineedit->VirtualKLineEdit::userCancelled(cancelText_QString);
+    } else
+        qFatal("Error: Protected method KLineEdit::userCancelled called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLineEdit_SuperUserCancelled(KLineEdit* self, const libqt_string cancelText) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    QString cancelText_QString = QString::fromUtf8(cancelText.data, cancelText.len);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_UserCancelled_IsBase(true);
-        vklineedit->userCancelled(cancelText_QString);
-    } else {
-        ((VirtualKLineEdit*)self)->userCancelled(cancelText_QString);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnUserCancelled(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_UserCancelled_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_UserCancelled_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QMenu* KLineEdit_CreateStandardContextMenu(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->createStandardContextMenu();
-    } else {
-        return ((VirtualKLineEdit*)self)->createStandardContextMenu();
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        return vklineedit->VirtualKLineEdit::createStandardContextMenu();
+    } else
+        qFatal("Error: Protected method KLineEdit::createStandardContextMenu called without a directly constructed type");
 }
 
-// Base class handler implementation
-QMenu* KLineEdit_SuperCreateStandardContextMenu(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_CreateStandardContextMenu_IsBase(true);
-        return vklineedit->createStandardContextMenu();
-    } else {
-        return ((VirtualKLineEdit*)self)->createStandardContextMenu();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnCreateStandardContextMenu(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_CreateStandardContextMenu_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CreateStandardContextMenu_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLineEdit_SetUserSelection(KLineEdit* self, bool userSelection) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setUserSelection(userSelection);
-    } else {
-        ((VirtualKLineEdit*)self)->setUserSelection(userSelection);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->VirtualKLineEdit::setUserSelection(userSelection);
+    } else
+        qFatal("Error: Protected method KLineEdit::setUserSelection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLineEdit_SuperSetUserSelection(KLineEdit* self, bool userSelection) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetUserSelection_IsBase(true);
-        vklineedit->setUserSelection(userSelection);
-    } else {
-        ((VirtualKLineEdit*)self)->setUserSelection(userSelection);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnSetUserSelection(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetUserSelection_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetUserSelection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLineEdit_AutoSuggest(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->autoSuggest();
-    } else {
-        return ((VirtualKLineEdit*)self)->autoSuggest();
-    }
-}
-
-// Base class handler implementation
-bool KLineEdit_SuperAutoSuggest(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_AutoSuggest_IsBase(true);
-        return vklineedit->autoSuggest();
-    } else {
-        return ((VirtualKLineEdit*)self)->autoSuggest();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnAutoSuggest(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_AutoSuggest_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_AutoSuggest_Callback>(slot));
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->VirtualKLineEdit::autoSuggest();
+    } else
+        qFatal("Error: Protected method KLineEdit::autoSuggest called without a directly constructed type");
 }
 
 // Derived class handler implementation
 QRect* KLineEdit_CursorRect(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self)))
         return new QRect(vklineedit->cursorRect());
-    }
-    return {};
+    qFatal("Error: Protected method KLineEdit::cursorRect called without a directly constructed type");
 }
 
-// Base class handler implementation
-QRect* KLineEdit_SuperCursorRect(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_CursorRect_IsBase(true);
-        return new QRect(vklineedit->cursorRect());
-    }
-    return {};
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnCursorRect(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_CursorRect_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CursorRect_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLineEdit_UpdateMicroFocus(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->updateMicroFocus();
-    } else {
-        ((VirtualKLineEdit*)self)->updateMicroFocus();
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->VirtualKLineEdit::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KLineEdit::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLineEdit_SuperUpdateMicroFocus(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_UpdateMicroFocus_IsBase(true);
-        vklineedit->updateMicroFocus();
-    } else {
-        ((VirtualKLineEdit*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnUpdateMicroFocus(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLineEdit_Create(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->create();
-    } else {
-        ((VirtualKLineEdit*)self)->create();
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->VirtualKLineEdit::create();
+    } else
+        qFatal("Error: Protected method KLineEdit::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLineEdit_SuperCreate(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Create_IsBase(true);
-        vklineedit->create();
-    } else {
-        ((VirtualKLineEdit*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnCreate(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Create_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLineEdit_Destroy(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->destroy();
-    } else {
-        ((VirtualKLineEdit*)self)->destroy();
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->VirtualKLineEdit::destroy();
+    } else
+        qFatal("Error: Protected method KLineEdit::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLineEdit_SuperDestroy(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Destroy_IsBase(true);
-        vklineedit->destroy();
-    } else {
-        ((VirtualKLineEdit*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnDestroy(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Destroy_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLineEdit_FocusNextChild(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->focusNextChild();
-    } else {
-        return ((VirtualKLineEdit*)self)->focusNextChild();
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        return vklineedit->VirtualKLineEdit::focusNextChild();
+    } else
+        qFatal("Error: Protected method KLineEdit::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLineEdit_SuperFocusNextChild(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_FocusNextChild_IsBase(true);
-        return vklineedit->focusNextChild();
-    } else {
-        return ((VirtualKLineEdit*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnFocusNextChild(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLineEdit_FocusPreviousChild(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->focusPreviousChild();
-    } else {
-        return ((VirtualKLineEdit*)self)->focusPreviousChild();
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        return vklineedit->VirtualKLineEdit::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KLineEdit::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLineEdit_SuperFocusPreviousChild(KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_FocusPreviousChild_IsBase(true);
-        return vklineedit->focusPreviousChild();
-    } else {
-        return ((VirtualKLineEdit*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnFocusPreviousChild(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KLineEdit_Sender(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->sender();
-    } else {
-        return ((VirtualKLineEdit*)self)->sender();
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->VirtualKLineEdit::sender();
+    } else
+        qFatal("Error: Protected method KLineEdit::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KLineEdit_SuperSender(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Sender_IsBase(true);
-        return vklineedit->sender();
-    } else {
-        return ((VirtualKLineEdit*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnSender(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Sender_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLineEdit_SenderSignalIndex(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->senderSignalIndex();
-    } else {
-        return ((VirtualKLineEdit*)self)->senderSignalIndex();
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->VirtualKLineEdit::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KLineEdit::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLineEdit_SuperSenderSignalIndex(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SenderSignalIndex_IsBase(true);
-        return vklineedit->senderSignalIndex();
-    } else {
-        return ((VirtualKLineEdit*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnSenderSignalIndex(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KLineEdit_Receivers(const KLineEdit* self, const char* signal) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->receivers(signal);
-    } else {
-        return ((VirtualKLineEdit*)self)->receivers(signal);
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->VirtualKLineEdit::receivers(signal);
+    } else
+        qFatal("Error: Protected method KLineEdit::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KLineEdit_SuperReceivers(const KLineEdit* self, const char* signal) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Receivers_IsBase(true);
-        return vklineedit->receivers(signal);
-    } else {
-        return ((VirtualKLineEdit*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnReceivers(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Receivers_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KLineEdit_IsSignalConnected(const KLineEdit* self, const QMetaMethod* signal) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLineEdit*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->VirtualKLineEdit::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KLineEdit::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KLineEdit_SuperIsSignalConnected(const KLineEdit* self, const QMetaMethod* signal) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_IsSignalConnected_IsBase(true);
-        return vklineedit->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKLineEdit*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnIsSignalConnected(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KLineEdit_GetDecodedMetricF(const KLineEdit* self, int metricA, int metricB) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKLineEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->VirtualKLineEdit::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KLineEdit::getDecodedMetricF called without a directly constructed type");
 }
 
-// Base class handler implementation
-double KLineEdit_SuperGetDecodedMetricF(const KLineEdit* self, int metricA, int metricB) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_GetDecodedMetricF_IsBase(true);
-        return vklineedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKLineEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnGetDecodedMetricF(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_GetDecodedMetricF_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_KeyBindingMap(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vklineedit->keyBindingMap();
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vklineedit->VirtualKLineEdit::keyBindingMap();
         // Convert QMap<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_list /* of QKeySequence* */* _varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * _ret.size()));
@@ -2476,204 +1802,44 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_KeyBindingMap(co
         _out.keys = static_cast<void*>(_karr);
         _out.values = static_cast<void*>(_varr);
         return _out;
-    } else {
-        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = ((VirtualKLineEdit*)self)->keyBindingMap();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_list /* of QKeySequence* */* _varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            QList<QKeySequence> _mapval_ret = _itr->second;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
-            for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
-                _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
-            }
-            libqt_list _mapval_out;
-            _mapval_out.len = _mapval_ret.size();
-            _mapval_out.data = static_cast<void*>(_mapval_arr);
-            _varr[_ctr] = _mapval_out;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
+    } else
+        qFatal("Error: Protected method KLineEdit::keyBindingMap called without a directly constructed type");
 }
 
-// Base class handler implementation
-libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_SuperKeyBindingMap(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_KeyBindingMap_IsBase(true);
-        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = vklineedit->keyBindingMap();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_list /* of QKeySequence* */* _varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            QList<QKeySequence> _mapval_ret = _itr->second;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
-            for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
-                _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
-            }
-            libqt_list _mapval_out;
-            _mapval_out.len = _mapval_ret.size();
-            _mapval_out.data = static_cast<void*>(_mapval_arr);
-            _varr[_ctr] = _mapval_out;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> _ret = ((VirtualKLineEdit*)self)->keyBindingMap();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_list /* of QKeySequence* */* _varr = static_cast<libqt_list /* of QKeySequence* */*>(malloc(sizeof(libqt_list /* of QKeySequence* */) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            QList<QKeySequence> _mapval_ret = _itr->second;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            QKeySequence** _mapval_arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_mapval_ret.size())));
-            for (qsizetype i = 0; i < _mapval_ret.size(); ++i) {
-                _mapval_arr[i] = new QKeySequence(_mapval_ret[i]);
-            }
-            libqt_list _mapval_out;
-            _mapval_out.len = _mapval_ret.size();
-            _mapval_out.data = static_cast<void*>(_mapval_arr);
-            _varr[_ctr] = _mapval_out;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnKeyBindingMap(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_KeyBindingMap_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_KeyBindingMap_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLineEdit_SetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
-    int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
-    libqt_list /* of QKeySequence* */* keyBindingMap_varr = static_cast<libqt_list /* of QKeySequence* */*>(keyBindingMap.values);
-    for (size_t i = 0; i < keyBindingMap.len; ++i) {
-        QList<QKeySequence> keyBindingMap_varr_i_QList;
-        keyBindingMap_varr_i_QList.reserve(keyBindingMap_varr[i].len);
-        QKeySequence** keyBindingMap_varr_i_arr = static_cast<QKeySequence**>(keyBindingMap_varr[i].data);
-        for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
-            keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
+        int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
+        libqt_list /* of QKeySequence* */* keyBindingMap_varr = static_cast<libqt_list /* of QKeySequence* */*>(keyBindingMap.values);
+        for (size_t i = 0; i < keyBindingMap.len; ++i) {
+            QList<QKeySequence> keyBindingMap_varr_i_QList;
+            keyBindingMap_varr_i_QList.reserve(keyBindingMap_varr[i].len);
+            QKeySequence** keyBindingMap_varr_i_arr = static_cast<QKeySequence**>(keyBindingMap_varr[i].data);
+            for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
+                keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
+            }
+            keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
         }
-        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
-    }
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKeyBindingMap(keyBindingMap_QMap);
-    } else {
-        ((VirtualKLineEdit*)self)->setKeyBindingMap(keyBindingMap_QMap);
-    }
+        vklineedit->VirtualKLineEdit::setKeyBindingMap(keyBindingMap_QMap);
+    } else
+        qFatal("Error: Protected method KLineEdit::setKeyBindingMap called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLineEdit_SuperSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to libqt_list of QKeySequence* */ keyBindingMap) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    QMap<KCompletionBase::KeyBindingType, QList<QKeySequence>> keyBindingMap_QMap;
-    int* keyBindingMap_karr = static_cast<int*>(keyBindingMap.keys);
-    libqt_list /* of QKeySequence* */* keyBindingMap_varr = static_cast<libqt_list /* of QKeySequence* */*>(keyBindingMap.values);
-    for (size_t i = 0; i < keyBindingMap.len; ++i) {
-        QList<QKeySequence> keyBindingMap_varr_i_QList;
-        keyBindingMap_varr_i_QList.reserve(keyBindingMap_varr[i].len);
-        QKeySequence** keyBindingMap_varr_i_arr = static_cast<QKeySequence**>(keyBindingMap_varr[i].data);
-        for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
-            keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
-        }
-        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
-    }
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetKeyBindingMap_IsBase(true);
-        vklineedit->setKeyBindingMap(keyBindingMap_QMap);
-    } else {
-        ((VirtualKLineEdit*)self)->setKeyBindingMap(keyBindingMap_QMap);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnSetKeyBindingMap(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetKeyBindingMap_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetKeyBindingMap_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KLineEdit_SetDelegate(KLineEdit* self, KCompletionBase* delegate) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setDelegate(delegate);
-    } else {
-        ((VirtualKLineEdit*)self)->setDelegate(delegate);
-    }
+    if (auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self)) {
+        vklineedit->VirtualKLineEdit::setDelegate(delegate);
+    } else
+        qFatal("Error: Protected method KLineEdit::setDelegate called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KLineEdit_SuperSetDelegate(KLineEdit* self, KCompletionBase* delegate) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_SetDelegate_IsBase(true);
-        vklineedit->setDelegate(delegate);
-    } else {
-        ((VirtualKLineEdit*)self)->setDelegate(delegate);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnSetDelegate(KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_SetDelegate_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetDelegate_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 KCompletionBase* KLineEdit_Delegate(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return vklineedit->delegate();
-    } else {
-        return ((VirtualKLineEdit*)self)->delegate();
-    }
-}
-
-// Base class handler implementation
-KCompletionBase* KLineEdit_SuperDelegate(const KLineEdit* self) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        vklineedit->setKLineEdit_Delegate_IsBase(true);
-        return vklineedit->delegate();
-    } else {
-        return ((VirtualKLineEdit*)self)->delegate();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KLineEdit_OnDelegate(const KLineEdit* self, intptr_t slot) {
-    auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit)
-        vklineedit->setKLineEdit_Delegate_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Delegate_Callback>(slot));
+    if (auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self))) {
+        return vklineedit->VirtualKLineEdit::delegate();
+    } else
+        qFatal("Error: Protected method KLineEdit::delegate called without a directly constructed type");
 }
 
 void KLineEdit_Delete(KLineEdit* self) {

@@ -117,194 +117,142 @@ int QSvgGenerator_SvgVersion(const QSvgGenerator* self) {
 
 QPaintEngine* QSvgGenerator_PaintEngine(const QSvgGenerator* self) {
     auto* vqsvggenerator = dynamic_cast<const VirtualQSvgGenerator*>(self);
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
+    if (vqsvggenerator) {
         return vqsvggenerator->paintEngine();
     }
-    return {};
+    qFatal("Error: Protected method QSvgGenerator::paintEngine called without a directly constructed type");
 }
 
 int QSvgGenerator_Metric(const QSvgGenerator* self, int metric) {
     auto* vqsvggenerator = dynamic_cast<const VirtualQSvgGenerator*>(self);
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
+    if (vqsvggenerator) {
         return vqsvggenerator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
     }
-    return {};
+    qFatal("Error: Protected method QSvgGenerator::metric called without a directly constructed type");
 }
 
 // Base class handler implementation
 QPaintEngine* QSvgGenerator_SuperPaintEngine(const QSvgGenerator* self) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_PaintEngine_IsBase(true);
-        return vqsvggenerator->paintEngine();
-    } else {
-        return ((VirtualQSvgGenerator*)self)->paintEngine();
-    }
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self))) {
+        return vqsvggenerator->QSvgGenerator::paintEngine();
+    } else
+        qFatal("Error: Protected virtual method QSvgGenerator::paintEngine called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSvgGenerator_OnPaintEngine(const QSvgGenerator* self, intptr_t slot) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator)
-        vqsvggenerator->setQSvgGenerator_PaintEngine_Callback(reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_PaintEngine_Callback>(slot));
+void QSvgGenerator_OnPaintEngine(QSvgGenerator* self, intptr_t slot) {
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self)))
+        vqsvggenerator->qsvggenerator_paintengine_callback = reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_PaintEngine_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSvgGenerator_SuperMetric(const QSvgGenerator* self, int metric) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_Metric_IsBase(true);
-        return vqsvggenerator->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    } else {
-        return ((VirtualQSvgGenerator*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
-    }
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self))) {
+        return vqsvggenerator->QSvgGenerator::metric(static_cast<QPaintDevice::PaintDeviceMetric>(metric));
+    } else
+        qFatal("Error: Protected virtual method QSvgGenerator::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSvgGenerator_OnMetric(const QSvgGenerator* self, intptr_t slot) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator)
-        vqsvggenerator->setQSvgGenerator_Metric_Callback(reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_Metric_Callback>(slot));
+void QSvgGenerator_OnMetric(QSvgGenerator* self, intptr_t slot) {
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self)))
+        vqsvggenerator->qsvggenerator_metric_callback = reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 int QSvgGenerator_DevType(const QSvgGenerator* self) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        return vqsvggenerator->devType();
-    } else {
-        return self->QSvgGenerator::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int QSvgGenerator_SuperDevType(const QSvgGenerator* self) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_DevType_IsBase(true);
-        return vqsvggenerator->devType();
-    } else {
-        return self->QSvgGenerator::devType();
-    }
+    return self->QSvgGenerator::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSvgGenerator_OnDevType(const QSvgGenerator* self, intptr_t slot) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator)
-        vqsvggenerator->setQSvgGenerator_DevType_Callback(reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_DevType_Callback>(slot));
+void QSvgGenerator_OnDevType(QSvgGenerator* self, intptr_t slot) {
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self)))
+        vqsvggenerator->qsvggenerator_devtype_callback = reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSvgGenerator_InitPainter(const QSvgGenerator* self, QPainter* painter) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
+    if (vqsvggenerator) {
         vqsvggenerator->initPainter(painter);
     } else {
-        ((VirtualQSvgGenerator*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method QSvgGenerator::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSvgGenerator_SuperInitPainter(const QSvgGenerator* self, QPainter* painter) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_InitPainter_IsBase(true);
-        vqsvggenerator->initPainter(painter);
-    } else {
-        ((VirtualQSvgGenerator*)self)->initPainter(painter);
-    }
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self))) {
+        vqsvggenerator->QSvgGenerator::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method QSvgGenerator::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSvgGenerator_OnInitPainter(const QSvgGenerator* self, intptr_t slot) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator)
-        vqsvggenerator->setQSvgGenerator_InitPainter_Callback(reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_InitPainter_Callback>(slot));
+void QSvgGenerator_OnInitPainter(QSvgGenerator* self, intptr_t slot) {
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self)))
+        vqsvggenerator->qsvggenerator_initpainter_callback = reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* QSvgGenerator_Redirected(const QSvgGenerator* self, QPoint* offset) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
+    if (vqsvggenerator) {
         return vqsvggenerator->redirected(offset);
     } else {
-        return ((VirtualQSvgGenerator*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method QSvgGenerator::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* QSvgGenerator_SuperRedirected(const QSvgGenerator* self, QPoint* offset) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_Redirected_IsBase(true);
-        return vqsvggenerator->redirected(offset);
-    } else {
-        return ((VirtualQSvgGenerator*)self)->redirected(offset);
-    }
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self))) {
+        return vqsvggenerator->QSvgGenerator::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method QSvgGenerator::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSvgGenerator_OnRedirected(const QSvgGenerator* self, intptr_t slot) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator)
-        vqsvggenerator->setQSvgGenerator_Redirected_Callback(reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_Redirected_Callback>(slot));
+void QSvgGenerator_OnRedirected(QSvgGenerator* self, intptr_t slot) {
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self)))
+        vqsvggenerator->qsvggenerator_redirected_callback = reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* QSvgGenerator_SharedPainter(const QSvgGenerator* self) {
     auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
+    if (vqsvggenerator) {
         return vqsvggenerator->sharedPainter();
     } else {
-        return ((VirtualQSvgGenerator*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method QSvgGenerator::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* QSvgGenerator_SuperSharedPainter(const QSvgGenerator* self) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_SharedPainter_IsBase(true);
-        return vqsvggenerator->sharedPainter();
-    } else {
-        return ((VirtualQSvgGenerator*)self)->sharedPainter();
-    }
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self))) {
+        return vqsvggenerator->QSvgGenerator::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method QSvgGenerator::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSvgGenerator_OnSharedPainter(const QSvgGenerator* self, intptr_t slot) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator)
-        vqsvggenerator->setQSvgGenerator_SharedPainter_Callback(reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_SharedPainter_Callback>(slot));
+void QSvgGenerator_OnSharedPainter(QSvgGenerator* self, intptr_t slot) {
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self)))
+        vqsvggenerator->qsvggenerator_sharedpainter_callback = reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_SharedPainter_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 double QSvgGenerator_GetDecodedMetricF(const QSvgGenerator* self, int metricA, int metricB) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        return vqsvggenerator->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSvgGenerator*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double QSvgGenerator_SuperGetDecodedMetricF(const QSvgGenerator* self, int metricA, int metricB) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator) {
-        vqsvggenerator->setQSvgGenerator_GetDecodedMetricF_IsBase(true);
-        return vqsvggenerator->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualQSvgGenerator*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSvgGenerator_OnGetDecodedMetricF(const QSvgGenerator* self, intptr_t slot) {
-    auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self));
-    if (vqsvggenerator && vqsvggenerator->isVirtualQSvgGenerator)
-        vqsvggenerator->setQSvgGenerator_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSvgGenerator::QSvgGenerator_GetDecodedMetricF_Callback>(slot));
+    if (auto* vqsvggenerator = const_cast<VirtualQSvgGenerator*>(dynamic_cast<const VirtualQSvgGenerator*>(self))) {
+        return vqsvggenerator->VirtualQSvgGenerator::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method QSvgGenerator::getDecodedMetricF called without a directly constructed type");
 }
 
 void QSvgGenerator_Delete(QSvgGenerator* self) {

@@ -63,7 +63,7 @@ bool QSharedMemory_Create2(QSharedMemory* self, ptrdiff_t size, int mode);
 bool QSharedMemory_Attach1(QSharedMemory* self, int mode);
 QNativeIpcKey* QSharedMemory_PlatformSafeKey2(const libqt_string key, uint16_t typeVal);
 QNativeIpcKey* QSharedMemory_LegacyNativeKey2(const libqt_string key, uint16_t typeVal);
-void QSharedMemory_OnMetaObject(const QSharedMemory* self, intptr_t slot);
+void QSharedMemory_OnMetaObject(QSharedMemory* self, intptr_t slot);
 QMetaObject* QSharedMemory_SuperMetaObject(const QSharedMemory* self);
 void QSharedMemory_OnMetacast(QSharedMemory* self, intptr_t slot);
 void* QSharedMemory_SuperMetacast(QSharedMemory* self, const char* param1);
@@ -91,17 +91,9 @@ void QSharedMemory_DisconnectNotify(QSharedMemory* self, const QMetaMethod* sign
 void QSharedMemory_OnDisconnectNotify(QSharedMemory* self, intptr_t slot);
 void QSharedMemory_SuperDisconnectNotify(QSharedMemory* self, const QMetaMethod* signal);
 QObject* QSharedMemory_Sender(const QSharedMemory* self);
-void QSharedMemory_OnSender(const QSharedMemory* self, intptr_t slot);
-QObject* QSharedMemory_SuperSender(const QSharedMemory* self);
 int QSharedMemory_SenderSignalIndex(const QSharedMemory* self);
-void QSharedMemory_OnSenderSignalIndex(const QSharedMemory* self, intptr_t slot);
-int QSharedMemory_SuperSenderSignalIndex(const QSharedMemory* self);
 int QSharedMemory_Receivers(const QSharedMemory* self, const char* signal);
-void QSharedMemory_OnReceivers(const QSharedMemory* self, intptr_t slot);
-int QSharedMemory_SuperReceivers(const QSharedMemory* self, const char* signal);
 bool QSharedMemory_IsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal);
-void QSharedMemory_OnIsSignalConnected(const QSharedMemory* self, intptr_t slot);
-bool QSharedMemory_SuperIsSignalConnected(const QSharedMemory* self, const QMetaMethod* signal);
 void QSharedMemory_Delete(QSharedMemory* self);
 
 #ifdef __cplusplus

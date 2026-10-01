@@ -28,6 +28,8 @@ pub const QSGRectangleNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrectanglenode.html#setRect)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGRectangleNode `
@@ -67,6 +69,8 @@ pub const QSGRectangleNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrectanglenode.html#rect)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGRectangleNode `
@@ -80,6 +84,8 @@ pub const QSGRectangleNode = extern struct {
     pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrectanglenode.html#setColor)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -97,6 +103,8 @@ pub const QSGRectangleNode = extern struct {
     pub const Color = color;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrectanglenode.html#color)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

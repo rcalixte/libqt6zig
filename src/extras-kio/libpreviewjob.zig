@@ -119,9 +119,9 @@ pub const KIO__PreviewJob = extern struct {
     ///
     /// ` self: KIO__PreviewJob `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: KIO__PreviewJob) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: KIO__PreviewJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob) callconv(.c) QMetaObject) void {
         qtc.KIO__PreviewJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2706,9 +2706,9 @@ pub const KIO__PreviewJob = extern struct {
     ///
     /// ` self: KIO__PreviewJob`
     ///
-    /// ` callback: *const fn () callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__PreviewJob) callconv(.c) void `
     ///
-    pub fn onStart(self: KIO__PreviewJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onStart(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob) callconv(.c) void) void {
         qtc.KIO__PreviewJob_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2762,9 +2762,9 @@ pub const KIO__PreviewJob = extern struct {
     ///
     /// ` self: KIO__PreviewJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__PreviewJob) callconv(.c) bool `
     ///
-    pub fn onDoKill(self: KIO__PreviewJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoKill(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob) callconv(.c) bool) void {
         qtc.KIO__PreviewJob_OnDoKill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2818,9 +2818,9 @@ pub const KIO__PreviewJob = extern struct {
     ///
     /// ` self: KIO__PreviewJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__PreviewJob) callconv(.c) bool `
     ///
-    pub fn onDoSuspend(self: KIO__PreviewJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoSuspend(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob) callconv(.c) bool) void {
         qtc.KIO__PreviewJob_OnDoSuspend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2874,9 +2874,9 @@ pub const KIO__PreviewJob = extern struct {
     ///
     /// ` self: KIO__PreviewJob`
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__PreviewJob) callconv(.c) bool `
     ///
-    pub fn onDoResume(self: KIO__PreviewJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoResume(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob) callconv(.c) bool) void {
         qtc.KIO__PreviewJob_OnDoResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2942,9 +2942,9 @@ pub const KIO__PreviewJob = extern struct {
     ///
     /// ` self: KIO__PreviewJob`
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KIO__PreviewJob) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onErrorString(self: KIO__PreviewJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob) callconv(.c) [*:0]const u8) void {
         qtc.KIO__PreviewJob_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3604,44 +3604,6 @@ pub const KIO__PreviewJob = extern struct {
         return qtc.KIO__PreviewJob_HasSubjobs(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `superHasSubjobs` instead
-    ///
-    pub const SuperHasSubjobs = superHasSubjobs;
-
-    /// Inherited from KCompositeJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#hasSubjobs)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    pub fn superHasSubjobs(self: KIO__PreviewJob) bool {
-        return qtc.KIO__PreviewJob_SuperHasSubjobs(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onHasSubjobs` instead
-    ///
-    pub const OnHasSubjobs = onHasSubjobs;
-
-    /// Inherited from KCompositeJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#hasSubjobs)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onHasSubjobs(self: KIO__PreviewJob, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__PreviewJob_OnHasSubjobs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `subjobs` instead
     ///
     pub const Subjobs = subjobs;
@@ -3668,58 +3630,6 @@ pub const KIO__PreviewJob = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `superSubjobs` instead
-    ///
-    pub const SuperSubjobs = superSubjobs;
-
-    /// Inherited from KCompositeJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#subjobs)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn superSubjobs(self: KIO__PreviewJob, allocator: std.mem.Allocator) []KJob {
-        const _arr: qtc.libqt_list = qtc.KIO__PreviewJob_SuperSubjobs(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KJob, _arr.len) catch @panic("KIO__PreviewJob.subjobs: Memory allocation failed");
-        const _data_val: [*]QtC.KJob = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |j|
-            _ret[j] = .{ .ptr = _data_val[j] };
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `onSubjobs` instead
-    ///
-    pub const OnSubjobs = onSubjobs;
-
-    /// Inherited from KCompositeJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#subjobs)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
-    ///
-    /// ## Callback Returns:
-    ///
-    /// ` C ABI representation of []KJob `
-    ///
-    pub fn onSubjobs(self: KIO__PreviewJob, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KIO__PreviewJob_OnSubjobs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `clearSubjobs` instead
     ///
     pub const ClearSubjobs = clearSubjobs;
@@ -3736,44 +3646,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     pub fn clearSubjobs(self: KIO__PreviewJob) void {
         qtc.KIO__PreviewJob_ClearSubjobs(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superClearSubjobs` instead
-    ///
-    pub const SuperClearSubjobs = superClearSubjobs;
-
-    /// Inherited from KCompositeJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#clearSubjobs)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    pub fn superClearSubjobs(self: KIO__PreviewJob) void {
-        qtc.KIO__PreviewJob_SuperClearSubjobs(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onClearSubjobs` instead
-    ///
-    pub const OnClearSubjobs = onClearSubjobs;
-
-    /// Inherited from KCompositeJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kcompositejob.html#clearSubjobs)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onClearSubjobs(self: KIO__PreviewJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnClearSubjobs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setCapabilities` instead
@@ -3796,46 +3668,6 @@ pub const KIO__PreviewJob = extern struct {
         qtc.KIO__PreviewJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
     }
 
-    /// ### DEPRECATED: Use `superSetCapabilities` instead
-    ///
-    pub const SuperSetCapabilities = superSetCapabilities;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` _capabilities: flag of kjob_enums.Capability `
-    ///
-    pub fn superSetCapabilities(self: KIO__PreviewJob, _capabilities: i32) void {
-        qtc.KIO__PreviewJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
-    }
-
-    /// ### DEPRECATED: Use `onSetCapabilities` instead
-    ///
-    pub const OnSetCapabilities = onSetCapabilities;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setCapabilities)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
-    ///
-    pub fn onSetCapabilities(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, i32) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnSetCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isFinished` instead
     ///
     pub const IsFinished = isFinished;
@@ -3852,44 +3684,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     pub fn isFinished(self: KIO__PreviewJob) bool {
         return qtc.KIO__PreviewJob_IsFinished(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsFinished` instead
-    ///
-    pub const SuperIsFinished = superIsFinished;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    pub fn superIsFinished(self: KIO__PreviewJob) bool {
-        return qtc.KIO__PreviewJob_SuperIsFinished(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsFinished` instead
-    ///
-    pub const OnIsFinished = onIsFinished;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#isFinished)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) bool `
-    ///
-    pub fn onIsFinished(self: KIO__PreviewJob, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__PreviewJob_OnIsFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setError` instead
@@ -3910,46 +3704,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     pub fn setError(self: KIO__PreviewJob, errorCode: i32) void {
         qtc.KIO__PreviewJob_SetError(@ptrCast(self.ptr), @bitCast(errorCode));
-    }
-
-    /// ### DEPRECATED: Use `superSetError` instead
-    ///
-    pub const SuperSetError = superSetError;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` errorCode: i32 `
-    ///
-    pub fn superSetError(self: KIO__PreviewJob, errorCode: i32) void {
-        qtc.KIO__PreviewJob_SuperSetError(@ptrCast(self.ptr), @bitCast(errorCode));
-    }
-
-    /// ### DEPRECATED: Use `onSetError` instead
-    ///
-    pub const OnSetError = onSetError;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setError)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, errorCode: i32) callconv(.c) void `
-    ///
-    pub fn onSetError(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, i32) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setErrorText` instead
@@ -3976,50 +3730,6 @@ pub const KIO__PreviewJob = extern struct {
         qtc.KIO__PreviewJob_SetErrorText(@ptrCast(self.ptr), errorText_str);
     }
 
-    /// ### DEPRECATED: Use `superSetErrorText` instead
-    ///
-    pub const SuperSetErrorText = superSetErrorText;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` _errorText: []const u8 `
-    ///
-    pub fn superSetErrorText(self: KIO__PreviewJob, _errorText: []const u8) void {
-        const errorText_str = qtc.libqt_string{
-            .len = _errorText.len,
-            .data = _errorText.ptr,
-        };
-        qtc.KIO__PreviewJob_SuperSetErrorText(@ptrCast(self.ptr), errorText_str);
-    }
-
-    /// ### DEPRECATED: Use `onSetErrorText` instead
-    ///
-    pub const OnSetErrorText = onSetErrorText;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setErrorText)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, errorText: [*:0]const u8) callconv(.c) void `
-    ///
-    pub fn onSetErrorText(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnSetErrorText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setProcessedAmount` instead
     ///
     pub const SetProcessedAmount = setProcessedAmount;
@@ -4040,48 +3750,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     pub fn setProcessedAmount(self: KIO__PreviewJob, unit: i32, amount: usize) void {
         qtc.KIO__PreviewJob_SetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `superSetProcessedAmount` instead
-    ///
-    pub const SuperSetProcessedAmount = superSetProcessedAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    /// ` amount: usize `
-    ///
-    pub fn superSetProcessedAmount(self: KIO__PreviewJob, unit: i32, amount: usize) void {
-        qtc.KIO__PreviewJob_SuperSetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `onSetProcessedAmount` instead
-    ///
-    pub const OnSetProcessedAmount = onSetProcessedAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
-    ///
-    pub fn onSetProcessedAmount(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, i32, usize) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnSetProcessedAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setTotalAmount` instead
@@ -4106,48 +3774,6 @@ pub const KIO__PreviewJob = extern struct {
         qtc.KIO__PreviewJob_SetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
-    /// ### DEPRECATED: Use `superSetTotalAmount` instead
-    ///
-    pub const SuperSetTotalAmount = superSetTotalAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    /// ` amount: usize `
-    ///
-    pub fn superSetTotalAmount(self: KIO__PreviewJob, unit: i32, amount: usize) void {
-        qtc.KIO__PreviewJob_SuperSetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
-    }
-
-    /// ### DEPRECATED: Use `onSetTotalAmount` instead
-    ///
-    pub const OnSetTotalAmount = onSetTotalAmount;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setTotalAmount)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
-    ///
-    pub fn onSetTotalAmount(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, i32, usize) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnSetTotalAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `setProgressUnit` instead
     ///
     pub const SetProgressUnit = setProgressUnit;
@@ -4166,46 +3792,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     pub fn setProgressUnit(self: KIO__PreviewJob, unit: i32) void {
         qtc.KIO__PreviewJob_SetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
-    }
-
-    /// ### DEPRECATED: Use `superSetProgressUnit` instead
-    ///
-    pub const SuperSetProgressUnit = superSetProgressUnit;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` unit: kjob_enums.Unit `
-    ///
-    pub fn superSetProgressUnit(self: KIO__PreviewJob, unit: i32) void {
-        qtc.KIO__PreviewJob_SuperSetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
-    }
-
-    /// ### DEPRECATED: Use `onSetProgressUnit` instead
-    ///
-    pub const OnSetProgressUnit = onSetProgressUnit;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setProgressUnit)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, unit: kjob_enums.Unit) callconv(.c) void `
-    ///
-    pub fn onSetProgressUnit(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, i32) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnSetProgressUnit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `setPercent` instead
@@ -4228,46 +3814,6 @@ pub const KIO__PreviewJob = extern struct {
         qtc.KIO__PreviewJob_SetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
 
-    /// ### DEPRECATED: Use `superSetPercent` instead
-    ///
-    pub const SuperSetPercent = superSetPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` percentage: usize `
-    ///
-    pub fn superSetPercent(self: KIO__PreviewJob, percentage: usize) void {
-        qtc.KIO__PreviewJob_SuperSetPercent(@ptrCast(self.ptr), @bitCast(percentage));
-    }
-
-    /// ### DEPRECATED: Use `onSetPercent` instead
-    ///
-    pub const OnSetPercent = onSetPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#setPercent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, percentage: usize) callconv(.c) void `
-    ///
-    pub fn onSetPercent(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, usize) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnSetPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `emitResult` instead
     ///
     pub const EmitResult = emitResult;
@@ -4284,44 +3830,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     pub fn emitResult(self: KIO__PreviewJob) void {
         qtc.KIO__PreviewJob_EmitResult(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superEmitResult` instead
-    ///
-    pub const SuperEmitResult = superEmitResult;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    pub fn superEmitResult(self: KIO__PreviewJob) void {
-        qtc.KIO__PreviewJob_SuperEmitResult(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onEmitResult` instead
-    ///
-    pub const OnEmitResult = onEmitResult;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitResult)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onEmitResult(self: KIO__PreviewJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnEmitResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `emitPercent` instead
@@ -4346,48 +3854,6 @@ pub const KIO__PreviewJob = extern struct {
         qtc.KIO__PreviewJob_EmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
     }
 
-    /// ### DEPRECATED: Use `superEmitPercent` instead
-    ///
-    pub const SuperEmitPercent = superEmitPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` _processedAmount: usize `
-    ///
-    /// ` _totalAmount: usize `
-    ///
-    pub fn superEmitPercent(self: KIO__PreviewJob, _processedAmount: usize, _totalAmount: usize) void {
-        qtc.KIO__PreviewJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
-    }
-
-    /// ### DEPRECATED: Use `onEmitPercent` instead
-    ///
-    pub const OnEmitPercent = onEmitPercent;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitPercent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
-    ///
-    pub fn onEmitPercent(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, usize, usize) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnEmitPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `emitSpeed` instead
     ///
     pub const EmitSpeed = emitSpeed;
@@ -4408,46 +3874,6 @@ pub const KIO__PreviewJob = extern struct {
         qtc.KIO__PreviewJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
     }
 
-    /// ### DEPRECATED: Use `superEmitSpeed` instead
-    ///
-    pub const SuperEmitSpeed = superEmitSpeed;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` _speed: usize `
-    ///
-    pub fn superEmitSpeed(self: KIO__PreviewJob, _speed: usize) void {
-        qtc.KIO__PreviewJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
-    }
-
-    /// ### DEPRECATED: Use `onEmitSpeed` instead
-    ///
-    pub const OnEmitSpeed = onEmitSpeed;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#emitSpeed)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, speed: usize) callconv(.c) void `
-    ///
-    pub fn onEmitSpeed(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, usize) callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnEmitSpeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `startElapsedTimer` instead
     ///
     pub const StartElapsedTimer = startElapsedTimer;
@@ -4464,44 +3890,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     pub fn startElapsedTimer(self: KIO__PreviewJob) void {
         qtc.KIO__PreviewJob_StartElapsedTimer(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superStartElapsedTimer` instead
-    ///
-    pub const SuperStartElapsedTimer = superStartElapsedTimer;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    pub fn superStartElapsedTimer(self: KIO__PreviewJob) void {
-        qtc.KIO__PreviewJob_SuperStartElapsedTimer(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onStartElapsedTimer` instead
-    ///
-    pub const OnStartElapsedTimer = onStartElapsedTimer;
-
-    /// Inherited from KJob
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kjob.html#startElapsedTimer)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onStartElapsedTimer(self: KIO__PreviewJob, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__PreviewJob_OnStartElapsedTimer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `sender` instead
@@ -4522,44 +3910,6 @@ pub const KIO__PreviewJob = extern struct {
         return .{ .ptr = qtc.KIO__PreviewJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    pub fn superSender(self: KIO__PreviewJob) QObject {
-        return .{ .ptr = qtc.KIO__PreviewJob_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: KIO__PreviewJob, callback: *const fn () callconv(.c) QObject) void {
-        qtc.KIO__PreviewJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -4576,44 +3926,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     pub fn senderSignalIndex(self: KIO__PreviewJob) i32 {
         return qtc.KIO__PreviewJob_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    pub fn superSenderSignalIndex(self: KIO__PreviewJob) i32 {
-        return qtc.KIO__PreviewJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: KIO__PreviewJob, callback: *const fn () callconv(.c) i32) void {
-        qtc.KIO__PreviewJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -4637,47 +3949,6 @@ pub const KIO__PreviewJob = extern struct {
         return qtc.KIO__PreviewJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: KIO__PreviewJob, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KIO__PreviewJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KIO__PreviewJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -4697,47 +3968,6 @@ pub const KIO__PreviewJob = extern struct {
     pub fn isSignalConnected(self: KIO__PreviewJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KIO__PreviewJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__PreviewJob `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: KIO__PreviewJob, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.KIO__PreviewJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: KIO__PreviewJob`
-    ///
-    /// ` callback: *const fn (self: KIO__PreviewJob, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: KIO__PreviewJob, callback: *const fn (KIO__PreviewJob, QMetaMethod) callconv(.c) bool) void {
-        qtc.KIO__PreviewJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onFinished` instead

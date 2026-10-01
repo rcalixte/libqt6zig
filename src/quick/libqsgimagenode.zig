@@ -30,6 +30,8 @@ pub const QSGImageNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#setRect)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGImageNode `
@@ -69,6 +71,8 @@ pub const QSGImageNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#rect)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGImageNode `
@@ -82,6 +86,8 @@ pub const QSGImageNode = extern struct {
     pub const SetSourceRect = setSourceRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#setSourceRect)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -122,6 +128,8 @@ pub const QSGImageNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#sourceRect)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGImageNode `
@@ -135,6 +143,8 @@ pub const QSGImageNode = extern struct {
     pub const SetTexture = setTexture;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#setTexture)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -153,6 +163,8 @@ pub const QSGImageNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#texture)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGImageNode `
@@ -166,6 +178,8 @@ pub const QSGImageNode = extern struct {
     pub const SetFiltering = setFiltering;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#setFiltering)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -182,6 +196,8 @@ pub const QSGImageNode = extern struct {
     pub const Filtering = filtering;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#filtering)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -201,6 +217,8 @@ pub const QSGImageNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#setMipmapFiltering)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGImageNode `
@@ -216,6 +234,8 @@ pub const QSGImageNode = extern struct {
     pub const MipmapFiltering = mipmapFiltering;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#mipmapFiltering)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -235,6 +255,8 @@ pub const QSGImageNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#setAnisotropyLevel)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGImageNode `
@@ -250,6 +272,8 @@ pub const QSGImageNode = extern struct {
     pub const AnisotropyLevel = anisotropyLevel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#anisotropyLevel)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -269,6 +293,8 @@ pub const QSGImageNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#setTextureCoordinatesTransform)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGImageNode `
@@ -284,6 +310,8 @@ pub const QSGImageNode = extern struct {
     pub const TextureCoordinatesTransform = textureCoordinatesTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#textureCoordinatesTransform)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///
@@ -303,6 +331,8 @@ pub const QSGImageNode = extern struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#setOwnsTexture)
     ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
+    ///
     /// ## Parameter(s):
     ///
     /// ` self: QSGImageNode `
@@ -318,6 +348,8 @@ pub const QSGImageNode = extern struct {
     pub const OwnsTexture = ownsTexture;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgimagenode.html#ownsTexture)
+    ///
+    /// **Warning:** Use caution when calling this method as it might not be defined.
     ///
     /// ## Parameter(s):
     ///

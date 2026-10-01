@@ -52,7 +52,7 @@ KConfigSkeleton__ItemColor* KConfigSkeleton_AddItemColor3(KConfigSkeleton* self,
 KConfigSkeleton__ItemColor* KConfigSkeleton_AddItemColor4(KConfigSkeleton* self, const libqt_string name, QColor* reference, const QColor* defaultValue, const libqt_string key);
 KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont3(KConfigSkeleton* self, const libqt_string name, QFont* reference, const QFont* defaultValue);
 KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont4(KConfigSkeleton* self, const libqt_string name, QFont* reference, const QFont* defaultValue, const libqt_string key);
-void KConfigSkeleton_OnMetaObject(const KConfigSkeleton* self, intptr_t slot);
+void KConfigSkeleton_OnMetaObject(KConfigSkeleton* self, intptr_t slot);
 QMetaObject* KConfigSkeleton_SuperMetaObject(const KConfigSkeleton* self);
 void KConfigSkeleton_OnMetacast(KConfigSkeleton* self, intptr_t slot);
 void* KConfigSkeleton_SuperMetacast(KConfigSkeleton* self, const char* param1);
@@ -98,17 +98,9 @@ void KConfigSkeleton_DisconnectNotify(KConfigSkeleton* self, const QMetaMethod* 
 void KConfigSkeleton_OnDisconnectNotify(KConfigSkeleton* self, intptr_t slot);
 void KConfigSkeleton_SuperDisconnectNotify(KConfigSkeleton* self, const QMetaMethod* signal);
 QObject* KConfigSkeleton_Sender(const KConfigSkeleton* self);
-void KConfigSkeleton_OnSender(const KConfigSkeleton* self, intptr_t slot);
-QObject* KConfigSkeleton_SuperSender(const KConfigSkeleton* self);
 int KConfigSkeleton_SenderSignalIndex(const KConfigSkeleton* self);
-void KConfigSkeleton_OnSenderSignalIndex(const KConfigSkeleton* self, intptr_t slot);
-int KConfigSkeleton_SuperSenderSignalIndex(const KConfigSkeleton* self);
 int KConfigSkeleton_Receivers(const KConfigSkeleton* self, const char* signal);
-void KConfigSkeleton_OnReceivers(const KConfigSkeleton* self, intptr_t slot);
-int KConfigSkeleton_SuperReceivers(const KConfigSkeleton* self, const char* signal);
 bool KConfigSkeleton_IsSignalConnected(const KConfigSkeleton* self, const QMetaMethod* signal);
-void KConfigSkeleton_OnIsSignalConnected(const KConfigSkeleton* self, intptr_t slot);
-bool KConfigSkeleton_SuperIsSignalConnected(const KConfigSkeleton* self, const QMetaMethod* signal);
 void KConfigSkeleton_Delete(KConfigSkeleton* self);
 
 KConfigSkeleton__ItemColor* KConfigSkeleton__ItemColor_new(const libqt_string _group, const libqt_string _key, QColor* reference);
@@ -121,9 +113,9 @@ void KConfigSkeleton__ItemColor_OnReadConfig(KConfigSkeleton__ItemColor* self, i
 void KConfigSkeleton__ItemColor_SuperReadConfig(KConfigSkeleton__ItemColor* self, KConfig* config);
 void KConfigSkeleton__ItemColor_OnSetProperty(KConfigSkeleton__ItemColor* self, intptr_t slot);
 void KConfigSkeleton__ItemColor_SuperSetProperty(KConfigSkeleton__ItemColor* self, const QVariant* p);
-void KConfigSkeleton__ItemColor_OnIsEqual(const KConfigSkeleton__ItemColor* self, intptr_t slot);
+void KConfigSkeleton__ItemColor_OnIsEqual(KConfigSkeleton__ItemColor* self, intptr_t slot);
 bool KConfigSkeleton__ItemColor_SuperIsEqual(const KConfigSkeleton__ItemColor* self, const QVariant* p);
-void KConfigSkeleton__ItemColor_OnProperty(const KConfigSkeleton__ItemColor* self, intptr_t slot);
+void KConfigSkeleton__ItemColor_OnProperty(KConfigSkeleton__ItemColor* self, intptr_t slot);
 QVariant* KConfigSkeleton__ItemColor_SuperProperty(const KConfigSkeleton__ItemColor* self);
 void KConfigSkeleton__ItemColor_Delete(KConfigSkeleton__ItemColor* self);
 
@@ -137,9 +129,9 @@ void KConfigSkeleton__ItemFont_OnReadConfig(KConfigSkeleton__ItemFont* self, int
 void KConfigSkeleton__ItemFont_SuperReadConfig(KConfigSkeleton__ItemFont* self, KConfig* config);
 void KConfigSkeleton__ItemFont_OnSetProperty(KConfigSkeleton__ItemFont* self, intptr_t slot);
 void KConfigSkeleton__ItemFont_SuperSetProperty(KConfigSkeleton__ItemFont* self, const QVariant* p);
-void KConfigSkeleton__ItemFont_OnIsEqual(const KConfigSkeleton__ItemFont* self, intptr_t slot);
+void KConfigSkeleton__ItemFont_OnIsEqual(KConfigSkeleton__ItemFont* self, intptr_t slot);
 bool KConfigSkeleton__ItemFont_SuperIsEqual(const KConfigSkeleton__ItemFont* self, const QVariant* p);
-void KConfigSkeleton__ItemFont_OnProperty(const KConfigSkeleton__ItemFont* self, intptr_t slot);
+void KConfigSkeleton__ItemFont_OnProperty(KConfigSkeleton__ItemFont* self, intptr_t slot);
 QVariant* KConfigSkeleton__ItemFont_SuperProperty(const KConfigSkeleton__ItemFont* self);
 void KConfigSkeleton__ItemFont_Delete(KConfigSkeleton__ItemFont* self);
 

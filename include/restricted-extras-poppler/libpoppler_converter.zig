@@ -53,20 +53,6 @@ pub const Poppler__BaseConverter = extern struct {
         qtc.Poppler__BaseConverter_SetOutputDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
 
-    /// ### DEPRECATED: Use `convert` instead
-    ///
-    pub const Convert = convert;
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1BaseConverter.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__BaseConverter `
-    ///
-    pub fn convert(self: Poppler__BaseConverter) bool {
-        return qtc.Poppler__BaseConverter_Convert(@ptrCast(self.ptr));
-    }
-
     /// ### DEPRECATED: Use `lastError` instead
     ///
     pub const LastError = lastError;

@@ -74,383 +74,225 @@ libqt_string QSqlDriverPlugin_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QSqlDriverPlugin_SuperMetaObject(const QSqlDriverPlugin* self) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_MetaObject_IsBase(true);
-        return (QMetaObject*)vqsqldriverplugin->metaObject();
-    } else {
-        return (QMetaObject*)self->QSqlDriverPlugin::metaObject();
-    }
+    return (QMetaObject*)self->QSqlDriverPlugin::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QSqlDriverPlugin_OnMetaObject(const QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_MetaObject_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_MetaObject_Callback>(slot));
+void QSqlDriverPlugin_OnMetaObject(QSqlDriverPlugin* self, intptr_t slot) {
+    if (auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self)))
+        vqsqldriverplugin->qsqldriverplugin_metaobject_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QSqlDriverPlugin_SuperMetacast(QSqlDriverPlugin* self, const char* param1) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Metacast_IsBase(true);
-        return vqsqldriverplugin->qt_metacast(param1);
-    } else {
-        return self->QSqlDriverPlugin::qt_metacast(param1);
-    }
+    return self->QSqlDriverPlugin::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnMetacast(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_Metacast_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Metacast_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_metacast_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QSqlDriverPlugin_SuperMetacall(QSqlDriverPlugin* self, int param1, int param2, void** param3) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Metacall_IsBase(true);
-        return vqsqldriverplugin->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QSqlDriverPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QSqlDriverPlugin::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnMetacall(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_Metacall_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Metacall_Callback>(slot));
-}
-
-// Base class handler implementation
-QSqlDriver* QSqlDriverPlugin_SuperCreate(QSqlDriverPlugin* self, const libqt_string key) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    QString key_QString = QString::fromUtf8(key.data, key.len);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Create_IsBase(true);
-        return vqsqldriverplugin->create(key_QString);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->create(key_QString);
-    }
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_metacall_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Metacall_Callback>(slot);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnCreate(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_Create_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Create_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_create_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Create_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSqlDriverPlugin_Event(QSqlDriverPlugin* self, QEvent* event) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return vqsqldriverplugin->event(event);
-    } else {
-        return self->QSqlDriverPlugin::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QSqlDriverPlugin_SuperEvent(QSqlDriverPlugin* self, QEvent* event) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Event_IsBase(true);
-        return vqsqldriverplugin->event(event);
-    } else {
-        return self->QSqlDriverPlugin::event(event);
-    }
+    return self->QSqlDriverPlugin::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnEvent(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_Event_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Event_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_event_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QSqlDriverPlugin_EventFilter(QSqlDriverPlugin* self, QObject* watched, QEvent* event) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return vqsqldriverplugin->eventFilter(watched, event);
-    } else {
-        return self->QSqlDriverPlugin::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QSqlDriverPlugin_SuperEventFilter(QSqlDriverPlugin* self, QObject* watched, QEvent* event) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_EventFilter_IsBase(true);
-        return vqsqldriverplugin->eventFilter(watched, event);
-    } else {
-        return self->QSqlDriverPlugin::eventFilter(watched, event);
-    }
+    return self->QSqlDriverPlugin::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnEventFilter(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_EventFilter_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_EventFilter_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_eventfilter_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSqlDriverPlugin_TimerEvent(QSqlDriverPlugin* self, QTimerEvent* event) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+    if (vqsqldriverplugin) {
         vqsqldriverplugin->timerEvent(event);
     } else {
-        ((VirtualQSqlDriverPlugin*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSqlDriverPlugin_SuperTimerEvent(QSqlDriverPlugin* self, QTimerEvent* event) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_TimerEvent_IsBase(true);
-        vqsqldriverplugin->timerEvent(event);
-    } else {
-        ((VirtualQSqlDriverPlugin*)self)->timerEvent(event);
-    }
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self)) {
+        vqsqldriverplugin->QSqlDriverPlugin::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnTimerEvent(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_TimerEvent_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_TimerEvent_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_timerevent_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSqlDriverPlugin_ChildEvent(QSqlDriverPlugin* self, QChildEvent* event) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+    if (vqsqldriverplugin) {
         vqsqldriverplugin->childEvent(event);
     } else {
-        ((VirtualQSqlDriverPlugin*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSqlDriverPlugin_SuperChildEvent(QSqlDriverPlugin* self, QChildEvent* event) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_ChildEvent_IsBase(true);
-        vqsqldriverplugin->childEvent(event);
-    } else {
-        ((VirtualQSqlDriverPlugin*)self)->childEvent(event);
-    }
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self)) {
+        vqsqldriverplugin->QSqlDriverPlugin::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnChildEvent(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_ChildEvent_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_ChildEvent_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_childevent_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSqlDriverPlugin_CustomEvent(QSqlDriverPlugin* self, QEvent* event) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+    if (vqsqldriverplugin) {
         vqsqldriverplugin->customEvent(event);
     } else {
-        ((VirtualQSqlDriverPlugin*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSqlDriverPlugin_SuperCustomEvent(QSqlDriverPlugin* self, QEvent* event) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_CustomEvent_IsBase(true);
-        vqsqldriverplugin->customEvent(event);
-    } else {
-        ((VirtualQSqlDriverPlugin*)self)->customEvent(event);
-    }
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self)) {
+        vqsqldriverplugin->QSqlDriverPlugin::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnCustomEvent(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_CustomEvent_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_CustomEvent_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_customevent_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSqlDriverPlugin_ConnectNotify(QSqlDriverPlugin* self, const QMetaMethod* signal) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+    if (vqsqldriverplugin) {
         vqsqldriverplugin->connectNotify(*signal);
     } else {
-        ((VirtualQSqlDriverPlugin*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSqlDriverPlugin_SuperConnectNotify(QSqlDriverPlugin* self, const QMetaMethod* signal) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_ConnectNotify_IsBase(true);
-        vqsqldriverplugin->connectNotify(*signal);
-    } else {
-        ((VirtualQSqlDriverPlugin*)self)->connectNotify(*signal);
-    }
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self)) {
+        vqsqldriverplugin->QSqlDriverPlugin::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnConnectNotify(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_ConnectNotify_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_connectnotify_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QSqlDriverPlugin_DisconnectNotify(QSqlDriverPlugin* self, const QMetaMethod* signal) {
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
+    if (vqsqldriverplugin) {
         vqsqldriverplugin->disconnectNotify(*signal);
     } else {
-        ((VirtualQSqlDriverPlugin*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QSqlDriverPlugin_SuperDisconnectNotify(QSqlDriverPlugin* self, const QMetaMethod* signal) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_DisconnectNotify_IsBase(true);
-        vqsqldriverplugin->disconnectNotify(*signal);
-    } else {
-        ((VirtualQSqlDriverPlugin*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self)) {
+        vqsqldriverplugin->QSqlDriverPlugin::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QSqlDriverPlugin::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QSqlDriverPlugin_OnDisconnectNotify(QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_DisconnectNotify_Callback>(slot));
+    if (auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self))
+        vqsqldriverplugin->qsqldriverplugin_disconnectnotify_callback = reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QSqlDriverPlugin_Sender(const QSqlDriverPlugin* self) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return vqsqldriverplugin->sender();
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->sender();
-    }
+    if (auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self))) {
+        return vqsqldriverplugin->VirtualQSqlDriverPlugin::sender();
+    } else
+        qFatal("Error: Protected method QSqlDriverPlugin::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QSqlDriverPlugin_SuperSender(const QSqlDriverPlugin* self) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Sender_IsBase(true);
-        return vqsqldriverplugin->sender();
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlDriverPlugin_OnSender(const QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_Sender_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSqlDriverPlugin_SenderSignalIndex(const QSqlDriverPlugin* self) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return vqsqldriverplugin->senderSignalIndex();
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->senderSignalIndex();
-    }
+    if (auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self))) {
+        return vqsqldriverplugin->VirtualQSqlDriverPlugin::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QSqlDriverPlugin::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSqlDriverPlugin_SuperSenderSignalIndex(const QSqlDriverPlugin* self) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_SenderSignalIndex_IsBase(true);
-        return vqsqldriverplugin->senderSignalIndex();
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlDriverPlugin_OnSenderSignalIndex(const QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QSqlDriverPlugin_Receivers(const QSqlDriverPlugin* self, const char* signal) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return vqsqldriverplugin->receivers(signal);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->receivers(signal);
-    }
+    if (auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self))) {
+        return vqsqldriverplugin->VirtualQSqlDriverPlugin::receivers(signal);
+    } else
+        qFatal("Error: Protected method QSqlDriverPlugin::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QSqlDriverPlugin_SuperReceivers(const QSqlDriverPlugin* self, const char* signal) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_Receivers_IsBase(true);
-        return vqsqldriverplugin->receivers(signal);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlDriverPlugin_OnReceivers(const QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_Receivers_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QSqlDriverPlugin_IsSignalConnected(const QSqlDriverPlugin* self, const QMetaMethod* signal) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return vqsqldriverplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QSqlDriverPlugin_SuperIsSignalConnected(const QSqlDriverPlugin* self, const QMetaMethod* signal) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        vqsqldriverplugin->setQSqlDriverPlugin_IsSignalConnected_IsBase(true);
-        return vqsqldriverplugin->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QSqlDriverPlugin_OnIsSignalConnected(const QSqlDriverPlugin* self, intptr_t slot) {
-    auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self));
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin)
-        vqsqldriverplugin->setQSqlDriverPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualQSqlDriverPlugin::QSqlDriverPlugin_IsSignalConnected_Callback>(slot));
+    if (auto* vqsqldriverplugin = const_cast<VirtualQSqlDriverPlugin*>(dynamic_cast<const VirtualQSqlDriverPlugin*>(self))) {
+        return vqsqldriverplugin->VirtualQSqlDriverPlugin::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QSqlDriverPlugin::isSignalConnected called without a directly constructed type");
 }
 
 void QSqlDriverPlugin_Delete(QSqlDriverPlugin* self) {

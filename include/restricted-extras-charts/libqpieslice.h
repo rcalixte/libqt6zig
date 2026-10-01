@@ -113,7 +113,7 @@ libqt_string QPieSlice_Tr2(const char* s, const char* c);
 libqt_string QPieSlice_Tr3(const char* s, const char* c, int n);
 void QPieSlice_SetLabelVisible1(QPieSlice* self, bool visible);
 void QPieSlice_SetExploded1(QPieSlice* self, bool exploded);
-void QPieSlice_OnMetaObject(const QPieSlice* self, intptr_t slot);
+void QPieSlice_OnMetaObject(QPieSlice* self, intptr_t slot);
 QMetaObject* QPieSlice_SuperMetaObject(const QPieSlice* self);
 void QPieSlice_OnMetacast(QPieSlice* self, intptr_t slot);
 void* QPieSlice_SuperMetacast(QPieSlice* self, const char* param1);
@@ -141,17 +141,9 @@ void QPieSlice_DisconnectNotify(QPieSlice* self, const QMetaMethod* signal);
 void QPieSlice_OnDisconnectNotify(QPieSlice* self, intptr_t slot);
 void QPieSlice_SuperDisconnectNotify(QPieSlice* self, const QMetaMethod* signal);
 QObject* QPieSlice_Sender(const QPieSlice* self);
-void QPieSlice_OnSender(const QPieSlice* self, intptr_t slot);
-QObject* QPieSlice_SuperSender(const QPieSlice* self);
 int QPieSlice_SenderSignalIndex(const QPieSlice* self);
-void QPieSlice_OnSenderSignalIndex(const QPieSlice* self, intptr_t slot);
-int QPieSlice_SuperSenderSignalIndex(const QPieSlice* self);
 int QPieSlice_Receivers(const QPieSlice* self, const char* signal);
-void QPieSlice_OnReceivers(const QPieSlice* self, intptr_t slot);
-int QPieSlice_SuperReceivers(const QPieSlice* self, const char* signal);
 bool QPieSlice_IsSignalConnected(const QPieSlice* self, const QMetaMethod* signal);
-void QPieSlice_OnIsSignalConnected(const QPieSlice* self, intptr_t slot);
-bool QPieSlice_SuperIsSignalConnected(const QPieSlice* self, const QMetaMethod* signal);
 void QPieSlice_Delete(QPieSlice* self);
 
 #ifdef __cplusplus

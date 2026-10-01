@@ -76,9 +76,9 @@ pub const QQuickAttachedPropertyPropagator = extern struct {
     ///
     /// ` self: QQuickAttachedPropertyPropagator `
     ///
-    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    /// ` callback: *const fn (self: QQuickAttachedPropertyPropagator) callconv(.c) QMetaObject `
     ///
-    pub fn onMetaObject(self: QQuickAttachedPropertyPropagator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QQuickAttachedPropertyPropagator, callback: *const fn (QQuickAttachedPropertyPropagator) callconv(.c) QMetaObject) void {
         qtc.QQuickAttachedPropertyPropagator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -271,40 +271,6 @@ pub const QQuickAttachedPropertyPropagator = extern struct {
     ///
     pub fn initialize(self: QQuickAttachedPropertyPropagator) void {
         qtc.QQuickAttachedPropertyPropagator_Initialize(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onInitialize` instead
-    ///
-    pub const OnInitialize = onInitialize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickattachedpropertypropagator.html#initialize)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator `
-    ///
-    /// ` callback: *const fn () callconv(.c) void `
-    ///
-    pub fn onInitialize(self: QQuickAttachedPropertyPropagator, callback: *const fn () callconv(.c) void) void {
-        qtc.QQuickAttachedPropertyPropagator_OnInitialize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `superInitialize` instead
-    ///
-    pub const SuperInitialize = superInitialize;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquickattachedpropertypropagator.html#initialize)
-    ///
-    /// Base class method implementation
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator `
-    ///
-    pub fn superInitialize(self: QQuickAttachedPropertyPropagator) void {
-        qtc.QQuickAttachedPropertyPropagator_SuperInitialize(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `attachedParentChange` instead
@@ -1844,44 +1810,6 @@ pub const QQuickAttachedPropertyPropagator = extern struct {
         return .{ .ptr = qtc.QQuickAttachedPropertyPropagator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `superSender` instead
-    ///
-    pub const SuperSender = superSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator `
-    ///
-    pub fn superSender(self: QQuickAttachedPropertyPropagator) QObject {
-        return .{ .ptr = qtc.QQuickAttachedPropertyPropagator_SuperSender(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `onSender` instead
-    ///
-    pub const OnSender = onSender;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator`
-    ///
-    /// ` callback: *const fn () callconv(.c) QObject `
-    ///
-    pub fn onSender(self: QQuickAttachedPropertyPropagator, callback: *const fn () callconv(.c) QObject) void {
-        qtc.QQuickAttachedPropertyPropagator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `senderSignalIndex` instead
     ///
     pub const SenderSignalIndex = senderSignalIndex;
@@ -1898,44 +1826,6 @@ pub const QQuickAttachedPropertyPropagator = extern struct {
     ///
     pub fn senderSignalIndex(self: QQuickAttachedPropertyPropagator) i32 {
         return qtc.QQuickAttachedPropertyPropagator_SenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
-    ///
-    pub const SuperSenderSignalIndex = superSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator `
-    ///
-    pub fn superSenderSignalIndex(self: QQuickAttachedPropertyPropagator) i32 {
-        return qtc.QQuickAttachedPropertyPropagator_SuperSenderSignalIndex(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
-    ///
-    pub const OnSenderSignalIndex = onSenderSignalIndex;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator`
-    ///
-    /// ` callback: *const fn () callconv(.c) i32 `
-    ///
-    pub fn onSenderSignalIndex(self: QQuickAttachedPropertyPropagator, callback: *const fn () callconv(.c) i32) void {
-        qtc.QQuickAttachedPropertyPropagator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `receivers` instead
@@ -1959,47 +1849,6 @@ pub const QQuickAttachedPropertyPropagator = extern struct {
         return qtc.QQuickAttachedPropertyPropagator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `superReceivers` instead
-    ///
-    pub const SuperReceivers = superReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator `
-    ///
-    /// ` signal: [:0]const u8 `
-    ///
-    pub fn superReceivers(self: QQuickAttachedPropertyPropagator, signal: [:0]const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.QQuickAttachedPropertyPropagator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
-    }
-
-    /// ### DEPRECATED: Use `onReceivers` instead
-    ///
-    pub const OnReceivers = onReceivers;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator`
-    ///
-    /// ` callback: *const fn (self: QQuickAttachedPropertyPropagator, signal: [*:0]const u8) callconv(.c) i32 `
-    ///
-    pub fn onReceivers(self: QQuickAttachedPropertyPropagator, callback: *const fn (QQuickAttachedPropertyPropagator, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QQuickAttachedPropertyPropagator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
     /// ### DEPRECATED: Use `isSignalConnected` instead
     ///
     pub const IsSignalConnected = isSignalConnected;
@@ -2019,47 +1868,6 @@ pub const QQuickAttachedPropertyPropagator = extern struct {
     pub fn isSignalConnected(self: QQuickAttachedPropertyPropagator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QQuickAttachedPropertyPropagator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `superIsSignalConnected` instead
-    ///
-    pub const SuperIsSignalConnected = superIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator `
-    ///
-    /// ` signal: QMetaMethod `
-    ///
-    pub fn superIsSignalConnected(self: QQuickAttachedPropertyPropagator, signal: anytype) bool {
-        comptime _ = @TypeOf(signal)._is_QMetaMethod;
-        return qtc.QQuickAttachedPropertyPropagator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
-    }
-
-    /// ### DEPRECATED: Use `onIsSignalConnected` instead
-    ///
-    pub const OnIsSignalConnected = onIsSignalConnected;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ## Parameters:
-    ///
-    /// ` self: QQuickAttachedPropertyPropagator`
-    ///
-    /// ` callback: *const fn (self: QQuickAttachedPropertyPropagator, signal: QMetaMethod) callconv(.c) bool `
-    ///
-    pub fn onIsSignalConnected(self: QQuickAttachedPropertyPropagator, callback: *const fn (QQuickAttachedPropertyPropagator, QMetaMethod) callconv(.c) bool) void {
-        qtc.QQuickAttachedPropertyPropagator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `onObjectNameChanged` instead

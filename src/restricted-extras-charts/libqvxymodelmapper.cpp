@@ -197,644 +197,299 @@ libqt_string QVXYModelMapper_Tr3(const char* s, const char* c, int n) {
 
 // Base class handler implementation
 QMetaObject* QVXYModelMapper_SuperMetaObject(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_MetaObject_IsBase(true);
-        return (QMetaObject*)vqvxymodelmapper->metaObject();
-    } else {
-        return (QMetaObject*)self->QVXYModelMapper::metaObject();
-    }
+    return (QMetaObject*)self->QVXYModelMapper::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnMetaObject(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_MetaObject_Callback>(slot));
+void QVXYModelMapper_OnMetaObject(QVXYModelMapper* self, intptr_t slot) {
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self)))
+        vqvxymodelmapper->qvxymodelmapper_metaobject_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* QVXYModelMapper_SuperMetacast(QVXYModelMapper* self, const char* param1) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_Metacast_IsBase(true);
-        return vqvxymodelmapper->qt_metacast(param1);
-    } else {
-        return self->QVXYModelMapper::qt_metacast(param1);
-    }
+    return self->QVXYModelMapper::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnMetacast(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_Metacast_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Metacast_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_metacast_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int QVXYModelMapper_SuperMetacall(QVXYModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_Metacall_IsBase(true);
-        return vqvxymodelmapper->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->QVXYModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->QVXYModelMapper::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnMetacall(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Metacall_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_metacall_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVXYModelMapper_Event(QVXYModelMapper* self, QEvent* event) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->event(event);
-    } else {
-        return self->QVXYModelMapper::event(event);
-    }
+    return self->event(event);
 }
 
 // Base class handler implementation
 bool QVXYModelMapper_SuperEvent(QVXYModelMapper* self, QEvent* event) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_Event_IsBase(true);
-        return vqvxymodelmapper->event(event);
-    } else {
-        return self->QVXYModelMapper::event(event);
-    }
+    return self->QVXYModelMapper::event(event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnEvent(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_Event_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Event_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_event_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool QVXYModelMapper_EventFilter(QVXYModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QVXYModelMapper::eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation
 bool QVXYModelMapper_SuperEventFilter(QVXYModelMapper* self, QObject* watched, QEvent* event) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_EventFilter_IsBase(true);
-        return vqvxymodelmapper->eventFilter(watched, event);
-    } else {
-        return self->QVXYModelMapper::eventFilter(watched, event);
-    }
+    return self->QVXYModelMapper::eventFilter(watched, event);
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnEventFilter(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_EventFilter_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_eventfilter_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVXYModelMapper_TimerEvent(QVXYModelMapper* self, QTimerEvent* event) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper) {
         vqvxymodelmapper->timerEvent(event);
     } else {
-        ((VirtualQVXYModelMapper*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method QVXYModelMapper::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVXYModelMapper_SuperTimerEvent(QVXYModelMapper* self, QTimerEvent* event) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_TimerEvent_IsBase(true);
-        vqvxymodelmapper->timerEvent(event);
-    } else {
-        ((VirtualQVXYModelMapper*)self)->timerEvent(event);
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->QVXYModelMapper::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVXYModelMapper::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnTimerEvent(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_TimerEvent_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_timerevent_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVXYModelMapper_ChildEvent(QVXYModelMapper* self, QChildEvent* event) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper) {
         vqvxymodelmapper->childEvent(event);
     } else {
-        ((VirtualQVXYModelMapper*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method QVXYModelMapper::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVXYModelMapper_SuperChildEvent(QVXYModelMapper* self, QChildEvent* event) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_ChildEvent_IsBase(true);
-        vqvxymodelmapper->childEvent(event);
-    } else {
-        ((VirtualQVXYModelMapper*)self)->childEvent(event);
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->QVXYModelMapper::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVXYModelMapper::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnChildEvent(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_ChildEvent_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_childevent_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVXYModelMapper_CustomEvent(QVXYModelMapper* self, QEvent* event) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper) {
         vqvxymodelmapper->customEvent(event);
     } else {
-        ((VirtualQVXYModelMapper*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method QVXYModelMapper::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVXYModelMapper_SuperCustomEvent(QVXYModelMapper* self, QEvent* event) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_CustomEvent_IsBase(true);
-        vqvxymodelmapper->customEvent(event);
-    } else {
-        ((VirtualQVXYModelMapper*)self)->customEvent(event);
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->QVXYModelMapper::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method QVXYModelMapper::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnCustomEvent(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_CustomEvent_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_customevent_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVXYModelMapper_ConnectNotify(QVXYModelMapper* self, const QMetaMethod* signal) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper) {
         vqvxymodelmapper->connectNotify(*signal);
     } else {
-        ((VirtualQVXYModelMapper*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method QVXYModelMapper::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVXYModelMapper_SuperConnectNotify(QVXYModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_ConnectNotify_IsBase(true);
-        vqvxymodelmapper->connectNotify(*signal);
-    } else {
-        ((VirtualQVXYModelMapper*)self)->connectNotify(*signal);
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->QVXYModelMapper::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVXYModelMapper::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnConnectNotify(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_ConnectNotify_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_connectnotify_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void QVXYModelMapper_DisconnectNotify(QVXYModelMapper* self, const QMetaMethod* signal) {
     auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
+    if (vqvxymodelmapper) {
         vqvxymodelmapper->disconnectNotify(*signal);
     } else {
-        ((VirtualQVXYModelMapper*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method QVXYModelMapper::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void QVXYModelMapper_SuperDisconnectNotify(QVXYModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_DisconnectNotify_IsBase(true);
-        vqvxymodelmapper->disconnectNotify(*signal);
-    } else {
-        ((VirtualQVXYModelMapper*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->QVXYModelMapper::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method QVXYModelMapper::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void QVXYModelMapper_OnDisconnectNotify(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_DisconnectNotify_Callback>(slot));
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self))
+        vqvxymodelmapper->qvxymodelmapper_disconnectnotify_callback = reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVXYModelMapper_First(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->first();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->first();
-    }
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return vqvxymodelmapper->VirtualQVXYModelMapper::first();
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::first called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVXYModelMapper_SuperFirst(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_First_IsBase(true);
-        return vqvxymodelmapper->first();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->first();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnFirst(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_First_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_First_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVXYModelMapper_SetFirst(QVXYModelMapper* self, int first) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setFirst(static_cast<int>(first));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setFirst(static_cast<int>(first));
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->VirtualQVXYModelMapper::setFirst(static_cast<int>(first));
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::setFirst called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVXYModelMapper_SuperSetFirst(QVXYModelMapper* self, int first) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_SetFirst_IsBase(true);
-        vqvxymodelmapper->setFirst(static_cast<int>(first));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setFirst(static_cast<int>(first));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnSetFirst(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetFirst_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVXYModelMapper_Count(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->count();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->count();
-    }
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return vqvxymodelmapper->VirtualQVXYModelMapper::count();
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::count called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVXYModelMapper_SuperCount(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_Count_IsBase(true);
-        return vqvxymodelmapper->count();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->count();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnCount(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_Count_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Count_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVXYModelMapper_SetCount(QVXYModelMapper* self, int count) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setCount(static_cast<int>(count));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setCount(static_cast<int>(count));
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->VirtualQVXYModelMapper::setCount(static_cast<int>(count));
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::setCount called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVXYModelMapper_SuperSetCount(QVXYModelMapper* self, int count) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_SetCount_IsBase(true);
-        vqvxymodelmapper->setCount(static_cast<int>(count));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setCount(static_cast<int>(count));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnSetCount(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_SetCount_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetCount_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVXYModelMapper_Orientation(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return static_cast<int>(vqvxymodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQVXYModelMapper*)self)->orientation());
-    }
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return static_cast<int>(vqvxymodelmapper->VirtualQVXYModelMapper::orientation());
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::orientation called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVXYModelMapper_SuperOrientation(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_Orientation_IsBase(true);
-        return static_cast<int>(vqvxymodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQVXYModelMapper*)self)->orientation());
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnOrientation(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Orientation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVXYModelMapper_SetOrientation(QVXYModelMapper* self, int orientation) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setOrientation(static_cast<Qt::Orientation>(orientation));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setOrientation(static_cast<Qt::Orientation>(orientation));
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->VirtualQVXYModelMapper::setOrientation(static_cast<Qt::Orientation>(orientation));
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::setOrientation called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVXYModelMapper_SuperSetOrientation(QVXYModelMapper* self, int orientation) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_SetOrientation_IsBase(true);
-        vqvxymodelmapper->setOrientation(static_cast<Qt::Orientation>(orientation));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setOrientation(static_cast<Qt::Orientation>(orientation));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnSetOrientation(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetOrientation_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVXYModelMapper_XSection(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->xSection();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->xSection();
-    }
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return vqvxymodelmapper->VirtualQVXYModelMapper::xSection();
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::xSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVXYModelMapper_SuperXSection(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_XSection_IsBase(true);
-        return vqvxymodelmapper->xSection();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->xSection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnXSection(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_XSection_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_XSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVXYModelMapper_SetXSection(QVXYModelMapper* self, int xSection) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setXSection(static_cast<int>(xSection));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setXSection(static_cast<int>(xSection));
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->VirtualQVXYModelMapper::setXSection(static_cast<int>(xSection));
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::setXSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVXYModelMapper_SuperSetXSection(QVXYModelMapper* self, int xSection) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_SetXSection_IsBase(true);
-        vqvxymodelmapper->setXSection(static_cast<int>(xSection));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setXSection(static_cast<int>(xSection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnSetXSection(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_SetXSection_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetXSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVXYModelMapper_YSection(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->ySection();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->ySection();
-    }
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return vqvxymodelmapper->VirtualQVXYModelMapper::ySection();
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::ySection called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVXYModelMapper_SuperYSection(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_YSection_IsBase(true);
-        return vqvxymodelmapper->ySection();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->ySection();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnYSection(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_YSection_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_YSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void QVXYModelMapper_SetYSection(QVXYModelMapper* self, int ySection) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setYSection(static_cast<int>(ySection));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setYSection(static_cast<int>(ySection));
-    }
+    if (auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self)) {
+        vqvxymodelmapper->VirtualQVXYModelMapper::setYSection(static_cast<int>(ySection));
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::setYSection called without a directly constructed type");
 }
 
-// Base class handler implementation
-void QVXYModelMapper_SuperSetYSection(QVXYModelMapper* self, int ySection) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_SetYSection_IsBase(true);
-        vqvxymodelmapper->setYSection(static_cast<int>(ySection));
-    } else {
-        ((VirtualQVXYModelMapper*)self)->setYSection(static_cast<int>(ySection));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnSetYSection(QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = dynamic_cast<VirtualQVXYModelMapper*>(self);
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_SetYSection_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SetYSection_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* QVXYModelMapper_Sender(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->sender();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->sender();
-    }
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return vqvxymodelmapper->VirtualQVXYModelMapper::sender();
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* QVXYModelMapper_SuperSender(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_Sender_IsBase(true);
-        return vqvxymodelmapper->sender();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnSender(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_Sender_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVXYModelMapper_SenderSignalIndex(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->senderSignalIndex();
-    }
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return vqvxymodelmapper->VirtualQVXYModelMapper::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVXYModelMapper_SuperSenderSignalIndex(const QVXYModelMapper* self) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_SenderSignalIndex_IsBase(true);
-        return vqvxymodelmapper->senderSignalIndex();
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnSenderSignalIndex(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int QVXYModelMapper_Receivers(const QVXYModelMapper* self, const char* signal) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->receivers(signal);
-    }
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return vqvxymodelmapper->VirtualQVXYModelMapper::receivers(signal);
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int QVXYModelMapper_SuperReceivers(const QVXYModelMapper* self, const char* signal) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_Receivers_IsBase(true);
-        return vqvxymodelmapper->receivers(signal);
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnReceivers(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_Receivers_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool QVXYModelMapper_IsSignalConnected(const QVXYModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        return vqvxymodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Base class handler implementation
-bool QVXYModelMapper_SuperIsSignalConnected(const QVXYModelMapper* self, const QMetaMethod* signal) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper) {
-        vqvxymodelmapper->setQVXYModelMapper_IsSignalConnected_IsBase(true);
-        return vqvxymodelmapper->isSignalConnected(*signal);
-    } else {
-        return ((VirtualQVXYModelMapper*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QVXYModelMapper_OnIsSignalConnected(const QVXYModelMapper* self, intptr_t slot) {
-    auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self));
-    if (vqvxymodelmapper && vqvxymodelmapper->isVirtualQVXYModelMapper)
-        vqvxymodelmapper->setQVXYModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQVXYModelMapper::QVXYModelMapper_IsSignalConnected_Callback>(slot));
+    if (auto* vqvxymodelmapper = const_cast<VirtualQVXYModelMapper*>(dynamic_cast<const VirtualQVXYModelMapper*>(self))) {
+        return vqvxymodelmapper->VirtualQVXYModelMapper::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method QVXYModelMapper::isSignalConnected called without a directly constructed type");
 }
 
 void QVXYModelMapper_Delete(QVXYModelMapper* self) {

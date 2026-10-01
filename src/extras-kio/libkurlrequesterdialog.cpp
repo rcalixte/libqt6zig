@@ -128,1822 +128,1269 @@ QUrl* KUrlRequesterDialog_GetUrl3(const QUrl* url, QWidget* parent, const libqt_
 
 // Base class handler implementation
 QMetaObject* KUrlRequesterDialog_SuperMetaObject(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_MetaObject_IsBase(true);
-        return (QMetaObject*)vkurlrequesterdialog->metaObject();
-    } else {
-        return (QMetaObject*)self->KUrlRequesterDialog::metaObject();
-    }
+    return (QMetaObject*)self->KUrlRequesterDialog::metaObject();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnMetaObject(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_MetaObject_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MetaObject_Callback>(slot));
+void KUrlRequesterDialog_OnMetaObject(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_metaobject_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MetaObject_Callback>(slot);
 }
 
 // Base class handler implementation
 void* KUrlRequesterDialog_SuperMetacast(KUrlRequesterDialog* self, const char* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Metacast_IsBase(true);
-        return vkurlrequesterdialog->qt_metacast(param1);
-    } else {
-        return self->KUrlRequesterDialog::qt_metacast(param1);
-    }
+    return self->KUrlRequesterDialog::qt_metacast(param1);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMetacast(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Metacast_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metacast_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_metacast_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metacast_Callback>(slot);
 }
 
 // Base class handler implementation
 int KUrlRequesterDialog_SuperMetacall(KUrlRequesterDialog* self, int param1, int param2, void** param3) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Metacall_IsBase(true);
-        return vkurlrequesterdialog->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return self->KUrlRequesterDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->KUrlRequesterDialog::qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMetacall(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Metacall_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metacall_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_metacall_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metacall_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_SetVisible(KUrlRequesterDialog* self, bool visible) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setVisible(visible);
-    } else {
-        self->KUrlRequesterDialog::setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperSetVisible(KUrlRequesterDialog* self, bool visible) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_SetVisible_IsBase(true);
-        vkurlrequesterdialog->setVisible(visible);
-    } else {
-        self->KUrlRequesterDialog::setVisible(visible);
-    }
+    self->KUrlRequesterDialog::setVisible(visible);
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnSetVisible(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_SetVisible_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SetVisible_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_setvisible_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SetVisible_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KUrlRequesterDialog_SizeHint(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return new QSize(vkurlrequesterdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKUrlRequesterDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 // Base class handler implementation
 QSize* KUrlRequesterDialog_SuperSizeHint(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_SizeHint_IsBase(true);
-        return new QSize(vkurlrequesterdialog->sizeHint());
-    } else {
-        return new QSize(((VirtualKUrlRequesterDialog*)self)->sizeHint());
-    }
+    return new QSize(self->KUrlRequesterDialog::sizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnSizeHint(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_SizeHint_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SizeHint_Callback>(slot));
+void KUrlRequesterDialog_OnSizeHint(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_sizehint_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 QSize* KUrlRequesterDialog_MinimumSizeHint(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return new QSize(vkurlrequesterdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKUrlRequesterDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 // Base class handler implementation
 QSize* KUrlRequesterDialog_SuperMinimumSizeHint(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_MinimumSizeHint_IsBase(true);
-        return new QSize(vkurlrequesterdialog->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKUrlRequesterDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->KUrlRequesterDialog::minimumSizeHint());
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnMinimumSizeHint(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MinimumSizeHint_Callback>(slot));
+void KUrlRequesterDialog_OnMinimumSizeHint(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_minimumsizehint_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MinimumSizeHint_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_Open(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->open();
-    } else {
-        self->KUrlRequesterDialog::open();
-    }
+    self->open();
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperOpen(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Open_IsBase(true);
-        vkurlrequesterdialog->open();
-    } else {
-        self->KUrlRequesterDialog::open();
-    }
+    self->KUrlRequesterDialog::open();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnOpen(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Open_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Open_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_open_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Open_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlRequesterDialog_Exec(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->exec();
-    } else {
-        return self->KUrlRequesterDialog::exec();
-    }
+    return self->exec();
 }
 
 // Base class handler implementation
 int KUrlRequesterDialog_SuperExec(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Exec_IsBase(true);
-        return vkurlrequesterdialog->exec();
-    } else {
-        return self->KUrlRequesterDialog::exec();
-    }
+    return self->KUrlRequesterDialog::exec();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnExec(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Exec_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Exec_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_exec_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Exec_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_Done(KUrlRequesterDialog* self, int param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->done(static_cast<int>(param1));
-    } else {
-        self->KUrlRequesterDialog::done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperDone(KUrlRequesterDialog* self, int param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Done_IsBase(true);
-        vkurlrequesterdialog->done(static_cast<int>(param1));
-    } else {
-        self->KUrlRequesterDialog::done(static_cast<int>(param1));
-    }
+    self->KUrlRequesterDialog::done(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDone(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Done_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Done_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_done_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Done_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_Accept(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->accept();
-    } else {
-        self->KUrlRequesterDialog::accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperAccept(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Accept_IsBase(true);
-        vkurlrequesterdialog->accept();
-    } else {
-        self->KUrlRequesterDialog::accept();
-    }
+    self->KUrlRequesterDialog::accept();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnAccept(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Accept_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Accept_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_accept_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Accept_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_Reject(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->reject();
-    } else {
-        self->KUrlRequesterDialog::reject();
-    }
+    self->reject();
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperReject(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Reject_IsBase(true);
-        vkurlrequesterdialog->reject();
-    } else {
-        self->KUrlRequesterDialog::reject();
-    }
+    self->KUrlRequesterDialog::reject();
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnReject(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Reject_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Reject_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_reject_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Reject_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_KeyPressEvent(KUrlRequesterDialog* self, QKeyEvent* param1) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->keyPressEvent(param1);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->keyPressEvent(param1);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::keyPressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperKeyPressEvent(KUrlRequesterDialog* self, QKeyEvent* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_KeyPressEvent_IsBase(true);
-        vkurlrequesterdialog->keyPressEvent(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->keyPressEvent(param1);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::keyPressEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::keyPressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnKeyPressEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_KeyPressEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_keypressevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_KeyPressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_CloseEvent(KUrlRequesterDialog* self, QCloseEvent* param1) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->closeEvent(param1);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->closeEvent(param1);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::closeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperCloseEvent(KUrlRequesterDialog* self, QCloseEvent* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_CloseEvent_IsBase(true);
-        vkurlrequesterdialog->closeEvent(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->closeEvent(param1);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::closeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::closeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnCloseEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_CloseEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_CloseEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_closeevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_CloseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_ShowEvent(KUrlRequesterDialog* self, QShowEvent* param1) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->showEvent(param1);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->showEvent(param1);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::showEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperShowEvent(KUrlRequesterDialog* self, QShowEvent* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_ShowEvent_IsBase(true);
-        vkurlrequesterdialog->showEvent(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->showEvent(param1);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::showEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::showEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnShowEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_ShowEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ShowEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_showevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ShowEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_ResizeEvent(KUrlRequesterDialog* self, QResizeEvent* param1) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->resizeEvent(param1);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->resizeEvent(param1);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::resizeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperResizeEvent(KUrlRequesterDialog* self, QResizeEvent* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_ResizeEvent_IsBase(true);
-        vkurlrequesterdialog->resizeEvent(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->resizeEvent(param1);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::resizeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::resizeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnResizeEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ResizeEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_resizeevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ResizeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_ContextMenuEvent(KUrlRequesterDialog* self, QContextMenuEvent* param1) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->contextMenuEvent(param1);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->contextMenuEvent(param1);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::contextMenuEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperContextMenuEvent(KUrlRequesterDialog* self, QContextMenuEvent* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_ContextMenuEvent_IsBase(true);
-        vkurlrequesterdialog->contextMenuEvent(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->contextMenuEvent(param1);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::contextMenuEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::contextMenuEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnContextMenuEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ContextMenuEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_contextmenuevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ContextMenuEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlRequesterDialog_EventFilter(KUrlRequesterDialog* self, QObject* param1, QEvent* param2) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         return vkurlrequesterdialog->eventFilter(param1, param2);
     } else {
-        return ((VirtualKUrlRequesterDialog*)self)->eventFilter(param1, param2);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::eventFilter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlRequesterDialog_SuperEventFilter(KUrlRequesterDialog* self, QObject* param1, QEvent* param2) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_EventFilter_IsBase(true);
-        return vkurlrequesterdialog->eventFilter(param1, param2);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->eventFilter(param1, param2);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        return vkurlrequesterdialog->KUrlRequesterDialog::eventFilter(param1, param2);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::eventFilter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnEventFilter(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_EventFilter_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_EventFilter_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_eventfilter_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_EventFilter_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlRequesterDialog_DevType(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->devType();
-    } else {
-        return self->KUrlRequesterDialog::devType();
-    }
+    return self->devType();
 }
 
 // Base class handler implementation
 int KUrlRequesterDialog_SuperDevType(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_DevType_IsBase(true);
-        return vkurlrequesterdialog->devType();
-    } else {
-        return self->KUrlRequesterDialog::devType();
-    }
+    return self->KUrlRequesterDialog::devType();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnDevType(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_DevType_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DevType_Callback>(slot));
+void KUrlRequesterDialog_OnDevType(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_devtype_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DevType_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlRequesterDialog_HeightForWidth(const KUrlRequesterDialog* self, int param1) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KUrlRequesterDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 // Base class handler implementation
 int KUrlRequesterDialog_SuperHeightForWidth(const KUrlRequesterDialog* self, int param1) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_HeightForWidth_IsBase(true);
-        return vkurlrequesterdialog->heightForWidth(static_cast<int>(param1));
-    } else {
-        return self->KUrlRequesterDialog::heightForWidth(static_cast<int>(param1));
-    }
+    return self->KUrlRequesterDialog::heightForWidth(static_cast<int>(param1));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnHeightForWidth(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HeightForWidth_Callback>(slot));
+void KUrlRequesterDialog_OnHeightForWidth(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_heightforwidth_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlRequesterDialog_HasHeightForWidth(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->hasHeightForWidth();
-    } else {
-        return self->KUrlRequesterDialog::hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 // Base class handler implementation
 bool KUrlRequesterDialog_SuperHasHeightForWidth(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_HasHeightForWidth_IsBase(true);
-        return vkurlrequesterdialog->hasHeightForWidth();
-    } else {
-        return self->KUrlRequesterDialog::hasHeightForWidth();
-    }
+    return self->KUrlRequesterDialog::hasHeightForWidth();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnHasHeightForWidth(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HasHeightForWidth_Callback>(slot));
+void KUrlRequesterDialog_OnHasHeightForWidth(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_hasheightforwidth_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HasHeightForWidth_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintEngine* KUrlRequesterDialog_PaintEngine(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->paintEngine();
-    } else {
-        return self->KUrlRequesterDialog::paintEngine();
-    }
+    return self->paintEngine();
 }
 
 // Base class handler implementation
 QPaintEngine* KUrlRequesterDialog_SuperPaintEngine(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_PaintEngine_IsBase(true);
-        return vkurlrequesterdialog->paintEngine();
-    } else {
-        return self->KUrlRequesterDialog::paintEngine();
-    }
+    return self->KUrlRequesterDialog::paintEngine();
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnPaintEngine(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_PaintEngine_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_PaintEngine_Callback>(slot));
+void KUrlRequesterDialog_OnPaintEngine(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_paintengine_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_PaintEngine_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlRequesterDialog_Event(KUrlRequesterDialog* self, QEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         return vkurlrequesterdialog->event(event);
     } else {
-        return ((VirtualKUrlRequesterDialog*)self)->event(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::event called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlRequesterDialog_SuperEvent(KUrlRequesterDialog* self, QEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Event_IsBase(true);
-        return vkurlrequesterdialog->event(event);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->event(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        return vkurlrequesterdialog->KUrlRequesterDialog::event(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::event called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Event_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Event_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_event_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Event_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_MousePressEvent(KUrlRequesterDialog* self, QMouseEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->mousePressEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->mousePressEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::mousePressEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperMousePressEvent(KUrlRequesterDialog* self, QMouseEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_MousePressEvent_IsBase(true);
-        vkurlrequesterdialog->mousePressEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->mousePressEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::mousePressEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::mousePressEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMousePressEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MousePressEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_mousepressevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MousePressEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_MouseReleaseEvent(KUrlRequesterDialog* self, QMouseEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->mouseReleaseEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->mouseReleaseEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::mouseReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperMouseReleaseEvent(KUrlRequesterDialog* self, QMouseEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_MouseReleaseEvent_IsBase(true);
-        vkurlrequesterdialog->mouseReleaseEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->mouseReleaseEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::mouseReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::mouseReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMouseReleaseEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseReleaseEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_mousereleaseevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_MouseDoubleClickEvent(KUrlRequesterDialog* self, QMouseEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->mouseDoubleClickEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->mouseDoubleClickEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::mouseDoubleClickEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperMouseDoubleClickEvent(KUrlRequesterDialog* self, QMouseEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_MouseDoubleClickEvent_IsBase(true);
-        vkurlrequesterdialog->mouseDoubleClickEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->mouseDoubleClickEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::mouseDoubleClickEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::mouseDoubleClickEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMouseDoubleClickEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseDoubleClickEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_mousedoubleclickevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseDoubleClickEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_MouseMoveEvent(KUrlRequesterDialog* self, QMouseEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->mouseMoveEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->mouseMoveEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::mouseMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperMouseMoveEvent(KUrlRequesterDialog* self, QMouseEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_MouseMoveEvent_IsBase(true);
-        vkurlrequesterdialog->mouseMoveEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->mouseMoveEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::mouseMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::mouseMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMouseMoveEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseMoveEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_mousemoveevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MouseMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_WheelEvent(KUrlRequesterDialog* self, QWheelEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->wheelEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->wheelEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::wheelEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperWheelEvent(KUrlRequesterDialog* self, QWheelEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_WheelEvent_IsBase(true);
-        vkurlrequesterdialog->wheelEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->wheelEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::wheelEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::wheelEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnWheelEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_WheelEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_WheelEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_wheelevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_WheelEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_KeyReleaseEvent(KUrlRequesterDialog* self, QKeyEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->keyReleaseEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->keyReleaseEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::keyReleaseEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperKeyReleaseEvent(KUrlRequesterDialog* self, QKeyEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_KeyReleaseEvent_IsBase(true);
-        vkurlrequesterdialog->keyReleaseEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->keyReleaseEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::keyReleaseEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::keyReleaseEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnKeyReleaseEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_KeyReleaseEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_keyreleaseevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_KeyReleaseEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_FocusInEvent(KUrlRequesterDialog* self, QFocusEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->focusInEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->focusInEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::focusInEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperFocusInEvent(KUrlRequesterDialog* self, QFocusEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusInEvent_IsBase(true);
-        vkurlrequesterdialog->focusInEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->focusInEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::focusInEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::focusInEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnFocusInEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusInEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_focusinevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusInEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_FocusOutEvent(KUrlRequesterDialog* self, QFocusEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->focusOutEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->focusOutEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::focusOutEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperFocusOutEvent(KUrlRequesterDialog* self, QFocusEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusOutEvent_IsBase(true);
-        vkurlrequesterdialog->focusOutEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->focusOutEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::focusOutEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::focusOutEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnFocusOutEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusOutEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_focusoutevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusOutEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_EnterEvent(KUrlRequesterDialog* self, QEnterEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->enterEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->enterEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::enterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperEnterEvent(KUrlRequesterDialog* self, QEnterEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_EnterEvent_IsBase(true);
-        vkurlrequesterdialog->enterEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->enterEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::enterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::enterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnEnterEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_EnterEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_EnterEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_enterevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_EnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_LeaveEvent(KUrlRequesterDialog* self, QEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->leaveEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->leaveEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::leaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperLeaveEvent(KUrlRequesterDialog* self, QEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_LeaveEvent_IsBase(true);
-        vkurlrequesterdialog->leaveEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->leaveEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::leaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::leaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnLeaveEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_LeaveEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_leaveevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_LeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_PaintEvent(KUrlRequesterDialog* self, QPaintEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->paintEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->paintEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::paintEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperPaintEvent(KUrlRequesterDialog* self, QPaintEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_PaintEvent_IsBase(true);
-        vkurlrequesterdialog->paintEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->paintEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::paintEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::paintEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnPaintEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_PaintEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_PaintEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_paintevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_PaintEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_MoveEvent(KUrlRequesterDialog* self, QMoveEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->moveEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->moveEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::moveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperMoveEvent(KUrlRequesterDialog* self, QMoveEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_MoveEvent_IsBase(true);
-        vkurlrequesterdialog->moveEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->moveEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::moveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::moveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnMoveEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_MoveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MoveEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_moveevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_MoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_TabletEvent(KUrlRequesterDialog* self, QTabletEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->tabletEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->tabletEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::tabletEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperTabletEvent(KUrlRequesterDialog* self, QTabletEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_TabletEvent_IsBase(true);
-        vkurlrequesterdialog->tabletEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->tabletEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::tabletEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::tabletEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnTabletEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_TabletEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_TabletEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_tabletevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_TabletEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_ActionEvent(KUrlRequesterDialog* self, QActionEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->actionEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->actionEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::actionEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperActionEvent(KUrlRequesterDialog* self, QActionEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_ActionEvent_IsBase(true);
-        vkurlrequesterdialog->actionEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->actionEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::actionEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::actionEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnActionEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_ActionEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ActionEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_actionevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ActionEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_DragEnterEvent(KUrlRequesterDialog* self, QDragEnterEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->dragEnterEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->dragEnterEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::dragEnterEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperDragEnterEvent(KUrlRequesterDialog* self, QDragEnterEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_DragEnterEvent_IsBase(true);
-        vkurlrequesterdialog->dragEnterEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->dragEnterEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::dragEnterEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::dragEnterEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDragEnterEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragEnterEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_dragenterevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragEnterEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_DragMoveEvent(KUrlRequesterDialog* self, QDragMoveEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->dragMoveEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->dragMoveEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::dragMoveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperDragMoveEvent(KUrlRequesterDialog* self, QDragMoveEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_DragMoveEvent_IsBase(true);
-        vkurlrequesterdialog->dragMoveEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->dragMoveEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::dragMoveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::dragMoveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDragMoveEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragMoveEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_dragmoveevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragMoveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_DragLeaveEvent(KUrlRequesterDialog* self, QDragLeaveEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->dragLeaveEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->dragLeaveEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::dragLeaveEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperDragLeaveEvent(KUrlRequesterDialog* self, QDragLeaveEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_DragLeaveEvent_IsBase(true);
-        vkurlrequesterdialog->dragLeaveEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->dragLeaveEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::dragLeaveEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::dragLeaveEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDragLeaveEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragLeaveEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_dragleaveevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DragLeaveEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_DropEvent(KUrlRequesterDialog* self, QDropEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->dropEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->dropEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::dropEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperDropEvent(KUrlRequesterDialog* self, QDropEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_DropEvent_IsBase(true);
-        vkurlrequesterdialog->dropEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->dropEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::dropEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::dropEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDropEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_DropEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DropEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_dropevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DropEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_HideEvent(KUrlRequesterDialog* self, QHideEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->hideEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->hideEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::hideEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperHideEvent(KUrlRequesterDialog* self, QHideEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_HideEvent_IsBase(true);
-        vkurlrequesterdialog->hideEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->hideEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::hideEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::hideEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnHideEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_HideEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HideEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_hideevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_HideEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlRequesterDialog_NativeEvent(KUrlRequesterDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
+    if (vkurlrequesterdialog) {
         return vkurlrequesterdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
     } else {
-        return ((VirtualKUrlRequesterDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::nativeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlRequesterDialog_SuperNativeEvent(KUrlRequesterDialog* self, const libqt_string eventType, void* message, intptr_t* result) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_NativeEvent_IsBase(true);
-        return vkurlrequesterdialog->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        return vkurlrequesterdialog->KUrlRequesterDialog::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::nativeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnNativeEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_NativeEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_NativeEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_nativeevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_NativeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_ChangeEvent(KUrlRequesterDialog* self, QEvent* param1) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->changeEvent(param1);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->changeEvent(param1);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::changeEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperChangeEvent(KUrlRequesterDialog* self, QEvent* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_ChangeEvent_IsBase(true);
-        vkurlrequesterdialog->changeEvent(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->changeEvent(param1);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::changeEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::changeEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnChangeEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ChangeEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_changeevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ChangeEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 int KUrlRequesterDialog_Metric(const KUrlRequesterDialog* self, int param1) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         return vkurlrequesterdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
     } else {
-        return ((VirtualKUrlRequesterDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::metric called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 int KUrlRequesterDialog_SuperMetric(const KUrlRequesterDialog* self, int param1) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Metric_IsBase(true);
-        return vkurlrequesterdialog->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
-    }
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        return vkurlrequesterdialog->KUrlRequesterDialog::metric(static_cast<QPaintDevice::PaintDeviceMetric>(param1));
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::metric called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnMetric(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Metric_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metric_Callback>(slot));
+void KUrlRequesterDialog_OnMetric(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_metric_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Metric_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_InitPainter(const KUrlRequesterDialog* self, QPainter* painter) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->initPainter(painter);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->initPainter(painter);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::initPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperInitPainter(const KUrlRequesterDialog* self, QPainter* painter) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_InitPainter_IsBase(true);
-        vkurlrequesterdialog->initPainter(painter);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->initPainter(painter);
-    }
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        vkurlrequesterdialog->KUrlRequesterDialog::initPainter(painter);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::initPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnInitPainter(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_InitPainter_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InitPainter_Callback>(slot));
+void KUrlRequesterDialog_OnInitPainter(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_initpainter_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InitPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPaintDevice* KUrlRequesterDialog_Redirected(const KUrlRequesterDialog* self, QPoint* offset) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         return vkurlrequesterdialog->redirected(offset);
     } else {
-        return ((VirtualKUrlRequesterDialog*)self)->redirected(offset);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::redirected called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPaintDevice* KUrlRequesterDialog_SuperRedirected(const KUrlRequesterDialog* self, QPoint* offset) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Redirected_IsBase(true);
-        return vkurlrequesterdialog->redirected(offset);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->redirected(offset);
-    }
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        return vkurlrequesterdialog->KUrlRequesterDialog::redirected(offset);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::redirected called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnRedirected(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Redirected_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Redirected_Callback>(slot));
+void KUrlRequesterDialog_OnRedirected(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_redirected_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Redirected_Callback>(slot);
 }
 
 // Derived class handler implementation
 QPainter* KUrlRequesterDialog_SharedPainter(const KUrlRequesterDialog* self) {
     auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         return vkurlrequesterdialog->sharedPainter();
     } else {
-        return ((VirtualKUrlRequesterDialog*)self)->sharedPainter();
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::sharedPainter called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 QPainter* KUrlRequesterDialog_SuperSharedPainter(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_SharedPainter_IsBase(true);
-        return vkurlrequesterdialog->sharedPainter();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->sharedPainter();
-    }
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        return vkurlrequesterdialog->KUrlRequesterDialog::sharedPainter();
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::sharedPainter called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnSharedPainter(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_SharedPainter_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SharedPainter_Callback>(slot));
+void KUrlRequesterDialog_OnSharedPainter(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_sharedpainter_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SharedPainter_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_InputMethodEvent(KUrlRequesterDialog* self, QInputMethodEvent* param1) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->inputMethodEvent(param1);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->inputMethodEvent(param1);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::inputMethodEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperInputMethodEvent(KUrlRequesterDialog* self, QInputMethodEvent* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_InputMethodEvent_IsBase(true);
-        vkurlrequesterdialog->inputMethodEvent(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->inputMethodEvent(param1);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::inputMethodEvent(param1);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::inputMethodEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnInputMethodEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InputMethodEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_inputmethodevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InputMethodEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 QVariant* KUrlRequesterDialog_InputMethodQuery(const KUrlRequesterDialog* self, int param1) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return new QVariant(vkurlrequesterdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKUrlRequesterDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Base class handler implementation
 QVariant* KUrlRequesterDialog_SuperInputMethodQuery(const KUrlRequesterDialog* self, int param1) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_InputMethodQuery_IsBase(true);
-        return new QVariant(vkurlrequesterdialog->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualKUrlRequesterDialog*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->KUrlRequesterDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 // Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnInputMethodQuery(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InputMethodQuery_Callback>(slot));
+void KUrlRequesterDialog_OnInputMethodQuery(KUrlRequesterDialog* self, intptr_t slot) {
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self)))
+        vkurlrequesterdialog->kurlrequesterdialog_inputmethodquery_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_InputMethodQuery_Callback>(slot);
 }
 
 // Derived class handler implementation
 bool KUrlRequesterDialog_FocusNextPrevChild(KUrlRequesterDialog* self, bool next) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         return vkurlrequesterdialog->focusNextPrevChild(next);
     } else {
-        return ((VirtualKUrlRequesterDialog*)self)->focusNextPrevChild(next);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::focusNextPrevChild called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 bool KUrlRequesterDialog_SuperFocusNextPrevChild(KUrlRequesterDialog* self, bool next) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusNextPrevChild_IsBase(true);
-        return vkurlrequesterdialog->focusNextPrevChild(next);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->focusNextPrevChild(next);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        return vkurlrequesterdialog->KUrlRequesterDialog::focusNextPrevChild(next);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::focusNextPrevChild called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnFocusNextPrevChild(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusNextPrevChild_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_focusnextprevchild_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusNextPrevChild_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_TimerEvent(KUrlRequesterDialog* self, QTimerEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->timerEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->timerEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::timerEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperTimerEvent(KUrlRequesterDialog* self, QTimerEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_TimerEvent_IsBase(true);
-        vkurlrequesterdialog->timerEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->timerEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::timerEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::timerEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnTimerEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_TimerEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_TimerEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_timerevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_TimerEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_ChildEvent(KUrlRequesterDialog* self, QChildEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->childEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->childEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::childEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperChildEvent(KUrlRequesterDialog* self, QChildEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_ChildEvent_IsBase(true);
-        vkurlrequesterdialog->childEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->childEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::childEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::childEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnChildEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_ChildEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ChildEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_childevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ChildEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_CustomEvent(KUrlRequesterDialog* self, QEvent* event) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->customEvent(event);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->customEvent(event);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::customEvent called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperCustomEvent(KUrlRequesterDialog* self, QEvent* event) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_CustomEvent_IsBase(true);
-        vkurlrequesterdialog->customEvent(event);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->customEvent(event);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::customEvent(event);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::customEvent called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnCustomEvent(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_CustomEvent_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_CustomEvent_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_customevent_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_CustomEvent_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_ConnectNotify(KUrlRequesterDialog* self, const QMetaMethod* signal) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->connectNotify(*signal);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->connectNotify(*signal);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::connectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperConnectNotify(KUrlRequesterDialog* self, const QMetaMethod* signal) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_ConnectNotify_IsBase(true);
-        vkurlrequesterdialog->connectNotify(*signal);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->connectNotify(*signal);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::connectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::connectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnConnectNotify(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ConnectNotify_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_connectnotify_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_ConnectNotify_Callback>(slot);
 }
 
 // Derived class handler implementation
 void KUrlRequesterDialog_DisconnectNotify(KUrlRequesterDialog* self, const QMetaMethod* signal) {
     auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
+    if (vkurlrequesterdialog) {
         vkurlrequesterdialog->disconnectNotify(*signal);
     } else {
-        ((VirtualKUrlRequesterDialog*)self)->disconnectNotify(*signal);
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::disconnectNotify called without a directly constructed type");
     }
 }
 
 // Base class handler implementation
 void KUrlRequesterDialog_SuperDisconnectNotify(KUrlRequesterDialog* self, const QMetaMethod* signal) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_DisconnectNotify_IsBase(true);
-        vkurlrequesterdialog->disconnectNotify(*signal);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->disconnectNotify(*signal);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->KUrlRequesterDialog::disconnectNotify(*signal);
+    } else
+        qFatal("Error: Protected virtual method KUrlRequesterDialog::disconnectNotify called without a directly constructed type");
 }
 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequesterDialog_OnDisconnectNotify(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DisconnectNotify_Callback>(slot));
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self))
+        vkurlrequesterdialog->kurlrequesterdialog_disconnectnotify_callback = reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_DisconnectNotify_Callback>(slot);
 }
 
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlRequesterDialog_AdjustPosition(KUrlRequesterDialog* self, QWidget* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->adjustPosition(param1);
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->VirtualKUrlRequesterDialog::adjustPosition(param1);
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::adjustPosition called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlRequesterDialog_SuperAdjustPosition(KUrlRequesterDialog* self, QWidget* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_AdjustPosition_IsBase(true);
-        vkurlrequesterdialog->adjustPosition(param1);
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->adjustPosition(param1);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnAdjustPosition(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_AdjustPosition_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlRequesterDialog_UpdateMicroFocus(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->updateMicroFocus();
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->updateMicroFocus();
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->VirtualKUrlRequesterDialog::updateMicroFocus();
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::updateMicroFocus called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlRequesterDialog_SuperUpdateMicroFocus(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_UpdateMicroFocus_IsBase(true);
-        vkurlrequesterdialog->updateMicroFocus();
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->updateMicroFocus();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnUpdateMicroFocus(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_UpdateMicroFocus_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlRequesterDialog_Create(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->create();
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->create();
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->VirtualKUrlRequesterDialog::create();
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::create called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlRequesterDialog_SuperCreate(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Create_IsBase(true);
-        vkurlrequesterdialog->create();
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->create();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnCreate(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Create_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Create_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 void KUrlRequesterDialog_Destroy(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->destroy();
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->destroy();
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        vkurlrequesterdialog->VirtualKUrlRequesterDialog::destroy();
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::destroy called without a directly constructed type");
 }
 
-// Base class handler implementation
-void KUrlRequesterDialog_SuperDestroy(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Destroy_IsBase(true);
-        vkurlrequesterdialog->destroy();
-    } else {
-        ((VirtualKUrlRequesterDialog*)self)->destroy();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnDestroy(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Destroy_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Destroy_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlRequesterDialog_FocusNextChild(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->focusNextChild();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->focusNextChild();
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        return vkurlrequesterdialog->VirtualKUrlRequesterDialog::focusNextChild();
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::focusNextChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlRequesterDialog_SuperFocusNextChild(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusNextChild_IsBase(true);
-        return vkurlrequesterdialog->focusNextChild();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->focusNextChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnFocusNextChild(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusNextChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlRequesterDialog_FocusPreviousChild(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->focusPreviousChild();
-    }
+    if (auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self)) {
+        return vkurlrequesterdialog->VirtualKUrlRequesterDialog::focusPreviousChild();
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::focusPreviousChild called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlRequesterDialog_SuperFocusPreviousChild(KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusPreviousChild_IsBase(true);
-        return vkurlrequesterdialog->focusPreviousChild();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->focusPreviousChild();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnFocusPreviousChild(KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_FocusPreviousChild_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 QObject* KUrlRequesterDialog_Sender(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->sender();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->sender();
-    }
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        return vkurlrequesterdialog->VirtualKUrlRequesterDialog::sender();
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::sender called without a directly constructed type");
 }
 
-// Base class handler implementation
-QObject* KUrlRequesterDialog_SuperSender(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Sender_IsBase(true);
-        return vkurlrequesterdialog->sender();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->sender();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnSender(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Sender_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Sender_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KUrlRequesterDialog_SenderSignalIndex(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->senderSignalIndex();
-    }
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        return vkurlrequesterdialog->VirtualKUrlRequesterDialog::senderSignalIndex();
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::senderSignalIndex called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KUrlRequesterDialog_SuperSenderSignalIndex(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_SenderSignalIndex_IsBase(true);
-        return vkurlrequesterdialog->senderSignalIndex();
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->senderSignalIndex();
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnSenderSignalIndex(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_SenderSignalIndex_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 int KUrlRequesterDialog_Receivers(const KUrlRequesterDialog* self, const char* signal) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->receivers(signal);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->receivers(signal);
-    }
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        return vkurlrequesterdialog->VirtualKUrlRequesterDialog::receivers(signal);
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::receivers called without a directly constructed type");
 }
 
-// Base class handler implementation
-int KUrlRequesterDialog_SuperReceivers(const KUrlRequesterDialog* self, const char* signal) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_Receivers_IsBase(true);
-        return vkurlrequesterdialog->receivers(signal);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->receivers(signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnReceivers(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_Receivers_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_Receivers_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 bool KUrlRequesterDialog_IsSignalConnected(const KUrlRequesterDialog* self, const QMetaMethod* signal) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->isSignalConnected(*signal);
-    }
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        return vkurlrequesterdialog->VirtualKUrlRequesterDialog::isSignalConnected(*signal);
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::isSignalConnected called without a directly constructed type");
 }
 
-// Base class handler implementation
-bool KUrlRequesterDialog_SuperIsSignalConnected(const KUrlRequesterDialog* self, const QMetaMethod* signal) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_IsSignalConnected_IsBase(true);
-        return vkurlrequesterdialog->isSignalConnected(*signal);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->isSignalConnected(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnIsSignalConnected(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_IsSignalConnected_Callback>(slot));
-}
-
-// Derived class handler implementation
+// Derived class protected handler implementation
 double KUrlRequesterDialog_GetDecodedMetricF(const KUrlRequesterDialog* self, int metricA, int metricB) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return vkurlrequesterdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Base class handler implementation
-double KUrlRequesterDialog_SuperGetDecodedMetricF(const KUrlRequesterDialog* self, int metricA, int metricB) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        vkurlrequesterdialog->setKUrlRequesterDialog_GetDecodedMetricF_IsBase(true);
-        return vkurlrequesterdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KUrlRequesterDialog_OnGetDecodedMetricF(const KUrlRequesterDialog* self, intptr_t slot) {
-    auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self));
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog)
-        vkurlrequesterdialog->setKUrlRequesterDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlRequesterDialog::KUrlRequesterDialog_GetDecodedMetricF_Callback>(slot));
+    if (auto* vkurlrequesterdialog = const_cast<VirtualKUrlRequesterDialog*>(dynamic_cast<const VirtualKUrlRequesterDialog*>(self))) {
+        return vkurlrequesterdialog->VirtualKUrlRequesterDialog::getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else
+        qFatal("Error: Protected method KUrlRequesterDialog::getDecodedMetricF called without a directly constructed type");
 }
 
 void KUrlRequesterDialog_Delete(KUrlRequesterDialog* self) {

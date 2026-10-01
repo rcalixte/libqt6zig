@@ -453,9 +453,9 @@ pub const KIconEngine = extern struct {
     ///
     /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KIconEngine) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onIconName(self: KIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onIconName(self: KIconEngine, callback: *const fn (KIconEngine) callconv(.c) [*:0]const u8) void {
         qtc.KIconEngine_OnIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -585,9 +585,9 @@ pub const KIconEngine = extern struct {
     ///
     /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) bool `
+    /// ` callback: *const fn (self: KIconEngine) callconv(.c) bool `
     ///
-    pub fn onIsNull(self: KIconEngine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsNull(self: KIconEngine, callback: *const fn (KIconEngine) callconv(.c) bool) void {
         qtc.KIconEngine_OnIsNull(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -639,9 +639,9 @@ pub const KIconEngine = extern struct {
     ///
     /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KIconEngine) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onKey(self: KIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onKey(self: KIconEngine, callback: *const fn (KIconEngine) callconv(.c) [*:0]const u8) void {
         qtc.KIconEngine_OnKey(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -693,9 +693,9 @@ pub const KIconEngine = extern struct {
     ///
     /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QIconEngine `
+    /// ` callback: *const fn (self: KIconEngine) callconv(.c) QIconEngine `
     ///
-    pub fn onClone(self: KIconEngine, callback: *const fn () callconv(.c) QIconEngine) void {
+    pub fn onClone(self: KIconEngine, callback: *const fn (KIconEngine) callconv(.c) QIconEngine) void {
         qtc.KIconEngine_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
